@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: b6cc51ad2bab294035f3ed8f300423d1d320df1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71d9d03b45d8c4fcf8acb41871dcf3f1304955aa
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introduzione ad Azure Cosmos DB: API Graph
 
@@ -44,7 +44,7 @@ L'API Graph di Azure Cosmos DB fornisce:
 - Scalabilità elastica dell'archiviazione e della velocità effettiva con latenze di lettura inferiori a 10 ms e inferiori a 15 ms al 99° percentile.
 - Indicizzazione automatica con disponibilità di query immediata.
 - Livelli di coerenza regolabili.
-- Contratti di servizio completi con disponibilità al 99,99%.
+- Contratti di servizio completi con disponibilità del 99,99% per tutti gli account in una singola area e tutti gli account in più aree con coerenza media e con disponibilità in lettura del 99,999% per tutti gli account di database in più aree.
 
 Per eseguire query in DB Cosmos Azure, è possibile utilizzare il linguaggio di attraversamento grafo [Apache TinkerPop](http://tinkerpop.apache.org), [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) o altri sistemi di grafi compatibili con TinkerPop come [Apache Spark GraphX](spark-connector-graph.md).
 
@@ -102,7 +102,7 @@ Azure Cosmos DB offre le seguenti funzionalità specifiche rispetto ad altri dat
 
 Azure Cosmos DB consente anche di usare più modelli, come il documento e il grafo all'interno degli stessi contenitori/database. È possibile usare una raccolta di documenti per archiviare i dati del grafico in modo affiancato con documenti. È possibile utilizzare query SQL su JSON e query Gremlin per eseguire query sugli stessi dati come grafo.
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 È possibile usare l'interfaccia della riga di comando di Azure (CLI), Azure PowerShell o il portale di Azure con il supporto per l'API Graph per creare account Azure Cosmos DB. Dopo aver creato gli account, il portale di Azure fornisce un endpoint di servizio `https://<youraccount>.graphs.azure.com` che offre un front-end WebSocket per Gremlin. È possibile configurare gli strumenti compatibili con TinkerPop, come la [console di Gremlin](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console), per connettersi a questo endpoint e compilare applicazioni in Java, Node.js o un qualsiasi driver client Gremlin.
 
 La tabella seguente illustra i driver Gremlin noti che è possibile usare in Azure Cosmos DB:

@@ -1,6 +1,6 @@
 ---
 title: Supporto di Archiviazione tabelle di Azure in Azure Cosmos DB | Microsoft Docs
-description: Informazioni sull'interazione tra l'API di tabella di Azure Cosmos DB e le tabelle di Archiviazione di Azure.
+description: Informazioni sull'interazione tra l'API Table di Azure Cosmos DB e le tabelle di Archiviazione di Azure.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -11,25 +11,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 1513fc53501f1cfec93134841fbef9a8552dd43c
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c0c8f1aee75c4ee5cc35758b71ef573637fd3edd
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Sviluppo con l'API di tabella di Azure Cosmos DB e Archiviazione tabelle di Azure
+# <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Sviluppo con l'API Table di Azure Cosmos DB e Archiviazione tabelle di Azure
 
-L'API di tabella di Azure Cosmos DB e Archiviazione tabelle di Azure condividono lo stesso modello di dati di tabella ed espongono le stesse operazioni di creazione, eliminazione, aggiornamento ed esecuzione di query tramite i relativi SDK. 
+L'API Table di Azure Cosmos DB e Archiviazione tabelle di Azure condividono lo stesso modello di dati di tabella ed espongono le stesse operazioni di creazione, eliminazione, aggiornamento ed esecuzione di query tramite i relativi SDK. 
 
-## <a name="developing-with-the-azure-cosmos-db-table-api"></a>Sviluppo con l'API di tabella di Azure Cosmos DB
+## <a name="developing-with-the-azure-cosmos-db-table-api"></a>Sviluppo con l'API Table di Azure Cosmos DB
 
-Attualmente l'[API di tabella di Azure Cosmos DB](table-introduction.md) dispone di un .NET SDK, ovvero [Windows Azure Storage Premium Table (anteprima)](https://aka.ms/premiumtablenuget). Questa libreria include le stesse classi e firme di metodi disponibili nella versione pubblica di [Azure Storage SDK](https://www.nuget.org/packages/WindowsAzure.Storage), ma permette anche di connettersi agli account Azure Cosmos DB tramite l'API di tabella (anteprima). Per una guida introduttiva e un'esercitazione che usa l'API di tabella di Azure Cosmos DB, vedere gli articoli seguenti:
-- Guida introduttiva: [Azure Cosmos DB: Creare un'applicazione .NET tramite l'API di tabella](create-table-dotnet.md)
-- Esercitazione: [Azure Cosmos DB: sviluppare con l'API Table in .NET](tutorial-develop-table-dotnet.md)
+L'[API Table di Azure Cosmos DB](table-introduction.md) attualmente dispone di quattro SDK per lo sviluppo: 
+- [Microsoft.Azure.CosmosDB.Table](https://aka.ms/tableapinuget) .NET SDK. Questa libreria include le stesse classi e firme di metodi disponibili nella versione pubblica dell'[SDK di Archiviazione di Microsoft Azure](https://www.nuget.org/packages/WindowsAzure.Storage), ma permette anche di connettersi agli account Azure Cosmos DB tramite l'API Table. 
+- [Python SDK](table-sdk-python.md). Il nuovo SDK Python di Azure Cosmos DB è l'unico SDK che supporta l'archiviazione tabelle di Azure in Python. Questo SDK si connette sia ad Archiviazione tabelle di Azure che all'API Table di Azure Cosmos DB.
+- [Java SDK](table-sdk-java.md). Questo SDK di Archiviazione di Azure è in grado di connettersi agli account di Azure Cosmos DB tramite l'API Table.
+- [Node.js SDK](table-sdk-nodejs.md). Questo SDK di Archiviazione di Azure è in grado di connettersi agli account di Azure Cosmos DB tramite l'API Table.
 
-Per altre informazioni sull'uso dell'API di tabella, vedere l'articolo relativo alle [domande frequenti sullo sviluppo con l'API di tabella](faq.md#develop-with-the-table-api-preview).
+Per altre informazioni sull'uso dell'API Table, vedere l'articolo relativo alle [domande frequenti sullo sviluppo con l'API Table](faq.md#develop-with-the-table-api).
 
 ## <a name="developing-with-the-azure-table-storage"></a>Sviluppo con Archiviazione tabelle di Azure
 

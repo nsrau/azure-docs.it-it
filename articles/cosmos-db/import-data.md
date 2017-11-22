@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: b8df9623bf3826807ba066d4e625c3138c80c5b7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 50190642f59aa8fa7d5cce8bfde5cec9fcfbe7e4
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Utilità di migrazione dati
 
-Questa esercitazione fornisce istruzioni sull'uso dell'Utilità di migrazione dati di Azure Cosmos DB, che consente di importare dati da diverse origini nelle raccolte e nelle tabelle di Azure Cosmos DB. È possibile eseguire l'importazione da file JSON, file CSV, SQL, MongoDB, archiviazione tabelle di Azure, Amazon DynamoDB e addirittura da raccolte di API DocumentDB di Azure Cosmos DB ed eseguire la migrazione di tali dati in raccolte e tabelle da usare con Azure Cosmos DB. L'Utilità di migrazione dati può essere usato anche per la migrazione da una raccolta con partizione singola a una raccolta con più partizioni per l'API DocumentDB.
+Questa esercitazione fornisce istruzioni sull'uso dell'Utilità di migrazione dati di Azure Cosmos DB, che consente di importare dati da diverse origini nelle raccolte e nelle tabelle di Azure Cosmos DB. È possibile eseguire l'importazione da file JSON, file CSV, SQL, MongoDB, archiviazione tabelle di Azure, Amazon DynamoDB e addirittura da raccolte di API DocumentDB di Azure Cosmos DB ed eseguire la migrazione di tali dati in raccolte e tabelle da usare con Azure Cosmos DB. Lo strumento di migrazione dati può essere usato anche per la migrazione da una raccolta con partizione singola a una raccolta con più partizioni per l'API DocumentDB.
 
 API da usare con Azure Cosmos DB 
 * **[API DocumentDB](documentdb-introduction.md)**: è possibile usare una delle opzioni di origine disponibili nell'Utilità di migrazione dati per importare i dati.
@@ -35,7 +35,7 @@ API da usare con Azure Cosmos DB
 Questa esercitazione illustra le attività seguenti:
 
 > [!div class="checklist"]
-> * Installazione dell'Utilità di migrazione dati
+> * Installazione dello strumento di migrazione dati
 > * Importazione di dati da diverse origini dati
 > * Esportazione da Azure Cosmos DB a JSON
 
@@ -45,14 +45,14 @@ Prima di seguire le istruzioni di questo articolo, verificare che siano installa
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) o versione successiva.
 
 ## <a id="Overviewl"></a>Panoramica
-L'Utilità di migrazione dati è una soluzione open source che importa dati in Azure Cosmos DB da diverse origini, tra cui:
+Lo strumento di migrazione dati è una soluzione open source che importa dati in Azure Cosmos DB da diverse origini, tra cui:
 
 * File JSON
 * MongoDB
 * SQL Server
 * File CSV
 * Archiviazione tabelle di Azure
-* Amazon DynamoDB
+* DynamoDB Amazon
 * HBase
 * Raccolte di Azure Cosmos DB
 
@@ -73,7 +73,7 @@ Dopo aver installato lo strumento, è necessario importare i dati. È possibile 
 * [File di esportazione MongoDB](#MongoDBExport)
 * [SQL Server](#SQL)
 * [File CSV](#CSV)
-* [Archiviazione tabelle di Azure](#AzureTableSource)
+* [Archivio tabelle di Azure](#AzureTableSource)
 * [Amazon DynamoDB](#DynamoDBSource)
 * [BLOB](#BlobImport)
 * [Raccolte di Azure Cosmos DB](#DocumentDBSource)
@@ -210,7 +210,7 @@ Ecco un esempio di riga di comando per l'importazione CSV:
 ## <a id="AzureTableSource"></a>Importare da Archiviazione tabelle di Azure
 L'opzione dell'utilità di importazione dell'origine Archiviazione tabelle di Azure consente di importare da una singola tabella di Archiviazione tabelle di Azure. È facoltativamente possibile filtrare le entità tabelle da importare. 
 
-I dati importati dall'archiviazione tabelle di Azure possono essere inviati come output alle tabelle e alle entità di Azure Cosmos DB per l'uso con l'API Tabelle oppure a raccolte e documenti per l'uso con l'API DocumentDB.  
+I dati importati dall'archiviazione tabelle di Azure possono essere inviati come output alle tabelle e alle entità di Azure Cosmos DB per l'uso con l'API Tabelle oppure a raccolte e documenti per l'uso con l'API DocumentDB. Tuttavia, l'API Table è disponibile solo come destinazione nell'utilità della riga di comando, non è possibile eseguire esportazioni nell'API Table mediante l'interfaccia utente dell'Utilità di migrazione dati. Per altre informazioni, vedere [Importare dati da usare con l'API Tabelle di Azure Cosmos DB](table-import.md). 
 
 ![Schermata delle opzioni dell'origine Archiviazione tabelle di Azure](./media/import-data/azuretablesource.png)
 
@@ -239,18 +239,18 @@ Ecco un esempio di riga di comando per importare da Archiviazione tabelle di Azu
     dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;AccountName=<Account Name>;AccountKey=<Account Key>" /s.Table:metrics /s.InternalFields:All /s.Filter:"PartitionKey eq 'Partition1' and RowKey gt '00001'" /s.Projection:ObjectCount;ObjectSize  /t:CosmosDBBulk /t.ConnectionString:" AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:metrics /t.CollectionThroughput:2500
 
 ## <a id="DynamoDBSource"></a>Importa da Amazon DynamoDB
-L'opzione dell'utilità di importazione origine Amazon DynamoDB consente di importare da una singola tabella Amazon DynamoDB e filtrare le entità da importare. Sono disponibili vari modelli in modo che l'impostazione di un'importazione è più semplice possibile.
+L'opzione dell'utilità di importazione DynamoDB Amazon origine consente di importare da una singola tabella DynamoDB Amazon e filtrare le entità da importare. Sono disponibili vari modelli in modo che l'impostazione di un'importazione è più semplice possibile.
 
 ![Schermata delle opzioni dell'origine Amazon DynamoDB - Strumenti di migrazione del database](./media/import-data/dynamodbsource1.png)
 
 ![Schermata delle opzioni dell'origine Amazon DynamoDB - Strumenti di migrazione del database](./media/import-data/dynamodbsource2.png)
 
-Il formato della stringa di connessione di Amazon DynamoDB è:
+Il formato della stringa di connessione DynamoDB di Amazon è:
 
     ServiceURL=<Service Address>;AccessKey=<Access Key>;SecretKey=<Secret Key>;
 
 > [!NOTE]
-> Usare il comando Verify per assicurarsi che l'istanza di Amazon DynamoDB specificata nel campo della stringa di connessione sia accessibile.
+> Usare il comando Verify per assicurarsi che l'istanza di MongoDB specificata nel campo della stringa di connessione sia accessibile.
 > 
 > 
 
@@ -334,7 +334,7 @@ Il formato della stringa di connessione HBase Stargate è:
     ServiceURL=<server-address>;Username=<username>;Password=<password>
 
 > [!NOTE]
-> Usare il comando verifica per garantire che l'istanza di HBase specificato nel campo della stringa di connessione sia accessibile.ssione sia accessibile.
+> Utilizzare il comando verifica per garantire che l'istanza di HBase specificato nel campo della stringa di connessione sia accessibile.ssione sia accessibile.
 > 
 > 
 
@@ -474,7 +474,7 @@ Usando l'opzione avanzata Criteri di indicizzazione, è possibile selezionare un
 
 I modelli dei criteri che lo strumento fornisce sono:
 
-* Default. Questo criterio è migliore quando si eseguono query di uguaglianza su stringhe e usando ORDER BY, l'intervallo e le query di uguaglianza per i numeri. Questo criterio ha un overhead di archiviazione indice inferiore rispetto a intervallo.
+* Default. Questo criterio è migliore quando si eseguono query di uguaglianza su stringhe e utilizzando ORDER BY, l'intervallo e le query di uguaglianza per i numeri. Questo criterio ha un overhead di archiviazione indice inferiore rispetto a intervallo.
 * Intervallo. Questo criterio risulta ottimale quando si usano query di tipo ORDER BY, di intervallo e di uguaglianza su numeri e stringhe. Questo criterio ha un overhead di archiviazione indice superiore rispetto a predefinito o Hash.
 
 ![Screenshot delle opzioni avanzate relative ai criteri di indicizzazione di Azure Cosmos DB](./media/import-data/indexingpolicy2.png)
@@ -523,20 +523,6 @@ Se si preferisce, si può scegliere di modificare il file JSON risultante, aumen
     ]
     }]
 
-## <a id="tableapibulkexport"></a>Esportare nell'API Tabelle (importazione in massa)
-
-Lo strumento di esportazione dell'API Tabelle di Azure Cosmos DB consente di esportare informazioni dall'archiviazione tabelle di Azure a un database dell'API Tabelle di Azure Cosmos DB. 
-
-La stringa di connessione per l'account dell'API Tabelle di Azure Cosmos DB in cui eseguire l'esportazione può essere recuperata dal portale di Azure nella pagina Stringa di connessione. Usare il pulsante Copia ![Screenshot della stringa di connessione nel portale di Azure](./media/import-data/copy-button.png) sul lato destro dello schermo per copiare l'intera stringa.
-
-![Screenshot della stringa di connessione nel portale di Azure](./media/import-data/connection-string.png)
-
-## <a id="tableapiseqtarget"></a>Esportare nell'API Tabelle (importazione di record sequenziali)
-
-Lo strumento di esportazione dell'API Tabelle di Azure Cosmos DB consente di esportare informazioni dall'archiviazione tabelle di Azure a un database dell'API Tabelle di Azure Cosmos DB.
-
-La stringa di connessione per l'account dell'API Tabelle di Azure Cosmos DB in cui eseguire l'esportazione può essere recuperata dal portale di Azure nella pagina Stringa di connessione, come mostrato in precedenza in [Esportare nell'API Tabelle (importazione in massa)](#tableapibulkexport).
-
 ## <a name="advanced-configuration"></a>Configurazione avanzata
 Nella schermata Configurazione avanzata specificare il percorso del file di log in cui scrivere gli errori. In questa pagina vengono applicate le regole seguenti:
 
@@ -566,7 +552,7 @@ Quindi, scegliere se registrare tutti i messaggi di errore, quelli critici o nes
 In questa esercitazione sono state eseguite le attività seguenti:
 
 > [!div class="checklist"]
-> * Installazione dell'Utilità di migrazione dati
+> * Installazione dello strumento di migrazione dati
 > * Importazione di dati da diverse origini dati
 > * Esportazione da Azure Cosmos DB a JSON
 

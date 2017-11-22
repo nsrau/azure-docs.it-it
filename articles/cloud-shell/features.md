@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: f473d45e396c646c8911f4d026aff0f7b97c167e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 79c3f376c2800e2ce9123c31af6e1aa2aacfcf00
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Funzionalità e strumenti per Bash in Azure Cloud Shell
 
@@ -37,29 +37,29 @@ Bash in Cloud Shell autentica in modo sicuro e automatico l'accesso agli account
 
 ### <a name="ssh-into-azure-linux-virtual-machines"></a>SSH nelle macchine virtuali Linux Azure
 
-Creazione di una VM Linux dall'interfaccia della riga di comando di Azure 2.0 consente di creare una chiave SSH predefinita e di posizionarla nella directory `$Home`. Immissione di chiavi SSH in `$Home` consente di indirizzare le connessioni SSH alle macchine virtuali Linux Azure direttamente da Cloud Shell. Le chiavi vengono tenute in acc_<user>.img nel sistema di condivisione di file, usare le procedure consigliate quando si usa o si condivide l'accesso alla condivisione file o alle chiavi.
+Creazione di una VM Linux dall’interfaccia della riga di comando di Azure 2.0 consente di creare una chiave SSH predefinita e di posizionarla nella directory `$Home`. Immissione di chiavi SSH in `$Home` consente di indirizzare le connessioni SSH alle macchine virtuali Linux Azure direttamente da Cloud Shell. Le chiavi vengono tenute in acc_<user>.img nel sistema di condivisione di file, utilizzare le procedure consigliate quando si usa o si condivide l’accesso alla condivisione file o alle chiavi.
 
 ### <a name="home-persistence-across-sessions"></a>Persistenza $Home tra le sessioni
 
 Per rendere persistenti i file fra le sessioni, Cloud Shell illustra come associare una condivisione file di Azure al primo avvio.
 Al termine, Cloud Shell assocerà automaticamente la risorsa di archiviazione (montata come `$Home\clouddrive`) per tutte le sessioni future.
-Inoltre, in Bash all'interno di Cloud Shell la directory `$Home` viene resa persistente come un .img nella condivisione file di Azure.
+Inoltre, in Bash all’interno di Cloud Shell la directory `$Home` viene resa persistente come un .img nella condivisione file di Azure.
 I file all'esterno di `$Home` e lo stato della macchina non sono persistenti tra le sessioni.
 
-[Altre informazioni sulla persistenza dei file in Bash all'interno di Cloud Shell.](persisting-shell-storage.md)
+[Altre informazioni sulla persistenza dei file in Bash all’interno di Cloud Shell.](persisting-shell-storage.md)
 
 ## <a name="tools"></a>Strumenti
 
 |Categoria   |Nome   |
 |---|---|
 |Strumenti di Linux            |bash<br> sh<br> tmux<br> dig<br>               |
-|Strumenti di Azure            |[Interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-cli) e [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br> [Interfaccia della riga di comando di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) <br>    |
+|Strumenti di Azure            |[Interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-cli) e [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br> [Interfaccia della riga di comando di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) <br> [blobxfer](https://github.com/Azure/blobxfer#blobxfer) |
 |Editor di testo           |vim<br> nano<br> emacs       |
 |Controllo del codice sorgente         |git                    |
 |Strumenti di compilazione            |make<br> maven<br> npm<br> pip         |
 |Contenitori             |[Interfaccia della riga di comando Docker](https://github.com/docker/cli)/[Computer Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [Interfaccia della riga di comando DC/OS](https://github.com/dcos/dcos-cli)         |
 |Database              |Client MySQL<br> Client PostgreSql<br> [Utilità sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Altre                  |Client iPython<br> [Interfaccia della riga di comando Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> |
+|Altre                  |Client iPython<br> [Interfaccia della riga di comando Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)|
 
 ## <a name="language-support"></a>Supporto per le lingue
 

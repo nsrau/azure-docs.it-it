@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 09/16/2017
+ms.date: 11/10/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 732ec45003481b0e2f2eca03b6ae13772d325ef1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 0e6cc412fdb3ea7b9d8291b9f963e6412ae994a9
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testare la soluzione con dispositivi simulati
 
@@ -39,6 +39,10 @@ La tabella seguente mostra i dati trasmessi dalla lampadina al cloud come flusso
 | Nome   | Valori      |
 | ------ | ----------- |
 | Stato | "on", "off" |
+| online | true, false |
+
+> [!NOTE]
+> Il valore di dati di telemetria **online** è obbligatorio per tutti i tipi simulati.
 
 *Metodi*
 
@@ -96,7 +100,7 @@ Il modo più semplice per creare un nuovo tipo di dispositivo nel microservizio 
 
 1. Per ogni tipo di dispositivo sono presenti un file modello JSON e gli script associati nella cartella `Services/data/devicemodels`. Copiare i file relativi a **Chiller** (Refrigeratore) per creare i file relativi a **Lightbulb** (Lampadina) come illustrato nella tabella seguente:
 
-    | Origine                      | Destinazione                   |
+    | Sorgente                      | Destination                   |
     | --------------------------- | ----------------------------- |
     | chiller-01.json             | lightbulb-01.json             |
     | scripts/chiller-01-state.js | scripts/lightbulb-01-state.js |
@@ -173,7 +177,7 @@ Il file `lightbulb-01.json` definisce le caratteristiche del tipo, ad esempio i 
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      },
+      }
     }
     ```
 
@@ -267,7 +271,11 @@ Per testare il tipo di dispositivo **Lightbulb** (Lampadina), è prima di tutto 
 
 Per eseguire il test e il debug delle modifiche in locale, vedere [Device simulation overview](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) (Panoramica della simulazione di dispositivi).
 
-Configurare il progetto per copiare i file del nuovo dispositivo **Lightbulb** (Lampadina) nella directory di output.
+Configurare il progetto per copiare i file del nuovo dispositivo **Lightbulb** (Lampadina) nella directory di output:
+
+* Se si usa Visual Studio, assicurarsi aggiungere i tre nuovi file lightbulb creati nella sezione precedente per il progetto **Servizi** nella soluzione. Usare quindi **Esplora soluzioni** per contrassegnarli come da copiare nella directory di output.
+
+* Se si usa Visual Studio Code, aprire il file **Services.csproj** e aggiungere i tre nuovi file lightbulb creati nella sezione precedente. Vedere le voci del file del modello di dispositivo nel file **Services.csproj** come esempi.
 
 Per testare il nuovo dispositivo in una soluzione distribuita, vedere:
 
@@ -299,12 +307,12 @@ I passaggi seguenti mostrano come trovare i file che definiscono il dispositivo 
 1. Se non è già stato fatto, usare il comando seguente per clonare il repository GitHub **device-simulation** nel computer locale:
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
+    git clone https://github.com/Azure/device-simulation-dotnet.git
     ```
 
-1. Per ogni tipo di dispositivo sono presenti un file modello JSON e gli script associati nella cartella `data/devicemodels`. I file che definiscono il tipo di dispositivo **Chiller** (Refrigeratore) simulato sono:
-    * `data/devicemodels/chiller-01.json`
-    * `data/devicemodels/scripts/chiller-01-state.js`
+1. Per ogni tipo di dispositivo sono presenti un file modello JSON e gli script associati nella cartella `Services/data/devicemodels`. I file che definiscono il tipo di dispositivo **Chiller** (Refrigeratore) simulato sono:
+    * `Services/data/devicemodels/chiller-01.json`
+    * `Services/data/devicemodels/scripts/chiller-01-state.js`
 
 ### <a name="specify-the-new-telemetry-type"></a>Specificare il nuovo tipo di telemetria
 

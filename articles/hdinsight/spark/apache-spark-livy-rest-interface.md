@@ -17,15 +17,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: nitinme
-ms.openlocfilehash: 7b6b551fa1009da744598715b09f13355ded2884
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4f6c27fb651fc13877a889c26aa47903985625a0
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Usare l'API REST di Apache Spark per inviare i processi remoti a un cluster HDInsight Spark
 
-Informazioni su come usare Livy, l'API REST di Apache Spark per inviare processi remoti a un cluster Azure HDInsight Spark. Per informazioni dettagliate, vedere [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
+Informazioni su come usare Livy, l'API REST di Apache Spark per inviare processi remoti a un cluster Azure HDInsight Spark. Per informazioni dettagliate, vedere [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/).
 
 È possibile usare Livy per l'esecuzione interattiva di shell Spark o per inviare processi batch da eseguire su Spark. Questo articolo parla dell'uso di Livy per inviare processi batch. I frammenti di codice in questo articolo usano cURL per eseguire chiamate API REST all'endpoint Livy Spark.
 
@@ -189,6 +189,7 @@ Di seguito sono illustrati alcuni problemi riscontrabili durante l'uso di Livy p
 
 ## <a name="next-step"></a>Passaggio successivo
 
+* [Documentazione dell'API REST Livy](http://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Gestire le risorse del cluster Apache Spark in Azure HDInsight](apache-spark-resource-manager.md)
 * [Tenere traccia ed eseguire il debug di processi in esecuzione nel cluster Apache Spark in Azure HDInsight](apache-spark-job-debugging.md)
 

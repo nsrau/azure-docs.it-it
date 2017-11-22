@@ -13,18 +13,18 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: a8bfbf2e30f8568212ab49ba1772588cc9e45b38
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6a73f8d0b85198f0d4e10fbc31cbd21f93bdb8a8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Creazione di database cloud scalabili
 La scalabilità orizzontale dei database può essere ottenuta facilmente con gli strumenti e le funzionalità scalabili per il database SQL di Azure. In particolare, è possibile usare la **libreria client dei database elastici** per creare e gestire i database con scalabilità orizzontale. Questa funzionalità consente di sviluppare con facilità applicazioni partizionate usando centinaia o anche migliaia di database SQL Azure. [processi elastici](sql-database-elastic-jobs-powershell.md) possono quindi essere usati per facilitare la gestione di questi database.
 
-Per installare la libreria, visitare [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
+Per installare la libreria, andare a NuGet all'indirizzo [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
 
 ## <a name="documentation"></a>Documentazione
 1. [Iniziare a utilizzare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md)
@@ -54,22 +54,32 @@ La gestione delle applicazioni con scalabilità orizzontale mediante il *partizi
 
 In generale, i clienti che utilizzano gli strumenti dei database elastici quando inviano operazioni locali della partizione anziché operazioni tra più partizioni con la propria semantica, possono aspettarsi di ottenere funzionalità T-SQL complete.
 
+
+
 ## <a name="next-steps"></a>Passaggi successivi
-Provare l’ [app di esempio](sql-database-elastic-scale-get-started.md) che illustra le funzioni client. 
 
-Per installare la libreria, andare su [Libreria client di database elastici](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+- [Libreria client di database elastico](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/): per **installare** la libreria usando NuGet.
 
-Per istruzioni sull'uso dello strumento di suddivisione-unione, vedere [Panoramica sullo strumento di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md).
+- [Iniziare a usare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md) per provare l'**app di esempio** che illustra le funzioni del client.
 
-[La libreria client dei database elastici è ora open source!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
+- [Strumenti Github, Azure/database elastici](https://github.com/Azure/elastic-db-tools): la libreria è un software open source.
+    - La libreria client degli strumenti di database elastici consente agli sviluppatori ADO.NET di creare applicazioni che implementano e usano il modello noto come partizionamento di database nel Database di SQL Azure.
 
-Usare le [query del database elastico](sql-database-elastic-query-overview.md).
+- [La libreria client dei database elastici è ora open source!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/) - un **post di blog** sulla libreria client del database elastico, datato 09/09/2015.
 
-La libreria è disponibile come software open source in [GitHub](https://github.com/Azure/elastic-db-tools). 
+- [Panoramica delle query elastiche del database SQL di Azure](sql-database-elastic-query-overview.md) - per usare le query elastiche.
+
+- [Lo spostamento dei dati tra database cloud di scalabilità orizzontale](sql-database-elastic-scale-overview-split-and-merge.md): per istruzioni sull'uso dello **strumento di divisione-unione**.
+
+
+
+<!-- Additional resources H2 -->
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
+
 <!--Anchors-->
 <!--Image references-->
-[1]:./media/sql-database-elastic-database-client-library/glossary.png
+
+[1]: ./media/sql-database-elastic-database-client-library/glossary.png
 

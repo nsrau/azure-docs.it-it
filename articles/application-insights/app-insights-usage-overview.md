@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 10/10/2017
-ms.author: bwren
-ms.openlocfilehash: 6985467658ae8a52d3c963dd1965c0711cac4ca7
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.author: mbullwin
+ms.openlocfilehash: 4a6647e30657a6d2d076cd254069d96f99a0aa60
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="usage-analysis-with-application-insights"></a>Uso dell'analisi con Application Insights
 
@@ -34,7 +34,7 @@ La migliore esperienza viene ottenuta tramite l'installazione di Application Ins
 
     ![Copiare lo script nell'intestazione della pagina master web.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
-3. **Codice dell'app per dispositivi mobili:** usare Mobile Center SDK per raccogliere gli eventi dall'app, quindi inviare copie di questi eventi ad Application Insights per l'analisi [seguendo le istruzioni in questa guida](app-insights-mobile-center-quickstart.md).
+3. **Codice dell'app per dispositivi mobili:** usare App Center SDK per raccogliere gli eventi dall'app, quindi inviare copie di questi eventi ad Application Insights per l'analisi [seguendo le istruzioni in questa guida](app-insights-mobile-center-quickstart.md).
 
 4. **Ottenere dati di telemetria:** eseguire il progetto in modalità di debug per alcuni minuti e quindi cercare i risultati nel pannello Panoramica in Application Insights.
 

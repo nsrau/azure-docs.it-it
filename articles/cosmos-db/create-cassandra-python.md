@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 0048dde11b2ddb4f09e94e20b5b252998205cf18
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 95d58c600bc43059025e739a8cdb062287f4ffb5
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app Cassandra con Python e Azure Cosmos DB
 
@@ -136,7 +136,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
     ![Visualizzare e copiare i valori di nome utente, password e punto di contatto dal pannello della stringa di connessione del portale di Azure](./media/create-cassandra-python/keys.png)
 
-2. Aprire il file `config.py`. 
+2. Aprire il file `config.py` . 
 
 3. Incollare il valore di PUNTO DI CONTATTO dal portale su `<FILLME>` nella riga 10.
 
@@ -188,6 +188,8 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 3. Verificare i risultati previsti dalla riga di comando.
 
     Premere CTRL+C per arrestare l'esecuzione del programma e chiudere la finestra della console. 
+
+    ![Visualizzare e verificare l'output](./media/create-cassandra-python/output.png)
     
     È ora possibile aprire Esplora dati nel portale di Azure per visualizzare, modificare e usare questi nuovi dati, nonché eseguire query su di essi. 
 

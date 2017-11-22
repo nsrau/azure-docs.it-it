@@ -1,36 +1,35 @@
 ---
 title: Gestire i dati di riferimento di un ambiente Azure Time Series Insights con C# | Microsoft Docs
-description: Questa esercitazione illustra come gestire i dati di riferimento di un ambiente Azure Time Series Insights con C#
-keywords: 
+description: Questo articolo descrive come gestire i dati di riferimento per un ambiente di Azure Time Series Insights mediante la creazione di un'applicazione personalizzata scritta nel linguaggio C# (c-sharp) .NET.
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: venkatgct
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/29/2017
 ms.author: venkatja
-ms.openlocfilehash: 528a33cf01b2a0a07880dad62ba6bbaf4a605153
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.devlang: csharp
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: cd4d37ae2a68be3c061706f80055efb7e5387d98
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Gestire i dati di riferimento di un ambiente Azure Time Series Insights con C#
 
-Questo codice C# di esempio dimostra come gestire i dati di riferimento di un ambiente Azure Time Series Insights.
-Prima di eseguire l'esempio verificare di avere completato i passaggi seguenti.
+Questo articolo descrive il codice di esempio C# che è possibile compilare per gestire i dati di riferimento per un ambiente Azure Time Series Insights.
+
+Verificare di avere completato i passaggi seguenti prima di compilare ed eseguire il codice di esempio:
 1. Creazione di un set di dati di riferimento mediante [questo articolo](time-series-insights-add-reference-data-set.md).
-2. Acquisizione tramite l'API di Azure Active Directory del token di accesso usato per l'esecuzione dell'applicazione. Questo token deve essere passato nell'intestazione `Authorization` di ogni richiesta dell'API Query. Per la configurazione di applicazioni non interattive, vedere l'articolo [Autenticazione e autorizzazione](time-series-insights-authentication-and-authorization.md).
-3. Impostazione corretta di tutte le costanti definite all'inizio dell'esempio.
 
-## <a name="c-sample"></a>Esempio C#
+2. Configurare il token di accesso del processo che deve usare l'applicazione per ottenere l'autorizzazione. È necessario acquisire il token di accesso tramite l'API di Azure Active Directory. Questo token deve essere passato nell'intestazione `Authorization` di ogni richiesta dell'API Query. Per la configurazione di applicazioni non interattive, vedere l'articolo [Autenticazione e autorizzazione](time-series-insights-authentication-and-authorization.md).
 
+3. Modificare il codice di esempio per sostituire le costanti di esempio, designate a **#DUMMY#**, in prossimità dell'inizio del codice. 
+
+## <a name="c-sample-code"></a>Codice di esempio C# 
 ```csharp
 // Copyright (c) Microsoft Corporation.  All rights reserved.
 
@@ -233,5 +232,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-Per le informazioni di riferimento complete per l'API, vedere il documento relativo all'[API dei dati di riferimento](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).
+Per le informazioni di riferimento complete per l'API REST, vedere [API dei dati di riferimento](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).

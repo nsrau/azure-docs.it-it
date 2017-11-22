@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
+ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: e59cfa85c6bf584e44bdc6e88cc19d67df390041
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbb752692fbd618d9e7e14c8a80b582aad657b38
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api-preview"></a>Azure Cosmos DB: procedura per l'esecuzione di query sui dati della tabella con l'API Table (anteprima)
+# <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api"></a>Azure Cosmos DB: procedura per l'esecuzione di query sui dati della tabella con l'API di tabella
 
-L'[API Table](table-introduction.md) di Azure Cosmos DB (anteprima) supporta l'esecuzione di query OData e [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) sui dati chiave/valore (tabella).  
+L'[API di tabella](table-introduction.md) di Azure Cosmos DB supporta l'esecuzione di query OData e [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) sui dati chiave/valore (tabella).  
 
 Questo articolo illustra le attività seguenti: 
 
@@ -38,13 +38,13 @@ Le query di questo articolo usano la tabella di esempio `People`:
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 | 
 
-Poiché Azure Cosmos DB è compatibile con le API di archiviazione delle tabelle di Azure, vedere [Querying Tables and Entities] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) (Esecuzione di query su tabelle ed entità) per informazioni dettagliate su come eseguire una query con l'API Tabella. 
+Vedere [Querying Tables and Entities] (https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) (Esecuzione di query su tabelle ed entità) per informazioni dettagliate su come eseguire una query con l'API di tabella. 
 
-Per altre informazioni sulle funzionalità Premium offerte da Azure Cosmos DB, vedere [Azure Cosmos DB: API Table ](table-introduction.md) e [Sviluppare con l'API Table in .NET](tutorial-develop-table-dotnet.md). 
+Per altre informazioni sulle funzionalità Premium offerte da Azure Cosmos DB, vedere [Introduzione all'API di tabella di Azure Cosmos DB](table-introduction.md) e [Sviluppare con l'API di tabella in .NET](tutorial-develop-table-dotnet.md). 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per il funzionamento di queste query è necessario disporre di un account Azure Cosmos DB e nel contenitore devono essere presenti dati di entità. Questi requisiti non sono disponibili? Completare la [Guida introduttiva di 5 minuti](https://aka.ms/acdbtnetqs) o l'[esercitazione per sviluppatori](https://aka.ms/acdbtabletut) per creare un account e popolare il database.
+Per il funzionamento di queste query è necessario disporre di un account Azure Cosmos DB e nel contenitore devono essere presenti dati di entità. Questi requisiti non sono disponibili? Completare la [Guida introduttiva di 5 minuti](create-table-dotnet.md) o l'[esercitazione per sviluppatori](tutorial-develop-table-dotnet.md) per creare un account e popolare il database.
 
 ## <a name="query-on-partitionkey-and-rowkey"></a>Query su PartitionKey e RowKey
 Poiché le proprietà PartitionKey e RowKey costituiscono la chiave primaria di un'entità, è possibile usare la sintassi speciale seguente per identificare l'entità: 
@@ -109,9 +109,9 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 In questa esercitazione sono state eseguite le operazioni seguenti:
 
 > [!div class="checklist"]
-> * È stato appreso come eseguire query usando l'API Table (anteprima) 
+> * È stato appreso come eseguire query usando l'API di tabella
 
 È ora possibile passare all'esercitazione successiva per imparare a distribuire i dati a livello globale.
 
 > [!div class="nextstepaction"]
-> [Distribuire i dati a livello globale](tutorial-global-distribution-documentdb.md)
+> [Distribuire i dati a livello globale](tutorial-global-distribution-table.md)

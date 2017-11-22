@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 68800ab14cbca367fd97827a923a2edc377e9aee
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: cd10147047a7d5d8b0a15be08fbba24a07adffad
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casi d'uso comuni di Azure Cosmos DB
 Questo articolo fornisce una panoramica di diversi casi d'uso comuni per Azure Cosmos DB.  I consigli forniti sono un punto di partenza per sviluppare applicazioni con Cosmos DB.   
@@ -35,11 +35,11 @@ Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
 Il progetto Azure Cosmos DB è stato avviato nel 2011 come "Progetto Florence" per far fronte ai problemi critici di sviluppo riscontrati dalle applicazioni Internet di grandi dimensioni all'interno di Microsoft. Avendo osservato che questi problemi non riguardano soltanto le applicazioni, nel 2015 è stato deciso di rendere Azure Cosmos DB generalmente disponibile per gli sviluppatori esterni sotto forma di [Azure DocumentDB](https://azure.microsoft.com/blog/documentdb-moving-to-general-availability/). Il servizio viene usato ampiamente all'interno di Microsoft ed è uno dei servizi in rapida crescita più usati dagli sviluppatori Azure esterni. 
 
-Azure Cosmos DB è un database multimodello distribuito a livello globale che viene usato in un'ampia gamma di applicazioni e casi di utilizzo. È un'ottima scelta per le applicazioni [senza server](http://azure.com/serverless) che richiedono tempi di risposta nell'ordine dei millisecondi e che devono essere ridimensionate rapidamente e a livello globale. Supporta diversi modelli di dati (chiave-valore, documenti, diagrammi e grafici a colonne) oltre a molte API per l'accesso ai dati, tra cui [API MongoDB](mongodb-introduction.md), [API DocumentDB (SQL)](documentdb-introduction.md), [API Graph (Gremlin)](graph-introduction.md) e [API di tabelle](table-introduction.md), in modo nativo ed estendibile. 
+Azure Cosmos DB è un database multimodello distribuito a livello globale che viene usato in un'ampia gamma di applicazioni e casi di utilizzo. È un'ottima scelta per le applicazioni [senza server](http://azure.com/serverless) che richiedono tempi di risposta nell'ordine dei millisecondi e che devono essere ridimensionate rapidamente e a livello globale. Supporta diversi modelli di dati (chiave-valore, documenti, diagrammi e grafici a colonne) oltre a molte API per l'accesso ai dati, tra cui [API MongoDB](mongodb-introduction.md), [API DocumentDB (SQL)](documentdb-introduction.md), [API Graph (Gremlin)](graph-introduction.md) e [API Table](table-introduction.md), in modo nativo ed estendibile. 
 
 Di seguito sono indicati alcuni attributi di Azure Cosmos DB che lo rendono particolarmente adatto ad applicazioni a prestazioni elevate destinate a una distribuzione globale.
 
-* Azure Cosmos DB partiziona in modo nativo i dati per la disponibilità e la scalabilità elevate. Azure Cosmos DB offre garanzie del 99,99% per disponibilità, velocità effettiva, bassa latenza e coerenza.
+* Azure Cosmos DB partiziona in modo nativo i dati per la disponibilità e la scalabilità elevate. Azure Cosmos DB garantisce al 99,99% disponibilità, velocità effettiva, bassa latenza e coerenza per tutti gli account in una singola area e per tutti gli account in più aree con coerenza media. Garantisce poi al 99,999% la disponibilità in lettura per tutti gli account di database in più aree.
 * Azure Cosmos DB ha una risorsa di archiviazione basata su SSD con tempi di risposta a bassa latenza nell'ordine di millisecondi.
 * Il supporto di Azure Cosmos DB per i livelli di coerenza di tipo eventuale, prefisso coerente, sessione e con obsolescenza associata consente una flessibilità completa e un basso rapporto costo-prestazioni. Nessun servizio di database offre una flessibilità maggiore di Azure Cosmos DB in termini di coerenza dei livelli. 
 * Azure Cosmos DB ha un modello di determinazione dei prezzi flessibile e semplice da usare che calcola in modo indipendente la memoria e la velocità effettiva.

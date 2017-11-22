@@ -14,17 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 480f574640d4a9ccd4da97a98adc8b284d373855
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d737e354f5e7ee57c2e2c3d9b5599d4ba2b09af
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Distribuire e rimuovere applicazioni con il client Fabric
 > [!div class="op_single_selector"]
+> * [Gestione risorse](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
-> * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
-> * [API client Fabric](service-fabric-deploy-remove-applications-fabricclient.md)
+> * [Interfaccia della riga di comando di Service Fabric](service-fabric-application-lifecycle-sfctl.md)
+> * [API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 > 
 > 
 
@@ -42,7 +43,7 @@ Dopo che un'applicazione è stata distribuita e un'istanza è in esecuzione nel 
 1. Rimuovere (o eliminare) l'istanza dell'applicazione in esecuzione
 2. Annullare la registrazione del tipo di applicazione se non è più necessario
 
-Se si usa [Visual Studio per eseguire la distribuzione e il debug delle applicazioni](service-fabric-publish-app-remote-cluster.md) nel cluster di sviluppo locale, tutti i passaggi precedenti vengono gestiti automaticamente tramite uno script di PowerShell.  Questo script è disponibile nella cartella *Scripts* del progetto dell'applicazione. Questo articolo illustra le operazioni eseguite da tali script per consentirne l'esecuzione anche all'esterno di Visual Studio. 
+Se si usa Visual Studio per eseguire la distribuzione e il debug delle applicazioni nel cluster di sviluppo locale, tutti i passaggi precedenti vengono gestiti automaticamente tramite uno script di PowerShell.  Questo script è disponibile nella cartella *Scripts* del progetto dell'applicazione. Questo articolo illustra le operazioni eseguite da tali script per consentirne l'esecuzione anche all'esterno di Visual Studio. 
  
 ## <a name="connect-to-the-cluster"></a>Connettersi al cluster
 Connettersi al cluster tramite la creazione di un'istanza [client Fabric](/dotnet/api/system.fabric.fabricclient) prima di eseguire uno degli esempi di codice forniti in questo articolo. Per esempi di connessione a un cluster di sviluppo locale, un cluster remoto o un cluster protetto usando Azure Active Directory, certificati X509 o Windows Active Directory, vedere [Connettersi a un cluster sicuro](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Per connettersi al cluster di sviluppo locale eseguire le operazioni seguenti:
@@ -71,7 +72,7 @@ L'API [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applica
 L'API [GetApplicationTypeListAsync](/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationtypelistasync) fornisce informazioni su tutti i tipi di applicazioni registrati correttamente. È possibile usare questa API per determinare quando viene eseguita la registrazione.
 
 ## <a name="remove-an-application-package-from-the-image-store"></a>Rimuovere il pacchetto di un'applicazione dall'archivio di immagini
-È consigliabile rimuovere il pacchetto dell'applicazione al termine della registrazione dell'applicazione.  L'eliminazione dei pacchetti dell'applicazione dall'archivio immagini consente di liberare risorse di sistema.  Se si conservano i pacchetti dell'applicazione non usati, viene utilizzato spazio di archiviazione su disco e sorgono problemi di prestazioni dell'applicazione. Eliminare il pacchetto dell'applicazione dall'archivio immagini usando l'API [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage).
+Al termine della registrazione dell'applicazione, è consigliabile rimuovere il pacchetto dell'applicazione.  L'eliminazione dei pacchetti di applicazioni dall'archivio immagini consente di liberare risorse di sistema.  Se si conservano i pacchetti dell'applicazione non usati, viene utilizzato spazio di archiviazione su disco e sorgono problemi di prestazioni dell'applicazione. Eliminare il pacchetto dell'applicazione dall'archivio immagini usando l'API [RemoveApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.removeapplicationpackage).
 
 ## <a name="create-an-application-instance"></a>Creare un'istanza dell'applicazione
 È possibile creare un'istanza di un'applicazione da qualsiasi tipo di applicazione registrato correttamente usando l'API [CreateApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync). Il nome di ogni applicazione deve iniziare con lo schema *"fabric:"* e deve essere univoco per ogni istanza dell'applicazione (all'interno di un cluster). Vengono creati anche i servizi predefiniti specificati nel manifesto dell'applicazione del tipo di applicazione di destinazione.

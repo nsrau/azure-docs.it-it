@@ -1,5 +1,5 @@
 ---
-title: Come ridimensionare l'ambiente Time Series Insights di Azure | Microsoft Docs
+title: Come scalare l'ambiente Time Series Insights di Azure | Microsoft Docs
 description: "Questo articolo spiega come ridimensionare l'ambiente Time Series Insights. Per aggiungere o sottrarre capacità in uno SKU di prezzo, usare il portale di Azure."
 services: time-series-insights
 ms.service: time-series-insights
@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: a6f10e14e3f9e5761734738caddc247d9e4a90cd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d3c8b2b1ba220bf07a2bcdbd7fb26b94f897981f
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="how-to-scale-your-time-series-insights-environment"></a>Come ridimensionare l'ambiente Time Series Insights
+# <a name="how-to-scale-your-time-series-insights-environment"></a>Come scalare l'ambiente Time Series Insights
 
 Questo articolo spiega come modificare la capacità dell'ambiente Time Series Insights con il portale di Azure. Per capacità si intende il moltiplicatore applicato alla velocità in ingresso, alla capacità di archiviazione e ai costi associati allo SKU selezionato. 
 
@@ -50,7 +50,7 @@ La capacità ha una scalabilità lineare, pertanto uno SKU S1 con capacità 2 su
 
    ![configure.png](media/scale-your-environment/configure.png)
 
-3. Regolare il dispositivo di scorrimento **Capacità** per selezionare una capacità che soddisfi i requisiti in termini di velocità in ingresso e capacità di archiviazione. Si noti che la velocità in ingresso, la capacità di archiviazione e i costi stimati vengono aggiornati in modo dinamico per illustrare l'impatto della modifica. 
+3. Regolare il dispositivo di scorrimento **Capacità** per selezionare una capacità che soddisfi i requisiti in termini di velocità in ingresso e capacità di archiviazione. Si noti che la **velocità in ingresso**, la **capacità di archiviazione** e i **costi stimati** vengono aggiornati in modo dinamico per illustrare l'impatto della modifica. 
 
    ![Dispositivo di scorrimento](media/scale-your-environment/slider.png)
 
@@ -59,4 +59,5 @@ La capacità ha una scalabilità lineare, pertanto uno SKU S1 con capacità 2 su
 4. Selezionare **Salva** per ridimensionare l'ambiente. Finché non viene eseguito il commit della modifica, viene visualizzato temporaneamente l'indicatore di stato. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Verificare che la nuova capacità sia sufficiente a impedire la limitazione delle richieste. Per altre informazioni, vedere [If your environment is getting throttled](time-series-insights-diagnose-and-solve-problems.md) (Se l'ambiente è soggetto alla limitazione delle richieste).
+> [!div class="nextstepaction"]
+> [Verificare che la nuova capacità sia sufficiente a impedire la limitazione delle richieste](time-series-insights-diagnose-and-solve-problems.md).

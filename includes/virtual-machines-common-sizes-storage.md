@@ -1,5 +1,6 @@
+Le dimensioni delle macchine virtuali ottimizzate per l'archiviazione offrono una velocità effettiva e di I/O elevata per i dischi e sono ideali per i database NoSQL, SQL e Big Data. Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, nonché sulla velocità effettiva di archiviazione e sulle prestazioni di rete per ogni dimensione di questo raggruppamento. 
 
-La serie Ls è ottimizzata per carichi di lavoro che richiedono l'archiviazione temporanea a bassa latenza, come i database NoSQL, inclusi Cassandra, MongoDB, Cloudera e Redis. La serie Ls offre fino a 32 vCPU e usa il [processore Intel® Xeon® della famiglia E5 v3](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). La serie Ls offre le stesse prestazioni CPU della serie G/GS ed è dotato di 8 GiB di memoria per ogni vCPU.  
+La serie Ls offre fino a 32 vCPU e usa il [processore Intel® Xeon® della famiglia E5 v3](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). La serie Ls offre le stesse prestazioni CPU della serie G/GS ed è dotato di 8 GiB di memoria per ogni vCPU.  
 
 ## <a name="ls-series"></a>Serie Ls
 
@@ -13,7 +14,7 @@ ACU: 180-240
 | Standard_L32s* | 32 | 256  | 5,630 | 64             | ND/ND (0)          | 40.000/1.000                            | 8 / 20000 | 
  
 
-La massima velocità effettiva del disco possibile con le VM serie Ls può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/storage/common/storage-premium-storage.md). 
+La massima velocità effettiva del disco possibile con le VM serie Ls può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/virtual-machines/windows/premium-storage.md). 
 
 *L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 

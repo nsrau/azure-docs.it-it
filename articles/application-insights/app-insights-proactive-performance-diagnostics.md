@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 57f17c201cd50933517ee02b2bbbe7d6aceff9b2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6886d1239fa074a6316b243e574833f5554ac298
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="smart-detection---performance-anomalies"></a>Rilevamento intelligente - anomalie nelle prestazioni
 
@@ -67,7 +67,7 @@ I messaggi di posta elettronica sulle anomalie delle prestazioni dei rilevamenti
 
 ## <a name="faq"></a>domande frequenti
 
-* *Il servizio implica l'accesso manuale ai dati da parte di Microsoft?*
+* *È vero che il personale Microsoft ha accesso ai dati personali?*
   * No. Il servizio è completamente automatico. L'utente riceve le notifiche, ma i dati restano [privati](app-insights-data-retention-privacy.md).
 * *Tutti i dati raccolti vengono analizzati da Application Insights?*
   * Attualmente no. Al momento vengono analizzati il tempo di risposta alla richiesta, il tempo di risposta della dipendenza e il tempo di caricamento della pagina. L'analisi delle metriche aggiuntive si trova nel backlog futuro.

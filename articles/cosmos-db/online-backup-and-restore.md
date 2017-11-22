@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/15/2017
 ms.author: raprasa
-ms.openlocfilehash: 84b26c9ff354adef3f1bc1e61f235c520b63df13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b421ca0d4ec612c5b0da25bcff712eb7ff9df85
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Backup online automatico e ripristino con Azure Cosmos DB
 Azure Cosmos DB esegue automaticamente il backup di tutti i dati a intervalli regolari. I backup automatici vengono eseguiti senza impatto sulle prestazioni o sulla disponibilità delle operazioni del database. Tutti i backup vengono archiviati separatamente in un altro servizio di archiviazione, oltre a essere replicati a livello globale per garantire la resilienza in caso di emergenze locali. I backup automatici sono destinati agli scenari in cui si elimina involontariamente il contenitore Cosmos DB e in un secondo momento è necessario il ripristino dei dati o una soluzione di ripristino di emergenza.  
@@ -27,7 +27,7 @@ Azure Cosmos DB esegue automaticamente il backup di tutti i dati a intervalli re
 L'articolo offre un breve riepilogo iniziale della ridondanza e della disponibilità dei dati in Cosmos DB e quindi illustra i backup. 
 
 ## <a name="high-availability-with-cosmos-db---a-recap"></a>Disponibilità elevata con Cosmos DB: riepilogo
-Cosmos DB è progettato per la [distribuzione globale](distribute-data-globally.md) e consente di ridimensionare la velocità effettiva in più aree di Azure con failover basato su criteri e API multihosting trasparenti. Dato che si tratta di un sistema di database che offre [contratti di servizio con disponibilità del 99,99%](https://azure.microsoft.com/support/legal/sla/cosmos-db), tutte le operazioni di scrittura in Cosmos DB sono sottoposte a commit durevole su dischi locali da un quorum di repliche in un data center locale prima della conferma nel client. Si noti che la disponibilità elevata di Cosmos DB si basa sull'archiviazione locale e non dipende da tecnologie di archiviazione esterna. Inoltre, se l'account di database è associato a più di un'area di Azure, le operazioni di scrittura vengono replicate anche nelle altre aree. Per scalare la velocità effettiva e accedere ai dati a basse latenze, è possibile avere tutte le aree di lettura associate all'account di database che si vuole. In ogni area di lettura, i dati (replicati) vengono mantenuti in modo permanente in un set di repliche.  
+Cosmos DB è progettato per la [distribuzione globale](distribute-data-globally.md) e consente di ridimensionare la velocità effettiva in più aree di Azure con failover basato su criteri e API multihosting trasparenti. Azure Cosmos DB offre [contratti di servizio](https://azure.microsoft.com/support/legal/sla/cosmos-db) con disponibilità del 99,99% per tutti gli account in una singola area e tutti gli account in più aree con coerenza media e con disponibilità in lettura del 99,999% per tutti gli account di database in più aree. Tutte le operazioni di scrittura in Azure Cosmos DB sono sottoposte a commit durevole su dischi locali da un quorum di repliche in un data center locale prima della conferma nel client. Si noti che la disponibilità elevata di Cosmos DB si basa sull'archiviazione locale e non dipende da tecnologie di archiviazione esterna. Inoltre, se l'account di database è associato a più di un'area di Azure, le operazioni di scrittura vengono replicate anche nelle altre aree. Per scalare la velocità effettiva e accedere ai dati a basse latenze, è possibile avere tutte le aree di lettura associate all'account di database che si vuole. In ogni area di lettura, i dati (replicati) vengono mantenuti in modo permanente in un set di repliche.  
 
 Come illustrato nel diagramma seguente, un singolo contenitore Cosmos DB viene sottoposto a [partizionamento orizzontale](partition-data.md). Una "partizione" è indicata da un cerchio nel diagramma sotto e ogni partizione viene resa altamente disponibile tramite un set di repliche. Si tratta della distribuzione locale all'interno di un'unica area di Azure (indicata dall'asse X). In più, ogni partizione (con il set di repliche corrispondente) viene successivamente distribuita a livello globale in più aree associate all'account di database (ad esempio, le tre aree geografiche presenti nell'illustrazione, ovvero Stati Uniti orientali, Stati Uniti occidentali e India centrale). Il "Set di partizioni" è un'entità distribuita a livello globale che comprende più copie dei dati in ogni area (indicata dall'asse Y). È possibile assegnare la priorità alle aree associate all'account di database e, in caso di emergenza, verrà effettuato il failover trasparente di Cosmos DB nell'area successiva. È anche possibile simulare manualmente il failover per testare la disponibilità end-to-end dell'applicazione.  
 

@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 10/30/2017
+ms.date: 11/13/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: bb0d996b950a31e3eaaaa9d90a6b96617b58192f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4042c3606155d1d37947afccafd64652c9659894
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="templates-for-azure-policy"></a>Modelli per Criteri di Azure
 
-La tabella seguente include i collegamenti ai modelli json per Criteri di Azure.
+La tabella seguente include i collegamenti ai modelli json per Criteri di Azure. Questi esempi sono riportati nel [repository degli esempi dei Criteri di Azure](https://github.com/Azure/azure-policy).
 
 | | |
 |---|---|
 |**Calcolo**||
 | [Immagini delle macchine virtuali approvate](scripts/allowed-custom-images.md) | Richiede che solo le immagini personalizzate approvate vengano distribuite nell'ambiente in uso. Si specifica una matrice di ID di immagini approvate. |
-| [Create VM using Managed Disk](scripts/create-vm-managed-disk.md) (Creare una macchina virtuale usando un disco gestito) | Controlla quando viene creata una macchina virtuale che non usa dischi gestiti.|
+| [Controllare quando la macchina virtuale non usa un disco gestito](scripts/create-vm-managed-disk.md) | Controlla quando viene creata una macchina virtuale che non usa dischi gestiti.|
 | [Controllare se l'estensione non esiste](scripts/audit-ext-not-exist.md) | Controlla se un'estensione non viene distribuita con una macchina virtuale. Si specifica il server di pubblicazione e il tipo dell'estensione per controllare se è stata distribuita. |
 | [Allow custom VM image from a Resource Group](scripts/allow-custom-vm-image.md) (Consentire un'immagine di macchina virtuale personalizzata da un gruppo di risorse) |  Richiede che le immagini personalizzate provengano da un gruppo di risorse approvato. Si specifica il nome del gruppo di risorse approvato. |
 | [Deny hybrid use benefit](scripts/deny-hybrid-use.md) (Rifiutare il vantaggio Hybrid Use) | Impedisce di usare il vantaggio Azure Hybrid Use. Usarlo quando non si vuole consentire l'uso di licenze locali. |
@@ -38,7 +38,12 @@ La tabella seguente include i collegamenti ai modelli json per Criteri di Azure.
 | [Consentire solo una determinata immagine della piattaforma della macchina virtuale](scripts/allow-certain-vm-image.md) | Richiede che le macchine virtuali usino una versione specifica di UbuntuServer. |
 | [Create VM using Managed Disk](scripts/use-managed-disk-vm.md) (Creare una macchina virtuale usando un disco gestito) | Richiede che le macchine virtuali usino dischi gestiti.|
 |**Monitoraggio**||
-| [Audit diagnostic setting](scripts/audit-diag-setting.md) (Controllare l'impostazione di diagnostica) | Controlla se le impostazioni di diagnostica non sono abilitate per i tipi di risorsa specificati. Si specifica una matrice di tipi di risorsa per controllare se le impostazioni di diagnostica sono abilitate. |
+| [Audit diagnostic setting](scripts/audit-diag-setting.md) (Controllare l'impostazione di diagnostica) | Controlla se le impostazioni di diagnostica non sono abilitate per i tipi di risorsa specificati. Si specifica una matrice di tipi di risorse per controllare se le impostazioni di diagnostica sono abilitate. |
+|**Convenzioni di nome e il testo**||
+| [Allow multiple name patterns](scripts/allow-multiple-name-patterns.md) (Consenti più modelli di nomi) | Consente l'uso di uno dei numerosi modelli di nome per le risorse. |
+| [Require like pattern](scripts/enforce-like-pattern.md) (Richiedi modello like) | Assicura che i nomi delle risorse soddisfano la condizione "like" per un modello. |
+| [Require match pattern](scripts/enforce-match-pattern.md) (Richiedi modello corrispondente) | Assicura che i nomi delle risorse corrispondono al modello di denominazione. |
+| [Require tag match pattern](scripts/enforce-tag-match-pattern.md) (Richiedi modello corrispondenza tag) | Assicura che un valore del tag corrisponde a un modello di testo. |
 |**Rete**||
 | [Allowed Application Gateway SKUs](scripts/allowed-app-gate-sku.md) (SKU del gateway applicazione consentiti) | Richiede che i gateway applicazione usino uno SKU approvato. Si specifica una matrice di SKU approvati. |
 | [Controllare se Network Watcher non è abilitato per l'area](scripts/net-watch-not-enabled.md) | Controlla se Network Watcher non è abilitato per un'area specificata. Si specifica il nome dell'area per controllare se Network Watcher è abilitato. |
@@ -62,6 +67,7 @@ La tabella seguente include i collegamenti ai modelli json per Criteri di Azure.
 | [Controllare l'impostazione di rilevamento delle minacce a livello di database](scripts/audit-db-threat-det-setting.md) | Controlla i criteri degli avvisi di sicurezza del database SQL se tali criteri non sono impostati sullo stato specificato. Si specifica un valore che indica se il rilevamento delle minacce è abilitato o disabilitato.  |
 | [Controllare l'impostazione di controllo a livello di SQL Server](scripts/audit-sql-ser-leve-audit-setting.md) | Controlla le impostazioni di controllo di SQL server se tali impostazioni non corrispondono a un'impostazione specificata. Si specifica un valore che indica se le impostazioni di controllo devono essere abilitate o disabilitate. |
 | [Controllare l'impostazione di rilevamento delle minacce a livello di server](scripts/audit-sql-ser-threat-det-setting.md) | Controlla i criteri degli avvisi di sicurezza del database SQL se tali criteri non sono impostati sullo stato specificato. Si specifica un valore che indica se il rilevamento delle minacce è abilitato o disabilitato.  |
+| [Audit no Azure Active Directory administrator](scripts/audit-no-aad-admin.md) (Controlla se non è presente un amministratore di Azure Active Directory) | Controlla quando non vi è nessun amministratore di Azure Active Directory assegnato a SQL Server. |
 | [Allowed SQL DB SKUs](scripts/allowed-sql-db-skus.md) (SKU del database SQL consentiti) | Richiede ai database SQL di usare uno SKU approvato. Si specifica una matrice di ID di SKU consentiti o una matrice di nomi di SKU consentiti. |
 |**Archiviazione**||
 | [SKU consentiti per account di archiviazione e macchine virtuali](scripts/allowed-skus-storage.md) | Richiede che gli account di archiviazione e le macchine virtuali usino SKU approvati. Usa i criteri predefiniti per garantire SKU approvati. Si specifica una matrice di SKU di macchine virtuali approvati e una matrice di SKU di account di archiviazione approvati. |

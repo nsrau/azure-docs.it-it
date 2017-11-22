@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: fe708b14fac971d18d95fd1619907023ec35af89
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ae204b79be228d55b30bb543dd25efdd9c3f0436
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed di Power BI da Application Insights
 [Power BI](http://www.powerbi.com/) è una suite di strumenti di analisi business che consente di analizzare i dati e condividere informazioni dettagliate. Dashboard completi sono disponibili in tutti i dispositivi. È possibile combinare dati provenienti da diverse origini, incluse le query di Analytics di [Azure Application Insights](app-insights-overview.md).
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/01/2017
 Esistono tre metodi consigliati per esportare i dati di Application Insights in Power BI. Possono essere usati insieme o separatamente.
 
 * [**Adattatore Power BI**](#power-pi-adapter): consente di impostare un dashboard di dati di telemetria completo dall'app. Il set di tabelle è predefinito, ma è possibile aggiungere query da qualsiasi altra origine.
-* [**Esportazione di query di Analisi**](#export-analytics-queries): consiste di scrivere qualsiasi query con Analisi e poi di esportarla in Power BI. È possibile inserire questa query in un dashboard insieme a tutti gli altri dati.
+* [**Esportazione di query di Analisi**](#export-analytics-queries): è possibile scrivere qualsiasi query tramite lo strumento Analisi o dalla visualizzazione Imbuto ed esportarla in Power BI. È possibile inserire questa query in un dashboard insieme a tutti gli altri dati.
 * [**Esportazione continua e analisi di flusso**](app-insights-export-stream-analytics.md): l'impostazione è più impegnativa. È utile se si desidera conservare i dati per lunghi periodi. Altrimenti, si consiglia di usare gli altri metodi.
 
 ## <a name="power-bi-adapter"></a>Adattatore Power BI
@@ -48,7 +48,7 @@ Con questo metodo si crea un dashboard di dati di telemetria completo per l'uten
 Dopo l'importazione iniziale, il dashboard e i report continuano a essere aggiornati ogni giorno. È possibile controllare la pianificazione dell'aggiornamento nel set di dati.
 
 ## <a name="export-analytics-queries"></a>Esportare query di Analisi
-Questo percorso consente di scrivere tutte le query di Analisi desiderate e di esportarle in un dashboard di Power BI. È possibile aggiungerle al dashboard creato dall'adattatore.
+Questo percorso consente di scrivere tutte le query di Analisi desiderate o di esportarle dalla visualizzazione Imbuto e quindi esportarle in un dashboard di Power BI. È possibile aggiungerle al dashboard creato dall'adattatore.
 
 ### <a name="one-time-install-power-bi-desktop"></a>Operazione da eseguire una sola volta: installazione di Power BI Desktop
 Per importare la query di Application Insights, usare la versione desktop di Power BI. Tuttavia, successivamente è possibile pubblicarla sul Web o nell'area di lavoro cloud di Power BI. 
@@ -81,6 +81,28 @@ Installare [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
    
     ![Selezionare la visualizzazione](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. Aggiornare manualmente il report a intervalli oppure impostare un aggiornamento pianificato nella pagina Opzioni.
+
+### <a name="export-a-funnel"></a>Esportare una visualizzazione Imbuto
+1. [Creare la propria visualizzazione Imbuto](usage-funnels.md)
+2. Fare clic sul pulsante Power BI. 
+
+   ![Pulsante Power BI](./media/app-insights-export-power-bi/button.png)
+   
+3. In Power BI Desktop selezionare **Recupera dati e Query vuota** e quindi nell'editor di query in **Visualizza** selezionare **Editor query avanzata**.
+
+   ![Query vuota](./media/app-insights-export-power-bi/blankquery.png)
+
+   Incollare lo script del linguaggio M esportato nell'Editor query avanzata. 
+
+   ![Editor query avanzata](./media/app-insights-export-power-bi/advancedquery.png)
+
+4. Selezionare gli elementi nella query e scegliere la visualizzazione Imbuto
+
+   ![Selezionare una sequenza e una visualizzazione Imbuto](./media/app-insights-export-power-bi/selectsequence.png)
+
+5. Modificare il titolo per renderlo più significativo e pubblicare il report nell'area di lavoro del cloud di Power BI. 
+
+   ![Modificare il titolo](./media/app-insights-export-power-bi/changetitle.png)
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

@@ -1,5 +1,5 @@
 ---
-title: Limitazioni di Azure Cloud Shell (anteprima) | Microsoft Docs
+title: Limitazioni di Azure Cloud Shell | Microsoft Docs
 description: Panoramica delle limitazioni di Azure Cloud Shell
 services: azure
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: juluk
-ms.openlocfilehash: 66f07481d6e62b4375dd2752c5e7d6f8e02d4a3c
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: bd947af4cca0ed240ba5811d6a5cd06ff7fffc82
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitazioni di Azure Cloud Shell
 
@@ -70,7 +70,7 @@ Fare attenzione quando si modifica il file con estensione bashrc, poiché questa
 
 ### <a name="slow-startup-time"></a>Tempo di avvio lento
 
-L'inizializzazione di PowerShell in Azure Cloud Shell può richiedere fino a 60 secondi durante l'anteprima.
+L'inizializzazione di PowerShell in Azure Cloud Shell (anteprima) può richiedere fino a 60 secondi durante l'anteprima.
 
 ### <a name="no-home-directory-persistence"></a>Nessuna persistenza directory $Home
 

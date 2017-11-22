@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2017
+ms.date: 11/08/2017
 ms.author: nitinme
-ms.openlocfilehash: 21b474e37ef0a6037e05ee1fe8e5088cb3e3601d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc959f763e9a84199130bae845cb62c493676977
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="add-hdinsight-cluster-management-solutions-to-log-analytics-preview"></a>Aggiungere soluzioni di gestione di cluster HDInsight in Log Analytics (Anteprima)
+# <a name="add-hdinsight-cluster-management-solutions-to-log-analytics"></a>Aggiungere soluzioni di gestione di cluster HDInsight in Log Analytics
 
 HDInsight offre soluzioni di gestione specifiche per i cluster che è possibile aggiungere per Azure Log Analytics. Le [soluzioni di gestione](../log-analytics/log-analytics-add-solutions.md) aggiungono funzionalità a OMS e ulteriori dati e strumenti di analisi a Log Analytics. Queste soluzioni raccolgono metriche importanti sulle prestazioni dai cluster HDInsight e forniscono gli strumenti per cercare le metriche. Le soluzioni forniscono anche visualizzazioni e dashboard per la maggior parte dei tipi di cluster supportati in HDInsight. Usando le metriche raccolte con la soluzione, è possibile creare regole e avvisi di monitoraggio personalizzati. 
 
@@ -33,25 +33,29 @@ Questo articolo descrive come aggiungere soluzioni di gestione specifiche per i 
 
 ## <a name="add-cluster-specific-management-solutions"></a>Aggiungere soluzioni di gestione specifiche per i cluster
 
-In questa sezione si aggiunge una soluzione di gestione di cluster HBase in un'area di lavoro OMS esistente. A breve saranno disponibili soluzioni simili per altri tipi di cluster HDInsight.
+In questa sezione si aggiunge una soluzione di gestione di cluster HBase in un'area di lavoro OMS esistente.
 
-1. Aprire il dashboard OMS. Nel portale di Azure aprire il pannello del cluster HDInsight associato ad Azure Log Analytics, fare clic sulla scheda Monitoraggio e quindi fare clic su **Aprire il dashboard OMS**.
+1. Aprire un cluster HDInsigt nel portale di Azure, fare clic su **Monitoraggio**, quindi fare clic su **Aprire il dashboard OMS**.
 
     ![Aprire il dashboard OMS](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/hdinsight-log-analytics-open-oms-dashboard.png "Aprire il dashboard OMS")
 
-1. Nel dashboard OMS fare clic su **Raccolta soluzioni** o sull'icona Visualizza finestra di progettazione nel riquadro sinistro.
+1. Nel dashboard OMS fare clic su **Raccolta soluzioni** o sull'icona **Visualizza finestra di progettazione** nel riquadro sinistro.
 
     ![Aggiungere una soluzione di gestione in OMS](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/hdinsight-add-management-solution-oms-portal.png "Aggiungere una soluzione di gestione in OMS")
 
-2. In Raccolta soluzioni trovare **Monitoraggio Hbase in HDInsight** e quindi fare clic sul riquadro.
+2. Nella Raccolta soluzioni, fare clic su uno dei seguenti riquadri:
 
-    ![Trovare una soluzione di gestione HBase](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/find-hbase-management-solution.png "Trovare una soluzione di gestione HBase")
+    - Monitoraggio di Hadoop HDInsight
+    - Monitoraggio Hbase in HDInsight (anteprima)
+    - Monitoraggio Kafka in HDInsight
+    - Monitoraggio Storm in HDInsight
+    - Monitoraggio Spark in HDInsight
 
-3. Nella schermata successiva fare clic su **Aggiungi**.
+3. Nella schermata successiva fare clic su **Aggiungi**.  La schermata seguente mostra il pulsante Aggiungi per il monitoraggio di HBase.
 
      ![Aggiungere una soluzione di gestione HBase](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/add-hbase-management-solution.png "Aggiungere una soluzione di gestione HBase")
 
-4. A questo punto, dovrebbe venire visualizzato un riquadro nel dashboard OMS per la soluzione di gestione HBase. Se il cluster associato a OMS (come parte dei prerequisiti per questo articolo) è un cluster HBase, il riquadro mostra il nome del cluster e il numero di nodi nel cluster.
+4. Viene visualizzato un riquadro sul dashboard OMS per la soluzione di gestione HBase. Se il cluster associato a OMS (come parte dei prerequisiti per questo articolo) è un cluster HBase, il riquadro mostra il nome del cluster e il numero di nodi nel cluster.
 
     ![Soluzione di gestione HBase aggiunta](./media/hdinsight-hadoop-oms-log-analytics-management-solutions/added-hbase-management-solution.png "Soluzione di gestione HBase aggiunta")
 

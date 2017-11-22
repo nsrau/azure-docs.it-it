@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: 26a5854735bd197fb114fce409a093251dc5c2f0
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33fedd765acde666eef280ba7dfa72536bf1bd2
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Presentazione dello strumento Analisi in Application Insights
 L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Log Analytics.
@@ -54,7 +54,7 @@ Espandere un elemento per visualizzare i dettagli:
 ![Scegliere Tabella e usare Configura colonne](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
-> Fare clic sull'intestazione di una colonna per riordinare i risultati disponibili nel Web browser. Tuttavia, tenere presente che per un set di risultati di grandi dimensioni, il numero di righe scaricate nel browser è limitato. Questa modalità di ordinamento non sempre illustra gli elementi effettivi massimi o minimi. Per ordinarli in modo affidabile, usare l'operatore `top` o `sort`.
+> Fare clic sull'intestazione di una colonna per riordinare i risultati disponibili nel Web browser. Tuttavia, tenere presente che per un set di risultati di grandi dimensioni, il numero di righe scaricate nel browser è limitato. Questa modalità di ordinamento si limita a ordinare il set di risultati restituiti e non sempre illustra gli elementi effettivi massimi o minimi. Per ordinarli in modo affidabile, usare l'operatore `top` o `sort`.
 >
 >
 
@@ -92,7 +92,7 @@ Mostrare le prime n righe, ordinate in base a una colonna specifica:
 
 Il risultato sarebbe stato lo stesso, ma l'esecuzione sarebbe risultata più lenta. Sarebbe stato anche possibile scrivere `order`, che è un alias di `sort`.
 
-Le intestazioni di colonna nella visualizzazione tabella possono essere usate anche per ordinare i risultati sullo schermo. Naturalmente, se è stato usato `take` o `top` per recuperare solo parte di una tabella, verranno riordinati solo i record recuperati.
+Le intestazioni di colonna nella visualizzazione tabella possono essere usate anche per ordinare i risultati sullo schermo. Naturalmente, se è stato usato `take` o `top` per recuperare solo parte di una tabella, fare clic sull'intestazione di colonna per riordinare solo i record recuperati.
 
 ## <a name="wherehttpsdocsloganalyticsioquerylanguagequerylanguagewhereoperatorhtml-filtering-on-a-condition"></a>[Where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): filtrare in base a una condizione
 
@@ -115,8 +115,9 @@ L'operatore `where` accetta un'espressione booleana. Tenere presente i punti chi
 
 <!---Read all about [scalar expressions]().--->
 
-### <a name="getting-the-right-type"></a>Recupero del tipo corretto
-Individuare le richieste non riuscite:
+### <a name="find-unsuccessful-requests"></a>Individuare le richieste non riuscite
+
+Convertire un valore di stringa in un numero intero per usare il confronto basato sul criterio "maggiore di":
 
 ```AIQL
 
@@ -240,7 +241,7 @@ Ad esempio, il tempo che l'app Web impiega per rispondere a una richiesta viene 
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize` raccoglie i punti dati del flusso in gruppi che la clausola `by` valuta in ugual misura. Ogni valore nell'espressione `by` , ovvero ogni nome di operazione nell'esempio precedente, restituisce una riga nella tabella dei risultati.
+`Summarize` raccoglie i punti dati del flusso in gruppi che la clausola `by` valuta in ugual misura. Ogni valore nell'espressione `by`, ovvero ogni nome di operazione univoco nell'esempio precedente, restituisce una riga nella tabella dei risultati.
 
 È anche possibile raggruppare i risultati per ora del giorno:
 

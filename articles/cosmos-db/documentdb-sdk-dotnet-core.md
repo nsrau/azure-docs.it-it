@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 11/10/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e5dc642399ae58120f1757ffacff45a4188681d
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 56a2aff21a728d5ac0355516fc6988512c062b4c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -57,6 +57,12 @@ Azure Cosmos DB .NET Core SDK ha le stesse funzionalità della versione più rec
 > [!NOTE] 
 > Azure Cosmos DB .NET Core SDK non è ancora compatibile con le app della piattaforma UWP (Universal Windows Platform). In caso di interesse a .NET Core SDK che supporta le app della piattaforma UWP, inviare un messaggio di posta elettronica a [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
 
+### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
+ 
+ * Modifica della personalizzazione da Azure DocumentDB ad Azure Cosmos DB nella documentazione di riferimento delle API, nelle informazioni sui metadati negli assembly e nel pacchetto NuGet. 
+ * Esposizione delle informazioni di diagnostica e della latenza della risposta alle richieste inviate con la modalità di connettività diretta. I nomi delle proprietà sono RequestDiagnosticsString e RequestLatency per la classe ResourceResponse.
+ * Questa versione dell'SDK richiede la versione più recente dell'emulatore di Azure Cosmos DB che è possibile scaricare dalla pagina https://aka.ms/cosmosdb-emulator.
+ 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 
 * Aggiunta di diverse correzioni e miglioramenti dell'affidabilità.
@@ -144,6 +150,7 @@ Per domande su questo SDK, pubblicare un post su [StackOverflow](http://stackove
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.7.0](#1.7.0) |10 novembre 2017 |--- |
 | [1.6.0](#1.6.0) |17 ottobre 2017 |--- |
 | [1.5.1](#1.5.1) |02 ottobre 2017 |--- |
 | [1.5.0](#1.5.0) |10 agosto 2017 |--- | 

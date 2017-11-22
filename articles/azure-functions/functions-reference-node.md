@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 1aaeeed2740179555c024792562a950f4fd6b29d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8050e116a48c69b2fccd6bdc1cf029dfdd6e6f28
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -317,9 +317,9 @@ function GetEnvironmentVariable(name)
 
 Quando si usano le funzioni JavaScript, tenere presente le considerazioni nelle due sezioni che seguono.
 
-### <a name="choose-single-core-app-service-plans"></a>Scegliere i piani di servizio app single core
+### <a name="choose-single-vcpu-app-service-plans"></a>Scegliere i piani di servizio app con una singola vCPU
 
-Quando si crea un'app per le funzioni che usa il piano di servizio app, è consigliabile selezionare un piano single core anziché uno con più core. Oggi Funzioni esegue funzioni JavaScript in modo più efficiente in macchine virtuali single core e l'uso di macchine virtuali di dimensioni maggiori non produce i miglioramenti delle prestazioni previsti. Se necessario, è possibile scalare orizzontalmente manualmente aggiungendo altre istanze di macchine virtuali single core oppure abilitare la scalabilità automatica. Per altre informazioni, vedere [Scalare il conteggio delle istanze manualmente o automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
+Quando si crea un'app per le funzioni che usa il piano di servizio app, è consigliabile selezionare un piano con una singola vCPU anziché uno con più vCPU. Oggi Funzioni esegue funzioni JavaScript in modo più efficiente in macchine virtuali con una singola vCPU e l'uso di macchine virtuali di dimensioni maggiori non produce i miglioramenti delle prestazioni previsti. Se necessario, è possibile scalare orizzontalmente manualmente aggiungendo altre istanze di macchine virtuali con una singola vCPU oppure abilitare la scalabilità automatica. Per altre informazioni, vedere [Scalare il conteggio delle istanze manualmente o automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
 
 ### <a name="typescript-and-coffeescript-support"></a>Supporto TypeScript e CoffeeScript
 Dal momento che non è ancora disponibile il supporto diretto per la compilazione automatica di TypeScript o CoffeeScript tramite il runtime, il supporto deve essere gestito all'esterno del runtime al momento della distribuzione. 

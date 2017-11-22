@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 25e2538e220327a078a6527e667dfcd6cb838b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc25d6106ad67710660b1a5c48270a7082688d51
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Come bilanciare il carico per le macchine virtuali di Linux in Azure per creare un'applicazione a disponibilità elevata
 Il bilanciamento del carico offre un livello più elevato di disponibilità distribuendo le richieste in ingresso tra più macchine virtuali. In questa esercitazione vengono illustrati i diversi componenti di Azure Load Balancer che distribuiscono il traffico e garantiscono una disponibilità elevata. Si apprenderà come:
@@ -162,10 +162,13 @@ for i in `seq 1 3`; do
 done
 ```
 
+Una volta create tutte e tre le schede di interfaccia di rete virtuale, continuare con il passaggio successivo
+
+
 ## <a name="create-virtual-machines"></a>Creare macchine virtuali
 
 ### <a name="create-cloud-init-config"></a>Creare una configurazione cloud-init
-In un'esercitazione precedente, [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md) (Come personalizzare una macchina virtuale Linux al primo avvio), è stato descritto come personalizzare una macchina virtuale al primo avvio con cloud-init. È possibile usare lo stesso file di configurazione cloud-init per installare NGINX ed eseguire una semplice app Node.js "Hello World".
+In un'esercitazione precedente, [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md) (Come personalizzare una macchina virtuale Linux al primo avvio), è stato descritto come personalizzare una macchina virtuale al primo avvio con cloud-init. È possibile usare lo stesso file di configurazione cloud-init per installare NGINX ed eseguire una semplice app Node.js 'Hello World' nel passaggio successivo. Per visualizzare il bilanciamento del carico in azione, alla fine dell'esercitazione si accede a questa semplice app in un Web browser.
 
 Nella shell corrente creare un file denominato *cloud-init.txt* e incollare la configurazione seguente. Ad esempio, creare il file in Cloud Shell anziché nel computer locale. Immettere `sensible-editor cloud-init.txt` per creare il file e visualizzare un elenco degli editor disponibili. Assicurarsi che l'intero file cloud-init venga copiato correttamente, in particolare la prima riga:
 
@@ -253,7 +256,7 @@ az network public-ip show \
     --output tsv
 ```
 
-Sarà quindi possibile immettere l'indirizzo IP pubblico in un Web browser. Si ricordi che sono necessari alcuni minuti perché le macchine virtuali siano pronte e che il bilanciamento del carico inizi a distribuire traffico a queste. Verrà visualizzata l'app, con il nome host della macchina virtuale a cui il servizio di bilanciamento del carico ha distribuito il traffico, come nell'esempio seguente:
+Sarà quindi possibile immettere l'indirizzo IP pubblico in un Web browser. Si ricordi che sono necessari alcuni minuti affinché le macchine virtuali siano pronte e che il bilanciamento del carico inizi a distribuire traffico ad esse. Verrà visualizzata l'app, con il nome host della macchina virtuale a cui il servizio di bilanciamento del carico ha distribuito il traffico, come nell'esempio seguente:
 
 ![Esecuzione dell'app Node.js](./media/tutorial-load-balancer/running-nodejs-app.png)
 
@@ -277,6 +280,24 @@ az network nic ip-config address-pool remove \
 
 Per verificare la distribuzione del traffico nelle due VM restanti che eseguono l'app da parte del servizio di bilanciamento del carico, forzare l'aggiornamento del Web browser. È ora possibile eseguire attività di manutenzione sulla VM, ad esempio installare aggiornamenti del sistema operativo o eseguire un riavvio della VM.
 
+Per visualizzare un elenco di macchine virtuali con schede di interfaccia di rete virtuale connesse al bilanciamento del carico, usare [az network lb address-pool show](/cli/azure/network/lb/address-pool#show). Eseguire una query e filtrare l'ID della scheda di interfaccia di rete virtuale come indicato di seguito:
+
+```azurecli-interactive
+az network lb address-pool show \
+    --resource-group myResourceGroupLoadBalancer \
+    --lb-name myLoadBalancer \
+    --name myBackEndPool \
+    --query backendIpConfigurations \
+    --output tsv | cut -f4
+```
+
+L'output è simile all'esempio seguente, che indica che la scheda di interfaccia di rete virtuale per VM 2 non fa più parte del pool di indirizzi back-end:
+
+```bash
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic1/ipConfigurations/ipconfig1
+/subscriptions/<guid>/resourceGroups/myResourceGroupLoadBalancer/providers/Microsoft.Network/networkInterfaces/myNic3/ipConfigurations/ipconfig1
+```
+
 ### <a name="add-a-vm-to-the-load-balancer"></a>Aggiungere una VM al servizio di bilanciamento del carico
 Al termine della manutenzione di una VM o se è necessario espandere la capacità, è possibile aggiungere una VM al pool di indirizzi back-end con [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#add). L'esempio seguente aggiunge la scheda di interfaccia di rete virtuale per **myVM2** a *myLoadBalancer*:
 
@@ -288,6 +309,8 @@ az network nic ip-config address-pool add \
     --lb-name myLoadBalancer \
     --address-pool myBackEndPool
 ```
+
+Per verificare che la scheda di interfaccia di rete virtuale sia connessa al pool di indirizzi back-end, usare nuovamente [az network lb address-pool show](/cli/azure/network/lb/address-pool#show) dal passaggio precedente.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

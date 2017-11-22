@@ -4,7 +4,7 @@ description: La prima esercitazione per la distribuzione dell'array virtuale Sto
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d0801053721f98ce7a2b0fcbe3c65da8dbdd8d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6685c5ab7768176a0c8e7084c8512d5345732d9a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuire l'array virtuale StorSimple: preparare il portale di Azure
 
@@ -42,7 +42,7 @@ Consultare gli articoli seguenti nella sequenza indicata per distribuire l'array
 | **#** | **In questo passaggio** | **A questo scopo:** | **Usare questi documenti.** |
 | --- | --- | --- | --- |
 | 1. |**Eseguire la configurazione del portale di Azure** |Creare e configurare il servizio Gestione dispositivi StorSimple prima di eseguire il provisioning di un array virtuale StorSimple. |[Preparare il portale](storsimple-virtual-array-deploy1-portal-prep.md) |
-| 2. |**Eseguire il provisioning dell'array virtuale** |Per Hyper-V, eseguire il provisioning e connettersi all'array virtuale StorSimple su un sistema host che esegue Hyper-V in Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2. <br></br> <br></br> Per VMware, eseguire il provisioning e connettersi a un array virtuale StorSimple in un sistema host che esegue VMware ESXi 5.5 e versioni successive.<br></br> |[Eseguire il provisioning di un array virtuale in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Eseguire il provisioning di un array virtuale in VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 2. |**Eseguire il provisioning dell'array virtuale** |Per Hyper-V, eseguire il provisioning e connettersi all'array virtuale StorSimple su un sistema host che esegue Hyper-V in Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2. <br></br> <br></br> Per VMware, eseguire il provisioning e connettersi a un array virtuale StorSimple in un sistema host che esegue VMware ESXi 5.0, 5.5 o 6.0.<br></br> |[Eseguire il provisioning di un array virtuale in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Eseguire il provisioning di un array virtuale in VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
 | 3. |**Configurare l'array virtuale** |Per il file server, eseguire l'installazione iniziale, registrare il file server StorSimple e completare l'installazione del dispositivo. È quindi possibile eseguire il provisioning delle condivisioni SMB. <br></br> <br></br> Per il server iSCSI, eseguire l'installazione iniziale, registrare il server iSCSI StorSimple e completare l'installazione del dispositivo. È quindi possibile eseguire il provisioning dei volumi iSCSI. |[Configurare l'array virtuale come file server](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Configurare l'array virtuale come server iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 È ora possibile iniziare a configurare il portale di Azure.
@@ -70,7 +70,7 @@ Prima di iniziare, verificare che:
 
 Prima di distribuire un array virtuale, è necessario:
 
-* Avere accesso a un sistema host che esegue Hyper-V in Windows Server 2008 R2 o versioni successive o VMware (ESXi 5.5 o versioni successive) da poter usare per il provisioning di un dispositivo.
+* Avere accesso a un sistema host che esegue Hyper-V in Windows Server 2008 R2 o versioni successive o VMware (ESXi 5.0, 5.5 o 6.0) da poter usare per il provisioning di un dispositivo.
 * Il sistema host è in grado di dedicare le risorse seguenti per eseguire il provisioning dell'array virtuale:
   
   * Un minimo di 4 memorie centrali.
@@ -136,7 +136,7 @@ Eseguire la procedura seguente nel [portale di Azure](https://portal.azure.com/)
    
    * VHDX per Hyper-V in Windows Server 2012 e versioni successive
    * VHD per Hyper-V in Windows Server 2008 R2 e versioni successive
-   * VMDK per VMWare ESXi 5.5 e versioni successive
+   * VMDK per VMWare ESXi 5.0, 5.5 o 6.0
 5. Scaricare e decomprimere il file in un'unità locale, prendendo nota della posizione del file decompresso.
 
 ## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Passaggio facoltativo: configurare un nuovo account di archiviazione per il servizio

@@ -17,17 +17,18 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb6ade65879b245bf44800da3352354ba274ee5a
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 09bb662e30a97e2741303e2e4630582625954909
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Confronto di piani di hosting per Funzioni di Azure
 
-## <a name="introduction"></a>Introduzione
-
 È possibile eseguire Funzioni di Azure in due modalità diverse, ovvero con piano a consumo e piano di servizio app di Azure. Il piano a consumo alloca automaticamente funzionalità di calcolo durante l'esecuzione del codice, aumenta il numero di istanze in base alla necessità per gestire il carico e quindi riduce le prestazioni quando il codice non è in esecuzione. Non è quindi necessario pagare per le macchine virtuali inattive e non è necessario riservare in anticipo la capacità. Questo articolo è incentrato sul piano a consumo, un modello App [senza server](https://azure.microsoft.com/overview/serverless-computing/). Per informazioni dettagliate sul funzionamento del piano di servizio app, vedere [Panoramica approfondita dei piani di servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+
+>[!NOTE]  
+> L'hosting in Linux è attualmente disponibile solo per un piano di servizio app.
 
 Se non si ha ancora familiarità con Funzioni di Azure, vedere la [panoramica di Funzioni di Azure](functions-overview.md).
 
@@ -55,7 +56,7 @@ Il piano a consumo è l'opzione di hosting predefinita e offre i vantaggi seguen
 
 ## <a name="app-service-plan"></a>Piano di servizio app
 
-Nel piano di servizio app le app per le funzioni vengono eseguite in macchine virtuali dedicate in SKU Basic, Standard, Premium e Isolati, analogamente alle app Web, alle app per le API e alle app per dispositivi mobili. Le macchine virtuali dedicate vengono allocate alle app del servizio app, ovvero l'host di funzioni è sempre in esecuzione.
+Nel piano di servizio app le app per le funzioni vengono eseguite in macchine virtuali dedicate in SKU Basic, Standard, Premium e Isolati, analogamente alle app Web, alle app per le API e alle app per dispositivi mobili. Le macchine virtuali dedicate vengono allocate alle app del servizio app, ovvero l'host di funzioni è sempre in esecuzione. I piani di servizio app supportano Linux.
 
 Prendere in considerazione un piano di servizio app nei casi seguenti:
 - Sono presenti macchine virtuali sottoutilizzate, che eseguono già altre istanze del servizio app.
@@ -63,12 +64,13 @@ Prendere in considerazione un piano di servizio app nei casi seguenti:
 - Sono necessarie altre opzioni per CPU o memoria, rispetto alle opzioni disponibili nel piano a consumo.
 - È necessario un tempo di esecuzione superiore al tempo di esecuzione massimo consentito nel piano a consumo (di 10 minuti).
 - Sono necessarie funzionalità disponibili solo in un piano di servizio app, ad esempio il supporto per Ambiente del servizio app, la connettività di rete virtuale/VPN e dimensioni maggiori delle macchine virtuali. 
+- Si vuole eseguire l'app per le funzioni in Linux o fornire un'immagine personalizzata in cui eseguire le funzioni.
 
 Una macchina virtuale separa i costi associati al numero di esecuzioni, al tempo di esecuzione e alla memoria usata. Non si pagherà quindi più del costo dell'istanza di macchina virtuale allocata. Per informazioni dettagliate sul funzionamento del piano di servizio app, vedere [Panoramica approfondita dei piani di servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 Con un piano di servizio app, è possibile aumentare manualmente il numero di istanze aggiungendo altre istanze di macchine virtuali oppure abilitare la scalabilità automatica. Per altre informazioni, vedere [Scalare il conteggio delle istanze manualmente o automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). Per aumentare le prestazioni è anche possibile scegliere un piano di servizio App diverso. Per altre informazioni, vedere [Aumentare le prestazioni di un'app in Azure](../app-service/web-sites-scale.md). 
 
-Se si prevede di eseguire funzioni JavaScript in un piano di servizio app, è necessario scegliere un piano con un minor numero di core. Per altre informazioni, vedere le [informazioni di riferimento su JavaScript per le funzioni](functions-reference-node.md#choose-single-core-app-service-plans).  
+Se si prevede di eseguire funzioni JavaScript in un piano di servizio app, è necessario scegliere un piano con un minor numero di vCPU. Per altre informazioni, vedere [Scegliere i piani di servizio app single core](functions-reference-node.md#considerations-for-javascript-functions).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
@@ -93,7 +95,7 @@ Quando si usa un piano di hosting a consumo, i file di codice delle funzioni ven
 > [!NOTE]
 > Quando si usa un trigger di tipo BLOB in un piano a consumo, può verificarsi un ritardo massimo di 10 minuti per l'elaborazione di nuovi BLOB in caso di inattività di un'app per le funzioni. Quando l'app per le funzioni è in esecuzione, i BLOB vengono elaborati immediatamente. Per evitare questo ritardo iniziale, prendere in considerazione una delle opzioni seguenti:
 > - Eseguire l'hosting dell'app per le funzioni in un piano di servizio app con l'opzione Always On abilitata.
-> - Usare un altro meccanismo per attivare l'elaborazione dei BLOB, ad esempio un messaggio della coda che contiene il nome del BLOB. Per un esempio, vedere il [trigger della coda con binding di input del BLOB](functions-bindings-storage-blob.md#input-sample).
+> - Usare un altro meccanismo per attivare l'elaborazione dei BLOB, ad esempio un messaggio della coda che contiene il nome del BLOB. Per un esempio, vedere gli [esempi di script C# e JavaScript per le associazioni di input e di output dei BLOB](functions-bindings-storage-blob.md#input--output---example).
 
 ### <a name="runtime-scaling"></a>Ridimensionamento in fase di runtime
 

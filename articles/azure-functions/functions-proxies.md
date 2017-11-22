@@ -1,5 +1,5 @@
 ---
-title: Usare i proxy in Funzioni di Azure | Microsoft Docs
+title: Usare i proxy in Funzioni di Azure | Documentazione Microsoft
 description: Informazioni generali sull'uso dei proxy in Funzioni di Azure
 services: functions
 documentationcenter: 
@@ -14,20 +14,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: d201c8395adf47fa3d9f790b77b1d29dda5a0aeb
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 24bc439b6167d335a0862aa93debb9efe5aeae48
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="work-with-azure-functions-proxies-preview"></a>Usare i proxy di Funzioni di Azure (anteprima)
-
-> [!NOTE] 
-> I prozy di Funzioni di Azure sono attualmente in anteprima. Sono gratuite in anteprima, ma si applicano le tariffe standard per le funzioni quando vengono eseguiti i proxy. Per altre informazioni, vedere [Prezzi di Funzioni](https://azure.microsoft.com/pricing/details/functions/).
+# <a name="work-with-azure-functions-proxies"></a>Usare i proxy di Funzioni di Azure
 
 Questo articolo illustra come configurare e usare i proxy in Funzioni di Azure. Questa funzionalità consente di specificare gli endpoint nell'app per le funzioni implementati da un'altra risorsa. È possibile usare questi proxy per suddividere un'API di grandi dimensioni in più app per le funzioni (come in un'architettura di microservizio), pur continuando a presentare una singola superficie API per i client.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+> [!NOTE] 
+> Si applicano le tariffe standard per Funzioni quando vengono eseguiti i proxy. Per altre informazioni, vedere [Prezzi di Funzioni](https://azure.microsoft.com/pricing/details/functions/).
 
 ## <a name="create"></a>Creare un proxy
 

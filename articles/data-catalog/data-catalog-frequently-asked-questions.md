@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 11/13/2017
 ms.author: maroche
-ms.openlocfilehash: 7aa0f9b292a98c6137ecf4ae957b3cb86062f250
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d1fd6b0bd47188570553e0e3ad1de527a35e98f6
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Domande frequenti sul Catalogo dati di Azure
 Questo articolo fornisce le risposte alle domande frequenti relative al servizio Azure Data Catalog.
@@ -53,11 +53,13 @@ L'edizione gratuita di Data Catalog è limitata a 5.000 asset di dati registrati
 
 L'edizione Standard di Date Catalog supporta fino a 100.000 asset di dati registrati.
 
+Qualsiasi oggetto registrato nel Data Catalog, ad esempio tabelle, viste, file e report, viene considerato un asset di dati.
+
 ## <a name="what-are-its-supported-data-source-and-asset-types"></a>Quali sono i tipi di origine dati e di asset supportati?
 Per un elenco di origini dati attualmente supportate, vedere [Riferimento per l'origine dati di Azure Data Catalog](data-catalog-dsr.md).
 
 ## <a name="how-do-i-request-support-for-another-data-source"></a>Come si richiede il supporto per un'altra origine dati?
-Per inviare le richieste di funzionalità e altri commenti, andare al [forum di Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Per inviare le richieste di funzionalità e altri commenti, andare su [Data Catalog in Azure Feedback Forums](https://feedback.azure.com/forums/906052-data-catalog/category/320788-data-sources).
 
 ## <a name="how-do-i-get-started-with-data-catalog"></a>Come si inizia a usare Data Catalog?
 Il modo migliore per iniziare è vedere l'articolo [Introduzione ad Azure Data Catalog](data-catalog-get-started.md). In questo articolo è riportata una panoramica end-to-end delle funzionalità nel servizio.
@@ -65,7 +67,7 @@ Il modo migliore per iniziare è vedere l'articolo [Introduzione ad Azure Data C
 ## <a name="how-do-i-register-my-data"></a>Come si registrano i dati?
 Per registrare i dati in Data Catalog:
 1. Nell'area **Pubblica** del portale di Azure Data Catalog avviare lo strumento di registrazione di Azure Data Catalog. 
-2. Nell'applicazione di pubblicazione di Data Catalog eseguire l'accesso con le stesse credenziali usate per accedere al portale di Data Catalog.
+2. Nello strumento di registrazione dell'origine dati di Data Catalog eseguire l'accesso con le stesse credenziali usate per accedere al portale di Data Catalog.
 3. Selezionare l'origine dati e gli asset specifici che si vuole registrare.
 
 ## <a name="what-properties-does-it-extract-for-data-assets-that-are-registered"></a>Quali proprietà estrae per gli asset di dati registrati?
@@ -84,7 +86,7 @@ Le proprietà specifiche variano in base all'origine dati, ma in genere il servi
 >
 
 > [!NOTE]
-> Per le origini dati come SQL Server Analysis Services che hanno una proprietà **Description** ottimale, l'applicazione di pubblicazione di Data Catalog estrae il valore della proprietà. Per i database relazionali di SQL Server, che non hanno una proprietà **Description** ottimale, l'applicazione di pubblicazione di Data Catalog estrae il valore dalla proprietà estesa **ms_description** per oggetti e colonne. Per altre informazioni, vedere [Uso di proprietà estese su oggetti di database](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> Per le origini dati come SQL Server Analysis Services che hanno una proprietà **Description** ottimale, lo strumento di registrazione dell'origine dati di Data Catalog estrae il valore della proprietà. Per i database relazionali di SQL Server, che non hanno una proprietà **Description** ottimale, lo strumento di registrazione dell'origine dati di Data Catalog estrae il valore dalla proprietà estesa **ms_description** per oggetti e colonne. Per altre informazioni, vedere [Uso di proprietà estese su oggetti di database](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 >
 >
 
@@ -94,7 +96,7 @@ Dopo aver registrato gli asset in Data Catalog è possibile che trascorrano da 5
 ## <a name="how-do-i-annotate-and-enrich-the-metadata-for-my-registered-data-assets"></a>Come si annotano e ampliano i metadati per l'asset di dati registrato?
 Il modo più semplice per fornire i metadati agli asset registrati consiste nel selezionare l'asset nel portale di Data Catalog e immettere i valori nel riquadro delle proprietà o dello schema per l'oggetto selezionato.
 
-È inoltre possibile fornire alcuni metadati, ad esempio esperti e tag, durante il processo di registrazione. I valori forniti nel servizio di pubblicazione di Data Catalog vengono applicati a tutti gli asset che si trovano in fase di registrazione. Per visualizzare gli oggetti registrati recentemente nel portale per aggiungere annotazioni, selezionare il pulsante **Visualizza portale** nella schermata finale dell'applicazione di pubblicazione di Data Catalog.
+È inoltre possibile fornire alcuni metadati, ad esempio esperti e tag, durante il processo di registrazione. I valori forniti nel servizio di pubblicazione di Data Catalog vengono applicati a tutti gli asset che si trovano in fase di registrazione. Per visualizzare gli oggetti registrati recentemente nel portale per aggiungere annotazioni, selezionare il pulsante **Visualizza portale** nella schermata finale dello strumento di registrazione dell'origine dati di Data Catalog.
 
 ## <a name="how-do-i-delete-my-registered-data-objects"></a>Come si eliminano gli oggetti dati registrati?
 È possibile eliminare un oggetto da Data Catalog selezionandolo nel portale e quindi scegliendo il pulsante **Elimina**. Rimuovendo l'oggetto vengono rimossi da Data Catalog anche i metadati, ma non l'origine dati sottostante.
@@ -106,7 +108,7 @@ Un esperto è una persona che ha una prospettiva informata su un oggetto dati. U
 Per segnalare problemi e condividere informazioni e domande, andare al [forum di Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>Il catalogo funziona con un'altra origine dati a cui si è interessati?
-Grazie al lavoro che si sta svolgendo, in futuro è prevista l'aggiunta di altre origini dati a Data Catalog. Se si è interessati al supporto di un'origine dati specifica, scrivere un suggerimento in proposito (o esprimere il proprio sostegno se già suggerita) andando al [forum di Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Grazie al lavoro che si sta svolgendo, in futuro è prevista l'aggiunta di altre origini dati a Data Catalog. Se si è interessati al supporto di un'origine dati specifica, scrivere un suggerimento in proposito (o esprimere il proprio sostegno se già suggerito) andando su [Data Catalog in Azure Feedback Forums](https://feedback.azure.com/forums/906052-data-catalog).
 
 ## <a name="how-is-azure-data-catalog-related-to-the-data-catalog-in-power-bi-for-office-365"></a>Qual è la correlazione tra Azure Data Catalog e il catalogo dati di Power BI per Office 365?
 È possibile pensare ad Azure Data Catalog come a un'evoluzione del catalogo dati in Power BI. A partire dalla primavera 2017, Azure Data Catalog viene usato per abilitare la condivisione e l'individuazione delle query in Excel 2016 e Power Query per Excel. Le funzionalità del catalogo dati in Excel sono disponibili per gli utenti con licenza Power BI Pro.
@@ -114,14 +116,18 @@ Grazie al lavoro che si sta svolgendo, in futuro è prevista l'aggiunta di altre
 ## <a name="what-permissions-do-i-need-to-register-assets-with-data-catalog"></a>Quali autorizzazioni sono necessarie per registrare gli asset in Data Catalog?
 Per eseguire lo strumento di registrazione di Data Catalog, sono necessarie autorizzazioni per l'origine dati che consentano di leggere i metadati dall'origine. Per includere anche un'anteprima, è necessario avere autorizzazioni che consentono di leggere i dati dagli oggetti in fase di registrazione.
 
+Data Catalog consente inoltre agli amministratori del catalogo di stabilire quali utenti e gruppi possono aggiungere metadati al catalogo. Per altre informazioni vedere [Come proteggere l'accesso al catalogo dati e agli asset di dati](data-catalog-how-to-secure-catalog.md).
+
 ## <a name="will-data-catalog-be-made-available-for-on-premises-deployment-as-well"></a>Data Catalog sarà disponibile anche per la distribuzione locale?
 Data Catalog è un servizio cloud che può usare origini dati locali e del cloud per fornire una soluzione ibrida di individuazione dell'origine dati. Al momento non è prevista una versione del servizio Data Catalog da eseguire in locale.
 
 ## <a name="can-i-extract-more-or-richer-metadata-from-the-data-sources-i-register"></a>È possibile estrarre metadati più numerosi o migliorati dalle origini dati registrate?
-Si sta lavorando attivamente per ampliare le funzionalità di Data Catalog. Se si è interessati all'estrazione di altri metadati dall'origine dati durante la registrazione, scrivere un suggerimento (o esprimere il proprio sostegno se già suggerito) nel [forum di Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). In futuro verrà consentito a terze parti di aggiungere nuovi tipi di origine dati tramite un'API di estensibilità.
+Si sta lavorando attivamente per ampliare le funzionalità di Data Catalog. Se si è interessati all'estrazione di altri metadati dall'origine dati durante la registrazione, scrivere un suggerimento (o esprimere il proprio sostegno se già suggerito) sul [Data Catalog in Azure Feedback Forums](https://feedback.azure.com/forums/906052-data-catalog). 
+
+Se si desidera includere i metadati dello schema o della colonna, le anteprime o i profili di dati, per le origini dati in cui i metadati non vengono estratti dallo strumento di registrazione dell'origine dati, è possibile usare l'API di Data Catalog per aggiungere questi metadati. Per altre informazioni, vedere l'[API REST di Azure Data Catalog](https://docs.microsoft.com/rest/api/datacatalog/).
 
 ## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>Come si limita la visibilità degli asset di dati registrati, in modo che solo determinati utenti possano individuarli?
-Selezionare gli asset di dati in Data Catalog e fare clic sul pulsante **Assumi proprietà**. I proprietari degli asset di dati in Data Catalog possono modificare le impostazioni di visibilità per consentire a tutti gli utenti di trovare gli asset di proprietà o limitare la visibilità a utenti specifici.
+Selezionare gli asset di dati in Data Catalog e fare clic sul pulsante **Assumi proprietà**. I proprietari degli asset di dati in Data Catalog possono modificare le impostazioni di visibilità per consentire a tutti gli utenti di trovare gli asset di proprietà o limitare la visibilità a utenti specifici. Per altre informazioni, vedere [Gestire gli asset di dati in Azure Data Catalog](data-catalog-how-to-manage.md).
 
 ## <a name="how-do-i-update-the-registration-for-a-data-asset-so-that-changes-in-the-data-source-are-reflected-in-the-catalog"></a>Come si aggiorna la registrazione di un asset di dati in modo che le modifiche apportate nell'origine dati vengano riflesse nel catalogo?
 Per aggiornare i metadati degli asset di dati già registrati nel catalogo, è sufficiente registrare nuovamente l'origine dati che contiene gli asset. Le modifiche nell'origine dati, ad esempio l'aggiunta o la rimozione di colonne da tabelle o viste, vengono aggiornate nel catalogo, ma tutte le annotazioni fornite dagli utenti vengono conservate.

@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 543fafac63423ab874c6c8e40d91a1ce0f161987
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 2c1b91fb87857eee8ca938be193b61e01bbdb886
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Inviare eventi a un ambiente Time Series Insights tramite un hub eventi
 Questo articolo illustra come creare e configurare un hub eventi ed eseguire un'applicazione di esempio per effettuare il push degli eventi. Se è presente un hub eventi con eventi in formato JSON, saltare questa esercitazione e visualizzare l'ambiente in [Time Series Insights](https://insights.timeseries.azure.com).
@@ -28,7 +28,7 @@ Questo articolo illustra come creare e configurare un hub eventi ed eseguire un'
 
 3. Per selezionare l'hub eventi, fare clic sul relativo nome.
 
-4. In Entità nella finestra di configurazione centrale fare clic di nuovo su **Hub eventi**.
+4. In **Entità** nella finestra di configurazione centrale fare clic di nuovo su **Hub eventi**.
 
 5. Selezionare il nome dell'hub eventi per configurarlo.
 
@@ -244,4 +244,5 @@ Un oggetto JSON con una matrice JSON annidata che contiene due oggetti JSON. Que
 |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>Passaggi successivi
-Visualizzare l'ambiente in [Time Series Insights Explorer](https://insights.timeseries.azure.com).
+> [!div class="nextstepaction"]
+> [Visualizzare l'ambiente in Time Series Insights Explorer](https://insights.timeseries.azure.com).

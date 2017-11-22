@@ -4,7 +4,7 @@ description: Pianificare l'analisi avanzata prendendo in considerazione una seri
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 421520dd-7728-4d29-889c-ebe6a0a6fb07
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: bradsev
-ms.openlocfilehash: 42d1de8a27f8979db5662094e8bd74a6f5ccac55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f4cf702b899b285b18c09d7a5951589d2ae71b7d
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Come identificare scenari e pianificare l'elaborazione dei dati di analisi avanzata
 Quali risorse è necessario pianificare quando si configura un ambiente per l'elaborazione dell'analisi avanzata su un set di dati? Questo articolo suggerisce una serie di domande che contribuiscono a identificare le attività e le risorse attinenti allo scenario. L'ordine dei passaggi generali per l'analisi predittiva è illustrato in [Informazioni sul Processo di analisi scientifica dei dati per i team (TDSP)](overview.md). Ognuno di questi passaggi richiede risorse specifiche per le attività attinenti allo scenario specifico. Le domande principali per identificare lo scenario riguardano la logistica dei dati, le caratteristiche, la qualità dei set di dati e gli strumenti e linguaggi preferiti per eseguire l'analisi.
@@ -42,12 +42,12 @@ Le domande di logistica riguardano la posizione dell'**origine dati**, la **dest
    * Tabelle Hive o HDInsight (Hadoop in Azure)
    * Azure Machine Learning
    * Dischi rigidi virtuali di Azure montabili.
-3. **Come verranno spostati i dati?** Gli argomenti seguenti illustrano le procedure e le risorse disponibili per inserire o caricare dati in vari ambienti di elaborazione e di archiviazione diversi.
+3. **Come verranno spostati i dati?** Gli articoli seguenti illustrano le procedure e le risorse disponibili per inserire o caricare dati in vari ambienti di elaborazione e di archiviazione diversi.
    
    * [Caricare i dati in ambienti di archiviazione per l'analisi](ingest-data.md)
    * [Importare dati di training in Azure Machine Learning Studio da varie origini dati](../studio/import-data.md).
 4. **I dati devono essere spostati a intervalli regolari o modificati durante la migrazione?** È consigliabile usare Azure Data Factory (ADF) quando è necessario migrare continuamente i dati, soprattutto in uno scenario ibrido che accede a risorse locali e cloud o in presenza di dati transazionali, che devono essere modificati o ai quali va aggiunta una logica di business durante la migrazione. Per altre informazioni, vedere [Spostare i dati da un server SQL locale a SQL Azure con Azure Data Factory](move-sql-azure-adf.md)
-5. **Quanta parte dei dati deve essere spostata in Azure?** I set di dati molto grandi potrebbero superare la capacità di archiviazione di determinati ambienti. Per un esempio, vedere la discussione sui limiti di dimensione per Machine Learning Studio nella sezione successiva. In questi casi è possibile usare un campione dei dati durante l'analisi. Per informazioni dettagliate su come sottocampionare un set di dati in vari ambienti di Azure, vedere [Sample data in the Team Data Science Process](sample-data.md)(Campionare i dati nel Processo di analisi scientifica dei dati per i team).
+5. **Quanta parte dei dati deve essere spostata in Azure?** I set di dati estremamente grandi potrebbero superare la capacità di archiviazione di determinati ambienti. Per un esempio, vedere la discussione sui limiti di dimensione per Machine Learning Studio nella sezione successiva. In questi casi è possibile usare un campione dei dati durante l'analisi. Per informazioni dettagliate su come sottocampionare un set di dati in vari ambienti di Azure, vedere [Sample data in the Team Data Science Process](sample-data.md)(Campionare i dati nel Processo di analisi scientifica dei dati per i team).
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>Domande sulle caratteristiche dei dati: tipo, formato e dimensione
 Queste domande sono fondamentali per la pianificazione degli ambienti di elaborazione e archiviazione, ognuno dei quali è più adatto a vari tipi di dati e per ognuno dei quali sono previste determinate limitazioni.

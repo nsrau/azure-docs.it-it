@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Creare un''area di lavoro Azure Databricks con il portale di Azure | Microsoft Docs'
-description: Questa guida introduttiva illustra come usare il portale di Azure per creare un'area di lavoro di Azure Databricks e il cluster Apache Spark.
+title: 'Guida introduttiva: Eseguire un primo processo Spark in Azure Databricks mediante il portale di Azure | Microsoft Docs'
+description: Questa guida introduttiva illustra come usare il portale di Azure per creare un'area di lavoro di Azure Databricks e un cluster Apache Spark e per eseguire un processo Spark.
 services: azure-databricks
 documentationcenter: 
 author: nitinme
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: nitinme
-ms.openlocfilehash: 9d4ee88cf3788071ba6b1eca909c1fe5e6044d03
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: d384a1aef89941c2c9b547e5e0d05bb562578393
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="quickstart-get-started-with-azure-databricks-using-the-azure-portal"></a>Guida introduttiva: Introduzione ad Azure Databricks con il portale di Azure
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Guida introduttiva: Eseguire un processo Spark in Azure Databricks mediante il portale di Azure
 
 Questa guida introduttiva illustra come creare un'area di lavoro di Azure Databricks e un cluster Apache Spark all'interno di tale area di lavoro. Viene infine spiegato come eseguire un processo Spark nel cluster Databricks. Per altre informazioni su Azure Databricks, vedere [Informazioni su Azure Databricks](what-is-azure-databricks.md).
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al portale di Azure
+## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
 
 Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -31,7 +31,11 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 In questa sezione viene creata un'area di lavoro di Azure Databricks usando il portale di Azure. 
 
-1. Nel portale di Azure fare clic su **+**, **Dati e analisi** e infine su **Azure Databricks (anteprima)**. In **Azure Databricks** fare clic su **Crea**.
+1. Nel portale di Azure fare clic su **+**, **Dati e analisi** e infine su **Azure Databricks (anteprima)**. 
+
+    ![Databricks nel portale di Azure](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks nel portale di Azure")
+
+2. In **Azure Databricks (anteprima)** fare clic su **Crea**.
 
     > [!NOTE]
     > Azure Databricks è attualmente disponibile in anteprima limitata. Se si vuole che la propria sottoscrizione di Azure venga presa in considerazione ai fini dell'inserimento nell'elenco degli utenti consentiti per l'anteprima, è necessario compilare il [modulo di iscrizione](https://databricks.azurewebsites.net/).
@@ -42,7 +46,7 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
 
     * Per **Nome dell'area di lavoro** specificare un nome per l'area di lavoro di Databricks.
     * Per **Sottoscrizione** selezionare la sottoscrizione di Azure nell'elenco a discesa.
-    * Per **Gruppo di risorse** specificare se si vuole creare un nuovo gruppo di risorse o usarne uno esistente. Un gruppo di risorse è un contenitore con risorse correlate per una soluzione Azure. Per altre informazioni, vedere [Panoramica di Gestione risorse di Microsoft Azure](../azure-resource-manager/resource-group-overview.md).
+    * Per **Gruppo di risorse**, specificare se si desidera creare un nuovo gruppo di risorse o usarne uno esistente. Un gruppo di risorse è un contenitore con risorse correlate per una soluzione Azure. Per altre informazioni, vedere [Panoramica di Gestione risorse di Microsoft Azure](../azure-resource-manager/resource-group-overview.md).
     * Per **Località** selezionare **Stati Uniti orientali 2**. Per le altre aree disponibili, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
 
 3. Fare clic su **Crea**.
@@ -136,7 +140,7 @@ Eseguire le operazioni seguenti per creare un blocco appunti in Databricks, conf
     * Impostare **Values** (Valori) su **level**.
     * Impostare **Aggregation** (Aggregazione) su **COUNT** (CONTEGGIO).
 
-    Fare clic su **Apply** (Applica).
+    Fare clic su **Apply**.
 
 9. L'output mostra la rappresentazione visiva illustrata nello screenshot seguente:
 

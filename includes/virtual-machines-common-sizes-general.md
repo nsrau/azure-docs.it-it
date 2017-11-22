@@ -1,4 +1,4 @@
-
+Le dimensioni delle macchine virtuali di utilizzo generico offrono un rapporto CPU-memoria equilibrato. Soluzione ideale per test e sviluppo, database medio-piccoli e server Web con traffico da medio a ridotto. Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, nonché sulla velocità effettiva di archiviazione e sulle prestazioni di rete per ogni dimensione di questo raggruppamento. 
 
 - Le VM di serie A e Av2 possono essere distribuite su una vasta gamma di tipi di hardware e processori. La dimensione è limitata in base all'hardware per offrire prestazioni del processore coerenti per l'istanza in esecuzione, indipendentemente dall'hardware in cui è distribuita. Per determinare l'hardware fisico in cui viene distribuita questa dimensione, eseguire una query nell'hardware virtuale dall'interno della macchina virtuale.
 
@@ -73,11 +73,11 @@ ACU: 210-250
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Valore massimo per dischi di dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/prestazioni rete previste (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS1_v2 |1 |3,5 |7 |2 |4.000/32 (43) |3.200/48 |2 / 750 |
-| Standard_DS2_v2 |2 |7 |14 |4 |8.000/64 (86) |6.400/96 |2 / 1500 |
-| Standard_DS3_v2 |4 |14 |28 |8 |16.000/128 (172) |12.800/192 |4 / 3000 |
-| Standard_DS4_v2 |8 |28 |56 |16 |32.000/256 (344) |25.600/384 |8 / 6000 |
-| Standard_DS5_v2 |16 |56 |112 |32 |64.000/512 (688) |51.200/768 |8 / 6000 - 12000 &#8224;|
+| Standard_DS1_v2 |1 |3,5 |7 |4 |4.000/32 (43) |3.200/48 |2 / 750 |
+| Standard_DS2_v2 |2 |7 |14 |8 |8.000/64 (86) |6.400/96 |2 / 1500 |
+| Standard_DS3_v2 |4 |14 |28 |16 |16.000/128 (172) |12.800/192 |4 / 3000 |
+| Standard_DS4_v2 |8 |28 |56 |32 |32.000/256 (344) |25.600/384 |8 / 6000 |
+| Standard_DS5_v2 |16 |56 |112 |64 |64.000/512 (688) |51.200/768 |8 / 6000 - 12000 &#8224;|
 
 
 
@@ -87,11 +87,11 @@ ACU: 210-250
 
 | Dimensione              | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Schede di interfaccia di rete max/prestazioni rete previste (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1_v2    | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 2/2 x 500                         | 2 / 750                 |
-| Standard_D2_v2    | 2         | 7           | 100            | 6000 / 93 / 46                                           | 4/4 x 500                         | 2 / 1500                     |
-| Standard_D3_v2    | 4         | 14          | 200            | 12000 / 187 / 93                                         | 8/8 x 500                         | 4 / 3000                     |
-| Standard_D4_v2    | 8         | 28          | 400            | 24000 / 375 / 187                                        | 16/16 x 500                       | 8 / 6000                     |
-| Standard_D5_v2    | 16        | 56          | 800            | 48000 / 750 / 375                                        | 32/32 x 500                       | 8 / 6000 - 12000 &#8224;          |
+| Standard_D1_v2    | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 4/4 x 500                         | 2 / 750                 |
+| Standard_D2_v2    | 2         | 7           | 100            | 6000 / 93 / 46                                           | 8/8 x 500                         | 2 / 1500                     |
+| Standard_D3_v2    | 4         | 14          | 200            | 12000 / 187 / 93                                         | 16/16 x 500                         | 4 / 3000                     |
+| Standard_D4_v2    | 8         | 28          | 400            | 24000 / 375 / 187                                        | 32/32 x 500                       | 8 / 6000                     |
+| Standard_D5_v2    | 16        | 56          | 800            | 48000 / 750 / 375                                        | 64/64x500                       | 8 / 6000 - 12000 &#8224;          |
 
 
 <br>
@@ -102,10 +102,10 @@ ACU: 160
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Valore massimo per dischi di dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/prestazioni rete previste (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS1 |1 |3,5 |7 |2 |4.000/32 (43) |3.200/32 |2 / 500 |
-| Standard_DS2 |2 |7 |14 |4 |8.000/64 (86) |6.400/64 |2 / 1000 |
-| Standard_DS3 |4 |14 |28 |8 |16.000/128 (172) |12.800/128 |4 / 2000 |
-| Standard_DS4 |8 |28 |56 |16 |32.000/256 (344) |25.600/256 |8 / 4000 |
+| Standard_DS1 |1 |3,5 |7 |4 |4.000/32 (43) |3.200/32 |2 / 500 |
+| Standard_DS2 |2 |7 |14 |8 |8.000/64 (86) |6.400/64 |2 / 1000 |
+| Standard_DS3 |4 |14 |28 |16 |16.000/128 (172) |12.800/128 |4 / 2000 |
+| Standard_DS4 |8 |28 |56 |32 |32.000/256 (344) |25.600/256 |8 / 4000 |
 
 <br>
 
@@ -115,10 +115,10 @@ ACU: 160
 
 | Dimensione         | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Schede di interfaccia di rete max/prestazioni rete previste (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D1  | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 2/2 x 500                         | 2 / 500                 |
-| Standard_D2  | 2         | 7           | 100            | 6000 / 93 / 46                                           | 4/4 x 500                         | 2 / 1000                     |
-| Standard_D3  | 4         | 14          | 200            | 12000 / 187 / 93                                         | 8/8 x 500                         | 4 / 2000                     |
-| Standard_D4  | 8         | 28          | 400            | 24000 / 375 / 187                                        | 16/16 x 500                       | 8 / 4000                     |
+| Standard_D1  | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 4/4 x 500                         | 2 / 500                 |
+| Standard_D2  | 2         | 7           | 100            | 6000 / 93 / 46                                           | 8/8 x 500                         | 2 / 1000                     |
+| Standard_D3  | 4         | 14          | 200            | 12000 / 187 / 93                                         | 16/16 x 500                         | 4 / 2000                     |
+| Standard_D4  | 8         | 28          | 400            | 24000 / 375 / 187                                        | 32/32 x 500                       | 8 / 4000                     |
 
 <br>
 

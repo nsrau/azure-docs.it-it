@@ -1,5 +1,5 @@
 ---
-title: Panoramica di Funzioni permanenti - Azure
+title: Panoramica di Funzioni permanenti - Azure (anteprima)
 description: Introduzione all'estensione Funzioni permanenti per Funzioni di Azure.
 services: functions
 author: cgillum
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 04d660d5fdd878788c09e46b078b2e2b043b7dbb
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: fa0d5cf7469a1a36fe0ab9a712cd4f8c963ceb48
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="durable-functions-overview-azure-functions"></a>Panoramica di Funzioni permanenti (Funzioni di Azure)
+# <a name="durable-functions-overview-preview"></a>Panoramica di Funzioni permanenti (anteprima)
 
 *Funzioni permanenti* è un'estensione di [Funzioni di Azure](functions-overview.md) e [Processi Web di Azure](../app-service/web-sites-create-web-jobs.md) che consente di scrivere funzioni con stato in un ambiente senza server. L'estensione gestisce automaticamente lo stato, i checkpoint e i riavvii.
 
@@ -31,7 +31,7 @@ L'estensione consente di definire flussi di lavoro con stato in un nuovo tipo di
 * Impostano automaticamente checkpoint dello stato di avanzamento ogni volta che la funzione è in attesa. Lo stato locale non va mai perso se il processo viene riciclato o la macchina virtuale viene riavviata.
 
 > [!NOTE]
-> Funzioni permanenti è un'estensione avanzata per Funzioni di Azure e non è adatta per tutte le applicazioni. La parte restante di questo articolo presuppone una conoscenza avanzata dei concetti di [Funzioni di Azure](functions-overview.md) e delle problematiche relative allo sviluppo di applicazioni senza server.
+> Funzioni permanenti è disponibile in anteprima ed è un'estensione avanzata per Funzioni di Azure che non è adatta per tutte le applicazioni. La parte restante di questo articolo presuppone una conoscenza avanzata dei concetti di [Funzioni di Azure](functions-overview.md) e delle problematiche relative allo sviluppo di applicazioni senza server.
 
 Il caso d'uso principale per Funzioni permanenti è la semplificazione di problemi complessi di coordinamento con stato nelle applicazioni senza server. Le sezioni seguenti descrivono alcuni modelli di applicazione tipici che possono trarre vantaggio da Funzioni permanenti.
 

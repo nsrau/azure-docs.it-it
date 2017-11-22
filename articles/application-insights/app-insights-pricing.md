@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5b3d1b9e0d176f29fbcc90410f1fe80085ec5fa8
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gestire volumi di dati e prezzi in Application Insights
 
@@ -39,7 +39,7 @@ Vedere la [pagina sui prezzi di Application Insights][pricing] per i prezzi corr
 Il piano Basic è la scelta predefinita quando viene creata una nuova risorsa di Application Insight ed è sufficiente per la maggior parte dei clienti.
 
 * Nel piano Basic vengono applicati addebiti in base al volume dei dati: il numero di byte dei dati di telemetria ricevuti da Application Insights. Il volume di dati viene misurato come le dimensioni del pacchetto di dati JSON non compresso inviato dall'applicazione e ricevuto da Application Insights.
-Per i [dati tabulari importati in Log Analytics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import), il volume dei dati viene misurato come dimensione non compressa dei file inviati ad Application Insights.  
+Per i [dati tabulari importati in Log Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), il volume dei dati viene misurato come dimensione non compressa dei file inviati ad Application Insights.  
 * Il primo GB per ciascuna applicazione è gratuito. Pertanto se si usa lo strumento per prova o per sviluppo, probabilmente non si incorrerà in addebiti.
 * I dati [Live Metrics Stream](app-insights-live-stream.md) non vengono conteggiati ai fini della determinazione del prezzo.
 * Nel piano Basic, con un addebito extra per GB è disponibile la funzione [Esportazione continua](app-insights-export-telemetry.md).
@@ -110,7 +110,7 @@ Gli addebiti di Application Insights vengono aggiunti alla fatturazione di Azure
 Esistono tre modi per limitare il volume di invio dei dati:
 
 * **Campionamento:** questo meccanismo può ridurre la quantità di dati di telemetria inviati da server e app client, con una distorsione minima delle metriche. Si tratta dello strumento principale per ottimizzare la quantità di dati. Altre informazioni sulle [funzionalità di campionamento](app-insights-sampling.md). 
-* **Limite giornaliero:** quando si crea una risorsa di Application Insights nel portale di Azure, il limite è impostato sul valore di 500 GB al giorno. Quando si crea una risorsa di Application Insights da Visual Studio, il valore predefinito è ridotto (solo 32,3 MB al giorno) al fine di semplificare il test. In questo caso è opportuno che l'utente aumenti il limite giornaliero prima di distribuire l'applicazione nell'ambiente di produzione. Il limite massimo è 500 GB al giorno, a meno che non sia stato richiesto un valore massimo più alto per un'applicazione con traffico elevato. Prestare attenzione quando si imposta il limite giornaliero perché lo scopo deve essere quello di **non raggiungere mai il limite massimo giornaliero** per evitare di perdere dati per il resto del giorno e di essere sempre in grado di monitorare l'applicazione. Per modificare il valore, usare il pannello Limite di utilizzo volume giornaliero collegato dal pannello di gestione dati (vedere di seguito). Tenere presente che ad alcuni tipi di sottoscrizione è associato un credito che non può essere usato per Application Insights. Se alla sottoscrizione è associato un limite di spesa, nel pannello relativo al limite giornaliero sono presenti istruzioni per rimuoverlo e aumentarlo oltre il valore di 32,3 MB al giorno.  
+* **Limite giornaliero:** quando si crea una risorsa di Application Insights nel portale di Azure, il limite è impostato sul valore di 100 GB al giorno. Quando si crea una risorsa di Application Insights da Visual Studio, il valore predefinito è ridotto (solo 32,3 MB al giorno) al fine di semplificare il test. In questo caso è opportuno che l'utente aumenti il limite giornaliero prima di distribuire l'applicazione nell'ambiente di produzione. Il limite massimo è 1000 GB al giorno, a meno che non sia stato richiesto un valore massimo più alto per un'applicazione con traffico elevato. Prestare attenzione quando si imposta il limite giornaliero perché lo scopo deve essere quello di **non raggiungere mai il limite massimo giornaliero** per evitare di perdere dati per il resto del giorno e di essere sempre in grado di monitorare l'applicazione. Per modificare il valore, usare il pannello Limite di utilizzo volume giornaliero collegato dal pannello di gestione dati (vedere di seguito). Tenere presente che ad alcuni tipi di sottoscrizione è associato un credito che non può essere usato per Application Insights. Se alla sottoscrizione è associato un limite di spesa, nel pannello relativo al limite giornaliero sono presenti istruzioni per rimuoverlo e aumentarlo oltre il valore di 32,3 MB al giorno.  
 * **Limitazione:** la velocità dei dati non supera i 32.000 eventi al secondo, calcolati con una media di oltre 1 minuto. 
 
 

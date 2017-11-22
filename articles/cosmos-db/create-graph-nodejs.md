@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/29/2017
 ms.author: denlee
-ms.openlocfilehash: 228d739ac4505d9f16c43bb484dd8050631f084e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 361f63141a8bf3f901eee6c93742f1a7fdc4348f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Creare un'applicazione Node.js tramite l'API Graph
 
@@ -75,9 +75,23 @@ Ecco una breve analisi di ciò che accade nell'app. Aprire il file `app.js`. Ver
         });
     ```
 
-  Le configurazioni sono tutte incluse in `config.js`, che verrà modificato nella sezione seguente.
+  Le configurazioni sono tutte incluse in `config.js`, che verrà modificato nella [sezione seguente](#update-your-connection-string).
 
-* Viene eseguita una serie di passaggi di Gremlin con il metodo `client.execute`.
+* Sono definite varie funzioni per eseguire diverse operazioni Gremlin. Questa è una di esse:
+
+    ```nodejs
+    function addVertex1(callback)
+    {
+        console.log('Running Add Vertex1'); 
+        client.execute("g.addV('person').property('id', 'thomas').property('firstName', 'Thomas').property('age', 44).property('userid', 1)", { }, (err, results) => {
+          if (err) callback(console.error(err));
+          console.log("Result: %s\n", JSON.stringify(results));
+          callback(null)
+        });
+    }
+    ```
+
+* Ogni funzione esegue un metodo `client.execute` con un parametro di stringa della query Gremlin. Di seguito è riportato un esempio di come `g.V().count()` viene eseguito:
 
     ```nodejs
     console.log('Running Count'); 
@@ -88,11 +102,28 @@ Ecco una breve analisi di ciò che accade nell'app. Aprire il file `app.js`. Ver
     });
     ```
 
+* Alla fine del file vengono richiamati tutti i metodi usando il metodo `async.waterfall()`. In questo modo vengono eseguiti uno dopo l'altro:
+
+    ```nodejs
+    try{
+        async.waterfall([
+            dropGraph,
+            addVertex1,
+            addVertex2,
+            addEdge,
+            countVertices
+            ], finish);
+    } catch(err) {
+        console.log(err)
+    }
+    ```
+
+
 ## <a name="update-your-connection-string"></a>Aggiornare la stringa di connessione
 
 1. Aprire il file config.js. 
 
-2. In config.js compilare la chiave config.endpoint con il valore **URI Gremlin** disponibile nella pagina **Panoramica** del portale di Azure. 
+2. In config.js compilare la chiave `config.endpoint` con il valore **URI Gremlin** disponibile nella pagina **Panoramica** del portale di Azure. 
 
     `config.endpoint = "GRAPHENDPOINT";`
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: ebf63cd6d0f9e62d1001d74ce06b4849e08c0de0
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 2b6219dc509b1af8f196f056b489a31fa331acaf
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copiare dati in un indice di Ricerca di Azure usando Azure Data Factory
 
@@ -51,7 +51,7 @@ Per il servizio collegato di Ricerca di Azure sono supportate le proprietà segu
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 > [!IMPORTANT]
-> Quando si copiano dati da un archivio dati cloud nell'indice di Ricerca di Azure, nel servizio collegato di Ricerca di Azure è necessario fare riferimento a un runtime di integrazione di Azure con area esplicita in connactVia. Impostare l'area in base a quella in cui si trova Ricerca di Azure. Altre informazioni sono disponibili in [Runtime di integrazione di Azure] (concepts-integration-runtime.md#azure-integration-runtime).
+> Quando si copiano dati da un archivio dati cloud nell'indice di Ricerca di Azure, nel servizio collegato di Ricerca di Azure è necessario fare riferimento a un runtime di integrazione di Azure con area esplicita in connactVia. Impostare l'area in base a quella in cui si trova Ricerca di Azure. Altre informazioni da [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Esempio:**
 

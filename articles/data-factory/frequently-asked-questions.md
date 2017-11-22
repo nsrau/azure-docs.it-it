@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: shlo
-ms.openlocfilehash: 2cc128e8f7792a6a363aacf50f8724d689892c83
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
 Questo articolo è valido per la versione 2 del servizio Azure Data Factory. Contiene le risposte alle domande frequenti su Data Factory.  
@@ -152,7 +152,7 @@ Per altre informazioni sui concetti relativi a Data Factory, vedere gli articoli
 Per informazioni dettagliate sui prezzi di Azure Data Factory, vedere [Dettagli prezzi di Data Factory](https://azure.microsoft.com/pricing/details/data-factory/).
 
 ## <a name="what-regions-support-azure-data-factory-version-2"></a>Quali regioni supportano la versione 2 di Azure Data Factory?
-È attualmente possibile creare data factory versione 2 nelle aree Stati Uniti orientali e Stati Uniti orientali 2. Una data factory può tuttavia usare un runtime di integrazione in un'altra area per spostare dati tra archivi dati, inviare attività ai servizi di calcolo o inviare pacchetti SSIS. Per altre informazioni, vedere [Posizioni della data factory](concepts-integration-runtime.md#integration-runtime-location).
+È attualmente possibile creare data factory versione 2 nelle aree Stati Uniti orientali, Stati Uniti orientali 2 ed Europa occidentale. Una data factory può tuttavia usare un runtime di integrazione in un'altra area per spostare dati tra archivi dati, inviare attività ai servizi di calcolo o inviare pacchetti SSIS. Per altre informazioni, vedere [Posizioni della data factory](concepts-integration-runtime.md#integration-runtime-location).
 
 ## <a name="how-can-i-stay-up-to-date-with-information-about-data-factory"></a>Come è possibile rimanere aggiornati con le informazioni su Data Factory?
 Per le informazioni più aggiornate su Azure Data Factory, andare ai siti seguenti:

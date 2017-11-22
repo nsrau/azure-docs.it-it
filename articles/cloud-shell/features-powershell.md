@@ -1,5 +1,5 @@
 ---
-title: "Funzionalità di PowerShell in Azure Cloud Shell (anteprima) | Microsoft Docs"
+title: "Funzionalità di PowerShell in Azure Cloud Shell (anteprima) | Documentazione Microsoft"
 description: "Panoramica delle funzionalità di PowerShell in Azure Cloud Shell"
 services: Azure
 documentationcenter: 
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: damaerte
-ms.openlocfilehash: ffe5298678de6cc16af0ea29c7d887330f77589d
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 13289d9b18b4c53a2569b9a8772715b38ed22cf7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="features--tools-for-powershell-in-azure-cloud-shell"></a>Funzionalità e strumenti per PowerShell in Azure Cloud Shell
+# <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Funzionalità e strumenti per PowerShell in Azure Cloud Shell (anteprima)
 
 [!include [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
 > [!TIP]
 > Strumenti e funzionalità è disponibile anche per [Bash](features.md).
 
-PowerShell in Azure Cloud Shell viene eseguito su `Windows Server 2016`.
+PowerShell in Cloud Shell (anteprima) viene eseguito in `Windows Server 2016`.
 
 ## <a name="features"></a>Funzionalità
 
 ### <a name="secure-automatic-authentication"></a>Autenticazione automatica sicura
 
-PowerShell in Cloud Shell autentica in modo sicuro e automatico l'accesso agli account per Azure PowerShell.
+PowerShell in Cloud Shell (anteprima) autentica in modo sicuro e automatico l'accesso agli account per Azure PowerShell.
 
 ### <a name="files-persistence-across-sessions"></a>File di persistenza tra le sessioni
 
@@ -45,7 +45,7 @@ Poiché ogni richiesta per Cloud Shell viene allocata su un computer temporaneo,
 
 ### <a name="azure-drive-azure"></a>Unità Azure (Azure:)
 
-PowerShell in Azure Cloud Shell permette di avviare l’unità Azure (`Azure:`).
+PowerShell in Cloud Shell (anteprima) permette di avviare l'unità Azure (`Azure:`).
 L’unità Azure consente una facile individuazione e la navigazione tra le risorse di Azure, ad es. calcolo, rete, archiviazione ecc. analogamente alla navigazione di file system.
 È possibile continuare a utilizzare i consueti [cmdlet di Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure) per gestire queste risorse.
 Tutte le modifiche apportate alle risorse di Azure, sia se eseguite direttamente nel portale di Azure che tramite i cmdlet di Azure PowerShell, vengono applicate immediatamente anche all'unità Azure.
@@ -109,6 +109,6 @@ Questi comandi si basano sulla comunicazione remota di PowerShell e richiedono l
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Avvio rapido con PowerShell in Cloud Shell](quickstart-powershell.md)
+[Avvio rapido con PowerShell in Cloud Shell (anteprima)](quickstart-powershell.md)
 
 [Informazioni su Azure PowerShell](https://docs.microsoft.com/powershell/azure/)

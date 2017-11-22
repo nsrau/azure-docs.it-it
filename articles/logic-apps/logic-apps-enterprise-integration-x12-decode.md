@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 18719a8f49c74973947517161f7306c233a9323f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9605fc3a1096d053bfeffb2544499935601b2c0f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Messaggi Decode X12 in App per la logica di Azure con Enterprise Integration Pack
 
@@ -65,6 +65,16 @@ Sono necessari gli elementi seguenti:
     Ad esempio:
 
     ![Selezionare il messaggio con il file flat X12 da decodificare](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage7.png) 
+
+   > [!NOTE]
+   > Il contenuto effettivo del messaggio o il payload per l'array di messaggio, valido o non valido, è con codifica base64. Pertanto è necessario specificare un'espressione che elabori questo contenuto.
+   > Di seguito è riportato un esempio che elabora il contenuto come XML che è possibile inserire nella visualizzazione codice o usando il Generatore di espressioni nella finestra di progettazione.
+   > ``` json
+   > "content": "@xml(base64ToBinary(item()?['Payload']))"
+   > ```
+   > ![Esempio di contenuto](media/logic-apps-enterprise-integration-x12-decode/content-example.png)
+   >
+
 
 ## <a name="x12-decode-details"></a>Dettagli Decode X12
 

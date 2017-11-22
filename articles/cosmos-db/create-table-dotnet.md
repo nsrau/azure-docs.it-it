@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 02317d1b74d10d0fb3a2a08d8f4292a6be0438c2
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 5d22b23d687dba2382e009e73f20014a5d528d78
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app dell'API Tabelle con .NET e Azure Cosmos DB 
 
@@ -67,7 +67,7 @@ A questo punto è possibile clonare un'app Table da GitHub, impostare la stringa
 2. Eseguire il comando seguente per clonare l'archivio di esempio. Questo comando crea una copia dell'app di esempio nel computer in uso. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
 
 3. Aprire quindi il file della soluzione TableStorage in Visual Studio. 
@@ -78,22 +78,25 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 1. Nel [portale di Azure](http://portal.azure.com/) fare clic su **Stringa di connessione**. 
 
-    Usare i pulsanti di copia sul lato destro della schermata per copiare la STRINGA DI CONNESSIONE.
+    Usare i pulsanti di copia sul lato destro della schermata per copiare la STRINGA DI CONNESSIONE PRIMARIA.
 
-    ![Visualizzare e copiare la STRINGA DI CONNESSIONE nel riquadro Stringa di connessione](./media/create-table-dotnet/connection-string.png)
+    ![Visualizzare e copiare la STRINGA DI CONNESSIONE PRIMARIA nel riquadro Stringa di connessione](./media/create-table-dotnet/connection-string.png)
 
 2. In Visual Studio aprire il file App.config. 
 
-3. Incollare il valore della STRINGA DI CONNESSIONE nel file App.config come valore di AzureCosmosDBTableAPIConnectionString. 
+3. Rimuovere il commento di StorageConnectionString alla riga 8 e impostare come commento StorageConnectionString alla riga 7, in quanto questa esercitazione non usa l'emulatore di archiviazione. 
 
-    `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
+3. Incollare il valore della STRINGA DI CONNESSIONE PRIMARIA all'interno del valore di StorageConnectionString alla riga 8. 
 
-    > [!NOTE]
-    > Per usare questa app con Archiviazione tabelle di Azure, è necessario modificare la stringa di connessione in `App.config file`. Usare il nome dell'account come nome dell'account dell'API Tabelle e la chiave come chiave primaria di Archiviazione di Azure. <br>
-    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-    > 
-    >
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />`
+    ```
+
+    La riga 8 è ora simile alla seguente:
+
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
+    ```
 
 4. Salvare il file App.config.
 

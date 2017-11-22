@@ -1,50 +1,50 @@
 ---
-title: Aggiungere un set di dati di riferimento all'ambiente Azure Time Series Insights | Microsoft Docs
-description: In questa esercitazione si aggiunge un set di dati di riferimento all'ambiente Time Series Insights
-keywords: 
+title: Come aggiungere un set di dati di riferimento all'ambiente Azure Time Series Insights | Microsoft Docs
+description: In questo articolo viene descritto come aggiungere un set di dati di riferimento all'ambiente Azure Time Series Insights. Risulta utile associare i dati di riferimento ai dati di origine per aumentarne il valore.
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: venkatgct
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/29/2017
 ms.author: venkatja
-ms.openlocfilehash: b94ca172dba71b407ee5e9a40c283a97602efd17
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 7cdcefbd0daec3b7bab59680afa1470624583c74
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Creare un set di dati di riferimento per l'ambiente Time Series Insights usando il portale di Ibiza
+# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Creare un set di dati di riferimento per l'ambiente Time Series Insights usando il portale di Azure
+
+In questo articolo viene descritto come aggiungere un set di dati di riferimento all'ambiente Azure Time Series Insights. Risulta utile associare i dati di riferimento ai dati di origine per aumentarne il valore.
 
 Un set di dati di riferimento è una raccolta di elementi che vengono integrati con gli eventi provenienti dall'origine evento. Il motore in ingresso di Time Series Insights esegue il join di un evento dell'origine evento con un elemento del set di dati di riferimento. Questo evento aumentato sarà quindi disponibile per le query. Questo join è basato sulle chiavi definite nel set di dati di riferimento.
 
-## <a name="steps-to-add-a-reference-data-set-to-your-environment"></a>Procedura per aggiungere un set di dati di riferimento all'ambiente
+## <a name="add-a-reference-data-set"></a>Aggiungere un set di dati di riferimento
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Fare clic su "Tutte le risorse" nel menu sul lato sinistro del portale di Azure.
-3. Selezionare l'ambiente Time Series Insights.
+
+2. Individuare l'ambiente Time Series Insights esistente. Fare clic su **Tutte le risorse** nel menu sul lato sinistro del portale di Azure. Selezionare l'ambiente Time Series Insights.
+
+3. Sotto all'intestazione **Topologia dell'ambiente** selezionare **Set di dati di riferimento**.
 
     ![Creare il set di dati di riferimento di Time Series Insights](media/add-reference-data-set/getstarted-create-reference-data-set-1.png)
 
-4. Selezionare "Set di dati di riferimento" e fare clic su "+ Aggiungi".
+4. Selezionare **+ Aggiungi** per aggiungere un nuovo set di dati di riferimento.
+
+5. Specificare un valore univoco nella casella **Nome del set di dati di riferimento**.
 
     ![Creare il set di dati di riferimento di Time Series Insights - Dettagli](media/add-reference-data-set/getstarted-create-reference-data-set-2.png)
 
-5. Specificare il nome del set di dati di riferimento.
-6. Specificare il nome della chiave e il relativo tipo. Il nome e il tipo vengono usati per selezionare la proprietà corretta dall'evento nell'origine evento. Se ad esempio si specifica "DeviceId" come nome della chiave e "String" come tipo, il motore in ingresso di Time Series Insights cerca una proprietà denominata "DeviceId" di tipo "String" nell'evento in ingresso. È possibile specificare più di una chiave per creare il join con l'evento. La corrispondenza del nome della chiave distingue tra maiuscole e minuscole.
+6. Specificare il **nome della chiave** nel campo vuoto e selezionare il relativo **tipo**. Il nome e il tipo vengono usati per selezionare la proprietà corretta dall'evento nell'origine evento da associare ai dati di riferimento. 
 
-     ![Creare il set di dati di riferimento di Time Series Insights - Dettagli](media/add-reference-data-set/getstarted-create-reference-data-set-3.png)
+   Se ad esempio si specifica **DeviceId** come nome della chiave e **String** come tipo, il motore in ingresso di Time Series Insights cerca e associa una proprietà denominata **DeviceId** di tipo **String** nell'evento in ingresso. È possibile specificare più di una chiave per creare il join con l'evento. La corrispondenza del nome della chiave distingue tra maiuscole e minuscole.
 
-7. Fare clic su "Crea".
+7. Selezionare **Crea**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
 * [Gestire i dati di riferimento](time-series-insights-manage-reference-data-csharp.md) a livello di codice.
 * Per le informazioni di riferimento complete per l'API, vedere il documento relativo all'[API dei dati di riferimento](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).

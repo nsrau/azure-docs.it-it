@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6692d5b75954b2162862e6be7c2e39c63fa8408b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0567df53dff15d7fbacf4850f6eae07c8985598
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Ritiro dei livelli di prestazioni S1, S2 e S3
 
@@ -44,7 +44,7 @@ Questo articolo offre una panoramica dei livelli di prestazioni S1, S2 e S3 e de
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>Perché i livelli di prestazioni S1, S2 e S3 sono in fase di ritiro?
 
-I livelli di prestazioni S1, S2 e S3 non offrono la stessa flessibilità delle raccolte dell'API DocumentDB. Con i livelli di prestazioni S1, S2 e S3, la velocità effettiva e la capacità di archiviazione sono preimpostate e non offrono elasticità. Azure Cosmos DB offre ora la possibilità di personalizzare questi valori garantendo una flessibilità decisamente superiore per il ridimensionamento in base alle proprie esigenze.
+I livelli di prestazioni S1, S2 e S3 non offrono la stessa flessibilità delle raccolte di API DocumentDB. Con i livelli di prestazioni S1, S2 e S3, la velocità effettiva e la capacità di archiviazione sono preimpostate e non offrono elasticità. Azure Cosmos DB offre ora la possibilità di personalizzare questi valori garantendo una flessibilità decisamente superiore per il ridimensionamento in base alle proprie esigenze.
 
 <a name="compare"></a>
 
@@ -119,29 +119,29 @@ La migrazione verrà a fine 2017. Se l'utente ha una raccolta che usa i livelli 
 
 1. Nel [**portale di Azure**](https://portal.azure.com) fare clic su **Azure Cosmos DB** e quindi selezionare l'account Cosmos DB da modificare. 
  
-    Se la voce **Azure Cosmos DB** non è inclusa nell'indice, fare clic su >, scorrere fino a **Database** e selezionare **Azure Cosmos DB** e quindi l'account DocumentDB.  
+    Se la voce **Azure Cosmos DB** non è inclusa nell'indice, fare clic su >, scorrere fino a **Database**, selezionare **Azure Cosmos DB** e quindi l'account.  
 
-2. Nel menu delle risorse fare clic su **Piano** in **Contenitori**, selezionare la raccolta da modificare nell'elenco a discesa e quindi fare clic su **Piano tariffario**. Gli account che usano la velocità effettiva predefinita hanno un piano tariffario S1, S2 o S3.  Nel pannello **Scegliere il piano tariffario** fare clic su **Standard** per modificare la velocità effettiva definita dall'utente e quindi su **Seleziona** per salvare la modifica.
+2. Nel menu delle risorse fare clic su **Piano** in **Contenitori**, selezionare la raccolta da modificare nell'elenco a discesa e quindi fare clic su **Piano tariffario**. Gli account che usano la velocità effettiva predefinita hanno un piano tariffario S1, S2 o S3.  Nella pagina **Scegliere il piano tariffario** fare clic su **Standard** per passare alla velocità effettiva definita dall'utente e quindi su **Seleziona** per salvare la modifica.
 
-    ![Screenshot del pannello Impostazioni che mostra dove modificare il valore della velocità effettiva](./media/performance-levels/change-performance-set-thoughput.png)
+    ![Screenshot della pagina Impostazioni che indica dove modificare il valore della velocità effettiva](./media/performance-levels/change-performance-set-thoughput.png)
 
-3. Nel pannello **Piano** il **piano tariffario** è impostato su **Standard** e nella casella **Velocità effettiva (UR/sec)** viene visualizzato un valore predefinito di 400. Impostare la velocità effettiva tra 400 e 10.000 [unità richiesta](request-units.md)al secondo (UR/sec). Il contenuto di **Fattura mensile stimata** nella parte inferiore della pagina viene aggiornato automaticamente per fornire una stima del costo mensile. 
+3. Nella pagina **Piano** il **piano tariffario** è impostato su **Standard** e nella casella **Velocità effettiva (UR/sec)** viene visualizzato un valore predefinito pari a 400. Impostare la velocità effettiva tra 400 e 10.000 [unità richiesta](request-units.md)al secondo (UR/sec). Il contenuto di **Fattura mensile stimata** nella parte inferiore della pagina viene aggiornato automaticamente per fornire una stima del costo mensile. 
 
     >[!IMPORTANT] 
     > Dopo aver salvato le modifiche ed essere passati al piano tariffario Standard, non è possibile tornare ai livelli di prestazioni S1, S2 o S3.
 
 4. Fare clic su **Salva** per salvare le modifiche.
 
-    Se è necessaria una velocità effettiva maggiore di 10.000 UR/sec o uno spazio di archiviazione maggiore di 10 GB è possibile creare una raccolta partizionata. Per eseguire la migrazione di una raccolta a partizione singola a una raccolta partizionata vedere [Migrazione da raccolte a partizione singola a raccolte partizionate](documentdb-partition-data.md#migrating-from-single-partition).
+    Se è necessaria una velocità effettiva maggiore di 10.000 UR/sec o uno spazio di archiviazione maggiore di 10 GB, è possibile creare una raccolta partizionata. Per eseguire la migrazione di una raccolta a partizione singola a una raccolta partizionata vedere [Migrazione da raccolte a partizione singola a raccolte partizionate](documentdb-partition-data.md#migrating-from-single-partition).
 
     > [!NOTE]
-    > Il passaggio dai livelli S1, S2 o S3 al livello Standard può richiedere fino a 2 minuti.
+    > Il passaggio dai livelli S1, S2 o S3 al livello Standard può richiedere fino a due minuti.
     > 
     > 
 
 **Per eseguire la migrazione alle raccolte a partizione singola tramite .NET SDK**
 
-Un'altra opzione per la modifica dei livelli di prestazioni degli insiemi è tramite SDK. Questa sezione illustra solo la modifica del livello di prestazioni di una raccolta tramite l'[API .NET DocumentDB](documentdb-sdk-dotnet.md), ma il processo per gli altri SDK è simile.
+Un'altra opzione per la modifica dei livelli di prestazioni delle raccolte è tramite Azure Cosmos DB SDK. Questa sezione illustra solo la modifica del livello di prestazioni di una raccolta tramite l'[API .NET DocumentDB](documentdb-sdk-dotnet.md), ma il processo per gli altri SDK è simile.
 
 Di seguito è riportato un frammento di codice per modificare la velocità effettiva della raccolta a 5000 unità richiesta al secondo:
     

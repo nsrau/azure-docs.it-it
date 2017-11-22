@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/19/2017
 ms.author: raynew
-ms.openlocfilehash: 0b2a36c293e899ebed9d1220dff043a85321cacf
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: ad6f70cf9c2f420e887031c8b240d2f831e6c359
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: domande frequenti
 In questo articolo sono riportate le domande frequenti su Azure Site Recovery. Eventuali domande successive alla lettura di questo articolo possono essere pubblicate nel [forum relativo ai Servizi di ripristino di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -75,22 +75,7 @@ Per proteggere le VM VMware, è necessario un hypervisor vSphere e macchine virt
 Sì. Quando si usa Site Recovery per gestire la replica e il failover nelle succursali, si ottiene una gestione unificata e vengono visualizzati tutti i carichi di lavoro delle succursali in una posizione centrale. È possibile eseguire facilmente i failover e amministrare il ripristino di emergenza di tutte le succursali senza abbandonare la sede centrale.
 
 ## <a name="pricing"></a>Prezzi
-
-### <a name="what-charges-do-i-incur-while-using-azure-site-recovery"></a>Quali tariffe vengono applicate quando si usa Azure Site Recovery?
-Quando si usa Azure Site Recovery, vengono applicate le tariffe per la licenza di Site Recovery, Archiviazione di Azure, le transazioni di archiviazione e il trasferimento di dati in uscita. [Altre informazioni](https://azure.microsoft.com/pricing/details/site-recovery).
-
-La licenza di Site Recovery è una licenza per istanza protetta. Un'istanza è una VM o un server fisico.
-
-- In caso di replica di un disco di una VM in un account di archiviazione Standard, il costo di Archiviazione di Azure è basato sul consumo. Se le dimensioni del disco di origine sono 1 TB e vengono usati 400 GB, ad esempio, Site Recovery crea un disco rigido virtuale di 1 TB in Azure, ma per l'archiviazione vengono addebitati 400 GB (più la quantità di spazio di archiviazione usata per i log di replica).
-- In caso di replica di un disco di una VM in un account di archiviazione Premium, il costo di Archiviazione di Azure è basato sulle dimensioni della risorsa di archiviazione sottoposta a provisioning, con arrotondamento all'opzione relativa al disco di Archiviazione Premium più vicina. Se le dimensioni del disco di origine sono 50 GB, ad esempio, Site Recovery crea un disco di 50 GB in Azure e Azure lo associa al disco di Archiviazione Premium più vicino (P10).  I costi vengono calcolati su P10, non sulle dimensioni di 50 GB del disco.  [Altre informazioni](https://aka.ms/premium-storage-pricing).  Se si usa Archiviazione Premium, è necessario anche un account di archiviazione Standard per i log di replica e viene addebitata anche la quantità di spazio di archiviazione Standard usata per tali log.
-- Non viene creato alcun disco fino a un failover del test o un failover. Nello stato di replica l'archiviazione viene addebitata nella categoria "Page blob and disk" (BLOB e disco della pagina) in base al [Calcolatore prezzi di archiviazione](https://azure.microsoft.com/en-in/pricing/calculator/). Questi addebiti si basano sul tipo di risorsa di archiviazione, che sia premium o standard, e sul tipo di ridondanza dei dati, LRS, GRS, RA-GRS e così via.
-- Se è selezionata l'opzione per usare i dischi gestiti in un failover, gli [addebiti per i dischi gestiti](https://azure.microsoft.com/en-in/pricing/details/managed-disks/) si applicano dopo il failover o il failover dei test. Gli addebiti dei dischi gestiti non si applicano durante la replica.
-- Se l'opzione per usare i dischi gestiti in caso di failover non è selezionata, l'archiviazione viene addebitata nella categoria "Page blob and disk" (BLOB e disco della pagina) in base al [calcolatore di prezzi di archiviazione](https://azure.microsoft.com/en-in/pricing/calculator/) dopo il failover. Questi addebiti si basano sul tipo di risorsa di archiviazione, che sia premium o standard, e sul tipo di ridondanza dei dati, LRS, GRS, RA-GRS e così via.
-- Le transazioni di archiviazione vengono addebitate durante la replica nello stato stazionario e per le normali operazioni della macchina virtuale dopo il failover o il failover del test. Questi costi non sono trascurabili.
-
-Vengono addebitati costi anche durante il failover di test, con applicazione dei costi per la VM, l'archiviazione, i dati in uscita e le transazioni di archiviazione.
-
-
+Per domande relative a i prezzi, consultare le domande frequenti in [Prezzi di Azure Site Recovery](https://azure.microsoft.com/en-in/pricing/details/site-recovery/).
 
 ## <a name="security"></a>Sicurezza
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>I dati di replica vengono inviati al servizio Site Recovery?

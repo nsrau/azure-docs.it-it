@@ -1,6 +1,6 @@
 ---
-title: Associazioni della tabella di archiviazione di Funzioni di Azure | Documentazione Microsoft
-description: Informazioni su come usare le associazioni di Archiviazione di Azure in Funzioni di Azure.
+title: Associazioni di archiviazione tabelle in Funzioni di Azure
+description: Informazioni su come usare le associazioni di archiviazione tabelle di Azure in Funzioni di Azure.
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -8,85 +8,105 @@ manager: cfowler
 editor: 
 tags: 
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
-ms.assetid: 65b3437e-2571-4d3f-a996-61a74b50a1c2
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/28/2016
+ms.date: 11/08/2017
 ms.author: chrande
-ms.openlocfilehash: 486b7c31c914ba7bb2d75e3f83ccf346a09104e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f54df931d03318a50e9397211e3c50d0898556d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="azure-functions-storage-table-bindings"></a>Associazioni della tabella di archiviazione di Funzioni di Azure
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+# <a name="azure-functions-table-storage-bindings"></a>Associazioni di archiviazione tabelle in Funzioni di Azure
 
-Questo articolo illustra come configurare e scrivere il codice delle associazioni delle tabelle di Archiviazione di Azure in Funzioni di Azure. Funzioni di Azure supporta le associazioni di input e output per le tabelle di Archiviazione di Azure.
-
-L'associazione delle tabelle di archiviazione supporta gli scenari seguenti:
-
-* **Leggere una singola riga in una funzione C# o Node.js**: impostare `partitionKey` e `rowKey`. Le proprietà `filter` e `take` non vengono usate in questo scenario.
-* **Leggere più righe in una funzione C#**: il runtime di Funzioni specifica un oggetto `IQueryable<T>` associato alla tabella. Il tipo `T` deve derivare da `TableEntity` o implementare `ITableEntity`. Le proprietà `partitionKey`, `rowKey`, `filter` e `take` non vengono usate in questo scenario. È possibile usare l'oggetto `IQueryable` per qualsiasi operazione di filtro necessaria. 
-* **Leggere più righe in una funzione Node**: impostare le proprietà `filter` e `take`. Non impostare `partitionKey` o `rowKey`.
-* **Scrivere una o più righe in una funzione C#**: il runtime di Funzioni specifica un oggetto `ICollector<T>` o `IAsyncCollector<T>` associato alla tabella, dove `T` indica lo schema delle entità da aggiungere. In genere, ma non necessariamente, il tipo `T` deriva da `TableEntity` o implementa `ITableEntity`. Le proprietà `partitionKey`, `rowKey`, `filter` e `take` non vengono usate in questo scenario.
+Questo articolo illustra come operare con le associazioni dell'archiviazione tabelle di Azure in Funzioni di Azure. Funzioni di Azure supporta le associazioni di input e output per l'archiviazione tabelle di Azure.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a name="input"></a>
+## <a name="table-storage-input-binding"></a>Associazione di input dell'archiviazione tabelle
 
-## <a name="storage-table-input-binding"></a>Associazione di input della tabella di archiviazione
-L'associazione di input nella tabella di archiviazione di Azure consente di usare una tabella di archiviazione nella funzione. 
+Usare l'associazione di input dell'archiviazione tabelle di Azure per leggere una tabella in un account di archiviazione di Azure.
 
-L'input della tabella di archiviazione in una funzione usa gli oggetti JSON seguenti nella matrice `bindings` di function.json:
+## <a name="input---example"></a>Input - esempio
 
-```json
+Vedere l'esempio specifico per ciascun linguaggio:
+
+* [C# precompilato - lettura di un'entità](#input---c-example-1)
+* [C# precompilato - lettura di più entità](#input---c-example-2)
+* [Script C# - lettura di un'entità](#input---c-script-example-1)
+* [Script C# - lettura di più entità](#input---c-script-example-2)
+* [F#](#input---f-example-2)
+* [JavaScript](#input---javascript-example)
+
+### <a name="input---c-example-1"></a>Input - esempio in C# 1
+
+L'esempio seguente illustra codice [C# precompilato](functions-dotnet-class-library.md) che legge una singola riga della tabella. 
+
+Il valore della chiave della riga "{queueTrigger}" indica che la chiave della riga proviene dalla stringa di messaggio della coda.
+
+```csharp
+public class TableStorage
 {
-    "name": "<Name of input parameter in function signature>",
-    "type": "table",
-    "direction": "in",
-    "tableName": "<Name of Storage table>",
-    "partitionKey": "<PartitionKey of table entity to read - see below>",
-    "rowKey": "<RowKey of table entity to read - see below>",
-    "take": "<Maximum number of entities to read in Node.js - optional>",
-    "filter": "<OData filter expression for table input in Node.js - optional>",
-    "connection": "<Name of app setting - see below>",
+    public class MyPoco
+    {
+        public string PartitionKey { get; set; }
+        public string RowKey { get; set; }
+        public string Text { get; set; }
+    }
+
+    [FunctionName("TableInput")]
+    public static void TableInput(
+        [QueueTrigger("table-items")] string input, 
+        [Table("MyTable", "MyPartition", "{queueTrigger}")] MyPoco poco, 
+        TraceWriter log)
+    {
+        log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+    }
 }
 ```
 
-Tenere presente quanto segue: 
+### <a name="input---c-example-2"></a>Input - esempio in C# 2
 
-* Usare `partitionKey` e `rowKey` insieme per leggere una singola entità. Queste proprietà sono facoltative. 
-* `connection` deve contenere il nome di un'impostazione app che contiene una stringa di connessione di archiviazione. Nel portale di Azure l'editor standard disponibile nella scheda **Integra** configura automaticamente questa impostazione app quando si crea un account di archiviazione o si seleziona un account già esistente. È anche possibile [configurare questa impostazione dell'app manualmente](functions-how-to-use-azure-function-app-settings.md#settings).  
+L'esempio seguente illustra codice [C# precompilato](functions-dotnet-class-library.md) che legge più righe della tabella. Si noti che la classe `MyPoco` deriva da `TableEntity`.
 
-<a name="inputusage"></a>
+```csharp
+public class TableStorage
+{
+    public class MyPoco : TableEntity
+    {
+        public string Text { get; set; }
+    }
 
-## <a name="input-usage"></a>Uso dell'input
-Nelle funzioni C# l'associazione all'entità, o alle entità, della tabella di input viene eseguita usando un parametro denominato nella firma funzione, ad esempio `<T> <name>`.
-`T` è il tipo di dati in cui si vogliono deserializzare i dati e `paramName` è il nome specificato nell'[associazione di input](#input). Nelle funzioni Node.js si accede all'entità (o alle entità) della tabella di input usando `context.bindings.<name>`.
+    [FunctionName("TableInput")]
+    public static void TableInput(
+        [QueueTrigger("table-items")] string input, 
+        [Table("MyTable", "MyPartition")] IQueryable<MyPoco> pocos, 
+        TraceWriter log)
+    {
+        foreach (MyPoco poco in pocos)
+        {
+            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}";
+        }
+    }
+}
+```
 
-I dati di input possono essere deserializzati in funzioni Node.js o C#. Gli oggetti deserializzati hanno le proprietà `RowKey` e `PartitionKey`.
+### <a name="input---c-script-example-1"></a>Input - esempio di script C# 1
 
-Nelle funzioni C# è anche possibile eseguire l'associazione a uno dei seguenti tipi e il runtime di Funzioni tenterà di deserializzare i dati della tabella usando quel tipo:
+L'esempio seguente illustra un'associazione di input della tabella in un file *function.json* e codice [script C#](functions-reference-csharp.md) che usa l'associazione. La funzione usa un trigger della coda per leggere una riga della tabella. 
 
-* Qualsiasi tipo che implementa `ITableEntity`
-* `IQueryable<T>`
-
-<a name="inputsample"></a>
-
-## <a name="input-sample"></a>Esempio di input
-Si supponga di avere il seguente function.json che usa un trigger della coda per leggere una singola riga della tabella. Il JSON specifica `PartitionKey` 
-`RowKey`. `"rowKey": "{queueTrigger}"` indica che la chiave di riga proviene dalla stringa di messaggio della coda.
+Il file *function.json* specifica `partitionKey` e `rowKey`. Il valore `rowKey` "{queueTrigger}" indica che la chiave della riga proviene dalla stringa di messaggio della coda.
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -97,7 +117,7 @@ Si supponga di avere il seguente function.json che usa un trigger della coda per
       "tableName": "Person",
       "partitionKey": "Test",
       "rowKey": "{queueTrigger}",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "direction": "in"
     }
   ],
@@ -105,15 +125,10 @@ Si supponga di avere il seguente function.json che usa un trigger della coda per
 }
 ```
 
-Vedere l'esempio specifico del linguaggio che legge una singola entità di tabella.
+Queste proprietà sono descritte nella sezione [configuration](#input---configuration).
 
-* [C#](#inputcsharp)
-* [F#](#inputfsharp)
-* [Node.js](#inputnodejs)
+Ecco il codice script C#:
 
-<a name="inputcsharp"></a>
-
-### <a name="input-sample-in-c"></a>Esempio di input in C# #
 ```csharp
 public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
 {
@@ -129,9 +144,91 @@ public class Person
 }
 ```
 
-<a name="inputfsharp"></a>
+### <a name="input---c-script-example-2"></a>Input - esempio di script C# 2
 
-### <a name="input-sample-in-f"></a>Esempio di input in F# #
+L'esempio seguente illustra un'associazione di input della tabella in un file *function.json* e codice [script C#](functions-reference-csharp.md) che usa l'associazione. La funzione legge le entità per una chiave di partizione specificata in un messaggio della coda.
+
+Ecco il file *function.json*:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "tableBinding",
+      "type": "table",
+      "connection": "MyStorageConnectionAppSetting",
+      "tableName": "Person",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Queste proprietà sono descritte nella sezione [configuration](#input---configuration).
+
+Il codice script C# aggiunge un riferimento ad Azure Storage SDK in modo che il tipo di entità possa derivare da `TableEntity`:
+
+```csharp
+#r "Microsoft.WindowsAzure.Storage"
+using Microsoft.WindowsAzure.Storage.Table;
+
+public static void Run(string myQueueItem, IQueryable<Person> tableBinding, TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    foreach (Person person in tableBinding.Where(p => p.PartitionKey == myQueueItem).ToList())
+    {
+        log.Info($"Name: {person.Name}");
+    }
+}
+
+public class Person : TableEntity
+{
+    public string Name { get; set; }
+}
+```
+
+### <a name="input---f-example"></a>Input - esempio in F#
+
+L'esempio seguente illustra un'associazione di input della tabella in un file *function.json* e codice [script F#](functions-reference-fsharp.md) che usa l'associazione. La funzione usa un trigger della coda per leggere una riga della tabella. 
+
+Il file *function.json* specifica `partitionKey` e `rowKey`. Il valore `rowKey` "{queueTrigger}" indica che la chiave della riga proviene dalla stringa di messaggio della coda.
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "personEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Queste proprietà sono descritte nella sezione [configuration](#input---configuration).
+
+Ecco il codice F#:
+
 ```fsharp
 [<CLIMutable>]
 type Person = {
@@ -145,9 +242,40 @@ let Run(myQueueItem: string, personEntity: Person) =
     log.Info(sprintf "Name in Person entity: %s" personEntity.Name)
 ```
 
-<a name="inputnodejs"></a>
+### <a name="input---javascript-example"></a>Input - esempio JavaScript
 
-### <a name="input-sample-in-nodejs"></a>Esempio di input in Node.js
+L'esempio seguente illustra un'associazione di input della tabella in un file *function.json* e [codice JavaScript] (functions-reference-node.md) che usa l'associazione. La funzione usa un trigger della coda per leggere una riga della tabella. 
+
+Il file *function.json* specifica `partitionKey` e `rowKey`. Il valore `rowKey` "{queueTrigger}" indica che la chiave della riga proviene dalla stringa di messaggio della coda.
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "personEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Queste proprietà sono descritte nella sezione [configuration](#input---configuration).
+
+Ecco il codice JavaScript:
+
 ```javascript
 module.exports = function (context, myQueueItem) {
     context.log('Node.js queue trigger function processed work item', myQueueItem);
@@ -156,46 +284,132 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-<a name="output"></a>
+## <a name="input---attributes-for-precompiled-c"></a>Input - attributi per C# precompilato
+ 
+Per le funzioni di [C# precompilato](functions-dotnet-class-library.md), usare i seguenti attributi per configurare un'associazione di input della tabella:
 
-## <a name="storage-table-output-binding"></a>Associazione di output della tabella di archiviazione
-L'associazione di output della tabella di Archiviazione di Azure consente di scrivere entità in una tabella di archiviazione della funzione. 
+* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
-L'output della tabella di archiviazione per una funzione usa gli oggetti JSON seguenti nella matrice `bindings` di function.json:
+  Il costruttore dell'attributo accetta il nome della tabella, una chiave di partizione e una chiave di riga. Può essere usato su un parametro out o sul valore restituito della funzione, come illustrato nell'esempio seguente:
 
-```json
+  ```csharp
+  [FunctionName("TableInput")]
+  public static void Run(
+      [QueueTrigger("table-items")] string input, 
+      [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, 
+      TraceWriter log)
+  ```
+
+  È possibile impostare la proprietà `Connection` per specificare l'account di archiviazione da usare, come illustrato nell'esempio seguente:
+
+  ```csharp
+  [FunctionName("TableInput")]
+  public static void Run(
+      [QueueTrigger("table-items")] string input, 
+      [Table("MyTable", "Http", "{queueTrigger}", Connection = "StorageConnectionAppSetting")] MyPoco poco, 
+      TraceWriter log)
+  ```
+
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+
+  Offre un altro modo per specificare l'account di archiviazione da usare. Il costruttore accetta il nome di un'impostazione dell'app che contiene una stringa di connessione di archiviazione. L'attributo può essere applicato a livello di parametro, metodo o classe. L'esempio seguente illustra il livello classe e il livello metodo:
+
+  ```csharp
+  [StorageAccount("ClassLevelStorageAppSetting")]
+  public static class AzureFunctions
+  {
+      [FunctionName("TableInput")]
+      [StorageAccount("FunctionLevelStorageAppSetting")]
+      public static void Run( //...
+  ```
+
+L'account di archiviazione da usare è determinato nell'ordine seguente:
+
+* La proprietà `Connection` dell'attributo `Table`.
+* L'attributo `StorageAccount` applicato allo stesso parametro dell'attributo `Table`.
+* L'attributo `StorageAccount` applicato alla funzione.
+* L'attributo `StorageAccount` applicato alla classe.
+* L'account di archiviazione predefinito per l'app per le funzioni (impostazione dell'app "AzureWebJobsStorage").
+
+## <a name="input---configuration"></a>Input - configurazione
+
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Table`.
+
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
+|---------|---------|----------------------|
+|**type** | n/d | Il valore deve essere impostato su `table`. Questa proprietà viene impostata automaticamente quando si crea l'associazione nel portale di Azure.|
+|**direction** | n/d | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea l'associazione nel portale di Azure. |
+|**nome** | n/d | Nome della variabile che rappresenta la tabella o l'entità nel codice della funzione. | 
+|**tableName** | **TableName** | Nome della tabella.| 
+|**partitionKey** | **PartitionKey** |Facoltativo. Chiave di partizione dell'entità della tabella da leggere. Vedere la sezione [usage](#input---usage) per indicazioni sull'uso di questa proprietà.| 
+|**rowKey** |**RowKey** | Facoltativo. Chiave di riga dell'entità della tabella da leggere. Vedere la sezione [usage](#input---usage) per indicazioni sull'uso di questa proprietà.| 
+|**take** |**Take** | Facoltativo. Numero massimo di entità da leggere in JavaScript. Vedere la sezione [usage](#input---usage) per indicazioni sull'uso di questa proprietà.| 
+|**filter** |**Filter** | Facoltativo. Espressione di filtro OData per l'input della tabella in JavaScript. Vedere la sezione [usage](#input---usage) per indicazioni sull'uso di questa proprietà.| 
+|**connessione** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se si imposta `connection` su "MyStorage", il runtime di Funzioni di Azure cerca un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.<br/>Quando si sviluppa in locale, le impostazioni dell'app vengono inserite nei valori del [file local.settings.json](functions-run-local.md#local-settings-file).|
+
+## <a name="input---usage"></a>Input - uso
+
+L'associazione di input dell'archiviazione tabelle supporta gli scenari seguenti:
+
+* **Leggere una riga in C# o script C#**
+
+  Impostare `partitionKey` e `rowKey`. Accedere ai dati della tabella con un parametro di metodo `T <paramName>`. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. `T` in genere è un tipo che implementa `ITableEntity` o deriva da `TableEntity`. Le proprietà `filter` e `take` non vengono usate in questo scenario. 
+
+* **Leggere una o più righe in C# o script C#**
+
+  Accedere ai dati della tabella con un parametro di metodo `IQueryable<T> <paramName>`. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. `T` deve essere un tipo che implementa `ITableEntity` o deriva da `TableEntity`. È possibile usare metodi `IQueryable` per eseguire eventuali filtri richiesti. Le proprietà `partitionKey`, `rowKey`, `filter` e `take` non vengono usate in questo scenario.  
+
+> [!NOTE]
+> `IQueryable` non funziona in .NET Core, pertanto non può essere usato nel [runtime di Funzioni v2](functions-versions.md).
+
+  In alternativa, è possibile usare un parametro del metodo `CloudTable paramName` per leggere la tabella tramite Azure Storage SDK.
+
+* **Leggere una o più righe in JavaScript**
+
+  Impostare le proprietà `filter` e `take`. Non impostare `partitionKey` o `rowKey`. È possibile accedere all'entità (o alle entità) della tabella di input usando `context.bindings.<name>`. Gli oggetti deserializzati hanno le proprietà `RowKey` e `PartitionKey`.
+
+## <a name="table-storage-output-binding"></a>Associazione di output dell'archiviazione tabelle
+
+Usare un'associazione di output dell'archiviazione tabelle di Azure per scrivere entità in una tabella in un account di archiviazione di Azure.
+
+## <a name="output---example"></a>Output - esempio
+
+Vedere l'esempio specifico per ciascun linguaggio:
+
+* [C# precompilato](#output---c-example)
+* [Script C#](#output---c-script-example)
+* [F#](#output---f-example)
+* [JavaScript](#output---javascript-example)
+
+### <a name="output---c-example"></a>Output - esempio in C#
+
+L'esempio seguente illustra codice [C# precompilato](functions-dotnet-class-library.md) che usa un trigger HTTP per scrivere una singola riga della tabella. 
+
+```csharp
+public class TableStorage
 {
-    "name": "<Name of input parameter in function signature>",
-    "type": "table",
-    "direction": "out",
-    "tableName": "<Name of Storage table>",
-    "partitionKey": "<PartitionKey of table entity to write - see below>",
-    "rowKey": "<RowKey of table entity to write - see below>",
-    "connection": "<Name of app setting - see below>",
+    public class MyPoco
+    {
+        public string PartitionKey { get; set; }
+        public string RowKey { get; set; }
+        public string Text { get; set; }
+    }
+
+    [FunctionName("TableOutput")]
+    [return: Table("MyTable")]
+    public static MyPoco TableOutput([HttpTrigger] dynamic input, TraceWriter log)
+    {
+        log.Info($"C# http trigger function processed: {input.Text}");
+        return new MyPoco { PartitionKey = "Http", RowKey = Guid.NewGuid().ToString(), Text = input.Text };
+    }
 }
 ```
 
-Tenere presente quanto segue: 
+### <a name="output---c-script-example"></a>Output - esempio di script C#
 
-* Usare `partitionKey` e `rowKey` insieme per scrivere una singola entità. Queste proprietà sono facoltative. È possibile specificare `PartitionKey` e `RowKey` anche quando si creano gli oggetti entità nel codice della funzione.
-* `connection` deve contenere il nome di un'impostazione app che contiene una stringa di connessione di archiviazione. Nel portale di Azure l'editor standard disponibile nella scheda **Integra** configura automaticamente questa impostazione app quando si crea un account di archiviazione o si seleziona un account già esistente. È anche possibile [configurare questa impostazione dell'app manualmente](functions-how-to-use-azure-function-app-settings.md#settings). 
+L'esempio seguente illustra un'associazione di output della tabella in un file *function.json* e codice [script C#](functions-reference-csharp.md) che usa l'associazione. La funzione scrive più entità della tabella.
 
-<a name="outputusage"></a>
-
-## <a name="output-usage"></a>Uso dell'output
-Nelle funzioni C# è possibile eseguire l'associazione all'output della tabella usando il parametro denominato `out` nella firma funzione, ad esempio `out <T> <name>`, dove `T` è il tipo di dati in cui si vuole serializzare i dati e `paramName` è il nome specificato nell'[associazione di output](#output). Nelle funzioni Node.js si accede all'output della tabella usando `context.bindings.<name>`.
-
-È possibile serializzare gli oggetti nelle funzioni Node.js o C#. Nelle funzioni C# è anche possibile definire associazioni con i seguenti tipi:
-
-* Qualsiasi tipo che implementa `ITableEntity`
-* `ICollector<T>` (per restituire più entità, vedere l'[esempio](#outcsharp)).
-* `IAsyncCollector<T>` (versione asincrona di `ICollector<T>`)
-* `CloudTable` (uso di Azure Storage SDK. vedere l'[esempio](#readmulti)).
-
-<a name="outputsample"></a>
-
-## <a name="output-sample"></a>Esempio di output
-L'esempio di *function.json* e *run.csx* seguente illustra come scrivere più entità di tabella.
+Ecco il file *function.json*:
 
 ```json
 {
@@ -207,7 +421,7 @@ L'esempio di *function.json* e *run.csx* seguente illustra come scrivere più en
     },
     {
       "tableName": "Person",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "name": "tableBinding",
       "type": "table",
       "direction": "out"
@@ -217,15 +431,10 @@ L'esempio di *function.json* e *run.csx* seguente illustra come scrivere più en
 }
 ```
 
-Vedere l'esempio specifico del linguaggio che crea più entità di tabella.
+Queste proprietà sono descritte nella sezione [configuration](#output---configuration).
 
-* [C#](#outcsharp)
-* [F#](#outfsharp)
-* [Node.JS](#outnodejs)
+Ecco il codice script C#:
 
-<a name="outcsharp"></a>
-
-### <a name="output-sample-in-c"></a>Esempio di output in C# #
 ```csharp
 public static void Run(string input, ICollector<Person> tableBinding, TraceWriter log)
 {
@@ -250,9 +459,37 @@ public class Person
 }
 
 ```
-<a name="outfsharp"></a>
 
-### <a name="output-sample-in-f"></a>Esempio di output in F# #
+### <a name="output---f-example"></a>Output - esempio in F#
+
+L'esempio seguente illustra un'associazione di output della tabella in un file *function.json* e codice [script F#](functions-reference-fsharp.md) che usa l'associazione. La funzione scrive più entità della tabella.
+
+Ecco il file *function.json*:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "manualTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "tableBinding",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Queste proprietà sono descritte nella sezione [configuration](#output---configuration).
+
+Ecco il codice F#:
+
 ```fsharp
 [<CLIMutable>]
 type Person = {
@@ -270,9 +507,36 @@ let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
               Name = "Name" + i.ToString() })
 ```
 
-<a name="outnodejs"></a>
+### <a name="output---javascript-example"></a>Output - esempio JavaScript
 
-### <a name="output-sample-in-nodejs"></a>Esempio di output in Node.js
+L'esempio seguente illustra un'associazione di output della tabella in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione scrive più entità della tabella.
+
+Ecco il file *function.json*:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "input",
+      "type": "manualTrigger",
+      "direction": "in"
+    },
+    {
+      "tableName": "Person",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "tableBinding",
+      "type": "table",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Queste proprietà sono descritte nella sezione [configuration](#output---configuration).
+
+Ecco il codice JavaScript:
+
 ```javascript
 module.exports = function (context) {
 
@@ -290,54 +554,65 @@ module.exports = function (context) {
 };
 ```
 
-<a name="readmulti"></a>
+## <a name="output---attributes-for-precompiled-c"></a>Output - attributi per C# precompilato
 
-## <a name="sample-read-multiple-table-entities-in-c"></a>Esempio: Leggere più entità di tabella in C#  #
-Il codice di esempio di *function.json* e di C# seguente legge le entità per una chiave di partizione specificata nel messaggio della coda.
+ Per [C# precompilato](functions-dotnet-class-library.md) usare [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), che è definito nel pacchetto NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
 
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
-      "name": "myQueueItem",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "tableBinding",
-      "type": "table",
-      "connection": "MyStorageConnection",
-      "tableName": "Person",
-      "direction": "in"
-    }
-  ],
-  "disabled": false
-}
-```
-
-Il codice C# aggiunge un riferimento ad Azure Storage SDK in modo che il tipo di entità possa derivare da `TableEntity`.
+Il costruttore dell'attributo accetta il nome della tabella. Può essere usato su un parametro `out` o sul valore restituito della funzione, come illustrato nell'esempio seguente:
 
 ```csharp
-#r "Microsoft.WindowsAzure.Storage"
-using Microsoft.WindowsAzure.Storage.Table;
-
-public static void Run(string myQueueItem, IQueryable<Person> tableBinding, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-    foreach (Person person in tableBinding.Where(p => p.PartitionKey == myQueueItem).ToList())
-    {
-        log.Info($"Name: {person.Name}");
-    }
-}
-
-public class Person : TableEntity
-{
-    public string Name { get; set; }
-}
+[FunctionName("TableOutput")]
+[return: Table("MyTable")]
+public static MyPoco TableOutput(
+    [HttpTrigger] dynamic input, 
+    TraceWriter log)
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+È possibile impostare la proprietà `Connection` per specificare l'account di archiviazione da usare, come illustrato nell'esempio seguente:
 
+```csharp
+[FunctionName("TableOutput")]
+[return: Table("MyTable", Connection = "StorageConnectionAppSetting")]
+public static MyPoco TableOutput(
+    [HttpTrigger] dynamic input, 
+    TraceWriter log)
+```
+
+È possibile usare l'attributo `StorageAccount` per specificare l'account di archiviazione a livello di classe, metodo o parametro. Per altre informazioni, vedere [Input - attributi per C# precompilato](#input---attributes-for-precompiled-c).
+
+## <a name="output---configuration"></a>Output - configurazione
+
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Table`.
+
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
+|---------|---------|----------------------|
+|**type** | n/d | Il valore deve essere impostato su `table`. Questa proprietà viene impostata automaticamente quando si crea l'associazione nel portale di Azure.|
+|**direction** | n/d | Il valore deve essere impostato su `out`. Questa proprietà viene impostata automaticamente quando si crea l'associazione nel portale di Azure. |
+|**nome** | n/d | Nome della variabile usato nel codice della funzione che rappresenta la tabella o l'entità. Impostare su `$return` per fare riferimento al valore restituito della funzione.| 
+|**tableName** |**TableName** | Nome della tabella.| 
+|**partitionKey** |**PartitionKey** | Chiave di partizione dell'entità della tabella da scrivere. Vedere la sezione [usage](#output---usage) per indicazioni sull'uso di questa proprietà.| 
+|**rowKey** |**RowKey** | Chiave di riga dell'entità della tabella da scrivere. Vedere la sezione [usage](#output---usage) per indicazioni sull'uso di questa proprietà.| 
+|**connessione** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se si imposta `connection` su "MyStorage", il runtime di Funzioni di Azure cerca un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.<br/>Quando si sviluppa in locale, le impostazioni dell'app vengono inserite nei valori del [file local.settings.json](functions-run-local.md#local-settings-file).|
+
+## <a name="output---usage"></a>Output - uso
+
+L'associazione di output dell'archiviazione tabelle supporta gli scenari seguenti:
+
+* **Scrivere una riga in qualsiasi linguaggio**
+
+  In C# e negli script C# è possibile accedere all'entità della tabella di output con un parametro di metodo, ad esempio `out T paramName`, o il valore restituito della funzione. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. `T` può essere qualsiasi tipo serializzabile, se la chiave di partizione e la chiave di riga vengono fornite dal file *function.json* o dall'attributo `Table`. In caso contrario, `T` deve essere un tipo che include le proprietà `PartitionKey` e `RowKey`. In questo scenario, `T` in genere, ma non necessariamente, implementa `ITableEntity` o deriva da `TableEntity`.
+
+* **Scrivere una o più righe in C# o script C#**
+
+  In C# e negli script C# è possibile accedere all'entità della tabella di output con un parametro di metodo `ICollector<T> paramName` o `ICollectorAsync<T> paramName`. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. `T` specifica lo schema delle entità da aggiungere. In genere, ma non necessariamente, `T` deriva da `TableEntity` o implementa `ITableEntity`. I valori della chiave di partizione e della chiave di riga in *function.json* o nel costruttore dell'attributo `Table` non vengono usati in questo scenario.
+
+  In alternativa, è possibile usare un parametro del metodo `CloudTable paramName` per scrivere nella tabella tramite Azure Storage SDK.
+
+* **Scrivere una o più righe in JavaScript**
+
+  Nelle funzioni JavaScript è possibile accedere all'output della tabella usando `context.bindings.<name>`.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+> [!div class="nextstepaction"]
+> [Altre informazioni su trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)

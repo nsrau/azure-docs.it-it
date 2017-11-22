@@ -14,14 +14,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 05/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7910540add4092e1b5822a7525bec912befd80e7
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 2e2a9e8491ad56bcbc42be64729715016f7ed17b
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-application-insights"></a>Informazioni su Azure Application Insights
-Application Insights è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web su più piattaforme, che consente di monitorare un'applicazione Web live. Il servizio rileva automaticamente le anomalie nelle prestazioni e include avanzati strumenti di analisi che consentono di diagnosticare i problemi e conoscere come viene effettivamente usata l'app dagli utenti.  Il servizio è progettato per supportare il miglioramento continuo delle prestazioni e dell'usabilità. Funziona per le app su un'ampia gamma di piattaforme, tra cui .NET o J2EE, ospitate in locale o nel cloud. Si integra con il processo DevOps e offre punti di connessione per diversi altri strumenti di sviluppo. Può monitorare e analizzare i dati di telemetria da app per dispositivi mobili grazie all'integrazione con Visual Studio Mobile Center e HockeyApp.
+Application Insights è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web su più piattaforme, che consente di monitorare un'applicazione Web live. Il servizio rileva automaticamente le anomalie nelle prestazioni e include avanzati strumenti di analisi che consentono di diagnosticare i problemi e conoscere come viene effettivamente usata l'app dagli utenti.  Il servizio è progettato per supportare il miglioramento continuo delle prestazioni e dell'usabilità. Funziona per le app su un'ampia gamma di piattaforme, tra cui .NET o J2EE, ospitate in locale o nel cloud. Si integra con il processo DevOps e offre punti di connessione per diversi altri strumenti di sviluppo. Può monitorare e analizzare i dati di telemetria da app per dispositivi mobili grazie all'integrazione con Visual Studio App Center e HockeyApp.
 
 ![Creare grafici relativi alle statistiche sulle attività degli utenti o eseguire il drill-down in eventi specifici.](./media/app-insights-overview/00-sample.png)
 
@@ -117,7 +117,7 @@ Application Insights è uno dei molti servizi ospitati in Microsoft Azure e rice
   * [Node.JS](app-insights-nodejs.md)
   * [Altre piattaforme](app-insights-platforms.md)
 * **[Instrumentare le pagine Web](app-insights-javascript.md)** per visualizzazione pagina, AJAX e altri dati di telemetria sul lato client.
-* **[Analizzare l'utilizzo di app per dispositivi mobili](app-insights-mobile-center-quickstart.md)** tramite l'integrazione con Visual Studio Mobile Center.
+* **[Analizzare l'uso di app per dispositivi mobili](app-insights-mobile-center-quickstart.md)** tramite l'integrazione con Visual Studio App Center.
 * **[Test di disponibilità](app-insights-monitor-web-app-availability.md)**: effettuare regolarmente il ping del sito Web dai server.
 
 

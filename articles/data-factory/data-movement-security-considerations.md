@@ -13,13 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2017
 ms.author: abnarain
-ms.openlocfilehash: 9caea4191a2ca99e6e98cc8ce7ca9ca0c7b8dc87
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: bba2781d43aff9e462246cfe21961695e48196d8
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: considerazioni sulla sicurezza dello spostamento dei dati
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Versione 1 - Disponibilità generale](v1/data-factory-data-movement-security-considerations.md)
+> * [Versione 2 - Anteprima](data-movement-security-considerations.md)
+
 Questo articolo descrive l'infrastruttura di sicurezza di base usata dai servizi di spostamento dei dati in Azure Data Factory per proteggere i dati. Le risorse di gestione di Azure Data Factory si basano sull'infrastruttura di sicurezza di Azure e ricorrono a tutte le misure di sicurezza offerte da Azure.
 
 > [!NOTE]
@@ -27,7 +31,7 @@ Questo articolo descrive l'infrastruttura di sicurezza di base usata dai servizi
 
 In una soluzione Data Factory si creano una o più [pipeline](concepts-pipelines-activities.md)di dati. Una pipeline è un raggruppamento logico di attività che insieme eseguono un compito. Queste pipeline si trovano nell'area in cui è stata creata la data factory. 
 
-Anche se Data Factory è disponibile solo nelle aree **Stati Uniti orientali** e **Stati Uniti orientali 2** (anteprima versione 2), il servizio di spostamento dei dati è disponibile [a livello globale in molte aree](concepts-integration-runtime.md#azure-ir). Nel caso in cui il servizio di spostamento dei dati non fosse stato ancora distribuito in tale area, il servizio Data Factory assicura che i dati non lascino un'area geografica/regione a meno che non venga indicato esplicitamente al servizio di usare un'area alternativa. 
+Anche se Data Factory è disponibile solo nelle aree **Stati Uniti orientali**, **Stati Uniti orientali 2** ed **Europa occidentale** (anteprima versione 2), il servizio di spostamento dei dati è disponibile [a livello globale in molte aree](concepts-integration-runtime.md#azure-ir). Nel caso in cui il servizio di spostamento dei dati non fosse stato ancora distribuito in tale area, il servizio Data Factory assicura che i dati non lascino un'area geografica/regione a meno che non venga indicato esplicitamente al servizio di usare un'area alternativa. 
 
 Azure Data Factory non archivia i dati ad eccezione delle credenziali del servizio collegato per gli archivi di dati cloud, che vengono crittografate tramite l'uso di certificati. Consente di creare flussi di lavoro basati sui dati per orchestrare lo spostamento di dati tra [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats) e l'elaborazione di dati usando i [servizi di calcolo](compute-linked-services.md) in altre aree o in un ambiente locale. Consente anche di monitorare e gestire i flussi di lavoro usando SDK e Monitoraggio di Azure.
 

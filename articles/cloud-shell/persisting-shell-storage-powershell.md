@@ -1,5 +1,5 @@
 ---
-title: Rendere persistenti i file in Azure Cloud Shell (Anteprima) | Microsoft Docs
+title: Rendere persistenti i file in PowerShell in Azure Cloud Shell (anteprima) | Microsoft Docs
 description: Procedura dettagliata su come Azure Cloud Shell rende persistenti i file.
 services: azure
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: damaerte
-ms.openlocfilehash: 933af3860bfe087a0b4db7eff53d4b978a1475da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66d0e20d670e49cdfe64614d1fc6f5739fde6155
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-cloud-shell-works"></a>Funzionamento di Cloud Shell
-Cloud Shell rende persistenti i file tramite il metodo seguente: 
+## <a name="how-powershell-in-azure-cloud-shell-preview-works"></a>Come funziona PowerShell in Azure Cloud Shell (anteprima)
+PowerShell in Cloud Shell (anteprima) rende persistenti i file tramite il metodo seguente: 
 * Montaggio della condivisione file specificata come `clouddrive` nella directory `$Home` per l'interazione diretta con la condivisione file.
 
 ## <a name="list-cloud-drive-file-shares"></a>Elencare le condivisioni file sull'unità Cloud

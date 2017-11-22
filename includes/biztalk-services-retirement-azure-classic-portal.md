@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> Il portale è deprecato. Per gestire le istanze del server di Backup di Microsoft Azure, vedere [API REST per la gestione dei servizi BizTalk in Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).

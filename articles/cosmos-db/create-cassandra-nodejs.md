@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 1ce764a3395b0ddb9e78f1247fd55fabbeecb04e
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 76850d6403fc4e87e95f5842b87b258d652c2c35
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app Cassandra con Node.js e Azure Cosmos DB
 
@@ -156,7 +156,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
     ![Visualizzare e copiare i valori di PUNTO DI CONTATTO, NOME UTENTE e PASSWORD dalla pagina della stringa di connessione del portale di Azure](./media/create-cassandra-nodejs/keys.png)
 
-2. Aprire il file `config.js`. 
+2. Aprire il file `config.js` . 
 
 3. Incollare il valore di PUNTO DI CONTATTO dal portale su `<FillMEIN>` nella riga 4.
 
@@ -193,6 +193,8 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 2. Eseguire `node uprofile.js` per avviare l'applicazione Node.js.
 
 3. Verificare i risultati previsti dalla riga di comando.
+
+    ![Visualizzare e verificare l'output](./media/create-cassandra-nodejs/output.png)
 
     Premere CTRL+C per arrestare l'esecuzione del programma e chiudere la finestra della console. 
 

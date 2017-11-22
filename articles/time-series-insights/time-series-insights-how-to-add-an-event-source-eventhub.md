@@ -1,75 +1,108 @@
 ---
 title: Come aggiungere un'origine evento dell'hub eventi all'ambiente Time Series Insights di Azure | Microsoft Docs
-description: Questa esercitazione illustra come aggiungere un'origine evento connessa a un hub eventi all'ambiente Time Series Insights.
-keywords: 
+description: Questo articolo descrive come aggiungere un'origine evento connessa a un hub eventi all'ambiente Time Series Insights.
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: sandshadow
-manager: almineev
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: how-to-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 04/19/2017
 ms.author: edett
-ms.openlocfilehash: f6a993b3858cfb94dd9795f5e55f15fa6ec7dcb2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: f3a9a1c7e57383925877f674a2e02f931e5c1e3c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="how-to-add-an-event-hub-event-source"></a>Come aggiungere un'origine evento di un hub eventi
+# <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>Come aggiungere un'origine evento hub eventi a un ambiente Time Series Insights
 
-Questa esercitazione illustra come usare il portale di Azure per aggiungere all'ambiente Time Series Insights un'origine evento che legge i dati da un hub eventi.
+Questo articolo descrive come usare il portale di Azure per aggiungere all'ambiente Time Series Insights un'origine evento che legge dati da un hub eventi.
 
 ## <a name="prerequisites"></a>Prerequisiti
+- Creare un ambiente Time Series Insights Per altre informazioni, vedere [Creare un ambiente Azure Time Series Insights](time-series-insights-get-started.md). 
+- Creare un hub eventi. Per altre informazioni sugli hub eventi, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il portale di Azure](../event-hubs/event-hubs-create.md).
+- Lo hub eventi deve ricevere eventi messaggio attivi. Per altre informazioni, vedere [Inviare eventi a Hub eventi di Azure usando .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
+- Creare un gruppo di consumer dedicato in Hub eventi per l'utilizzo nell'ambiente Time Series Insights. Tutte le origini evento Time Series Insights devono avere un proprio gruppo di consumer dedicato che non sia condiviso con altri consumer. Se più lettori consumano eventi dello stesso gruppo di consumer, è probabile che tutti i lettori riscontrino errori. Si noti che è presente anche un limite di 20 gruppi di utenti per Hub eventi. Per informazioni dettagliate, vedere la [Guida alla programmazione di Hub eventi](../event-hubs/event-hubs-programming-guide.md).
 
-È stato creato un hub eventi e si stanno scrivendo eventi al suo interno. Per altre informazioni sugli hub eventi, vedere <https://azure.microsoft.com/services/event-hubs/>
+## <a name="add-a-new-event-source"></a>Aggiungere una nuova origine evento
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
-> [Gruppi di consumer] Tutte le origini evento Time Series Insights devono avere un proprio gruppo di consumer dedicato che non è condiviso con altri consumer. Se più lettori consumano eventi dello stesso gruppo di consumer, è probabile che tutti i lettori riscontrino errori. Si noti che è presente anche un limite di 20 gruppi di utenti per Hub eventi. Per informazioni dettagliate, vedere la [Guida alla programmazione di Hub eventi](../event-hubs/event-hubs-programming-guide.md).
+2. Individuare l'ambiente Time Series Insights esistente. Fare clic su **Tutte le risorse** nel menu sul lato sinistro del portale di Azure. Selezionare l'ambiente Time Series Insights.
 
-## <a name="choose-an-import-option"></a>Scegliere un'opzione di importazione
+3. Sotto l'intestazione **Topologia dell'ambiente** fare clic su **Origini eventi**.
 
-Le impostazioni per l'origine evento possono essere inserite manualmente oppure è possibile selezionare un hub eventi dagli hub eventi disponibili.
-Nel selettore **Opzione di importazione** scegliere una delle opzioni seguenti:
+   ![+ Aggiungi origini eventi](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)
 
-* Specificare le impostazioni dell'hub eventi manualmente
-* Usare un hub eventi dalle sottoscrizioni disponibili
+4. Fare clic su **+ Aggiungi**.
 
-### <a name="select-an-available-event-hub"></a>Selezionare un hub eventi disponibile
+5. Specificare un **Nome dell'origine evento** univoco per questo ambiente Time Series Insights, ad esempio **event-stream**.
 
-La tabella seguente riporta le singole opzioni della scheda Nuova origine evento con la relativa descrizione quando si seleziona un hub eventi disponibile come origine evento:
+   ![Compilare i primi tre parametri del modulo.](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)
 
-| Nome proprietà | DESCRIZIONE |
-| --- | --- |
-| Nome origine evento | Il nome dell'origine evento. Questo nome deve essere univoco all'interno dell'ambiente Time Series Insights.
-| Sorgente | Scegliere **Hub eventi** per creare un'origine evento di hub eventi.
-| ID sottoscrizione | Selezionare la sottoscrizione in cui l'hub eventi è stato creato.
-| Spazio dei nomi del bus di servizio | Selezionare lo spazio dei nomi del bus di servizio che contiene l'hub eventi.
-| Nome hub eventi | Selezionare il nome dell'hub eventi.
-| Nome criteri hub eventi | Selezionare i criteri di accesso condiviso, che possono essere creati nella scheda Configura dell'hub eventi. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. I criteri di accesso condiviso per l'origine evento *devono* disporre di autorizzazioni di **lettura**.
-| Gruppo di consumer dell'hub eventi | Il gruppo di consumer per leggere gli eventi dall'hub eventi. È consigliabile usare un gruppo di consumer dedicato per l'origine evento.
+6. Per **Origine** selezionare **Hub eventi**.
 
-### <a name="provide-event-hub-settings-manually"></a>Specificare le impostazioni dell'hub eventi manualmente
+7. Selezionare l'**Opzione di importazione** appropriata. 
+   - Se per una delle sottoscrizioni disponibili esiste già un hub eventi, scegliere **Usare l'hub eventi dalle sottoscrizioni disponibili**. Questo è l'approccio più semplice.
+   - Scegliere **Specificare le impostazioni dell'hub eventi manualmente** se l'hub eventi è esterno alle sottoscrizioni o si vogliono scegliere opzioni avanzate. 
 
-La tabella seguente riporta le singole proprietà della scheda Nuova origine evento con la relativa descrizione quando si immettono le impostazioni manualmente:
+8. La tabella seguente illustra le proprietà obbligatorie se si seleziona l'opzione **Usare l'hub eventi dalle sottoscrizioni disponibili**:
 
-| Nome proprietà | DESCRIZIONE |
-| --- | --- |
-| Nome origine evento | Il nome dell'origine evento. Questo nome deve essere univoco all'interno dell'ambiente Time Series Insights.
-| Sorgente | Scegliere **Hub eventi** per creare un'origine evento di hub eventi.
-| ID sottoscrizione | La sottoscrizione in cui l'hub eventi è stato creato.
-| Gruppo di risorse | La sottoscrizione in cui l'hub eventi è stato creato.
-| Spazio dei nomi del bus di servizio | Uno spazio dei nomi Service Bus è un contenitore per un set di entità di messaggistica. Quando si crea un nuovo Hub eventi, viene inoltre creato uno spazio dei nomi Service Bus.
-| Nome hub eventi | Nome dell'hub eventi. Quando è stato creato l'hub eventi gli è stato assegnato anche un nome specifico
-| Nome criteri hub eventi | Criteri di accesso condiviso che possono essere creati nella scheda Configura dell'hub eventi. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. I criteri di accesso condiviso per l'origine evento *devono* disporre di autorizzazioni di **lettura**.
-| Chiave criteri hub eventi | Chiave di accesso condivisa usata per autenticare l'accesso allo spazio dei nomi del bus di servizio. Digitare la chiave primaria o secondaria qui.
-| Gruppo di consumer dell'hub eventi | Il gruppo di consumer per leggere gli eventi dall'hub eventi. È consigliabile usare un gruppo di consumer dedicato per l'origine evento.
+   ![Dettagli hub eventi e sottoscrizione](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)
+
+   | Proprietà | Descrizione |
+   | --- | --- |
+   | ID sottoscrizione | Selezionare la sottoscrizione in cui l'hub eventi è stato creato.
+   | Spazio dei nomi del bus di servizio | Selezionare lo spazio dei nomi del bus di servizio che contiene l'hub eventi.
+   | Nome hub eventi | Selezionare il nome dell'hub eventi.
+   | Nome criteri hub eventi | Selezionare i criteri di accesso condiviso, che possono essere creati nella scheda Configura dell'hub eventi. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. I criteri di accesso condiviso per l'origine evento *devono* disporre di autorizzazioni di **lettura**.
+   | Chiave criteri hub eventi | Il valore della chiave può essere prepopolato.
+   | Gruppo di consumer dell'hub eventi | Il gruppo di consumer per la lettura degli eventi dall'hub eventi. È consigliabile usare un gruppo di consumer dedicato per l'origine evento. |
+   | Formato di serializzazione eventi | JSON è l'unico formato di serializzazione attualmente disponibile. I messaggi relativi agli eventi devono essere in questo formato. In caso contrario, non è possibile leggere i dati. |
+   | Nome della proprietà Timestamp | Per determinare questo valore, è necessario comprendere il formato dei dati del messaggio inviato all'hub eventi. Questo valore è il **nome** della proprietà evento specifica nei dati del messaggio che si vuole usare come timestamp dell'evento. Il valore fa distinzione tra maiuscole e minuscole. Se lasciato vuoto, come timestamp dell'evento viene usato il **tempo di accodamento dell'evento** all'interno dell'origine evento. |
+
+
+9. La tabella seguente illustra le proprietà obbligatorie se si seleziona l'opzione **Specificare le impostazioni dell'hub eventi manualmente**:
+
+   | Proprietà | Descrizione |
+   | --- | --- |
+   | ID sottoscrizione | La sottoscrizione in cui l'hub eventi è stato creato.
+   | Gruppo di risorse | Gruppo di risorse in cui è stato creato questo hub eventi.
+   | Spazio dei nomi del bus di servizio | Uno spazio dei nomi Service Bus è un contenitore per un set di entità di messaggistica. Quando si crea un nuovo Hub eventi, viene inoltre creato uno spazio dei nomi Service Bus.
+   | Nome hub eventi | Nome dell'hub eventi. Al momento della creazione, all'hub eventi è stato anche assegnato un nome specifico.
+   | Nome criteri hub eventi | Criteri di accesso condiviso che possono essere creati nella scheda Configura dell'hub eventi. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. I criteri di accesso condiviso per l'origine evento *devono* disporre di autorizzazioni di **lettura**.
+   | Chiave criteri hub eventi | Chiave di accesso condivisa usata per autenticare l'accesso allo spazio dei nomi del bus di servizio. Digitare la chiave primaria o secondaria qui.
+   | Gruppo di consumer dell'hub eventi | Il gruppo di consumer per leggere gli eventi dall'hub eventi. È consigliabile usare un gruppo di consumer dedicato per l'origine evento.
+   | Formato di serializzazione eventi | JSON è l'unico formato di serializzazione attualmente disponibile. I messaggi relativi agli eventi devono essere in questo formato. In caso contrario, non è possibile leggere i dati. |
+   | Nome della proprietà Timestamp | Per determinare questo valore, è necessario comprendere il formato dei dati del messaggio inviato all'hub eventi. Questo valore è il **nome** della proprietà evento specifica nei dati del messaggio che si vuole usare come timestamp dell'evento. Il valore fa distinzione tra maiuscole e minuscole. Se lasciato vuoto, come timestamp dell'evento viene usato il **tempo di accodamento dell'evento** all'interno dell'origine evento. |
+
+
+10. Selezionare **Crea** per aggiungere la nuova origine evento.
+   
+   ![Fare clic su Crea](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
+
+   Dopo la creazione dell'origine evento, Time Series Insights inizierà automaticamente a trasmettere i dati nell'ambiente.
+
+
+### <a name="add-a-consumer-group-to-your-event-hub"></a>Aggiungere un gruppo di consumer all'hub eventi
+I gruppi di consumer vengono usati dalle applicazioni per eseguire il pull dei dati da hub eventi di Azure. Per leggere in modo affidabile i dati dall'hub eventi, specificare un gruppo di consumer dedicato per l'uso esclusivo da parte di questo ambiente Time Series Insights.
+
+Per aggiungere un nuovo gruppo di consumer all'hub eventi, eseguire questa procedura:
+1. Nel portale di Azure individuare e aprire l'hub eventi.
+
+2. Sotto l'intestazione **Entità** selezionare **Gruppi di consumer**.
+
+   ![Hub eventi: aggiungere un gruppo di consumer](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
+
+3. Selezionare **+ Gruppo di consumer** per aggiungere un nuovo gruppo di consumer. 
+
+4. Nella pagina **Gruppi di consumer** specificare un nuovo **Nome** univoco.  Usare questo nome al momento di creare una nuova origine evento nell'ambiente Time Series Insights.
+
+5. Selezionare **Crea** per creare il nuovo gruppo di consumer.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-1. Aggiungere i criteri di accesso ai dati nell'ambiente [Definire i criteri di accesso ai dati](time-series-insights-data-access.md)
-1. Accedere all'ambiente nel [portale di Time Series Insights](https://insights.timeseries.azure.com)
+- [Definire criteri di accesso ai dati](time-series-insights-data-access.md) per proteggere i dati.
+- [Inviare eventi](time-series-insights-send-events.md) all'origine evento.
+- Accedere all'ambiente in [Time Series Insights Explorer](https://insights.timeseries.azure.com).

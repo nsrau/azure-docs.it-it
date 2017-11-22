@@ -1,6 +1,6 @@
 ---
-title: Associazioni dell'archiviazione BLOB di Funzioni di Azure | Microsoft Docs
-description: Informazioni su come usare trigger e associazioni di Archiviazione di Azure in Funzioni di Azure.
+title: Binding dell'archiviazione BLOB di Funzioni di Azure
+description: Informazioni su come usare trigger e associazioni dell'archiviazione BLOB di Azure in Funzioni di Azure.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -8,7 +8,6 @@ manager: cfowler
 editor: 
 tags: 
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
-ms.assetid: aba8976c-6568-4ec7-86f5-410efd6b0fb9
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -16,102 +15,258 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: 79b9dbee89a4e33a1768343b9242d6b2b1118355
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: e0c608fe3a80c9d704774e592a1eba383bbdffe8
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="azure-functions-blob-storage-bindings"></a>Binding dell'archiviazione BLOB di Funzioni di Azure
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Questo articolo illustra come configurare e operare con le associazioni dell'archiviazione BLOB in Funzioni di Azure. Funzioni di Azure supporta trigger, associazioni di input e di output per l'archiviazione BLOB di Azure. Per le funzionalità disponibili in tutte le associazioni, vedere [Concetti di Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md).
+Questo articolo illustra come operare con le associazioni dell'archiviazione BLOB di Azure in Funzioni di Azure. Funzioni di Azure supporta le associazioni di trigger, input e output per i BLOB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Non sono supportati [account di archiviazione solo BLOB](../storage/common/storage-create-storage-account.md#blob-storage-accounts). I trigger e le associazioni di archiviazione BLOB richiedono un account di archiviazione generico. 
-> 
+> [Gli account di archiviazione solo BLOB](../storage/common/storage-create-storage-account.md#blob-storage-accounts) non sono supportati. I trigger e le associazioni di archiviazione BLOB richiedono un account di archiviazione generico. 
 
-<a name="trigger"></a>
-<a name="storage-blob-trigger"></a>
-## <a name="blob-storage-triggers-and-bindings"></a>Trigger e associazioni do archiviazione BLOB
+## <a name="blob-storage-trigger"></a>Trigger di archiviazione BLOB
 
-Con l'uso del trigger di archiviazione BLOB di Azure, il codice della funzione viene chiamato quando viene rilevato un BLOB nuovo o aggiornato. I contenuti del BLOB vengono dati come input alla funzione.
-
-Definire un'archiviazione BLOB usando la scheda **Integrazione** nel portale Funzioni. Il portale crea la definizione seguente nella sezione **associazioni** di *function.json*:
-
-```json
-{
-    "name": "<The name used to identify the trigger data in your code>",
-    "type": "blobTrigger",
-    "direction": "in",
-    "path": "<container to monitor, and optionally a blob name pattern - see below>",
-    "connection": "<Name of app setting - see below>"
-}
-```
-
-Le associazioni di input e output BLOB vengono definite usando `blob` come tipo di associazione:
-
-```json
-{
-  "name": "<The name used to identify the blob input in your code>",
-  "type": "blob",
-  "direction": "in", // other supported directions are "inout" and "out"
-  "path": "<Path of input blob - see below>",
-  "connection":"<Name of app setting - see below>"
-},
-```
-
-* La proprietà `path` supporta le espressioni di associazione e parametri di filtro. Vedere [Modelli di nome](#pattern).
-* La proprietà `connection` deve contenere il nome di un'impostazione app che contiene una stringa di connessione alla risorsa di archiviazione. Nel portale di Azure l'editor standard disponibile nella scheda **Integrazione** configura questa impostazione app quando si sceglie un account di archiviazione.
+Usare un trigger di archiviazione BLOB per l'avvio di una funzione quando viene rilevato un BLOB nuovo o aggiornato. I contenuti del BLOB vengono dati come input alla funzione.
 
 > [!NOTE]
 > Quando si usa un trigger di tipo BLOB in un piano a consumo, è possibile che si verifichi un ritardo di un massimo di 10 minuti per l'elaborazione di nuovi BLOB in caso di inattività di un'app per le funzioni. Quando l'app per le funzioni è in esecuzione, i BLOB vengono elaborati immediatamente. Per evitare questo ritardo iniziale, prendere in considerazione una delle opzioni seguenti:
 > - Usare un piano di servizio app con l'opzione Always On abilitata.
-> - Usare un altro meccanismo per attivare l'elaborazione dei BLOB, ad esempio un messaggio della coda che contiene il nome del BLOB. Per un esempio, vedere il [Queue trigger with blob input binding](#input-sample) (Trigger della coda con associazione di input del BLOB).
+> - Usare un altro meccanismo per attivare l'elaborazione dei BLOB, ad esempio un messaggio della coda che contiene il nome del BLOB. Per un esempio, vedere l'[esempio di associazioni di input/output BLOB più avanti in questo articolo](#input--output---example).
 
-<a name="pattern"></a>
+## <a name="trigger---example"></a>Trigger - esempio
 
-### <a name="name-patterns"></a>Modelli di nome
-È possibile specificare un modello di nome del BLOB nella proprietà `path`, che può essere un'espressione di filtro o di associazione. Vedere [Modelli ed espressioni di associazione](functions-triggers-bindings.md#binding-expressions-and-patterns).
+Vedere l'esempio specifico per ciascun linguaggio:
 
-Ad esempio, per filtrare i BLOB che iniziano con la stringa "original", usare la definizione seguente. Questo percorso troverà un BLOB denominato *original-Blob1.txt* nel contenitore *input* e il valore della variabile `name` nel codice della funzione sarà `Blob1`.
+* [C# precompilato](#trigger---c-example)
+* [Script C#](#trigger---c-script-example)
+* [JavaScript](#trigger---javascript-example)
+
+### <a name="trigger---c-example"></a>Trigger - esempio in C#
+
+L'esempio seguente illustra codice [C# precompilato](functions-dotnet-class-library.md) che scrive un log quando viene aggiunto o aggiornato un BLOB nel contenitore `samples-workitems`.
+
+```csharp
+[FunctionName("BlobTriggerCSharp")]        
+public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, string name, TraceWriter log)
+{
+    log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
+}
+```
+
+Per altre informazioni sull'attributo `BlobTrigger`, vedere [Trigger - attributi per C# precompilato](#trigger---attributes-for-precompiled-c).
+
+### <a name="trigger---c-script-example"></a>Trigger - esempio di script C#
+
+L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e codice [script C#](functions-reference-csharp.md) che usa l'associazione. La funzione scrive un log quando viene aggiunto o aggiornato un BLOB nel contenitore `samples-workitems`.
+
+Ecco i dati di associazione nel file *function.json*:
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "myBlob",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "samples-workitems",
+            "connection":"MyStorageAccountAppSetting"
+        }
+    ]
+}
+```
+
+Queste proprietà sono descritte nella sezione [configuration](#trigger---configuration).
+
+Ecco il codice script C# associato a un oggetto `Stream`:
+
+```cs
+public static void Run(Stream myBlob, TraceWriter log)
+{
+   log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
+}
+```
+
+Ecco il codice script C# associato a un oggetto `CloudBlockBlob`:
+
+```cs
+#r "Microsoft.WindowsAzure.Storage"
+
+using Microsoft.WindowsAzure.Storage.Blob;
+
+public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
+{
+    log.Info($"C# Blob trigger function Processed blob\n Name:{name}\nURI:{myBlob.StorageUri}");
+}
+```
+
+### <a name="trigger---javascript-example"></a>Trigger - esempio JavaScript
+
+L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e [codice JavaScript] (functions-reference-node.md) che usa l'associazione. La funzione scrive un log quando viene aggiunto o aggiornato un BLOB nel contenitore `samples-workitems`.
+
+Ecco il file *function.json*:
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "myBlob",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "samples-workitems",
+            "connection":"MyStorageAccountAppSetting"
+        }
+    ]
+}
+```
+
+Queste proprietà sono descritte nella sezione [configuration](#trigger---configuration).
+
+Ecco il codice JavaScript:
+
+```javascript
+module.exports = function(context) {
+    context.log('Node.js Blob trigger function processed', context.bindings.myBlob);
+    context.done();
+};
+```
+
+## <a name="trigger---attributes-for-precompiled-c"></a>Trigger - attributi per C# precompilato
+
+Per le funzioni di [C# precompilato](functions-dotnet-class-library.md), usare i seguenti attributi per configurare un trigger di BLOB:
+
+* [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+
+  L'attributo del costruttore accetta una stringa di percorso che indica il contenitore per il controllo e, facoltativamente, un [modello di nome per il BLOB](#trigger---blob-name-patterns). Ad esempio:
+
+  ```csharp
+  [FunctionName("ResizeImage")]
+  public static void Run(
+      [BlobTrigger("sample-images/{name}")] Stream image, 
+      [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+  ```
+
+  È possibile impostare la proprietà `Connection` per specificare l'account di archiviazione da usare, come illustrato nell'esempio seguente:
+
+   ```csharp
+  [FunctionName("ResizeImage")]
+  public static void Run(
+      [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image, 
+      [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+  ```
+
+* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs)
+
+  Offre un altro modo per specificare l'account di archiviazione da usare. Il costruttore accetta il nome di un'impostazione dell'app che contiene una stringa di connessione di archiviazione. L'attributo può essere applicato a livello di parametro, metodo o classe. L'esempio seguente illustra il livello classe e il livello metodo:
+
+  ```csharp
+  [StorageAccount("ClassLevelStorageAppSetting")]
+  public static class AzureFunctions
+  {
+      [FunctionName("BlobTrigger")]
+      [StorageAccount("FunctionLevelStorageAppSetting")]
+      public static void Run( //...
+  ```
+
+L'account di archiviazione da usare è determinato nell'ordine seguente:
+
+* La proprietà `Connection` dell'attributo `BlobTrigger`.
+* L'attributo `StorageAccount` applicato allo stesso parametro dell'attributo `BlobTrigger`.
+* L'attributo `StorageAccount` applicato alla funzione.
+* L'attributo `StorageAccount` applicato alla classe.
+* L'account di archiviazione predefinito per l'app per le funzioni (impostazione dell'app "AzureWebJobsStorage").
+
+## <a name="trigger---configuration"></a>Trigger - configurazione
+
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `BlobTrigger`.
+
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
+|---------|---------|----------------------|
+|**type** | n/d | Il valore deve essere impostato su `blobTrigger`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
+|**direction** | n/d | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. Le eccezioni sono indicate nella sezione [usage](#trigger---usage). |
+|**nome** | n/d | Nome della variabile che rappresenta il BLOB nel codice della funzione. | 
+|**path** | **BlobPath** |Contenitore da monitorare.  Può essere un [modello di nome per il BLOB](#trigger-blob-name-patterns). | 
+|**connessione** | **Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se si imposta `connection` su "MyStorage", il runtime di Funzioni di Azure cerca un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.<br><br>La stringa di connessione deve essere relativa a un account di archiviazione di uso generico, non a un [account di archiviazione solo BLOB](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>Quando si sviluppa in locale, le impostazioni dell'app vengono inserite nei valori del [file local.settings.json](functions-run-local.md#local-settings-file).|
+
+## <a name="trigger---usage"></a>Trigger - uso
+
+In C# e negli script C# è possibile accedere ai dati del BLOB con un parametro del metodo, ad esempio `Stream paramName`. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. È possibile definire associazioni con uno dei seguenti tipi:
+
+* `TextReader`
+* `Stream`
+* `ICloudBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
+* `CloudBlockBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
+* `CloudPageBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
+* `CloudAppendBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
+
+Come accennato, alcuni di questi tipi richiedono una direzione di associazione `inout` in *function.json*. Questa direzione non è supportata dall'editor standard nel portale di Azure, pertanto è necessario usare l'editor avanzato.
+
+Se sono previsti BLOB di testo, è possibile eseguire l'associazione al tipo `string`. È consigliabile solo se le dimensioni del BLOB sono ridotte, in quanto l'intero contenuto del BLOB viene caricato in memoria. In genere, è preferibile usare un tipo `Stream` o `CloudBlockBlob`.
+
+In JavaScript si accede a dati del BLOB di input usando `context.bindings.<name>`.
+
+## <a name="trigger---blob-name-patterns"></a>Trigger - modelli di nome dei BLOB
+
+È possibile specificare un modello di nome di BLOB nella proprietà `path` in *function.json* o nel costruttore dell'attributo `BlobTrigger`. Il modello di nome può essere un'[espressione di filtro o di associazione](functions-triggers-bindings.md#binding-expressions-and-patterns).
+
+### <a name="filter-on-blob-name"></a>Filtrare in base al nome del BLOB
+
+L'esempio seguente attiva un trigger solo per i BLOB nel contenitore `input` che iniziano con la stringa "original-":
 
 ```json
 "path": "input/original-{name}",
 ```
+ 
+Se il nome del BLOB è *original-Blob1.txt*, il valore della variabile `name` nel codice della funzione sarà `Blob1`.
 
-Per associare il nome del file BLOB e l'estensione separatamente, usare due modelli. Anche questo percorso troverà un BLOB denominato *original-Blob1.txt* e i valori delle variabili `blobname` e `blobextension` nel codice della funzione saranno *original-Blob1* e *txt*.
+### <a name="filter-on-file-type"></a>Filtrare in base al tipo di file
 
-```json
-"path": "input/{blobname}.{blobextension}",
-```
-
-È possibile limitare il tipo di file dei BLOB usando un valore fisso per l'estensione del file. Ad esempio, per attivare solo i file con estensione PNG, usare il modello seguente:
+L'esempio seguente attiva un trigger solo per i file con estensione *png*:
 
 ```json
 "path": "samples/{name}.png",
 ```
 
-Le parentesi graffe sono caratteri speciali nei modelli di nome. Per specificare i nomi di BLOB con parentesi graffe nel nome, raddoppiare le parentesi graffe. L'esempio seguente troverà un BLOB denominato *{20140101}-soundfile.mp3* nel contenitore *images* e il valore della variabile `name` nel codice della funzione sarà *soundfile.mp3*. 
+### <a name="filter-on-curly-braces-in-file-names"></a>Filtrare in base alle parentesi graffe nei nomi dei file
+
+Per cercare le parentesi graffe nei nomi dei file, raddoppiare le parentesi graffe per eseguirne l'escape. L'esempio seguente filtra i BLOB che contengono parentesi graffe nel nome:
 
 ```json
 "path": "images/{{20140101}}-{name}",
 ```
 
-### <a name="trigger-metadata"></a>Metadati del trigger
+Se il BLOB è denominato *{20140101}-soundfile.mp3*, il valore della variabile `name` nel codice della funzione sarà *soundfile.mp3*. 
 
-Il trigger del BLOB contiene diverse proprietà di metadati. Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Questi valori hanno la stessa semantica di [CloudBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet).
+### <a name="get-file-name-and-extension"></a>Ottenere l'estensione e il nome del file
 
-- **BlobTrigger**. Digitare `string`. Il percorso del BLOB trigger
-- **Uri**. Digitare `System.Uri`. L'URI del BLOB per la posizione primaria.
-- **Properties**. Digitare `Microsoft.WindowsAzure.Storage.Blob.BlobProperties`. Le proprietà di sistema del BLOB.
-- **Metadata**. Digitare `IDictionary<string,string>`. I metadati definiti dall'utente per il BLOB.
+L'esempio seguente illustra come associare il nome e l'estensione del file BLOB separatamente:
 
-<a name="receipts"></a>
+```json
+"path": "input/{blobname}.{blobextension}",
+```
+Se il BLOB è denominato *original-Blob1.txt*, i valori delle variabili `blobname` e `blobextension` nel codice della funzione saranno *original-Blob1* e *txt*.
 
-### <a name="blob-receipts"></a>Conferme di BLOB
+## <a name="trigger---metadata"></a>Trigger - metadati
+
+Il trigger del BLOB contiene diverse proprietà di metadati. Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Questi valori hanno la stessa semantica del tipo [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet).
+
+
+|Proprietà  |Tipo  |Descrizione  |
+|---------|---------|---------|
+|`BlobTrigger`|`string`|Percorso del BLOB trigger.|
+|`Uri`|`System.Uri`|L'URI del BLOB per la posizione primaria.|
+|`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties)|Le proprietà di sistema del BLOB. |
+|`Metadata` |`IDictionary<string,string>`|I metadati definiti dall'utente per il BLOB.|
+
+## <a name="trigger---blob-receipts"></a>Trigger - conferme di BLOB
+
 Il runtime di Funzioni di Azure verifica che nessuna funzione trigger di BLOB venga chiamata più volte per lo stesso BLOB nuovo o aggiornato. Gestisce *conferme di BLOB* per determinare se una versione di BLOB specifica è stata elaborata.
 
 Funzioni di Azure archivia le conferme di BLOB in un contenitore denominato *azure-webjobs-hosts* nell'account di archiviazione di Azure per l'app per le funzioni, specificato dall'impostazione app `AzureWebJobsStorage`. Una conferma di BLOB contiene le seguenti informazioni:
@@ -124,9 +279,8 @@ Funzioni di Azure archivia le conferme di BLOB in un contenitore denominato *azu
 
 Per forzare la rielaborazione di un BLOB è possibile eliminare manualmente la conferma del BLOB dal contenitore *azure-webjobs-hosts*.
 
-<a name="poison"></a>
+## <a name="trigger---poison-blobs"></a>Trigger - BLOB non elaborabili
 
-### <a name="handling-poison-blobs"></a>Gestione di BLOB non elaborabili
 Se una funzione di trigger del BLOB ha esito negativo per un determinato BLOB, per impostazione predefinita Funzioni di Azure ritenta l'esecuzione fino a 5 volte. 
 
 Se tutti i 5 tentativi non riescono, Funzioni di Azure aggiunge un messaggio a una coda di archiviazione denominata *webjobs-blobtrigger-poison*. Il messaggio di coda per i BLOB non elaborabili è un oggetto JSON che contiene le seguenti proprietà:
@@ -137,110 +291,67 @@ Se tutti i 5 tentativi non riescono, Funzioni di Azure aggiunge un messaggio a u
 * BlobName
 * ETag (identificatore di versione del BLOB, ad esempio: "0x8D1DC6E70A277EF")
 
-### <a name="blob-polling-for-large-containers"></a>Polling dei BLOB per contenitori di grandi dimensioni
-Se il contenitore BLOB monitorato contiene più di 10.000 BLOB, il runtime di Funzioni analizza i file di log per cercare i BLOB nuovi o modificati. Questo processo non avviene in tempo reale. È possibile quindi che una funzione non venga attivata per diversi minuti o più dopo la creazione del BLOB. Per di più [i log di archiviazione vengono creati in base al principio del "massimo sforzo"](/rest/api/storageservices/About-Storage-Analytics-Logging). Non è garantito che tutti gli eventi vengano acquisiti. In alcune condizioni, l'acquisizione dei log può non riuscire. Se è necessaria un'elaborazione dei BLOB più veloce o affidabile, valutare la possibilità di creare un [messaggio della coda](../storage/queues/storage-dotnet-how-to-use-queues.md) quando si crea il BLOB. Usare quindi un [trigger di coda](functions-bindings-storage-queue.md) invece di un trigger di BLOB per elaborare il BLOB.
+## <a name="trigger---polling-for-large-containers"></a>Trigger - polling per i contenitori di grandi dimensioni
 
-<a name="triggerusage"></a>
+Se il contenitore BLOB monitorato contiene più di 10.000 BLOB, il runtime di Funzioni analizza i file di log per cercare i BLOB nuovi o modificati. Questo processo può causare ritardi. È possibile quindi che una funzione non venga attivata per diversi minuti o più dopo la creazione del BLOB. Per di più [i log di archiviazione vengono creati in base al principio del "massimo sforzo"](/rest/api/storageservices/About-Storage-Analytics-Logging). Non è garantito che tutti gli eventi vengano acquisiti. In alcune condizioni, l'acquisizione dei log può non riuscire. Se è necessaria un'elaborazione dei BLOB più veloce o affidabile, valutare la possibilità di creare un [messaggio della coda](../storage/queues/storage-dotnet-how-to-use-queues.md) quando si crea il BLOB. Usare quindi un [trigger di coda](functions-bindings-storage-queue.md) invece di un trigger di BLOB per elaborare il BLOB. Un'altra opzione consiste nell'usare Griglia di eventi. Vedere l'esercitazione [Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi](../event-grid/resize-images-on-storage-blob-upload-event.md).
 
-## <a name="using-a-blob-trigger-and-input-binding"></a>Uso di un trigger di BLOB e dell'associazione di input
-Nelle funzioni .NET è possibile accedere ai dati del BLOB con un parametro del metodo, ad esempio `Stream paramName`. In questo caso, `paramName` è il valore specificato nella [configurazione del trigger](#trigger). Nelle funzioni Node.js si accede a dati del BLOB di input usando `context.bindings.<name>`.
+## <a name="blob-storage-input--output-bindings"></a>Associazioni di input e di output per l'archiviazione BLOB
 
-In .NET è possibile eseguire l'associazione a uno tipo qualsiasi nell'elenco riportato di seguito. Se usati come associazione di input, alcuni di questi tipi richiedono una direzione di associazione `inout` in *function.json*. Questa direzione non è supportata dall'editor standard, pertanto è necessario usare l'editor avanzato.
+Usare le associazioni di input e di output per l'archiviazione BLOB per la lettura e la scrittura dei BLOB.
 
-* `TextReader`
-* `Stream`
-* `ICloudBlob`, è necessaria la direzione di associazione "inout"
-* `CloudBlockBlob`, è necessaria la direzione di associazione "inout"
-* `CloudPageBlob`, è necessaria la direzione di associazione "inout"
-* `CloudAppendBlob`, è necessaria la direzione di associazione "inout"
+## <a name="input--output---example"></a>Input e output - esempio
 
-Se sono previsti BLOB di testo, è anche possibile eseguire l'associazione a un tipo `string` .NET. È consigliabile solo se le dimensioni del BLOB sono ridotte, in quanto l'intero contenuto del BLOB viene caricato in memoria. In genere, è preferibile usare un tipo `Stream` o `CloudBlockBlob`.
+Vedere l'esempio specifico per ciascun linguaggio:
 
-## <a name="trigger-sample"></a>Esempio di trigger
-Si supponga di avere function.json seguente, che definisce un trigger di archiviazione del BLOB:
+* [C# precompilato](#input--output---c-example)
+* [Script C#](#input--output---c-script-example)
+* [JavaScript](#input--output---javascript-example)
 
-```json
+### <a name="input--output---c-example"></a>Input e output - esempio in C#
+
+L'esempio seguente è una funzione in [C# precompilato](functions-dotnet-class-library.md) che usa un'associazione di BLOB di input e due di output. La funzione viene attivata dalla creazione di un BLOB dell'immagine nel contenitore *sample-images*. Crea copie di piccole e medie dimensioni del BLOB dell'immagine. 
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
+    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
 {
-    "disabled": false,
-    "bindings": [
-        {
-            "name": "myBlob",
-            "type": "blobTrigger",
-            "direction": "in",
-            "path": "samples-workitems",
-            "connection":"MyStorageAccount"
-        }
-    ]
+    var imageBuilder = ImageResizer.ImageBuilder.Current;
+    var size = imageDimensionsTable[ImageSize.Small];
+
+    imageBuilder.Build(image, imageSmall,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
+
+    image.Position = 0;
+    size = imageDimensionsTable[ImageSize.Medium];
+
+    imageBuilder.Build(image, imageMedium,
+        new ResizeSettings(size.Item1, size.Item2, FitMode.Max, null), false);
 }
-```
 
-Vedere l'esempio specifico del linguaggio che registra i contenuti di ogni BLOB aggiunto al contenitore monitorato.
+public enum ImageSize { ExtraSmall, Small, Medium }
 
-* [C#](#triggercsharp)
-* [Node.js](#triggernodejs)
-
-<a name="triggercsharp"></a>
-
-### <a name="blob-trigger-examples-in-c"></a>Esempi di trigger BLOB in C# #
-
-```cs
-// Blob trigger sample using a Stream binding
-public static void Run(Stream myBlob, TraceWriter log)
-{
-   log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
-}
-```
-
-```cs
-// Blob trigger binding to a CloudBlockBlob
-#r "Microsoft.WindowsAzure.Storage"
-
-using Microsoft.WindowsAzure.Storage.Blob;
-
-public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
-{
-    log.Info($"C# Blob trigger function Processed blob\n Name:{name}\nURI:{myBlob.StorageUri}");
-}
-```
-
-<a name="triggernodejs"></a>
-
-### <a name="trigger-example-in-nodejs"></a>Esempio di trigger in Node.js
-
-```javascript
-module.exports = function(context) {
-    context.log('Node.js Blob trigger function processed', context.bindings.myBlob);
-    context.done();
+private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dictionary<ImageSize, (int, int)>() {
+    { ImageSize.ExtraSmall, (320, 200) },
+    { ImageSize.Small,      (640, 400) },
+    { ImageSize.Medium,     (800, 600) }
 };
-```
-<a name="outputusage"></a>
-<a name="storage-blob-output-binding"></a>
+```        
 
-## <a name="using-a-blob-output-binding"></a>Uso dell'associazione di output nel BLOB
+### <a name="input--output---c-script-example"></a>Input e output - esempio di script C#
 
-Nelle funzioni .NET, è necessario usare un parametro `out string` nella firma della funzione o uno dei tipi nell'elenco seguente. Nelle funzioni Node.js si accede al BLOB di output usando `context.bindings.<name>`.
+L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e codice [script C#](functions-reference-csharp.md) che usa l'associazione. La funzione crea una copia di un BLOB. La funzione viene attivata da un messaggio della coda che contiene il nome del BLOB da copiare. Il nuovo BLOB è denominato *{originalblobname}-Copy*.
 
-Nelle funzioni .NET è possibile eseguire l'output in uno dei tipi seguenti:
-
-* `out string`
-* `TextWriter`
-* `Stream`
-* `CloudBlobStream`
-* `ICloudBlob`
-* `CloudBlockBlob` 
-* `CloudPageBlob` 
-
-<a name="input-sample"></a>
-
-## <a name="queue-trigger-with-blob-input-and-output-sample"></a>Trigger di coda con esempio di input e output del BLOB
-Si supponga di avere function.json seguente, che definisce un [trigger di archiviazione della coda](functions-bindings-storage-queue.md), un input di archiviazione del BLOB e un output di archiviazione del BLOB. Si noti l'uso della proprietà dei metadati `queueTrigger` nelle proprietà `path` di input e output del BLOB:
+Nel file *function.json* viene usata la proprietà dei metadati `queueTrigger` per specificare il nome del BLOB nelle proprietà `path`:
 
 ```json
 {
   "bindings": [
     {
       "queueName": "myqueue-items",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "name": "myQueueItem",
       "type": "queueTrigger",
       "direction": "in"
@@ -249,14 +360,14 @@ Si supponga di avere function.json seguente, che definisce un [trigger di archiv
       "name": "myInputBlob",
       "type": "blob",
       "path": "samples-workitems/{queueTrigger}",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "direction": "in"
     },
     {
       "name": "myOutputBlob",
       "type": "blob",
       "path": "samples-workitems/{queueTrigger}-Copy",
-      "connection": "MyStorageConnection",
+      "connection": "MyStorageConnectionAppSetting",
       "direction": "out"
     }
   ],
@@ -264,30 +375,58 @@ Si supponga di avere function.json seguente, che definisce un [trigger di archiv
 }
 ``` 
 
-Vedere l'esempio specifico del linguaggio che copia il BLOB di input nel BLOB di output.
+Queste proprietà sono descritte nella sezione [configuration](#input--output---configuration).
 
-* [C#](#incsharp)
-* [Node.js](#innodejs)
-
-<a name="incsharp"></a>
-
-### <a name="blob-binding-example-in-c"></a>Esempio di associazione del BLOB in C# #
+Ecco il codice script C#:
 
 ```cs
-// Copy blob from input to output, based on a queue trigger
-public static void Run(string myQueueItem, Stream myInputBlob, out Stream myOutputBlob, TraceWriter log)
+public static void Run(string myQueueItem, Stream myInputBlob, out string myOutputBlob, TraceWriter log)
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
 }
 ```
 
-<a name="innodejs"></a>
+### <a name="input--output---javascript-example"></a>Input e output - esempio JavaScript
 
-### <a name="blob-binding-example-in-nodejs"></a>Esempio di associazione del BLOB in Node.js
+L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e [codice JavaScript] (functions-reference-node.md) che usa l'associazione. La funzione crea una copia di un BLOB. La funzione viene attivata da un messaggio della coda che contiene il nome del BLOB da copiare. Il nuovo BLOB è denominato *{originalblobname}-Copy*.
+
+Nel file *function.json* viene usata la proprietà dei metadati `queueTrigger` per specificare il nome del BLOB nelle proprietà `path`:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputBlob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+``` 
+
+Queste proprietà sono descritte nella sezione [configuration](#input--output---configuration).
+
+Ecco il codice JavaScript:
 
 ```javascript
-// Copy blob from input to output, based on a queue trigger
 module.exports = function(context) {
     context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
     context.bindings.myOutputBlob = context.bindings.myInputBlob;
@@ -295,6 +434,66 @@ module.exports = function(context) {
 };
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+## <a name="input--output---attributes-for-precompiled-c"></a>Input e output - attributi per C# precompilato
 
+Per [C# precompilato](functions-dotnet-class-library.md) usare [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), che è definito nel pacchetto NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs).
+
+Il costruttore dell'attributo accetta il percorso del BLOB e un parametro `FileAccess` che indica la lettura o la scrittura, come illustrato nell'esempio seguente:
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+```
+
+È possibile impostare la proprietà `Connection` per specificare l'account di archiviazione da usare, come illustrato nell'esempio seguente:
+
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [Blob("sample-images-md/{name}", FileAccess.Write, Connection = "StorageConnectionAppSetting")] Stream imageSmall)
+```
+
+È possibile usare l'attributo `StorageAccount` per specificare l'account di archiviazione a livello di classe, metodo o parametro. Per altre informazioni, vedere [Trigger - attributi per C# precompilato](#trigger---attributes-for-precompiled-c).
+
+## <a name="input--output---configuration"></a>Input e output - configurazione
+
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Blob`.
+
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
+|---------|---------|----------------------|
+|**type** | n/d | Il valore deve essere impostato su `blob`. |
+|**direction** | n/d | Deve essere impostato su `in` per un'associazione di input o su out per un'associazione di output. Le eccezioni sono indicate nella sezione [usage](#input--output---usage). |
+|**nome** | n/d | Nome della variabile che rappresenta il BLOB nel codice della funzione.  Impostare su `$return` per fare riferimento al valore restituito della funzione.|
+|**path** |**BlobPath** | Percorso del BLOB. | 
+|**connessione** |**Connection**| Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se si imposta `connection` su "MyStorage", il runtime di Funzioni di Azure cerca un'impostazione dell'app denominata "AzureWebJobsMyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.<br><br>La stringa di connessione deve essere relativa a un account di archiviazione di uso generico, non a un [account di archiviazione solo BLOB](../storage/common/storage-create-storage-account.md#blob-storage-accounts).<br>Quando si sviluppa in locale, le impostazioni dell'app vengono inserite nei valori del [file local.settings.json](functions-run-local.md#local-settings-file).|
+|n/d | **Accedere** | Indica se eseguire la lettura o la scrittura. |
+
+## <a name="input--output---usage"></a>Input e output - uso
+
+In C# precompilato e negli script C# è possibile accedere al BLOB con un parametro del metodo, ad esempio `Stream paramName`. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. È possibile definire associazioni con uno dei seguenti tipi:
+
+* `out string`
+* `TextWriter` 
+* `TextReader`
+* `Stream`
+* `ICloudBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
+* `CloudBlockBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
+* `CloudPageBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
+* `CloudAppendBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
+
+Come accennato, alcuni di questi tipi richiedono una direzione di associazione `inout` in *function.json*. Questa direzione non è supportata dall'editor standard nel portale di Azure, pertanto è necessario usare l'editor avanzato.
+
+Se si esegue la lettura di BLOB di testo, è possibile eseguire l'associazione a un tipo `string`. È consigliabile usare questo tipo solo se le dimensioni del BLOB sono ridotte, in quanto l'intero contenuto del BLOB viene caricato in memoria. In genere, è preferibile usare un tipo `Stream` o `CloudBlockBlob`.
+
+In JavaScript si accede a dati del BLOB di input usando `context.bindings.<name>`.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+> [!div class="nextstepaction"]
+> [Passare a una guida introduttiva che usa un trigger per l'archiviazione BLOB](functions-create-storage-blob-triggered-function.md)
+
+> [!div class="nextstepaction"]
+> [Altre informazioni su trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
