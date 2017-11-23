@@ -14,16 +14,16 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 5fc61fed674f0d2fc64bc29c064e7e872b4f2e68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 888717afe14f29fd50da6478c2bba077616a5379
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Aggiornare il servizio mobile Node.js di Azure esistente al servizio app
 Le app per dispositivi mobili del servizio app offrono un nuovo modo per creare applicazioni per dispositivi mobili usando Microsoft Azure. Per altre informazioni, vedere [Informazioni sulle app per dispositivi mobili].
 
-Questo argomento descrive come eseguire l'aggiornamento di un'applicazione back-end Node.js esistente da Servizi mobili di Azure a una nuova app per dispositivi mobili del servizio app. Durante una migrazione, l'applicazione Servizi mobili esistente può continuare a funzionare.  Se si deve aggiornare un'applicazione back-end Node.js, vedere [Aggiornare il servizio mobile .NET](app-service-mobile-net-upgrading-from-mobile-services.md).
+Questo articolo descrive come eseguire l'aggiornamento di un'applicazione back-end Node.js esistente da Servizi mobili di Azure a una nuova app per dispositivi mobili del servizio app. Durante una migrazione, l'applicazione Servizi mobili esistente può continuare a funzionare.  Se si deve aggiornare un'applicazione back-end Node.js, vedere [Aggiornare il servizio mobile .NET](app-service-mobile-net-upgrading-from-mobile-services.md).
 
 Quando si esegue l'aggiornamento di un back-end per dispositivi mobili a Servizio app di Azure, questo ha accesso a tutte le funzionalità del servizio app e la fatturazione viene eseguita in base ai [prezzi del servizio app], non a quelli di Servizi mobili.
 
@@ -98,12 +98,12 @@ Durante la distribuzione, è necessario eseguire le operazioni seguenti:
 3. In **Gruppo di risorse**selezionare un gruppo di risorse esistente o crearne uno nuovo usando lo stesso nome dell'app.
 
     È possibile selezionare un altro piano del servizio app o crearne uno nuovo. Per altre informazioni sui piani di Servizi app e su come creare un nuovo piano in un piano tariffario diverso e nella località preferita, vedere [Panoramica approfondita dei piani del servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-4. Per **Piano di Servizio app**viene selezionato il piano predefinito nel [livello Standard](https://azure.microsoft.com/pricing/details/app-service/). È anche possibile selezionare un piano diverso oppure [crearne uno nuovo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). Le impostazioni del piano di servizio app determinano [località, funzionalità, costo e risorse di calcolo](https://azure.microsoft.com/pricing/details/app-service/) associati all'app.
+4. Per **Piano di Servizio app**viene selezionato il piano predefinito nel [livello Standard](https://azure.microsoft.com/pricing/details/app-service/). È anche possibile selezionare un piano diverso oppure [crearne uno nuovo](../app-service/app-service-plan-manage.md#create-an-app-service-plan). Le impostazioni del piano di servizio app determinano [località, funzionalità, costo e risorse di calcolo](https://azure.microsoft.com/pricing/details/app-service/) associati all'app.
 
     Dopo aver scelto il piano, fare clic su **Crea**. Verrà creato il back-end dell'app per dispositivi mobili.
 
 ### <a name="run-createviewssql"></a>Eseguire CreateViews.SQL
-L'app sottoposta a scaffolding contiene un file denominato `createViews.sql`.  Questo script deve essere eseguito sul database di destinazione.  La stringa di connessione per il database di destinazione può essere ottenuta dal servizio mobile di cui è stata eseguita la migrazione ed è disponibile nel pannello **Impostazioni** in **Stringhe di connessione**.  È denominata `MS_TableConnectionString`.
+L'app sottoposta a scaffolding contiene un file denominato `createViews.sql`.  Questo script deve essere eseguito sul database di destinazione.  La stringa di connessione per il database di destinazione può essere ottenuta dal servizio mobile di cui è stata eseguita la migrazione ed è disponibile nella pagina **Impostazioni** in **Stringhe di connessione**.  È denominata `MS_TableConnectionString`.
 
 È possibile eseguire lo script da SQL Server Management Studio o Visual Studio.
 
@@ -116,7 +116,7 @@ Collegare il database esistente al servizio app:
 * Nell'elenco a discesa selezionare **Database SQL**
 * In **Database SQL** selezionare il database esistente e quindi fare clic su **Seleziona**.
 * In **Stringa di connessione** immettere il nome utente e la password per il database e quindi fare clic su **OK**.
-* Nel pannello **Add data connections** (Aggiungi connessioni dati) fare clic su **OK**.
+* Nella pagina **Add data connections** (Aggiungi connessioni dati) fare clic su **OK**.
 
 Per trovare il nome utente e la password, visualizzare la stringa di connessione per il database di destinazione nel servizio mobile migrato.
 

@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 764bbb95b661bb750d7802ee5996d8a491be928d
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 85be41cd6d355e4a38eceacb5589c1df6029ad16
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Dashboard di Kubernetes con il servizio contenitore di Azure
 
-Per avviare il dashboard di Kubernetes, è possibile usare l'interfaccia della riga di comando di Azure. Questo documento illustra la procedura per avviare il dashboard di Kubernetes con l'interfaccia della riga di comando di Azure, oltre ad alcune operazioni di base con il dashboard. Per altre informazioni sul dashboard di Kubernetes, vedere [Web UI (Dashboard)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) (Interfaccia utente Web - Dashboard). 
+Per avviare il dashboard di Kubernetes, è possibile usare l'interfaccia della riga di comando di Azure. Questo documento illustra la procedura per avviare il dashboard di Kubernetes con l'interfaccia della riga di comando di Azure, oltre ad alcune operazioni di base con il dashboard. Per altre informazioni sul dashboard di Kubernetes, vedere [Web UI (Dashboard)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) (Interfaccia utente Web - Dashboard).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 I passaggi dettagliati contenuti in questo documento presuppongono che sia stato creato un cluster del servizio contenitore di Azure e che sia stata stabilita una connessione kubectl al cluster. Se sono necessari questi elementi, vedere la [guida introduttiva al servizio contenitore di Azure](./kubernetes-walkthrough.md).
 
-È anche necessaria l'interfaccia della riga di comando di Azure 2.0.20 o versioni successive installata e configurata. Eseguire az --version per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure versione 2.0.21 o successiva. Eseguire az --version per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="start-kubernetes-dashboard"></a>Avviare il dashboard di Kubernetes
 

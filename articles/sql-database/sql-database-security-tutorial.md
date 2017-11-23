@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/28/2017
 ms.author: daredis
-ms.openlocfilehash: d25a0461bf194808f9bd66ddbd120448620eeba0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 90c03f1538197e1cd1c90165417a4ec74c9c5961
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="secure-your-azure-sql-database"></a>Proteggere il database SQL di Azure
 
@@ -242,7 +242,7 @@ Ad esempio, la funzionalità di rilevamento delle minacce individua determinate 
 In questa esercitazione è stato descritto come migliorare la protezione del database contro utenti malintenzionati o accessi non autorizzati con pochi semplici passaggi.  Si è appreso come: 
 
 > [!div class="checklist"]
-> * Configurare le regole del firewall per il server e/o il database
+> * Configurare regole del firewall per il server e/o il database
 > * Connettersi al database usando una stringa di connessione protetta
 > * Gestire l'accesso utente
 > * Proteggere i dati con la crittografia

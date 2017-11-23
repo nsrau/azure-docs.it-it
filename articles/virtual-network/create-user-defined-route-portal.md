@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: 736e48f9651d89a1f4e8e0ae72cdffebb8e9c6e0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0319029277091611673f15c94604604850cbfcbe
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-user-defined-route---azure-portal"></a>Creare una route definita dall'utente - Portale di Azure
 
@@ -268,6 +268,12 @@ Questo articolo descrive la procedura per creare una route definita dall'utente 
         - **Ubuntu**: eseguire il comando `tracepath myvm-private`.
       Il traffico passa attraverso 10.0.2.4 (l'appliance di rete virtuale) prima di raggiungere 10.0.1.4 (la macchina virtuale nella subnet privata). 
     - Completare i passaggi precedenti eseguendo il collegamento alla macchina virtuale *myVm-Private* ed effettuando ping alla macchina virtuale *myVm-Public*. Il tracciamento route visualizza le comunicazioni che viaggiano attraverso 10.0.2.4 prima di raggiungere 10.0.0.4 (la macchina virtuale nella subnet Public).
+
+      > [!NOTE]
+      > I passaggi precedenti consentono di verificare il routing tra indirizzi IP privati di Azure. Se si vuole inoltrare il traffico a indirizzi IP pubblici o eseguire la funzione di proxy tramite un'appliance virtuale di rete:
+      > - L'appliance deve offrire funzionalità di conversione degli indirizzi di rete o di proxy. In caso di conversione degli indirizzi di rete, l'appliance deve convertire da sola l'indirizzo IP di origine e quindi inoltrare la richiesta all'indirizzo IP pubblico. Sia che l'appliance abbia convertito l'indirizzo di origine o che abbia svolto la funzione di proxy, Azure converte l'indirizzo IP privato dell'appliance virtuale di rete in un indirizzo IP pubblico. Per altre informazioni sui diversi metodi usati da Azure per convertire gli indirizzi IP privati in indirizzi IP pubblici, vedere [Informazioni sulle connessioni in uscita](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+      > - Una route aggiuntiva nella tabella di route, ad esempio una con prefisso 0.0.0.0/0, tipo hop successivo VirtualAppliance e indirizzo IP hop successivo 10.0.2.4 (nello script di esempio precedente).
+      >
     - **Facoltativo**: per convalidare l'hop successivo tra due macchine virtuali in Azure, usare la funzionalità Hop successivo di Network Watcher di Azure. Prima di usare Network Watcher è necessario [creare un'istanza di Network Watcher di Azure](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per l'area in cui si vuole usarlo. In questa esercitazione viene usata l'area degli Stati Uniti orientali. Dopo aver abilitato un'istanza di Network Watcher per l'area, immettere il comando seguente per visualizzare le informazioni sull'hop successivo tra le macchine virtuali nelle subnet Public e Private:
      
         ```azurecli-interactive

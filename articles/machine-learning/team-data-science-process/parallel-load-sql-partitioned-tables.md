@@ -4,7 +4,7 @@ description: Importazione di dati in blocco utilizzando le tabelle di partizione
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ff90fdb0-5bc7-49e8-aee7-678b54f901c8
 ms.service: machine-learning
@@ -12,24 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/09/2017
 ms.author: bradsev
-ms.openlocfilehash: 899f20b3642612386f2513c9c8649cd845be826e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77638ff52edbc2b782b21a4ca1c727a2b46f22f3
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Importazione di dati in blocco utilizzando le tabelle di partizione SQL
 Questo documento descrive come creare tabelle partizionate per l'importazione in blocco in parallelo di dati in un database di SQL Server. Per il caricamento/trasferimento di Big Data, l'importazione di dati nel database SQL e le query successive possono essere migliorate usando *tabelle e visualizzazioni di partizione*. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Creazione di un nuovo database e di un set di filegroup
 * [Creare un nuovo database](https://technet.microsoft.com/library/ms176061.aspx) se non esiste già.
-* Aggiungere filegroup di database al database che conterranno i file fisici partizionati. Questa operazione può essere eseguita con [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) per un nuovo database o [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) se il database esiste già.
+* Aggiungere filegroup del database al database che contiene i file fisici partizionati. 
+* Questa operazione può essere eseguita con [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) se il database è nuovo o con [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) se il database esiste già.
 * Aggiungere uno o più file (se necessario) per ogni filegroup del database.
   
   > [!NOTE]
-  > Specificare il filegroup di destinazione contenente i dati della partizione e i nomi dei file del database fisico in cui verranno archiviati i dati del filegroup.
+  > Specificare il filegroup di destinazione contenente i dati della partizione e i nomi dei file del database fisico in cui sono archiviati i dati del filegroup.
   > 
   > 
 
@@ -55,18 +56,19 @@ Nell'esempio seguente vengono creati un nuovo database con tre filegroup diverso
     ')
 
 ## <a name="create-a-partitioned-table"></a>Creazione di una tabella partizionata
-Creare tabelle partizionate in base allo schema dei dati, mappate ai filegroup del database creato nel passaggio precedente. Quando i dati vengono importati in blocco nelle tabelle partizionate, i record verranno distribuiti tra i filegroup secondo uno schema di partizione, come descritto di seguito.
+Per creare tabelle partizionate in base allo schema dei dati, mappate ai filegroup del database creato nel passaggio precedente, è prima necessario creare una funzione e uno schema di partizione. Quando i dati vengono importati in blocco nelle tabelle partizionate, i record vengono distribuiti tra i filegroup secondo uno schema di partizione, come descritto di seguito.
 
-**Per creare una tabella di partizione, è necessario:**
-
-* [Creare una funzione di partizione](https://msdn.microsoft.com/library/ms187802.aspx) che definisce l'intervallo di valori/limiti da includere in ogni tabella di partizione, ad esempio, per limitare le partizioni per mese (some\_datetime\_field) nell'anno 2013:
+### <a name="1-create-a-partition-function"></a>1. Creare una funzione di partizione
+[Creare una funzione di partizione](https://msdn.microsoft.com/library/ms187802.aspx) Questa funzione definisce l'intervallo di valori/limiti da includere in ogni tabella delle partizioni, ad esempio per limitare le partizioni per mese (some\_datetime\_field) nell'anno 2013:
   
         CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
         AS RANGE RIGHT FOR VALUES (
             '20130201', '20130301', '20130401',
             '20130501', '20130601', '20130701', '20130801',
             '20130901', '20131001', '20131101', '20131201' )
-* [Creare uno schema di partizione](https://msdn.microsoft.com/library/ms179854.aspx) che esegue il mapping di ogni intervallo di partizione della funzione di partizione a un filegroup fisico, ad esempio:
+
+### <a name="2-create-a-partition-scheme"></a>2. Creare uno schema di partizione
+[Creare uno schema di partizione](https://msdn.microsoft.com/library/ms179854.aspx). Questo schema esegue il mapping di ogni intervallo di partizione della funzione di partizione a un filegroup fisico, ad esempio:
   
         CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
         PARTITION <DatetimeFieldPFN> TO (
@@ -83,7 +85,9 @@ Creare tabelle partizionate in base allo schema dei dati, mappate ai filegroup d
         INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id
         INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
         WHERE pfun.name = <DatetimeFieldPFN>
-* [Creare le tabelle partizionate](https://msdn.microsoft.com/library/ms174979.aspx)in base allo schema dei dati e specificare lo schema di partizione e il campo dei vincoli utilizzati per partizionare la tabella, ad esempio:
+
+### <a name="3-create-a-partition-table"></a>3. Creare una tabella delle partizioni
+[Creare tabelle partizionate](https://msdn.microsoft.com/library/ms174979.aspx) in base allo schema dei dati e specificare lo schema di partizione e il campo di vincolo usati per partizionare la tabella, ad esempio:
   
         CREATE TABLE <table_name> ( [include schema definition here] )
         ON <TablePScheme>(<partition_field>)
@@ -91,8 +95,9 @@ Creare tabelle partizionate in base allo schema dei dati, mappate ai filegroup d
 Per altre informazioni, vedere [Creazione di tabelle e indici partizionati](https://msdn.microsoft.com/library/ms188730.aspx).
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>Importazione in blocco dei dati per ogni singola tabella di partizione
+
 * È possibile utilizzare BCP, l'INSERIMENTO DI MASSA o altri metodi quali la [migrazione guidata di SQL Server](http://sqlazuremw.codeplex.com/). L'esempio fornito utilizza il metodo BCP.
-* [Modificare il database](https://msdn.microsoft.com/library/bb522682.aspx) per modificare lo schema di registrazione delle transazioni in BULK_LOGGED per ridurre il sovraccarico della registrazione, ad esempio:
+* [Modificare il database](https://msdn.microsoft.com/library/bb522682.aspx) per modificare lo schema di registrazione delle transazioni in BULK_LOGGED e ridurre il sovraccarico della registrazione, ad esempio:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
 * Per accelerare il caricamento dei dati, avviare le operazioni di importazione in blocco in parallelo. Per suggerimenti su come accelerare l'importazione in blocco di dati di grandi dimensioni nei database di SQL Server, vedere [Caricamento di 1 TB in meno di 1 ora](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
@@ -162,8 +167,8 @@ Il seguente script di PowerShell è un esempio di caricamento dei dati parallelo
 
 
 ## <a name="create-indexes-to-optimize-joins-and-query-performance"></a>Creazione di indici per ottimizzare i join e le prestazioni delle query
-* Per estrarre i dati di modellazione da più tabelle, creare indici sulle chiavi join per migliorare le prestazioni dei join.
-* [Creare indici](https://technet.microsoft.com/library/ms188783.aspx) (in cluster o non in cluster) indirizzati allo stesso filegroup per ogni partizione, ad esempio:
+* Per estrarre i dati di modellazione da più tabelle, creare indici sulle chiavi di join per migliorare le prestazioni dei join.
+* [Creare indici](https://technet.microsoft.com/library/ms188783.aspx) (in cluster o non in cluster) destinati allo stesso filegroup per ogni partizione, ad esempio:
   
         CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
         ON <TablePScheme>(<partition)field>)
@@ -173,10 +178,10 @@ Il seguente script di PowerShell è un esempio di caricamento dei dati parallelo
         ON <TablePScheme>(<partition)field>)
   
   > [!NOTE]
-  > È possibile scegliere di creare gli indici prima di importare in blocco i dati. La creazione degli indici prima dell'importazione dei dati in blocco rallenterà il caricamento dei dati.
+  > È possibile scegliere di creare gli indici prima di importare in blocco i dati. La creazione degli indici prima dell'importazione dei dati in blocco rallenta il caricamento dei dati.
   > 
   > 
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Esempio di Advanced Analytics Process and Technology in azione
-Per un esempio della procedura dettagliata end-to-end mediante Cortana Analytics Process con un set di dati pubblico, vedere [Cortana Analytics Process in azione: utilizzo di SQL Server](sql-walkthrough.md).
+Per un esempio di procedura dettagliata end-to-end tramite il processo di data science per i team con un set di dati pubblico, vedere [Processo di data science per i team in azione: uso di SQL Server](sql-walkthrough.md).
 

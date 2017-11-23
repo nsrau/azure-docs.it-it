@@ -1,11 +1,11 @@
 ---
-title: Piani di servizio app nelle app Web del servizio app di Azure | Microsoft Docs
+title: Panoramica del piano di servizio app di Azure | Microsoft Docs
 description: Informazioni sui piani di servizio app per Azure App Service e sui vantaggi offerti all'esperienza di gestione.
-keywords: servizio app, servizio app di azure, scala, scalabile, piano di servizio app, costo del servizio app
+keywords: "servizio app, servizio app di azure, scala, scalabile, scalabilità, piano di servizio app, costo del servizio app"
 services: app-service
 documentationcenter: 
-author: btardif
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.service: app-service
@@ -13,151 +13,108 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
-ms.author: byvinyal
-ms.openlocfilehash: fb5b782f09bdd8c8a862eddfbd65b0f86ef8d08c
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.date: 11/09/2017
+ms.author: cephalin
+ms.openlocfilehash: 0815c4d826d9ee09f2e787d9b27258149c55d400
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="app-service-plans-in-azure-app-service-web-apps"></a>Piani di servizio app nelle app Web del servizio app di Azure
+# <a name="azure-app-service-plan-overview"></a>Panoramica del piano di servizio app di Azure
 
-I piani di servizio app rappresentano la raccolta di risorse fisiche usate per ospitare le app.
+Nel servizio app un'app viene eseguita in un _piano di servizio app_. Un piano di servizio app definisce un set di risorse di calcolo per l'esecuzione di un'app Web. Queste risorse di calcolo sono analoghe alla [_server farm_](https://wikipedia.org/wiki/Server_farm) di un tradizionale hosting Web. È possibile configurare una o più app per eseguirle nelle stesse risorse di calcolo (o nello stesso piano di servizio app). 
 
-I piani di servizio app definiscono:
+Quando si crea un piano di servizio app in una determinata area (ad esempio, Europa occidentale), viene creato un set di risorse di calcolo per quel piano in quell'area. Tutte le app inserite nel piano di servizio app vengono eseguite in queste risorse di calcolo definite dal piano di servizio app. Ogni piano di servizio app definisce:
 
 - Area (Stati Uniti occidentali, Stati Uniti orientali e così via)
-- Numero di scala (una, due, tre istanze e così via)
-- Dimensione dell'istanza (Small, Medium, Large)
-- SKU: Free, Shared, Basic, Standard, Premium, PremiumV2, Isolated.
+- Numero di istanze di VM
+- Dimensioni delle istanze di VM (Small, Medium, Large)
+- Piano tariffario (Gratuito, Condiviso, Basic, Standard, Premium, PremiumV2, Isolato, Consumo)
 
-Nel [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) le app Web, le app per dispositivi mobili, le app per le API e le app per le funzioni (o Funzioni) vengono tutte eseguite in un piano di servizio app.  Le app appartenenti alla stessa sottoscrizione e area possono condividere lo stesso piano di servizio app. 
+Il _piano tariffario_ di un piano di servizio app determina le funzionalità del servizio app disponibili e il costo del piano. Esistono alcune categorie di piani tariffari:
 
-Tutte le applicazioni assegnate a un **piano di servizio app**  condividono le risorse definite dal piano, in modo da consentire un risparmio sui costi quando si ospitano più app in un unico piano di servizio app.
+- **Calcolo condiviso**: i due piani di base **Gratuito** e **Condiviso** eseguono un'app nella stessa VM di Azure delle altre app del servizio app, incluse le app di altri clienti. Questi piani allocano quote di CPU a ogni app eseguita nelle risorse condivise e non è possibile aumentare il numero di istanze delle risorse.
+- **Calcolo dedicato**: i piani **Basic**, **Standard**, **Premium** e **PremiumV2** eseguono le app in VM di Azure dedicate. Solo le app nello stesso piano di servizio app condividono le stesse risorse di calcolo. È possibile aumentare il numero di istanze delle VM in misura direttamente proporzionale al livello del piano.
+- **Isolato**: questo piano esegue le VM di Azure dedicate in reti virtuali di Azure dedicate, che forniscono alle app l'isolamento rete oltre all'isolamento del calcolo. Offre funzionalità ottimali per aumentare il numero di istanze.
+- **Consumo**: questo piano è disponibile solo per le [app per le funzioni](../azure-functions/functions-overview.md). Ridimensiona le funzioni in modo dinamico a seconda del carico di lavoro. Per altre informazioni, vedere [Confronto di piani di hosting per Funzioni di Azure](../azure-functions/functions-scale.md).
 
-Il **piano di servizio app** può passare dai livelli **Free** e **Shared** ai livelli **Basic**, **Standard**,  **Premium**, e **Isolated**. Ogni livello superiore consente di accedere a più risorse e funzionalità.
+Ogni piano fornisce anche un subset specifico di funzionalità del servizio app. Queste funzionalità includono domini personalizzati e certificati SSL, scalabilità automatica, slot di distribuzione, backup, integrazione di Gestione traffico e altre. Il numero di funzionalità disponibili è direttamente proporzionale al livello del piano. Per conoscere le funzionalità disponibili supportate in ogni piano tariffario, vedere [Informazioni dettagliate sui piani di servizio app](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
-Se il piano di servizio app è impostato sul livello **Basic** o superiore, è possibile controllare le **dimensioni** e il numero di scala delle VM.
+<a name="new-pricing-tier-premiumv2"></a>
 
-Se il piano è configurato per usare due istanze "piccole" nel livello **Standard**, ad esempio, tutte le app del piano vengono eseguite in entrambe le istanze. Le app hanno anche accesso alle funzionalità previste dal livello **Standard**. Le istanze del piano in cui vengono eseguite le app sono completamente gestite e a disponibilità elevata.
+> [!NOTE]
+> Il nuovo piano tariffario **PremiumV2** offre [macchine virtuali serie Dv2](../virtual-machines/windows/sizes-general.md#dv2-series) con processori più veloci, archiviazione SSD e un rapporto memoria/core doppio rispetto al livello **Standard**. **PremiumV2** supporta anche una scalabilità superiore tramite un numero di istanze incrementato, offrendo al tempo stesso tutte le funzionalità avanzate disponibili nel piano Standard. Tutte le funzionalità disponibili nel livello **Premium** esistente sono incluse in **PremiumV2**.
+>
+> Analogamente ad altri livelli dedicati, per questo livello sono disponibili tre dimensioni di macchina virtuale:
+>
+> - Small (un core CPU, 3,5 GiB di memoria) 
+> - Medium (due core CPU, 7 GiB di memoria) 
+> - Large (quattro core CPU, 14 GiB di memoria)  
+>
+> Per informazioni sui prezzi di [PremiumV2](/pricing/details/app-service/), vedere **Prezzi del servizio app**.
+>
+> Per un'introduzione al nuovo piano tariffario **PremiumV2**, vedere [Configurare il livello PremiumV2](app-service-configure-premium-tier.md).
 
-> [!IMPORTANT]
-> Il piano tariffario del piano di servizio app determina il costo e non il numero di app ospitate nel piano.
+## <a name="how-does-my-app-run-and-scale"></a>Come viene eseguita e ridimensionata l'app?
 
-L'articolo illustra le caratteristiche principali di un piano di servizio app, come il piano tariffario e la scalabilità, e il modo in cui contribuiscono alla gestione delle app.
+Nei piani **Gratuito** e **Condiviso** un'app riceve minuti di CPU in un'istanza di VM condivisa e non è possibile aumentare il numero di istanze. Negli altri piani un'app viene eseguita e ridimensionata come segue.
 
-## <a name="new-pricing-tier-premiumv2"></a>Nuovo piano tariffario: PremiumV2
+Quando si crea un'app nel servizio app, questa viene inserita in un piano di servizio app e viene eseguita in tutte le istanze di VM configurate nel piano di servizio app. Se più app sono nello stesso piano di servizio app, condividono tutte le stesse istanze di VM. Se si hanno più slot di distribuzione per un'app, anche tutti gli slot di distribuzione vengono eseguiti nelle stesse istanze di VM. Se si abilitano i log di diagnostica, si effettuano backup o si eseguono processi Web, anche questi usano i cicli CPU e la memoria in tali istanze di VM.
 
-Il nuovo piano tariffario **PremiumV2** offre [VM della serie Dv2](../virtual-machines/windows/sizes-general.md#dv2-series) con processori più veloci, archiviazione SSD e un rapporto doppio tra memoria e core rispetto al livello **Standard**. **PremiumV2** supporta anche una scalabilità superiore tramite un numero di istanze incrementato, offrendo al tempo stesso tutte le funzionalità avanzate disponibili nel piano Standard. Tutte le funzionalità disponibili nel livello **Premium** esistente sono incluse in **PremiumV2**.
+Il piano di servizio app è quindi l'unità di scala delle app del servizio app. Se il piano è configurato per eseguire cinque istanze di VM, tutte le app nel piano vengono eseguite in tutte le cinque istanze. Se il piano è configurato per la scalabilità automatica, vengono aumentate contemporaneamente le istanze di tutte le app nel piano in base alle impostazioni di scalabilità automatica.
 
-Analogamente ad altri livelli dedicati, per questo livello sono disponibili tre dimensioni di macchina virtuale:
+Per informazioni sull'aumento del numero di istanze di un'app, vedere [Ridimensionare il conteggio delle istanze manualmente o automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md).
 
-- Small (1 core CPU, 3,5 GiB di memoria) 
-- Medium (2 core di CPU, 7 GiB di memoria) 
-- Large (4 core CPU, 14 GiB di memoria)  
+<a name="cost"></a>
 
-Per informazioni sui prezzi di [PremiumV2](/pricing/details/app-service/), vedere **Prezzi del servizio app**.
+## <a name="how-much-does-my-app-service-plan-cost"></a>Quanto costa il piano di servizio app?
 
-Per un'introduzione al nuovo piano tariffario **PremiumV2**, vedere [Configurare il livello PremiumV2](app-service-configure-premium-tier.md).
+Questa sezione descrive come vengono fatturate le app del servizio app. Per informazioni dettagliate sui prezzi specifici di ogni area, vedere [Prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/).
 
-## <a name="apps-and-app-service-plans"></a>App e piani di servizio app
+Fatta eccezione per il piano **Gratuito**, un piano di servizio app prevede una tariffa oraria per le risorse di calcolo usate.
 
-Un'app in un servizio app può essere associata a un solo piano per volta.
+- Nel piano **Condiviso** ogni app riceve una quota di minuti di CPU, quindi la quota di CPU di _ogni app_ viene fatturata su base oraria.
+- Nei piani di calcolo dedicati (**Basic**, **Standard**, **Premium**, **PremiumV2**), il piano di servizio app definisce fino a quale numero di istanze di VM le app vengono ridimensionate, quindi per _ogni istanza di VM_ nel piano di servizio app è prevista una tariffa oraria. Queste istanze di VM vengono fatturate nello stesso modo indipendentemente dal numero di app in esecuzione. Per evitare addebiti imprevisti, vedere [Clean up an App Service plan](app-service-plan-manage.md#delete) (Pulire un piano di servizio app).
+- Nel piano **Isolato** l'ambiente del servizio app definisce il numero di ruoli di lavoro isolati che eseguono le app e _ogni ruolo di lavoro_ viene fatturato su base oraria. È anche prevista una tariffa di base oraria per l'esecuzione dell'ambiente del servizio app stesso. 
+- (Solo Funzioni di Azure) Il piano **Consumo** alloca in modo dinamico le istanze di VM per gestire il carico di lavoro di un'app per le funzioni e viene fatturato in modo dinamico al secondo da Azure. Per altre informazioni, vedere [Prezzi di Funzioni](https://azure.microsoft.com/pricing/details/functions/).
 
-App e piani sono inclusi in un **gruppo di risorse**. Un gruppo di risorse funge da confine del ciclo di vita per ogni risorsa al suo interno. È possibile usare i gruppi di risorse per gestire contemporaneamente tutte le parti di un'applicazione.
+L'uso delle funzionalità del servizio app disponibili (configurazione di domini personalizzati, certificati SSL, slot di distribuzione, backup e così via) non viene addebitato. Le eccezioni sono le seguenti:
 
-Dato che un unico gruppo di risorse può includere più piani di servizio app, è possibile allocare app diverse a risorse fisiche diverse.
+- Domini del servizio app: si paga quando se ne acquista uno in Azure e per il rinnovo annuale.
+- Certificati del servizio app: si paga quando se ne acquista uno in Azure e per il rinnovo annuale.
+- Connessioni SSL basate su IP: è prevista una tariffa oraria per ogni connessione SSL basata su IP, ma alcuni piani **Standard** o superiori offrono una connessione SSL basata su IP gratuita. Le connessioni SSL basate su SNI sono gratuite.
 
-Si possono ad esempio separare le risorse tra ambienti di sviluppo, test e produzione. L'uso di ambienti separati per la produzione e lo sviluppo e test consente di isolare le risorse. In questo modo, l'esecuzione di un test di carico su una nuova versione delle app non usa le stesse risorse delle app di produzione, che devono rispondere alle richieste dei clienti reali.
+> [!NOTE]
+> Se si integra il servizio app con un altro servizio di Azure, potrebbe essere necessario tenere presenti le tariffe per questi altri servizi. Se ad esempio si usa Gestione traffico di Azure per ridimensionare l'app geograficamente, anche Gestione traffico di Azure viene fatturato in base all'utilizzo. Per valutare il costo per tutti i servizi in Azure, vedere [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/). 
+>
+>
 
-Quando in un unico gruppo di risorse sono inclusi più piani, è anche possibile definire un'applicazione che copre più aree geografiche.
+## <a name="what-if-my-app-needs-more-capabilities-or-features"></a>Che cosa accade se sono necessarie altre funzionalità per l'app?
 
-Ad esempio, un'app a disponibilità elevata in esecuzione in due aree include almeno due piani, uno per ogni area, e un'app associata a ogni piano. In una situazione di questo tipo, tutte le copie dell'app sono contenute in un unico gruppo di risorse. La disponibilità di un gruppo di risorse con più piani e più app semplifica la gestione, il controllo e la visualizzazione dell'integrità dell'applicazione.
+È possibile passare a un piano di servizio app superiore o inferiore in qualsiasi momento. È semplice come cambiare il piano tariffario. È possibile scegliere prima un piano tariffario inferiore e passare a uno superiore in seguito, quando sono necessarie altre funzionalità del servizio app.
 
-## <a name="create-an-app-service-plan-or-use-existing-one"></a>Creare un piano di servizio app o usare quello esistente
+È ad esempio possibile avviare il test dell'app Web in un piano di servizio app **Gratuito** senza pagare nulla. Quando si vuole aggiungere il [nome DNS personalizzato](app-service-web-tutorial-custom-domain.md) all'app Web, è sufficiente passare al piano superiore **Condiviso**. Quando poi si vuole aggiungere un [certificato SSL personalizzato](app-service-web-tutorial-custom-ssl.md), passare al piano superiore **Basic**. Quando sono necessari [ambienti di staging](web-sites-staged-publishing.md), passare al piano superiore **Standard**. Quando sono necessari più core, memoria o risorse di archiviazione, passare a dimensioni delle VM superiori nello stesso piano.
 
-Quando si crea una nuova app Web nel servizio app, è possibile condividere le risorse di hosting inserendo l'app in un piano di servizio app esistente. Per determinare se la nuova app avrà le risorse adeguate, è necessario valutare la capacità del piano di servizio app esistente e il carico previsto per la nuova app. L'allocazione eccessiva di risorse può potenzialmente causare tempi di inattività per le app nuove ed esistenti.
+Lo stesso meccanismo funziona in ordine inverso. Quando le funzionalità di un piano superiore non sono più necessarie, è possibile passare a un piano inferiore per risparmiare.
 
-Si consiglia di isolare l'app in un nuovo piano di servizio app nei casi seguenti:
+Per informazioni sul passaggio dell'app a un piano di servizio superiore, vedere [Aumentare le prestazioni di un'app in Azure](web-sites-scale.md).
+
+Se l'app è nello stesso piano di servizio app di altre app, potrebbe essere necessario migliorare le prestazioni dell'app isolando le risorse di calcolo. A questo scopo, è possibile spostare l'app in un piano di servizio app separato. Per altre informazioni, vedere [Move an app to another App Service plan](app-service-plan-manage.md#move) (Spostare un'app in un altro piano di servizio app).
+
+## <a name="should-i-put-an-app-in-a-new-plan-or-an-existing-plan"></a>È meglio inserire un'app in un nuovo piano o in uno esistente?
+
+Poiché le risorse di calcolo allocate dal piano di servizio app vengono fatturate (vedere [Quanto costa il piano di servizio app?](#cost)), è possibile risparmiare inserendo più app in un solo piano di servizio app. È possibile continuare ad aggiungere app a un piano esistente purché il piano abbia risorse sufficienti per gestire il carico. Tenere tuttavia presente che tutte le app nello stesso piano di servizio app condividono le stesse risorse di calcolo. Per determinare se la nuova app ha le risorse adeguate, è necessario valutare la capacità del piano di servizio app esistente e il carico previsto per la nuova app. Il sovraccarico di un piano di servizio app può potenzialmente causare tempi di inattività per le app nuove ed esistenti.
+
+Isolare l'app in un nuovo piano di servizio app nei casi seguenti:
 
 - L'app usa molte risorse.
-- L'app ha fattori di scala diversi dalle altre app ospitate in un piano esistente.
+- Si vuole ridimensionare l'app indipendentemente dalle altre app nel piano esistente.
 - L'app necessita di risorse in un'area geografica diversa.
 
 In questo modo è possibile allocare un nuovo set di risorse per l'app e ottenere un maggiore controllo delle app.
 
-## <a name="create-an-app-service-plan"></a>Creare un piano di servizio app
+## <a name="manage-an-app-service-plan"></a>Gestire un piano di servizio app
 
-> [!TIP]
-> Se è disponibile l'opzione Ambiente del servizio app di Azure, vedere [Creare un'app Web in un ambiente del servizio app](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan).
-
-È possibile creare un piano di servizio app vuoto o come parte della creazione di app.
-
-Nel [portale di Azure](https://portal.azure.com) fare clic su **Nuovo** > **Web e dispositivi mobili** e quindi selezionare **App Web** o un altro tipo di app del servizio app.
-
-![Creare un'app nel portale di Azure.][createWebApp]
-
-È quindi possibile selezionare o creare il piano di servizio app per la nuova app.
-
- ![Creare un piano di servizio app.][createASP]
-
-Per creare un piano di servizio app, fare clic su **[+] Crea nuovo**, digitare il nome in **Piano di servizio app** e quindi selezionare una **Località** appropriata. Fare clic su **Piano tariffario**e quindi selezionare un piano tariffario appropriato per il servizio. Selezionare **Visualizza tutto** per visualizzare altre opzioni sui prezzi, ad esempio **Gratuito** e **Condiviso**. Dopo aver scelto il piano tariffario, fare clic sul pulsante **Seleziona** .
-
-## <a name="move-an-app-to-a-different-app-service-plan"></a>Spostare un'app in un piano di servizio app diverso
-
-È possibile spostare un'app in un piano di servizio app diverso nel [portale di Azure](https://portal.azure.com). Le app possono essere spostate tra i piani solo se i piani si trovano _nello stesso gruppo di risorse e nella stessa area geografica_.
-
-Per spostare un'applicazione in un altro piano:
-
-- Passare all'app che si desidera spostare.
-- Nel **Menu** cercare la sezione **Piano di servizio app**.
-- Selezionare **Cambia il piano di servizio app** per avviare il processo.
-
-**Cambia il piano di servizio app** apre il selettore **Piano di servizio app**. A questo punto, è possibile scegliere un piano esistente in cui spostare l'app. Vengono visualizzati solo i piani nello stesso gruppo di risorse e nella stessa area.
-
-![Pannello di selezione Piano di servizio app.][change]
-
-È previsto un piano tariffario diverso per ogni piano. Quando si sposta un sito dal livello gratuito al livello Standard, ad esempio, tutte le app assegnate possono usare le funzionalità e le risorse del livello Standard.
-
-## <a name="clone-an-app-to-a-different-app-service-plan"></a>Clonare un'app in un piano di servizio app diverso
-
-Se si vuole spostare l'app in un'area diversa, in alternativa consiste nel clonarla. Con la clonazione si crea una copia dell'app in un piano di servizio app nuovo o esistente di qualsiasi area.
-
-**Clona app** è disponibile nella sezione **Strumenti di sviluppo** del menu.
-
-> [!IMPORTANT]
-> La clonazione presenta alcune limitazioni, illustrate nell'articolo [Clonare un'app](app-service-web-app-cloning.md).
-
-## <a name="scale-an-app-service-plan"></a>Scalare un piano di servizio app
-
-Sono disponibili tre modi per ridimensionare un piano:
-
-- **Modificare il piano tariffario del piano**. Un piano del livello Basic può essere convertito in Standard e tutte le app assegnate potranno usare le funzionalità del livello Standard.
-- **Modificare le dimensioni delle istanze del piano**. Un piano con livello Basic che usa istanze piccole, ad esempio, può essere modificato per usare istanze grandi. Tutte le app associate al piano ora possono usare le risorse di memoria e CPU aggiuntive offerte dalle maggiori dimensioni delle istanze.
-- **Modificare il numero di istanze del piano**. Un piano Standard con tre istanze, ad esempio, può essere aumentato fino a 10 istanze. Un piano Premium può essere aumentato fino a 20 istanze (a seconda della disponibilità). Tutte le app associate al piano ora possono usare le risorse di memoria e CPU aggiuntive offerte dal maggior numero di istanze.
-
-È possibile modificare il piano tariffario e le dimensioni delle istanze facendo clic sulla voce **Aumenta prestazioni** nelle impostazioni dell'app o del piano di servizio app. Le modifiche vengono applicate al piano di servizio app e interessano tutte le app ospitate.
-
- ![Impostare i valori per aumentare le prestazioni di un'app.][pricingtier]
-
-## <a name="app-service-plan-cleanup"></a>Pulizia del piano di servizio app
-
-> [!IMPORTANT]
-> Anche i **piani di servizio app** a cui non sono associate app vengono addebitati, in quanto continuano a riservare la capacità di calcolo.
-
-Per evitare costi imprevisti, dopo aver eliminato l'ultima app ospitata in un piano di servizio app, per impostazione predefinita viene eliminato anche il piano di servizio app vuoto risultante.
-
-## <a name="summary"></a>Riepilogo
-
-I piani di servizio app rappresentano un set di funzionalità e capacità che è possibile condividere tra le app. I piani di servizio app garantiscono la possibilità di allocare app specifiche a un set di risorse e ottimizzare ulteriormente l'utilizzo delle risorse di Azure. In questo modo, se si vuole risparmiare denaro sull'ambiente di test è possibile condividere un piano tra più app. È anche possibile ottimizzare la velocità effettiva nell'ambiente di produzione scalandolo in più aree e piani.
-
-## <a name="whats-changed"></a>Modifiche apportate
-
-- Per una guida relativa al passaggio da Siti Web al servizio App, vedere [Servizio app di Azure e i servizi di Azure esistenti](http://go.microsoft.com/fwlink/?LinkId=529714)
-
-[pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
-[assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
-[change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
-[createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
-[createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
+> [!div class="nextstepaction"]
+> [Aumentare le prestazioni di un'app in Azure](app-service-plan-manage.md)

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-ms.openlocfilehash: b8a9204b9eece396fbc30eacc8912ba9e655b963
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d203580f676d55acbad4936160982a40592af1d0
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Ridimensionare un cluster di Service Fabric
 
-Questa esercitazione è la terza di una serie e illustra come aumentare e ridurre il numero di istanze del cluster esistente. Al termine, si riuscirà a ridimensionare il cluster e a pulire le risorse rimaste.
+Questa esercitazione, la seconda di una serie, illustra come aumentare e ridurre il numero di istanze del cluster esistente. Al termine, si riuscirà a ridimensionare il cluster e a pulire le risorse rimaste.
 
 In questa esercitazione si apprenderà come:
 

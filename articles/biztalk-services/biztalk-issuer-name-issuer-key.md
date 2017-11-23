@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: b9fd985c23558596408e78eadae00dd0f95c4214
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18eac72d75680ab12c4a0bea9dfc5ac8a5fce566
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>Servizi BizTalk: nome e chiave dell'autorità emittente
 
@@ -76,13 +76,9 @@ Altre informazioni sul cmdlet [New-AzureSBNamespace](https://msdn.microsoft.com/
 Il nome e la chiave dell'autorità emittente del bus di servizio vengono utilizzati dai servizi dell'adapter di BizTalk. Nel progetto di Servizi BizTalk in Visual Studio è possibile usare Servizi Adapter BizTalk per la connessione a un sistema LOB (Line-of-Business) locale. Per effettuare la connessione, creare l'inoltro LOB e immettere i dettagli relativi al sistema LOB. Quando si esegue questa operazione, è necessario immettere anche il nome e la chiave dell'autorità emittente del bus di servizio.
 
 ### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Per recuperare il nome e la chiave dell'autorità emittente del bus di servizio
-1. Accedere al [portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Nel pannello di navigazione sinistro selezionare **Bus di servizio**.
-3. Selezionare lo spazio dei nomi. Nella barra delle applicazioni selezionare **Informazioni di connessione**. Verranno visualizzati i valori relativi a **nome dell'autorità emittente** e **Chiave dell'autorità emittente**. Questi valori possono essere copiati.  
-
-Per riepilogare:  
-Nome dell'autorità di certificazione = Autorità di certificazione predefinita  
-Chiave autorità di certificazione = Chiave predefinita
+1. Accedere al [portale di Azure](http://portal.azure.com).
+2. Cercare il **bus di servizio** e selezionare lo spazio dei nomi. 
+3. Aprire le proprietà per **Criteri di accesso condiviso**, selezionare i criteri e visualizzare la **stringa di connessione** per il nome e i valori chiave.  
 
 ## <a name="next"></a>Avanti
 Altri argomenti relativi a Servizi BizTalk di Azure:
@@ -95,7 +91,7 @@ Altri argomenti relativi a Servizi BizTalk di Azure:
 ## <a name="see-also"></a>Vedere anche
 * [Procedura: Usare il servizio di gestione ACS per la configurazione delle identità del servizio](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
 * [Servizi BizTalk: Grafico edizioni Developer, Basic, Standard e Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [Servizi BizTalk: effettuare il provisioning di un servizio BizTalk mediante il portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [Servizi BizTalk: Provisioning](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [Servizi BizTalk: Tabella degli stati del servizio](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
 * [Servizi BizTalk: Schede Dashboard, Monitoraggio, Scalabilità](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [Servizi BizTalk: backup e ripristino](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>

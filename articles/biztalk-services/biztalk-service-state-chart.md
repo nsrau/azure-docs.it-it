@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.openlocfilehash: 918154852cf4ee1b80792eaddb588f5b0237da7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05470e75fc7b46603c8fce3a98c66ac6a24758a8
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Cosa fare o non fare quando si usa lo stato del servizio BizTalk
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 Le operazioni che è possibile eseguire nel servizio BizTalk variano a seconda dello stato corrente del servizio.
 
-Se ad esempio si esegue il provisioning di un nuovo servizio BizTalk nel portale di Azure classico. al termine lo stato del servizio BizTalk risulta `active`. Con lo stato attivo è possibile arrestare, sospendere ed eliminare il servizio BizTalk. Se si tenta di arrestare il servizio BizTalk e l'operazione non riesce, allora lo stato del servizio BizTalk diventa `StopFailed`. Con lo stato `StopFailed` è possibile riavviare il servizio BizTalk. Se si tenta di eseguire un'operazione non consentita, ad esempio riprendere l'attività del servizio, verrà generato l'errore seguente:
+Ad esempio si esegue il provisioning di un nuovo servizio BizTalk. al termine lo stato del servizio BizTalk risulta `active`. Con lo stato attivo è possibile arrestare, sospendere ed eliminare il servizio BizTalk. Se si tenta di arrestare il servizio BizTalk e l'operazione non riesce, allora lo stato del servizio BizTalk diventa `StopFailed`. Con lo stato `StopFailed` è possibile riavviare il servizio BizTalk. Se si tenta di eseguire un'operazione non consentita, ad esempio riprendere l'attività del servizio, verrà generato l'errore seguente:
 
 `Operation not allowed`
 
@@ -52,7 +52,6 @@ Le tabelle seguenti elencano le operazioni o le azioni che possono essere esegui
 
 
 ## <a name="see-also"></a>Vedere anche
-* [Creare un servizio BizTalk mediante il portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [Operazioni eseguibili nelle schede Dashboard, Monitoraggio e Scalabilità nei servizi BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [Funzionalità e contenuti delle edizioni Developer, Basic, Standard e Premium nei servizi BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
 * [Come eseguire il backup e il ripristino di un servizio BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>

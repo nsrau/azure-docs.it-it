@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.openlocfilehash: aaceb556d926dbb09aeb2843a7941eadaaeb588b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
@@ -51,14 +51,6 @@ Patch Orchestration Application è costituita dai sottocomponenti seguenti:
 > Patch Orchestration App usa il sistema di servizio di gestione della riparazione di Service Fabric per disabilitare o abilitare il nodo ed eseguire i controlli di integrità. L'attività di riparazione creata da Patch Orchestration App tiene traccia dell'avanzamento di Windows Update per ogni nodo.
 
 ## <a name="prerequisites"></a>Prerequisiti
-
-### <a name="minimum-supported-service-fabric-runtime-version"></a>Versione minima di runtime di Service Fabric supportata
-
-#### <a name="azure-clusters"></a>Cluster di Azure
-Patch Orchestration App deve essere eseguita nei cluster di Azure con versione di runtime di Service Fabric 5.5 o successive.
-
-#### <a name="standalone-on-premises-clusters"></a>Cluster locali autonomi
-Patch Orchestration App deve essere eseguita nei cluster autonomi con versione di runtime di Service Fabric 5.6 o successive.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Abilitare il servizio di gestione della riparazione (se non è già in esecuzione)
 
@@ -135,59 +127,6 @@ Per abilitare il servizio di gestione della riparazione:
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>Disabilitare la connessione automatica a Windows Update su tutti i nodi
 
 Gli aggiornamenti automatici di Windows potrebbero causare la perdita di disponibilità perché più nodi del cluster possono riavviarsi nello stesso momento. Patch Orchestration App, per impostazione predefinita, tenta di disabilitare la connessione automatica a Windows Update su ogni nodo del cluster. Tuttavia, nel caso in cui le impostazioni vengano gestite da un amministratore o dai criteri di gruppo, è consigliabile impostare i criteri di Windows Update sulla notifica prima del download in modo esplicito.
-
-### <a name="optional-enable-azure-diagnostics"></a>Facoltativo: abilitare Diagnostica di Azure
-
-Per i cluster che eseguono la versione di runtime di Service Fabric `5.6.220.9494` e livelli successivi, verranno raccolti i log dell'app di orchestrazione come parte dei log di Service Fabric.
-È possibile ignorare questo passaggio se il cluster è in esecuzione nella versione di runtime di Service Fabric `5.6.220.9494` e nelle versioni successive.
-
-Per i cluster che eseguono la versione di runtime di Service Fabric precedente a `5.6.220.9494`, i log per l'app di orchestrazione delle patch vengono raccolti localmente su ogni nodo del cluster.
-Si consiglia di configurare Diagnostica di Azure per caricare i log da tutti i nodi in una posizione centrale.
-
-Per altre informazioni su come abilitare Diagnostica di Azure, vedere [Raccogliere log con Diagnostica di Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
-
-I log per Patch Orchestration App sono generati nei seguenti ID dei provider stabiliti:
-
-- e39b723c-590c-4090-abb0-11e3e6616346
-- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
-- 24afa313-0d3b-4c7c-b485-1047fd964b60
-- 05dc046c-60e9-4ef7-965e-91660adffa68
-
-Nel modello di Resource Manager passare alla sezione `EtwEventSourceProviderConfiguration` in `WadCfg` e aggiungere le seguenti voci:
-
-```json
-  {
-    "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-      "eventDestination": "PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "fc0028ff-bfdc-499f-80dc-ed922c52c5e9",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "24afa313-0d3b-4c7c-b485-1047fd964b60",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "05dc046c-60e9-4ef7-965e-91660adffa68",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  }
-```
-
-> [!NOTE]
-> Se il cluster di Service Fabric ha più tipi di nodo, è necessario aggiungere la sezione precedente per tutte le sezioni `WadCfg`.
 
 ## <a name="download-the-app-package"></a>Scaricare il pacchetto dell'app
 
@@ -303,20 +242,16 @@ Per abilitare il proxy inverso nel cluster, seguire la procedura in [Proxy inver
 
 ## <a name="diagnosticshealth-events"></a>Eventi di diagnostica/integrità
 
-### <a name="collect-patch-orchestration-app-logs"></a>Raccogliere i log di Patch Orchestration App
+### <a name="diagnostic-logs"></a>Log di diagnostica
 
-Vengono raccolti i log di Patch Orchestration App come parte dei log di Service Fabric dalla versione di runtime `5.6.220.9494` e versioni successive.
-Per i cluster che eseguono la versione di runtime di Service Fabric inferiore a `5.6.220.9494`, i log possono essere raccolti usando uno dei metodi seguenti.
+Vengono raccolti i log dell'app di orchestrazione delle patch come parte dei log di runtime di Service Fabric.
 
-#### <a name="locally-on-each-node"></a>In locale in ogni nodo
+Nel caso in cui si vogliano acquisire i log tramite lo strumento o la pipeline di diagnostica preferita. L'applicazione di orchestrazione delle patch usa gli ID provider corretti riportati di seguito per registrare gli eventi tramite [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
-I log vengono raccolti localmente su ogni nodo del cluster di Service Fabric se la versione del runtime di Service Fabric è precedente a `5.6.220.9494`. Il percorso per accedere ai log è \[Service Fabric\_Installation\_Drive\]:\\PatchOrchestrationApplication\\logs.
-
-Ad esempio, se Service Fabric è installato nell'unità D, il percorso è D:\\PatchOrchestrationApplication\\logs.
-
-#### <a name="central-location"></a>Posizione centrale
-
-Se Diagnostica di Azure viene configurata come parte dei passaggi preliminari, i log per Patch Orchestration App sono disponibili in Archiviazione di Azure.
+- e39b723c-590c-4090-abb0-11e3e6616346
+- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
+- 24afa313-0d3b-4c7c-b485-1047fd964b60
+- 05dc046c-60e9-4ef7-965e-91660adffa68
 
 ### <a name="health-reports"></a>Report sull'integrità
 

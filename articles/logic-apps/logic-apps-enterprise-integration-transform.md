@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: fb6027769377b3527b11f7831dab3bb8d7061c84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f09819a1bfd380cd826a478471e673b6d5ff9ee7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Enterprise Integration con trasformazioni XML
 ## <a name="overview"></a>Panoramica
@@ -50,6 +50,11 @@ Una volta soddisfatti i requisiti, è ora di creare l'app per la logica:
    ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. Selezionare l'azione **Trasforma XML**   
 6. Aggiungere il **CONTENUTO** XML da trasformare. È possibile usare tutti i dati XML ricevuti nella richiesta HTTP come **CONTENUTO**. In questo esempio selezionare il corpo della richiesta HTTP che ha attivato l'app per la logica.
+
+   > [!NOTE]
+   > Assicurarsi che il contenuto relativo all'azione **Trasforma XML** sia in formato XML. Se il contenuto non è in formato XML o in codifica Base64, è necessario specificare un'espressione che elabori il contenuto. In questo caso, è possibile usare [funzioni](logic-apps-workflow-definition-language.md#functions) come ```@base64ToBinary``` per decodificare il contenuto o ```@xml``` per elaborare il contenuto come XML.
+ 
+
 7. Selezionare il nome della **MAPPA** che si vuole usare per eseguire la trasformazione. La mappa deve essere già presente nell'account di integrazione. In un passaggio precedente è stato concesso l'accesso dell'app per la logica all'account di integrazione che contiene la mappa.      
    ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Salvare il lavoro   

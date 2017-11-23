@@ -12,49 +12,44 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 11/11/2017
 ms.author: LADocs; klam
-ms.openlocfilehash: 63784c5e3af360b2f3f8cb330a9df8b27a85d859
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2a92e45b8a759d2d8193ac188efdcfc694a3e6d
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="logic-apps-pricing-model"></a>Modello di determinazione prezzi delle app per la logica
-Il servizio App per la logica di Azure supporta la scalabilità e l'esecuzione di un flusso di lavoro di integrazione nel cloud.  Di seguito sono riportati i dettagli relativi ai piani tariffari e di fatturazione di App per la logica.
-## <a name="consumption-pricing"></a>Prezzi a consumo
-Le nuove app per la logica create usano un piano a consumo. Con il modello di determinazione prezzi a consumo delle app per la logica si paga solo l'uso effettivo.  In caso di piano a consumo, le app per la logica non sono soggette a limitazione.
-Viene misurato il consumo per tutte le azioni eseguite durante un'esecuzione di un'istanza dell'app per la logica.
+Con App per la logica di Azure è possibile creare ed eseguire flussi di lavoro di integrazione automatizzati e scalabili nel cloud. Di seguito sono riportate informazioni dettagliate sul funzionamento dei prezzi e della fatturazione per App per la logica di Azure.
+## <a name="consumption-pricing-model"></a>Modello di prezzi a consumo
+Le nuove app per la logica create prevedono che si paghi solo per le risorse effettivamente usate. Le nuove app per la logica usano infatti un modello di determinazione dei prezzi a consumo, in base al quale vengono calcolate tutte le esecuzioni avviate da un'istanza dell'app per la logica.
 ### <a name="what-are-action-executions"></a>Informazioni sulle esecuzioni di azioni
-Ogni passaggio della definizione di un'app per la logica è un'azione che include trigger, passaggi del flusso di controllo come condizioni, ambiti e cicli ForEach, cicli Do until, chiamate a connettori e chiamate ad azioni native.
-I trigger sono azioni speciali progettate per creare una nuova istanza di un'app per la logica quando si verifica un determinato evento.  Diversi comportamenti dei trigger potrebbero influire sulla misurazione dell'app per la logica.
-* **Trigger di poll**: questo trigger esegue continuamente il poll di un endpoint fino a quando non riceve un messaggio che soddisfa i criteri per la creazione di un'istanza di un'app per la logica.  L'intervallo di polling può essere configurato nel trigger nella finestra di progettazione delle app per la logica.  Ogni richiesta di poll, anche se non determina la creazione di un'istanza di un'app per la logica, viene conteggiata come esecuzione di azione.
-* **Trigger di webhook** : questo trigger attende che un client gli invii una richiesta su un determinato endpoint.  Ogni richiesta inviata all'endpoint del webhook viene conteggiata come esecuzione di azione. I trigger Richiesta e Webhook HTTP sono entrambi trigger di webhook.
-* **Trigger di ricorrenza**: questo trigger crea un'istanza dell'app per la logica in base all'intervallo di ricorrenza in esso configurato.  Un trigger di ricorrenza può ad esempio essere configurato per essere eseguito ogni tre giorni o anche ogni minuto.
+Ogni passaggio della definizione di un'app per la logica è un'azione che include trigger, passaggi del flusso di controllo, chiamate ad azioni integrate e chiamate a connettori.
+### <a name="triggers"></a>Trigger
+I trigger sono azioni speciali che creano un'istanza di un'app per la logica ogni volta che si verifica un evento specifico. I trigger possono avere comportamenti diversi, che influiscono sulla misurazione dell'app per la logica.
+* **Trigger di poll**: questo trigger controlla continuamente un endpoint fino a quando non riceve un messaggio che soddisfa i criteri per la creazione di un'istanza di un'app per la logica in grado di avviare il flusso di lavoro. L'intervallo di polling può essere configurato nel trigger tramite la finestra di progettazione delle app per la logica. Ogni richiesta di polling viene considerata un'esecuzione, anche quando non viene creata alcuna istanza di app per la logica.
+* **Trigger di webhook**: questo trigger attende che un client invii una richiesta a un determinato endpoint. Ogni richiesta inviata all'endpoint del webhook viene conteggiata come esecuzione di azione. I trigger Richiesta e Webhook HTTP, ad esempio, sono entrambi trigger di webhook.
+* **Trigger di ricorrenza**: questo trigger crea un'istanza dell'app per la logica in base all'intervallo di ricorrenza configurato nel trigger. Un trigger di ricorrenza, ad esempio, può essere configurato per essere eseguito ogni tre giorni o in base a una pianificazione più complessa.
 
-Le esecuzioni dei trigger vengono visualizzate nella sezione Cronologia trigger del pannello delle risorse delle app per la logica.
+Le esecuzioni dei trigger sono disponibili nella sezione Cronologia trigger del riquadro Panoramica delle app per la logica.
 
-Per tutte le azioni eseguite, riuscite o non riuscite, viene misurato il consumo come esecuzione di un'azione.  Le azioni ignorate perché non è stata soddisfatta una condizione o non eseguite perché l'app per la logica è stata terminata prima del completamento non vengono conteggiate come esecuzioni di azioni.
+### <a name="actions"></a>Azioni
+Le azioni predefinite, ad esempio le azioni che chiamano HTTP, Funzioni di Azure o Gestione API, così come i passaggi del flusso di controllo, vengono misurati come azioni native e sono associate a tipi specifici. Alle azioni che chiamano [connettori](https://docs.microsoft.com/connectors), ad esempio, è associato il tipo "ApiConnection". I connettori si distinguono tra connettori standard e aziendali e vengono misurati in base al rispettivo [modello di prezzo][pricing].
+Tutte le azioni di esecuzione, indipendentemente dall'esito, vengono conteggiate e misurate come esecuzioni di azioni. Non vengono tuttavia conteggiate come esecuzioni di azioni sia le azioni ignorate a causa di condizioni non soddisfatte, sia le azioni non eseguite perché l'app per la logica è stata terminata prima del completamento. Per le app per la logica disabilitate non possono essere create nuove istanze. Di conseguenza, non viene effettuato alcun addebito mentre sono disabilitate.
 
-Le azioni eseguite all'interno di cicli vengono conteggiate per iterazione del ciclo.  Una singola azione in un ciclo ForEach che scorre un elenco di 10 elementi viene conteggiata come il numero di elementi dell'elenco (10) moltiplicato per il numero di azioni nel ciclo (1) più 1 per l'avvio del ciclo, ottenendo in questo esempio (10 * 1) + 1 = 11 esecuzioni di azioni.
-Per le app per la logica disabilitate non possono essere create nuove istanze. Di conseguenza, mentre sono disabilitate, non viene effettuato alcun addebito.  Tenere presente che quando si disabilita un'app per la logica, la disattivazione delle istanze prima della disabilitazione completa potrebbe richiedere qualche minuto.
+> [!NOTE]
+> Dopo aver disabilitato un'app per la logica, è possibile che l'arresto delle istanze in esecuzione richieda qualche minuto.
+
+Le azioni eseguite all'interno di cicli vengono conteggiate per ogni iterazione del ciclo. Una singola azione in un ciclo ForEach che elabora un elenco di 10 elementi, ad esempio, viene conteggiata moltiplicando il numero di elementi dell'elenco (10) per il numero di azioni nel ciclo (1) più 1 per l'avvio del ciclo. Per questo esempio, quindi, il calcolo è (10 * 1) + 1, da cui risultano 11 esecuzioni di azioni.
+
 ### <a name="integration-account-usage"></a>Utilizzo dell'account di integrazione
-Nell'utilizzo a consumo è incluso un [account di integrazione](logic-apps-enterprise-integration-create-integration-account.md) a scopo di esplorazione, sviluppo e test, che consente di usare le funzionalità [B2B/EDI](logic-apps-enterprise-integration-b2b.md) e di [elaborazione XML](logic-apps-enterprise-integration-xml.md) di App per la logica senza costi aggiuntivi. È possibile creare un massimo di un account per area e archiviare fino a 10 contratti e 25 mappe. Non sono previsti limiti per schemi, certificati e partner ed è possibile caricare tutti quelli necessari.
+L'utilizzo a consumo include un [account di integrazione](logic-apps-enterprise-integration-create-integration-account.md) in cui è possibile esplorare, sviluppare e testare gratuitamente le funzionalità [B2B/EDI](logic-apps-enterprise-integration-b2b.md) e di [elaborazione XML](logic-apps-enterprise-integration-xml.md) di App per la logica. In ogni area è possibile configurare un solo account di integrazione, in cui è possibile archiviare fino a 10 contratti e 25 mappe. Non sono invece previsti limiti in merito al numero di partner, schemi e certificati che è possibile caricare.
 
-Oltre a includere account di integrazione a consumo, è anche possibile creare account di integrazione standard senza questi limiti e con il contratto di servizio di App per la logica standard. Per altre informazioni, vedere la pagina relativa ai [prezzi di Azure](https://azure.microsoft.com/pricing/details/logic-apps).
+App per la logica offre anche account di integrazione di base e standard con il contratto di servizio di App per la logica standard. Gli account di integrazione di base vengono usati, in genere, quando si vuole usare solo la gestione dei messaggi o se un piccolo partner commerciale intrattiene una relazione commerciale con un'entità più grande. Gli account di integrazione standard supportano invece relazioni B2B più complesse e aumentano il numero di entità che è possibile gestire. Per altre informazioni, vedere la pagina relativa ai [prezzi di Azure](https://azure.microsoft.com/pricing/details/logic-apps).
 
-## <a name="app-service-plans"></a>Piani di servizio app
-Le app per la logica già create, che fanno riferimento a un piano di servizio app, continuano a comportarsi come prima. A seconda del piano scelto, la limitazione viene applicata dopo che viene superato il numero di esecuzioni giornaliere previste, ma la fatturazione si basa sul misuratore di esecuzioni delle azioni.
-I clienti EA con un piano di servizio app nella sottoscrizione, che non deve essere associato in modo esplicito all'app per la logica, hanno il benefit delle quantità incluso.  Se, ad esempio, nella stessa sottoscrizione EA sono inclusi un piano di servizio app Standard e un'app per la logica , non viene effettuato l'addebito per 10.000 esecuzioni di azioni al giorno. Vedere la tabella seguente. 
-
-Piani di servizio app ed esecuzioni di azioni giornaliere consentite:
-|  | Gratuito/Condiviso/Basic | Standard | Premium |
-| --- | --- | --- | --- |
-| Esecuzioni di azioni al giorno |200 |10.000 |50.000 |
-### <a name="convert-from-app-service-plan-pricing-to-consumption"></a>Passare dal piano tariffario del servizio app a prezzi al consumo
-Per modificare un'app per la logica a cui è associato un piano di servizio in un modello a consumo, rimuovere il riferimento al piano di servizio app nella definizione dell'app per la logica.  Per apportare questa modifica, è sufficiente una chiamata a un cmdlet di PowerShell: `Set-AzureRmLogicApp -ResourceGroupName ‘rgname’ -Name ‘wfname’ –UseConsumptionModel -Force`
 ## <a name="pricing"></a>Prezzi
-Per informazioni sui prezzi, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps).
+Per altre informazioni, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Informazioni su App per la logica][whatis]

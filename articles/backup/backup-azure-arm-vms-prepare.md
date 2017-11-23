@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 7ee2e42e05fb4866d32c24b0d4c788b0197970ad
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b8a770323d115390d323352826457eee62be5f6f
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparare l’ambiente per il backup di macchine virtuali distribuite con Resource Manager
 > [!div class="op_single_selector"]
@@ -56,6 +56,12 @@ Prima di preparare l'ambiente, è importante capire le limitazioni.
 
 * Il backup di macchine virtuali con più di 16 dischi dati non è supportato.
 * Il backup delle macchine virtuali con dischi dati maggiori di 1023 GB non è supportato.
+
+> [!NOTE]
+> È disponibile un'anteprima privata per il supporto di backup per macchine virtuali con dischi non gestiti di dimensioni superiori a 1 TB. Per informazioni dettagliate, vedere l'[anteprima privata per il supporto di backup di macchine virtuali con dischi di grandi dimensioni](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+>
+>
+
 * Il backup di macchine virtuali con un indirizzo IP riservato e nessun endpoint definito non è supportato.
 * Il backup di macchine virtuali crittografate solo con BEK non è supportato. Il backup delle macchine virtuali Linux crittografate con la crittografia LUKS non è supportato.
 * Il backup di macchine virtuali contenenti una configurazione Volumi condivisi cluster o File server di scalabilità orizzontale non è consigliata, perché richiede il coinvolgimento di tutte le macchine virtuali incluse nella configurazione del cluster durante l'attività di snapshot. Backup di Azure non supporta la coerenza tra più macchine virtuali. 

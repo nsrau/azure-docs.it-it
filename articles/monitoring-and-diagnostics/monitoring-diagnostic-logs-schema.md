@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: johnkem
-ms.openlocfilehash: 2e99b7afa4e458e9ef62314e65d9e386657a747b
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Servizi, schemi e categorie supportati per i log di Diagnostica di Azure
 
@@ -56,20 +56,36 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 ## <a name="supported-log-categories-per-resource-type"></a>Categorie di log supportate per tipo di risorsa
 |Tipo di risorsa|Categoria|Nome visualizzato della categoria|
 |---|---|---|
+|Microsoft.AnalysisServices/servers|Engine (Motore)|Engine (Motore)|
+|Microsoft.AnalysisServices/servers|Service|Service|
 |Microsoft.ApiManagement/service|GatewayLogs|Log correlati ad ApiManagement Gateway|
 |Microsoft.Automation/automationAccounts|JobLogs|Log del processo|
 |Microsoft.Automation/automationAccounts|JobStreams|Flussi del processo|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Stato del nodo Dsc|
 |Microsoft.Batch/batchAccounts|ServiceLog|Log del servizio|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Ottiene le metriche dell'endpoint, ad esempio la larghezza di banda, i dati in uscita e così via|
 |Microsoft.CustomerInsights/hubs|AuditEvents|Eventi di controllo|
+|Microsoft.DataFactory/factories|ActivityRuns|Log delle esecuzioni di attività pipeline|
+|Microsoft.DataFactory/factories|PipelineRuns|Log delle esecuzioni di pipeline|
+|Microsoft.DataFactory/factories|TriggerRuns|Log delle esecuzioni trigger|
 |Microsoft.DataLakeAnalytics/accounts|Audit|Log di controllo|
 |Microsoft.DataLakeAnalytics/accounts|Requests|Log delle richieste|
 |Microsoft.DataLakeStore/accounts|Audit|Log di controllo|
 |Microsoft.DataLakeStore/accounts|Requests|Log delle richieste|
+|Microsoft.Devices/IotHubs|Connessioni|Connessioni|
+|Microsoft.Devices/IotHubs|DeviceTelemetry|Telemetria dei dispositivi|
+|Microsoft.Devices/IotHubs|C2DCommands|Comandi da cloud a dispositivo|
+|Microsoft.Devices/IotHubs|DeviceIdentityOperations|Operazioni relative alle identità dei dispositivi|
+|Microsoft.Devices/IotHubs|FileUploadOperations|Operazioni di caricamento file|
+|Microsoft.Devices/IotHubs|Route|Route|
+|Microsoft.Devices/IotHubs|D2CTwinOperations|D2CTwinOperations|
+|Microsoft.Devices/IotHubs|C2DTwinOperations|Operazioni da cloud a dispositivi gemelli|
+|Microsoft.Devices/IotHubs|TwinQueries|Query dei dispositivi gemelli|
+|Microsoft.Devices/IotHubs|JobsOperations|Operazioni dei processi|
+|Microsoft.Devices/IotHubs|DirectMethods|Metodi diretti|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Operazioni del dispositivo|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Operazioni di servizio|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
+|Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Log di archiviazione|
 |Microsoft.EventHub/namespaces|OperationalLogs|Log operativi|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Log di scalabilità automatica|
@@ -78,6 +94,7 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Eventi di rilevamento degli account di integrazione|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Event del gruppo di sicurezza di rete|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Contatore di regole del gruppo di sicurezza di rete|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Evento del flusso di regole del gruppo di sicurezza di rete|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Eventi di avviso del servizio di bilanciamento del carico|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Stato di integrità dei probe del servizio di bilanciamento del carico|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|Notifiche di protezione DDoS|
@@ -85,6 +102,11 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Log di accesso del gateway applicazione|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Log delle prestazioni del gateway applicazione|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Log del firewall del gateway applicazione|
+|Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Log di diagnostica del gateway|
+|Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Log di diagnostica del tunnel|
+|Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Log di diagnostica della route|
+|Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Evento dei risultati di integrità dei probe di Traffic Manager|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tabella di contatori GWM|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Dati dei report di Backup di Azure|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Processi di Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Eventi di Azure Site Recovery|
@@ -93,7 +115,6 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Punti di ripristino di Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Log delle operazioni|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Log operativi|
-|Microsoft.Sql/servers/databases|QueryStore|Archivio query|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Statistiche di runtime di Query Store|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Statistiche relative alle attese di Query Store|
 |Microsoft.Sql/servers/databases|Errors|Errors|

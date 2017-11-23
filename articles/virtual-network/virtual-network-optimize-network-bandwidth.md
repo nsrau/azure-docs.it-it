@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: steveesp
-ms.openlocfilehash: 914747983d4d974810836be66d6c6af343f58b60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d77440fe62bbd0e720e5ae60b15574dacc4180c0
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Ottimizzare la velocità effettiva di rete per le macchine virtuali di Azure
 
-Le macchine virtuali di Azure hanno impostazioni di rete predefinite che possono essere ottimizzate ulteriormente per una migliore velocità effettiva di rete. Questo articolo illustra come ottimizzare la velocità effettiva di rete per macchine virtuali Windows e Linux di Microsoft Azure, incluse le distribuzioni principali, ad esempio Ubuntu, CentOS e Red Hat.
+Le macchine virtuali di Azure hanno impostazioni di rete predefinite che possono essere ottimizzate ulteriormente per una migliore velocità effettiva di rete. Questo articolo illustra come ottimizzare la velocità effettiva di rete per macchine virtuali di Microsoft Azure Windows e Linux, incluse le distribuzioni principali, ad esempio Ubuntu, CentOS e Red Hat.
 
 ## <a name="windows-vm"></a>Macchina virtuale Windows
 
@@ -51,11 +51,11 @@ Se la macchina virtuale di Windows è supportata da una [Rete accelerata](virtua
 
 ## <a name="linux-vm"></a>VM Linux
 
-RSS è sempre abilitato per impostazione predefinita nella macchina virtuale Linux di Azure. I kernel Linux rilasciati a partire da gennaio 2017 includono opzioni di ottimizzazione di rete che consentono a una macchina virtuale Linux di ottenere una velocità effettiva di rete superiore.
+RSS è sempre abilitato per impostazione predefinita nella macchina virtuale Linux di Azure. I kernel Linux rilasciati a partire da ottobre 2017 includono opzioni di ottimizzazione di rete che consentono a una macchina virtuale Linux di ottenere una velocità effettiva di rete superiore.
 
-### <a name="ubuntu"></a>Ubuntu
+### <a name="ubuntu-for-new-deployments"></a>Ubuntu per nuove distribuzioni
 
-Per ottenere l'ottimizzazione, aggiornare prima di tutto la versione supportata più recente, a partire da giugno 2017, ovvero:
+Per ottenere l'ottimizzazione, installare prima di tutto la versione supportata più recente, 16.04-LTS, in questo modo:
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
@@ -75,35 +75,39 @@ apt-get -y upgrade
 Comando facoltativo:
 
 `apt-get -y dist-upgrade`
-#### <a name="ubuntu-azure-preview-kernel"></a>Kernel Ubuntu Azure (anteprima)
-> [!WARNING]
-> È possibile che il kernel Azure Linux (anteprima) non abbia lo stesso livello di disponibilità e affidabilità delle immagini e dei kernel del Marketplace disponibili a livello generale. La funzionalità non è supportata, potrebbe avere funzioni vincolate e potrebbe non essere affidabile come il kernel predefinito. Non usare questo kernel per carichi di lavoro di produzione.
+#### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Aggiornamento del kernel Azure Ubuntu per le macchine virtuali esistenti
 
-È possibile ottenere prestazioni significative per la velocità effettiva installando il kernel Azure Linux proposto. Per provare a usare il kernel, aggiungere questa riga a /etc/apt/sources.list
+È possibile ottenere prestazioni significative per la velocità effettiva effettuando l'aggiornamento al kernel Azure Linux proposto. Per verificare se si ha già questo kernel, controllare la versione del kernel.
 
 ```bash
-#add this to the end of /etc/apt/sources.list (requires elevation)
-deb http://archive.ubuntu.com/ubuntu/ xenial-proposed restricted main multiverse universe
+#Azure kernel name ends with "-azure"
+uname -r
+
+#sample output on Azure kernel:
+#4.11.0-1014-azure
 ```
 
 Eseguire quindi questi comandi come radice.
 ```bash
+#run as root or preface with sudo
 apt-get update
+apt-get upgrade -y
+apt-get dist-upgrade -y
 apt-get install "linux-azure"
 reboot
 ```
 
 ### <a name="centos"></a>CentOS
 
-Per ottenere l'ottimizzazione, eseguire prima di tutto l'aggiornamento alla versione supportata più recente, a partire da luglio 2017, ovvero:
+Per ottenere le ottimizzazioni più recenti, effettuare prima di tutto l'aggiornamento alla versione supportata più recente, in questo modo:
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
-"Sku": "7.3",
+"Sku": "7.4",
 "Version": "latest"
 ```
 Al termine dell'aggiornamento, installare la versione più recente di Linux Integration Services (LIS).
-L'ottimizzazione della velocità effettiva è disponibile in LIS a partire dalla versione 4.2.2-2. Immettere i comandi seguenti per installare LIS:
+L'ottimizzazione della velocità effettiva è presente in LIS a partire dalla versione 4.2.2-2, anche se le versioni successive contengono ulteriori miglioramenti. Per installare la versione di LIS più recente, immettere i comandi seguenti:
 
 ```bash
 sudo yum update
@@ -113,21 +117,21 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="red-hat"></a>Red Hat
 
-Per ottenere l'ottimizzazione, eseguire prima di tutto l'aggiornamento alla versione supportata più recente, a partire da luglio 2017, ovvero:
+Per ottenere l'ottimizzazione, effettuare prima di tutto l'aggiornamento alla versione supportata più recente, in questo modo:
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
-"Sku": "7.3"
-"Version": "7.3.2017071923"
+"Sku": "7-RAW"
+"Version": "latest"
 ```
 Al termine dell'aggiornamento, installare la versione più recente di Linux Integration Services (LIS).
 L'ottimizzazione della velocità effettiva è disponibile in LIS a partire dalla versione 4.2. Immettere i comandi seguenti per scaricare e installare LIS:
 
 ```bash
-mkdir lis4.2.2-2
-cd lis4.2.2-2
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
-tar xvzf lis-rpms-4.2.2-2.tar.gz
+mkdir lis4.2.3-1
+cd lis4.2.3-1
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
+tar xvzf lis-rpms-4.2.3-1.tar.gz
 cd LISISO
 install.sh #or upgrade.sh if prior LIS was previously installed
 ```

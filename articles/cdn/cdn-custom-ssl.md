@@ -1,5 +1,5 @@
 ---
-title: Abilitare o disabilitare HTTPS in un dominio personalizzato della rete per la distribuzione di contenuti di Azure | Microsoft Docs
+title: Configurare HTTPS in un dominio personalizzato della rete per la distribuzione di contenuti di Azure | Microsoft Docs
 description: Informazioni su come abilitare o disabilitare HTTPS nell'endpoint della rete CDN di Azure con un dominio personalizzato.
 services: cdn
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: casoper
-ms.openlocfilehash: 68a171ee6da58e6d84b466daf573577c909c7f5c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 82de79cde208cdce1ed7cbd600f1e804ff1d45ff
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="enable-or-disable-https-on-an-azure-content-delivery-network-custom-domain"></a>Abilitare o disabilitare HTTPS in un dominio personalizzato della rete per la distribuzione di contenuti di Azure
+# <a name="configure-https-on-an-azure-content-delivery-network-custom-domain"></a>Configurare HTTPS in un dominio personalizzato della rete per la distribuzione di contenuti di Azure
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Il supporto di HTTPS per i domini personalizzati della rete di distribuzione dei contenuti (CDN, Content Delivery Network) di Microsoft Azure consente di distribuire contenuto sicuro tramite SSL usando il nome del proprio dominio per una maggiore sicurezza dei dati in transito. Il flusso di lavoro end-to-end per abilitare il protocollo HTTPS per il dominio personalizzato è più semplice grazie all'abilitazione con un unico clic e alla gestione completa dei certificati, il tutto senza costi aggiuntivi.
+Microsoft supporta il protocollo HTTPS per i domini personalizzati nella rete per la distribuzione di contenuti (CDN) di Azure. Il supporto di HTTPS per i domini personalizzati consente di distribuire contenuto protetto tramite SSL usando il nome del proprio dominio per una maggiore sicurezza dei dati in transito. Il flusso di lavoro per abilitare il protocollo HTTPS per il dominio personalizzato è più semplice grazie all'abilitazione con un unico clic e alla gestione completa dei certificati, il tutto senza costi aggiuntivi.
 
-È fondamentale garantire la riservatezza e l'integrità di tutti i dati sensibili delle applicazioni Web in transito. Il protocollo HTTPS garantisce la crittografia dei dati sensibili inviati su Internet. Offre attendibilità, autenticazione e protezione delle applicazioni Web da attacchi. Per impostazione predefinita, la rete CDN di Azure supporta il protocollo HTTPS per gli endpoint CDN. Se si crea un endpoint CDN dalla rete CDN di Azure, ad esempio `https://contoso.azureedge.net`, il protocollo HTTPS viene abilitato automaticamente. In più, il supporto di HTTPS per i domini personalizzati offre ora la possibilità di abilitare la distribuzione sicura anche per un dominio personalizzato, ad esempio `https://www.contoso.com`. 
+È fondamentale garantire la riservatezza e l'integrità dei dati sensibili delle applicazioni Web in transito. Il protocollo HTTPS garantisce la crittografia dei dati sensibili inviati su Internet. Offre attendibilità, autenticazione e protezione delle applicazioni Web da attacchi. Per impostazione predefinita, la rete CDN di Azure supporta il protocollo HTTPS per gli endpoint CDN. Se si crea un endpoint CDN dalla rete CDN di Azure, ad esempio `https://contoso.azureedge.net`, il protocollo HTTPS viene abilitato automaticamente. In più, il supporto di HTTPS per i domini personalizzati offre ora la possibilità di abilitare la distribuzione sicura anche per un dominio personalizzato, ad esempio `https://www.contoso.com`. 
 
 Alcuni attributi chiave della funzionalità HTTPS sono:
 
@@ -41,7 +41,7 @@ Alcuni attributi chiave della funzionalità HTTPS sono:
 
 ## <a name="enabling-https"></a>Abilitazione di HTTPS
 
-Per abilitare HTTPS, seguire questa procedura.
+Per abilitare il protocollo HTTPS in un dominio personalizzato, seguire questa procedura:
 
 ### <a name="step-1-enable-the-feature"></a>Passaggio 1: Abilitare la funzionalità 
 
@@ -66,7 +66,7 @@ Per abilitare HTTPS, seguire questa procedura.
 Dopo l'abilitazione di HTTPS nel dominio personalizzato, l'autorità di certificazione (CA) DigiCert convalida la proprietà del dominio contattandone il registrante in base alle informazioni sul registrante stesso in [WHOIS](http://whois.domaintools.com/). Per il contatto viene usato l'indirizzo di posta elettronica (impostazione predefinita) o il numero di telefono riportato nella registrazione WHOIS. 
 
 >[!NOTE]
->Se si ha un record di autorizzazione dell'autorità di certificazione (CAA, Certificate Authority Authorization) con il provider DNS, il record deve includere DigiCert come CA valida. Un record CAA consente ai proprietari di domini di indicare ai propri provider DNS le CA autorizzate a emettere certificati per i loro domini. Se una CA riceve l'ordine di un certificato per un dominio dotato di record CAA ma la CA non è citata come autorità emittente autorizzata in tale record, non deve emettere il certificato per il dominio o il sottodominio.
+>Se si ha un record di autorizzazione dell'autorità di certificazione (CAA, Certificate Authority Authorization) con il provider DNS, il record deve includere DigiCert come CA valida. Un record CAA consente ai proprietari di domini di indicare ai propri provider DNS le CA autorizzate a emettere certificati per i loro domini. Se una CA riceve l'ordine di un certificato per un dominio dotato di record CAA ma la CA non è citata come autorità emittente autorizzata in tale record, non deve emettere il certificato per il dominio o il sottodominio. Per informazioni sulla gestione dei record CAA, vedere l'argomento relativo alla [gestione dei record CAA](https://support.dnsimple.com/articles/manage-caa-record/). Per informazioni su uno strumento per i record CAA, vedere [Strumento di supporto per record CAA](https://sslmate.com/caa/).
 
 ![Record WHOIS](./media/cdn-custom-ssl/whois-record.png)
 
@@ -128,7 +128,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 ## <a name="disabling-https"></a>Disabilitazione di HTTPS
 
-Dopo aver abilitato HTTPS, è possibile successivamente disabilitarlo. Per disabilitare HTTPS, seguire questa procedura.
+Dopo aver abilitato HTTPS in un dominio personalizzato, è possibile successivamente disabilitarlo. Per disabilitare HTTPS, seguire questa procedura.
 
 ### <a name="step-1-disable-the-feature"></a>Passaggio 1: Disabilitare la funzionalità 
 

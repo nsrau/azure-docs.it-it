@@ -2,19 +2,19 @@
 title: Come usare il blocco appunti Jupyter in Azure Machine Learning Workbench | Microsoft Docs
 description: "Guida per l'uso della funzionalità del blocco appunti Jupyter in Azure Machine Learning Workbench"
 services: machine-learning
-author: jopela
-ms.author: jopela
+author: rastala
+ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: 93850a7c9e3d9d69b0da22ebd0656ae40cee2e63
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.date: 11/09/2017
+ms.openlocfilehash: 80cdd07bff865776a68897a7b8c1b3fe66b76b18
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Come usare il blocco appunti Jupyter in Azure Machine Learning Workbench
 
@@ -36,7 +36,7 @@ Per altre informazioni fare riferimento alla [documentazione ufficiale su Jupyte
 ![architettura del blocco appunti](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-architecture.png)
 
 ## <a name="kernels-in-azure-ml-workbench-notebook"></a>Kernel nel blocco appunti di Azure Machine Learning Workbench
-In Azure Machine Learning Workbench è possibile accedere a diversi kernel configurando semplicemente le configurazioni di esecuzione e le destinazioni di calcolo nella cartella `aml_config` del progetto. Aggiungere una nuova destinazione di calcolo eseguendo il comando `az ml computetarget attach` corrisponde ad aggiungere un nuovo kernel.
+In Azure Machine Learning Workbench è possibile accedere a diversi kernel configurando le configurazioni di esecuzione e le destinazioni di calcolo nella cartella `aml_config` del progetto. Aggiungere una nuova destinazione di calcolo eseguendo il comando `az ml computetarget attach` corrisponde ad aggiungere un nuovo kernel.
 
 >[!NOTE]
 >Per altre informazioni sulle configurazioni di esecuzione e le destinazioni di calcolo rivedere l'articolo sulla [configurazione dell'esecuzione](experimentation-service-configuration.md).
@@ -49,6 +49,9 @@ Attualmente, il Workbench supporta i tipi seguenti di kernel.
 ### <a name="local-python-kernel"></a>Kernel Python in locale
 Il kernel Python supporta l'esecuzione nel computer locale. È integrato con il supporto della cronologia di esecuzione di Azure Machine Learning. Il nome del kernel è in genere "my_project_name local".
 
+>[!NOTE]
+>Non usare il kernel "Python 3". Per impostazione predefinita, è un kernel autonomo fornito da Jupyter. Non è integrato con le funzionalità di Azure Machine Learning.
+
 ### <a name="python-kernel-in-docker-local-or-remote"></a>Kernel Python in Docker, locale o remoto
 Questo kernel Python viene eseguito in un contenitore Docker del computer locale o in una macchina virtuale Linux remota. Il nome del kernel è in genere "my_project docker". Il file associato `docker.runconfig` presenta l'impostazione `Python` per il campo `Framework`.
 
@@ -59,7 +62,7 @@ Il kernel PySpark esegue gli script in un contesto Spark in esecuzione all'inter
 Questo kernel viene eseguito nel cluster HDInsight remoto collegato come destinazione di calcolo del progetto. Il nome del kernel è in genere "my_project my_hdi". 
 
 >[!IMPORTANT]
->Nel file `.compute` della destinazione di calcolo HDI, per usare questo kernel è necessario modificare il valore del campo `yarnDeployMode`, il cui valore predefinito è `cluster`, impostandolo su `client`. 
+>Nel file `.compute` per la destinazione di calcolo HDI, per usare questo kernel è necessario modificare il valore del campo `yarnDeployMode`, il cui valore predefinito è `cluster`, impostandolo su `client`. 
 
 ## <a name="start-jupyter-server-from-the-workbench"></a>Avviare il server Jupyter dal Workbench
 In Azure Machine Learning Workbench è possibile accedere ai blocchi appunti tramite la scheda **Blocchi appunti** del Workbench. Il progetto di esempio di _classificazione di Iris_ include un blocco appunti di esempio `iris.ipynb`.
@@ -104,6 +107,33 @@ Il browser predefinito viene avviato automaticamente con il server Jupyter che p
 È ora possibile fare clic su un file del blocco appunti `.ipynb`, aprirlo, impostare il kernel, se non è stato impostato, e avviare la sessione interattiva.
 
 ![dashboard del progetto](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-08.png)
+
+## <a name="use-magic-commands-to-manage-experiments"></a>Usare i comandi magic per la gestione degli esperimenti
+
+È possibile usare i [comandi magic](http://ipython.readthedocs.io/en/stable/interactive/magics.html) nelle celle del blocco appunti per tenere traccia della cronologia di esecuzione e salvare gli output, ad esempio modelli o set di dati.
+
+Per tenere traccia delle esecuzioni nelle singole celle del blocco appunti, usare il comando magic "%azureml history on". Quando la cronologia è attiva, ogni esecuzione nella cella viene visualizzata come voce nella cronologia delle esecuzioni.
+
+```
+%azureml history on
+from azureml.logging import get_azureml_logger
+logger = get_azureml_logger()
+logger.log("Cell","Load Data")
+```
+
+Per disattivare il rilevamento delle esecuzioni nella cella, usare il comando magic "%azureml history off".
+
+È possibile usare il comando magic "%azureml upload" per salvare il modello e i file di dati dall'esecuzione. Gli oggetti salvati vengono visualizzati come output nella vista della cronologia di esecuzione per l'esecuzione specifica.
+
+```
+modelpath = os.path.join("outputs","model.pkl")
+with open(modelpath,"wb") as f:
+    pickle.dump(model,f)
+%azureml upload outputs/model.pkl
+```
+
+>[!NOTE]
+>Gli output devono essere salvati in una cartella denominata "outputs"
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per informazioni su come usare il blocco appunti Jupyter, visitare la pagina sulla [documentazione ufficiale di Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/).    

@@ -3,33 +3,30 @@ title: Guida rapida di Azure - Trasferire oggetti da e verso Archiviazione BLOB 
 description: Apprendere rapidamente a trasferire oggetti da e verso Archiviazione BLOB di Azure con .NET
 services: storage
 documentationcenter: storage
-author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: 
+author: tamram
+manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/01/2017
-ms.author: robinsh
-ms.openlocfilehash: 9c5628307e76bd30d2dd59f284f2c4b30d434223
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/10/2017
+ms.author: tamram
+ms.openlocfilehash: 1eac4165c35cb116a359c074bd629c918b58097c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Trasferire oggetti da e verso Archiviazione BLOB di Azure con .NET
 
-In questa guida rapida si apprende a usare C#.NET per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure in Windows.
+In questa guida introduttiva si apprenderà a usare la libreria client .NET per consentire ad Archiviazione di Azure di caricare, scaricare ed elencare BLOB in blocchi in un contenitore.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa guida introduttiva:
-
-* Installare [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) con i carichi di lavoro seguenti:
+Per seguire questa guida introduttiva, installare [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) con i carichi di lavoro seguenti:
+    
     - **Sviluppo di Azure**
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
@@ -86,7 +83,11 @@ Quando si preme un tasto qualsiasi per continuare, si elimina il contenitore di 
 
 Dopo aver verificato i file, premere un tasto qualsiasi per terminare la demo ed eliminare i file di test. Ora che si conosce il risultato dell'esempio, aprire il file Program.cs per esaminare il codice. 
 
-## <a name="get-references-to-the-storage-objects"></a>Ottenere i riferimenti agli oggetti di archiviazione
+## <a name="understand-the-sample-code"></a>Informazioni sul codice di esempio
+
+Viene quindi descritto in dettaglio il codice di esempio, per consentire di comprenderne il funzionamento.
+
+### <a name="get-references-to-the-storage-objects"></a>Ottenere i riferimenti agli oggetti di archiviazione
 
 La prima cosa da fare è creare i riferimenti agli oggetti usati per accedere e gestire l'archiviazione BLOB. Questi oggetti si compilano a vicenda: ognuno di essi viene usato da quello successivo nell'elenco.
 
@@ -124,7 +125,7 @@ permissions.PublicAccess = BlobContainerPublicAccessType.Blob;
 await cloudBlobContainer.SetPermissionsAsync(permissions);
 ```
 
-## <a name="upload-blobs-to-the-container"></a>Caricare i BLOB nel contenitore
+### <a name="upload-blobs-to-the-container"></a>Caricare i BLOB nel contenitore
 
 L'archiviazione BLOB supporta BLOB in blocchi, BLOB di accodamento e BLOB di pagine. I BLOB in blocchi sono quelli usati più di frequentemente e vengono usati in questa guida rapida. 
 
@@ -148,7 +149,7 @@ Esistono diversi metodi di caricamento che è possibile usare con l'archiviazion
 
 I BLOB in blocchi possono essere qualsiasi tipo di file di testo o binario. I BLOB di pagine vengono usati principalmente per i file VHD usati per tornare alle macchine virtuali IaaS. I BLOB di accodamento sono usati per la registrazione, ad esempio quando si desidera scrivere in un file e poi continuare ad aggiungere altre informazioni. La maggior parte degli oggetti presenti nell'archiviazione BLOB è costituita da BLOB in blocchi.
 
-## <a name="list-the-blobs-in-a-container"></a>Elencare i BLOB in un contenitore
+### <a name="list-the-blobs-in-a-container"></a>Elencare i BLOB in un contenitore
 
 È possibile ottenere un elenco di file nel contenitore usando [CloudBlobContainer.ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). Il codice seguente recupera l'elenco di BLOB, quindi esegue il ciclo per tutti loro mostrando gli URI dei BLOB trovati. Per visualizzare il file è possibile copiare l'URI dalla finestra di comando e incollarlo in un browser.
 
@@ -168,7 +169,7 @@ do
 } while (blobContinuationToken != null);
 ```
 
-## <a name="download-blobs"></a>Scaricare BLOB
+### <a name="download-blobs"></a>Scaricare BLOB
 
 Scaricare i BLOB nel disco locale mediante [CloudBlob.DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync).
 
@@ -184,7 +185,7 @@ Console.WriteLine("Downloading blob to {0}", fileAndPath2);
 await cloudBlockBlob.DownloadToFileAsync(fileAndPath2, FileMode.Create);
 ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+### <a name="clean-up-resources"></a>Pulire le risorse
 
 Se i BLOB caricati in questa guida rapida non sono più necessari, è possibile eliminare l'intero contenitore usando [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). Eliminare anche i file creati se non sono più necessari.
 
@@ -200,5 +201,7 @@ In questa guida rapida è stato descritto il trasferimento di file tra il disco 
 
 > [!div class="nextstepaction"]
 > [Procedura relativa alle operazioni di archiviazione BLOB](storage-dotnet-how-to-use-blobs.md)
+
+Per altri esempi di codice di Archiviazione di Azure da scaricare ed eseguire, vedere l'elenco di [esempi di Archiviazione di Azure che usano .NET](../common/storage-samples-dotnet.md).
 
 Per altre informazioni su Azure Storage Explorer e i BLOB, vedere [Gestire le risorse dell'archivio BLOB di Azure con Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

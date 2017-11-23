@@ -1,6 +1,6 @@
 ---
 title: Codificare un asset con Media Encoder Standard mediante .NET | Microsoft Docs
-description: Questo argomento illustra come usare .NET per codificare un asset con Media Encoder Standard.
+description: Questo articolo illustra come usare .NET per codificare un asset con Media Encoder Standard.
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 929592368501c54277748bf46b2160c9058db3fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cce668007030672aff7af60c70339c1e079c75b1
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificare un asset con Media Encoder Standard mediante .NET
-I processi di codifica sono tra le operazioni di elaborazione più frequenti in Servizi multimediali. Questi processi vengono creati per convertire i file multimediali da una codifica all'altra. Durante la codifica è possibile usare il codificatore multimediale incorporato in Servizi multimediali. È inoltre possibile usare un codificatore fornito da un partner di Servizi multimediali. I codificatori di terze parti sono disponibili tramite Azure Marketplace. 
+I processi di codifica sono tra le operazioni di elaborazione più frequenti in Servizi multimediali. Questi processi vengono creati per convertire i file multimediali da una codifica all'altra. Durante la codifica è possibile usare il codificatore multimediale incorporato in Servizi multimediali. È anche possibile usare un codificatore fornito da un partner di Servizi multimediali. I codificatori di terze parti sono disponibili tramite Azure Marketplace. 
 
-Questo argomento illustra come usare .NET per codificare gli asset con Media Encoder Standard (MES). Media Encoder Standard viene configurato mediante un set di impostazioni descritto [qui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Questo articolo illustra come usare .NET per codificare gli asset con Media Encoder Standard (MES). Media Encoder Standard viene configurato mediante un set di impostazioni descritto [qui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 È consigliabile codificare sempre i file di origine con un set MP4 a velocità in bit adattiva e quindi convertire il set nel formato desiderato mediante la [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md). 
 
-Se l'asset di output è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per altre informazioni, vedere [Procedura: Configurare i criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md).
+Se l'asset di output è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per altre informazioni, vedere [Configurazione dei criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md).
 
 > [!NOTE]
 > MES produce un file di output con un nome contenente i primi 32 caratteri del nome del file di input. Il nome è basato su quanto specificato nel file preimpostato. Ad esempio, "FileName": "{Basename}_{Index}{Extension}". {Basename} viene sostituito dai primi 32 caratteri del nome del file di input.
@@ -61,7 +61,7 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
 * Specificare l'uso del set di impostazioni [Flusso adattivo](media-services-autogen-bitrate-ladder-with-mes.md). 
 * Aggiungere una singola attività di codifica al processo. 
 * Specificare l’asset di input da codificare.
-* Creare un asset di output che conterrà l'asset codificato.
+* Creare un asset di output che contenga l'asset codificato.
 * Aggiungere un gestore eventi per controllare l'avanzamento del processo.
 * Inviare il processo.
 
@@ -181,6 +181,14 @@ Configurare l'ambiente di sviluppo e popolare il file app.config con le informaz
                 }
             }
         }
+
+
+## <a name="advanced-encoding-features-to-explore"></a>Funzionalità di codifica avanzate da esplorare
+* [Come generare anteprime](media-services-dotnet-generate-thumbnail-with-mes.md)
+* [Generazione di anteprime durante la codifica](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
+* [Ritagliare video durante la codifica](media-services-crop-video.md)
+* [Personalizzazione di set di impostazioni di codifica](media-services-custom-mes-presets-with-dotnet.md)
+* [Impostare un'immagine come sovrimpressione o filigrana in un video](media-services-advanced-encoding-with-mes.md#overlay)
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

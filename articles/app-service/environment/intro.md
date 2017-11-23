@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 322cf2ebbe83d00fcebcec618e07141d26f4f255
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a619943abaf8835e591872cba0ed046d4c6c4a9
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="introduction-to-app-service-environments"></a>Introduzione agli ambienti del servizio app #
  
@@ -48,13 +48,13 @@ Un ambiente del servizio app è composto da front-end e ruoli di lavoro. I front
 
 I ruoli di lavoro ospitano app di clienti e sono disponibili in tre dimensioni fisse:
 
-* Un core/3,5 GB di RAM
-* Due core/7 GB di RAM
-* Quattro core/14 GB di RAM
+* Un vCPU/3,5 GB di RAM
+* Due vCPU/7 GB di RAM
+* Quattro vCPU/14 GB di RAM
 
 I clienti non sono tenuti a gestire i front-end e i ruoli di lavoro. Tutta l'infrastruttura viene aggiunta automaticamente nel momento in cui i clienti aumentano il numero di istanze nei rispettivi piani di servizio app. Man mano che i piani di servizio app vengono aggiunti o ridimensionati in un ambiente del servizio app, l'infrastruttura necessaria viene aggiunta o rimossa in base alle esigenze.
 
-Per gli ambienti del servizio app è prevista una tariffa fissa mensile che copre l'infrastruttura e non varia a seconda delle dimensioni dell'ambiente del servizio app. A questa si aggiunge il costo previsto per ogni core del piano di servizio app. Tutte le app ospitate in un ambiente del servizio app fanno parte di uno SKU di prezzi isolato. Per informazioni sui prezzi di un ambiente del servizio app, vedere la pagina [Prezzi del servizio app][Pricing] ed esaminare le opzioni disponibili per gli ambienti del servizio app.
+Per gli ambienti del servizio app è prevista una tariffa fissa mensile che copre l'infrastruttura e non varia a seconda delle dimensioni dell'ambiente del servizio app. A questa si aggiunge il costo previsto per ogni vCPU del piano di servizio app. Tutte le app ospitate in un ambiente del servizio app fanno parte di uno SKU di prezzi isolato. Per informazioni sui prezzi di un ambiente del servizio app, vedere la pagina [Prezzi del servizio app][Pricing] ed esaminare le opzioni disponibili per gli ambienti del servizio app.
 
 ## <a name="virtual-network-support"></a>Supporto della rete virtuale ##
 
@@ -68,13 +68,15 @@ Spesso le app devono accedere a risorse aziendali, ad esempio database e servizi
 
 Per altre informazioni sul funzionamento degli ambienti del servizio app con reti virtuali e reti locali, vedere [Considerazioni sulla rete per un ambiente del servizio app][ASENetwork].
 
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud/player]
+
 ## <a name="app-service-environment-v1"></a>Ambiente del servizio app 1 ##
 
 Esistono due versioni dell'ambiente del servizio app: ASEv1 e ASEv2. Le informazioni sopra riportate si basano sulla versione ASEv2. Questa sezione illustra le differenze tra ASEv1 e ASEv2. 
 
 In ASEv1 è necessario gestire manualmente tutte le risorse, inclusi front-end, ruoli di lavoro e indirizzi IP usati per la connessione SSL basata su IP. Per poter aumentare il numero di istanze di un piano di servizio app, è necessario aumentare il numero di istanze del pool di lavoro in cui si vuole ospitare il piano.
 
-ASEv1 usa un modello tariffario diverso rispetto a ASEv2. Nella versione ASEv1, in particolare, si paga per tutti i core allocati, inclusi i core usati per i front-end o i ruoli di lavoro in cui non sono ospitati carichi di lavoro. In ASEv1 la dimensione massima predefinita di un ambiente del servizio app è di 55 host complessivi, inclusi ruoli di lavoro e front-end. Un vantaggio di ASEv1 è quello di poter essere distribuito in una rete virtuale classica e in una rete virtuale di Resource Manager. Per altre informazioni sull'ambiente del servizio app 1, vedere [Introduzione all'ambiente del servizio app 1][ASEv1Intro].
+ASEv1 usa un modello tariffario diverso rispetto a ASEv2. Nella versione ASEv1, in particolare, si paga per tutti i vCPU allocati, inclusi i vCPU usati per i front-end o i ruoli di lavoro in cui non sono ospitati carichi di lavoro. In ASEv1 la dimensione massima predefinita di un ambiente del servizio app è di 55 host complessivi, inclusi ruoli di lavoro e front-end. Un vantaggio di ASEv1 è quello di poter essere distribuito in una rete virtuale classica e in una rete virtuale di Resource Manager. Per altre informazioni sull'ambiente del servizio app 1, vedere [Introduzione all'ambiente del servizio app 1][ASEv1Intro].
 
 <!--Links-->
 [Intro]: ./intro.md

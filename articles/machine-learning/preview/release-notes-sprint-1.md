@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
-ms.openlocfilehash: a294a3f92163f78bace56654c284c4e83623b829
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 2b2f35b3241bd1700bb1fb3319d38fdfda2545f9
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="sprint-1---november-2017"></a>Sprint 1 - Novembre 2017 
 
@@ -127,13 +127,13 @@ Di seguito è riportato un elenco degli aggiornamenti dettagliati in ogni area d
 - Il servizio di creazione di immagini adesso supporta la creazione di immagini per i servizi e dispositivi IoT di Azure.
 
 ### <a name="sample-projects"></a>Progetti di esempio
-- Progetto di esempio _Classificazione iris_:
+- Progetto di esempio [_Classificazione iris_](./tutorial-classifying-iris-part-1.md):
     - `iris_pyspark.py` viene rinominata come `iris_spark.py`.
-    - `iris_score.py` viene rinominata come `iris-score.py`.
+    - `iris_score.py` viene rinominata come `score_iris.py`.
     - `iris.dprep` e `iris.dsource` sono stati aggiornati per riflettere gli aggiornamenti più recenti del motore di preparazione dei dati.
     - `iris.ipynb` Notebook è stato modificato per funzionare nel cluster HDInsight.
     - La cronologia di esecuzione è attivata nella cella `iris.ipynb` di Notebook.
-- Il passaggio "Gestione del valore di errore" del progetto di esempio _Preparazione di dati avanzata con dati di bike sharing_ è stato corretto.
-- Il formato `docker.runconfig` del progetto di esempio _MMLSpark su dati di censimento di adulti_ è stato aggiornato da JSON a YAML.
-- Il formato `docker.runconfig` del progetto di esempio Ottimizzazione di iperparametri distribuiti è stato aggiornato da JSON a YAML.
-- Nuovo progetto di esempio _Classificazione di immagini mediante CNTK_.
+- Il passaggio "Gestione dei valori di errore" del progetto di esempio [_Preparazione di dati avanzata con dati di bike sharing_](./tutorial-bikeshare-dataprep.md) è stato corretto.
+- Il formato di `docker.runconfig` del progetto di esempio [_MMLSpark on Adult Census Data_](https://github.com/Azure/MachineLearningSamples-mmlspark) (MMLSpark su dati di censimento di adulti) è stato aggiornato da JSON a YAML.
+- Il formato di `docker.runconfig` del progetto di esempio [_Ottimizzazione distribuita di iperparametri_](./scenario-distributed-tuning-of-hyperparameters.md) è stato aggiornato da JSON a YAML.
+- Nuovo progetto di esempio [_Classificazione delle immagini con CNTK_](./scenario-image-classification-using-cntk.md).

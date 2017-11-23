@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: affa68b6aeedb031914b12dac711d93c7ed4a47a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: adfcf53f9fca0efafb538edfd65b95313dcf1559
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-user-defined-route---azure-cli"></a>Creare una route definita dall'utente - Interfaccia della riga di comando di Azure
 
@@ -287,12 +287,18 @@ I comandi dell'interfaccia della riga di comando di Azure sono gli stessi, indip
 3. Convalidare la comunicazione tra le macchine virtuali nelle subnet Public e Private. 
 
     - Aprire una connessione [SSH](../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Linux) o [Desktop remoto](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Windows) all'indirizzo IP pubblico della macchina virtuale *myVm-Public*.
-    - Da un prompt dei comandi nella macchina virtuale *myVm-Public* immettere `ping myVm-Private`. Si ricevono risposte perché l'appliance di rete virtuale inoltra il traffico dalla subnet pubblica alla subnet privata.
+    - Al prompt dei comandi della macchina virtuale *myVm-Public* immettere `ping myVm-Private`. Si ricevono risposte perché l'appliance virtuale di rete inoltra il traffico dalla subnet pubblica alla subnet privata.
     - Dalla macchina virtuale *myVm-Public* eseguire un tracciamento delle route tra le macchine virtuali nelle subnet pubblica e privata. Immettere il comando appropriato tra quelli seguenti, a seconda del sistema operativo installato nelle macchine virtuali nelle subnet Public e Private:
-        - **Windows**: dal prompt dei comandi eseguire il comando `tracert myvm-private`.
+        - **Windows**: al prompt dei comandi eseguire il comando `tracert myvm-private`.
         - **Ubuntu**: eseguire il comando `tracepath myvm-private`.
       Il traffico passa attraverso 10.0.2.4 (l'appliance di rete virtuale) prima di raggiungere 10.0.1.4 (la macchina virtuale nella subnet privata). 
-    - Completare i passaggi precedenti eseguendo il collegamento alla macchina virtuale *myVm-Private* ed effettuando ping alla macchina virtuale *myVm-Public*. Il tracciamento delle route mostra le comunicazioni che viaggiano attraverso 10.0.2.4 prima di raggiungere 10.0.0.4 (la macchina virtuale nella subnet Public).
+    - Completare i passaggi precedenti eseguendo il collegamento alla macchina virtuale *myVm-Private* ed effettuando ping alla macchina virtuale *myVm-Public*. Il tracciamento route visualizza le comunicazioni che viaggiano attraverso 10.0.2.4 prima di raggiungere 10.0.0.4 (la macchina virtuale nella subnet Public).
+      
+      > [!NOTE]
+      > I passaggi precedenti consentono di verificare il routing tra indirizzi IP privati di Azure. Se si vuole inoltrare il traffico a indirizzi IP pubblici o eseguire la funzione di proxy tramite un'appliance virtuale di rete:
+      > - L'appliance deve offrire funzionalità di conversione degli indirizzi di rete o di proxy. In caso di conversione degli indirizzi di rete, l'appliance deve convertire da sola l'indirizzo IP di origine e quindi inoltrare la richiesta all'indirizzo IP pubblico. Sia che l'appliance abbia convertito l'indirizzo di origine o che abbia svolto la funzione di proxy, Azure converte l'indirizzo IP privato dell'appliance virtuale di rete in un indirizzo IP pubblico. Per altre informazioni sui diversi metodi usati da Azure per convertire gli indirizzi IP privati in indirizzi IP pubblici, vedere [Informazioni sulle connessioni in uscita](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+      > - Una route aggiuntiva nella tabella di route, ad esempio una con prefisso 0.0.0.0/0, tipo hop successivo VirtualAppliance e indirizzo IP hop successivo 10.0.2.4 (nello script di esempio precedente).
+      >
     - **Facoltativo**: usare la funzionalità Hop successivo di Network Watcher di Azure per convalidare l'hop successivo tra due macchine virtuali in Azure. Prima di usare Network Watcher è necessario [creare un'istanza di Network Watcher di Azure](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per l'area in cui si intende usarlo. In questa esercitazione viene usata l'area degli Stati Uniti orientali. Dopo aver abilitato un'istanza di Network Watcher per l'area, immettere il comando seguente per visualizzare le informazioni sull'hop successivo tra le macchine virtuali nelle subnet Public e Private:
      
         ```azurecli-interactive

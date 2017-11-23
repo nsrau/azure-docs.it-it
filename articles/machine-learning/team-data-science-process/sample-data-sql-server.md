@@ -4,7 +4,7 @@ description: Dati di esempio in SQL Server in Azure
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgeonlun
 editor: cgronlun
 ms.assetid: 33c030d4-5cca-4cc9-99d7-2bd13a3926af
 ms.service: machine-learning
@@ -12,25 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: fbd83ad59a9db1daca4ba16402031e2c1c5b7991
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fd669f3951b1f7f05932634f039a04e02993399f
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="heading"></a>Dati di esempio in SQL Server in Azure
-Questo documento illustra come campionare dati archiviati in SQL Server su Azure usando SQL o il linguaggio di programmazione Python. Viene inoltre illustrato come spostare i dati campionati in Azure Machine Learning salvandoli in un file, caricandoli in un BLOB di Azure e quindi leggendoli in Azure Machine Learning Studio.
+Questo articolo illustra come campionare dati archiviati in SQL Server su Azure usando SQL o il linguaggio di programmazione Python. Viene inoltre illustrato come spostare i dati campionati in Azure Machine Learning salvandoli in un file, caricandoli in un BLOB di Azure e quindi leggendoli in Azure Machine Learning Studio.
 
 Il campionamento di Python usa la libreria ODBC [pyodbc](https://code.google.com/p/pyodbc/) per connettersi al server SQL in Azure e la libreria [Pandas](http://pandas.pydata.org/) per creare il campionamento.
 
 > [!NOTE]
-> Il codice SQL di esempio riportato in questo documento presuppone che i dati si trovino in un server SQL in Azure. In caso contrario, fare riferimento all'argomento sullo [Spostamento dei dati in SQL Server in una macchina virtuale di Azure](move-sql-server-virtual-machine.md) per istruzioni su come spostare i dati in SQL Server su Azure.
+> Il codice SQL di esempio riportato in questo documento presuppone che i dati si trovino in un server SQL in Azure. In caso contrario, fare riferimento all'articolo [Spostamento dei dati in SQL Server in una macchina virtuale di Azure](move-sql-server-virtual-machine.md) per istruzioni su come spostare i dati in SQL Server su Azure.
 > 
 > 
 
-Il **menu** seguente contiene collegamenti ad argomenti che descrivono come campionare dati di vari ambienti di archiviazione. 
+Il **menu** seguente contiene collegamenti ad articoli che descrivono come campionare dati di vari ambienti di archiviazione. 
 
 [!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
 
@@ -42,7 +42,7 @@ Questo campionamento è un passaggio del [Processo di analisi scientifica dei da
 ## <a name="SQL"></a>Utilizzo di SQL
 In questa sezione vengono descritti alcuni metodi di utilizzo di SQL per eseguire il campionamento casuale semplice dei dati all'interno del database. Scegliere il metodo in base alla dimensione dei dati e alla loro distribuzione.
 
-Gli elementi riportati di seguito mostrano come utilizzare il valore newId in SQL Server per effettuare il campionamento. Il metodo scelto dipende dal livello di casualità previsto per il campionamento da eseguire (il valore pk_id nel codice di esempio riportato in basso si presuppone che sia una chiave primaria generata automaticamente).
+I due elementi seguenti mostrano come usare `newid` in SQL Server per effettuare il campionamento. Il metodo scelto dipende dal livello di casualità previsto per il campionamento da eseguire (si presuppone che il valore pk_id nel codice di esempio seguente sia una chiave primaria generata automaticamente).
 
 1. Campionamento casuale meno rigoroso
    
@@ -53,7 +53,7 @@ Gli elementi riportati di seguito mostrano come utilizzare il valore newId in SQ
         SELECT * FROM <table_name>
         WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
 
-È possibile utilizzare la clausola TABLESAMPLE per il campionamento come mostrato di seguito. Può trattarsi di un approccio più efficace se i dati sono di grandi dimensioni (presupponendo che i dati in pagine diverse non siano correlati) e per completare la query in un tempo ragionevole.
+È possibile usare la clausola Tablesample anche per il campionamento dei dati. Può trattarsi di un approccio più efficace se i dati sono di grandi dimensioni (presupponendo che i dati in pagine diverse non siano correlati) e per completare la query in un tempo ragionevole.
 
     SELECT *
     FROM <table_name> 
@@ -76,7 +76,7 @@ In questa sezione viene mostrato l'uso della [libreria pyodbc](https://code.goog
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-La libreria [Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gamma di strutture di dati e strumenti di analisi dei dati per la manipolazione dei dati nella programmazione in Python. Nel codice riportato di seguito si legge un campionamento dello 0,1% dei dati di una tabella nel database SQL di Azure in un frame di dati Pandas:
+La libreria [Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gamma di strutture di dati e strumenti di analisi dei dati per la manipolazione dei dati nella programmazione in Python. Nel codice seguente si legge un campionamento dello 0,1% dei dati di una tabella nel database SQL di Azure in un frame di dati Pandas:
 
     import pandas as pd
 
@@ -117,7 +117,7 @@ La libreria [Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gam
 ![lettore BLOB][2]
 
 ## <a name="the-team-data-science-process-in-action-example"></a>Esempio del Processo di analisi scientifica dei dati per i team
-Per un esempio della procedura dettagliata end-to-end del Processo di analisi scientifica dei dati per i team usando un set di dati pubblici, vedere [Processo di analisi scientifica dei dati per i team in azione: uso di SQL Sever](sql-walkthrough.md).
+Per un esempio della procedura dettagliata del processo di data science per i team usando un set di dati pubblici, vedere [Processo di data science per i team in azione: uso di SQL Server](sql-walkthrough.md).
 
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png

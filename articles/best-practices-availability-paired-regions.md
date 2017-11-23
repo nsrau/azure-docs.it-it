@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: raynew
-ms.openlocfilehash: 27491e34ad9e47aec2f424cfc439fad614f0e435
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a846cc3e2f06199bdef9e597198f309801d5c75
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure
 
@@ -48,7 +48,8 @@ Figura 1: Diagramma di una coppia di aree di Azure
 | Europa |Europa settentrionale |Europa occidentale |
 | Giappone |Giappone orientale |Giappone occidentale |
 | Brasile |Brasile meridionale (1) |Stati Uniti centro-meridionali |
-| Governo degli Stati Uniti |Governo degli Stati Uniti - Iowa |Governo degli Stati Uniti - Virginia |
+| Governo degli Stati Uniti |Governo degli Stati Uniti - Iowa (2) |US Gov Virginia |
+| Governo degli Stati Uniti |Governo degli Stati Uniti - Virginia (3) |Governo degli Stati Uniti - Texas |
 | Governo degli Stati Uniti |Governo degli Stati Uniti - Arizona |Governo degli Stati Uniti - Texas |
 | Dipartimento della difesa degli Stati Uniti |Dipartimento della difesa Stati Uniti orientali |Dipartimento della difesa Stati Uniti centrali |
 | Regno Unito |Regno Unito occidentale |Regno Unito meridionale |
@@ -57,6 +58,10 @@ Figura 1: Diagramma di una coppia di aree di Azure
 Tabella 1 - Mapping di coppie di aree di Azure
 
 > (1) L'area Brasile meridionale è unica, perché è abbinata a un'area esterna alla propria area geografica. L'area secondaria del Brasile meridionale sono gli Stati Uniti centro-meridionali, ma l'area secondaria degli Stati Uniti centro-meridionali non è il Brasile meridionale.
+>
+> (2) L'area secondaria per Governo degli Stati Uniti - Iowa è Governo degli Stati Uniti - Virginia, ma l'area secondaria per Governo degli Stati Uniti - Virginia non è Governo degli Stati Uniti - Iowa.
+> 
+> (3) L'area secondaria per Governo degli Stati Uniti - Virginia è Governo degli Stati Uniti - Texas, ma l'area secondaria per Governo degli Stati Uniti - Texas non è Governo degli Stati Uniti - Virginia.
 
 
 È consigliabile replicare i carichi di lavoro tra le coppie di aree per sfruttare i vantaggi dei criteri di isolamento e disponibilità di Azure. Ad esempio, gli aggiornamenti di sistema di Azure pianificati vengono distribuiti in sequenza (non contemporaneamente) tra le aree abbinate. Ciò significa che anche nel raro caso di un aggiornamento non corretto, non saranno interessate contemporaneamente entrambe le aree. Inoltre, nell'improbabile caso di un'interruzione su vasta scala, viene data priorità al ripristino di almeno un'area di ogni coppia.

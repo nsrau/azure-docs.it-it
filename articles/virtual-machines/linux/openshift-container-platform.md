@@ -15,38 +15,39 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: c91b7232b2f87e0b4b5e659126b96a6ef8b4202c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 159f30fc59a050b9a4ff983e8ac84e424104b484
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Distribuire OpenShift Container Platform in Azure
 
-Esistono diversi modi di distribuire OpenShift Container Platform in Azure. È possibile distribuire manualmente tutti i componenti necessari dell'infrastruttura di Azure e quindi seguire la [documentazione](https://docs.openshift.com/container-platform/3.6/welcome/index.html) di OpenShift Container Platform.
-È anche possibile usare un modello di Resource Manager esistente che semplifica la distribuzione del cluster OpenShift Container Platform. Un modello di questo tipo è disponibile [qui](https://github.com/Microsoft/openshift-container-platform/).
+Esistono diversi modi di distribuire OpenShift Container Platform in Azure:
 
-Un'altra opzione consiste nell'usare l'[offerta di Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+- È possibile distribuire manualmente i componenti necessari dell'infrastruttura di Azure e quindi seguire la [documentazione](https://docs.openshift.com/container-platform/3.6/welcome/index.html) di OpenShift Container Platform.
+- È anche possibile usare un [modello di Resource Manager](https://github.com/Microsoft/openshift-container-platform/) esistente che semplifica la distribuzione del cluster OpenShift Container Platform.
+- Un'altra opzione consiste nell'usare l'[offerta di Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
-Per entrambe le opzioni è necessaria una sottoscrizione di Red Hat. Durante la distribuzione, l'istanza RHEL viene registrata nella sottoscrizione di Red Hat e allegata all'ID del pool che contiene i diritti per OpenShift Container Platform.
+Per tutte le opzioni è necessaria una sottoscrizione di Red Hat. Durante la distribuzione, l'istanza Red Hat Enterprise Linux viene registrata nella sottoscrizione di Red Hat e allegata all'ID del pool che contiene i diritti per OpenShift Container Platform.
 Verificare di avere un nome utente, una password e un ID pool validi per Red Hat Subscription Manager (RHSM). È possibile verificare le informazioni effettuando l'accesso a https://access.redhat.com.
 
-## <a name="deploy-using-the-openshift-container-platform-resource-manager-template"></a>Distribuire usando il modello di Resource Manager di OpenShift Container Platform
+## <a name="deploy-by-using-the-openshift-container-platform-resource-manager-template"></a>Distribuire usando il modello di Resource Manager di OpenShift Container Platform
 
-Per distribuire usando il modello di Resource Manager, viene usato un file di parametri per specificare tutti i parametri di input. Se si vuole personalizzare un elemento della distribuzione che non vengono trattati se si usano i parametri di input, creare un fork del repository GitHub e modificare gli elementi appropriati.
+Per distribuire usando il modello di Resource Manager, viene usato un file di parametri per specificare tutti i parametri di input. Per personalizzare un elemento della distribuzione che non vengono trattati se si usano i parametri di input, creare un fork del repository GitHub e modificare gli elementi appropriati.
 
 Tra le opzioni di personalizzazione comuni sono incluse, ad esempio:
 
-- CIDR VNet [variabile in azuredeploy.json]
-- Dimensioni macchina virtuale bastion [variabile in azuredeploy.json]
-- Convenzioni di denominazione [variabile in azuredeploy.json]
-- Specifiche del cluster OpenShift - modificate usando il file hosts [deployOpenShift.sh]
+- CIDR rete virtuale (variabile in azuredeploy.json)
+- Dimensioni macchina virtuale bastion (variabile in azuredeploy.json)
+- Convenzioni di denominazione (variabile in azuredeploy.json)
+- Specifiche del cluster OpenShift - modificate usando il file hosts (deployOpenShift.sh)
 
-### <a name="configure-parameters-file"></a>Configurare il file dei parametri
+### <a name="configure-the-parameters-file"></a>Configurare il file dei parametri
 
 Usare il valore `appId` dall'entità servizio creata in precedenza per il parametro `aadClientId`. 
 
-L'esempio seguente crea un file di parametri denominato **azuredeploy.parameters.json** con tutti gli input necessari.
+L'esempio seguente crea un file di parametri denominato azuredeploy.parameters.json con tutti gli input necessari.
 
 ```json
 {
@@ -132,14 +133,14 @@ L'esempio seguente crea un file di parametri denominato **azuredeploy.parameters
 }
 ```
 
-Sostituire gli elementi racchiusi tra parentesi {} con le informazioni pertinenti.
+Sostituire gli elementi tra parentesi con le proprie informazioni.
 
-### <a name="deploy-using-azure-cli"></a>Eseguire la distribuzione usando l'interfaccia della riga di comando di Azure
+### <a name="deploy-by-using-azure-cli"></a>Eseguire la distribuzione usando l'interfaccia della riga di comando di Azure
 
 > [!NOTE] 
-> Il comando seguente richiede l'interfaccia della riga di comando di Azure 2.0.8 o versione successiva. È possibile verificare la versione della CLI di Azure con il comando `az --version`. Per aggiornare la versione della CLI, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+> Il comando seguente richiede l'interfaccia della riga di comando di Azure 2.0.8 o versione successiva. È possibile verificare la versione dell'interfaccia della riga di comando di Azure con il comando `az --version`. Per aggiornare la versione della CLI, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
-L'esempio seguente consente di distribuire il cluster OpenShift e tutte le risorse correlate in un gruppo di risorse denominato myResourceGroup con nome di distribuzione myOpenShiftCluster. Viene fatto riferimento al modello direttamente dal repository GitHub e viene usato un file di parametri locale denominato **azuredeploy.parameters.json**.
+L'esempio seguente consente di distribuire il cluster OpenShift e tutte le risorse correlate in un gruppo di risorse denominato myResourceGroup con nome di distribuzione myOpenShiftCluster. Viene fatto riferimento al modello direttamente dal repository GitHub e viene usato un file di parametri locale denominato azuredeploy.parameters.json.
 
 ```azurecli 
 az group deployment create -g myResourceGroup --name myOpenShiftCluster \
@@ -156,17 +157,17 @@ La distribuzione richiede almeno 30 minuti, a seconda del numero totale di nodi 
 }
 ```
 
-## <a name="deploy-using-openshift-container-platform-marketplace-offer"></a>Eseguire la distribuzione usando l'offerta di OpenShift Container Platform sul Marketplace
+## <a name="deploy-by-using-the-openshift-container-platform-azure-marketplace-offer"></a>Eseguire la distribuzione usando l'offerta di OpenShift Container Platform in Azure Marketplace
 
-Il modo più semplice per distribuire OpenShift Container Platform in Azure è usare l'[offerta di Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+Il modo più semplice per distribuire OpenShift Container Platform in Azure è usare l'[offerta di Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
 Questa opzione è la più semplice, ma è limitata in termini di funzionalità di personalizzazione. L'offerta include tre opzioni di configurazione:
 
-- Small: distribuisce un cluster non a disponibilità elevata con un nodo master, un nodo di infrastruttura, due nodi di applicazione e un nodo bastion. Tutti i nodi sono macchine virtuali DS2v2 Standard. Questo cluster richiede 10 core totali ed è ideale per il testing su scala ridotta.
-- Medium: distribuisce un cluster a disponibilità elevata con tre nodi master, due nodi di infrastruttura, quattro nodi di applicazione e un nodo bastion. Tutti i nodi tranne il bastion sono macchine virtuali DS3v2 Standard. La dimensione del nodo bastion è DS2v2 Standard. Questo cluster richiede 38 core.
-- Large: distribuisce un cluster a disponibilità elevata con tre nodi master, due nodi di infrastruttura, sei nodi di applicazione e un nodo bastion. I nodi master e di infrastruttura sono macchine virtuali DS3v2 Standard, i nodi di applicazione sono macchine virtuali DS4v2 Standard e il nodo bastion è di tipo DS2v2 Standard. Questo cluster richiede 70 core.
+- **Small**: distribuisce un cluster non a disponibilità elevata con un nodo master, un nodo di infrastruttura, due nodi di applicazione e un nodo bastion. Tutti i nodi sono macchine virtuali DS2v2 Standard. Questo cluster richiede 10 core totali ed è ideale per il testing su scala ridotta.
+- **Medium**: distribuisce un cluster a disponibilità elevata con tre nodi master, due nodi di infrastruttura, quattro nodi di applicazione e un nodo bastion. Tutti i nodi tranne il nodo bastion sono macchine virtuali DS3v2 Standard. La dimensione del nodo bastion è DS2v2 Standard. Questo cluster richiede 38 core.
+- **Large**: distribuisce un cluster a disponibilità elevata con tre nodi master, due nodi di infrastruttura, sei nodi di applicazione e un nodo bastion. I nodi master e di infrastruttura sono macchine virtuali DS3v2 Standard. I nodi di applicazione sono macchine virtuali DS4v2 Standard e il nodo bastion è di tipo DS2v2 Standard. Questo cluster richiede 70 core.
 
-La configurazione del provider di servizi cloud di Azure è facoltativa per le dimensioni Medium e Large del cluster. La dimensione Small del cluster non offre un'opzione per la configurazione del provider di servizi cloud di Azure.
+La configurazione del provider di soluzioni cloud di Azure è facoltativa per le dimensioni Medium e Large del cluster. La dimensione Small del cluster non offre un'opzione per la configurazione del provider di soluzioni cloud di Azure.
 
 ## <a name="connect-to-the-openshift-cluster"></a>Eseguire la connessione al cluster OpenShift
 
@@ -186,6 +187,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Attività successive alla distribuzione](./openshift-post-deployment.md)
-- [Risoluzione dei problemi relativi alla distribuzione di OpenShift](./openshift-troubleshooting.md)
+- [Attività di post-distribuzione](./openshift-post-deployment.md)
+- [Risoluzione dei problemi relativi alla distribuzione di OpenShift in Azure](./openshift-troubleshooting.md)
 - [Getting started with OpenShift Container Platform](https://docs.openshift.com/container-platform/3.6/getting_started/index.html) (Introduzione a OpenShift Container Platform)

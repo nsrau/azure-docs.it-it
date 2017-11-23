@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/03/2017
+ms.date: 11/09/2017
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 7347301cd34979df9b3acc59f623ab346dbe41f6
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino
 
@@ -120,7 +120,7 @@ Dopo avere eseguito l'aggiornamento a un insieme di credenziali di Servizi di ri
 No. I backup in corso proseguono senza interruzioni durante e dopo l'aggiornamento.
 
 **Se non si prevede un aggiornamento a breve, cosa succede agli insiemi di credenziali?**</br>
-Poiché tutte le nuove funzionalità sono applicabili solo agli insiemi di credenziali di Servizi di ripristino, è consigliabile eseguire l'aggiornamento degli insiemi di credenziali. Microsoft deprecherà il portale classico in futuro. A partire dall'1 settembre 2017, Microsoft inizierà a eseguire l'aggiornamento automatico degli insiemi di credenziali di Backup agli insiemi di credenziali di Servizi di ripristino. Il processo di aggiornamento verrà completato da Microsoft entro il 30 novembre 2017. L'insieme di credenziali può essere aggiornato automaticamente in qualsiasi momento prima di tale data. Microsoft consiglia di aggiornare l'insieme di credenziali il prima possibile.
+Poiché tutte le nuove funzionalità sono applicabili solo agli insiemi di credenziali di Servizi di ripristino, è consigliabile eseguire l'aggiornamento degli insiemi di credenziali. Microsoft deprecherà il portale classico in futuro. A partire dall'1 settembre 2017, Microsoft inizierà a eseguire l'aggiornamento automatico degli insiemi di credenziali di Backup agli insiemi di credenziali di Servizi di ripristino. Dopo il 30 novembre 2017 non sarà più possibile creare insiemi di credenziali di backup usando PowerShell. L'insieme di credenziali può essere aggiornato automaticamente in qualsiasi momento prima di tale data. Microsoft consiglia di aggiornare l'insieme di credenziali il prima possibile.
 
 **Qual è l'impatto di questo aggiornamento per gli strumenti esistenti?**</br>
 Aggiornare gli strumenti al modello di distribuzione Resource Manager. Gli insiemi di credenziali di Servizi di ripristino sono stati creati per l'uso nel modello di distribuzione Resource Manager. È importante definire una pianificazione appropriata per il modello di distribuzione Resource Manager e tenere in considerazione le differenze negli insiemi di credenziali. 

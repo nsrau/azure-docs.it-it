@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.openlocfilehash: 7caf1dd3fa5ef295c2472cc11deb2895fc2a7111
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 67a5c1494f2944e91fed2b077cf04e8906788c1e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Eseguire il backup di Windows Server in Azure
 
@@ -42,9 +42,9 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
 Prima di eseguire il backup di Windows Server, è necessario creare una posizione per i backup o i punti di ripristino in cui archiviare i dati. Un [insieme di credenziali dei servizi di ripristino](backup-azure-recovery-services-vault-overview.md) è un contenitore di Azure in cui vengono archiviati i backup di Windows Server. Seguire questa procedura per creare un insieme di credenziali dei servizi di ripristino nel portale di Azure. 
 
-1. Nel menu a sinistra selezionare **Altri servizi** e digitare **Servizi di ripristino** nell'elenco dei servizi. Fare clic su **Insiemi di credenziali dei servizi di ripristino**.
+1. Nel menu a sinistra selezionare **Tutti i servizi** e digitare **Servizi di ripristino** nell'elenco dei servizi. Fare clic su **Insiemi di credenziali dei servizi di ripristino**.
 
-   ![aprire l'insieme di credenziali dei servizi di ripristino](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault.png)
+   ![aprire l'insieme di credenziali dei servizi di ripristino](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
 2.  Scegliere **Aggiungi** dal menu **Insiemi di credenziali dei servizi di ripristino**.
 
@@ -134,7 +134,7 @@ Usare l'agente di Servizi di ripristino di Microsoft Azure per la pianificazione
 
 1.  Nella console dell'agente di Servizi di ripristino di Microsoft Azure, fare clic su **Esegui backup**.
 
-    ![Preparare l'infrastruttura](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
+    ![Preparare l'infrastruttura](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
 2.  Nell'**Esecuzione guidata backup**, selezionare **File e cartelle** o **Stato del sistema** e fare clic su **Avanti** 
 3. Nella pagina **Conferma** riesaminare le impostazioni che la procedura guidata di **Esegui backup** userà per il backup del server. Fare clic su **Backup**.

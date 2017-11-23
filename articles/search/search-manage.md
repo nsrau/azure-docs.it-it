@@ -13,13 +13,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/18/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: c293de5b43103c8cbec01f61a26b8b28ac7e9116
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Amministrazione del servizio per Ricerca di Azure nel portale di Azure
 > [!div class="op_single_selector"]
@@ -34,13 +34,10 @@ Ricerca di Azure è un servizio di ricerca basato sul cloud completamente gestit
 * Regolare la capacità del servizio modificando l'allocazione di partizioni e repliche.
 * Monitorare l'uso della risorsa, relativamente ai limiti massimi del livello del servizio.
 
-**Non nell'ambito** 
+Tenere presente che l'*aggiornamento* non è un'attività amministrativa. Poiché le risorse vengono allocate quando viene eseguito il provisioning sul servizio, lo spostamento a un altro livello richiede un nuovo servizio. Per informazioni dettagliate vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
-*gestione dei contenuti* (o gestione degli indici) si riferisce a operazioni come l'analisi del traffico di ricerca per conoscere il volume delle query, trovare i termini cercati dalle persone e sapere se dai risultati della ricerca i clienti riescono ad arrivare a specifici documenti dell'indice. Per avere assistenza in quest'area, visitare [Analisi del traffico di ricerca per Ricerca di Azure](search-traffic-analytics.md).
-
-*prestazioni delle query* non rientrano nell'ambito di questi argomento. Per altre informazioni, vedere [Monitorare l'utilizzo e le statistiche in un servizio Ricerca di Azure](search-monitor-usage.md) e [Prestazioni e ottimizzazione](search-performance-optimization.md).
-
-*L'aggiornamento* non è un'attività amministrativa. Poiché le risorse vengono allocate quando viene eseguito il provisioning sul servizio, lo spostamento a un altro livello richiede un nuovo servizio. Per informazioni dettagliate vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
+> [!Tip]
+> Per indicazioni su come analizzare il traffico di ricerca o le prestazioni delle query, è opportuno ottenere informazioni sul volume delle query e sui termini cercati dagli utenti e scoprire se dai risultati della ricerca i clienti riescono ad arrivare a specifici documenti dell'indice. Per istruzioni, vedere [Analisi del traffico di ricerca per Ricerca di Azure](search-traffic-analytics.md), [Monitoraggio di un servizio di Ricerca di Azure](search-monitor-usage.md) e [Prestazioni e ottimizzazione](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -113,15 +110,10 @@ Per visualizzare le autorizzazioni di accesso, è anche possibile fare clic su *
 ## <a name="monitor-resource-usage"></a>Monitorare l'uso delle risorse
 Nel dashboard il monitoraggio delle risorse è limitato alle informazioni visualizzate nel dashboard del servizio e ad alcune metriche che è possibile ottenere effettuando query sul servizio. Nella sezione Utilizzo del Dashboard servizi è possibile determinare rapidamente se i livelli delle risorse di partizione sono adeguati per l'applicazione.
 
-Usando l'API del servizio di ricerca, è possibile ottenere un conteggio dei documenti e degli indici. Esistono limiti rigidi associati a questi conteggi in base al livello di prezzo. Per altre informazioni, vedere [Limiti del servizio di ricerca](search-limits-quotas-capacity.md). 
+Usando l'API REST del servizio di ricerca, è possibile ottenere un conteggio dei documenti e degli indici a livello di codice: 
 
 * [Ottenere le statistiche di un indice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
 * [Conteggio documenti](https://docs.microsoft.com/rest/api/searchservice/count-documents)
-
-> [!NOTE]
-> Il comportamento della cache può determinare la dichiarazione di un limite più alto. Ad esempio, quando si usa il servizio condiviso, è possibile che venga visualizzato un conteggio documenti superiore al limite rigido di 10.000. Questa stima in eccesso è temporanea e verrà rilevata al successivo controllo di imposizione del limite. 
-> 
-> 
 
 ## <a name="disaster-recovery-and-service-outages"></a>Interruzioni di servizio e ripristino di emergenza
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/24/2016
 ms.author: heidist
-ms.openlocfilehash: f9f3a7b2369818791ffac1c8eeccef45216c2ff0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 781683f27c943e25d5629dd846da357f51c9d4f9
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Scegliere uno SKU o un piano tariffario per Ricerca di Azure
 In Ricerca di Azure, il [provisioning del servizio](search-create-service-portal.md) viene effettuato a livello di piano tariffario o SKU specifico. Le opzioni disponibili includono **Gratuito**, **Basic** o **Standard**. Il piano **Standard** è disponibile in più configurazioni e capacità.
@@ -43,9 +43,9 @@ La capacità e i costi dell'esecuzione del servizio sono in stretta associazione
 
 * Numero e dimensioni degli indici che si prevede di creare
 * Numero e dimensioni dei documenti da caricare
-* Stima generica del volume di query in termini di query al secondo (QPS, Queries Per Second)
+* Stima generica del volume di query in termini di query al secondo. Per informazioni, vedere [Considerazioni sulle prestazioni e sull'ottimizzazione di Ricerca di Azure](search-performance-optimization.md).
 
-Il numero e le dimensioni sono importanti perché i limiti massimi vengono raggiunti tramite un limite rigido relativo al numero di indici o documenti in un servizio o alle risorse (di archiviazione o repliche) usate dal servizio. Il limite effettivo per il servizio corrisponde agli elementi (risorse oppure oggetti) usati per primi.
+Il numero e le dimensioni sono importanti perché i limiti massimi vengono raggiunti tramite un limite rigido relativo al numero di indici in un servizio o alle risorse (di archiviazione o repliche) usate dal servizio. Il limite effettivo per il servizio corrisponde agli elementi (risorse oppure oggetti) usati per primi.
 
 Con le stime a disposizione, la procedura seguente semplificherà il processo:
 
@@ -60,10 +60,10 @@ La tabella seguente fornisce le descrizioni di ogni piano.
 | --- | --- |
 | **Free** |Servizio condiviso gratuito usato per la valutazione, l'analisi o piccoli carichi di lavoro. Dal momento che è condiviso con altri sottoscrittori, la velocità effettiva e l'indicizzazione delle query variano in base agli altri utenti che usano il servizio. La capacità è ridotta (50 MB o 3 indici con un massimo di 10.000 documenti l'uno). |
 | **Basic** |Piccoli carichi di lavoro di produzione su hardware dedicato. Disponibilità elevata. La capacità prevede al massimo di 3 e 1 partizione (2 GB). |
-| **S1** |Lo Standard 1 supporta combinazioni flessibili di partizioni (12) e repliche (12). Viene usato per i carichi di lavoro di produzione medi su hardware dedicato. È possibile allocare partizioni e repliche in combinazioni supportate da un numero massimo di 36 unità di ricerca fatturabili. In questo piano le partizioni sono da 25 GB e il valore QPS è pari a circa 15 query al secondo. |
-| **S2** |Lo Standard 2 esegue carichi di lavoro di produzione più elevati usando le stesse 36 unità di ricerca del piano S1 ma con partizioni e repliche di dimensioni maggiori. In questo piano le partizioni sono da 100 GB e il valore QPS è pari a circa 60 query al secondo. |
-| **S3** |Lo Standard 3 esegue carichi di lavoro di produzione in proporzione più elevati su sistemi di fascia superiore, in configurazioni fino a 12 partizioni o 12 repliche in meno di 36 unità di ricerca. In questo piano le partizioni sono da 200 GB e il valore QPS è pari a circa 60 query al secondo. |
-| **S3 HD** |Lo Standard 3 ad alta densità è progettato per un numero elevato di indici più piccoli. È possibile avere fino a 3 partizioni, ciascuna di 200 GB. Il valore QPS è pari a più di 60 query al secondo. |
+| **S1** |Lo Standard 1 supporta combinazioni flessibili di partizioni (12) e repliche (12). Viene usato per i carichi di lavoro di produzione medi su hardware dedicato. È possibile allocare partizioni e repliche in combinazioni supportate da un numero massimo di 36 unità di ricerca fatturabili. A questo livello, le partizioni sono da 25 GB. |
+| **S2** |Lo Standard 2 esegue carichi di lavoro di produzione più elevati usando le stesse 36 unità di ricerca del piano S1 ma con partizioni e repliche di dimensioni maggiori. A questo livello, le partizioni sono da 100 GB. |
+| **S3** |Lo Standard 3 esegue carichi di lavoro di produzione in proporzione più elevati su sistemi di fascia superiore, in configurazioni fino a 12 partizioni o 12 repliche in meno di 36 unità di ricerca. A questo livello, le partizioni sono da 200 GB. |
+| **S3 HD** |Lo Standard 3 ad alta densità è progettato per un numero elevato di indici più piccoli. È possibile avere fino a 3 partizioni, ciascuna di 200 GB.|
 
 > [!NOTE]
 > I valori massimi per le repliche e le partizioni vengono fatturati come unità di servizio (al massimo 36 unità per servizio). Ciò impone un limite effettivo inferiore rispetto al valore massimo nominale. Per usare ad esempio il numero massimo di 12 repliche si possono avere non oltre 3 partizioni perché 12 * 3 = 36 unità. Analogamente, ridurre le repliche a 3 per usare il numero di partizioni massimo. Per un grafico delle combinazioni consentite, vedere [Ridimensionare i livelli di risorse per le query e l'indicizzazione dei carichi di lavoro in Ricerca di Azure](search-capacity-planning.md).
@@ -81,7 +81,6 @@ Il grafico seguente è un subset dei limiti tratto da [Limiti dei servizi in Ric
 | Partizioni massime |N/D |1 |12 |12 |12 |3 <sup>2</sup> |
 | Dimensioni della partizione |50 MB totali |2 GB per servizio |25 GB per partizione |100 GB per partizione (con un massimo di 1,2 TB per ogni servizio) |200 GB per partizione, con un massimo di 2,4 TB per ogni servizio |200 GB (con un massimo di 600 GB per ogni servizio) |
 | Repliche massime |N/D |3 |12 |12 |12 |12 |
-| Query al secondo |N/D |~3 per replica |~15 per replica |~60 per replica |>60 per replica |>60 per replica |
 
 <sup>1</sup> Con il Contratto di servizio non sono incluse funzionalità di anteprima e il livello gratuito. Per tutti i livelli fatturabili, i contratti di servizio diventano effettivi quando viene effettuato il provisioning di una ridondanza sufficiente per il servizio. Per il Contratto di servizio di query (lettura) sono necessarie due o più repliche. Per il contratto di servizio di query e indicizzazione (lettura-scrittura) sono necessarie tre o più repliche. Il numero di partizioni non è un fattore di cui tiene conto il Contratto di servizio. 
 

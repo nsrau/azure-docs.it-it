@@ -1,5 +1,5 @@
 ---
-title: Protezione di asset della rete CDN di Azure con l'autenticazione basata su token | Microsoft Docs
+title: Protezione di asset della rete CDN di Azure con l'autenticazione basata su token | Documentazione Microsoft
 description: Informazioni sull'uso dell'autenticazione basata su token per proteggere l'accesso agli asset della rete CDN di Azure.
 services: cdn
 documentationcenter: .net
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/03/2017
 ms.author: mezha
-ms.openlocfilehash: 700f4c49bbcda1eccbcc7eafc703e625697fa2b4
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 2f62c0c6783c3cdaf1ffda3299673071b8e4a6f2
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Protezione di asset della rete per la distribuzione di contenuti (CDN) di Azure con l'autenticazione basata su token
 
@@ -42,8 +42,6 @@ L'autenticazione basata su token verifica che le richieste vengano generate da u
 
 Per altre informazioni, vedere gli esempi di configurazione dettagliati per ogni parametro in [Configurazione dell'autenticazione basata su token](#setting-up-token-authentication).
 
-Dopo aver generato un token crittografato, aggiungerlo come stringa di query alla fine del percorso dell'URL del file, ad esempio `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
-
 ## <a name="reference-architecture"></a>Architettura di riferimento
 
 Il diagramma di flusso di lavoro seguente descrive il modo in cui la rete CDN usa l'autenticazione basata su token per il funzionamento con l'app Web.
@@ -64,15 +62,21 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
 
 2. Passare il puntatore su **HTTP Large** (Large HTTP) e quindi fare clic su **Token Auth** (Autenticazione token) nel riquadro a comparsa. È poi possibile impostare i parametri di crittografia e la chiave di crittografia come indicato di seguito:
 
-    1. Immettere una chiave di crittografia univoca nella casella **Primary Key** (Chiave primaria) e, facoltativamente, immettere una chiave di backup nella casella **Backup Key** (Chiave di backup).
-
-        ![Chiave di configurazione per l'autenticazione basata su token di rete CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+    1. Creare uno o più chiavi di crittografia. Una chiave di crittografia fa distinzione tra maiuscole e minuscole e può contenere qualsiasi combinazione di caratteri alfanumerici. Eventuali altri tipi di caratteri, inclusi gli spazi, non sono consentiti. La lunghezza massima consentita è di 250 caratteri. Per garantire che le chiavi di crittografia vengano generate in modo casuale, è consigliabile crearle usando lo strumento OpenSSL. Lo strumento OpenSSL presenta la sintassi seguente: `rand -hex <key length>` ad esempio `OpenSSL> rand -hex 32`. Per evitare tempi di inattività, creare una chiave primaria e una di backup. Quando la chiave primaria viene aggiornata, una chiave di backup garantisce l'accesso continuo ai contenuti.
     
-    2. Configurare i parametri di crittografia con lo strumento di crittografia. Grazie allo strumento è possibile consentire o negare le richieste in base a ora di scadenza, paese, referrer, protocollo e IP client (in qualsiasi combinazione). 
+    2. Immettere una chiave di crittografia univoca nella casella **Primary Key** (Chiave primaria) e, facoltativamente, immettere una chiave di backup nella casella **Backup Key** (Chiave di backup).
 
-        ![Strumento di crittografia della rete CDN](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+    3. Selezionare la versione minima di crittografia per ogni chiave nel relativo elenco a discesa **Minimum Encryption Version** (Versione minima di crittografia) e quindi fare clic su **Update** (Aggiorna):
+       - **V2**: indica che la chiave può essere usata per generare token di versione 2.0 e 3.0. Usare questa opzione solo se si esegue una transizione da una chiave di crittografia legacy versione 2.0 a una chiave di versione 3.0.
+       - **V3**: (impostazione consigliata) indica che la chiave può essere usata solo per generare token di versione 3.0.
 
-       Immettere i valori per uno o più parametri di crittografia seguenti nell'area **Encrypt Tool** (Strumento di crittografia):  
+    ![Chiave di configurazione per l'autenticazione basata su token di rete CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
+    
+    4. Per configurare i parametri di crittografia e generare un token, usare lo strumento di crittografia. Grazie allo strumento è possibile consentire o negare le richieste in base a ora di scadenza, paese, referrer, protocollo e IP client (in qualsiasi combinazione). Sebbene non esista alcun limite al numero e alla combinazione di parametri che possono essere combinati per formare un token, la lunghezza totale di un token è limitata a 512 caratteri. 
+
+       ![Strumento di crittografia della rete CDN](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+
+       Immettere i valori per uno o più parametri di crittografia seguenti nella sezione **Encrypt Tool** (Strumento di crittografia):  
 
        - **ec-expire**: assegna un'ora di scadenza a un token. Le richieste inviate dopo l'ora di scadenza verranno negate. Questo parametro usa un timestamp Unix basato sul numero di secondi trascorsi dal periodo standard di `1/1/1970 00:00:00 GMT`. È possibile usare gli strumenti online per eseguire la conversione dall'ora solare all'ora Unix e viceversa. Ad esempio, se si vuole che il token scada in data `12/31/2016 12:00:00 GMT`, usare il valore del timestamp Unix `1483185600` come indicato di seguito. 
     
@@ -98,7 +102,7 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
     
        - **ec-ref-allow**: consente solo le richieste dal referrer specificato. Un referrer identifica l'URL della pagina Web collegata alla risorsa richiesta. Non includere nel protocollo il valore del parametro del referrer. Per il valore del parametro sono consentiti i tipi di input seguenti:
            - Un nome host o un nome host e un percorso.
-           - Più referrer. Aggiungere più referrer separandoli con una virgola. Se si specifica un valore per il referrer, ma le informazioni sul referrer non vengono inviate nella richiesta a causa della configurazione del browser, queste richieste vengono negate per impostazione predefinita. 
+           - Più referrer. Aggiungere più referrer separandoli con una virgola. Se si specifica un valore per il referrer, ma le informazioni sul referrer non vengono inviate nella richiesta a causa della configurazione del browser, la richiesta viene negata per impostazione predefinita. 
            - Richieste con informazioni sui referrer mancanti. Per consentire questi tipi di richieste, immettere il testo "missing" o un valore vuoto. 
            - Sottodomini. Per consentire sottodomini, immettere un asterisco (\*). Ad esempio, per consentire tutti i sottodomini di `consoto.com`, immettere `*.consoto.com`. 
            
@@ -116,13 +120,17 @@ Il diagramma di flusso seguente illustra come la rete CDN di Azure convalida la 
             
          ![Esempio ec_clientip della rete CDN](./media/cdn-token-auth/cdn-token-auth-clientip.png)
 
-    3. Dopo aver immesso i valori dei parametri di crittografia, selezionare il tipo di chiave da crittografare (se sono state create una chiave primaria e una chiave di backup) dall'elenco **Key To Encrypt** (Chiave da crittografare), una versione di crittografia dall'elenco **Encryption Version** (Versione di crittografia) e fare clic su **Encrypt** (Crittografa).
+    5. Dopo aver immesso i valori dei parametri di crittografia, selezionare una chiave da crittografare (se sono state create una chiave primaria e una chiave di backup) dall'elenco **Key To Encrypt** (Chiave da crittografare).
+    
+    6. Selezionare una versione di crittografia dall'elenco **Encryption Version** (Versione di crittografia): **V2** per la versione 2 o **V3** per versione 3 (scelta consigliata). Fare quindi clic su **Encrypt** (Crittografa) per generare il token.
+
+    Il token generato viene visualizzato nella casella **Generated Token** (Token generato). Per usare il token, aggiungerlo come stringa di query alla fine del file nel percorso dell'URL, ad esempio `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-    4. È possibile testare il token con lo strumento di decrittografia. Incollare il valore del token nella casella **Token to Decrypt** (Token da decrittografare). Selezionare il tipo di chiave di crittografia da decrittografare dall'elenco a discesa **Key to Decrypt** (Chiave da decrittografare) e fare clic su **Decrypt** (Decrittografa).
+    7. È possibile testare il token con lo strumento di decrittografia. Incollare il valore del token nella casella **Token to Decrypt** (Token da decrittografare). Selezionare la chiave di crittografia da usare dall'elenco a discesa **Key to Decrypt** (Chiave da decrittografare) e fare clic su **Decrypt** (Decrittografa).
 
-    5. Facoltativamente, è possibile personalizzare il tipo di codice di risposta restituito quando viene negata una richiesta. Selezionare il codice dall'elenco a discesa **Response Code** (Codice di risposta) e fare clic su **Save** (Salva). Il codice di risposta **403** (Forbidden (Non consentito)) è selezionato per impostazione predefinita. Per alcuni codici di risposta è anche possibile immettere l'URL della pagina di errore nella casella **Header Value** (Valore dell'intestazione). 
+    I parametri del token decrittografato vengono visualizzati nella casella **Original Parameters** (Parametri originali).
 
-    6. Dopo aver generato un token crittografato, aggiungerlo come stringa di query alla fine del file nel percorso dell'URL, ad esempio `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+    8. Facoltativamente, è possibile personalizzare il tipo di codice di risposta restituito quando viene negata una richiesta. Selezionare il codice dall'elenco a discesa **Response Code** (Codice di risposta) e fare clic su **Save** (Salva). Il codice di risposta **403** (Forbidden (Non consentito)) è selezionato per impostazione predefinita. Per alcuni codici di risposta è anche possibile immettere l'URL della pagina di errore nella casella **Header Value** (Valore dell'intestazione). 
 
 3. In **HTTP Large** (HTTP grande) fare clic su **Rules Engine** (Motore regole di business). Il motore di regole di business consente di definire i percorsi per applicare la funzionalità, abilitare la funzionalità di autenticazione basata su token e altre funzionalità correlate all'autenticazione basata su token. Per altre informazioni, vedere [Informazioni di riferimento sul motore regole](cdn-rules-engine-reference.md).
 
@@ -151,4 +159,4 @@ I linguaggi disponibili includono:
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Prezzi dei provider e funzionalità della rete CDN di Azure
 
-Per informazioni, vedere [Panoramica della rete CDN](cdn-overview.md).
+Per informazioni sulle funzionalità, vedere [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md). Per informazioni sui prezzi, vedere [Prezzi della rete per la distribuzione di contenuti](https://azure.microsoft.com/pricing/details/cdn/).

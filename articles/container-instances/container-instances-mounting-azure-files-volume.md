@@ -1,5 +1,5 @@
 ---
-title: Montare un volume di File di Azure in Istanze di contenitore di Azure
+title: Esecuzione del montaggio di un volume di File di Azure in Istanze di contenitore di Azure
 description: Informazioni su come montare un volume di File di Azure per rendere persistente lo stato con Istanze di contenitore di Azure
 services: container-instances
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 11/09/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 41c3a449b39d6ef77e1dd0cf10699f8debcad475
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 0f824dad7ba5b661941e952383025e5171f32e55
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="mounting-an-azure-file-share-with-azure-container-instances"></a>Montare una condivisione file di Azure con Istanze di contenitore di Azure
+# <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Esecuzione del montaggio di una condivisione file di Azure con Istanze di contenitore di Azure
 
 Per impostazione predefinita, Istanze di contenitore di Azure è senza stato. Se il contenitore si blocca o si arresta, lo stato viene perso. Per rendere persistente lo stato oltre la durata del contenitore, è necessario montare un volume da un archivio esterno. Questo articolo illustra come montare una condivisione file di Azure per l'uso con Istanze di contenitore di Azure.
 
@@ -185,16 +185,16 @@ Inserire i valori nel file dei parametri:
 Con il modello definito, è possibile creare il contenitore e montarne il volume usando l'interfaccia della riga di comando di Azure. Supponendo che il file del modello sia denominato *azuredeploy.json* e che il file dei parametri sia denominato *azuredeploy.parameters.json*, la riga di comando sarà:
 
 ```azurecli-interactive
-az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
+az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group $ACI_PERS_RESOURCE_GROUP
 ```
 
-Dopo l'avvio del contenitore, è possibile usare la semplice app Web distribuita tramite l'immagine **seanmckenna/aci-hellofiles** per gestire i file nella condivisione file di Azure nel percorso di montaggio specificato. Ottenere l'indirizzo IP dell'app Web con il comando seguente:
+Dopo aver avviato il contenitore è possibile usare la semplice app Web distribuita tramite l'immagine **seanmckenna/aci-hellofiles** per gestire i file nella condivisione file di Azure nel percorso di montaggio specificato. Ottenere l'indirizzo IP per l'app Web con il comando [az container show](/cli/azure/container#az_container_show):
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name hellofiles -o table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
 ```
 
-È possibile usare uno strumento come [Microsoft Azure Storage Explorer](http://storageexplorer.com) per recuperare e ispezionare il file scritto nella condivisione file.
+È possibile usare uno strumento come [Microsoft Azure Storage Explorer](https://storageexplorer.com) per recuperare e ispezionare il file scritto nella condivisione file.
 
 >[!NOTE]
 > Per altre informazioni sull'uso dei modelli di Azure Resource Manager e dei file dei parametri e sulla distribuzione con l'interfaccia della riga di comando di Azure, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md).

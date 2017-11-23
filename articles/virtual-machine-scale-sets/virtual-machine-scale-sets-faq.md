@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/8/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 2f7696e207b077f8ae31751f0b6e15459aa1ed52
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: bcbf536390786b61544d3e09638d89e6b3b5c004
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -577,7 +577,7 @@ Un motivo per la creazione di un set di scalabilità di macchine virtuali con me
 
 ### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>Come si cambia il numero di VM in un set di scalabilità di macchine virtuali?
 
-Per cambiare il numero di VM in un set di scalabilità di macchine virtuali, vedere [Change the instance count of a virtual machine scale set](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/) (Cambiare il numero di istanze di un set di scalabilità di macchine virtuali).
+Per modificare il numero di macchine virtuali in un set di scalabilità di macchine virtuali nel portale di Azure, dalla sezione delle proprietà del set di scalabilità di macchine virtuali fare clic sul pannello "Ridimensionamento" e usare la barra di scorrimento. Per altre modalità di modifica del numero di istanze, vedere [Change the instance count of a virtual machine scale set](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/) (Cambiare il numero di istanze di un set di scalabilità di macchine virtuali).
 
 ### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>Come è possibile definire avvisi personalizzati per il raggiungimento di determinate soglie?
 

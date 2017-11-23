@@ -12,16 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/6/2017
+ms.date: 11/8/2017
 ms.author: raiye
-ms.openlocfilehash: b728e794132ab8eb91d5d77b3ed452f0c84b8823
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f753a30fa833aaf19069b01607c8beaadcc667f5
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamento vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## <a name="october-guest-os"></a>Sistema operativo guest di ottobre
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+| Rel 17-10 | [4041691] |Aggiornamenti di Windows 10 |5.12 |10 ottobre 2017 |
+| Rel 17-10 | [4041678], [4041679], [4041687] |Solo sicurezza di Windows |2.67, 3.54, 4.47 |10 ottobre 2017 |
+| Rel 17-10 | [4040685], |Internet Explorer |2.67, 3.54, 4.47 |10 ottobre 2017 |
+| Rel 17-10 | [4041681], [4041690], [4041693] |Rollup mensili di Windows |2.67, 3.54, 4.47 |10 ottobre 2017 |
+| N/D | [4038777] |Rollup del mese di settembre non correlato alla sicurezza |2.67 |12 settembre 2017 |
+| N/D | [4038799] |Rollup del mese di settembre non correlato alla sicurezza |3.54 |12 settembre 2017 |
+| N/D | [4038792] |Rollup del mese di settembre non correlato alla sicurezza |4.47 |12 settembre 2017 |
+| N/D | [4040980] |Rollup .NET del mese di settembre non correlato alla sicurezza |2.67 |12 settembre 2017 |
+| N/D | [4040979] |Rollup .NET del mese di settembre non correlato alla sicurezza |3.54 |12 settembre 2017 |
+| N/D | [4040981] |Rollup .NET del mese di settembre non correlato alla sicurezza |4.47 |12 settembre 2017 |
 
 ## <a name="september-guest-os"></a>Sistema operativo guest di settembre
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -535,6 +549,20 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[2999802] |In Windows vengono stampate linee a tinta unita invece che linee tratteggiate |4.15, 3.22, 2.34 |13 gennaio 2015 |
 | N/D |[2896881] |È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
 
+[4041691]: http://support.microsoft.com/kb/4041691 
+[4041678]: http://support.microsoft.com/kb/4041678 
+[4041679]: http://support.microsoft.com/kb/4041679
+[4041687]: http://support.microsoft.com/kb/4041687
+[4040685]: http://support.microsoft.com/kb/4040685
+[4041681]: http://support.microsoft.com/kb/4041681
+[4041690]: http://support.microsoft.com/kb/4041690
+[4041693]: http://support.microsoft.com/kb/4041693
+[4038777]: http://support.microsoft.com/kb/4038777
+[4038799]: http://support.microsoft.com/kb/4038799
+[4038792]: http://support.microsoft.com/kb/4038792
+[4040980]: http://support.microsoft.com/kb/4040980
+[4040979]: http://support.microsoft.com/kb/4040979
+[4040981]: http://support.microsoft.com/kb/4040981
 
 [4038782]: http://support.microsoft.com/kb/4038782
 [4038779]: http://support.microsoft.com/kb/4038779

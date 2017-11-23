@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 291ca51c83233294d882a94f886bc874e13e97be
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 3686057a267ef28d6a01ccc36775a399c64a0804
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copiare dati da o in Azure Cosmos DB usando Azure Data Factory
 
@@ -165,7 +165,7 @@ Per copiare dati da Azure Cosmos DB, impostare il tipo di sink nell'attività di
 
 | Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **DocumentDbCollectionSink** |Sì |
+| type | La proprietà type del sink dell'attività di copia deve essere impostata su: **DocumentDbCollectionSink** |Sì |
 | nestingSeparator |È necessario un carattere speciale nel nome della colonna di origine per indicare tale documento nidificato. <br/><br/>Se nestedSeparator è un punto, `Name.First` nella struttura del set di dati di output genera, ad esempio, la struttura JSON seguente nel documento Cosmos DB: `"Name": {"First": "[value maps to this column from source]"}`. |No (il valore predefinito è il punto `.`) |
 | writeBatchTimeout |Tempo di attesa per il completamento dell’operazione prima del timeout.<br/><br/>I valori consentiti sono: intervallo di tempo. Ad esempio: "00:30:00" (30 minuti). |No |
 

@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/26/2016
+ms.date: 11/09/2017
 ms.author: ashmaka
-ms.openlocfilehash: 33897e7966de5d467602f6cb36fe16caf0786ffd
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 622ae64e118dd2498aff0bf2e9f6c1dbfb0ab045
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Modelli di progettazione per le applicazioni SaaS multi-tenant e Ricerca di Azure
 Un'applicazione multi-tenant è un'applicazione che fornisce gli stessi servizi e funzionalità a un numero qualsiasi di tenant che non possono vedere o condividere i dati di nessun altro tenant. Questo documento illustra le strategie di isolamento dei tenant per le applicazioni multi-tenant compilate con Ricerca di Azure.
 
 ## <a name="azure-search-concepts"></a>Concetti di Ricerca di Azure
-Come soluzione di ricerca come servizio, Ricerca di Azure consente agli sviluppatori di aggiungere esperienze di ricerca avanzate alle applicazioni, senza dover gestire un'infrastruttura o diventare esperti di ricerca. I dati vengano caricati nel servizio e quindi archiviati nel cloud. Tramite semplici richieste all'API di Ricerca di Azure, i dati possono essere modificati e ricercati. Una panoramica del servizio è riportata in [questo articolo](http://aka.ms/whatisazsearch). Prima di esaminare i modelli di progettazione, è importante comprendere alcuni concetti di Ricerca di Azure.
+Come soluzione di ricerca come servizio, Ricerca di Azure consente agli sviluppatori di aggiungere esperienze di ricerca avanzate alle applicazioni, senza dover gestire un'infrastruttura o diventare esperti in recupero delle informazioni. I dati vengano caricati nel servizio e quindi archiviati nel cloud. Tramite semplici richieste all'API di Ricerca di Azure, i dati possono essere modificati e ricercati. Una panoramica del servizio è riportata in [questo articolo](http://aka.ms/whatisazsearch). Prima di esaminare i modelli di progettazione, è importante comprendere alcuni concetti di Ricerca di Azure.
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Servizi di ricerca, indici, campi e documenti
 Quando si usa Ricerca di Azure, si sottoscrive un *servizio di ricerca*. Quando i dati vengono caricati in Ricerca di Azure, vengono archiviati in un *indice* all'interno del servizio di ricerca. In un solo servizio possono essere presenti molti indici. Facendo riferimento ai familiari concetti relativi ai database, il servizio di ricerca può essere paragonato a un database, mentre gli indici all'interno di un servizio possono essere paragonati alle tabelle di un database.

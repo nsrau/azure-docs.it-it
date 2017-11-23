@@ -1,25 +1,25 @@
 ---
-title: Richieste di aumento della quota di core per Azure Resource Manager | Documentazione Microsoft
-description: Richieste di aumento della quota di core per Azure Resource Manager
+title: Richieste di aumento della quota di vCPU per Azure Resource Manager | Microsoft Docs
+description: Richieste di aumento della quota di vCPU per Azure Resource Manager
 author: ganganarayanan
 ms.author: gangan
 ms.date: 1/18/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: cb6c5b3e86f126d4110d1cd29d8c9891e356e414
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c22a6dde0067385a1bf8d889cc76178bb44dd0ac
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
-# <a name="resource-manager-core-quota-increase-requests"></a>Richieste di aumento della quota di core per Resource Manager
+# <a name="resource-manager-vcpu-quota-increase-requests"></a>Richieste di aumento della quota di vCPU per Resource Manager
 
-Le quote di core per Resource Manager sono imposte a livello di area e a livello di famiglia di SKU.
+Le quote di vCPU per Resource Manager sono imposte a livello di area e a livello di famiglia di SKU.
 Per altre informazioni su come vengono imposte le quote, vedere la pagina relativa ai [limiti del servizio e della sottoscrizione di Azure](http://aka.ms/quotalimits).
 Per altre informazioni sulle famiglie di SKU e per confrontare costi e prestazioni, vedere la pagina [Prezzi di Macchine virtuali](http://aka.ms/pricingcompute).
 
-Per richiedere un aumento, creare una richiesta di supporto per la quota dei core nel portale di Azure, all'indirizzo [https://portal.azure.com](https://portal.azure.com).
+Per richiedere un aumento, creare un caso di supporto per la quota delle vCPU nel portale di Azure, all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
 > [!NOTE]
 > Informazioni su come [creare una richiesta di supporto](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) nel portale di Azure

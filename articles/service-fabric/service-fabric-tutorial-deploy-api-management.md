@@ -12,16 +12,18 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/13/2017
+ms.date: 11/10/2017
 ms.author: ryanwi
-ms.openlocfilehash: 8ff8c425189efdd7ea21984528bf7ea765e17955
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 97bcf312621ec0fed28e26179d4c4aa101a8a92d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Distribuire Gestione API e Service Fabric
-Questa è la seconda di una serie di esercitazioni. Questa esercitazione mostra come impostare il servizio [Gestione API di Azure](../api-management/api-management-key-concepts.md) con Service Fabric per indirizzare il traffico ai servizi back-end di Service Fabric.  Al termine, la Gestione API sarà stata distribuita alla rete virtuale e sarà stata configurata un'operazione API per l'invio del traffico ai servizi senza stato di back-end. Per ulteriori informazioni sugli scenari di Gestione API di Azure con Service Fabric, vedere l'articolo [Panoramica](service-fabric-api-management-overview.md).
+Questa è la terza di una serie di esercitazioni.  La distribuzione di Gestione API di Azure con Service Fabric costituisce uno scenario avanzato.  Gestione API è utile quando occorre pubblicare API con un ampio set di regole di routing per i servizi back-end di Service Fabric. Le applicazioni cloud necessitano in genere di un gateway front-end per garantire un singolo punto di ingresso per utenti, dispositivi o altre applicazioni. In Service Fabric un gateway può essere qualsiasi servizio senza stato progettato per l'ingresso del traffico, come un'applicazione ASP.NET Core, Hub eventi, Hub IoT o Gestione API di Azure. 
+
+Questa esercitazione mostra come impostare il servizio [Gestione API di Azure](../api-management/api-management-key-concepts.md) con Service Fabric per indirizzare il traffico ai servizi back-end di Service Fabric.  Al termine, la Gestione API sarà stata distribuita alla rete virtuale e sarà stata configurata un'operazione API per l'invio del traffico ai servizi senza stato di back-end. Per ulteriori informazioni sugli scenari di Gestione API di Azure con Service Fabric, vedere l'articolo [Panoramica](service-fabric-api-management-overview.md).
 
 In questa esercitazione si apprenderà come:
 
@@ -35,6 +37,7 @@ In questa esercitazione si apprenderà come:
 In questa serie di esercitazioni si apprenderà come:
 > [!div class="checklist"]
 > * Creare [un cluster di Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o un [cluster di Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) protetto in Azure usando un modello
+> * [Aumentare o ridurre un cluster](/service-fabric-tutorial-scale-cluster.md)
 > * Distribuire Gestione API e Service Fabric
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -44,6 +47,11 @@ Prima di iniziare questa esercitazione:
 - Creare [un cluster di Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o un [cluster di Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) protetto in Azure
 - Se si distribuisce un cluster di Windows, configurare un ambiente di sviluppo di Windows. Installare [Visual Studio 2017](http://www.visualstudio.com) e installare i carichi di lavoro per lo **sviluppo di Azure**, lo **sviluppo ASP.NET e Web** e lo **sviluppo multipiattaforma .NET Core**.  Configurare un [ambiente di sviluppo .NET](service-fabric-get-started.md).
 - Se si distribuisce un cluster Linux, configurare un ambiente di sviluppo Java in [Linux](service-fabric-get-started-linux.md) o [MacOS](service-fabric-get-started-mac.md).  Installare l'[interfaccia della riga di comando di Service Fabric](service-fabric-cli.md). 
+
+## <a name="network-topology"></a>Topologia di rete
+Ora che si dispone di un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o di un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) protetto in Azure, distribuire Gestione API per la rete virtuale nella subnet e il gruppo NSG designato per Gestione API. Per questa esercitazione, il modello di Resource Manager di Gestione API è preconfigurato per l'uso dei nomi di rete virtuale, subnet e gruppo NSG impostati [nell'esercitazione per cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o [nell'esercitazione per cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md). Le informazioni contenute in questa esercitazione consentono di distribuire in Azure la topologia mostrata di seguito, dove Gestione API e Service Fabric si trovano in subnet della stessa rete virtuale:
+
+ ![Sottotitolo immagine][sf-apim-topology-overview]
 
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>Accedere ad Azure e selezionare la sottoscrizione
 Accedere al proprio account di Azure e selezionare la sottoscrizione prima di eseguire i comandi di Azure.
@@ -59,149 +67,13 @@ az login
 az account set --subscription <guid>
 ```
 
-## <a name="deploy-api-management"></a>Distribuire Gestione API
-Le applicazioni cloud necessitano in genere di un gateway front-end per garantire un singolo punto di ingresso per utenti, dispositivi o altre applicazioni. In Service Fabric un gateway può essere qualsiasi servizio senza stato, ad esempio un'applicazione ASP.NET Core, o un altro servizio progettati per l'ingresso del traffico, ad esempio Hub eventi, Hub IoT o Gestione API di Azure. In questa esercitazione viene illustrata un'introduzione all'uso di Gestione API di Azure come gateway per le applicazioni di Service Fabric. Gestione API si integra direttamente in Service Fabric, consentendo di pubblicare API con un ampio set di regole di routing nei servizi Service Fabric back-end. 
-
-Ora che si dispone di un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o di un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) protetto in Azure, distribuire Gestione API per la rete virtuale nella subnet e il gruppo NSG designato per Gestione API. Per questa esercitazione, il modello di Resource Manager di Gestione API è preconfigurato per l'uso dei nomi di rete virtuale, subnet e gruppo NSG impostati [nell'esercitazione per cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o [nell'esercitazione per cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md). 
-
-Scaricare il modello e il file di parametri di Resource Manager seguenti:
- 
-- [apim.json][apim-arm]
-- [apim.parameters.json][apim-parameters-arm]
-
-Specificare i parametri vuoti nel file `apim.parameters.json` per la distribuzione.
-
-Per distribuire il modello e i file dei parametri di Gestione risorse per Gestione API, usare il seguente script:
-
-```powershell
-$ResourceGroupName = "tutorialgroup"
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
-```
-
-```azurecli
-ResourceGroupName="tutorialgroup"
-az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGroupName --template-file apim.json --parameters @apim.parameters.json 
-```
-
-## <a name="configure-api-management"></a>Configurare Gestione API
-
-Dopo aver distribuito Gestione API e il cluster di Service Fabric, è possibile configurare le impostazioni di sicurezza e un back-end di Service Fabric in Gestione API. Questo consente di creare un criterio del servizio back-end che invia il traffico al cluster di Service Fabric.
-
-### <a name="configure-api-management-security"></a>Configurare la sicurezza di Gestione API
-
-Per configurare il back-end di Service Fabric, è innanzitutto necessario configurare le impostazioni di sicurezza di Gestione API. A questo scopo, passare al servizio Gestione API nel portale di Azure.
-
-#### <a name="enable-the-api-management-rest-api"></a>Abilitare l'API REST di Gestione API
-
-L'API REST di Gestione API rappresenta al momento l'unico modo per configurare un servizio back-end. È innanzitutto necessario abilitare l'API REST di Gestione API e proteggerla.
-
- 1. Nel servizio Gestione API selezionare **Gestione API** in **Sicurezza**.
- 2. Selezionare la casella di controllo **Abilita API REST di Gestione API**.
- 3. Prendere nota dell'**URL dell'API di gestione** che verrà usato successivamente per configurare il back-end di Service Fabric.
- 4. Generare un **token di accesso** selezionando una data di scadenza e una chiave, quindi fare clic sul pulsante **Genera** nella parte inferiore della pagina.
- 5. Copiare il **token di accesso** e salvarlo.  Il token di accesso verrà usato nei passaggi successivi. Tenere presente che questo token è diverso dalla chiave primaria e dalla chiave secondaria.
-
-#### <a name="upload-a-service-fabric-client-certificate"></a>Caricare un certificato client di Service Fabric
-
-Gestione API deve eseguire l'autenticazione con il cluster di Service Fabric per individuare il servizio mediante un certificato client che dispone di accesso al cluster. Per semplicità, in questa esercitazione viene usato lo stesso certificato specificato durante la creazione del [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor) o del [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md#createvaultandcert_anchor) che per impostazione predefinita può essere usato per accedere al cluster.
-
- 1. Nel servizio Gestione API selezionare **Certificati client** in **Sicurezza**.
- 2. Fare clic sul pulsante **+ Aggiungi**.
- 2. Selezionare il file di chiave privata (con estensione pfx) del certificato del cluster specificato durante la creazione del cluster di Service Fabric, assegnargli un nome e immettere la password della chiave privata.
-
-> [!NOTE]
-> In questa esercitazione viene usato lo stesso certificato per l'autenticazione client e la sicurezza del cluster da nodo a nodo. È possibile usare un certificato client separato se ne è stato configurato uno per l'accesso al cluster di Service Fabric.
-
-### <a name="configure-the-backend"></a>Configurare il back-end
-
-Dopo aver configurato la sicurezza di Gestione API, è possibile configurare il back-end di Service Fabric. Per i back-end di Service Fabric, il cluster di Service Fabric è il back-end, anziché uno specifico servizio di Service Fabric. Questo consente di eseguire il routing di un singolo criterio in più servizi del cluster.
-
-Per eseguire questo passaggio è necessario specificare il token di accesso generato prima e l'identificazione personale per il certificato cluster caricato precedentemente in Gestione API.
-
-> [!NOTE]
-> Se nel passaggio precedente è stato usato un certificato client separato per Gestione API, in questo passaggio sarà necessario specificare l'identificazione personale per il certificato client oltre all'identificazione personale per il certificato cluster.
-
-Inviare la richiesta HTTP PUT all'URL API di Gestione API annotato in precedenza durante l'abilitazione dell'API REST di Gestione API per configurare il servizio back-end di Service Fabric. Al completamento del comando, dovrebbe essere visualizzata la risposta `HTTP 201 Created`. Per ulteriori informazioni su ciascun campo, vedere la [documentazione di riferimento dell'API di back-end](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#a-namebackenda-backend) di Gestione API.
-
-Comando e URL HTTP:
-```http
-PUT https://your-apim.management.azure-api.net/backends/servicefabric?api-version=2016-10-10
-```
-
-Intestazioni della richiesta:
-```http
-Authorization: SharedAccessSignature <your access token>
-Content-Type: application/json
-```
-
-Corpo della richiesta:
-```http
-{
-    "description": "<description>",
-    "url": "<fallback service name>",
-    "protocol": "http",
-    "resourceId": "<cluster HTTP management endpoint>",
-    "properties": {
-        "serviceFabricCluster": {
-            "managementEndpoints": [ "<cluster HTTP management endpoint>" ],
-            "clientCertificateThumbprint": "<client cert thumbprint>",
-            "serverCertificateThumbprints": [ "<cluster cert thumbprint>" ],
-            "maxPartitionResolutionRetries" : 5
-        }
-    }
-}
-```
-
-Il parametro **url** è il nome completo di un servizio nel cluster al quale, per impostazione predefinita, vengono indirizzate tutte le richieste se non viene specificato alcun servizio in un criterio di back-end. È possibile usare un nome di servizio fittizio, ad esempio "fabric:/fake/service", non se non si desidera un servizio di fallback.
-
-Per ulteriori informazioni su ciascun campo, vedere la [documentazione di riferimento dell'API di back-end](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#a-namebackenda-backend) di Gestione API.
-
-```python
-#import requests library for making REST calls
-import requests
-import json
-
-#specify url
-url = 'https://your-apim.management.azure-api.net/backends/servicefabric?api-version=2016-10-10'
-
-token = "SharedAccessSignature integration&201710140514&Lqnbei7n2Sot6doiNtxMFPUi/m9LsNa+1ZK/PdxqFl49JFWjXh1wW5Gd99r/tIOeHp6dU8UV5iZUdOPfcrm5hg=="
-
-payload = {
-    "description": "My Service Fabric backend",
-    "url": "fabric:/ApiApplication/ApiWebService",
-    "protocol": "http",
-    "resourceId": "https://tutorialcluster.eastus.cloudapp.azure.com:19080",
-    "properties": {
-        "serviceFabricCluster": {
-            "managementEndpoints": [ "https://tutorialcluster.eastus.cloudapp.azure.com:19080" ],
-            "clientCertificateThumbprint": "97EDD7E4979FB072AF3E480A5E5EE34B1B89DD80",
-            "serverCertificateThumbprints": [ "97EDD7E4979FB072AF3E480A5E5EE34B1B89DD80" ],
-            "maxPartitionResolutionRetries" : 5
-        }
-    }
-}
-
-headers = {'Authorization': token, "Content-Type": "application/json"}
-
-#Call REST API
-response = requests.put(url, data=json.dumps(payload), headers=headers)
-
-#Print Response
-print(response.status_code)
-print(response.text)
-```
-
 ## <a name="deploy-a-service-fabric-back-end-service"></a>Distribuire un servizio back-end di Service Fabric
 
-Dopo aver configurato Service Fabric come back-end di Gestione API, è possibile creare criteri di back-end per le API che inviano il traffico nei propri servizi Service Fabric. A questo scopo, è innanzitutto necessario un servizio in esecuzione in Service Fabric per accettare le richieste.  Se in precedenza è stato creato un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md), distribuire un servizio .NET di Service Fabric.  Se in precedenza è stato creato un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md), distribuire un servizio Java di Service Fabric.
+Prima di configurare Gestione API per instradare il traffico a un servizio back-end di Service Fabric, è necessario innanzitutto un servizio in esecuzione per accettare le richieste.  Se in precedenza è stato creato un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md), distribuire un servizio .NET di Service Fabric.  Se in precedenza è stato creato un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md), distribuire un servizio Java di Service Fabric.
 
 ### <a name="deploy-a-net-service-fabric-service"></a>Distribuire un servizio .NET di Service Fabric
 
-Per questa esercitazione verrà creato un servizio Reliable senza stato di base per ASP.NET Core usando il modello di progetto API Web predefinito. Questo permetterà di generare un endpoint HTTP per il servizio, che verrà esposto tramite Gestione API di Azure:
-
-```
-/api/values
-```
+Per questa esercitazione creare un servizio Reliable senza stato di base per ASP.NET Core usando il modello di progetto API Web predefinito. Questo permetterà di generare un endpoint HTTP per il servizio, che verrà esposto tramite Gestione API di Azure.
 
 Avviare Visual Studio come Amministratore e creare un servizio ASP.NET Core:
 
@@ -219,11 +91,11 @@ Avviare Visual Studio come Amministratore e creare un servizio ASP.NET Core:
     </Resources>
     ```
 
-    Questo consente a Service Fabric di specificare in modo dinamico una porta dell'intervallo di porte dell'applicazione, che è stata aperta nel gruppo NSG del modello di Resource Manager del cluster, permettendo il flusso del traffico in tale porta da Gestione API.
+    La rimozione della porta consente a Service Fabric di specificare in modo dinamico una porta dell'intervallo di porte dell'applicazione, che è stata aperta nel gruppo NSG del modello di Resource Manager del cluster, permettendo il flusso del traffico in tale porta da Gestione API.
  
  6. Premere F5 in Visual Studio per verificare che l'API Web sia disponibile in locale. 
 
-    Aprire Service Fabric Explorer ed eseguire il drill-down fino a un'istanza specifica del servizio ASP.NET Core per visualizzare l'indirizzo di base di ascolto del servizio. Aggiungere `/api/values` all'indirizzo di base e aprirlo in un browser. Questa operazione chiama il metodo Get su ValuesController nel modello API Web Restituisce la risposta predefinita trasmessa dal modello, ovvero una matrice JSON contenente due stringhe:
+    Aprire Service Fabric Explorer ed eseguire il drill-down fino a un'istanza specifica del servizio ASP.NET Core per visualizzare l'indirizzo di base di ascolto del servizio. Aggiungere `/api/values` all'indirizzo di base e aprirlo in un browser. Questa operazione chiama il metodo Get in ValuesController nel modello API Web. Restituisce la risposta predefinita trasmessa dal modello, ovvero una matrice JSON contenente due stringhe:
 
     ```json
     ["value1", "value2"]`
@@ -231,12 +103,12 @@ Avviare Visual Studio come Amministratore e creare un servizio ASP.NET Core:
 
     Questo è l'endpoint che verrà esposto tramite Gestione API in Azure.
 
- 7. Infine, distribuire l'applicazione nel cluster in Azure. [Usando Visual Studio](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box), fare clic con il pulsante destro del mouse sul progetto Applicazione e scegliere **Pubblica**. Specificare l'endpoint del cluster, ad esempio `mycluster.southcentralus.cloudapp.azure.com:19000`, per distribuire l'applicazione nel cluster di Service Fabric in Azure.
+ 7. Infine, distribuire l'applicazione nel cluster in Azure. In Visual Studio fare clic con il pulsante destro del mouse sul progetto Applicazione e scegliere **Pubblica**. Specificare l'endpoint del cluster, ad esempio `mycluster.southcentralus.cloudapp.azure.com:19000`, per distribuire l'applicazione nel cluster di Service Fabric in Azure.
 
 In tale cluster dovrebbe essere ora in esecuzione un servizio ASP.NET Core senza stato denominato `fabric:/ApiApplication/WebApiService`.
 
 ### <a name="create-a-java-service-fabric-service"></a>Creare un servizio Java di Service Fabric
-Per questa esercitazione, si distribuisce un server Web di base che restituisce i messaggi all'utente. L'applicazione di esempio del server echo contiene un endpoint HTTP per il servizio, che verrà esposto tramite Gestione API di Azure.
+Per questa esercitazione distribuire un server Web di base che restituisce i messaggi all'utente. L'applicazione di esempio del server echo contiene un endpoint HTTP per il servizio, che verrà esposto tramite Gestione API di Azure.
 
 1. Clonare gli esempi introduttivi Java.
 
@@ -268,75 +140,145 @@ Per questa esercitazione, si distribuisce un server Web di base che restituisce 
 
    Nel cluster di Service Fabric di Azure dovrebbe essere ora in esecuzione un servizio Java senza stato denominato `fabric:/EchoServerApplication/EchoServerService`.
 
-5. Aprire un browser e digitare http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage, viene visualizzato "[versione 1.0] Hello World!!!" .
+5. Aprire un browser e digitare http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage. Verrà visualizzato "[version 1.0]Hello World!!!" .
 
-
-## <a name="create-an-api-operation"></a>Creare un'operazione per le API
-
-A questo punto è possibile creare in Gestione API un'operazione usata dai client esterni per comunicare con il servizio ASP.NET Core senza stato in esecuzione nel cluster di Service Fabric.
-
-1. Accedere al portale di Azure e passare alla distribuzione del servizio Gestione API.
-2. Nel pannello del servizio Gestione API selezionare **API**.
-3. Aggiungere una nuova API facendo clic su **+API** e quindi sulla casella **API vuota** e completare la finestra di dialogo:
-
-    - **URL del servizio Web**: per i back-end di Service Fabric, questo valore URL non viene usato. È possibile inserire un valore qualsiasi nel campo. Per questa esercitazione usare "http://servicefabric".
-    - **Nome visualizzato**: inserire il nome dell'API. Per questa esercitazione usare "App di Service Fabric".
-    - **Nome**: inserire "service-fabric-app".
-    - **Schema URL**: selezionare **HTTP**, **HTTPS** o **Entrambi**. Per questa esercitazione usare **Entrambi**.
-    - **Suffisso URL API**: inserire un suffisso per l'API. Per questa esercitazione usare "myapp".
+## <a name="download-and-understand-the-resource-manager-template"></a>Scaricare e comprendere il modello di Resource Manager
+Scaricare e salvare il modello e il file di parametri di Resource Manager seguenti:
  
-4. Selezionare **App di Service Fabric** nell'elenco di API e fare clic su **+ Aggiungi operazione** per aggiungere un'operazione API front-end. Compilare i valori come indicato di seguito.
-    
-    - **URL**: selezionare **GET** e specificare un percorso URL per l'API. Per questa esercitazione usare "/api/values".  Per impostazione predefinita, il percorso URL specificato qui è il percorso URL inviato al servizio Service Fabric di back-end. Se si specifica lo stesso percorso URL usato dal servizio, in questo caso "/api/values", non è necessario apportare ulteriori modifiche. È anche possibile specificare un percorso URL diverso da quello usato dal servizio Service Fabric di back-end. In questo caso, sarà necessario immettere successivamente anche un'indicazione di riscrittura del percorso nel criterio dell'operazione.
-    - **Nome visualizzato**: specificare un nome per l'API. Per questa esercitazione usare "Valori".
+- [apim.json][apim-arm]
+- [apim.parameters.json][apim-parameters-arm]
 
-5. Fare clic su **Salva**.
+Le sezioni seguenti descrivono le risorse definite dal modello *apim.json*. Per altre informazioni, seguire i collegamenti alla documentazione di riferimento del modello all'interno di ogni sezione. I parametri configurabili definiti nel file di parametri *apim.parameters.json* sono impostati più avanti in questo articolo.
 
-## <a name="configure-a-backend-policy"></a>Configurare un criterio di back-end
+### <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
+[Microsoft.ApiManagement/service](/azure/templates/microsoft.apimanagement/service) descrive l'istanza del servizio Gestione API: nome, SKU o piano tariffario, percorso del gruppo di risorse, informazioni sull'editore e rete virtuale.
 
-Il criterio di back-end collega tutti gli elementi e consente di configurare il servizio Service Fabric di back-end a cui vengono indirizzate le richieste. È possibile applicare questo criterio a qualsiasi operazione API. La [configurazione back-end per Service Fabric](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetBackendService) fornisce i controlli di indirizzamento delle richieste seguenti: 
+### <a name="microsoftapimanagementservicecertificates"></a>Microsoft.ApiManagement/service/certificates
+[Microsoft.ApiManagement/service/certificates](/azure/templates/microsoft.apimanagement/service/certificates) configura la sicurezza di Gestione API. Gestione API deve eseguire l'autenticazione con il cluster di Service Fabric per individuare il servizio mediante un certificato client che dispone di accesso al cluster. In questa esercitazione viene usato lo stesso certificato specificato durante la creazione del [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor) o del [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md#createvaultandcert_anchor) che, per impostazione predefinita, può essere usato per accedere al cluster. 
+
+In questa esercitazione viene usato lo stesso certificato per l'autenticazione client e la sicurezza del cluster da nodo a nodo. È possibile usare un certificato client separato se ne è stato configurato uno per l'accesso al cluster di Service Fabric. Immettere i valori per **name**, **password** e **data** (stringa con codifica Base 64) del file di chiave privata (con estensione pfx) del certificato del cluster specificato durante la creazione del cluster di Service Fabric.
+
+### <a name="microsoftapimanagementservicebackends"></a>Microsoft.ApiManagement/service/backends
+[Microsoft.ApiManagement/service/backends](/azure/templates/microsoft.apimanagement/service/backends) descrive il servizio back-end a cui viene trasferito il traffico. 
+
+Per i back-end di Service Fabric, il cluster di Service Fabric è il back-end, invece di uno specifico servizio di Service Fabric. Questo consente di eseguire il routing di un singolo criterio in più servizi del cluster. Il campo **url** è il nome completo di un servizio nel cluster al quale, per impostazione predefinita, vengono indirizzate tutte le richieste se non viene specificato il nome di alcun servizio in un criterio di back-end. È possibile usare un nome di servizio fittizio, ad esempio "fabric:/fake/service", non se non si desidera un servizio di fallback. **resourceId** specifica l'endpoint di gestione del cluster.  **clientCertificateThumbprint** e **serverCertificateThumbprints** identificano i certificati usati per l'autenticazione con il cluster.
+
+### <a name="microsoftapimanagementserviceproducts"></a>Microsoft.ApiManagement/service/products
+[Microsoft.ApiManagement/service/products](/azure/templates/microsoft.apimanagement/service/products) crea un prodotto. In Gestione API di Azure un prodotto contiene una o più API, oltre a una quota di utilizzo e alle condizioni per l'utilizzo. Dopo la pubblicazione di un prodotto, gli sviluppatori possono eseguire la sottoscrizione al prodotto e iniziare a usare le API del prodotto. 
+
+Immettere un valore descrittivo per **displayName** e **description** per il prodotto. Per questa esercitazione è necessaria una sottoscrizione, ma non è richiesta l'approvazione della sottoscrizione da parte di un amministratore.  Il valore **state** per il prodotto è "pubblicato" ed è visibile ai sottoscrittori. 
+
+### <a name="microsoftapimanagementserviceapis"></a>Microsoft.ApiManagement/service/apis
+[Microsoft.ApiManagement/service/apis](/azure/templates/microsoft.apimanagement/service/apis) crea un'API. Un'API in Gestione API rappresenta un set di operazioni che possono essere richiamate dalle applicazioni client. Dopo l'aggiunta delle operazioni, l'API viene aggiunta a un prodotto e può essere pubblicata. Dopo la pubblicazione l'API può essere sottoscritta e usata dagli sviluppatori.
+
+- **displayName** può essere un nome qualsiasi per l'API. Per questa esercitazione usare "App di Service Fabric".
+- **name** consente di specificare un nome univoco e descrittivo per l'API, come "service-fabric-app", che viene visualizzato nel portale di pubblicazione e in quello per sviluppatori. 
+- **serviceUrl** fa riferimento al servizio HTTP che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste. Per i back-end di Service Fabric, questo valore URL non viene usato. È possibile inserire un valore qualsiasi nel campo. Per questa esercitazione, ad esempio "http://servicefabric". 
+- **path** viene aggiunto all'URL di base del servizio Gestione API. L'URL di base è comune a tutte le API ospitate da un'istanza del servizio Gestione API. Gestione API distingue le API in base al suffisso, quindi è necessario che questo sia univoco per ciascuna API di un editore specifico. 
+- **protocols** determina i protocolli da usare per l'accesso all'API, per questa esercitazione **http** e **https**.
+- **path** è un suffisso per l'API. Per questa esercitazione usare "myapp".
+
+### <a name="microsoftapimanagementserviceapisoperations"></a>Microsoft.ApiManagement/service/apis/operations
+[Microsoft.ApiManagement/service/apis/operations](/azure/templates/microsoft.apimanagement/service/apis/operations). Prima di poter usare un'API in Gestione API, è necessario aggiungere le operazioni all'API.  I client esterni usano un'operazione per comunicare con il servizio ASP.NET Core senza stato in esecuzione nel cluster di Service Fabric.
+
+Per aggiungere un'operazione API front-end, compilare i valori come indicato di seguito:
+
+- **displayName** e **description** descrivono l'operazione. Per questa esercitazione usare "Valori".
+- **method** specifica il verbo HTTP.  Per questa esercitazione, specificare **GET**.
+- **urlTemplate** è aggiunto all'URL di base dell'API e identifica una singola operazione HTTP.  Per questa esercitazione, usare `/api/values` se è stato aggiunto il servizio back-end .NET o `getMessage` se è stato aggiunto il servizio back-end Java.  Per impostazione predefinita, il percorso URL specificato qui è il percorso URL inviato al servizio Service Fabric di back-end. Se si specifica lo stesso percorso URL usato dal servizio, come "/api/values", non è necessario apportare altre modifiche. È anche possibile specificare un percorso URL diverso da quello usato dal servizio Service Fabric di back-end. In questo caso, sarà necessario immettere successivamente anche un'indicazione di riscrittura del percorso nel criterio dell'operazione.
+
+### <a name="microsoftapimanagementserviceapispolicies"></a>Microsoft.ApiManagement/service/apis/policies
+[Microsoft.ApiManagement/service/apis/policies](/azure/templates/microsoft.apimanagement/service/apis/policies) crea un criterio di back-end, che collega tutti gli elementi e consente di configurare il servizio Service Fabric di back-end a cui vengono indirizzate le richieste. È possibile applicare questo criterio a qualsiasi operazione API.  Per altre informazioni, vedere [Panoramica dei criteri](/azure/api-management/api-management-howto-policies). 
+
+La [configurazione back-end per Service Fabric](/azure/api-management/api-management-transformation-policies#SetBackendService) fornisce i controlli di indirizzamento delle richieste seguenti: 
  - Selezione dell'istanza del servizio mediante la specifica di un nome di istanza del servizio Service Fabric, hardcoded (ad esempio, `"fabric:/myapp/myservice"`) o generato dalla richiesta HTTP (ad esempio, `"fabric:/myapp/users/" + context.Request.MatchedParameters["name"]`).
  - Risoluzione della partizione mediante la generazione di una chiave di partizione che usa uno schema di partizionamento di Service Fabric.
  - Selezione della replica per i servizi con stato.
  - Condizioni per i nuovi tentativi di risoluzione della posizione di un servizio e il nuovo invio di una richiesta.
 
-Per questa esercitazione, creare un criterio di back-end che consenta di indirizzare le richieste direttamente al servizio ASP.NET Core senza stato distribuito in precedenza:
-
- 1. Selezionare e modificare i **criteri in ingresso** per l'operazione Valori facendo clic sull'icona di modifica, quindi scegliere **Visualizzazione Codice**.
- 2. Nell'editor del codice dei criteri aggiungere un criterio `set-backend-service` nei criteri in ingresso, come illustrato di seguito, e fare clic sul pulsante **Salva**:
+**policyContent** è il contenuto XML JSON con escape dei criteri.  Per questa esercitazione, creare un criterio di back-end per indirizzare le richieste direttamente al servizio .NET o Java senza stato distribuito in precedenza. Aggiungere un criterio `set-backend-service` tra i criteri in ingresso.  Sostituire "service-name" con `fabric:/ApiApplication/WebApiService` se in precedenza è stato distribuito il servizio back-end .NET o `fabric:/EchoServerApplication/EchoServerService` se è stato distribuito il servizio Java.
     
-    ```xml
-    <policies>
-      <inbound>
-        <base/>
-        <set-backend-service 
-           backend-id="servicefabric"
-           sf-service-instance-name="fabric:/ApiApplication/WebApiService"
-           sf-resolve-condition="@((int)context.Response.StatusCode != 200)" />
-      </inbound>
-      <backend>
-        <base/>
-      </backend>
-      <outbound>
-        <base/>
-      </outbound>
-    </policies>
-    ```
+```xml
+<policies>
+  <inbound>
+    <base/>
+    <set-backend-service 
+        backend-id="servicefabric"
+        sf-service-instance-name="service-name"
+        sf-resolve-condition="@((int)context.Response.StatusCode != 200)" />
+  </inbound>
+  <backend>
+    <base/>
+  </backend>
+  <outbound>
+    <base/>
+  </outbound>
+</policies>
+```
 
 Per un set completo di attributi di criteri di back-end di Service Fabric, vedere la [documentazione back-end di Gestione API](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#SetBackendService).
 
-### <a name="add-the-api-to-a-product"></a>Aggiungere l'API a un prodotto 
+## <a name="set-parameters-and-deploy-api-management"></a>Impostare i parametri e distribuire Gestione API
+Specificare un valore per i seguenti parametri vuoti in *apim.parameters.json* per la distribuzione. 
 
-Prima di chiamare l'API, è innanzitutto necessario aggiungerla a un prodotto per il quale sia possibile concedere l'accesso agli utenti. 
+|Parametro|Valore|
+|---|---|
+|apimInstanceName|sf-apim|
+|apimPublisherEmail|myemail@contosos.com|
+|apimSku|Developer|
+|serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
+|certificatePassword|q6D7nN%6ck@6| 
+|serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |
+|serviceFabricCertificate|&lt;stringa con codifica Base 64&gt;|
+|url_path|/api/values|
+|clusterHttpManagementEndpoint|https://mysfcluster.southcentralus.cloudapp.azure.com:19080|
+|inbound_policy|&lt;stringa XML&gt;|
 
- 1. Nel servizio Gestione API selezionare **Prodotti**.
- 2. Per impostazione predefinita, Gestione API include due prodotti: Starter e Illimitato. Selezionare il prodotto Illimitato.
- 3. Selezionare **+Aggiungi API**.
- 4. Selezionare l'API `Service Fabric App` creata nei passaggi precedenti e fare clic sul pulsante **Seleziona**.
+*certificatePassword* e *serviceFabricCertificateThumbprint* devono corrispondere al certificato del cluster usato per configurare il cluster.  
 
-### <a name="test-it"></a>Eseguirne il test
+*serviceFabricCertificate* è il certificato sotto forma di stringa con codifica Base 64, che può essere generata usando lo script seguente:
 
-È ora possibile provare a inviare una richiesta al servizio back-end in Service Fabric tramite Gestione API direttamente dal portale di Azure.
+```powershell
+$bytes = [System.IO.File]::ReadAllBytes("C:\mycertificates\sfclustertutorialgroup220171109113527.pfx");
+$b64 = [System.Convert]::ToBase64String($bytes);
+[System.Io.File]::WriteAllText("C:\mycertificates\sfclustertutorialgroup220171109113527.txt", $b64);
+```
+
+In *inbound_policy* sostituire "service-name" con `fabric:/ApiApplication/WebApiService` se in precedenza è stato distribuito il servizio back-end .NET o `fabric:/EchoServerApplication/EchoServerService` se è stato distribuito il servizio Java.
+
+```xml
+<policies>
+  <inbound>
+    <base/>
+    <set-backend-service 
+        backend-id="servicefabric"
+        sf-service-instance-name="service-name"
+        sf-resolve-condition="@((int)context.Response.StatusCode != 200)" />
+  </inbound>
+  <backend>
+    <base/>
+  </backend>
+  <outbound>
+    <base/>
+  </outbound>
+</policies>
+```
+
+Per distribuire il modello e i file dei parametri di Gestione risorse per Gestione API, usare il seguente script:
+
+```powershell
+$ResourceGroupName = "sfclustertutorialgroup"
+New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
+```
+
+```azurecli
+ResourceGroupName="sfclustertutorialgroup"
+az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGroupName --template-file apim.json --parameters @apim.parameters.json 
+```
+
+## <a name="test-it"></a>Eseguirne il test
+
+È ora possibile provare a inviare una richiesta al servizio back-end in Service Fabric tramite Gestione API direttamente dal [portale di Azure](https://portal.azure.com).
 
  1. Nel servizio Gestione API selezionare **API**.
  2. Selezionare l'API di **App di Service Fabric** creata nei passaggi precedenti, fare clic sulla scheda **Test** e quindi selezionare l'operazione **Valori**.
@@ -375,12 +317,12 @@ Un cluster è costituito da altre risorse di Azure oltre alla risorsa cluster st
 Accedere ad Azure e selezionare l'ID della sottoscrizione da usare per rimuovere il cluster.  È possibile trovare l'ID della sottoscrizione accedendo al [portale di Azure](http://portal.azure.com). Eliminare il gruppo di risorse e tutte le risorse del cluster con il [cmdlet Remove-AzureRmResourceGroup](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
 ```powershell
-$ResourceGroupName = "tutorialgroup"
+$ResourceGroupName = "sfclustertutorialgroup"
 Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ```azurecli
-ResourceGroupName="tutorialgroup"
+ResourceGroupName="sfclustertutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
@@ -404,3 +346,6 @@ In questa esercitazione si è appreso come:
 
 [cluster-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
 [cluster-parameters-arm]: https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
+
+<!-- pics -->
+[sf-apim-topology-overview]: ./media/service-fabric-tutorial-deploy-api-management/sf-apim-topology-overview.png

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: e1ce5d337e8dea6e1dc48f04238ecb31c31909b1
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 050758240c9670a6f120f069d736cf6d6475b534
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - Guida alla risoluzione dei problemi e problemi noti 
 Questo articolo consente di trovare e correggere errori o guasti riscontrati durante l'uso dell'applicazione Azure Machine Learning Workbench. 
@@ -84,8 +84,25 @@ Quando si usa Azure ML Workbench, è anche possibile inviare una faccia imbronci
 
 - La libreria RevoScalePy è supportata solo in Windows o in Linux (in contenitori Docker). Non è supportata in macOS.
 
-## <a name="delete-experimentation-account"></a>Eliminare l'account di Sperimentazione
-È possibile usare l'interfaccia della riga di comando per eliminare un account di Sperimentazione, ma è necessario eliminare innanzitutto le aree di lavoro figlio e i progetti figlio al loro interno.
+## <a name="cant-update-workbench"></a>Non è possibile aggiornare Workbench
+Quando è disponibile un nuovo aggiornamento, nella home page dell'app Workbench viene visualizzato un messaggio con informazioni sul nuovo aggiornamento. Dovrebbe essere visualizzata una notifica di aggiornamento nell'angolo in basso a sinistra dell'app sull'icona a forma di campanella. Fare clic sulla notifica ed eseguire l'installazione guidata per installare l'aggiornamento. 
+
+![Immagine dell'aggiornamento](./media/known-issues-and-troubleshooting-guide/update.png)
+
+Se non viene visualizzata la notifica, provare a riavviare l'app. Se la notifica di aggiornamento non viene ancora visualizzata dopo il riavvio, le cause potrebbero essere le seguenti.
+
+### <a name="you-are-launching-workbench-from-a-pinned-shortcut-on-the-task-bar"></a>Workbench viene avviato da un collegamento bloccato sulla barra delle applicazioni
+L'aggiornamento potrebbe essere già stato installato, ma il collegamento bloccato fa ancora riferimento a elementi precedenti nel disco. Per verificarlo, passare alla cartella `%localappdata%/AmlWorkbench` e controllare se è installata la versione più recente, quindi esaminare le proprietà del collegamento bloccato per vedere a quale percorso fa riferimento. Se questa causa risulta confermata, è sufficiente rimuovere il collegamento precedente, avviare Workbench dal menu Start e, facoltativamente, creare un nuovo collegamento bloccato sulla barra delle applicazioni.
+
+### <a name="you-installed-workbench-using-the-install-azure-ml-workbench-link-on-a-windows-dsvm"></a>Workbench è stato installato tramite il collegamento per l'installazione di Azure Machine Learning Workbench in una macchina virtuale di Windows Data Science
+Sfortunatamente non è disponibile alcuna correzione in questo caso. È necessario eseguire la procedura seguente per rimuovere gli elementi installati e scaricare il programma di installazione più recente per installare di nuovo Workbench: 
+   - Rimuovere la cartella `C:\Users\<Username>\AppData\Local\amlworkbench`
+   - Rimuovere lo script `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - Rimuovere il collegamento sul desktop che avvia lo script precedente
+   - Scaricare il programma di installazione https://aka.ms/azureml-wb-msi e ripetere l'installazione.
+
+## <a name="cant-delete-experimentation-account"></a>Non è possibile eliminare l'account di Sperimentazione
+È possibile usare l'interfaccia della riga di comando per eliminare un account di Sperimentazione, ma è necessario eliminare innanzitutto le aree di lavoro figlio e i progetti figlio al loro interno. In caso contrario, viene visualizzato un errore.
 
 ```azure-cli
 # delete a project
@@ -100,9 +117,11 @@ $ az ml account experimentation delete -g <resource group name> -n <experimentat
 
 È anche possibile eliminare i progetti e le aree di lavoro nell'app di Workbench.
 
+## <a name="cant-open-file-if-project-is-in-onedrive"></a>Non è possibile aprire il file se il progetto si trova in OneDrive
+Se si dispone di Windows 10 Fall Creators Update e il progetto viene creato in una cartella locale associata a OneDrive, si potrebbe non riuscire ad aprire alcun file in Workbench. Ciò è dovuto a un bug introdotto con Fall Creators Update che causa un errore del codice di node.js in una cartella di OneDrive. Il bug verrà presto corretto con un aggiornamento di Windows, ma fino ad allora, non creare progetti in una cartella di OneDrive.
 
 ## <a name="file-name-too-long-on-windows"></a>Nome file troppo a lungo in Windows
-Se si usa Workbench in Windows, si può incorrere nel limite predefinito di 260 caratteri per la lunghezza del nome file che viene indicato con il fuorviante errore "Impossibile trovare il percorso specificato". È possibile modificare l'impostazione di una chiave del Registro di sistema per consentire nomi di percorso per i file molto più lunghi. Per altre informazioni su come configurare la chiave del Registro di sistema _MAX_PATH_, vedere [questo articolo](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath).
+Se si usa Workbench in Windows, si può incorrere nel limite predefinito di 260 caratteri per la lunghezza dei nomi di file, che potrebbe essere segnalato con un errore di tipo "Impossibile trovare il percorso specificato". È possibile modificare l'impostazione di una chiave del Registro di sistema per consentire nomi di percorso per i file molto più lunghi. Per altre informazioni su come configurare la chiave del Registro di sistema _MAX_PATH_, vedere [questo articolo](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath).
 
 ## <a name="docker-error-read-connection-refused"></a>Errore di Docker "read: connection refused"
 In caso di esecuzione su un contenitore Docker locale, può essere talvolta visualizzato l'errore seguente: 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6e8335b9c2f3609bf0c48c563205ffaee8575b20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Esempi di implementazione di scaffold enterprise di Azure
 In questo argomento vengono forniti esempi di come un'azienda può implementare gli elementi consigliati per uno [scaffold  enterprise di Azure](resource-manager-subscription-governance.md). Usa una società fittizia denominata Contoso per illustrare le procedure consigliate per scenari comuni.
@@ -68,7 +68,7 @@ Dave dispone dei requisiti seguenti per gestire le risorse nella sottoscrizione:
 * È preoccupato per i costi. Di conseguenza, desidera impedire ai proprietari delle applicazioni di creare macchine virtuali inutilmente costose.  
 * Poiché questa applicazione è destinata agli sviluppatori di diverse business unit. desidera aggiungere a ogni risorsa un tag con il proprietario dell'applicazione e la business unit. L'uso di questi tag aiuta ETS nella fatturazione ai team appropriati.
 
-Dave crea i [criteri di Resource Manager](resource-manager-policy.md) seguenti:
+Crea i [criteri di Azure ](../azure-policy/azure-policy-introduction.md) seguenti:
 
 | Campo | Effetto | Descrizione |
 | --- | --- | --- |

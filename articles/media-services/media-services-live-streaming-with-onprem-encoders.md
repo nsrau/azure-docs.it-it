@@ -14,17 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 3f6569d32708c42247e0ffec70389f2e0f07389e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7c33dc0a3c1f01cc53a91e05feb33272cb21f47
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Streaming live con codificatori locali che creano flussi a bitrate multipli
 ## <a name="overview"></a>Panoramica
 In Servizi multimediali di Azure un *canale* rappresenta una pipeline per l'elaborazione di contenuto in streaming live. Un canale riceve i flussi di input live in uno dei due modi seguenti:
 
-* Un codificatore live locale invia un flusso RTMP o Smooth Streaming (MP4 frammentato) a bitrate multipli a un canale non abilitato per eseguire la codifica live con Servizi Multimediali. I flussi inseriti passano attraverso il canale senza altre elaborazioni. Questo metodo viene chiamato *pass-through*. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a bitrate multipli: Media Excel, Ateme, Imagine Communications, Envivio, Cisco ed Elemental. I codificatori live seguenti generano output in formato RTMP: Adobe Flash Media Live Encoder, Telestream Wirecast, Haivision, Teradek e TriCaster. Un codificatore live può anche inviare un flusso a bitrate singolo a un canale non abilitato per la codifica live, ma questa operazione non è consigliata. Servizi multimediali invia il flusso ai clienti che lo richiedono.
+* Un codificatore live locale invia un flusso RTMP o Smooth Streaming (MP4 frammentato) a bitrate multipli a un canale non abilitato per eseguire la codifica live con Servizi Multimediali. I flussi inseriti passano attraverso il canale senza altre elaborazioni. Questo metodo viene chiamato *pass-through*. Un codificatore live può anche inviare un flusso a bitrate singolo a un canale non abilitato per la codifica live, ma questa operazione non è consigliata. Servizi multimediali invia il flusso ai clienti che lo richiedono.
 
   > [!NOTE]
   > L'uso del metodo pass-through è il modo più economico per eseguire uno streaming live.
@@ -34,13 +34,13 @@ In Servizi multimediali di Azure un *canale* rappresenta una pipeline per l'elab
 
 A partire da Servizi multimediali versione 2.10, quando si crea un canale è possibile specificare in che modo si vuole che il canale riceva il flusso di input. È anche possibile specificare se si vuole che il canale esegue la codifica live del flusso. Sono disponibili due opzioni:
 
-* **Pass-through**: specificare questo valore se si prevede di usare un codificatore live locale che genera un flusso a bitrate multipli (un flusso pass-through) come output. In questo caso, il flusso in ingresso viene passato all'output senza codifica. Questo è il comportamento di un canale prima della versione 2.10. Questo argomento fornisce informazioni dettagliate sull'uso dei canali di questo tipo.
-* **Codifica live**: scegliere questo valore se si prevede di usare Servizi multimediali per codificare il flusso live a bitrate singolo in un flusso a bitrate multipli. Si noti che se si lascia un canale di codifica live nello stato **In esecuzione**, verranno applicati addebiti. Per evitare costi orari aggiuntivi, quindi, è consigliabile arrestare immediatamente i canali in esecuzione al termine dell'evento in streaming live. Servizi multimediali invia il flusso ai clienti che lo richiedono.
+* **Pass-through**: specificare questo valore se si prevede di usare un codificatore live locale che genera un flusso a bitrate multipli (un flusso pass-through) come output. In questo caso, il flusso in ingresso viene passato all'output senza codifica. Questo è il comportamento di un canale prima della versione 2.10. Questo articolo fornisce informazioni dettagliate sull'uso dei canali di questo tipo.
+* **Codifica live**: scegliere questo valore se si prevede di usare Servizi multimediali per codificare il flusso live a bitrate singolo in un flusso a bitrate multipli. Se si lascia un canale di codifica live nello stato **In esecuzione**, verranno applicati addebiti. Per evitare costi orari aggiuntivi, quindi, è consigliabile arrestare immediatamente i canali in esecuzione al termine dell'evento in streaming live. Servizi multimediali invia il flusso ai clienti che lo richiedono.
 
 > [!NOTE]
-> Questo argomento illustra gli attributi dei canali non abilitati per l'esecuzione della codifica live. Per informazioni sull'uso dei canali non abilitati all'esecuzione della codifica live, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
+> Questo articolo illustra gli attributi dei canali non abilitati per l'esecuzione della codifica live. Per informazioni sull'uso dei canali non abilitati all'esecuzione della codifica live, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 >
->
+>Per informazioni sui codificatori locali consigliati, vedere [Codificatori locali consigliati](media-services-recommended-encoders.md).
 
 Il diagramma seguente rappresenta un flusso di lavoro di streaming live che usa un codificatore live locale per generare flussi in formato RTMP o MP4 frammentato (Smooth Streaming) a bitrate multipli come output.
 
@@ -154,13 +154,13 @@ Attualmente il flusso di anteprima può essere distribuito solo in formato MP4 f
 Per informazioni sull'output del canale, vedere la sezione [Intervallo tra fotogrammi chiave](#keyframe_interval).
 
 ### <a name="channel-managed-programs"></a>Programmi gestiti dal canale
-Un canale è associato a programmi che consentono di controllare la pubblicazione e l'archiviazione di segmenti in un flusso live. I programmi sono gestiti dai canali. La relazione tra queste due entità è molto simile a quella che intercorre tra di essi nei media tradizionali, in cui un canale è costituito da un flusso costante di contenuti, mentre un programma ha come ambito una serie di eventi programmati sul canale.
+Un canale è associato a programmi che consentono di controllare la pubblicazione e l'archiviazione di segmenti in un flusso live. I programmi sono gestiti dai canali. La relazione tra queste due entità è simile a quella che intercorre tra di essi nei media tradizionali, in cui un canale è costituito da un flusso costante di contenuti, mentre un programma ha come ambito una serie di eventi programmati sul canale.
 
 È possibile specificare il numero di ore per cui si vuole mantenere il contenuto registrato per il programma impostando il valore **Intervallo di archiviazione** . Il valore impostato può essere compreso tra 5 minuti e 25 ore. La lunghezza della finestra di archiviazione determina anche il limite di tempo per cui i client possono eseguire ricerche a ritroso nel tempo dalla posizione live corrente. I programmi possono essere eseguiti per la quantità di tempo specificata, ma il contenuto che va oltre la durata prevista viene scartato in modo continuo. Il valore della proprietà determina anche il tempo per cui i manifesti client possono crescere.
 
 Ogni programma è associato a un asset che archivia il contenuto trasmesso nel flusso. Un asset viene mappato a un contenitore BLOB in blocchi nell'account di archiviazione di Azure e i file nell'asset vengono archiviati come BLOB in tale contenitore. Per pubblicare il programma in modo che possa essere visualizzato dai clienti, è necessario creare un localizzatore OnDemand per l'asset associato. È possibile usare questo localizzatore per creare un URL di streaming da fornire ai client.
 
-Un canale supporta fino a tre programmi in esecuzione simultanea, in modo da poter creare più archivi dello stesso flusso in ingresso. È possibile pubblicare e archiviare parti diverse di un evento a seconda delle necessità. Si consideri ad esempio uno scenario in cui un'azienda richiede l'archiviazione di 6 ore di un programma e la trasmissione solo degli ultimi 10 minuti. A tale scopo, è necessario creare due programmi in esecuzione contemporaneamente. Un programma è impostato per l'archiviazione di 6 ore dell'evento, ma non viene pubblicato. L'altro programma è impostato per l'archiviazione di 10 minuti e viene pubblicato.
+Un canale supporta fino a tre programmi in esecuzione simultanea, in modo da poter creare più archivi dello stesso flusso in ingresso. È possibile pubblicare e archiviare parti diverse di un evento a seconda delle necessità. Si consideri ad esempio uno scenario in cui un'azienda richiede l'archiviazione di 6 ore di un programma e la trasmissione solo degli ultimi 10 minuti. A tale scopo, è necessario creare due programmi in esecuzione contemporaneamente. Un programma è impostato per l'archiviazione di sei ore dell'evento, ma non viene pubblicato. L'altro programma è impostato per l'archiviazione di 10 minuti e viene pubblicato.
 
 Non riutilizzare i programmi esistenti per nuovi eventi. Al contrario, creare un nuovo programma per ogni evento. Avviare il programma quando si è pronti a iniziare lo streaming e l'archiviazione. Arrestare il programma ogni volta che si vuole interrompere lo streaming e l'archiviazione dell'evento.
 
@@ -220,6 +220,8 @@ Ecco altre considerazioni relative all'uso dei canali e dei componenti correlati
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Argomenti correlati
+[Codificatori locali consigliati](media-services-recommended-encoders.md)
+
 [Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure](media-services-fmp4-live-ingest-overview.md)
 
 [Panoramica e scenari comuni di Servizi multimediali di Azure](media-services-overview.md)

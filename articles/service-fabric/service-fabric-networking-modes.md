@@ -14,26 +14,26 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 1ecded3af6396f50e67dc5d2a9ef8337699046ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 855e315f66858210875039f91f7f05055ff7d9b9
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modalità di rete del contenitore di Service Fabric
 
-La modalità del servizio di rete predefinita offerta nel cluster di Service Fabric per i servizi del contenitore è la modalità di rete `nat`. Con la modalità di rete `nat`, la presenza di più di un servizio di contenitori in ascolto per gli stessi risultati di porta comporta errori di distribuzione. Per eseguire diversi servizi in ascolto sulla stessa porta, Service Fabric supporta la modalità di rete `open` (versione 5.7 o versioni successive). Con la modalità di rete `open`, ogni servizio del contenitore ottiene un indirizzo IP assegnato dinamicamente internamente, consentendo più servizi in ascolto sulla stessa porta.   
+La modalità del servizio di rete predefinita offerta nel cluster di Service Fabric per i servizi del contenitore è la modalità di rete `nat`. Con la modalità di rete `nat`, la presenza di più di un servizio di contenitori in ascolto per gli stessi risultati di porta comporta errori di distribuzione. Per eseguire diversi servizi in ascolto sulla stessa porta, Service Fabric supporta la modalità di rete `Open` (versione 5.7 o versioni successive). Con la modalità di rete `Open`, ogni servizio del contenitore ottiene un indirizzo IP assegnato dinamicamente internamente, consentendo più servizi in ascolto sulla stessa porta.   
 
-Pertanto, con un singolo tipo di servizio con un endpoint statico definito nel manifesto del servizio, è possibile creare ed eliminare nuovi servizi senza errori di distribuzione tramite la modalità di rete `open`. Analogamente, è possibile usare lo stesso file `docker-compose.yml` con il mapping delle porte statiche per la creazione di più servizi.
+Pertanto, con un singolo tipo di servizio con un endpoint statico definito nel manifesto del servizio, è possibile creare ed eliminare nuovi servizi senza errori di distribuzione tramite la modalità di rete `Open`. Analogamente, è possibile usare lo stesso file `docker-compose.yml` con il mapping delle porte statiche per la creazione di più servizi.
 
 Usare l'IP assegnato dinamicamente per individuare i servizi non è consigliabile poiché l'indirizzo IP cambia quando il servizio viene riavviato o viene spostato in un altro nodo. Usare solo **Service Fabric Naming Service** o il **servizio DNS** per l'individuazione del servizio. 
 
 
 > [!WARNING]
-> È consentito solo un totale di 4096 indirizzi IP per ogni rete virtuale in Azure. Di conseguenza, la somma del numero di nodi e il numero di istanze del servizio contenitore (con rete `open`) non può superare i 4096 all'interno di una rete virtuale. Per questi scenari ad alta densità, si consiglia la modalità di rete `nat`.
+> È consentito solo un totale di 4096 indirizzi IP per ogni rete virtuale in Azure. Di conseguenza, la somma del numero di nodi e il numero di istanze del servizio contenitore (con rete `Open`) non può superare i 4096 all'interno di una rete virtuale. Per questi scenari ad alta densità, si consiglia la modalità di rete `nat`.
 >
 
-## <a name="setting-up-open-networking-mode"></a>Configurazione della modalità di rete aperta
+## <a name="setting-up-open-networking-mode"></a>Configurazione della modalità di rete Open
 
 1. Configurare il modello di Azure Resource Manager, abilitando il servizio DNS e il provider di IP in `fabricSettings`. 
 
@@ -183,7 +183,7 @@ Usare l'IP assegnato dinamicamente per individuare i servizi non è consigliabil
    |     2000 | Custom_Dns | VirtualNetwork | VirtualNetwork | DNS (UDP/53) | CONSENTI  |
 
 
-4. Specificare la modalità di rete nel manifesto dell'app per ogni servizio `<NetworkConfig NetworkType="open">`.  La modalità `open` consente al servizio di ottenere un indirizzo IP dedicato. Se non si specifica una modalità, viene impostata la modalità predefinita di base `nat`. Pertanto, nell'esempio di manifesto seguente, `NodeContainerServicePackage1` e `NodeContainerServicePackage2` possono essere in ascolto sulla stessa porta (entrambi i servizi sono in ascolto su `Endpoint1`).
+4. Specificare la modalità di rete nel manifesto dell'app per ogni servizio `<NetworkConfig NetworkType="Open">`.  La modalità `Open` consente al servizio di ottenere un indirizzo IP dedicato. Se non si specifica una modalità, viene impostata la modalità predefinita di base `nat`. Pertanto, nell'esempio di manifesto seguente, `NodeContainerServicePackage1` e `NodeContainerServicePackage2` possono essere in ascolto sulla stessa porta (entrambi i servizi sono in ascolto su `Endpoint1`). Quando è specificata la modalità di rete `Open`, non è possibile specificare configurazioni `PortBinding`.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -197,8 +197,7 @@ Usare l'IP assegnato dinamicamente per individuare i servizi non è consigliabil
         <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage1" ServiceManifestVersion="1.0"/>
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService1.Code" Isolation="hyperv">
-           <NetworkConfig NetworkType="open"/>
-           <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
+           <NetworkConfig NetworkType="Open"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
@@ -206,14 +205,13 @@ Usare l'IP assegnato dinamicamente per individuare i servizi non è consigliabil
         <ServiceManifestRef ServiceManifestName="NodeContainerServicePackage2" ServiceManifestVersion="1.0"/>
         <Policies>
           <ContainerHostPolicies CodePackageRef="NodeContainerService2.Code" Isolation="default">
-            <NetworkConfig NetworkType="open"/>
-            <PortBinding ContainerPort="8910" EndpointRef="Endpoint1"/>
+            <NetworkConfig NetworkType="Open"/>
           </ContainerHostPolicies>
         </Policies>
       </ServiceManifestImport>
     </ApplicationManifest>
     ```
-È possibile combinare e abbinare diverse modalità di rete tra servizi all'interno di un'applicazione per un cluster di Windows. Pertanto, è possibile avere alcuni servizi sulla modalità `open` e alcuni sulla modalità di rete `nat`. Quando un servizio è configurato con `nat`, la porta su cui è in ascolto deve essere univoca. La combinazione di modalità di rete per diversi servizi non è supportata nei cluster di Linux. 
+È possibile combinare e abbinare diverse modalità di rete tra servizi all'interno di un'applicazione per un cluster di Windows. Pertanto, è possibile avere alcuni servizi sulla modalità `Open` e alcuni sulla modalità di rete `nat`. Quando un servizio è configurato con `nat`, la porta su cui è in ascolto deve essere univoca. La combinazione di modalità di rete per diversi servizi non è supportata nei cluster di Linux. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

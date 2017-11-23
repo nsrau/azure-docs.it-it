@@ -1,6 +1,6 @@
 ---
 title: "Dashboard, Monitoraggio, Scalabilità, Configura e Connessioni ibride in Servizi BizTalk | Documentazione Microsoft"
-description: "Informazioni sui controlli per monitorare le prestazioni nelle schede del portale classico per Servizi BizTalk: Dashboard, Monitoraggio, Scalabilità, Configura e Connessioni ibride. MABS, WABS"
+description: Informazioni su controlli e monitoraggio delle prestazioni dei servizi BizTalk
 services: biztalk-services
 documentationcenter: 
 author: MandiOhlinger
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 62bef0ee0141f6a7a92146ef230f0766a85aee5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 351809cd5f165a863dc02bfadf78fa59cbaabfd7
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>Analizzare le schede Dashboard, Monitor, Scala, Configura e Connessione ibrida
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 Dopo aver creato il servizio BizTalk e aver distribuito l'applicazione, è possibile modificare alcune impostazioni del servizio BizTalk e monitorare le prestazioni dell'applicazione. 
 
-Quando si apre il portale di Azure classico, viene visualizzata automaticamente la scheda **TUTTI GLI ELEMENTI** . Per visualizzare il servizio BizTalk, selezionarlo nella scheda **TUTTI GLI ELEMENTI** oppure fare clic sulla scheda **SERVIZI BIZTALK**, quindi selezionare il nome del proprio servizio BizTalk.
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 Verrà aperta una nuova finestra con le schede seguenti: In questo argomento vengono descritte queste schede.
 
@@ -84,9 +84,9 @@ Ad esempio, si potrebbe voler usare una nuova chiave primaria per l'account di a
 <br/><br/>
 <ol>
 <li>Selezionare il servizio BizTalk e quindi <strong>Chiavi di sincronizzazione</strong>. Selezionare la chiave secondaria. Così facendo, il servizio BizTalk comincia a usare la chiave secondaria.</li>
-<li>Nel portale di Azure classico, selezionare il proprio account di archiviazione e rigenerare la chiave primaria. Si tenga presente che il servizio BizTalk sta usando la chiave secondaria.</li>
+<li>Selezionare il proprio account di archiviazione e rigenerare la chiave primaria. Si tenga presente che il servizio BizTalk sta usando la chiave secondaria.</li>
 <li>Selezionare il servizio BizTalk e quindi <strong>Chiavi di sincronizzazione</strong>. Selezionare adesso la chiave primaria, ossia la nuova chiave primaria rigenerata dall'utente.</li>
-<li>Nel portale di Azure classico, selezionare il proprio account di archiviazione e rigenerare la chiave secondaria.</li>
+<li>Selezionare il proprio account di archiviazione e rigenerare la chiave secondaria.</li>
 </ol>
 <br/>
 Questo processo è denominato "chiavi di rollover". Lo scopo è quello di consentire agli utenti di passare dalla chiave primaria alla secondaria e viceversa senza interrompere il servizio BizTalk.</td>
@@ -169,7 +169,7 @@ Per una descrizione delle metriche delle prestazioni, vedere la sezione [Metrich
 </tr>
 <tr>
 <td><strong>Nome sottoscrizione</strong></td>
-<td>Indica il nome della sottoscrizione che ospita il servizio BizTalk. La sottoscrizione consente di gestire l'accesso al portale di Azure classico.</td>
+<td>Indica il nome della sottoscrizione che ospita il servizio BizTalk. La sottoscrizione controlla l'accesso.</td>
 </tr>
 <tr>
 <td><strong>ID sottoscrizione</strong></td>
@@ -177,7 +177,7 @@ Per una descrizione delle metriche delle prestazioni, vedere la sezione [Metrich
 </tr>
 </table>
 
-[Servizi BizTalk: effettuare il provisioning mediante il portale di Azure classico](http://go.microsoft.com/fwlink/p/?LinkID=302280) sono elencati i passaggi per creare un servizio BizTalk.
+In [Servizi BizTalk: Provisioning ](http://go.microsoft.com/fwlink/p/?LinkID=302280) sono elencati i passaggi necessari per creare un servizio BizTalk.
 
 ##### <a name="manage-connection-information-sync-keys-and-delete-in-the-task-bar"></a>Gestisci, Informazioni di connessione, Chiavi di sincronizzazione ed Elimina sulla barra delle applicazioni:
 <table border="1">
@@ -206,9 +206,9 @@ Ad esempio, si potrebbe voler usare una nuova chiave primaria per l'account di a
 <br/><br/>
 <ol>
 <li>Selezionare il servizio BizTalk e quindi <strong>Chiavi di sincronizzazione</strong>. Selezionare la chiave secondaria. Così facendo, il servizio BizTalk comincia a usare la chiave secondaria.</li>
-<li>Nel portale di Azure classico, selezionare il proprio account di archiviazione e rigenerare la chiave primaria. Si tenga presente che il servizio BizTalk sta usando la chiave secondaria.</li>
+<li>Selezionare il proprio account di archiviazione e rigenerare la chiave primaria. Si tenga presente che il servizio BizTalk sta usando la chiave secondaria.</li>
 <li>Selezionare il servizio BizTalk e quindi <strong>Chiavi di sincronizzazione</strong>. Selezionare adesso la chiave primaria, ossia la nuova chiave primaria rigenerata dall'utente.</li>
-<li>Nel portale di Azure classico, selezionare il proprio account di archiviazione e rigenerare la chiave secondaria.</li>
+<li>Selezionare il proprio account di archiviazione e rigenerare la chiave secondaria.</li>
 </ol>
 <br/>
 Questo processo è denominato "chiavi di rollover". Lo scopo è quello di consentire agli utenti di passare dalla chiave primaria alla secondaria e viceversa senza interrompere il servizio BizTalk.</td>
@@ -329,7 +329,7 @@ Imposta Stato backup su Nessuno o Automatico. Se è impostato su Nessuno, non ve
 [Servizi BizTalk: backup e ripristino](biztalk-backup-restore.md) sono disponibili informazioni dettagliate. 
 
 ## <a name="HybridConnections"></a>Connessioni ibride
-Le connessioni ibride consentono la connessione di un'applicazione Azure, come App Web o App per dispositivi mobili nel servizio app di Azure, a una risorsa locale che usa una porta TCP statica, ad esempio SQL Server, MySQL, API Web HTTP e la maggior parte dei servizi Web personalizzati. Le connessioni ibride vengono gestite in Servizi BizTalk nel portale di Azure classico.
+Le connessioni ibride consentono la connessione di un'applicazione Azure, come App Web o App per dispositivi mobili nel servizio app di Azure, a una risorsa locale che usa una porta TCP statica, ad esempio SQL Server, MySQL, API Web HTTP e la maggior parte dei servizi Web personalizzati. Le connessioni ibride sono gestite nei servizi BizTalk.
 
 Per creare o gestire connessioni ibride in Siti Web di Azure, vedere l'articolo relativo alle [Connessioni ibride](integration-hybrid-connection-overview.md).
 
@@ -343,7 +343,7 @@ Ora che è stata acquisita familiarità con le diverse schede è possibile otten
 ## <a name="see-also"></a>Vedere anche
 * [Connessioni ibride](integration-hybrid-connection-overview.md)  
 * [Servizi BizTalk: Grafico edizioni Developer, Basic, Standard e Premium](biztalk-editions-feature-chart.md)  
-* [Servizi BizTalk: effettuare il provisioning di un servizio BizTalk mediante il portale di Azure classico](biztalk-provision-services.md)  
+* [Servizi BizTalk: Provisioning](biztalk-provision-services.md)  
 * [Servizi BizTalk: Tabella degli stati del servizio](biztalk-service-state-chart.md)  
 * [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 

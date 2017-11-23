@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
-ms.reviewer: alexwe
-ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.reviewer: richagi
+ms.openlocfilehash: 4900707baa875ae4527d82e8189d5bc4d319ae0c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Configurare le impostazioni di Azure Multi-Factor Authentication: anteprima pubblica
 
@@ -29,7 +29,7 @@ Le informazioni in questo articolo sono utili per gestire Azure Multi-Factor Aut
 
 | Funzionalità | Descrizione | 
 |:--- |:--- |
-| [Blocca/Sblocca utenti](#block/unblock-users) |La funzionalità Blocca/Sblocca utenti può impedire agli utenti di ricevere le richieste di autenticazione. |
+| [Bloccare e sbloccare utenti](#block-and-unblock) |La funzionalità Blocca/Sblocca utenti può impedire agli utenti di ricevere le richieste di autenticazione. |
 | [Avviso di illecito](#fraud-alert) |È possibile configurare e impostare un avviso di illecito in modo che gli utenti possano segnalare i tentativi illeciti di accedere alle loro risorse. |
 | [Bypass monouso](#one-time-bypass) |Un bypass monouso consente a un utente di eseguire l'autenticazione una sola volta "ignorando" Multi-Factor Authentication. |
 | [Messaggi vocali personalizzati](#custom-voice-messages) |I messaggi vocali personalizzati consentono di usare registrazioni o messaggi introduttivi personalizzati con Multi-Factor Authentication. |
@@ -39,7 +39,7 @@ Le informazioni in questo articolo sono utili per gestire Azure Multi-Factor Aut
 | [Memorizzare Multi-Factor Authentication per dispositivi e browser memorizzati](#remember-multi-factor-authentication-for-devices-that-users-trust) |Consente di memorizzare dispositivi per un determinato numero di giorni dopo che un utente ha effettuato correttamente l'accesso tramite MFA. |
 | [Metodi di verifica selezionabili](#selectable-verification-methods) |Consente di scegliere i metodi di autenticazione disponibili per gli utenti. |
 
-## <a name="blockunblock-users"></a>Blocca/Sblocca utenti
+## <a name="block-and-unblock"></a>Bloccare e sbloccare
 La funzionalità Blocca/Sblocca utenti può essere usata per impedire agli utenti di ricevere le richieste di autenticazione. Eventuali tentativi di autenticazione per gli utenti bloccati verranno negati automaticamente. Gli utenti bloccati resteranno tali per 90 giorni dal momento in cui vengono bloccati.
 
 ### <a name="block-a-user"></a>Bloccare un utente
@@ -70,7 +70,7 @@ La funzionalità Blocca/Sblocca utenti può essere usata per impedire agli utent
 
 ### <a name="configuration-options"></a>Opzioni di configurazione
 
-- **Blocca utente se viene segnalato un illecito**: se un utente segnala un illecito, il relativo account viene bloccato.
+- **Blocca utente se viene segnalato un illecito**: se un utente segnala un illecito, il relativo account viene bloccato per 90 giorni o finché l'amministratore non sblocca l'account. Un amministratore può verificare gli accessi usando il report sugli accessi ed eseguire le azioni necessarie per prevenire illeciti nel futuro. Un amministratore può quindi [sbloccare](#unblock-a-user) l'account dell'utente.
 - **Codice per la segnalazione di illeciti durante il messaggio introduttivo iniziale**: quando gli utenti ricevono una chiamata telefonica per eseguire la verifica in due passaggi, in genere premono # per confermare l'accesso. Se vogliono segnalare un illecito, devono immettere un codice prima di premere #. Il codice predefinito è **0**, ma è possibile personalizzarlo.
 
 > [!NOTE]

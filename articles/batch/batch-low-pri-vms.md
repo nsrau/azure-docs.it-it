@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: na
 ms.date: 09/28/2017
 ms.author: markscu
-ms.openlocfilehash: 541086d4b2f0c52f9e03c3993311705b7475e9a6
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: b9e5181baedba7cc4783553221521f5b08a7bc4d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Usare le macchine virtuali con priorità bassa in Batch
 
@@ -71,7 +71,7 @@ Azure Batch offre diverse funzionalità che semplificano l'uso e i vantaggi dall
 
 -   Quando le attività vengono interrotte, il servizio Batch rileva e reinserisce automaticamente nella coda le attività da eseguire di nuovo.
 
--   Le macchine virtuali con priorità bassa hanno una quota di code diversa rispetto a quella delle macchine virtuali dedicate. 
+-   Le macchine virtuali con priorità bassa hanno una quota di CPU virtuali diversa rispetto a quella delle macchine virtuali dedicate. 
     La quota per le macchine virtuali con priorità bassa è superiore a quella delle macchine virtuali dedicate, perché le macchine virtuali con priorità bassa sono meno costose. Per altre informazioni, vedere [Quote e limiti del servizio Batch](batch-quota-limit.md#resource-quotas).    
 
 

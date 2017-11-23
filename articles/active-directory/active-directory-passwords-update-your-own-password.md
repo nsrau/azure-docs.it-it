@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 8f175f5711b9798153d209f6645aa8bae9f2a00b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9595b318b8bd974f778dc12b38cccd949a4e7a1a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="help-i-forgot-my-azure-ad-password"></a>Password di Azure AD dimenticata
+# <a name="reset-your-work-or-school-password"></a>Reimpostare la password aziendale o scolastica
 
-Se si dimentica la password, la si vuole modificare, il personale IT non l'ha mai inviata oppure l'account è stato bloccato, procedere come segue. Se si conosce la password ed necessario soltanto modificarla, procedere fino alla sezione [Cambiare la password](#change-my-password) in basso.
+Se si dimentica la password, la si vuole modificare, non è mai stata inviata dal servizio assistenza dell'azienda oppure l'account è stato bloccato, procedere come segue. Se si conosce la password ed necessario soltanto modificarla, procedere fino alla sezione [Cambiare la password](#change-my-password) in basso.
 
    > [!NOTE]
    > Se si sta provando ad accedere nuovamente al proprio account personale come hotmail.com o outlook.com, provare i [suggerimenti disponibili in questo articolo](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
@@ -64,7 +64,7 @@ Eseguire i passaggi descritti di seguito per reimpostare la password self-servic
    ![Verificare i dati di autenticazione][Verification]
 
 4. Il personale IT può richiedere un'altra verifica. In questo caso sarà necessario ripetere il passaggio 3 con un'opzione diversa.
-5. Nella pagina **Scegliere una nuova password** immettere una nuova password e confermarla, quindi fare clic su **Fine**. È consigliabile che la password contenga una combinazione di 8-16 caratteri minuscoli, maiuscoli, numeri e caratteri speciali.
+5. Nella pagina **Scegliere una nuova password** immettere una nuova password e confermarla, quindi fare clic su **Fine**. La password aziendale o scolastica potrebbe avere requisiti specifici: è consigliabile che la password contenga una combinazione di 8-16 caratteri minuscoli, maiuscoli, numeri e caratteri speciali.
 6. Quando viene visualizzato il messaggio **La password è stata reimpostata**, è possibile accedere con la nuova password.
 
     ![La password è stata reimpostata][Complete]
@@ -95,6 +95,27 @@ Usare questo metodo se in genere si accede alle applicazioni tramite il portale 
 3. Fare clic su **Cambia password**
 4. Immettere la password precedente, impostare e confermare la nuova password, quindi fare clic su **Invia**
 
+## <a name="reset-password-at-login"></a>Reimpostazione della password all'accesso
+
+Se l'amministratore ha abilitato la funzionalità, potrebbe essere disponibile il collegamento **Reimposta password** nella schermata di accesso di Windows 10 Fall Creators Update.
+
+![Schermata di accesso][LoginScreen]
+
+Fare clic sul collegamento **Reimposta password** per avviare la procedura di reimpostazione della password self-service nella schermata di accesso. Ciò consente di reimpostare la password senza dover ricorrere alla normale procedura di accesso basata sul Web.
+
+1. Confermare l'ID utente e quindi fare clic su **Avanti**
+2. Scegliere e confermare un metodo di contatto per la verifica. Il personale IT può richiedere un'altra verifica. In questo caso sarà necessario ripetere questo passaggio con un'opzione diversa.
+
+   ![Metodo di contatto][ContactMethod]
+
+3. Nella pagina **Creazione nuova password** immettere una nuova password e confermarla e quindi fare clic su **Avanti**. È consigliabile che la password contenga una combinazione di 8-16 caratteri minuscoli, maiuscoli, numeri e caratteri speciali.
+
+   ![Reimpostazione della password][ResetPassword]
+
+4. Quando viene visualizzato il messaggio **La password è stata reimpostata**, fare clic su **Fine**
+
+A questo punto dovrebbe essere possibile accedere all'account, in caso contrario contattare il personale IT dell'organizzazione per assistenza.
+
 ## <a name="common-problems-and-their-solutions"></a>Problemi frequenti e relative soluzioni
 
  Di seguito sono riportati alcuni degli errori più comuni e le relative soluzioni:
@@ -116,3 +137,6 @@ Usare questo metodo se in genere si accede alle applicazioni tramite il portale 
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Verificare i dati di autenticazione"
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "Cambiare la password"
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "La password è stata reimpostata"
+[LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Collegamento Reimposta password nella schermata di accesso di Windows 10 Fall Creators Update"
+[ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Verificare i dati di autenticazione"
+[ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Cambiare la password"

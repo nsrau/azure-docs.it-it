@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: a65b50a90a67b718f2a0cdd8657194d9740b3bd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 251ce238b745734bdfb508b30097304a9a650a8c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="best-practices-for-azure-app-service"></a>Procedure consigliate per il servizio app di Azure
 Questo articolo riepiloga le procedure consigliate per l'uso del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -40,7 +40,26 @@ Quando si nota che un'app usa più CPU del previsto o presenta ripetuti picchi d
 Per altre informazioni sulle differenze tra le applicazioni "con stato" e quelle "senza stato", guardare il video relativo alla [pianificazione di un'applicazione multilivello end-to-end scalabile nel servizio app Web di Microsoft Azure](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Per altre informazioni sulla scalabilità del servizio app e sulle opzioni di scalabilità automatica, vedere [Scalare un'app Web nel servizio app di Azure](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Quando si esauriscono le risorse socket
-Una causa comune dell'esaurimento delle connessioni TCP in uscita è l'impiego di librerie client non implementate per il riutilizzo delle connessioni TCP o il mancato uso di un protocollo di livello superiore, ad esempio keep-alive HTTP. Vedere la documentazione di ogni libreria cui fanno riferimento le app nel piano di servizio app per verificare che le librerie siano configurate o accessibili nel proprio codice per un efficiente riutilizzo delle connessioni in uscita. Seguire anche le indicazioni della documentazione delle librerie per le corrette operazioni di creazione, rilascio o pulizia per evitare la perdita di connessioni. Mentre sono in corso le analisi delle librerie client è possibile attenuare l'impatto sulle prestazioni aumentando il numero di istanze.  
+Una causa comune dell'esaurimento delle connessioni TCP in uscita è l'impiego di librerie client non implementate per il riutilizzo delle connessioni TCP o il mancato uso di un protocollo di livello superiore, ad esempio keep-alive HTTP. Vedere la documentazione di ogni libreria cui fanno riferimento le app nel piano di servizio app per verificare che le librerie siano configurate o accessibili nel proprio codice per un efficiente riutilizzo delle connessioni in uscita. Seguire anche le indicazioni della documentazione delle librerie per le corrette operazioni di creazione, rilascio o pulizia per evitare la perdita di connessioni. Mentre sono in corso le analisi delle librerie client è possibile attenuare l'impatto sulle prestazioni aumentando il numero di istanze.
+
+### <a name="nodejs-and-outgoing-http-requests"></a>Node.js e richieste HTTP in uscita
+Se si usa Node.js ed è presente un numero rilevante di richieste HTTP in uscita, è molto importante sapere gestire il protocollo HTTP - Keep-Alive. È possibile usare il pacchetto [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` per semplificarne la gestione nel codice.
+
+È necessario gestire sempre la risposta `http` anche se non si interviene nel gestore. Se la risposta non viene gestita correttamente, l'applicazione rimane bloccata a causa dell'esaurimento delle risorse socket.
+
+Ad esempio, quando si usa il pacchetto `http` o `https`:
+
+```
+var request = https.request(options, function(response) {
+    response.on('data', function() { /* do nothing */ });
+});
+```
+
+In caso di esecuzione del servizio app in Linux in un computer con più core, un'altra procedura consigliata prevede l'uso di PM2 per avviare più processi Node.js per eseguire l'applicazione. A tale scopo specificare un comando di avvio nel contenitore.
+
+Ad esempio, per avviare quattro istanze:
+
+`pm2 start /home/site/wwwroot/app.js --no-daemon -i 4`
 
 ## <a name="appbackup"></a>Quando il backup dell'applicazione non viene più eseguito
 Le due cause più comuni della mancata esecuzione del backup delle app sono: impostazioni di archiviazione non valide e configurazione del database non valida. In genere questi errori si verificano in caso di modifiche alle risorse di archiviazione o alle risorse di database o di modifiche nella modalità di accesso a tali risorse (ad esempio, l'aggiornamento delle credenziali per il database selezionato nelle impostazioni di backup). I backup in genere sono eseguiti in base a una pianificazione e richiedono l'accesso alla risorsa di archiviazione (per l'output dei file di cui è stato eseguito il backup) e ai database (per copiare e leggere il contenuto da includere nel backup). Il risultato dell'incapacità di accedere a queste risorse è una mancata riuscita, costante, del backup. 

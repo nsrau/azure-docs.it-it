@@ -14,40 +14,34 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/15/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: fbd1bee04c5180beda23c04607b313eec9edcab4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca10274fc6a23d7f5e7436dbaf72a6e7a918f275
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Creare il primo contenitore in Istanze di contenitore di Azure
 
 Istanze di contenitore di Azure semplifica la creazione e gestione di contenitori Docker in Azure, senza dover eseguire il provisioning di macchine virtuali o di adottare un servizio di livello superiore.
 
-In questa guida introduttiva viene descritta la procedura per creare un contenitore di Windows in Azure ed esporlo a Internet con un indirizzo IP pubblico. Per completare questa operazione, è sufficiente un solo comando. Dopo alcuni secondi, nel browser verrà visualizzato quanto segue:
+In questa guida introduttiva viene descritta la procedura per creare un contenitore di Windows in Azure ed esporlo a Internet con un indirizzo IP pubblico. Per completare questa operazione, è sufficiente un solo comando. Entro pochi minuti sarà possibile visualizzare l'applicazione in esecuzione nel browser:
 
 ![App distribuita usando Istanze di contenitore di Azure visualizzata nel browser][qs-powershell-01]
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Per questa guida introduttiva è richiesto il modulo Azure PowerShell versione 4.4 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
-
-Accedere alla sottoscrizione di Azure con il comando `Login-AzureRmAccount` e seguire le istruzioni visualizzate.
-
-```powershell
-Login-AzureRmAccount
-```
+Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 3.6 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
 
 ## <a name="create-resource-group"></a>Creare un gruppo di risorse
 
 Creare un gruppo di risorse di Azure con [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
-```powershell
+ ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
@@ -55,13 +49,13 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 È possibile creare un contenitore specificando un nome, un'immagine Docker e un gruppo di risorse di Azure nel cmdlet [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. È facoltativamente possibile esporre il contenitore a Internet con un indirizzo IP pubblico. In questo caso, si userà un contenitore Nano Server di Windows in cui viene eseguito Internet Information Services (IIS).
 
-```powershell
+ ```azurepowershell-interactive
 New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
 ```
 
-Dopo alcuni secondi verrà restituita una risposta alla richiesta. Il contenitore inizialmente presenterà lo stato **Creazione in corso**, ma verrà avviato entro un paio di minuti. È possibile controllare lo stato con il cmdlet [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
+Dopo alcuni secondi verrà restituita una risposta alla richiesta. Il contenitore inizialmente presenta lo stato **Creazione in corso**, ma viene avviato entro un paio di minuti. È possibile controllare lo stato con il cmdlet [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
 
-```powershell
+ ```azurepowershell-interactive
 Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
@@ -92,7 +86,7 @@ Quando **ProvisioningState** del contenitore passa a `Succeeded`, è possibile r
 
 Quando il contenitore non è più necessario, è possibile rimuoverlo con il cmdlet [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup]:
 
-```powershell
+ ```azurepowershell-interactive
 Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
@@ -101,7 +95,7 @@ Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontaine
 In questa guida introduttiva è stato avviato un contenitore di Windows predefinito in Istanze di contenitore di Azure. Per provare a creare personalmente e distribuire un contenitore in Istanze di contenitore di Azure tramite Registro contenitori di Azure, passare all'esercitazione su Istanze di contenitore di Azure.
 
 > [!div class="nextstepaction"]
-> [Esercitazioni su Istanze di contenitore di Azure](./container-instances-tutorial-prepare-app.md)
+> [Esercitazione su Istanze di contenitore di Azure](./container-instances-tutorial-prepare-app.md)
 
 <!-- LINKS -->
 [New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup

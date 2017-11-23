@@ -4,7 +4,7 @@ description: Guida alla risoluzione dei problemi di Servizi di dominio di Azure 
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory-ds
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 34335db77a5e414af4cfa77d6223ab5290bae614
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 3acecdf753162ad703ff51acf40c34335bf6cdcb
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Servizi di dominio Azure Active Directory
 Questo articolo offre suggerimenti per la risoluzione dei problemi che possono verificarsi quando si configura o si amministra Servizi di dominio di Azure Active Directory (AD).
 
 ## <a name="you-cannot-enable-azure-ad-domain-services-for-your-azure-ad-directory"></a>Non è possibile abilitare i Servizi di dominio Azure AD per la directory Azure AD
-Le informazioni riportate in questa sezione consentono di risolvere gli errori che si verificano quando si tenta di abilitare Azure Active Directory Domain Services per la directory e il tentativo ha esito negativo oppure lo stato viene impostato su "Disabilitato".
+Le informazioni riportate in questa sezione consentono di risolvere gli errori che si verificano quando si tenta di abilitare Azure Active Directory Domain Services per la directory.
 
 Seguire la procedura di risoluzione dei problemi corrispondente al messaggio di errore ricevuto.
 
@@ -81,7 +81,7 @@ Usare lo script di PowerShell seguente per trovare l'applicazione ed eliminarla.
 >
 >
 
-```
+```powershell
 $InformationPreference = "Continue"
 $WarningPreference = "Continue"
 
@@ -151,7 +151,7 @@ Se uno o più utenti nel tenant di Azure AD non sono in grado di accedere al dom
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Gli utenti rimossi dal tenant di Azure AD non vengono rimossi dal dominio gestito
 Azure AD impedisce l'eliminazione accidentale di oggetti utente. Quando si elimina un account utente dal tenant di Azure AD, il corrispondente oggetto utente viene spostato nel Cestino. Quando questa operazione di eliminazione viene sincronizzata con il dominio gestito, il corrispondente account utente viene contrassegnato come disabilitato. Questa funzionalità consente di ripristinare o annullare l'eliminazione dell'account utente in un secondo tempo.
 
-L'account utente rimane nello stato disabilitato nel dominio gestito, anche se si crea nuovamente un account utente con lo stesso UPN nella directory di Azure AD. Per rimuovere l'account utente dal dominio gestito, occorre eliminarlo dal tenant di Azure AD.
+L'account utente rimane nello stato disabilitato nel dominio gestito, anche se si crea nuovamente un account utente con lo stesso UPN nella directory di Azure AD. Per rimuovere l'account utente dal dominio gestito, occorre forzarne l'eliminazione dal tenant di Azure AD.
 
 Per rimuovere completamente l'account utente dal dominio gestito, eliminare in modo permanente l'utente dal tenant di Azure AD. Usare il cmdlet Remove-MsolUser PowerShell con l'opzione "-RemoveFromRecycleBin", come descritto in questo [articolo di MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/13/2017
+ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e817e327b8890c91bd7db640b083fd6c5c11aa14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40433df5ebe90aec3a9294f2c5a6083c4567b161
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 In questo articolo vengono illustrati i passaggi per configurare i report per Backup di Azure usando l'insieme di credenziali di Servizi di ripristino e per accedere a questi report usando Power BI. Dopo aver seguito questa procedura, è possibile passare direttamente a Power BI per visualizzare tutti i report, personalizzare e creare report. 
@@ -29,6 +29,7 @@ In questo articolo vengono illustrati i passaggi per configurare i report per Ba
 2. In questo momento non sono supportati i report per Azure SQL, DPM e il server di Backup di Azure.
 3. È possibile visualizzare i report negli insiemi di credenziali e nelle sottoscrizioni, se per ogni insieme è configurato lo stesso account di archiviazione. L'account di archiviazione selezionato deve trovarsi nella stessa località dell'insieme di credenziali di Servizi di ripristino.
 4. La frequenza di aggiornamento pianificato per il report è 24 ore in Power BI. È anche possibile eseguire un aggiornamento ad hoc dei report in Power BI, nel qual caso i dati più aggiornati nell'account di archiviazione del cliente vengono usati per il rendering dei report. 
+5. I report di Backup di Azure non sono attualmente supportati nei cloud nazionali.
 
 ## <a name="prerequisites"></a>Prerequisiti
 1. Creare un [account di archiviazione di Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) per configurarlo per i report. Questo account di archiviazione viene usato per archiviare i dati correlati ai report.
@@ -50,19 +51,26 @@ Usare la procedura seguente per configurare l'account di archiviazione per l'arc
 2. Dall'elenco di elementi visualizzato nell'insieme di credenziali fare clic su **Backup Reports** (Report di backup) nella sezione Monitoraggio e report per configurare l'account di archiviazione per i report.
 
       ![Selezionare la voce di menu Backup Reports (Report di backup) - Passaggio 2](./media/backup-azure-configure-reports/backup-reports-settings.PNG)
-3. Nel pannello Backup Reports (Report di backup) fare clic sul pulsante **Configura**. Viene aperto il pannello Azure Application Insights, usato per eseguire il push dei dati nell'account di archiviazione del cliente.
+3. Nel pannello Report di backup fare clic sul collegamento **Impostazioni di diagnostica**. Verrà visualizzata l'interfaccia utente Impostazioni di diagnostica, usata per eseguire il push dei dati nell'account di archiviazione del cliente.
 
-      ![Configurare l'account di archiviazione - Passaggio 3](./media/backup-azure-configure-reports/configure-storage-account.PNG)
-4. Impostare l'interruttore sullo stato **attivato** e selezionare la casella di controllo **Archivia in un account di archiviazione** in modo da avviare il trasferimento dei dati dei report nell'account di archiviazione.
+      ![Abilitare la diagnostica - Passaggio 3](./media/backup-azure-configure-reports/backup-azure-configure-reports.png)
+4. Fare quindi clic sul collegamento **Attiva diagnostica**. Verrà visualizzata l'interfaccia utente per la configurazione dell'account di archiviazione. 
 
-      ![Abilitare la diagnostica - Passaggio 4](./media/backup-azure-configure-reports/set-status-on.png)
-5. Fare clic sul selettore di account di archiviazione e selezionare l'account di archiviazione dall'elenco per l'archiviazione dei dati dei report, quindi fare clic su **OK**.
+      ![Attivare la diagnostica - Passaggio 4](./media/backup-azure-configure-reports/enable-diagnostics.png)
+5. Immettere il nome dell'impostazione nel campo **Nome** e selezionare la casella di controllo **Archivia in un account di archiviazione** in modo da avviare il trasferimento dei dati dei report nell'account di archiviazione.
 
-      ![Selezionare l'account di archiviazione - Passaggio 5](./media/backup-azure-configure-reports/select-storage-account.png)
-6. Selezionare la casella di controllo **AzureBackupReport** e spostare il dispositivo di scorrimento per selezionare il periodo di conservazione dei dati dei report. I dati dei report verranno conservati nell'account di archiviazione per il periodo di tempo selezionato con questo dispositivo di scorrimento.
+      ![Abilitare la diagnostica - Passaggio 5](./media/backup-azure-configure-reports/select-setting-name.png)
+6. Fare clic sul selettore di account di archiviazione e selezionare la sottoscrizione e l'account di archiviazione rilevanti dall'elenco per l'archiviazione dei dati dei report e quindi fare clic su **OK**.
 
-      ![Selezionare l'account di archiviazione - Passaggio 6](./media/backup-azure-configure-reports/save-configuration.png)
-7. Esaminare tutte le modifiche e fare clic sul pulsante **Salva** nella parte superiore, come illustrato nella figura precedente. Questa azione assicura che tutte le modifiche vengano salvate e che l'account di archiviazione sia ora configurato per l'archiviazione dei dati dei report.
+      ![Selezionare l'account di archiviazione - Passaggio 6](./media/backup-azure-configure-reports/select-subscription-sa.png)
+7. Selezionare la casella di controllo **AzureBackupReport** nella sezione Log e spostare il dispositivo di scorrimento per selezionare il periodo di conservazione dei dati dei report. I dati dei report verranno conservati nell'account di archiviazione per il periodo di tempo selezionato con questo dispositivo di scorrimento.
+
+      ![Salvare l'account di archiviazione - Passaggio 7](./media/backup-azure-configure-reports/save-diagnostic-settings.png)
+8. Esaminare tutte le modifiche e fare clic sul pulsante **Salva** nella parte superiore, come illustrato nella figura precedente. Questa azione assicura che tutte le modifiche vengano salvate e che l'account di archiviazione sia ora configurato per l'archiviazione dei dati dei report.
+
+9. Nella tabella impostazioni di diagnostica viene visualizzata la nuova impostazione abilitata per l'insieme di credenziali. Se non viene visualizzato, aggiornare la tabella per visualizzare l'impostazione aggiornata.
+
+      ![Visualizzare l'impostazione di diagnostica - Passaggio 9](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
 > Dopo aver configurato i report con il salvataggio dell'account di archiviazione, è consigliabile **attendere 24 ore** affinché venga completato il push di dati iniziale. È consigliabile importare il pacchetto di contenuto di Backup di Azure in Power BI solo dopo tale intervallo. Per altri dettagli vedere la [sezione delle domande frequenti](#frequently-asked-questions). 

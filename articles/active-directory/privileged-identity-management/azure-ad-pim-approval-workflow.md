@@ -14,27 +14,24 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: cf6a9213fa0a1cba8725aabb42abe51b805ece7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90aec90edcbbfb7833efd85752afc8f1937f5b5a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="approvals-preview"></a>Approvazioni (Anteprima)
+# <a name="approvals"></a>Approvazioni
 
 ## <a name="overview"></a>Panoramica
 
 Con Approvazioni per Privileged Identity Management, è possibile configurare ruoli per richiedere l’approvazione per l’attivazione, e scegliere uno o più utenti o gruppi come responsabili approvazione con delega. Continuare a leggere per scoprire come configurare i ruoli e selezionare i responsabili approvazione.
 
->[!NOTE]
-Tenere presente che questa funzionalità è ancora in fase di sviluppo e che è possibile che si verifichino degli errori. La funzionalità, inclusi il testo e le convenzioni di denominazione, sono soggetti a modifica e non devono essere considerati finali.
 
-
-## <a name="key-terminology"></a>Terminologia chiave
+## <a name="new-terminology"></a>Nuova terminologia
 
 *Eligible Role User (Utente con ruolo idoneo)*: un utente con ruolo idoneo è un utente dell’organizzazione assegnato come idoneo a un ruolo Azure AD (ruolo che richiede l’attivazione).
 
-*Delegated Approver (Responsabile approvazione con delega)*: un responsabile approvazione con delega è una o più persone o gruppo all’interno di Azure AD che sono responsabili dell’approvazione delle richieste di l’attivazione del ruolo.
+*Delegated Approver* (Responsabile approvazione con delega): un responsabile approvazione con delega è una o più persone o gruppi nell'istanza di Azure AD responsabili dell'approvazione delle richieste di attivazione dei ruoli.
 
 ## <a name="scenarios"></a>Scenari
 

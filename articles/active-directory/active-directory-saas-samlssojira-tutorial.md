@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: cde5983710185d1e46a5601b16bbfb1c0fcae382
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17ff07648b210fe207b514381e98dd372375e092
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Esercitazione: integrazione di Azure Active Directory con SAML SSO for Jira di resolution GmbH
 
@@ -159,27 +159,53 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon11.png)
 
-14. Nella pagina **SAML SingleSignOn Plugin Configuration** (Configurazione del plug-in SAML SingleSignOn) fare clic sul pulsante **Add additional Identity Provider** (Aggiungi provider di identità aggiuntivi) per configurare le impostazioni del provider di identità.
+14. Nella pagina **SAML SingleSignOn Plugin Configuration** (Configurazione del plug-in SAML SingleSignOn) fare clic sul pulsante **Add new IdP** (Aggiungi nuovo provider di identità) per configurare le impostazioni del provider di identità.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon4.png)
 
-15. In questa pagina eseguire la procedura seguente:
+15. Nella pagina **Choose your SAML Identity Provider** (Scegliere il provider di identità SAML) eseguire la procedura seguente:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon5.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon5a.png)
  
-    a. Aggiungere il **nome** del provider di identità, ad esempio Azure AD.
+    a. Impostare **AD Azure** come tipo di provider di identità.
     
-    b. Aggiungere la **descrizione** del provider di identità, ad esempio Azure AD.
+    b. Aggiungere il **nome** del provider di identità, ad esempio Azure AD.
+    
+    c. Aggiungere la **descrizione** del provider di identità, ad esempio Azure AD.
+    
+    d. Fare clic su **Avanti**.
+    
+16. Nella pagina **Identity provider configuration** (Configurazione provider di identità) fare clic sul pulsante **Next** (Avanti).
 
-    c. Fare clic su **XML** e selezionare il file **Metadata** (Metadati) scaricato dal portale di Azure.
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon5b.png)
 
-    d. Fare clic sul pulsante **Load** (Carica).
+17. Nella pagina **Import SAML IdP Metadata** (Importa metadati provider di identità SAML) eseguire la procedura seguente:
 
-    e. Legge i metadati IdP e popola i campi come evidenziato nella schermata. 
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon5c.png)
 
-16. Fare clic sul pulsante **Save settings** (Salva impostazioni) per salvare le impostazioni.
+    a. Fare clic sul pulsante **Load File** (Carica file) e selezionare il file XML di metadati scaricato al passaggio 5.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon6.png)
+    b. Fare clic sul pulsante **Import** (Importa).
+    
+    c. Attendere il completamento dell'importazione.
+    
+    d. Fare clic qui sul pulsante **Next** (Avanti).
+    
+18. Nella pagina **User ID attribute and transformation** (Attributo e trasformazione ID utente) fare clic sul pulsante **Next** (Avanti).
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon5d.png)
+    
+19. Nella pagina **User creation and update** (Creazione e aggiornamento utente) fare clic su **Save & Next** (Salva e continua) per salvare le impostazioni.   
+    
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon6a.png)
+    
+20. Nella pagina **Test your settings** (Test impostazioni) fare clic su **Skip test & configure manually** (Ignora test e configura manualmente) per ignorare il test dell'utente. Il test verrà eseguito nella sezione successiva e richiede alcune impostazioni nel portale di Azure. 
+    
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon6b.png)
+    
+21. Nella finestra di dialogo visualizzata, contenente il messaggio **Skipping the test means...** (Significato della mancata esecuzione del test), fare clic su **OK**.
+    
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssojira-tutorial/addon6c.png)
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).

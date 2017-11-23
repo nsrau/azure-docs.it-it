@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: c0f86e13e21f2af323e0a306b381054b6eb76755
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: da120d8e325867eaf9eb8b9be1ae8d9152db54c4
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Matrice di supporto per la replica in un sito secondario con Azure Site Recovery
 
@@ -28,7 +28,7 @@ Questo articolo contiene un riepilogo di elementi supportati quando si usa il se
 
 **Distribuzione** | **Dettagli** 
 --- | ---
-**Da VMware a VMware** | Ripristino di emergenza di macchine virtuali VMware locali nel sito VMware secondario.<br/><br/> Scaricare il [Manuale dell'utente di InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)
+**Da VMware a VMware** | Ripristino di emergenza di macchine virtuali VMware locali nel sito VMware secondario.<br/><br/> Scaricare il [Manuale dell'utente di InMage Scout](https://aka.ms/asr-scout-user-guide)
 **Da Hyper-V a Hyper-V** | Ripristino di emergenza di VM Hyper-V locali in cloud VMM in un cloud VMM secondario.<br></br> Non supportato senza VMM.
 
 
@@ -39,7 +39,7 @@ Questo articolo contiene un riepilogo di elementi supportati quando si usa il se
 
 **Distribuzione** | **Supporto**
 --- | ---
-**Server fisico/VM VMware** | vCenter 5.5 o 6.0 (supporto per le sole funzionalità 5.5) 
+**Server fisico/VM VMware** | vCenter 5.5, 6.0 e 6.5 (supporto per le sole funzionalità 5.5)
 **Hyper-V con VMM** | Windows Server 2016 e Windows Server 2012 R2 con gli aggiornamenti più recenti.<br/><br/> Gli host Windows Server 2016 dovranno essere gestiti da VMM 2016.<br/><br/> I cloud VMM 2016 con una combinazione di host Windows Server 2016 e 2012 R2 non sono attualmente supportati.<br/><br/> Attualmente non è supportata la distribuzione che include un aggiornamento di un componente VMM 2012 R2 esistente a System Center 2016.
 
 
@@ -49,7 +49,7 @@ Nella tabella seguente viene descritto il supporto del sistema operativo per i c
 
 **Server fisico/VMware** | **Hyper-V (con VMM)**
 --- | ---
-Le VM Windows Server 2012 R2 a 64 bit, Windows Server 2012, Windows Server 2008 R2 con SP1 o successivo<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 o 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Qualsiasi sistema operativo guest [supportato da Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
+Windows Server 2016 a 64 bit, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 con almeno il SP1<br/><br/> Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> CentOs 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5, 6.8 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4  | Qualsiasi sistema operativo guest [supportato da Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
 
 ## <a name="linux-machine-storage"></a>Archiviazione di computer Linux
 
@@ -104,15 +104,15 @@ VHD/VHDX | N/D | Sì (fino a 16 dischi)
 VM di seconda generazione | N/D | Sì
 Disco cluster condiviso | Sì  | No
 Disco crittografato | No | No
-UEFI| No | N/D
+UEFI| Sì | N/D
 NFS | No | No
 SMB 3.0 | No | No
 RDM | Sì | N/D
-Disco superiore a 1 TB | No | Sì
+Disco superiore a 1 TB | Sì | Sì
 Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Sì | Sì
 Spazi di archiviazione | No | Sì
-Aggiunta/rimozione a caldo disco | No | No
-Esclusione disco | No | Sì
+Aggiunta/rimozione a caldo disco | Sì | No
+Esclusione disco | Sì | Sì
 Percorsi multipli (MPIO) | N/D | Sì
 
 ## <a name="vaults"></a>Insiemi di credenziali

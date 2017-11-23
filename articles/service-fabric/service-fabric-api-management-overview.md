@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: a3eedacac5efb53f82e46a56285713dece56ffe8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea3b1f50bada3c1301f8661f8f0b4866cb1c732c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Panoramica di Service Fabric con Gestione API di Azure
 
@@ -108,7 +108,7 @@ Ogni istanza del servizio viene anche partizionata usando lo schema di partizion
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Consultare la [Guida introduttiva](service-fabric-api-management-quick-start.md) per impostare il primo cluster Service Fabric con Gestione API e trasferire le richieste nei servizi tramite Gestione API.
+Seguire l'[esercitazione](service-fabric-tutorial-deploy-api-management.md) per impostare il primo cluster Service Fabric con Gestione API e trasferire le richieste ai servizi tramite Gestione API.
 
 <!-- links -->
 

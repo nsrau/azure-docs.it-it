@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 3a19f2cf7566f38f80639d7c966638a3ec900cf4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5950bad397e4b0f08f998ea6756e3c258e84b63e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Scaffold Azure enterprise: governance prescrittiva per le sottoscrizioni
 Le organizzazioni stanno adottando sempre di più il cloud pubblico per la sua agilità e la sua flessibilità. Usano i punti di forza del cloud per generare ricavi o ottimizzare le risorse per l'azienda. Microsoft Azure fornisce numerosi servizi che le organizzazioni possono assemblare come blocchi predefiniti per affrontare le esigenze di una vasta gamma di applicazioni e carichi di lavoro. 
@@ -89,7 +89,7 @@ Il primo pilastro dello scaffolding è lo standard di denominazione. Standard di
 > I suggerimenti precedenti consentono di implementare una convenzione di denominazione coerente.
 
 ## <a name="policies-and-auditing"></a>Criteri e controllo
-Il secondo pilastro dello scaffold comporta la creazione di [criteri di Azure Resource Manager](resource-manager-policy.md) e il [controllo del log attività](resource-group-audit.md). I criteri di Resource Manager consentono di gestire i rischi in Azure. È possibile definire criteri in grado di garantire la sovranità dei dati attraverso la limitazione, l'applicazione o il controllo di determinate azioni. 
+Il secondo pilastro dello scaffolding comporta la creazione di [criteri di Azure](../azure-policy/azure-policy-introduction.md) e il [controllo del log attività](resource-group-audit.md). I criteri di Resource Manager consentono di gestire i rischi in Azure. È possibile definire criteri in grado di garantire la sovranità dei dati attraverso la limitazione, l'applicazione o il controllo di determinate azioni. 
 
 * Per impostazione predefinita, i criteri sono un sistema **allow**. Le azioni vengono controllate attraverso la definizione e l'assegnazione di criteri a risorse che negano o controllano le azioni sulle risorse.
 * I criteri sono descritti dalle relative definizioni in un linguaggio di definizione dei criteri (condizioni if-then).

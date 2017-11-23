@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 11/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 6c74db1659742aa41306388273bec46800ba7609
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bab7a0646d34de3b6d71370a0fa4216845ee6a2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accesso ai log di diagnostica per Azure Data Lake Analytics
 
@@ -36,11 +36,9 @@ La registrazione diagnostica consente di raccogliere audit trail di accesso ai d
 
     ![Attivare la diagnostica per acquisire i log di controllo e i log delle richieste.](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
-3. Dalle __Impostazioni di diagnostica__, impostare lo stato su __Attivo__ e selezionare le opzioni di registrazione.
+3. Dalle __Impostazioni di diagnostica__ immettere un __Nome__ per la configurazione della registrazione e selezionare le opzioni di registrazione.
 
     ![Attivare la diagnostica per acquisire i log di controllo e i log delle richieste](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Abilitare i log di diagnostica")
-
-   * Impostare lo **Stato** su **Attivo** per abilitare la registrazione diagnostica.
 
    * È possibile scegliere di archiviare/elaborare i dati in tre modi diversi.
 
@@ -58,34 +56,14 @@ La registrazione diagnostica consente di raccogliere audit trail di accesso ai d
         > [!NOTE]
         > È necessario selezionare una tra le opzioni __Archivia in un account di archiviazione__, __Streaming in un hub eventi__ o __Invia a Log Analytics__ prima di fare clic sul pulsante __Salva__.
 
-Dopo avere abilitato le impostazioni di diagnostica, è possibile tornare al pannello __Log di diagnostica__ per visualizzare i log.
-
-## <a name="view-logs"></a>Visualizzare i log
-
-### <a name="use-the-data-lake-analytics-view"></a>Usare la visualizzazione di Data Lake Analytics
-
-1. Dal pannello dell'account Data Lake Analytics selezionare **Log di diagnostica** in **Monitoraggio** e quindi selezionare una voce per la quale visualizzare i log.
-
-    ![Visualizzare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "Visualizzare i log di diagnostica")
-
-2. I log sono suddivisi in **Log di controllo** e **Log delle richieste**.
-
-    ![Voci del log](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
-
-   * I log delle richieste acquisiscono tutte le richieste API fatte nell'account di Data Lake Analytics.
-   * I log di controllo sono simili a quelli delle richieste ma forniscono una suddivisione più dettagliata delle operazioni. Ad esempio, una singola chiamata API di caricamento in un log delle richieste può restituire più operazioni di aggiunta nel log di controllo.
-
-3. Fare clic sul collegamento **Scarica** di una voce di log per scaricare il log.
-
 ### <a name="use-the-azure-storage-account-that-contains-log-data"></a>Usare l'account di archiviazione di Azure contenente i dati di log
 
-1. Aprire il pannello dell'account di archiviazione di Azure associato a Data Lake Analytics per la registrazione e quindi fare clic su __BLOB__. Il pannello **Servizio BLOB** elenca due contenitori.
-
-    ![Visualizzare la registrazione diagnostica](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Visualizzare i log di diagnostica")
+1. Per visualizzare i contenitori BLOB che contengono i dati della registrazione, aprire l'account di archiviazione di Azure associato a Data Lake Analytics per la registrazione e quindi fare clic su __BLOB__.
 
    * Il contenitore **insights-logs-audit** contiene i log di controllo.
    * Il contenitore **insights-logs-requests** contiene i log delle richieste.
-2. All'interno di questi contenitori i log vengono archiviati con la struttura seguente:
+
+2. All'interno dei contenitori i log vengono archiviati con la struttura file seguente:
 
         resourceId=/
           SUBSCRIPTIONS/

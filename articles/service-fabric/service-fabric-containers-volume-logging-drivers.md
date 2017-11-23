@@ -14,19 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 7464611e669165d9ec1f0de7422b20b3f3b8c2b5
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 955f84e5656bbf568234cbaf69faa4dd0a741206
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="using-volume-plugins-and-logging-drivers-in-your-container"></a>Uso di plug-in di volume e driver di registrazione per il contenitore
+Service Fabric supporta la specifica di [plug-in di volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) e i [driver di registrazione Docker](https://docs.docker.com/engine/admin/logging/overview/) per il servizio di contenitore.  Ciò consente di rendere persistenti i dati in [File di Azure](https://azure.microsoft.com/en-us/services/storage/files/) anche se il contenitore viene spostato o riavviato in un host diverso.
 
-Service Fabric supporta la specifica di [plug-in di volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) e i [driver di registrazione Docker](https://docs.docker.com/engine/admin/logging/overview/) per il servizio di contenitore. 
+Attualmente, come illustrato di seguito, sono presenti solo driver di volume per contenitori Linux.  Se si usano contenitori Windows, è possibile eseguire il mapping di un volume a una [condivisione SMB3](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/) di File di Azure senza un driver di volume con la versione più recente (1709) di Windows Server. Ciò richiede l'aggiornamento delle macchine virtuali nel cluster alla versione 1709 di Windows Server.
+
 
 ## <a name="install-volumelogging-driver"></a>Installare i driver di volume/registrazione
 
-Se il driver di volume/registrazione docker non è installato nel computer, installarlo manualmente tramite l'accesso RDP/SSH nel computer o tramite uno script di avvio VMSS. Ad esempio, per installare il driver di volume docker, SSH nel computer ed eseguire:
+Se il driver di volume/registrazione Docker non è installato nel computer, installarlo manualmente tramite accesso RDP/SSH al computer, tramite uno [script di avvio VMSS](https://azure.microsoft.com/en-us/resources/templates/201-vmss-custom-script-windows/) o tramite uno script [SetupEntryPoint](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model#describe-a-service). La scelta di uno dei metodi indicati consente di predisporre uno script per installare il [driver di volume Docker per Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/):
+
 
 ```bash
 docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:17.09.0-ce-azure1  \
@@ -72,7 +75,7 @@ I plug-in sono specificati nel manifesto dell'applicazione, come illustrato nel 
 </ApplicationManifest>
 ```
 
-Nell'esempio precedente, il tag `Source` per `Volume` fa riferimento alla cartella di origine. La cartella di origine potrebbe essere una cartella nella macchina virtuale che ospita i contenitori o un archivio remoto persistente. Il tag `Destination` è il percorso in cui viene eseguito il mapping di `Source` all'interno del contenitore in esecuzione. 
+Nell'esempio precedente, il tag `Source` per `Volume` fa riferimento alla cartella di origine. La cartella di origine potrebbe essere una cartella nella macchina virtuale che ospita i contenitori o un archivio remoto persistente. Il tag `Destination` è il percorso in cui viene eseguito il mapping di `Source` all'interno del contenitore in esecuzione.  La destinazione non può quindi essere un percorso già esistente all'interno del contenitore.
 
 Quando si specifica un plug-in di un volume, Service Fabric crea automaticamente il volume usando i parametri specificati. Il tag `Source` è il nome del volume e il tag `Driver` specifica il plug-in del driver del volume. Le opzioni possono essere specificate usando il tag `DriverOption`, come illustrato nel frammento di codice seguente:
 
@@ -81,7 +84,6 @@ Quando si specifica un plug-in di un volume, Service Fabric crea automaticamente
            <DriverOption Name="share" Value="models"/>
 </Volume>
 ```
-
 Se viene specificato un driver di registro Docker, è necessario distribuire gli agenti o i contenitori per gestire i registri nel cluster.  Il tag `DriverOption` può essere usato anche per specificare le opzioni del driver di log.
 
 Vedere gli articoli seguenti per distribuire i contenitori a un cluster Service Fabric:

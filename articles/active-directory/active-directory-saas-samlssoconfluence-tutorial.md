@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 9a36d686ba39b5168860a20e8c4db357888df6a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17bd8294c957c0666ffe75d1ff06b863f1176048
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Esercitazione: integrazione di Azure Active Directory con SAML SSO for Confluence di resolution GmbH
 
@@ -169,26 +169,53 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon3.png)
     
-16. Nella pagina **SAML SingleSignOn Plugin Configuration** (Configurazione del plug-in SAML SingleSignOn) fare clic sul pulsante **Add additional Identity Provider** (Aggiungi provider di identità aggiuntivi) per configurare le impostazioni del provider di identità.
+16. Nella pagina **SAML SingleSignOn Plugin Configuration** (Configurazione del plug-in SAML SingleSignOn) fare clic sul pulsante **Add new IdP** (Aggiungi nuovo provider di identità) per configurare le impostazioni del provider di identità.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon4.png)
 
-17. In questa pagina eseguire la procedura seguente:
+17. Nella pagina **Choose your SAML Identity Provider** (Scegliere il provider di identità SAML) eseguire la procedura seguente:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon5.png)
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon5a.png)
  
-    a. Aggiungere il **nome** del provider di identità, ad esempio Azure AD.
+    a. Impostare **AD Azure** come tipo di provider di identità.
     
-    b. Aggiungere la **descrizione** del provider di identità, ad esempio Azure AD.
+    b. Aggiungere il **nome** del provider di identità, ad esempio Azure AD.
+    
+    c. Aggiungere la **descrizione** del provider di identità, ad esempio Azure AD.
+    
+    d. Fare clic su **Avanti**.
+    
+18. Nella pagina **Identity provider configuration** (Configurazione provider di identità) fare clic sul pulsante **Next** (Avanti).
 
-    c. Fare clic su **XML** e selezionare il file **Metadata** (Metadati) scaricato dal portale di Azure.
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon5b.png)
 
-    d. Fare clic sul pulsante **Load** (Carica).
+19. Nella pagina **Import SAML IdP Metadata** (Importa metadati provider di identità SAML) eseguire la procedura seguente:
 
-    e. Legge i metadati IdP e popola i campi come evidenziato nella schermata. 
-18. Fare clic sul pulsante **Save settings** (Salva impostazioni) per salvare le impostazioni.
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon5c.png)
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon6.png)
+    a. Fare clic sul pulsante **Load File** (Carica file) e selezionare il file XML di metadati scaricato al passaggio 5.
+
+    b. Fare clic sul pulsante **Import** (Importa).
+    
+    c. Attendere il completamento dell'importazione.
+    
+    d. Fare clic qui sul pulsante **Next** (Avanti).
+    
+20. Nella pagina **User ID attribute and transformation** (Attributo e trasformazione ID utente) fare clic sul pulsante **Next** (Avanti).
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon5d.png)
+    
+21. Nella pagina **User creation and update** (Creazione e aggiornamento utente) fare clic su **Save & Next** (Salva e continua) per salvare le impostazioni.   
+    
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon6a.png)
+    
+22. Nella pagina **Test your settings** (Test impostazioni) fare clic su **Skip test & configure manually** (Ignora test e configura manualmente) per ignorare il test dell'utente. Il test verrà eseguito nella sezione successiva e richiede alcune impostazioni nel portale di Azure. 
+    
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon6b.png)
+    
+23. Nella finestra di dialogo visualizzata, contenente il messaggio **Skipping the test means...** (Significato della mancata esecuzione del test), fare clic su **OK**.
+    
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-samlssoconfluence-tutorial/addon6c.png)
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).

@@ -13,23 +13,23 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/07/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 60e63401e3915e62e1ec5ac03cd548c291580b24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3deb0ff81114c840798c5927ad7311d7e603813d
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="service-limits-in-azure-search"></a>Limiti dei servizi in Ricerca di Azure
 I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, documenti e altri oggetti dipendono dal [piano tariffario scelto per Ricerca di Azure](search-create-service-portal.md): **Gratuito**, **Basic** o **Standard**.
 
-* **gratuito** è un servizio condiviso multi-tenant fornito con la sottoscrizione di Azure. È un'opzione senza costi aggiuntivi per i sottoscrittori che consente di provare il servizio prima di iscriversi per usare risorse dedicate.
+* **gratuito** è un servizio condiviso multi-tenant fornito con la sottoscrizione di Azure. 
 * Il piano **Basic** fornisce risorse di elaborazione dedicate per carichi di lavoro di produzione di dimensioni ridotte.
 * Il piano **Standard** prevede computer dedicati con maggiore capacità di elaborazione e archiviazione a ogni livello. Il piano Standard è disponibile in quattro livelli: S1, S2, S3 e ad alta densità S3 (S3 HD).
 
 > [!NOTE]
-> Il provisioning di un servizio viene eseguito in base al piano tariffario specifico. Se è necessario passare a un nuovo piano tariffario per ottenere più capacità, bisogna eseguire il provisioning di un nuovo servizio (non esiste alcun aggiornamento sul posto). Per altre informazioni, vedere [Scegliere uno SKU o un piano tariffario](search-sku-tier.md). Per altre informazioni sulla regolazione delle capacità all'interno di un servizio di cui è già stato effettuato il provisioning, vedere [Ridimensionare i livelli di risorse per le query e l'indicizzazione dei carichi di lavoro](search-capacity-planning.md).
+> Il provisioning di un servizio viene eseguito in base al piano tariffario specifico. Il passaggio a un nuovo piano tariffario per ottenere più capacità prevede il provisioning di un nuovo servizio (non esiste alcun aggiornamento sul posto). Per altre informazioni, vedere [Scegliere uno SKU o un piano tariffario](search-sku-tier.md). Per altre informazioni sulla regolazione delle capacità all'interno di un servizio di cui è già stato effettuato il provisioning, vedere [Ridimensionare i livelli di risorse per le query e l'indicizzazione dei carichi di lavoro](search-capacity-planning.md).
 >
 
 ## <a name="per-subscription-limits"></a>Limiti per sottoscrizione
@@ -66,16 +66,11 @@ Si riferisce alla dimensione massima del documento quando si chiama un'API di in
 
 Per limitare la dimensione del documento, è necessario escludere dalla richiesta i dati non disponibili per query. Le immagini e altri dati binari non sono direttamente disponibili per query e non devono quindi essere archiviati nell'indice. Per integrare i dati non disponibili per query nei risultati della ricerca, definire un campo non disponibile per la ricerca che consenta l'archiviazione di un riferimento URL nella risorsa.
 
-## <a name="workload-limits-queries-per-second"></a>Limiti dei carichi di lavoro (query al secondo)
-| Risorsa | Free | Basic | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| QUERY AL SECONDO |N/D  |~3 per replica |~15 per replica |~60 per replica |>60 per replica |>60 per replica |
+## <a name="queries-per-second-qps"></a>Query al secondo
 
-Query al secondo è un'approssimazione basata sull'euristica che usa carichi di lavoro simulati ed effettivi per calcolare i valori stimati. La velocità effettiva di query al secondo varia a seconda dei dati e della natura della query.
+Le stime di query al secondo devono essere sviluppate in modo indipendente da ogni cliente. Le dimensioni e la complessità dell'indice, le dimensioni e la complessità della query e la quantità di traffico sono i fattori principali in base ai quali è possibile determinare il numero di query al secondo. Non è possibile fornire stime significative se questi fattori sono sconosciuti.
 
-Anche se sopra sono indicate stime approssimative, è difficile determinare una velocità effettiva, soprattutto nel servizio condiviso Free in cui la velocità effettiva dipende dalla larghezza di banda disponibile e dalla concorrenza tra le risorse di sistema. Nel livello gratuito le risorse di calcolo e di archiviazione vengono condivise da più sottoscrittori, pertanto il numero di query al secondo per la soluzione scelta varia a seconda del numero degli altri carichi di lavoro in esecuzione nello stesso momento.
-
-Al livello Standard è possibile stimare in modo più preciso il numero di query al secondo, perché si ha il controllo di un numero maggiore di parametri. Per indicazioni su come calcolare il numero di query al secondo per i carichi di lavoro, vedere la sezione relativa alle procedure consigliate in [Manage your search solution](search-manage.md) (Gestire la soluzione di ricerca).
+Le stime sono più prevedibili se vengono calcolate su servizi in esecuzione su risorse dedicate (livelli Basic e Standard). In questo caso, infatti, è possibile stimare in modo più preciso il numero di query al secondo, poiché si ha il controllo di un numero maggiore di parametri. Per informazioni su come eseguire la stima, vedere [Considerazioni sulle prestazioni e sull'ottimizzazione di Ricerca di Azure](search-performance-optimization.md).
 
 ## <a name="api-request-limits"></a>Limiti delle richieste API
 * 16 MB al massimo per <sup>1</sup> richiesta

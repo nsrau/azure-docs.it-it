@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: panarasi
-ms.openlocfilehash: 9e14e95793bcc81ad46783fd50ba223eec4ea360
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81c731f560ed9cdc56416076cd44cba504fa614d
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Aggiungere l'autenticazione all'app Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -38,7 +38,7 @@ Se non si usa il progetto server di avvio rapido scaricato, è necessario aggiun
 
 L'autenticazione sicura richiede la definizione di un nuovo schema URL per l'app. In questo modo il sistema di autenticazione reindirizza all'app al termine del processo di autenticazione. In questa esercitazione si usa lo schema URL _appname_. È tuttavia possibile usare QUALSIASI schema URL. Lo schema deve essere univoco per l'applicazione per dispositivi mobili. Per abilitare il reindirizzamento sul lato server:
 
-1. Nel [portale di Azure] selezionare il servizio app.
+1. Nel [portale di Azure][8] selezionare il servizio app.
 
 2. Fare clic sull'opzione di menu **Autenticazione/Autorizzazione**.
 
@@ -166,9 +166,9 @@ Questa sezione illustra come implementare l'interfaccia **IAuthenticate** nel pr
 
     Se si usa un provider di identità diverso da Facebook, scegliere un valore diverso per [MobileServiceAuthenticationProvider][7].
 
-6. Aggiungere il codice seguente all'interno del nodo <application> del file AndroidManifest.xml:
+6. Aggiornare il file **AndroidManifest.xml** aggiungendo il codice XML seguente all'interno dell'elemento `<application>`:
 
-```xml
+    ```xml
     <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
       <intent-filter>
         <action android:name="android.intent.action.VIEW" />
@@ -177,15 +177,15 @@ Questa sezione illustra come implementare l'interfaccia **IAuthenticate** nel pr
         <data android:scheme="{url_scheme_of_your_app}" android:host="easyauth.callback" />
       </intent-filter>
     </activity>
-```
-
-1. Aggiungere il codice seguente al metodo **OnCreate** della classe **MainActivity** prima della chiamata a `LoadApplication()`:
+    ```
+    Sostituire `{url_scheme_of_your_app}` con lo schema URL.
+7. Aggiungere il codice seguente al metodo **OnCreate** della classe **MainActivity** prima della chiamata a `LoadApplication()`:
 
         // Initialize the authenticator before loading the app.
         App.Init((IAuthenticate)this);
 
     Questo codice fa in modo che l'autenticatore venga inizializzato prima del caricamento dell'app.
-2. Ricompilare l'app, eseguirla, quindi accedere con il provider di autenticazione selezionato e verificare se è possibile accedere ai dati come utente autenticato.
+8. Ricompilare l'app, eseguirla, quindi accedere con il provider di autenticazione selezionato e verificare se è possibile accedere ai dati come utente autenticato.
 
 ## <a name="add-authentication-to-the-ios-app"></a>Aggiungere l'autenticazione all'app iOS
 Questa sezione illustra come implementare l'interfaccia **IAuthenticate** nel progetto di app iOS. Se i dispositivi iOS non sono supportati, ignorare questa sezione.
@@ -236,28 +236,28 @@ Questa sezione illustra come implementare l'interfaccia **IAuthenticate** nel pr
         }
 
     Se si usa un provider di identità diverso da Facebook, scegliere un valore diverso per [MobileServiceAuthenticationProvider].
-
-6. Aggiornare la classe AppDelegate aggiungendo l'overload del metodo OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+    
+6. Aggiornare la classe **AppDelegate** aggiungendo l'overload del metodo **OpenUrl**, come indicato di seguito:
 
         public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
         {
             return TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(url);
         }
-
-6. Aggiungere la riga di codice seguente al metodo **FinishedLaunching** prima della chiamata a `LoadApplication()`:
+   
+7. Aggiungere la riga di codice seguente al metodo **FinishedLaunching** prima della chiamata a `LoadApplication()`:
 
         App.Init(this);
 
     Questo codice fa in modo che l'autenticatore venga inizializzato prima del caricamento dell'app.
 
-6. Aggiungere **{schema_url_app}** agli schemi URL in Info.plist.
+8. Aprire Info.plist e aggiungere un valore in **Tipo di URL**. Immettere il nome desiderato nel campo **Identificatore**, impostare **Schemi URL** sullo schema URL dell'app in uso e impostare **Ruolo** su Nessuno.
 
-7. Ricompilare l'app, eseguirla, quindi accedere con il provider di autenticazione selezionato e verificare se è possibile accedere ai dati come utente autenticato.
+9. Ricompilare l'app, eseguirla, quindi accedere con il provider di autenticazione selezionato e verificare se è possibile accedere ai dati come utente autenticato.
 
 ## <a name="add-authentication-to-windows-10-including-phone-app-projects"></a>Aggiungere l'autenticazione a progetti di app Windows 10 (Windows Phone incluso)
 Questa sezione illustra come implementare l'interfaccia **IAuthenticate** nei progetti di app Windows 10. La stessa procedura si applica ai progetti piattaforma UWP (Universal Windows Platform), ma usando il progetto **UWP** con le modifiche indicate. Se i dispositivi Windows non sono supportati, ignorare questa sezione.
 
-1. "In Visual Studio fare clic con il pulsante destro del mouse sul progetto **UWP** e quindi scegliere **Imposta come progetto di avvio**.
+1. In Visual Studio fare clic con il pulsante destro del mouse sul progetto **UWP** e quindi scegliere **Imposta come progetto di avvio**.
 2. Premere F5 per avviare il progetto nel debugger, quindi verificare che venga generata un'eccezione non gestita con codice di stato 401 (Non autorizzato) dopo l'avvio dell'app. La risposta 401 viene generata perché l'accesso al back-end è limitato solo agli utenti autorizzati.
 3. Aprire il file MainPage.xaml.cs per il progetto di app Windows, quindi aggiungere le istruzioni `using` seguenti:
 
@@ -306,7 +306,7 @@ Questa sezione illustra come implementare l'interfaccia **IAuthenticate** nei pr
             return success;
         }
 
-    Se si usa un provider di identità diverso da Facebook, scegliere un valore diverso per [MobileServiceAuthenticationProvider].
+    Se si usa un provider di identità diverso da Facebook, scegliere un valore diverso per [MobileServiceAuthenticationProvider][7].
 
 1. Aggiungere la riga di codice seguente nel costruttore per la classe **MainPage** prima della chiamata a `LoadApplication()`:
 
@@ -326,12 +326,9 @@ Questa sezione illustra come implementare l'interfaccia **IAuthenticate** nei pr
                 ProtocolActivatedEventArgs protocolArgs = args as ProtocolActivatedEventArgs;
                 TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(protocolArgs.Uri);
             }
-
        }
 
-   Se l'override del metodo esiste già, aggiungere il codice condizionale del frammento di codice precedente.  Questo codice non è necessario per i progetti Universal Windows.
-
-3. Aggiungere **{schema_url_app}** in Package.appxmanifest. 
+3. Aprire Package.appxmanifest e aggiungere una dichiarazione per **Protocol**. Impostare **DisplayName** sul nome desiderato e **Name** sullo schema URL per l'app.
 
 4. Ricompilare l'app, eseguirla, quindi accedere con il provider di autenticazione selezionato e verificare se è possibile accedere ai dati come utente autenticato.
 
@@ -355,3 +352,4 @@ Dopo aver completato questa esercitazione sull'autenticazione di base, provare a
 [5]: app-service-mobile-dotnet-how-to-use-client-library.md#serverflow
 [6]: app-service-mobile-dotnet-how-to-use-client-library.md#clientflow
 [7]: https://msdn.microsoft.com/library/azure/jj730936(v=azure.10).aspx
+[8]: https://portal.azure.com

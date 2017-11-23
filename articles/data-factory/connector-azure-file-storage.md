@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: edbab30d949daa8d564ec60e9f1650f38b01d942
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: c0a6a19cffafb940b13135fb3df4d7bdf57aa7ce
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copiare dati da o ad Archiviazione file di Azure tramite Azure Data Factory
 
@@ -48,11 +48,11 @@ Per il servizio collegato Archiviazione file di Azure sono supportate le proprie
 | host | Specifica l'endpoint di Archiviazione file di Azure come `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Sì |
 | userid | Specificare l'utente con cui accedere ad Archiviazione file di Azure come `"userid": "AZURE\\<storage name>"`. | Sì |
 | password | Specificare la chiave di accesso alle risorse di archiviazione. Contrassegnare questo campo come SecureString.<br/> | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No per l'origine, Sì per il sink |
 
->[!TIP]
-> - Per copiare in Archiviazione file di Azure tramite Azure Integration Runtime, [creare un'istanza di Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione di Archiviazione file ed eseguire l'associazione nel servizio collegato come nell'esempio seguente.
-> - Per copiare da/ad Archiviazione file di Azure tramite Integration Runtime (self-hosted) all'esterno di Azure, è necessario aprire la porta TCP 445 in uscita nella rete locale.
+>[!IMPORTANT]
+> - Per copiare dati in Archiviazione file di Azure tramite Azure Integration Runtime, [creare un'istanza di Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con la posizione di Archiviazione file ed eseguire l'associazione nel servizio collegato come nell'esempio seguente.
+> - Per copiare dati da/ad Archiviazione file di Azure tramite Integration Runtime (self-hosted) all'esterno di Azure, è necessario aprire la porta TCP 445 in uscita nella rete locale.
 
 **Esempio:**
 

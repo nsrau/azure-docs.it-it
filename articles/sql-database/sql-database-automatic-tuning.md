@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 09/19/2017
+ms.date: 11/08/2017
 ms.author: jovanpop
-ms.openlocfilehash: 1e884754682ecab4cdf097bd75caa6fcf2e0a29c
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 34aa035368a0516f9fa1c71c1bda491daf5ab370
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ottimizzazione automatica nel database SQL di Azure
 
@@ -46,10 +46,7 @@ Le operazioni di ottimizzazione applicate ai database SQL di Azure sono assoluta
 
 I meccanismi di ottimizzazione automatica sono avanzati e sono stati perfezionati in centinaia di migliaia di database in esecuzione in Azure. Le operazioni di ottimizzazione automatizzata applicate vengono verificate automaticamente per assicurare che sussista un miglioramento delle prestazioni dei carichi di lavoro. Le raccomandazioni per le prestazioni peggiorate vengono rilevate in modo dinamico e ripristinate tempestivamente. Il log della cronologia dell'ottimizzazione offre una chiara analisi dei miglioramenti dell'ottimizzazione apportati a ogni database SQL di Azure. 
 
-Per una panoramica del funzionamento dell'ottimizzazione automatica e gli scenari di utilizzo tipici, vedere il video incorporato:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
->
+![Come funziona l'ottimizzazione automatica](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
 L'ottimizzazione automatica del database SQL di Azure condivide la logica principale con il motore di ottimizzazione automatica di SQL Server. Per altre informazioni tecniche sul meccanismo di intelligenza artificiale incorporata, vedere [SQL Server automatic tuning](https://docs.microsoft.com/en-us/sql/relational-databases/automatic-tuning/automatic-tuning) (Ottimizzazione automatica di SQL Server).
 
@@ -60,6 +57,12 @@ L'ottimizzazione automatica deve essere abilitata manualmente nella sottoscrizio
 L'ottimizzazione automatica può funzionare in modo autonomo grazie all'applicazione automatica di raccomandazioni di ottimizzazione, inclusa la verifica automatizzata dei miglioramenti delle prestazioni. 
 
 Per un maggiore controllo, è possibile disattivare l'applicazione automatica delle raccomandazioni di ottimizzazione che possono essere applicate manualmente tramite il portale di Azure. È anche possibile usare la soluzione solo per visualizzare le raccomandazioni di ottimizzazione automatizzata e applicarle manualmente tramite gli script e gli strumenti preferiti. 
+
+Per una panoramica del funzionamento dell'ottimizzazione automatica e per gli scenari di utilizzo tipici, vedere il video incorporato:
+
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player]
+>
 
 ## <a name="automatic-tuning-options"></a>Opzioni di ottimizzazione automatica
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 11/09/2017
 ms.author: shlo
-ms.openlocfilehash: 25581fa1aa2086accabc9b480d936ebae0338dd3
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8fb656a86689e59c3408b1e2a9274737430eb127
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Attività Until in Azure Data Factory
 L'attività Until svolge la stessa funzione della struttura di ciclo do-until nei linguaggi di programmazione. Esegue infatti un set di attività in un ciclo finché la condizione associata con l'attività restituisce true. È possibile specificare un valore di timeout per l'attività Until in Data Factory. 
@@ -60,7 +60,7 @@ Proprietà | Descrizione | Valori consentiti | Obbligatorio
 name | Nome dell'attività `Until`. | String | Sì
 type | Deve essere impostata su **Until**. | String | Sì
 expression | Espressione che deve restituire true o false | Espressione.  | Sì
-timeout | Il ciclo do-until raggiunge il timeout allo scadere del tempo specificato qui. | Stringa. `d.hh:mm:ss`(o) `hh:mm:ss`. Il valore predefinito è 7 giorni. | No
+timeout | Il ciclo do-until raggiunge il timeout allo scadere del tempo specificato qui. | Stringa. `d.hh:mm:ss`(o) `hh:mm:ss`. Il valore predefinito è 7 giorni. Il valore massimo è 90 giorni. | No
 attività | Set di attività che vengono eseguite fino a quando l'espressione restituisce `true`. | Matrice di attività. |  Sì
 
 ## <a name="example-1"></a>Esempio 1

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/13/2017
 ms.author: jingwang
-ms.openlocfilehash: b0351e4c4dcf19f9e4b6ec11c59c4dd00f0013a2
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 841e053418dedb6b41262d1277ab4bdc9d4800c6
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -88,7 +88,7 @@ L' **unità di spostamento dati cloud** è una misura che rappresenta la potenza
 
 | Scenario di copia | Numero di unità di spostamento dati predefinite determinato dal servizio |
 |:--- |:--- |
-| Copiare dati tra archivi basati su file | Tra 4 e 16 in base al numero e alle dimensioni dei file. |
+| Copiare dati tra archivi basati su file | Tra 4 e 32 in base al numero e alle dimensioni dei file. |
 | Tutti gli altri scenari di copia | 4 |
 
 Per ignorare l'impostazione predefinita, è possibile specificare un valore per la proprietà **cloudDataMovementUnits** procedendo come segue. I **valori consentiti** per la proprietà **cloudDataMovementUnits** sono 2, 4, 8, 16, 32. Il **numero effettivo di unità di spostamento dati cloud** usate dall'operazione di copia in fase di esecuzione è minore o uguale al valore configurato, a seconda del modello di dati. Per informazioni sul livello di miglioramento delle prestazioni che è possibile ottenere quando si configurano più unità per un sink e un'origine della copia specifici, vedere la sezione [Informazioni di riferimento sulle prestazioni](#performance-reference).
@@ -133,7 +133,7 @@ Per ogni esecuzione dell'attività di copia, Data Factory determina il numero di
 
 | Scenario di copia | Numero predefinito di copie parallele determinato dal servizio |
 | --- | --- |
-| Copiare dati tra archivi basati su file |Tra 1 e 32. Dipende dalle dimensioni dei file e dal numero di unità di spostamento dati cloud usate per copiare dati tra due archivi dati cloud oppure dalla configurazione fisica del computer del runtime di integrazione self-hosted. |
+| Copiare dati tra archivi basati su file |Tra 1 e 64. Dipende dalle dimensioni dei file e dal numero di unità di spostamento dati cloud usate per copiare dati tra due archivi dati cloud oppure dalla configurazione fisica del computer del runtime di integrazione self-hosted. |
 | Copiare i dati da qualsiasi archivio dati di origine in un'archiviazione tabelle di Azure |4 |
 | Tutti gli altri scenari di copia |1 |
 

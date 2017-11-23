@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 639e40ca7e406a1726033e9f5c5363c289087589
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7471a6999ac4dcd15f5162e69cb0100cc1e3b14f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Esercitazione: Integrazione di Azure Active Directory con Salesforce
 
@@ -121,9 +121,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_certificate.png) 
 
-5. Fare clic sul pulsante **Salva** .
-
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png)
+5. Fare clic sul pulsante **Salva** ![Configura accesso Single Sign-On](./media/active-directory-saas-salesforce-tutorial/tutorial_general_400.png)
 
 6. Nella sezione **Configurazione di Salesforce** fare clic su **Configura Salesforce** per aprire la finestra **Configura accesso**. Copiare l'**ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.** 
 
@@ -154,7 +152,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Nel campo **Name** specificare un nome descrittivo per la configurazione. Se si specifica un valore per **Name**, verrà popolata automaticamente la casella di testo **API Name**.
 
-    b. Incollare il valore **SMAL Entity ID** nel campo **Issuer** in Salesforce.
+    b. Incollare il valore **SAML Entity ID** nel campo **Issuer** in Salesforce.
 
     c. Nella casella di testo **Entity Id**immettere il nome di dominio di Salesforce nel formato seguente:
       

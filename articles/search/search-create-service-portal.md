@@ -11,17 +11,17 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/01/2017
+ms.date: 11/07/2017
 ms.author: heidist
-ms.openlocfilehash: 58f4eab190e40e16ed261c165ffdfc8155eeb434
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaf317b42026298cc42edcc907bc48169f869460
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Creare un servizio di Ricerca di Azure nel portale
 
-Questo articolo spiega come creare o eseguire il provisioning di un servizio Ricerca di Azure nel portale. Per istruzioni su PowerShell vedere [Gestire il servizio Ricerca di Azure con PowerShell](search-manage-powershell.md).
+Informazioni su come creare o effettuare il provisioning di un servizio Ricerca di Azure nel portale. Per istruzioni su PowerShell vedere [Gestire il servizio Ricerca di Azure con PowerShell](search-manage-powershell.md).
 
 ## <a name="subscribe-free-or-paid"></a>Sottoscrizione gratuita o a pagamento
 
@@ -34,20 +34,21 @@ In alternativa, [attivare i benefici della sottoscrizione MSDN](https://azure.mi
 2. Fare clic sul segno più ("+") nell'angolo superiore sinistro.
 3. Selezionare **Web e dispositivi mobili** > **Ricerca di Azure**.
 
-![](./media/search-create-service-portal/find-search2.png)
+![](./media/search-create-service-portal/find-search3.png)
 
 ## <a name="name-the-service-and-url-endpoint"></a>Assegnare un nome all'endpoint URL e al servizio
 
-Il nome del servizio fa parte dell'endpoint dell'URL in cui vengono eseguite le chiamate API. Digitare il nome del servizio nel campo **URL** . 
+Il nome del servizio fa parte dell'endpoint dell'URL in cui vengono eseguite le chiamate API: `https://your-service-name.search.windows.net`. Immettere il nome del servizio nel campo **URL**. 
 
 Requisiti per i nomi di servizio:
-   * lunghezza compresa tra 2 e 60 caratteri
-   * uso di lettere minuscole, cifre o trattini ("-")
-   * nessun trattino ("-") nei primi 2 caratteri o nell'ultimo carattere
-   * nessun trattino consecutivo ("--")
+   * Deve essere univoco all'interno dello spazio dei nomi search.windows.net
+   * Deve avere una lunghezza compresa tra 2 e 60 caratteri
+   * È possibile usare lettere minuscole, cifre o trattini ("-")
+   * Non può contenere un trattino ("-") nei primi 2 caratteri o nell'ultimo carattere
+   * Non deve contenere trattini consecutivi ("--")
 
 ## <a name="select-a-subscription"></a>Selezionare una sottoscrizione
-Se sono disponibili più sottoscrizioni, sceglierne una che includa anche i servizi di archiviazione file o dati. Ricerca di Azure può rilevare automaticamente archiviazione BLOB e archiviazione tabelle di Azure, il database SQL e Azure Cosmos DB per l'indicizzazione tramite *indicizzatori*, ma solo per i servizi nella stessa sottoscrizione.
+Se sono disponibili più sottoscrizioni, sceglierne una che includa anche i servizi di archiviazione file o dati. Ricerca di Azure può rilevare automaticamente archiviazione BLOB e archiviazione tabelle di Azure, il database SQL e Azure Cosmos DB per l'indicizzazione tramite [*indicizzatori*](search-indexer-overview.md), ma solo per i servizi nella stessa sottoscrizione.
 
 ## <a name="select-a-resource-group"></a>Selezionare un gruppo di risorse
 Un gruppo di risorse è una raccolta di servizi e risorse di Azure usati insieme. Se ad esempio si usa Ricerca di Azure per l'indicizzazione di un database SQL, entrambi i servizi devono far parte dello stesso gruppo di risorse.
@@ -63,11 +64,13 @@ Ricerca di Azure, in qualità di servizio di Azure, può essere ospitato nei dat
 
 In questa procedura dettagliata è stato scelto il piano tariffario Standard per il servizio.
 
+Non è possibile modificare il piano tariffario dopo aver creato il servizio. Se in un secondo momento si vuole passare a un piano tariffario superiore o inferiore, è necessario creare nuovamente il servizio.
+
 ## <a name="create-your-service"></a>Creare il servizio
 
 Ricordarsi di aggiungere il servizio al dashboard per semplificare l'accesso.
 
-![](./media/search-create-service-portal/new-service2.png)
+![](./media/search-create-service-portal/new-service3.png)
 
 ## <a name="scale-your-service"></a>Ridimensionare il servizio
 La creazione di un servizio può richiedere 15 minuti o più, a seconda del livello. Al termine del provisioning del servizio, è possibile ridimensionare il servizio per adattarlo alle proprie esigenze. Poiché è stato scelto il piano tariffario Standard per il servizio Ricerca di Azure, è possibile ridimensionare il servizio in due dimensioni, ovvero partizioni e repliche. Se fosse stato scelto il piano Basic, sarebbe stato possibile aggiungere solo le repliche. Se è stato effettuato il provisioning del servizio Gratuito, la scalabilità non è disponibile.
@@ -79,7 +82,7 @@ Le ***partizioni*** consentono di archiviare e di eseguire ricerche in un numero
 > [!Important]
 > Un servizio deve disporre di [2 repliche per ogni contratto di servizio di sola lettura e 3 repliche per ogni contratto di servizio di lettura/scrittura](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-1. Passare al pannello del servizio di ricerca nel portale di Azure.
+1. Passare alla pagina del servizio di ricerca nel portale di Azure.
 2. Nel riquadro di navigazione a sinistra selezionare **Impostazioni** > **Scalabilità**.
 3. Usare la barra di scorrimento per aggiungere repliche o partizioni.
 
@@ -105,9 +108,7 @@ Sebbene la maggior parte dei clienti usi un solo servizio, la ridondanza del ser
 Non è necessario un secondo servizio per la disponibilità elevata. La disponibilità elevata per le query si raggiunge quando si usano 2 o più repliche nello stesso servizio. Gli aggiornamenti di replica sono sequenziali, il che significa che almeno uno è operativo quando viene implementato un aggiornamento del servizio. Per altre informazioni sul tempo di attività, vedere i [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo il provisioning di un servizio di Ricerca di Azure è possibile [definire un indice](search-what-is-an-index.md) per caricare e cercare i dati.
+Dopo il provisioning di un servizio di Ricerca di Azure è possibile [definire un indice](search-what-is-an-index.md) per caricare e cercare i dati. 
 
-Per accedere al servizio dal codice o dallo script, specificare l'URL (*nome-servizio*.search.windows.net) e una chiave. Le chiavi di amministrazione concedono l'accesso completo; le chiavi di query concedono l'accesso in sola lettura. [Come usare Ricerca di Azure in .NET](search-howto-dotnet-sdk.md) per iniziare.
-
-Vedere [Compilare ed eseguire una query del primo indice](search-get-started-portal.md) per una rapida esercitazione basata sul portale.
-
+> [!div class="nextstepaction"]
+> [Come utilizzare Ricerca di Azure in .NET](search-howto-dotnet-sdk.md)

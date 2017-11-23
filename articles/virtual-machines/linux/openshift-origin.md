@@ -15,22 +15,24 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 1a40c4cc064b32aced7e976f40f6ed6a57e62204
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 1860ede19202566947b68b715e6bd354f64c1085
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="deploy-openshift-origin-in-azure"></a>Distribuire OpenShift Origin in Azure
 
-Ci sono diversi modi per distribuire OpenShift Origin in Azure. È possibile distribuire manualmente tutti i componenti necessari dell'infrastruttura di Azure e quindi seguire la [documentazione](https://docs.openshift.org/3.6/welcome/index.html) di OpenShift Origin.
-È anche possibile usare un modello di Resource Manager esistente che semplifica la distribuzione del cluster OpenShift Origin. Un modello di questo tipo è disponibile [qui](https://github.com/Microsoft/openshift-origin).
+La distribuzione di OpenShift Origin in Azure può essere eseguita in uno dei due modi seguenti:
 
-## <a name="deploy-using-the-openshift-origin-template"></a>Eseguire la distribuzione usando il modello di OpenShift Origin
+- È possibile distribuire manualmente tutti i componenti necessari dell'infrastruttura di Azure e quindi seguire la [documentazione](https://docs.openshift.org/3.6/welcome/index.html) di OpenShift Origin.
+- È anche possibile usare un [modello di Resource Manager](https://github.com/Microsoft/openshift-origin) esistente che semplifica la distribuzione del cluster OpenShift Origin.
+
+## <a name="deploy-by-using-the-openshift-origin-template"></a>Eseguire la distribuzione usando il modello di OpenShift Origin
 
 Usare il valore `appId` dall'entità servizio creata in precedenza per il parametro `aadClientId`.
 
-L'esempio seguente crea un file di parametri denominato **azuredeploy.parameters.json** con tutti gli input necessari.
+L'esempio seguente crea un file di parametri denominato azuredeploy.parameters.json con tutti gli input necessari.
 
 ```json
 {
@@ -92,13 +94,13 @@ L'esempio seguente crea un file di parametri denominato **azuredeploy.parameters
 }
 ```
 
-### <a name="deploy-using-azure-cli"></a>Eseguire la distribuzione usando l'interfaccia della riga di comando di Azure
+### <a name="deploy-by-using-azure-cli"></a>Eseguire la distribuzione usando l'interfaccia della riga di comando di Azure
 
 
 > [!NOTE] 
-> Il comando seguente richiede l'interfaccia della riga di comando di Azure 2.0.8 o versione successiva. È possibile verificare la versione della CLI di Azure con il comando `az --version`. Per aggiornare la versione della CLI, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+> Il comando seguente richiede l'interfaccia della riga di comando di Azure 2.0.8 o versione successiva. È possibile verificare la versione dell'interfaccia della riga di comando di Azure con il comando `az --version`. Per aggiornare la versione della CLI, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-L'esempio seguente consente di distribuire il cluster OpenShift e tutte le risorse correlate in un gruppo di risorse denominato myResourceGroup con un nome di distribuzione myOpenShiftCluster. Viene fatto riferimento al modello direttamente dal repository GitHub e viene usato un file di parametri locale denominato **azuredeploy.parameters.json**.
+L'esempio seguente consente di distribuire il cluster OpenShift e tutte le risorse correlate in un gruppo di risorse denominato myResourceGroup con nome di distribuzione myOpenShiftCluster. Viene fatto riferimento al modello direttamente dal repository GitHub e viene usato un file di parametri locale denominato azuredeploy.parameters.json.
 
 ```azurecli 
 az group deployment create -g myResourceGroup --name myOpenShiftCluster \
@@ -133,6 +135,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Attività successive alla distribuzione](./openshift-post-deployment.md)
+- [Attività di post-distribuzione](./openshift-post-deployment.md)
 - [Risoluzione dei problemi relativi alla distribuzione di OpenShift](./openshift-troubleshooting.md)
 - [Introduzione a OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)
