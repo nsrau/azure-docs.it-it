@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 0aafdade2cbf293cf70f09721102ae8ceaef6303
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 2097aa1c158f88a06ab93123f4e374b4245430d6
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app Cassandra con Java e Azure Cosmos DB
 
@@ -28,9 +28,9 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Accesso al programma di anteprima dell'API Cassandra di Azure Cosmos DB. Se non è ancora stato richiesto l'accesso, [iscriversi adesso](https://aka.ms/cosmosdb-cassandra-signup).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]In alternativa, è possibile [provare gratuitamente Microsoft Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure e senza impegno.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] In alternativa, è possibile [provare gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure e senza impegno.
+Accesso al programma di anteprima dell'API Cassandra di Azure Cosmos DB. Se non è ancora stato richiesto l'accesso, [iscriversi adesso](cassandra-introduction.md#sign-up-now).
 
 Eseguire anche queste operazioni: 
 
@@ -41,6 +41,8 @@ Eseguire anche queste operazioni:
     * In Ubuntu è possibile eseguire `apt-get install maven` per installare Maven.
 * [Git](https://www.git-scm.com/)
     * In Ubuntu è possibile eseguire `sudo apt-get install git` per installare Git.
+
+
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
@@ -68,7 +70,7 @@ Si può ora passare a usare il codice. Clonare un'app Cassandra da GitHub, impos
 
 Questo passaggio è facoltativo. Per scoprire in che modo le risorse del database vengono create nel codice, è possibile esaminare i frammenti di codice seguenti. In alternativa, è possibile passare ad [Aggiornare la stringa di connessione](#update-your-connection-string). Questi frammenti di codice sono tutti ricavati da src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java.  
 
-* Vengono impostate le opzioni per host, porta, nome utente, password e SSL di Cassandra. Le informazioni per la stringa di connessione derivano dalla pagina Stringa di connessione nel portale di Azure.
+* Vengono impostate le opzioni per host, porta, nome utente, password e SSL di Cassandra. Le informazioni per la stringa di connessione derivano dalla pagina della stringa di connessione nel portale di Azure.
 
    ```java
    cluster = Cluster.builder().addContactPoint(cassandraHost).withPort(cassandraPort).withCredentials(cassandraUsername, cassandraPassword).withSSL(sslOptions).build();
@@ -148,7 +150,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
     ![Visualizzare e copiare un nome utente dalla pagina Stringa di connessione del portale di Azure](./media/create-cassandra-java/keys.png)
 
-2. Usare il pulsante ![Pulsante Copia](./media/create-cassandra-java/copy.png) sul lato destro della schermata per copiare il valore PUNTO DI CONTATTO.
+2. Usare il ![Pulsante Copia](./media/create-cassandra-java/copy.png) sul lato destro della schermata per copiare il valore PUNTO DI CONTATTO.
 
 3. Aprire il file `config.properties` dalla cartella C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources. 
 
@@ -184,7 +186,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
     cd "C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples"
     ```
 
-2. Nella finestra del terminale Git, usare il comando seguente per generare il file cosmosdb-cassandra-examples.jar.
+2. Nella finestra del terminale Git usare il comando seguente per generare il file cosmosdb-cassandra-examples.jar.
 
     ```git
     mvn clean install

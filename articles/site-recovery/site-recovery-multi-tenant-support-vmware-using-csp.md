@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 97edbe67c25036dc1156f0f0ca5431a617d7a004
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9db7e276fbbc064abe16cab2d2df668d2b1c8f7d
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Supporto multi-tenant in Azure Site Recovery per replicare le macchine virtuali VMware in Azure tramite CSP
 
@@ -50,7 +50,7 @@ Come illustrato nel diagramma precedente, ogni cliente ha un server di gestione 
 Il requisito di isolamento dei dati richiede che tutte le informazioni riservate dell'infrastruttura, ad esempio le credenziali di accesso, non vengano rese note ai tenant. Per questo motivo, è consigliabile che tutti i componenti del server di gestione rimangono sotto il controllo esclusivo del partner. I componenti del server di gestione sono i seguenti:
 * Server di configurazione
 * Server di elaborazione
-* Server di destinazione master 
+* Server di destinazione master
 
 Il partner gestisce anche un server di elaborazione con scalabilità orizzontale.
 
@@ -82,7 +82,7 @@ La procedura di accesso all'account vCenter è la seguente:
 
     * **Tasks** (Attività): Create task (Crea attività), Update task (Aggiorna attività)
 
-    * **Virtual machine** (Macchina virtuale): 
+    * **Virtual machine** (Macchina virtuale):
         * Configuration (Configurazione) > all (tutto)
         * Interaction (Interazione) > Answer question (Rispondi alla domanda), Device connection (Connessione dispositivo), Configure CD media (Configura supporto CD), Configure floppy media (Configura supporto floppy), Power off (Spegni), Power on (Accendi), VMware tools install (Installazione strumenti VMware)
         * Inventory (Inventario) > Create from existing (Crea da esistente), Create new (Crea nuovo), Register (Registra), Unregister (Annulla registrazione)
@@ -138,8 +138,8 @@ I prerequisiti per le macchine virtuali sono quelli descritti nella [documentazi
 
 ### <a name="step-1-create-a-tenant-account"></a>Passaggio 1: Creare un account tenant
 
-1. Accedere all'account CSP tramite il [Centro per i partner Microsoft](https://partnercenter.microsoft.com/). 
- 
+1. Accedere all'account CSP tramite il [Centro per i partner Microsoft](https://partnercenter.microsoft.com/).
+
 2. Nel menu **Dashboard** selezionare **Clienti**.
 
     ![Collegamento Clienti del Centro per i partner Microsoft](./media/site-recovery-multi-tenant-support-vmware-using-csp/csp-dashboard-display.png)
@@ -160,22 +160,22 @@ I prerequisiti per le macchine virtuali sono quelli descritti nella [documentazi
 
     ![Pagina Revisione](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)  
 
-    Dopo aver creato l'account tenant verrà visualizzata una pagina di conferma con i dettagli dell'account predefinito e la password per la sottoscrizione. 
+    Dopo aver creato l'account tenant verrà visualizzata una pagina di conferma con i dettagli dell'account predefinito e la password per la sottoscrizione.
 
 7. Salvare le informazioni e modificare eventualmente la password in un secondo momento tramite la pagina di accesso del portale di Azure.  
- 
+
     Queste informazioni possono essere condivise con il tenant così come sono oppure, se necessario, è possibile creare e condividere un account separato.
 
 ### <a name="step-2-access-the-tenant-account"></a>Passaggio 2: Accedere all'account tenant
 
-È possibile accedere alla sottoscrizione del tenant tramite il dashboard del Centro per i partner Microsoft, come descritto in "Passaggio 1: Creare un account tenant". 
+È possibile accedere alla sottoscrizione del tenant tramite il dashboard del Centro per i partner Microsoft, come descritto in "Passaggio 1: Creare un account tenant".
 
 1. Passare alla pagina **Clienti** e quindi fare clic sul nome dell'account tenant.
 
 2. Nella pagina **Sottoscrizioni** dell'account tenant è possibile monitorare le sottoscrizioni esistenti per l'account e aggiungerne altre, se necessario. Per gestire le operazioni di ripristino di emergenza del tenant, selezionare l'opzione **Tutte le risorse (portale di Azure)**.
 
     ![Collegamento Tutte le risorse](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)  
-    
+
     Fare clic su **Tutte le risorse** per consentire l'accesso alle sottoscrizioni di Azure del tenant. È possibile verificare l'accesso facendo clic sul collegamento di Azure Active Directory nella parte superiore destra del portale di Azure.
 
     ![Collegamento di Azure Active Directory](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
@@ -183,8 +183,8 @@ I prerequisiti per le macchine virtuali sono quelli descritti nella [documentazi
 A questo punto è possibile eseguire tutte le operazioni di ripristino sito per il tenant tramite il portale di Azure e gestire le operazioni di ripristino di emergenza. Per accedere alla sottoscrizione del tenant tramite CSP per il ripristino di emergenza gestito, seguire la procedura descritta in precedenza.
 
 ### <a name="step-3-deploy-resources-to-the-tenant-subscription"></a>Passaggio 3: Distribuire le risorse nella sottoscrizione del tenant
-1. Nel portale di Azure creare un gruppo di risorse e distribuire un insieme di credenziali di Servizi di ripristino seguendo la procedura consueta. 
- 
+1. Nel portale di Azure creare un gruppo di risorse e distribuire un insieme di credenziali di Servizi di ripristino seguendo la procedura consueta.
+
 2. Scaricare la chiave di registrazione dell'insieme di credenziali,
 
 3. Registrare il server di configurazione per il tenant usando la chiave di registrazione dell'insieme di credenziali.

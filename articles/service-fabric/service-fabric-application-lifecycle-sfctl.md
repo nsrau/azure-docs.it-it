@@ -8,11 +8,11 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: edwardsa
-ms.openlocfilehash: 6eb58b31f20f239d310415d44f61e7455918dae9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c8501e8c863e1240a277bf8064118a2b113a81b
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>Gestire un'applicazione di Azure Service Fabric usando l'interfaccia della riga di comando di Azure Service Fabric
 
@@ -133,7 +133,7 @@ sfctl application delete --application-id TestEdApp
 Dopo aver eliminato l'applicazione, è possibile annullare il provisioning del tipo di applicazione se non è più necessario. Per annullare il provisioning del tipo di applicazione, usare il comando seguente:
 
 ```azurecli
-sfctl application unprovision --application-type-name TestAppTye --application-type-version 1.0
+sfctl application unprovision --application-type-name TestAppType --application-type-version 1.0
 ```
 
 Il nome del tipo e la versione del tipo devono corrispondere al nome e alla versione indicati nel manifesto dell'applicazione di cui in precedenza è stato eseguito il provisioning.

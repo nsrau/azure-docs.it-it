@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: c5ebc3cb13359d824f022859078e4feb2b6869a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfcd248be48109203e91c93231d89d1d650a4b96
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Corsi sulla sicurezza di Azure in Microsoft Virtual Academy
 Microsoft Virtual Academy offre corsi online gratuiti per aiutare gli sviluppatori, i professionisti IT e dati e gli studenti a ottenere informazioni sulle tecnologie più recenti, acquisire competenze e contribuire al loro avanzamento professionale.

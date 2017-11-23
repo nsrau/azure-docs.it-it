@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 10/26/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e5193460bf46c2b826cad371e4549a9690180f17
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 3639bd568fbad69f65fe933aa871f4effdab9a17
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creare un'app Web Node.js in Azure
 
@@ -36,8 +36,8 @@ Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hos
 
 Per completare questa guida introduttiva:
 
-* [Installare Git](https://git-scm.com/)
-* [Installare Node.js e NPM](https://nodejs.org/)
+* <a href="https://git-scm.com/" target="_blank">Installare Git</a>
+* <a href="https://nodejs.org/" target="_blank">Installare Node.js e NPM</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

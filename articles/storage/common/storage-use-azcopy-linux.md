@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 28/9/2017
 ms.author: seguler
-ms.openlocfilehash: d77ac39b7fcf6a23ebc58a2bbf9dc7de664edbb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e73a2424d3eb633f6bec63189786a67161750d4f
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Trasferire dati con AzCopy in Linux
 AzCopy in Linux è un'utilità della riga di comando progettata la copia dei dati da e verso l'archiviazione BLOB e file di Microsoft Azure usando semplici comandi con prestazioni ottimali. È possibile copiare dati da un oggetto a un altro all'interno dell'account di archiviazione o tra account di archiviazione.
@@ -559,7 +559,7 @@ azcopy \
     --recursive
 ```
 
-AzCopy attualmente supporta solo la [firma di accesso condiviso dell'account](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1).
+AzCopy attualmente supporta solo la [firma di accesso condiviso dell'account](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
 ### <a name="journal-file-folder"></a>Cartella del file journal
 Ogni volta che si invia un comando ad AzCopy, l'utilità verifica se il file journal è presente nella cartella predefinita o in una cartella specificata dall'utente tramite questa opzione. Se il file journal non viene trovato in tali percorsi, AzCopy considera l'operazione come nuova e quindi crea un nuovo file journal.
@@ -673,7 +673,7 @@ Per altre informazioni su Archiviazione di Azure e AzCopy, vedere le risorse seg
 ### <a name="azure-storage-documentation"></a>Documentazione di Archiviazione di Azure
 * [Introduzione ad Archiviazione di Azure](../storage-introduction.md)
 * [Creare un account di archiviazione](../storage-create-storage-account.md)
-* [Gestire BLOB con Storage Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs)
+* [Gestire BLOB con Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
 * [Uso dell'interfaccia della riga di comando di Azure 2.0 con Archiviazione di Azure](../storage-azure-cli.md)
 * [Come usare l'archiviazione BLOB da C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Come usare l'archiviazione BLOB da Java](../blobs/storage-java-how-to-use-blob-storage.md)

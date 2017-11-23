@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 76850d6403fc4e87e95f5842b87b258d652c2c35
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: abf88cf96b32bc4168cb8c09a6e70ad0e395e88c
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app Cassandra con Node.js e Azure Cosmos DB
 
@@ -29,12 +29,13 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Accesso al programma di anteprima dell'API Cassandra di Azure Cosmos DB. Se non è ancora stato richiesto l'accesso, [iscriversi adesso](https://aka.ms/cosmosdb-cassandra-signup).
-* [Node.js](https://nodejs.org/en/) 0.10.29 o versione successiva
-* [Git](http://git-scm.com/)
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]In alternativa, è possibile [provare gratuitamente Microsoft Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure e senza impegno.
 
+Accesso al programma di anteprima dell'API Cassandra di Azure Cosmos DB. Se non è ancora stato richiesto l'accesso, [iscriversi adesso](cassandra-introduction.md#sign-up-now).
+
+Eseguire anche queste operazioni:
+* [Node.js](https://nodejs.org/en/) 0.10.29 o versione successiva
+* [Git](http://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 

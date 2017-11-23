@@ -15,14 +15,12 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 1180001c9fe74aab6b51c5b5969b80a8c7e1302f
-ms.contentlocale: it-it
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/17/2017
 ---
-
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introduzione al cloud computing e a Microsoft Azure
 
 Questa guida presenta i concetti principali relativi alla distribuzione e alla gestione di un'infrastruttura di Microsoft Azure. Se non si ha familiarità con il cloud computing o con Azure, questa guida offre un'introduzione rapida ai concetti, alla distribuzione e ai dettagli di gestione. Molte sezioni della guida descrivono un'operazione, ad esempio la distribuzione di una macchina virtuale, e quindi offrono un collegamento per l'approfondimento dei dettagli tecnici.
@@ -517,4 +515,3 @@ Analogamente, è possibile usare l'interfaccia della riga di comando di Azure pe
 
 - [Create a Windows VM](/virtual-machines/windows/quick-create-portal.md) (Creare una VM Windows)
 - [Creare una macchina virtuale Linux](../../virtual-machines/linux/quick-create-portal.md)
-

@@ -9,11 +9,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 75dff9bc10294621218a89b809552c8abcd57017
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 33583fb3d9bca94592c05c4c39c802e673a2ea8a
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Domande frequenti su Azure Machine Learning
 
@@ -165,7 +165,6 @@ Gli strumenti di preparazione dei dati in Workbench supportano attualmente l'ins
 Per l'anteprima pubblica, Workbench supporta l'inserimento di dati da: 
 - Unità disco rigido locale o posizione di archiviazione di rete mappata
 - BLOB di Azure o Archiviazione di Azure (richiede una sottoscrizione ad Azure)
-- Azure Data Lake o Archiviazione di Azure Data Lake (richiede una sottoscrizione ad Azure)
 - Azure SQL Server
 - Microsoft SQL Server
 

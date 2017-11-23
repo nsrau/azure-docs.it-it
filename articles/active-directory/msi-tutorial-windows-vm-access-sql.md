@@ -11,27 +11,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/12/2017
+ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: f2cfef1c2aed90e111d06fc3090973e093fd7a4f
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: c6347e332f73f6b6dfb5cf9fe4aa7030db331988
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere a SQL di Azure
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-Questa esercitazione illustra come usare un'identità del servizio gestito per una macchina virtuale Windows per accedere a un server SQL di Azure. Le identità del servizio gestito vengono gestite automaticamente da Azure e consentono di eseguire l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza la necessità di inserire le credenziali nel codice. Si apprenderà come:
+Questa esercitazione illustra come usare un'identità del servizio gestito per una macchina virtuale Windows per accedere a un server SQL di Azure. Le Identità del servizio gestito vengono gestite automaticamente da Azure e consentono di eseguire l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza la necessità di inserire le credenziali nel codice. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Abilitare Identità del servizio gestito in una macchina virtuale Windows 
 > * Concedere l'accesso della macchina virtuale a un server SQL Azure
 > * Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per eseguire query su un server SQL di Azure
 
+## <a name="prerequisites"></a>Prerequisiti
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -133,7 +136,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 ### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Abilitare l'autenticazione di Azure AD per il server SQL
 
-Dopo aver creato il gruppo e aggiunto l'identità del servizio gestito della macchina virtuale all'appartenenza, è possibile [configurare l'autenticazione di Azure AD per il server SQL](/azure/sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) usando la procedura seguente:
+Dopo aver creato il gruppo e aggiunto l'identità del servizio gestito della macchina virtuale all'appartenenza, è possibile [configurare l'autenticazione di Azure AD per il server SQL](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) usando la procedura seguente:
 
 1.  Nel portale di Azure selezionare **i server SQL** dal menu a sinistra.
 2.  Fare clic sul server SQL da abilitare per l'autenticazione di Azure AD.

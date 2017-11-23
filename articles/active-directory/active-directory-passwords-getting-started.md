@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: c5ba922175a25776c6e27ee03fae9b2941235881
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0320cb33dcab63ea394cf8e13e9aef5cc75951fa
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Distribuzione rapida della reimpostazione della password self-service di Azure AD
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/15/2017
 
 La reimpostazione self-service della password (SSPR) offre agli amministratori IT una modalità semplice per consentire agli utenti di reimpostare o sbloccare le password o gli account. Il sistema include report dettagliati per tenere traccia del momento in cui gli utenti accedono al sistema, oltre a notifiche per segnalare usi impropri.
 
-Questa guida presuppone che sia già disponibile un tenant di valutazione o con licenza di Azure Active Directory (Azure AD). Per informazioni sulla configurazione di Azure AD, vedere l'[introduzione ad Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/).
+Questa guida presuppone che sia già disponibile un tenant di valutazione o con licenza di Azure Active Directory (Azure AD). Per informazioni sulla configurazione di Azure AD, vedere l'[introduzione ad Azure AD](get-started-azure-ad.md).
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Abilitare la reimpostazione della password self-service per il tenant di Azure AD
 
@@ -73,7 +73,7 @@ Per abilitare la sincronizzazione delle identità locali con Azure AD è necessa
 
 * [Eseguire l'aggiornamento da DirSync o Azure AD Sync ad Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Introduzione ad Azure AD Connect con le impostazioni rapide](./connect/active-directory-aadconnect-get-started-express.md)
-* [Configurare il writeback delle password](active-directory-passwords-writeback.md#configuring-password-writeback) per riscrivere le password da Azure AD alla directory locale
+* [Configurare il writeback delle password](active-directory-passwords-writeback.md#configure-password-writeback) per riscrivere le password da Azure AD alla directory locale
 
 ### <a name="on-premises-policy-change"></a>Modifica dei criteri locali
 

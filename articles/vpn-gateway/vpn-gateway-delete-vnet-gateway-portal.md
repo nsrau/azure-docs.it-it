@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: cherylmc
 ms.openlocfilehash: 1d289c09465cb8d5e4bfa569441dffcbf562b3bf
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Eliminare un gateway di rete virtuale usando il portale
 

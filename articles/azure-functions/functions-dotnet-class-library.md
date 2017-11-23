@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: glenga
-ms.openlocfilehash: a3bc07623505371b4f3c230ebadeb577a70fdb5e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a856c3b04dc458c0f1e0017066c35edd743565fd
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Uso di librerie di classi .NET con Funzioni di Azure
 
@@ -37,7 +37,7 @@ I prerequisiti di questo articolo sono i seguenti:
 
 Creare un progetto per Funzioni di Azure in Visual Studio. Il modello del nuovo progetto crea i file *host.json* e *local.settings.json*. È possibile [personalizzare le impostazioni di runtime di Funzioni di Azure nel file host.json](functions-host-json.md). 
 
-Nel file *local.settings.json* vengono archiviate le impostazioni dell'app, le stringhe di connessione e le impostazioni per Strumenti di base di Funzioni di Azure. Per altre informazioni sulla struttura, vedere [Scrivere codice per le funzioni di Azure e testarle in locale](functions-run-local.md#local-settings).
+Nel file *local.settings.json* vengono archiviate le impostazioni dell'app, le stringhe di connessione e le impostazioni per Strumenti di base di Funzioni di Azure. Per altre informazioni sulla struttura, vedere [Scrivere codice per le funzioni di Azure e testarle in locale](functions-run-local.md#local-settings-file).
 
 ### <a name="functionname-attribute"></a>Attributo FunctionName
 

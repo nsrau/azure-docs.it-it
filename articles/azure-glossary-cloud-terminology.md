@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: b55eed31ddb5be23dc28a23b2f0588b8c8ff8833
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbc4b8cdb0ff9255d0be02b998e67686921921ea
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossario di Microsoft Azure: un dizionario di terminologia cloud sulla piattaforma Azure
 
@@ -87,7 +87,7 @@ Prezzi, crediti e termini correlati applicabili a una sottoscrizione di Azure.
 Vedere la pagina [Dettagli delle offerte per Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/)
 
 ## <a name="portal"></a>portal
-Portale Web sicuro usato per la distribuzione e la gestione dei servizi di Azure.  Sono disponibili due portali: il [portale di Azure](http://portal.azure.com/) e il [portale di Azure classico](http://manage.windowsazure.com/). Alcuni servizi sono disponibili in entrambi i portali, mentre altri sono disponibili solo in un portale o nell'altro. La pagina [Grafico della disponibilità del portale di Azure](https://azure.microsoft.com/features/azure-portal/availability/) visualizza un elenco dei servizi disponibili in ogni portale.
+Portale Web sicuro usato per la distribuzione e la gestione dei servizi di Azure.
 
 ## <a name="region"></a>region
 Area all'interno di un'area geografica che non supera i confini nazionali e include uno o più data center. I prezzi, i servizi regionali e i tipi di offerta sono resi disponibili a livello di area. Un'area viene in genere associata a un'altra area, che può trovarsi a centinaia di chilometri di distanza. Le coppie di aree possono essere usate come meccanismo per il ripristino di emergenza e gli scenari a disponibilità elevata. Chiamata anche genericamente *posizione*.  

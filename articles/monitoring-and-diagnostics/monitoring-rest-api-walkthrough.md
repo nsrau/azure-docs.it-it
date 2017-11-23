@@ -18,12 +18,11 @@ ms.dyn365.ops.version:
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: mcollier
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ab522b444c234e1159acfea1780bae1801c4d047
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Procedura dettagliata sull'API REST di monitoraggio di Azure
 In questo articolo viene illustrato come eseguire l'autenticazione in modo che il codice possa usare le [informazioni di riferimento sulle API REST di monitoraggio di Microsoft Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -677,4 +676,3 @@ Invoke-RestMethod -Uri $request `
 * Visualizzare le [metriche supportate con il monitoraggio di Azure](monitoring-supported-metrics.md).
 * Esaminare le [informazioni di riferimento sulle API REST di monitoraggio di Microsoft Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 * Esaminare [Azure Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx).
-

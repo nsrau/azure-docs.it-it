@@ -50,22 +50,6 @@ Durante il tentativo di stabilire una connessione TLS sicura con l'hub IoT, il d
 ## <a name="securing-the-connection"></a>Proteggere la connessione
 La connessione Internet tra il dispositivo IoT e l'hub IoT è protetta mediante lo standard TLS (Transport Layer Security). IoT di Azure supporta gli standard[TLS 1.2][lnk-tls12], TLS 1.1 e TLS 1.0, in questo ordine. Il supporto per lo standard TLS 1.0 viene fornito soltanto per la compatibilità con le versioni precedenti. Si consiglia di usare lo standard TLS 1.2, che fornisce un livello di protezione superiore.
 
-Azure IoT Suite supporta, nell'ordine, i pacchetti di crittografia seguenti:
-
-| Pacchetto di crittografia | Length |
-| --- | --- |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA384 (0xc028) ECDH secp384r1 (uguale a RSA a 7680 bit) FS |256 |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA256 (0xc027) ECDH secp256r1 (uguale a RSA a 3072 bit) FS |128 |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_256\_CBC\_SHA (0xc014) ECDH secp384r1 (uguale a RSA a 7680 bit) FS |256 |
-| TLS\_ECDHE\_RSA\_WITH\_AES\_128\_CBC\_SHA (0xc013) ECDH secp256r1 (uguale a RSA a 3072 bit) FS |128 |
-| TLS\_RSA\_WITH\_AES\_256\_GCM\_SHA384 (0x9d) |256 |
-| TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256 (0x9c) |128 |
-| TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA256 (0x3d) |256 |
-| TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA256 (0x3c) |128 |
-| TLS\_RSA\_WITH\_AES\_256\_CBC\_SHA (0x35) |256 |
-| TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA (0x2f) |128 |
-| TLS\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA (0xa) |112 |
-
 ## <a name="securing-the-cloud"></a>Proteggere il cloud
 L'hub IoT di Azure consente la definizione dei [criteri di controllo di accesso][lnk-protocols] per ogni chiave di sicurezza, usando il set di autorizzazioni seguente per concedere l'accesso agli endpoint dell'hub IoT. Le autorizzazioni limitano l'accesso a un hub IoT in base alla funzionalità.
 

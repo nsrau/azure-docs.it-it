@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 11/16/2017
 ms.author: glenga
-ms.openlocfilehash: 81331142aa6110d4e29e6fb30a90ce6e3a853439
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d38482ebca736e4d7d0fe0b1b4b5dd0220de5b4
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="add-authentication-to-your-android-app"></a>Aggiungere l'autenticazione all'app Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -50,7 +50,7 @@ L'autenticazione sicura richiede la definizione di un nuovo schema URL per l'app
 
      Questa eccezione viene generata perché l'app tenta di accedere al back-end come utente non autenticato, mentre la tabella *TodoItem* richiede ora l'autenticazione.
 
-A questo punto, si aggiorna l'app in modo che autentichi gli utenti prima di richiedere risorse al back-end di App per dispositivi mobili. 
+A questo punto, si aggiorna l'app in modo che autentichi gli utenti prima di richiedere risorse al back-end di App per dispositivi mobili.
 
 ## <a name="add-authentication-to-the-app"></a>Aggiungere l'autenticazione all'app
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
@@ -79,3 +79,4 @@ Dopo aver completato questa esercitazione sull'autenticazione di base, provare a
 
 <!-- URLs. -->
 [Introduzione ad App per dispositivi mobili]: app-service-mobile-android-get-started.md
+[portale di Azure]: https://portal.azure.com/

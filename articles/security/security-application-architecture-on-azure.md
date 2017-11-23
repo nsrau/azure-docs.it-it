@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 91e46d690d3e7c298bc3b4020cc383ca99c43c4f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f15378c50dbf80863305ed4d1f31ae75f46a7789
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="application-architecture-on-azure"></a>Architettura delle applicazioni in Azure
 Per proteggere le soluzioni basate sul cloud in Microsoft Azure, è fondamentale avere un'architettura affidabile. Architetti, progettisti e responsabili dell'implementazione beneficiano di una conoscenza avanzata dell'architettura di applicazioni e servizi. Queste informazioni fondamentali permettono di comprendere tutti i componenti delle soluzioni basate sul cloud e semplificano l'integrazione della sicurezza in tutti gli aspetti della progettazione e dell'implementazione.

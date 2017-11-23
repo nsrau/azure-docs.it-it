@@ -1,7 +1,7 @@
 
 ## <a name="about-vhds"></a>Informazioni sui dischi rigidi virtuali
 
-I dischi rigidi virtuali utilizzati in Azure sono file con estensione .vhd archiviati come BLOB di pagine in un account di archiviazione Standard o Premium in Azure. Per ulteriori dettagli sui BLOB di pagine, vedere [Informazioni sui BLOB in blocchi e sui BLOB di pagine](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Per informazioni su Archiviazione Premium, vedere l'articolo relativo alle [prestazioni elevate di Archiviazione Premium e macchine virtuali di Azure](../articles/storage/common/storage-premium-storage.md).
+I dischi rigidi virtuali utilizzati in Azure sono file con estensione .vhd archiviati come BLOB di pagine in un account di archiviazione Standard o Premium in Azure. Per ulteriori dettagli sui BLOB di pagine, vedere [Informazioni sui BLOB in blocchi e sui BLOB di pagine](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Per informazioni su Archiviazione Premium, vedere l'articolo relativo alle [prestazioni elevate di Archiviazione Premium e macchine virtuali di Azure](../articles/virtual-machines/windows/premium-storage.md).
 
 Azure supporta il formato di disco fisso VHD. In caso di formato fisso, il disco logico viene disposto in modo lineare all'interno del file, in modo che l'offset del disco X venga archiviato in corrispondenza dell'offset del BLOB X. In un piè di pagina alla fine del BLOB vengono descritte le proprietà del disco rigido virtuale. Spesso, con il formato fisso si verifica uno spreco di spazio poiché nella maggior parte dei dischi sono presenti intervalli inutilizzati di grandi dimensioni. Tuttavia, in Azure i file con estensione vhd vengono archiviati in un formato di tipo sparse, pertanto si ottengono contemporaneamente i vantaggi sia dei dischi fissi sia di quelli dinamici. Per ulteriori dettagli, vedere [Introduzione ai dischi rigidi virtuali](https://technet.microsoft.com/library/dd979539.aspx).
 
@@ -26,11 +26,11 @@ Durante la creazione di dischi è possibile scegliere tra due livelli di prestaz
 
 Archiviazione Standard è supportata da unità disco rigido e offre un'archiviazione conveniente con buone prestazioni. Per Archiviazione Standard è possibile scegliere tra archiviazione replicata in locale in un data center o con ridondanza geografica con i data center primario e secondario. Per altre informazioni sulla replica dell'archiviazione, vedere [Replica di Archiviazione di Azure](../articles/storage/common/storage-redundancy.md). 
 
-Per altre informazioni sull'uso di Archiviazione Standard con dischi di macchina virtuale, vedere l'articolo relativo ad [Archiviazione Standard e dischi](../articles/storage/common/storage-standard-storage.md).
+Per altre informazioni sull'uso di Archiviazione Standard con dischi di macchina virtuale, vedere l'articolo relativo ad [Archiviazione Standard e dischi](../articles/virtual-machines/windows/standard-storage.md).
 
 ### <a name="premium-storage"></a>Archiviazione Premium 
 
-Archiviazione Premium è supportata da unità SSD e offre prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali che eseguono carichi di lavoro con elevato numero di operazioni di I/O. È possibile usare Archiviazione Premium con macchine virtuali di Azure serie DS, DSv2, GS, Ls o FS. Per altre informazioni, vedere [Archiviazione Premium](../articles/storage/common/storage-premium-storage.md).
+Archiviazione Premium è supportata da unità SSD e offre prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali che eseguono carichi di lavoro con elevato numero di operazioni di I/O. È possibile usare Archiviazione Premium con macchine virtuali di Azure serie DS, DSv2, GS, Ls o FS. Per altre informazioni, vedere [Archiviazione Premium](../articles/virtual-machines/windows/premium-storage.md).
 
 ### <a name="unmanaged-disks"></a>Dischi non gestiti
 

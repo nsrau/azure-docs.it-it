@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 16c9926d44f972d2b38028cb6ab1420de6b60533
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69a59ea9fb93f6e9f3f3eea66b1a9e973b1b4eea
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>Monitorare i contenitori di Windows in Service Fabric usando OMS
 
@@ -34,7 +34,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione, è necessario:
-- Disporre di un cluster in Azure o [crearne uno seguendo le istruzioni in questa esercitazione](service-fabric-tutorial-create-cluster-azure-ps.md)
+- Disporre di un cluster in Azure o [crearne uno seguendo le istruzioni in questa esercitazione](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 - [Distribuire nel cluster un'applicazione nei contenitori](service-fabric-host-app-in-a-container.md)
 
 ## <a name="setting-up-oms-with-your-cluster-in-the-resource-manager-template"></a>Impostazione di OMS con il cluster nel modello di Resource Manager

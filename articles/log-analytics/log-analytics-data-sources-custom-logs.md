@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2017
+ms.date: 11/17/2017
 ms.author: bwren
-ms.openlocfilehash: e3a4c631cd69921fec60b3ae33a23c4c7c369194
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: addb1c8f4c71bb1979229c597665fd301dfb9fdf
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log personalizzati in Log Analytics
 L'origine dati dei log personalizzati in Log Analytics consente di raccogliere gli eventi dai file di testo nei computer Windows e Linux. Molte applicazioni registrano le informazioni nei file di testo invece di usare servizi di registrazione standard come il registro eventi di Windows o Syslog.  Al termine della raccolta, è possibile analizzare ogni record del log in singoli campi usando la funzionalità [Campi personalizzati](log-analytics-custom-fields.md) di Log Analytics.
@@ -56,10 +56,6 @@ Per iniziare, caricare un esempio del log personalizzato.  La procedura guidata 
 
 Se viene usato un delimitatore Timestamp, la proprietà TimeGenerated di ogni record archiviato in OMS viene popolata con la data/ora specificata per la voce nel file di log.  Se viene usato un delimitatore Nuova riga, TimeGenerated viene popolato con la data e l'ora in cui Log Analytics ha raccolto la voce.
 
-> [!NOTE]
-> Al momento, Log Analytics gestisce la data/ora raccolta da un log usando un delimitatore Timestamp come UTC.  Questa impostazione verrà modificata a breve in modo che venga usato il fuso orario dell'agente.
->
->
 
 1. Fare clic su **Sfoglia** e passare a un file di esempio.  In alcuni browser, questo pulsante potrebbe essere denominato **Scegli file** .
 2. Fare clic su **Avanti**.

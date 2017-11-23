@@ -3,20 +3,20 @@ title: Condividere le visualizzazioni personalizzate di Azure Time Series Insigh
 description: Questo articolo descrive come sviluppare URL con parametri in Azure Time Series Insights, per poter condividere facilmente una visualizzazione di un cliente.
 services: time-series-insights
 ms.service: time-series-insights
-author: kfile
-ms.author: kfile
+author: MarkMcGeeAtAquent
+ms.author: MarkMcGeeAtAquent
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
-ms.date: 11/15/2017
-ms.openlocfilehash: d7a4401ff87a94265c588aa5ef070bdc8544fe12
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: ac48969a9166080384dccf606f0401a82016a60a
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Condividere una visualizzazione personalizzata usando un URL con parametri
 
@@ -77,7 +77,7 @@ Il parametro `timeSeriesDefinitions=<collection of term objects>` specifica i te
 
 Ad esempio, per aggiungere le definizioni di serie temporale come parametro URL, è possibile usare il codice seguente:
 
-```
+```https
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
 {"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
@@ -90,7 +90,9 @@ Usando queste definizioni di serie temporali per
  
 è possibile costruire l'URL con parametri seguente per una visualizzazione:
 
-`https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]`
+```https
+https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
+```
 
 Se si è usata l'utilità di esplorazione di Time Series Insights per creare la visualizzazione descritta dall'URL precedente, il risultato sarà simile al seguente:
 

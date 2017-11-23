@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 95d58c600bc43059025e739a8cdb062287f4ffb5
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4a2347fe9578b35c95d240c5c4dd2bf062077ece
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app Cassandra con Python e Azure Cosmos DB
 
@@ -29,13 +29,14 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Prima di poter eseguire questo esempio, è necessario soddisfare i prerequisiti seguenti:
-    * [Python](https://www.python.org/downloads/) versione 2.7.14
-    * [Git](http://git-scm.com/)
-    * [Driver Python per Apache Cassandra](https://github.com/datastax/python-driver)
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]In alternativa, è possibile [provare gratuitamente Microsoft Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure e senza impegno.
 
+Accesso al programma di anteprima dell'API Cassandra di Azure Cosmos DB. Se non è ancora stato richiesto l'accesso, [iscriversi adesso](cassandra-introduction.md#sign-up-now).
+
+Eseguire anche queste operazioni:
+* [Python](https://www.python.org/downloads/) versione 2.7.14
+* [Git](http://git-scm.com/)
+* [Driver Python per Apache Cassandra](https://github.com/datastax/python-driver)
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 4c4916037ad762dbb9dee803dfd45ec2fd89272b
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 17d9e496aedfdf98423e821e7f379dc481ffa0a5
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Autorizzazioni per il sito azureiotsuite.com
 
@@ -105,11 +105,7 @@ Per modificare i ruoli per un utente, è necessario essere un amministratore glo
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>Un amministratore del servizio vuole modificare il mapping della directory tra la sottoscrizione e un tenant di AAD specifico. Come completare questa attività
 
-1. Accedere al [portale di Azure classico][lnk-classic-portal] e fare clic su **Impostazioni** nell'elenco dei servizi sul lato sinistro.
-2. Selezionare la sottoscrizione per cui si vuole modificare il mapping della directory.
-3. Fare clic su **Modifica directory**.
-4. Nell'elenco a discesa selezionare la **Directory** si vuole usare. Fare clic sulla freccia Avanti.
-5. Verificare il mapping della directory e i coamministratori interessati. Se ci si sposta da un'altra directory, tutti i coamministratori dalla directory originale verranno rimossi.
+Vedere [Come aggiungere una sottoscrizione esistente alla directory di Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-add-an-existing-subscription-to-your-azure-ad-directory)
 
 ### <a name="im-a-domain-usermember-on-the-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>Un utente o membro di dominio del tenant di AAD ha creato una soluzione preconfigurata. Come gli viene assegnato un ruolo per l'applicazione?
 
@@ -151,7 +147,6 @@ Per altre informazioni su IoT Suite, vedere come [personalizzare una soluzione p
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
-[lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-portal]: https://portal.azure.com/
 [lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
 [lnk-assign-app-roles]: ../active-directory/active-directory-coreapps-assign-user-azure-portal.md

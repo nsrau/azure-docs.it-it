@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: bryanla
-ms.openlocfilehash: 169417530da21e0c8c58cbf770fd1d26660387f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 09ec59f9239e08005732b120ca653dcc833708a8
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Configurare un'Identità del servizio gestito della macchina virtuale tramite il portale di Azure
 
@@ -29,7 +29,7 @@ In questo articolo si apprende come abilitare e rimuovere l'Identità del serviz
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 ## <a name="enable-msi-during-creation-of-an-azure-vm"></a>Abilitare l'Identità del servizio gestito durante la creazione di una macchina virtuale di Azure
 

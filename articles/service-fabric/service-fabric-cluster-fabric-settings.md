@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: c6289df50d17de1ef542abbf617eb1cdb2f32311
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19caa05f0de7b4ff4ed7f4eafe50839d04f4ab50
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizzare le impostazioni del cluster Service Fabric e dei criteri di aggiornamento dell'infrastruttura
 Questo documento illustra come personalizzare le varie impostazioni dell'infrastruttura e i criteri di aggiornamento della stessa per il cluster di Service Fabric. Le impostazioni possono essere personalizzate nel [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager.
@@ -340,8 +340,8 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 ### <a name="section-name-faultanalysisservice"></a>Nome della sezione: FaultAnalysisService
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Int, valore predefinito: 0 |Non consentito|NOT_PLATFORM_UNIX_START TargetReplicaSetSize per FaultAnalysisService. |
-| MinReplicaSetSize |Int, valore predefinito: 0 |Non consentito|MinReplicaSetSize per FaultAnalysisService. |
+| TargetReplicaSetSize |Int, valore predefinito: 0 |statico|NOT_PLATFORM_UNIX_START TargetReplicaSetSize per FaultAnalysisService. |
+| MinReplicaSetSize |Int, valore predefinito: 0 |statico|MinReplicaSetSize per FaultAnalysisService. |
 | ReplicaRestartWaitDuration |Tempo in secondi, valore predefinito: 60 minuti|statico|Specificare l'intervallo di tempo in secondi. ReplicaRestartWaitDuration per FaultAnalysisService. |
 | QuorumLossWaitDuration | Tempo in secondi, valore predefinito: MaxValue |statico|Specificare l'intervallo di tempo in secondi. QuorumLossWaitDuration per FaultAnalysisService. |
 | StandByReplicaKeepDuration| Tempo in secondi, valore predefinito: (60*24*7) minuti |statico|Specificare l'intervallo di tempo in secondi. StandByReplicaKeepDuration per FaultAnalysisService. |
@@ -390,8 +390,8 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
 | Enabled |Bool, valore predefinito: false |statico|Flag Enabled per ImageStoreService. Valore predefinito: false |
-| TargetReplicaSetSize | Int, valore predefinito: 7 |Non consentito|TargetReplicaSetSize per ImageStoreService. |
-| MinReplicaSetSize | Int, valore predefinito: 3 |Non consentito|MinReplicaSetSize per ImageStoreService. |
+| TargetReplicaSetSize | Int, valore predefinito: 7 |statico|TargetReplicaSetSize per ImageStoreService. |
+| MinReplicaSetSize | Int, valore predefinito: 3 |statico|MinReplicaSetSize per ImageStoreService. |
 | ReplicaRestartWaitDuration | Tempo in secondi, valore predefinito: 60,0 * 30 |statico|Specificare l'intervallo di tempo in secondi. ReplicaRestartWaitDuration per ImageStoreService. |
 | QuorumLossWaitDuration | Tempo in secondi, valore predefinito: MaxValue |statico| Specificare l'intervallo di tempo in secondi. QuorumLossWaitDuration per ImageStoreService. |
 | StandByReplicaKeepDuration | Tempo in secondi, valore predefinito: è 3600.0 * 2 |statico| Specificare l'intervallo di tempo in secondi. StandByReplicaKeepDuration per ImageStoreService. |
@@ -414,8 +414,8 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 ### <a name="section-name-upgradeorchestrationservice"></a>Nome della sezione: UpgradeOrchestrationService
 | **Parametro** | **Valori consentiti** | **Criteri di aggiornamento** | **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Int, valore predefinito: 0 |Non consentito|TargetReplicaSetSize per UpgradeOrchestrationService. |
-| MinReplicaSetSize |Int, valore predefinito: 0 |Non consentito|MinReplicaSetSize per UpgradeOrchestrationService.
+| TargetReplicaSetSize |Int, valore predefinito: 0 |statico |TargetReplicaSetSize per UpgradeOrchestrationService. |
+| MinReplicaSetSize |Int, valore predefinito: 0 |statico |MinReplicaSetSize per UpgradeOrchestrationService.
 | ReplicaRestartWaitDuration | Tempo in secondi, valore predefinito: 60 minuti|statico| Specificare l'intervallo di tempo in secondi. ReplicaRestartWaitDuration per UpgradeOrchestrationService. |
 | QuorumLossWaitDuration | Tempo in secondi, valore predefinito: MaxValue |statico| Specificare l'intervallo di tempo in secondi. QuorumLossWaitDuration per UpgradeOrchestrationService. |
 | StandByReplicaKeepDuration | Tempo in secondi, valore predefinito: 60*24*7 minuti |statico| Specificare l'intervallo di tempo in secondi. StandByReplicaKeepDuration per UpgradeOrchestrationService. |

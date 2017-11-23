@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
-ms.openlocfilehash: fe276fe802eceb1f062ed8bda685dd44a1e3d175
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8050383a03344e41c90af06e00dbca3885aa566
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-azure-cli"></a>Configurare un'Identità del servizio gestito della macchina virtuale tramite l'interfaccia della riga di comando di Azure
 
@@ -29,7 +29,7 @@ In questo articolo si apprende come abilitare e rimuovere l'Identità del serviz
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[!INCLUDE [msi-qs-configure-prereqs](../../includes/msi-qs-configure-prereqs.md)]
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 Per eseguire gli esempi di script dell'interfaccia della riga di comando, sono disponibili tre opzioni:
 

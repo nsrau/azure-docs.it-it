@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 27243856d0c6b70c7515b6bde66b99ef6160eb36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cefc15e7df0dabd9229196d0175dcf6546a6ebce
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-network-security-overview"></a>Panoramica della sicurezza di rete di Azure
 Microsoft Azure include una solida infrastruttura di rete per supportare i requisiti di connettività di applicazioni e servizi. La connettività di rete è possibile tra le risorse disponibili in Azure, le risorse locali e quelle ospitate in Azure, nonché da e verso Internet e Azure.
@@ -93,7 +93,7 @@ Ad esempio, i requisiti di sicurezza possono includere:
 * Controllo di accesso all'applicazione
 * Protezione da attacchi DDoS aggiuntiva, oltre alla protezione DDoS fornita l'infrastruttura di Azure
 
-È possibile accedere a queste funzionalità di sicurezza di rete avanzate usando una soluzione dei partner di Azure. Le soluzioni di sicurezza di rete più recenti offerte dai partner Azure sono disponibili in [Azure Marketplace](https://azure.microsoft.com/marketplace/) cercando "sicurezza" e "sicurezza di rete".
+È possibile accedere a queste funzionalità di sicurezza di rete avanzate usando una soluzione dei partner di Azure. Le soluzioni di sicurezza di rete più recenti offerte dai partner di Azure sono disponibili in [Azure Marketplace](https://azure.microsoft.com/marketplace/), cercando "sicurezza" e "sicurezza di rete".
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Accesso remoto sicuro e connettività cross-premise
 Le operazioni di installazione, configurazione e gestione delle risorse di Azure devono essere eseguite in modalità remota. È anche consigliabile distribuire soluzioni di [IT ibrido](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) che includono componenti sia locali che nel cloud pubblico di Azure. Questi scenari richiedono l'accesso remoto sicuro.
