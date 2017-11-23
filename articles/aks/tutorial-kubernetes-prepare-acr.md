@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione su Kubernetes in Azure: preparare Registro contenitori di Azure | Microsoft Docs'
+title: 'Esercitazione su Kubernetes in Azure: preparare il Registro contenitori di Azure | Microsoft Docs'
 description: 'Esercitazione sul servizio contenitore di Azure: preparare Registro contenitori di Azure'
 services: container-service
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 22aa6c82aec7b8f6a16131878943fadd7762c1c0
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 15b54f6131c847551295061df6c6ad6a476a7da6
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Distribuire e usare il Registro contenitori di Azure
 
@@ -32,22 +32,22 @@ Il Registro contenitori di Azure è un registro privato basato su Azure per le i
 > * Assegnazione di tag a un'immagine del contenitore per Registro contenitori di Azure
 > * Caricamento dell'immagine in Registro contenitori di Azure
 
-Nelle esercitazioni successive, questa istanza di Registro contenitori di Azure verrà integrata con un cluster Kubernetes nel servizio contenitore di Azure. 
+Nelle esercitazioni successive, questa istanza di Registro contenitori di Azure verrà integrata con un cluster Kubernetes nel servizio contenitore di Azure.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Nell'[esercitazione precedente](./tutorial-kubernetes-prepare-app.md) è stata creta un'immagine del contenitore per una semplice applicazione Azure Voting. Se l'immagine dell'app Azure Vote non è stata creata, tornare all'[Esercitazione 1 - Creare immagini del contenitore](./tutorial-kubernetes-prepare-app.md).
 
-Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.20 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
+Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.21 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="deploy-azure-container-registry"></a>Distribuire il Registro contenitori di Azure
 
 Prima di distribuire un Registro contenitori di Azure, è necessario che esista un gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#create). In questo esempio viene creato un gruppo di risorse denominato `myResourceGroup` nell'area `westus2`.
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#create). In questo esempio viene creato un gruppo di risorse denominato `myResourceGroup` nell'area `eastus`.
 
 ```azurecli
-az group create --name myResourceGroup --location westus2
+az group create --name myResourceGroup --location eastus
 ```
 
 Creare un Registro contenitori di Azure con il comando [az acr create](/cli/azure/acr#create). Il nome di un registro contenitori **deve essere univoco**.
@@ -117,7 +117,7 @@ tiangolo/uwsgi-nginx-flask                           flask               788ca94
 
 ## <a name="push-images-to-registry"></a>Eseguire il push delle immagini nel registro
 
-Eseguire il push dell'immagine `azure-vote-front` nel registro. 
+Eseguire il push dell'immagine `azure-vote-front` nel registro.
 
 Nell'esempio seguente sostituire il nome del loginServer del Registro contenitori di Azure con il loginServer dell'ambiente in uso.
 

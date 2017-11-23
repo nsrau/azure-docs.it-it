@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: a746ace47c4f1190b7a695014543670a1a9cf879
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 78ce74450ce933e2aced4b6e62504373de7954f8
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Proteggere un file server usando Azure Site Recovery 
 
 Il servizio [Azure Site Recovery](site-recovery-overview.md) contribuisce a realizzare la strategia di continuità aziendale e ripristino di emergenza (BCDR) mantenendo disponibili e operative le app aziendali durante interruzioni pianificate e non pianificate. Site Recovery gestisce e orchestra il ripristino di emergenza di computer locali e macchine virtuali di Azure, incluse le operazioni di replica, failover e ripristino di vari carichi di lavoro.
 
-Questo articolo descrive come proteggere un file server usando Azure Site Recovery e include altre raccomandazioni specifiche per i vari ambienti. 
+Questo articolo descrive come proteggere un file server usando Azure Site Recovery e include altre raccomandazioni specifiche per i vari ambienti.     
 
 - [Proteggere le macchine di file server IaaS di Azure](#disaster-recovery-recommendation-for-azure-iaas-virtual-machines)
 - [Proteggere i file server locali](#replicate-an-onpremises-file-server-using-azure-site-recovery)
@@ -51,7 +51,7 @@ Nel riferimento precedente più file server, a cui viene fatto riferimento come 
 
 La rappresentazione grafica seguente mira a semplificare la scelta della strategia da usare per l'ambiente di file server.
 
-![albero delle decisioni](media/site-recovery-file-server/decisiontree.png)
+![decisiontree](media/site-recovery-file-server/decisiontree.png)
 
 
 ### <a name="factors-to-consider-while-making-disaster-recovery-decision"></a>Fattori da considerare per la scelta di operare un ripristino di emergenza

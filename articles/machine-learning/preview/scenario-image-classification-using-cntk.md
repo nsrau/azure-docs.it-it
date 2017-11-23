@@ -9,11 +9,11 @@ ms.reviewer: mawah, marhamil, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: eefede6196bedf208d9b14cee63632922223a6d6
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 2f8b2d9d2396c1f9c9e509257f3cd031a816729f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classificazione delle immagini con Azure Machine Learning Workbench
 
@@ -52,9 +52,11 @@ I prerequisiti per eseguire questo esempio sono i seguenti:
 4. Una GPU dedicata non è necessaria per eseguire il training SVM nella parte 1. Tuttavia, è richiesta per il perfezionamento della rete neurale profonda descritto nella parte 2. Se non si dispone di una GPU potente, si desidera eseguire il training su più GPU o non si dispone di un computer Windows, considerare l'uso della macchina virtuale per l'apprendimento avanzato di Azure con sistema operativo Windows. Vedere [qui](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) per una guida alla distribuzione con un solo clic. Dopo aver eseguito la distribuzione, connettersi alla macchina virtuale tramite una connessione desktop remoto, installarvi Workbench ed eseguire il codice localmente dalla macchina virtuale.
 5. È necessario installare diverse librerie Python, come OpenCV. Scegliere *Open Command Prompt* (Apri prompt dei comandi) dal menu *File* in Workbench ed eseguire i comandi seguenti per installare queste dipendenze:  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.0-cp35-cp35m-win_amd64.whl`  
-    - `pip install opencv_python-3.3.0-cp35-cp35m-win_amd64.whl` dopo aver scaricato il selettore OpenCV da http://www.lfd.uci.edu/~gohlke/pythonlibs/ (il nome del file e la versione esatti possono cambiare)
-    - `conda install matplotlib numpy pillow`
-    - `conda install -c conda-forge bqplot`
+    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` dopo aver scaricato il selettore OpenCV da http://www.lfd.uci.edu/~gohlke/pythonlibs/ (il nome del file e la versione esatti possono cambiare)
+    - `conda install pillow`
+    - `pip install -U numpy`
+    - `pip install bqplot`
+    - `jupyter nbextension enable --py --sys-prefix bqplot`
 
 ### <a name="troubleshooting--known-bugs"></a>Risoluzione dei problemi/Bug noti
 - Per la parte 2 è necessaria una GPU altrimenti, quando si prova a perfezionare la rete neurale profonda, viene generato l'errore "Batch normalization training on CPU is not yet implemented" (Training normalizzazione batch sulle CPU non ancora implementato).
@@ -91,12 +93,10 @@ Questa esercitazione usa come esempio di esecuzione un set di dati della texture
 
 Lo script `0_downloadData.py` scarica tutte le immagini nella directory *DATA_DIR/immagini/fashionTexture/*. Alcuni dei 428 URL potrebbero essere danneggiati. Questo non è un problema e significa semplicemente che si ha un numero leggermente inferiore di immagini per il training e il test.
 
-Nella figura seguente vengono illustrati esempi per gli attributi a pois (sinistra), a righe (centro) e leopardato (destra). Le annotazioni sono state eseguite in base al capo di abbigliamento per la parte superiore del corpo.
+La figura seguente illustra gli esempi per gli attributi a pois (sinistra), a righe (centro) e leopardato (destra). Le annotazioni sono state eseguite in base al capo di abbigliamento per la parte superiore del corpo.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/examples_dotted.jpg"  alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_striped.jpg" alt="alt text" height="200">
-<img src="media/scenario-image-classification-using-cntk/examples_leopard.jpg" alt="alt text" height="200">
+<img src="media/scenario-image-classification-using-cntk/examples_all.jpg"  alt="alt text" width="700">
 </p>
 
 

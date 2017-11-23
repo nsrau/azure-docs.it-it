@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/01/2017
+ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: aff54b86da6a8a062a3f1c76aa69e32c60008274
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 3ab8029d035c3ba88ddb8a112e27f9054f7c203c
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configurare Monitoraggio prestazioni rete per ExpressRoute (anteprima)
 
@@ -39,21 +39,27 @@ Monitoraggio prestazioni rete (NPM) è una soluzione di monitoraggio di rete bas
 
 * Vedere lo stato del sistema ExpressRoute da un momento precedente
 
-**Come funziona?**
+## <a name="regions"></a>Aree supportate
+
+È possibile monitorare i circuiti di ExpressRoute in qualsiasi parte del mondo tramite un'area di lavoro ospitata in una delle seguenti aree:
+
+* Europa occidentale 
+* Stati Uniti Orientali 
+* Asia sudorientale 
+
+## <a name="workflow"></a>Flusso di lavoro
 
 Gli agenti di monitoraggio sono installati su più server, sia in locale che in Azure. Gli agenti comunicano tra loro, ma non inviano dati, inviano pacchetti di handshake TCP. La comunicazione tra gli agenti consente ad Azure di eseguire il mapping della topologia di rete e del percorso che il traffico potrebbe prendere.
 
-**Workflow**
-
-1. Creare un'area di lavoro NPM nell'area Stati Uniti centro-occidentali. Attualmente questo è l'unica area in cui tale versione di anteprima è supportata.
+1. Creare un'area di lavoro NPM in una delle [aree supportate](#regions).
 2. Installare e configurare gli agenti software: 
     * Installare agenti di monitoraggio su server locali e VM di Azure.
     * Configurare le impostazioni nei server degli agenti di monitoraggio per consentire agli agenti di monitoraggio di comunicare (aprire le porte del firewall, ecc.).
 3. Configurare regole del gruppo di sicurezza di rete per consentire all'agente di monitoraggio installato nelle VM di Azure di comunicare con gli agenti di monitoraggio locali.
-4. Richiedere di inserire l'area di lavoro NPM nell'elenco elementi consentiti
+4. Richiedere di inserire l'area di lavoro NPM nell'elenco elementi consentiti.
 5. Configurare il monitoraggio: rilevamento automatico e gestione delle reti visibili in NPM.
 
-Se si usa già Monitoraggio prestazioni rete per monitorare altri oggetti o servizi e si dispone già dell'area di lavoro negli Stati Uniti centro-occidentali, è possibile ignorare i passaggi 1 e 2 e iniziare la configurazione con il passaggio 3.
+Se si usa già Monitoraggio prestazioni rete per monitorare altri oggetti o servizi e si dispone già dell'area di lavoro in una delle aree supportate, è possibile ignorare i passaggi 1 e 2 e iniziare la configurazione dal passaggio 3.
 
 ## <a name="configure"></a>Passaggio 1: Creare un'area di lavoro
 
@@ -66,8 +72,13 @@ Se si usa già Monitoraggio prestazioni rete per monitorare altri oggetti o serv
   * Area di lavoro OMS: immettere un nome per l'area di lavoro.
   * Sottoscrizione: in presenza di più sottoscrizioni, scegliere quella da associare alla nuova area di lavoro.
   * Gruppo di risorse: creare un gruppo di risorse o usarne uno esistente.
-  * Posizione: è necessario selezionare Stati Uniti centro-occidentali per questa versione di anteprima
+  * Posizione: è necessario selezionare un'[area supportata](#regions).
   * Piano tariffario: selezionare "Gratuito"
+  
+  >[!NOTE]
+  >Il circuito ExpressRoute potrebbe trovarsi in qualsiasi posto, ma non deve essere nella stessa area dell'area di lavoro.
+  >
+
 
   ![area di lavoro](.\media\how-to-npm\4.png)<br><br>
 4. Fare clic su **OK** per salvare e distribuire il modello di impostazioni. Dopo la convalida del modello, fare clic su **Crea** per distribuire l'area di lavoro.
@@ -88,14 +99,14 @@ Se si usa già Monitoraggio prestazioni rete per monitorare altri oggetti o serv
   >L'agente Linux non è attualmente supportato per il monitoraggio di ExpressRoute.
   >
   >
-2. Quindi copiare e incollare l'**ID area di lavoro** e la **chiave primaria** nel Blocco note.
+2. Quindi copiare l'**ID area di lavoro** e la **chiave primaria** nel Blocco note.
 3. Nella sezione **Configurare gli agenti** scaricare lo script di Powershell. Lo script di PowerShell consente di aprire la porta firewall pertinente per le transazioni TCP.
 
   ![Script di PowerShell](.\media\how-to-npm\7.png)
 
 ### <a name="installagent"></a>2.2: Installare un agente di monitoraggio in ogni server di monitoraggio
 
-1. Eseguire **Installa** per installare l'agente in ogni server che si vuole usare per il monitoraggio di ExpressRoute. Il server che si usa per il monitoraggio può essere una VM o in locale e deve avere accesso a Internet. È necessario installare almeno un agente in locale e uno in ogni segmento di rete che si vuole monitorare in Azure.
+1. Eseguire **Installa** per installare l'agente in ogni server che si vuole usare per il monitoraggio di ExpressRoute. Il server che si usa per il monitoraggio può essere una VM o in locale e deve avere accesso a Internet. È necessario installare almeno un agente in locale e un agente in ogni segmento di rete che si vuole monitorare in Azure.
 2. Nella pagina di **benvenuto** fare clic su **Avanti**.
 3. Nella pagina **Condizioni di licenza** leggere la licenza e quindi fare clic su **Accetto**.
 4. Nella pagina **Cartella di destinazione** modificare o mantenere la cartella di installazione predefinita e quindi fare clic su **Avanti**.
@@ -116,7 +127,7 @@ Se si usa già Monitoraggio prestazioni rete per monitorare altri oggetti o serv
 
 ### <a name="proxy"></a>2.3: Configurare le impostazioni proxy (facoltativo)
 
-Se si usa un proxy Web per accedere a Internet, eseguire la procedura seguente per configurare le impostazioni proxy per Microsoft Monitoring Agent. È necessario eseguire questa procedura per ogni server. Se è necessario configurare molti server, può risultare più semplice usare uno script per automatizzare il processo. In questo caso, vedere [Per configurare le impostazioni proxy per Microsoft Monitoring Agent tramite uno script](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
+Se si usa un proxy Web per accedere a Internet, eseguire la procedura seguente per configurare le impostazioni proxy per Microsoft Monitoring Agent. Eseguire questa procedura per ogni server. Se è necessario configurare molti server, può risultare più semplice usare uno script per automatizzare il processo. In questo caso, vedere [Per configurare le impostazioni proxy per Microsoft Monitoring Agent tramite uno script](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
 
 Per configurare le impostazioni proxy per Microsoft Monitoring Agent tramite il Pannello di controllo:
 
@@ -157,7 +168,7 @@ Aprire i server degli agenti e aprire una finestra di PowerShell con privilegi a
 
 ## <a name="opennsg"></a>Passaggio 3: Configurare le regole del gruppo di sicurezza di rete
 
-Per i server degli agenti di monitoraggio in Azure è necessario configurare regole del gruppo di sicurezza di rete (NSG) per consentire il traffico TCP su una porta utilizzata da NPM per le transazioni sintetiche. Per impostazione predefinita è la porta 8084. Questo consente a un agente di monitoraggio installato nella VM di Azure di comunicare con un agente di monitoraggio locale.
+Per i server degli agenti di monitoraggio in Azure è necessario configurare regole del gruppo di sicurezza di rete per consentire il traffico TCP su una porta usata da NPM per le transazioni sintetiche. Per impostazione predefinita è la porta 8084. Questo consente a un agente di monitoraggio installato nella VM di Azure di comunicare con un agente di monitoraggio locale.
 
 Per altre informazioni su NSG, vedere [Gruppi di sicurezza di rete](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
 
@@ -168,8 +179,7 @@ Per altre informazioni su NSG, vedere [Gruppi di sicurezza di rete](../virtual-n
 >
 >
 
-Prima di iniziare a usare la funzionalità di monitoraggio di ExpressRoute di NPM, è necessario richiedere di inserire l'area di lavoro nell'elenco elementi consentiti. [Fare clic qui per passare alla pagina e compilare il modulo di richiesta](https://go.microsoft.com/fwlink/?linkid=862263). (Suggerimento: è consigliabile aprire questo collegamento in una nuova finestra o scheda). La procedura di inserimento nell'elenco elementi consentiti potrebbe richiedere un giorno lavorativo o più. Al termine dell'operazione verrà inviato un messaggio di posta elettronica.
-
+Prima di iniziare a usare la funzionalità di monitoraggio di ExpressRoute di NPM, è necessario richiedere di inserire l'area di lavoro nell'elenco elementi consentiti. [Fare clic qui per passare alla pagina e compilare il modulo di richiesta](https://aka.ms/npmcohort). (Suggerimento: è consigliabile aprire questo collegamento in una nuova finestra o scheda). La procedura di inserimento nell'elenco elementi consentiti potrebbe richiedere un giorno lavorativo o più. Al termine dell'inserimento nell'elenco elementi consentiti verrà inviato un messaggio di posta elettronica.
 
 ## <a name="setupmonitor"></a>Passaggio 5: Configurare NPM per il monitoraggio di ExpressRoute
 
@@ -189,7 +199,7 @@ Dopo aver completato le sezioni precedenti e aver verificato che è avvenuto l'i
 3. Nella pagina di configurazione passare alla scheda "Peering ExpressRoute" nel riquadro di sinistra. Fare clic su **Discover Now** (Individua).
 
   ![individua](.\media\how-to-npm\13.png)
-4. Al termine del processo di individuazione vengono visualizzate le regole per il nome di circuito univoco e il nome della rete virtuale. Inizialmente queste regole sono disabilitate. È necessario abilitare le regole, quindi selezionare gli agenti di monitoraggio e i valori di soglia.
+4. Al termine del processo di individuazione vengono visualizzate le regole per il nome di circuito univoco e il nome della rete virtuale. Inizialmente queste regole sono disabilitate. Abilitare le regole, quindi selezionare gli agenti di monitoraggio e i valori di soglia.
 
   ![regole](.\media\how-to-npm\14.png)
 5. Dopo aver attivato le regole e selezionato i valori e gli agenti che si desidera monitorare, c'è un'attesa di circa 30-60 prima che i valori inizino a popolarsi e i riquadri **Monitoraggio di ExpressRoute** diventino disponibili. Dopo aver visualizzato i riquadri di monitoraggio, i circuiti ExpressRoute e le risorse di connessione vengono monitorate da NPM.
@@ -229,6 +239,7 @@ Per visualizzare la topologia del circuito, fare clic sul riquadro **Topologia**
 
 ![filters](.\media\how-to-npm\topology.png)
 
-#### <a name="detailed-topology-view-of-a-particular-expressroute-circuit---with-vnet-connections"></a>Visualizzazione dettagliata della topologia di un particolare circuito ExpressRoute, con le connessioni di rete virtuale
+#### <a name="detailed-topology-view-of-a-circuit"></a>Visualizzazione dettagliata della Topologia di un circuito
 
+Questa visualizzazione mostra le connessioni della rete virtuale.
 ![topologia dettagliata](.\media\how-to-npm\17.png)

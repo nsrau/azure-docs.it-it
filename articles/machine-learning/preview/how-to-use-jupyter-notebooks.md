@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 80cdd07bff865776a68897a7b8c1b3fe66b76b18
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 9d8a9f1c32578abff1d98e093469e1a780f6cd80
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Come usare il blocco appunti Jupyter in Azure Machine Learning Workbench
 
 Azure Machine Learning Workbench supporta la sperimentazione interattiva del data science grazie all'integrazione del blocco appunti Jupyter. Questo articolo descrive come usare al meglio queste funzionalità per aumentare la velocità e la qualità degli esperimenti di data science interattivi.
 
 ## <a name="prerequisites"></a>Prerequisiti
-- [Installare e creare Azure Machine Learning](/machine-learning/preview/quickstart-installation.md).
+- [Installare e creare Azure Machine Learning](quickstart-installation.md).
 - Acquisire familiarità con il [blocco appunti Jupyter](http://jupyter.org/), dal momento che questo articolo non descrive come usarlo.
 
 ## <a name="jupyter-notebook-architecture"></a>Architettura del blocco appunti Jupyter

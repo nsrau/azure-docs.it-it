@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/28/2017
 ms.author: marsma
-ms.openlocfilehash: 21d49f1ef2f0f9e93e72dcd2a1667033b234bab6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 86922fac2154d4084f34275e761addeafe565fc0
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>Calcolare le dimensioni di un contenitore di archiviazione BLOB
 
@@ -28,6 +28,9 @@ Lo script consente di calcolare le dimensioni di un contenitore dell'Archiviazio
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+> [!IMPORTANT]
+> Questo script dell'interfaccia della riga di comando offre una dimensione stimata per il contenitore e non deve essere usato per calcoli di fatturazione.
 
 ## <a name="sample-script"></a>Script di esempio
 

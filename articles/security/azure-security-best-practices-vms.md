@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7122e2f5f7ebc8ef0c6b2083257f26d8d2e5e345
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Procedure consigliate per la sicurezza delle VM di Azure
 
@@ -47,7 +47,7 @@ L'articolo esamina le seguenti procedure consigliate di sicurezza per le VM:
 
 ## <a name="vm-authentication-and-access-control"></a>Autenticazione e controllo di accesso della VM
 
-Il primo passo per proteggere la VM è garantire che solo gli utenti autorizzati possano configurare la VM. È possibile usare [i criteri di Azure Resource Manager](../azure-resource-manager/resource-manager-policy.md) per definire le convenzioni per le risorse nell'organizzazione, creare criteri personalizzati e applicare questi criteri alle risorse, ad esempio [gruppi di risorse](../azure-resource-manager/resource-group-overview.md).
+Il primo passo per proteggere la VM è garantire che solo gli utenti autorizzati possano configurare la VM. È possibile usare [i criteri di Azure](../azure-policy/azure-policy-introduction.md) per definire le convenzioni per le risorse nell'organizzazione, creare criteri personalizzati e applicarli alle risorse, ad esempio ai [gruppi di risorse](../azure-resource-manager/resource-group-overview.md).
 
 Le VM che appartengono a un gruppo di risorse ereditano naturalmente i suoi criteri. Sebbene questo approccio alla gestione delle VM sia consigliabile, è possibile controllare l'accesso ai singoli criteri della MV usando il [controllo degli accessi in base al ruolo (RBAC)](../active-directory/role-based-access-control-configure.md).
 

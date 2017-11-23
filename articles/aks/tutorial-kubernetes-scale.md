@@ -14,14 +14,14 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: c60bdf18f80f6922631e02855b83adeb876daa4c
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: f060b37d5ae02dfd53f513b134692186024cf727
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="scale-application-in-azure-container-service-aks"></a>Ridimensionare un'applicazione nel servizio contenitore di Azure
 
@@ -49,7 +49,7 @@ Se è stato creato usando i comandi nell'esercitazione precedente, il cluster Ku
 Nell'esempio seguente il numero di nodi viene aumentato a tre nel cluster Kubernetes denominato *myK8sCluster*. Il completamento del comando richiede alcuni minuti.
 
 ```azurecli
-az aks scale --resource-group=myResourceGroup --name=myK8SCluster --agent-count 3
+az aks scale --resource-group=myResourceGroup --name=myK8SCluster --node-count 3
 ```
 
 L'output è simile a:

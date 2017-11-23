@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.openlocfilehash: 50f9073d3c35bd9dcfd826ff44e767fb69558757
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d80fdd5a2e4339823c05368d76de333f3314d4ec
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure
 Molti considerano l'identità come il nuovo livello limite per la sicurezza, sostituendo in questo ruolo la prospettiva tradizionale incentrata sulla rete. Questa evoluzione nell'attenzione per la sicurezza e negli investimenti è dovuta al fatto che i perimetri di rete sono diventati sempre più permeabili e la difesa perimetrale non può più essere efficace quanto prima dell'esplosione delle applicazioni cloud e dei dispositivi [BYOD](http://aka.ms/byodcg).
@@ -115,7 +115,7 @@ A tale scopo, l'organizzazione può creare criteri di sicurezza con definizioni 
 
 Le organizzazioni che non controllano le modalità di creazione delle risorse sono più soggette a un uso improprio del servizio da parte degli utenti, che potrebbero creare più risorse del necessario. La protezione avanzata del processo di creazione delle risorse è un passaggio importante per la protezione di uno scenario multi-tenant.
 
-Per altre informazioni sulla creazione di criteri con Azure Resource Manager, vedere [Usare i criteri per gestire le risorse e controllare l'accesso](../azure-resource-manager/resource-manager-policy.md).
+Per altre informazioni sulla creazione di criteri con Azure Resource Manager leggere l'articolo [Informazioni su Criteri di Azure](../azure-policy/azure-policy-introduction.md).
 
 ## <a name="guide-developers-to-leverage-identity-capabilities-for-saas-apps"></a>Guidare gli sviluppatori nell'utilizzo delle funzionalità di identità per app SaaS
 L'identità dell'utente viene usata in molti scenari quando gli utenti accedono ad [app SaaS](https://azure.microsoft.com/marketplace/active-directory/all/) che possono essere integrate in directory locali o cloud. Gli sviluppatori stessi dovrebbero usare una metodologia sicura per lo sviluppo di queste applicazioni, ad esempio [Microsoft Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx). Azure AD semplifica l'autenticazione per gli sviluppatori fornendo le identità come servizio, con il supporto per protocolli standard del settore come [OAuth 2.0](http://oauth.net/2/) e [OpenID Connect](http://openid.net/connect/), nonché librerie open source per diverse piattaforme.

@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1c9bfe567b1e0872abc7aba054127735d5f61754
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 461feb952f7e2eddba9c7218b3463868e8cb7965
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurare il ripristino di emergenza in Azure per le macchine virtuali VMware locali
 
@@ -85,20 +85,14 @@ La macchina virtuale del server di configurazione deve essere una macchina virtu
 Nella macchina virtuale del server di configurazione verificare che il clock di sistema sia sincronizzato con un server di riferimento ora.
 L'orario deve essere sincronizzato entro i 15 minuti. Se la differenza di orario è maggiore di 15 minuti, il programma di installazione non riesce.
 
-Verificare che la macchina virtuale del server di configurazione sia in grado di accedere a questi URL:
+Verificare che il server di configurazione sia in grado di accedere a questi URL:
 
-- *.accesscontrol.windows.net. Usato per il controllo di accesso e la gestione delle identità.
-- *.backup.windowsazure.com. Usato per il coordinamento e il trasferimento dei dati di replica.
-- *.blob.core.windows.net. Usato per l'accesso all'account di archiviazione in cui sono archiviati i dati replicati.
-- *.hypervrecoverymanager.windowsazure.com. Usato per il coordinamento e le operazioni di gestione della replica.
-- time.nist.gov e time.windows.com. Usati per controllare la sincronizzazione tra ora di sistema e ora globale.
+   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    
+    - Se sono presenti regole del firewall basate sull'indirizzo IP, verificare che consentano la comunicazione con Azure.
 
-URL per Azure Government Cloud:
-
-- *.ugv.hypervrecoverymanager.windowsazure.us
-- *.ugv.backup.windowsazure.us
-- *.ugi.hypervrecoverymanager.windowsazure.us
-- *.ugi.backup.windowsazure.us
+- Consentire gli [intervalli IP del data center di Azure ](https://www.microsoft.com/download/confirmation.aspx?id=41653) e la porta HTTPS (443).
+    - Consentire gli intervalli di indirizzi IP per l'area di Azure della sottoscrizione e per gli Stati Uniti occidentali (usati per il controllo di accesso e la gestione delle identità).
 
 Tutte le regole del firewall basate sull'indirizzo IP devono consentire la comunicazione con gli [intervalli IP del data center di Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e le porte 443 (HTTPS) e 9443 (replica dei dati). Assicurarsi di consentire gli intervalli di indirizzi IP per l'area di Azure della sottoscrizione e per gli Stati Uniti occidentali (usati per il controllo di accesso e la gestione delle identità).
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 11/13/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 7c66a95d5a056f59e0f28dba4e0880e72e74dc3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory e Multi-Factor Authentication: proteggere i dati personali usando l'identità e i controlli di accesso
 
@@ -121,23 +121,23 @@ Per distribuire Multi-Factor Authentication nel cloud di Azure, è prima necessa
 
 #### <a name="how-do-i-enable-azure-to-use-mfa"></a>Come abilitare Azure per l'uso di Multi-Factor Authentication
 
-Se gli utenti hanno licenze che comprendono Azure Multi-Factor Authentication, non è necessario eseguire operazioni per attivare Azure MFA. In caso contrario sarà necessario creare un provider di Multi-Factor Authentication nella directory. A questo scopo, seguire questa procedura:
+Se gli utenti hanno licenze che includono Azure Multi-Factor Authentication, è sufficiente configurare Azure Multi-Factor Authentication in base a un utente o a un gruppo. 
 
-1. Accedere al portale di Azure classico come amministratore e selezionare **Active Directory**.
+![Utenti abilitati per Multi-Factor Authentication](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-2. Selezionare **Provider di Multi-Factor Authentication**.
+Se attualmente non si dispone di licenze è necessario eseguire il processo per determinare il tipo di distribuzione più adatta allo scenario. Iniziare esaminando l'articolo intitolato [Scegliere la soluzione di Azure Multi-Factor Authentication più adatta](../multi-factor-authentication/multi-factor-authentication-get-started.md). Se si decide di creare un server di Multi-Factor Authentication, seguire questa procedura:
 
-3. Selezionare **Nuovo** e quindi **Provider di Multi-Factor Authentication** in **Servizi app**.
+1. Selezionare **Active Directory** nel portale di Azure, accedendo come amministratore.
 
-4. Selezionare **Creazione rapida**.
+2. Selezionare **Server MFA**
 
-5. Compilare il campo del nome e selezionare un modello di utilizzo, ovvero per autenticazione o per utente abilitato.
+3. Specificare un valore di timeout. 
 
-6. Designare una directory a cui associare il provider di Multi-Factor Authentication.
+    ![](media/protect-personal-data-identity-access-controls/mfa-server-settings.png)
 
-7. Selezionare il pulsante **Create** .
+4. Fare clic su **Save**
 
-![](media/protect-personal-data-identity-access-controls/quick-create.png)
+In questa finestra è anche possibile scaricare il Server MFA. È possibile ottenere altri dettagli su come ridimensionare e pianificare la distribuzione consultando l'articolo [Introduzione al server Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)
 
 Per altre istruzioni su come gestire i provider di Multi-Factor Authentication, vedere [Introduzione all'uso di un provider di Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider).
 
@@ -158,7 +158,7 @@ Per abilitare MFA modificando lo stato utente, seguire questa procedura:
 5. Selezionare la casella accanto al nome dell'utente.
 6. A destra scegliere **Abilita** sotto Azioni rapide.
 
-   ![](media/protect-personal-data-identity-access-controls/quick-create.png)
+   ![](media/protect-personal-data-identity-access-controls/mfa-bulk.png)
 
 7. Confermare la selezione nella finestra popup che viene visualizzata.  Gli utenti per i quali è stata abilitata la funzionalità Multi-Factor Authentication devono eseguire la registrazione all'accesso successivo.
 
