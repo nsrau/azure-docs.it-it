@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: d77440fe62bbd0e720e5ae60b15574dacc4180c0
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 2f7a65d32f662d7e265e58c5fe7d9dea81a4e63c
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Ottimizzare la velocità effettiva di rete per le macchine virtuali di Azure
 
@@ -33,7 +33,7 @@ Se la macchina virtuale di Windows è supportata da una [Rete accelerata](virtua
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled              : False
+    Enabled                 : False
     ```
 2. Immettere il comando seguente per abilitare RSS:
 
@@ -44,7 +44,7 @@ Se la macchina virtuale di Windows è supportata da una [Rete accelerata](virtua
 3. Verificare che RSS sia abilitato nella macchina virtuale immettendo di nuovo il comando `Get-NetAdapterRss`. Se l'esito è positivo, viene restituito l'output di esempio seguente:
 
     ```powershell
-    Name                    :Ethernet
+    Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
     Enabled              : True
     ```
@@ -55,26 +55,35 @@ RSS è sempre abilitato per impostazione predefinita nella macchina virtuale Lin
 
 ### <a name="ubuntu-for-new-deployments"></a>Ubuntu per nuove distribuzioni
 
-Per ottenere l'ottimizzazione, installare prima di tutto la versione supportata più recente, 16.04-LTS, in questo modo:
+Il kernel Azure Ubuntu offre le migliori prestazioni di rete in Azure ed è il kernel predefinito dal 21 settembre 2017. Per ottenere il kernel, installare prima di tutto la versione supportata più recente, 16.04-LTS, come illustrato sotto:
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
 "Sku": "16.04-LTS",
 "Version": "latest"
 ```
-Al termine dell'aggiornamento, immettere i comandi seguenti per ottenere il kernel più recente:
+Al termine della creazione, immettere i comandi seguenti per ottenere gli aggiornamenti più recenti. Questi passaggi funzionano anche per le VM che attualmente eseguono il kernel Azure Ubuntu.
 
 ```bash
+#run as root or preface with sudo
+apt-get -y update
+apt-get -y upgrade
+apt-get -y dist-upgrade
+```
+
+Il set di comandi facoltativi seguenti può essere utile per le distribuzioni di Ubuntu esistenti che hanno già il kernel Azure, ma per cui si sono verificati errori durante gli aggiornamenti.
+
+```bash
+#optional steps may be helpful in existing deployments with the Azure kernel
+#run as root or preface with sudo
 apt-get -f install
 apt-get --fix-missing install
 apt-get clean
 apt-get -y update
 apt-get -y upgrade
+apt-get -y dist-upgrade
 ```
 
-Comando facoltativo:
-
-`apt-get -y dist-upgrade`
 #### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Aggiornamento del kernel Azure Ubuntu per le macchine virtuali esistenti
 
 È possibile ottenere prestazioni significative per la velocità effettiva effettuando l'aggiornamento al kernel Azure Linux proposto. Per verificare se si ha già questo kernel, controllare la versione del kernel.
@@ -87,7 +96,7 @@ uname -r
 #4.11.0-1014-azure
 ```
 
-Eseguire quindi questi comandi come radice.
+Se la VM non ha il kernel Azure, il numero di versione inizierà in genere con "4.4". In questi casi, eseguire i comandi seguenti come radice.
 ```bash
 #run as root or preface with sudo
 apt-get update
@@ -99,14 +108,14 @@ reboot
 
 ### <a name="centos"></a>CentOS
 
-Per ottenere le ottimizzazioni più recenti, effettuare prima di tutto l'aggiornamento alla versione supportata più recente, in questo modo:
+Per ottenere le ottimizzazioni più recenti, l'ideale è creare una VM con la versione supportata più recente specificando i parametri seguenti:
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
 "Sku": "7.4",
 "Version": "latest"
 ```
-Al termine dell'aggiornamento, installare la versione più recente di Linux Integration Services (LIS).
+Le VM nuove ed esistenti possono trarre vantaggio dall'installazione della versione più recente di Linux Integration Services (LIS).
 L'ottimizzazione della velocità effettiva è presente in LIS a partire dalla versione 4.2.2-2, anche se le versioni successive contengono ulteriori miglioramenti. Per installare la versione di LIS più recente, immettere i comandi seguenti:
 
 ```bash
@@ -117,14 +126,14 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="red-hat"></a>Red Hat
 
-Per ottenere l'ottimizzazione, effettuare prima di tutto l'aggiornamento alla versione supportata più recente, in questo modo:
+Per ottenere le ottimizzazioni, l'ideale è creare una VM con la versione supportata più recente specificando i parametri seguenti:
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
 "Sku": "7-RAW"
 "Version": "latest"
 ```
-Al termine dell'aggiornamento, installare la versione più recente di Linux Integration Services (LIS).
+Le VM nuove ed esistenti possono trarre vantaggio dall'installazione della versione più recente di Linux Integration Services (LIS).
 L'ottimizzazione della velocità effettiva è disponibile in LIS a partire dalla versione 4.2. Immettere i comandi seguenti per scaricare e installare LIS:
 
 ```bash

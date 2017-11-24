@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
-ms.openlocfilehash: 2b2f35b3241bd1700bb1fb3319d38fdfda2545f9
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: a4945c77be5763ffeda328184149f712572937c0
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="sprint-1---november-2017"></a>Sprint 1 - Novembre 2017 
 
@@ -122,7 +122,7 @@ Di seguito è riportato un elenco degli aggiornamenti dettagliati in ogni area d
 
 ### <a name="operationalization"></a>Operazionalizzazione
 - I servizi Web con il "trattino" nel nome non si bloccano più.
-- L'utente può creare ora un ambiente di distribuzione con il solo accesso come proprietario a un gruppo di risorse di Azure. L'accesso come proprietario all'intera sottoscrizione non è più necessario.
+- L'utente può creare ora un ambiente di distribuzione con il solo accesso come collaboratore a un gruppo di risorse di Azure o alla sottoscrizione. L'accesso come proprietario all'intera sottoscrizione non è più necessario.
 - L'interfaccia della riga di comando di operazionalizzazione ora dispone del completamento automatico con il tasto Tab in Linux.
 - Il servizio di creazione di immagini adesso supporta la creazione di immagini per i servizi e dispositivi IoT di Azure.
 
