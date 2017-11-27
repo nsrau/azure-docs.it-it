@@ -243,6 +243,7 @@
 ### [Eseguire il debug di un servizio .NET in Visual Studio](service-fabric-debugging-your-application.md)
 ### [Errori ed eccezioni comuni](service-fabric-errors-and-exceptions.md)
 ### [Monitorare e diagnosticare in locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+### [Configurare un cluster Linux in Windows](service-fabric-local-linux-cluster-windows.md)
 
 ## Usare un ambiente di sviluppo Linux
 ### [Introduzione al plug-in Eclipse per lo sviluppo Java](service-fabric-get-started-eclipse.md)
@@ -278,7 +279,9 @@
 ##### [Uso di scenari di test](service-fabric-testability-scenarios.md)
 ##### [Uso delle API di transizione del nodo](service-fabric-node-transition-apis.md)
 
-### [Distribuire applicazioni Java Linux usando Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### Configurare l'integrazione continua
+#### [Configurare l'integrazione continua con VSTS](service-fabric-set-up-continuous-integration.md)
+#### [Distribuire applicazioni Linux usando Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 
 ## Creare e gestire i cluster
 ### Cluster in Azure

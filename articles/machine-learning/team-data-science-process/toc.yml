@@ -68,9 +68,9 @@
       href: walkthroughs-sql-data-warehouse.md
 - name: Formazione
   items:
-    - name: TDSP per data scientist
+    - name: Per data scientist
       href: team-data-science-process-for-data-scientists.md
-    - name: TDSP per DevOps
+    - name: Per DevOps
       href: team-data-science-process-for-devops.md
 - name: Procedure
   items:

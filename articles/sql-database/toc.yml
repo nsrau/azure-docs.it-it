@@ -337,8 +337,10 @@
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: SaaS multi-tenant
       items:
-        - name: Introduzione a Wingtips
+        - name: Esempio Wingtip Tickets
           href: saas-tenancy-welcome-wingtip-tickets-app.md
+        - name: Indicazioni generali
+          href: saas-tenancy-wingtip-app-guidance-tips.md
         - name: Applicazione autonoma
           items:
             - name: Distribuire un'applicazione di esempio
