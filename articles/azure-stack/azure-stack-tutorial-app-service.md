@@ -1,6 +1,6 @@
 ---
-title: Rendere disponibili agli utenti di Azure Stack web, dispositivi mobili e App per le API | Documenti Microsoft
-description: "Esercitazione per installare il provider di risorse del servizio App e creare offerte di fornire agli utenti di Azure Stack il possibilità di creare web, mobili e App per le API."
+title: Rendere disponibili agli utenti di Azure Stack web e App per le API | Documenti Microsoft
+description: Esercitazione per installare il provider di risorse del servizio App e creare offerte che consentono agli utenti di Azure Stack per creare web e App per le API.
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.date: 7/03/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: 2d011e933cb063eef88a372fccc49d2b9de19717
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42d94eea8b9e4db611b821cd84e7d02f1d226293
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
-# <a name="make-web-mobile-and-api-apps-available-to-your-azure-stack-users"></a>Rendere disponibili agli utenti di Azure Stack web, dispositivi mobili e App per le API
+# <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Rendere disponibili agli utenti dello Stack di Azure, App web e API
 
-Un amministratore di cloud di Azure Stack, è possibile creare offerte che consentono agli utenti (tenant) creare applicazioni le funzioni di Azure e, mobili e web API. Fornendo l'accesso a queste App su richiesta, basato su cloud agli utenti, è possibile salvarli tempo e risorse. A tale scopo, è possibile:
+Un amministratore di cloud di Azure Stack, è possibile creare offerte che consentono agli utenti di Azure funzioni e API di applicazioni web di creare (tenant). Fornendo l'accesso a queste App su richiesta, basato su cloud agli utenti, è possibile salvarli tempo e risorse. A tale scopo, è possibile:
 
 > [!div class="checklist"]
 > * Distribuire il provider di risorse del servizio App
@@ -43,7 +43,7 @@ Un amministratore di cloud di Azure Stack, è possibile creare offerte che conse
 Ad esempio, è possibile creare un'offerta che consente agli utenti di creare sistemi di gestione dei contenuti web DNN. Richiede il servizio SQL Server che già abilitata per l'installazione del provider di risorse di SQL Server.
 
 1.  [Impostare una quota](azure-stack-setting-quotas.md) e denominarlo *AppServiceQuota*. Selezionare **Microsoft** per il **Namespace** campo.
-2.  [Creare un piano](azure-stack-create-plan.md). Il nome *TestAppServicePlan*, selezionare l'il **Microsoft.SQL** servizio, e **AppService Quota** quota.
+2.  [Creare un piano](azure-stack-create-plan.md). Il nome *TestAppServicePlan*, selezionare il **Microsoft.SQL** servizio, e **AppService Quota** quota.
 
     > [!NOTE]
     > Per consentire agli utenti di creare altre App, altri servizi potrebbero essere necessario nel piano. Ad esempio, le funzioni di Azure richiede che il piano include il **Microsoft.Storage** il servizio, mentre richiede Wordpress **Microsoft.MySQL**.

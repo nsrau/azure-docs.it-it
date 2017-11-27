@@ -12,13 +12,13 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/23/2017
 ms.author: anwestg
-ms.openlocfilehash: cd727b2902dafdb8086ac4ce74db96ca8acf8fe8
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d2a9b9fbe2a057a6d36e80c89af83a543e90d3be
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Aggiungere un provider di risorse del servizio App a un ambiente Azure Stack disconnesso protetto da AD FS
 
@@ -75,7 +75,7 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
         - Se si utilizza Active Directory Federation Services (ADFS), specificare l'account amministratore. ad esempio cloudadmin@azurestack.local. Immettere la password e fare clic su **Accedi**.
     2. Nel **sottoscrizioni di Azure Stack** , selezionare la sottoscrizione.
     3. Nel **percorsi Stack Azure** , selezionare il percorso che corrisponde all'area in cui esegue la distribuzione. Ad esempio, selezionare **locale** se la distribuzione al Kit di sviluppo dello Stack di Azure.
-    4. Immettere un **nome gruppo di risorse** per la distribuzione di servizio App. Per impostazione predefinita, viene impostata su **APPSERVICE\<MOBILE\>**.
+    4. Immettere un **nome gruppo di risorse** per la distribuzione di servizio App. Per impostazione predefinita, viene impostata su **APPSERVICE locale**.
     5. Immettere il **nome Account di archiviazione** che si desidera che il servizio App di creare come parte dell'installazione. Per impostazione predefinita, viene impostata su **appsvclocalstor**.
     6. Fare clic su **Avanti**.
 

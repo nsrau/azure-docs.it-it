@@ -46,7 +46,7 @@
         - name: Distribuire
           href: azure-stack-run-powershell-script.md
         - name: Installare PowerShell
-          href: azure-stack-powershell-configure-quickstart.md
+          href: azure-stack-powershell-install.md
         - name: Registra
           href: azure-stack-register.md
         - name: Connettersi ad Azure Stack
