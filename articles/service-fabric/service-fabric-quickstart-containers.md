@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: 725a7224872cfb820bfdfa26c35c26569cff5a10
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: bd1b36af82a01909b12404ef54de32beb2f31c0b
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Distribuire un'applicazione contenitore Windows in Azure Service Fabric
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili. 
@@ -82,7 +82,7 @@ Per distribuire l'applicazione in un cluster in Azure, è possibile scegliere di
 
 I cluster di entità sono cluster Service Fabric gratuiti e disponibili per un periodo di tempo limitato ospitati in Azure e gestiti dal team di Service Fabric, in cui chiunque può distribuire applicazioni e ottenere informazioni sulla piattaforma. Per ottenere l'accesso a un cluster di entità, [seguire le istruzioni](http://aka.ms/tryservicefabric).  
 
-Per informazioni sulla creazione di un cluster, vedere [Creare il primo cluster di Service Fabric di Azure](service-fabric-get-started-azure-cluster.md).
+Per informazioni sulla creazione di un cluster, vedere l'articolo su come [creare un cluster di Service Fabric in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 Prendere nota dell'endpoint connessione, che viene usato nel passaggio seguente.  
 

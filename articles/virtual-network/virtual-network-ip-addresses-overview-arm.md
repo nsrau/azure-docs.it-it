@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: 95f2b57b2012df816c76a1b6ec55ca9f92e134a3
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 3840ed000d5a9fe5d3c8fd01c061bf13674c0ce5
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/16/2017
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 È possibile assegnare gli indirizzi IP alle risorse di Azure per comunicare con altre risorse di Azure, con la rete locale e con Internet. In Azure è possibile usare due tipi di indirizzi IP:
 
 * **Indirizzi IP pubblici**: usati per la comunicazione con Internet, compresi i servizi pubblici di Azure.
-* **Indirizzi IP privati**: usati per la comunicazione all'interno di una rete virtuale Azure e della rete locale quando si usa un gateway VPN o un circuito ExpressRoute per estendere la rete ad Azure.
+* **Indirizzi IP privati**: usati per la comunicazione all'interno di una rete virtuale di Azure e della rete locale quando si usa un gateway VPN o un circuito ExpressRoute per estendere la rete ad Azure.
 
 > [!NOTE]
 > Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Questo articolo illustra l'uso del modello di distribuzione Resource Manager che Microsoft consiglia di usare invece del [modello di distribuzione classica](virtual-network-ip-addresses-overview-classic.md) per le distribuzioni più recenti.
@@ -36,7 +36,7 @@ Se si ha familiarità con il modello di distribuzione classica, verificare le [d
 
 ## <a name="public-ip-addresses"></a>Indirizzi IP pubblici
 
-Gli indirizzi IP pubblici consentono alle risorse di Azure di comunicare con Internet e i servizi pubblici di Azure, ad esempio [Cache Redis di Azure](https://azure.microsoft.com/services/cache), [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs), i [database SQL](../sql-database/sql-database-technical-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Archiviazione di Azure](../storage/common/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Gli indirizzi IP pubblici consentono la comunicazione in ingresso dalle risorse Internet alle risorse di Azure, nonché la comunicazione in uscita dalle risorse di Azure a Internet e servizi pubblici di Azure con un indirizzo IP assegnato alla risorsa. L'indirizzo è dedicato alla risorsa finché non si annulla l'assegnazione. Se a una risorsa non è assegnato un indirizzo IP pubblico, la comunicazione in uscita dalla risorsa a Internet è comunque consentita, ma Azure assegna dinamicamente un indirizzo IP disponibile non dedicato alla risorsa. Per altre informazioni sulle connessioni in uscita, vedere [Informazioni sulle connessioni in uscita in Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 In Gestione risorse di Azure un [indirizzo IP pubblico](virtual-network-public-ip-address.md) è una risorsa che ha proprietà specifiche. Alcune delle risorse a cui è possibile associare una risorsa indirizzo IP pubblico sono:
 
@@ -98,7 +98,7 @@ Gli indirizzi IP pubblici statici sono comunemente usati negli scenari seguenti:
 >
 
 ### <a name="dns-hostname-resolution"></a>Risoluzione del nome host DNS
-È possibile specificare un'etichetta del nome di dominio DNS per una risorsa IP pubblica, che crea un mapping per *etichettanomedominio*.*località*.cloudapp.azure.com per l'indirizzo IP pubblico nei server DNS gestiti di Azure. Ad esempio, se si crea una risorsa IP pubblica con **contoso** come *etichettanomedominio* nella *località* di Azure **Stati Uniti occidentali**, il nome di dominio completo (FQDN) **contoso.westus.cloudapp.azure.com** restituisce l'indirizzo IP pubblico della risorsa. È possibile usare il nome di dominio completo per creare un record CNAME di dominio personalizzato che punta all'indirizzo IP pubblico in Azure.
+È possibile specificare un'etichetta del nome di dominio DNS per una risorsa IP pubblica, che crea un mapping per *etichettanomedominio*.*località*.cloudapp.azure.com per l'indirizzo IP pubblico nei server DNS gestiti di Azure. Se si crea una risorsa IP pubblica con **contoso** come *etichettanomedominio* nella *località* di Azure **Stati Uniti occidentali**, ad esempio, il nome di dominio completo (FQDN) **contoso.westus.cloudapp.azure.com** viene risolto nell'indirizzo IP pubblico della risorsa. È possibile usare il nome di dominio completo per creare un record CNAME di dominio personalizzato che punta all'indirizzo IP pubblico in Azure. Anziché (oppure oltre a) usare l'etichetta del nome DNS con il suffisso predefinito, è possibile usare il servizio DNS di Azure per configurare un nome DNS con un suffisso personalizzato che viene risolto nell'indirizzo IP pubblico. Per altre informazioni, vedere [Usare DNS di Azure con un indirizzo IP pubblico di Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).
 
 > [!IMPORTANT]
 > Ogni etichetta di nome di dominio creata deve essere univoca nella relativa posizione di Azure.  
@@ -110,7 +110,7 @@ Gli indirizzi IP pubblici statici sono comunemente usati negli scenari seguenti:
 
 ### <a name="internet-facing-load-balancers"></a>Servizi di bilanciamento del carico con connessione Internet
 
-È possibile associare un indirizzo IP pubblico creato con uno dei due [SKU](#SKU) a un'istanza di [Azure Load Balancer](../load-balancer/load-balancer-overview.md) assegnandolo alla configurazione **front-end** del servizio di bilanciamento del carico. L'indirizzo IP pubblico viene usato come indirizzo IP virtuale (indirizzo VIP) di bilanciamento del carico. A un servizio di bilanciamento del carico front-end è possibile assegnare un indirizzo IP pubblico statico o dinamico. È anche possibile assegnare più indirizzi IP pubblici a un front-end del servizio di bilanciamento del carico, consentendo così scenari con [più indirizzi VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ad esempio un ambiente multi-tenant con siti Web basati su SSL. Per altre informazioni sugli SKU di Azure Load Balancer, vedere [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SKU Standard di Azure Load Balancer).
+È possibile associare un indirizzo IP pubblico creato con uno dei due [SKU](#SKU) a un'istanza di [Azure Load Balancer](../load-balancer/load-balancer-overview.md) assegnandolo alla configurazione **front-end** del servizio di bilanciamento del carico. L'indirizzo IP pubblico viene usato come indirizzo IP virtuale (indirizzo VIP) di bilanciamento del carico. A un servizio di bilanciamento del carico front-end è possibile assegnare un indirizzo IP pubblico statico o dinamico. È anche possibile assegnare più indirizzi IP pubblici a un front-end del servizio di bilanciamento del carico, consentendo così scenari con [più indirizzi VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , ad esempio un ambiente multi-tenant con siti Web basati su SSL. Per altre informazioni sugli SKU di Azure Load Balancer, vedere [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SKU Standard di Azure Load Balancer).
 
 ### <a name="vpn-gateways"></a>Gateway VPN
 
@@ -145,10 +145,12 @@ Gli indirizzi IP privati vengono creati con un indirizzo IPv4 o IPv6. Gli indiri
 
 ### <a name="allocation-method"></a>Metodo di allocazione
 
-Un indirizzo IP privato viene allocato dall'intervallo di indirizzi della subnet della rete virtuale in cui è distribuita una risorsa. Un indirizzo IP privato può essere allocato con due metodi.
+Un indirizzo IP privato viene allocato dall'intervallo di indirizzi della subnet della rete virtuale in cui è distribuita una risorsa. Azure riserva i primi quattro indirizzi dell'intervallo di indirizzi di ogni subnet, che non possono quindi essere assegnati alle risorse. Se l'intervallo di indirizzi della subnet è 10.0.0.0/16, ad esempio, gli indirizzi 10.0.0.0-10.0.0.3 non possono essere assegnati alle risorse. Gli indirizzi IP dell'intervallo di indirizzi della subnet possono essere assegnati a una sola risorsa alla volta. 
 
-- **Dinamico**: Azure riserva i primi quattro indirizzi dell'intervallo di indirizzi di ogni subnet e non li assegna. Azure assegna a una risorsa l'indirizzo disponibile successivo dell'intervallo di indirizzi della subnet. Ad esempio, se l'intervallo di indirizzi della subnet è 10.0.0.0/16 e gli indirizzi 10.0.0.0.4-10.0.0.14 sono già assegnati (quelli da .0 a .3 sono riservati), Azure assegna alla risorsa l'indirizzo 10.0.0.15. Il metodo di allocazione predefinito è quello dinamico. Dopo che sono stati assegnati, gli indirizzi IP dinamici vengono rilasciati solo se un'interfaccia di rete viene eliminata o assegnata a un'altra subnet della stessa rete virtuale oppure se il metodo di allocazione viene modificato in statico e viene specificato un diverso indirizzo IP. Quando si modifica il metodo di allocazione da dinamico a statico, per impostazione predefinita Azure assegna l'indirizzo assegnato dinamicamente precedente come indirizzo statico.
-- **Statico**: si seleziona e si assegna un indirizzo dell'intervallo di indirizzi della subnet. È possibile assegnare qualsiasi indirizzo nell'intervallo di indirizzi della subnet che non sia uno dei primi quattro indirizzi di tale intervallo e non sia attualmente assegnato ad altre risorse nella subnet. Gli indirizzi statici vengono rilasciati solo in caso di eliminazione di un'interfaccia di rete. Se si modifica il metodo di allocazione in statico, Azure assegna dinamicamente l'indirizzo IP statico assegnato in precedenza come indirizzo dinamico, anche se non è l'indirizzo disponibile successivo nell'intervallo di indirizzi della subnet. L'indirizzo viene modificato anche in caso di assegnazione dell'interfaccia di rete a un'altra subnet nella stessa rete virtuale, ma per assegnare l'interfaccia di rete a un'altra subnet è prima necessario modificare il metodo di allocazione da statico a dinamico. Dopo aver assegnato l'interfaccia di rete a un'altra subnet, è possibile modificare il metodo di allocazione di nuovo in statico e assegnare un indirizzo IP dell'intervallo di indirizzi della nuova subnet.
+Un indirizzo IP privato può essere allocato con due metodi.
+
+- **Dinamico**: Azure assegna l'indirizzo IP disponibile successivo non assegnato o non riservato nell'intervallo di indirizzi della subnet. Ad esempio, Azure assegna 10.0.0.10 a una nuova risorsa se gli indirizzi 10.0.0.4-10.0.0.9 sono già assegnati ad altre. Il metodo di allocazione predefinito è quello dinamico. Dopo che sono stati assegnati, gli indirizzi IP dinamici vengono rilasciati solo se un'interfaccia di rete viene eliminata o assegnata a un'altra subnet della stessa rete virtuale oppure se il metodo di allocazione viene modificato in statico e viene specificato un diverso indirizzo IP. Quando si modifica il metodo di allocazione da dinamico a statico, per impostazione predefinita Azure assegna l'indirizzo assegnato dinamicamente precedente come indirizzo statico.
+- **Statico**: si seleziona e si assegna l'indirizzo IP disponibile successivo non assegnato o non riservato nell'intervallo di indirizzi della subnet. Ad esempio, se l'intervallo di indirizzi di una subnet è 10.0.0.0/16 e gli indirizzi 10.0.0.4-10.0.0.9 sono già assegnati ad altre risorse, è possibile assegnare qualsiasi indirizzo da 10.0.0.10 a 10.0.255.254. Gli indirizzi statici vengono rilasciati solo in caso di eliminazione di un'interfaccia di rete. Se si modifica il metodo di allocazione in statico, Azure assegna dinamicamente l'indirizzo IP statico assegnato in precedenza come indirizzo dinamico, anche se non è l'indirizzo disponibile successivo nell'intervallo di indirizzi della subnet. L'indirizzo viene modificato anche in caso di assegnazione dell'interfaccia di rete a un'altra subnet nella stessa rete virtuale, ma per assegnare l'interfaccia di rete a un'altra subnet è prima necessario modificare il metodo di allocazione da statico a dinamico. Dopo aver assegnato l'interfaccia di rete a un'altra subnet, è possibile modificare il metodo di allocazione di nuovo in statico e assegnare un indirizzo IP dell'intervallo di indirizzi della nuova subnet.
 
 ### <a name="virtual-machines"></a>Macchine virtuali
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/19/2017
 ms.author: subramar
-ms.openlocfilehash: da9aff17c16e179be200677bfbfd1287fff269e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c77e357d56fc246de4e0e9af697e770c876d1d78
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparare l'ambiente di sviluppo in Linux
 > [!div class="op_single_selector"]
@@ -135,7 +135,7 @@ Seguire le istruzioni contenute in [Interfaccia della riga di comando di Service
 
 
 ## <a name="set-up-yeoman-generators-for-containers-and-guest-executables"></a>Configurare i generatori Yeoman per contenitori ed eseguibili guest
-Service Fabric offre strumenti di scaffolding che consentono di creare applicazioni di Service Fabric da un terminale usando i generatori di modelli Yeoman. Per configurare i generatori di modelli Yeoman di Service Fabric, seguire questa procedura:
+Service Fabric offre gli strumenti di scaffolding che consentono di creare applicazioni Service Fabric dal terminale tramite i generatori di modelli Yeoman. Per configurare i generatori di modelli Yeoman di Service Fabric, seguire questa procedura:
 
 1. Installare nodejs e NPM nella macchina virtuale
 
@@ -221,6 +221,7 @@ sudo apt-get install -f
 * [Creare e distribuire la prima applicazione Java di Service Fabric in Linux usando il plug-in Service Fabric per Eclipse](service-fabric-get-started-eclipse.md)
 * [Creare la prima applicazione CSharp in Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Preparare l'ambiente di sviluppo in OSX](service-fabric-get-started-mac.md)
+* [Prepare a Linux development environment on Windows (Preparare un ambiente di sviluppo Linux in Windows)](service-fabric-local-linux-cluster-windows.md)
 * [Usare l'interfaccia della riga di comando di Service Fabric per gestire le applicazioni](service-fabric-application-lifecycle-sfctl.md)
 * [Differenze in Service Fabric tra Windows e Linux](service-fabric-linux-windows-differences.md)
 * [Introduzione all'interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)

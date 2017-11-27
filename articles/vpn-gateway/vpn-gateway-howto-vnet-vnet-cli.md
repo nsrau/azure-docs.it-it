@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: ff859bd9dbbf30c461cdba8409c77b04ff97b1f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c7653250f51429321b4da0384496aae37ad06da
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurare una connessione gateway VPN tra reti virtuali usando l'interfaccia della riga di comando di Azure
 
@@ -59,11 +59,17 @@ Per altre informazioni sulle connessioni da rete virtuale a rete virtuale, veder
 
 ### <a name="which-set-of-steps-should-i-use"></a>Quale procedura è consigliabile seguire?
 
-Questo articolo riporta due diverse procedure. Una per le [reti virtuali che si trovano nella stessa sottoscrizione](#samesub) e un'altra per le [reti virtuali che si trovano in sottoscrizioni diverse](#difsub).
-
-## <a name="samesub"></a>Connettere reti virtuali che si trovano nella stessa sottoscrizione
+Questo articolo riporta due diverse procedure. Una procedura riguarda le [reti virtuali che si trovano nella stessa sottoscrizione](#samesub). Nei passaggi per questa configurazione si usano TestVNet1 e TestVNet4.
 
 ![Diagramma V2V](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+
+Un articolo separato riguarda le [reti virtuali che si trovano in sottoscrizioni diverse](#difsub). Nei passaggi per tale configurazione si usano TestVNet1 e TestVNet5.
+
+![Diagramma V2V](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+
+È possibile combinare le configurazioni, se si preferisce, oppure sceglierne una da usare.
+
+## <a name="samesub"></a>Connettere reti virtuali che si trovano nella stessa sottoscrizione
 
 ### <a name="before-you-begin"></a>Prima di iniziare
 
@@ -88,7 +94,7 @@ Negli esempi vengono usati i valori seguenti:
 * IP pubblico: VNet1GWIP
 * VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5
+* Connection(1to5): VNet1toVNet5 (per reti virtuali in diverse sottoscrizioni)
 * ConnectionType: VNet2VNet
 
 **Valori per TestVNet4:**
@@ -255,8 +261,6 @@ Ora sono disponibili due reti virtuali con i gateway VPN. Il passaggio successiv
 
 ## <a name="difsub"></a>Connettere reti virtuali che si trovano in sottoscrizioni diverse
 
-![Diagramma V2V](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
-
 In questo scenario vengono connesse le reti virtuali TestVNet1 e TestVNet5, Le reti virtuali si trovano in sottoscrizioni diverse. Non è necessario che le sottoscrizioni siano associate allo stesso tenant di Active Directory. I passaggi di questa configurazione permettono di aggiungere un'altra connessione tra reti virtuali per connettere TestVNet1 e TestVNet5.
 
 ### <a name="TestVNet1diff"></a>Passaggio 5: Creare e configurare TestVNet1
@@ -362,7 +366,7 @@ Il passaggio è stato suddiviso in due sessioni dell'interfaccia della riga di c
 ## <a name="verify"></a>Verificare le connessioni
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[!INCLUDE [verify connections v2v cli](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
+[!INCLUDE [verify connections](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="faq"></a>Domande frequenti sulle connessioni da rete virtuale a rete virtuale
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]

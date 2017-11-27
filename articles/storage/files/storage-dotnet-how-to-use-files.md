@@ -12,24 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/19/2017
+ms.date: 11/22/2017
 ms.author: renash
-ms.openlocfilehash: 51180530790fc0077cea4d8aea7088f1f871681b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 66a68a1ca048b50b8e2ba4ac1bb86d367b8a5bb9
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/23/2017
 ---
-# <a name="develop-for-azure-files-with-net"></a>Eseguire lo sviluppo per File di Azure con .NET 
-> [!NOTE]
-> Questo articolo illustra come gestire File di Azure con codice .NET. Per altre informazioni su File di Azure, vedere l'[introduzione a File di Azure](storage-files-introduction.md).
->
+# <a name="develop-for-azure-files-with-net-and-windowsazurestorage"></a>Eseguire lo sviluppo per File di Azure con .NET e WindowsAzure.Storage
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
-
-Questa esercitazione illustra le nozioni di base per l'uso di .NET per sviluppare applicazioni o servizi che usano File di Azure per archiviare i dati dei file. In questa esercitazione viene creata una semplice applicazione console e viene mostrato come eseguire azioni di base con .NET e File di Azure:
+Questa esercitazione illustra le nozioni di base per l'uso di .NET e dell'API `WindowsAzure.Storage` per sviluppare applicazioni che usano [File di Azure](storage-files-introduction.md) per archiviare i dati dei file. Questa esercitazione crea una semplice applicazione console per eseguire azioni di base con .NET e File di Azure:
 
 * Ottenere il contenuto di un file
 * Impostare la quota (dimensione massima) per la condivisione file.
@@ -38,9 +33,21 @@ Questa esercitazione illustra le nozioni di base per l'uso di .NET per sviluppar
 * Copiare un file in un BLOB nello stesso account di archiviazione.
 * Usare la metrica di archiviazione di Azure per la risoluzione dei problemi
 
-> [!Note]  
-> Dato che File di Azure è accessibile tramite SMB, è possibile scrivere semplici applicazioni che accedono alla condivisione file di Azure usando le classi System.IO standard per l'I/O di file. Questo articolo illustra come scrivere applicazioni che usano Azure Storage .NET SDK, che usa l'[API REST del servizio File](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) per comunicare con File di Azure. 
+Per altre informazioni su File di Azure, vedere [Introduzione a File di Azure](storage-files-introduction.md).
 
+[!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
+
+## <a name="understanding-the-net-apis"></a>Informazioni sulle API .NET
+
+File di Azure offre due ampi approcci alle applicazioni client: Server Message Block (SMB) e REST. In .NET questi approcci vengono astratti dalle API `System.IO` e `WindowsAzure.Storage`.
+
+API | Quando usare le autorizzazioni | Note
+----|-------------|------
+[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | L'applicazione: <ul><li>Deve leggere/scrivere file tramite SMB</li><li>È in esecuzione su un dispositivo che ha accesso tramite la porta 445 all'account File di Azure</li><li>Non deve gestire le impostazioni amministrative della condivisione file</li></ul> | La codifica dell'I/O dei file con File di Azure tramite SMB è in genere uguale alla codifica dell'I/O con le condivisioni file di rete o i dispositivi di archiviazione locale. Per un'introduzione ad alcune funzionalità di .NET, incluso l'I/O dei file, vedere [questa esercitazione](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter).
+[WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet#client-library) | L'applicazione: <ul><li>Non può accedere a File di Azure tramite SMB sulla porta 445 a causa del firewall o dei vincoli dell'ISP</li><li>Richiede funzionalità amministrative, ad esempio la possibilità di impostare la quota di una condivisione file o di creare una firma di accesso condiviso</li></ul> | Questo articolo illustra l'utilizzo di `WindowsAzure.Storage` per l'I/O dei file tramite REST (invece di SMB) e la gestione della condivisione file.
+
+> [!TIP]
+> A seconda dei requisiti dell'applicazione, i BLOB di Azure possono essere una scelta più appropriata come risorsa di archiviazione. Per altre informazioni sulla scelta di File di Azure o dei BLOB di Azure, vedere [Decidere quando usare BLOB di Azure, File di Azure o Dischi di Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Creare l'applicazione console e ottenere l'assembly
 In Visual Studio creare una nuova applicazione console di Windows. La procedura seguente illustra come creare un'applicazione console in Visual Studio 2017, ma i passaggi sono simili anche per le altre versioni di Visual Studio.

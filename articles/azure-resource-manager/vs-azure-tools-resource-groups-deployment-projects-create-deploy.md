@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: tomfitz
-ms.openlocfilehash: f82f59f363507b69a729580302c2d11202e93a87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d647206b882059e0651223dc84f2ad2a314f8a87
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio
 Con Visual Studio e [Azure SDK](https://azure.microsoft.com/downloads/)è possibile creare un progetto che distribuisce l'infrastruttura e il codice in Azure. Ad esempio, è possibile definire l'host Web, il sito Web e il database per l'app e distribuire l'infrastruttura insieme al codice. In alternativa, è possibile definire una macchina virtuale, una rete virtuale e un account di archiviazione e distribuire questa infrastruttura insieme a uno script che viene eseguito nella macchina virtuale. Il progetto di distribuzione **Gruppo di risorse di Azure** consente di distribuire tutte le risorse necessarie in una singola operazione ripetibile. Per altre informazioni sulla distribuzione e sulla gestione delle risorse, vedere [Panoramica di Azure Resource Manager](resource-group-overview.md).
@@ -32,7 +32,7 @@ Questo articolo illustra la procedura per Visual Studio 2017. Se si usa Visual S
 ## <a name="create-azure-resource-group-project"></a>Creare un progetto Gruppo di risorse di Azure
 In questa procedura verrà creato un progetto Gruppo di risorse di Azure con un modello **App Web e SQL** .
 
-1. In Visual Studio scegliere **File**, **Nuovo progetto**, scegliere **C#** o **Visual Basic**. Scegliere quindi **Cloud** e scegliere il progetto **Gruppo di risorse di Azure**.
+1. In Visual Studio scegliere **File**, **Nuovo progetto** e quindi **C#** o **Visual Basic**. Il linguaggio scelto non ha alcun impatto sulle fasi successive perché questi progetti includono solo contenuto JSON e PowerShell. Scegliere quindi **Cloud** e scegliere il progetto **Gruppo di risorse di Azure**.
    
     ![Progetto Distribuzione cloud](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 2. Scegliere il modello da distribuire in Gestione risorse di Azure. Si noti che sono disponibili molte opzioni diverse in base al tipo di progetto da distribuire. Per questo articolo scegliere il modello **App Web e SQL** .

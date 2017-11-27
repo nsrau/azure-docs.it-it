@@ -13,24 +13,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 9f7fdb97fd121eecf9e7b2f4edc1b568c8114869
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0a3fca0c7d36122a09c825a3ed8edf11cc362b8b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Reimpostazione password self-service di Azure AD dalla schermata di accesso
 
 La reimpostazione password self-service di Azure AD è già stata distribuita, ma gli utenti continuano a chiamare il supporto tecnico quando dimenticano la password, perché non possono aprire un Web browser per accedere alla reimpostazione password self-service.
 
-Con il nuovo Windows 10 Fall Creators Update, gli utenti con dispositivi aggiunti ad Azure AD possono visualizzare un collegamento "Reimposta password" nella schermata di accesso. Facendo clic su questo collegamento, viene visualizzata l'esperienza di reimpostazione password self-service (SSPR) che gli utenti conoscono 
+Con il nuovo Windows 10 Fall Creators Update, gli utenti con dispositivi aggiunti ad Azure AD possono visualizzare un collegamento "Reimposta password" nella schermata di accesso. Facendo clic su questo collegamento, viene visualizzata l'esperienza di reimpostazione password self-service (SSPR) che gli utenti conoscono.
 
 Per consentire agli utenti di reimpostare la password di Azure AD dalla schermata di accesso di Windows 10, è necessario soddisfare i requisiti seguenti:
 
-* Client di Windows 10 versione 1709 o successiva aggiunto al dominio di Azure AD.
+* Client di Windows 10 versione 1709 o successiva [aggiunto ad Azure AD](device-management-azure-portal.md).
 * È necessario abilitare la reimpostazione password self-service di Azure AD.
 * Configurare e distribuire l'impostazione per abilitare il collegamento di reimpostazione della password tramite uno dei metodi seguenti:
    * [Profilo di configurazione dei dispositivi di Intune](active-directory-passwords-login.md#configure-reset-password-link-using-intune)
@@ -90,7 +90,7 @@ Ora sono stati creati e assegnati criteri di configurazione dei dispositivi per 
 
 È consigliabile usare questo metodo solo per testare la modifica dell'impostazione.
 
-1. Accedere al dispositivo aggiunto al dominio di Azure AD con credenziali amministrative
+1. Accedere al dispositivo aggiunto ad Azure AD con credenziali amministrative
 2. Eseguire **regedit** come amministratore
 3. Impostare la chiave del Registro di sistema seguente
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
@@ -104,7 +104,7 @@ Ora che i criteri sono stati configurati e assegnati, cosa cambia per l'utente? 
 
 Quando gli utenti provano ad accedere, viene ora visualizzato un collegamento per la reimpostazione della password che apre l'esperienza di reimpostazione password self-service nella schermata di accesso. Questa funzionalità consente agli utenti di reimpostare la password senza dover usare un altro dispositivo per accedere a un Web browser.
 
-Gli utenti troveranno indicazioni per l'uso di questa funzionalità in [Reimpostare la password per un account aziendale o dell'istituto di istruzione](active-directory-passwords-update-your-own-password.md#reset-password-at-login)
+Gli utenti troveranno indicazioni per l'uso di questa funzionalità in [Reimpostare la password per un account aziendale o dell'istituto di istruzione](active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
 ## <a name="common-issues"></a>Problemi comuni
 

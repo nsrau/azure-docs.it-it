@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 303ead6e1d98d464aeba2687c2a72a38bc1ce209
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 5a786e9baa275e029343571bdb9a6480334f5cf3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Informazioni sui set di scalabilità di macchine virtuali in Azure
 I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire un set di VM identiche. Dato che tutte le VM hanno la stessa configurazione, i set di scalabilità sono progettati per supportare l'effettiva scalabilità automatica, senza che sia necessario il provisioning preventivo delle VM. Ciò semplifica la creazione di servizi su larga scala destinati a carichi di lavoro Big Compute, Big Data e in contenitori.
@@ -124,7 +124,7 @@ Questa sezione contiene un elenco di alcuni scenari tipici dei set di scalabilit
 * In un set di scalabilità sono supportate fino a 1.000 VM. Se si creano e si caricano immagini di VM personalizzate, il limite è 300. Per le considerazioni da tenere presenti per usare set di scalabilità di grandi dimensioni, vedere [Uso di set di scalabilità di macchine virtuali di grandi dimensioni](virtual-machine-scale-sets-placement-groups.md).
 * Non è necessario creare in precedenza account di archiviazione di Azure per usare i set di scalabilità. I set di scalabilità supportano Azure Managed Disks, che evita i problemi di prestazioni associati al numero di dischi per account di archiviazione. Per altre informazioni, vedere [Set di scalabilità di macchine virtuali di Azure e dischi gestiti](virtual-machine-scale-sets-managed-disks.md).
 * Per tempi di provisioning delle VM più rapidi e prevedibili e prestazioni di I/O migliori, valutare la possibilità di usare Archiviazione Premium di Azure invece di Archiviazione di Azure.
-* Il numero di VM che è possibile creare è limitato dalla quota di core nell'area in cui si esegue la distribuzione. Potrebbe essere necessario contattare l'assistenza clienti per richiedere l'aumento del limite della quota di calcolo anche se l'attuale limite di core da usare con Servizi cloud di Azure è elevato. Per informazioni sulla quota, eseguire il comando `azure vm list-usage` dell'interfaccia della riga di comando di Azure. In alternativa, eseguire il comando `Get-AzureRmVMUsage` di PowerShell.
+* Il numero di VM che è possibile creare è limitato dalla quota di vCPU nell'area in cui si esegue la distribuzione. Potrebbe essere necessario contattare l'assistenza clienti per richiedere l'aumento del limite della quota di calcolo anche se l'attuale limite di vCPU da usare con Servizi cloud di Azure è elevato. Per informazioni sulla quota, eseguire il comando `azure vm list-usage` dell'interfaccia della riga di comando di Azure. In alternativa, eseguire il comando `Get-AzureRmVMUsage` di PowerShell.
 
 ## <a name="frequently-asked-questions-for-scale-sets"></a>Domande frequenti sui set di scalabilità
 **D.** Quante VM si possono includere in un set di scalabilità?

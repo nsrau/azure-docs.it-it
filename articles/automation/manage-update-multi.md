@@ -14,22 +14,26 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: f97b28d1588e959728163f7ab16d2550a79f610e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bb9c19bb489873d1a2175f4a85f7654a3bf099b8
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gestire gli aggiornamenti per più macchine virtuali
 
-Gestione aggiornamenti consente di gestire gli aggiornamenti e le patch per i computer Windows e Linux.
-Dall'account di [Automazione di Azure](automation-offering-get-started.md) è possibile, in modo rapido, caricare i computer, valutare lo stato degli aggiornamenti disponibili, pianificare l'installazione degli aggiornamenti richiesti ed esaminare i risultati della distribuzione per verificare che gli aggiornamenti siano stati applicati correttamente a tutte le macchine virtuali per cui è abilitata la gestione degli aggiornamenti.
+È possibile usare Gestione aggiornamenti per gestire gli aggiornamenti e le patch per le macchine virtuali Windows e Linux. Dall'account di [Automazione di Azure](automation-offering-get-started.md) è possibile:
+
+- Eseguire l'onboarding di macchine virtuali.
+- Valutare lo stato degli aggiornamenti disponibili.
+- Pianificare l'installazione degli aggiornamenti necessari.
+- Esaminare i risultati della distribuzione per verificare che gli aggiornamenti siano stati applicati correttamente a tutte le macchine virtuali per cui è abilitata la soluzione Gestione aggiornamenti.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare Gestione aggiornamenti, è necessario:
+Per usare Gestione aggiornamenti è necessario:
 
-* Un account di automazione di Azure. Per istruzioni sulla creazione di un account RunAs di Automazione di Azure, vedere [Introduzione ad Automazione di Azure](automation-offering-get-started.md).
+* Creare un account RunAs di Automazione di Azure. Per istruzioni su come crearne uno, vedere [Introduzione ad Automazione di Azure](automation-offering-get-started.md).
 
 * Una macchina virtuale o un computer con uno dei sistemi operativi supportati installato.
 
@@ -39,11 +43,10 @@ La gestione degli aggiornamenti è supportato nei sistemi operativi seguenti.
 
 ### <a name="windows"></a>Windows
 
-* Windows Server 2008 e versioni successive e distribuzioni di aggiornamenti in Windows Server 2008 R2 SP1 e versioni successive.  Le opzioni di installazione Server Core e Nano Server non sono supportate.
+* Windows Server 2008 e versioni successive e distribuzioni di aggiornamenti in Windows Server 2008 R2 SP1 e versioni successive. Le opzioni di installazione Server Core e Nano Server non sono supportate.
 
-    > [!NOTE]
-    > Il supporto per la distribuzione degli aggiornamenti in Windows Server 2008 R2 SP1 richiede .NET Framework 4.5 e WMF 5.0 o versioni successive.
-    > 
+  Il supporto per la distribuzione di aggiornamenti in Windows Server 2008 R2 SP1 richiede .NET Framework 4.5 e Windows Management Framework 5.0 o versioni successive.
+
 * I sistemi operativi client di Windows non sono supportati.
 
 Gli agenti Windows devono essere configurati per comunicare con un server Windows Server Update Services (WSUS) o avere accesso a Microsoft Update.
@@ -57,27 +60,25 @@ Gli agenti Windows devono essere configurati per comunicare con un server Window
 * CentOS 6 (x86/x64) e 7 (x64)  
 * Red Hat Enterprise 6 (x86/x64) e 7 (x64)  
 * SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)  
-* Ubuntu 12.04 LTS e versioni x86/x64 più recenti   
+* Ubuntu 12.04 LTS e versioni più recenti (x86/x64)   
 
 > [!NOTE]  
-> Per evitare che gli aggiornamenti vengano applicati di fuori di una finestra di manutenzione in Ubuntu, riconfigurare il pacchetto Unattended-Upgrade per disabilitare gli aggiornamenti automatici. Per informazioni sulla configurazione, vedere l'[argomento Aggiornamenti automatici nella Guida a Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+> Per evitare che gli aggiornamenti vengano applicati al di fuori di una finestra di manutenzione in Ubuntu, riconfigurare il pacchetto Unattended-Upgrade per disabilitare gli aggiornamenti automatici. Per altre informazioni, vedere l'[argomento Aggiornamenti automatici nella Guida a Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.
 
-> [!NOTE]
-> Un agente OMS per Linux configurato per l'invio di report a più aree di lavoro OMS non è supportato con questa soluzione.  
->
+Questa soluzione non supporta un agente di OMS per Linux configurato per l'invio di report a più aree di lavoro di Operations Management Suite.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Abilitare la gestione degli aggiornamenti per le macchine virtuali Azure
 
 1. Nel Portale di Azure aprire l'account di Automazione.
-2. Sul lato sinistro della schermata selezionare **Gestione aggiornamenti**.
-3. Nella parte superiore della schermata fare clic su **Aggiungi macchina virtuale di Azure**.
-    ![Caricare le macchine virtuali](./media/manage-update-multi/update-onboard-vm.png)
-4. Selezionare una macchina virtuale da caricare. Viene visualizzata la schermata **Abilita Gestione aggiornamenti**.
-5. Fare clic su **Abilita**.
+2. Nel riquadro sinistro selezionare **Gestione aggiornamenti**.
+3. Nella parte superiore della finestra selezionare **Aggiungi macchina virtuale di Azure**.
+   ![Scheda per l'aggiunta di una VM di Azure](./media/manage-update-multi/update-onboard-vm.png)
+4. Selezionare una macchina virtuale da caricare. Verrà visualizzata la finestra di dialogo **Abilita Gestione aggiornamenti**.
+5. Selezionare **Abilita**.
 
-   ![Abilitare la gestione degli aggiornamenti](./media/manage-update-multi/update-enable.png)
+   ![Finestra di dialogo Abilita Gestione aggiornamenti](./media/manage-update-multi/update-enable.png)
 
 La gestione degli aggiornamenti è abilitata per la macchina virtuale.
 
@@ -85,19 +86,19 @@ La gestione degli aggiornamenti è abilitata per la macchina virtuale.
 
 Per istruzioni su come abilitare la gestione degli aggiornamenti per computer e macchine virtuali Windows non di Azure, vedere [Connettere computer Windows al servizio Log Analytics in Azure](../log-analytics/log-analytics-windows-agents.md).
 
-Per istruzioni su come abilitare la gestione degli aggiornamenti per computer e macchine virtuali Linux non di Azure, vedere [Connettere i computer Linux a Operations Management Suite (OMS)](../log-analytics/log-analytics-agent-linux.md).
+Per istruzioni su come abilitare Gestione aggiornamenti per computer e macchine virtuali Linux non di Azure, vedere [Connettere computer Linux a Log Analytics](../log-analytics/log-analytics-agent-linux.md).
 
-## <a name="view-update-assessment"></a>Visualizzare la valutazione degli aggiornamenti
+## <a name="view-an-update-assessment"></a>Visualizzare una valutazione degli aggiornamenti
 
-Dopo aver abilitato **Gestione aggiornamenti**, viene visualizzata la schermata **Gestione aggiornamenti**. È possibile visualizzare un elenco degli aggiornamenti mancanti nella scheda **Aggiornamenti mancanti**.
+Dopo l'abilitazione di Gestione aggiornamenti, verrà visualizzata la finestra di dialogo **Gestione aggiornamenti**. È possibile visualizzare un elenco degli aggiornamenti mancanti nella scheda **Aggiornamenti mancanti**.
 
-## <a name="data-collection"></a>Raccolta dei dati
+## <a name="collect-data"></a>Raccogliere i dati
 
 Gli agenti installati in macchine virtuali e computer raccolgono i dati sugli aggiornamenti e li inviano a Gestione aggiornamenti di Azure.
 
 ### <a name="supported-agents"></a>Agenti supportati
 
-La tabella seguente descrive le origini connesse che sono supportate da questa soluzione.
+La tabella seguente descrive le origini connesse supportate da questa soluzione:
 
 | Origine connessa | Supportato | Descrizione |
 | --- | --- | --- |
@@ -108,22 +109,22 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 
 ### <a name="collection-frequency"></a>Frequenza della raccolta
 
-Per ogni computer Windows gestito viene eseguita un'analisi due volte al giorno. Ogni 15 minuti, l'API Windows viene chiamata per eseguire una query per la data/ora dell'ultimo aggiornamento e determinare se lo stato è stato modificato. In caso affermativo viene avviata un'analisi di conformità.  Per ogni computer Linux gestito viene eseguita un'analisi ogni 3 ore.
+Per ogni computer Windows gestito viene eseguita un'analisi due volte al giorno. Ogni 15 minuti viene chiamata l'API Windows per eseguire una query su data/ora dell'ultimo aggiornamento e determinare se lo stato è stato modificato. In caso affermativo viene avviata un'analisi di conformità. Per ogni computer Linux gestito viene eseguita un'analisi ogni 3 ore.
 
-La visualizzazione dei dati aggiornati dei computer gestiti nel dashboard può richiedere da 30 minuti a 6 ore.
+La visualizzazione nel dashboard dei dati aggiornati dei computer gestiti può richiedere da 30 minuti a 6 ore.
 
 ## <a name="schedule-an-update-deployment"></a>Pianificare la distribuzione degli aggiornamenti
 
 Per installare gli aggiornamenti, pianificare una distribuzione che rispetti la pianificazione dei rilasci e l'intervallo di servizio.
 È possibile scegliere i tipi di aggiornamento da includere nella distribuzione. È possibile ad esempio includere gli aggiornamenti critici o della sicurezza ed escludere gli aggiornamenti cumulativi.
 
-Pianificare una nuova distribuzione di aggiornamenti per una o più macchine virtuali facendo clic su **Pianifica la distribuzione di aggiornamenti** nella parte superiore della schermata **Gestione aggiornamenti**. Nella schermata **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti:
+Pianificare una nuova distribuzione di aggiornamenti per una o più macchine virtuali selezionando **Pianifica la distribuzione di aggiornamenti** nella parte superiore della finestra di dialogo **Gestione aggiornamenti**. Nel riquadro **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti.
 
 * **Nome**: specificare un nome univoco per identificare la distribuzione di aggiornamenti.
 * **Tipo di sistema operativo**: selezionare Windows o Linux.
 * **Computer da aggiornare**: selezionare le macchine virtuali da aggiornare.
 
-  ![Selezionare le macchine virtuali da aggiornare](./media/manage-update-multi/update-select-computers.png)
+  ![Riquadro Nuova distribuzione di aggiornamenti](./media/manage-update-multi/update-select-computers.png)
 
 * **Classificazioni aggiornamenti**: selezionare i tipi di software inclusi nella distribuzione di aggiornamenti. I tipi di classificazione sono:
   * Aggiornamenti critici
@@ -134,44 +135,42 @@ Pianificare una nuova distribuzione di aggiornamenti per una o più macchine vir
   * Aggiornamenti della definizione
   * Strumenti
   * Aggiornamenti
-* **Impostazioni di pianificazione**: è possibile accettare la data e l'ora predefinite, ovvero 30 minuti dopo l'ora corrente o specificare un'ora diversa.
-   È anche possibile specificare se eseguire la distribuzione una sola volta o impostare una pianificazione ricorrente. Per impostare una pianificazione ricorrente, fare clic sull'opzione Ricorrente in Ricorrenza.
+* **Impostazioni pianificazione**: è possibile accettare la data e l'ora predefinite, ossia 30 minuti dopo l'ora corrente, oppure specificare un momento diverso.
+   Si può anche specificare se la distribuzione deve essere eseguita una sola volta o in base a una pianificazione ricorrente. Per configurare una pianificazione ricorrente, selezionare l'opzione **Ricorrente** sotto **Ricorrenza**.
 
-   ![Schermata di impostazioni della pianificazione di aggiornamenti](./media/manage-update-multi/update-set-schedule.png)
+   ![Finestra di dialogo Impostazioni pianificazione](./media/manage-update-multi/update-set-schedule.png)
 
-* **Finestra di manutenzione (minuti)**: specificare il periodo di tempo nel quale eseguire la distribuzione di aggiornamenti.  In questo modo è possibile garantire che le modifiche vengano eseguite negli intervalli di servizio definiti.
+* **Finestra di manutenzione (minuti)**: specificare il periodo di tempo in cui si vuole eseguire la distribuzione di aggiornamenti. Questa impostazione consente di garantire che le modifiche vengano eseguite negli intervalli di servizio definiti.
 
-Dopo avere configurato la pianificazione, fare clic sul pulsante **Crea**. Viene nuovamente visualizzato il dashboard di stato.
-Si noti che la tabella **Pianificata** mostra la pianificazione della distribuzione appena creata.
+Dopo aver configurato la pianificazione, tornare al dashboard di stato selezionando il pulsante **Crea**. La tabella **Pianificata** mostra la pianificazione della distribuzione appena creata.
 
 > [!WARNING]
 > Per gli aggiornamenti che richiedono un riavvio, la macchina virtuale verrà riavviata automaticamente.
 
 ## <a name="view-results-of-an-update-deployment"></a>Visualizzare i risultati di una distribuzione di aggiornamenti
 
-Dopo avere avviato la distribuzione pianificata, è possibile visualizzare lo stato della distribuzione nella scheda **Distribuzioni di aggiornamenti** nella schermata **Gestione aggiornamenti**.
-Se la distribuzione è in corso, viene visualizzato lo stato **In corso**. Quando la distribuzione viene completata correttamente, lo stato diventa **Completato**.
-Se si verifica un errore in uno o più aggiornamenti della distribuzione, lo stato sarà **Parzialmente non riuscito**.
+Dopo l'avvio della distribuzione pianificata, è possibile visualizzarne lo stato nella scheda **Distribuzioni di aggiornamenti** della finestra di dialogo **Gestione aggiornamenti**.
+Se la distribuzione è attualmente in esecuzione, lo stato sarà **In corso**. Dopo che è stata completata, lo stato verrà modificato in **Riuscito**.
+Se la distribuzione di uno o più aggiornamenti ha esito negativo, lo stato sarà **Partially failed** (Operazione riuscita parzialmente).
 
-![Stato della distribuzione degli aggiornamenti ](./media/manage-update-multi/update-view-results.png)
+![Stato della distribuzione di aggiornamenti](./media/manage-update-multi/update-view-results.png)
 
-Fare clic sulla distribuzione di aggiornamenti completata per visualizzare il dashboard della distribuzione.
+Per visualizzare il dashboard per una distribuzione di aggiornamenti, selezionare la distribuzione completata.
 
-Il riquadro **Risultati aggiornamento** include un riepilogo del numero totale di aggiornamenti e dei risultati della distribuzione nella macchina virtuale.
-La tabella di destra visualizza una descrizione dettagliata di ogni aggiornamento e i risultati dell'installazione che possono corrispondere a uno dei valori seguenti:
+Il riquadro **Risultati aggiornamento** mostra il numero totale di aggiornamenti e i risultati della distribuzione nella macchina virtuale.
+La tabella a destra offre una suddivisione dettagliata di ogni aggiornamento e dei risultati dell'installazione, che possono corrispondere a uno dei valori seguenti.
 
-* Tentativo non eseguito: l'aggiornamento non è stato installato a causa di tempo disponibile non sufficiente basato sulla durata della finestra di manutenzione specificata.
-* Completato: l'aggiornamento è stato completato
-* Non riuscito: l'aggiornamento non è riuscito
+* Tentativo non eseguito: l'aggiornamento non è stato installato perché il tempo disponibile in base alla finestra di manutenzione specificata non è stato sufficiente.
+* Riuscito: l'aggiornamento è stato completato.
+* Non riuscito: l'aggiornamento non è riuscito.
 
-Fare clic su **Tutti i log** per visualizzare tutte le voci di log create dalla distribuzione.
+Per visualizzare tutte le voci di log create dalla distribuzione, selezionare **Tutti i log**.
 
-Fare clic sul riquadro **Output** per visualizzare il flusso del processo del runbook responsabile della gestione della distribuzione di aggiornamenti nella macchina virtuale di destinazione.
+Per visualizzare il flusso del processo del runbook che gestisce la distribuzione di aggiornamenti nella macchina virtuale di destinazione, selezionare il riquadro **Output**.
 
-Fare clic su **Errori** per visualizzare informazioni dettagliate sugli errori della distribuzione.
-
-Per informazioni dettagliate sui log, sull'output e sugli errori, vedere [Gestione aggiornamenti](../operations-management-suite/oms-solution-update-management.md).
+Per visualizzare informazioni dettagliate sugli errori della distribuzione, selezionare **Errori**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni sulla gestione degli aggiornamenti, vedere [Gestione degli aggiornamenti](../operations-management-suite/oms-solution-update-management.md).
+* Per altre informazioni su Gestione aggiornamenti, ad esempio su log, output ed errori, vedere [Soluzione Gestione aggiornamenti in OMS](../operations-management-suite/oms-solution-update-management.md).
+

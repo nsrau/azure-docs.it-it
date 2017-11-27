@@ -15,11 +15,11 @@ ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 71038dd1957f5322acc3d54600481e663d855151
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: dc1664d382c6e59c125ef00d02a8848079d8bf8d
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="getting-started-with-an-azure-multi-factor-authentication-provider"></a>Introduzione ai provider Azure Multi-Factor Authentication
 La verifica in due passaggi è disponibile per impostazione predefinita per gli amministratori globali che si occupano di utenti di Azure Active Directory e Office 365. Per sfruttare le [funzionalità avanzate](multi-factor-authentication-whats-next.md), è tuttavia consigliabile acquistare la versione completa di Azure Multi-Factor Authentication (MFA).
@@ -29,13 +29,15 @@ Un provider di Azure Multi-Factor Authentication viene usato per sfruttare le fu
 È necessario un provider di Azure Multi-Factor Authentication per scaricare l'SDK.
 
 > [!IMPORTANT]
-> Per scaricare l'SDK, è necessario creare un provider di Azure Multi-Factor Authentication, anche se si dispone di licenze di Azure MFA, AAD Premium o EMS.  Se si crea un provider di Azure Multi-Factor Authentication a tale scopo e si dispone già di licenze, creare il provider con il modello **Per utente abilitato**. Collegare quindi il Provider alla directory contenente le licenze di Azure MFA, Azure AD Premium o EMS. Con questa configurazione verranno eseguiti addebiti solo se il numero di utenti singoli che eseguono la verifica in due passaggi è maggiore del numero di licenze possedute.
+> Azure Multi-Factor Authentication Software Development Kit (SDK) è deprecato. Questa funzionalità non è più supportata per i nuovi clienti. I clienti correnti possono continuare a usare l'SDK fino al 14 novembre 2018. Dopo tale periodo, le chiamate all'SDK avranno esito negativo.
+> [!IMPORTANT]
+>Per scaricare l'SDK, è necessario creare un provider di Azure Multi-Factor Authentication, anche se si dispone di licenze di Azure MFA, AAD Premium o EMS.  Se si crea un provider di Azure Multi-Factor Authentication a tale scopo e si dispone già di licenze, creare il provider con il modello **Per utente abilitato**. Collegare quindi il Provider alla directory contenente le licenze di Azure MFA, Azure AD Premium o EMS. Con questa configurazione verranno eseguiti addebiti solo se il numero di utenti singoli che eseguono la verifica in due passaggi è maggiore del numero di licenze possedute. 
 
 ## <a name="what-is-an-mfa-provider"></a>Informazioni sui provider MFA
 
-Se non si dispone di licenze per Azure Multi-Factor Authentication, è possibile creare un provider di autenticazione per richiedere la verifica in due passaggi per gli utenti. Se si sviluppa un'app personalizzata e si vuole abilitare Azure MFA, creare un provider di autenticazione e [scaricare l'SDK](multi-factor-authentication-sdk.md).
+Se non si dispone di licenze per Azure Multi-Factor Authentication, è possibile creare un provider di autenticazione per richiedere la verifica in due passaggi per gli utenti.
 
-Esistono due tipi di provider di autenticazione, la cui differenza consiste nella modalità di addebito per la sottoscrizione di Azure. L'opzione in base al numero di autenticazioni calcola il numero di autenticazioni eseguite sul tenant in un mese. Questa opzione è consigliata se si dispone di un numero di utenti che eseguono l'autenticazione solo occasionalmente, come quando si richiede MFA per un'applicazione personalizzata. L'opzione in base al numero di utenti calcola il numero di persone nel tenant che eseguono la verifica in due passaggi in un mese. Questa opzione è consigliata se alcuni utenti possiedono già una licenza, ma è necessario estendere MFA ad altri utenti oltre ai termini di licenza.
+Esistono due tipi di provider di autenticazione, la cui differenza consiste nella modalità di addebito per la sottoscrizione di Azure. L'opzione in base al numero di autenticazioni calcola il numero di autenticazioni eseguite sul tenant in un mese. Questa opzione è consigliata se si ha un numero di utenti che eseguono l'autenticazione solo occasionalmente. L'opzione in base al numero di utenti calcola il numero di persone nel tenant che eseguono la verifica in due passaggi in un mese. Questa opzione è consigliata se alcuni utenti possiedono già una licenza, ma è necessario estendere MFA ad altri utenti oltre ai termini di licenza.
 
 ## <a name="create-an-mfa-provider---public-preview"></a>Creare un provider MFA (anteprima pubblica)
 
@@ -51,8 +53,8 @@ Per creare un provider Azure Multi-Factor Authentication nel portale di Azure, s
       * Per autenticazione: modello di acquisto in cui è previsto l'addebito in base al numero di autenticazioni. Usato, in genere, per scenari in cui viene usato Azure Multi-Factor Authentication in un'applicazione per il consumer.
       * Per utente abilitato: modello di acquisto in cui è previsto l'addebito in base al numero di utenti abilitati. Usato, in genere, per l'accesso dei dipendenti alle applicazioni come Office 365. Scegliere questa opzione se alcuni utenti dispongono già della licenza per Azure MFA.
    - **Sottoscrizione**: sottoscrizione di Azure a cui verrà addebitata l'attività di verifica in due passaggi tramite il provider. 
-   - **Directory**: tenant di Azure Active Directory a cui è associato il provider. Tenere presente quanto segue:
-      * Non è necessaria una directory di Azure AD per creare un provider. Lasciare vuota la casella se si prevede di scaricare solo il server Azure Multi-Factor Authentication o l'SDK.
+   - **Directory**: tenant di Azure Active Directory a cui è associato il provider.
+      * Non è necessaria una directory di Azure AD per creare un provider. Lasciare vuota la casella se si prevede di scaricare solo il server Azure Multi-Factor Authentication.
       * Il provider deve essere associato a una directory di Azure AD per sfruttare le funzionalità avanzate.
       * A una directory di Azure AD può essere associato un solo provider.
 
@@ -82,8 +84,8 @@ Per creare un provider Azure Multi-Factor Authentication nel portale classico, s
    2. **Modello di utilizzo**: scegliere una delle due opzioni:
       * Per autenticazione: modello di acquisto in cui è previsto l'addebito in base al numero di autenticazioni. Usato, in genere, per scenari in cui viene usato Azure Multi-Factor Authentication in un'applicazione per il consumer.
       * Per utente abilitato: modello di acquisto in cui è previsto l'addebito in base al numero di utenti abilitati. Usato, in genere, per l'accesso dei dipendenti alle applicazioni come Office 365. Scegliere questa opzione se alcuni utenti dispongono già della licenza per Azure MFA.
-   3. **Directory**: tenant di Azure Active Directory a cui è associato il provider. Tenere presente quanto segue:
-      * Non è necessaria una directory di Azure AD per creare un provider. Lasciare vuota la casella se si prevede di scaricare solo il server Azure Multi-Factor Authentication o l'SDK.
+   3. **Directory**: tenant di Azure Active Directory a cui è associato il provider.
+      * Non è necessaria una directory di Azure AD per creare un provider. Lasciare vuota la casella se si prevede di scaricare solo il server Azure Multi-Factor Authentication.
       * Il provider deve essere associato a una directory di Azure AD per sfruttare le funzionalità avanzate.
       * A una directory di Azure AD può essere associato un solo provider.  
       ![Creazione di un provider di MFA](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)
@@ -101,7 +103,5 @@ Se il provider di Multi-Factor Authentication corrente è associato a una direct
 Se il provider di Multi-Factor Authentication non è collegato a un tenant di Azure AD o si collega il nuovo provider di Multi-Factor Authentication a un diverso tenant di Azure AD, le impostazioni utente e le opzioni di configurazione non vengono trasferite. Inoltre, i server Azure MFA esistenti devono essere riattivati usando le credenziali di attivazione generate tramite il nuovo provider di MFA. La riattivazione dei server MFA per collegarli al nuovo provider di MFA non inciderà sull'autenticazione con chiamata telefonica e SMS, ma le notifiche dell'app mobile smetteranno di funzionare per tutti gli utenti fino a quando riattiveranno l'app mobile.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-[Scaricare l'SDK di Multi-Factor Authentication](multi-factor-authentication-sdk.md)
 
 [Configurare le impostazioni di Multi-Factor Authentication](multi-factor-authentication-whats-next.md)

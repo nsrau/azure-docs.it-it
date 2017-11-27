@@ -13,33 +13,101 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/06/2017
 ms.author: jingwang
-ms.openlocfilehash: e27c1a8e130d20eb0ba0e5c001fc9a435e07c1cd
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 5345c0fa6212127e9821adccc8cb4c339ce7ae28
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Creare una data factory e una pipeline con .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1 - Disponibilità generale](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versione 2 - Anteprima](quickstart-create-data-factory-dot-net.md)
 
-Azure Data Factory è un servizio di integrazione di dati basato sul cloud che consente di creare flussi di lavoro basati sui dati nel cloud per orchestrare e automatizzare lo spostamento e la trasformazione dei dati stessi. Usando Azure Data Factory è possibile creare e pianificare flussi di lavoro (denominati pipeline) basati sui dati che possono inserire dati da archivi diversi, elaborarli e trasformarli tramite servizi di calcolo come Hadoop di Azure HDInsight, Spark, Azure Data Lake Analytics e Azure Machine Learning e pubblicare l'output in archivi come Azure SQL Data Warehouse per l'uso da parte di applicazioni di business intelligence (BI). 
-
-Questa guida introduttiva descrive come usare .NET SDK per creare una data factory di Azure. La pipeline in questa data factory copia dati da una cartella a un'altra cartella in un archivio BLOB di Azure.
+Questa guida introduttiva descrive come usare .NET SDK per creare una data factory di Azure. La pipeline creata in questa data factory **copia** dati da una cartella a un'altra in un archivio BLOB di Azure. Per un'esercitazione su come **trasformare** i dati usando Azure Data Factory, vedere [Esercitazione: Trasformare dati usando Spark](transform-data-using-spark.md). 
 
 > [!NOTE]
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere l'[introduzione a Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+>
+> Questo articolo non offre una presentazione dettagliata del servizio Data Factory. Per un'introduzione al servizio Azure Data Factory, vedere [Introduzione ad Azure Data Factory](introduction.md).
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati di **origine** e **sink**. Se non si ha un account di archiviazione di Azure, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno. 
-* Creare un **contenitore BLOB** in Archiviazione BLOB, creare una **cartella** di input nel contenitore e caricare alcuni file nella cartella. È possibile usare strumenti come [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per connettersi all'archivio BLOB di Azure, creare un contenitore BLOB, caricare il file di input e verificare il file di output.
-* **Visual Studio** 2013, 2015 o 2017. Nella procedura guidata illustrata in questo articolo viene usato Visual Studio 2017.
-* **Scaricare e installare [Azure .NET SDK](http://azure.microsoft.com/downloads/)**.
-* **Creare un'applicazione in Azure Active Directory** seguendo [queste istruzioni](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Annotare i valori seguenti, che verranno usati successivamente: **ID applicazione**, **chiave di autenticazione** e **ID tenant**. Assegnare l'applicazione al ruolo **Collaboratore** seguendo le istruzioni disponibili nello stesso articolo. 
-*  
+
+### <a name="azure-subscription"></a>Sottoscrizione di Azure
+Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+
+### <a name="azure-roles"></a>Ruoli di Azure
+Per creare istanze di Data Factory, l'account utente usato per accedere ad Azure deve essere un membro dei ruoli **collaboratore** o **proprietario** oppure un **amministratore** della sottoscrizione di Azure. Nel portale di Azure fare clic sul **nome utente** nell'angolo in alto a destra e selezionare **Autorizzazioni** per visualizzare le autorizzazioni disponibili nella sottoscrizione. Se si accede a più sottoscrizioni, selezionare quella appropriata. Per istruzioni di esempio sull'aggiunta di un utente a un ruolo, vedere l'articolo [Aggiungere i ruoli](../billing/billing-add-change-azure-subscription-administrator.md).
+
+### <a name="azure-storage-account"></a>Account di archiviazione di Azure
+In questa guida introduttiva si usa un account di archiviazione di Azure per utilizzo generico (specificamente, un archivio BLOB) come archivio dati sia di **origine** che di **destinazione**. Se non si ha un account di archiviazione di Azure per utilizzo generico, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno. 
+
+#### <a name="get-storage-account-name-and-account-key"></a>Recuperare il nome e la chiave dell'account di archiviazione
+In questa guida introduttiva si usano il nome e la chiave dell'account di archiviazione di Azure. La procedura seguente illustra i passaggi per recuperare il nome e la chiave dell'account di archiviazione. 
+
+1. Avviare un Web browser e passare al [portale di Azure](https://portal.azure.com). Eseguire l'accesso con il nome utente e la password di Azure. 
+2. Fare clic su **Altri servizi** nel menu a sinistra, usare la parola chiave **Archiviazione** come filtro e selezionare **Account di archiviazione**.
+
+    ![Cercare l'account di archiviazione](media/quickstart-create-data-factory-dot-net/search-storage-account.png)
+3. Nell'elenco degli account di archiviazione filtrare, se necessario, e quindi selezionare il **proprio account di archiviazione**. 
+4. Nella pagina **Account di archiviazione** selezionare **Chiavi di accesso** nel menu.
+
+    ![Recuperare il nome e la chiave dell'account di archiviazione](media/quickstart-create-data-factory-dot-net/storage-account-name-key.png)
+5. Copiare i valori dei campi **Nome account di archiviazione** e **key1** negli Appunti. Incollarli in un blocco note o in qualsiasi altro editor e salvare.  
+
+#### <a name="create-input-folder-and-files"></a>Creare la cartella e i file di input
+In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'archivio BLOB di Azure. Si crea quindi una cartella denominata **input** nel contenitore e si carica un file di esempio in tale cartella. 
+
+1. Nella pagina **Account di archiviazione** passare a **Panoramica** e quindi fare clic su **BLOB**. 
+
+    ![Selezionare l'opzione BLOB](media/quickstart-create-data-factory-dot-net/select-blobs.png)
+2. Nella pagina **Servizio BLOB** fare clic su **+ Contenitore** sulla barra degli strumenti. 
+
+    ![Pulsante Aggiungi contenitore](media/quickstart-create-data-factory-dot-net/add-container-button.png)    
+3. Nella finestra di dialogo **Nuovo contenitore** immettere **adftutorial** come nome e fare clic su **OK**. 
+
+    ![Immettere il nome del contenitore](media/quickstart-create-data-factory-dot-net/new-container-dialog.png)
+4. Fare clic su **adftutorial** nell'elenco di contenitori. 
+
+    ![Selezionare il contenitore](media/quickstart-create-data-factory-dot-net/select-adftutorial-container.png)
+1. Nella pagina **Contenitore** fare clic su **Carica** sulla barra degli strumenti.  
+
+    ![Pulsante Carica](media/quickstart-create-data-factory-dot-net/upload-toolbar-button.png)
+6. Nella pagina **Carica BLOB** fare clic su **Avanzate**.
+
+    ![Fare clic sul collegamento Avanzate](media/quickstart-create-data-factory-dot-net/upload-blob-advanced.png)
+7. Avviare il **Blocco note** e creare un file denominato **emp.txt** con il contenuto seguente. Salvarlo nella cartella **c:\ADFv2QuickStartPSH**. Creare la cartella **ADFv2QuickStartPSH** se non esiste già.
+    
+    ```
+    John, Doe
+    Jane, Doe
+    ```    
+8. Nella pagina **Carica BLOB** del portale di Azure cercare e selezionare il file **emp.txt** nel campo **File**. 
+9. Immettere il valore **input** nel campo **Carica nella cartella**. 
+
+    ![Caricare le impostazioni BLOB](media/quickstart-create-data-factory-dot-net/upload-blob-settings.png)    
+10. Verificare che la cartella sia **input** e il file sia **emp.txt** e fare clic su **Carica**.
+11. Verranno visualizzati il file **emp.txt** e lo stato del caricamento nell'elenco. 
+12. Chiudere la pagina **Carica BLOB** facendo clic su **X** nell'angolo. 
+
+    ![Chiudere la pagina Carica BLOB](media/quickstart-create-data-factory-dot-net/close-upload-blob.png)
+1. Tenere aperta la pagina **Contenitore** perché verrà usata per verificare l'output alla fine di questa guida introduttiva.
+
+### <a name="visual-studio"></a>Visual Studio
+Nella procedura guidata illustrata in questo articolo viene usato Visual Studio 2017. È anche possibile usare Visual Studio 2013 o 2015.
+
+### <a name="azure-net-sdk"></a>Azure .NET SDK
+Scaricare e installare [Azure .NET SDK](http://azure.microsoft.com/downloads/) nel computer.
+
+### <a name="create-an-application-in-azure-active-directory"></a>Creare un'applicazione in Azure Active Directory
+Seguendo le istruzioni in [questo articolo](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) eseguire queste attività: 
+
+1. **Creare un'applicazione di Azure Active Directory**. In Azure Active Directory creare un'applicazione che rappresenti l'applicazione .NET che si crea in questa esercitazione. Come URL di accesso è possibile specificare un URL fittizio, come illustrato nell'articolo (`https://contoso.org/exampleapp`).
+2. Ottenere l'**ID applicazione** e la **chiave di autenticazione**** usando le istruzioni della sezione **Ottenere l'ID applicazione e la chiave di autenticazione** dell'articolo. Prendere nota di questi valori che verranno usati più avanti in questa esercitazione. 
+3. Ottenere l'**ID tenant** usando le istruzioni della sezione **Ottenere l'ID tenant** dell'articolo. Prendere nota di questo valore. 
+4. Assegnare l'applicazione al ruolo **Collaboratore** a livello di sottoscrizione in modo che l'applicazione possa creare le data factory nella sottoscrizione. Seguire le istruzioni della sezione **Assegnare l'applicazione al ruolo** dell'articolo. 
 
 ## <a name="create-a-visual-studio-project"></a>Creare un progetto di Visual Studio
 
@@ -253,7 +321,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="monitor-a-pipeline-run"></a>Monitorare un'esecuzione della pipeline
 
-1. Aggiungere il codice seguente al metodo **Main** per controllare continuamente lo stato dell'esecuzione della pipeline fino al termine della copia dei dati.
+1. Aggiungere il codice seguente al metodo **Main** per controllare continuamente lo stato fino al termine della copia dei dati.
 
     ```csharp
     // Monitor the pipeline run
@@ -397,8 +465,18 @@ Checking copy activity run details...
 }
 
 Press any key to exit...
-
 ```
+
+## <a name="verify-the-output"></a>Verificare l'output
+La pipeline crea automaticamente la cartella di output nel contenitore BLOB adftutorial, quindi copia il file emp.txt dalla cartella di input a quella di output. 
+
+1. Nella pagina del contenitore **adftutorial** del portale di Azure fare clic su **Aggiorna** per visualizzare la cartella di output. 
+    
+    ![Aggiorna](media/quickstart-create-data-factory-dot-net/output-refresh.png)
+2. Fare clic su **output** nell'elenco di cartelle. 
+2. Verificare che **emp.txt** venga copiato nella cartella di output. 
+
+    ![Aggiorna](media/quickstart-create-data-factory-dot-net/output-file.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Per eliminare una data factory a livello di codice, aggiungere al programma le righe di codice seguenti: 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 7623c5ac5cbc52e9fc77b1f944908b07ff43fbaf
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 0a0ab748dcf722358633c7be350c6addcd61352d
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Distribuire un'applicazione contenitore Linux di Azure Service Fabric in Azure
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili. 
@@ -59,7 +59,7 @@ Per distribuire l'applicazione in un cluster in Azure, usare il proprio cluster 
 
 I party cluster sono cluster di Service Fabric gratuiti disponibili per un periodo di tempo limitato, ospitati in Azure. Sono gestiti dal team di Service Fabric e consentono a chiunque di distribuirvi applicazioni e imparare a usare la piattaforma. Per ottenere l'accesso a un party cluster, [seguire le istruzioni](http://aka.ms/tryservicefabric). 
 
-Per informazioni sulla creazione di un cluster, vedere [Creare il primo cluster di Service Fabric di Azure](service-fabric-get-started-azure-cluster.md).
+Per informazioni sulla creazione di un cluster, vedere l'articolo su come [creare un cluster di Service Fabric in Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 > [!Note]
 > Il servizio front-end Web è configurato per l'ascolto del traffico in ingresso sulla porta 80. Assicurarsi che tale porta sia aperta nel cluster. Se si usa un party cluster, questa porta è aperta.

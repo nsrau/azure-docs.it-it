@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 18169b86d10b589a5c8b707596d5f62813e9efe2
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 8a80220879db9f0030b9f1a8494b1cc24105ef17
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -118,7 +118,7 @@ Il nome visualizzato e a cui si fa riferimento per i tipi di hop successivi è d
 
 Un gateway di rete locale può scambiare le route con un gateway di rete virtuale di Azure tramite Border Gateway Protocol (BGP). L'uso di BGP con un gateway di rete virtuale di Azure dipende dal tipo selezionato al momento della creazione del gateway stesso. Se il tipo selezionato era:
 
-- **ExpressRoute**: è necessario usare BGP per annunciare le route al router perimetrale Microsoft. Non è possibile creare route definite dall'utente se si distribuisce un gateway di rete virtuale di tipo ExpressRoute.
+- **ExpressRoute**: è necessario usare BGP per annunciare le route locali al router perimetrale Microsoft. Se si distribuisce un gateway di rete virtuale di tipo ExpressRoute, non è possibile creare route definite dall'utente per forzare il traffico verso il gateway di rete virtuale ExpressRoute. Si possono usare route definite dall'utente per forzare il traffico da ExpressRoute, ad esempio verso un'appliance virtuale di rete. 
 - **VPN**: è possibile usare BGP. Per informazioni dettagliate, vedere [BGP con connessioni VPN da sito a sito](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Quando si scambiano le route con Azure tramite BGP, viene aggiunta una route separata alla tabella di route di tutte le subnet di una rete virtuale per ogni prefisso annunciato. La route viene aggiunta con *Gateway di rete virtuale* come origine e tipo di hop successivo. 

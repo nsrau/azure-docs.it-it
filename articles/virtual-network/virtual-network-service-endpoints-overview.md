@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: be0c715e12f7df6208112eea40d6017d86f50cae
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 767dc34471db7dc1d095929e67e85197711b52ce
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="virtual-network-service-endpoints-preview"></a>Endpoint del servizio Rete virtuale (Anteprima)
 
@@ -28,7 +28,7 @@ Gli endpoint del servizio Rete virtuale estendono lo spazio di indirizzi privato
 Questa funzionalità è disponibile in anteprima per i servizi e le aree di Azure seguenti:
 
 - **Archiviazione di Azure**: tutte le aree nel cloud pubblico di Azure.
-- **Database SQL di Azure**: WestCentralUS, WestUS2 e EastUS.
+- **Azure SQL**: tutte le aree nel cloud pubblico di Azure.
 
 Per le notifiche più aggiornate per l'anteprima, vedere la pagina [Aggiornamenti di Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -122,4 +122,5 @@ Per una risorsa del servizio di Azure, ad esempio un account di archiviazione di
 - Informazioni su come [associare un account di archiviazione di Azure a una rete virtuale](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Informazioni su come [associare un database SQL di Azure a una rete virtuale](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Informazioni sull'[integrazione dei servizi di Azure nelle reti virtuali](virtual-network-for-azure-services.md)
+-  Avvio rapido: [modello di Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) per configurare un endpoint di servizio in una subnet della rete virtuale e associare l'account di archiviazione di Azure a tale subnet.
 

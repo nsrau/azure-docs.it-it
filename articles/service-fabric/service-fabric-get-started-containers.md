@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 1b2daf04e060615569e8416d3ded344483518400
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 23e8b1023aebd5381fc89535ce265883d6a8fceb
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Creare la prima applicazione contenitore di Service Fabric in Windows
 > [!div class="op_single_selector"]
@@ -294,8 +294,7 @@ Windows supporta due modalità di isolamento per i contenitori: la modalità pro
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
    > [!NOTE]
-   > La modalità di isolamento Hyper-V è disponibile negli SKU di Azure Ev3 e Dv3 che hanno il supporto per la virtualizzazione annidato. 
-   >
+   > La modalità di isolamento Hyper-V è disponibile negli SKU di Azure Ev3 e Dv3 che hanno il supporto per la virtualizzazione annidato. Verificare che il ruolo Hyper-V sia installato negli host. A tale scopo, connettersi agli host.
    >
 
 ## <a name="configure-resource-governance"></a>Configurare la governance delle risorse
@@ -325,7 +324,7 @@ L'applicazione è pronta quando è in stato ```Ready```: ![Pronto][2]
 Aprire un browser Web e passare a http://containercluster.westus2.cloudapp.azure.com:8081. Verrà visualizzata l'intestazione "Hello World!" nel browser.
 
 ## <a name="clean-up"></a>Eseguire la pulizia
-Mentre il cluster è in esecuzione, continuano a essere addebitati i relativi costi. È quindi consigliabile [eliminare il cluster](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  I [party cluster](https://try.servicefabric.azure.com/) vengono eliminati automaticamente dopo alcune ore.
+Mentre il cluster è in esecuzione, continuano a essere addebitati i relativi costi. È quindi consigliabile [eliminare il cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md#clean-up-resources).  I [party cluster](https://try.servicefabric.azure.com/) vengono eliminati automaticamente dopo alcune ore.
 
 Dopo aver effettuato il push dell'immagine nel registro contenitori, è possibile eliminare l'immagine locale dal computer di sviluppo:
 

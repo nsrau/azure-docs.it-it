@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: tarcher
-ms.openlocfilehash: 9657a4681f6bd9cc126de50883ce7a66357156e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c2c6cbff31f5d4992163d3fb46e4f1e13a58024
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-lab-in-azure-devtest-labs"></a>Creare un lab di sviluppo/test di Azure
 Un lab in Azure DevTest Labs è l'infrastruttura che comprende un gruppo di risorse, ad esempio macchine virtuali, e ne consente una migliore gestione tramite la specifica di limiti e quote. Questo articolo illustra la creazione di un lab con il portale di Azure.
@@ -59,9 +59,9 @@ La procedura seguente illustra come usare il portale di Azure per creare un lab 
 ## <a name="next-steps"></a>Passaggi successivi
 Una volta creato il lab, ecco alcuni passaggi successivi da considerare:
 
-* [Proteggere l'accesso a un lab](devtest-lab-add-devtest-user.md).
-* [Definire i criteri del lab](devtest-lab-set-lab-policy.md).
-* [Creare un modello di lab](devtest-lab-create-template.md).
-* [Creare elementi personalizzati per le VM](devtest-lab-artifact-author.md).
-* [Aggiungere una VM con elementi a un lab](https://azure.microsoft.com/resources/videos/how-to-create-vms-with-artifacts-in-a-devtest-lab/).
+* [Proteggere l'accesso a un lab](devtest-lab-add-devtest-user.md)
+* [Impostare i criteri del lab](devtest-lab-set-lab-policy.md)
+* [Creare un modello di lab](devtest-lab-create-template.md)
+* [Creare elementi personalizzati per le VM](devtest-lab-artifact-author.md)
+* [Aggiungere una VM a un lab](devtest-lab-add-vm.md)
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 46037efe0e2c30337d76790c46c16e300bfffd5f
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9bcad8ed57980b08e0290e0272a5ff9de46f11a0
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurare una connessione gateway VPN tra reti virtuali usando PowerShell
 
@@ -59,13 +59,17 @@ Per altre informazioni sulle connessioni da rete virtuale a rete virtuale, veder
 
 ## <a name="which-set-of-steps-should-i-use"></a>Quale procedura è consigliabile seguire?
 
-Questo articolo riporta due diverse procedure. Una per le [reti virtuali che si trovano nella stessa sottoscrizione](#samesub) e un'altra per le [reti virtuali che si trovano in sottoscrizioni diverse](#difsub). La differenza principale tra le due procedure è la possibilità o meno di creare e configurare tutte le risorse di rete virtuale e gateway all'interno della stessa sessione di PowerShell.
-
-Le procedure descritte in questo articolo usano variabili dichiarate all'inizio di ogni sezione. Se si usano reti virtuali esistenti, modificare le variabili in base alle impostazioni personalizzate dell'ambiente. Per usare la risoluzione dei nomi per le reti virtuali, vedere [Risoluzione dei nomi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
-
-## <a name="samesub"></a>Come connettere reti virtuali che si trovano nella stessa sottoscrizione
+Questo articolo riporta due diverse procedure. Una procedura riguarda le [reti virtuali che si trovano nella stessa sottoscrizione](#samesub). Nei passaggi per questa configurazione si usano TestVNet1 e TestVNet4.
 
 ![Diagramma V2V](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+
+Un articolo separato riguarda le [reti virtuali che si trovano in sottoscrizioni diverse](#difsub). Nei passaggi per tale configurazione si usano TestVNet1 e TestVNet5.
+
+![Diagramma V2V](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+
+La differenza principale tra le due procedure è la possibilità o meno di creare e configurare tutte le risorse di rete virtuale e gateway all'interno della stessa sessione di PowerShell. Quando si configurano le connessioni per reti virtuali che si trovano in sottoscrizioni diverse, è necessario usare sessioni di PowerShell separate. È possibile combinare le configurazioni, se si preferisce, oppure sceglierne una da usare.
+
+## <a name="samesub"></a>Come connettere reti virtuali che si trovano nella stessa sottoscrizione
 
 ### <a name="before-you-begin"></a>Prima di iniziare
 
@@ -90,7 +94,7 @@ Negli esempi vengono usati i valori seguenti:
 * IP pubblico: VNet1GWIP
 * VPNType: RouteBased
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5
+* Connection(1to5): VNet1toVNet5 (per reti virtuali in diverse sottoscrizioni)
 * ConnectionType: VNet2VNet
 
 **Valori per TestVNet4:**
@@ -279,8 +283,6 @@ Dopo aver configurato TestVNet1, creare TestVNet4. Eseguire la procedura seguent
 4. Verificare la connessione. Vedere la sezione [Come verificare una connessione](#verify).
 
 ## <a name="difsub"></a>Come connettere reti virtuali che si trovano in sottoscrizioni diverse
-
-![Diagramma V2V](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 In questo scenario vengono connesse le reti virtuali TestVNet1 e TestVNet5, che si trovano in sottoscrizioni diverse. Non è necessario che le sottoscrizioni siano associate allo stesso tenant di Active Directory. La differenza tra questi passaggi e quelli del set precedente consiste nel fatto che una parte dei passaggi di configurazione deve essere eseguita in una sessione di PowerShell separata nel contesto della seconda sottoscrizione, soprattutto quando le due sottoscrizioni appartengono a organizzazioni diverse.
 

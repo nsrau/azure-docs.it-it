@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2017
+ms.date: 11/20/2017
 ms.author: kaanan
-ms.openlocfilehash: fef70ca56761565d7b2fa329a17929b978d54cb8
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3dec7a7ae3f1fee633949b51365ca3e5d3fa19d7
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -96,7 +96,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **Jisc** |Supportato |Supportato |Londra |
 | **KINX** |Supportato |Supportato |Seul |
 | **[KPN](http://www.kpn.com/cloudconnect)** | Supportato | Supportato | Amsterdam | 
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Supportato |Supportato |Amsterdam, Chicago, Dallas, Las Vegas, Londra, San Paolo, Seattle, Silicon Valley, Singapore, Washington DC |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Supportato |Supportato |Amsterdam, Chicago, Dallas, Las Vegas, Londra, New York, San Antonio, San Paolo, Seattle, Silicon Valley, Singapore, Tokyo, Washington DC |
 | **LG CNS** |Supportato |Supportato |Busan, Seoul |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supportato |Supportato |Amsterdam, Chicago, Dallas, Hong Kong, Las Vegas, Londra, Los Angeles, Melbourne, Miami, New York, Quebec City, San Antonio, Seattle, Silicon Valley, Singapore, Sydney, Toronto, Washington DC |
 | **MTN** |Supportato |Supportato |Londra |
@@ -196,6 +196,7 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 | **[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure)** |Equinix | Chicago, New York, Washington DC |
 | **[Macroview Telecom](http://www.macroview.com/en/scripts/catitem.php?catid=solution&sectionid=expressroute)** |Equinix |Hong Kong - R.A.S. |
 | **[Macquarie Telecom Group](https://macquariegovernment.com/secure-cloud/secure-cloud-exchange/)** | Megaport | Sydney |
+| **[MainOne](https://www.mainone.net/services/connectivity/cloud-connect/)** |Equinix | Amsterdam |
 | **[Masergy](https://www.masergy.com/solutions/hybrid-networking/cloud-marketplace/microsoft-azure)** | Equinix | Washington DC |
 | **[NexGen Networks](http://www.nexgen-net.com/nexgen-networks-direct-connect-microsoft-azure-expressroute.html)** | Interxion | Londra |
 | **[Nianet](https://nianet.dk/produkter/internet/microsoft-expressroute)** |Telecity | Amsterdam, Francoforte |  

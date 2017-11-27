@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 11/17/2017
 ms.author: billmath
-ms.openlocfilehash: b6318b419a0ea87fd1fb56656b1161909876f338
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf7b64bd956c236f5c70bb7dcd209ecdcd7176dd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Funzione Azure Active Directory Terms of Use (Condizioni per l'utilizzo di Azure Active Directory) (anteprima)
 Azure Active Directory Terms of Use (Condizioni per l'utilizzo di Azure Active Directory) offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali.  In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità.
@@ -43,7 +43,8 @@ Seguire questa procedura per configurare Azure Active Directory Terms of Use (Co
 2. Verificare che la directory abbia una sottoscrizione di Azure AD Premium P1, P2, EMS E3 o EMS E5.  In caso contrario, [ottenere Azure AD Premium](active-directory-get-started-premium.md) o [avviare una versione di valutazione](https://azure.microsoft.com/trial/get-started-active-directory/).
 3. Visualizzare il dashboard Azure Active Directory Terms of Use (Condizioni per l'utilizzo di Azure Active Directory) all'indirizzo [https://aka.ms/catou](https://aka.ms/catou).
 
-
+>[!IMPORTANT]
+>L'applicazione dei controlli dei criteri di accesso condizionale (incluse le condizioni per l'utilizzo) non è supportata per account di servizio.  È consigliabile escludere tutti gli account di servizio dai criteri di accesso condizionale.
 
 ## <a name="add-company-terms-of-use"></a>Aggiungere le condizioni per l'utilizzo dell'azienda
 Dopo avere completato le condizioni per l'utilizzo, seguire questa procedura per aggiungerle.
@@ -92,7 +93,6 @@ Una volta create e applicate le condizioni per l'utilizzo, agli utenti inclusi n
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 Di seguito vengono riportate informazioni che possono risultare utili per l'uso delle condizioni per l'utilizzo.
-
 
 Gli utenti inclusi nell'ambito devono disconnettersi e accedere per soddisfare un nuovo criterio se:
  - è abilitato un criterio di accesso condizionale per una condizione per l'utilizzo

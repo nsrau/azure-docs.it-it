@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/22/2017
 ms.author: yurid
-ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 829657664cf1e37b22d57c62614300a205b5e91c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure
 Questo articolo consente di comprendere i diversi tipi di avvisi di sicurezza e le informazioni significative che ne derivano disponibili nel Centro sicurezza di Azure. Per altre informazioni sulla gestione degli avvisi e degli eventi imprevisti, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).
@@ -53,6 +53,45 @@ I campi seguenti sono comuni per gli esempi di avvisi relativi al dump di arrest
 * DUMPFILE (FILE DUMP): nome del file di dump di arresto anomalo del sistema.
 * PROCESSNAME (NOME PROCESSO): nome del processo bloccato.
 * PROCESSVERSION (VERSIONE PROCESSO): versione del processo bloccato.
+
+### <a name="code-injection-discovered"></a>Individuato attacco di code injection
+Un attacco di code injection consiste nell'inserimento di moduli eseguibili in processi o thread in esecuzione.  Questa tecnica è usata da software dannoso per accedere ai dati e nasconderne o impedirne la rimozione, ad esempio con il salvataggio permanente. Questo avviso indica che nel dump di arresto anomalo del sistema è presente un modulo inserito. Gli sviluppatori di software legittimo eseguono occasionalmente operazioni di code injection per motivi non dannosi, ad esempio per modificare o estendere un componente esistente del sistema operativo o di un'applicazione.  Per distinguere tra moduli inseriti dannosi e non dannosi, il Centro sicurezza verifica se il modulo inserito corrisponde o meno a un profilo di comportamento sospetto. Il risultato di questa verifica è indicato dal campo "SIGNATURE" (FIRMA) dell'avviso e si riflette nella gravità dell'avviso, nella descrizione dell'avviso e nella procedura di correzione dell'avviso. 
+
+Questo avviso include i campi aggiuntivi seguenti.
+
+- ADDRESS (INDIRIZZO): posizione in memoria del modulo inserito.
+- IMAGENAME (NOME IMMAGINE): nome del modulo inserito. Si noti che questo campo può essere vuoto se il nome dell'immagine non è specificato all'interno dell'immagine.
+- SIGNATURE (FIRMA): indica se il modulo inserito corrisponde a un profilo di comportamento sospetto. 
+
+La tabella seguente mostra esempi dei risultati e la relativa descrizione:
+
+| Valore firma                      | Descrizione                                                                                                       |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Suspicious reflective loader exploit (Exploit caricatore reflective sospetto) | Questo comportamento sospetto è spesso correlato al caricamento di code injection indipendentemente dal caricatore del sistema operativo |
+| Suspicious injected exploit (Exploit di code injection sospetto)          | Indica un comportamento dannoso spesso correlato a operazioni di code injection in memoria                                       |
+| Suspicious injecting exploit (Exploit di esecuzione di code injection sospetto)         | Indica un comportamento dannoso spesso correlato all'uso di code injection in memoria                                   |
+| Suspicious injected debugger exploit (Exploit del debugger di code injection sospetto) | Indica un comportamento dannoso spesso correlato al rilevamento o all'aggiramento di un debugger                         |
+| Suspicious injected remote exploit (Exploit di code injection remoto sospetto)   | Indica un comportamento sospetto spesso correlato a scenari di comando e controllo (C2)                                 |
+
+Ecco un esempio di questo tipo di avviso:
+
+![Avviso di code injection](./media/security-center-alerts-type/security-center-alerts-type-fig21.png)
+
+### <a name="suspicious-code-segment"></a>Segmento di codice sospetto
+L'avviso di segmento di codice sospetto indica che un segmento di codice è stato allocato con metodi non standard, come quelli usati da reflective injection e hollowing del processo.  L'avviso elabora anche caratteristiche aggiuntive del segmento di codice per offrire il contesto in relazione alle funzionalità e ai comportamenti del segmento di codice segnalato.
+
+Questo avviso include i campi aggiuntivi seguenti.
+
+- ADDRESS (INDIRIZZO): posizione in memoria del modulo inserito.
+- SIZE (DIMENSIONI): dimensioni del segmento di codice sospetto.
+- STRINGSIGNATURES (FIRME STRINGA): questo campo elenca le funzionalità delle API i cui nomi di funzione sono contenuti nel segmento di codice. Le funzionalità possono includere ad esempio:
+    - Descrittori di sezioni di immagine, esecuzione dinamica di codice per x64, funzionalità di caricatore e allocazione di memoria, funzionalità di code injection in remoto, funzionalità di controllo hijack, lettura di variabili di ambiente, lettura di memoria di processo arbitraria, query o modifica di privilegi dei token, comunicazione di rete HTTP/HTTPS e comunicazione tramite socket di rete.
+- IMAGEDETECTED (IMMAGINE RILEVATA): questo campo indica se è stata inserita un'immagine PE nel processo in cui è stato rilevato il segmento di codice sospetto e l'indirizzo di inizio del modulo inserito.
+- SHELLCODE (CODICE SHELL): questo campo indica la presenza di un comportamento comunemente usato da payload dannosi per acquisire l'accesso ad altre funzioni del sistema operativo importanti per la sicurezza. 
+
+Ecco un esempio di questo tipo di avviso:
+
+![Avviso di segmento di codice sospetto](./media/security-center-alerts-type/security-center-alerts-type-fig22.png)
 
 ### <a name="shellcode-discovered"></a>Individuato attacco shellcode
 Uno shellcode è il payload che viene eseguito dopo che il malware ha sfruttato una vulnerabilità del software. Questo avviso indica che l'analisi di dump di arresto anomalo del sistema ha rilevato codice eseguibile che presenta un comportamento comunemente adottato dai payload dannosi. Sebbene anche il software non dannoso possa mostrare comportamenti simili, questo non fa generalmente parte delle normali procedure di sviluppo software.

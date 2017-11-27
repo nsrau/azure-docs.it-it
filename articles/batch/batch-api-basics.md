@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 10/12/2017
+ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e9f098bedf2c4dfb27a27d028b7bd87782516c7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 3028e913937db304ac0a1df8e6a095072630505d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Sviluppare soluzioni di calcolo parallele su larga scala con Batch
 
@@ -75,7 +75,7 @@ Un account Batch è un'entità identificata in modo univoco all'interno del serv
 È possibile eseguire più carichi di lavoro Batch in un solo account Batch o distribuire i carichi di lavoro tra gli account Batch nella stessa sottoscrizione, ma in aree di Azure diverse.
 
 > [!NOTE]
-> Quando si crea un account Batch, è in genere consigliabile scegliere la modalità **Servizio Batch** predefinita, in cui i pool vengono associati in background nelle sottoscrizioni gestite da Azure. Nella modalità **Sottoscrizione utente** alternativa, che non è più consigliata, le macchine virtuali e le altre risorse di Batch vengono create direttamente nella sottoscrizione in fase di creazione di un pool. Per creare un account Batch in modalità di sottoscrizione utente, è anche necessario associare l'account ad Azure Key Vault.
+> Quando si crea un account Batch, è in genere consigliabile scegliere la modalità **Servizio Batch** predefinita, in cui i pool vengono associati in background nelle sottoscrizioni gestite da Azure. Nella modalità **Sottoscrizione utente** alternativa, che non è più consigliata per la maggior parte degli scenari, le VM e le altre risorse di Batch vengono create direttamente nella sottoscrizione durante la creazione di un pool. Per creare un account Batch in modalità Sottoscrizione utente, è anche necessario registrare la sottoscrizione in Azure Batch e associare l'account ad Azure Key Vault.
 >
 
 
@@ -150,7 +150,9 @@ Per i requisiti e i passaggi dettagliati, vedere [Usare un'immagine personalizza
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Supporto dei contenitori nei pool di macchine virtuali
 
-Quando si crea un pool Configurazione macchina virtuale usando le API di Batch, è possibile impostare il pool per eseguire attività in contenitori Docker. Al momento è necessario creare il pool usando Windows Server 2016 Datacenter con un'immagine del contenitore di Azure Marketplace oppure specificare un'immagine di macchina virtuale personalizzata che include Docker Community Edition e tutti i driver necessari. Le impostazioni del pool devono includere una [configurazione del contenitore](/rest/api/batchservice/pool/add#definitions_containerconfiguration) che copia le immagini del contenitore nelle macchine virtuali quando viene creato il pool. Le attività eseguite nel pool potranno quindi fare riferimento a immagini del contenitore e opzioni di esecuzione del contenitore.
+Quando si crea un pool Configurazione macchina virtuale usando le API di Batch, è possibile impostare il pool per eseguire attività in contenitori Docker. Attualmente è necessario creare il pool usando un'immagine che supporti contenitori Docker. Usare l'immagine Windows Server 2016 Datacenter con contenitori di Azure Marketplace oppure specificare un'immagine di VM personalizzata che includa Docker Community Edition o Enterprise Edition e tutti i driver necessari. Le impostazioni del pool devono includere una [configurazione del contenitore](/rest/api/batchservice/pool/add#definitions_containerconfiguration) che copia le immagini del contenitore nelle macchine virtuali quando viene creato il pool. Le attività eseguite nel pool potranno quindi fare riferimento a immagini del contenitore e opzioni di esecuzione del contenitore.
+
+Per altre informazioni, vedere [Eseguire applicazioni contenitore Docker in Azure Batch](batch-docker-container-workloads.md).
 
 ## <a name="compute-node-type-and-target-number-of-nodes"></a>Tipo di nodo di calcolo e numero di nodi di destinazione
 

@@ -2,7 +2,7 @@
 title: Introduzione all'API di tabella di Azure Cosmos DB | Microsoft Docs
 description: Informazioni su come usare Azure Cosmos DB per archiviare volumi elevati di dati di coppie chiave/valore ed eseguire query su di essi con bassa latenza tramite le diffuse API MongoDB OSS.
 services: cosmos-db
-author: bhanupr
+author: mimig
 manager: jhubbard
 editor: monicar
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/15/2017
-ms.author: arramac
-ms.openlocfilehash: 87e5555b282ca8efb8d8d3ed7938df94faffb102
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/20/2017
+ms.author: mimig1
+ms.openlocfilehash: da3576c7c2e4609c9d3fac64a3b10794164551e0
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introduzione all'API Tabelle di Azure Cosmos DB
 
@@ -55,6 +55,10 @@ Se attualmente si usa l'archivio tabelle di Azure, passando all'API Tabelle di A
 ## <a name="get-started"></a>Introduzione
 
 Creare un account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com). Vedere quindi [Avvio rapido per l'API di tabella con .NET](create-table-dotnet.md). 
+
+> [!IMPORTANT]
+> Se si è creato un account API Tabelle durante l'anteprima, creare un [nuovo account API Tabelle ](create-table-dotnet.md#create-a-database-account) per usare gli SDK per l'API Tabelle disponibili a livello generale.
+>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
