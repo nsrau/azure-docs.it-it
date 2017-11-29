@@ -1,0 +1,26 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione di Azure Migrate
+metadata:
+  title: Documentazione di Azure Migrate - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
+  description: Informazioni su come valutare i computer locali per la migrazione ad Azure
+  services: migration-planner
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: migration
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/22/2017
+  ms.author: raynew
+abstract:
+  description: Azure Migrate consente di individuare e valutare l'idoneità dei computer locali per la migrazione ad Azure e fornisce stime del ridimensionamento e dei costi per l'esecuzione delle VM di Azure.
+sections:
+  - title: Esercitazioni dettagliate
+    items:
+      - type: paragraph
+        text: Informazioni su come valutare le VM VMware per la migrazione ad Azure
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial-assessment-vmware">Individuare e valutare le macchine virtuali VMware locali</a>

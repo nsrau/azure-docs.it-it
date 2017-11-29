@@ -52,6 +52,8 @@
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Usare l'emulatore di archiviazione
           href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Uso dell'API REST di Archiviazione di Azure
+          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Gestisci
       items:
         - name: PowerShell per le code di Azure

@@ -64,6 +64,8 @@
               href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Configurare le stringhe di connessione
           href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Uso dell'API REST di Archiviazione di Azure
+          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Gestisci
       items:
         - name: PowerShell per File di Azure

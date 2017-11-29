@@ -152,6 +152,8 @@
               href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Java
               href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Uso dell'API REST di Archiviazione di Azure
+          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Gestisci
       items:
         - name: PowerShell per BLOB di Azure
@@ -277,6 +279,8 @@
               href: ../common/storage-import-export-backing-up-drive-manifests.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Diagnostica e ripristino dagli errori per i processi di Importazione/Esportazione
               href: ../common/storage-import-export-diagnostics-and-error-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Domande frequenti sulla migrazione di Archiviazione
+          href: ../common/storage-migration-faq.md
 - name: riferimento
   items:
     - name: PowerShell

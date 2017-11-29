@@ -133,6 +133,8 @@
       href: distribute-data-globally.md
     - name: Partizionamento
       href: partition-data.md
+    - name: Chiavi univoche
+      href: unique-keys.md
     - name: Coerenza
       href: consistency-levels.md
     - name: Velocità effettiva

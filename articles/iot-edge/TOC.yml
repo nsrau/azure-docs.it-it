@@ -6,16 +6,16 @@
       href: how-iot-edge-works.md
 - name: Guide introduttive
   items:
-    - name: Distribuire in un dispositivo perimetrale - Windows
-      href: quickstart.md
     - name: Distribuire in un dispositivo perimetrale - Linux
       href: quickstart-linux.md
+    - name: Distribuire in un dispositivo perimetrale - Windows
+      href: quickstart.md
 - name: Esercitazioni
   items:
-    - name: Simulare un dispositivo perimetrale - Windows
-      href: tutorial-simulate-device-windows.md
     - name: Simulare un dispositivo perimetrale - Linux
       href: tutorial-simulate-device-linux.md
+    - name: Simulare un dispositivo perimetrale - Windows
+      href: tutorial-simulate-device-windows.md
     - name: 'Sviluppare un modulo C#'
       href: tutorial-csharp-module.md
     - name: Distribuire Analisi di flusso di Azure
@@ -26,8 +26,8 @@
       href: tutorial-deploy-function.md
 - name: Guide alle procedure
   items:
-    - name: Creare un dispositivo gateway
-      href: how-to-create-gateway-device.md
+    - name: Creare un gateway trasparente
+      href: how-to-create-transparent-gateway.md
     - name: Distribuire e monitorare su larga scala
       href: how-to-deploy-monitor.md
     - name: Effettuare il provisioning di un dispositivo IoT Core
@@ -45,6 +45,8 @@
       href: iot-edge-runtime.md
     - name: Deployments
       href: module-deployment-monitoring.md
+    - name: Dispositivo IoT Edge come gateway
+      href: iot-edge-as-gateway.md
     - name: Sicurezza
       href: security.md
 - name: Risorse

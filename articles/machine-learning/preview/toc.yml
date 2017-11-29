@@ -39,10 +39,12 @@
           href: how-to-use-tdsp-in-azure-ml.md
         - name: Roaming e collaborazione
           href: roaming-and-collaboration.md
-    - name: Usare Visual Studio Code Tools for AI
-      href: quickstart-visual-studio-tools.md
-    - name: Usare il toolkit per intelligenza artificiale di Azure IoT Edge
-      href: use-azure-iot-edge-ai-toolkit.md
+    - name: Estensioni IDE
+      items:
+        - name: Usare Visual Studio Tools for AI
+          href: quickstart-visual-studio-tools.md
+        - name: Usare Visual Studio Code Tools for AI
+          href: quickstart-visual-studio-code-tools.md
     - name: Configurare l'ambiente di calcolo
       items:
         - name: Configurare la sperimentazione
@@ -90,8 +92,6 @@
           href: how-to-scale-clusters.md
         - name: Distribuire un servizio Web
           href: model-management-service-deploy.md
-        - name: Distribuire in un dispositivo IoT Edge
-          href: deploy-to-iot-edge-device.md
         - name: Usare un servizio Web
           href: model-management-consumption.md
         - name: Raccogliere i dati dei modelli
@@ -156,6 +156,8 @@
           href: experimentation-service-configuration-reference.md
         - name: API di registrazione
           href: reference-logging-api.md
+        - name: Modello di servizio Sperimentazione
+          href: experimentation-service-template.md
     - name: Gestione modelli
       items:
         - name: API di Gestione modelli

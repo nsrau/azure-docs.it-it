@@ -20,7 +20,7 @@
 
 ## Creare processi
 ### [Creare input](stream-analytics-define-inputs.md)
-### [Dati di input di esempio](stream-analytics-sample-data-input.md)
+### [Testare le query e campionare i dati di input](stream-analytics-sample-data-input.md)
 ### [Modelli di query comuni](stream-analytics-stream-analytics-query-patterns.md)
 ### [Funzioni finestra](stream-analytics-window-functions.md)
 
