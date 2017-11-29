@@ -7,14 +7,14 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/28/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 8afde912ca48297ae60eb7d05aa624a1d72c1637
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 16b56c71e2c81bead7c578a973840391996e845b
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Strumenti di diagnostica Azure Stack
 
@@ -29,43 +29,11 @@ Gli strumenti di diagnostica garantiscono che il meccanismo di raccolta log è s
  
 ## <a name="trace-collector"></a>Agente di raccolta traccia
  
-L'agente di raccolta traccia è abilitata per impostazione predefinita. Viene continuamente eseguito in background e raccoglie tutti i log di Event Tracing for Windows (ETW) da Servizi componenti nello Stack di Azure e li archivia in una condivisione locale comune. 
+L'agente di raccolta traccia è abilitata per impostazione predefinita e viene eseguito in modo continuo in background per raccogliere tutti i log di Event Tracing for Windows (ETW) da Servizi componenti dello Stack di Azure. Log ETW vengono archiviati in una condivisione locale comune con un limite di età di cinque giorni. Una volta raggiunto questo limite, i file meno recenti vengono eliminati quando vengono creati nuovi. La dimensione massima predefinita è consentita per ogni file è pari a 200MB. Un controllo della dimensione si verifica periodicamente (ogni 2 minuti) e se il file corrente > = 200 MB, viene salvato e viene generato un nuovo file. È inoltre previsto un limite di 8GB alle dimensioni complessive dei file generate per ogni sessione di eventi. 
 
-Di seguito sono importanti per conoscere l'agente di raccolta traccia:
- 
-* L'agente di raccolta traccia viene eseguito continuamente con limiti di dimensione predefinito. Il valore predefinito di dimensioni massime consentite per ogni file (200 MB) è **non** una dimensione di cambio Data. Un controllo della dimensione si verifica periodicamente (attualmente ogni 2 minuti) e se il file corrente > = 200 MB, viene salvato e viene generato un nuovo file. È inoltre disponibile un limite di 8 GB (configurabile) alle dimensioni complessive dei file generate per ogni sessione di eventi. Una volta raggiunto questo limite, i file meno recenti vengono eliminati quando vengono creati nuovi.
-* È previsto un limite di 5 giorni age sui registri. Inoltre, questo limite è configurabile. 
-* Ogni componente definisce le proprietà di configurazione di traccia tramite un file JSON. I file JSON vengono archiviati **C:\TraceCollector\Configuration**. Se necessario, è possono modificare questi file per modificare i limiti di validità e le dimensioni dei log raccolti. Le modifiche apportate a questi file è necessario riavviare il *agente di raccolta traccia di Microsoft Azure Stack* servizio rendere effettive le modifiche.
-
-L'esempio seguente è un file JSON di configurazione traccia per le operazioni di FabricRingServices dalla VM XRP: 
-
-```json
-{
-    "LogFile": 
-    {
-        "SessionName": "FabricRingServicesOperationsLogSession",
-        "FileName": "\\\\SU1FileServer\\SU1_ManagementLibrary_1\\Diagnostics\\FabricRingServices\\Operations\\AzureStack.Common.Infrastructure.Operations.etl",
-        "RollTimeStamp": "00:00:00",
-        "MaxDaysOfFiles": "5",
-        "MaxSizeInMB": "200",
-        "TotalSizeInMB": "5120"
-    },
-    "EventSources":
-    [
-        {"Name": "Microsoft-AzureStack-Common-Infrastructure-ResourceManager" },
-        {"Name": "Microsoft-OperationManager-EventSource" },
-        {"Name": "Microsoft-Operation-EventSource" }
-    ]
-}
-```
-
-* **MaxDaysOfFiles**. Questo parametro controlla la validità dei file da mantenere. File di registro meno recenti vengono eliminati.
-* **MaxSizeInMB**. Questo parametro controlla la soglia delle dimensioni per un singolo file. Se viene raggiunta la dimensione, viene creato un nuovo file con estensione etl.
-* **TotalSizeInMB**. Questo parametro controlla la dimensione totale dei file con estensione etl generati da una sessione eventi. Se la dimensione totale è maggiore del valore di questo parametro, i file meno recenti vengono eliminati.
-  
 ## <a name="log-collection-tool"></a>Strumento di raccolta log
  
-Il comando PowerShell **Get AzureStackLog** può essere utilizzato per raccogliere registri da tutti i componenti in un ambiente dello Stack di Azure. Li salva nel file zip in un percorso definito dall'utente. Se il team di supporto tecnico deve i log per consentire di risolvere un problema, si potrebbe chiedere di eseguire questo strumento.
+Il cmdlet PowerShell **Get AzureStackLog** può essere utilizzato per raccogliere registri da tutti i componenti in un ambiente dello Stack di Azure. Li salva nel file zip in un percorso definito dall'utente. Se il team di supporto tecnico deve i log per consentire di risolvere un problema, si potrebbe chiedere di eseguire questo strumento.
 
 > [!CAUTION]
 > Questi file di log possono contenere informazioni personali (PII). Tenerne conto prima di registrare pubblicamente di ogni file di log.
@@ -78,38 +46,38 @@ Di seguito sono indicati alcuni tipi di log di esempio che vengono raccolti:
 *   **Log di diagnostica di archiviazione**
 *   **Log ETW**
 
-Questi file sono raccolti dall'agente di raccolta traccia e archiviati in una condivisione da cui **Get AzureStackLog** li recupera.
+Questi file vengono raccolti e salvati in una condivisione per agente di raccolta traccia. Il **Get AzureStackLog** quindi i cmdlet di PowerShell consente di raccogliere tali informazioni quando necessario.
  
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Per eseguire Get-AzureStackLog in un sistema Azure Stack Development Kit (ASDK)
 1. Accedere come **AzureStack\CloudAdmin** nell'host.
 2. Aprire una finestra di PowerShell come amministratore.
 3. Eseguire il **Get AzureStackLog** cmdlet di PowerShell.
 
-   **esempi**
+**Esempi:**
 
-    Raccogliere tutti i log per tutti i ruoli:
+  Raccogliere tutti i log per tutti i ruoli:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs
+  ```
 
-    Raccogliere registri da macchine virtuali e BareMetal ruoli:
+  Raccogliere registri da macchine virtuali e BareMetal ruoli:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+  ```
 
-    Raccogliere registri da macchine virtuali e BareMetal ruoli, con data di applicazione di filtri per i file di log per le ore trascorse 8:
+  Raccogliere registri da macchine virtuali e BareMetal ruoli, con data di applicazione di filtri per i file di log per le ore trascorse 8:
     
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  ```
 
-    Raccogliere registri dai ruoli di macchine virtuali e BareMetal, con data di applicazione di filtri per i file di log per il periodo di tempo compreso tra 8 ore fa e 2 ore fa:
+  Raccogliere registri dai ruoli di macchine virtuali e BareMetal, con data di applicazione di filtri per i file di log per il periodo di tempo compreso tra 8 ore fa e 2 ore fa:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  ```
 
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-integrated-system"></a>Per l'esecuzione di Get-AzureStackLog in uno Stack di Azure sistema integrato
 
@@ -158,7 +126,7 @@ if($s)
    | Domain                  | ECE                    | ECESeedRing        | 
    | FabricRing              | FabricRingServices     | IN MATERIA PLASTICA RINFORZATA                |
    | Gateway                 | HealthMonitoring       | EFFETTUATO                |   
-   | IBC                     | InfraServiceController |KeyVaultAdminResourceProvider|
+   | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider|
    | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
    | NonPrivilegedAppGateway | NRP                    | SeedRing           |
    | SeedRingServices        | SLB                    | SQL                |   
@@ -166,6 +134,13 @@ if($s)
    | URP                     | UsageBridge            | Macchine virtuali    |  
    | È STATO                     | WASPUBLIC              | SERVIZI DI DISTRIBUZIONE WINDOWS                |
 
+
+### <a name="collect-logs-using-a-graphical-user-interface"></a>Raccogliere i log usando un'interfaccia utente grafica
+Anziché fornire i parametri necessari per il cmdlet Get-AzureStackLog recuperare i registri di Stack di Azure, è anche possibile sfruttare gli strumenti di Azure Stack disponibile Apri origine si trova nel repository GitHub di strumenti di Azure Stack principale in http://aka.ms/AzureStackTools.
+
+Il **ERCS_AzureStackLogs.ps1** script di PowerShell è archiviato nel repository GitHub degli strumenti e viene aggiornato a intervalli regolari. Avviato da una sessione di PowerShell amministrativa, lo script si connette all'endpoint con privilegi e l'esecuzione di Get-AzureStackLog con parametri forniti. Se viene specificato alcun parametro, si utilizzerà lo script di una richiesta di conferma per i parametri tramite un'interfaccia utente grafica.
+
+Per ulteriori informazioni su PowerShell ERCS_AzureStackLogs.ps1 script è possibile guardare [un breve video](https://www.youtube.com/watch?v=Utt7pLsXEBc) o visualizzare lo script [file readme](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) si trova nel repository GitHub strumenti dello Stack di Azure. 
 
 ### <a name="additional-considerations"></a>Considerazioni aggiuntive
 
