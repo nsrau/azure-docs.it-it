@@ -83,7 +83,7 @@
         - name: High Performance Computing (HPC)
           href: sizes-hpc.md
         - name: Unità di calcolo di Azure
-          href: sizes-general.md
+          href: acu.md
     - name: Distribuzioni approvate
       href: endorsed-distros.md
     - name: Manutenzione e aggiornamenti

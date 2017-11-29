@@ -185,19 +185,10 @@
 #### [Modalità di rete del contenitore](service-fabric-networking-modes.md)
 
 ### Creare un servizio di Reliable Services
-#### [Panoramica](service-fabric-reliable-services-introduction.md)
-#### Concetti
-##### [Ciclo di vita di Reliable Services: C#](service-fabric-reliable-services-lifecycle.md)
-##### [Ciclo di vita di Reliable Services: Java](service-fabric-reliable-services-lifecycle-java.md)
-
 #### Reliable Collections
-##### [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
-##### [Linee guida e indicazioni per Reliable Collections](service-fabric-reliable-services-reliable-collections-guidelines.md)
 ##### [Lavorare con le raccolte Reliable Collections](service-fabric-work-with-reliable-collections.md)
-##### [Transazioni e blocchi](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 ##### [Coda simultanea affidabile](service-fabric-reliable-services-reliable-concurrent-queue.md)
 ##### [Serializzazione di raccolte Reliable Collections](service-fabric-reliable-services-reliable-collections-serialization.md)
-##### [Elementi interni di Reliable Collections e Reliable State Manager](service-fabric-reliable-services-reliable-collections-internals.md)
 
 #### Introduzione
 ##### [C# su Windows](service-fabric-reliable-services-quick-start.md)
