@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 042035c89d466083659176ac49fc1b470244ef61
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d43274875ca7ed3b2fe8a7d71481db27451a6080
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Domande frequenti su Azure Multi-Factor Authentication
 Queste domande frequenti offrono risposte su Azure Multi-Factor Authentication e sull'uso del servizio Multi-Factor Authentication. Le domande sono suddivise fra servizio in generale, modelli di fatturazione, esperienze utente e risoluzione dei problemi.
@@ -95,7 +95,7 @@ Se la directory include un provider di Multi-Factor Authentication *per autentic
 
 **D: È necessario che l'organizzazione usi e sincronizzi le identità per usare Azure Multi-Factor Authentication?**
 
-Se l'organizzazione usa un modello di fatturazione in base al consumo, è possibile usare Azure Active Directory ma non è obbligatorio. Se il provider di MFA non è collegato a un tenant di Azure AD, è possibile distribuire il server di Azure Multi-Factor Authentication o l'SDK di Azure Multi-Factor Authentication in locale.
+Se l'organizzazione usa un modello di fatturazione in base al consumo, è possibile usare Azure Active Directory ma non è obbligatorio. Se il provider di MFA non è collegato a un tenant di Azure Active Directory, è possibile distribuire il server di Azure Multi-Factor Authentication in locale.
 
 Quando si usa il modello di licenza, è necessario usare Azure Active Directory in quanto le licenze vengono aggiunte al tenant di Azure AD quando vengono acquistate e assegnate agli utenti nella directory.
 
