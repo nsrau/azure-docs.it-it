@@ -5,21 +5,18 @@ services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
-ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.service: app-service-web
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 07/21/2017
+ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 11e8708987f4e085fc8bf1db10144283a9a17d2e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 3496b00960ad1fe1213f2005d2173543988b4ff9
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Creare un'app Web PHP e MySQL in Azure
 
@@ -106,7 +103,7 @@ composer install
 
 Nella radice del repository creare un file denominato *.env*. Copiare le variabili seguenti nel file *.env*. Sostituire il segnaposto _&lt;root_password>_ con la password dell'utente ROOT MySQL.
 
-```
+```txt
 APP_ENV=local
 APP_DEBUG=true
 APP_KEY=SomeRandomString
@@ -158,7 +155,7 @@ In questo passaggio viene creato un database MySQL nel [database di Azure per My
 
 ### <a name="create-a-mysql-server"></a>Creare un server MySQL
 
-Creare un server nel database di Azure per MySQL (anteprima) con il comando [az mysql server create](/cli/azure/mysql/server#create).
+Creare un server nel database di Azure per MySQL (anteprima) con il comando [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create).
 
 Nel comando seguente sostituire il segnaposto _&lt;mysql_server_name>_ con il nome del server MySQL (i caratteri validi sono `a-z`, `0-9` e `-`). Poiché questo nome fa parte del nome host del server MySQL (`<mysql_server_name>.database.windows.net`) è necessario che sia univoco a livello globale.
 
@@ -183,7 +180,7 @@ Al termine della creazione del server MySQL, l'interfaccia della riga di comando
 
 ### <a name="configure-server-firewall"></a>Configurare il firewall del server
 
-Creare una regola del firewall per il server MySQL per consentire le connessioni client tramite il comando [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#create).
+Creare una regola del firewall per il server MySQL per consentire le connessioni client tramite il comando [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create).
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -236,7 +233,7 @@ In questo passaggio l'applicazione PHP viene connessa al database MySQL creato i
 
 Nella radice del repository creare un file _.env.production_ e copiare le variabili seguenti nel file. Sostituire il segnaposto _&lt;mysql_server_name>_.
 
-```
+```txt
 APP_ENV=production
 APP_DEBUG=true
 APP_KEY=SomeRandomString
@@ -334,7 +331,7 @@ In questo passaggio viene distribuita l'applicazione PHP connessa a MySQL nel se
 
 ### <a name="configure-database-settings"></a>Configurare le impostazioni del database
 
-Nel servizio app le variabili di ambiente vengono impostate come _impostazioni dell'app_ usando il comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set).
+Nel servizio app le variabili di ambiente vengono impostate come _impostazioni dell'app_ usando il comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set).
 
 Il comando seguente configura le impostazioni dell'app `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Sostituire i segnaposto _&lt;appname>_ e _&lt;mysql_server_name>_.
 
@@ -366,7 +363,7 @@ Usare `php artisan` per generare una nuova chiave applicazione senza salvarla in
 php artisan key:generate --show
 ```
 
-Impostare la chiave dell'applicazione nell'app Web del servizio app usando il comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#set). Sostituire i segnaposto _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
+Impostare la chiave dell'applicazione nell'app Web del servizio app usando il comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set). Sostituire i segnaposto _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -378,7 +375,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 Impostare il percorso virtuale dell'applicazione per l'app Web. Questo passaggio è necessario perché il [ciclo di vita dell'applicazione Laravel](https://laravel.com/docs/5.4/lifecycle) ha inizio nella directory _public_ anziché nella directory radice dell'applicazione. Gli altri framework PHP il cui ciclo di vita si avvia nella directory radice funzionano anche senza la configurazione manuale del percorso dell'applicazione virtuale.
 
-Impostare il percorso virtuale dell'applicazione usando il comando [az resource update](/cli/azure/resource#update). Sostituire il segnaposto _&lt;appname>_ .
+Impostare il percorso virtuale dell'applicazione usando il comando [az resource update](/cli/azure/resource#az_resource_update). Sostituire il segnaposto _&lt;appname>_ .
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01

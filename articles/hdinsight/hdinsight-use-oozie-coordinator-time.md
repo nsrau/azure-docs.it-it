@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 10/04/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4e61c99028a2b67bd9188c239bc95dba0625b638
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0fa8e3630610913d909a75bf76236d120c8f1a2b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Usare il coordinatore di Oozie basato sul tempo con Hadoop in HDInsight per definire flussi di lavoro e coordinare processi
 Questo articolo descrive come definire flussi di lavoro e coordinatori e come attivare i processi del coordinatore in base al tempo. Prima di procedere può essere utile vedere [Usare Oozie con HDInsight][hdinsight-use-oozie]. Oltre a Oozie, è possibile pianificare processi anche con Azure Data Factory. Per informazioni su Azure Data Factory, vedere [Usare Pig e Hive con Data factory](../data-factory/transform-data.md).
@@ -82,7 +82,8 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
     <tr><td>Nome dell'account di archiviazione di Azure</td><td>$storageAccountName</td><td></td><td>Un account di archiviazione di Azure disponibile per il cluster HDInsight. Ai fini di questa esercitazione, usare l'account di archiviazione predefinito, specificato durante il processo di provisioning del cluster.</td></tr>
     <tr><td>Nome del contenitore BLOB di Azure</td><td>$containerName</td><td></td><td>Per questo esempio, usare il contenitore di archiviazione BLOB di Azure usato come file system predefinito del cluster HDInsight. Per impostazione predefinita, il nome del contenitore corrisponde al nome del cluster HDInsight.</td></tr>
     </table>
-* **Un database SQL di Azure**. È necessario configurare una regola del firewall per il server di database SQL per consentire l'accesso dalla workstation. Per istruzioni sulla creazione di un database SQL di Azure e sulla configurazione del firewall, vedere [Introduzione al database SQL di Azure][sqldatabase-get-started]. Questo articolo fornisce uno script di Windows PowerShell per consentire la creazione della tabella del database SQL di Azure necessaria per questa esercitazione.
+
+* **Un database SQL di Azure**. È necessario configurare una regola del firewall per il server di database SQL per consentire l'accesso dalla workstation. Per istruzioni sulla creazione di un database SQL di Azure e sulla configurazione del firewall, vedere l'[introduzione all'uso del database SQL di Azure][sqldatabase-get-started]. Questo articolo fornisce uno script di Windows PowerShell per consentire la creazione della tabella del database SQL di Azure necessaria per questa esercitazione.
 
     <table border = "1">
     <tr><th>Proprietà del database SQL</th><th>Nome variabile di Windows PowerShell</th><th>Valore</th><th>Descrizione</th></tr>

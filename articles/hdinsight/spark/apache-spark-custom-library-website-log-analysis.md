@@ -4,7 +4,7 @@ description: Questo notebook dimostra come analizzare i dati dei log mediante un
 services: hdinsight
 documentationcenter: 
 author: nitinme
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 8c61c70f-fe7f-4f0f-a4ab-0cccee5668c9
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: edc12e07f69b19cf8ad4e32e14e317a78800392f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 9f733e8b0c21b25b212266bb6047416cfb29d0ad
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>Analizzare i log del sito Web usando una libreria Python personalizzata con cluster Spark in HDInsight
 

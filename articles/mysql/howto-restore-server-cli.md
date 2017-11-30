@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 10/30/2017
-ms.openlocfilehash: 6a63cccee5be89a1da8f9656c6e7d4c7422702ca
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.date: 11/28/2017
+ms.openlocfilehash: 44b3c68b8df4006d3fe087e5ad4118d7616d3d9a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-by-using-the-azure-cli"></a>Come eseguire la procedura di backup e ripristino di un server in Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure
 
@@ -39,7 +39,7 @@ Con questa funzionalità di backup automatico è possibile ripristinare il serve
 ## <a name="restore-a-database-to-a-previous-point-in-time-by-using-the-azure-cli"></a>Ripristinare un database a un momento precedente con l'interfaccia della riga di comando di Azure
 Usare Database di Azure per MySQL per ripristinare il server a un momento precedente. I dati ripristinati vengono copiati in un nuovo server e il server esistente viene lasciato invariato. Se, ad esempio, una tabella è stata involontariamente eliminata a mezzogiorno di oggi, è possibile eseguire il ripristino a un qualsiasi momento prima di mezzogiorno. È possibile quindi recuperare la tabella e i dati mancanti dalla copia ripristinata del server. 
 
-Per ripristinare il server, usare il comando [az mysql server restore](/cli/azure/mysql/server#restore) dell'interfaccia della riga di comando di Azure.
+Per ripristinare il server, usare il comando [az mysql server restore](/cli/azure/mysql/server#az_mysql_server_restore) dell'interfaccia della riga di comando di Azure.
 
 ### <a name="run-the-restore-command"></a>Eseguire il comando di ripristino
 

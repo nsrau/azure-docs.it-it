@@ -15,16 +15,16 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 06/02/2017
 ms.author: shigu;barbkess
-ms.openlocfilehash: 5c24c71af16bd9851d9caf15fecfa4bb76f5f77e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53867eb7ba13cdfc47e3e47a9212b3c6839281da
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>Linee guida per la definizione dei tipi di dati per le tabelle in SQL Data Warehouse
 Usare queste raccomandazioni per definire tipi di dati per le tabelle che siano compatibili con SQL Data Warehouse. Oltre a garantire la compatibilità, ridurre al minimo le dimensioni dei tipi di dati consente di migliorare le prestazioni delle query.
 
-SQL Data Warehouse supporta i tipi di dati più diffusi. Per un elenco dei tipi di dati supportati, vedere [tipi di dati](/sql/docs/t-sql/statements/create-table-azure-sql-data-warehouse.md#datatypes) nell'istruzione CREATE TABLE. 
+SQL Data Warehouse supporta i tipi di dati più diffusi. Per un elenco dei tipi di dati supportati, vedere [tipi di dati](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) nell'istruzione CREATE TABLE. 
 
 
 ## <a name="minimize-row-length"></a>Ridurre al minimo la lunghezza di riga

@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: a80b27dc8f1a15bf2e62c9992be8bfa02cacb2f6
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 11/28/2017
+ms.openlocfilehash: f02588495e7107b34dac7e076cf3612de12b51d4
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Estensioni di PostgreSQL in Database di Azure per PostgreSQL
 PostgreSQL offre la capacità di estendere le funzionalità del database usando le estensioni. Le estensioni consentono di creare bundle di più oggetti SQL correlati in un singolo pacchetto che può essere caricato o rimosso dal database con un singolo comando. Dopo averle caricate nel database, le estensioni possono operare come funzionalità predefinite. Per altre informazioni sulle estensioni di PostgreSQL, vedere [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html) (Creare un pacchetto di oggetti correlati formando un'estensione).
@@ -94,7 +94,7 @@ Le tabelle seguenti includono un elenco delle estensioni standard di PostgreSQL 
 |---|---|
 | [PostGIS](http://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Oggetti spaziali e geografici per PostgreSQL. |
 | address\_standardizer, address\_standardizer\_data\_us | Consente di analizzare un indirizzo nei suoi elementi costitutivi. Consente di supportare il passaggio di normalizzazione dell'indirizzo nella geocodifica. |
-| [grouting](http://pgrouting.org/) | Estende il database geospaziale PostGIS/PostgreSQL per fornire funzionalità di routing geospaziale. |
+| [pgrouting](http://pgrouting.org/) | Estende il database geospaziale PostGIS/PostgreSQL per fornire funzionalità di routing geospaziale. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Segnalare a Microsoft la mancanza di un'estensione che si desidera usare. Esprimere un voto per le richieste esistenti o creare nuovi commenti e richieste nel [forum dei commenti dei clienti](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).

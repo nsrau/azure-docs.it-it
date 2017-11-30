@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: maheshu
-ms.openlocfilehash: 03f0b07e9f4994c616a39692f7a5ba52a154aa0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20cecf0b3e38e8f2241f3589b9548c93730c7783
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Aggiungere una macchina virtuale di Red Hat Enterprise Linux 7 a un dominio gestito
 Questo articolo illustra come aggiungere una macchina virtuale di Red Hat Enterprise Linux (RHEL) 7 a un dominio gestito di Servizi di dominio Azure AD.
@@ -50,14 +50,14 @@ Il provisioning della macchina virtuale RHEL 7.2 è stato eseguito in Azure. L'a
 Seguire le istruzioni nell'articolo [Come accedere a una macchina virtuale che esegue Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Configurare il file hosts nella macchina virtuale Linux
+## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Configurare il file con estensione hosts nella macchina virtuale Linux
 Nel terminale SSH modificare il file /etc/hosts e aggiornare l'indirizzo IP e il nome host della macchina virtuale.
 
 ```
 sudo vi /etc/hosts
 ```
 
-Nel file hosts immettere il valore seguente:
+Nel file con estensione hosts immettere il valore seguente:
 
 ```
 127.0.0.1 contoso-rhel.contoso100.com contoso-rhel
@@ -82,12 +82,12 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
     sudo realm discover CONTOSO100.COM
     ```
 
-      > [!NOTE] 
-      > **Risoluzione dei problemi:** se *realm discover* non riesce a trovare il dominio gestito:
-        * Ensure that the domain is reachable from the virtual machine (try ping).
-        * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-        * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
-      >
+     > [!NOTE] 
+     > **Risoluzione dei problemi:** se *realm discover* non riesce a trovare il dominio gestito:
+     * Verificare che il dominio sia raggiungibile dalla macchina virtuale (provare a effettuare il ping).
+     * Verificare che la macchina virtuale sia stata effettivamente distribuita nella stessa rete virtuale in cui è disponibile il dominio gestito.
+     * Verificare che le impostazioni del server DNS per la rete virtuale siano state aggiornate affinché puntino ai controller di dominio del dominio gestito.
+     >
 
 2. Inizializzare Kerberos. Nel terminale SSH digitare il comando seguente: 
 
@@ -103,7 +103,7 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
 3. Aggiungere il computer al dominio. Nel terminale SSH digitare il comando seguente: 
 
     > [!TIP] 
-    > Usare lo stesso account utente specificato nel passaggio precedente ('kinit').
+    > Usare lo stesso account utente specificato nel passaggio precedente ("kinit").
     >
 
     ```
@@ -114,7 +114,7 @@ Quando il computer viene aggiunto correttamente al dominio gestito, dovrebbe ess
 
 
 ## <a name="verify-domain-join"></a>Verificare l'aggiunta a un dominio
-Verificare se il computer è stato aggiunto correttamente al dominio gestito. Connettersi alla macchina virtuale RHEL aggiunta a un dominio tramite una connessione SSH diversa. Usare un account utente di dominio e quindi verificare se l'account utente viene risolto correttamente.
+Verificare se la macchina è stata aggiunta correttamente al dominio gestito. Connettersi alla macchina virtuale RHEL aggiunta a un dominio tramite una connessione SSH diversa. Usare un account utente di dominio e quindi verificare se l'account utente viene risolto correttamente.
 
 1. Nel terminale SSH digitare il comando seguente per connettere la macchina virtuale RHEL aggiunta a un dominio con SSH. Usare un account di dominio appartenente al dominio gestito, in questo caso bob@CONTOSO100.COM.
     ```

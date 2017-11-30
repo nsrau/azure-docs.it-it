@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0567df53dff15d7fbacf4850f6eae07c8985598
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 62767163213383c577e74e0aa8fbd07f891cb694
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Ritiro dei livelli di prestazioni S1, S2 e S3
 
@@ -93,7 +93,7 @@ Si supponga di avere a disposizione 10 raccolte S1, ciascuna con 1 GB di spazio 
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>Come bisogna comportarsi se sono necessari più di 10 GB di spazio di archiviazione?
 
-Se si ha una raccolta con livello di prestazioni S1, S2 o S3 o una raccolta a partizione singola con spazio di archiviazione disponibile di 10 GB, è possibile usare lo strumento di migrazione dati di Cosmos DB per eseguire la migrazione dei dati a una raccolta partizionata con spazio di archiviazione quasi illimitato. Per informazioni sui vantaggi di una raccolta partizionata, vedere l'articolo relativo a [partizionamento e scalabilità in Azure Cosmos DB](documentdb-partition-data.md). Per informazioni su come eseguire la migrazione di una raccolta S1, S2, S3 o di una raccolta a partizione singola a una raccolta partizionata vedere [Migrazione da raccolte a partizione singola a raccolte partizionate](documentdb-partition-data.md#migrating-from-single-partition). 
+Se si ha una raccolta con livello di prestazioni S1, S2 o S3 o una raccolta a partizione singola con spazio di archiviazione disponibile di 10 GB, è possibile usare lo strumento di migrazione dati di Cosmos DB per eseguire la migrazione dei dati a una raccolta partizionata con spazio di archiviazione quasi illimitato. Per informazioni sui vantaggi di una raccolta partizionata, vedere l'articolo relativo a [partizionamento e scalabilità in Azure Cosmos DB](documentdb-partition-data.md). 
 
 <a name="change-before"></a>
 

@@ -9,19 +9,19 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 10/18/2017
-ms.openlocfilehash: 6ee2c2c6e6cff824d3167ea600a1ddc778ad011b
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.date: 11/28/2017
+ms.openlocfilehash: 908f28d8bd3d0dcbd03636e69cd47b5c47f3cfde
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="configure-and-access-server-logs-using-azure-cli"></a>Configurare e accedere ai log del server usando l'interfaccia della riga di comando di Azure
 È possibile scaricare i log del server di Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure, l'utilità della riga di comando di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per proseguire con questa guida, si richiedono:
-- [Database di Azure per il server MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
+- [Server del Database di Azure per MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 - [Interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). In alternativa, è possibile usare Azure Cloud Shell nel browser.
 
 ## <a name="configure-logging-for-azure-database-for-mysql"></a>Configurare la registrazione per Database di Azure per MySQL
@@ -40,14 +40,14 @@ az mysql server configuration list --resource-group myresourcegroup --server mys
 ```
 
 ## <a name="list-logs-for-azure-database-for-mysql-server"></a>Elencare i log per il database di Azure per il server MySQL
-Per elencare i file di log disponibili per il server, eseguire il comando [az mysql server-logs list](/cli/azure/mysql/server-logs#list).
+Per elencare i file di log disponibili per il server, eseguire il comando [az mysql server-logs list](/cli/azure/mysql/server-logs#az_mysql_server_logs_list).
 
 È possibile elencare i file di log per il server **myserver4demo.mysql.database.azure.com** nel gruppo di risorse **myresourcegroup** e indirizzarlo a un file di testo denominato **log\_files\_list.txt.**
 ```azurecli-interactive
 az mysql server-logs list --resource-group myresourcegroup --server myserver4demo > log_files_list.txt
 ```
 ## <a name="download-logs-from-the-server"></a>Scaricare i log dal server
-Il comando [az mysql server-logs download](/cli/azure/mysql/server-logs#download) consente di scaricare i singoli file di log per il server. 
+Il comando [az mysql server-logs download](/cli/azure/mysql/server-logs#az_mysql_server_logs_download) consente di scaricare i singoli file di log per il server. 
 
 Questo esempio scarica il file di log specifico per il server **myserver4demo.mysql.database.azure.com** nel gruppo di risorse **myresourcegroup** nell'ambiente locale.
 ```azurecli-interactive

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/17/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e3ad8a5c08b739d8b2c6e224db0c8f88c1893ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2d6a0b00704e1d97be9a4c5bd00ba37374419e5
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="secure-a-web-server-with-ssl-certificates-on-a-linux-virtual-machine-in-azure"></a>Proteggere un server Web con i certificati SSL in una macchina virtuale Linux in Azure
 Per proteggere i server Web, si può usare un certificato Secure Sockets Layer (SSL) per crittografare il traffico Web. Questi certificati SSL possono essere archiviati in Azure Key Vault e consentono distribuzioni sicure dei certificati nelle macchine virtuali Linux in Azure. In questa esercitazione si apprenderà come:
@@ -60,7 +60,7 @@ az keyvault create \
 ```
 
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>Generare un certificato e archiviarlo in Key Vault
-Per la produzione è necessario importare un certificato valido firmato da un provider attendibile con il comando [az keyvault certificate import](/cli/azure/certificate#import). Per questa esercitazione, l'esempio seguente illustra come sia possibile generare un certificato autofirmato con il comando [az keyvault certificate create](/cli/azure/certificate#create) che usi i criteri dei certificati predefiniti:
+Per la produzione è necessario importare un certificato valido firmato da un provider attendibile con il comando [az keyvault certificate import](/cli/azure/keyvault/certificate#az_keyvault_certificate_import). Per questa esercitazione, l'esempio seguente illustra come sia possibile generare un certificato autofirmato con il comando [az keyvault certificate create](/cli/azure/keyvault/certificate#az_keyvault_certificate_create) che usi i criteri dei certificati predefiniti:
 
 ```azurecli-interactive 
 az keyvault certificate create \

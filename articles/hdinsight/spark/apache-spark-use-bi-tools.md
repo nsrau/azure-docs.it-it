@@ -4,8 +4,8 @@ description: Usare gli strumenti di visualizzazione di dati per l'analisi con Ap
 keywords: apache spark bi, spark bi, visualizzazione dei dati spark, spark business intelligence
 services: hdinsight
 documentationcenter: 
-author: nitinme
-manager: jhubbard
+author: mumian
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: nitinme
-ms.openlocfilehash: 3886923639be8a7bd8167f10db503d7ebf8c1657
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.author: jgao
+ms.openlocfilehash: fabf48da80cf44e82068d180c896ebbca7078d18
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI usando gli strumenti di visualizzazione di dati con Azure HDInsight
 

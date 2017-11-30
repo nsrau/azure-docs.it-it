@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
-ms.openlocfilehash: 2466e823c448ada4dc7bc5769b1b7f10bbb5dc7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e8a8a84153a950f2d1bc002b34c83dc5ed8a5eb8
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="data-warehouse-migration-utility-preview"></a>Utilità di migrazione per data warehouse (anteprima)
 > [!div class="op_single_selector"]
@@ -66,4 +66,4 @@ Dopo aver eseguito la migrazione di alcuni dati, è possibile passare alle attiv
 [develop]: sql-data-warehouse-overview-develop.md
 
 <!--Other Web references--> 
-[Download Migration Utility]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
+[Download Migration Utility]: https://www.microsoft.com/en-us/download/details.aspx?id=49100

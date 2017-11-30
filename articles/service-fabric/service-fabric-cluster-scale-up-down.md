@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.openlocfilehash: d26a97ee0e5416fb1fe38ef0fb18fa4eb0e2963d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 249fb4903c7b2de3ce290850a7759a4793f10aa7
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Aumentare o ridurre le istanze del cluster di Service Fabric con le regole di scalabilità automatica
 I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Service Fabric viene configurato come set di scalabilità di macchine virtuali distinto. Ogni tipo di nodo può quindi essere aumentato o ridotto in modo indipendente, avere diversi set di porte aperte e avere metriche per la capacità diverse. Per altre informazioni, vedere il documento sui [tipi di nodo di Service Fabric](service-fabric-cluster-nodetypes.md) . Poiché i tipi di nodi di Service Fabric nel cluster sono costituiti da set di scalabilità di macchine virtuali nel back-end, è necessario configurare regole di ridimensionamento automatico per ogni tipo di nodo o set di scalabilità di macchine virtuali.
@@ -72,8 +72,8 @@ Seguire l'esempio o le istruzioni nella [raccolta modelli di avvio rapido](https
 
 È necessario eseguire i seguenti passaggi su un'istanza di VM alla volta. Ciò consente l'arresto normale dei servizi di sistema e dei servizi con stato nella VM che viene rimossa e la creazione di nuove repliche in altri nodi.
 
-1. Eseguire [Disable-ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) usando 'RemoveNode' per disabilitare il nodo da rimuovere, ovvero l'istanza superiore di quel tipo di nodo.
-2. Eseguire [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) per verificare che il nodo sia stato effettivamente disabilitato. In caso contrario, attendere la disabilitazione del nodo. Non è possibile accelerare questo passaggio.
+1. Eseguire [Disable-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) usando 'RemoveNode' per disabilitare il nodo da rimuovere, ovvero l'istanza superiore di quel tipo di nodo.
+2. Eseguire [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) per verificare che il nodo sia stato effettivamente disabilitato. In caso contrario, attendere la disabilitazione del nodo. Non è possibile accelerare questo passaggio.
 3. Seguire l'esempio o le istruzioni nella [raccolta modelli di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) per modificare di un'unità il numero di VM in tale Nodetype. L'istanza rimossa è l'istanza di macchina virtuale superiore. 
 4. Ripetere le fasi da 1 a 3 come necessario, ma non ridurre il numero di istanze nel nodo primario a un valore inferiore a quello garantito dal livello di affidabilità. Fare riferimento ai [dettagli sui livelli di affidabilità](service-fabric-cluster-capacity.md). 
 
@@ -85,8 +85,8 @@ Seguire l'esempio o le istruzioni nella [raccolta modelli di avvio rapido](https
 
 È necessario eseguire i seguenti passaggi su un'istanza di VM alla volta. Ciò consente l'arresto normale dei servizi di sistema e dei servizi con stato nella VM che viene rimossa e la creazione di nuove repliche altrove.
 
-1. Eseguire [Disable-ServiceFabricNode](https://msdn.microsoft.com/library/mt125852.aspx) usando 'RemoveNode' per disabilitare il nodo da rimuovere, ovvero l'istanza superiore di quel tipo di nodo.
-2. Eseguire [Get-ServiceFabricNode](https://msdn.microsoft.com/library/mt125856.aspx) per verificare che il nodo sia stato effettivamente disabilitato. In caso contrario, attendere la disabilitazione del nodo. Non è possibile accelerare questo passaggio.
+1. Eseguire [Disable-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) usando 'RemoveNode' per disabilitare il nodo da rimuovere, ovvero l'istanza superiore di quel tipo di nodo.
+2. Eseguire [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) per verificare che il nodo sia stato effettivamente disabilitato. In caso contrario, attendere la disabilitazione del nodo. Non è possibile accelerare questo passaggio.
 3. Seguire l'esempio o le istruzioni nella [raccolta modelli di avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) per modificare di un'unità il numero di VM in tale Nodetype. Questa operazione rimuoverà l'istanza superiore di macchina virtuale. 
 4. Ripetere le fasi da 1 a 3 come necessario, ma non ridurre il numero di istanze nel nodo primario a un valore inferiore a quello garantito dal livello di affidabilità. Fare riferimento ai [dettagli sui livelli di affidabilità](service-fabric-cluster-capacity.md).
 

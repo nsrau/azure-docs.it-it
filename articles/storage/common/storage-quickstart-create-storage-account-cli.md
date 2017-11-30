@@ -3,7 +3,7 @@ title: Guida introduttiva di Azure - Creare un account di archiviazione con l'in
 description: Apprendere a creare rapidamente un nuovo account di archiviazione con l'interfaccia della riga di comando di Azure.
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/28/2017
 ms.author: marsma
-ms.openlocfilehash: b1fb2da4acf6e06219d790f2354cada4f1e34285
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7186c5e2ce94d06b21d95a557e960b82e268cdce
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="create-a-storage-account-using-the-azure-cli"></a>Creare un account di archiviazione usando l'interfaccia della riga di comando di Azure
 

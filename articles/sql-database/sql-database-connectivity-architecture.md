@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 469bd74c0f144ff641fafe8c8f830b1fdbfa7690
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: eda6e19d27afbf07df853dd4cef5ece1a745034d
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Architettura della connettività del database SQL di Azure 
 
-Questo articolo illustra l'architettura della connettività del database SQL di Azure e spiega il funzionamento dei diversi componenti per indirizzare il traffico a un'istanza del database SQL di Azure. La funzione dei componenti di connettività del database SQL di Azure è indirizzare il traffico di rete verso il database di Azure con client che si connettono dall'interno di Azure e client che si connettono dall'esterno di Azure. Questo articolo include anche alcuni esempi di script per modificare la modalità di connessione e propone alcune considerazioni sulla modifica delle impostazioni di connettività predefinite. Se dopo aver letto questo articolo sorgono domande, contattare Dhruv all'indirizzo dmalik@microsoft.com. 
+Questo articolo illustra l'architettura della connettività del database SQL di Azure e spiega il funzionamento dei diversi componenti per indirizzare il traffico a un'istanza del database SQL di Azure. La funzione dei componenti di connettività del database SQL di Azure è indirizzare il traffico di rete verso il database di Azure con client che si connettono dall'interno di Azure e client che si connettono dall'esterno di Azure. Questo articolo include anche alcuni esempi di script per modificare la modalità di connessione e propone alcune considerazioni sulla modifica delle impostazioni di connettività predefinite. 
 
 ## <a name="connectivity-architecture"></a>Architettura della connettività
 
-Il diagramma seguente offre una panoramica generale dell'architettura della connettività del database SQL di Azure. 
+Il diagramma seguente offre una panoramica generale dell'architettura della connettività del database SQL di Azure.
 
 ![panoramica dell'architettura](./media/sql-database-connectivity-architecture/architecture-overview.png)
 
@@ -65,14 +65,14 @@ La tabella seguente elenca gli indirizzi IP primario e secondario del gateway de
 | --- | --- |--- |
 | Australia orientale | 191.238.66.109 | 13.75.149.87 |
 | Australia sud-orientale | 191.239.192.109 | 13.73.109.251 |
-| Brasile meridionale | 104.41.11.5 | |    
-| Canada centrale | 40.85.224.249 | |    
+| Brasile meridionale | 104.41.11.5 | |
+| Canada centrale | 40.85.224.249 | |
 | Canada orientale | 40.86.226.166 | |
 | Stati Uniti centrali | 23.99.160.139 | 13.67.215.62 |
 | Asia orientale | 191.234.2.139 | 52.175.33.150 |
 | Stati Uniti orientali 1 | 191.238.6.43 | 40.121.158.30 |
 | Stati Uniti orientali 2 | 191.239.224.107 | 40.79.84.180 |
-| India centrale | 104.211.96.159  | |   
+| India centrale | 104.211.96.159  | |
 | India meridionale | 104.211.224.146  | |
 | India occidentale | 104.211.160.80 | |
 | Giappone orientale | 191.237.240.43 | 13.78.61.196 |
@@ -84,7 +84,7 @@ La tabella seguente elenca gli indirizzi IP primario e secondario del gateway de
 | Stati Uniti centro-meridionali | 23.98.162.75 | 13.66.62.124 |
 | Asia sudorientale | 23.100.117.95 | 104.43.15.0 |
 | Regno Unito settentrionale | 13.87.97.210 | |
-| Regno Unito meridionale 1 | 51.140.184.11 | |    
+| Regno Unito meridionale 1 | 51.140.184.11 | |
 | Regno Unito meridionale 2 | 13.87.34.7 | |
 | Regno Unito occidentale | 51.141.8.11  | |
 | Stati Uniti centro-occidentali | 13.78.145.25 | |
@@ -95,12 +95,12 @@ La tabella seguente elenca gli indirizzi IP primario e secondario del gateway de
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Modificare il criterio di connessione del database SQL di Azure
 
-Per modificare il criterio di connessione del database SQL di Azure per un server di database SQL di Azure, usare l'[API REST](https://msdn.microsoft.com/library/azure/mt604439.aspx). 
+Per modificare il criterio di connessione del database SQL di Azure per un server di database SQL di Azure, usare l'[API REST](https://msdn.microsoft.com/library/azure/mt604439.aspx).
 
-- Se il criterio di connessione è impostato su **proxy**, tutti i pacchetti di rete passano attraverso il gateway del database SQL di Azure. Per questa impostazione, è necessario consentire il traffico in uscita solo per l'indirizzo IP del gateway del database SQL di Azure. L'uso dell'impostazione **proxy** ha una latenza maggiore rispetto all'impostazione **reindirizzamento**. 
-- Se il criterio di connessione è impostato su **reindirizzamento**, tutti i pacchetti di rete passano direttamente al proxy del middleware. Per questa impostazione, è necessario consentire il traffico in uscita verso più IP. 
+- Se il criterio di connessione è impostato su **proxy**, tutti i pacchetti di rete passano attraverso il gateway del database SQL di Azure. Per questa impostazione, è necessario consentire il traffico in uscita solo per l'indirizzo IP del gateway del database SQL di Azure. L'uso dell'impostazione **proxy** ha una latenza maggiore rispetto all'impostazione **reindirizzamento**.
+- Se il criterio di connessione è impostato su **reindirizzamento**, tutti i pacchetti di rete passano direttamente al proxy del middleware. Per questa impostazione, è necessario consentire il traffico in uscita verso più IP.
 
-## <a name="script-to-change-connection-settings-via-powershell"></a>Script per modificare le impostazioni di connessione tramite PowerShell 
+## <a name="script-to-change-connection-settings-via-powershell"></a>Script per modificare le impostazioni di connessione tramite PowerShell
 
 > [!IMPORTANT]
 > Per questo script è necessario il [modulo Azure PowerShell](/powershell/azure/install-azurerm-ps).
@@ -140,7 +140,7 @@ $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationCo
 $result = $AuthContext.AcquireToken(
 "https://management.core.windows.net/",
 $clientId,
-[Uri]$uri, 
+[Uri]$uri,
 [Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto
 )
 
@@ -160,7 +160,7 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Script per modificare le impostazioni di connessione tramite l'interfaccia della riga di comando di Azure 2.0 
+## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Script per modificare le impostazioni di connessione tramite l'interfaccia della riga di comando di Azure 2.0
 
 > [!IMPORTANT]
 > Per questo script è necessaria l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -169,20 +169,17 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 Lo script dell'interfaccia della riga di comando seguente mostra come modificare il criterio di connessione.
 
 <pre>
- # Get SQL Server ID
- sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+# Get SQL Server ID
+sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
 
 # Set URI
-uri="https://management.azure.com/$sqlserverid/connectionPolicies/Default?api-version=2014-04-01-preview"
-
-# Get Access Token 
-accessToken=$(az account get-access-token --query 'accessToken' -o tsv)
+id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy 
-curl -H "authorization: Bearer $accessToken" -X GET $uri
+az resource show --ids $id
 
-#Update connection policy 
-curl -H "authorization: Bearer $accessToken" -H "Content-Type: application/json" -d '{"properties":{"connectionType":"Proxy"}}' -X PUT $uri
+# Update connection policy 
+az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
 

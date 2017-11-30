@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 10/06/2017
 ms.author: spelluru
-ms.openlocfilehash: 434c1de8a7310036fb1bb93d45c6b1364ba1fe6a
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 37c096199f4217e31d075fb5b6ee584936e9011b
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>Distribuire pacchetti SQL Server Integration Services in Azure
 
@@ -46,7 +46,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 - **Azure PowerShell**. Seguire le istruzioni in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Come installare e configurare Azure PowerShell). PowerShell viene usato per eseguire uno script per il provisioning di un runtime di integrazione SSIS di Azure che esegue i pacchetti SSIS nel cloud. 
 
 > [!NOTE]
-> Per un elenco delle aree supportate da Azure Data Factory V2 e dal runtime di integrazione SSIS di Azure, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/). Espandere **Dati e analisi** per vedere **Data Factory V2** e **SSIS Integration Runtime**.
+> Per un elenco delle aree supportate da Azure Data Factory V2 e da Azure-SSIS Integration Runtime, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/). Espandere **Dati e analisi** per vedere **Data Factory V2** e **SSIS Integration Runtime**.
 
 ## <a name="launch-windows-powershell-ise"></a>Avviare Windows PowerShell ISE
 Avviare **Windows PowerShell ISE** con privilegi amministrativi. 
@@ -55,6 +55,8 @@ Avviare **Windows PowerShell ISE** con privilegi amministrativi.
 Copiare e incollare lo script seguente, specificando i valori per le variabili. Per un elenco di **piani tariffari** supportati per il database SQL di Azure, vedere [Limiti delle risorse del database SQL](../sql-database/sql-database-resource-limits.md).
 
 ```powershell
+# Azure Data Factory version 2 information 
+# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique
@@ -211,9 +213,11 @@ Lo script di PowerShell in questa sezione configura un'istanza del runtime di in
 
 Per un elenco di **piani tariffari** supportati per il database SQL di Azure, vedere [Limiti delle risorse del database SQL](../sql-database/sql-database-resource-limits.md). 
 
-Per un elenco delle aree supportate da Azure Data Factory V2 e dal runtime di integrazione SSIS di Azure, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/). Espandere **Dati e analisi** per vedere **Data Factory V2** e **SSIS Integration Runtime**.
+Per un elenco delle aree supportate da Azure Data Factory V2 e da Azure-SSIS Integration Runtime, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/). Espandere **Dati e analisi** per vedere **Data Factory V2** e **SSIS Integration Runtime**.
 
 ```powershell
+# Azure Data Factory version 2 information 
+# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
 $SubscriptionName = "<Azure subscription name>"
 $ResourceGroupName = "<Azure resource group name>"
 # Data factory name. Must be globally unique

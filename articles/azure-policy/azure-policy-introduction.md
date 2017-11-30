@@ -10,11 +10,11 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 82c3f4629da635d1006db91e236d38b1aa16695c
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 8ffa4c22c39bcd241b36b55bbcba24ac3f75fff2
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="what-is-azure-policy"></a>Informazioni su Criteri di Azure
 
@@ -24,7 +24,7 @@ Criteri di Azure è un servizio disponibile in Azure che consente di creare, ass
 
 ## <a name="how-is-it-different-from-rbac"></a>Quali sono le differenze rispetto al controllo degli accessi in base al ruolo?
 
-Esistono alcune differenze importanti tra i criteri e il controllo degli accessi in base al ruolo. Quest'ultimo è incentrato sulle azioni dell'utente in ambiti diversi. Si può, ad esempio, essere aggiunti al ruolo di collaboratore per un gruppo di risorse nell'ambito desiderato, in modo da poter apportare modifiche a tale gruppo di risorse. Il servizio Criteri è incentrato sulle proprietà delle risorse durante la distribuzione e per le risorse già esistenti. Tramite i criteri, ad esempio, si possono controllare i tipi di risorse di cui è possibile effettuare il provisioning. In alternativa, si possono limitare le posizioni in cui è possibile effettuare il provisioning delle risorse. A differenza del controllo degli accessi in base al ruolo, i criteri rappresentano un sistema con autorizzazioni predefinite e negazione esplicita.
+Esistono differenze importanti tra i criteri e il controllo degli accessi in base al ruoli (RBAC). Quest'ultimo è incentrato sulle azioni dell'utente in ambiti diversi. Si può, ad esempio, essere aggiunti al ruolo di collaboratore per un gruppo di risorse nell'ambito desiderato, in modo da poter apportare modifiche a tale gruppo di risorse. Il servizio Criteri è incentrato sulle proprietà delle risorse durante la distribuzione e per le risorse già esistenti. Tramite i criteri, ad esempio, si possono controllare i tipi di risorse di cui è possibile effettuare il provisioning. In alternativa, si possono limitare le posizioni in cui è possibile effettuare il provisioning delle risorse. A differenza del controllo degli accessi in base al ruolo, i criteri rappresentano un sistema con autorizzazioni predefinite e negazione esplicita.
 
 Per usare i criteri, l'utente deve essere autenticato tramite il controllo degli accessi in base al ruolo. In particolare, per l'account sono necessari:
 

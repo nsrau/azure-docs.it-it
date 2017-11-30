@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: 5322b5f3231b067937b685c69b916ed74dfe9a6e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da2dc87543fd8a0aa99e1de3018a310abe93fa3a
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-media-services-concepts"></a>Concetti relativi ai Servizi multimediali di Azure
 Questo argomento fornisce una panoramica dei concetti più importanti su Servizi multimediali.
@@ -83,7 +83,7 @@ Servizi multimediali supporta due tipi di localizzatori: localizzatori OnDemandO
 l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Un account di Servizi multimediali può essere associato a uno o più account di archiviazione. Un account può contenere un numero illimitato di contenitori, purché la dimensione totale di questi sia inferiore a 500TB per ogni account di archiviazione.  In Servizi multimediali sono disponibili strumenti di SDK che consentono di gestire più account di archiviazione e di bilanciare il carico della distribuzione degli asset durante il caricamento negli account in base a metriche specifiche oppure secondo una distribuzione casuale. Per altre informazioni, vedere Uso di [Archiviazione di Azure](https://msdn.microsoft.com/library/azure/dn767951.aspx). 
 
 ## <a name="jobs-and-tasks"></a>Processi e attività
-Un'entità [Job](https://https://docs.microsoft.com/rest/api/media/operations/job) viene in genere usata per elaborare (ad esempio, indicizzare o codificare) una presentazione audio/video. Se si stanno elaborando più video, è necessario creare un processo per ciascun video codificato.
+Un'entità [Job](https://docs.microsoft.com/en-us/rest/api/media/operations/job) viene in genere usata per elaborare (ad esempio, indicizzare o codificare) una presentazione audio/video. Se si stanno elaborando più video, è necessario creare un processo per ciascun video codificato.
 
 Un processo contiene i metadati relativi all'elaborazione da eseguire. Ogni processo contiene una o più entità [task](https://docs.microsoft.com/rest/api/media/operations/task)che specificano un'attività di elaborazione atomica, i relativi asset di input e output, un processore di contenuti multimediali e le impostazioni associate. Le attività contenute in un processo possono essere concatenate, in modo che l'asset di output di un'attività sia indicato come asset di input dell'attività successiva. In questo modo un processo può contenere tutte le operazioni di elaborazione necessarie per una presentazione multimediale.
 
