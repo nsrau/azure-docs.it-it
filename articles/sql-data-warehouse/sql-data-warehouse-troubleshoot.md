@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 03/30/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: d269e62b8d49a6c96ce40c2e31c4096e16e07793
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c49b49cf832097bd5fbc423a36432a3eaff9bf14
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Risoluzione dei problemi relativi a SQL Data Warehouse di Azure
 Questo argomento elenca alcune delle domande più comuni per la risoluzione dei problemi che vengono poste dai clienti.Questo argomento elenca alcune delle domande più comuni per la risoluzione dei problemi che vengono poste dai clienti.
@@ -99,7 +99,7 @@ Se non si riesce a trovare una soluzione al problema precedente, ecco alcune alt
 [request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [Learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
 [Provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
-[Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-server-level-firewall-rule-in-the-azure-portal
+[Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md
 [SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [Table sizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
 [Unsupported table features]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 14f73322701dffea283432bf2a25b5e6cd3e9de4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1fb9ee3147f94b173b0fd324943b8801b984d2b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informazioni sulle unità di flusso e su come modificarle
 
@@ -59,7 +59,6 @@ Per altre informazioni sulla scelta del numero corretto di unità di streaming, 
 
 > [!Note]
 > Il numero di unità di streaming necessarie per un particolare processo dipende dalla configurazione delle partizioni per gli input e dalla query definita per il processo. È prevista una quota massima di unità di streaming che è possibile selezionare per un processo. Per impostazione predefinita, ogni sottoscrizione di Azure ha una quota massima di 200 unità di streaming per tutti i processi di analisi in un'area specifica. Per superare la quota massima di unità di streaming per le sottoscrizioni, contattare il [supporto tecnico Microsoft](http://support.microsoft.com). I valori validi di unità di streaming per processo sono 1, 3, 6 e poi a salire, con incrementi di 6.
-> L'uso di una unità di streaming non è consigliato per i processi di produzione. È in genere consigliato usare una unità di streaming solo per processi di creazione di prototipi e test.
 
 
 

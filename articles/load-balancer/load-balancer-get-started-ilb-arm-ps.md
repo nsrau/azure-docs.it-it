@@ -4,7 +4,7 @@ description: Informazioni su come creare un servizio di bilanciamento del carico
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jennoc
 tags: azure-resource-manager
 ms.assetid: c6c98981-df9d-4dd7-a94b-cc7d1dc99369
 ms.service: load-balancer
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 7950c3e23463260c4c89c2a4f6b28bbc2a34b7c2
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 6eea6c9bc7f686096c3cf0c97bfbe65a5507de2a
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Creare un servizio di bilanciamento del carico interno usando il modulo Azure PowerShell
 
@@ -31,9 +31,6 @@ ms.lasthandoff: 10/25/2017
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
-
-> [!NOTE]
-> Azure offre due modelli di distribuzione per creare e usare risorse: [Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) e [classico](load-balancer-get-started-ilb-classic-ps.md). Questo articolo descrive come creare un servizio di bilanciamento del carico usando il modello di distribuzione di Resource Manager. Microsoft consiglia di usare Azure Resource Manager per le distribuzioni più recenti.
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -93,7 +90,7 @@ Creare un nuovo gruppo di risorse per il servizio di bilanciamento del carico. S
 New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 ```
 
-Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso, che viene usato come percorso predefinito per tutte le risorse in questo gruppo di risorse. Usare sempre lo stesso gruppo di risorse per tutti i comandi correlati alla creazione del servizio di bilanciamento del carico.
+Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per tutte le risorse in questo gruppo di risorse. Usare sempre lo stesso gruppo di risorse per tutti i comandi correlati alla creazione del servizio di bilanciamento del carico.
 
 Nell'esempio è stato creato un gruppo di risorse denominato **NRP-RG** nell'area Stati Uniti occidentali.
 
@@ -333,5 +330,5 @@ Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare la modalità di distribuzione del servizio di bilanciamento del carico](load-balancer-distribution-mode.md)
+* [Configurare la modalità di distribuzione del bilanciamento del carico](load-balancer-distribution-mode.md)
 * [Configurare le impostazioni del timeout di inattività TCP per il bilanciamento del carico](load-balancer-tcp-idle-timeout.md)

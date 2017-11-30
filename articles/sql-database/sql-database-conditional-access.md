@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 06/07/2017
 ms.author: rickbyh
 ms.workload: Inactive
-ms.openlocfilehash: c45f0ae655c544f51c8983c234591eef3da9dc6b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 16bd403fecbd24d7cea774bba8535f102501861f
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Accesso condizionale (MFA) con il database SQL di Azure e Azure SQL Data Warehouse  
 
@@ -25,7 +25,7 @@ Sia il database SQL che SQL Data Warehouse supportano l'accesso condizionale Mic
 - Quando è abilitata l'autenticazione a più fattori, è necessario connettersi con uno strumento supportato, ad esempio la versione più recente di SQL Server Management Studio. Per altre informazioni, vedere [Configurare Multi-Factor Authentication con database SQL di Azure per SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
 
 ## <a name="configure-ca-for-azure-sql-dbdw"></a>Configurare l'autorità di certificazione per il database SQL di Azure o Azure SQL Data Warehouse  
-1.  Accedere al portale, selezionare **Azure Active Directory** e quindi selezionare **Accesso condizionale**. Per altre informazioni, vedere [Documentazione tecnica sull'accesso condizionale di Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference).  
+1.  Accedere al portale, selezionare **Azure Active Directory** e quindi selezionare **Accesso condizionale**. Per altre informazioni, vedere [Documentazione tecnica sull'accesso condizionale di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
   ![pannello dell'accesso condizionale](./media/sql-database-conditional-access/conditional-access-blade.png) 
      
 2.  Nel pannello **Accesso condizionale - Criteri** fare clic su **Nuovo criterio**, specificare un nome e quindi fare clic su **Configura regole**.  

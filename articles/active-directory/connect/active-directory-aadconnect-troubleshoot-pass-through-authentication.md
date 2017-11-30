@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: d57235671389e02c7d397b1244cdddb7a20067cc
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 730dfcb8925a1a7edf8796ddaf86d2038fd9df44
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Risolvere i problemi di autenticazione pass-through di Azure Active Directory
 
@@ -79,7 +79,7 @@ Passare ad **Azure Active Directory** -> **Accessi** nell'[interfaccia di ammini
 
 ### <a name="registration-of-the-authentication-agent-failed-due-to-blocked-ports"></a>La registrazione dell'agente di autenticazione non è riuscita a causa di porte bloccate
 
-Verificare che il server in cui è installato l'agente di autenticazione sia in grado di comunicare con gli URL del nostro servizio e le porte indicate [qui](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+Verificare che il server in cui è installato l'agente di autenticazione sia in grado di comunicare con gli URL del nostro servizio e le porte indicate [qui](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 
 ### <a name="registration-of-the-authentication-agent-failed-due-to-token-or-account-authorization-errors"></a>La registrazione dell'agente di autenticazione non è riuscita a causa di errori di autorizzazione dell'account o del token
 
@@ -105,7 +105,7 @@ Verificare che l'installazione in uso sia a [disponibilità elevata](active-dire
 
 ### <a name="enabling-the-feature-failed-due-to-blocked-ports"></a>L'abilitazione della funzionalità non è riuscita a causa di porte bloccate
 
-Assicurasi che il server in cui è installato Azure AD Connect possa comunicare con gli URL del nostro servizio e le porte elencate [qui](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+Assicurasi che il server in cui è installato Azure AD Connect possa comunicare con gli URL del nostro servizio e le porte elencate [qui](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 
 ### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>L'abilitazione della funzionalità non è riuscita a causa di errori di autorizzazione dell'account o del token
 

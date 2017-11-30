@@ -16,11 +16,11 @@ ms.date: 10/26/2017
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
-ms.openlocfilehash: 260462e57c53d2d41bb2bfd8381a1c184303eea1
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 7b768ee5dcb16859e88a0f8c0a0c1d5097498477
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Assegnazione dei ruoli di amministratore in Azure Active Directory
 
@@ -30,7 +30,7 @@ Sono disponibili i ruoli di amministratore seguenti:
 
 * **Amministratore fatturazione**: effettua acquisti, gestisce le sottoscrizioni, gestisce i ticket di supporto e monitora l'integrità del servizio.
 
-* **Amministratore di conformità**: gli utenti con questo ruolo hanno autorizzazioni di gestione nel Centro sicurezza e conformità di Office 365 e nell'Interfaccia di amministrazione di Exchange. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **Amministratore di conformità**: gli utenti con questo ruolo hanno autorizzazioni di gestione nel Centro sicurezza e conformità di Office 365 e nell'Interfaccia di amministrazione di Exchange. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Amministratore di accesso condizionale**: gli utenti con questo ruolo hanno la possibilità di gestire le impostazioni di accesso condizionale di Azure Active Directory.
   > [!NOTE]
@@ -55,7 +55,7 @@ Sono disponibili i ruoli di amministratore seguenti:
   >
   >
 
-* **Mittente dell'invito guest**: gli utenti con questo ruolo possono gestire gli inviti utente guest di Azure Active Directory B2B quando l'impostazione dell'utente " 	I membri possono invitare" è impostato su No. Altre informazioni sulla collaborazione B2B in [Informazioni sull'anteprima di Collaborazione B2B di Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Il ruolo non include altre autorizzazioni.
+* **Mittente dell'invito guest**: gli utenti con questo ruolo possono gestire gli inviti utente guest di Azure Active Directory B2B quando l'impostazione dell'utente " 	I membri possono invitare" è impostato su No. Altre informazioni sulla collaborazione B2B in [Informazioni sull'anteprima di Collaborazione B2B di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Il ruolo non include altre autorizzazioni.
 
 * **Amministratore del servizio Intune**: gli utenti con questo ruolo dispongono delle autorizzazioni globali all'interno di Microsoft Intune Online, quando il servizio è presente. Inoltre questo ruolo implica la possibilità di gestire utenti e dispositivi per associare i criteri, nonché creare e gestire gruppi.
 
@@ -72,13 +72,13 @@ Sono disponibili i ruoli di amministratore seguenti:
   >
   >
   
-* **Amministratore del servizio Power BI**: gli utenti con questo ruolo hanno autorizzazioni globali all'interno di Microsoft Power BI, quando il servizio è presente, nonché la possibilità di gestire i ticket di supporto e monitorare l'integrità del servizio. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/en-us/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-001&ad=US).
+* **Amministratore del servizio Power BI**: gli utenti con questo ruolo hanno autorizzazioni globali all'interno di Microsoft Power BI, quando il servizio è presente, nonché la possibilità di gestire i ticket di supporto e monitorare l'integrità del servizio. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-001&ad=US).
 
 * **Amministratore del ruolo con privilegi**: gli utenti con questo ruolo possono gestire le assegnazioni dei ruoli in Azure Active Directory e in Azure AD Privileged Identity Management. Inoltre, questo ruolo consente la gestione di tutti gli aspetti di Privileged Identity Management.
 
-* **Amministratore della sicurezza**: gli utenti con questo ruolo hanno tutte le autorizzazioni di sola lettura del Ruolo con autorizzazioni di lettura per la sicurezza, oltre alla possibilità di gestire la configurazione per i servizi correlati alla sicurezza: Azure Active Directory Identity Protection, Privileged Identity Management e Centro sicurezza e conformità di Office 365 . Altre informazioni sulle autorizzazioni di Office 365 sono disponibili in [Autorizzazioni nel Centro sicurezza e conformità di Office 365](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Amministratore della sicurezza**: gli utenti con questo ruolo hanno tutte le autorizzazioni di sola lettura del Ruolo con autorizzazioni di lettura per la sicurezza, oltre alla possibilità di gestire la configurazione per i servizi correlati alla sicurezza: Azure Active Directory Identity Protection, Privileged Identity Management e Centro sicurezza e conformità di Office 365 . Altre informazioni sulle autorizzazioni di Office 365 sono disponibili in [Autorizzazioni nel Centro sicurezza e conformità di Office 365](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
-* **Ruolo con autorizzazioni di lettura per la sicurezza**: gli utenti con questo ruolo hanno un accesso globale in sola lettura, incluse tutte le informazioni in Azure Active Directory, Privileged Identity Management, nonché la possibilità di leggere i report di accesso e i log di controllo di Azure Active Directory. Il ruolo concede inoltre l'autorizzazione di sola lettura nel Centro sicurezza e conformità di Office 365. Altre informazioni sulle autorizzazioni di Office 365 sono disponibili in [Autorizzazioni nel Centro sicurezza e conformità di Office 365](https://support.office.com/en-us/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **Ruolo con autorizzazioni di lettura per la sicurezza**: gli utenti con questo ruolo hanno un accesso globale in sola lettura, incluse tutte le informazioni in Azure Active Directory, Privileged Identity Management, nonché la possibilità di leggere i report di accesso e i log di controllo di Azure Active Directory. Il ruolo concede inoltre l'autorizzazione di sola lettura nel Centro sicurezza e conformità di Office 365. Altre informazioni sulle autorizzazioni di Office 365 sono disponibili in [Autorizzazioni nel Centro sicurezza e conformità di Office 365](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 * **Amministratore servizio di supporto**: gli utenti con questo ruolo possono aprire le richieste di assistenza con Microsoft per i servizi di Azure e Office 365 e visualizzare la dashboard del servizio e il centro messaggi nel portale di Azure e il portale di amministrazione di Office 365. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 

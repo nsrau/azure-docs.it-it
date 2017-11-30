@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: ba390a5973ad33405f1d4217d60d7989f04db3b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db0f09433750a3af2d70039d780a25ad64bb4df1
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Spostamento dei dati da e verso Archiviazione di Azure
 Esistono modi diversi per spostare i dati locali in Archiviazione di Azure (o viceversa). Quale sia il metodo adatto dipende dallo scenario. Questo articolo offre informazioni generali su diversi scenari e la soluzione appropriata per ciascuno.
@@ -76,4 +76,4 @@ In presenza di carichi di lavoro e applicazioni locali, è consigliabile l’uso
 Per altre informazioni, vedere [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) .
 ### <a name="moving-data-faq"></a>Domande frequenti sullo spostamento di dati:
 ## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>È possibile migrare i dischi rigidi virtuali da un'area a un'altra senza eseguire una copia?
-L'unico modo per copiare i dischi rigidi virtuali tra aree diverse consiste nel copiare i dati tra gli account di archiviazione di ogni area. A questo scopo è possibile usare AZCopy. Per altre informazioni, vedere Trasferire dati con l'utilità della riga di comando AzCopy . Per grandi quantità di dati è possibile anche usare il servizio Importazione/Esportazione di Azure. Per altre informazioni, vedere [Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service) .
+L'unico modo per copiare i dischi rigidi virtuali tra aree diverse consiste nel copiare i dati tra gli account di archiviazione di ogni area. A questo scopo è possibile usare AZCopy. Per altre informazioni, vedere Trasferire dati con l'utilità della riga di comando AzCopy . Per grandi quantità di dati è possibile anche usare il servizio Importazione/Esportazione di Azure. Per altre informazioni, vedere [Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB](https://docs.microsoft.com/azure/storage/storage-import-export-service) .

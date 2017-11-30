@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1b10887bcfa7f7c25375bd990ec5e97d0fefbacf
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d0e95014f6ebfc4e0286d3a12999c918f831b489
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Sviluppare script di Azione script per HDInsight nei cluster basati su Windows
 Informazioni su come scrivere script di Azione script per HDInsight Per informazioni sull'uso di script di Azione script, vedere [Personalizzare cluster HDInsight mediante Azione script](hdinsight-hadoop-customize-cluster.md). Per lo stesso articolo dedicato ai cluster HDInsight basati su Linux, vedere [Sviluppare script di Azione script per HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -245,7 +245,8 @@ Di seguito sono indicati i passaggi effettuati durante la preparazione della dis
 
 ## <a name="debug-custom-scripts"></a>Eseguire il debug degli script personalizzati
 I log di errore dello script vengono archiviati insieme ad altri output nell'account di archiviazione predefinito specificato per il cluster al momento della creazione. I log vengono archiviati in una tabella con il nome *u<\frammento-nome-cluster><\timestamp>setuplog*. Si tratta di log aggregati contenenti record provenienti da tutti i nodi (nodi head e nodi di lavoro), in cui lo script viene eseguito nel cluster.
-È possibile verificare facilmente i log tramite HDInsight Tools per Visual Studio. Per installare gli strumenti, vedere [Introduzione all'uso di HDInsight Hadoop Tools per Visual Studio](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio)
+
+È possibile verificare facilmente i log tramite HDInsight Tools per Visual Studio. Per installare gli strumenti, vedere [Introduzione all'uso di HDInsight Hadoop Tools per Visual Studio](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-and-upgrade-data-lake-tools-for-visual-studio)
 
 **Per verificare il log tramite Visual Studio**
 

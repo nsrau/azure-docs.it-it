@@ -3,7 +3,7 @@ title: Mapping di rete tra due aree di Azure in Azure Site Recovery | Microsoft 
 description: Azure Site Recovery coordina la replica, il failover e il ripristino di macchine virtuali e server fisici. Informazioni sul failover in Azure o in un centro dati secondario.
 services: site-recovery
 documentationcenter: 
-author: prateek9us
+author: mayanknayar
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
-ms.author: pratshar
-ms.openlocfilehash: d73acd17d69564134026672b81c5dc32e15d8cd7
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 11/22/2017
+ms.author: manayar
+ms.openlocfilehash: 85baa829020529b628dfaa5578e5d76724834b33
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>Mapping di rete tra due aree di Azure
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: c09410bc6ed8b4eac4316e206c75db84ef0b07fb
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 92cafe24fc3a038f2acd68ec21ec845316ef46de
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Configurare Cloud App Discovery in Azure AD
 
@@ -37,7 +37,7 @@ Cloud App Discovery in Azure AD ora si basa sull'integrazione dei dati resi disp
 
 2. [Configurare report continui](https://docs.microsoft.com/cloud-app-security/discovery-docker) per analizzare tutti i log inoltrati dalla rete usando l'agente di raccolta log di Cloud App Security. È possibile usarli per identificare le nuove app e le tendenze di utilizzo.
 
-3. Se i log non sono attualmente supportati, [configurare un parser di log personalizzato](https://docs.microsoft.com/en-us/cloud-app-security/custom-log-parser), in modo che Cloud App Discovery possa analizzarli.
+3. Se i log non sono attualmente supportati, [configurare un parser di log personalizzato](https://docs.microsoft.com/cloud-app-security/custom-log-parser), in modo che Cloud App Discovery possa analizzarli.
   
 ## <a name="log-processing-flow"></a>Flusso di elaborazione dei log
 

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 5e10ddd8c850d457b4ad77cd5ea4d92edc07017e
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/27/2017
+ms.openlocfilehash: d18ec44ecede44829b488ac9864bbfae2c62883a
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-and-access-server-logs-using-azure-cli"></a>Configurare e accedere ai log del server usando l'interfaccia della riga di comando di Azure
 È possibile scaricare i log degli errori del server PostgreSQL usando l'interfaccia della riga di comando di Azure. Tuttavia, l'accesso ai log delle transazioni non è supportato. 
@@ -33,14 +33,14 @@ Per proseguire con questa guida, si richiedono:
 Per altre informazioni, vedere [Personalizzazione dei parametri di configurazione](howto-configure-server-parameters-using-cli.md).
 
 ## <a name="list-logs-for-azure-database-for-postgresql-server"></a>Elencare i log per il database di Azure per il server PostgreSQL
-Per elencare i file di log disponibili per il server, eseguire il comando [az postgres server-logs list](/cli/azure/postgres/server-logs#list).
+Per elencare i file di log disponibili per il server, eseguire il comando [az postgres server-logs list](/cli/azure/postgres/server-logs#az_postgres_server_logs_list).
 
 È possibile elencare i file di log per il server **mypgserver-20170401.postgres.database.azure.com** nel gruppo di risorse **myresourcegroup** e indirizzarlo a un file di testo denominato **log\_files\_list.txt.**
 ```azurecli-interactive
 az postgres server-logs list --resource-group myresourcegroup --server mypgserver-20170401 > log_files_list.txt
 ```
 ## <a name="download-logs-locally-from-the-server"></a>Scaricare i log dal server in locale
-Il comando [az postgres server-logs download](/cli/azure/postgres/server-logs#download) consente di scaricare i singoli file di log per il server. 
+Il comando [az postgres server-logs download](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) consente di scaricare i singoli file di log per il server. 
 
 Questo esempio scarica il file di log specifico per il server **mypgserver-20170401.postgres.database.azure.com** nel gruppo di risorse **myresourcegroup** nell'ambiente locale.
 ```azurecli-interactive

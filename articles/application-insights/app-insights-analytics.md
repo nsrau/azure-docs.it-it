@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 11/27/2017
 ms.author: mbullwin
-ms.openlocfilehash: 80a9e248ca50c11ef61a5c50c4986c4f8f4ead9d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: adda6335b702470cd491f07d750236c368325a9e
+ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="analytics-in-application-insights"></a>Analytics in Application Insights
 Analytics è l'efficace strumento di ricerca e query incluso in [Application Insights](app-insights-overview.md). Analytics è uno strumento Web, pertanto non occorre installarlo. Se Application Insights è già stato configurato per una delle app, è possibile analizzare i dati dell'app aprendo Analytics dal [pannello Panoramica](app-insights-dashboards.md) dell'app.
@@ -49,7 +49,7 @@ Il linguaggio include diverse funzionalità utili, è possibile:
 
 * [Filtrare](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html) i dati di telemetria app non elaborati in base a qualsiasi campo, comprese proprietà personalizzate e metriche.
 * [Unire](https://docs.loganalytics.io/queryLanguage/query_language_joinoperator.html) più tabelle: correlare le richieste a visualizzazioni di pagina, chiamate a dipendenze, eccezioni e tracce di log.
-* [Aggregazioni](https://docs.loganalytics.io/learn/tutorials/aggregations.html)statistiche avanzate.
+* [Aggregazioni](https://docs.loganalytics.io/docs/Learn/Tutorials/Aggregation-functions)statistiche avanzate.
 * Visualizzazioni immediate e avanzate.
 * Usare un'[API REST](https://dev.applicationinsights.io/) per eseguire query in modo programmatico, ad esempio da PowerShell.
 

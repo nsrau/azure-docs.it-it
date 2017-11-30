@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 1aba03102dcd96753ef4db57edce889a43e4e3fc
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 066f151aa96b3a57c86515411ba05a982c10aa5f
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure
 Hub di eventi di Azure è un servizio di ingresso dati altamente scalabile che può inserire milioni di eventi al secondo in modo che è possibile elaborare e analizzare enormi quantità di dati generati per i dispositivi connessi e le applicazioni. Gli hub di eventi fungono da "porta principale" per una pipeline di eventi e una volta che i dati vengono raccolti in un hub di eventi, possono essere trasformati e archiviati con qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Gli hub di eventi separano la produzione di un flusso di eventi dal consumo di questi eventi, in modo che i consumer di eventi può accedere agli eventi in base a una pianificazione.
@@ -68,7 +68,7 @@ Specificare il corpo della richiesta usando il modello seguente.
 
 ```json
 {
-  "type" : "AzureEventHub",
+  "loggertype" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
     "name" : "Name of the Event Hub from the Azure Classic Portal",
@@ -77,7 +77,7 @@ Specificare il corpo della richiesta usando il modello seguente.
 }
 ```
 
-* `type` deve essere impostato su `AzureEventHub`.
+* `loggertype` deve essere impostato su `AzureEventHub`.
 * `description` fornisce una descrizione facoltativa del logger e può essere una stringa di lunghezza zero, se lo si desidera.
 * `credentials` contiene i valori `name` e `connectionString` di Hub eventi di Azure.
 

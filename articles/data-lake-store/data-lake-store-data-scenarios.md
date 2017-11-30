@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: c48c0931ede6d17078c64cbb1e1dacd21098f792
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6428c6d9fcb577f18221ee48a61456c460bd8176
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Uso di Archivio Data Lake di Azure per requisiti Big Data
 L'elaborazione di Big Data prevede quattro fasi principali:

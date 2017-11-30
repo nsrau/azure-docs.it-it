@@ -1,5 +1,5 @@
 ---
-title: Usare modelli di Azure per creare istanze di HDInsight e Data Lake Store | Microsoft Docs
+title: Usare modelli di Azure per creare istanze di HDInsight e Data Lake Store | Documentazione Microsoft
 description: Usare un modello di Azure Resource Manager per creare e usare cluster HDInsight con Azure Data Lake Store
 services: data-lake-store,hdinsight
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: c57904b7789f632d105b21c459fa1c53a8c73d04
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 8c5afc96cc8101345f00b5d435e9f393d22672de
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-resource-manager-template"></a>Creare un cluster HDInsight con Data Lake Store usando un modello di Azure Resource Manager
 > [!div class="op_single_selector"]

@@ -9,11 +9,11 @@ ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: a1b2f72cf33c740a52cf817766e9950a04886141
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 85136ff2783b21472ef02aee15f8ec5844a00c12
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Creare un'assegnazione di criteri per identificare le risorse non conformi nell'ambiente Azure
 Il primo passaggio per ottenere informazioni sulla conformità in Azure è sapere qual è lo stato delle risorse correnti. Questa guida introduttiva illustra il processo di creazione di un'assegnazione criteri per identificare le macchine virtuali che non usano dischi gestiti.
@@ -62,7 +62,7 @@ In questa guida introduttiva si crea un'assegnazione di criteri e si assegna la 
 5. Specificare un nome visualizzato per l'assegnazione del criterio in **Nome**. In questo caso è possibile usare *Audit VMs that do not use managed disks* (Controllare le macchine virtuali che non usano i dischi gestiti). È anche possibile aggiungere una **descrizione** facoltativa. La descrizione fornisce informazioni dettagliate su come l'assegnazione criteri identifica tutte le macchine virtuali create in questo ambiente che non usano i dischi gestiti.
 6. Modificare il piano tariffario impostando **Standard** per garantire che i criteri vengano applicati alle risorse esistenti.
 
-   Per Criteri di Azure esistono due piani tariffari, ovvero *Gratuito* e *Standard*. Con il piano Gratuito è possibile applicare i criteri solo alle risorse future, mentre con quello Standard è possibile applicarli anche a risorse esistenti per ottenere una migliore comprensione dello stato di conformità. Trattandosi di un'anteprima limitata, non è ancora stato rilasciato un modello di determinazione dei prezzi, quindi non si riceverà fattura selezionando *Standard*. Per altre informazioni sui prezzi, vedere [Prezzi di Criteri di Azure](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
+   Per Criteri di Azure esistono due piani tariffari, ovvero *Gratuito* e *Standard*. Con il piano Gratuito è possibile applicare i criteri solo alle risorse future, mentre con quello Standard è possibile applicarli anche a risorse esistenti per ottenere una migliore comprensione dello stato di conformità. Trattandosi di un'anteprima limitata, non è ancora stato rilasciato un modello di determinazione dei prezzi, quindi non si riceverà fattura selezionando *Standard*. Per altre informazioni sui prezzi, vedere [Prezzi di Criteri di Azure](https://azure.microsoft.com/pricing/details/azure-policy/).
 
 7. Selezionare l'ambito di applicazione dei criteri in **Scope** (Ambito).  L'ambito determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri e può variare da una sottoscrizione a gruppi di risorse.
 8. Selezionare la sottoscrizione (o il gruppo di risorse) registrato in precedenza al momento del consenso esplicito all'uso di Criteri di Azure. In questo esempio viene usata la sottoscrizione **Azure Analytics Capacity Dev**, ma le opzioni disponibili saranno diverse.
