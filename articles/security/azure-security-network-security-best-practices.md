@@ -1,5 +1,5 @@
 ---
-title: Procedure consigliate per la sicurezza della rete di Azure | Documentazione Microsoft
+title: Procedure consigliate per la sicurezza della rete di Azure | Microsoft Docs
 description: "Questo articolo fornisce una serie di procedure consigliate per la sicurezza di rete usando le funzionalità integrate di Azure."
 services: security
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 659304937eebb1b2fe6faf019dfef63e1e29bcd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3dee3411dadbca5e88951dec2ed1836d440423c4
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-network-security-best-practices"></a>Procedure consigliate per la sicurezza della rete di Azure
-Microsoft Azure consente di connettere macchine e dispositivi virtuali ad altri dispositivi di rete inserendoli in reti virtuali di Azure. Una rete virtuale di Azure è un costrutto di rete virtuale che consente di connettere le schede di rete virtuale a una rete virtuale per consentire le comunicazioni basate su TCP/IP tra i dispositivi abilitati per la rete. Le macchine virtuali di Azure connesse a una rete virtuale di Azure possono connettersi ai dispositivi nella stessa rete virtuale di Azure, in diverse reti virtuali di Azure, su Internet o persino in reti locali.
+Microsoft Azure consente di connettere macchine e dispositivi virtuali ad altri dispositivi di rete inserendoli in reti virtuali di Azure. Una rete virtuale di Azure è un costrutto che consente di connettere le schede di interfaccia di rete virtuale a una rete virtuale per consentire le comunicazioni basate su TCP/IP tra dispositivi di rete abilitati. Le macchine virtuali di Azure connesse a una rete virtuale di Azure possono connettersi ai dispositivi nella stessa rete virtuale di Azure, in diverse reti virtuali di Azure, su Internet o persino in reti locali.
 
 In questo articolo verrà illustrato un insieme di procedure consigliate per la sicurezza della rete di Azure, derivate dalla nostra esperienza con la rete di Azure e dalle esperienze di altri clienti.
 
@@ -50,9 +50,9 @@ Le procedure consigliate per la sicurezza della rete di Azure discusse in questo
 * Estendere il data center in Azure
 
 ## <a name="logically-segment-subnets"></a>Segmentare logicamente le subnet
-Le [reti virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-network/) sono simili a una rete LAN nella rete locale. Una rete virtuale di Azure prevede di creare una singola rete basata sullo spazio indirizzi IP privato in cui è possibile inserire tutte le [macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/). Gli spazi di indirizzi IP privati disponibili sono negli intervalli di Classe A (10.0.0.0/8), Classe B (172.16.0.0/12) e Classe C (192.168.0.0/16).
+Le [reti virtuali di Azure](https://azure.microsoft.com/documentation/services/virtual-network/) sono simili a una rete LAN nella rete locale. Una rete virtuale di Azure prevede di creare una singola rete basata sullo spazio indirizzi IP privato in cui è possibile inserire tutte le [macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/). Gli spazi indirizzi IP privati disponibili sono negli intervalli di Classe A (10.0.0.0/8), Classe B (172.16.0.0/12) e Classe C (192.168.0.0/16).
 
-Analogamente alle operazioni svolte in locale, sarà consigliabile segmentare il più ampio spazio indirizzi in subnet. Per creare le subnet, è possibile usare principi di suddivisione in subnet basati su [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+Analogamente alle operazioni svolte in locale, è consigliabile segmentare in subnet lo spazio indirizzi più ampio. Per creare le subnet, è possibile usare principi di suddivisione in subnet basati su [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 Il routing tra le subnet verrà eseguito automaticamente e non sarà necessario configurare manualmente le tabelle di routing. Tuttavia, per impostazione predefinita non sono presenti controlli di accesso di rete tra le subnet create nella rete virtuale di Azure. Per creare controlli di accesso di rete tra subnet, è necessario inserire un elemento tra le subnet.
 
@@ -74,7 +74,7 @@ Nonostante le route di sistema predefinite siano utili per molti scenari di dist
 È consigliabile configurare route definite dall'utente quando si distribuisce un dispositivo di sicurezza di rete virtuale, che verrà illustrato in una procedura consigliata successiva.
 
 > [!NOTE]
-> Le route definite dall'utente non sono necessarie e le route di sistema predefinite funzioneranno nella maggior parte dei casi.
+> Le route definite dall'utente non sono necessarie e le route di sistema predefinite funzionano nella maggior parte dei casi.
 >
 >
 
@@ -82,7 +82,7 @@ Per altre informazioni sulle route definite dall'utente e su come configurarle, 
 
 ## <a name="enable-forced-tunneling"></a>Abilitare il tunneling forzato
 Per comprendere meglio il tunneling forzato, è utile comprendere cosa si intende per "split tunneling".
-L'esempio più comune di split tunneling è visibile nelle connessioni VPN. Si supponga di stabilire una connessione VPN da una camera d'albergo alla propria rete aziendale. Questa connessione consente di connettersi alle risorse nella rete aziendale e tutte le comunicazioni alle risorse nella rete aziendale passano attraverso il tunnel VPN.
+L'esempio più comune di split tunneling è visibile nelle connessioni VPN. Si supponga di stabilire una connessione VPN da una camera d'albergo alla propria rete aziendale. Questa connessione consente di accedere alle risorse aziendali e tutte le comunicazioni alla rete aziendale passano attraverso il tunnel VPN.
 
 Cosa accade quando ci si vuole connettere alle risorse in Internet? Quando è abilitato lo split tunneling, tali connessioni passano direttamente a Internet e non attraverso il tunnel VPN. Alcuni esperti di sicurezza lo considerano un potenziale rischio e quindi consigliano di disabilitare lo split tunneling e di far passare tutte le connessioni, che siano destinate a Internet o alle risorse aziendali, attraverso il tunnel VPN. Il vantaggio di questa operazione è che le connessioni a Internet vengono quindi forzate attraverso i dispositivi di sicurezza di rete aziendale, il che non accadrebbe se il client VPN fosse connesso a Internet di fuori del tunnel VPN.
 
@@ -146,8 +146,7 @@ Uno dei metodi più diffusi ed efficaci per migliorare le prestazioni e la dispo
 
 Questa distribuzione del traffico aumenta la disponibilità perché se uno dei server Web non è più disponibile, il servizio di bilanciamento del carico interrompe l'invio di traffico a tale server, reindirizzandolo verso i server che sono ancora online. Il bilanciamento del carico favorisce anche le prestazioni, perché il sovraccarico di processore, rete e memoria per l'elaborazione delle richieste viene distribuito tra tutti server con carico bilanciato.
 
-È consigliabile impiegare il bilanciamento del carico ogni volta possibile e quando adeguato ai servizi. L'adeguatezza verrà presa in considerazione nelle sezioni seguenti.
-A livello di rete virtuale di Azure, Azure offre che tre opzioni di bilanciamento del carico principali:
+È consigliabile impiegare il bilanciamento del carico ogni volta possibile e quando adeguato ai servizi. La questione dell'adeguatezza verrà affrontata nelle sezioni seguenti: a livello di rete virtuale di Azure, Azure offre tre opzioni di bilanciamento del carico principali:
 
 * Bilanciamento del carico basato su HTTP
 * Bilanciamento del carico esterno
@@ -176,7 +175,7 @@ Per altre informazioni sul funzionamento del servizio di bilanciamento del caric
 ## <a name="internal-load-balancing"></a>Bilanciamento del carico interno
 Il bilanciamento del carico interno è simile al bilanciamento del carico esterno e usa lo stesso meccanismo per bilanciare il carico delle connessioni ai server su cui si basano. L'unica differenza è che il servizio di bilanciamento del carico in questo caso accetta connessioni da macchine virtuali che non si trovano su Internet. Nella maggior parte dei casi, le connessioni che sono accettate per il bilanciamento del carico possono essere avviate da dispositivi nella rete virtuale di Azure.
 
-È consigliabile usare il bilanciamento del carico interno per gli scenari che trarranno vantaggio da questa funzionalità, ad esempio quando è necessario bilanciare il carico delle connessioni a SQL Server o ai server Web interni.
+È consigliabile usare il bilanciamento del carico interno per gli scenari che trarranno vantaggio da questa funzionalità, ad esempio quando è necessario bilanciare il carico delle connessioni a istanze di SQL Server o ai server Web interni.
 
 Per altre informazioni sul funzionamento del servizio di bilanciamento del carico interno di Azure e su come è possibile distribuirlo, vedere l'articolo [Introduzione alla creazione di un servizio di bilanciamento del carico interno tramite PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md#update-an-existing-load-balancer).
 
