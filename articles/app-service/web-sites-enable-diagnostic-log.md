@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: a9c5743c92ac48202c19c2f6f024238c147d8444
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 1d8d0caa1aa9e21bf724d60127dc6f2ac9a49ecf
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure
 ## <a name="overview"></a>Panoramica
@@ -34,9 +34,9 @@ App Web del servizio app offre funzionalità diagnostiche per la registrazione d
 ### <a name="web-server-diagnostics"></a>Diagnostica del server Web
 È possibile abilitare o disabilitare i seguenti tipi di log:
 
-* **Registrazione degli errori dettagliata**: consente di registrare informazioni dettagliate sugli errori relativi ai codici di stato HTTP che indicano un'operazione non riuscita (codice di stato 400 o superiore), incluse eventualmente le informazioni che aiutano a determinare il motivo per cui il server ha restituito il codice di errore.
-* **Traccia delle richieste non riuscita** : consente di registrare informazioni dettagliate sulle richieste non riuscite, inclusa una traccia dei componenti IIS utilizzati per elaborare la richieste e il tempo impiegato in ciascun componente. Ciò può essere utile se si sta tentando di aumentare le prestazioni del sito oppure isolare la causa della restituzione di uno specifico errore HTTP.
-* **Registrazione del server Web** : consente di registrare informazioni sulle transazioni HTTP tramite il [formato di file di log esteso W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Questo è utile nel determinare le metriche generali del sito, ad esempio il numero delle richieste gestite oppure quante di esse provengono da uno specifico indirizzo IP
+* **Registrazione degli errori dettagliata**: consente di registrare informazioni dettagliate sugli errori relativi ai codici di stato HTTP che indicano un'operazione non riuscita (codice di stato 400 o superiore), incluse eventuali informazioni che aiutano a determinare il motivo per cui il server ha restituito il codice di errore.
+* **Traccia delle richieste non riuscita** : consente di registrare informazioni dettagliate sulle richieste non riuscite, inclusa una traccia dei componenti IIS utilizzati per elaborare la richieste e il tempo impiegato in ciascun componente. È utile se si sta tentando di aumentare le prestazioni del sito oppure isolare la causa della restituzione di uno specifico errore HTTP.
+* **Registrazione del server Web** : consente di registrare informazioni sulle transazioni HTTP tramite il [formato di file di log esteso W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). È utile nel determinare le metriche generali del sito, ad esempio il numero delle richieste gestite oppure quante di esse provengono da uno specifico indirizzo IP.
 
 ### <a name="application-diagnostics"></a>Diagnostica applicazioni
 La diagnostica applicazioni consente di acquisire le informazioni prodotte da un'applicazione Web. Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) per registrare le informazioni nel log di diagnostica applicazioni. ad esempio:
@@ -60,14 +60,13 @@ Se si abilita **Diagnostica applicazioni**, è anche possibile scegliere il **Li
 >
 >
 
-Nella scheda [Configura](https://manage.windowsazure.com) dell'app Web nel **portale classico** è possibile selezionare **archiviazione** o **file system** per **Registrazione server Web**. Se si seleziona **Archiviazione**, è possibile selezionare un account di archiviazione e quindi un contenitore BLOB in cui scrivere i log. Tutti gli altri log per la **diagnostica del sito** verranno scritti solo sul file system.
+Per il **registro applicazioni** è possibile attivare l'opzione del file system temporaneamente per scopi di debug. Questa opzione si disattiva automaticamente dopo 12 ore. È anche possibile attivare l'opzione di archiviazione BLOB per selezionare un contenitore BLOB in cui scrivere i log.
 
-La scheda [Configura](https://manage.windowsazure.com) dell'app Web del **portale classico** include anche altre impostazioni per la diagnostica applicazioni:
+Per la **registrazione del server Web** è possibile selezionare **archiviazione** o **file system**. Se si seleziona **Archiviazione**, è possibile selezionare un account di archiviazione e quindi un contenitore BLOB in cui scrivere i log. 
 
-* **File system** : consente di archiviare le informazioni di diagnostica applicazioni sul file system dell'app Web. È possibile accedere a questi file mediante FTP oppure scaricarli come archivio zip tramite Azure PowerShell o l'interfaccia della riga di comando di Azure.
-* **Archivio tabelle** : consente di memorizzare le informazioni di diagnostica applicazioni nell'account di archiviazione di Azure e nel nome tabella specificati.
-* **Archivio BLOB** : consente di memorizzare le informazioni di diagnostica applicazioni nell'account di archiviazione di Azure e nel contenitore BLOB specificati.
-* **Periodo di conservazione**: per impostazione predefinita, i log non vengono eliminati automaticamente dall'**archiviazione BLOB**. Selezionare **imposta mantenimento** e immettere il numero di giorni per cui conservare i log, se si desidera eliminarli automaticamente.
+Se si archiviano i log nel file system, è possibile accedere a questi file mediante FTP oppure scaricarli come archivio zip tramite Azure PowerShell o l'interfaccia della riga di comando di Azure.
+
+Per impostazione predefinita, i registri non vengono eliminati automaticamente, ad eccezione di **Registrazione applicazioni (file system)**. Per eliminare automaticamente i log, impostare il campo relativo al **periodo di conservazione (giorni)**.
 
 > [!NOTE]
 > Se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-create-storage-account.md), è necessario reimpostare la configurazione di registrazione corrispondente per l'uso delle chiavi aggiornate. A tale scopo, seguire questa procedura:
@@ -101,12 +100,10 @@ La struttura di directory in cui sono memorizzati i log è la seguente:
 * **Deployment logs** - /LogFiles/Git. Questa cartella contiene i log generati dai processi di distribuzione interna utilizzati da app Web di Azure, oltre ai log per le distribuzioni Git.
 
 ### <a name="ftp"></a>FTP
-Per accedere alle informazioni sulle diagnostiche tramite FTP, visitare il **Dashboard** dell'app Web nel [portale classico](https://manage.windowsazure.com). Nella sezione **riepilogo rapido** usare il collegamento **FTP Diagnostic Logs** per accedere ai file di log mediante FTP. In **Deployment/FTP User** è indicato il nome utente da utilizzare per accedere al sito FTP.
 
-> [!NOTE]
-> Se la voce **Utente FTP/distribuzione** non è impostata oppure se è stata dimenticata la password per questo utente, è possibile creare un nuovo utente con relativa password mediante il collegamento **Reimposta credenziali di distribuzione**e nella sezione **Riepilogo rapido** del **Dashboard**.
->
->
+Per aprire una connessione FTP al server FTP dell'app, vedere [Distribuire l'app nel servizio app di Azure usando FTP/S](app-service-deploy-ftp.md).
+
+Una volta connessi al server FTP/S dell'app web, aprire la cartella **LogFiles** in cui sono archiviati i file di log.
 
 ### <a name="download-with-azure-powershell"></a>Download con Azure PowerShell
 Per scaricare i file di log, avviare una nuova istanza di Azure PowerShell e utilizzare il comando seguente:
@@ -145,7 +142,7 @@ Visual Studio Application Insights fornisce strumenti per il filtro e ricerca de
 [Ulteriori informazioni sulle prestazioni di rilevamento con Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a> Procedura: Eseguire lo streaming dei log
-Durante lo sviluppo di un'applicazione, è spesso utile visualizzare le informazioni di registrazione in tempo quasi reale. A tale scopo, eseguire lo streaming delle informazioni di registrazione nel proprio ambiente di sviluppo mediante Azure PowerShell o l'interfaccia della riga di comando di Azure.
+Durante lo sviluppo di un'applicazione, è spesso utile visualizzare le informazioni di registrazione in tempo quasi reale. È possibile eseguire lo streaming delle informazioni di registrazione al proprio ambiente di sviluppo mediante Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
 > [!NOTE]
 > Alcuni tipi di buffer di registrazione scrivono nel file di log, producendo nel caso eventi di "fuori servizio" nel flusso. Ad esempio, una voce del log di applicazione che si verifica quando un utente visita una pagina può essere visualizzata nel flusso prima della corrispondente voce di log HTTP per la richiesta della pagina.
@@ -207,7 +204,7 @@ Ogni riga registrata nel file system o ricevuta tramite streaming viene visualiz
 
     {Date}  PID[{process ID}] {event type/level} {message}
 
-Ad esempio, l'aspetto di un evento di errore sarà simile al seguente:
+Ad esempio, l'aspetto di un evento di errore sarà simile all'esempio seguente:
 
     2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
 
@@ -224,7 +221,7 @@ Durante la registrazione nell'archiviazione tabelle verranno utilizzate propriet
 | Timestamp |Data e ora in cui si è verificato l'evento |
 | EventTickCount |Data e ora in cui si è verificato l'evento, in formato Tick (maggiore precisione) |
 | ApplicationName |Nome dell'app Web |
-| Livello |Livello dell'evento (ad esempio, errore, avviso, informazione) |
+| Level |Livello dell'evento, ad esempio, errore, avviso, informazioni |
 | EventId |ID evento di questo evento<p><p>Se non specificato, il valore predefinito è 0 |
 | InstanceId |Istanza dell'app Web sulla quale si è verificato l'evento |
 | Pid |ID di processo |
@@ -238,7 +235,7 @@ Durante la registrazione sull'archiviazione BLOB, i dati vengono memorizzati in 
 | Nome proprietà | Valore/formato |
 | --- | --- |
 | Data |Data e ora in cui si è verificato l'evento |
-| Livello |Livello dell'evento (ad esempio, errore, avviso, informazione) |
+| Level |Livello dell'evento, ad esempio, errore, avviso, informazioni |
 | ApplicationName |Nome dell'app Web |
 | InstanceId |Istanza dell'app Web nella quale si è verificato l'evento |
 | EventTickCount |Data e ora in cui si è verificato l'evento, in formato Tick (maggiore precisione) |
@@ -247,7 +244,7 @@ Durante la registrazione sull'archiviazione BLOB, i dati vengono memorizzati in 
 | Tid |ID del thread che ha prodotto l'evento |
 | Message |Messaggio dettagliato sull'evento |
 
-L'aspetto dei dati archiviati in un BLOB sarà simile al seguente:
+L'aspetto dei dati archiviati in un BLOB sarà simile all'esempio seguente:
 
     date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
@@ -258,7 +255,7 @@ L'aspetto dei dati archiviati in un BLOB sarà simile al seguente:
 >
 
 ### <a name="failed-request-traces"></a>Failed Request Traces
-Le tracce delle richieste non riuscite vengono memorizzate nei file XML denominati **fr######.xml**. Per semplificare la visualizzazione delle informazioni registrate, è disponibile un foglio di stile XSL denominato **freb.xsl** nella stessa directory dei file XML. Se si apre uno dei file XML in Internet Explorer, per offrire una visualizzazione formattata delle informazioni di traccia Internet Explorer usa il foglio di stile XSL, con un risultato simile al seguente:
+Le tracce delle richieste non riuscite vengono memorizzate nei file XML denominati **fr######.xml**. Per semplificare la visualizzazione delle informazioni registrate, è disponibile un foglio di stile XSL denominato **freb.xsl** nella stessa directory dei file XML. Se si apre uno dei file XML in Internet Explorer, Internet Explorer usa il foglio di stile XSL per offrire una visualizzazione formattata delle informazioni di traccia, simile all'esempio seguente:
 
 ![richiesta non riuscita visualizzata nel browser](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 

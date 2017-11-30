@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 56ddd5742b63851b9477bae0705ebd24e30ff185
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bb2e1aebc60eee5f94ed486e0efb43265728df6f
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Approfondimenti sulla reimpostazione della password self-service in Azure AD
 
@@ -207,7 +207,18 @@ Esempio: nell'ambiente sono presenti quattro amministratori. L'amministratore A 
 
 ## <a name="on-premises-integration"></a>Integrazione locale
 
-Se Azure AD Connect è stato installato, configurato e abilitato, saranno disponibili le opzioni aggiuntive seguenti per le integrazioni locali. Se queste opzioni sono disattivate, il writeback non è stato configurato correttamente. Per altre informazioni, vedere [Configurazione del writeback delle password](active-directory-passwords-writeback.md#configuring-password-writeback).
+Se Azure AD Connect è stato installato, configurato e abilitato, saranno disponibili le opzioni aggiuntive seguenti per le integrazioni locali. Se queste opzioni sono disattivate, il writeback non è stato configurato correttamente. Per altre informazioni, vedere [Configurazione del writeback delle password](active-directory-passwords-writeback.md#configure-password-writeback).
+
+![Writeback][Writeback]
+
+Questa pagina fornisce uno stato rapido del client di writeback locale. In base alla configurazione corrente viene visualizzato uno dei seguenti messaggi:
+
+* Il client di writeback locale è attivo e in esecuzione.
+* Azure AD è online e connesso al client di writeback locale. Tuttavia sembra che la versione installata di Azure AD Connect non sia aggiornata. Prendere in considerazione l'[aggiornamento di Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) per assicurarsi di disporre delle funzionalità di connettività più recenti e di importanti correzioni di bug.
+* Purtroppo non è possibile verificare lo stato del client di writeback locale perché la versione installata di Azure AD Connect non è aggiornata. [Aggiornare Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) per essere in grado di controllare lo stato della connessione.
+* Purtroppo al momento non è possibile connettersi al client di writeback locale. [Risoluzione dei problemi di Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) per ripristinare la connessione.
+* Purtroppo non è possibile eseguire la connessione al client di writeback locale perché il writeback delle password non è stato configurato correttamente. [Configurare il writeback delle password](active-directory-passwords-writeback.md#configure-password-writeback) per ripristinare la connessione.
+* Purtroppo al momento non è possibile connettersi al client di writeback locale. Ciò può essere dovuto a errori temporanei nel sistema. Se il problema persiste, vedere [Risoluzione dei problemi di Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) per ripristinare la connessione.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Writeback delle password nella directory locale
 
@@ -233,7 +244,7 @@ La modifica e la reimpostazione della password sono completamente supportate in 
 Per testare questo scenario, passare a http://passwordreset.microsoftonline.com con uno di questi utenti partner. Se l'utente ha un indirizzo di posta elettronica alternativo o un indirizzo di posta elettronica per l'autenticazione, la reimpostazione della password funziona come previsto.
 
 > [!NOTE]
-> Gli account Microsoft a cui è stato concesso l'accesso guest al tenant di Azure AD, ad esempio Hotmail.com, Outlook.com o altri indirizzi di posta elettronica personali, non saranno in grado di utilizzare la funzionalità di reimpostazione delle password self-service di Azure AD. Tali account dovranno reimpostare le password usando le informazioni riportate nell'articolo [Quando non riesci ad accedere al tuo account Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+> Gli account Microsoft a cui è stato concesso l'accesso guest al tenant di Azure AD, ad esempio Hotmail.com, Outlook.com o altri indirizzi di posta elettronica personali, non saranno in grado di utilizzare la funzionalità di reimpostazione delle password self-service di Azure AD. Tali account devono reimpostare le password usando le informazioni riportate nell'articolo [Quando non riesci ad accedere al tuo account Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -253,3 +264,4 @@ Gli articoli seguenti forniscono altre informazioni sull'uso della reimpostazion
 * [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Metodi di autenticazione di Azure AD disponibili e quantità necessaria"
+[Writeback]: ./media/active-directory-passwords-how-it-works/troubleshoot-writeback-running.png "Informazioni sulla risoluzione e la configurazione del writeback delle password di integrazione locale"

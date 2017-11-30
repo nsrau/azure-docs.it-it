@@ -7,18 +7,25 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 08c501b9132bb21f47f099725d1fad5556befb4c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 0207418cf71902ce9bc9d2911124d1d46889d893
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Distribuire Azure IoT Edge su un dispositivo simulato in Windows: anteprima
 
-Azure IoT Edge sposta la potenza del cloud sui dispositivi di Internet delle cose. Questa esercitazione illustrata la creazione di un dispositivo IoT Edge simulato che genera i dati del sensore. Si apprenderà come:
+Azure IoT Edge consente di eseguire operazioni di analisi ed elaborazione dei dati direttamente nei dispositivi, invece di dover eseguire il push di tutti i dati nel cloud. Le esercitazioni di IoT Edge spiegano come distribuire i diversi tipi di moduli, compilati da servizi di Azure o da codice personalizzato. Per eseguire i test, è però necessario un dispositivo. 
+
+In questa esercitazione si apprenderà come:
+
+1. Creare un hub IoT
+2. Registrare un dispositivo IoT Edge
+3. Avviare il runtime di IoT Edge
+4. Distribuire un modulo
 
 ![Architettura dell'esercitazione][2]
 
@@ -38,18 +45,18 @@ Questa esercitazione presuppone che si usi un computer o una macchina virtuale c
 3. Installare [Python 2.7 su Windows][lnk-python] e assicurarsi di usare il comando pip.
 4. Eseguire il comando seguente per scaricare lo script di controllo di IoT Edge.
 
-   ```
+   ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
 > [!NOTE]
-> Azure IoT Edge può eseguire contenitori Windows o contenitori Linux. Per usare contenitori Windows è necessario eseguire:
->    * Windows 10 Fall Creators Update o
->    * Windows Server 1709 (Build 16299) oppure
+> Azure IoT Edge può eseguire contenitori Windows o contenitori Linux. Se si esegue una delle seguenti versioni di Windows, è possibile usare i contenitori di Windows:
+>    * Windows 10 Fall Creators Update
+>    * Windows Server 1709 (Build 16299)
 >    * Windows IoT Core (Build 16299) su un dispositivo basato su x64
 >
-> Per Windows IoT Core, seguire le istruzioni disponibili in [Installare il runtime di IoT Edge su Windows IoT Core][lnk-install-iotcore]. In caso contrario, è sufficiente [configurare Docker per l'uso dei contenitori Windows][lnk-docker-containers] e facoltativamente convalidare i prerequisiti con il comando di PowerShell seguente:
->    ```
+> Per Windows IoT Core, seguire le istruzioni disponibili in [Installare il runtime di IoT Edge su Windows IoT Core][lnk-install-iotcore]. In caso contrario, semplicemente [configurare Docker per l'uso dei contenitori di Windows][lnk-docker-containers]. Usare il comando seguente per convalidare i prerequisiti:
+>    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
 
@@ -73,32 +80,32 @@ Registrare un dispositivo IoT Edge con l'hub IoT appena creato.
 Installare e avviare il runtime di Azure IoT Edge sul dispositivo. 
 ![Registrare un dispositivo][5]
 
-Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. È costituito da due moduli. L'agente di IoT Edge prima di tutto semplifica la distribuzione e il monitoraggio dei moduli nel dispositivo IoT Edge. L'hub IoT Edge gestisce quindi le comunicazioni tra i moduli nel dispositivo IoT Edge e tra il dispositivo e l'hub IoT. 
+Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. È costituito da due moduli. L'**agente di IoT Edge** semplifica la distribuzione e il monitoraggio dei moduli nel dispositivo IoT Edge. L'**hub IoT Edge** gestisce le comunicazioni tra moduli nel dispositivo IoT Edge e tra il dispositivo e l'hub IoT. Quando si configura il runtime nel nuovo dispositivo, inizialmente viene avviato solo l'agente di IoT Edge. Quando si distribuisce un modulo, l'hub IoT Edge viene avviato dopo. 
 
 
-Usare la procedura seguente per installare e avviare il runtime di IoT Edge:
+Configurare il runtime con la stringa di connessione del dispositivo IoT Edge definita nella sezione precedente.
 
-1. Configurare il runtime con la stringa di connessione al dispositivo IoT Edge dalla sezione precedente.
+```cmd
+iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+```
 
-   ```
-   iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
-   ```
+Avviare il runtime.
 
-1. Avviare il runtime.
+```cmd
+iotedgectl start
+```
 
-   ```
-   iotedgectl start
-   ```
+Controllare Docker per verificare che l'agente di IoT Edge sia in esecuzione come modulo.
 
-1. Controllare Docker per verificare che l'agente di IoT Edge sia in esecuzione come modulo.
+```cmd
+docker ps
+```
 
-   ```
-   docker ps
-   ```
+![Vedere edgeAgent in Docker](./media/tutorial-simulate-device-windows/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Distribuire un modulo
 
-Gestire il dispositivo di Azure IoT Edge dal cloud per la distribuzione di un modulo che invierà i dati di telemetria all'hub IoT.
+Gestire il dispositivo Azure IoT Edge dal cloud per distribuire un modulo che invierà i dati di telemetria all'hub IoT.
 ![Registrare un dispositivo][6]
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
@@ -106,21 +113,31 @@ Gestire il dispositivo di Azure IoT Edge dal cloud per la distribuzione di un mo
 
 ## <a name="view-generated-data"></a>Visualizzare i dati generati
 
-Nella guida introduttiva è stato creato un nuovo dispositivo IoT Edge e in tale dispositivo è stato installato il runtime di IoT Edge. È stato quindi usato il portale di Azure per eseguire il push di un modulo di IoT Edge per l'esecuzione nel dispositivo senza dovere apportare modifiche al dispositivo stesso. In questo caso il modulo di cui è stato eseguito il push crea dati ambientali che è possibile usare per le esercitazioni. 
+In questa esercitazione è stato creato un nuovo dispositivo IoT Edge, nel quale è stato installato il runtime di IoT Edge. È stato quindi usato il portale di Azure per eseguire il push di un modulo di IoT Edge da eseguire nel dispositivo senza dovere apportare modifiche al dispositivo stesso. In questo caso il modulo di cui è stato eseguito il push crea dati ambientali che è possibile usare per le esercitazioni. 
 
-Visualizzare i messaggi inviati dal modulo tempSensor:
+Aprire il prompt dei comandi nel computer eseguendo ancora il dispositivo simulato. Verificare che il modulo distribuito dal cloud sia in esecuzione nel dispositivo IoT Edge. 
 
-```cmd/sh
-sudo docker logs -f tempSensor
+```cmd
+docker ps
 ```
+
+![Visualizzare tre moduli nel dispositivo](./media/tutorial-simulate-device-windows/docker-ps2.png)
+
+Visualizzare i messaggi inviati dal modulo tempSensor al cloud. 
+
+```cmd
+docker logs -f tempSensor
+```
+
+![Visualizzare i dati dal modulo](./media/tutorial-simulate-device-windows/docker-logs.png)
 
 È anche possibile visualizzare i dati di telemetria inviati dal dispositivo tramite lo [strumento di esplorazione dell'hub IoT][lnk-iothub-explorer]. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è creato un nuovo dispositivo IoT Edge ed è stata usata l'interfaccia cloud di Azure IoT Edge per distribuire il codice nel dispositivo. A questo punto, si dispone di un dispositivo simulato che genera dati non elaborati sul proprio ambiente. 
+In questa esercitazione è stato creato un nuovo dispositivo IoT Edge ed è stata usata l'interfaccia cloud di Azure IoT Edge per distribuire il codice nel dispositivo. A questo punto è disponibile un dispositivo simulato che genera dati non elaborati sul proprio ambiente. 
 
-Questa esercitazione è necessaria per tutte le altre esercitazioni di IoT Edge. È possibile continuare con una delle altre esercitazioni per ottenere informazioni sui modi in cui Azure IoT Edge può contribuire alla trasformazione dei dati in informazioni aziendali dettagliate nei dispositivi perimetrali.
+Questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni su IoT Edge. È possibile continuare con una delle altre esercitazioni per ottenere informazioni sui modi in cui Azure IoT Edge può contribuire alla trasformazione dei dati in informazioni aziendali dettagliate nei dispositivi perimetrali.
 
 > [!div class="nextstepaction"]
 > [Sviluppare e distribuire il codice C# come modulo](tutorial-csharp-module.md)

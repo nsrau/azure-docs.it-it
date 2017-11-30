@@ -1,5 +1,5 @@
 ---
-title: SDK e risorse .NET dell'API Table di Azure CosmosDB | Microsoft Docs
+title: SDK e risorse .NET dell'API di tabella di CosmosDB di Azure | Documentazione Microsoft
 description: Informazioni sull'API Table di Azure Cosmos DB, incluse le date di rilascio, le date di ritiro e le modifiche apportate nelle diverse versioni.
 services: cosmos-db
 documentationcenter: .net
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: ae896bc5d795a733357ac08d370433d7475d2eb2
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 9dc0f5140a538c3a359dd90b74de822dc163fd70
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET di tabella di CosmosDB di Azure: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -35,6 +35,10 @@ ms.lasthandoff: 11/15/2017
 |**Esercitazione**|[Azure Cosmos DB: sviluppare con l'API Table in .NET](tutorial-develop-table-dotnet.md)|
 |**Framework attualmente supportato**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
+> [!IMPORTANT]
+> Se si è creato un account dell'API di tabella durante l'anteprima, creare un [nuovo account dell'API di tabella](create-table-dotnet.md#create-a-database-account) per usare gli SDK dell'API di tabella disponibili a livello generale.
+>
+
 ## <a name="release-notes"></a>Note sulla versione
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
@@ -44,11 +48,11 @@ ms.lasthandoff: 11/15/2017
 * Versione di anteprima iniziale
 
 ## <a name="release-and-retirement-dates"></a>Date di rilascio e di ritiro
-Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata.
+Microsoft invia una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata.
 
 Le nuove caratteristiche e funzionalità e le ottimizzazioni vengono aggiunte solo all'SDK corrente. È quindi consigliabile eseguire sempre l'aggiornamento alla versione più recente dell'SDK quanto prima. 
 
-Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato verrà rifiutata dal servizio.
+Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiutata dal servizio.
 <br/>
 
 | Versione | Data di rilascio | Data di ritiro |
@@ -56,7 +60,26 @@ Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato verrà rifiut
 | [1.0.0](#1.0.0) |15 novembre 2017|--- |
 | [0.9.0-preview](#0.1.0-preview) |11 novembre 2017 |--- |
 
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+Se si ottiene l'errore 
+
+```
+Unable to resolve dependency 'Microsoft.Azure.Storage.Common'. Source(s) used: 'nuget.org', 
+'CliFallbackFolder', 'Microsoft Visual Studio Offline Packages', 'Microsoft Azure Service Fabric SDK'`
+```
+
+Quando si tenta di usare il pacchetto NuGet Microsoft.Azure.CosmosDB.Table, sono disponibili due opzioni per risolvere il problema:
+
+* Usare la console di gestione pacchetti per installare il pacchetto Microsoft.Azure.CosmosDB.Table e le relative dipendenze. A tale scopo, digitare quanto segue nella console di gestione pacchetti per la soluzione. 
+    ```
+    Install-Package Microsoft.Azure.CosmosDB.Table -IncludePrerelease
+    ```
+    
+* Usando lo strumento di gestione pacchetti Nuget preferito, installare il pacchetto Microsoft.Azure.Storage.Common Nuget prima di installare Microsoft.Azure.CosmosDB.Table.
+
 ## <a name="faq"></a>domande frequenti
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Vedere anche

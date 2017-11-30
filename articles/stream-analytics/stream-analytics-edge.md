@@ -12,26 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 6e94758581bd510e58a709a53e30c11a5c1f1b62
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f1df2f52d00444ba0a27644a6e65cee789788f58
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Analisi di flusso di Azure in IoT Edge (anteprima)
 
 > [!IMPORTANT]
 > Questa funzionalità è in anteprima. Non è consigliabile usarla nell'ambiente di produzione.
  
-Analisi di flusso di Azure in IoT Edge permette agli sviluppatori di distribuire funzionalità di intelligence di analisi quasi in tempo reale più vicino ai dispositivi IoT, in modo da ottenere il massimo valore dai dati generati dai dispositivi. Progettato per i clienti che richiedono bassa latenza, resilienza, uso efficiente della larghezza di banda e conformità, consente alle organizzazioni di distribuire una logica di controllo prossima alle operazioni industriali e di integrare l'analisi di Big Data eseguita nel cloud.  
-Analisi di flusso di Azure in IoT Edge viene eseguito all'interno del framework [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) e la distribuzione e la gestione dei processi di Analisi di flusso di Azure possono essere eseguite tramite un hub IoT dopo che il processo è stato creato in Analisi di flusso di Azure.
+Analisi di flusso di Azure in IoT Edge permette agli sviluppatori di distribuire funzionalità di intelligence di analisi quasi in tempo reale più vicino ai dispositivi IoT, in modo da ottenere il massimo valore dai dati generati dai dispositivi. Progettato per bassa latenza, resilienza, uso efficiente della larghezza di banda e conformità, consente alle organizzazioni di distribuire una logica di controllo prossima alle operazioni industriali e di integrare l'analisi di Big Data eseguita nel cloud.  
+L'Analisi di flusso di Azure su IoT Edge viene eseguita all'interno del framework di [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). Dopo che il processo viene creato in ASA, distribuire e gestire i processi di ASA tramite hub IoT.
 Questa funzionalità è in anteprima. In caso di domande o suggerimenti, è possibile usare [questo sondaggio](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) per contattare il team del prodotto. 
 
 ## <a name="scenarios"></a>Scenari
-![Diagramma generale](media/stream-analytics-edge/ASAedge_highlevel.png) Ecco alcuni scenari tipici per i quali l'esecuzione di Analisi di flusso di Azure in dispositivi Edge si rivela particolarmente interessante:
-* **Comando e controllo a bassa latenza**: ad esempio, per i sistemi di sicurezza di produzione è indispensabile rispondere ai dati operativi con una latenza estremamente bassa. Con Analisi di flusso di Azure in IoT Edge, è possibile analizzare i dati dei sensori quasi in tempo reale ed eseguire comandi in caso di rilevamento di anomalie per arrestare una macchina o attivare avvisi.
+![Diagramma di alto livello](media/stream-analytics-edge/ASAedge_highlevel.png)
+
+* **Comando e controllo a bassa latenza**: ad esempio, i sistemi di sicurezza di produzione devono rispondere ai dati operativi con una latenza estremamente bassa. Con Active Server Application in IoT Edge, è possibile analizzare i dati dei sensori quasi in tempo reale ed eseguire comandi in caso di rilevamento di anomalie per arrestare una macchina o attivare avvisi.
 *   **Connettività al cloud limitata**: per i sistemi mission-critical, come le attrezzature per le attività minerarie in remoto, le imbarcazioni connesse o le trivellazioni offshore, è fondamentale analizzare e reagire ai dati, anche quando la connettività cloud è intermittente. Con Analisi di flusso di Azure, la logica di streaming viene eseguita indipendentemente dalla connettività di rete ed è possibile scegliere cosa inviare al cloud per un'ulteriore elaborazione o archiviazione.
 * **Larghezza di banda limitata**: il volume dei dati generati dai motori a reazione o dalle automobili connesse può essere talmente elevato che i dati devono essere filtrati o pre-elaborati prima di essere inviati al cloud. Usando Analisi di flusso di Azure, è possibile filtrare o aggregare i dati da inviare al cloud.
 * **Conformità**: la conformità alle normative potrebbe richiedere che alcuni dati siano resi anonimi o aggregati in locale prima di essere inviati al cloud. Con Analisi di flusso di Azure, 

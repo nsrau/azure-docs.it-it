@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2017
+ms.date: 11/16/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 06368cb5084dd49e24c1c25aa8100a7680aacefb
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ae2466bdd3b21984b141c9178ea46bd25bb6357b
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Eseguire un'attività in contenitori in Istanze di contenitore di Azure
 
@@ -147,7 +147,7 @@ Specificare una riga di comando quando si crea un'istanza del contenitore per es
 
 Ad esempio, è possibile fare in modo che il contenitore di esempio analizzi un testo diverso da *Amleto* specificando una riga di comando diversa. Lo script Python eseguito dal contenitore, *wordcount.py*, accetta un URL come argomento ed elaborerà il contenuto di questa pagina anziché il valore predefinito.
 
-Ad esempio, per determinare le prime tre parole di cinque lettere in *Romeo e Giulietta*:
+Ad esempio, per determinare le prime 3 parole di cinque lettere in *Romeo e Giulietta*:
 
 ```azurecli-interactive
 az container create \
@@ -172,6 +172,8 @@ Output:
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+### <a name="persist-task-output"></a>Mantenere l'output dell'attività
 
 Per informazioni dettagliate su come mantenere l'output dei contenitori che vengono eseguiti fino al completamento, vedere [Montaggio di una condivisione file di Azure con Istanze di contenitore di Azure](container-instances-mounting-azure-files-volume.md).
 

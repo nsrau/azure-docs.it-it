@@ -1,5 +1,5 @@
 ---
-title: Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con stringhe di query | Documentazione Microsoft
+title: Controllare il comportamento di memorizzazione nella cache della rete per la distribuzione di contenuti di Azure con stringhe di query | Microsoft Docs
 description: La memorizzazione nella cache della stringa di query della rete CDN controlla in che modo i file devono essere memorizzati nella cache quando contengono stringhe di query.
 services: cdn
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: mazha
-ms.openlocfilehash: 28e724f34c32edb0d5641b24f9ffedb7dc5f9680
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 04c9ad5e58af073204eb6a16df96f0517a0ee668
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings"></a>Controllare il comportamento di memorizzazione nella cache della rete per la distribuzione di contenuti di Azure con stringhe di query
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/11/2017
 > 
 
 ## <a name="overview"></a>Panoramica
-La rete per la distribuzione di contenuti (CDN) di Azure consente di controllare la modalità di memorizzazione nella cache dei file per una richiesta Web contenente una stringa di query. In una richiesta Web con una stringa di query, la stringa di query è la parte della richiesta che si verifica dopo il carattere `?`. Una stringa di query può contenere uno o più parametri separati da un carattere `&`. ad esempio `http://www.domain.com/content.mov?data1=true&data2=false`. Se in una richiesta sono presenti più parametri della stringa di query, l'ordine dei parametri non è rilevante. 
+La rete per la distribuzione di contenuti (CDN) di Azure consente di controllare la modalità di memorizzazione nella cache dei file per una richiesta Web contenente una stringa di query. In una richiesta Web con una stringa di query, la stringa di query è la parte della richiesta che si verifica dopo un punto di domanda (?). Una stringa di query può contenere una o più coppie chiave-valore, in cui il nome del campo e il relativo valore sono separati da un segno di uguale (=). Ogni coppia chiave-valore è separata da una e commerciale (&). Ad esempio, `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Se è presente più di una coppia chiave-valore in una stringa di query di una richiesta, l'ordine non ha importanza. 
 
 > [!IMPORTANT]
 > I prodotti della rete CDN Standard e Premium forniscono la stessa funzionalità di memorizzazione nella cache delle stringhe di query, ma l'interfaccia utente è diversa.  Questo articolo descrive l'interfaccia per la **rete CDN Standard di Azure fornita da Akamai** e della **rete CDN Standard di Azure fornita da Verizon**. Per informazioni sulla memorizzazione nella cache di stringhe di query con la **rete CDN Premium di Azure fornita da Verizon**, vedere l'articolo [Controllo del comportamento di memorizzazione nella cache delle richieste della rete CDN con le stringhe di query - Premium](cdn-query-string-premium.md).

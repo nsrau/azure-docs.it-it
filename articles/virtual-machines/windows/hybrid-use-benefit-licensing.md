@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
+ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: 11b491b52fe359427c5e395d5d8c3be3cddcdc89
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c2b406530aec60299ea2db38ad9e34895fe36dcd
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Vantaggio Azure Hybrid per Windows Server
 Per i clienti con Software Assurance, il vantaggio Azure Hybrid per Windows Server consente di usare le licenze di Windows Server locali e di eseguire macchine virtuali di Windows in Azure a costi ridotti. È possibile usare il vantaggio Azure Hybrid per Windows Server per distribuire nuove macchine virtuali da qualsiasi immagine di Windows Server o immagine personalizzata di Windows come piattaforma supportata da Azure. Questo articolo illustra la procedura necessaria per distribuire nuove macchine virtuali con il vantaggio Azure Hybrid per Windows Server e per aggiornare le macchine virtuali in esecuzione esistenti. Per altre informazioni sulle licenze e i risparmi associati al vantaggio Azure Hybrid per Windows Server, vedere la pagina sulle [licenze disponibili per il vantaggio Azure Hybrid per Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -28,7 +28,7 @@ Per i clienti con Software Assurance, il vantaggio Azure Hybrid per Windows Serv
 >
 
 > [!NOTE]
-> È in corso l'implementazione del vantaggio Azure Hybrid per Windows Server con macchine virtuali su cui sono già addebitati costi per altre applicazioni software come SQL Server o per un'immagine di Marketplace di terze parti. Se si prova a convertire una macchina virtuale di Windows Server su cui sono già addebitati altri costi software che non è supportato in quell'area, si verifica un errore 409 di questo tipo: "La modifica della proprietà 'LicenseType' non è consentita".
+> È in corso l'implementazione del vantaggio Azure Hybrid per Windows Server con macchine virtuali su cui sono già addebitati costi per altre applicazioni software come SQL Server o per un'immagine di Marketplace di terze parti. Se si prova a convertire una macchina virtuale di Windows Server su cui sono già addebitati altri costi software che non è supportato in quell'area, si verifica un errore 409 di questo tipo: "La modifica della proprietà 'LicenseType' non è consentita". Accade lo stesso se si cerca l'opzione di configurazione del portale per eseguire la conversione e non viene visualizzata per la macchina virtuale.
 >
 
 
@@ -82,6 +82,10 @@ Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
 
 ### <a name="portal"></a>di Microsoft Azure
 Nel pannello della macchina virtuale del portale è possibile aggiornare la macchina virtuale per l'utilizzo con il vantaggio Azure Hybrid selezionando l'opzione "Configurazione" e modificando l'opzione "Vantaggio Azure Hybrid"
+
+> [!NOTE]
+> Se l'opzione per attivare o disattivare "Vantaggio Azure Hybrid" in "Configurazione" non è visualizzata, è perché la conversione non è ancora supportata per il tipo di macchina virtuale selezionato (ad esempio una macchina virtuale creata dall'immagine personalizzata o da un'immagine con il software a pagamento aggiuntivo come SQL Server o software di terze parti di Azure Marketplace).
+>
 
 ## <a name="upload-a-windows-server-vhd"></a>Caricare un disco rigido virtuale di Windows Server
 Per distribuire una macchina virtuale di Windows Server in Azure è prima necessario creare un disco rigido virtuale contenente la build di base di Windows. Questo disco rigido virtuale deve essere correttamente preparato con Sysprep prima di caricarlo in Azure. Sono disponibili [altre informazioni sui requisiti dei dischi rigidi virtuali e sul processo Sysprep](upload-generalized-managed.md) e [Supporto Sysprep per i ruoli server](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Eseguire il backup della VM prima di eseguire Sysprep. 
@@ -180,12 +184,14 @@ Nei modelli Resource Manager per set di scalabilità di macchine virtuali, è ne
 È possibile anche [Creare e distribuire un set di scalabilità di macchine virtuali](#https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) e impostare la proprietà LicenseType.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Altre informazioni su [come risparmiare con il vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+Altre informazioni su [Come risparmiare con il Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
-Altre informazioni sulle [indicazioni dettagliate delle licenze per il vantaggio Azure Hybrid per Windows Server](http://go.microsoft.com/fwlink/?LinkId=859786)
+Altre informazioni sulle [indicazioni dettagliate delle licenze per il vantaggio Azure Hybrid per Windows Server](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)
 
-Altre informazioni sull' [uso dei modelli di Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+Altre informazioni sull' [uso dei modelli di Resource Manager](../../azure-resource-manager/resource-group-overview.md)
 
-Altre informazioni su come il [vantaggio Azure Hybrid e Azure Site Recovery rendono la migrazione delle applicazioni in Azure ancora più conveniente](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/).
+Altre informazioni su come il [Vantaggio Azure Hybrid e Azure Site Recovery rendano la migrazione delle applicazioni in Azure ancora più conveniente](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
+
+Altre informazioni su [Windows 10 in Azure con Multitenant Hosting Rights](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
 
 Altre informazioni sulle [Domande frequenti](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/)

@@ -1,6 +1,6 @@
 ---
-title: Informazioni sui dischi e sui dischi rigidi virtuali per le VM Linux di Microsoft Azure | Documentazione Microsoft
-description: Informazioni di base sui dischi e sui dischi rigidi virtuali delle macchine virtuali in Azure.
+title: Informazione sull'archiviazione su disco non gestita (BLOB di pagine) e gestita per le VM Linux di Microsoft Azure | Microsoft Docs
+description: Nozioni di base sull'archiviazione su disco non gestita (BLOB di pagine) e gestita per le VM Linux in Azure.
 services: storage
 documentationcenter: 
 author: robinsh
@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: be5f09af275142590ec6ade02562e914d5726e08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fee78c87c1d73f2a0816d6e52ad48a93eef8dfc3
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
-# <a name="about-disks-and-vhds-for-azure-linux-vms"></a>Informazioni sui dischi e sui dischi rigidi virtuali per le VM Linux di Azure
+# <a name="about-disks-storage-for-azure-linux-vms"></a>Informazioni sull'archiviazione su disco per le VM Linux di Azure
 Analogamente a qualsiasi altro computer, le macchine virtuali in Azure utilizzano i dischi come posizioni per archiviare un sistema operativo, le applicazioni e i dati. Tutte le macchine virtuali di Azure dispongono di almeno due dischi: un disco del sistema operativo Linux e un disco temporaneo. Il disco del sistema operativo viene creato da un'immagine e sia il disco del sistema operativo sia l'immagine sono effettivamente dischi rigidi virtuali archiviati in un account di archiviazione di Azure. Anche le macchine virtuali possono disporre di uno o più dischi dati archiviati in dischi rigidi virtuali. 
 
 Questo articolo illustra i diversi usi dei dischi e descrive i diversi tipi di dischi che è possibile creare e usare. Questo articolo è disponibile anche per le [macchine virtuali Windows](../windows/about-disks-and-vhds.md).
@@ -59,6 +59,6 @@ Quando viene creata una macchina virtuale da un'immagine, Azure crea un disco de
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Collegare un disco](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per aggiungere altro spazio di archiviazione per la VM.
-* [Configurare RAID software](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per la ridondanza.
-* [Acquisire una macchina virtuale Linux](./classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) per poter distribuire rapidamente macchine virtuali aggiuntive.
+* [Creare uno snapshot](snapshot-copy-managed-disk.md).
+* [Eseguire la conversione in dischi gestiti](convert-unmanaged-to-managed-disks.md).
 

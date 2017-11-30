@@ -1,6 +1,6 @@
 ---
 title: IT Service Management Connector in Azure Log Analytics | Microsoft Docs
-description: Usare IT Service Management Connector per monitorare e gestire centralmente gli elementi di lavoro di ITSM in Azure Log Analytics e risolvere rapidamente eventuali problemi.
+description: Questo articolo fornisce una panoramica del Connettore della gestione dei servizi IT (ITSMC) e delle informazioni su come usare questa soluzione per monitorare e gestire centralmente gli elementi di lavoro di ITSM in OMS Log Analytics e risolvere rapidamente eventuali problemi.
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: ba8542640fcec6e4bc63d8f0a41bf85b221d4c5e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bd384255b3c46b3ae88b1269ab26e0ddaa6f6e77
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Gestire centralmente gli elementi di lavoro ITSM con IT Service Management Connector (anteprima)
 
 ![Simbolo di IT Service Management Connector](./media/log-analytics-itsmc/itsmc-symbol.png)
 
-Connettore di Gestione dei servizi IT offre un'integrazione bidirezionale tra un prodotto/servizio Gestione dei servizi IT supportato e Log Analytics.  Grazie a questa connessione, è possibile creare eventi imprevisti, avvisi o eventi in un prodotto Gestione dei servizi IT in base ad avvisi o record di log di Log Analytics. Il connettore importa anche dati, ad esempio eventi imprevisti e richieste di modifica dal prodotto ITSM in Log Analytics di OMS.
+Connettore di Gestione dei servizi IT offre un'integrazione bidirezionale tra un prodotto/servizio Gestione dei servizi IT supportato e Log Analytics.  Grazie a questa connessione, è possibile creare eventi imprevisti, avvisi o eventi in un prodotto Gestione dei servizi IT in base ad avvisi o record di log di Log Analytics o avvisi di Azure. Il connettore importa anche dati, ad esempio eventi imprevisti e richieste di modifica dal prodotto ITSM in Log Analytics di OMS.
 
 Con Gestione dei servizi IT è possibile:
 
@@ -56,7 +56,7 @@ Dopo averlo aggiunto correttamente, IT Service Management Connector viene visual
  ![Aggiornamento di ITSMC refresh](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
 
 
-## <a name="configuring-the-connection-with-your-itsm-software"></a>Configurazione della connessione con il software ITSM
+## <a name="configuring-the-itsmc-connection-with-your-itsm-productsservices"></a>Configurazione della connessione ITSMC con i prodotti/servizi ITSM
 
 Gestione dei servizi IT supporta le connessioni a **System Center Service Manager**, **ServiceNow**, **Provance** e **Cherwell**.
 
@@ -258,6 +258,7 @@ L'avviso OMS creato può essere visualizzato in **Impostazioni**>**Avvisi**. Gli
 4. Inserire i valori appropriati nelle caselle di testo **Tipo di contatto**, **Impatto**, **Urgenza**, **Categoria** e **Sottocategoria** e quindi fare clic su **Crea**.
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Creare elementi di lavoro di Gestione dei servizi IT dagli avvisi di Azure
+
 Gestione dei servizi IT è integrato con Gruppi di azioni.
 
 I [gruppi di azioni](../monitoring-and-diagnostics/monitoring-action-groups.md) consentono di attivare azioni modulari e riutilizzabili per gli avvisi di Azure. L'azione ITSM nei Gruppi di azioni consente di creare elementi di lavoro nel prodotto Gestione dei servizi IT dotato di una connessione esistente alla soluzione Connettore di Gestione dei servizi IT.
@@ -286,7 +287,7 @@ Quando si crea/modifica una regola di avviso di Azure, usare un gruppo di azioni
 
 >[!NOTE]
 
-> Attualmente solo gli avvisi del log attività supportano l'azione Gestione dei servizi IT. L'azione Gestione dei servizi IT non è supportata per gli altri avvisi di Azure.
+> Attualmente, solo gli avvisi del log attività supportano l'azione Gestione dei servizi IT, gli altri avvisi di Azure non la supportano.
 
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>Risolvere i problemi delle connessioni ITSM in OMS

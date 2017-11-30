@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: ff5da6a07512c323cd281832d1ca8a4c0ec5a816
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: dc506ce0872721a6da1c440eead107396c249f5f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azure, che vengono definiti anche quote. Al momento nel documento non vengono trattati tutti i servizi di Azure. Nel corso del tempo l'elenco verrà ampliato e aggiornato in modo da coprire un maggior numero di servizi della piattaforma.
@@ -64,6 +64,7 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Data Factory](#data-factory-limits)
 * [Analisi Data Lake](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
+* [Servizio Migrazione del database di Azure](#database-migration-service-limits)
 * [DNS](#dns-limits)
 * [Hub eventi](#event-hubs-limits)
 * [Hub IoT](#iot-hub-limits)
@@ -262,6 +263,9 @@ Per informazioni più dettagliati sui limiti, ad esempio dimensioni dei document
 
 ### <a name="data-lake-store-limits"></a>Limiti di Data Lake Store
 [!INCLUDE [azure-data-lake-store-limits](../includes/azure-data-lake-store-limits.md)]
+
+### <a name="database-migration-service-limits"></a>Limiti relativi al Servizio Migrazione del database di Azure
+[!INCLUDE [database-migration-service-limits](../includes/database-migration-service-limits.md)]
 
 ### <a name="stream-analytics-limits"></a>Limiti relativi ad analisi di flusso
 [!INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]

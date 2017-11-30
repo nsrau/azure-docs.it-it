@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/20/2017
+ms.date: 11/20/2017
 ms.author: denlee
-ms.openlocfilehash: 4470b5adb52debce1492b084ce71100da77da046
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 84a9ae4a48e7e71d70214550dd203a0468a31de6
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Creare un database a grafo con Java e il portale di Azure
 
@@ -62,8 +62,8 @@ Prima di potere creare un database a grafo, è necessario creare un account data
     ---|---|---
     ID database|sample-database|Immettere *sample-database* come nome del nuovo database. I nomi dei database devono avere una lunghezza compresa tra 1 e 255 caratteri e non possono contenere `/ \ # ?` o spazi finali.
     ID grafo|sample-graph|Immettere *sample-graph* come nome della nuova raccolta. I nomi dei grafi presentano gli stessi requisiti relativi ai caratteri degli ID di database.
-    Capacità di archiviazione|Fissa (10 GB)|Impostare il valore su **Fissa (10 GB)**. Questo valore indica la capacità di archiviazione del database.
-    Velocità effettiva|400 UR/s|Modificare la velocità effettiva in 400 unità di richiesta al secondo (UR/sec). Se si vuole ridurre la latenza, è possibile aumentare la velocità effettiva in un secondo momento.
+    Capacità di archiviazione|Fissa (10 GB)|Modificare il valore in **Fissa (10 GB)**. Questo valore indica la capacità di archiviazione del database.
+    Velocità effettiva|400 UR/s|Modificare la velocità effettiva in 400 unità richiesta al secondo (UR/sec). Se si vuole ridurre la latenza, è possibile aumentare la velocità effettiva in un secondo momento.
     Chiave di partizione|Lasciare vuoto|Per le finalità di questa esercitazione introduttiva, lasciare vuoto il valore relativo alla chiave di partizione.
 
 3. Dopo aver compilato il modulo, fare clic su **OK**.
@@ -72,13 +72,19 @@ Prima di potere creare un database a grafo, è necessario creare un account data
 
 Si può ora passare a usare il codice. È possibile clonare ora un'app API Graph da GitHub, impostare la stringa di connessione ed eseguirla. Come si noterà, è facile usare i dati a livello di codice.  
 
-1. Aprire una finestra del terminale Git, ad esempio git bash, ed eseguire il comando `cd` per passare a una cartella in cui installare l'app di esempio.  
+1. Aprire un prompt dei comandi, creare una nuova cartella denominata git-samples, quindi chiudere il prompt dei comandi.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Aprire una finestra del terminale Git, ad esempio git bash, ed eseguire il comando `cd` per passare a una cartella in cui installare l'app di esempio.  
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Eseguire il comando seguente per clonare l'archivio di esempio. Questo comando crea una copia dell'app di esempio nel computer in uso. 
+3. Eseguire il comando seguente per clonare l'archivio di esempio. Questo comando crea una copia dell'app di esempio nel computer in uso. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-java-getting-started.git
@@ -86,7 +92,7 @@ Si può ora passare a usare il codice. È possibile clonare ora un'app API Graph
 
 ## <a name="review-the-code"></a>Esaminare il codice
 
-Questo passaggio è facoltativo. Per scoprire in che modo le risorse del database vengono create nel codice, è possibile esaminare i frammenti di codice seguenti. I frammenti di codice derivano tutti dal file `Program.java` che si trova nella cartella C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted. In alternativa, è possibile passare ad [Aggiornare la stringa di connessione](#update-your-connection-string). 
+Questo passaggio è facoltativo. Per scoprire in che modo le risorse del database vengono create nel codice, è possibile esaminare i frammenti di codice seguenti. I frammenti di codice derivano tutti dal file `Program.java` che si trova nella cartella C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted. In alternativa, è possibile passare ad [Aggiornare la stringa di connessione](#update-your-connection-information). 
 
 * Viene inizializzato `Client` di Gremlin dalla configurazione in `src/remote.yaml`.
 
@@ -134,7 +140,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
     `username: /dbs/$database$/colls/$collection$`
 
-    in 
+    to 
 
     `username: /dbs/sample-database/colls/sample-graph`
 
@@ -148,11 +154,23 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
     cd "C:\git-samples\azure-cosmos-db-graph-java-getting-started"
     ```
 
-2. Nella finestra del terminale Git digitare `mvn package` per installare i pacchetti Java necessari.
+2. Nella finestra del terminale Git usare il comando seguente per installare i pacchetti Java necessari.
 
-3. Nella finestra del terminale Git eseguire `mvn exec:java -D exec.mainClass=GetStarted.Program` per avviare l'applicazione Java.
+   ```
+   mvn package
+   ```
 
-    La finestra del terminale mostra l'aggiunta dei vertici al grafo. Al termine del programma tornare al portale di Azure nel browser Internet. 
+3. Nella finestra del terminale Git usare il comando seguente per avviare l'applicazione Java.
+    
+    ```
+    mvn exec:java -D exec.mainClass=GetStarted.Program
+    ```
+
+    La finestra del terminale mostra l'aggiunta dei vertici al grafo. 
+    
+    Se si verificano errori di timeout, controllare di avere aggiornato correttamente le informazioni di connessione in [Aggiornare le informazioni di connessione](#update-your-connection-information) e provare a eseguire di nuovo l'ultimo comando. 
+    
+    All'arresto del programma premere Invio per tornare al portale di Azure nel browser Internet. 
 
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Verificare e aggiungere dati di esempio
@@ -200,7 +218,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
 10. Fare clic su **OK**. 
 
-11. Fare clic su **Applica filtro** con il filtro `g.V()` predefinito per visualizzare tutti i valori del grafo. Tutti gli utenti sono ora visualizzati nell'elenco **Risultati**. 
+11. Fare clic sul pulsante **Applica filtro** con il filtro `g.V()` predefinito per visualizzare tutti i valori nel grafo. Tutti gli utenti sono ora visualizzati nell'elenco **Risultati**. 
 
     Quando si aggiungono altri dati, è possibile usare i filtri per limitare i risultati visualizzati. Per impostazione predefinita, Esplora dati usa `g.V()` per recuperare tutti i vertici di un grafo. È possibile modificarlo in un'altra [query di grafo](tutorial-query-graph.md), ad esempio `g.V().count()`, per restituire un conteggio di tutti i vertici del grafo in formato JSON. Se è stato modificato il filtro, reimpostarlo su `g.V()` e fare clic su **Applica filtro** per visualizzare di nuovo tutti i risultati.
 

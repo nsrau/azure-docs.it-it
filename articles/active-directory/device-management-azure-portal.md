@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: cd13ecf50cf03c362f8da2da83ab698c4e8ba0cc
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 83a1ba0b97c0617884b1645ad54e259f04052f49
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Gestione dei dispositivi tramite il portale di Azure
 
@@ -32,7 +32,30 @@ In questo argomento:
 
 - Vengono fornite informazioni sulla gestione dei dispositivi tramite il portale di Azure
 
+## <a name="manage-devices"></a>Gestire i dispositivi 
 
+Il portale di Azure consente una gestione centralizzata dei dispositivi. È possibile accedere a questa posizione usando un [collegamento diretto](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) o eseguendo la procedura manuale seguente:
+
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
+
+2. Sulla barra di spostamento a sinistra fare clic su **Active Directory**.
+
+    ![Configurare le impostazioni dei dispositivi](./media/device-management-azure-portal/01.png)
+
+3. Nella sezione **Gestisci** fare clic su **Dispositivi**.
+
+    ![Configurare le impostazioni dei dispositivi](./media/device-management-azure-portal/11.png)
+ 
+La pagina **Dispositivi** consente di:
+
+- Configurare le impostazioni di gestione dei dispositivi
+
+- Individuare i dispositivi
+
+- Eseguire attività di gestione dei dispositivi
+
+- Esaminare i log di controllo correlati alla gestione dei dispositivi  
+  
 
 ## <a name="configure-device-settings"></a>Configurare le impostazioni dei dispositivi
 

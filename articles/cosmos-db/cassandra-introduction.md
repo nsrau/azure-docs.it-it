@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 23909c65499697be66fc2d2f43c6d0bd8a02b614
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: fe911b69278021262f1d90f2157bb78ca48db0db
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="introduction-to-apache-cassandra-api-for-azure-cosmos-db"></a>Introduzione all'API Apache Cassandra per Azure Cosmos DB
 
@@ -36,7 +36,10 @@ Azure Cosmos DB offre l'API Cassandra (anteprima) per applicazioni scritte per A
 
 ![API Cassandra di Azure Cosmos DB](./media/cassandra-introduction/cosmosdb-cassandra.png)
 
-L'API Cassandra consente di interagire con i dati archiviati in Azure Cosmos DB usando gli strumenti basati sul linguaggio di query Cassandra, ad esempio CQLSH, e i driver client Cassandra già noti.
+L'API Cassandra consente di interagire con i dati archiviati in Azure Cosmos DB usando gli strumenti basati sul linguaggio di query Cassandra, ad esempio CQLSH, e i driver client Cassandra già noti. Altre informazioni sono disponibili in questo video Microsoft Mechanics con il responsabile principale della progettazione Kirill Gavrylyuk.
+
+> [!VIDEO https://www.youtube.com/embed/1Sf4McGN1AQ]
+>
 
 ## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Quali sono i vantaggi dell'utilizzo dell'API Apace Cassandra per Azure Cosmos DB?
 
@@ -56,17 +59,34 @@ L'API Cassandra consente di interagire con i dati archiviati in Azure Cosmos DB 
 
 **Livello aziendale**: sicurezza e conformità per impostazione predefinita: Azure cosmos DB fornisce [certificazioni di conformità](https://www.microsoft.com/trustcenter) affinché gli utenti possono usare la piattaforma senza doversi preoccupare di problemi di conformità. Fornisce inoltre la crittografia dei dati inattivi e in transito, firewall IP e log di controllo per le attività del piano di controllo.  
 
+<a id="sign-up-now"></a>
+## <a name="sign-up-now"></a>Effettua l'iscrizione ora 
+
+Se si dispone già di una sottoscrizione di Azure, è possibile iscriversi al programma dell'API Cassandra (anteprima) nel [portale di Azure](https://aka.ms/cosmosdb-cassandra-signup).  Se non si ha familiarità con Azure, registrarsi per una [versione di prova gratuita](https://azure.microsoft.com/free) che prevede 12 mesi di accesso libero ad Azure Cosmos DB. Per richiedere l'accesso al programma API Cassandra (anteprima), completare i passaggi seguenti.
+
+1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Nuovo** > **Database** > **Azure Cosmos DB**. 
+
+2. Nella pagina Nuovo account selezionare **Cassandra** nella casella API. 
+
+3. Nella casella **Sottoscrizione** selezionare la sottoscrizione di Azure da usare per l'account.
+
+4. Fare clic su **Iscrizione immediata all'anteprima**.
+
+    ![API Cassandra di Azure Cosmos DB](./media/cassandra-introduction/cassandra-sign-up.png)
+
+3. Nel riquadro Iscrizione immediata all'anteprima fare clic su **OK**. 
+
+    Dopo aver inviato la richiesta, nel riquadro Nuovo account lo stato cambierà, diventando **In attesa di approvazione**. 
+
+Dopo l'invio della richiesta, attendere la notifica di approvazione della richiesta via posta elettronica. A causa dell'elevato volume di richieste, si riceverà una notifica entro una settimana. Non è necessario creare un ticket di supporto per completare la richiesta. Le richieste verranno esaminate nell'ordine in cui sono state ricevute. 
+
 ## <a name="how-to-get-started"></a>Attività iniziali
-Le guide introduttive dell'API Cassandra consentono di creare un account dell'API Cassandra di Azure Cosmos DB e di creare un'app Cassandra:
+Dopo aver aderito al programma di anteprima, seguire le guide introduttive sull'API Cassandra per creare un'app tramite l'API Cassandra:
 
 * [Guida introduttiva: Creare un'app Web Cassandra con Node.js e Azure Cosmos DB](create-cassandra-nodejs.md)
 * [Guida introduttiva: Creare un'app Web Cassandra con Java e Azure Cosmos DB](create-cassandra-java.md)
 * [Guida introduttiva: Creare un'app Web Cassandra con .NET e Azure Cosmos DB](create-cassandra-dotnet.md)
 * [Guida introduttiva: Creare un'app Web Cassandra con Python e Azure Cosmos DB](create-cassandra-python.md)
-
-## <a name="sign-up-now"></a>Effettua l'iscrizione ora 
-
-Se si dispone già di una sottoscrizione di Azure, è possibile iscriversi all'API Cassandra (anteprima) nel [portale di Azure](https://aka.ms/cosmosdb-cassandra-signup). Se non si ha familiarità con Azure, registrarsi per una [versione di prova gratuita](https://azure.microsoft.com/free) che prevede 12 mesi di accesso libero ad Azure Cosmos DB.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

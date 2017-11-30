@@ -14,33 +14,33 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 41b8f9d439184b91f8105e6bd136e48525632a85
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 8c15d198e92b1478b84b2140df416df3909ba141
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Gestire la scadenza del servizio Archiviazione BLOB di Azure nella rete per la distribuzione di contenuti di Azure
 > [!div class="op_single_selector"]
-> * [App Web/Servizi cloud di Azure, ASP.NET o IIS](cdn-manage-expiration-of-cloud-service-content.md)
+> * [Contenuto Web di Azure](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Archivio BLOB di Azure](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
-Il [servizio BLOB](../storage/common/storage-introduction.md#blob-storage) di [Archiviazione di Azure](../storage/common/storage-introduction.md) è una delle diverse origini basate su Azure integrate nella rete per la distribuzione di contenuti (CDN) di Azure. Qualsiasi contenuto BLOB accessibile pubblicamente può essere memorizzato nella cache della rete CDN di Azure fino allo scadere della relativa durata (TTL). La durata (TTL) è determinata dall'intestazione [`Cache-Control` ](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) nella risposta HTTP di Archiviazione di Azure.
+Il [servizio di archiviazione BLOB](../storage/common/storage-introduction.md#blob-storage) in Archiviazione di Azure è una delle diverse origini basate su Azure integrate nella rete per la distribuzione di contenuti (CDN) di Azure. Qualsiasi contenuto BLOB accessibile pubblicamente può essere memorizzato nella cache della rete CDN di Azure fino allo scadere della relativa durata (TTL). La durata (TTL) è determinata dall'intestazione `Cache-Control` nella risposta HTTP del server di origine. Questo articolo descrive vari modi in cui è possibile impostare l'intestazione `Cache-Control` in un BLOB in Archiviazione di Azure.
 
 > [!TIP]
-> È possibile scegliere di non impostare alcuna durata (TTL) per un BLOB. In tal caso, la rete CDN di Azure applica automaticamente una durata (TTL) predefinita di sette giorni.
+> È possibile scegliere di non impostare alcuna durata (TTL) per un BLOB. In tal caso, la rete CDN di Azure applica automaticamente una durata (TTL) predefinita di sette giorni. Questa impostazione predefinita di durata (TTL) si applica solo alle ottimizzazioni di distribuzione web generali. Per le ottimizzazioni di file di grandi dimensioni, il valore TTL predefinito è un giorno e per le ottimizzazioni dei flussi dei file multimediali, il valore TTL predefinito è un anno.
 > 
 > Per altre informazioni sull'uso della rete CDN di Azure per velocizzare l'accesso a BLOB e altri file, vedere [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md).
 > 
 > Per altre informazioni su Archiviazione BLOB di Azure, vedere [Introduzione all'archiviazione BLOB](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
  
 
-Questa esercitazione illustra vari modi in cui è possibile impostare la durata (TTL) per un BLOB in Archiviazione di Azure.  
+## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>Impostazione delle intestazioni Cache-Control tramite Azure PowerShell
+[Azure PowerShell](/powershell/azure/overview) è uno dei modi più rapidi ed efficaci per amministrare i servizi di Azure. Usare il cmdlet `Get-AzureStorageBlob` per ottenere un riferimento al BLOB, quindi impostare la proprietà `.ICloudBlob.Properties.CacheControl`. 
 
-## <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell](/powershell/azure/overview) è uno dei modi più rapidi ed efficaci per amministrare i servizi di Azure.  Usare il cmdlet `Get-AzureStorageBlob` per ottenere un riferimento al BLOB, quindi impostare la proprietà `.ICloudBlob.Properties.CacheControl`. 
+ad esempio:
 
 ```powershell
 # Create a storage context
@@ -59,10 +59,12 @@ $blob.ICloudBlob.SetProperties()
 > [!TIP]
 > È anche possibile usare PowerShell per [gestire i profili e gli endpoint della rete CDN](cdn-manage-powershell.md).
 > 
-> 
+>
 
-## <a name="azure-storage-client-library-for-net"></a>Libreria client di archiviazione di Azure per .NET
-Per impostare la durata (TTL) di un BLOB con .NET, usare la [libreria client di archiviazione di Azure per .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) per impostare la proprietà [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx).
+## <a name="setting-cache-control-headers-by-using-net"></a>Impostazione delle intestazioni Cache-Control tramite .NET
+Per impostare un'intestazione `Cache-Control` tramite un codice .NET, usare la [libreria client di Archiviazione di Azure per .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) per impostare la proprietà [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx).
+
+ad esempio:
 
 ```csharp
 class Program
@@ -92,29 +94,31 @@ class Program
 ```
 
 > [!TIP]
-> Molti altri esempi di codice .NET sono disponibili in [Azure Blob Storage Samples for .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) (Esempi di archiviazione BLOB di Azure per .NET).
-> 
+> Altri esempi di codice .NET sono disponibili in [Esempi di Archiviazione BLOB di Azure per .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/).
 > 
 
-## <a name="other-methods"></a>Altri metodi
-* [Interfaccia della riga di comando di Azure](../cli-install-nodejs.md)
-  
-    Quando si carica il BLOB, impostare la proprietà *cacheControl* usando l'opzione `-p`. Questo esempio imposta la durata (TTL) su un'ora, ovvero 3.600 secondi.
+## <a name="setting-cache-control-headers-by-using-other-methods"></a>Impostazione delle intestazioni Cache-Control tramite altri metodi
+
+### <a name="azure-storage-explorer"></a>Azure Storage Explorer
+Con [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/), è possibile visualizzare e modificare le risorse di archiviazione BLOB, incluse le proprietà, come ad esempio la proprietà *CacheControl*. 
+
+### <a name="azure-command-line-interface"></a>Interfaccia della riga di comando di Azure
+Quando si carica un BLOB, è possibile impostare la proprietà *cacheControl* con l'opzione `-p` nell'[interfaccia della riga di comando di Azure](../cli-install-nodejs.md). Il seguente esempio mostra come impostare la durata TTL su un'ora (3600 secondi):
   
     ```text
     azure storage blob upload -c <connectionstring> -p cacheControl="public, max-age=3600" .\test.txt myContainer test.txt
     ```
-* [API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+
+### <a name="azure-storage-services-rest-api"></a>API REST dei servizi di archiviazione di Azure
+È possibile usare l'[API REST dei servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx) per impostare in modo esplicito la prorpietà *x-ms-blob-cache-control* tramite le operazioni seguenti in una richiesta:
   
-    Impostare in modo esplicito la proprietà *x-ms-blob-cache-control* su una richiesta [Put Blob](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx), [Put Block List](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx) o [Set Blob Properties](https://msdn.microsoft.com/library/azure/ee691966.aspx).
-* Strumenti di gestione dell'archiviazione di terze parti
-  
-    Alcuni strumenti di gestione di Archiviazione di Azure di terze parti consentono di impostare la proprietà *CacheControl* per i BLOB. 
+   - [Put Blob](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx)
+   - [Elenco Put Block](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx)
+   - [Impostare le proprietà BLOB](https://msdn.microsoft.com/library/azure/ee691966.aspx)
 
 ## <a name="testing-the-cache-control-header"></a>Test dell'intestazione Cache-Control
-È possibile verificare facilmente la durata (TTL) dei BLOB.  Usare gli [strumenti di sviluppo](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del browser per verificare che il BLOB includa l'intestazione della risposta `Cache-Control`. È anche possibile usare uno strumento come **wget**, [Postman](https://www.getpostman.com/) o [Fiddler](http://www.telerik.com/fiddler) per esaminare le intestazioni della risposta.
+È possibile verificare facilmente le impostazioni di durata (TTL) del BLOB. Con gli [strumenti di sviluppo](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del browser verificare che il BLOB includa l'intestazione della risposta `Cache-Control`. È anche possibile usare uno strumento come [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/) o [Fiddler](http://www.telerik.com/fiddler) per esaminare le intestazioni della risposta.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Informazioni sull'intestazione `Cache-Control`](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 * [Informazioni su come gestire la scadenza del contenuto di Servizi cloud nella rete CDN di Azure](cdn-manage-expiration-of-cloud-service-content.md)
 

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: 9961a39f8e422d72301958ef467e4267f2c6c498
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6c73cf2e96503f47dd4234387222169cb30b4cce
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di un database SQL di Azure multi-tenant partizionato in un'app SaaS multi-tenant
 
@@ -35,7 +35,7 @@ In questa esercitazione si apprenderà come:
 > * Simulare l'utilizzo in un database multi-tenant partizionato tramite un generatore di carico specificato
 > * Monitorare il database mentre risponde all'aumento del carico
 > * Aumentare le prestazioni del database in risposta al carico maggiore
-> * Effettuare il provisioning di un nuovo tenant in un database autonomo
+> * Eseguire il provisioning di un tenant in un database a tenant singolo
 
 Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
 
@@ -53,7 +53,7 @@ La gestione delle prestazioni dei database comprende la compilazione e l'analisi
 * Per rispondere a fluttuazioni a più lungo termine o a variazioni del numero di tenant, **è possibile spostare singoli tenant in un altro database**.
 * Per rispondere ad aumenti del carico a breve termine per *singoli* tenant, **è possibile rimuovere singoli tenant da un database e assegnare loro uno specifico livello di prestazioni**. Non appena il carico si riduce di nuovo, il tenant può essere reinserito nel database multi-tenant. Quando questo tipo di comportamento è noto in anticipo, i tenant possono essere spostati preventivamente per assicurarsi che abbiano sempre le risorse necessarie ed evitare effetti sugli altri tenant nel database multi-tenant. Se si tratta di un requisito prevedibile, come nel caso di un picco di vendite di biglietti per un evento di grande richiamo, questo comportamento di gestione può essere integrato nell'applicazione.
 
-Il [portale di Azure](https://portal.azure.com) include funzionalità di monitoraggio e avviso predefinite per la maggior parte delle risorse. Per il database SQL, le funzionalità di monitoraggio e avviso sono disponibili sui database. Le funzionalità di monitoraggio e avviso predefinite sono specifiche delle risorse, quindi è comodo usarle per un numero limitato di risorse, mentre non sono altrettanto utili quando si usano molte risorse.
+Il [portale di Azure](https://portal.azure.com) include funzionalità di monitoraggio e avviso predefinite per la maggior parte delle risorse. Per il database SQL, le funzionalità di monitoraggio e avviso sono disponibili sui database. Le funzionalità di monitoraggio e avviso predefinite sono specifiche delle risorse, quindi è comodo usarle per un numero limitato di risorse, mentre non sono utili quando si usano molte risorse.
 
 Per gli scenari con volumi elevati in cui si lavora con molte risorse, si può usare [Log Analytics (OMS)](https://azure.microsoft.com/services/log-analytics/). Si tratta di un servizio di Azure separato che fornisce funzionalità di analisi per log di diagnostica e dati di telemetria raccolti in un'area di lavoro di Log Analytics. Log Analytics consente di raccogliere dati di telemetria da molti servizi e supporta l'esecuzione di query e l'impostazione di avvisi.
 
@@ -71,7 +71,7 @@ Se si è già effettuato il provisioning di un batch di tenant in un'esercitazio
 1. Impostare **$DemoScenario** = **1**, _Effettuare il provisioning di un batch di tenant_
 1. Premere **F5** per eseguire lo script.
 
-In pochi minuti lo script distribuirà 17 tenant nel database multi-tenant. 
+In pochi minuti lo script distribuisce 17 tenant nel database multi-tenant. 
 
 Lo script *New-TenantBatch* crea nuovi tenant con chiavi univoche all'interno del database multi-tenant partizionato e li inizializza con il nome del tenant e il tipo di sede di eventi. Questo comportamento è coerente con il modo in cui l'app effettua il provisioning di un nuovo tenant. 
 
@@ -120,9 +120,9 @@ Impostare un avviso per il database da attivare quando l'utilizzo raggiunge il \
 1. Specificare un nome, ad esempio **DTU elevate**.
 1. Impostare i valori seguenti:
    * **Metrica = Percentuale DTU**
-   * **Condizione = maggiore di** .
+   * **Condizione = maggiore di**
    * **Soglia = 75**.
-   * **Periodo = Negli ultimi 30 minuti**.
+   * **Periodo = Negli ultimi 30 minuti**
 1. Aggiungere un indirizzo e-mail alla casella *Indirizzi di posta elettronica aggiuntivi dell'amministratore* e fare clic su **OK**.
 
    ![impostare l'avviso](media/saas-multitenantdb-performance-monitoring/set-alert.png)
@@ -195,7 +195,7 @@ In questa esercitazione si apprenderà come:
 > * Simulare l'utilizzo in un database multi-tenant partizionato tramite un generatore di carico specificato
 > * Monitorare il database mentre risponde all'aumento del carico
 > * Aumentare le prestazioni del database in risposta al carico maggiore
-> * Effettuare il provisioning di un nuovo tenant in un database autonomo
+> * Eseguire il provisioning di un tenant in un database a tenant singolo
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

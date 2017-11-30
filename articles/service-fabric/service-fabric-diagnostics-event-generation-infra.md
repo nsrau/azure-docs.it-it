@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/24/2017
+ms.date: 11/20/2017
 ms.author: dekapur
-ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1277969d820c6348392d07e2dc5f35b52377fd7e
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>Generazione di eventi e log a livello piattaforma
 
@@ -26,12 +26,13 @@ ms.lasthandoff: 10/11/2017
 
 Il monitoraggio a livello piattaforma è importante per determinare se l'hardware e il cluster abbiano o meno il comportamento previsto. Service Fabric può mantenere in esecuzione le applicazioni durante un errore hardware, ma è comunque necessario diagnosticare se l'errore si sia verificato in un'applicazione o nell'infrastruttura sottostante. È consigliabile monitorare i cluster anche per pianificare in modo più efficiente la capacità e supportare le decisioni in merito all'aggiunta o alla rimozione dell'hardware.
 
-Service Fabric offre cinque diversi canali di registrazione predefiniti che generano gli eventi descritti di seguito.
-
-* Canale operativo: operazioni generali eseguite da Service Fabric e dal cluster, inclusi gli eventi per l'attivazione di un nodo, la distribuzione di una nuova applicazione, il ripristino dello stato precedente a un aggiornamento di Service Fabric e così via
+Service Fabric fornisce i seguenti canali di log già pronti:
+* Canale operativo: operazioni generali eseguite da Service Fabric e dal cluster, inclusi gli eventi per l'attivazione di un nodo, la distribuzione di una nuova applicazione, il ripristino dello stato precedente a un aggiornamento e così via.
 * Canale di informazioni operativo: report di integrità e decisioni di bilanciamento del carico
-* Canale per la messaggistica e i dati: registri ed eventi critici generati nella messaggistica, attualmente solo il ReverseProxy, e il percorso dei dati, modelli di servizi affidabili
+* Canale per la messaggistica e i dati: registri ed eventi critici generati nella messaggistica (attualmente solo il ReverseProxy) e il percorso dei dati (modelli di servizi affidabili)
 * Canale di informazioni per la messaggistica e i dati: canale dettagliato che contiene tutti i registri non critici di dati e messaggistica nel cluster. Questo canale ha un volume molto elevato di eventi   
+
+Oltre a questi, sono forniti due canali EventSource strutturati, nonché log che vengono raccolti a scopo di supporto.
 * [Eventi di Reliable Services](service-fabric-reliable-services-diagnostics.md): eventi specifici del modello di programmazione
 * [Eventi di Reliable Actors](service-fabric-reliable-actors-diagnostics.md): eventi e contatori delle prestazioni specifici del modello di programmazione
 * Log di supporto: log di sistema generati da Service Fabric solo per l'uso da parte di Microsoft per fornire supporto

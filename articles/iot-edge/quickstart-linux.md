@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fb93efcf00cb7b165c497d7ef38685f80bce84c0
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: bfa6652eac34f88baf09f55353cf58227a20e4cf
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-linux-device---preview"></a>Guida introduttiva: distribuire il primo modulo di IoT Edge dal portale di Azure in un dispositivo Linux - anteprima
 
@@ -63,27 +63,29 @@ Creare un'identità del dispositivo per il dispositivo simulato in modo che poss
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>Installare e avviare il runtime IoT Edge
 
-Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. È costituito da due moduli. L'agente di IoT Edge prima di tutto semplifica la distribuzione e il monitoraggio dei moduli nel dispositivo IoT Edge. L'hub IoT Edge gestisce quindi le comunicazioni tra i moduli nel dispositivo IoT Edge e tra il dispositivo e l'hub IoT. 
+Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. È costituito da due moduli. Il primo, l'agente di IoT Edge, semplifica la distribuzione e il monitoraggio dei moduli nel dispositivo IoT Edge. L'hub IoT Edge gestisce quindi le comunicazioni tra i moduli nel dispositivo IoT Edge e tra il dispositivo e l'hub IoT. 
 
 Nel computer in cui verrà eseguito il dispositivo IoT Edge, scaricare lo script di controllo di IoT Edge:
-```python
+```cmd
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 Configurare il runtime con la stringa di connessione al dispositivo IoT Edge dalla sezione precedente:
-```python
+```cmd
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Avviare il runtime:
-```python
+```cmd
 sudo iotedgectl start
 ```
 
 Controllare Docker per verificare che l'agente di IoT Edge sia in esecuzione come modulo:
-```python
+```cmd
 sudo docker ps
 ```
+
+![Vedere edgeAgent in Docker](./media/tutorial-simulate-device-linux/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Distribuire un modulo
 
@@ -91,13 +93,23 @@ sudo docker ps
 
 ## <a name="view-generated-data"></a>Visualizzare i dati generati
 
-Nella guida introduttiva è stato creato un nuovo dispositivo IoT Edge e in tale dispositivo è stato installato il runtime di IoT Edge. È stato quindi usato il portale di Azure per eseguire il push di un modulo di IoT Edge per l'esecuzione nel dispositivo senza dovere apportare modifiche al dispositivo stesso. In questo caso il modulo di cui è stato eseguito il push crea dati ambientali che è possibile usare per le esercitazioni. 
+In questa guida introduttiva è stato creato un nuovo dispositivo IoT Edge, nel quale è stato installato il runtime di IoT Edge. È stato quindi usato il portale di Azure per eseguire il push di un modulo di IoT Edge da eseguire nel dispositivo senza dovere apportare modifiche al dispositivo stesso. In questo caso il modulo di cui è stato eseguito il push crea dati ambientali che è possibile usare per le esercitazioni. 
 
-Visualizzare i messaggi inviati dal modulo tempSensor:
+Aprire il prompt dei comandi nel computer eseguendo ancora il dispositivo simulato. Verificare che il modulo distribuito dal cloud sia in esecuzione nel dispositivo IoT Edge:
 
-```cmd/sh
+```cmd
+sudo docker ps
+```
+
+![Visualizzare tre moduli nel dispositivo](./media/tutorial-simulate-device-linux/docker-ps2.png)
+
+Visualizzare i messaggi inviati dal modulo tempSensor al cloud:
+
+```cmd
 sudo docker logs -f tempSensor
 ```
+
+![Visualizzare i dati dal modulo](./media/tutorial-simulate-device-linux/docker-logs.png)
 
 È anche possibile visualizzare i dati di telemetria inviati dal dispositivo tramite lo [strumento di esplorazione dell'hub IoT][lnk-iothub-explorer]. 
 

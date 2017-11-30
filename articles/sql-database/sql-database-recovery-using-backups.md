@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 10/13/2017
+ms.date: 11/20/2017
 ms.author: carlrab
-ms.openlocfilehash: bdef3c155317f32ce03aef920108922c40efc102
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: ea762816cf0aa4c5fcafd2010bfc06eb580219fa
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Ripristinare un database SQL di Azure mediante i backup automatici del database
 Il database SQL prevede queste opzioni per il ripristino del database mediante [backup automatici del database](sql-database-automated-backups.md) e [backup nella conservazione a lungo termine](sql-database-long-term-retention.md). È possibile ripristinare un backup di database in:
@@ -54,7 +54,14 @@ Il tempo di ripristino di un database tramite i backup automatici del database d
 * Il numero di richieste simultanee di ripristino in corso di elaborazione nell'area di destinazione. 
   
   Per un database molto grande e/o attivo il ripristino potrebbe richiedere diverse ore. Nel caso di un'interruzione prolungata in un'area, è possibile che in altre aree vengano elaborate molte richieste di ripristino geografico. In presenza di numerose richieste, i tempi di recupero dei database in tale area possono aumentare. Per la maggior parte dei database, il ripristino richiede al massimo 12 ore.
-  
+
+Per una singola sottoscrizione, ci sono alcune limitazioni sul numero di richieste simultanee di ripristino (compresi ripristino temporizzato, ripristino geografico e ripristino da un backup con conservazione a lungo termine) che possono essere inviate ed eseguite:
+|  | **Numero massimo di richieste simultanee elaborate** | **Numero massimo di richieste simultanee inviate** |
+| :--- | --: | --: |
+|Database singolo (per sottoscrizione)|10|60|
+|Pool elastico (per pool)|4|200|
+||||
+
 Non è disponibile una funzionalità incorporata per il ripristino in blocco. Lo script [Database SQL di Azure: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) è un esempio di un modo per eseguire questa operazione.
 
 > [!IMPORTANT]
@@ -73,7 +80,7 @@ Il database può essere ripristinato a qualsiasi livello di prestazioni o di ser
 
 In genere si ripristina un database a un punto precedente per scopi di ripristino. Quando si esegue questa operazione, è possibile considerare il database ripristinato come una sostituzione per il database originale o usarlo per recuperare i dati e quindi aggiornare il database originale. 
 
-* ***Sostituzione del database***: se il database ripristinato è da intendersi come una sostituzione per il database originale, è necessario verificare che il livello di prestazioni e/o il livello di servizio sia appropriato e ridimensionare il database se necessario. È possibile rinominare il database originale e quindi assegnare al database ripristinato il nome originale usando il comando ALTER DATABASE in T-SQL. 
+* ***Sostituzione del database***: se il database ripristinato è da intendersi come una sostituzione per il database originale, è necessario verificare che il livello di prestazioni e/o il livello di servizio sia appropriato e ridimensionare il database se necessario. È possibile rinominare il database originale e quindi assegnare al database ripristinato il nome originale usando il comando [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) in T-SQL. 
 * ***Ripristino dei dati***: se si prevede di recuperare dati dal database ripristinato in caso di errore dell'applicazione o dell'utente, è necessario scrivere ed eseguire gli script di ripristino per estrarre i dati dal database ripristinato e inserirli nel database originale. Anche se il completamento dell'operazione di ripristino può richiedere molto tempo, il database in fase di ripristino è visibile nell'elenco dei database per tutto il processo. Se si elimina il database durante il ripristino, l'operazione verrà annullata e non verrà addebitata per il database il cui ripristino non è stato completato. 
 
 ### <a name="azure-portal"></a>Portale di Azure

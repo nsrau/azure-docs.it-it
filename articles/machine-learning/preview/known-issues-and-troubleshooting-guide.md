@@ -10,19 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 050758240c9670a6f120f069d736cf6d6475b534
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - Guida alla risoluzione dei problemi e problemi noti 
 Questo articolo consente di trovare e correggere errori o guasti riscontrati durante l'uso dell'applicazione Azure Machine Learning Workbench. 
 
-> [!IMPORTANT]
-> Quando si comunica con il team di supporto, è importante conoscere il numero di build. Per trovare il numero di build dell'app, fare clic sul menu **?**. Fare clic sul numero di build per copiarlo negli Appunti. È possibile incollarlo in messaggi di posta elettronica o nei forum del supporto per segnalare problemi.
-
-![Controllare il numero di versione](media/known-issues-and-troubleshooting-guide/buildno.png)
+## <a name="find-the-workbench-build-number"></a>Trovare il numero di build di Workbench
+Quando si comunica con il team di supporto, è importante inserire il numero di build dell'app Workbench. In Windows, è possibile trovare il numero di build facendo clic sul menu **Guida** e scegliere **About Azure ML Workbench** (Informazioni su Azure ML Workbench). In MacOS, è possibile fare clic sul menu **Azure ML Workbench** e scegliere **About Azure ML Workbench** (Informazioni su Azure ML Workbench).
 
 ## <a name="machine-learning-msdn-forum"></a>Forum MSDN di Machine Learning
 È disponibile un forum MSDN in cui è possibile pubblicare domande. Il forum viene monitorato attivamente dal team del prodotto. L'URL del forum è [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
@@ -75,10 +73,13 @@ Quando si usa Azure ML Workbench, è anche possibile inviare una faccia imbronci
     >Questo limite non si applica alle cartelle `.git`, `docs` e `outputs`. Questi nomi di cartella distinguono tra maiuscole e minuscole. Se si usano file di grandi dimensioni, vedere [Persisting Changes and Deal with Large Files](how-to-read-write-files.md) (Salvataggio permanente delle modifiche e uso di file di grandi dimensioni).
 
 - Tempo di esecuzione massimo consentito per gli esperimenti: sette giorni
+
 - Dimensioni massime di un file tracciato nella cartella `outputs` dopo un'esecuzione: 512 MB
   - Se un file generato dallo script nella cartella outputs è di dimensioni superiori a 512 MB, non viene raccolto in tale posizione. Se si usano file di grandi dimensioni, vedere [Persisting Changes and Deal with Large Files](how-to-read-write-files.md) (Salvataggio permanente delle modifiche e uso di file di grandi dimensioni).
 
 - Le chiavi SSH non sono supportate quando ci si connette a un computer remoto o a un cluster Spark tramite SSH. È attualmente supportata solo la modalità nome utente/password.
+
+- Quando si usa il cluster HDInsight come destinazione di calcolo, è necessario usare BLOB di Azure come archiviazione primaria. L'archiviazione in Azure Data Lake non è supportata.
 
 - Le trasformazioni clustering del testo non sono supportate in Mac.
 

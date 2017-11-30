@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: 8af7064ad9873128b7d744b815e888c50953f377
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 90ba10990049cd1fb788d63a143eb1169191cf24
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app dell'API Tabelle con Java e Azure Cosmos DB
 
@@ -43,6 +43,10 @@ Eseguire anche queste operazioni:
     * In Ubuntu è possibile eseguire `sudo apt-get install git` per installare Git.
 
 ## <a name="create-a-database-account"></a>Creare un account di database
+
+> [!IMPORTANT] 
+> Per lavorare con gli SDK dell'API di tabella disponibili a livello generale, è necessario creare un nuovo account dell'API di tabella. Gli account dell'API di tabella creati durante l'anteprima non sono supportati dagli SDK disponibili a livello generale.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -87,9 +91,24 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
    ![Visualizzare e copiare le informazioni necessarie sulla stringa di connessione nel riquadro Stringa di connessione](./media/create-table-java/connection-string.png)
 
-2. Aprire il file config.properties e copiare le proprietà necessarie della stringa di connessione nel file di configurazione.
+2. Copiare la STRINGA DI CONNESSIONE PRIMARIA usando il pulsante Copia a destra.
 
-3. Salvare il file config.properties.
+3. Aprire config.properties dalla cartella C:\git-samples\storage-table-java-getting-started\src\main\resources. 
+
+5. Trasformare in commento la riga 1 e rimuovere il commento dalla riga 2. L'aspetto delle prime due righe dovrebbe essere simile al seguente.
+
+    ```
+    #StorageConnectionString = UseDevelopmentStorage=true
+    StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
+    ```
+
+6. Incollare la STRINGA DI CONNESSIONE PRIMARIA dal portale nel valore StorageConnectionString sulla riga 2. 
+
+    > [!IMPORTANT]
+    > Se l'endpoint usa documents.azure.com, ovvero si dispone di un account di anteprima, è necessario creare un [nuovo account dell'API di tabella](#create-a-database-account) per lavorare con l'SDK dell'API di tabella disponibile a livello generale.
+    >
+
+7. Salvare il file config.properties.
 
 L'app è stata aggiornata con tutte le informazioni necessarie per comunicare con Azure Cosmos DB. 
 
@@ -98,8 +117,7 @@ L'app è stata aggiornata con tutte le informazioni necessarie per comunicare co
 1. Nella finestra del terminale Git eseguire il comando `cd` per passare alla cartella storage-table-java-getting-started.
 
     ```git
-    cd "C:\git-samples\
-storage-table-java-getting-started"
+    cd "C:\git-samples\storage-table-java-getting-started"
     ```
 
 2. Nella finestra del terminale Git eseguire i comandi seguenti per eseguire l'applicazione Java.

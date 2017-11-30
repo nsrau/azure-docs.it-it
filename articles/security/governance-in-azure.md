@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 10a92f301584d4e676da9a1eb229667925a6c72c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 03e86448a1b0a13addab789bf2aea62e5d84149b
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="governance-in-azure"></a>Governance in Azure
 
 La sicurezza è la priorità principale nel cloud ed è importante che l'utente trovi informazioni accurate e tempestive sulla sicurezza di Azure. Uno dei motivi migliori per usare Azure per le proprie applicazioni e i propri servizi consiste nella possibilità di sfruttare una vasta gamma di strumenti e funzionalità per la sicurezza. Questi strumenti e queste funzionalità consentono di creare soluzioni sicure sulla piattaforma Azure protetta.
 
-Questo articolo, "Governance in Azure", è stato scritto per offrire una migliore comprensione dei numerosi controlli di governance implementati in Microsoft Azure, sia dal punto di vista dei clienti che di Microsoft Operations. Offre un quadro completo sulle funzionalità di governance disponibili in Microsoft Azure.
+Questo articolo, "Governance in Azure", è stato scritto per offrire una migliore comprensione dei numerosi controlli di governance implementati in Microsoft Azure, sia dal punto di vista dei clienti sia da quello delle Microsoft Operations. Offre un quadro completo sulle funzionalità di governance disponibili in Microsoft Azure.
 
 ## <a name="azure-platform"></a>Piattaforma Azure
 

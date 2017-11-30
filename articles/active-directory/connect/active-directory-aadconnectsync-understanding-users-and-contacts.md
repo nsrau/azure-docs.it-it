@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi;andkjell
-ms.openlocfilehash: c298a2f99750ead099b8761699c914a3a6e41ce1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 7bb7bdba21d83817cf5579e779a6a4d509753c01
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni su utenti, gruppi e contatti
 I motivi per cui possono essere presenti più foreste Active Directory e sono disponibili più topologie di distribuzione sono diversi. I modelli comuni prevedono una distribuzione account-risorse e foreste sincronizzate tramite Elenco indirizzi globale dopo operazioni di fusione e acquisizione. Anche se esistono modelli puri, sono molto diffusi anche i modelli ibridi. La configurazione predefinita nel servizio di sincronizzazione Azure AD Connect non presuppone alcun modello specifico, ma è possibile osservare diversi comportamenti in base all'opzione di corrispondenza utenti selezionata nella guida all'installazione.
@@ -42,15 +42,15 @@ Aspetti importanti da tenere presenti durante la sincronizzazione dei gruppi di 
 
 * Per sincronizzare un gruppo di Active Directory con Azure AD come gruppo abilitato alla posta elettronica:
 
-    * Se l'attributo *proxyAddress* del gruppo è vuoto, il relativo attributo *mail* deve avere un valore oppure 
+    * Se l'attributo *proxyAddress* del gruppo è vuoto, il relativo attributo *mail* deve avere un valore
 
-    * Se l'attributo *proxyAddress* del gruppo non è vuoto, deve contenere anche un valore di indirizzo proxy SMTP primario definito dal prefisso **SMTP** in maiuscolo. Di seguito sono riportati alcuni esempi:
+    * Se l'attributo *proxyAddress* del gruppo non è vuoto, deve contenere almeno un valore dell'indirizzo proxy SMTP. Di seguito sono riportati alcuni esempi:
     
-      * Un gruppo di Active Directory il cui attributo proxyAddress ha il valore *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* non sarà abilitato per la posta elettronica in Azure AD. Non dispone di un indirizzo SMTP primario.
-      
-      * Un gruppo di Active Directory il cui attributo proxyAddress ha valori *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* non sarà abilitato per la posta elettronica in Azure AD. Disporrà di un indirizzo SMTP non primario.
+      * Un gruppo di Active Directory il cui attributo proxyAddress ha il valore *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* non sarà abilitato per la posta elettronica in Azure AD. Non dispone di un indirizzo SMTP.
       
       * Un gruppo di Active Directory il cui attributo proxyAddress ha valori *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe@contoso.com"}* sarà abilitato per la posta elettronica in Azure AD.
+      
+      * Anche un gruppo di Active Directory il cui attributo proxyAddress ha valori *{"X500:/0=contoso.com/ou=users/cn=testgroup","smtp:johndoe@contoso.com"}* sarà abilitato per la posta elettronica in Azure AD.
 
 ## <a name="contacts"></a>Contatti
 I contatti che rappresentano un utente in una foresta diversa costituiscono una situazione comune dopo un'operazione di acquisizione o fusione in cui la soluzione GALSync collega due o più foreste di Exchange. L'oggetto contatto viene sempre aggiunto dallo spazio connettore allo spazio metaverse usando l'attributo mail. Se è già presente un oggetto contatto o un oggetto utente con lo stesso indirizzo di posta elettronica, gli oggetti vengono uniti. Questo comportamento è configurato nella regola **In ingresso da Active Directory - Aggiunta contatto**. Esiste anche una regola denominata **In ingresso da Active Directory - Contatto comune** con un flusso dell'attributo all'attributo metaverse **sourceObjectType** con la costante **Contact**. Questa regola presenta una precedenza molto bassa, quindi se un oggetto utente viene aggiunto allo stesso oggetto metaverse, la regola **In ingresso da Active Directory - Utente comune** fornirà il valore Utente a questo attributo. Con questa regola l'attributo avrà il valore Contact solo se non sono stati aggiunti utenti e il valore User se è stato trovato almeno un utente.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche software nell'ambiente in uso con la soluzione di rilevamento modifiche
 
@@ -44,7 +44,7 @@ Seguire questa procedura per configurare i file da rilevare in computer Linux.
 4. Fare clic su **Salva**.  
 
 > [!NOTE]
-> Il rilevamento dei file di Linux contiene funzionalità aggiuntive, tra cui il rilevamento di directory, la ricorsione tramite directory e il rilevamento di caratteri jolly.
+> Il rilevamento dei file di Linux include funzionalità aggiuntive, tra cui il rilevamento di directory, la ricorsione tramite directory e il rilevamento di caratteri jolly.
 
 ### <a name="configure-windows-files-to-track"></a>Configurare i file di Windows da rilevare
 Seguire questa procedura per configurare i file da rilevare in computer Windows.
@@ -69,7 +69,7 @@ Seguire questa procedura per configurare le chiavi del Registro di Sistema da ri
    * **File** (Indicare i metadati di file: dimensioni, data di modifica, hash, ecc.)
    * **Directoy** (Indicare i metadati di directory: dimensioni, data di modifica, ecc.)
 2. **Collegamenti** (Gestione dei riferimenti dei collegamenti simbolici di Linux ad altri file o directory)
-   * **Ignora** (Ignorare i collegamenti simbolici durante le ricorsioni per non includere i file/le directory a cui viene fatto riferimento)
+   * **Ignora** (ignorare i collegamenti simbolici durante le ricorsioni per non includere i file/le directory a cui viene fatto riferimento)
    * **Segui** (Seguire i collegamenti simbolici durante la ricorsione per includere anche i file/le directory a cui viene fatto riferimento)
    * **Gestisci** (Seguire i collegamenti simbolici e modificare la modalità di gestione del contenuto restituito)
 
@@ -96,12 +96,16 @@ Altre limitazioni:
 * Quando il traffico di rete è elevato, i record di modifica possono impiegare fino a un massimo di sei ore prima di essere visualizzati.
 * Se si modifica la configurazione mentre un computer è arrestato, il computer potrebbe registrare le modifiche ai file che appartenevano alla configurazione precedente.
 
+### <a name="known-issues"></a>Problemi noti
+La soluzione Rilevamento modifiche sta riscontrando attualmente i problemi seguenti:
+* Gli aggiornamenti rapidi non vengono raccolti per le macchine Windows 10 Creators Update e Windows Server 2016 Core RS3.
+
 ## <a name="change-tracking-data-collection-details"></a>Informazioni dettagliate sulla raccolta dei dati di Change Tracking
 Change Tracking consente di raccogliere l'inventario software e i metadati del servizio Windows tramite gli agenti abilitati.
 
 La tabella seguente mostra i metodi di raccolta di dati e altre informazioni dettagliate sul modo in cui vengono raccolti i dati per Change Tracking.
 
-| piattaforma | Agente diretto | Agente di Operations Manager | Agente Linux | Archiviazione di Azure | È necessario Operations Manager? | Dati dell'agente Operations Manager inviati con il gruppo di gestione | frequenza della raccolta |
+| piattaforma | Agente diretto | Agente di Operations Manager | Agente Linux | Archiviazione di Azure | È necessario Operations Manager? | Dati dell'agente Operations Manager inviati con il gruppo di gestione | Frequenza della raccolta |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Windows e Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | Da 5 minuti a 50 minuti, a seconda del tipo di modifica. Per altre informazioni, vedere la tabella seguente. |
 

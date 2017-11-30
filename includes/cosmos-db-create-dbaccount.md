@@ -8,9 +8,9 @@
     Impostazione|Valore consigliato|Descrizione
     ---|---|---
     ID|*Immettere un nome univoco*|Immettere un nome univoco per identificare l'account Azure Cosmos DB. Poiché alI'ID fornito viene aggiunto *documents.azure.com* per creare l'URI, usare un ID univoco ma facilmente identificabile.<br><br>L'ID può contenere solo lettere minuscole, numeri e il segno meno (-) e deve avere una lunghezza compresa tra 3 e 50 caratteri.
-    API|SQL (DocumentDB)|L'API determina il tipo di account da creare. Azure Cosmos DB offre quattro API per soddisfare le esigenze dell'applicazione, Gremlin (grafo), MongoDB, SQL (DocumentDB) e Tabella (chiave-valore), per ognuna delle quali è attualmente necessario un account separato. <br><br>Selezionare **SQL (DocumentDB)** perché in questa guida introduttiva si crea un database di documenti su cui è possibile eseguire query usando la sintassi SQL.<br><br>[Altre informazioni sull'API di DocumentDB](../articles/cosmos-db/documentdb-introduction.md)|
+    API|SQL|L'API determina il tipo di account da creare. Azure Cosmos DB offre cinque API per soddisfare le esigenze dell'applicazione, ovvero SQL (database di documenti) Gremlin (grafo), MongoDB, SQL (database di documenti), Tabella di Azure e Cassandra, per ognuna delle quali è attualmente necessario un account separato. <br><br>Selezionare **SQL** perché in questo avvio rapido si sta creando un database di documenti su cui è possibile eseguire query tramite la sintassi SQL e a cui è possibile accedere tramite l'API DocumentDB.<br><br>[Altre informazioni sull'API di DocumentDB](../articles/cosmos-db/documentdb-introduction.md)|
     Sottoscrizione|*Sottoscrizione in uso*|Selezionare la sottoscrizione di Azure da usare per l'account Azure Cosmos DB. 
-    Gruppo di risorse|*Immettere lo stesso nome univoco specificato sopra in ID*|Immettere il nome di un nuovo gruppo di risorse per l'account. Per semplicità si può usare lo stesso nome usato come ID. 
+    Gruppo di risorse|Creare un nuovo gruppo di risorse<br><br>*Immettere quindi lo stesso nome univoco specificato sopra in ID*|Selezionare **Crea nuovo**, quindi immettere il nome di un nuovo gruppo di risorse per l'account. Per semplicità si può usare lo stesso nome usato come ID. 
     Percorso|*Selezionare l'area più vicina agli utenti*|Selezionare la posizione geografica in cui ospitare l'account Azure Cosmos DB. Usare la località più vicina agli utenti per offrire loro la massima velocità di accesso ai dati.
     Abilita ridondanza geografica| Lasciare vuoto | Consente di creare una versione replicata del database in una seconda area abbinata. Lasciare vuoto.  
     Aggiungi al dashboard | Selezionare | Selezionare questa casella per aggiungere il nuovo account di database al dashboard del portale e accedervi più facilmente.
@@ -19,7 +19,7 @@
 
     ![Pannello Nuovo account per Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
-4. La creazione dell'account richiede alcuni minuti, durante i quali nel portale viene visualizzato il riquadro **Distribuzione di Azure Cosmos DB**.
+4. La creazione dell'account richiede alcuni minuti, Durante la creazione dell'account il portale visualizza il riquadro **Deploying Azure Cosmos DB** (Distribuzione di Azure Cosmos DB) a destra, quindi potrebbe essere necessario scorrere a destra del dashboard per visualizzare il riquadro. È presente anche un indicatore di stato nella parte superiore della schermata. È possibile esaminare lo stato di avanzamento nelle due aree. 
 
     ![Riquadro Notifiche del portale di Azure](./media/cosmos-db-create-dbaccount/deploying-cosmos-db.png)
 

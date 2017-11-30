@@ -3,17 +3,17 @@ title: "Usare Criteri di Azure per creare e gestire i criteri per applicare la c
 description: "Usare Criteri di Azure per applicare gli standard, soddisfare i requisiti di conformità e controllo normativi, controllare i costi, mantenere la coerenza di sicurezza e prestazioni e imporre principi di progettazione all'azienda nel suo complesso."
 services: azure-policy
 keywords: 
-author: Jim-Parker
-ms.author: jimpark
-ms.date: 11/01/2017
+author: bandersmsft
+ms.author: banders
+ms.date: 11/17/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 63e8e4d3dbbc2e50b55f7e293d324ceed0484bb7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 517f85307e97c1e98a84da95cb51660d6d4fe679
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Creare e gestire i criteri per applicare la conformità
 
@@ -386,7 +386,7 @@ Una definizione di iniziativa consente di raggruppare più definizioni di criter
 
 ## <a name="resolve-a-non-compliant-or-denied-resource"></a>Risolvere una risorsa non conforme o non consentita
 
-Facendo riferimento all'esempio precedente, dopo aver assegnato la definizione dei criteri per richiedere un'istanza di SQL Server versione 12.0, non viene consentita la creazione di un server SQL con una versione diversa. In questa sezione viene risolto un tentativo negato di creare un server SQL con una versione diversa.
+Facendo riferimento all'esempio precedente, dopo aver assegnato la definizione dei criteri per richiedere un'istanza di SQL Server versione 12.0, non viene consentita la creazione di un server SQL con una versione diversa. In questa sezione viene risolto un tentativo negato di creare un server SQL di una versione diversa richiedendo un'esclusione.
 
 1. Selezionare **Assegnazioni** nel riquadro a sinistra.
 2. Esplorare tutte le assegnazioni dei criteri e avviare l'assegnazione *Richiedere SQL Server versione 12.0*.

@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: borooji;mbullwin
-ms.openlocfilehash: 5f4db2e79575202d3d9fa1601fb182c7a0881338
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 0ed2dbd83b36deacb0f6269dba6f18dc92980fff
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtri e pre-elaborazione della telemetria in Application Insights SDK
 
@@ -135,6 +135,17 @@ Per filtrare la telemetria, scrivere un processore di telemetria e registrarlo c
 ```
 
 Gli elementi TelemetryClient creati dopo questo punto useranno i processori dell'utente.
+
+Il codice seguente illustra come aggiungere un inizializzatore di telemetria in ASP.NET Core.
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    var initializer = new SuccessfulDependencyFilter();
+    var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
+    configuration.TelemetryInitializers.Add(initializer);
+}
+```
 
 ### <a name="example-filters"></a>Filtri di esempio
 #### <a name="synthetic-requests"></a>Richieste sintetiche

@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 34ed5083b952c42d4ed119b6986db965eb9eb67a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: cba901e8929d3626dc06e4600437b6d364e9bc44
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Distribuire Funzioni di Azure come modulo di IoT Edge: anteprima
 È possibile usare Funzioni di Azure per distribuire il codice che implementa la logica di business direttamente nei dispositivi di IoT Edge. Questa esercitazione illustra in modo dettagliato la creazione e la distribuzione di Funzioni di Azure che filtra i dati dei sensori nel dispositivo di IoT Edge simulato creato nelle esercitazioni sulla distribuzione di Azure IoT Edge in un dispositivo simulato su [Windows][lnk-tutorial1-win] o [Linux][lnk-tutorial1-lin]. In questa esercitazione si apprenderà come:     
@@ -129,7 +129,7 @@ La procedura seguente illustra come creare una funzione di IoT Edge tramite Visu
             filteredMessage.Properties.Add("MessageType", "Alert");
             // Send the message        
             await output.AddAsync(filteredMessage);
-            log.Info("Received and transfered a message with temperature above the threshold");
+            log.Info("Received and transferred a message with temperature above the threshold");
         }
     }
     ```
@@ -141,7 +141,7 @@ La procedura seguente illustra come creare una funzione di IoT Edge tramite Visu
 1. Compilare l'immagine Docker.
     1. Nello strumento di esplorazione di Visual Studio Code fare clic sulla cartella **Docker** per aprirla. Selezionare quindi la cartella per la piattaforma del contenitore, ovvero **linux-x64** o **windows-nano**. 
     2. Fare clic con il pulsante destro del mouse sul file **Dockerfile** e scegliere **Build IoT Edge module Docker image** (Compila l'immagine Docker per il modulo di IoT Edge). 
-    3. Nella casella di testo **Seleziona cartella** passare alla cartella **Docker/linux-x64** e fare clic su **Select Folder as EXE_DIR** (Seleziona cartella come EXE_DIR). 
+    3. Nella casella di testo **Seleziona cartella** passare alla cartella de progetto, **FilterFunction** e fare clic su **Select Folder as EXE_DIR** (Seleziona cartella come EXE_DIR). 
     4. Nella casella di testo popup nella parte superiore della finestra di Visual Studio Code immettere il nome dell'immagine. Ad esempio `<docker registry address>/filterfunction:latest`, dove *docker registry address* è l'ID Docker se si usa Hub Dockero è simile a `<your registry name>.azurecr.io`, se si usa il Registro contenitori di Azure.
  
 4. Accedere a Docker. Nel terminale integrato immettere il comando seguente: 
@@ -205,7 +205,7 @@ Aggiungere le credenziali per il registro al runtime di Edge nel computer in cui
     ```
 
 4. Fare clic su **Avanti**.
-5. Nel passaggio **Review Template** (Verifica il modello) fare clic su **Invia**. 
+5. Nel passaggio **Review Template** (Verifica il modello) fare clic su **Submit** (Invia). 
 6. Tornare alla pagina dei dettagli del dispositivo di IoT Edge e fare clic su **Aggiorna**. Dovrebbe essere visualizzato il nuovo **filterfunction** in esecuzione insieme al modulo **tempSensor** e al **runtime di IoT Edge**. 
 
 ## <a name="view-generated-data"></a>Visualizzare i dati generati
@@ -225,7 +225,7 @@ Per monitorare i messaggi da dispositivo a cloud inviati dal dispositivo di IoT 
 In questa esercitazione è stato creato Funzioni di Azure contenente il codice per filtrare i dati non elaborati generati dal dispositivo di IoT Edge. Per continuare a esplorare Azure IoT Edge, imparare a usare un dispositivo IoT come gateway. 
 
 > [!div class="nextstepaction"]
-> [Creare un dispositivo gateway di IoT Edge](how-to-create-gateway-device.md)
+> [Creare un dispositivo gateway di IoT Edge](how-to-create-transparent-gateway.md)
 
 <!--Links-->
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
