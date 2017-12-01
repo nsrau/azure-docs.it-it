@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: c1b832895476e2f64bbae638db76f89890e5c804
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gestire un piano di servizio app in Azure
 
@@ -58,7 +58,7 @@ Selezionare **Cambia il piano di servizio app** per avviare il processo.
 
 **Cambia il piano di servizio app** apre il selettore **Piano di servizio app**. Selezionare un piano esistente in cui spostare questa app. 
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > La pagina **Select App Service plan** (Seleziona piano di servizio app) viene filtrata in base ai criteri seguenti: 
 > - È presente nello stesso gruppo di risorse 
 > - È presente nella stessa area geografica 
@@ -82,7 +82,7 @@ L'area in cui viene eseguita l'app è l'area del piano di servizio app. Tuttavia
 
 ## <a name="scale-an-app-service-plan"></a>Scalare un piano di servizio app
 
-Per aumentare il piano tariffario di un piano di servizio app, vedere [Aumentare le prestazioni di un'app in Azure](web-sites-scale.md).
+Per passare a un piano tariffario superiore per un piano di servizio app, vedere [Aumentare le prestazioni di un'app in Azure](web-sites-scale.md).
 
 Per scalare il numero di istanze di un'app, vedere [Scalare il conteggio delle istanze manualmente o automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md).
 

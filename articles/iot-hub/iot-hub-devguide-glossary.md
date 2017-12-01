@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: c2c95373912131445b584fa8518785b26caa9c02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a780461bb934b4766f8050fba825e1d7503f4fd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossario dei termini relativi all'hub IoT
 Questo articolo elenca alcuni dei termini comuni usati negli articoli su Hub IoT.
@@ -37,7 +37,7 @@ L'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cl
 Sono disponibili _SDK per dispositivi_ per più linguaggi che consentono di creare [app per dispositivo](#device-app) che interagiscono con un hub IoT. Le esercitazioni su Hub IoT illustrano come usare questi SDK per dispositivi. Il codice sorgente e altre informazioni sugli SDK per dispositivi sono disponibili in questo [repository](https://github.com/Azure/azure-iot-sdks) GitHub.
 
 ## <a name="azure-iot-edge"></a>Azure IoT Edge
-IoT Edge consente di scrivere applicazioni che permettono ai dispositivi connessi al gateway di comunicare con l'[hub IoT](#iot-hub). Le esercitazioni su IoT Edge illustrano come usare questo servizio. Il codice sorgente e altre informazioni su Azure IoT Edge sono disponibili in questo [repository](https://github.com/Azure/iot-edge) di GitHub.
+Azure IoT Edge sposta nei dispositivi l'analisi cloud e la logica di business personalizzata consentendo all'organizzazione di concentrarsi sulle analisi approfondite di livello aziendale invece che sulla gestione dati. È possibile ottenere una reale scalabilità per la soluzione configurando il software IoT, distribuendola nei dispositivi tramite contenitori standard e monitorandola dal cloud. Iniziare con un'esercitazione che illustra come installare e usare Azure IoT Edge in un dispositivo [Linux](../iot-edge/tutorial-simulate-device-linux.md) o [Windows](../iot-edge/tutorial-simulate-device-windows.md).
 
 ## <a name="azure-iot-service-sdks"></a>Azure IoT SDK per servizi
 Sono disponibili _SDK per servizi_ per più linguaggi che consentono di creare [app back-end](#back-end-app) che interagiscono con un hub IoT. Le esercitazioni su Hub IoT illustrano come usare questi SDK per servizi. Il codice sorgente e altre informazioni sugli SDK per servizi sono disponibili in questo [repository](https://github.com/Azure/azure-iot-sdks) GitHub.
@@ -189,7 +189,7 @@ Il back-end della soluzione può usare i [processi](iot-hub-devguide-jobs.md) pe
 L'[API REST dei processi](https://docs.microsoft.com/rest/api/iothub/jobapi) consente di gestire i [processi](#job) in esecuzione nell'hub IoT.
 
 ## <a name="module"></a>Modulo
-In [Azure IoT Edge](iot-hub-linux-iot-edge-get-started.md) un [modulo](iot-hub-linux-iot-edge-get-started.md) è un componente che esegue un'attività specifica. Le attività possono includere l'inserimento di un messaggio da un dispositivo, la trasformazione di un messaggio o l'invio di un messaggio a un hub IoT. Un broker è responsabile dell'inoltro dei messaggi tra i moduli. Azure IoT Edge include un set di moduli di esempio. È anche possibile creare moduli personalizzati.
+In [Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md) un [modulo](../iot-edge/iot-edge-modules.md) è un componente che esegue un'attività specifica. Le attività possono includere l'inserimento di un messaggio da un dispositivo, la trasformazione di un messaggio o l'invio di un messaggio a un hub IoT. Un broker è responsabile dell'inoltro dei messaggi tra i moduli. Azure IoT Edge include un set di moduli di esempio. È anche possibile creare moduli personalizzati.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) è uno dei protocolli di messaggistica supportati da [Hub IoT](#iot-hub) per la comunicazione con i dispositivi. Per altre informazioni sui protocolli di messaggistica supportati dall'hub IoT, vedere [Inviare e ricevere messaggi con l'hub IoT](iot-hub-devguide-messaging.md).

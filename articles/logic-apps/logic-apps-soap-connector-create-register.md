@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 2d4d009dfc4d43ccc3c69bb3da15ca2c478b9efe
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0323b0f7ee03dce209d5a71c6711988a34ba7633
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-and-register-soap-connectors-in-azure-logic-apps"></a>Creare e registrare connettori SOAP in App per la logica di Azure
 
@@ -82,7 +82,7 @@ Specificare ora il file WSDL o l'URL per creare il connettore, l'autenticazione 
 
       ![Specificare il file WSDL per l'API](./media/logic-apps-soap-connector-create-register/provide-wsdl-file.png)
 
-      | Opzione | Formato |Descrizione | 
+      | Opzione | Format |Descrizione | 
       | ------ | ------ | ----------- | 
       | **Carica WSDL da file** | *WSDL-file* | Passare al percorso del file WSDL e selezionare il file. | 
       | **Carica WSDL da URL** | http://*percorso-file-wsdl* | Specificare l'URL per il file WSDL del servizio. | 
@@ -148,7 +148,13 @@ I connettori personalizzati registrati ma non certificati funzionano come i conn
  
 Per condividere il connettore con utenti esterni, ad esempio con tutti gli utenti di App per la logica, [inviare il connettore per la certificazione Microsoft](../logic-apps/custom-connector-submit-certification.md).
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>domande frequenti
+
+**D:** Il connettore SOAP è disponibile a livello generale? </br>
+**R:** Il connettore SOAP è in **anteprima** e non è ancora un servizio disponibile a livello generale.
+
+**D:** Esistono limitazioni e problemi noti relativi al connettore SOAP? </br>
+**R:** Sì, vedere [Problemi noti e limitazioni del connettore SOAP](../api-management/api-management-api-import-restrictions.md#wsdl).
 
 **D:** esistono limiti per i connettori personalizzati? </br>
 **R:** Sì, vedere i [limiti per i connettori personalizzati qui](../logic-apps/logic-apps-limits-and-config.md#custom-connector-limits).

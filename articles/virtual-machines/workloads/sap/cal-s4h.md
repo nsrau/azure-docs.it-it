@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 4788fa14a6c49d39b5a3096a69b6738f4a5d8cca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 342bd20466cdeb0b9df1cdacd4664fa4e3e0c604
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Distribuire SAP S/4HANA o BW/4HANA in Azure
 Questo articolo descrive come distribuire S/4HANA in Azure tramite SAP Cloud Appliance Library (SAP CAL) 3.0. Per distribuire altre soluzioni basate su SAP HANA, ad esempio BW/4HANA, seguire la stessa procedura.
@@ -95,7 +95,7 @@ La pagina **Solutions** (Soluzioni) illustra alcune delle soluzioni SAP CAL basa
 È ora possibile iniziare a distribuire S/4HANA nella sottoscrizione utente in Azure.
 
 > [!NOTE]
-Prima di continuare, determinare se sono disponibili quote core di Azure per macchine virtuali di serie H di Azure. Attualmente, per distribuire alcune soluzioni basate su SAP HANA, SAP CAL usa macchine virtuali di serie H di Azure. È possibile tuttavia che la sottoscrizione di Azure in uso non abbia quote core per la serie H. In questo caso, è necessario contattare il supporto tecnico di Azure per ottenere una quota di almeno 16 serie H.
+Prima di continuare, determinare se sono disponibili quote di vCPU di Azure per macchine virtuali di serie H di Azure. Attualmente, per distribuire alcune soluzioni basate su SAP HANA, SAP CAL usa macchine virtuali di serie H di Azure. È possibile tuttavia che la sottoscrizione di Azure in uso non abbia quote di vCPU per la serie H. In questo caso, è necessario contattare il supporto tecnico di Azure per ottenere una quota di almeno 16 vCPU serie H.
 
 > [!NOTE]
 Quando si distribuisce una soluzione in Azure con SAP CAL, può accadere che sia possibile scegliere una sola area di Azure. Per eseguire la distribuzione in aree di Azure diverse da quella suggerita da SAP CAL, è necessario acquistare una sottoscrizione CAL da SAP. Potrebbe anche essere necessario aprire un messaggio con SAP per farsi abilitare l'account CAL per il recapito in aree di Azure diverse da quelle suggerite inizialmente.

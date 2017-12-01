@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: autenticazione pass-through - Blocco smart | Microsoft Docs'
-description: Questo articolo descrive come l'autenticazione pass-through di Azure Active Directory (Azure AD) consente di proteggere gli account locali da attacchi di forza bruta alla password nel cloud.
+description: Questo articolo descrive come l'autenticazione pass-through di Azure Active Directory (Azure AD) consente di proteggere gli account locali da attacchi di forza bruta alla password nel cloud
 services: active-directory
 keywords: Autenticazione pass-through di Azure AD Connect, installare Active Directory, componenti necessari per Azure AD, SSO, Single Sign-On
 documentationcenter: 
@@ -14,74 +14,74 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 771741fd7da8c9b6932851851aaca148f9596643
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 2e1468c6a576ab71b85e3f69e5914df6ee9e4d5a
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Autenticazione pass-through di Azure Active Directory: blocco smart
 
 ## <a name="overview"></a>Panoramica
 
-Azure AD consente di proteggersi dagli attacchi di forza bruta alle password e impedisce il blocco delle applicazioni Office 365 e SaaS degli utenti originali. Questa funzionalità, denominata **blocco smart**, è supportata quando si usa l'autenticazione pass-through come metodo di accesso. Il blocco smart è abilitato per impostazione predefinita per tutti i tenant e protegge costantemente gli account utente. Non è necessario attivarlo.
+Azure Active Directory (Azure AD) consente di proteggersi dagli attacchi di forza bruta alle password e impedisce il blocco delle applicazioni Office 365 e SaaS degli utenti originali. Questa funzionalità, denominata *blocco smart*, è supportata quando si usa l'autenticazione pass-through come metodo di accesso. La funzionalità per il blocco smart è abilitata per impostazione predefinita per tutti i tenant e protegge continuamente gli account utente.
 
-Il blocco smart tiene traccia dei tentativi di accesso non riusciti e dopo una determinata **soglia di blocco**, avvia la **durata del blocco**. Eventuali tentativi di accesso da un utente malintenzionato durante la durata del blocco vengono rifiutati. Se l'attacco continua, i tentativi successivi di accesso al termine della durata del blocco non riescono e la durata del blocco viene prolungata.
-
->[!NOTE]
->Il valore predefinito della Soglia di blocco è 10 tentativi non riusciti, mentre la Durata del blocco predefinita è 60 secondi.
-
-Il blocco smart consente di distinguere anche tra l'accesso effettuato da utenti originali e da utenti malintenzionati e nella maggior parte dei casi blocca solo gli utenti malintenzionati. Questa funzionalità impedisce agli utenti malintenzionati di bloccare gli utenti veri. Per distinguere tra utenti malintenzionati e utenti veri vengono analizzati il comportamento di accesso, i dispositivi e i browser degli utenti oltre ad altri segnali. Gli algoritmi vengono migliorati costantemente.
-
-Poiché l'autenticazione pass-through inoltra le richieste di convalida della password in Active Directory (AD) locale, è necessario impedire ai pirati informatici di bloccare gli account di AD degli utenti. Poiché l'utente dispone di propri criteri di blocco degli account di AD, in particolare [**Soglia di blocchi dell'account**](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) e [ **	Reimposta blocco account dopo**](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx), è necessario configurare in modo appropriato i valori di durata del blocco e la soglia di blocco di Azure AD per filtrare gli attacchi nel cloud, prima che raggiungano AD locale.
+Il blocco smart tiene traccia dei tentativi di accesso non riusciti. Dopo una determinata *soglia di blocco*, viene avviata una *durata di blocco*. Il blocco smart rifiuta eventuali tentativi di accesso da parte di un utente malintenzionato durante la durata del blocco. Se l'attacco continua, i tentativi successivi di accesso al termine della durata del blocco non riescono e la durata del blocco viene prolungata.
 
 >[!NOTE]
->La funzionalità Smart Lockout è gratuita e _attiva_ per impostazione predefinita per tutti i clienti. Tuttavia, per modificare i valori relativi alla soglia di blocco e alla durata del blocco di Azure AD usando l'API Graph, è necessario che il tenant abbia almeno una licenza di Azure AD Premium P2. Non è necessaria una licenza di Azure AD Premium P2 _per ogni utente_ per ottenere la funzionalità Smart Lockout con l'autenticazione pass-through.
+>La soglia di blocco predefinita corrisponde a 10 tentativi non riusciti. La durata di blocco predefinita è di 60 secondi.
 
-Per garantire che gli account di AD locali degli utenti siano protetti, è necessario assicurarsi che:
+Il blocco smart consente di distinguere anche tra l'accesso effettuato da utenti originali e accessi da utenti malintenzionati. Nella maggior parte dei casi vengono bloccati solo gli utenti malintenzionati. Questa funzionalità impedisce agli utenti malintenzionati di bloccare gli utenti veri. Il blocco smart usa il comportamento di accesso precedente, i dispositivi e i browser degli utenti e altri segnali per distinguere tra utenti originali e utenti malintenzionati. Gli algoritmi vengono migliorati costantemente.
 
-1.  La Soglia di blocco di Azure AD sia _inferiore_ alla soglia di blocco dell'account di AD. È consigliabile impostare i valori in modo che è la soglia di blocco dell'account di AD sia almeno di due o tre volte superiore alla soglia di blocco di Azure AD.
-2.  La durata del blocco di Azure AD, rappresentata in secondi, è _maggiore_ rispetto al valore di Reimposta blocco account dopo di AD, rappresentato in minuti.
+L'autenticazione pass-through inoltra le richieste di convalida della password all'istanza locale di Active Directory, quindi è necessario impedire ai pirati informatici di bloccare gli account Active Directory degli utenti. Active Directory offre criteri di blocco degli account specifici, in particolare i criteri [Soglia di blocchi dell'account](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) e [Reimposta contatore blocco account dopo](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx). Configurare la soglia di blocco di Azure AD e i valori della durata di blocco in modo appropriato per escludere tramite filtro gli attacchi sul cloud prima che raggiungano l'istanza locale di Active Directory.
+
+>[!NOTE]
+>La funzionalità Smart Lockout è gratuita e _attiva_ per impostazione predefinita per tutti i clienti. Se tuttavia si vuole modificare la soglia di blocco di Azure AD e i valori della durata di blocco usando l'API Graph, il tenant deve avere almeno una licenza di Azure AD Premium P2. Non è necessaria una licenza di Azure AD Premium P2 _per ogni utente_ per ottenere la funzionalità Smart Lockout con l'autenticazione pass-through.
+
+Per garantire che gli account Active Directory locali degli utenti siano protetti, è necessario assicurarsi che:
+
+   * La soglia di blocco di Azure AD è _inferiore_ alla soglia di blocco dell'account Active Directory. Configurare i valori in modo che la soglia di blocco dell'account Active Directory sia almeno due o tre volte superiore rispetto alla soglia di blocco di Azure AD.
+   * La durata di blocco di Azure AD, rappresentata in secondi, è _superiore_ alla reimpostazione del contatore di blocco dell'account Active Directory dopo la durata specificata, rappresentata in minuti.
 
 >[!IMPORTANT]
->Attualmente un amministratore non può sbloccare gli account cloud degli utenti se questi sono stati bloccati dalla funzionalità di blocco smart. È necessario attendere lo scadere della durata del blocco.
+>Attualmente un amministratore non può sbloccare gli account cloud degli utenti se questi sono stati bloccati dalla funzionalità di blocco smart. L'amministratore deve attendere la scadenza della durata del blocco.
 
-## <a name="verify-your-ad-account-lockout-policies"></a>Verificare i criteri di blocco degli account di AD
+## <a name="verify-your-active-directory-account-lockout-policies"></a>Verificare i criteri di blocco dell'account Active Directory
 
-Usare le istruzioni seguenti per verificare i criteri di blocco degli account di AD:
+Usare le istruzioni seguenti per verificare i criteri di blocco dell'account Active Directory:
 
 1.  Aprire lo strumento Gestione criteri di gruppo.
-2.  Modificare i criteri di gruppo applicati a tutti gli utenti, ad esempio il Criterio dominio predefinito.
-3.  Passare a Configurazione computer\Criteri\Impostazioni di Windows\Impostazioni di sicurezza\Criteri account\Criterio di blocco account.
-4.  Verificare i valori di Soglia di blocchi dell'account e Reimposta blocco account dopo.
+2.  Modificare i criteri di gruppo applicati a tutti gli utenti, ad esempio il **Criterio dominio predefinito**.
+3.  Passare a **Configurazione computer** > **Criteri** > **Impostazioni di Windows** > **Impostazioni di sicurezza** > **Criteri account** > **Criterio di blocco account**.
+4.  Verificare i valori di **Soglia di blocchi dell'account** e **Reimposta contatore blocco account dopo**.
 
-![Criteri di blocco degli account di AD](./media/active-directory-aadconnect-pass-through-authentication/pta5.png)
+![Criteri di blocco dell'account Active Directory](./media/active-directory-aadconnect-pass-through-authentication/pta5.png)
 
-## <a name="use-the-graph-api-to-manage-your-tenants-smart-lockout-values-needs-premium-license"></a>Usare l'API Graph per gestire i valori di blocco smart del tenant (necessaria licenza Premium)
+## <a name="use-the-graph-api-to-manage-your-tenants-smart-lockout-values-requires-a-premium-license"></a>Usare l'API Graph per gestire i valori di blocco smart del tenant (necessaria una licenza Premium)
 
 >[!IMPORTANT]
->La modifica dei valori relativi alla soglia di blocco e alla durata del blocco di Azure AD tramite l'API Graph di Azure AD sono funzionalità di Azure AD Premium P2. L'utente deve anche essere Amministratore globale del tenant.
+>La modifica della soglia di blocco e dei valori della durata di blocco di Azure AD tramite l'API Graph è una funzionalità di Azure AD Premium P2. L'utente deve anche essere amministratore globale del tenant.
 
-È possibile usare [Graph explorer](https://developer.microsoft.com/graph/graph-explorer) per leggere, impostare e aggiornare i valori di blocco smart per Azure AD. Ma è anche possibile eseguire queste operazioni a livello di programmazione.
+È possibile usare [Graph explorer](https://developer.microsoft.com/graph/graph-explorer) per leggere, impostare e aggiornare i valori di blocco smart per Azure AD. È anche possibile eseguire queste operazioni a livello di codice.
 
-### <a name="read-smart-lockout-values"></a>Leggere i valori di blocco smart
+### <a name="view-smart-lockout-values"></a>Visualizzare i valori di blocco smart
 
-Seguire questa procedura per leggere i valori di blocco smart del tenant:
+Seguire questa procedura per visualizzare i valori di blocco smart del tenant:
 
 1. Accedere a Graph explorer come amministratore globale del tenant. Se richiesto, concedere l'accesso per le autorizzazioni richieste.
-2. Fare clic su "Autorizzazioni di modifica" e selezionare l'autorizzazione "Directory.ReadWrite.All".
-3. Configurare la richiesta dell'API Graph nel modo seguente: impostare la versione su "BETA", il tipo di richiesta su "GET" e l'URL su `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`.
-4. Fare clic su "Esegui query" per visualizzare i valori di blocco smart del tenant. Se i valori del tenant non sono stati mai impostati, viene visualizzato un insieme vuoto.
+2. Selezionare **Autorizzazioni di modifica** e quindi selezionare l'autorizzazione **Directory.ReadWrite.All**.
+3. Configurare la richiesta dell'API Graph nel modo seguente: impostare la versione su **BETA**, il tipo di richiesta su **GET** e l'URL su `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`.
+4. Selezionare **Esegui query** per visualizzare i valori di blocco smart del tenant. Se i valori del tenant non sono stati mai impostati, viene visualizzato un insieme vuoto.
 
 ### <a name="set-smart-lockout-values"></a>Impostare i valori di blocco smart
 
-Attenersi alla procedura seguente per impostare i valori di blocco smart del tenant. Eseguire questa procedura solo la prima volta.
+Attenersi alla procedura seguente per impostare i valori di blocco smart del tenant. Questa procedura è necessaria solo la prima volta:
 
 1. Accedere a Graph explorer come amministratore globale del tenant. Se richiesto, concedere l'accesso per le autorizzazioni richieste.
-2. Fare clic su "Autorizzazioni di modifica" e selezionare l'autorizzazione "Directory.ReadWrite.All".
-3. Configurare la richiesta dell'API Graph nel modo seguente: impostare la versione su "BETA", il tipo di richiesta su "POST" e l'URL su `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`.
-4. Copiare e incollare la richiesta JSON seguente nel campo "Corpo della richiesta".
-5. Fare clic su "Esegui query" per impostare i valori di blocco smart del tenant.
+2. Selezionare **Autorizzazioni di modifica** e quindi selezionare l'autorizzazione **Directory.ReadWrite.All**.
+3. Configurare la richiesta dell'API Graph nel modo seguente: impostare la versione su **BETA**, il tipo di richiesta su **POST** e l'URL su `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`.
+4. Copiare e incollare la richiesta JSON seguente nel campo **Corpo della richiesta**.
+5. Selezionare **Esegui query** per impostare i valori di blocco smart del tenant.
 
 ```
 {
@@ -108,20 +108,20 @@ Attenersi alla procedura seguente per impostare i valori di blocco smart del ten
 ```
 
 >[!NOTE]
->Se l'utente non li sta usando, è possibile lasciare i valori di **BannedPasswordList** e **EnableBannedPasswordCheck** i vuoto ("") e "false" rispettivamente.
+>Se non si usano questi valori, è possibile lasciare i valori **BannedPasswordList** e **EnableBannedPasswordCheck** impostati su vuoto (**""**) e **false** rispettivamente.
 
-Verificare di aver impostato i valori di blocco smart del tenant correttamente tramite [questa procedura](#read-smart-lockout-values).
+Verificare di aver impostato i valori di blocco smart del tenant correttamente tramite la procedura illustrata in [Visualizzare i valori di blocco smart](#view-smart-lockout-values).
 
 ### <a name="update-smart-lockout-values"></a>Aggiornare i valori di blocco smart
 
-Seguire questa procedura per aggiornare i valori di blocco smart del tenant, se questi sono già stati impostati in precedenza:
+Seguire questa procedura per aggiornare i valori di blocco smart del tenant, se sono stati impostati in precedenza:
 
 1. Accedere a Graph explorer come amministratore globale del tenant. Se richiesto, concedere l'accesso per le autorizzazioni richieste.
-2. Fare clic su "Autorizzazioni di modifica" e selezionare l'autorizzazione "Directory.ReadWrite.All".
-3. [Seguire questa procedura per leggere i valori di blocco smart del tenant](#read-smart-lockout-values). Copia il valore `id` , ovvero un GUID dell'elemento con "displayName" come "PasswordRuleSettings".
-4. Configurare la richiesta dell'API Graph nel modo seguente: impostare la versione su "BETA", il tipo di richiesta su "PATCH" e l'URL su `https://graph.microsoft.com/beta/<your-tenant-domain>/settings/<id>`. Usare il GUID dal passaggio 3 per `<id>`.
-5. Copiare e incollare la richiesta JSON seguente nel campo "Corpo della richiesta". Modificare i valori di blocco smart in base alle necessità.
-6. Fare clic su "Esegui query" per aggiornare i valori di blocco smart del tenant.
+2. Selezionare **Autorizzazioni di modifica** e quindi selezionare l'autorizzazione **Directory.ReadWrite.All**.
+3. [Seguire questa procedura per visualizzare i valori di blocco smart del tenant](#view-smart-lockout-values). Copiare il valore `id` (un GUID) dell'elemento con **displayName** come **PasswordRuleSettings**.
+4. Configurare la richiesta dell'API Graph nel modo seguente: impostare la versione su **BETA**, il tipo di richiesta su **PATCH** e l'URL su `https://graph.microsoft.com/beta/<your-tenant-domain>/settings/<id>`. Usare il GUID dal Passaggio 3 per `<id>`.
+5. Copiare e incollare la richiesta JSON seguente nel campo **Corpo della richiesta**. Modificare i valori di blocco smart in base alle necessità.
+6. Selezionare **Esegui query** per aggiornare i valori del blocco smart del tenant.
 
 ```
 {
@@ -146,7 +146,7 @@ Seguire questa procedura per aggiornare i valori di blocco smart del tenant, se 
 }
 ```
 
-Verificare di aver aggiornato i valori di blocco smart del tenant correttamente tramite [questa procedura](#read-smart-lockout-values).
+Verificare di aver aggiornato i valori di blocco smart del tenant correttamente tramite la procedura illustrata in [Visualizzare i valori di blocco smart](#view-smart-lockout-values).
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): per l'invio di richieste di nuove funzionalità.
+[UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): usare il forum di Azure Active Directory per inviare richieste per nuove funzionalità.

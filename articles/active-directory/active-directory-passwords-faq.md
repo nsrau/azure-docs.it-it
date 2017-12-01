@@ -16,66 +16,66 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 14c565bb67480681e1d398a0a21a11448f405e4e
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 112bfeea29eacd0615f1d134567ec52264318b5f
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Domande frequenti sulla gestione delle password
 
-Di seguito sono riportate alcune domande frequenti su tutti gli aspetti riguardanti la reimpostazione delle password.
+Di seguito sono riportate alcune domande frequenti su tutti gli aspetti riguardanti la reimpostazione della password.
 
-In caso di domande generiche su Azure AD e la reimpostazione della password self-service per cui non è possibile trovare una risposta qui, è possibile richiedere assistenza alla community sui [forum di Azure AD](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). La community è composta da ingegneri, responsabili dei prodotti, MVP e informatici.
+Per domande generali su Azure Active Directory (Azure AD) e sulla reimpostazione password self-service per cui non è disponibile una risposta in questo articolo, è possibile richiedere assistenza alla community nel [forum di Azure AD](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). La community è composta da ingegneri, responsabili di prodotto, MVP e informatici.
 
 Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 
-* [**Domande sulla registrazione per la reimpostazione della password**](#password-reset-registration)
-* [**Domande sulla reimpostazione della password**](#password-reset)
-* [**Domande sulla modifica della password**](#password-change)
-* [**Domande relative ai report di gestione delle password**](#password-management-reports)
-* [**Domande sul writeback delle password**](#password-writeback)
+* [Domande sulla registrazione per la reimpostazione della password](#password-reset-registration)
+* [Domande sulla reimpostazione della password](#password-reset)
+* [Domande sulla modifica della password](#password-change)
+* [Domande sui report di gestione delle password](#password-management-reports)
+* [Domande sul writeback delle password](#password-writeback)
 
 ## <a name="password-reset-registration"></a>Registrazione per la reimpostazione della password
 
 * **D: Gli utenti possono registrare i propri dati per la reimpostazione della password?**
 
-  > **R:** Sì, a condizione che la reimpostazione della password sia abilitata, gli utenti con licenza possono accedere al portale di registrazione per la reimpostazione della password all'indirizzo http://aka.ms/ssprsetup per registrare le informazioni di autenticazione. Gli utenti possono anche registrarsi tramite il pannello di accesso all'indirizzo http://myapps.microsoft.com, facendo clic sulla scheda del profilo e scegliendo l'opzione Esegui la registrazione per la reimpostazione della password.
+  > **R:** Sì. Se la reimpostazione della password è abilitata, gli utenti con licenza possono accedere al portale di registrazione per la reimpostazione della password (http://aka.ms/ssprsetup) per registrare le proprie informazioni di autenticazione. La registrazione può essere eseguita anche tramite il pannello di accesso (http://myapps.microsoft.com). Per la registrazione tramite il pannello di accesso, gli utenti devono selezionare la propria immagine del profilo, quindi **Profilo** e infine l'opzione **Registrazione per reimpostazione password**.
   >
   >
 * **D: è possibile definire i dati di reimpostazione della password per conto degli utenti?**
 
-  > **R:** Sì, è possibile farlo con Azure AD Connect, PowerShell, con il [portale di Azure](https://portal.azure.com) o tramite l'interfaccia di amministrazione di Office. Per altre informazioni, vedere l'articolo [Dati usati dal servizio di reimpostazione della password self-service di Azure AD](active-directory-passwords-data.md).
+  > **R:** Sì. È possibile eseguire questa operazione con Azure AD Connect, PowerShell, il [portale di Azure](https://portal.azure.com) o l'interfaccia di amministrazione di Office 365. Per altre informazioni, vedere l'articolo relativo ai [dati usati per la reimpostazione password self-service di Azure AD](active-directory-passwords-data.md).
   >
   >
 * **D: È possibile sincronizzare i dati per le domande di sicurezza dall'ambiente locale?**
 
-  > **R:** Attualmente non è possibile.
+  > **R:** No. Attualmente non è possibile.
   >
   >
 * **D: Gli utenti possono registrare i dati in modo che non siano visibili ad altri utenti?**
 
-  > **R:** Sì. I dati che gli utenti registrano tramite il portale di registrazione per la reimpostazione della password vengono salvati in campi di autenticazione privati visibili solo agli amministratori globali e agli utenti.
+  > **R:** Sì. I dati che l'utente registra usando il portale di registrazione per la reimpostazione della password vengono salvati in campi di autenticazione privati visibili solo agli amministratori globali e all'utente.
   >
   >
 * **D: Gli utenti devono essere registrati prima di poter usare la funzionalità di reimpostazione della password?**
 
-  > **R:** No. Se le informazioni di autenticazione definite per conto degli utenti sono sufficienti, gli utenti non dovranno registrarsi. La reimpostazione della password funziona purché i dati archiviati nei campi appropriati nella directory siano formattati correttamente.
+  > **R:** No. Se le informazioni di autenticazione definite per conto degli utenti sono sufficienti, gli utenti non dovranno eseguire la registrazione. La reimpostazione della password funziona a condizione che i dati archiviati nei campi appropriati nella directory siano nel formato corretto.
   >
   >
-* **D: È possibile sincronizzare o impostare i campi Telefono per l'autenticazione, Indirizzo di posta elettronica per l'autenticazione o Telefono di autenticazione alternativo per conto degli utenti?**
+* **D: È possibile sincronizzare o impostare i campi Telefono per l'autenticazione, Indirizzo di posta elettronica per l'autenticazione o Telefono per l'autenticazione alternativo per conto degli utenti?**
 
-  > **R:** Attualmente non è possibile.
+  > **R:** No. Attualmente non è possibile.
   >
   >
-* **D: In che modo il portale di registrazione riconosce le opzioni da visualizzare agli utenti?**
+* **D: In che modo il portale di registrazione determina le opzioni da visualizzare agli utenti?**
 
-  > **R:** Il portale di registrazione per la reimpostazione delle password mostra solo le opzioni che sono state abilitate per gli utenti. Queste opzioni si trovano nella sezione Criteri di reimpostazione password utente della scheda Configura relativa alla directory. Di conseguenza, se ad esempio non si abilitano le domande di sicurezza, gli utenti non possono registrarsi per questa opzione.
+  > **R:** Il portale di registrazione per la reimpostazione della password mostra solo le opzioni che sono state abilitate per gli utenti. Queste opzioni si trovano nella sezione **Criteri di reimpostazione password utente** della scheda **Configura** della directory. Se non si abilitano le domande di sicurezza, ad esempio, gli utenti non potranno registrarsi per questa opzione.
   >
   >
 * **D: Quando un utente viene considerato registrato?**
 
-  > **R:** Un utente viene considerato registrato per la reimpostazione della password self-service quando è stato registrato almeno il **numero di metodi necessari per la reimpostazione** impostato nel [portale di Azure](https://portal.azure.com).
+  > **R:** Un utente viene considerato registrato per la reimpostazione password self-service quando ha registrato almeno il **numero di metodi necessari per la reimpostazione** che è stato impostato nel [portale di Azure](https://portal.azure.com).
   >
   >
 
@@ -83,12 +83,11 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 
 * **D: Quanto tempo occorre attendere prima di ricevere un messaggio di posta elettronica, un SMS o una telefonata relativa alla reimpostazione della password?**
 
-  > **R:** I messaggi di posta elettronica, gli SMS e le telefonate dovrebbero arrivare entro un minuto, normalmente tra 5 e 20 secondi.
+  > **R:** Messaggi di posta elettronica, SMS e telefonate dovrebbero essere ricevuti in meno di un minuto. L'intervallo normale è da 5 a 20 secondi.
     >Se non si riceve la notifica entro questo periodo di tempo:
         > * Controllare la cartella della posta indesiderata.
-        > * Controllare che il numero o il messaggio di posta elettronica contattato sia quello che previsto.
-        > * Controllare che i dati di autenticazione nella directory siano formattati correttamente.
-                >     * Esempio: "+1 4255551234" o "user@contoso.com"
+        > * Controllare che il numero o l'indirizzo di posta elettronica contattato sia quello previsto.
+        > * Controllare che i dati di autenticazione nella directory siano nel formato corretto, ad esempio +1 4255551234 o *user@contoso.com*. 
   >
   >
 * **D: Quali lingue sono supportate per la reimpostazione della password?**
@@ -98,12 +97,12 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D: A quali parti dell'esperienza di reimpostazione della password vengono applicate le impostazioni di personalizzazione dell'organizzazione specificate nella scheda Configura della directory?**
 
-  > **R:** Il portale per la reimpostazione della password mostra il logo dell'organizzazione e consente di configurare il collegamento Contattare l'amministratore che punti a un indirizzo di posta elettronica o a un URL personalizzato. Nel corpo di tutti i messaggi di posta elettronica inviati dalla funzionalità di reimpostazione della password sono inclusi il logo, i colori e il nome dell'organizzazione, oltre al nome Da personalizzato.
+  > **R:** Il portale per la reimpostazione della password mostra il logo dell'organizzazione e consente di configurare il collegamento "Contattare l'amministratore" in modo da puntare a un indirizzo di posta elettronica o un URL personalizzato. Tutti i messaggi di posta elettronica inviati dalla funzionalità di reimpostazione della password includono nel corpo il logo, i colori e il nome dell'organizzazione e sono personalizzati in base alle impostazioni associate al nome specifico.
   >
   >
 * **D: In che modo è possibile spiegare agli utenti come fare per reimpostare le proprie password?**
 
-  > **R:** provare alcuni dei suggerimenti dell'[articolo sulla distribuzione di SSPR](active-directory-passwords-best-practices.md#email-based-rollout)
+  > **R:** Provare alcuni dei suggerimenti contenuti nell'articolo relativo alla [distribuzione della reimpostazione password self-service](active-directory-passwords-best-practices.md#email-based-rollout).
   >
   >
 * **D: Questa pagina può essere usata da un dispositivo mobile?**
@@ -113,32 +112,32 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D: È supportato lo sblocco di account Active Directory locali quando gli utenti reimpostano le password?**
 
-  > **R:** Sì, quando un utente reimposta la password e il writeback delle password viene distribuito mediante Azure AD Connect, tale account utente viene sbloccato automaticamente quando si reimposta la password.
+  > **R:** Sì. Quando un utente reimposta la password ed è stato distribuito il writeback delle password tramite Azure AD Connect, l'account utente viene sbloccato automaticamente alla reimpostazione della password.
   >
   >
 * **D: Come è possibile integrare la reimpostazione della password direttamente nell'esperienza di accesso desktop degli utenti?**
 
-  > **R:** I clienti di Azure AD Premium possono installare gratuitamente Microsoft Identity Manager e distribuire la soluzione di reimpostazione della password locale per soddisfare questo requisito.
+  > **R:** I clienti di Azure AD Premium possono installare gratuitamente Microsoft Identity Manager e distribuire la soluzione di reimpostazione password locale.
   >
   >
 * **D: È possibile impostare domande di sicurezza diverse per impostazioni locali diverse?**
 
-  > **R:** Attualmente non è possibile.
+  > **R:** No. Attualmente non è possibile.
   >
   >
-* **D: Quante domande si possono configurare per l'opzione di autenticazione Domande di sicurezza?**
+* **D: Quante domande si possono configurare per l'opzione di autenticazione delle domande di sicurezza?**
 
   > **R:** Nel [portale di Azure](https://portal.azure.com) è possibile configurare un massimo di 20 domande di sicurezza personalizzate.
   >
   >
-* **D: Qual è la lunghezza delle domande di sicurezza?**
+* **D: Qual è la lunghezza consentita per le domande di sicurezza?**
 
-  > **R:** Le domande di sicurezza possono avere una lunghezza compresa tra 3 e 200 caratteri.
+  > **R:** Le domande di sicurezza possono contenere da 3 a 200 caratteri.
   >
   >
-* **D: Qual è la lunghezza delle risposte alle domande di sicurezza?**
+* **D: Qual è la lunghezza consentita per le risposte alle domande di sicurezza?**
 
-  > **R:** Le risposte possono avere una lunghezza compresa tra 3 e 40 caratteri.
+  > **R:** Le risposte possono contenere da 3 a 40 caratteri.
   >
   >
 * **D: Le risposte duplicate alle domande di sicurezza vengono rifiutate?**
@@ -146,39 +145,39 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   > **R:** Sì, vengono rifiutate.
   >
   >
-* **D: Un utente può registrarsi più di una volta per la stessa domanda di sicurezza?**
+* **D: Un utente può registrare più volte la stessa domanda di sicurezza?**
 
-  > **R:** No. Dopo che l'utente ha registrato una determinata domanda, non potrà registrarsi per quella domanda una seconda volta.
+  > **R:** No. Dopo che aver registrato una determinata domanda, l'utente non potrà eseguire la registrazione per quella domanda una seconda volta.
   >
   >
 * **D: È possibile impostare un limite minimo di domande di sicurezza per la registrazione e la reimpostazione?**
 
-  > **R:** Sì, è possibile impostare un limite per la registrazione e un altro per la reimpostazione. Possono essere richieste da 3 a 5 domande di sicurezza per la registrazione e da 3 a 5 domande di sicurezza per la reimpostazione.
+  > **R:** Sì, è possibile impostare un limite per la registrazione e un altro per la reimpostazione. Possono essere richieste da tre a cinque domande di sicurezza per la registrazione e da tre a cinque domande per la reimpostazione.
   >
   >
-* **D: Il criterio è stato configurato per richiedere agli utenti di usare domande di sicurezza per la reimpostazione, ma gli amministratori di Azure sembrano configurati in modo diverso.**
+* **D: Se si sono configurati criteri per richiedere agli utenti di usare domande di sicurezza per la reimpostazione, perché la configurazione risulta diversa per gli amministratori di Azure?**
 
-  > **R:** Si tratta del comportamento previsto. Microsoft applica un criterio di reimpostazione della password complessa a due gate predefinito per i ruoli di amministratore di Azure. In questo modo gli amministratori sono esentati dall'uso di domande di sicurezza. Per altre informazioni su questo criterio, vedere l'articolo [Restrizioni e criteri password in Azure Active Directory](active-directory-passwords-policy.md#administrator-password-policy-differences)
+  > **R:** Si tratta del comportamento previsto. Per qualsiasi ruolo di amministratore di Azure, Microsoft applica criteri avanzati predefiniti di reimpostazione password con doppio controllo che impediscono agli amministratori di usare domande di sicurezza. Per altre informazioni su tali criteri, vedere l'articolo [Restrizioni e criteri password in Azure Active Directory](active-directory-passwords-policy.md#administrator-password-policy-differences).
   >
   >
-* **D: Se un utente ha registrato più del numero massimo di domande per reimpostare la password, come vengono selezionate le domande di sicurezza durante la reimpostazione?**
+* **D: Se un utente ha registrato un numero di domande superiore al numero massimo delle domande necessarie per la reimpostazione, come vengono selezionate le domande di sicurezza durante la reimpostazione?**
 
-  > **R:** Dal numero totale di domande per cui l'utente si è registrato vengono selezionate casualmente N domande di sicurezza, dove N è il **numero di domande richieste per la reimpostazione**. Ad esempio, se un utente ha registrato 5 domande di sicurezza, ma per la reimpostazione ne sono richieste solo 3, ne verranno selezionate casualmente e presentate 3 di quelle 5 al momento della reimpostazione. Se un utente sbaglia le risposte alle domande, il processo di selezione verrà eseguito di nuovo per evitare la ripetizione delle domande.
+  > **R:** Dal numero totale di domande di sicurezza per cui un utente ha eseguito la registrazione viene selezionato in modo casuale un numero *N* di domande, dove *N* è il valore impostato per l'opzione **Numero di domande necessarie per la reimpostazione**. Se un utente ha registrato cinque domande di sicurezza ma per reimpostare una password ne sono necessarie solo tre, ad esempio, al momento della reimpostazione vengono selezionate in modo casuale e presentate solo tre delle cinque domande. Per evitare attacchi hammering sulle domande, se l'utente sbaglia le risposte alle domande, il processo di selezione ricomincia.
   >
   >
-* **D: Viene impedito agli utenti di provare a reimpostare la password più volte in un breve periodo di tempo?**
+* **D: Agli utenti viene impedito di effettuare più tentativi di reimpostazione di una password in un breve periodo di tempo?**
 
-  > **R:** Sì. Per evitarne l'uso improprio, il processo di reimpostazione della password comprende funzionalità di sicurezza. Gli utenti possono effettuare solo 5 tentativi di reimpostazione della password nell'arco di un'ora, prima di essere bloccati per 24 ore. Gli utenti possono convalidare un numero di telefono solo 5 volte nell'arco di un'ora, prima di essere bloccati per 24 ore. Gli utenti possono provare solo 5 volte un singolo metodo di autenticazione nell'arco di un'ora, prima di essere bloccati per 24 ore.
+  > **R:** Sì. Per evitarne un uso improprio, il processo di reimpostazione password include funzionalità di sicurezza. Gli utenti possono effettuare solo cinque tentativi di reimpostazione password nell'arco di un'ora, dopo i quali verranno bloccati per 24 ore. Gli utenti possono provare a convalidare un numero di telefono solo cinque volte nell'arco di un'ora, dopodiché verranno bloccati per 24 ore. Gli utenti possono provare un singolo metodo di autenticazione solo cinque volte nell'arco di un'ora, dopodiché verranno bloccati per 24 ore.
   >
   >
-* **D: Per quanto tempo è valido il passcode monouso inviato per posta elettronica o SMS?**
+* **D: Per quanto tempo sono validi i passcode monouso inviati per posta elettronica o SMS?**
 
-  > **R:** La durata della sessione per la reimpostazione della password è di 15 minuti. Dall'inizio dell'operazione di reimpostazione della password l'utente ha 15 minuti per completare l'operazione. Allo scadere di questo periodo di tempo, il passcode monouso inviato per SMS o posta elettronica non sarà più valido.
+  > **R:** La durata della sessione per la reimpostazione della password è di 15 minuti. Dall'inizio dell'operazione di reimpostazione password, l'utente ha 15 minuti per completare la reimpostazione. Allo scadere di questo periodo di tempo, il passcode monouso inviato per SMS o posta elettronica non sarà più valido.
   >
   >
 * **D: È possibile impedire agli utenti di reimpostare la password?**
 
-  > **R:** Sì, se si usa un gruppo per abilitare la reimpostazione della password self-service è possibile rimuoverli dal gruppo che dà loro questa possibilità.
+  > **R:** Sì. Se si usa un gruppo per abilitare la reimpostazione password self-service, è possibile rimuovere un singolo utente dal gruppo che consente agli utenti di reimpostare la propria password.
   >
   >
 
@@ -186,17 +185,17 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 
 * **D: Dove devono andare gli utenti per modificare la password?**
 
-  > **R:** Gli utenti possono modificare le password in qualsiasi punto visualizzino l'immagine o l'icona del profilo, ad esempio nell'angolo in alto a destra della sezione [Office 365](https://portal.office.com) o [Access Panel](https://myapps.microsoft.com) (Pannello di accesso). Gli utenti possono modificare le password dalla [pagina profilo del Pannello di accesso](https://account.activedirectory.windowsazure.com/r#/profile). Se la password è scaduta, agli utenti potrebbe venir richiesto di modificare la password automaticamente nella schermata di accesso di Azure AD. Infine, se desiderano modificare la password, gli utenti possono accedere direttamente al [portale di modifica della password di Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx).
+  > **R:** Gli utenti possono modificare le password ovunque venga visualizzata l'immagine o l'icona del profilo, ad esempio nell'angolo in alto a destra nell'esperienza del portale di [Office 365](https://portal.office.com) o del [pannello di accesso](https://myapps.microsoft.com). Gli utenti possono modificare le password dalla [pagina del profilo del pannello di accesso](https://account.activedirectory.windowsazure.com/r#/profile). Agli utenti potrebbe essere anche richiesto automaticamente di modificare la password nella pagina di accesso di Azure AD in caso di scadenza della password. Infine, se vogliono modificare la password, gli utenti possono accedere direttamente al [portale di modifica della password di Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx).
   >
   >
-* **D: Gli utenti possono ricevere una notifica nel portale di Office alla scadenza della propria password locale?**
+* **D: Gli utenti possono ricevere una notifica nel portale di Office alla scadenza della password locale?**
 
-  > **R:** Attualmente è possibile se si usa ADFS seguendo le istruzioni riportate di seguito: [Sending Password Policy Claims with ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) (Invio delle attestazioni dei criteri delle password con ADFS). Se si usa la sincronizzazione dell'hash della password, al momento non è possibile. Ciò avviene perché i criteri della password locale non vengono sincronizzati, pertanto non è possibile inviare notifiche sulla scadenza nel cloud. In entrambi i casi, è anche possibile [inviare notifiche tramite PowerShell agli utenti le cui password stanno per scadere](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  > **R:** Sì. Questo è attualmente possibile se si usa Active Directory Federation Services (AD FS). Se si usa AD FS, seguire le istruzioni riportate nell'articolo relativo all'[invio di attestazioni per i criteri password con AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Se si usa la sincronizzazione dell'hash delle password, al momento non è possibile. I criteri password delle directory locali non vengono sincronizzati e non è quindi possibile pubblicare notifiche di scadenza nelle esperienze cloud. In entrambi i casi, è anche possibile [inviare notifiche agli utenti con password in scadenza tramite PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
   >
   >
 * **D: È possibile impedire agli utenti di modificare la password?**
 
-  > **R:** Per gli utenti solo cloud non è possibile impedirlo. Per gli utenti locali è possibile selezionare `User cannot change password` e non saranno più in grado di modificare la loro password.
+  > **R:** Per gli utenti solo cloud, le modifiche delle password non possono essere bloccate. Per gli utenti locali, è possibile selezionare l'opzione **Cambiamento password non consentito**. Gli utenti selezionati non potranno modificare la password.
   >
   >
 
@@ -204,32 +203,32 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 
 * **D: Quanto tempo trascorre prima che i dati vengono visualizzati nei report di gestione delle password?**
 
-  > **R:** I dati dovrebbero essere visualizzati in tali report entro 5-10 minuti. In alcuni casi, potrebbero richiedere fino a un'ora.
+  > **R:** I dati dovrebbero essere visualizzati in tali report in 5-10 minuti. In alcuni casi, la visualizzazione potrebbe richiedere fino a un'ora.
   >
   >
 * **D: Come si possono filtrare i report di gestione delle password?**
 
-  > **R:** Per filtrare i report di gestione delle password, è possibile fare clic sulla piccola lente di ingrandimento all'estrema destra delle etichette di colonna, vicino alla parte superiore del report. Per applicare una funzione di filtro più completa, scaricare il report in Excel e creare una tabella pivot.
+  > **R:** Per filtrare i report di gestione delle password, selezionare la piccola lente di ingrandimento all'estrema destra delle etichette di colonna, nella parte superiore del report. Per applicare filtri più avanzati, è possibile scaricare il report in Excel e creare una tabella pivot.
   >
   >
-* **D: qual è il numero massimo di eventi che vengono archiviati nei report di gestione della password?**
+* **D: Qual è il numero massimo di eventi archiviato nei report di gestione delle password?**
 
-  > **R:** Nei report di gestione della password vengono archiviati fino a 75.000 eventi di reimpostazione della password o di registrazione della reimpostazione della password, con un backup fino a 30 giorni.  Stiamo lavorando per espandere questo numero al fine di includere un maggior numero di eventi.
+  > **R:** Nei report di gestione delle password vengono archiviati fino a 75.000 eventi di reimpostazione password o di registrazione per la reimpostazione della password, risalendo fino a 30 giorni prima. Stiamo lavorando per espandere questo numero al fine di includere un maggior numero di eventi.
   >
   >
 * **D: Fino a quando risalgono i report di gestione delle password?**
 
-  > **R:** Questi report mostrano le operazioni che si sono verificate negli ultimi 30 giorni. Per il momento, se occorre archiviare i dati, è possibile scaricare i report periodicamente e salvarli in un percorso separato.
+  > **R:** Questi report mostrano le operazioni eseguite negli ultimi 30 giorni. Per il momento, se occorre archiviare i dati, è possibile scaricare i report periodicamente e salvarli in un percorso separato.
   >
   >
 * **D: Esiste un limite al numero massimo di righe visualizzabili nei report di gestione delle password?**
 
-  > **R:** Sì, è possibile visualizzare un massimo di 75.000 righe nei report di gestione delle password, sia quando vengono riprodotti nell'interfaccia utente sia quando vengono scaricati.
+  > **R:** Sì. I report di gestione delle password, sia visualizzati nell'interfaccia utente che scaricati, possono contenere un massimo di 75.000 righe.
   >
   >
 * **D: Esiste un'API per accedere alla reimpostazione della password o alla raccolta dei dati di registrazione?**
 
-  > **R:** Sì, per informazioni su come accedere al flusso dei dati del report sulla reimpostazione della password, vedere la documentazione seguente.  [Informazioni su come accedere agli eventi di report della reimpostazione della password a livello di programmazione](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+  > **R:** Sì. Per informazioni su come è possibile accedere al flusso dei dati dei report di reimpostazione password, vedere l'articolo su [come accedere agli eventi dei report di reimpostazione password a livello di codice](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
   >
   >
 
@@ -237,45 +236,45 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 
 * **D: Come funziona il writeback delle password in background?**
 
-  > **R:** Per una spiegazione di ciò che accade quando si abilita il writeback delle password, nonché del modo in cui i dati transitano dal sistema all'ambiente locale, vedere [Funzionamento del writeback delle password](active-directory-passwords-writeback.md).
+  > **R:** Per una spiegazione di ciò che accade quando si abilita il writeback delle password e del flusso dei dati dal sistema all'ambiente locale, vedere [Funzionamento del writeback delle password](active-directory-passwords-writeback.md).
   >
   >
-* **D: Entro quanto tempo si attiva il funzionamento del writeback delle password?  Esiste un ritardo di sincronizzazione come per la sincronizzazione di hash della password?**
+* **D: Entro quanto tempo si attiva il funzionamento del writeback delle password? Esiste un ritardo di sincronizzazione come nel caso della sincronizzazione dell'hash delle password?**
 
   > **R:** Il writeback delle password è immediato. Si tratta di una pipeline sincrona che funziona fondamentalmente in modo diverso rispetto alla sincronizzazione di hash della password. Il writeback delle password consente agli utenti di avere un feedback in tempo reale sulla riuscita dell'operazione di reimpostazione o modifica della propria password. L'intervallo medio per un writeback della password riuscito è inferiore a 500 ms.
   >
   >
-* **D: Se l'account locale è disabilitato, cosa succede all'accesso o all'account cloud?**
+* **D: Se l'account locale è disabilitato, qual è l'impatto sull'account e l'accesso cloud?**
 
-  > **R:** Se l'ID locale è disabilitato, anche l'ID o l'accesso cloud verranno disabilitati al successivo intervallo di sincronizzazione tramite AAD Connect; per impostazione predefinita questo avviene ogni 30 minuti.
+  > **R:** Se l'ID locale è disabilitato, anche l'ID e l'accesso cloud verranno disabilitati al successivo intervallo di sincronizzazione tramite Azure AD Connect. Per impostazione predefinita, la sincronizzazione viene eseguita ogni 30 minuti.
   >
   >
-* **D: Se l'account locale è vincolato da un criterio di password di Active Directory locale, la reimpostazione della password self-service rispetta questo criterio quando si modifica la password?**
+* **D: Se l'account locale è vincolato da criteri password di Active Directory locali, la reimpostazione password self-service rispetta questi criteri quando si modifica la password?**
 
-  > **R:** Sì, la reimpostazione della password self-service si basa e si attiene ai criteri della password di Active Directory locale, che includono il tipico criterio della password di dominio AD, nonché tutti i criteri della password con granularità fine definiti destinati a un determinato utente.
+  > **R:** Sì. La reimpostazione password self-service applica e rispetta i criteri password di Active Directory locali, che includono i criteri password tipici per i domini di Active Directory nonché tutti i criteri password specifici per un utente.
   >
   >
 * **D: Per quali tipi di account funziona il writeback delle password?**
 
-  > **R:** Funziona per gli utenti federati e con sincronizzazione di hash della password.
+  > **R:** Il writeback delle password funziona per gli utenti federati e con sincronizzazione dell'hash delle password.
   >
   >
 * **D: Il writeback delle password applica i criteri di password del dominio?**
 
-  > **R:** Sì, applica validità, cronologia, complessità, filtri e qualsiasi altra restrizione eventualmente applicata alle password nel dominio locale.
+  > **R:** Sì. Il writeback delle password applica validità, cronologia, complessità, filtri e qualsiasi altra restrizione eventualmente applicata alle password nel dominio locale.
   >
   >
 * **D: Il writeback delle password è sicuro?  Come si può essere certi di non essere oggetto di un attacco?**
 
-  > **R:** Sì, il writeback delle password è sicuro. Per altre informazioni sui 4 livelli di sicurezza implementati dal servizio di writeback delle password, vedere la sezione [Password writeback security model](active-directory-passwords-writeback.md#password-writeback-security-model) (Modello di sicurezza del writeback della password) in Funzionamento del writeback delle password.
+  > **R:** Sì, il writeback delle password è sicuro. Per altre informazioni sui quattro livelli di sicurezza implementati dal servizio di writeback delle password, vedere la sezione [Modello di sicurezza del writeback delle password](active-directory-passwords-writeback.md#password-writeback-security-model) dell'articolo [Panoramica del writeback delle password](active-directory-passwords-writeback.md).
   >
   >
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](active-directory-passwords-best-practices.md)
-* [Reimpostare o modificare la password](active-directory-passwords-update-your-own-password.md).
-* [Registrarsi per la reimpostazione della password self-service](active-directory-passwords-reset-register.md).
+* [Reimpostare o modificare la password](active-directory-passwords-update-your-own-password.md)
+* [Registrarsi per la reimpostazione della password self-service](active-directory-passwords-reset-register.md)
 * [Domande sulle licenze](active-directory-passwords-licensing.md)
 * [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](active-directory-passwords-data.md)
 * [Metodi di autenticazione disponibili per gli utenti](active-directory-passwords-how-it-works.md#authentication-methods)
