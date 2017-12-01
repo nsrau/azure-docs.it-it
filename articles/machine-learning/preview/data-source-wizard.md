@@ -7,11 +7,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: bed026e8f75618403efa3eed475371d1d2746bc5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a0b014fe57f3e9d2ceeac94f3570353a9a07b27
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="data-source-wizard"></a>Creazione guidata dell'origine dati #
 
@@ -29,7 +29,7 @@ Innanzitutto, specificare la provenienza dei dati. Possono essere archiviati in 
 ![passaggio 1](media/data-source-wizard/step1.png)
 
 ## <a name="step-3-select-data-file"></a>Passaggio 3: Selezionare il file di dati ##
-Per un file o una directory, specificare il percorso del file. Scegliere nell'elenco a discesa la posizione dei dati: si può scegliere un percorso file locale, l'Archiviazione BLOB di Azure o Azure Data Lake. 
+Per un file o una directory, specificare il percorso del file. Scegliere nell'elenco a discesa la posizione dei dati: si può scegliere un percorso file locale o Archiviazione BLOB di Azure. 
 
 Specificare il percorso digitandolo oppure facendo clic sul pulsante **Sfoglia...** per cercarlo. È possibile cercare una directory oppure uno o più file.
 

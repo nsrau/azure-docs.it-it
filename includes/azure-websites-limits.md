@@ -18,7 +18,7 @@
 | Supporto per il dominio personalizzato [SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |Connessioni SNI SSL senza limiti |Connessioni SNI SSL senza limiti e 1 connessione IP SSL incluse |Connessioni SNI SSL senza limiti e 1 connessione IP SSL incluse |
 | Bilanciamento del carico integrato | |X |X |X |X |
 | [Always On](../articles/app-service/web-sites-configure.md) | | |X |X |X |
-| [Backup pianificati](../articles/app-service/web-sites-backup.md) | | | |Una volta al giorno |Una volta ogni 5 minuti<sup>8</sup> |
+| [Backup pianificati](../articles/app-service/web-sites-backup.md) | | | |12 al giorno |Una volta ogni 5 minuti<sup>8</sup> |
 | [Scalabilità automatica](../articles/app-service/web-sites-scale.md) | | | |X |X |
 | [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>9</sup> |X |X |X |X |X |
 | [Utilità di pianificazione di Azure](https://azure.microsoft.com/services/scheduler/) | |X |X |X |X |

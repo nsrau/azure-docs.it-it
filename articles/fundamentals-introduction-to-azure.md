@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69b8ec86f764077a0e6d029f7c540fa25d022a31
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Introduzione a Microsoft Azure
 Microsoft Azure è la piattaforma applicativa di Microsoft per il cloud pubblico.  Lo scopo di questo articolo è offrire all'utente le basi per comprendere i dati fondamentali di Azure, anche se non si ha alcuna nozione del cloud computing.
@@ -77,7 +77,7 @@ In genere, il cloud viene usato per eseguire siti Web e applicazioni Web. Macchi
 
 Questo è ciò che fornisce esattamente App Web. Questo modello di calcolo rende disponibile un ambiente Web gestito tramite il portale di gestione di Azure e diverse API. È possibile spostare un'applicazione Sito Web esistente in App Web lasciandola invariata o crearne una nuova direttamente nel cloud. Non appena un sito Web è in esecuzione, è possibile aggiungere o rimuovere istanze in modo dinamico, usando App Web di Azure per bilanciare il carico delle richieste. App Web di Azure offre un'opzione condivisa grazie alla quale il sito viene eseguito in una macchina virtuale assieme ad altri siti, e un'opzione standard che consente l'esecuzione di un sito in una macchina virtuale specifica. L'opzione standard consente inoltre di aumentare le dimensioni (potenza di elaborazione) delle istanze, se necessario.
 
-Per gli ambienti di sviluppo, App Web supporta .NET, PHP, Node.js, Java e Python insieme a database SQL e MySQL (di ClearDB, un partner Microsoft) per l'archivio relazionale. Fornisce inoltre il supporto incorporato per numerose applicazioni ampiamente diffuse, ad esempio WordPress, Joomla e Drupal. Si tratta di una piattaforma a basso costo, scalabile ed estremamente utile per la creazione di siti e applicazioni Web nel cloud pubblico.
+Per lo sviluppo, App Web supporta .NET, PHP, Node.js, Java e Python insieme a database SQL e Database di Azure per MySQL per l'archivio relazionale. Fornisce inoltre il supporto incorporato per numerose applicazioni ampiamente diffuse, ad esempio WordPress, Joomla e Drupal. Si tratta di una piattaforma a basso costo, scalabile ed estremamente utile per la creazione di siti e applicazioni Web nel cloud pubblico.
 
 **Scenari di Applicazioni Web**
 

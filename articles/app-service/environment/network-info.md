@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-ms.openlocfilehash: 121dd1a90e9bde66f1c3b752412a657a67295084
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ac630982b47f7105feb034982eae070faa72d9e
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
@@ -164,7 +164,7 @@ Tutti gli elementi visualizzati nelle regole in uscita seguenti sono necessari, 
 
 ![Regole di sicurezza in uscita][5]
 
-Dopo aver definito i gruppi di sicurezza di rete, assegnarli alla subnet in cui è incluso l'ambiente del servizio app. Se non si ricorda la rete virtuale o la subnet dell'ambiente del servizio app, è possibile visualizzarla dal portale di gestione dell'ambiente del servizio app. Per assegnare il gruppo di sicurezza di rete alla subnet, passare all'interfaccia utente della subnet e selezionare il gruppo di sicurezza di rete.
+Dopo aver definito i gruppi di sicurezza di rete, assegnarli alla subnet in cui è incluso l'ambiente del servizio app. Se non si ricorda la rete virtuale o la subnet dell'ambiente del servizio app, è possibile visualizzarla dalla pagina del portale dell'ambiente del servizio app. Per assegnare il gruppo di sicurezza di rete alla subnet, passare all'interfaccia utente della subnet e selezionare il gruppo di sicurezza di rete.
 
 ## <a name="routes"></a>Route ##
 

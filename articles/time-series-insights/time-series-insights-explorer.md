@@ -3,7 +3,7 @@ title: Esplorare i dati tramite lo strumento di esplorazione di Azure Time Serie
 description: In questo articolo viene descritto come usare lo strumento di esplorazione di Azure Time Series Insights nel Web browser per avere in modo semplice e rapido una visualizzazione globale dei Big Data e convalidare l'ambiente IoT.
 services: time-series-insights
 ms.service: time-series-insights
-author: kfile
+author: MarkMcGeeAtAquent
 ms.author: kfile
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 112c1a86e302c2549018fc3a8c6dbc22a689c8a6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 35f7bf0504075e8bb0b99f8492b850df2b7ceae1
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-time-series-insights-explorer"></a>Strumento di esplorazione di Azure Time Series Insights
 In questo articolo vengono descritte le funzionalità e le opzioni disponibili nell'app Web dello strumento di esplorazione di Time Series Insights. Usare lo strumento di esplorazione di Time Series Insights nel Web browser per creare visualizzazioni di dati.
@@ -50,10 +50,10 @@ Dopo aver connesso l'origine evento all'ambiente Time Series Insights, è possib
       - **Split By** (Diviso per): in questo elenco a discesa sono visualizzate le colonne delle categorie (valori di tipo String)
       - È possibile abilitare l'interpolazione graduale, visualizzare i valori massimi e minimi e adattare l'asse Y tramite il pannello di controllo accanto alla misura.  È anche possibile definire se i dati visualizzati sono un conteggio, una media oppure una somma di dati.
       - È possibile aggiungere fino a cinque termini da visualizzare sull'asse X.  Usare il pulsante per la **copia verso il basso** per aggiungere altri termini oppure fare clic sul pulsante **Add**  (Aggiungi) per aggiungere un nuovo termine.
+     
+        ![Pannello Terms Editor (Editor termini)](media/time-series-insights-explorer/explorer2.png)
 
-      ![Pannello Terms Editor (Editor termini)](media/time-series-insights-explorer/explorer2.png)
-
-      - **Predicate** (Predicato): il predicato consente di filtrare rapidamente gli eventi tramite il set di operandi elencati di seguito. Se si esegue una ricerca tramite selezione o clic, il predicato viene automaticamente aggiornato in base a tale ricerca.  I tipi di operandi supportati includono:
+      - **Predicate** (Predicato): il predicato consente di filtrare rapidamente gli eventi tramite il set di operandi elencati di seguito. Se si esegue una ricerca tramite selezione o clic, il predicato viene automaticamente aggiornato in base a tale ricerca.      I tipi di operandi supportati includono:
 
          |Operazione  |Tipi supportati  |Note  |
          |---------|---------|---------|
@@ -107,4 +107,5 @@ Dopo aver connesso l'origine evento all'ambiente Time Series Insights, è possib
 Sono state introdotte le varie funzionalità e opzioni disponibili nell'app Web dello strumento di esplorazione di Time Series Insights. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Diagnosticare e risolvere i problemi nell'ambiente Time Series Insights](time-series-insights-diagnose-and-solve-problems.md)
+> [!div class="nextstepaction"]
+>[Diagnosticare e risolvere i problemi nell'ambiente Time Series Insights](time-series-insights-diagnose-and-solve-problems.md)

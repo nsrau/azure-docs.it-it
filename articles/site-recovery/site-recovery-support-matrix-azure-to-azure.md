@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: b157e2f90fa2daf00cf71472eb799ee98797b4dc
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 7dae1d903b6cbb6a74f89443ec9601c6b4b9d078
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matrice di supporto di Azure Site Recovery per la replica da Azure ad Azure
 
@@ -164,9 +164,10 @@ Archiviazione con ridondanza geografica | Supportato |
 RA-GRS | Supportato |
 ZRS | Non supportate |  
 Archiviazione ad accesso frequente e sporadico | Non supportate | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
+Endpoint servizio di rete virtuale (i firewall di Archiviazione di Azure e le reti virtuali)  | No | L'accesso alle reti virtuali di Azure specifiche negli account di archiviazione della cache usati per archiviare i dati replicati non è supportato. 
 
 >[!IMPORTANT]
-> Assicurarsi di seguire le [indicazioni per l'archiviazione](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) per le macchine virtuali di Azure di origine per evitare problemi di prestazioni. Se si seguono le impostazioni predefinite, Site Recovery crea gli account di archiviazione necessari in base alla configurazione di origine. Se si personalizzano e si selezionano impostazioni specifiche, assicurarsi di seguire (../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) come le macchine virtuali di origine.
+> Per evitare problemi di prestazioni, assicurarsi di osservare gli obiettivi di scalabilità e prestazioni per il disco della macchina virtuale per le macchine virtuali [Linux](../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../virtual-machines/windows/disk-scalability-targets.md). Se si seguono le impostazioni predefinite, Site Recovery crea gli account di archiviazione e i dischi necessari in base alla configurazione di origine. Se si personalizzano e si selezionano impostazioni specifiche, assicurarsi di rispettare gli obiettivi di scalabilità e prestazioni per i dischi delle macchine virtuali.
 
 ## <a name="support-for-network-configuration"></a>Supporto per la configurazione di rete
 **Configurazione** | **Supportato/Non supportato** | **Osservazioni**

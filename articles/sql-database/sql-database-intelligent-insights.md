@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 86011610885ff913bfd70aa46389e4e39989d0a3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 823855d88396a14ff7e5428a12d71384cdfe95a1
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="intelligent-insights"></a>Intelligent Insights
 
@@ -49,8 +49,6 @@ Dopo aver rilevato un problema di riduzione delle prestazioni in base a più met
 
 Le metriche usate per misurare e rilevare i problemi di prestazioni del database si basano su durata delle query, richieste di timeout, tempi di attesa eccessivi e richieste con errori. Per altre informazioni, vedere la sezione [Metriche di rilevamento](sql-database-intelligent-insights.md#detection-metrics) in questo documento.
 
-## <a name="degradations-detected"></a>Riduzioni delle prestazioni rilevate
-
 Le riduzioni delle prestazioni del database SQL identificate sono registrate nel log di diagnostica con voci intelligenti costituite dalle proprietà seguenti:
 
 | Proprietà             | Dettagli              |
@@ -64,36 +62,49 @@ Le riduzioni delle prestazioni del database SQL identificate sono registrate nel
 | Analisi della causa radice | Analisi della causa radice del problema identificato in un formato umanamente leggibile. Alcune analisi potrebbero contenere raccomandazioni per il miglioramento delle prestazioni, se possibile. |
 |||
 
-## <a name="issues-state-lifecycle-active-verifying-and-complete"></a>Ciclo di vita dello stato dei problemi: "Attivo", "Verifica in corso" e "Completato"
-
 I problemi di prestazioni registrati nel log di diagnostica sono contrassegnati con uno dei tre stati di un ciclo di vita del problema: "Attivo", "Verifica in corso" e "Completato". Quando viene rilevato un problema di prestazioni e finché viene ritenuto presente dalle funzionalità di intelligence integrata del database SQL, il problema è contrassegnato come "Attivo". Quando il problema è considerato attenuato, viene verificato e lo stato del problema è modificato in "Verifica in corso". Dopo che il problema è considerato risolto dalle funzionalità di intelligence integrata del database SQL, lo stato del problema è contrassegnato come "Completato".
 
 ## <a name="use-intelligent-insights"></a>Usare Intelligent Insights
 
-È possibile inviare il log di diagnostica di Intelligent Insights a Log Analytics di Azure, a Hub eventi di Azure e ad Archiviazione di Azure. Per altre informazioni, vedere [Metriche del database SQL di Azure e registrazione diagnostica](sql-database-metrics-diag-logging.md). Dopo averlo inviato a una di queste destinazioni, il log può essere usato per la creazione di avvisi e il monitoraggio personalizzati con strumenti di Microsoft o di terze parti. 
+Intelligent Insights è un log di diagnostica delle prestazioni intelligenti. Può essere integrato con altri prodotti d'uso e applicazioni specifiche quali Azure Log Analytics, Hub eventi di Azure e Archiviazione di Azure, o prodotti di terze parti. 
 
-Per altre informazioni sulle procedure di risoluzione dei problemi di prestazioni del database SQL tramite Intelligent Insights, vedere [Risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+Intelligent Insights insieme a Azure Log Analytics viene in genere usato per visualizzare le informazioni dettagliate tramite un Web browser ed è probabilmente uno dei modi più semplici per iniziare a usare il prodotto. Intelligent Insights con Hub eventi di Azure viene in genere usato per configurare gli scenari di monitoraggio e avvisi personalizzati. Intelligent Insights con Archiviazione di Azure viene generalmente usato per lo sviluppo di applicazioni personalizzate, ad esempio per la creazione di report personalizzati o anche per l'archiviazione e il recupero dei dati.
 
-## <a name="built-in-intelligent-insights-analytics-with-log-analytics"></a>Analisi integrata di Intelligent Insights con Log Analytics 
+L'integrazione di Intelligent Insights con altri prodotti quali Azure Log Analytics, Hub eventi di Azure, Archiviazione di Azure o prodotti di terze parti per l'uso viene eseguita innanzitutto abilitando la registrazione di Intelligent Insights (log SQLInsights) e configurando i dati di log di Intelligent Insights da trasmettere a uno di questi prodotti. Per altre informazioni su come abilitare la registrazione di Intelligent Insights e configurare i dati di log da trasmettere a un prodotto che li usi, vedere [Metriche del database SQL di Azure e registrazione diagnostica](sql-database-metrics-diag-logging.md). 
 
-La soluzione Log Analytics fornisce funzionalità per la creazione di report e avvisi basate sui dati del log di diagnostica di Intelligent Insights. Di seguito è riportato un esempio del report di Intelligent Insights in Analisi SQL di Azure:
+Per una panoramica pratica sull'uso di Intelligent Insights con Azure Log Analytics e per scenari di uso tipici, vedere il video incorporato:
+
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>
+
+Intelligent Insights si distingue per l'individuazione e la risoluzione dei problemi di prestazioni del database SQL. Per usare Intelligent Insights per risolvere i problemi di prestazioni di database SQL, vedere [Risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+
+## <a name="set-up-intelligent-insights-with-log-analytics"></a>Configurare Intelligent Insights con Log Analytics 
+
+La soluzione Log Analytics fornisce funzionalità per la creazione di report e avvisi basate sui dati del log di diagnostica di Intelligent Insights.
+
+Per usare Intelligent Insights con Log Analytics e configurare i dati di log di Intelligent Insights da trasmettere a Log Analytics, vedere [Metriche del database SQL di Azure e registrazione diagnostica](sql-database-metrics-diag-logging.md). 
+
+Di seguito è riportato un esempio del report di Intelligent Insights in Analisi SQL di Azure:
 
 ![Report di Intelligent Insights](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
 
 Dopo che il log di diagnostica di Intelligent Insights è stato configurato per trasmettere i dati ad Analisi SQL, è possibile [monitorare il database SQL di Azure tramite Analisi SQL](../log-analytics/log-analytics-azure-sql.md).
 
-## <a name="custom-integrations-of-intelligent-insights-log"></a>Integrazioni personalizzate del log di Intelligent Insights
-
-Per altre informazioni sulla creazione di avvisi e il monitoraggio personalizzati con strumenti di Microsoft o di terze parti, vedere [Use Intelligent Insights database performance diagnostics log](sql-database-intelligent-insights-use-diagnostics-log.md) (Usare il log di diagnostica delle prestazioni di database di Intelligent Insights).
-
 ## <a name="set-up-intelligent-insights-with-event-hubs"></a>Configurare Intelligent Insights con Hub eventi
 
-- Per configurare Intelligent Insights per trasmettere gli eventi del log a Hub eventi, vedere [Trasmettere log di diagnostica di Azure a uno spazio dei nomi di Hub eventi](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
-- Per usare Hub di eventi per la creazione di avvisi e il monitoraggio personalizzati, vedere [Operazioni da eseguire con le metriche e i log di diagnostica in Hub eventi](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs). 
+Per usare Intelligent Insights con Hub eventi e configurare i dati di log di Intelligent Insights da trasmettere all'Hub eventi, vedere [Trasmettere i log di diagnostica di Azure agli hub eventi](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
+
+Per usare Hub di eventi per configurare gli avvisi e il monitoraggio personalizzati, vedere [Cosa fare con le metriche e i log di diagnostica in Hub eventi](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs). 
 
 ## <a name="set-up-intelligent-insights-with-storage"></a>Configurare Intelligent Insights con Archiviazione
 
-- Per configurare Intelligent Insights per l'archiviazione con Archiviazione, vedere [Eseguire lo streaming in Archiviazione di Azure](sql-database-metrics-diag-logging.md#stream-into-storage).
+Per usare Intelligent Insights con Archiviazione e configurare dati di log di Intelligent Insights da trasmettere ad Archiviazione, vedere [Streaming in Archiviazione di Azure](sql-database-metrics-diag-logging.md#stream-into-storage).
+
+## <a name="custom-integrations-of-intelligent-insights-log"></a>Integrazioni personalizzate del log di Intelligent Insights
+
+Per usare Intelligent Insights con strumenti di terze parti o per la creazione di avvisi e monitoraggio personalizzati, vedere [Usare il log di diagnostica delle prestazioni di database di Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 
 ## <a name="detection-metrics"></a>Metriche di rilevamento
 

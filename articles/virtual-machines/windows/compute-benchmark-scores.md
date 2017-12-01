@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cynthn
-ms.openlocfilehash: dc715a9bf4e5366e1719de7c649feb06b0c4bee7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37eaafdbcee87e6f6a6164dffcabaa7e9efa65ca
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Calcolare i punteggi di benchmark per le VM Windows
 I seguenti punteggi del benchmark SPECInt mostrano le prestazioni di calcolo per la linea di VM ad alte prestazioni di Azure con Windows Server. I punteggi di benchmark sul calcolo sono disponibili anche per le [VM Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -65,7 +65,7 @@ I seguenti punteggi del benchmark SPECInt mostrano le prestazioni di calcolo per
 | Standard_H16mr |16 |2 |Intel Xeon E5-2667 v3 a 3,2 GHz |7 |569.6 |2.8 |
 
 ## <a name="about-specint"></a>Informazioni su SPECint
-I valori di Windows sono stati calcolati eseguendo [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) in Windows Server. SPECint è stato eseguito utilizzando la velocità di base (SPECint_rate2006), con una copia per core. SPECint consiste in 12 test distinti, ognuno eseguito tre volte prendendo i valori mediani di tutti i test e ponderandoli in modo da ottenere un punteggio composito. Questi test sono stati quindi eseguiti su più VM per ottenere la media dei punteggi illustrata.
+I valori di Windows sono stati calcolati eseguendo [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) in Windows Server. SPECint è stato eseguito usando la velocità di base (SPECint_rate2006), con una copia per CPU virtuale. SPECint consiste in 12 test distinti, ognuno eseguito tre volte prendendo i valori mediani di tutti i test e ponderandoli in modo da ottenere un punteggio composito. Questi test sono stati quindi eseguiti su più VM per ottenere la media dei punteggi illustrata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per conoscere le capacità di archiviazione, i dettagli sul disco e per considerazioni aggiuntive sulla scelta delle dimensioni delle macchine virtuali, vedere [Dimensioni delle macchine virtuali in Azure](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

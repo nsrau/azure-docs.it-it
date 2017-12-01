@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: baa3ac6473f180e220ec4973ced51369467bf158
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1adf5935e7fc01a24db6ada3c4cfe4ac0a4d55
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Servizio di sincronizzazione Azure AD Connect: Configurare il filtro
 L'applicazione di un filtro consente di controllare quali oggetti vengono visualizzati in Azure Active Directory (Azure AD) dalla directory locale. La configurazione predefinita considera tutti gli oggetti in tutti i domini delle foreste configurate. In generale, questa è la configurazione consigliata. Gli utenti che usano i carichi di lavoro di Office 365, come Exchange Online e Skype for Business, hanno a disposizione un elenco indirizzi globale completo per inviare messaggi di posta elettronica e chiamare chiunque. Con la configurazione predefinita possono usufruire della stessa esperienza resa disponibile da un'implementazione locale di Exchange o Lync.
@@ -296,7 +296,14 @@ A questo punto è possibile abilitare di nuovo l'utilità di pianificazione.
 ## <a name="group-based-filtering"></a>Filtri basati sui gruppi
 È possibile configurare il filtro basato su gruppi la prima volta che si installa Azure AD Connect tramite l'[installazione personalizzata](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). Tale filtro è progettato per una distribuzione pilota in cui si desidera solo un piccolo gruppo di oggetti da sincronizzare. Dopo essere stato disabilitato, il filtro basato su gruppi non può essere abilitato nuovamente. L'uso del filtro basato su gruppi *non è supportato* in una configurazione personalizzata, ma è supportato solo per configurare questa funzionalità tramite l'installazione guidata. Dopo aver completato il progetto pilota, usare solo una delle altre opzioni di filtro descritte in questo argomento. Se si usa un filtro basato su unità organizzative insieme al filtro basato su gruppi, è necessario includere le unità organizzative in cui si trovano il gruppo e i relativi membri.
 
-Quando si sincronizzano più foreste di AD, è possibile configurare i filtri basati sui gruppi specificando un gruppo diverso per ogni istanza di AD Connector. Per sincronizzare un utente in una foresta di AD e lo stesso utente ha uno o più oggetti entità di protezione esterna corrispondenti nelle altre foreste di AD, è necessario assicurarsi che l'oggetto utente e tutti gli oggetti entità di protezione esterna corrispondenti siano inclusi nell'ambito dei filtri basati sui gruppi. Se uno o più oggetti entità di protezione esterna vengono esclusi dai filtri basati sui gruppi, l'oggetto utente non verrà sincronizzato con Azure AD.
+Quando si sincronizzano più foreste di AD, è possibile configurare i filtri basati sui gruppi specificando un gruppo diverso per ogni istanza di AD Connector. Per sincronizzare un utente in una foresta di AD e lo stesso utente dispone di uno o più oggetti corrispondenti nelle altre foreste di AD, è necessario assicurarsi che l'oggetto utente e tutti gli oggetti corrispondenti siano inclusi nell'ambito de filtro basati sui gruppi. Ad esempio:
+
+* un utente di una foresta dispone di un oggetto entità di protezione esterna corrispondente in un'altra foresta. Entrambi gli oggetti devono essere all'interno dell'ambito di filtro basato sul gruppo. In caso contrario, l'utente non verrà sincronizzato in Azure AD.
+
+* Un utente in una foresta ha un account della risorsa corrispondente, ad esempio una cassetta postale collegata, in un'altra foresta. Per di più Azure AD Connect è stato configurato per collegare l'utente all'account della risorsa. Entrambi gli oggetti devono essere all'interno dell'ambito di filtro basato sul gruppo. In caso contrario, l'utente non verrà sincronizzato in Azure AD.
+
+* Un utente in una foresta dispone di un contatto di posta corrispondente in un'altra foresta. Per di più Azure AD Connect è stato configurato per collegare l'utente al contatto di posta. Entrambi gli oggetti devono essere all'interno dell'ambito di filtro basato sul gruppo. In caso contrario, l'utente non verrà sincronizzato in Azure AD.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sulla configurazione del [servizio di sincronizzazione Azure AD Connect](active-directory-aadconnectsync-whatis.md).

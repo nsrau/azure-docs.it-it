@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: a573a7ef79e28c50ae0923849a88f88af40f21be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ba33399c9ea0f093de6c85328d6ec2b280da4a0
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="tutorial-configuring-salesforce-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di Salesforce per il provisioning utenti automatico
 
@@ -35,9 +35,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle "assegnazioni". Nel contesto del provisioning automatico degli account utente, vengono sincronizzati solo gli utenti e i gruppi che sono stati "assegnati" a un'applicazione in Azure AD.
 
-Prima di configurare e abilitare il servizio di provisioning, è necessario stabilire quali utenti e/o gruppi in Azure AD rappresentano gli utenti che devono accedere all'app Salesforce. Dopo aver stabilito questo, è possibile assegnare tali utenti all'app Salesforce seguendo le istruzioni riportate qui:
-
-[Assegnare un utente o gruppo a un'app aziendale](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Prima di configurare e abilitare il servizio di provisioning, è necessario stabilire quali utenti o gruppi in Azure AD devono accedere all'app Salesforce. Dopo aver deciso, è possibile assegnare questi utenti all'app Salesforce seguendo le istruzioni riportate in [Assegnare un utente o un gruppo a un'app aziendale](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
 ### <a name="important-tips-for-assigning-users-to-salesforce"></a>Suggerimenti importanti per l'assegnazione di utenti a Salesforce
 
@@ -48,14 +46,14 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
     > [!NOTE]
     > Questa app importa ruoli personalizzati da Salesforce come parte del processo di provisioning che il cliente può decidere di selezionare durante l'assegnazione di utenti
 
-## <a name="enable-automated-user-provisioning"></a>Abilitare il provisioning utenti automatizzato
+## <a name="enable-automated-user-provisioning"></a>Abilitare il provisioning utenti automatico
 
 Questa sezione illustra la connessione di Azure AD all'API per il provisioning degli account utente di Salesforce e la configurazione del servizio di provisioning per la creazione, l'aggiornamento e la disabilitazione degli account utente assegnati in Salesforce in base all'assegnazione di utenti e gruppi in Azure AD.
 
 >[!Tip]
 >Si può anche scegliere di abilitare l'accesso Single Sign-On basato su SAML per Salesforce, seguendo le istruzioni disponibili nel [portale di Azure](https://portal.azure.com). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning automatico, nonostante queste due funzionalità siano complementari.
 
-### <a name="to-configure-automatic-user-account-provisioning"></a>Per configurare il provisioning automatico degli account utente:
+### <a name="configure-automatic-user-account-provisioning"></a>Configurare il provisioning automatico degli account utente
 
 In questa sezione viene descritto come abilitare il provisioning utenti degli account utente di Active Directory in Salesforce.
 
@@ -65,8 +63,9 @@ In questa sezione viene descritto come abilitare il provisioning utenti degli ac
 
 3. Selezionare l'istanza di Salesforce e quindi la scheda **Provisioning**.
 
-4. Impostare **Modalità di provisioning** su **Automatico**. 
-![provisioning](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
+4. Impostare **Modalità di provisioning** su **Automatico**.
+
+    ![provisioning](./media/active-directory-saas-salesforce-provisioning-tutorial/provisioning.png)
 
 5. Nella sezione **Credenziali di amministratore** specificare le impostazioni di configurazione seguenti:
    
@@ -74,17 +73,21 @@ In questa sezione viene descritto come abilitare il provisioning utenti degli ac
    
     b. Nella casella di testo **Password amministratore** digitare la password per questo account.
 
-6. Per ottenere il token di sicurezza di Salesforce, aprire una nuova scheda e accedere allo stesso account di amministratore di Salesforce. Nell'angolo superiore destro della pagina fare clic sul proprio nome e quindi su **Impostazioni personali**.
+6. Per ottenere il token di sicurezza di Salesforce, aprire una nuova scheda e accedere allo stesso account di amministratore di Salesforce. Nell'angolo superiore destro della pagina fare clic sul proprio nome e quindi su **Impostazioni**.
 
      ![Enable automatic user provisioning](./media/active-directory-saas-salesforce-provisioning-tutorial/sf-my-settings.png "Enable automatic user provisioning")
-7. Nel pannello di navigazione sinistro fare clic su **Personal** (Personale) per espandere la sezione corrispondente, quindi fare clic su **Reset My Security Token** (Reimposta token di sicurezza personale).
+
+7. Nel pannello di navigazione sinistro fare clic su **My Personal Information** (Informazioni personali) per espandere la sezione corrispondente e quindi fare clic su **Reset My Security Token** (Reimposta token di sicurezza personale).
   
     ![Enable automatic user provisioning](./media/active-directory-saas-salesforce-provisioning-tutorial/sf-personal-reset.png "Enable automatic user provisioning")
-8. Nella pagina **Reset My Security Token** (Reimposta token di sicurezza personale) fare clic sul pulsante **Reset Security Token** (Reimposta token di sicurezza).
+
+8. Nella pagina **Reset Security Token** (Reimposta token di sicurezza) fare clic sul pulsante **Reset Security Token** (Reimposta token di sicurezza).
 
     ![Enable automatic user provisioning](./media/active-directory-saas-salesforce-provisioning-tutorial/sf-reset-token.png "Enable automatic user provisioning")
+
 9. Controllare la casella di posta elettronica associata a questo account di amministratore. Cercare un messaggio di posta elettronica da Salesforce.com contenente il nuovo token di sicurezza.
-10. Copiare il token, passare alla finestra di Azure AD e incollarlo nel campo **Socket Token**.
+
+10. Copiare il token, passare alla finestra di Azure AD e incollarlo nel campo **Token segreto**.
 
 11. Nel portale di Azure fare clic su **Test connessione** per verificare che Azure AD possa connettersi all'app Salesforce.
 
@@ -108,4 +111,4 @@ Viene avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi asse
 
 * [Gestione del provisioning degli account utente per app aziendali](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
-* [Configurare l'accesso Single Sign-On](active-directory-saas-salesforce-tutorial.md)
+* [Configurare l'accesso Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-tutorial)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 655bc3dd3735a35fbe7437e8dda92b2adf15f7bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Comunicazione remota con i servizi con Reliable Services
 Per i servizi che non sono legati a un protocollo di comunicazione o uno stack particolare, ad esempio WebAPI, Windows Communication Foundation (WCF) o altri, il framework Reliable Services fornisce un meccanismo remoto per impostare in modo semplice e rapido una chiamata di procedura remota per i servizi.
@@ -82,12 +82,12 @@ string message = await helloWorldClient.HelloWorldAsync();
 Il framework remoto propaga le eccezioni generate nel servizio al client. La logica di gestione delle eccezioni nel client tramite `ServiceProxy` , quindi, è in grado di gestire direttamente le eccezioni generate dal servizio.
 
 ## <a name="service-proxy-lifetime"></a>Durata del proxy servizio
-La creazione del proxy servizio è un'operazione semplice, pertanto l'utente può creare quanti proxy desidera. Il proxy servizio può essere usato più volte, fintanto che l'utente ne ha necessità. Se l'API remota genera un'eccezione, gli utenti possono ancora riutilizzare lo stesso proxy. Ogni ServiceProxy contiene il client di comunicazione usato per inviare messaggi sulla rete. Durante la chiamata all'API, vengono effettuati controlli interni per verificare se il client di comunicazione usato è valido. In base al risultato, il client di comunicazione viene ricreato. Pertanto, se si verifica un'eccezione, l'utente non deve ricreare il proxy servizio in caso di eccezione.
+La creazione del proxy servizio è un'operazione semplice e, pertanto, l'utente può creare quanti proxy desidera. Le istanze del proxy servizio possono essere usate più volte, fintanto che l'utente ne ha necessità. Se una chiamata di procedura remota genera un'eccezione, gli utenti possono comunque riusare la stessa istanza del proxy. Ogni proxy servizio contiene un client di comunicazione usato per inviare messaggi sulla rete. Durante chiamate remote, vengono effettuati controlli interni per verificare che il client di comunicazione sia valido. In base al risultato, il client di comunicazione viene ricreato. Pertanto, se si verifica un'eccezione, l'utente non deve ricreare il proxy servizio, ma questa operazione viene eseguita in modo trasparente.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Durata di ServiceProxyFactory
-[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) è una factory che crea proxy per interfacce di connessione remota diverse. Se si usa ServiceProxy.Create API per la creazione di proxy, il framework crea il singleton ServiceProxyFactory.
+[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) è una factory che crea istanze di proxy per interfacce di connessione remota diverse. Se si usa l'API `ServiceProxy.Create` per la creazione di un proxy, il framework crea un singleton ServiceProxy.
 È utile per crearne una manualmente quando è necessario eseguire l'override delle proprietà [IServiceRemotingClientFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory).
-La factory è un'operazione costosa. ServiceProxyFactory gestisce la cache del client di comunicazione.
+La creazione di una factory è un'operazione costosa. ServiceProxyFactory mantiene una cache interna del client di comunicazione.
 La procedura consigliata consiste nel memorizzare nella cache ServiceProxyFactory il più a lungo possibile.
 
 ## <a name="remoting-exception-handling"></a>Gestione delle eccezioni remote

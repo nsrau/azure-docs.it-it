@@ -3,41 +3,76 @@ title: Serie di SKU non disponibile | Microsoft Docs
 description: Alcune serie di SKU non sono disponibili per la sottoscrizione selezionata nell'area.
 services: Azure Supportability
 documentationcenter: 
-author: ganganarayanan
-manager: scotthit
+author: stevendotwang
+manager: rajatk
 editor: 
-ms.assetid: 5496728b-8da4-4c99-8557-a196be14c42d
 ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2016
-ms.author: gangan
-ms.openlocfilehash: 3dc32bfb88e43e82cc4b3f43e31ce20d4302b688
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/09/2017
+ms.author: xingwan
+ms.openlocfilehash: 62964d0c5d75168226a35b25e5c256a1b57f3f81
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="sku-series-unavailable"></a>Serie di SKU non disponibile
-In alcune aree determinati SKU non sono automaticamente disponibili nelle nuove sottoscrizioni.  Questo problema può verificarsi quando [in un'area vengono introdotti SKU più potenti](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) e la popolarità degli SKU legacy diminuisce.
-Durante la creazione di una richiesta di supporto per aumentare la quota di core di calcolo, viene visualizzato il messaggio "*Some SKU series are unavailable for the selected subscription for this region*" (Alcune serie di SKU non sono disponibili per la sottoscrizione selezionata per quest'area).
+# <a name="region-or-sku-unavailable"></a>Area o SKU non disponibili
+Questo articolo illustra come risolvere il problema di una sottoscrizione di Azure che non ha accesso a un'area o a uno SKU di VM.
 
-Per verificare la disponibilità degli SKU è possibile usare la pagina [Servizi in base all'area](https://azure.microsoft.com/regions/#services) . 
+## <a name="symptoms"></a>Sintomi
 
-Per richiedere l'accesso a uno SKU che è stato escluso dalla sottoscrizione, creare una richiesta di supporto "Gestione della sottoscrizione".
+### <a name="when-deploying-a-virtual-machine-you-receive-one-of-the-following-error-messages"></a>Quando si distribuisce una macchina virtuale, viene visualizzato uno dei messaggi di errore seguenti:
+```
+Code: SkuNotAvailable
+Message: The requested size for resource '<resource>' is currently not available in location 
+'<location>' zones '<zone>' for subscription '<subscriptionID>'. Please try another size or 
+deploy to a different location or zones. See https://aka.ms/azureskunotavailable for details.
+```
 
-* Nella pagina Informazioni di base selezionare "Gestione della sottoscrizione" come tipo di problema e fare clic su "Avanti".
+```
+Message: Your subscription doesn’t support virtual machine creation in <location>. Choose a 
+different location. Supported locations are <list of locations>
+```
+
+```
+Code: NotAvailableForSubscription
+Message: This size is currently unavailable in this location for this subscription
+```
+
+### <a name="when-purchasing-reserved-virtual-machine-instances-you-receive-one-of-the-following-error-messages"></a>Quando si acquistano delle istanze di macchine virtuali riservate, viene visualizzato uno dei messaggi di errore seguenti:
+
+```
+Message: Your subscription doesn’t support virtual machine reservation in <location>. Choose a 
+different location. Supported locations are: <list of locations>  
+```
+
+```
+Message: This size is currently unavailable in this location for this subscription
+```
+
+### <a name="when-creating-a-support-request-to-increase-compute-core-quota-a-region-or-a-sku-family-is-not-available-for-selection"></a>Durante la creazione di una richiesta di supporto per aumentare la quota di core di calcolo, un'area o una famiglia di SKU non sono disponibili per la selezione.
+
+## <a name="solution"></a>Soluzione
+Si consiglia innanzitutto di prendere in considerazione un'area o uno SKU alternativi che soddisfino le esigenze aziendali. Se non si trovano aree o SKU adatti, creare una [richiesta di supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) "Gestione della sottoscrizione" seguendo questa procedura:
+
+
+- Nella pagina Informazioni di base selezionare "Gestione della sottoscrizione" come tipo di problema, selezionare la sottoscrizione e fare clic su "Avanti".
 
 ![Pannello Nozioni di base](./media/SKU-series-unavailable/BasicsSubMgmt.png)
 
-* Nella pagina Problema selezionare "Other General questions" (Altre domande generiche) come tipo di problema e immettere l'area esatta e lo SKU che non vengono visualizzati.
-  Questo permette di velocizzare il processo di supporto.
+
+-   Nella pagina Problema selezionare "Other General questions" (Altre domande generiche).
+- Nella sezione dei dettagli:
+  - Indicare se si stanno distribuendo le macchine virtuali o si stanno acquistando le istanze di macchina virtuale riservate
+  - Specificare l'area, lo SKU e il numero di istanze di macchina virtuale che si prevede di distribuire o acquistare
+
 
 ![Problema](./media/SKU-series-unavailable/ProblemSubMgmt.png)
 
-* Nella pagina Informazioni sul contatto immettere i dati richiesti e fare clic su "Crea".
+-   Immettere i dati richiesti e fare clic su "Crea".
 
 ![Informazioni di contatto](./media/SKU-series-unavailable/ContactInformation.png)
 

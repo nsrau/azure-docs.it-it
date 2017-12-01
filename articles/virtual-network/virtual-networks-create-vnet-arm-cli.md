@@ -1,10 +1,10 @@
 ---
-title: Creare una rete virtuale - interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
-description: Informazioni su come creare una rete virtuale usando l'interfaccia della riga di comando di Azure 2.0.
+title: Creare una rete virtuale - interfaccia della riga di comando di Azure | Documentazione Microsoft
+description: Informazioni su come creare una rete virtuale usando l'interfaccia della riga di comando di Azure.
 services: virtual-network
 documentationcenter: 
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 75966bcc-0056-4667-8482-6f08ca38e77a
@@ -16,25 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c7d7b3543f488aedff1ea2c68a2b497e0ca744af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 659a791124eab002290ac0b7f0898cf1c06c2951
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-virtual-network-using-the-azure-cli-20"></a>Creare una rete virtuale usando l'interfaccia della riga di comando di Azure 2.0
+# <a name="create-a-virtual-network-using-the-azure-cli"></a>Creare una rete virtuale usando l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
 Azure offre due modelli di distribuzione, ovvero Azure Resource Manager e la distribuzione classica. Microsoft consiglia di creare le risorse tramite il modello di distribuzione Resource Manager. Per altre informazioni sulle differenze tra i due modelli, leggere l'articolo [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) (Informazioni sui modelli di distribuzione di Azure).
 
-## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
-È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
-
-- [Interfaccia della riga di comando di Azure 1.0](virtual-networks-create-vnet-cli-nodejs.md): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse
-- [Interfaccia della riga di comando di Azure 2.0](#create-a-virtual-network): interfaccia avanzata per il modello di distribuzione di gestione delle risorse (questo articolo)
- 
-    È anche possibile creare una rete virtuale tramite Resource Manager usando altri strumenti oppure tramite il modello di distribuzione classica selezionando un'opzione diversa dall'elenco seguente:
+È anche possibile creare una rete virtuale tramite Resource Manager usando altri strumenti oppure tramite il modello di distribuzione classica selezionando un'opzione diversa dall'elenco seguente:
 
 > [!div class="op_single_selector"]
 > * [Portale](virtual-networks-create-vnet-arm-pportal.md)
@@ -47,10 +41,9 @@ Azure offre due modelli di distribuzione, ovvero Azure Resource Manager e la dis
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
-
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-Per creare una rete virtuale usando l'interfaccia della riga di comando di Azure 2.0, seguire questa procedura:
+Per creare una rete virtuale usando l'interfaccia della riga di comando di Azure, seguire questa procedura:
 
 1. Installare e configurare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) più aggiornata e accedere a un account di Azure usando il comando [az login](/cli/azure/#login).
 

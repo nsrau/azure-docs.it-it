@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 41f26a4b03a6431aaad21bda6336b8840d2d923f
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: d60c898225b944801504f38d536262134a31e021
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="an-introduction-to-azure-functions"></a>Introduzione a Funzioni di Azure  
 Funzioni di Azure è una soluzione che consente di eseguire facilmente piccole parti di codice, o "funzioni", nel cloud. È possibile scrivere solo il codice necessario per il problema effettivo, senza preoccuparsi di un'intera applicazione o dell'infrastruttura necessaria per eseguirlo. Funzioni può rendere più produttiva l'attività di sviluppo e consente di usare il linguaggio di sviluppo preferito, ad esempio C#, F#, Node.js, Java o PHP. Pagare solo per il tempo in cui il codice viene eseguito ed essere certi che Azure venga ridimensionato in base alle esigenze. Funzioni di Azure consente di sviluppare applicazioni [senza server](https://azure.microsoft.com/overview/serverless-computing/) in Microsoft Azure.
@@ -31,7 +31,7 @@ Questo argomento offre una panoramica generale di Funzioni di Azure. Se si vuole
 ## <a name="features"></a>Funzionalità
 Ecco alcune delle principali funzionalità di Funzioni:
 
-* **Scelta del linguaggio**: è possibile scrivere funzioni con C#, F#, Node.js, Java, PHP, batch, bash o qualsiasi eseguibile.
+* **Scelta del linguaggio**: è possibile scrivere le funzioni scegliendo tra C#, F# o Javascript. Per altre opzioni, vedere [Linguaggi supportati](supported-languages.md).
 * **Modello tariffario in base al consumo** : si paga solo per il tempo impiegato per l'esecuzione del codice. Visualizzare l'opzione del piano di hosting A consumo nella [sezione relativa ai prezzi](#pricing).  
 * **Trasferimento delle dipendenze** : Funzioni supporta NuGet e NPM, quindi è possibile usare le librerie preferite.  
 * **Sicurezza integrata** : è possibile proteggere le funzioni attivate da HTTP con provider OAuth, ad esempio Azure Active Directory, Facebook, Google, Twitter e account Microsoft.  

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 5635ef890537a2f37d9d6e9066d0258fc0cb346e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 470bba665dcf8b3517b86ee633a9570ec0f3cd33
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Configurazione del servizio Sperimentazione di Azure Machine Learning
 
@@ -220,6 +220,8 @@ _**Panoramica dell'esecuzione della macchina virtuale remota per uno script di P
 
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Esecuzione di uno script in un cluster HDInsight
 HDInsight è una piattaforma comune per l'analisi dei big data che supporta Apache Spark. Workbench consente la sperimentazione sui Big Data tramite cluster HDInsight Spark. 
+
+>![NOTA] Il cluster HDInsight deve usare BLOB di Azure come risorsa di archiviazione primaria. L'archiviazione in Azure Data Lake non è ancora supportata.
 
 È possibile creare una destinazione del calcolo ed eseguire la configurazione per un cluster di HDInsight Spark usando il comando seguente:
 

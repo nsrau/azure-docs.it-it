@@ -1,5 +1,5 @@
 ---
-title: Binding dell'archiviazione BLOB di Funzioni di Azure
+title: Associazioni di archiviazione BLOB di Funzioni di Azure
 description: Informazioni su come usare trigger e associazioni dell'archiviazione BLOB di Azure in Funzioni di Azure.
 services: functions
 documentationcenter: na
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: e0c608fe3a80c9d704774e592a1eba383bbdffe8
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 31a2fa3d3c87c16109514b130c95e731f401f8bd
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="azure-functions-blob-storage-bindings"></a>Binding dell'archiviazione BLOB di Funzioni di Azure
+# <a name="azure-functions-blob-storage-bindings"></a>Associazioni di archiviazione BLOB di Funzioni di Azure
 
 Questo articolo illustra come operare con le associazioni dell'archiviazione BLOB di Azure in Funzioni di Azure. Funzioni di Azure supporta le associazioni di trigger, input e output per i BLOB.
 
@@ -309,7 +309,7 @@ Vedere l'esempio specifico per ciascun linguaggio:
 
 ### <a name="input--output---c-example"></a>Input e output - esempio in C#
 
-L'esempio seguente è una funzione in [C# precompilato](functions-dotnet-class-library.md) che usa un'associazione di BLOB di input e due di output. La funzione viene attivata dalla creazione di un BLOB dell'immagine nel contenitore *sample-images*. Crea copie di piccole e medie dimensioni del BLOB dell'immagine. 
+L'esempio seguente è una funzione in [C# precompilato](functions-dotnet-class-library.md) che usa un trigger di BLOB di input e due associazioni di BLOB di output. La funzione viene attivata dalla creazione di un BLOB dell'immagine nel contenitore *sample-images*. Crea copie di piccole e medie dimensioni del BLOB dell'immagine. 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -342,7 +342,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 ### <a name="input--output---c-script-example"></a>Input e output - esempio di script C#
 
-L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e codice [script C#](functions-reference-csharp.md) che usa l'associazione. La funzione crea una copia di un BLOB. La funzione viene attivata da un messaggio della coda che contiene il nome del BLOB da copiare. Il nuovo BLOB è denominato *{originalblobname}-Copy*.
+L'esempio seguente mostra associazioni di input e di output di BLOB in un file *function.json* e codice [script C#](functions-reference-csharp.md) che usa le associazioni. La funzione crea una copia di un BLOB di testo. La funzione viene attivata da un messaggio della coda che contiene il nome del BLOB da copiare. Il nuovo BLOB è denominato *{originalblobname}-Copy*.
 
 Nel file *function.json* viene usata la proprietà dei metadati `queueTrigger` per specificare il nome del BLOB nelle proprietà `path`:
 
@@ -380,7 +380,7 @@ Queste proprietà sono descritte nella sezione [configuration](#input--output---
 Ecco il codice script C#:
 
 ```cs
-public static void Run(string myQueueItem, Stream myInputBlob, out string myOutputBlob, TraceWriter log)
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
 {
     log.Info($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
@@ -389,7 +389,7 @@ public static void Run(string myQueueItem, Stream myInputBlob, out string myOutp
 
 ### <a name="input--output---javascript-example"></a>Input e output - esempio JavaScript
 
-L'esempio seguente illustra un'associazione di trigger di BLOB in un file *function.json* e [codice JavaScript] (functions-reference-node.md) che usa l'associazione. La funzione crea una copia di un BLOB. La funzione viene attivata da un messaggio della coda che contiene il nome del BLOB da copiare. Il nuovo BLOB è denominato *{originalblobname}-Copy*.
+L'esempio seguente mostra associazioni di input e di output di BLOB in un file *function.json* e [codice JavaScript] (functions-reference-node.md) che usa le associazioni. La funzione crea una copia di un BLOB. La funzione viene attivata da un messaggio della coda che contiene il nome del BLOB da copiare. Il nuovo BLOB è denominato *{originalblobname}-Copy*.
 
 Nel file *function.json* viene usata la proprietà dei metadati `queueTrigger` per specificare il nome del BLOB nelle proprietà `path`:
 

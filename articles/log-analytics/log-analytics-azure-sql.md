@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: a1214d8327075ee081124d42aeb78846e09ff588
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 957b8b9aca0ae27362923c87c7a0161cf2c052b7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorare un database SQL di Azure usando Azure SQL Analytics (anteprima) in Log Analytics
 
@@ -29,6 +29,11 @@ La soluzione Analisi SQL di Azure in Azure Log Analytics raccoglie e visualizza 
 Questa soluzione in anteprima supporta attualmente fino a 150.000 database SQL di Azure e 5.000 pool elastici SQL per area di lavoro.
 
 La soluzione Analisi SQL di Azure, come altre disponibili per Log Analytics, consente di monitorare e ricevere notifiche sull'integrità delle risorse di Azure, in questo caso il database SQL di Azure. Il database SQL di Microsoft Azure è un servizio di database relazionale scalabile che fornisce le comuni funzionalità di tipo SQL Server alle applicazioni in esecuzione nel cloud di Azure. Log Analytics consente di raccogliere, correlare e visualizzare dati strutturati e non strutturati.
+
+Per una panoramica pratica sull'uso della soluzione Analisi SQL di Azure e per scenari di uso tipici, vedere il video incorporato:
+          
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>
 
 ## <a name="connected-sources"></a>Origini connesse
 
@@ -115,7 +120,7 @@ Ogni prospettiva fornisce riepiloghi relativi a sottoscrizione, server, pool ela
 
 ### <a name="intelligent-insights-report"></a>Report di Intelligent Insights
 
-È possibile visualizzare e accedere a tutti i dati di Intelligent Insights raccolti tramite la prospettiva di Intelligent Insights. 
+[Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) per il database SQL di Azure assicura un maggior controllo sulle prestazioni del database. È possibile visualizzare e accedere a tutti i dati di Intelligent Insights raccolti tramite la prospettiva di Intelligent Insights.
 
 ![Informazioni dettagliate di Analisi SQL di Azure](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 

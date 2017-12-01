@@ -15,22 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: 6a73f8d0b85198f0d4e10fbc31cbd21f93bdb8a8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 721b87c67aa5e8002f21faca5a10fe41b8958e1e
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Creazione di database cloud scalabili
 La scalabilità orizzontale dei database può essere ottenuta facilmente con gli strumenti e le funzionalità scalabili per il database SQL di Azure. In particolare, è possibile usare la **libreria client dei database elastici** per creare e gestire i database con scalabilità orizzontale. Questa funzionalità consente di sviluppare con facilità applicazioni partizionate usando centinaia o anche migliaia di database SQL Azure. [processi elastici](sql-database-elastic-jobs-powershell.md) possono quindi essere usati per facilitare la gestione di questi database.
 
-Per installare la libreria, andare a NuGet all'indirizzo [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
+Per eseguire il download:
+* la versione .NET della libreria, vedere [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+* la versione Java della libreria, vedere [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
 
 ## <a name="documentation"></a>Documentazione
 1. [Iniziare a utilizzare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md)
 2. [Funzionalità di database elastico](sql-database-elastic-scale-introduction.md)
 3. [Gestione mappe partizioni](sql-database-elastic-scale-shard-map-management.md)
-4. [Migrate existing databases to scale-out (Eseguire la migrazione di database esistenti per la scalabilità orizzontale)](sql-database-elastic-convert-to-use-elastic-tools.md)
+4. [Eseguire la migrazione dei database esistenti per ottenere scalabilità orizzontale](sql-database-elastic-convert-to-use-elastic-tools.md)
 5. [Routing dipendente dei dati](sql-database-elastic-scale-data-dependent-routing.md)
 6. [Query su più partizioni](sql-database-elastic-scale-multishard-querying.md)
 7. [Aggiunta di una partizione utilizzando gli strumenti di database elastici](sql-database-elastic-scale-add-a-shard.md)
@@ -50,7 +52,7 @@ La gestione delle applicazioni con scalabilità orizzontale mediante il *partizi
 - **Gestione mappe partizioni**: viene creato un database speciale denominato "gestore mappe partizioni". La gestione delle mappe partizioni è la possibilità per un'applicazione di gestire metadati nelle proprie partizioni. Gli sviluppatori possono usare questa funzionalità per registrare i database come partizioni, descrivere i mapping di singole chiavi di partizionamento orizzontale o di intervalli di chiavi per i database, nonché gestire i metadati man mano che il numero e la composizione dei database si evolve, per rispecchiare le modifiche apportate alla capacità. Senza la libreria client dei database elastici, è necessario dedicare molto tempo alla scrittura di codice di gestione durante l'implementazione del partizionamento orizzontale. Per informazioni dettagliate, vedere [Gestione mappe partizioni](sql-database-elastic-scale-shard-map-management.md).
 
 - **Routing dipendente dai dati**: immaginare una richiesta in arrivo nell'applicazione. L'applicazione individua il database corretto in base al valore della chiave di partizionamento orizzontale della richiesta. Quindi l'applicazione apre una connessione al database per elaborare la richiesta. Il routing dipendente dai dati consente di aprire connessioni con una singola e semplice chiamata alla mappa partizioni dell'applicazione. Il routing dipendente dai dati è un'altra area del codice dell'infrastruttura ora coperta dalle funzionalità della libreria client dei database elastici. Per informazioni dettagliate, vedere [Routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md).
-- **Query su più partizioni**: l'esecuzione di query su più partizioni opera quando una richiesta include più partizioni o tutte le partizioni. Una query su più partizioni esegue lo stesso codice T-SQL in tutte le partizioni o in un set di partizioni. I risultati restituiti dalle partizioni coinvolte vengono uniti in un set di risultati complessivi mediante la semantica di UNION ALL. La funzionalità come viene esposta tramite la libreria client gestisce numerose attività, tra cui gestione delle connessioni, gestione dei thread, gestione degli errori ed elaborazione dei risultati intermedi e consente di eseguire query su centinaia di partizioni. Per informazioni dettagliate, vedere [Esecuzione di query su più partizioni](sql-database-elastic-scale-multishard-querying.md).
+- **Query su più partizioni**: l'esecuzione di query su più partizioni opera quando una richiesta include più partizioni o tutte le partizioni. Una query su più partizioni esegue lo stesso codice T-SQL in tutte le partizioni o in un set di partizioni. I risultati restituiti dalle partizioni coinvolte vengono uniti in un set di risultati complessivi mediante la semantica di UNION ALL. La funzionalità come viene esposta tramite la libreria client gestisce numerose attività, tra cui gestione delle connessioni, gestione dei thread, gestione degli errori ed elaborazione dei risultati intermedi. e consente di eseguire query su centinaia di partizioni. Per informazioni dettagliate, vedere [Esecuzione di query su più partizioni](sql-database-elastic-scale-multishard-querying.md).
 
 In generale, i clienti che utilizzano gli strumenti dei database elastici quando inviano operazioni locali della partizione anziché operazioni tra più partizioni con la propria semantica, possono aspettarsi di ottenere funzionalità T-SQL complete.
 
@@ -58,15 +60,11 @@ In generale, i clienti che utilizzano gli strumenti dei database elastici quando
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Libreria client di database elastico](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/): per **installare** la libreria usando NuGet.
+- Libreria client di database elastici ([.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)) - per **scaricare** la libreria.
 
 - [Iniziare a usare gli strumenti di database elastici](sql-database-elastic-scale-get-started.md) per provare l'**app di esempio** che illustra le funzioni del client.
 
-- [Strumenti Github, Azure/database elastici](https://github.com/Azure/elastic-db-tools): la libreria è un software open source.
-    - La libreria client degli strumenti di database elastici consente agli sviluppatori ADO.NET di creare applicazioni che implementano e usano il modello noto come partizionamento di database nel Database di SQL Azure.
-
-- [La libreria client dei database elastici è ora open source!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/) - un **post di blog** sulla libreria client del database elastico, datato 09/09/2015.
-
+- GitHub ([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)) - per contribuire al codice.
 - [Panoramica delle query elastiche del database SQL di Azure](sql-database-elastic-query-overview.md) - per usare le query elastiche.
 
 - [Lo spostamento dei dati tra database cloud di scalabilità orizzontale](sql-database-elastic-scale-overview-split-and-merge.md): per istruzioni sull'uso dello **strumento di divisione-unione**.

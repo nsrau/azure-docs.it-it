@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: 7e0266cdc477715a5d2f9067c6dcea73da9ba763
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f95c0c486401e0d709829ce8d560f030932eea7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Trigger e azioni dei flussi di lavoro di app per la logica
 
@@ -196,19 +196,9 @@ I trigger HTTP eseguono il polling di un endpoint specificato e controllano la r
 | query | No | Oggetto | Rappresenta tutti i parametri di query che si vuole includere nell'URL. <p>`"queries": { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL. | 
 | headers | No | Oggetto | Rappresenta ogni intestazione inviata nella richiesta. <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | No | Oggetto | Rappresenta il payload inviato all'endpoint. | 
-| retryPolicy | No | Oggetto | Usare questo oggetto per personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx. | 
+| retryPolicy | No | Oggetto | Usare questo oggetto per personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md). | 
 | authentication | No | Oggetto | Rappresenta il metodo che deve essere usato dalla richiesta per l'autenticazione. Per altre informazioni, vedere [Autenticazione in uscita dell'Utilità di pianificazione](../scheduler/scheduler-outbound-authentication.md). <p>Oltre all'Utilità di pianificazione, è supportata un'altra proprietà: `authority`. Per impostazione predefinita, questo valore è `https://login.windows.net` quando non è specificato, ma è possibile usare un valore diverso, ad esempio `https://login.windows\-ppe.net`. | 
 ||||| 
-
-I *criteri per i tentativi* vengono applicati agli errori intermittenti, caratterizzati dai codici di stato HTTP 408, 429 e 5xx, oltre che alle eccezioni per la connettività. È possibile definire questi criteri con l'oggetto `retryPolicy`, come mostrato qui:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
  
 Con il trigger HTTP, l'API HTTP deve essere conforme a un modello specifico per poter interagire correttamente con l'app per la logica. Il trigger riconosce queste proprietà:  
   
@@ -269,7 +259,7 @@ Il trigger ApiConnection è simile al trigger HTTP dal punto di vista della funz
 | query | No | Oggetto | Rappresenta tutti i parametri di query che si vuole includere nell'URL. <p>`"queries": { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL. | 
 | headers | No | Oggetto | Rappresenta ogni intestazione inviata nella richiesta. <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | No | Oggetto | Rappresenta il payload inviato all'endpoint. | 
-| retryPolicy | No | Oggetto | Usare questo oggetto per personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx. | 
+| retryPolicy | No | Oggetto | Usare questo oggetto per personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md). | 
 | authentication | No | Oggetto | Rappresenta il metodo che deve essere usato dalla richiesta per l'autenticazione. Per altre informazioni, vedere [Autenticazione in uscita dell'Utilità di pianificazione](../scheduler/scheduler-outbound-authentication.md). | 
 ||||| 
 
@@ -280,16 +270,6 @@ Ecco le proprietà per l'oggetto `host`:
 | api runtimeUrl | Sì | Endpoint per l'API gestita | 
 | connection name |  | Nome della connessione API gestita usata dal flusso di lavoro. Deve fare riferimento a un parametro denominato `$connection`. |
 |||| 
-
-I *criteri per i tentativi* vengono applicati agli errori intermittenti, caratterizzati dai codici di stato HTTP 408, 429 e 5xx, oltre che alle eccezioni per la connettività. È possibile definire questi criteri con l'oggetto `retryPolicy`, come mostrato qui:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 
 Ecco gli output per un trigger ApiConnection:
   
@@ -529,20 +509,11 @@ In questo caso, l'oggetto `inputs` accetta i parametri necessari per la costruzi
 | query | No | Oggetto | Rappresenta tutti i parametri di query che si vuole includere nell'URL. <p>`"queries": { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL. | 
 | headers | No | Oggetto | Rappresenta ogni intestazione inviata nella richiesta. <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | No | Oggetto | Rappresenta il payload inviato all'endpoint. | 
-| retryPolicy | No | Oggetto | Usare questo oggetto per personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx. | 
+| retryPolicy | No | Oggetto | Usare questo oggetto per personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | No | String | Definisce il set di comportamenti speciali di cui eseguire l'override. | 
 | authentication | No | Oggetto | Rappresenta il metodo che deve essere usato dalla richiesta per l'autenticazione. Per altre informazioni, vedere [Autenticazione in uscita dell'Utilità di pianificazione](../scheduler/scheduler-outbound-authentication.md). <p>Oltre all'Utilità di pianificazione, è supportata un'altra proprietà: `authority`. Per impostazione predefinita, questo valore è `https://login.windows.net` quando non è specificato, ma è possibile usare un valore diverso, ad esempio `https://login.windows\-ppe.net`. | 
 ||||| 
 
-Le azioni HTTP e APIConnection supportano i *criteri per i tentativi*. I criteri per i tentativi vengono applicati agli errori intermittenti, caratterizzati dai codici di stato HTTP 408, 429 e 5xx, oltre che alle eccezioni per la connettività. È possibile definire questi criteri con l'oggetto `retryPolicy`, come mostrato qui:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 Questa azione HTTP di esempio riprova il recupero delle ultime notizie per due volte, se si verificano errori intermittenti, per un totale di tre esecuzioni e con un ritardo di 30 secondi tra un tentativo e l'altro:
   
 ```json
@@ -631,20 +602,10 @@ Ecco un esempio di azione APIConnection:
 | query | No | Oggetto | Rappresenta tutti i parametri di query che si vuole includere nell'URL. <p>`"queries": { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL. | 
 | headers | No | Oggetto | Rappresenta ogni intestazione inviata nella richiesta. <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | No | Oggetto | Rappresenta il payload inviato all'endpoint. | 
-| retryPolicy | No | Oggetto | Usare questo oggetto per personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx. | 
+| retryPolicy | No | Oggetto | Usare questo oggetto per personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | No | String | Definisce il set di comportamenti speciali di cui eseguire l'override. | 
 | authentication | No | Oggetto | Rappresenta il metodo che deve essere usato dalla richiesta per l'autenticazione. Per altre informazioni, vedere [Autenticazione in uscita dell'Utilità di pianificazione](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
-
-I criteri per i tentativi vengono applicati agli errori intermittenti, caratterizzati dai codici di stato HTTP 408, 429 e 5xx, oltre che alle eccezioni per la connettività. È possibile definire questi criteri con l'oggetto `retryPolicy`, come mostrato qui:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 
 ## <a name="apiconnection-webhook-action"></a>Azione webhook APIConnection
 
@@ -684,7 +645,7 @@ L'azione APIConnectionWebhook fa riferimento a un connettore gestito da Microsof
 | query | No | Oggetto | Rappresenta tutti i parametri di query che si vuole includere nell'URL. <p>`"queries": { "api-version": "2015-02-01" }`, ad esempio, aggiunge `?api-version=2015-02-01` all'URL. | 
 | headers | No | Oggetto | Rappresenta ogni intestazione inviata nella richiesta. <p>Ad esempio, per impostare il linguaggio e il tipo in una richiesta: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | No | Oggetto | Rappresenta il payload inviato all'endpoint. | 
-| retryPolicy | No | Oggetto | Usare questo oggetto per personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx. | 
+| retryPolicy | No | Oggetto | Usare questo oggetto per personalizzare il comportamento in caso di nuovo tentativo per gli errori 4xx o 5xx. Per altre informazioni, vedere il [Criteri di ripetizione dei tentativi](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | No | String | Definisce il set di comportamenti speciali di cui eseguire l'override. | 
 | authentication | No | Oggetto | Rappresenta il metodo che deve essere usato dalla richiesta per l'autenticazione. Per altre informazioni, vedere [Autenticazione in uscita dell'Utilità di pianificazione](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 

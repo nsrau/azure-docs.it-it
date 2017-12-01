@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-ms.openlocfilehash: fa7c1e4435106d0fc25cb7f77f195eb48705772d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 155debf5fea4439c8273d2518856952fbf0f871a
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Concedere le autorizzazioni utente per specifici criteri di lab
 ## <a name="overview"></a>Overview
@@ -87,9 +87,9 @@ Nell'esempio precedente viene usato il criterio **AllowedVmSizesInLab** . È pos
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver concesso le autorizzazioni utente per specifici criteri di lab, considerare i seguenti passaggi successivi:
 
-* [Proteggere l'accesso a un lab](devtest-lab-add-devtest-user.md).
-* [Definire i criteri del lab](devtest-lab-set-lab-policy.md).
-* [Creare un modello di lab](devtest-lab-create-template.md).
-* [Creare elementi personalizzati per le VM](devtest-lab-artifact-author.md).
-* [Aggiungere una VM con elementi a un lab](devtest-lab-add-vm-with-artifacts.md).
+* [Proteggere l'accesso a un lab](devtest-lab-add-devtest-user.md)
+* [Impostare i criteri del lab](devtest-lab-set-lab-policy.md)
+* [Creare un modello di lab](devtest-lab-create-template.md)
+* [Creare elementi personalizzati per le VM](devtest-lab-artifact-author.md)
+* [Aggiungere una VM a un lab](devtest-lab-add-vm.md)
 

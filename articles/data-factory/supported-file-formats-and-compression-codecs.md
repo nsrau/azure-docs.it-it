@@ -7,13 +7,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/21/2017
 ms.author: jingwang
-ms.openlocfilehash: f2675a0af82640925b837ae80e751fcab5972321
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: e583c6952e02c4a93f56594f6392f1d9a260dce0
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formati di file e codec di compressione supportati in Azure Data Factory
 
@@ -29,6 +29,9 @@ Per **copiare i file così come sono** tra archivi basati su file (copia binaria
 
 > [!NOTE]
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Informazioni sui formati di compressione e sui file supportati da Azure Data Factory versione 1](v1//data-factory-supported-file-and-compression-formats.md).
+
+> [!TIP]
+> Informazioni su come l'attività di copia esegue il mapping dei dati di origine nel sink in [Mapping dello schema nell'attività di copia](copy-activity-schema-and-type-mapping.md), incluso come vengono determinati i metadati in base alle impostazioni di formato di file e suggerimenti sui casi in cui specificare la sezione [set di dati`structure`](concepts-datasets-linked-services.md#dataset-structure).
 
 ## <a name="text-format"></a>Formato testo
 

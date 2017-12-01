@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 8bcecdff2bb9ac037e2cd71a431619883dfb5084
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 5cf74140969fb354e426c41552d4d73a06c76890
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Sincronizzare i dati tra più database cloud e locali con l'anteprima di sincronizzazione dati SQL
 
@@ -80,16 +80,6 @@ La sincronizzazione dei dati non è appropriata per gli scenari seguenti:
 
 ## <a name="sync-req-lim"></a> Requisiti e limitazioni
 
-### <a name="general-requirements"></a>Requisiti generali
-
--   Ogni tabella deve avere una chiave primaria. Non modificare il valore della chiave primaria in alcuna riga. Se è necessario modificare un valore della chiave primaria, eliminare la riga e ricrearla con il nuovo valore della chiave primaria. 
-
--   Una tabella non può includere colonne Identity che non sono la chiave primaria.
-
--   I nomi degli oggetti (database, tabelle e colonne) non possono contenere i caratteri stampabili punto (.), parentesi quadra aperta ([) o parentesi quadra chiusa (]).
-
--   L'isolamento dello snapshot deve essere abilitato. Per altre informazioni, vedere [Isolamento dello snapshot in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
-
 ### <a name="general-considerations"></a>Considerazioni generali
 
 #### <a name="eventual-consistency"></a>Coerenza finale
@@ -98,7 +88,19 @@ Dato che la sincronizzazione dati è basata su trigger, la coerenza delle transa
 #### <a name="performance-impact"></a>Impatto sulle prestazioni
 La sincronizzazione dati usa trigger di inserimento, aggiornamento ed eliminazione per il rilevamento delle modifiche e crea tabelle laterali nel database utente per il rilevamento delle modifiche. Queste attività di rilevamento delle modifiche hanno un impatto sul carico di lavoro del database. Valutare il livello di servizio e aggiornare se necessario.
 
+### <a name="general-requirements"></a>Requisiti generali
+
+-   Ogni tabella deve avere una chiave primaria. Non modificare il valore della chiave primaria in alcuna riga. Se è necessario modificare un valore della chiave primaria, eliminare la riga e ricrearla con il nuovo valore della chiave primaria. 
+
+-   L'isolamento dello snapshot deve essere abilitato. Per altre informazioni, vedere [Isolamento dello snapshot in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+
 ### <a name="general-limitations"></a>Limitazioni generali
+
+-   Una tabella non può includere colonne Identity che non sono la chiave primaria.
+
+-   I nomi degli oggetti (database, tabelle e colonne) non possono contenere i caratteri stampabili punto (.), parentesi quadra aperta ([) o parentesi quadra chiusa (]).
+
+-   L'autenticazione di Azure Active Directory non è supportata.
 
 #### <a name="unsupported-data-types"></a>Tipi di dati non supportati
 

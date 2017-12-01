@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 266e9674a422dffb7f78a4aa3dd0adfa3c8bab3b
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 3714a4feb14bc47132e501629fc339bc7d0e40a1
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Ridimensionare automaticamente un set di scalabilità di macchine virtuali nel portale di Azure
 Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app.
@@ -28,7 +28,7 @@ Questo articolo illustra come creare regole di scalabilità automatica nel porta
 
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per creare regole di scalabilità automatica, è necessario un set di scalabilità di macchine virtuali esistente. È possibile creare un set di scalabilità con il [portale di Azure](virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell) o l'[interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli).
+Per creare regole di scalabilità automatica, è necessario un set di scalabilità di macchina virtuale esistente. È possibile creare un set di scalabilità con il [portale di Azure](virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell) o l'[interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli).
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Creare una regola per l'aumento automatico
@@ -126,7 +126,7 @@ Per visualizzare la modalità in cui vengono applicate le regole di scalabilità
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo si è appreso come usare le regole di scalabilità automatica per scalare orizzontalmente e aumentare o diminuire il *numero* di istanze di macchine virtuali nel set di scalabilità. È possibile anche ridimensionare in verticale per aumentare o diminuire le *dimensioni* delle istanze di macchine virtuali. Per altre informazioni, vedere [Ridimensionamento automatico verticale con set di scalabilità di macchine virtuali](virtual-machine-scale-sets-vertical-scale-reprovision.md).
+In questo articolo si è appreso come usare le regole di scalabilità automatica per scalare orizzontalmente e aumentare o diminuire il *numero* di istanze di macchine virtuali nel set di scalabilità. È possibile anche scalare verticalmente per aumentare o diminuire le *dimensioni* delle istanze di macchine virtuali. Per altre informazioni, vedere [Ridimensionamento automatico verticale con set di scalabilità di macchine virtuali](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Per informazioni su come gestire le istanze di macchine virtuali, vedere [Gestire set di scalabilità di macchine virtuali con Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
 

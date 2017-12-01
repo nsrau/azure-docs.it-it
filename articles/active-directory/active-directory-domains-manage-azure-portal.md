@@ -4,7 +4,7 @@ description: Concetti relativi alla gestione e procedure dettagliate per gestire
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: michael.tillman
 editor: 
 ms.assetid: 5063cd0a-dba2-4ba9-aa65-b8117490d73a
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: 1e58af1f8d26b03c07b27d69f13868bccaaa33aa
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: e77ea5c3b04a6717e6434f03ca61084af883c31c
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestione dei nomi di dominio personalizzati in Azure Active Directory
 Un nome di dominio è una parte importante dell'identificatore per numerose risorse directory: è parte di un nome utente o di un indirizzo di posta elettronica per un utente, parte dell'indirizzo per un gruppo e può essere parte dell'URI dell'ID app per un'applicazione. Una risorsa in Azure Active Directory (Azure AD) può includere un nome di dominio già verificato come di proprietà della directory contenente il servizio. Solo un amministratore globale può eseguire attività di gestione del dominio in Azure AD.
@@ -29,18 +29,18 @@ Quando viene creata la directory, il nome di dominio iniziale, ad esempio "conto
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account di amministratore globale per la directory.
 2. Selezionare **Azure Active Directory**.
-   
-   ![Apertura di Gestione utenti](./media/active-directory-domains-add-azure-portal/user-management.png)
-3. Selezionare **Nome di dominio**.
+3. Selezionare **Nomi di dominio personalizzati**.
+     
+   ![Apertura di Gestione utenti](./media/active-directory-domains-manage-azure-portal/add-custom-domain.png)
 4. Selezionare il nome del dominio che si vuole impostare come dominio primario.
 5. Selezionare il comando **Imposta come primario**. Confermare la scelta quando viene richiesto.
    
-   ![Rendere primario un nome di dominio](./media/active-directory-domains-manage-azure-portal/make-primary.png)
+   ![Rendere primario un nome di dominio](./media/active-directory-domains-manage-azure-portal/make-primary-domain.png)
 
 Per il nome di dominio primario per la directory è possibile impostare qualsiasi dominio personalizzato verificato che non sia federato. La modifica del dominio primario per la directory non comporta la modifica dei nomi utente per gli utenti esistenti.
 
-## <a name="add-custom-domain-names-to-your-azure-ad"></a>Aggiungere nomi di dominio personalizzati alla directory di Azure AD
-> È possibile aggiungere fino a un massimo di 900 nomi di dominio gestiti. Se si intende configurare tutti i domini per la federazione con l'istanza locale di Active Directory, è possibile aggiungere fino a un massimo di 450 nomi di dominio in ogni directory. Per altre informazioni, vedere [Nomi di dominio federati e gestiti](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
+## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>Aggiungere nomi di dominio personalizzati al tenant di Azure AD
+È possibile aggiungere fino a un massimo di 900 nomi di dominio gestiti. Se si intende configurare tutti i domini per la federazione con l'istanza locale di Active Directory, è possibile aggiungere fino a un massimo di 450 nomi di dominio in ogni directory. Per altre informazioni, vedere [Nomi di dominio federati e gestiti](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Aggiungere sottodomini di un dominio personalizzato
 Per aggiungere un nome di dominio di terzo livello, ad esempio 'europe.contoso.com' alla directory, è prima necessario aggiungere e verificare il dominio di secondo livello, ovvero contoso.com. Il sottodominio verrà automaticamente verificato da Azure AD. Per ottenere la conferma dell'avvenuta verifica del dominio appena aggiunto, aggiornare la pagina del browser in cui sono visualizzati i domini.

@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9a9baa457729bdc4d70a8f9f45701dbdb875d3ce
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 94771578d94b5b9bc23451049a78506e80c87d26
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Scegliere tra i servizi di Azure che recapitano messaggi
 
@@ -32,20 +32,16 @@ Nonostante alcune analogie, ogni servizio è progettato per determinati scenari.
 
 Un evento è una notifica leggera di un'azione o di una modifica di stato. I dati dell'evento contengono informazioni su ciò che è accaduto, ma non includono i dati che hanno attivato l'evento. Un evento ad esempio notifica ai sottoscrittori che è stato creato un file. Può contenere informazioni generali sul file, ma non il file stesso. Gli eventi attivano in genere gestori di eventi per agire in tempo reale.
 
-Griglia di eventi è un servizio di gestione degli eventi.
-
 ### <a name="message"></a>Message
 
-I messaggi sono dati non elaborati generati da un servizio da utilizzare o archiviare altrove. Il messaggio contiene i dati che hanno attivato la pipeline del messaggio. Questo messaggio può essere costituito ad esempio da un ordine di e-commerce o da dati di telemetria utente. Diversamente da una notifica degli eventi, l'autore di un messaggio può prevedere una risposta. Un messaggio contiene ad esempio i dati non elaborati, ma prevede che la parte successiva del sistema crei un file da tali dati. 
-
-Hub eventi e il bus di servizio sono servizi di messaggistica.
+I messaggi sono dati non elaborati generati da un servizio da utilizzare o archiviare altrove. Il messaggio contiene i dati che hanno attivato la pipeline del messaggio. Questo messaggio può essere costituito ad esempio da un ordine di e-commerce o da dati di telemetria utente. Diversamente da una notifica degli eventi, l'autore di un messaggio può prevedere una risposta. Un messaggio contiene ad esempio i dati non elaborati, ma prevede che la parte successiva del sistema crei un file da tali dati.
 
 ## <a name="comparison-of-services"></a>Confronto dei servizi
 
 | Service | Scopo | Tipo | Quando usare le autorizzazioni |
 | ------- | ------- | ---- | ----------- |
-| Griglia di eventi | Programmazione reattiva | Evento | Reazione alle modifiche di stato |
-| Hub eventi | Pipeline di Big Data | Message | Flusso dei dati di telemetria e distribuiti |
+| Griglia di eventi | Programmazione reattiva | Distribuzione di eventi | Reazione alle modifiche di stato |
+| Hub eventi | Pipeline di Big Data | Streaming di eventi | Flusso dei dati di telemetria e distribuiti |
 | Bus di servizio | Messaggistica aziendale di alto valore | Message | Elaborazione di ordini e transazioni finanziarie |
 
 ### <a name="event-grid"></a>Griglia di eventi
@@ -62,7 +58,7 @@ Presenta le caratteristiche seguenti:
 
 ### <a name="event-hubs"></a>Hub eventi
 
-Hub eventi di Azure è una pipeline di Big Data. Semplifica l'acquisizione, la conservazione e la riproduzione dei dati dei flussi di eventi e di telemetria. I dati possono provenire da molte origini simultanee. Hub eventi consente di rendere disponibili i dati di telemetria e degli eventi per svariate infrastrutture di elaborazione di flussi e servizi di analisi. È disponibile come flusso dei dati o batch di eventi in bundle. Questo servizio offre un'unica soluzione che consente di recuperare rapidamente i dati per l'elaborazione in tempo reale oltre che per la riproduzione ripetuta dei dati non elaborati archiviati.
+Hub eventi di Azure è una pipeline di Big Data. Semplifica l'acquisizione, la conservazione e la riproduzione dei dati dei flussi di eventi e di telemetria. I dati possono provenire da molte origini simultanee. Hub eventi consente di rendere disponibili i dati di telemetria e degli eventi per svariate infrastrutture di elaborazione di flussi e servizi di analisi. È disponibile come flusso dei dati o batch di eventi in bundle. Questo servizio offre un'unica soluzione che consente di recuperare rapidamente i dati per l'elaborazione in tempo reale oltre che per la riproduzione ripetuta dei dati non elaborati archiviati. Consente di acquisire i dati di streaming in un file per l'elaborazione e l'analisi.
 
 Presenta le caratteristiche seguenti:
 
@@ -72,6 +68,8 @@ Presenta le caratteristiche seguenti:
 ### <a name="service-bus"></a>Bus di servizio
 
 Il bus di servizio è adatto alle tradizionali applicazioni aziendali. Queste applicazioni aziendali richiedono transazioni, ordinamento, rilevamento duplicati e coerenza immediata. Il bus di servizio consente alle applicazioni native del cloud di offrire una gestione delle transizioni di stato affidabile per i processi aziendali. Quando si gestiscono messaggi di alto valore che non devono andare persi o essere duplicati, usare il bus di servizio di Azure. Il bus di servizio agevola anche la comunicazione a sicurezza elevata tra soluzioni di cloud ibrido e può connettere i sistemi locali esistenti alle soluzioni cloud.
+
+Il bus di servizio è un sistema di messaggistica negoziata. Archivia i messaggi in un "broker", ad esempio una coda, fino a quando il consumer non è pronto a riceverli.
 
 Presenta le caratteristiche seguenti:
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.openlocfilehash: f1314b05d7471b6251de2173dc590bdebdafb476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d11795aa8b768a8574c3f8bc375b74402825ba3
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Domande frequenti su Azure Active Directory Connect
 
@@ -43,8 +43,14 @@ Tutti i software di rete, i dispositivi fisici o qualsiasi altra cosa che limiti
 **D: I domini SDL sono supportati?**  
 No, Azure AD Connect non supporta foreste/domini in locale mediante i domini SLD.
 
+**D: Le foreste con domini di Active Directory non contigui sono supportate?**  
+No, Azure AD Connect non supporta foreste in locale che contengono spazi dei nomi non contigui.
+
 **D: Gli elementi denominati NetBios con "punti" sono supportati?**  
 No, Azure AD Connect non supporta foreste/domini in locale il cui nome NetBios contenga un periodo "." nel nome.
+
+**D: L'ambiente puro IPv6 è supportato?**  
+No, Azure AD Connect non supporta l'ambiente IPv6 puro.
 
 ## <a name="federation"></a>Federazione
 **D: Cosa occorre fare se si riceve un messaggio di posta elettronica che richiede il rinnovo del certificato di Office 365?**  

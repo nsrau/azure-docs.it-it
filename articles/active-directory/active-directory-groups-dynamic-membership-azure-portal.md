@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 0bf6177bc34b6f7daf9c14a22c3b381025f0f825
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d3496a5b18d8fecfbd8dff95ef667d456bbb1d59
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Creare regole basate su attributi per l'appartenenza dinamica ai gruppi in Azure Active Directory
 In Azure Active Directory (Azure AD) è possibile creare regole avanzate per abilitare complesse appartenenze dinamiche ai gruppi basate su attributi. Questo articolo descrive in dettaglio la sintassi e gli attributi per creare regole di appartenenza dinamica per utenti o dispositivi.
@@ -72,7 +72,7 @@ Per l'elenco completo dei parametri supportati e degli operatori delle regole di
 La lunghezza totale del corpo della regola avanzata non può superare i 2048 caratteri.
 
 > [!NOTE]
-> Le operazioni di stringa ed espressione regolare non fanno distinzione tra maiuscole e minuscole. È inoltre possibile eseguire controlli Null usando $null come costante, ad esempio user.department -eq $null.
+> Le operazioni di stringa ed espressione regolare non fanno distinzione tra maiuscole e minuscole. È anche possibile eseguire controlli Null usando *null* come costante, ad esempio user.department -eq *null*.
 > Le stringhe contenenti virgolette (") devono essere precedute dal carattere di escape ', ad esempio user.department -eq \`"Sales".
 
 ## <a name="supported-expression-rule-operators"></a>Operatori delle regole di espressione supportati
@@ -158,31 +158,31 @@ Operatori consentiti
 
 | Proprietà | Valori consentiti | Utilizzo |
 | --- | --- | --- |
-| city |Qualsiasi valore stringa o $null |(user.city -eq "valore") |
-| country |Qualsiasi valore stringa o $null |(user.country -eq "valore") |
-| companyName | Qualsiasi valore stringa o $null | (user.companyName -eq "value") |
-| department |Qualsiasi valore stringa o $null |(user.department -eq "valore") |
+| city |Qualsiasi valore di stringa o *null* |(user.city -eq "valore") |
+| country |Qualsiasi valore di stringa o *null* |(user.country -eq "valore") |
+| companyName | Qualsiasi valore di stringa o *null* | (user.companyName -eq "value") |
+| department |Qualsiasi valore di stringa o *null* |(user.department -eq "valore") |
 | displayName |Qualsiasi valore stringa. |(user.displayName -eq "valore") |
-| facsimileTelephoneNumber |Qualsiasi valore stringa o $null |(user.facsimileTelephoneNumber -eq "valore") |
-| givenName |Qualsiasi valore stringa o $null |(user.givenName -eq "valore") |
-| jobTitle |Qualsiasi valore stringa o $null |(user.jobTitle -eq "valore") |
-| mail |Qualsiasi valore stringa o $null (indirizzo SMTP dell'utente) |(user.mail -eq "valore") |
+| facsimileTelephoneNumber |Qualsiasi valore di stringa o *null* |(user.facsimileTelephoneNumber -eq "valore") |
+| givenName |Qualsiasi valore di stringa o *null* |(user.givenName -eq "valore") |
+| jobTitle |Qualsiasi valore di stringa o *null* |(user.jobTitle -eq "valore") |
+| mail |Qualsiasi valore di stringa o *null* (indirizzo SMTP dell'utente) |(user.mail -eq "valore") |
 | mailNickName |Qualsiasi valore stringa (alias di posta dell'utente) |(user.mailNickName -eq "valore") |
-| mobile |Qualsiasi valore stringa o $null |(user.mobile -eq "valore") |
+| mobile |Qualsiasi valore di stringa o *null* |(user.mobile -eq "valore") |
 | objectId |GUID dell'oggetto utente |(user.objectId -eq "1111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | Identificatore di sicurezza (SID) locale per gli utenti sincronizzati da un ambiente locale al cloud. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |Nessuno DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Qualsiasi valore stringa o $null |(user.physicalDeliveryOfficeName -eq "valore") |
-| postalCode |Qualsiasi valore stringa o $null |(user.postalCode -eq "valore") |
+| physicalDeliveryOfficeName |Qualsiasi valore di stringa o *null* |(user.physicalDeliveryOfficeName -eq "valore") |
+| postalCode |Qualsiasi valore di stringa o *null* |(user.postalCode -eq "valore") |
 | preferredLanguage |Codice ISO 639-1 |(user.preferredLanguage -eq "en-US") |
-| sipProxyAddress |Qualsiasi valore stringa o $null |(user.sipProxyAddress -eq "valore") |
-| state |Qualsiasi valore stringa o $null |(user.state -eq "valore") |
-| streetAddress |Qualsiasi valore stringa o $null |(user.streetAddress -eq "valore") |
-| surname |Qualsiasi valore stringa o $null |(user.surname -eq "valore") |
-| telephoneNumber |Qualsiasi valore stringa o $null |(user.telephoneNumber -eq "valore") |
+| sipProxyAddress |Qualsiasi valore di stringa o *null* |(user.sipProxyAddress -eq "valore") |
+| state |Qualsiasi valore di stringa o *null* |(user.state -eq "valore") |
+| streetAddress |Qualsiasi valore di stringa o *null* |(user.streetAddress -eq "valore") |
+| surname |Qualsiasi valore di stringa o *null* |(user.surname -eq "valore") |
+| telephoneNumber |Qualsiasi valore di stringa o *null* |(user.telephoneNumber -eq "valore") |
 | usageLocation |Codice di paese di due lettere |(user.usageLocation -eq "US") |
 | userPrincipalName |Qualsiasi valore stringa. |(user.userPrincipalName -eq "alias@domain") |
-| userType |membro guest $null |(user.userType -eq "Membro") |
+| userType |membro guest *null* |(user.userType -eq "Membro") |
 
 ### <a name="properties-of-type-string-collection"></a>Proprietà di tipo insieme String
 Operatori consentiti
@@ -225,14 +225,10 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 ## <a name="use-of-null-values"></a>Uso dei valori Null
 
-Per specificare un valore Null in una regola, è possibile usare "null" o $null. Esempio:
+Per specificare un valore Null in una regola, è possibile usare il valore *null*. Prestare attenzione a non usare le virgolette per la parola *null*, in caso contrario, verrà interpretato come valore di stringa letterale. Il modo corretto per fare riferimento al valore Null è il seguente:
 ```
    user.mail –ne null
 ```
-equivale a
-```
-   user.mail –ne $null
-   ```
 
 ## <a name="extension-attributes-and-custom-attributes"></a>Attributi di estensione ed attributi personalizzati
 Gli attributi di estensione e gli attributi personalizzati sono supportati nelle regole di appartenenza dinamica.

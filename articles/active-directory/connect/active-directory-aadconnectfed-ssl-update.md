@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 11/15/2017
 ms.author: anandy
-ms.openlocfilehash: 87807a203d71b3abfe3e93132eb7d0b82b14b4ee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eca5a61369c1653d8d3e04d191adfe4b54a11248
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Aggiornare il certificato SSL per una farm Active Directory Federation Services (AD FS)
 
@@ -36,7 +36,7 @@ Questo articolo descrive come usare Azure AD Connect per aggiornare il certifica
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **Farm AD FS**: assicurarsi che la farm AD FS sia basata su Windows Server 2012 R2 o versioni successive.
-* **Azure AD Connect**: assicurarsi che la versione di Azure AD Connect sia 1.1.443.0 o successiva. Si userà l'attività **Aggiorna il certificato SSL di AD FS**.
+* **Azure AD Connect**: assicurarsi che la versione di Azure AD Connect sia 1.1.553.0 o successiva. Si userà l'attività **Aggiorna il certificato SSL di AD FS**.
 
 ![Attività Aggiorna il certificato SSL di AD FS](./media/active-directory-aadconnectfed-ssl-update/updatessltask.png)
 

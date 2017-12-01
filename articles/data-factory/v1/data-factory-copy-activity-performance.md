@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 11/14/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2aeb3820667f264e4a26860913e3f7b0e22e4c4a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1f774bb881c66ceeb9f3223b735b3f34462b6a8d
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
 > [!NOTE]
@@ -49,6 +49,8 @@ Come riferimento, la tabella sotto mostra la velocità effettiva di copia in MBp
 
 ![Matrice delle prestazioni](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
+>[!IMPORTANT]
+>In Azure Data Factory versione 1 il numero minimo di unità di spostamento dati cloud per la copia da cloud a cloud è due. Se non specificato, vedere le unità di spostamento dati predefinite usate nelle [unità di spostamento dati nel cloud](#cloud-data-movement-units).
 
 **Punti da notare:**
 * La velocità effettiva viene calcolata con la formula seguente: [dimensione dei dati letti dall'origine]/[durata dell'esecuzione dell'attività di copia].
@@ -90,9 +92,16 @@ e così via.
 In questo esempio quando il valore **concurrency** è impostato su 2, l'**esecuzione attività 1** e l'**esecuzione attività 2** copiano i dati da due finestre attività **simultaneamente** per migliorare le prestazioni dello spostamento dati. Tuttavia, se all'esecuzione attività 1 sono associati più file, il servizio di spostamento dati copia un file alla volta dall'origine alla destinazione.
 
 ### <a name="cloud-data-movement-units"></a>Unità di spostamento dati cloud
-L' **unità di spostamento dati cloud** è una misura che rappresenta la potenza, ossia la combinazione tra CPU, memoria e allocazione di risorse di rete, di una singola unità in Data Factory. Una unità di spostamento dati può essere usata in un'operazione di copia da cloud a cloud, ma non in una copia ibrida.
+L' **unità di spostamento dati cloud** è una misura che rappresenta la potenza, ossia la combinazione tra CPU, memoria e allocazione di risorse di rete, di una singola unità in Data Factory. L'unità di spostamento dati cloud è valida per le operazioni di copia da cloud a cloud, ma non in una copia ibrida.
 
-Per impostazione predefinita, Data Factory usa una singola unità di spostamento dati cloud per una singola esecuzione dell'attività di copia. Per ignorare l'impostazione predefinita, è possibile specificare un valore per la proprietà **cloudDataMovementUnits** procedendo come segue. Per informazioni sul livello di miglioramento delle prestazioni che è possibile ottenere quando si configurano più unità per un sink e un'origine della copia specifici, vedere la sezione [Informazioni di riferimento sulle prestazioni](#performance-reference).
+**Il numero minimo di unità di spostamento dati cloud per ottimizzare l'esecuzione dell'attività di copia è due.** Se non specificato, nella tabella seguente sono elencate le unità di spostamento dati predefinite usate in diversi scenari di copia:
+
+| Scenario di copia | Numero di unità di spostamento dati predefinite determinato dal servizio |
+|:--- |:--- |
+| Copiare dati tra archivi basati su file | Tra 2 e 16 in base al numero e alle dimensioni dei file. |
+| Tutti gli altri scenari di copia | 2 |
+
+Per ignorare l'impostazione predefinita, è possibile specificare un valore per la proprietà **cloudDataMovementUnits** procedendo come segue. I **valori consentiti** per la proprietà **cloudDataMovementUnits** sono 2, 4, 8, 16, 32. Il **numero effettivo di unità di spostamento dati cloud** usate dall'operazione di copia in fase di esecuzione è minore o uguale al valore configurato, a seconda del modello di dati. Per informazioni sul livello di miglioramento delle prestazioni che è possibile ottenere quando si configurano più unità per un sink e un'origine della copia specifici, vedere la sezione [Informazioni di riferimento sulle prestazioni](#performance-reference).
 
 ```json
 "activities":[  
@@ -114,7 +123,6 @@ Per impostazione predefinita, Data Factory usa una singola unità di spostamento
     }
 ]
 ```
-I **valori consentiti** per la proprietà **cloudDataMovementUnits** sono 1 (valore predefinito), 2, 4, 8, 16, 32. Il **numero effettivo di unità di spostamento dati cloud** usate dall'operazione di copia in fase di esecuzione è minore o uguale al valore configurato, a seconda del modello di dati.
 
 > [!NOTE]
 > Se sono necessarie più unità di spostamento dati cloud per aumentare la velocità effettiva, contattare il [supporto di Azure](https://azure.microsoft.com/support/). Attualmente è possibile impostare la proprietà su valori maggiori o uguali a 8 soltanto per la **copia di più file da Blob storage/Data Lake Store/Amazon S3/cloud FTP/cloud SFTP in Blob storage/Data Lake Store/Azure SQL Database**.

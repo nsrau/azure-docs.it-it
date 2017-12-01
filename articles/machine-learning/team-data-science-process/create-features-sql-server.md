@@ -4,7 +4,7 @@ description: Elaborazione dei dati di SQL Azure
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: bf1f4a6c-7711-4456-beb7-35fdccd46a44
 ms.service: machine-learning
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: bradsev;fashah;garye
-ms.openlocfilehash: 06c165d25361694cf660f391b3d221ad1d63e95d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd919e7f87080b8c4ad1f8d3de26d6f71470a264
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Creare funzionalità per i dati in SQL Server tramite SQL e Python
-Questo documento illustra come creare funzionalità per i dati archiviati in una VM di SQL Server in Azure che consentono agli algoritmi di apprendere in modo più efficiente dai dati. Questa operazione può essere eseguita tramite SQL o usando un linguaggio di programmazione come Python. Questo esempio include una dimostrazione di entrambi.
+Questo documento illustra come creare funzionalità per i dati archiviati in una VM di SQL Server in Azure che consentono agli algoritmi di apprendere in modo più efficiente dai dati. A tale scopo, è possibile usare SQL o un linguaggio di programmazione come Python. Entrambi gli approcci sono illustrati di seguito.
 
 [!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
 
@@ -65,22 +65,22 @@ Nell'esempio seguente viene descritto come creare funzionalità categorizzate, i
 
 
 ### <a name="sql-featurerollout"></a>Implementazione delle funzionalità da una singola colonna
-In questa sezione, viene descritto come implementare una singola colonna di una tabella al fine di creare ulteriori funzionalità. In questo esempio si presuppone che nella tabella dalla quale si tenta di creare la funzionalità sia presente una colonna relativa alla latitudine o alla longitudine.
+In questa sezione viene illustrato come implementare una singola colonna in una tabella per generare funzionalità aggiuntive. In questo esempio si presuppone che nella tabella dalla quale si tenta di creare la funzionalità sia presente una colonna relativa alla latitudine o alla longitudine.
 
-Di seguito, viene riportata una breve introduzione sui dati di posizione relativi a latitudine e longitudine (risorse assegnate da stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Ciò è utile per acquisire conoscenze prima di creare una funzionalità dal campo sulla posizione:
+Di seguito, viene riportata una breve introduzione sui dati di posizione relativi a latitudine e longitudine (risorse assegnate da stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Ecco alcuni concetti utili da conoscere sui dati di posizione prima di creare funzionalità dal campo:
 
-* Il segno indica se l'utente si trova a Nord, Sud, Ovest o Est.
-* Una cifra nell'ordine delle centinaia, diversa da zero, indica che si sta utilizzando la longitudine invece della latitudine.
-* Una cifra nell'ordine delle decine indica una posizione a circa 1.000 km. Inoltre, fornisce informazioni utili sul continente o sull'oceano in cui si trova l'utente.
-* La cifra nell'ordine dell'unità (un grado decimale) indica posizioni fino a 111 km (60 miglia nautiche, circa 69 miglia standard). Inoltre, indica in quale stato o regione si trova l'utente.
+* Il segno indica se l'utente si trova a Nord, Sud, Ovest o Est del globo.
+* Una cifra dell'ordine delle centinaia diversa da zero indica la longitudine, non la latitudine in uso.
+* Una cifra nell'ordine delle decine indica una posizione a circa 1.000 km. Offre informazioni utili sul continente o sull'oceano in cui si trova l'utente.
+* La cifra nell'ordine dell'unità (un grado decimale) indica posizioni fino a 111 km (60 miglia nautiche, circa 69 miglia standard). Indica approssimativamente in quale stato o regione si trova l'utente.
 * La prima posizione decimale è caratterizzata da un valore massimo di 11,1 km: consente di rilevare la posizione di una grande città da una circostante.
 * La seconda posizione decimale è caratterizzata da un valore massimo di 1,1 km: consente di dividere un paese dall'altro.
 * La terza posizione decimale è caratterizzata da un valore massimo di 110 m: consente di identificare un campo agricolo o una sede istituzionale.
 * La quarta posizione decimale è caratterizzata da un valore massimo di 11 m: consente di identificare una porzione di terreno. La sua accuratezza è paragonabile a quella di un'unità GPS non corretta e senza interferenze.
-* La quinta posizione decimale è caratterizzata da un valore massimo a 1,1 m: consente di distinguere un albero da un altro. Un'accuratezza di questo tipo, con le unità GPS commerciali, può essere raggiunta soltanto con una correzione differenziale.
+* La quinta posizione decimale è caratterizzata da un valore massimo di 1,1 m e consente di distinguere un albero da un altro. Un'accuratezza di questo tipo, con le unità GPS commerciali, può essere raggiunta soltanto con una correzione differenziale.
 * La sesta posizione decimale è caratterizzata da un valore massimo di 0,11 m: è possibile usarla per visualizzare i dettagli delle strutture, per progettare panorami e costruire strade. È più che sufficiente per rilevare i movimenti dei ghiacciai e dei fiumi. È possibile ottenere questa accuratezza eseguendo misurazioni accurate con il GPS, quale quello corretto in modo differenziale.
 
-le informazioni sulla posizione possono essere inserite in funzionalità nel modo seguente: separando le informazioni su regioni, posizioni e città. Tenere presente che è possibile chiamare anche un endpoint REST come l'API di Bing Maps, disponibile in `https://msdn.microsoft.com/library/ff701710.aspx` per visualizzare informazioni sull'area/quartiere.
+Le informazioni sulla posizione possono essere inserite nelle funzionalità separando le informazioni su regioni, posizioni e città. Tenere presente che è possibile chiamare anche un endpoint REST come l'API di Bing Maps, disponibile in `https://msdn.microsoft.com/library/ff701710.aspx` per visualizzare informazioni sull'area/quartiere.
 
     select
         <location_columnname>
@@ -93,10 +93,10 @@ le informazioni sulla posizione possono essere inserite in funzionalità nel mod
         ,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end     
     from <tablename>
 
-Le funzionalità basate su posizione descritte in precedenza possono essere utilizzate anche per creare ulteriori funzionalità di conteggio.
+Queste funzionalità basate sulla posizione possono essere usate anche per generate altre funzionalità di conteggio, come descritto in precedenza.
 
 > [!TIP]
-> A livello di programmazione, è possibile inserire i record usando il linguaggio preferito. Potrebbe essere necessario inserire i dati in blocchi per migliorare l'efficienza di scrittura [Consultare da qui l'esempio su come effettuare questa operazione usando pyodc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
+> A livello di programmazione, è possibile inserire i record usando il linguaggio preferito. Potrebbe essere necessario inserire i dati in blocchi per migliorare l'efficienza di scrittura. [Ecco un esempio di come procedere usando pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
 > Un'altra alternativa consiste nell'inserire i dati nel database usando l' [utilità BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 > 
 > 
@@ -104,18 +104,18 @@ Le funzionalità basate su posizione descritte in precedenza possono essere util
 ### <a name="sql-aml"></a>Connessione ad Azure Machine Learning
 La funzionalità appena creata può essere aggiunta come una colonna a una tabella esistente oppure archiviata in una nuova tabella e unita a quella originale ai fini dell'apprendimento automatico. È possibile creare o accedere alle funzionalità già create utilizzando il modulo [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) in Azure ML, come descritto di seguito:
 
-![lettori azureml](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
+![Lettori di Azure ML](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
 
 ## <a name="python"></a>Utilizzo di un linguaggio di programmazione quale Python
-L'uso di Python per creare funzionalità quando i dati si trovano in SQL Server funziona in modo analogo all'elaborazione dei dati nei BLOB di Azure usando Python, come descritto in [Elaborare i dati BLOB di Azure nell'ambiente di analisi scientifica dei dati](data-blob.md). I dati devono essere caricati dal database nei frame di dati Panda. A questo punto, è possibile elaborarli ulteriormente. In questa sezione, è stato descritto il processo di connessione al database per caricare dati all'interno di un frame di dati.
+L'uso di Python per creare funzionalità quando i dati si trovano in SQL Server funziona in modo analogo all'elaborazione dei dati nei BLOB di Azure tramite Python. Per il confronto, vedere [Elaborare i dati BLOB di Azure nell'ambiente data science](data-blob.md). Caricare i dati dal database in un frame di dati pandas per elaborarli più approfonditamente. In questa sezione, è stato descritto il processo di connessione al database e di caricamento dati all'interno di un frame di dati.
 
-Il seguente formato della stringa di connessione può essere utilizzato per connettersi a un database di SQL Server da Pyhton usando pyodbc (sostituire il nome del server, quello del database, il nome utente e la password con i valori personalizzati):
+Il seguente formato della stringa di connessione può essere usato per connettersi a un database di SQL Server da Pyhton usando pyodbc (sostituire il nome del server, quello del database, il nome utente e la password con i valori personalizzati):
 
     #Set up the SQL Azure connection
     import pyodbc
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-La [libreria Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gamma di strutture di dati e strumenti di analisi dei dati per la manipolazione dei dati nella programmazione in Python. Il codice seguente consente di leggere i risultati restituiti da un database di SQL Server all'interno di un frame di dati di Pandas.
+La [libreria Pandas](http://pandas.pydata.org/) in Python fornisce una vasta gamma di strutture di dati e strumenti di analisi dei dati per la manipolazione dei dati nella programmazione in Python. Il codice seguente consente di leggere i risultati restituiti da un database di SQL Server all'interno di un frame di dati di Pandas:
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)

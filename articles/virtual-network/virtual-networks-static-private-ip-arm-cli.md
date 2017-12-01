@@ -1,11 +1,11 @@
 ---
-title: Configurare indirizzi IP privati per le VM - interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
-description: Informazioni su come configurare indirizzi IP privati per le macchine virtuali usando l'interfaccia della riga di comando di Azure 2.0.
+title: Configurare indirizzi IP privati per le VM - interfaccia della riga di comando di Azure | Documentazione Microsoft
+description: Informazioni su come configurare indirizzi IP privati per le macchine virtuali usando l'interfaccia della riga di comando di Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: tysonn
+manager: jeconnoc
+editor: 
 tags: azure-resource-manager
 ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
 ms.service: virtual-network
@@ -16,23 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 071156367c1f819a00d31f1d0335e301391fda81
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9925b29a60fc46e9ecc775ca132bd2365f64b15
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli-20"></a>Configurare indirizzi IP privati per una macchina virtuale usando l'interfaccia della riga di comando di Azure 2.0
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Configurare indirizzi IP privati per una macchina virtuale usando l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
-
-
-## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività 
-
-È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando: 
-
-- [Interfaccia della riga di comando di Azure 1.0](virtual-networks-static-private-ip-cli-nodejs.md): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse 
-- [Interfaccia della riga di comando di Azure 2.0](#specify-a-static-private-ip-address-when-creating-a-vm): interfaccia avanzata per il modello di distribuzione di gestione delle risorse (questo articolo)
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
@@ -43,7 +35,7 @@ Questo articolo illustra il modello di distribuzione Gestione risorse. È anche 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> I comandi di esempio dell'interfaccia della riga di comando di Azure 2.0 seguenti prevedono un ambiente semplice già creato. Se si desidera eseguire i comandi illustrati in questo documento, creare innanzitutto l'ambiente di prova descritto in [creare una rete virtuale](virtual-networks-create-vnet-arm-cli.md).
+> I comandi di esempio dell'interfaccia della riga di comando di Azure riportati di seguito prevedono un ambiente semplice esistente. Se si desidera eseguire i comandi illustrati in questo documento, creare innanzitutto l'ambiente di prova descritto in [creare una rete virtuale](virtual-networks-create-vnet-arm-cli.md).
 
 ## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>Specificare un indirizzo IP statico privato durante la creazione di una macchina virtuale
 
@@ -169,7 +161,7 @@ Per creare una VM denominata *DNS01* nella subnet *FrontEnd* di una rete virtual
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>Recuperare le informazioni relative all'indirizzo IP privato statico per una macchina virtuale
 
-Per visualizzare l'indirizzo IP privato statico creato, eseguire il comando seguente dell'interfaccia della riga di comando di Azure e osservare i valori di *Private IP alloc-method* e *Private IP address*:
+Eseguire il comando seguente dell'interfaccia della riga di comando di Azure per osservare i valori di *Private IP alloc-method* e *Private IP address*:
 
 ```azurecli
 az vm show -g TestRG -n DNS01 --show-details --query 'privateIps'
@@ -204,13 +196,13 @@ Il risultato sarà simile al seguente:
 
 ## <a name="remove-a-static-private-ip-address-from-a-vm"></a>Rimuovere un indirizzo IP statico privato da una macchina virtuale
 
-Non è possibile rimuovere un indirizzo IP privato statico da una scheda di interfaccia di rete nell'interfaccia della riga di comando per le distribuzioni di Resource Manager. È necessario:
+Non è possibile rimuovere un indirizzo IP privato statico da una scheda di interfaccia di rete nell'interfaccia della riga di comando di Azure per le distribuzioni di Azure Resource Manager. È necessario:
 - Creare una nuova scheda di interfaccia di rete che usa un indirizzo IP dinamico
 - Impostare la scheda di rete della VM sulla scheda di rete appena creata. 
 
-Per cambiare la scheda di interfaccia di rete per la VM usata nei comandi precedenti, seguire questa procedura.
+Per cambiare la scheda di interfaccia di rete per la VM usata nei comandi precedenti, seguire questa procedura:
 
-1. Eseguire il comando **azure network nic create** per creare una nuova scheda di interfaccia di rete usando l'allocazione di IP dinamica con un nuovo indirizzo IP. Si noti che poiché non è specificato alcun indirizzo IP, il metodo di allocazione è **dinamico**.
+1. Eseguire il comando **azure network nic create** per creare una nuova scheda di interfaccia di rete usando l'allocazione di IP dinamica con un nuovo indirizzo IP. Poiché non è specificato alcun indirizzo IP, il metodo di allocazione è **dinamico**.
 
     ```azurecli
     az network nic create     \

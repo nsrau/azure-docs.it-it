@@ -1,5 +1,5 @@
 ---
-title: Come aggiungere un'origine evento hub IoT a un ambiente Azure Time Series Insights | Documentazione Microsoft
+title: Come aggiungere un'origine evento dell'hub IoT in Azure Time Series Insights | Microsoft Docs
 description: Questo articolo descrive come aggiungere un'origine evento connessa a un hub IoT all'ambiente Time Series Insights
 services: time-series-insights
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: ed31a0e725d1e0863e9c4695d4eccb324f60678a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: 0469c35056d1d02457c162b8540af472b84f1e92
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Come aggiungere un'origine evento hub IoT a un ambiente Time Series Insights
 Questo articolo descrive come usare il portale di Azure per aggiungere all'ambiente Time Series Insights un'origine evento che legge dati da un hub IoT.
@@ -54,9 +54,9 @@ Questo articolo descrive come usare il portale di Azure per aggiungere all'ambie
    | --- | --- |
    | ID sottoscrizione | Selezionare la sottoscrizione in cui l'hub IoT è stato creato.
    | Nome dell'hub IoT | Selezionare il nome dell'hub IoT.
-   | Nome criterio dell'hub IoT | Selezionare il criterio di accesso condiviso che si può trovare nella scheda Impostazioni hub IoT. Ogni criterio di accesso condiviso ha un nome, autorizzazioni impostate e chiavi di accesso. Il criterio di accesso condiviso per l'origine evento *deve* avere le autorizzazioni per la **connessione al servizio**.
-   | Chiave criteri hub IoT | La chiave è prepopolata.
-   | Gruppo di consumer dell'hub IoT | Il gruppo di consumer per la lettura degli eventi dall'hub IoT. È consigliabile usare un gruppo di consumer dedicato per l'origine evento.
+   | Nome dei criteri dell'hub IoT | Selezionare il criterio di accesso condiviso che si può trovare nella scheda Impostazioni hub IoT. Ogni criterio di accesso condiviso ha un nome, autorizzazioni impostate e chiavi di accesso. Il criterio di accesso condiviso per l'origine evento *deve* avere le autorizzazioni per la **connessione al servizio**.
+   | Chiave dei criteri dell'hub IoT | La chiave è prepopolata.
+   | Gruppo consumer dell'hub IoT | Il gruppo di consumer per la lettura degli eventi dall'hub IoT. È consigliabile usare un gruppo di consumer dedicato per l'origine evento.
    | Formato di serializzazione eventi | JSON è l'unico formato di serializzazione attualmente disponibile. I messaggi relativi agli eventi devono essere in questo formato. In caso contrario, non è possibile leggere i dati. |
    | Nome della proprietà Timestamp | Per determinare questo valore, è necessario comprendere il formato dei dati del messaggio inviato all'hub IoT. Questo valore è il **nome** della proprietà evento specifica nei dati del messaggio che si vuole usare come timestamp dell'evento. Il valore fa distinzione tra maiuscole e minuscole. Se lasciato vuoto, come timestamp dell'evento viene usato il **tempo di accodamento dell'evento** all'interno dell'origine evento. |
 
@@ -64,12 +64,12 @@ Questo articolo descrive come usare il portale di Azure per aggiungere all'ambie
 
    | Proprietà | Descrizione |
    | --- | --- |
-   | ID sottoscrizione | La sottoscrizione in cui l'hub IoT è stato creato.
+   | ID sottoscrizione | La sottoscrizione in cui l'hub IoT è stata creata.
    | Gruppo di risorse | Nome del gruppo di risorse in cui è stato creato questo hub IoT.
    | Nome dell'hub IoT | Il nome dell'hub IoT. Al momento della creazione, all'hub IoT è stato anche assegnato un nome specifico.
-   | Nome criterio dell'hub IoT | Il criterio di accesso condiviso che può essere creato nella scheda Impostazioni hub IoT. Ogni criterio di accesso condiviso ha un nome, autorizzazioni impostate e chiavi di accesso. Il criterio di accesso condiviso per l'origine evento *deve* avere le autorizzazioni per la **connessione al servizio**.
-   | Chiave criteri hub IoT | Chiave di accesso condiviso usata per autenticare l'accesso allo spazio dei nomi del bus di servizio. Digitare la chiave primaria o secondaria qui.
-   | Gruppo di consumer dell'hub IoT | Il gruppo di consumer per la lettura degli eventi dall'hub IoT. È consigliabile usare un gruppo di consumer dedicato per l'origine evento.
+   | Nome dei criteri dell'hub IoT | Il criterio di accesso condiviso che può essere creato nella scheda Impostazioni hub IoT. Ogni criterio di accesso condiviso ha un nome, autorizzazioni impostate e chiavi di accesso. Il criterio di accesso condiviso per l'origine evento *deve* avere le autorizzazioni per la **connessione al servizio**.
+   | Chiave dei criteri dell'hub IoT | Chiave di accesso condiviso usata per autenticare l'accesso allo spazio dei nomi del bus di servizio. Digitare la chiave primaria o secondaria qui.
+   | Gruppo consumer dell'hub IoT | Il gruppo di consumer per la lettura degli eventi dall'hub IoT. È consigliabile usare un gruppo di consumer dedicato per l'origine evento.
    | Formato di serializzazione eventi | JSON è l'unico formato di serializzazione attualmente disponibile. I messaggi relativi agli eventi devono essere in questo formato. In caso contrario, non è possibile leggere i dati. |
    | Nome della proprietà Timestamp | Per determinare questo valore, è necessario comprendere il formato dei dati del messaggio inviato all'hub IoT. Questo valore è il **nome** della proprietà evento specifica nei dati del messaggio che si vuole usare come timestamp dell'evento. Il valore fa distinzione tra maiuscole e minuscole. Se lasciato vuoto, come timestamp dell'evento viene usato il **tempo di accodamento dell'evento** all'interno dell'origine evento. |
 
@@ -79,7 +79,7 @@ Questo articolo descrive come usare il portale di Azure per aggiungere all'ambie
 
    Dopo la creazione dell'origine evento, Time Series Insights inizierà automaticamente a trasmettere i dati nell'ambiente.
 
-### <a name="add-a-consumer-group-to-your-iot-hub"></a>Aggiungere un gruppo di consumer dell'hub IoT
+### <a name="add-a-consumer-group-to-your-iot-hub"></a>Aggiungere un gruppo di consumer all'hub IoT
 I gruppi di consumer vengono usati dalle applicazioni per eseguire il pull dei dati da hub IoT di Azure. Per leggere in modo affidabile i dati dall'hub IoT, specificare un gruppo di consumer dedicato per l'uso esclusivo da parte di questo ambiente Time Series Insights.
 
 Per aggiungere un nuovo gruppo di consumer all'hub IoT, eseguire questa procedura:

@@ -1,96 +1,105 @@
-1. Nel progetto di **app** aprire il file `AndroidManifest.xml`. Nel codice per i due passaggi successivi sostituire *`**my_app_package**`* con il nome del pacchetto dell'app per il progetto. Si tratta del valore dell'`package`attributo del `manifest` tag.
-2. Aggiungere le nuove autorizzazioni seguenti dopo l'elemento `uses-permission` esistente:
+1. Nel progetto di **app** aprire il file `AndroidManifest.xml`. Aggiungere il codice seguente dopo il tag di apertura `application` :
 
-        <permission android:name="**my_app_package**.permission.C2D_MESSAGE"
-            android:protectionLevel="signature" />
-        <uses-permission android:name="**my_app_package**.permission.C2D_MESSAGE" />
-        <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-        <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-        <uses-permission android:name="android.permission.WAKE_LOCK" />
-3. Aggiungere il codice seguente dopo il tag di apertura `application` :
+    ```xml
+    <service android:name=".ToDoMessagingService">
+        <intent-filter>
+            <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+        </intent-filter>
+    </service>
+    <service android:name=".ToDoInstanceIdService">
+        <intent-filter>
+            <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+        </intent-filter>
+    </service>
+    ```
 
-        <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
-                                         android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="**my_app_package**" />
-            </intent-filter>
-        </receiver>
-4. Aprire il file *ToDoActivity.java*, quindi aggiungere l'istruzione import seguente:
+2. Aprire il file `ToDoActivity.java` e apportare le modifiche seguenti:
 
-        import com.microsoft.windowsazure.notifications.NotificationsManager;
-5. Aggiungere la variabile privata seguente alla classe. Sostituire *`<PROJECT_NUMBER>`* con il numero di progetto assegnato da Google all'app nella procedura precedente.
+    - Aggiungere l'istruzione import:
 
-        public static final String SENDER_ID = "<PROJECT_NUMBER>";
-6. Modificare la definizione di *MobileServiceClient* da **private** a **public static**, in modo che sia simile alla seguente:
+        ```java
+        import com.google.firebase.iid.FirebaseInstanceId;
+        ```
 
-        public static MobileServiceClient mClient;
-7. Aggiungere una nuova classe per gestire le notifiche. In Esplora progetti aprire i nodi **src** > **main** > **java** e fare clic con il pulsante destro del mouse sul nodo del nome del pacchetto. Fare clic su **Nuovo** e quindi su **Java Class** (Classe Java).
-8. In **Nome** digitare `MyHandler`, quindi fare clic su **OK**.
+    - Modificare la definizione di `MobileServiceClient` da **private** a **private static** in modo che sia simile alla seguente:
 
-    ![](./media/app-service-mobile-android-configure-push/android-studio-create-class.png)
+        ```java
+        private static MobileServiceClient mClient;
+        ```
 
-9. Nel file MyHandler sostituire la dichiarazione di classe con:
+    - Aggiungere il metodo `registerPush`:
 
-        public class MyHandler extends NotificationsHandler {
-10. Aggiungere le istruzioni import seguenti per la classe `MyHandler` :
+        ```java
+        public static void registerPush() {
+            final String token = FirebaseInstanceId.getInstance().getToken();
+            if (token != null) {
+                new AsyncTask<Void, Void, Void>() {
+                    protected Void doInBackground(Void... params) {
+                        mClient.getPush().register(token);
+                        return null;
+                    }
+                }.execute();
+            }
+        }
+        ```
 
-        import com.microsoft.windowsazure.notifications.NotificationsHandler;
-        import android.app.NotificationManager;
-        import android.app.PendingIntent;
-        import android.content.Context;
-        import android.content.Intent;
-        import android.os.AsyncTask;
-        import android.os.Bundle;
-        import android.support.v4.app.NotificationCompat;
-11. Aggiungere quindi questo membro alla classe `MyHandler` :
+    - Aggiornare il metodo **onCreate** della classe `ToDoActivity`. Assicurarsi di aggiungere il codice dopo la creazione di un'istanza di `MobileServiceClient`.
 
-        public static final int NOTIFICATION_ID = 1;
-12. Nella classe `MyHandler` aggiungere il codice seguente per eseguire l'override del metodo **onRegistered** che registra il dispositivo nell'hub di notifica del servizio mobile.
+        ```java
+        registerPush();
+        ```
 
-        @Override
-        public void onRegistered(Context context,  final String gcmRegistrationId) {
-           super.onRegistered(context, gcmRegistrationId);
+3. Aggiungere una nuova classe per gestire le notifiche. In Esplora progetti aprire i nodi **app** > **java** > **spazio-dei-nomi-progetto-corrente** e fare clic con il pulsante destro del mouse sul nodo del nome del pacchetto. Fare clic su **Nuovo** e quindi su **Java Class** (Classe Java). In Nome digitare `ToDoMessagingService` e fare clic su OK. Sostituire quindi la dichiarazione di classe con:
 
-           new AsyncTask<Void, Void, Void>() {
+    ```java
+    import android.app.Notification;
+    import android.app.NotificationManager;
+    import android.app.PendingIntent;
+    import android.content.Context;
+    import android.content.Intent;
 
-               protected Void doInBackground(Void... params) {
-                   try {
-                       ToDoActivity.mClient.getPush().register(gcmRegistrationId);
-                       return null;
-                   }
-                   catch(Exception e) {
-                       // handle error                
-                   }
-                   return null;              
-               }
-           }.execute();
-       }
-13. Nella classe `MyHandler` aggiungere il codice seguente per eseguire l'override del metodo **onReceive** , che determina la visualizzazione della notifica al momento della ricezione.
+    import com.google.firebase.messaging.FirebaseMessagingService;
+    import com.google.firebase.messaging.RemoteMessage;
+
+    public class ToDoMessagingService extends FirebaseMessagingService {
+
+        private static final int NOTIFICATION_ID = 1;
 
         @Override
-        public void onReceive(Context context, Bundle bundle) {
-               String msg = bundle.getString("message");
+        public void onMessageReceived(RemoteMessage remoteMessage) {
+            String message = remoteMessage.getData().get("message");
+            if (message != null) {
+                sendNotification("Notification Hub Demo", message);
+            }
+        }
 
-               PendingIntent contentIntent = PendingIntent.getActivity(context,
-                       0, // requestCode
-                       new Intent(context, ToDoActivity.class),
-                       0); // flags
+        private void sendNotification(String title, String messageBody) {
+            PendingIntent contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, ToDoActivity.class), 0);
+            Notification.Builder notificationBuilder = new Notification.Builder(this)
+                    .setSmallIcon(R.drawable.ic_launcher)
+                    .setContentTitle(title)
+                    .setContentText(messageBody)
+                    .setContentIntent(contentIntent);
+            NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            if (notificationManager != null) {
+                notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build());
+            }
+        }
+    }
+    ```
 
-               Notification notification = new NotificationCompat.Builder(context)
-                       .setSmallIcon(R.drawable.ic_launcher)
-                       .setContentTitle("Notification Hub Demo")
-                       .setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
-                       .setContentText(msg)
-                       .setContentIntent(contentIntent)
-                       .build();
+4. Aggiungere un'altra classe per gestire gli aggiornamenti dei token. Creare una classe Java `ToDoInstanceIdService` e sostituire la dichiarazione di classe con:
 
-               NotificationManager notificationManager = (NotificationManager)
-                       context.getSystemService(Context.NOTIFICATION_SERVICE);
-               notificationManager.notify(NOTIFICATION_ID, notification);
-       }
-14. Nel file TodoActivity.java, aggiornare il metodo **onCreate** della classe *ToDoActivity* per registrare la classe del gestore di notifica. Assicurarsi di aggiungere il codice dopo la creazione di un'istanza di *MobileServiceClient* .
+    ```java
+    import com.google.firebase.iid.FirebaseInstanceIdService;
 
-        NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
+    public class ToDoInstanceIdService extends FirebaseInstanceIdService {
 
-    L'app è ora aggiornata per il supporto delle notifiche push.
+        @Override
+        public void onTokenRefresh() {
+            ToDoActivity.registerPush();
+        }
+    }
+    ```
+
+L'app è ora aggiornata per il supporto delle notifiche push.

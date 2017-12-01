@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/8/2017
+ms.date: 11/16/2017
 ms.author: raiye
-ms.openlocfilehash: 90ce26733c7018e2cf9464470a65bd0539772c3b
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: e19bb15be29fefbfbc94f7396bb2b68f8236f66a
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
 Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest di Azure][Azure Guest OS Update Settings], non è indispensabile leggere questa pagina.
@@ -88,7 +88,7 @@ Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-5.12_201710-01 |8 novembre 2017 |Post 5.14 |Da definire |
+| WA-GUEST-OS-5.12_201710-02 |8 novembre 2017 |Post 5.14 |Da definire |
 | WA-GUEST-OS-5.11_201709-01 |6 ottobre 2017 |Post 5.13 |Da definire |
 | WA-GUEST-OS-5.10_201708-01 |24 agosto 2017 |Dopo la versione 5.12 |Da definire |
 |~~WA-GUEST-OS-5.9_201707-01~~ |3 agosto 2017 |8 novembre 2017 |Da definire |
@@ -111,7 +111,7 @@ Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-4.47_201710-01 |8 novembre 2017 |Post 4.49 |Da definire |
+| WA-GUEST-OS-4.47_201710-02 |8 novembre 2017 |Post 4.49 |Da definire |
 | WA-GUEST-OS-4.46_201709-01 |6 ottobre 2017 |Post 4.48 |Da definire |
 | WA-GUEST-OS-4.45_201708-01 |24 agosto 2017 |Dopo la versione 4.47 |Da definire |
 |~~WA-GUEST-OS-4.44_201707-01~~ |3 agosto 2017 |8 novembre 2017 |Da definire |
@@ -134,7 +134,7 @@ Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.54_201710-01 |8 novembre 2017 |Post 3.56 |Da definire |
+| WA-GUEST-OS-3.54_201710-02 |8 novembre 2017 |Post 3.56 |Da definire |
 | WA-GUEST-OS-3.53_201709-01 |6 ottobre 2017 |Post 3.55 |Da definire |
 | WA-GUEST-OS-3.52_201708-01 |24 agosto 2017 |Dopo la versione 3.54 |Da definire |
 |~~WA-GUEST-OS-3.51_201707-01~~ |3 agosto 2017 |8 novembre 2017 |Da definire |
@@ -157,7 +157,7 @@ Versione .NET Framework installata: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-2.67_201710-01 |8 novembre 2017 |Post 2.69 |Da definire |
+| WA-GUEST-OS-2.67_201710-02 |8 novembre 2017 |Post 2.69 |Da definire |
 | WA-GUEST-OS-2.66_201709-01 |6 ottobre 2017 |Post 2.68 |Da definire |
 | WA-GUEST-OS-2.65_201708-01 |24 agosto 2017 |Dopo la versione 2.67 |Da definire |
 |~~WA-GUEST-OS-2.64_201707-01~~ |3 agosto 2017 |8 novembre 2017 |Da definire |

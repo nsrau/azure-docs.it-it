@@ -4,7 +4,7 @@ description: "Illustra le finalità della progettazione di funzioni e offre esem
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 3fde69e8-5e7b-49ad-b3fb-ab8ef6503a4d
 ms.service: machine-learning
@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: zhangya;bradsev
-ms.openlocfilehash: c0933fec67bbcfc2a8c450c1e2472440cf38f338
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72a412c08e57491a306f405f400665e2b0d25a3c
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="feature-engineering-in-data-science"></a>Progettazione di funzionalità nell'analisi scientifica dei dati
-Questo argomento illustra le finalità della progettazione di funzioni e offre esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning. Gli esempi utilizzati per illustrare questo processo sono tratti da Azure Machine Learning Studio. 
+Questo articolo illustra le finalità della progettazione di funzioni e offre esempi del relativo ruolo nel processo di miglioramento dei dati di Machine Learning. Gli esempi utilizzati per illustrare questo processo sono tratti da Azure Machine Learning Studio. 
 
 [!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
 
-Questo **menu** fornisce collegamenti ad argomenti che descrivono come creare funzionalità per dati in diversi ambienti. Questa attività è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+**Questo** menu fornisce collegamenti ad articoli che descrivono come creare funzionalità per dati in diversi ambienti. Questa attività è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 La progettazione di funzionalità tenta di aumentare la capacità predittiva degli algoritmi di apprendimento tramite la creazione di funzionalità da dati non elaborati che contribuiscono a semplificare il processo di apprendimento. La progettazione e la selezione delle funzionalità sono parti del processo TDSP descritto in [Informazioni sul Processo di analisi scientifica dei dati per i team](overview.md) La progettazione e la selezione delle funzionalità sono parti del passaggio **Sviluppare funzionalità** del processo TDSP. 
 
@@ -38,7 +38,7 @@ I dati di training usati in Machine Learning spesso possono essere migliorati co
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="creating-features-from-your-data---feature-engineering"></a>Creazione di funzioni dai dati: progettazione di funzioni
+## <a name="create-features-from-your-data---feature-engineering"></a>Creazione di funzioni dai dati: progettazione di funzioni
 I dati di training sono costituiti da una matrice composta da esempi (record o osservazioni archiviate in righe), ognuno dei quali presenta un set di funzioni (variabili o campi archiviati in colonne). Le funzioni specificate nella progettazione sperimentale caratterizzeranno i modelli nei dati. Anche se molti dei campi dati non elaborati possono essere inclusi direttamente nel set di funzioni selezionate usato per il training di un modello, spesso è necessario costruire altre funzioni (progettate) dalle funzioni presenti nei dati non elaborati per generare un set di dati di training avanzato.
 
 Il tipo di funzioni da creare per migliorare il set di dati durante il training di un modello sono le funzioni progettate che migliorano il training e forniscono informazioni che consentono di differenziare meglio i modello nei dati Le nuove funzioni dovrebbero fornire informazioni aggiuntive che non vengono chiaramente acquisite o non risultano facilmente apparenti nel set di funzioni originali o esistenti. Questo processo è tuttavia una sorta di artificio. Le decisioni valide e produttive richiedono spesso una certa esperienza specifica.
@@ -48,7 +48,7 @@ Quando si inizia a usare Azure Machine Learning, è più facile afferrare questo
 * Un esempio di regressione basato sulla [stima del numero di noleggi di biciclette](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) in un esperimento controllato in cui sono noti i valori di destinazione.
 * Un esempio di classificazione di data mining del testo tramite [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
-## <a name="example-1-adding-temporal-features-for-regression-model"></a>Esempio 1: Aggiunta di funzioni temporali per il modello di regressione
+## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Esempio 1: Aggiunta di funzioni temporali per il modello di regressione
 Per dimostrare come progettare le funzioni per un'attività di regressione, si userà l'esperimento "Demand forecasting of bikes" in Azure Machine Learning Studio. L'obiettivo di questo esperimento è stimare la domanda di biciclette, ovvero il numero di noleggi di biciclette nell'arco di un mese, un giorno o un'ora specifica. Come dati di input non elaborati si usa il set di dati "Bike Rental UCI dataset". Questo set di dati si basa su dati reali della società Capital Bikeshare che gestisce una rete di noleggio di biciclette a Washington DC, negli Stati Uniti. Il set di dati rappresenta il numero di noleggi di biciclette in un'ora specifica del giorno negli anni 2011 e 2012 r include 17379 righe e 17 colonne. Il set di funzioni non elaborate include le condizioni meteorologiche (temperatura/umidità/velocità del vento) e il tipo di giorno (festività/giorno feriale). Il campo per la stima è "cnt", un conteggio che rappresenta i noleggi di biciclette in un'ora specifica e compreso nell'intervallo da 1 a 977.
 
 Allo scopo di costruire funzioni efficaci nei dati di training, vengono compilati quattro modelli di regressione con lo stesso algoritmo, ma con quattro diversi set di dati di training. I quattro set di dati rappresentano gli stessi dati di input non elaborati, ma con un numero crescente di set di funzioni. Queste funzioni sono raggruppate in quattro categorie:
@@ -64,16 +64,18 @@ Nell'esperimento di Azure Machine Learning questi quattro set di dati vengono cr
 
 ![creare funzioni](./media/create-features/addFeature-Rscripts.png)
 
-Il confronto dei risultati delle prestazioni dei quattro modelli è riepilogato nella tabella seguente. I risultati migliori vengono forniti dalle funzioni A+B+C. Si noti che il tasso di errore diminuisce quando si include un set di funzioni aggiuntivo nei dati di training. Verifica la stima secondo cui il set di funzioni B, C fornisce altre informazioni rilevanti per l'attività di regressione. L'aggiunta della funzioni D non sembra tuttavia fornire un'altra riduzione del tasso di errore.
+Il confronto dei risultati delle prestazioni dei quattro modelli è riepilogato nella tabella seguente: 
 
 ![confronto dei risultati](./media/create-features/result1.png)
 
-## <a name="example2"></a> Esempio 2: Creazione di funzionalità per il data mining del testo
+I risultati migliori vengono forniti dalle funzioni A+B+C. Si noti che il tasso di errore diminuisce quando si include un set di funzioni aggiuntivo nei dati di training. Verifica la stima secondo cui il set di funzioni B, C fornisce altre informazioni rilevanti per l'attività di regressione. L'aggiunta della funzioni D non sembra tuttavia fornire un'altra riduzione del tasso di errore.
+
+## <a name="example2"></a> Esempio 2: Creazione di funzioni per il data mining del testo
 La progettazione di funzioni viene ampiamente applicata nelle attività correlate al data mining del testo, ad esempio la classificazione di documenti e l'analisi del sentiment. Ad esempio, quando si vogliono classificare documenti in diverse categorie, un tipico presupposto è il fatto che le parole o le frasi incluse in una categoria di documenti sono presenti con minore probabilità in un'altra categoria di documenti. In altre parole, la frequenza di distribuzione di parole/frasi è in grado di caratterizzare diverse categorie di documenti. Poiché in genere nelle applicazioni di data mining del testo singole parti del contenuto di testo vengono usate come dati di input, per creare le funzioni che comportano frequenze di parole/frasi è necessario usare il processo di progettazione delle funzioni.
 
 Per completare questa attività, si applica una tecnica definita **hashing di funzioni** per trasformare in modo efficiente le funzioni di testo arbitrarie in indici. Anziché associare ogni funzioni di testo (parole/frasi) a un indice particolare, questo metodo applica una funzione hash alle funzioni e usa direttamente i relativi valori hash come indici.
 
-In Azure Machine Learning è disponibile un modulo [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) che crea in modo pratico queste funzioni basate su parole/frasi. La figura seguente mostra un esempio dell'uso di questo modulo. Il set di dati di input contiene due colonne: la classificazione dei libri da 1 a 5 e il contenuto effettivo della recensione. L'obiettivo del modulo [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) è recuperare una serie di nuove funzioni che mostrino la frequenza di occorrenza delle parole/frasi corrispondenti nella recensione di un libro particolare. Per usare questo modulo, è necessario completare i passaggi seguenti:
+In Azure Machine Learning è disponibile un modulo [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) che crea in modo pratico queste funzioni basate su parole/frasi. La figura seguente mostra un esempio dell'uso di questo modulo. Il set di dati di input contiene due colonne: la classificazione dei libri da 1 a 5 e il contenuto effettivo della recensione. L'obiettivo del modulo [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) è recuperare una serie di nuove funzioni che mostrino la frequenza di occorrenza delle parole/frasi corrispondenti nella recensione di un libro particolare. Per usare questo modulo, completare i passaggi seguenti:
 
 * Selezionare innanzitutto la colonna che contiene il testo di input ("Col2" in questo esempio).
 * Impostare quindi "Hashing bitsize" su 8, che equivale alla creazione di 2^8=256 funzioni. Per le parole/frasi in tutto il testo verrà generato un hash per 256 indici. Il parametro "Hashing bitsize" è compreso nell'intervallo da 1 a 31. Con l'impostazione di un numero maggiore, è meno probabile che per le parole/frasi venga generato un hash nello stesso indice.
@@ -85,8 +87,8 @@ La figura seguente mostra l'aspetto delle nuove funzioni.
 
 ![Esempio di "Feature Hashing"](./media/create-features/feature-Hashing2.png)
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 Le funzioni progettate e selezionate migliorano l'efficienza del processo di training che tenta di estrarre le informazioni essenziali contenute nei dati. Migliorano anche le potenzialità di questi modelli per la classificazione accurata dei dati di input e per la stima più affidabile dei risultati di interesse. Progettazione e selezione delle funzioni possono anche combinarsi per rendere l'apprendimento più computazionalmente trattabile. Questa operazione viene eseguita tramite il miglioramento e la successiva riduzione del numero di funzioni richieste per calibrare o eseguire il training di un modello. Da un punto di vista matematico, le funzioni selezionate per eseguire il training di un modello sono costituite da un set minimo di variabili indipendenti che spiegano i modelli nei dati e quindi stimano correttamente i risultati.
 
-Si noti che non sempre è necessario eseguire la progettazione o la selezione delle funzioni. La necessità o meno di questi passaggi dipende dai dati da raccogliere, dagli algoritmi scelti e dall'obiettivo dell'esperimento.
+Non sempre è necessario eseguire la progettazione o la selezione delle funzioni. La necessità o meno di questi passaggi dipende dai dati raccolti o da gestire, dagli algoritmi selezionati e dall'obiettivo dell'esperimento.
 

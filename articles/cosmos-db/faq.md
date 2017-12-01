@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 1d2a5e5d639e2aa0023e99b73f87a68e19afc239
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 2f46fc37b9050b19b83685c97198c29a5ce46289
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Domande frequenti su Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Nozioni fondamentali su Azure Cosmos DB
@@ -431,7 +431,7 @@ Azure Cosmos DB configura la velocità effettiva predefinita per il contenitore 
 Il concetto di velocità effettiva è illustrato nell'articolo [Unità richiesta in Azure Cosmos DB](request-units.md). La velocità effettiva per una tabella viene distribuita equamente tra le partizioni fisiche sottostanti.  
 
 ### <a name="what-is-the-default-rus-of-table-when-created-through-cql-what-if-i-need-to-change-it"></a>Qual è la UR/s predefinita di una tabella creata tramite CQL? In che modo la si può modificare, se necessario?
-Azure Cosmos DB usa le unità richiesta al secondo (UR/s) come misura per fornire velocità effettiva. Le tabelle create con CQL hanno 400 UR. È possibile modificarle dal portale in 10.000 UR. Se sono necessarie più di 10.000 UR in anteprima privata, è possibile crearle prima dal portale. In alternativa, se questa funzionalità è necessaria per CQL, inviare un messaggio di posta elettronica all'indirizzo [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com). 
+Azure Cosmos DB usa le unità richiesta al secondo (UR/s) come misura per fornire velocità effettiva. Le tabelle create con CQL hanno 400 UR. È possibile modificare le UR dal portale. 
 
 CQL
 ```

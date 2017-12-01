@@ -2,19 +2,19 @@
 title: Roaming e collaborazione in Azure Machine Learning Workbench | Microsoft Docs
 description: Elenco di problemi noti e guida alla risoluzione
 services: machine-learning
-author: svankam
-ms.author: svankam
+author: hning86
+ms.author: haining
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/05/2017
-ms.openlocfilehash: 156dd1b7f928df22b3feb9e7a13396d3b53a91d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/16/2017
+ms.openlocfilehash: 50f48fb096cb907e050769a8a4159689eb25418c
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Roaming e collaborazione in Azure Machine Learning Workbench
 Questo documento illustra in dettaglio in che modo Azure Machine Learning Workbench consente il roaming dei progetti tra computer diversi e la collaborazione tra i diversi membri del team. 
@@ -28,10 +28,14 @@ Accedere quindi a [Visual Studio Team System](https://www.visualstudio.com) e cr
 
 ## <a name="create-a-new-azure-machine-learning-project"></a>Creare un nuovo progetto di Azure Machine Learning
 Avviare Azure Machine Learning Workbench e creare un nuovo progetto (ad esempio, _iris_). Nella casella di testo **URL del repository GIT di Visualstudio.com** inserire l'URL di un repository Git VSTS valido. 
->[!IMPORTANT]
->La creazione del progetto non riesce se non si ha accesso in lettura/scrittura al repository Git e se il repository Git non è vuoto, ad esempio se contiene già un ramo principale.
+
+> [!IMPORTANT]
+> La scelta del modello di progetto vuoto è adatta se il repository Git scelto dispone già di un ramo _master_. Azure ML duplica semplicemente il ramo _master_ in locale e aggiunge la cartella `aml_config` e altri file di metadati del progetto alla cartella del progetto locale. Ma se si sceglie un altro modello di progetto, il repository Git non deve avere già un ramo _master_, altrimenti verrà visualizzato un errore. L'alternativa consiste nell'usare lo strumento della riga di comando `az ml project create` per creare il progetto e indicare un commutatore `--force`. Questa operazione consente di eliminare i file nel ramo master originale e di sostituirli con i nuovi file nel modello scelto.
 
 Dopo aver creato il progetto, avviare diverse esecuzioni di script presenti all'interno del progetto. Questa azione esegue il commit dello stato del progetto nel ramo della cronologia di esecuzione del repository Git. 
+
+> [!NOTE] 
+> Solo le esecuzioni dello script attivano i commit al ramo della cronologia di esecuzione. L'esecuzione della preparazione dei dati o le esecuzioni Notebook non attivano snapshot del progetto al ramo della cronologia di esecuzione.
 
 Se l'autenticazione Git è configurata, è anche possibile operare in modo esplicito nel ramo principale o creare un nuovo ramo. 
 
@@ -71,7 +75,8 @@ In macOS è disponibile qui: `/home/<username>/Documents/AzureML`
 
 In una versione futura si prevede di migliorare la funzionalità in modo che consenta di selezionare la cartella di destinazione. 
 
->Si noti che se una cartella nella directory di Azure ML ha lo stesso nome del progetto, il download ha esito negativo. Per il momento, per ovviare a questo problema è necessario rinominare la cartella esistente.
+> [!NOTE]
+> Se una cartella nella directory di Azure ML ha lo stesso nome del progetto, il download ha esito negativo. Per il momento, per ovviare a questo problema è necessario rinominare la cartella esistente.
 
 
 ### <a name="work-on-the-downloaded-project"></a>Lavorare sul progetto scaricato 
@@ -90,23 +95,16 @@ Alice fa clic sul menu **File** e seleziona la voce di menu **Prompt dei comandi
 # Find ARM ID of the experimnetation account
 az ml account experimentation show --query "id"
 
-# Add Bob to the Experimentation Account as a Reader.
-# Bob now has read access to all workspaces and projects under the Account by inheritance.
-az role assignment create --assignee bob@contoso.com --role Reader --scope <experimentation account ARM ID>
+# Add Bob to the Experimentation Account as a Contributor.
+# Bob now has read/write access to all workspaces and projects under the Account by inheritance.
+az role assignment create --assignee bob@contoso.com --role Contributor --scope <experimentation account ARM ID>
 
 # Find ARM ID of the workspace
 az ml workspace show --query "id"
 
-# Add Bob to the workspace as a Contributor.
-# Bob now has read/write access to all projects under the Workspace by inheritance.
-az role assignment create --assignee bob@contoso.com --role Contributor --scope <workspace ARM ID>
-
-# find ARM ID of the project 
-az ml project show --query "id"
-
-# Add Bob to the Project as an Owner.
-# Bob now has read/write access to the Project, and can add others too.
-az role assignment create --assignee bob@contoso.com --role Owner --scope <project ARM ID>
+# Add Bob to the workspace as an Owner.
+# Bob now has read/write access to all projects under the Workspace by inheritance. And he can invite or remove others.
+az role assignment create --assignee bob@contoso.com --role Owner --scope <workspace ARM ID>
 ```
 
 Dopo l'assegnazione del ruolo, direttamente o tramite ereditarietà, Bob può visualizzare il progetto nell'elenco progetti di Workbench. Per visualizzare il progetto può essere necessario riavviare l'applicazione. Bob può quindi scaricare il progetto come descritto nella sezione [Roaming](#roaming) e collaborare con Alice. 
@@ -124,3 +122,81 @@ Nella vista Tutte le risorse è possibile trovare le risorse a cui si vogliono a
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
 
+## <a name="sample-collaboration-workflow"></a>Esempio di flusso di lavoro di collaborazione
+Verrà ora esaminato un esempio che illustra il flusso di collaborazione. I dipendenti di Contoso Alice e Bob vogliono collaborare su un progetto di data science usando Azure Machine Learning Workbench. Le loro identità appartengono allo stesso tenant di Azure AD Contoso.
+
+1. Alice crea prima un repository Git Vuoto in un progetto VSTS. Questo progetto VSTS deve essere disponibile in una sottoscrizione Azure creata nel tenant AAD Contoso. 
+
+2. Alice crea un account di sperimentazione di Azure ML, un'area di lavoro e un progetto di Azure ML Workbench nel suo computer. Quando crea il progetto, fornisce l'URL dell'archivio Git.
+
+3. Alice inizia a lavorare sul progetto. Crea alcuni script e li esegue alcune volte. A ogni esecuzione, viene eseguito automaticamente il commit di uno snapshot dello stato del progetto nel ramo della cronologia di esecuzione del repository Git VSTS.
+
+4. Alice è soddisfatta del lavoro in corso. Vuole eseguire il commit delle modifiche nel ramo _master_ locale ed effettua il push nel ramo _master_ del repository VSTS Git. Per farlo, con il progetto aperto, avvia la finestra del prompt dei comandi da Azure Machine Learning Workbench ed esegue i comandi seguenti:
+    
+    ```sh
+    # verify the Git remote is pointing to the VSTS Git repo
+    $ git remote -v
+
+    # verify that the current branch is master
+    $ git branch
+
+    # stage all changes
+    $ git add -A
+
+    # commit changes with a comment
+    $ git commit -m "this is a good milestone"
+
+    # push the commit to the master branch of the remote Git repo in VSTS
+    $ git push
+    ```
+
+5. Alice poi aggiunge Bob all'area di lavoro con il ruolo di collaboratore. Lo fa dal portale di Azure o usando il comando `az role assignment` precedentemente illustrato. Garantisce inoltre a Bob l'accesso in lettura e scrittura al repository Git VSTS.
+
+6. Bob ora accede ad Azure Machine Learning Workbench dal suo computer. Può visualizzare l'area di lavoro che Alice ha condiviso con lui e il progetto elencato nell'area di lavoro. 
+
+7. Bob fa clic sul nome del progetto per scaricare il progetto sul suo computer.
+    
+    a. I file di progetto scaricati sono cloni dello snapshot dell'esecuzione più recente presente nella cronologia delle esecuzioni. Non sono il commit più recente nel ramo master.
+    
+    b. La cartella di progetto locale è impostata sul ramo _master_ con modifiche non preparate per il commit.
+
+8. Bob può visualizzare le esecuzioni di Alice e ripristinare snapshot di qualsiasi esecuzione precedente.
+
+9. Bob vuole ottenere le modifiche più recente inviate da Alice e iniziare a lavorare su un altro ramo quindi apre la finestra del prompt dei comandi da Azure Machine Learning Workbench ed esegue i comandi seguenti:
+
+    ```sh
+    # verify the Git remote is pointing to the VSTS Git repo
+    $ git remote -v
+
+    # verify that the current branch is master
+    $ git branch
+
+    # get the latest commit in VSTS Git master branch and overwrite current files
+    $ git pull --force
+
+    # create a new local branch named "bob" so Bob's work is done on the "bob" branch
+    $ git checkout -b bob
+    ```
+
+10. Bob ora modifica il progetto e invia le nuove esecuzioni. Le modifiche vengono eseguite nel ramo _bob_. E Alice può visualizzare le esecuzioni di Bob.
+
+11. Bob ora può eseguire il push delle sue modifiche nel repository Git remoto. Per evitare conflitti con il ramo _master_ su cui sta lavorando Alice, decide di eseguire il push del suo lavoro in un nuovo ramo remoto denominato _bob_.
+
+    ```sh
+    # verify that the current branch is "bob" and it has unstaged changes
+    $ git status
+    
+    # stage all changes
+    $ git add -A
+
+    # commit them with a comment
+    $ git commit -m "I found a cool new trick."
+
+    # create a new branch on the remote VSTS Git repo, and push changes
+    $ git push origin bob
+    ```
+
+12. Bob può condividere con Alice i dettagli del suo codice e crea una richiesta pull al repository Git remoto dal ramo _bob_ al ramo _master_. Alice può quindi unire la richiesta pull al ramo _master_.
+
+## <a name="next-steps"></a>Passaggi successivi
+Per altre informazioni sull'uso di Git con Azure Machine Learning Workbench, vedere [Using Git repository with an Azure Machine Learning Workbench project](using-git-ml-project.md) (Uso del repositoy Git con un progetto Azure Machine Learning Workbench)

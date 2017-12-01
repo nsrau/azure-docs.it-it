@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: 
 ms.date: 09/05/2017
 ms.author: shlo
+ms.openlocfilehash: a13e19c7e1a22581b14d1a96e20b8a649c303fc3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f03c91b7b27a4fb39b996599efd11242a785b2b2
-ms.contentlocale: it-it
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/17/2017
 ---
-
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Set di dati e servizi collegati in Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1 - Disponibilità generale](v1/data-factory-create-datasets.md)
@@ -185,7 +183,7 @@ Attenersi alle linee guida seguenti per decidere quando includere le informazion
 Altre informazioni sul modo in cui la data factory esegue il mapping dei dati di origine al sink e su quando specificare le informazioni sulla struttura sono disponibili in [Mapping dello schema e dei tipi]( copy-activity-schema-and-type-mapping.md).
 
 ## <a name="create-datasets"></a>Creare set di dati
-È possibile creare set di dati tramite uno di questi strumenti o SDK: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell]((quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), modello di Azure Resource Manager e portale di Azure
+È possibile creare set di dati tramite uno di questi strumenti o SDK: [API .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), modello di Azure Resource Manager e portale di Azure
 
 ## <a name="v1-vs-v2-datasets"></a>Set di dati della versione 1 e set di dati della versione 2
 
@@ -202,4 +200,3 @@ Vedere le esercitazioni seguenti per istruzioni dettagliate sulla creazione di p
 - [Quickstart: create a data factory using PowerShell](quickstart-create-data-factory-powershell.md) (Avvio rapido: Creare una data factory tramite PowerShell)
 - [Quickstart: create a data factory using REST API](quickstart-create-data-factory-rest-api.md) (Avvio rapido: Creare una data factory tramite API REST)
 - Quickstart: create a data factory using Azure portal (Avvio rapido: Creare una data factory tramite il portale di Azure)
-

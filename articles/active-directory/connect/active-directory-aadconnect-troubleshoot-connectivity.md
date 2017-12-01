@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: f9631e8a383b88421c55d9c42c8059df9e732800
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa98672551a2089f1a306c838295dd1980da0bca
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Risolvere i problemi di connettività con Azure AD Connect
 Questo articolo illustra il funzionamento della connettività tra Azure AD Connect e Azure AD e come risolverne i problemi. Questi problemi si verificano con maggiore probabilità in un ambiente con un server proxy.
@@ -94,6 +94,9 @@ Se il proxy non è configurato correttamente, verrà visualizzato un errore: ![p
 | --- | --- | --- |
 | 403 |Accesso negato |Il proxy non è stato aperto per l'URL richiesto. Rivedere la configurazione del proxy e assicurarsi che gli [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) siano stati aperti. |
 | 407 |Autenticazione proxy obbligatoria |Il server proxy ha richiesto l'accesso, che non è stato eseguito. Se il server proxy richiede l'autenticazione, assicurarsi che tale impostazione sia configurata in machine.config. Verificare anche di usare account di dominio sia per l'utente che esegue la procedura guidata sia per l'account del servizio. |
+
+### <a name="proxy-idle-timeout-setting"></a>Impostazione del timeout di inattività del proxy
+Quando Azure AD Connect invia una richiesta di esportazione ad Azure AD, potrebbero volerci fino a 5 minuti affinché Azure AD elabori la richiesta prima di generare una risposta. Questo può verificarsi soprattutto se sono presenti un numero di oggetti del gruppo con appartenenza a un gruppo di grandi dimensioni incluso nella stessa richiesta di esportazione. Verificare che il timeout di inattività del proxy sia configurato per essere superiore ai 5 minuti. In caso contrario, è possibile che si verifichino problemi di connettività intermittente con Azure Active Directory nel server di Azure AD Connect.
 
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Modello di comunicazione tra Azure AD Connect e Azure AD
 Se sono stati eseguiti tutti i passaggi precedenti e ancora non è possibile connettersi, si può iniziare a esaminare i log di rete. Questa sezione documenta un normale modello di connettività riuscita. Sono elencati anche alcuni diversivi comuni che possono essere ignorati durante la lettura dei log di rete.

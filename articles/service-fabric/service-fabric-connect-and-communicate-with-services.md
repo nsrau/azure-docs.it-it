@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 7068d6e83d196d95b4625d1b1a496be5a22c88a0
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d0b4ff1959465ade5f57c045d2a005e828638eb2
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Connettersi e comunicare con i servizi in Service Fabric
 In Service Fabric un servizio viene eseguito in una posizione nel cluster di Service Fabric, in genere distribuito su più macchine virtuali. Può essere spostato da una posizione all'altra, dal proprietario del servizio o automaticamente da Service Fabric. I servizi non sono statisticamente associati a un computer o a un indirizzo specifico.
@@ -63,7 +63,7 @@ Come mostrato nel diagramma seguente, il servizio DNS, in esecuzione sul cluster
 Per altre informazioni su come usare il servizio DNS, vedere l'articolo [DNS service in Azure Service Fabric](service-fabric-dnsservice.md) (Servizio DNS in Azure Service Fabric).
 
 ### <a name="reverse-proxy-service"></a>Servizio di proxy inverso
-Il proxy inverso indirizza i servizi presenti nel cluster che espongono endpoint HTTP, incluso HTTPS. Il proxy inverso semplifica in misura significativa la chiamata di altri servizi e dei relativi metodi grazie alla disponibilità di un formato URI specifico. Gestisce inoltre i passaggi di risoluzione, connessione e ripetizione necessari per consentire a un servizio di comunicare con un altro servizio mediante Naming Serivce. In altri termini, durante la chiamata di altri servizi nasconde Naming Service all'utente, rendendo l'operazione semplice quanto la chiamata a un URL.
+Il proxy inverso indirizza i servizi presenti nel cluster che espongono endpoint HTTP, incluso HTTPS. Il proxy inverso semplifica in misura significativa la chiamata di altri servizi e dei relativi metodi grazie alla disponibilità di un formato URI specifico. Gestisce inoltre i passaggi di risoluzione, connessione e ripetizione necessari per consentire a un servizio di comunicare con un altro servizio mediante Naming Service. In altri termini, durante la chiamata di altri servizi nasconde Naming Service all'utente, rendendo l'operazione semplice quanto la chiamata a un URL.
 
 ![Endpoint del servizio][10]
 

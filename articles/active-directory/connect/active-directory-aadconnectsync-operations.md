@@ -1,5 +1,5 @@
 ---
-title: "Servizio di sincronizzazione Azure AD Connect: Attività operative e considerazioni | Microsoft Docs"
+title: "Servizio di sincronizzazione Azure AD Connect: Attività operative e considerazioni | Documentazione Microsoft"
 description: "Questo argomento descrive le attività operative per il servizio di sincronizzazione Azure AD Connect e come prepararsi per il funzionamento di questo componente."
 services: active-directory
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: af32c3f2d96ca51f59e29f8d9635caa290d580aa
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 89bfedd282d04569bcf873fd7a9082791a94376b
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Servizio di sincronizzazione Azure AD Connect: Attività operative e considerazioni
 L'obiettivo di questo argomento è descrivere le attività operative per il servizio di sincronizzazione Azure AD Connect.
@@ -33,6 +33,11 @@ La modalità di gestione temporanea può essere usata per diversi scenari, ad es
 Con un server in modalità di gestione temporanea è possibile apportare modifiche alla configurazione e visualizzarle in anteprima prima di attivare il server. È anche possibile eseguire operazioni di importazione e sincronizzazione complete per verificare che tutte le modifiche siano previste prima di introdurle nell'ambiente di produzione.
 
 Durante l'installazione è possibile selezionare la **modalità di gestione temporanea**per il server. In questo modo il server sarà attivo per le operazioni di importazione e sincronizzazione, ma non eseguirà esportazioni. Un server in modalità di gestione temporanea non eseguirà la sincronizzazione o il writeback delle password, anche se queste funzionalità sono state selezionate durante l'installazione. Quando si disabilita la modalità di gestione temporanea, il server avvia l'esportazione e abilita la sincronizzazione e il writeback delle password.
+
+> [!NOTE]
+> Si supponga di avere Azure AD Connect con la funzionalità di sincronizzazione dell'hash delle password abilitata. Quando si abilita la modalità di gestione temporanea, il server arresta la sincronizzazione delle modifiche alla password da AD locale. Quando si disabilita la modalità di gestione temporanea, il server riepiloga la sincronizzazione delle modifiche alla password dal punto in cui è stata interrotta. Se il server viene lasciato in modalità di gestione temporanea per un lungo periodo di tempo, la sincronizzazione da parte del server di tutte le modifiche alle password, verificatesi durante un determinato periodo, potrebbe richiedere un po' di tempo.
+>
+>
 
 È comunque possibile forzare un’esportazione utilizzando Synchronization Service Manager.
 

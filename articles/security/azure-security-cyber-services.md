@@ -4,7 +4,7 @@ description: Questo articolo fornisce un'introduzione ai servizi Microsoft corre
 services: security
 documentationcenter: na
 author: TomShinder
-manager: StevenPo
+manager: MBaldwin
 editor: TomSh
 ms.assetid: 925ba3c6-fe35-413a-98ea-e1a1461f3022
 ms.service: security
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 1560ea8b224be0f6bc723f64d8f154805b2771e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 058cda5dd2e7e8026410a14d08d5714ce92822cd
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Servizi Microsoft per la sicurezza informatica
-I servizi Microsoft offrono un approccio completo a sicurezza, identità e sicurezza informatica. I servizi Microsoft comprendono una serie di servizi di sicurezza e di gestione delle identità che vanno dalla strategia, alla pianificazione, implementazione e supporto continuativo che consentono ai clienti aziendali di implementare soluzioni di sicurezza olistiche compatibili con i loro obiettivi strategici.
+I servizi Microsoft offrono un approccio completo a sicurezza, identità e sicurezza informatica. I servizi Microsoft offrono una gamma di servizi di sicurezza e identità per quanto riguarda strategia, pianificazione, implementazione e supporto. Questi servizi consentono ai clienti aziendali di implementare soluzioni di protezione globale in linea con gli obiettivi strategici.
 
 Con l'accesso diretto ai team di sviluppo dei prodotti, è possibile creare soluzioni che integrano e migliorano le più recenti funzionalità di sicurezza e gestione delle identità dei prodotti per proteggere l'attività dei clienti e favorire l'innovazione.
 

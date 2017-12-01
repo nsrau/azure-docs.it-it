@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 58ebf74e166cdcae2c54b134cb99552333fafa24
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 9fbcac4bd6240aed607c3da6c6535d207a782448
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Prerequisiti di accesso all'API di creazione report di Azure AD
 
@@ -55,7 +55,7 @@ Per configurare la directory per l'accesso all'API di creazione report di Azure 
 
 **Per registrare un'applicazione Azure Active Directory:**
 
-1. Nel [portale di Azure ](https://portal.azure.com)fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** nel riquadro di spostamento sinistro.
    
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -129,11 +129,11 @@ Questi valori sono necessari quando si configurano le chiamate all'API di creazi
 
 **Per ottenere il nome di dominio:**
 
-1. Nel [portale di Azure ](https://portal.azure.com)fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** nel riquadro di spostamento sinistro.
    
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. Nel pannello **Azure Active Directory** fare clic su **Nomi di dominio**.
+2. Nel pannello **Azure Active Directory** fare clic su **Nomi di dominio personalizzati**.
 
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/09.png) 
 
@@ -144,7 +144,7 @@ Questi valori sono necessari quando si configurano le chiamate all'API di creazi
 
 **Per ottenere l'ID client dell'applicazione:**
 
-1. Nel [portale di Azure ](https://portal.azure.com)fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** nel riquadro di spostamento sinistro.
    
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -161,7 +161,7 @@ Per ottenere il segreto client dell'applicazione, è necessario creare una nuova
 
 **Per ottenere il segreto client dell'applicazione:**
 
-1. Nel [portale di Azure ](https://portal.azure.com)fare clic su **Active Directory** nel riquadro di spostamento sinistro.
+1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** nel riquadro di spostamento sinistro.
    
     ![Registrare l'applicazione](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 

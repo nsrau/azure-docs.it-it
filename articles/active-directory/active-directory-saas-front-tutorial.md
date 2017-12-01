@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: d936bc50a66ac2a3c17038ff08351edf9902c99f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 944149746b05108040cd0cc340e882b39713f06e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Esercitazione: Integrazione di Azure Active Directory con Front
 
@@ -104,66 +104,60 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
     ![Finestra di dialogo Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_samlbase.png)
 
-3. Nella sezione **URL e dominio Front** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+3. Nella sezione **URL e dominio Front** seguire questa procedura:
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_url1.png)
 
     a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<companyname>.frontapp.com`
 
     b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<companyname>.frontapp.com/sso/saml/callback`
-
-4. Selezionare **Mostra impostazioni URL avanzate**, se si desidera configurare l'applicazione in modalità avviata da **SP**:
-
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_url2.png)
-
-    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname>.frontapp.com`
      
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con identificatore, URL di risposta e URL di accesso effettivi, illustrati più avanti in questa esercitazione, oppure contattare il [team di supporto clienti di Front](mailto:support@frontapp.com) per ottenere questi valori. 
+    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'effettivo URL di risposta e identificatore, descritti più avanti nell'esercitazione, o contattare [il team di supporto di Front Client](mailto:support@frontapp.com) per ottenere questi valori. 
 
-5. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_certificate.png) 
 
-6. Fare clic sul pulsante **Salva** .
+5. Fare clic sul pulsante **Salva** .
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_general_400.png)
     
-7. Nella sezione **Configurazione di Front** fare clic su **Configura Front** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
+6. Nella sezione **Configurazione di Front** fare clic su **Configura Front** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
 
     ![Configura accesso Single Sign-On](./media/active-directory-saas-front-tutorial/tutorial_front_configure.png) 
 
-8. Accedere al tenant di Front come amministratore.
+7. Accedere al tenant di Front come amministratore.
 
-9. Passare a **Impostazioni (l'icona dell'ingranaggio in fondo all'intestazione laterale a sinistra) > Preferenze**.
+8. Passare a **Impostazioni (l'icona dell'ingranaggio in fondo all'intestazione laterale a sinistra) > Preferenze**.
    
     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-front-tutorial/tutorial_front_000.png)
 
-10. Fare clic sul collegamento **Single Sign On** .
+9. Fare clic sul collegamento **Single Sign On** .
    
     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-front-tutorial/tutorial_front_001.png)
 
-11. Selezionare **SAML** nell'elenco a discesa **Single Sign On**.
+10. Selezionare **SAML** nell'elenco a discesa **Single Sign On**.
    
     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-front-tutorial/tutorial_front_002.png)
 
-12. Nella casella di testo **Entry Point** (Punto di ingresso) inserire il valore di **URL servizio Single Sign-On** dalla configurazione guidata dell'applicazione di Azure AD.
+11. Nella casella di testo **Entry Point** (Punto di ingresso) inserire il valore di **URL servizio Single Sign-On** dalla configurazione guidata dell'applicazione di Azure AD.
     
     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-front-tutorial/tutorial_front_003.png)
 
-13. Aprire il file del **certificato (Base64)** scaricato nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato di firma**.
+12. Aprire il file del **certificato (Base64)** scaricato nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella di testo **Certificato di firma**.
     
     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-front-tutorial/tutorial_front_004.png)
 
-14. Nella sezione **Service provider settings** (Impostazioni provider di servizi) seguire questa procedura:
+13. Nella sezione **Service provider settings** (Impostazioni provider di servizi) seguire questa procedura:
 
     ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-front-tutorial/tutorial_front_005.png)
 
     a. Copiare il valore dell'**ID entità** e incollarlo nella casella di testo **Identificatore** nella sezione **URL e dominio Front** del portale di Azure.
 
-    b. Copiare il valore dell'**URL ACS** e incollarlo nella casella di testo **URL di accesso** nella sezione **URL e dominio Front** del portale di Azure.
+    b. Copiare il valore dell'**URL ACS** e incollarlo nella casella di testo **URL di risposta** nella sezione **URL e dominio Front** del portale di Azure.
     
-15. Fare clic sul pulsante **Salva** .
+14. Fare clic sul pulsante **Salva** .
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).

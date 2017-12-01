@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ebda79442b8feb9f052c3ae455fa43aafb7b5a6a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 0d19d1142cf15221f84692f7e613edd6b46b4083
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Distribuire Analisi di flusso di Azure come modulo IoT Edge: anteprima
 
@@ -62,13 +62,16 @@ In questa sezione viene creato un processo Analisi di flusso di Azure per prelev
     ![nuovo account di archiviazione][1]
 
 3. Nel portale di Azure passare all'account di archiviazione appena creato. Fare clic su **Esplora BLOB** in **Servizio BLOB**. 
-1. Creare un nuovo contenitore in cui il modulo ASA può archiviare i dati. Impostare l'accesso di livello su _Contenitore_. Fare clic su **OK**.
+4. Creare un nuovo contenitore in cui il modulo ASA può archiviare i dati. Impostare l'accesso di livello su _Contenitore_. Fare clic su **OK**.
 
     ![impostazioni di archiviazione][10]
 
-1. Nel portale di Azure passare a **Crea una risorsa** > **Internet delle cose** e selezionare **Processo di Analisi di flusso**.
+5. Nel portale di Azure passare a **Crea una risorsa** > **Internet delle cose** e selezionare **Processo di Analisi di flusso**.
 
-1. Immettere un nome, **scegliere "Edge" come ambiente di hosting** e usare gli altri valori predefiniti.  Fare clic su **Crea**.
+2. Immettere un nome, scegliere **Edge** come ambiente di hosting e usare gli altri valori predefiniti.  Fare clic su **Crea**.
+
+    >[!NOTE]
+    >Attualmente i processi di ASA su IoT Edge non sono supportati nell'area Stati Uniti occidentali 2. Selezionare una località diversa.
 
     ![Creazione del modulo ASA][5]
 

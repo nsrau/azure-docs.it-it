@@ -9,12 +9,15 @@ manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/27/2017
-ms.openlocfilehash: 4df0dcc7d0f2bde24c1a7e12eea6fa142612a0e7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1042f7919b8761bdbc23ae19871703c53dff28f0
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/21/2017
 ---
+# <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Driver di MySQL e strumenti di gestione compatibili con il Database di Azure per MySQL
+Questo articolo descrive i driver e gli strumenti di gestione compatibili con il Database di Azure per MySQL.
+
 ## <a name="mysql-drivers"></a>Driver di MySQL
 Il Database di Azure per MySQL usa la versione di community del database MySQL più diffusa al mondo. Pertanto è compatibile con un'ampia gamma di linguaggi di programmazione e driver. L'obiettivo è di supportare le tre versioni più recenti dei driver MySQL e continuare l'attività con gli autori della community open source per migliorare costantemente le funzionalità e l'usabilità dei driver di MySQL. Nella tabella seguente è riportato un elenco di driver che sono stati testati e che risultano compatibili con il Database di Azure per MySQL 5.6 e 5.7:
 

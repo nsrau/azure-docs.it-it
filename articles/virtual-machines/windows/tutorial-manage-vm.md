@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2237f2e5cb67df019d0975e764602babe7f4c8f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c612a251105197ab2b46bf448ae39253e5a65f36
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Creare e gestire macchine virtuali di Windows con il modulo Azure PowerShell
 
@@ -293,7 +293,7 @@ La tabella seguente classifica le dimensioni a seconda dei casi d'uso.
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | Scopo generico         |DSv2, Dv2, DS, D, Av2, A0-7| Rapporto equilibrato tra CPU e memoria. Soluzione ideale per sviluppo o test e soluzioni di dati e applicazioni medio-piccole.  |
 | Ottimizzate per il calcolo      | Fs, F             | Rapporto elevato tra CPU e memoria. Soluzione idonea per applicazioni con livelli medi di traffico, dispositivi di rete e processi batch.        |
-| Ottimizzate per la memoria       | GS, G, DSv2, DS, Dv2, D   | Rapporto elevato tra memoria e core. Soluzione ideale per database relazionali, cache medio-grandi e analisi in memoria.                 |
+| Ottimizzate per la memoria       | GS, G, DSv2, DS, Dv2, D   | Rapporto elevato tra memoria e CPU. Soluzione ideale per database relazionali, cache medio-grandi e analisi in memoria.                 |
 | Ottimizzate per l'archiviazione       | Ls                | I/O e velocità effettiva del disco elevati. Ideale per Big Data, database SQL e NoSQL.                                                         |
 | GPU           | NV, NC            | VM specializzate ottimizzate per livelli intensivi di rendering della grafica ed editing di video.       |
 | Prestazioni elevate | H, A8-11          | Le VM con CPU più potenti, con interfacce di rete ad alta velocità effettiva opzionali (RDMA). 

@@ -11,21 +11,23 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: cd4d37ae2a68be3c061706f80055efb7e5387d98
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: fa4a115cc1199a99c7acf64281082dca5dfb8579
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Gestire i dati di riferimento di un ambiente Azure Time Series Insights con C#
 
-Questo articolo descrive il codice di esempio C# che è possibile compilare per gestire i dati di riferimento per un ambiente Azure Time Series Insights.
+Questo argomento descrive il codice di esempio C# che è possibile compilare per gestire i dati di riferimento per un ambiente Azure Time Series Insights.
 
-Verificare di avere completato i passaggi seguenti prima di compilare ed eseguire il codice di esempio:
-1. Creazione di un set di dati di riferimento mediante [questo articolo](time-series-insights-add-reference-data-set.md).
+Prima di compilare ed eseguire lo script di esempio, completare questa procedura:
+1. [Creare un set di dati di riferimento](time-series-insights-add-reference-data-set.md).
 
-2. Configurare il token di accesso del processo che deve usare l'applicazione per ottenere l'autorizzazione. È necessario acquisire il token di accesso tramite l'API di Azure Active Directory. Questo token deve essere passato nell'intestazione `Authorization` di ogni richiesta dell'API Query. Per la configurazione di applicazioni non interattive, vedere l'articolo [Autenticazione e autorizzazione](time-series-insights-authentication-and-authorization.md).
+2. Configurare il token di accesso di autorizzazione per l'applicazione. È necessario acquisire il token di accesso tramite l'API di Azure Active Directory. Passare questo token nell'intestazione `Authorization` di ogni richiesta dell'API Query. 
+ 
+   Per la configurazione di applicazioni non interattive, vedere [Autenticazione e autorizzazione](time-series-insights-authentication-and-authorization.md).
 
 3. Modificare il codice di esempio per sostituire le costanti di esempio, designate a **#DUMMY#**, in prossimità dell'inizio del codice. 
 
@@ -232,4 +234,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per le informazioni di riferimento complete per l'API REST, vedere [API dei dati di riferimento](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).
+[API dei dati di riferimento](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)

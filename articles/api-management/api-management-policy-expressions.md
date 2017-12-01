@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 33bcc51466fa0918bf4484c58fac813d07ae14da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96455dcdcf2eb90c836675c73c83c0320524fdac
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="api-management-policy-expressions"></a>Espressioni di criteri di Gestione API
 La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso alla variabile [context](api-management-policy-expressions.md#ContextVariables) fornita implicitamente e a un [subset](api-management-policy-expressions.md#CLRTypes) autorizzato di tipi di .NET Framework.  
@@ -174,7 +174,7 @@ La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso 
 |----------------------|-------------------------------------------------------|  
 |context|Api: IApi<br /><br /> Distribuzione<br /><br /> LastError<br /><br /> Operazione<br /><br /> Prodotto<br /><br /> Richiesta<br /><br /> RequestId: Guid<br /><br /> Response<br /><br /> Sottoscrizione<br /><br /> Tracing: bool<br /><br /> Utente<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
 |context.Api|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> ServiceUrl: IUrl|  
-|context.Deployment|Region: string<br /><br /> ServiceName: string|  
+|context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificati: IReadOnlyDictionary<string, X509Certificate2>|  
 |context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Per ulteriori informazioni su context.LastError, vedere [Gestione degli errori](api-management-error-handling-policies.md).|  
 |context.Operation|Id: string<br /><br /> Method: string<br /><br /> Name: string<br /><br /> UrlTemplate: string|  
 |context.Product|Apis: IEnumerable<IApi\><br /><br /> ApprovalRequired: bool<br /><br /> Groups: IEnumerable<IGroup\><br /><br /> Id: string<br /><br /> Name: string<br /><br /> State: enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|  
@@ -199,6 +199,12 @@ La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso 
 |bool TryParseJwt(input: this string, result: out Jwt)|input: string<br /><br /> result: out Jwt<br /><br /> Se il parametro di input contiene un valore di token JWT valido, il metodo restituisce `true` e il parametro del risultato contiene un valore di tipo `Jwt`; in caso contrario il metodo restituisce `false`.|  
 |Jwt|Algorithm: string<br /><br /> Audience: IEnumerable<string\><br /><br /> Claims: IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime: DateTime?<br /><br /> Id: string<br /><br /> Issuer: string<br /><br /> NotBefore: DateTime?<br /><br /> Subject: string<br /><br /> Type: string|  
 |string Jwt.Claims.GetValueOrDefault(claimName: string, defaultValue: string)|claimName: string<br /><br /> defaultValue: string<br /><br /> Restituisce valori di attestazione separati da virgole oppure `defaultValue` se non viene trovata l'intestazione.|
+|byte[] Encrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input - testo non crittografato da crittografare<br /><br />alg - nome di un algoritmo di crittografia simmetrica<br /><br />key - chiave di crittografia<br /><br />iv - vettore di inizializzazione<br /><br />Restituisce testo normale crittografato.|
+|byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm)|input - testo non crittografato da crittografare<br /><br />alg - algoritmo di crittografia<br /><br />Restituisce testo normale crittografato.|
+|byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - testo non crittografato da crittografare<br /><br />alg - algoritmo di crittografia<br /><br />key - chiave di crittografia<br /><br />iv - vettore di inizializzazione<br /><br />Restituisce testo normale crittografato.|
+|byte[] Decrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input - messaggio cifrato da decrittografare<br /><br />alg - nome di un algoritmo di crittografia simmetrica<br /><br />key - chiave di crittografia<br /><br />iv - vettore di inizializzazione<br /><br />Restituisce testo normale non crittografato.|
+|byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - messaggio cifrato da decrittografare<br /><br />alg - algoritmo di crittografia<br /><br />Restituisce testo normale non crittografato.|
+|byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - input - messaggio cifrato da decrittografare<br /><br />alg - algoritmo di crittografia<br /><br />key - chiave di crittografia<br /><br />iv - vettore di inizializzazione<br /><br />Restituisce testo normale non crittografato.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  

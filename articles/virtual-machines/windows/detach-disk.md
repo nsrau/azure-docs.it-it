@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: bbbd31313db44d32a829e9e4c6c9b5fd9c0e533e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 7013e7ff3cb14dcad8e3e9a926bcee771180259d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Come scollegare un disco dati da una macchina virtuale di Windows
 Quando un disco dati collegato a una macchina virtuale non è più necessario, è possibile scollegarlo con facilità. Il disco verrà rimosso dalla macchina virtuale, ma non dall'archivio.
@@ -32,29 +32,30 @@ Quando un disco dati collegato a una macchina virtuale non è più necessario, �
 Se si vogliono riusare i dati presenti nel disco, è possibile ricollegarlo alla stessa macchina virtuale o collegarlo a una nuova.
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Scollegare un disco dati tramite il portale
-1. Nell'hub del portale selezionare **Macchine virtuali**.
+
+1. Dal menu a sinistra selezionare **Macchine virtuali**.
 2. Selezionare la macchina virtuale con il disco dati che si vuole scollegare e fare clic su **Arresta** per deallocare la macchina virtuale.
-3. Nel pannello delle macchine virtuali selezionare **Dischi**.
-4. Nella parte superiore del pannello **Dischi** selezionare **Modifica**.
-5. Nel pannello **Dischi**, fare clic sul pulsante per scollegare il disco ![Immagine del pulsante per scollegare il disco](./media/detach-disk/detach.png) nella parte più a destra del disc dati.
-5. Dopo aver rimosso il disco, fare clic su Salva nella parte superiore del pannello.
-6. Nel pannello delle macchine virtuali fare clic su **Panoramica** e quindi fare clic su **Avvia** nella parte superiore del pannello per riavviare la macchina virtuale.
+3. Nel riquadro delle macchine virtuali selezionare **Dischi**.
+4. Nella parte superiore del riquadro **Dischi** selezionare **Modifica**.
+5. Nel riquadro **Dischi** fare clic sul pulsante per scollegare il disco ![Immagine del pulsante Scollega](./media/detach-disk/detach.png) nella parte più a destra del disco dati.
+5. Dopo aver rimosso il disco, fare clic su **Salva** nella parte superiore del riquadro.
+6. Nel riquadro delle macchine virtuali fare clic su **Panoramica** e quindi fare clic su **Avvia** nella parte superiore del riquadro per riavviare la macchina virtuale.
 
 
 
 Il disco rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.
 
 ## <a name="detach-a-data-disk-using-powershell"></a>Scollegare un disco dati tramite PowerShell
-In questo esempio, il primo comando consente di denominare la macchina virtuale **MyVM07** nel gruppo di risorse **RG11** usando il cmdlet Get-AzureRmVM. Il comando archivia la macchina virtuale nella variabile **$VirtualMachine** .
+In questo esempio il primo comando consente di denominare la macchina virtuale **MyVM07** nel gruppo di risorse **RG11** usando il cmdlet [Get-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) e la archivia nella variabile **$VirtualMachine**.
 
-Il secondo comando rimuove il disco dati denominato DataDisk3 dalla macchina virtuale.
+La seconda riga rimuove il disco dati denominato DataDisk3 dalla macchina virtuale usando il cmdlet [Remove AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk).
 
-L'ultimo comando aggiorna lo stato della macchina virtuale per completare il processo di rimozione del disco dati.
+La terza riga aggiorna lo stato della macchina virtuale usando il cmdlet [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) per completare il processo di rimozione del disco dati.
 
 ```azurepowershell-interactive
 $VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07"
 Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
-Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
+Update-AzureRmVM -ResourceGroupName "RG11" -VM $VirtualMachine
 ```
 
 Per altre informazioni, vedere [Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk).

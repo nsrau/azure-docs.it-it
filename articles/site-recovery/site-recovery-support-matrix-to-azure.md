@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: c38a69176f5f9e6a8f8dbcc411b85bef47362880
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 0302b4f8f4171d288a7e7c62de036c6f1cec8212
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matrice di supporto di Azure Site Recovery per la replica da locale ad Azure
 
@@ -145,6 +145,7 @@ Più NIC | Sì | Sì
 IP riservato | Sì | Sì
 IPv4 | Sì | Sì
 Conservazione IP origine | Sì | Sì
+Endpoint servizio di rete virtuale (i firewall di Archiviazione di Azure e le reti virtuali) | No | No
 
 
 ## <a name="support-for-storage"></a>Supporto per archiviazione
@@ -188,9 +189,11 @@ Archiviazione con ridondanza geografica | Sì | Sì
 RA-GRS | Sì | Sì
 Archiviazione ad accesso sporadico | No | No
 Archiviazione ad accesso frequente| No | No
+BLOB in blocchi | No | No
 Crittografia dei dati inattivi (SSE)| Sì | Sì
 Archiviazione Premium | Sì | Sì
 Servizio di importazione/esportazione | No | No
+Endpoint servizio di rete virtuale rete, ovvero firewall e reti virtuali di Archiviazione di Azure, configurati in un account di archiviazione di destinazione o in un account di archiviazione della cache usato per l'archiviazione dei dati di replica | No | No
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Supporto per configurazione di calcolo di Azure

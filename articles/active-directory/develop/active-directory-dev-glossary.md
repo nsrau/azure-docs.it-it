@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/07/2017
+ms.date: 11/16/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 1002ce29ff0d9ee2a6eac44c6e4402fc7e9ade31
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 6a657177087ca01f4507b12048a88850aea1a03f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossario per gli sviluppatori di Azure Active Directory
 Questo articolo contiene le definizioni di alcuni dei concetti di base per gli sviluppatori di Azure Active Directory (AD), utili per imparare a sviluppare applicazioni per Azure AD.
@@ -33,6 +33,9 @@ I token di accesso sono talvolta definiti "utente + app" o "solo app", a seconda
 * Quando un'applicazione client usa la [concessione di autorizzazione "credenziali client"](#authorization-grant), il client fornisce la sola autenticazione e funziona senza l'autenticazione/autorizzazione del proprietario della risorsa. Il token può quindi essere definito talvolta token "solo app".
 
 Per altri dettagli, vedere [Informazioni di riferimento sui token in Azure AD][AAD-Tokens-Claims].
+
+## <a name="application-id-client-id"></a>ID applicazione (ID client)
+Identificatore univoco generato da Azure AD per la registrazione di un'applicazione che identifica un'applicazione specifica e le configurazioni associate.  L'ID applicazione ([ID client](https://tools.ietf.org/html/rfc6749#page-15)) viene usato per l'esecuzione delle richieste di autenticazione e viene fornito alle librerie di autenticazione durante la fase di sviluppo. L'ID applicazione (ID client) non è un segreto. 
 
 ## <a name="application-manifest"></a>manifesto dell'applicazione
 Funzionalità offerta dal [portale di Azure][AZURE-portal] che genera una rappresentazione JSON della configurazione di identità dell'applicazione e viene usata come meccanismo per aggiornare le entità [Application][AAD-Graph-App-Entity] e [ServicePrincipal][AAD-Graph-Sp-Entity] associate. Per altri dettagli, vedere [Informazioni sul manifesto dell'applicazione in Azure Active Directory][AAD-App-Manifest].
@@ -174,7 +177,7 @@ Analogamente a un oggetto entità servizio che viene usato per rappresentare un'
 Tipo di [applicazione client](#client-application) che esegue tutto il codice su un server Web e può funzionare come client "riservato" perché può eseguire l'archiviazione sicura delle credenziali sul server. Per altri dettagli, vedere [i profili e i tipi di client di OAuth2][OAuth2-Client-Types].
 
 ## <a name="next-steps"></a>Passaggi successivi
-La [Guida per gli sviluppatori di Azure Active Directory][AAD-Dev-Guide] offre un portale da usare per tutti gli argomenti relativi allo sviluppo per Azure AD, ad esempio per una panoramica dell'[integrazione di applicazioni][AAD-How-To-Integrate] e le nozioni di base sull'[autenticazione in Azure AD e gli scenari di autenticazione supportati][AAD-Auth-Scenarios].
+La [Guida per gli sviluppatori di Azure Active Directory][AAD-Dev-Guide] riunisce tutti gli argomenti relativi allo sviluppo per Azure AD, ad esempio per una panoramica dell'[integrazione di applicazioni][AAD-How-To-Integrate] e le nozioni di base sull'[autenticazione in Azure AD e gli scenari di autenticazione supportati][AAD-Auth-Scenarios].  È anche possibile trovare esempi di codice ed esercitazioni su come ottenere rapidamente in [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Usare la seguente sezione commenti per fornire commenti e suggerimenti per aiutarci a perfezionare e a definire il contenuto del glossario, incluse le richieste di nuove definizioni o l'aggiornamento di quelle esistenti.
 

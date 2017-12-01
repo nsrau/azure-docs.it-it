@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: c97ade0a3d95824f723aad55776de861fe49441f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff9e23de41245ea21ba6e9c3efe13ca13b0b0ae1
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-10"></a>Come installare e configurare MongoDB in una VM Linux usando l'interfaccia della riga di comando di Azure 1.0
 [MongoDB](http://www.mongodb.org) è un diffuso database NoSQL open source a prestazioni elevate. Questo articolo illustra come installare e configurare MongoDB su una VM Linux in Azure usando il modello di distribuzione di Resource Manager. Alcuni esempi illustrano in dettaglio come fare a:
@@ -163,7 +163,7 @@ Per creare un cluster complesso di MongoDB partizionato, è possibile usare il s
 * [Cluster di partizionamento di MongoDB su CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos): https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
-> La distribuzione di questo cluster complesso di MongoDB partizionato richiede più di 20 core, che in genere è il numero di core predefinito per ogni area di una sottoscrizione. Per aumentare il numero di core, aprire una richiesta di supporto tecnico di Azure.
+> La distribuzione di questo cluster complesso di MongoDB partizionato richiede più di 20 CPU virtuali, che in genere è il numero di CPU virtuali predefinito per ogni area di una sottoscrizione. Per aumentare il numero di CPU virtuali, aprire una richiesta di supporto tecnico di Azure.
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*. Immettere valori personalizzati come di seguito:
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 9af2f71b3d288cc6f4e271d0915545d43a1249bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4eb6f743479886374692eadcf218b77b4bfcc933
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gestire errori ed eccezioni in App per la logica di Azure
 
@@ -26,38 +26,74 @@ App per la logica di Azure offre un set completo di strumenti e modelli per gara
 
 ## <a name="retry-policies"></a>Criteri di ripetizione dei tentativi
 
-Il tipo più semplice di gestione degli errori e delle eccezioni è costituito dai criteri di ripetizione. Tali criteri definiscono se l'azione dovrà essere ripetuta in caso di timeout o esito negativo (con restituzione di una risposta 429 o 5xx) della richiesta iniziale. Per impostazione predefinita, tutte le azioni vengono ripetute altre 4 volte a intervalli di 20 secondi. Se la prima richiesta ha ricevuto una risposta `500 Internal Server Error`, il motore del flusso di lavoro viene sospeso per 20 secondi e quindi ripete la richiesta. Se dopo tutti i tentativi la risposta è ancora un'eccezione o un errore, il flusso di lavoro continua e contrassegna l'azione con lo stato `Failed`.
+Il tipo più semplice di gestione degli errori e delle eccezioni è costituito dai criteri di ripetizione. Tali criteri definiscono se e come l'azione dovrà essere ripetuta in caso di timeout o esito negativo, con restituzione di una risposta 429 o 5xx, della richiesta iniziale. Esistono tre tipi di criteri di ripetizione de tentativi `exponential`, `fixed` e `none`. Se i criteri di ripetizione dei tentativi non vengono indicati nella definizione del flusso di lavoro, viene usato il criterio predefinito. È possibile configurare i criteri di ripetizione dei tentativi nell'**input** di una determinata azione o trigger se ripetibile. Analogamente, in Progettazione app per la logica è possibile configurare (se applicabile) i criteri di ripetizione dei tentativi nelle **impostazioni** per un dato blocco.
 
-È possibile configurare i criteri di ripetizione dei tentativi nelle proprietà **input** di una determinata azione. Ad esempio, i criteri di ripetizione possono essere configurati fino a un massimo di 4 tentativi a intervalli di 1 ora. Per altre informazioni sulle proprietà di input, vedere [Azioni e trigger del flusso di lavoro][retryPolicyMSDN].
+Per informazioni sulle limitazioni dei criteri di ripetizione dei tentativi, vedere [Limiti e configurazione per App per la logica](../logic-apps/logic-apps-limits-and-config.md) e per altre informazioni sulla sintassi supportata, vedere la [sezione relativa ai criteri di ripetizione di tentativi in Trigger e azioni dei flussi di lavoro][retryPolicyMSDN].
+
+### <a name="exponential-interval"></a>Intervallo esponenziale
+Il tipo di criterio `exponential` riproverà una richiesta non riuscita dopo un intervallo di tempo casuale da un intervallo in crescita esponenziale. Per ogni tentativo si garantisce l'invio di un intervallo casuale maggiore di **minimumInterval** e minore di **maximumInterval**. Una variabile casuale uniforme nell'intervallo casuale verrà generato per ogni nuovo tentativo fino a e includendo il **conteggio**:
+<table>
+<tr><th> Intervallo variabile casuale </th></tr>
+<tr><td>
+
+| Numero di tentativi | Intervallo minimo | Intervallo massimo |
+| ------------ |  ------------ |  ------------ |
+| 1 | Massimo (0, **minimumInterval**) | Minimo (intervallo, **maximumInterval**) |
+| 2 | Massimo (intervallo, **minimumInterval**) | Minimo (2 * intervallo, **maximumInterval**) |
+| 3 | Massimo (2*intervallo, **minimumInterval**) | Minimo (4 * intervallo, **maximumInterval**) |
+| 4 | Massimo (4*intervallo, **minimumInterval**) | Minimo (8 * intervallo, **maximumInterval**) |
+| ... |
+
+</td></tr></table>
+
+Per i criteri di tipo `exponential`, sono necessari **conteggio** e **intervallo**, mentre **minimumIntervall** e **maximumInterval** possono essere facoltativamente inseriti per sostituire i valori predefiniti di PT5S e PT1D rispettivamente.
+
+| Nome dell'elemento | Obbligatoria | Tipo | Descrizione |
+| ------------ | -------- | ---- | ----------- |
+| type | Sì | String | `exponential` |
+| count | Sì | Integer | numero di tentativi di ripetizione, devono essere compresi tra 1 e 90  |
+| interval | Sì | String | intervallo ripetizione dei tentativi nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), deve essere compreso tra PT5S e PT1D |
+| minimumInterval | No| String | intervallo di ripetizione dei tentativi minimo nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), deve essere compreso tra PT5S e l'**intervallo** |
+| maximumInterval | No| String | intervallo di ripetizione dei tentativi minimo nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), deve essere compreso tra l'**intervallo** e PT1D |
+
+### <a name="fixed-interval"></a>Intervallo fisso
+
+Il tipo di criterio `fixed` ripeterà una richiesta non riuscita attendendo l'intervallo di tempo specificato prima di inviare la richiesta successiva.
+
+| Nome dell'elemento | Obbligatoria | Tipo | Descrizione |
+| ------------ | -------- | ---- | ----------- |
+| type | Sì | String | `fixed`|
+| count | Sì | Integer | numero di tentativi di ripetizione, devono essere compresi tra 1 e 90 |
+| interval | Sì | String | intervallo ripetizione dei tentativi nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), deve essere compreso tra PT5S e PT1D |
+
+### <a name="none"></a>Nessuno
+Il tipo di criteri `none` non ritenterà una richiesta non riuscita.
+
+| Nome dell'elemento | Obbligatoria | Tipo | Descrizione |
+| ------------ | -------- | ---- | ----------- |
+| type | Sì | String | `none`|
+
+### <a name="default"></a>Default
+Se non è definito alcun criterio per i tentativi, vengono usati i criteri predefiniti. Il criterio predefinito è un criterio di intervallo esponenziale che consente di inviare fino a 4 ripetizioni di tentativi, a intervalli con crescita esponenziale ridimensionati di 7,5 secondi e compresi tra 5 e 45 secondi. Il criterio predefinito (usato quando **retryPolicy** non è stato definito) è equivalente al criterio in questa definizione del flusso di lavoro HTTP di esempio:
 
 ```json
-"retryPolicy" : {
-      "type": "<type-of-retry-policy>",
-      "interval": <retry-interval>,
-      "count": <number-of-retry-attempts>
-    }
-```
-
-Se si vuole che l'azione HTTP venga ripetuta 4 volte con un'attesa di 10 minuti tra i singoli tentativi, usare la definizione seguente:
-
-```json
-"HTTP": 
+"HTTP":
 {
     "inputs": {
         "method": "GET",
         "uri": "http://myAPIendpoint/api/action",
         "retryPolicy" : {
-            "type": "fixed",
-            "interval": "PT10M",
-            "count": 4
+            "type": "exponential",
+            "count": 4,
+            "interval": "PT7.5S",
+            "minimumInterval": "PT5S",
+            "maximumInterval": "PT45S"
         }
     },
     "runAfter": {},
     "type": "Http"
 }
 ```
-
-Per altre informazioni sulla sintassi supportata, vedere la [sezione relativa ai criteri di ripetizione dei tentativi in Azioni e trigger del flusso di lavoro][retryPolicyMSDN].
 
 ## <a name="catch-failures-with-the-runafter-property"></a>Rilevare gli errori con la proprietà runAfter
 

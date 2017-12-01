@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: 525d706bd709ae72f2dca1c21e06db533ccf32b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebb963236a069f272499fce59945d0cf0d3d647f
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usare l'estensione Diagnostica per Linux per monitorare le metriche e i registri
 
@@ -319,7 +319,7 @@ displayName | L'etichetta, nella lingua specificata dall'impostazione locale ass
 
 counterSpecifier è un identificatore arbitrario. Gli utenti di metriche, quali le funzionalità dei grafici del portale di Azure e gli avvisi, usano counterSpecifier come la "chiave" che identifica una metrica o un'istanza di una metrica. Per le metriche `builtin`, è consigliabile usare i valori di counterSpecifier che iniziano con `/builtin/`. Se si raccoglie un'istanza specifica di una metrica, è consigliabile allegare l'identificatore dell'istanza del valore counterSpecifier. Di seguito sono riportati alcuni esempi:
 
-* `/builtin/Processor/PercentIdleTime` - Tempo di inattività medio calcolato per tutti i core
+* `/builtin/Processor/PercentIdleTime` - Tempo di inattività medio calcolato per tutte le CPU virtuali
 * `/builtin/Disk/FreeSpace(/mnt)` - Spazio libero per il file system /mnt
 * `/builtin/Disk/FreeSpace` - Spazio libero medio calcolato per tutti i file system montati
 
@@ -424,7 +424,7 @@ Il provider di metriche Builtin è un'origine metriche più interessante per mol
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>Metriche Builtin per la classe Processore
 
-La classe di metriche Processore offre informazioni sull'uso del processore nella macchina virtuale. Quando si aggregano le percentuali, il risultato è la media di tutte le CPU. In una macchina virtuale a due core, se un core è completamente occupato, ma l'altro è completamente inattivo, il valore di PercentIdleTime restituito sarà 50. Se ciascun core è occupato al 50% per lo stesso periodo, il risultato restituito sarà ugualmente 50. In una macchina virtuale a due core, se un core è completamente occupato, ma gli altri sono inattivo, il valore di PercentIdleTime restituito sarà 75.
+La classe di metriche Processore offre informazioni sull'uso del processore nella macchina virtuale. Quando si aggregano le percentuali, il risultato è la media di tutte le CPU. In una macchina virtuale con due CPU virtuali, se una CPU virtuale è completamente occupata, ma l'altra è completamente inattiva, il valore di PercentIdleTime restituito sarà 50. Se ciascuna CPU virtuale è occupata al 50% per lo stesso periodo, il risultato restituito sarà ugualmente 50. In una macchina virtuale con quattro CPU virtuali, se una CPU virtuale è completamente occupata, ma le altre sono inattive, il valore di PercentIdleTime restituito sarà 75.
 
 counter | Significato
 ------- | -------
@@ -438,7 +438,7 @@ PercentPrivilegedTime | La percentuale di tempo di inattività impiegata in moda
 
 La somma dei primi quattro contatori deve essere 100%. Anche la somma degli ultimi tre contatori deve essere 100%: vengono sommati i valori di PercentProcessorTime, PercentIOWaitTime e PercentInterruptTime.
 
-Per ottenere un'unica metrica aggregata per tutti i processori, impostare `"condition": "IsAggregate=TRUE"`. Per ottenere una metrica per un processore specifico, ad esempio per il secondo processore logico di una macchina virtuale a quattro core, impostare `"condition": "Name=\\"1\\""`. I valori del processore logico sono compresi nell'intervallo `[0..n-1]`.
+Per ottenere un'unica metrica aggregata per tutti i processori, impostare `"condition": "IsAggregate=TRUE"`. Per ottenere una metrica per un processore specifico, ad esempio per il secondo processore logico di una macchina virtuale con quattro CPU virtuali, impostare `"condition": "Name=\\"1\\""`. I valori del processore logico sono compresi nell'intervallo `[0..n-1]`.
 
 ### <a name="builtin-metrics-for-the-memory-class"></a>Metriche Builtin per la classe Memoria
 

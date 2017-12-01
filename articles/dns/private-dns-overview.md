@@ -3,8 +3,8 @@ title: Uso di DNS di Azure per i domini privati | Microsoft Docs
 description: Panoramica del servizio di hosting DNS in Microsoft Azure.
 services: dns
 documentationcenter: na
-author: garbrad
-manager: 
+author: KumudD
+manager: jennoc
 editor: 
 ms.assetid: 
 ms.service: dns
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/04/2017
-ms.author: garbrad
-ms.openlocfilehash: ed47a9d850995aaf9e78bfde8b6a5fd80dc36918
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/20/2017
+ms.author: kumud
+ms.openlocfilehash: 95cf8ab2bd34e698e12452e062687219bad49eb6
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="using-azure-dns-for-private-domains"></a>Uso di DNS di Azure per i domini privati
 Domain Name System o DNS è responsabile della conversione (o risoluzione) del nome di un servizio nel relativo indirizzo IP. DNS di Azure è un servizio di hosting per i domini DNS che fornisce la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure.  Oltre ai domini DNS con connessione Internet, DNS di Azure ora supporta anche i domini DNS privati come una funzionalità di anteprima.  
@@ -35,18 +35,18 @@ DNS di Azure fornisce un servizio DNS protetto e affidabile per gestire e risolv
 
 * **Usare tutti i tipi di record DNS comuni.**  DNS di Azure supporta i record A, AAAA, CNAME, MX, NS, PTR, SOA, SRV, e TXT.
 
-* **Gestione automatica dei record dei nomi host.** Oltre a ospitare i record DNS personalizzati, Azure manterrà automaticamente i record dei nomi host per le macchine virtuali nelle reti virtuali specificate.  Ciò consente di ottimizzare i nomi di dominio usati senza dover creare soluzioni DNS personalizzate o modificare l'applicazione.
+* **Gestione automatica dei record dei nomi host.** Oltre a ospitare i record DNS personalizzati, Azure mantiene automaticamente i record dei nomi host per le macchine virtuali nelle reti virtuali specificate.  Ciò consente di ottimizzare i nomi di dominio usati senza dover creare soluzioni DNS personalizzate o modificare l'applicazione.
 
 * **Risoluzione di nomi host tra reti virtuali.** A differenza dei nomi host forniti da Azure, le zone DNS private possono essere condivise tra le reti virtuali.  Questa funzionalità semplifica gli scenari tra più reti e l'individuazione dei servizi come il peering di rete virtuale.
 
-* **Strumenti comuni ed esperienza utente.** Per ridurre la curva di apprendimento, questa nuova offerta usa gli strumenti già noti DNS di Azure (PowerShell, modelli di Resource Manager, API REST) e il supporto sarà aggiunto all'interfaccia della riga di comando e al portale appena possibile.
+* **Strumenti comuni ed esperienza utente.** Per ridurre la curva di apprendimento, questa nuova offerta usa gli strumenti DNS di Azure già noti (PowerShell, modelli di Resource Manager, API REST).
 
 * **Supporto DNS split-horizon.** DNS di Azure consente di creare zone con lo stesso nome che si risolvono in risposte diverse dall'interno di una rete virtuale e dalla rete Internet pubblica.  Uno scenario tipico di DNS split-horizon consiste nel fornire una versione dedicata di un servizio da usare all'interno della rete virtuale.
 
 
 ## <a name="pricing"></a>Prezzi
 
-Le zone DNS private saranno gratuite durante l'anteprima gestita. All'annuncio della disponibilità generale, questa funzionalità userà un modello di prezzi basato sull'uso simile a quello dell'offerta esistente di DNS di Azure. 
+Le zone DNS private sono gratuite durante l'anteprima gestita. Durante la disponibilità generale, questa funzionalità userà un modello di determinazione prezzi basato sull'utilizzo simile a quello dell'offerta DNS di Azure esistente. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

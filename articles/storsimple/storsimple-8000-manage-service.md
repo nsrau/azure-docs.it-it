@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 2d6c1737edbc4e69dd7de4c8ce3d7b0899bfae51
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 5f31e32bb7cbd747af2e03699cfb2c6418828f8d
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuire il servizio Gestione dispositivi StorSimple per i dispositivi StorSimple serie 8000
 
@@ -113,6 +113,7 @@ Eseguire la procedura seguente per effettuare la transizione del servizio al por
 
 Al termine della transizione, è possibile gestire i dispositivi tramite il servizio Gestione dispositivi StorSimple nel portale di Azure. Se non viene visualizzata l'opzione per la migrazione al portale di Azure ma si vuole comunque passare al portale, è possibile [inviare una richiesta](https://aka.ms/ss8000-cx-signup).
 
+## <a name="supported-operations-on-devices-running-versions-prior-to-update-30"></a>Operazioni supportate nei dispositivi che eseguono una versione precedente all'aggiornamento 3.0
 Nel portale di Azure sono supportati solo i dispositivi StorSimple che eseguono l'aggiornamento 3.0 e versioni successive. I dispositivi che eseguono versioni precedenti hanno un supporto limitato. Dopo avere eseguito la migrazione al portale di Azure, usare la tabella seguente per comprendere le operazioni supportate per i dispositivi con versioni precedenti all'aggiornamento 3.0.
 
 | Operazione                                                                                                                       | Supportato      |

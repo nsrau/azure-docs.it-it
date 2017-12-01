@@ -1,6 +1,8 @@
 ---
 title: Diagnosticare e risolvere i problemi nell'ambiente Time Series Insights | Microsoft Docs
 description: "In questo articolo viene descritto come diagnosticare e risolvere i problemi più comuni riscontrati nell'ambiente Azure Time Series Insights."
+services: time-series-insights
+ms.service: time-series-insights
 author: venkatgct
 ms.author: venkatja
 manager: jhubbard
@@ -9,11 +11,11 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/15/2017
-ms.openlocfilehash: 4216b245fd480003cfa4a34452f87efade964f8d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 757d37183ad334aca462af59bad261cfa686299e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Diagnosticare e risolvere i problemi nell'ambiente Time Series Insights
 
@@ -24,7 +26,7 @@ Ecco alcuni motivi per cui i dati potrebbero non essere visualizzati nello [stru
 Azure Time Series Insights supporta solo dati in formato JSON. Per alcuni esempi di dati in formato JSON, vedere [Forme JSON supportate](time-series-insights-send-events.md#supported-json-shapes).
 
 ### <a name="possible-cause-b-event-source-key-is-missing-a-required-permission"></a>Causa possibile B: la chiave dell'origine evento non dispone di un'autorizzazione obbligatoria
-* Per un hub IoT è necessario fornire la chiave con l'autorizzazione di **connessione al servizio**.
+* Per un hub IoT è necessario indicare la chiave con l'autorizzazione di **connessione al servizio**.
 
    ![Autorizzazione di connessione al servizio hub IoT](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
@@ -76,5 +78,5 @@ Verificare che il nome e il valore siano conformi alle regole seguenti:
 * Il valore della proprietà Timestamp proveniente dall'origine evento, come stringa JSON, deve avere il formato _aaaa-MM-ggTHH:mm:ss.FFFFFFFK_. Un esempio di tale stringa è "2008-04-12T12:53Z".
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per altre informazioni, avviare una conversazione nel [forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) o nella pagina [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). 
+- Per ulteriore assistenza, avviare una conversazione nel [forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) o in [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). 
 - È anche possibile usare le opzioni di supporto assistito disponibili nella pagina [Opzioni di supporto tecnico per Microsoft Azure](https://azure.microsoft.com/support/options/).

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: f4457b44c97fadc58406430fc0f31b3e0bac6682
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 4a1db86f4b715533dfea545365eaf66de0574c5e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Esercitazione: Connettere l'app per la logica alla soluzione preconfigurata per il monitoraggio remoto Azure IoT Suite
 La soluzione preconfigurata per il monitoraggio remoto [Microsoft Azure IoT Suite][lnk-internetofthings] consente di iniziare a usare rapidamente un set di funzionalità end-to-end che esemplifica una soluzione IoT. Questa esercitazione illustra come aggiungere l'app per la logica alla soluzione preconfigurata per il monitoraggio remoto Microsoft Azure IoT Suite. Questi passaggi descrivono come usare la soluzione IoT in modo avanzato collegandola a un processo aziendale.
@@ -33,7 +33,7 @@ Prima di iniziare questa esercitazione, è necessario:
 
 Per completare questa esercitazione, è necessario Visual Studio 2015 o Visual Studio 2017 per modificare le azioni del back-end della soluzione preconfigurata.
 
-Supponendo di avere già eseguito il provisioning della soluzione preconfigurata per il monitoraggio remoto, passare al gruppo di risorse per la soluzione nel [portale di Azure][lnk-azureportal]. Il nome del gruppo di risorse coincide con quello assegnato alla soluzione per il monitoraggio remoto al momento del provisioning. Nel gruppo di risorse è possibile visualizzare tutte le risorse di Azure con provisioning per la soluzione, ad eccezione dell'applicazione Azure Active Directory disponibile nel portale di Azure classico. La schermata seguente mostra un pannello **Gruppo di risorse** di esempio per una soluzione preconfigurata per il monitoraggio remoto:
+Supponendo di avere già eseguito il provisioning della soluzione preconfigurata per il monitoraggio remoto, passare al gruppo di risorse per la soluzione nel [portale di Azure][lnk-azureportal]. Il nome del gruppo di risorse coincide con quello assegnato alla soluzione per il monitoraggio remoto al momento del provisioning. Nel gruppo di risorse è possibile visualizzare tutte le risorse di Azure di cui è stato effettuato il provisioning per la soluzione. La schermata seguente mostra un pannello **Gruppo di risorse** di esempio per una soluzione preconfigurata per il monitoraggio remoto:
 
 ![](media/iot-suite-v1-logic-apps-tutorial/resourcegroup.png)
 

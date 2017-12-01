@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="api-management-advanced-policies"></a>Criteri avanzati di gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -268,26 +268,26 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 -   **Ambiti del criterio:** tutti gli ambiti  
   
 ##  <a name="LimitConcurrency"></a>Limita concorrenza  
- Il criterio `limit-concurrency` previene ai criteri racchiusi l’esecuzione di un numero maggiore di richieste in un dato momento rispetto a quello specificato. In caso di superamento della soglia, le nuove richieste vengono aggiunte a una coda, fino a raggiungere la lunghezza massima della coda. Al momento di esaurimento della coda, le nuove richieste avranno immediatamente esito negativo.
+ Il criterio `limit-concurrency` previene ai criteri racchiusi l’esecuzione di un numero maggiore di richieste in un dato momento rispetto a quello specificato. In caso di superamento di tale numero, le nuove richieste avranno subito esito negativo con codice di stato 429 Troppe richieste.
   
 ###  <a name="LimitConcurrencyStatement"></a>Istruzione del criterio  
   
 ```xml  
-<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+<limit-concurrency key="expression" max-count="number">
         <!— nested policy statements -->  
 </limit-concurrency>
 ``` 
 
 ### <a name="examples"></a>esempi  
   
-####  <a name="ChooseExample"></a>Esempio  
+#### <a name="example"></a>Esempio  
  Nell'esempio seguente viene illustrato come limitare il numero di richieste inoltrate a un back-end in base al valore di una variabile di contesto.
  
 ```xml  
 <policies>
   <inbound>…</inbound>
   <backend>
-    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
       <forward-request timeout="120"/>
     <limit-concurrency/>
   </backend>
@@ -307,10 +307,8 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |---------------|-----------------|--------------|--------------|  
 |key|Stringa. Espressione consentita. Specifica l'ambito di concorrenza. Può essere condivisa da più criteri.|Sì|N/D|  
 |numero max|Un intero. Specifica un numero massimo di richieste autorizzate ad accedere al criterio.|Sì|N/D|  
-|timeout|Un intero. Espressione consentita. Specifica il numero di secondi che una richiesta deve attendere per accedere a un ambito prima che si verifichi "429 numero eccessivo di richieste"|No|Infinity|  
-|lunghezza massima della coda|Un intero. Espressione consentita. Specifica la lunghezza massima della coda. Le richieste in entrata che provano ad accedere a questo criterio verranno interrotta con "429 numero eccessivo di richieste" immediatamente quando la coda è esaurita.|No|Infinity|  
   
-###  <a name="ChooseUsage"></a>Uso  
+### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:**in ingresso, in uscita, back-end, on-error  

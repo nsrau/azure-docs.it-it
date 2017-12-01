@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: 84b219d31635af6fbdb6bd618e3a9bb4e4848809
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 47e023e7240cfae3553b220ebc44c95ec96d62a7
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure
 Questa è la prima di una serie di esercitazioni. Si apprenderà come distribuire un cluster Linux di Service Fabric in una rete virtuale e in una subnet di Azure esistente tramite l'interfaccia della riga di comando di Azure. Al termine, si ottiene un cluster in esecuzione nel cloud nel quale è possibile distribuire applicazioni. Per creare un cluster Windows tramite PowerShell, vedere [Creare un cluster sicuro di Windows in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -45,6 +45,22 @@ Prima di iniziare questa esercitazione:
 - Installare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli)
 
 Le procedure seguenti creano un cluster di Service Fabric a cinque nodi. Per calcolare i costi sostenuti per l'esecuzione di un cluster di Service Fabric in Azure, usare il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/).
+
+## <a name="introduction"></a>Introduzione
+Questa esercitazione distribuisce un cluster di cinque nodi in un unico tipo di nodo in una rete virtuale di Azure.
+
+Un [cluster di Service Fabric](service-fabric-deploy-anywhere.md) è un set di computer fisici o macchine virtuali connesse tramite rete in cui vengono distribuiti e gestiti i microservizi. I cluster possono supportare migliaia di macchine. Un computer o una macchina virtuale che fa parte di un cluster viene chiamato nodo. A ogni nodo viene assegnato un nome (stringa). I nodi presentano delle caratteristiche, ad esempio le proprietà di posizionamento.
+
+Un tipo di nodo definisce le dimensioni, il numero e le proprietà di un set di macchine virtuali nel cluster. Ogni tipo di nodo definito viene configurato come [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/), una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo può quindi essere aumentato o ridotto in modo indipendente, avere diversi set di porte aperte e avere metriche per la capacità diverse. I tipi di nodo vengono usati per definire i ruoli relativi a un set di nodi del cluster, ad esempio "front-end" o "back-end".  Il cluster può avere più di un tipo di nodo, ma il tipo di nodo primario deve essere costituito da almeno cinque macchine virtuali per i cluster di produzione (o da almeno tre macchine virtuali per i cluster di test).  I [servizi di sistema Service Fabric](service-fabric-technical-overview.md#system-services) vengono inseriti nei nodi del tipo di nodo primario.
+
+## <a name="cluster-capacity-planning"></a>Pianificazione della capacità dei cluster
+Questa esercitazione distribuisce un cluster di cinque nodi in un unico tipo di nodo.  La pianificazione della capacità è un passaggio importante per qualsiasi distribuzione di un cluster di produzione. Di seguito sono elencati alcuni aspetti da considerare nell'ambito di questo processo.
+
+- Numero di tipi di nodo necessari per il cluster 
+- Proprietà di ogni tipo di nodo (ad esempio, dimensione, tipo primario, tipo per Internet e numero di macchine virtuali)
+- Caratteristiche di affidabilità e durabilità del cluster
+
+Per altre informazioni, vedere [Considerazioni sulla pianificazione della capacità del cluster](service-fabric-cluster-capacity.md).
 
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>Accedere ad Azure e selezionare la sottoscrizione
 Questa guida usa l'interfaccia della riga di comando di Azure. Quando si avvia una nuova sessione accedere al proprio account Azure e selezionare la sottoscrizione prima di eseguire i comandi di Azure.

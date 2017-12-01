@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/21/2017
+ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: de0222d897ed2cf94be98501c39385ac88f866fc
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c589dd8c9d597145fd87a00d9a2ba040988cd8ec
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Come scollegare un disco dati da una macchina virtuale Linux
 
@@ -35,28 +35,25 @@ Se si vogliono riusare i dati presenti nel disco, è possibile ricollegarlo alla
 ## <a name="detach-a-data-disk-using-cli-20"></a>Scollegare un disco dati tramite l'interfaccia della riga di comando 2.0
 
 ```azurecli
-az vm disk detach -g myResourceGroup --vm-name myVm -n myDataDisk
+az vm disk detach \
+    -g myResourceGroup \
+    --vm-name myVm \
+    -n myDataDisk
 ```
 
 Il disco rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.
 
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Scollegare un disco dati tramite il portale
-1. Nell'hub del portale selezionare **Macchine virtuali**.
+1. Dal menu a sinistra selezionare **Macchine virtuali**.
 2. Selezionare la macchina virtuale con il disco dati che si vuole scollegare e fare clic su **Arresta** per deallocare la macchina virtuale.
-3. Nel pannello delle macchine virtuali selezionare **Dischi**.
-4. Nella parte superiore del pannello **Dischi** selezionare **Modifica**.
-5. Nel pannello **Dischi**, fare clic sul pulsante per scollegare il disco ![Immagine del pulsante per scollegare il disco](./media/detach-disk/detach.png) nella parte più a destra del disc dati.
-5. Dopo aver rimosso il disco, fare clic su Salva nella parte superiore del pannello.
-6. Nel pannello delle macchine virtuali fare clic su **Panoramica** e quindi fare clic su **Avvia** nella parte superiore del pannello per riavviare la macchina virtuale.
+3. Nel riquadro delle macchine virtuali selezionare **Dischi**.
+4. Nella parte superiore del riquadro **Dischi** selezionare **Modifica**.
+5. Nel riquadro **Dischi** fare clic sul pulsante per scollegare il disco ![Immagine del pulsante Scollega](./media/detach-disk/detach.png) nella parte più a destra del disco dati.
+5. Dopo aver rimosso il disco, fare clic su Salva nella parte superiore del riquadro.
+6. Nel riquadro delle macchine virtuali fare clic su **Panoramica** e quindi fare clic su **Avvia** nella parte superiore del riquadro per riavviare la macchina virtuale.
 
 Il disco rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.
-
-
-
-
-
-
 
 
 ## <a name="next-steps"></a>Passaggi successivi

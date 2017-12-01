@@ -1,10 +1,10 @@
 ---
-title: Gestire i gruppi di sicurezza di rete - interfaccia della riga di comando di Azure 2.0 | Documentazione Microsoft
-description: Informazioni su come gestire i gruppi di sicurezza di rete usando l'interfaccia della riga di comando di Azure 2.0.
+title: Gestire i gruppi di sicurezza di rete - interfaccia della riga di comando di Azure | Documentazione Microsoft
+description: Informazioni su come gestire i gruppi di sicurezza di rete usando l'interfaccia della riga di comando di Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: ed17d314-07e6-4c7f-bcf1-a8a2535d7c14
@@ -16,23 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11ec0d3d9e33c06d4c0a164f7fba5dd5cca73872
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c8d9f932746811a5b21dbd667d7c7bdc8f721fb
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="manage-network-security-groups-using-the-azure-cli-20"></a>Gestire i gruppi di sicurezza di rete usando l'interfaccia della riga di comando di Azure 2.0
+# <a name="manage-network-security-groups-using-the-azure-cli"></a>Gestire i gruppi di sicurezza di rete usando l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
-
-## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività 
-
-È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando: 
-
-- [Interfaccia della riga di comando di Azure 1.0](virtual-network-manage-nsg-cli-nodejs.md): l'interfaccia della riga di comando per i modelli di distribuzione classici e di gestione delle risorse 
-- [Interfaccia della riga di comando di Azure 2.0](#View-existing-NSGs): interfaccia avanzata per il modello di distribuzione di gestione delle risorse (questo articolo)
-
 
 [!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
@@ -44,7 +36,6 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prerequisite"></a>Prerequisito
 Se questa operazione non è stata ancora eseguita, installare e configurare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e accedere a un account Azure usando il comando [az login](/cli/azure/#login). 
-
 
 ## <a name="view-existing-nsgs"></a>Visualizzare NSG esistenti
 Per visualizzare l'elenco di gruppi di sicurezza di rete in un gruppo di risorse specifico, eseguire il comando [az network nsg list](/cli/azure/network/nsg#list) con un formato di output `-o table`:
@@ -89,13 +80,13 @@ Output previsto:
 
 ## <a name="view-nsg-associations"></a>Visualizzare le associazioni di NSG
 
-Per visualizzare le risorse a cui l'NSG **NSG-FrontEnd** è associato, eseguire il comando `az network nsg show` come mostrato di seguito. 
+Per visualizzare le risorse a cui l'NSG **NSG-FrontEnd** è associato, eseguire il comando `az network nsg show`: 
 
 ```azurecli
 az network nsg show -g RG-NSG -n nsg-frontend --query '[subnets,networkInterfaces]'
 ```
 
-Cercare le proprietà **networkInterfaces** e **subnets** come illustrato di seguito:
+Cercare le proprietà **NetworkInterfaces** e **Subnets** come illustrato di seguito:
 
 ```json
 [
@@ -117,7 +108,7 @@ Cercare le proprietà **networkInterfaces** e **subnets** come illustrato di seg
 ]
 ```
 
-Nell'esempio precedente, l'NSG non è associato ad alcuna interfaccia di rete (NIC) ed è associato a una subnet denominata **FrontEnd**.
+Nell'esempio precedente, l'NSG non è associato ad alcuna interfaccia di rete (NIC), ma è associato a una subnet denominata **FrontEnd**.
 
 ## <a name="add-a-rule"></a>Aggiungere una regola
 Per aggiungere una regola che consenta il traffico **in ingresso** alla porta **443** da qualsiasi computer all'NSG **NSG-FrontEnd**, immettere il comando seguente:
@@ -160,7 +151,7 @@ Output previsto:
 ```
 
 ## <a name="change-a-rule"></a>Modificare una regola
-Per modificare la regola creata in precedenza per consentire solo il traffico in ingresso da **Internet**, eseguire il comando [az network nsg rule update](/cli/azure/network/nsg/rule#update) come illustrato di seguito.
+Per modificare la regola creata in precedenza per consentire solo il traffico in ingresso da **Internet**, eseguire il comando [az network nsg rule update](/cli/azure/network/nsg/rule#update) come illustrato di seguito:
 
 ```azurecli
 az network nsg rule update \
@@ -339,7 +330,7 @@ Nell'output il valore della chiave `networkSecurityGroup` è simile al seguente:
   ```
 
 ## <a name="delete-an-nsg"></a>Eliminare un gruppo di sicurezza di rete
-È possibile eliminare un NSG solo se non è associato ad alcuna risorsa. Per eliminare un NSG, seguire questa procedura.
+È possibile eliminare un NSG solo se non è associato ad alcuna risorsa. Per eliminare un NSG, seguire questa procedura:
 
 1. Per controllare le risorse associate a un NSG, eseguire `azure network nsg show` come illustrato in [Visualizzare le associazioni di NSG](#View-NSGs-associations).
 2. Se l'NSG è associato a una o più NIC, eseguire `azure network nic set` come illustrato in [Annullare l'associazione tra un NSG e una NIC](#Dissociate-an-NSG-from-a-NIC) per ognuna delle NIC. 

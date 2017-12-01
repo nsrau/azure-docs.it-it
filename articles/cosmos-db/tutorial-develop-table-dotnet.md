@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 0e77ecc591173ae29311c2a1508e5a8a907816ac
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 29e6187c59f34122e98819b5775af261494995ca
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: sviluppare con l'API Table in .NET
 
@@ -43,7 +43,7 @@ Questa esercitazione illustra le attività seguenti:
 
 Azure Cosmos DB mette a disposizione l'[API Table](table-introduction.md) per le applicazioni che necessitano di un archivio di coppie chiave-valore con una struttura senza schema. Sia l'API Table di Azure Cosmos DB che l'[archiviazione tabelle di Azure](../storage/common/storage-introduction.md) supportano ora gli stessi SDK e le stesse API REST. È possibile usare Azure Cosmos DB per creare tabelle con requisiti di velocità effettiva elevata.
 
-Questa esercitazione è rivolta agli sviluppatori che hanno acquisito familiarità con l'SDK di Archiviazione tabelle di Azure e che intendono usare le funzionalità Premium disponibili con Azure Cosmos DB. È basata su [Introduzione all'archiviazione tabelle di Azure con .NET](table-storage-how-to-use-dotnet.md) e illustra come sfruttare le funzionalità aggiuntive, come gli indici secondari, la velocità effettiva con provisioning e il multihosting. Questa esercitazione illustra come usare il portale di Azure per creare un account Azure Cosmos DB e quindi come compilare e distribuire un'applicazione API Table. Verranno esaminati anche esempi .NET per la creazione e l'eliminazione di una tabella, l'inserimento, l'aggiornamento, l'eliminazione e l'esecuzione di query per i dati delle tabelle. 
+Questa esercitazione è rivolta agli sviluppatori che hanno acquisito familiarità con l'SDK di Archiviazione tabelle di Azure e che intendono usare le funzionalità Premium disponibili con Azure Cosmos DB. È basata su [Introduzione all'archiviazione tabelle di Azure con .NET](table-storage-how-to-use-dotnet.md) e illustra come sfruttare le funzionalità aggiuntive, come gli indici secondari, la velocità effettiva con provisioning e il multihosting. Questa esercitazione illustra come usare il portale di Azure per creare un account Azure Cosmos DB e quindi come compilare e distribuire un'applicazione API di tabella. Verranno esaminati anche esempi .NET per la creazione e l'eliminazione di una tabella, l'inserimento, l'aggiornamento, l'eliminazione e l'esecuzione di query per i dati delle tabelle. 
 
 Se attualmente si usa l'archiviazione tabelle di Azure, passando all'API Table di Azure Cosmos DB è possibile ottenere i vantaggi seguenti:
 
@@ -72,6 +72,10 @@ Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare l
 ## <a name="create-a-database-account"></a>Creare un account di database
 
 Si inizia creando un account Azure Cosmos DB nel portale di Azure.  
+ 
+> [!IMPORTANT]  
+> Per lavorare con gli SDK dell'API di tabella disponibili a livello generale, è necessario creare un nuovo account dell'API di tabella. Gli account dell'API di tabella creati durante l'anteprima non sono supportati dagli SDK disponibili a livello generale. 
+>
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
@@ -88,7 +92,7 @@ A questo punto è possibile clonare un'app Table da GitHub, impostare la stringa
 2. Eseguire il comando seguente per clonare l'archivio di esempio. Questo comando crea una copia dell'app di esempio nel computer in uso. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
 
 3. Aprire quindi il file della soluzione in Visual Studio. 
@@ -99,24 +103,32 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 1. Nel [portale di Azure](http://portal.azure.com/) fare clic su **Stringa di connessione**. 
 
-    Usare i pulsanti di copia sul lato destro della schermata per copiare la STRINGA DI CONNESSIONE.
+    Usare i pulsanti di copia sul lato destro della schermata per copiare la STRINGA DI CONNESSIONE PRIMARIA.
 
     ![Visualizzare e copiare la STRINGA DI CONNESSIONE nel riquadro Stringa di connessione](./media/create-table-dotnet/connection-string.png)
 
 2. In Visual Studio aprire il file app.config. 
 
-3. Incollare il valore della STRINGA DI CONNESSIONE nel file app.config come valore di CosmosDBStorageConnectionString. 
+3. Rimuovere il commento di StorageConnectionString alla riga 8 e impostare come commento StorageConnectionString alla riga 7, in quanto questa esercitazione non usa l'emulatore di archiviazione. Ora le righe 7 e 8 dovrebbero essere simili a quanto segue:
 
-    `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
+    ```
+    <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
+    ```
 
-    > [!NOTE]
-    > Per usare questa app con Archiviazione tabelle di Azure, è necessario modificare la stringa di connessione in `app.config file`. Usare il nome dell'account come nome dell'account Table e la chiave come chiave primaria di Archiviazione di Azure. <br>
-    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-    > 
+4. Incollare la STRINGA DI CONNESSIONE PRIMARIA dal portale nel valore StorageConnectionString alla riga 8. Incollare la stringa tra virgolette.
+   
+    > [!IMPORTANT]
+    > Se l'endpoint usa documents.azure.com, ovvero si dispone di un account di anteprima, è necessario creare un [nuovo account dell'API di tabella](#create-a-database-account) per lavorare con l'SDK dell'API di tabella disponibile a livello generale. 
     >
 
-4. Salvare il file app.config.
+    Ora la riga 8 dovrebbe essere simile a quanto segue:
+
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
+    ```
+
+5. Salvare il file app.config.
 
 L'app è stata aggiornata con tutte le informazioni necessarie per comunicare con Azure Cosmos DB. 
 
@@ -316,12 +328,9 @@ CloudTable table = tableClient.GetTableReference("people");
 table.DeleteIfExists();
 ```
 
-## <a name="clean-up-resources"></a>Pulire le risorse 
+## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se non si prevede di continuare a usare questa app, seguire questa procedura per eliminare tutte le risorse create da questa esercitazione nel portale di Azure.   
-
-1. Scegliere **Gruppi di risorse** dal menu a sinistra del portale di Azure e quindi fare clic sul nome della risorsa creata.  
-2. Nella pagina del gruppo di risorse fare clic su **Elimina**, digitare il nome della risorsa da eliminare nella casella di testo e quindi fare clic su **Elimina**. 
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

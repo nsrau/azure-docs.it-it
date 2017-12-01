@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/24/2017
 ms.author: joroja
-ms.openlocfilehash: eb44a0d2234c9ee3801d8b3a1655d877aa2f4fef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2572c618f6ad27f57603d8e8a2ff04de6846c6ca
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Procedura dettagliata: Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente
 
@@ -119,7 +119,7 @@ Per aggiungere lo scambio di attestazioni al profilo tecnico autocertificato:
 
 1. Aprire il file TrustFrameworkBase.xml e cercare `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
 2. Esaminare la configurazione di questo profilo tecnico. Si noti che lo scambio con l'utente è definito come attestazioni che verranno chieste all'utente (attestazioni di input) e attestazioni che dovranno essere inviate dal provider autocertificato (attestazioni di output).
-3. Cercare `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`. Tenere presente che questo profilo viene richiamato come passaggio di orchestrazione 6 di `<UserJourney Id="ProfileEdit">`.
+3. Cercare `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`. Tenere presente che questo profilo viene richiamato come passaggio di orchestrazione 4 di `<UserJourney Id="ProfileEdit">`.
 
 ## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>Passaggio 4: Caricare e testare il file dei criteri relying party di modifica del profilo
 

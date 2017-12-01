@@ -6,7 +6,7 @@
 ### <a name="step-2-delete-connections"></a>Passaggio 2: Eliminare le connessioni
 
 1. Nel pannello del gateway di rete virtuale fare clic su **Connessioni** per visualizzare tutte le connessioni del gateway.
-2. Fare clic su **'...'** sulla riga del nome della connessione, quindi selezionare **Elimina** nell'elenco a discesa.
+2. Fare clic su **...** sulla riga del nome della connessione, quindi selezionare **Elimina** nell'elenco a discesa.
 3. Fare clic su **Sì** per confermare l'eliminazione della connessione. Se si dispone di più connessioni, eliminarle tutte.
 
 ### <a name="step-3-delete-the-virtual-network-gateway"></a>Passaggio 3: Eliminare il gateway di rete virtuale

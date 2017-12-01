@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 08/18/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: f364d7b25a75012f33a282111c9624d51b65b42f
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 67f262913333fb69f5b862fa3d862c0d773e4172
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato (anteprima)
 
@@ -32,6 +32,8 @@ Al termine della procedura descritta in questo articolo, si potrà notare che i 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire la versione più recente dell'interfaccia della riga di comando di Azure (2.0.14 o versione successiva). Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli).
+
+Se non si usa Cloud Shell, prima è necessario accedere usando `az login`.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -86,7 +88,7 @@ az eventgrid resource event-subscription create \
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Attivare un evento dall'archiviazione BLOB
 
-A questo punto, attivare un evento per vedere come la griglia di eventi distribuisce il messaggio nell'endpoint. Configurare prima di tutto il nome e la chiave per l'account di archiviazione, quindi creare e caricare un file. Anche in questo caso, usare i valori per `<storage_account_name>` e `<resource_group_name>` creati in precedenza.
+A questo punto, attivare un evento per vedere come la griglia di eventi distribuisce il messaggio nell'endpoint. Configurare prima di tutto il nome e la chiave per l'account di archiviazione, quindi creare un contenitore e creare e caricare un file. Anche in questo caso, usare i valori per `<storage_account_name>` e `<resource_group_name>` creati in precedenza.
 
 ```azurecli-interactive
 export AZURE_STORAGE_ACCOUNT=<storage_account_name>

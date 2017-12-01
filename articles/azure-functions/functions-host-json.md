@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: b3e5976a84e0ec91a41d683a426b58635fd5abd6
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 63e63f69cb6463adcca480eccf1cc485574d9eff
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Riferimento host.json per Funzioni di Azure
 
@@ -137,23 +137,9 @@ Controlla le [funzionalità di campionamento in Application Insights](functions-
 
 ## <a name="eventhub"></a>eventHub
 
-Impostazione di configurazione per i [trigger e le associazioni di Hub eventi](functions-bindings-event-hubs.md).
+Impostazioni di configurazione per i [trigger e le associazioni di Hub eventi](functions-bindings-event-hubs.md).
 
-```json
-{
-    "eventHub": {
-      "maxBatchSize": 64,
-      "prefetchCount": 256,
-      "batchCheckpointFrequency": 1
-    }
-}
-```
-
-|Proprietà  |Default | Descrizione |
-|---------|---------|---------| 
-|maxBatchSize|64|Il numero massimo degli eventi ricevuto per ogni ciclo di ricezione.|
-|prefetchCount|n/d|Il valore predefinito di PrefetchCount che verrà utilizzato dall’EventProcessorHost sottostante.| 
-|batchCheckpointFrequency|1|Il numero di batch di eventi da elaborare prima di creare un checkpoint di cursore EventHub.| 
+[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
 ## <a name="functions"></a>functions
 
@@ -184,7 +170,7 @@ Impostazione di configurazione per i [trigger e le associazioni http](functions-
     "http": {
         "routePrefix": "api",
         "maxOutstandingRequests": 20,
-        "maxConcurrentRequests": 10,
+        "maxConcurrentRequests": 
         "dynamicThrottlesEnabled": false
     }
 }
@@ -260,21 +246,7 @@ Impostazione di configurazione per i [trigger e le associazioni per code di arch
 
 Impostazione di configurazione per i [trigger e le associazioni dei bus di servizio](functions-bindings-service-bus.md).
 
-```json
-{
-    "serviceBus": {
-      "maxConcurrentCalls": 16,
-      "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
-    }
-}
-```
-
-|Proprietà  |Default | Descrizione |
-|---------|---------|---------| 
-|maxConcurrentCalls|16|Il numero massimo di chiamate simultanee al callback che il message pump deve avviare. | 
-|prefetchCount|n/d|Il valore predefinito di PrefetchCount che verrà utilizzato per il MessageReceiver sottostante.| 
-|autoRenewTimeout|00:05:00|La durata massima entro il quale il blocco del messaggio verrà rinnovato automaticamente.| 
+[!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
 
 ## <a name="singleton"></a>singleton
 

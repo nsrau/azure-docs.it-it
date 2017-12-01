@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 84cefcdb85f1a3c753027e827abde010b461cda7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee66bf554e8e623ebfaa82bc888fc541da322d2f
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Procedura dettagliata per un'infrastruttura di esempio di Azure per macchine virtuali Windows
 
@@ -85,7 +85,7 @@ Contoso ha creato una rete virtuale solo cloud con le impostazioni seguenti tram
   * Spazio degli indirizzi: 10.0.2.0/24
 
 ## <a name="availability-sets"></a>Set di disponibilità
-Per mantenere elevata la disponibilità di tutti i quattro i livelli del negozio online, Adventure Works Cycles ha optato per quattro set di disponibilità:
+Per mantenere elevata la disponibilità dei quattro livelli del negozio online, Adventure Works Cycles ha optato per quattro set di disponibilità:
 
 * **azos-use-as-web** per i server Web
 * **azos-use-as-app** per i server applicazioni

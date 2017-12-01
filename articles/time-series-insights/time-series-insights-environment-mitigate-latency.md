@@ -1,5 +1,5 @@
 ---
-title: Come monitorare le prestazioni, ridurre la limitazione ed evitare la latenza in Azure Time Series Insights | Microsoft Docs
+title: Come monitorare e ridurre la limitazione per evitare la latenza in Azure Time Series Insights | Microsoft Docs
 description: Questo articolo illustra come monitorare, diagnosticare e attenuare i problemi di prestazioni che causano latenza e limitazione in Azure Time Series Insights.
 services: time-series-insights
 ms.service: time-series-insights
@@ -12,13 +12,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/15/2017
-ms.openlocfilehash: 5af5589922ded802703b9ba8f3b0aa8c5524bbad
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9d53cd0ee8e15d47ac1daa122331b3145f936adb
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
-# <a name="improve-performance-reduce-latency-and-mitigate-throttling-in-azure-time-series-insights"></a>Migliorare le prestazioni, ridurre la latenza e attenuare la limitazione in Azure Time Series Insights
+# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorare e ridurre la limitazione per evitare la latenza in Azure Time Series Insights
 Quando la quantità di dati in ingresso è superiore alla configurazione dell'ambiente, in Azure Time Series Insights si può verificare una latenza o una limitazione.
 
 È possibile evitare la latenza o la limitazione configurando l'ambiente in modo appropriato per la quantità di dati che si vuole analizzare.

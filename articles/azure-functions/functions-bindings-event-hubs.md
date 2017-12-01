@@ -1,5 +1,5 @@
 ---
-title: Associazioni di Hub eventi in Funzioni di Azure | Microsoft Docs
+title: Associazioni di Hub eventi in Funzioni di Azure
 description: Informazioni su come usare le associazioni di Hub eventi di Azure in Funzioni di Azure.
 services: functions
 documentationcenter: na
@@ -14,57 +14,74 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/20/2017
+ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 85eb6985ef3579b1b2313db3ce5f91c3471da72f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2660a3ca8ee7569d49a6998d0dfd5a98a97d294
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-functions-event-hubs-bindings"></a>Associazioni di Hub eventi in Funzioni di Azure
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Questo articolo illustra come configurare e usare le associazioni di [Hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md) in Funzioni di Azure.
-Funzioni di Azure supporta il trigger e le associazioni di output per Hub eventi.
+Questo articolo illustra come usare le associazioni di [Hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md) in Funzioni di Azure. Funzioni di Azure supporta il trigger e le associazioni di output per Hub eventi.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-Se non si ha familiarità con Hub eventi di Azure, vedere la [panoramica di Hub eventi](../event-hubs/event-hubs-what-is-event-hubs.md).
+## <a name="event-hubs-trigger"></a>Trigger per Hub eventi
 
-<a name="trigger"></a>
-
-## <a name="event-hub-trigger"></a>Trigger di Hub eventi
 È possibile usare il trigger di Hub eventi per rispondere a un evento inviato a un flusso di eventi di Hub eventi. Per configurare il trigger è necessario avere accesso in lettura ad Hub eventi.
 
-Il trigger di funzione di Hub eventi usa l'oggetto JSON seguente nella matrice `bindings` di function.json:
+Quando viene attivata una funzione trigger di Hub eventi, il messaggio che la attiva viene passato alla funzione sotto forma di stringa.
 
-```json
+## <a name="trigger---example"></a>Trigger - esempio
+
+Vedere l'esempio specifico per ciascun linguaggio:
+
+* [C# precompilato](#trigger---c-example)
+* [Script C#](#trigger---c-script-example)
+* [F#](#trigger---f-example)
+* [JavaScript](#trigger---javascript-example)
+
+### <a name="trigger---c-example"></a>Trigger - esempio in C#
+
+Nell'esempio seguente è illustrato il codice [C# precompilato](functions-dotnet-class-library.md) che registra il corpo del messaggio del trigger per Hub eventi.
+
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
 {
-    "type": "eventHubTrigger",
-    "name": "<Name of trigger parameter in function signature>",
-    "direction": "in",
-    "path": "<Name of the event hub>",
-    "consumerGroup": "Consumer group to use - see below",
-    "connection": "<Name of app setting with connection string - see below>"
+    log.Info($"C# Event Hub trigger function processed a message: {myEventHubMessage}");
 }
 ```
 
-`consumerGroup`: proprietà facoltativa usata per impostare il [gruppo di consumer](../event-hubs/event-hubs-features.md#event-consumers) usato per effettuare la sottoscrizione agli eventi nell'hub. Se omessa, al suo posto viene usato il gruppo di consumer `$Default`.  
-`connection` deve essere il nome di un'impostazione dell'app che contiene la stringa di connessione per lo spazio dei nomi di Hub eventi.
-Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo *spazio dei nomi*, non per lo stesso Hub eventi. Per attivare il trigger, questa stringa di connessione deve disporre almeno delle autorizzazioni Read.
+Per ottenere l'accesso ai metadati dell'evento, associare un oggetto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) (richiede un'istruzione `using` per `Microsoft.ServiceBus.Messaging`).
 
-È possibile specificare [Impostazioni aggiuntive](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) in un file host.json per ottimizzare i trigger di Hub eventi.  
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] EventData myEventHubMessage, TraceWriter log)
+{
+    log.Info($"{Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+}
+```
+Per ricevere gli eventi in un batch, impostare `string` o `EventData` come matrice:
 
-<a name="triggerusage"></a>
+```cs
+[FunctionName("EventHubTriggerCSharp")]
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string[] eventHubMessages, TraceWriter log)
+{
+    foreach (var message in eventHubMessages)
+    {
+        log.Info($"C# Event Hub trigger function processed a message: {message}");
+    }
+}
+```
 
-## <a name="trigger-usage"></a>Utilizzo dei trigger
-Quando viene attivata una funzione trigger di Hub eventi, il messaggio che la attiva viene passato alla funzione sotto forma di stringa.
+### <a name="trigger---c-script-example"></a>Trigger - esempio di script C#
 
-<a name="triggersample"></a>
+L'esempio seguente mostra un'associazione di trigger per Hub eventi in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione registra il corpo del messaggio del trigger per Hub eventi.
 
-## <a name="trigger-sample"></a>Esempio di trigger
-Si supponga che il trigger di Hub eventi seguente sia presente nella matrice `bindings` di function.json:
+Ecco i dati di associazione nel file *function.json*:
 
 ```json
 {
@@ -75,16 +92,7 @@ Si supponga che il trigger di Hub eventi seguente sia presente nella matrice `bi
   "connection": "myEventHubReadConnectionString"
 }
 ```
-
-Vedere l'esempio specifico del linguaggio che registra il corpo del messaggio del trigger di Hub eventi.
-
-* [C#](#triggercsharp)
-* [F#](#triggerfsharp)
-* [Node.JS](#triggernodejs)
-
-<a name="triggercsharp"></a>
-
-### <a name="trigger-sample-in-c"></a>Esempio di trigger in C# #
+Ecco il codice script C#:
 
 ```cs
 using System;
@@ -95,7 +103,7 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-È anche possibile ricevere l'evento come un oggetto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata), che consente di accedere ai metadati dell'evento.
+Per ottenere l'accesso ai metadati dell'evento, associare un oggetto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) (richiede un'istruzione 'using' per `Microsoft.ServiceBus.Messaging`).
 
 ```cs
 #r "Microsoft.ServiceBus"
@@ -108,7 +116,7 @@ public static void Run(EventData myEventHubMessage, TraceWriter log)
 }
 ```
 
-Per ricevere gli eventi in un batch, impostare la firma del metodo su `string[]` o `EventData[]`.
+Per ricevere gli eventi in un batch, impostare `string` o `EventData` come matrice:
 
 ```cs
 public static void Run(string[] eventHubMessages, TraceWriter log)
@@ -120,18 +128,46 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 }
 ```
 
-<a name="triggerfsharp"></a>
+### <a name="trigger---f-example"></a>Trigger - Esempio in F#
 
-### <a name="trigger-sample-in-f"></a>Esempio di trigger in F# #
+L'esempio seguente mostra un'associazione di trigger per Hub eventi in un file *function.json* e una [funzione F#](functions-reference-fsharp.md) che usa l'associazione. La funzione registra il corpo del messaggio del trigger per Hub eventi.
+
+Ecco i dati di associazione nel file *function.json*:
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "path": "MyEventHub",
+  "connection": "myEventHubReadConnectionString"
+}
+```
+
+Ecco il codice F#:
 
 ```fsharp
 let Run(myEventHubMessage: string, log: TraceWriter) =
     log.Info(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
 ```
 
-<a name="triggernodejs"></a>
+### <a name="trigger---javascript-example"></a>Trigger - esempio JavaScript
 
-### <a name="trigger-sample-in-nodejs"></a>Esempio di trigger in Node.js
+L'esempio seguente mostra un'associazione di trigger per Hub eventi in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione registra il corpo del messaggio del trigger per Hub eventi.
+
+Ecco i dati di associazione nel file *function.json*:
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "path": "MyEventHub",
+  "connection": "myEventHubReadConnectionString"
+}
+```
+
+Ecco il codice JavaScript:
 
 ```javascript
 module.exports = function (context, myEventHubMessage) {
@@ -140,39 +176,68 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
-<a name="output"></a>
+## <a name="trigger---attributes-for-precompiled-c"></a>Trigger - attributi per C# precompilato
+
+Per funzioni in [C# precompilato](functions-dotnet-class-library.md) usare l'attributo [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+
+Il costruttore dell'attributo accetta il nome di Hub eventi, il nome del gruppo di consumer e il nome di un'impostazione di app che contiene la stringa di connessione. Per altre informazioni su queste impostazioni, vedere la [sezione relativa alla configurazione dei trigger](#trigger---configuration). Di seguito è riportato un esempio di attributo `EventHubTriggerAttribute`:
+
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnection")] string myEventHubMessage, TraceWriter log)
+```
+
+## <a name="trigger---configuration"></a>Trigger - configurazione
+
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `EventHubTrigger`.
+
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
+|---------|---------|----------------------|
+|**type** | n/d | Il valore deve essere impostato su `eventHubTrigger`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
+|**direction** | n/d | Il valore deve essere impostato su `in`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
+|**nome** | n/d | Nome della variabile che rappresenta l'elemento evento nel codice della funzione. | 
+|**path** |**EventHubName** | Nome di Hub eventi. | 
+|**consumerGroup** |**ConsumerGroup** | Proprietà facoltativa usata per impostare il [gruppo di consumer](../event-hubs/event-hubs-features.md#event-consumers) usato per effettuare la sottoscrizione agli eventi nell'hub. Se omessa, al suo posto viene usato il gruppo di consumer `$Default`. | 
+|**connessione** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione per lo spazio dei nomi di Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo *spazio dei nomi*, non per lo stesso Hub eventi. Per attivare il trigger, questa stringa di connessione deve disporre almeno delle autorizzazioni Read.<br/>Quando si sviluppa in locale, le impostazioni dell'app vengono inserite nei valori del [file local.settings.json](functions-run-local.md#local-settings-file).|
+
+## <a name="trigger---hostjson-properties"></a>Trigger - proprietà di host.json
+
+Il file [host.json](functions-host-json.md#eventhub) contiene le impostazioni che controllano il comportamento del trigger per Hub eventi.
+
+[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
 ## <a name="event-hubs-output-binding"></a>Associazione di output di Hub eventi
-È possibile usare l'associazione di output di Hub eventi per scrivere eventi in un flusso di eventi di Hub eventi. Per scrivervi eventi, è necessario disporre dell'autorizzazione Send verso un Hub eventi.
 
-L'associazione di output usa l'oggetto JSON seguente nella matrice `bindings` di function.json:
+È possibile usare l'associazione di output di Hub eventi per scrivere eventi in un flusso di eventi. Per scrivervi eventi, è necessario disporre dell'autorizzazione Send verso un Hub eventi.
 
-```json
+## <a name="output---example"></a>Output - esempio
+
+Vedere l'esempio specifico per ciascun linguaggio:
+
+* [C# precompilato](#output---c-example)
+* [Script C#](#output---c-script-example)
+* [F#](#output---f-example)
+* [JavaScript](#output---javascript-example)
+
+### <a name="output---c-example"></a>Output - esempio in C#
+
+Nell'esempio seguente è illustrato una [funzione C# precompilata](functions-dotnet-class-library.md) che scrive un messaggio in un Hub eventi usando il valore restituito del metodo come output:
+
+```csharp
+[FunctionName("EventHubOutput")]
+[return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
+public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
 {
-    "type": "eventHub",
-    "name": "<Name of output parameter in function signature>",
-    "path": "<Name of event hub>",
-    "connection": "<Name of app setting with connection string - see below>"
-    "direction": "out"
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    return $"{DateTime.Now}";
 }
 ```
 
-`connection` deve essere il nome di un'impostazione dell'app che contiene la stringa di connessione per lo spazio dei nomi di Hub eventi.
-Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo *spazio dei nomi*, non per lo stesso Hub eventi. Per inviare il messaggio al flusso di eventi, questa stringa di connessione deve disporre di autorizzazioni Send.
+### <a name="output---c-script-example"></a>Output - esempio di script C#
 
-## <a name="output-usage"></a>Uso dell'output
-Questa sezione illustra come usare l'associazione di output di Hub eventi nel codice della funzione.
+L'esempio seguente mostra un'associazione di trigger per Hub eventi in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione scrive un messaggio in un Hub eventi.
 
-È possibile inviare i messaggi all'hub eventi configurato con i tipi di parametro seguenti:
-
-* `out string`
-* `ICollector<string>` (per restituire più messaggi)
-* `IAsyncCollector<string>` (versione asincrona di `ICollector<T>`)
-
-<a name="outputsample"></a>
-
-## <a name="output-sample"></a>Esempio di output
-Si supponga che l'associazione di output di Hub eventi seguente sia presente nella matrice `bindings` di function.json:
+Ecco i dati di associazione nel file *function.json*:
 
 ```json
 {
@@ -184,15 +249,7 @@ Si supponga che l'associazione di output di Hub eventi seguente sia presente nel
 }
 ```
 
-Vedere l'esempio specifico del linguaggio che scrive un evento nel flusso di eventi.
-
-* [C#](#outcsharp)
-* [F#](#outfsharp)
-* [Node.JS](#outnodejs)
-
-<a name="outcsharp"></a>
-
-### <a name="output-sample-in-c"></a>Esempio di output in C# #
+Ecco il codice script C# che crea un messaggio:
 
 ```cs
 using System;
@@ -205,7 +262,7 @@ public static void Run(TimerInfo myTimer, out string outputEventHubMessage, Trac
 }
 ```
 
-Oppure per creare più messaggi:
+Ecco il codice script C# che crea più messaggi:
 
 ```cs
 public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, TraceWriter log)
@@ -217,9 +274,23 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 }
 ```
 
-<a name="outfsharp"></a>
+### <a name="output---f-example"></a>Output - esempio in F#
 
-### <a name="output-sample-in-f"></a>Esempio di output in F# #
+L'esempio seguente mostra un'associazione di trigger per Hub eventi in un file *function.json* e una [funzione F#](functions-reference-fsharp.md) che usa l'associazione. La funzione scrive un messaggio in un Hub eventi.
+
+Ecco i dati di associazione nel file *function.json*:
+
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "path": "myeventhub",
+    "connection": "MyEventHubSend",
+    "direction": "out"
+}
+```
+
+Ecco il codice F#:
 
 ```fsharp
 let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
@@ -228,9 +299,23 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
     outputEventHubMessage <- msg;
 ```
 
-<a name="outnodejs"></a>
+### <a name="output---javascript-example"></a>Output - esempio JavaScript
 
-### <a name="output-sample-for-nodejs"></a>Esempio di output in Node.js
+L'esempio seguente mostra un'associazione di trigger per Hub eventi in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione scrive un messaggio in un Hub eventi.
+
+Ecco i dati di associazione nel file *function.json*:
+
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "path": "myeventhub",
+    "connection": "MyEventHubSend",
+    "direction": "out"
+}
+```
+
+Ecco il codice JavaScript che invia un messaggio:
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -241,7 +326,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-Oppure, per inviare più messaggi,
+Ecco il codice JavaScript che invia più messaggi:
 
 ```javascript
 module.exports = function(context) {
@@ -256,5 +341,37 @@ module.exports = function(context) {
 };
 ```
 
+## <a name="output---attributes-for-precompiled-c"></a>Output - attributi per C# precompilato
+
+Per funzioni in [C# precompilato](functions-dotnet-class-library.md) usare l'attributo [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
+
+Il costruttore dell'attributo accetta il nome di Hub eventi e il nome di un'impostazione di app che contiene la stringa di connessione. Per altre informazioni su queste impostazioni, vedere la [sezione relativa alla configurazione dell'output](#output---configuration). Di seguito è riportato un esempio di attributo `EventHub`:
+
+```csharp
+[FunctionName("EventHubOutput")]
+[return: EventHub("outputEventHubMessage", Connection = "EventHubConnection")]
+public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, TraceWriter log)
+```
+
+## <a name="output---configuration"></a>Output - configurazione
+
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `EventHub`.
+
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
+|---------|---------|----------------------|
+|**type** | n/d | Il valore deve essere impostato su "eventHub". |
+|**direction** | n/d | Il valore deve essere impostato su "out". Questo parametro viene impostato automaticamente quando si crea l'associazione nel portale di Azure. |
+|**nome** | n/d | Nome della variabile usato nel codice della funzione che rappresenta l'evento. | 
+|**path** |**EventHubName** | Nome di Hub eventi. | 
+|**connessione** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione per lo spazio dei nomi di Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo *spazio dei nomi*, non per lo stesso Hub eventi. Per inviare il messaggio al flusso di eventi, questa stringa di connessione deve disporre di autorizzazioni Send.<br/>Quando si sviluppa in locale, le impostazioni dell'app vengono inserite nei valori del [file local.settings.json](functions-run-local.md#local-settings-file).|
+
+## <a name="output---usage"></a>Output - uso
+
+In C# e negli script C# è possibile inviare messaggi con un parametro del metodo, ad esempio `out string paramName`. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. Per scrivere più messaggi, è possibile usare `ICollector<string>` o `IAsyncCollector<string>` al posto di `out string`.
+
+In JavaScript accedere all'evento di output usando `context.bindings.<name>`. `<name>` è il valore specificato nella proprietà `name` di *function.json*.
+
 ## <a name="next-steps"></a>Passaggi successivi
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+> [!div class="nextstepaction"]
+> [Altre informazioni su trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)

@@ -12,15 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 11/29/2017
 ms.author: joflore
-ms.openlocfilehash: 653166235a2fec79945a8e54aafdb8e697e8b634
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: dc12037928d5cc62c35535d45cf674865e3bfe25
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Compilazione di Multi-Factor Authentication in app personalizzate (SDK)
+
+> [!IMPORTANT]
+> Azure Multi-Factor Authentication Software Development Kit (SDK) è deprecato. Questa funzionalità non è più supportata per i nuovi clienti. I clienti correnti possono continuare a usare l'SDK fino al 14 novembre 2018. Dopo tale periodo, le chiamate all'SDK avranno esito negativo. 
 
 Il Software Development Kit (SDK) di Azure Multi-Factor Authentication consente di compilare la verifica in due passaggi direttamente nei processi di accesso o di transazione delle applicazioni nel tenant di Azure AD.
 
@@ -35,30 +38,7 @@ Poiché le API non hanno accesso agli utenti registrati in Azure Active Director
 
 
 ## <a name="download-the-sdk"></a>Scaricare l'SDK
-Per scaricare l'SDK Multi-Factor di Azure è necessario un [provider di Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md).  Questo richiede una sottoscrizione di Azure completa, anche se si possiedono licenze di Azure MFA, Azure AD Premium o Enterprise Mobility Suite.  Per scaricare l'SDK, accedere al portale di gestione Multi-Factor Authentication. È possibile accedere al portale gestendo direttamente il provider di Multi-Factor Authentication o facendo clic sul collegamento **Vai al portale** nella pagina delle impostazioni del servizio MFA.
-
-### <a name="download-from-the-azure-classic-portal"></a>Download dal portale di Azure classico
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com) come amministratore.
-2. A sinistra, selezionare **Active Directory**.
-3. Nella parte superiore della pagina Active Directory selezionare **Provider di Autenticazione a più fattori**
-4. Nella parte inferiore selezionare **Gestisci**. Viene aperta una nuova pagina.
-5. A sinistra, nella parte inferiore, fare clic su **SDK**.
-   <center>![Scaricare](./media/multi-factor-authentication-sdk/download.png)</center>
-6. Selezionare la lingua desiderata e fare clic su uno dei collegamenti di download associati.
-7. Salvare il download.
-
-### <a name="download-from-the-service-settings"></a>Download dalle impostazioni del servizio
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com) come amministratore.
-2. A sinistra, selezionare **Active Directory**.
-3. Fare doppio clic sull'istanza di Azure AD.
-4. Nella parte superiore fare clic su **Configura**
-5. In Multi-Factor Authentication selezionare **Gestisci impostazioni del servizio**
-   ![Download](./media/multi-factor-authentication-sdk/download2.png)
-6. Nella parte inferiore della schermata della pagina Impostazioni servizio, fare clic su **Vai al portale**. Viene aperta una nuova pagina.
-   ![Scaricare](./media/multi-factor-authentication-sdk/download3a.png)
-7. A sinistra, nella parte inferiore, fare clic su **SDK**.
-8. Selezionare la lingua desiderata e fare clic su uno dei collegamenti di download associati.
-9. Salvare il download.
+Per scaricare l'SDK Multi-Factor di Azure è necessario un [provider di Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md).  Questo richiede una sottoscrizione di Azure completa, anche se si possiedono licenze di Azure MFA, Azure AD Premium o Enterprise Mobility Suite. I metodi pubblici di download dell'SDK sono stati ritirati da quando l'SDK è stata deprecata. Se è necessario scaricare l'SDK, è consigliabile aprire un caso di supporto presso Microsoft.
 
 ## <a name="whats-in-the-sdk"></a>Contenuto dell'SDK
 L'SDK include gli elementi seguenti:

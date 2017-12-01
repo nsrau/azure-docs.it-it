@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: c158c67a82e12501386179e19bc75fd852d7e308
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 157a10277f89643245746223f2cd1d73680ac700
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Distribuire il proxy di applicazione di Azure AD in un dominio gestito di Azure AD Domain Services
 Il proxy dell'applicazione di Azure Active Directory (AD) consente di supportare lavoratori remoti pubblicando applicazioni locali in modo che siano accessibili tramite Internet. Azure AD Domain Services ora consente di trasferire in modalità lift-and-shift le applicazioni legacy in esecuzione in locale nei servizi di infrastruttura di Azure. È quindi possibile pubblicare queste applicazioni con il proxy di applicazione di Azure AD per garantire l'accesso remoto sicuro agli utenti dell'organizzazione.
@@ -56,7 +56,7 @@ Per abilitare il proxy di applicazione di Azure AD per la directory di Azure AD,
 
 
 ## <a name="task-2---provision-domain-joined-windows-servers-to-deploy-the-azure-ad-application-proxy-connector"></a>Attività 2: Effettuare il provisioning di server Windows aggiunti a un dominio per distribuire il connettore del proxy di applicazione di Azure AD
-È necessario avere a disposizione macchine virtuali Windows Server aggiunte a un dominio in cui installare il connettore del proxy di applicazione di Azure AD. A seconda delle applicazioni pubblicate, è possibile scegliere di effettuare il provisioning di più server in cui è installato il connettore. Questa opzione di distribuzione offre maggiore disponibilità e permette di gestire carichi di lavoro di autenticazione più gravosi.
+È necessario avere a disposizione macchine virtuali Windows Server aggiunte a un dominio in cui installare il connettore del proxy di applicazione di Azure AD. Per alcune applicazioni è possibile scegliere di effettuare il provisioning di più server in cui è installato il connettore. Questa opzione di distribuzione offre maggiore disponibilità e permette di gestire carichi di lavoro di autenticazione più gravosi.
 
 Effettuare il provisioning di server del connettore nella stessa rete virtuale o in una rete virtuale connessa/associata in cui è stato abilitato il dominio gestito di Azure AD Domain Services. Analogamente, i server che ospitano le applicazioni pubblicate tramite il proxy di applicazione devono essere installati nella stessa rete virtuale di Azure.
 
@@ -99,11 +99,11 @@ In precedenza è stato effettuato il provisioning di una macchina virtuale Windo
 
 
 ## <a name="deployment-note---publish-iwa-integrated-windows-authentication-applications-using-azure-ad-application-proxy"></a>Nota di distribuzione: pubblicare applicazioni con l'autenticazione integrata di Windows usando il proxy di applicazione di Azure AD
-Abilitare l'accesso Single Sign-On alle applicazioni che usano l'autenticazione integrata di Windows concedendo ai connettori del proxy di applicazione l'autorizzazione a rappresentare gli utenti e a inviare e ricevere token per loro conto. Configurare la delega vincolata kerberos (KCD) per il connettore per concedere le autorizzazioni necessarie per accedere alle risorse nel dominio gestito. Usare il meccanismo della delega vincolata Kerberos basata su risorse nei domini gestiti per una maggiore sicurezza.
+Abilitare l'accesso Single Sign-On alle applicazioni che usano l'autenticazione integrata di Windows concedendo ai connettori del proxy di applicazione l'autorizzazione a rappresentare gli utenti e a inviare e ricevere token per loro conto. Configurare la delega vincolata Kerberos (KCD) per il connettore per concedere le autorizzazioni necessarie per accedere alle risorse nel dominio gestito. Usare il meccanismo della delega vincolata Kerberos basata su risorse nei domini gestiti per una maggiore sicurezza.
 
 
-### <a name="enable-resource-based-kerberos-constrained-delegation-for-the-azure-ad-application-proxy-connector"></a>Abilitare la delega vincolata kerberos basata su risorse per il connettore del proxy di applicazione di Azure AD
-Il connettore del proxy di applicazione di Azure deve essere configurato per la delega vincolata kerberos (KCD), in modo che possa rappresentare gli utenti nel dominio gestito. In un dominio gestito di Azure AD Domain Services non si hanno privilegi di amministratore di dominio. Di conseguenza, **non è possibile configurare la delega vincolata Kerberos tradizionale a livello di account in un dominio gestito**.
+### <a name="enable-resource-based-kerberos-constrained-delegation-for-the-azure-ad-application-proxy-connector"></a>Abilitare la delega vincolata Kerberos basata su risorse per il connettore del proxy di applicazione di Azure AD
+Il connettore del proxy di applicazione Azure deve essere configurato per la delega vincolata Kerberos (KCD), in modo che possa rappresentare gli utenti nel dominio gestito. In un dominio gestito di Azure AD Domain Services non si hanno privilegi di amministratore di dominio. Di conseguenza, **non è possibile configurare la delega vincolata Kerberos tradizionale a livello di account in un dominio gestito**.
 
 Usare la delega vincolata Kerberos basata su risorse, come illustrato in [questo articolo](active-directory-ds-enable-kcd.md).
 
@@ -113,12 +113,12 @@ Usare la delega vincolata Kerberos basata su risorse, come illustrato in [questo
 >
 
 Usare il cmdlet di PowerShell Get-ADComputer per recuperare le impostazioni del computer in cui è installato il connettore del proxy di applicazione di Azure AD.
-```
+```powershell
 $ConnectorComputerAccount = Get-ADComputer -Identity contoso100-proxy.contoso100.com
 ```
 
 Successivamente, usare il cmdlet Set-ADComputer per impostare la delega vincolata Kerberos basata su risorse per il server delle risorse.
-```
+```powershell
 Set-ADComputer contoso100-resource.contoso100.com -PrincipalsAllowedToDelegateToAccount $ConnectorComputerAccount
 ```
 

@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 53b6f03d43b5525e5c5dea42e6a9a36042b65d52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-data-encryption-at-rest"></a>Crittografia dei dati inattivi di Azure
-Sono disponibili diversi strumenti in Microsoft Azure per proteggere i dati in base alle esigenze di sicurezza e conformità dell'azienda. Questo documento è incentrato sulla protezione dei dati inattivi in Microsoft Azure. Vengono illustrati i vari componenti dell'implementazione della protezione dei dati e sono descritti vantaggi e svantaggi dei diversi approcci di protezione della gestione delle chiavi. 
+Sono disponibili diversi strumenti in Microsoft Azure per proteggere i dati in base alle esigenze di sicurezza e conformità dell'azienda. Questo documento è incentrato su:
+- come proteggere i dati inattivi in Microsoft Azure,
+- i vari componenti che compongono l'implementazione di protezione dei dati,
+- i pro e i contro dei vari principali approcci alla protezione della gestione. 
 
 La crittografia dei dati inattivi è un requisito di sicurezza comune. Uno dei vantaggi di Microsoft Azure è che le organizzazioni possono ottenere la crittografia dei dati inattivi senza il costo di implementazione e gestione e il rischio di una soluzione di gestione delle chiavi personalizzata. Le organizzazioni hanno la possibilità di lasciare che sia Azure a gestire completamente la crittografia dei dati inattivi. Sono inoltre disponibili varie opzioni per gestire con precisione la crittografia o le chiavi di crittografia.
 
@@ -40,7 +43,7 @@ La funzione della crittografia dei dati inattivi è garantire la protezione dei 
 
 La crittografia dei dati inattivi è progettata per impedire a un utente malintenzionato di accedere ai dati non crittografati, garantendo che i dati siano crittografati quando sono su disco. Se un utente malintenzionato riesce a ottenere un disco rigido con i dati crittografati ma non ha accesso alle chiavi di crittografia, non sarà in grado di compromettere i dati, se non con grande difficoltà. In uno scenario di questo tipo, sarebbe necessario tentare attacchi contro i dati crittografati, che sono molto più complessi e con un maggior consumo di risorse rispetto all'accesso ai dati non crittografati su un disco rigido. Per questo motivo, la crittografia dei dati inattivi è estremamente utile e costituisce un requisito di alta priorità per molte organizzazioni. 
 
-In alcuni casi, la crittografia dei dati inattivi è anche necessaria per i requisiti di conformità e governance dei dati dell'organizzazione. Regolamenti governativi e di settore, come HIPAA, PCI e FedRAMP, e requisiti normativi internazionali definiscono specifiche misure di sicurezza tramite processi e criteri relativi ai requisiti di protezione e crittografia dei dati. Per molte di queste normative, la crittografia dei dati inattivi è una misura obbligatoria necessaria per la conformità della protezione e la gestione dei dati. 
+In alcuni casi, la crittografia dei dati inattivi è anche necessaria per i requisiti di conformità e governance dei dati dell'organizzazione. Regolamenti governativi e di settore, come HIPAA, PCI e FedRAMP, definiscono specifiche misure di sicurezza relativi ai requisiti di protezione e crittografia dei dati. Per molte di queste normative, la crittografia dei dati inattivi è una misura obbligatoria necessaria per la conformità della protezione e la gestione dei dati. 
 
 Oltre ai requisiti normativi e di conformità, la crittografia dei dati inattivi deve essere considerata come una funzionalità di difesa avanzata della piattaforma. Anche se Microsoft offre una piattaforma conforme per i servizi, le applicazioni e i dati, caratteristiche per la sicurezza fisica e delle strutture, nonché il controllo dell'accesso ai dati, è importante offrire ulteriori misure di sicurezza "sovrapposte", nel caso una delle altre abbia esito negativo. La crittografia dei dati inattivi fornisce un meccanismo di difesa aggiuntivo di questo tipo.
 
@@ -62,7 +65,7 @@ Le autorizzazioni per l'uso delle chiavi archiviate in Azure Key Vault (per la g
 
 ### <a name="key-hierarchy"></a>Gerarchia delle chiavi
 
-In genere viene usata più di una chiave di crittografia in un'implementazione della crittografia dei dati inattivi. La crittografia asimmetrica è utile per stabilire l'attendibilità e l'autenticazione necessarie per la gestione e l'accesso alle chiavi. La crittografia simmetrica è più efficiente per la crittografia e la decrittografia in blocco, perché consente una crittografia più avanzata e prestazioni migliori. Inoltre, limitare l'uso di una sola chiave di crittografia riduce il rischio di compromissione della chiave e il costo della ripetizione della crittografia quando è necessario sostituire una chiave. Per sfruttare i vantaggi della crittografia asimmetrica e simmetrica e limitare l'uso e l'esposizione di una singola chiave, la crittografia dei dati inattivi di Azure usa una gerarchia delle chiavi che comprende i tipi di chiavi seguenti:
+Viene usata più di una chiave di crittografia in un'implementazione della crittografia per i dati inattivi. La crittografia asimmetrica è utile per stabilire l'attendibilità e l'autenticazione necessarie per la gestione e l'accesso alle chiavi. La crittografia simmetrica è più efficiente per la crittografia e la decrittografia in blocco, perché consente una crittografia più avanzata e prestazioni migliori. Inoltre, limitare l'uso di una sola chiave di crittografia riduce il rischio di compromissione della chiave e il costo della ripetizione della crittografia quando è necessario sostituire una chiave. Per sfruttare i vantaggi della crittografia asimmetrica e simmetrica e limitare l'uso e l'esposizione di una singola chiave, i modelli di crittografia dei dati inattivi di Azure usano una gerarchia delle chiavi che comprende i tipi di chiavi seguenti:
 
 - **Chiave DEK (Data Encryption Key)**: una chiave AES256 simmetrica usata per crittografare una partizione o un blocco di dati.  Una singola risorsa può avere diverse partizioni e più chiavi DEK. La crittografia di ogni blocco di dati con una chiave diversa rende più complessi gli attacchi di crittoanalisi. È necessario l'accesso alle chiavi DEK per il provider di risorse o l'istanza dell'applicazione che esegue la crittografia e la decrittografia di un blocco specifico. Quando una chiave DEK viene sostituita con una nuova chiave, devono essere nuovamente crittografati con la nuova chiave solo i dati nel blocco associato.
 - **Chiave KEK (Key Encryption Key)**: una chiave asimmetrica usata per crittografare le chiavi di crittografia. L'uso di una chiave di crittografia delle chiavi consente di crittografare e controllare le stesse chiavi di crittografia dati. L'entità che ha accesso alla chiave KEK può essere diversa dall'entità che richiede la chiave DEK. Questo consente a un'entità di gestire l'accesso alla chiave DEK allo scopo di garantire l'accesso limitato di ogni chiave DEK a una partizione specifica. Poiché è necessaria la chiave KEK per decrittografare le chiavi DEK, la chiave KEK è di fatto un singolo punto che consente di eliminare in modo efficace le chiavi DEK eliminando la chiave KEK.
@@ -100,7 +103,7 @@ Come indicato in precedenza, i modelli di crittografia supportati in Azure sono 
 
 ### <a name="client-encryption-model"></a>Modello di crittografia client
 
-Il modello di crittografia client fa riferimento alla crittografia che viene eseguita all'esterno del provider di risorse o da Azure dal servizio o dall'applicazione chiamante. La crittografia può essere eseguita dall'applicazione del servizio in Azure o da un'applicazione in esecuzione nel data center del cliente. In entrambi i casi, quando si usa questo modello di crittografia, il provider di risorse di Azure riceve un blob di dati crittografato senza alcuna possibilità di decrittografare i dati o avere accesso alle chiavi di crittografia. In questo modello, la gestione delle chiavi viene eseguita dal servizio o dall'applicazione chiamante ed è completamente opaca al servizio di Azure.
+Il modello di crittografia client fa riferimento alla crittografia che viene eseguita all'esterno del provider di risorse o da Azure dal servizio o dall'applicazione chiamante. La crittografia può essere eseguita dall'applicazione del servizio in Azure o da un'applicazione in esecuzione nel data center del cliente. In entrambi i casi, quando si usa questo modello di crittografia, il provider di risorse di Azure riceve un blob di dati crittografato senza alcuna possibilità di decrittografare i dati o avere accesso alle chiavi di crittografia. In questo modello la gestione delle chiavi viene eseguita dal servizio o dall'applicazione chiamante ed è opaca al servizio di Azure.
 
 ![Client](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig2.png)
 
@@ -120,9 +123,9 @@ Per molti clienti, il requisito essenziale consiste nel garantire che i dati sia
 
 ![gestito](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig4.png)
 
-La crittografia lato server con chiavi gestite dal servizio consente pertanto di soddisfare rapidamente l'esigenza di implementare la crittografia dei dati inattivi con un sovraccarico limitato per il cliente. Quando disponibile, un cliente apre il portale di Azure per la sottoscrizione e il provider di risorse di destinazione e seleziona una casella per indicare che vuole che i dati vengano crittografati. In alcuni provider di risorse, la crittografia lato server con chiavi gestite dal servizio è attiva per impostazione predefinita. 
+La crittografia lato server con chiavi gestite dal servizio consente pertanto di soddisfare rapidamente l'esigenza di implementare la crittografia dei dati inattivi con un sovraccarico limitato per il cliente. Quando disponibile, un cliente apre il portale di Azure per la sottoscrizione e il provider di risorse di destinazione e seleziona una casella per indicare che vuole che i dati vengano crittografati. In alcuni manager delle risorse la crittografia lato server con chiavi gestite dal servizio è attiva per impostazione predefinita. 
 
-La crittografia lato server con chiavi gestite da Microsoft non implica che il servizio disponga dell'accesso completo all'archiviazione e gestisca le chiavi. Anche se alcuni clienti potrebbero voler gestire le chiavi perché pensano di poter garantire una maggiore sicurezza, durante la valutazione di questo modello è importante tenere conto del costo e del rischio associato a una soluzione personalizzata di archiviazione delle chiavi. In molti casi, un'organizzazione può stabilire che i vincoli di risorse o i rischi di una soluzione locale potrebbero essere maggiori rispetto al rischio associato alla gestione nel cloud delle chiavi di crittografia dei dati inattivi.  Questo modello, tuttavia, potrebbe non essere sufficiente per le organizzazioni che dispongono di requisiti per il controllo della creazione o del ciclo di vita delle chiavi di crittografia oppure per fare in modo che la gestione delle chiavi di crittografia venga eseguita da personale diverso da quello che gestisce il servizio (ad esempio, separando la gestione delle chiavi dal modello di gestione generale per il servizio).
+La crittografia lato server con chiavi gestite da Microsoft implica che il servizio ha accesso completo all'archiviazione e gestisce le chiavi. Anche se alcuni clienti potrebbero voler gestire le chiavi perché pensano di poter garantire una maggiore sicurezza, durante la valutazione di questo modello è importante tenere conto del costo e del rischio associato a una soluzione personalizzata di archiviazione delle chiavi. In molti casi, un'organizzazione può stabilire che i vincoli di risorse o i rischi di una soluzione locale potrebbero essere maggiori rispetto al rischio associato alla gestione nel cloud delle chiavi di crittografia dei dati inattivi.  Questo modello, tuttavia, potrebbe non essere sufficiente per le organizzazioni che dispongono di requisiti per il controllo della creazione o del ciclo di vita delle chiavi di crittografia oppure per fare in modo che la gestione delle chiavi di crittografia venga eseguita da personale diverso da quello che gestisce il servizio (ad esempio, separando la gestione delle chiavi dal modello di gestione generale per il servizio).
 
 ##### <a name="key-access"></a>Accesso alle chiavi
 
@@ -145,7 +148,7 @@ Per gli scenari in cui il requisito prevede di crittografare i dati inattivi e c
 
 ##### <a name="key-access"></a>Accesso alle chiavi
 
-Il modello di crittografia lato server con chiavi gestite dal cliente in Azure Key Vault prevede che il servizio di accesso alle chiavi possa eseguire la crittografia e la decrittografia in base alle esigenze. Le chiavi per la crittografia dei dati inattivi vengono rese accessibili a un servizio tramite un criterio di controllo di accesso che concede all'identità del servizio l'accesso per ricevere la chiave. Un servizio di Azure in esecuzione per conto di una sottoscrizione associata può essere configurato con un'identità per tale servizio all'interno della sottoscrizione. Il servizio può eseguire l'autenticazione di Azure Active Directory e ricevere un token di autenticazione che lo identifica come un servizio che opera per conto della sottoscrizione. Il token può quindi essere presentato all'insieme di credenziali delle chiavi per ottenere una chiave a cui è stato consentito l'accesso.
+Il modello di crittografia lato server con chiavi gestite dal cliente in Azure Key Vault prevede che il servizio di accesso alle chiavi possa eseguire la crittografia e la decrittografia in base alle esigenze. Le chiavi per la crittografia dei dati inattivi vengono rese accessibili a un servizio tramite un criterio di controllo di accesso che concede all'identità del servizio l'accesso per ricevere la chiave. Un servizio di Azure in esecuzione per conto di una sottoscrizione associata può essere configurato con un'identità all'interno della sottoscrizione. Il servizio può eseguire l'autenticazione di Azure Active Directory e ricevere un token di autenticazione che lo identifica come un servizio che opera per conto della sottoscrizione. Il token può quindi essere presentato all'insieme di credenziali delle chiavi per ottenere una chiave a cui è stato consentito l'accesso.
 
 Per le operazioni con chiavi di crittografia, può essere concesso l'accesso a un'identità del servizio per qualsiasi delle operazioni seguenti: decrypt, encrypt, unwrapkey, wrapkey, verify, sign, get, list, update, create, import, delete, backup e restore.
 
@@ -201,7 +204,7 @@ I servizi cloud Microsoft vengono usati in tutti e tre i modelli cloud: IaaS, Pa
 
 ### <a name="encryption-at-rest-for-saas-customers"></a>Crittografia dei dati inattivi per i clienti SaaS
 
-Per i clienti SaaS (Software as a Service) in genere la crittografia dei dati inattivi è abilitata o disponibile in ogni servizio. I servizi di Office 365 offrono diverse opzioni con cui i clienti possono verificare o abilitare la crittografia dei dati inattivi. Per informazioni sui servizi di Office 365, vedere le tecnologie di crittografia dei dati per Office 365.
+Per i clienti SaaS (Software as a Service) in genere la crittografia dei dati inattivi è abilitata o disponibile in ogni servizio. Office 365 offre diverse opzioni con cui i clienti possono verificare o abilitare la crittografia dei dati inattivi. Per informazioni sui servizi di Office 365, vedere le tecnologie di crittografia dei dati per Office 365.
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Crittografia dei dati inattivi per i clienti PaaS
 

@@ -1,190 +1,294 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Salesforce Sandbox | Documentazione Microsoft'
-description: Informazioni su come usare Salesforce Sandbox con Azure Active Directory per abilitare l'accesso Single Sign-On, il provisioning automatizzato e altro ancora.
+title: 'Esercitazione: Integrazione di Azure Active Directory con Salesforce Sandbox | Microsoft Docs'
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Salesforce Sandbox.
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
+ms.reviewer: joflore
 ms.assetid: ee54c39e-ce20-42a4-8531-da7b5f40f57c
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 07/21/2017
+ms.date: 11/15/2017
 ms.author: jeedes
-ms.reviewer: jeedes
-ms.openlocfilehash: 32835e79188806bb2ff319eea23b1b52ab585ab1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 128d04fdf191b60441b695efef2bf602920d80e6
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Esercitazione: Integrazione di Azure Active Directory con Salesforce Sandbox
 
-In questa esercitazione viene illustrata l'integrazione di Azure e Salesforce Sandbox.  
+Questa esercitazione descrive come integrare Salesforce Sandbox con Azure Active Directory (Azure AD).
 
->[!TIP]
->Per commenti, vedere la [pagina del supporto tecnico Azure](http://go.microsoft.com/fwlink/?LinkId=521878). 
-> 
+L'integrazione di Salesforce Sandbox con Azure AD offre i vantaggi seguenti:
 
-Sandbox offre la possibilità di creare più copie dell'organizzazione in ambienti distinti per diversi scopi, ad esempio sviluppo, test e formazione, senza compromettere i dati e le applicazioni dell’organizzazione di produzione Salesforce.  
+- È possibile controllare in Azure AD chi può accedere a Salesforce Sandbox.
+- È possibile abilitare gli utenti per l'accesso automatico a Salesforce Sandbox (Single Sign-On) con i propri account Azure AD.
+- È possibile gestire gli account da una posizione centrale: il portale di Azure.
 
-Per ulteriori informazioni, vedere [Panoramica di Sandbox](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
+## <a name="prerequisites"></a>Prerequisiti
 
-* Sottoscrizione di Azure valida
-* Sandbox in Salesforce.com
+Per configurare l'integrazione di Azure AD con Salesforce Sandbox, sono necessari gli elementi seguenti:
 
-Se non si dispone di un sandbox valido in Salesforce.com, è necessario contattare Salesforce.
+- Sottoscrizione di Azure AD.
+- Sottoscrizione di Salesforce Sandbox abilitata per l'accesso Single Sign-On
 
-Lo scenario descritto in questa esercitazione include i blocchi predefiniti seguenti:
+> [!NOTE]
+> Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
 
-1. Abilitazione dell'integrazione dell'applicazione per Salesforce Sandbox
-2. Configurazione dell'accesso Single Sign-On (SSO)
-3. Abilitazione del dominio
-4. Configurazione del provisioning utente
-5. Assegnazione degli utenti
+A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
-![Scenario](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769571.png "Scenario")
+- Non usare l'ambiente di produzione a meno che non sia necessario.
+- Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="enable-the-application-integration-for-salesforce-sandbox"></a>Abilitare l'integrazione dell'applicazione per Salesforce Sandbox
-In questa sezione viene descritto come abilitare l'integrazione dell'applicazione per Salesforce Sandbox.
+## <a name="scenario-description"></a>Descrizione dello scenario
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
-**Per abilitare l'integrazione dell'applicazione per Salesforce Sandbox, eseguire la procedura seguente:**
+1. Aggiunta di Salesforce Sandbox dalla raccolta
+2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
-1. Nel portale di Azure classico fare clic su **Active Directory**nel riquadro di spostamento sinistro.
-   
-   ![Active Directory](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700993.png "Active Directory")
-2. Nell'elenco **Directory** selezionare la directory per la quale si desidera abilitare l'integrazione delle directory.
-3. Per aprire la visualizzazione applicazioni, nella visualizzazione directory fare clic su **Applications** nel menu superiore.
-   
-   ![Applicazioni](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700994.png "Applicazioni")
-4. Per aprire la **Raccolta di applicazioni**, fare clic su **Aggiungi app**, quindi fare clic su **Aggiungi un'applicazione che verrà utilizzata dall'organizzazione**.
-   
-   ![Come procedere](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700995.png "Come procedere")
-5. Nella **casella di ricerca** digitare **Salesforce Sandbox**.
-   
-   ![Raccolta di applicazioni](./media/active-directory-saas-salesforce-sandbox-tutorial/IC710978.png "Raccolta di applicazioni")
-6. Nel riquadro dei risultati selezionare **Salesforce Sandbox**, quindi fare clic su **Completa** per aggiungere l'applicazione.
-   
-   ![Salesforce Sandbox](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746474.png "Salesforce Sandbox")
-   
-## <a name="configur-single-sign-on-sso"></a>Configurare l'accesso Single Sign-On (SSO)
+## <a name="adding-salesforce-sandbox-from-the-gallery"></a>Aggiunta di Salesforce Sandbox dalla raccolta
+Per configurare l'integrazione di Salesforce Sandbox in Azure AD, è necessario aggiungere Salesforce Sandbox dalla raccolta al proprio elenco di app SaaS gestite.
 
-In questa sezione viene descritto come consentire agli utenti di eseguire l'autenticazione a Salesforce Sandbox tramite il proprio account di Azure AD usando la federazione basata sul protocollo SAML.
+**Per aggiungere Salesforce Sandbox dalla raccolta, seguire questa procedura:**
 
-**Per configurare l'accesso Single Sign-On, seguire questa procedura:**
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
-1. Nella pagina di integrazione dell'applicazione **Salesforce Sandbox** del portale di Azure classico fare clic su **Configura accesso Single Sign-On** per aprire la finestra di dialogo **Configura accesso Single Sign-On**.
-   
-   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/IC749323.png "Configurare l'accesso Single Sign-On")
-2. Nella pagina **Stabilire come si desidera che gli utenti accedano a Salesforce Sandbox** selezionare **Single Sign-On di Microsoft Azure AD** e quindi fare clic su **Avanti**.
-   
-   ![Salesforce Sandbox](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746479.png "Salesforce Sandbox")
-3. Nella casella di testo **URL di accesso** della pagina **Configura URL app** digitare l'URL nel formato `http://company.my.salesforce.com` e quindi fare clic su **Avanti**.
-   
-   ![Configurare l'URL dell'app](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781022.png "Configurare l'URL dell'app")
-4. Se l'accesso Single Sign-On è già stato configurato per un'altra istanza di Salesforce Sandbox nella directory, sarà necessario configurare anche l'**identificatore** in modo che abbia lo stesso valore di **URL di accesso**. 
- * Per trovare il campo **Identificatore**, selezionare la casella di controllo **Impostazioni avanzate** nella pagina **Configura URL app** della finestra di dialogo.
-5. Nella pagina **Configura accesso Single Sign-On in Salesforce Sandbox** fare clic su **Scarica certificato** e quindi salvare il file di certificato nel computer.
-   
-   ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781023.png "Configurare l'accesso Single Sign-On")
-6. In un'altra finestra del Web browser accedere al sito aziendale di Salesforce Sandbox come amministratore.
-7. Nel menu in alto fare clic su **Impostazione**.
-   
-   ![Installazione](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781024.png "Installazione")
-8. Nel riquadro di spostamento a sinistra, fare clic su **Security Controls** (Controlli di sicurezza) e quindi fare clic su **Single Sign-On Settings** (Impostazioni Single Sign-On).
-   
-   ![Single Sign-On Settings](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781025.png "Single Sign-On Settings")
-9. Nella sezione Impostazioni Single Sign-On, eseguire la procedura seguente:
-   
-   ![Single Sign-On Settings](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781026.png "Single Sign-On Settings")  
- 1.  Selezionare **Abilitato SAML**. 
- 2.  Fare clic su **New**.
-10. Nella sezione Impostazioni SAML Single Sign-On, eseguire la procedura seguente:
+    ![Pulsante Azure Active Directory][1]
+
+2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+
+    ![Pannello Applicazioni aziendali][2]
     
-    ![SAML Single Sign-On Settings](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781027.png "SAML Single Sign-On Settings")  
- 1. Nella casella di testo Nome digitare il nome della configurazione, ad esempio *SPSSOWAAD\_Test*. 
- 2. Nella finestra di dialogo **Configura accesso Single Sign-On in Salesforce Sandbox** del portale di Azure classico copiare il valore di **URL autorità di certificazione** e incollarlo nella casella di testo **Issuer** (Autorità di certificazione).
- 3. Nella casella di testo **ID entità** digitare **https://test.salesforce.com** se è la prima istanza di Salesforce Sandbox aggiunta alla directory. Se esiste già un'istanza di Salesforce Sandbox, in **ID entità** digitare l'**URL di accesso**, che deve avere questo formato: `http://company.my.salesforce.com`   
- 4. Per caricare il certificato scaricato, fare clic su **Sfoglia** .  
- 5. In **SAML Identity Type** (Tipo di identità SAML) selezionare **Assertion contains the Federation ID from the User object** (L'asserzione contiene l'ID federazione dell'oggetto utente). 
- 6. In **SAML Identity Location**(Percorso identità SAML) selezionare **Identity is in the NameIdentifier element of the Subject statement** (L'identità è nell'elemento NameIdentifier dell'istruzione Subject).
- 7. Nella pagina della finestra di dialogo **Configura accesso Single Sign-On in Salesforce Sandbox** del portale di Azure classico copiare il valore di **URL accesso remoto** e incollarlo nella casella di testo **Identity Provider Login URL** (URL di accesso provider di identità). 
- 8. SFDC non supporta la disconnessione SAML.  Come soluzione alternativa, incollare "https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0" nella casella di testo **Identity Provider Logout URL** (URL di disconnessione provider di identità).
- 9. In **Service Provider Initiated Request Binding** (Binding richiesta avviato dal provider di servizi) selezionare **HTTP POST**. 
- 10. Fare clic su **Save**.
-11. Nel portale di Azure classico selezionare la conferma della configurazione dell'accesso Single Sign-On e quindi fare clic su **Complete** per chiudere la finestra di dialogo **Configura accesso Single Sign-On**.
-    
-    ![Configurare l'accesso Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781028.png "Configurare l'accesso Single Sign-On")
+3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-## <a name="enable-your-domain"></a>Abilitare il dominio
-In questa sezione si presuppone che sia già stato creato un dominio.  Per informazioni dettagliate, vedere [Definizione del nome di dominio](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US).
+    ![Pulsante Nuova applicazione][3]
+
+4. Nella casella di ricerca digitare **Salesforce Sandbox**, selezionare **Salesforce Sandbox** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+
+    ![Salesforce Sandbox nell'elenco risultati](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
+
+In questa sezione si configura e si testa l'accesso Single Sign-On di Azure AD con Salesforce Sandbox in base a un utente di test di nome "Britta Simon".
+
+Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere qual è l'utente di Salesforce Sandbox che corrisponde a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Salesforce Sandbox.
+
+Per stabilire la relazione di collegamento, in Salesforce Sandbox assegnare il valore di **nome utente** di Azure AD come valore dell'attributo **Username** (Nome utente).
+
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Salesforce Sandbox, è necessario completare i blocchi predefiniti seguenti:
+
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
+2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+3. **[Creare un utente di test di Salesforce Sandbox](#create-a-salesforce-sandbox-test-user)**: per avere una controparte di Britta Simon in Salesforce Sandbox collegata alla rappresentazione in Azure AD dell'utente.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
+
+In questa sezione si abilita l'accesso Single Sign-On di Azure AD nel portale di Azure e si configura l'accesso Single Sign-On nell'applicazione Salesforce Sandbox.
+
+**Per configurare Single Sign-On di Azure AD con Salesforce Sandbox, seguire questa procedura:**
+
+1. Nella pagina di integrazione dell'applicazione **Salesforce Sandbox** del portale di Azure fare clic su **Single Sign-On**.
+
+    ![Collegamento per la configurazione dell'accesso Single Sign-On][4]
+
+2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
+ 
+    ![Finestra di dialogo Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_samlbase.png)
+
+3. Nella sezione **URL e dominio Salesforce Sandbox** seguire questa procedura:
+
+    ![Informazioni sull'accesso Single Sign-On per URL e dominio di Salesforce Sandbox](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_url.png)
+
+    a. Nella casella di testo **URL di accesso** digitare il valore usando il modello seguente: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`
+
+    b. Nella casella di testo **Identificatore** digitare il valore adottando il modello seguente: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`
+    
+    > [!NOTE] 
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Salesforce](https://help.salesforce.com/support).
+
+4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato** e quindi salvare il file del certificato nel computer.
+
+    ![Collegamento di download del certificato](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_certificate.png) 
+
+5. Fare clic sul pulsante **Salva** .
+
+    ![Pulsante Salva di Configura accesso Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_400.png)
+
+6. Nella sezione **Configurazione di Salesforce Sandbox** fare clic su **Configura Salesforce Sandbox** per aprire la finestra **Configura accesso**. Copiare l'**ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_configure.png) 
+
+7. Aprire una nuova scheda del browser e accedere all'account di amministratore di Salesforce Sandbox.
+
+8. Fare clic su **Setup** (Configura) sotto l'**icona Settings** (Impostazioni) nell'angolo superiore destro della pagina.
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/configure1.png)
+
+9. Scorrere verso il basso fino alla voce **SETTINGS** (Impostazioni) nel riquadro di spostamento e fare clic su **Identity** (Identità) per espandere la sezione corrispondente. Fare quindi clic su **Single Sign-On Settings**.
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-admin-sso.png)
+
+10. Selezionare **SAML Enabled**, quindi fare clic su **Save**.
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-enable-saml.png)
+
+11. Per configurare le impostazioni dell'accesso Single Sign-On SAML, fare clic su **New**.
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+
+12. Nella sezione Impostazioni SAML Single Sign-On, eseguire la procedura seguente:
+
+    ![Configura accesso Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-saml-config.png)
+
+    a. Nella casella di testo **Name** (Nome) digitare il nome della configurazione, ad esempio *SPSSOWAAD_Test*. 
+
+    b. Nel campo **Issuer** (Autorità emittente) incollare il valore dell'**ID di entità SAML** copiato dal portale di Azure.
+
+    c. Nella casella di testo **Entity Id** (ID entità) digitare `https://<instancename>--Sandbox.<entityid>.my.salesforce.com` se è la prima istanza di Salesforce Sandbox aggiunta alla directory. Se esiste già un'istanza di Salesforce Sandbox, in **ID entità** digitare l'**URL di accesso**, che deve avere questo formato: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`  
+ 
+    d. Per caricare **Identity Provider Certificate** (Certificato provider di identità) fare clic su **Choose file** (Scegli file) per esplorare e selezionare il file di certificato scaricato dal portale di Azure.  
+
+    e. Nel campo **SAML Identity Type** (Tipo di identità SAML) scegliere una delle opzioni seguenti:
+    
+      * Selezionare **Assertion contains the User's Salesforce username** (L'asserzione contiene il nome utente Salesforce dell'utente) se il nome utente Salesforce dell'utente viene passato nell'asserzione SAML
+
+      * Selezionare **Assertion contains the Federation ID from the User object** (L'asserzione contiene l'ID federazione dell'oggetto User) se l'ID federazione dell'oggetto User viene passato nell'asserzione SAML
+
+      * Selezionare **Assertion contains the Use ID from the User object** (L'asserzione contiene l'ID uso dell'oggetto User) se l'ID uso dell'oggetto User viene passato nell'asserzione SAML
+ 
+    f. In **SAML Identity Location**(Percorso identità SAML) selezionare **Identity is in the NameIdentifier element of the Subject statement** (L'identità è nell'elemento NameIdentifier dell'istruzione Subject).
+
+    g. In **Service Provider Initiated Request Binding** (Binding richiesta avviato dal provider di servizi) selezionare **HTTP POST**. 
+
+    h. Nella casella di testo **Identity Provider Login URL** (URL di accesso provider di identità) incollare il valore dell'**URL del servizio Single Sign-On**  copiato dal portale di Azure. 
+
+    i. SFDC non supporta la disconnessione SAML.  Come soluzione alternativa incollare `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` nella casella dell'**URL di disconnessione del provider di identità**.
+
+    j. Fare clic su **Salva**.
+
+### <a name="enable-your-domain"></a>Abilitare il dominio
+In questa sezione si presuppone che sia già stato creato un dominio.  Per altre informazioni, vedere [Definizione del nome di dominio](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US).
 
 **Per abilitare il dominio, eseguire la procedura seguente:**
 
-1. Nel riquadro di spostamento a sinistra fare clic su **Domain Management** (Gestione dominio) e quindi su **My Domain** (Dominio personale).
+1. Nel pannello di navigazione sinistro in Salesforce fare clic su **Company Settings** (Impostazioni aziendali) per espandere la sezione correlata e quindi fare clic su **My Domain** (Dominio personale).
    
-   ![My Domain](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781029.png "My Domain")
+     ![Configura accesso Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-my-domain.png)
    
    >[!NOTE]
    >Assicurarsi che il dominio sia stato configurato correttamente. 
-   > 
-2. Nella sezione **Login Page Settings** (Impostazioni pagina di accesso) fare clic su **Edit** (Modifica), quindi per **Authentication Service** (Servizio di autenticazione) selezionare il nome dell'impostazione Single Sign-On SAML definita nella sezione precedente e fare clic su **Save** (Salva).
+
+2. Nella sezione **Authentication Configuration** (Configurazione autenticazione) fare clic su **Edit** (Modifica), per **Authentication Service** (Servizio di autenticazione) selezionare il nome dell'impostazione Single Sign-On SAML definita nella sezione precedente e quindi fare clic su **Save** (Salva).
    
-   ![My Domain](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781030.png "My Domain")
+   ![Configura accesso Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
 Non appena si dispone di un dominio configurato, gli utenti devono utilizzare l'URL del dominio per l'accesso a Salesforce Sandbox.  
 
 Per ottenere il valore dell'URL, fare clic sul profilo SSO creato nella sezione precedente.
 
-## <a name="configure-user-provisioning"></a>Configura provisioning utenti
-In questa sezione viene descritto come abilitare il provisioning utente degli account utente di Active Directory in Salesforce Sandbox.
+> [!TIP]
+> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
+> 
 
-**Per configurare il provisioning utenti, seguire questa procedura:**
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-1. Nella barra di spostamento in alto del portale di Salesforce, selezionare il nome per espandere il menu utente:
-   
-   ![My Settings](./media/active-directory-saas-salesforce-sandbox-tutorial/IC698773.png "My Settings")
-2. Nel menu utente selezionare **My Settings** (Impostazioni personali) per aprire la pagina **My Settings** (Impostazioni personali).
-3. Nel riquadro a sinistra fare clic su **Personal** (Personale) per espandere la sezione corrispondente e fare clic su **Reset My Security Token** (Reimposta token di sicurezza personale):
-   
-   ![My Settings](./media/active-directory-saas-salesforce-sandbox-tutorial/IC698774.png "My Settings")
-4. Nella pagina **Reset My Security Token** (Reimposta token di sicurezza personale) fare clic su **Reset Security Token** (Reimposta token di sicurezza) per richiedere un messaggio di posta elettronica con il token di sicurezza di Salesforce.com.
-   
-   ![New Token](./media/active-directory-saas-salesforce-sandbox-tutorial/IC698776.png "New Token")
-5. Verificare nella cartella Posta in arrivo la presenza di un messaggio da Salesforce.com con oggetto analogo a "**conferma di sicurezza di salesforce.com.com**".
-6. Aprire il messaggio di posta elettronica e copiare il valore del token di sicurezza.
-7. Nella pagina di integrazione dell'applicazione **Salesforce Sandbox** del portale di Azure classico fare clic su **Configura provisioning utenti** per aprire la finestra di dialogo **Configura provisioning utenti**.
-   
-   ![Configure user provisioning](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769573.png "Configure user provisioning")
-8. Nella pagina **Immettere le credenziali di Salesforce Sandbox per abilitare il provisioning automatico degli utenti** specificare le impostazioni di configurazione seguenti:
-   
-   ![Salesforce Sandbox](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746476.png "Salesforce Sandbox")   
- 1. Nella casella di testo **Nome utente amministratore Salesforce Sandbox** digitare un nome account di Salesforce Sandbox con il profilo **Amministratore di sistema** assegnato in Salesforce.com.
- 2. Nella casella di testo **Password amministratore Salesforce Sandbox** digitare la password per questo account.
- 3. Nella casella di testo **Token di sicurezza utente** incollare il valore del token di sicurezza.
- 4. Fare clic su **Convalida** per verificare la configurazione.
- 5. Fare clic sul pulsante **Avanti** per aprire la pagina **Conferma**.
-9. Nella pagina **Conferma** fare clic su **Completa** per salvare la configurazione.
-   
-## <a name="assigning-users"></a>Assegnazione degli utenti
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-Per testare la configurazione, è necessario concedere l'accesso all'applicazione agli utenti di Azure AD a cui si vuole consentirne l'uso, assegnando tali utenti all'applicazione.
+   ![Creare un utente test di Azure AD][100]
 
-**Per assegnare gli utenti a Salesforce Sandbox, eseguire la procedura seguente:**
+**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel portale di Azure classico creare un account di test.
-2. Nella pagina di integrazione dell'applicazione **Salesforce Sandbox** fare clic su **Assegna utenti**.
-   
-   ![Assegnare utenti](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769574.png "Assegnare utenti")
-3. Selezionare l'utente di test, fare clic su **Assegna** e quindi su **Sì** per confermare l'assegnazione.
-   
-   ![Sì](./media/active-directory-saas-salesforce-sandbox-tutorial/IC767830.png "Sì")
+1. Nel portale di Azure fare clic sul pulsante **Azure Active Directory** nel riquadro sinistro.
 
-È ora necessario attendere 10 minuti e verificare che l'account sia stato sincronizzato con Salesforce Sandbox.
+    ![Pulsante Azure Active Directory](./media/active-directory-saas-salesforce-sandbox-tutorial/create_aaduser_01.png)
 
-Per testare le impostazioni di SSO, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://msdn.microsoft.com/library/dn308586).
+2. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
+
+    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/active-directory-saas-salesforce-sandbox-tutorial/create_aaduser_02.png)
+
+3. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
+
+    ![Pulsante Aggiungi](./media/active-directory-saas-salesforce-sandbox-tutorial/create_aaduser_03.png)
+
+4. Nella finestra di dialogo **Utente** seguire questa procedura:
+
+    ![Finestra di dialogo Utente](./media/active-directory-saas-salesforce-sandbox-tutorial/create_aaduser_04.png)
+
+    a. Nella casella **Nome** digitare **BrittaSimon**.
+
+    b. Nella casella **Nome utente** digitare l'indirizzo di posta elettronica dell'utente Britta Simon.
+
+    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+
+    d. Fare clic su **Crea**.
+ 
+### <a name="create-a-salesforce-sandbox-test-user"></a>Creare un utente di test di Salesforce Sandbox
+
+In questa sezione si crea un utente di nome Britta Simon in Salesforce Sandbox. Salesforce Sandbox supporta il provisioning JIT (Just-In-Time) che è abilitato per impostazione predefinita.
+Non è necessario alcun intervento dell'utente in questa sezione. Se un utente non esiste in Salesforce Sandbox, ne viene creato uno nuovo quando si tenta di accedere a Salesforce Sandbox.
+
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+
+In questa sezione si abilita Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a Salesforce Sandbox.
+
+![Assegnare il ruolo utente][200] 
+
+**Per assegnare Britta Simon a Salesforce Sandbox, seguire questa procedura:**
+
+1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
+
+    ![Assegna utente][201] 
+
+2. Nell'elenco di applicazioni selezionare **Salesforce Sandbox**.
+
+    ![Collegamento Salesforce Sandbox nell'elenco delle applicazioni](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_app.png)  
+
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+
+    ![Collegamento "Utenti e gruppi"][202]
+
+4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+
+    ![Riquadro Aggiungi assegnazione][203]
+
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+
+6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+
+7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+    
+### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
+
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+
+Quando si fa clic sul riquadro Salesforce Sandbox nel pannello di accesso, verrà eseguito automaticamente l'accesso all'applicazione Salesforce Sandbox.
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+* [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_203.png
 

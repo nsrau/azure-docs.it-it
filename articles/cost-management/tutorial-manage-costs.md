@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/06/2017
+ms.date: 11/21/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 83ddc0cb4227235069b0027a24a52f4d8e818126
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: bfbcded98814500a03b2b79b0248c84f8f043dc0
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="manage-costs-by-using-azure-cost-management"></a>Gestire i costi tramite Gestione costi di Azure
 
@@ -66,7 +66,7 @@ Per visualizzare informazioni sulle scelte effettuate per allocare i costi, sele
 
 Nell'elenco è visualizzato il nuovo modello dei costi con lo stato **Processing** (Elaborazione in corso). L'aggiornamento del database di Cloudyn con il modello dei costi può richiedere del tempo. Al termine dell'elaborazione, lo stato viene aggiornato come **Completed** (Completato). È quindi possibile visualizzare i dati del modello dei costi nel report di analisi dei costi in **Extended Filters** (Filtri estesi) &gt; **Cost Model** (Modello costi).
 
-### <a name="category-manager"></a>Category Manager
+### <a name="category-manager"></a>Gestione delle categorie
 
 Category Manager è uno strumento per la pulizia dei dati che consente di unire i valori di più categorie (tag) per crearne di nuove. È uno strumento semplice basato su regole in cui si seleziona una categoria e si creano regole per unire valori esistenti. Si supponga ad esempio di avere due categorie per **R&amp;D** e **dev** che rappresentano entrambe il gruppo dedicato allo sviluppo.
 
@@ -80,6 +80,23 @@ La figura seguente mostra un esempio di regole create per una nuova categoria de
 
 ![Categoria di esempio](./media/tutorial-manage-costs/category01.png)
 
+### <a name="tag-sources-and-reports"></a>Origini di tag e report
+
+I dati dei tag visualizzati nei report di Cloudyn hanno origine in tre posti:
+
+- API delle risorse del provider di servizi cloud
+- API di fatturazione del provider di servizi cloud
+- Tag creati manualmente dalle origini seguenti:
+    - Tag di entità Cloudyn: metadati definiti dall’utente applicati alle entità Cloudyn
+    - Gestione delle categorie: uno strumento di pulizia dati che crea nuovi tag in base alle regole applicate ai tag esistenti
+
+Per visualizzare i tag del provider di servizi cloud nei report di costo di Cloudyn, è necessario creare un modello personalizzato di allocazione dei costi usando Cost Allocation 360. A tale scopo, apire **Costo** > **Gestione dei costi** > **Cost Allocation 360**, selezionare i tag desiderati e quindi definire le regole per la gestione dei costi senza tag. Quindi, creare un nuovo modello di costo. In seguito, è possibile visualizzare report nell'analisi di allocazione dei costi per vedere, filtrare e ordinare i tag delle risorse di Azure.
+
+I tag delle risorse di Azure vengono visualizzati solo nei report di **analisi dell’allocazione dei costi**.
+
+I tag di fatturazione del provider di servizi cloud sono visualizzati in tutti i report sui costi.
+
+I tag di entità del cloud creati manualmente sono visualizzati in tutti i report sui costi.
 
 
 ## <a name="create-showback-and-chargeback-reports"></a>Creare report di showback e chargeback

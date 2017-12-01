@@ -10,20 +10,31 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/08/2017
-ms.openlocfilehash: 4213a0ae73c38dcad403140e3d45e28f2d338020
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/17/2017
+ms.openlocfilehash: 9faac0716334d627cdde4c0ef16262670333b5d4
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
-# <a name="create-a-database-migration-service-instance-using-the-azure-portal"></a>Creare un'istanza del Servizio Migrazione del database mediante il portale di Azure
-In questa guida introduttiva, usare il portale di Azure per creare un'istanza del Servizio Migrazione del database di Azure.  Dopo aver creato il servizio, sarà possibile usarlo per eseguire la migrazione dei dati da SQL Server locale a un database SQL di Azure.
+# <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Creare un'istanza del Servizio Migrazione del database di Azure usando il portale di Azure
+In questa guida introduttiva, usare il portale di Azure per creare un'istanza del Servizio Migrazione del database di Azure.  Dopo aver creato il servizio, è possibile usarlo per eseguire la migrazione dei dati da SQL Server locale a un database SQL di Azure.
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
 Aprire il Web browser e passare al [portale di Microsoft Azure](https://portal.azure.com/). Immettere le credenziali per accedere al portale. La visualizzazione predefinita è il dashboard del servizio.
+
+## <a name="register-the-resource-provider"></a>Registrare il provider di risorse
+Prima di creare il primo Servizio Migrazione del database, è necessario registrare il provider di risorse Microsoft.DataMigration.
+
+1. Nel portale di Azure selezionare **Tutti i servizi** e quindi **Sottoscrizioni**.
+
+1. Selezionare la sottoscrizione in cui si vuole creare l'istanza del Servizio Migrazione del database di Azure e quindi selezionare **Provider di risorse**.
+
+1. Cercare la migrazione e quindi a destra di Microsoft.DataMigration selezionare **Registra**.
+
+![Registrare il provider di risorse](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## <a name="create-azure-database-migration-service"></a>Creare il Servizio Migrazione del database di Azure
 1. Fare clic su **+** per creare un nuovo servizio.  Servizio Migrazione del database è ancora in anteprima.  

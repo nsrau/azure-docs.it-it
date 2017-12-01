@@ -15,11 +15,11 @@ ms.date: 08/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 5903c8ac7a16a87b93ea6e105d82bbfdfa26bf8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ebd6109fdae00da9e6dc1fc456573327d521e7e9
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -52,7 +52,7 @@ L'estensione di Server dei criteri di rete è progettata per funzionare con l'in
 
 ### <a name="licenses"></a>Licenze
 
-L'estensione di Server dei criteri di rete per Azure MFA è disponibile per i clienti dotati di [licenze per Multi-Factor Authentication di Azure](multi-factor-authentication.md) (tra cui una sottoscrizione con Azure AD Premium, EMS o MFA). Le licenze in base al consumo per Azure MFA, ad esempio le licenze per utente o per autenticazione, non sono compatibili con l'estensione Server dei criteri di rete. 
+L'estensione di Server dei criteri di rete per Azure MFA è disponibile per i clienti dotati di [licenze per Multi-Factor Authentication di Azure](multi-factor-authentication.md), tra cui una licenza autonoma di Azure AD Premium, EMS o MFA. Le licenze in base al consumo per Azure MFA, ad esempio le licenze per utente o per autenticazione, non sono compatibili con l'estensione Server dei criteri di rete. 
 
 ### <a name="software"></a>Software
 
@@ -81,7 +81,7 @@ Prima di installare l'estensione di Server dei criteri di rete, è necessario pr
 
 ### <a name="enable-the-nps-role-on-a-domain-joined-server"></a>Abilitare il ruolo del Server dei criteri di rete in un server appartenente a un dominio
 
-Il Server dei criteri di rete si connette ad Azure Active Directory e autentica le richieste di MFA. Scegliere un server per questo ruolo. Si consiglia di scegliere un server che non gestisce le richieste provenienti da altri servizi, poiché l'estensione di Server dei criteri di rete genera errori per qualsiasi richiesta non RADIUS.
+Il Server dei criteri di rete si connette ad Azure Active Directory e autentica le richieste di MFA. Scegliere un server per questo ruolo. Si consiglia di scegliere un server che non gestisce le richieste provenienti da altri servizi, poiché l'estensione di Server dei criteri di rete genera errori per qualsiasi richiesta non RADIUS. Il Server dei criteri di rete deve essere configurato come server di autenticazione primaria e secondaria per l'ambiente. Non può inviare tramite proxy le richieste RADIUS a un altro server.
 
 1. Sul server avviare l'**aggiunta guidata ruoli e funzionalità** dal menu Avvio rapido di Server Manager.
 2. Come tipo di installazione scegliere **Installazione basata su ruoli o basata su funzionalità**.
@@ -193,7 +193,7 @@ Se sono presenti utenti che non sono registrati per MFA, è possibile stabilire 
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | VERO/FALSO | Non impostato (equivalente a VERO) |
 
-Lo scopo di questa impostazione è stabilire cosa fare quando un utente non è registrato per MFA. Quando la chiave non esiste, non è impostata o è impostata su VERO e l'utente non è registrato, allora l'estensione non esegue correttamente la richiesta di verifica MFA. Quando la chiave è impostata su FALSO e l'utente non è registrato, l'autenticazione procede senza eseguire MFA.
+Lo scopo di questa impostazione è stabilire cosa fare quando un utente non è registrato per MFA. Quando la chiave non esiste, non è impostata o è impostata su VERO e l'utente non è registrato, allora l'estensione non esegue correttamente la richiesta di verifica MFA. Quando la chiave è impostata su FALSO e l'utente non è registrato, l'autenticazione procede senza eseguire MFA. Se un utente è registrato in MFA, è necessario eseguire l'autenticazione con MFA anche se REQUIRE_USER_MATCH è impostato su FALSE.
 
 È possibile scegliere di creare questa chiave e impostarla su FALSE, durante il caricamento degli utenti che potrebbero non essere ancora registrati per Azure MFA. Poiché l'impostazione della chiave consente agli utenti che non sono registrati all'MFA di accedere, è necessario rimuovere la chiave prima di passare all'ambiente di produzione.
 

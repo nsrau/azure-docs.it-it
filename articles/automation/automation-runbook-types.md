@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/01/2017
 ms.author: bwren
-ms.openlocfilehash: 2acf45187894aa3bfcaa4df639becf18605d50a5
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 508f4bb0fc8a443dd7b95cbf19861ab1a1abeb6e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-automation-runbook-types"></a>Tipi di runbook di Automazione di Azure
 Automazione di Azure supporta diversi tipi di runbook, descritti brevemente nella tabella seguente.  Le sezioni seguenti forniscono altre informazioni su ogni tipo con alcune considerazioni sui casi in cui usarli.
@@ -30,7 +30,6 @@ Automazione di Azure supporta diversi tipi di runbook, descritti brevemente nell
 | [PowerShell](#powershell-runbooks) |Runbook di testo basato su script di Windows PowerShell. |
 | [Flusso di lavoro PowerShell](#powershell-workflow-runbooks) |Runbook di testo basato su flusso di lavoro Windows PowerShell. |
 | [Python](#python-runbooks) |Runbook di testo basato su Python. |
-| [Bash](#bash-runbooks) |Runbook di testo basato su Bash. |
 
 ## <a name="graphical-runbooks"></a>Runbook grafici
 [Grafico](automation-runbook-types.md#graphical-runbooks) and Grafico PowerShell Workflow runbooks are created and edited with the graphical editor in the Azure portal.  È possibile esportarli in un file e quindi importarli in un altro account di automazione, ma non è possibile crearli o modificarli con un altro strumento.  I runbook grafici generano codice di PowerShell, ma non è possibile visualizzare o modificare direttamente il codice. I runbook grafici non possono essere convertiti in uno dei [formati di testo](automation-runbook-types.md), né un runbook di testo può essere convertito in formato grafico. I runbook grafici possono essere convertiti in runbook grafici del flusso di lavoro di PowerShell durante l'importazione e viceversa.
@@ -39,7 +38,7 @@ Automazione di Azure supporta diversi tipi di runbook, descritti brevemente nell
 * Modello di creazione con inserimento, collegamento e configurazione visivi  
 * Possibilità di analizzare il flusso dei dati attraverso il processo  
 * Rappresentazione visiva dei processi di gestione  
-* Inclusione di alti runbook come runbook figlio per creare flussi di lavoro generali  
+* Inclusione di altri runbook come runbook figlio per creare flussi di lavoro di livello elevato  
 * Agevolazione della programmazione modulare  
 
 
@@ -57,7 +56,7 @@ I runbook di PowerShell sono basati su Windows PowerShell.  È possibile modific
 
 ### <a name="limitations"></a>Limitazioni
 * Necessità di familiarità con la scrittura di script di PowerShell.
-* Impossibilità di usare l'[elaborazione parallela](automation-powershell-workflow.md#parallel-processing) per eseguire più operazioni in parallelo.
+* Impossibilità di usare l' [elaborazione parallela](automation-powershell-workflow.md#parallel-processing) per eseguire più operazioni in parallelo.
 * Impossibilità di usare i [checkpoint](automation-powershell-workflow.md#checkpoints) per riprendere il runbook in caso di errore.
 * Possibilità di includere i runbook del flusso di lavoro PowerShell e grafici  come runbook figlio solo mediante il cmdlet Start-AzureAutomationRunbook che crea un nuovo processo.
 
@@ -75,8 +74,8 @@ I runbook del flusso di lavoro PowerShell sono runbook di testo basati sul [flus
 ### <a name="advantages"></a>Vantaggi
 * Implementazione di tutta la logica complessa con codice del flusso di lavoro PowerShell.
 * Uso dei [checkpoint](automation-powershell-workflow.md#checkpoints) per riprendere il runbook in caso di errore.
-* Uso dell'[elaborazione parallela](automation-powershell-workflow.md#parallel-processing) per eseguire più operazioni in parallelo.
-* Può includere altri runbook grafici e runbook di flusso di lavoro PowerShell come runbook figli per la creazione di flussi di lavoro generali.
+* Uso dell' [elaborazione parallela](automation-powershell-workflow.md#parallel-processing) per eseguire più operazioni in parallelo.
+* Può includere altri runbook grafici e runbook di flusso di lavoro di PowerShell come runbook figli per creare flussi di lavoro di livello elevato.
 
 ### <a name="limitations"></a>Limitazioni
 * Necessità che l'autore abbia familiarità con il flusso di lavoro PowerShell.

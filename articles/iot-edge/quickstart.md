@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e10b5dba6f91c97a5c6b71aee76eef062a8be82c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 17675f870a015e86f98bf286a9b1c2bbc05c16cd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Guida introduttiva: Distribuire il primo modulo di IoT Edge dal portale di Azure in un dispositivo Windows - Anteprima
 
@@ -42,7 +42,7 @@ Questa esercitazione presuppone che si usi un computer o una macchina virtuale c
 >    * Windows Server 1709 (Build 16299) oppure
 >    * Windows IoT Core (Build 16299) su un dispositivo basato su x64
 >
-> Per Windows IoT Core, seguire le istruzioni disponibili in [Install the IoT Edge runtime on Windows IoT Core][lnk-install-iotcore] (Installare il runtime di IoT Edge su Windows IoT Core). In caso contrario, è sufficiente [configurare Docker per usare i contenitori Windows][lnk-docker-containers] e facoltativamente convalidare i prerequisiti con il comando di PowerShell seguente:
+> Per Windows IoT Core, seguire le istruzioni disponibili in [Installare il runtime di IoT Edge su Windows IoT Core][lnk-install-iotcore]. In caso contrario, è sufficiente [configurare Docker per usare i contenitori Windows][lnk-docker-containers] e facoltativamente convalidare i prerequisiti con il comando di PowerShell seguente:
 >    ```
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
@@ -94,6 +94,8 @@ Controllare Docker per verificare che l'agente di IoT Edge sia in esecuzione com
 docker ps
 ```
 
+![Vedere edgeAgent in Docker](./media/tutorial-simulate-device-windows/docker-ps.png)
+
 ## <a name="deploy-a-module"></a>Distribuire un modulo
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
@@ -102,11 +104,21 @@ docker ps
 
 In questa guida introduttiva è stato creato un nuovo dispositivo IoT Edge, nel quale è stato installato il runtime di IoT Edge. È stato quindi usato il portale di Azure per eseguire il push di un modulo di IoT Edge da eseguire nel dispositivo senza dovere apportare modifiche al dispositivo stesso. In questo caso il modulo di cui è stato eseguito il push crea dati ambientali che è possibile usare per le esercitazioni. 
 
-Visualizzare i messaggi inviati dal modulo tempSensor:
+Aprire il prompt dei comandi nel computer eseguendo ancora il dispositivo simulato. Verificare che il modulo distribuito dal cloud sia in esecuzione nel dispositivo IoT Edge. 
 
-```cmd/sh
+```cmd
+docker ps
+```
+
+![Visualizzare tre moduli nel dispositivo](./media/tutorial-simulate-device-windows/docker-ps2.png)
+
+Visualizzare i messaggi inviati dal modulo tempSensor al cloud. 
+
+```cmd
 docker logs -f tempSensor
 ```
+
+![Visualizzare i dati dal modulo](./media/tutorial-simulate-device-windows/docker-logs.png)
 
 È anche possibile visualizzare i dati di telemetria inviati dal dispositivo tramite lo [strumento di esplorazione dell'hub IoT][lnk-iothub-explorer]. 
 ## <a name="clean-up-resources"></a>Pulire le risorse
@@ -138,6 +150,7 @@ az iot hub delete --name {your iot hub name} --resource-group {your resource gro
 [lnk-portal]: https://portal.azure.com
 [lnk-nested]: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
 [lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az_iot_hub_delete
+[lnk-install-iotcore]: how-to-install-iot-core.md
 
 <!-- Anchor links -->
 [anchor-register]: #register-an-iot-edge-device

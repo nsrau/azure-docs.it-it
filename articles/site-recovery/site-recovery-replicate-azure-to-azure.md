@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 5/22/2017
+ms.date: 11/21/2017
 ms.author: asgang
-ms.openlocfilehash: f9f97cf840b722c8cfee169dd1640e0682f287ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc7dff33aa2c3e844c6a91024fcfc98148416f7e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Eseguire la replica di macchine virtuali di Azure in un'altra area di Azure
 
@@ -32,7 +32,7 @@ Questo articolo descrive come configurare la replica di macchine virtuali in ese
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* L'articolo presuppone una conoscenza di Site Recovery e dell'insieme di credenziali dei servizi di ripristino. È necessario che sia già stato creato un "insieme di credenziali dei servizi di ripristino".
+* L'articolo presuppone una conoscenza di Site Recovery e dell'insieme di credenziali dei servizi di ripristino. È necessario che sia già stato creato un "insieme di credenziali di Servizi di ripristino".
 
     >[!NOTE]
     >
@@ -51,15 +51,15 @@ Per illustrare questo concetto, verrà eseguita la replica di VM in esecuzione n
 
  Fare clic su **+Replica** nell'insieme di credenziali per abilitare la replica per le macchine virtuali.
 
-1. **Origine:** indica il punto di origine delle macchine virtuali, in questo caso **Azure**.
+1. **Origine:** indica il punto di origine delle macchine virtuali, in questo caso è **Azure**.
 
-2. **Percorso di origine:** indica l'area di Azure da cui si vogliono proteggere le macchine virtuali. Per questo esempio, il percorso di origine sarà "Asia orientale".
+2. **Percorso di origine:** indica l'area di Azure da cui si vogliono proteggere le macchine virtuali. Per questa illustrazione, il percorso di origine sarà "Asia orientale"
 
-3. **Modello di distribuzione:** indica il modello di distribuzione di Azure per le macchine virtuali di origine. È possibile selezionare il modello di distribuzione classica o Resource Manager e le macchine virtuali appartenenti al modello specifico verranno elencate per la protezione nel passaggio successivo.
+3. **Modello di distribuzione:** indica il modello di distribuzione di Azure per le macchine virtuali di origine. È possibile selezionare il modello di distribuzione classica o Resource Manager. I computer appartenenti al modello specifico verranno elencati per la protezione nel passaggio successivo.
 
       >[!NOTE]
       >
-      > È solo possibile eseguire la replica di una macchina virtuale classica e ripristinarla come macchina virtuale classica. Non è possibile ripristinarla come macchina virtuale Resource Manager.
+      > È possibile eseguire la replica di una macchina virtuale classica e ripristinarla solo come macchina virtuale classica. Non è possibile ripristinarla come macchina virtuale Resource Manager.
 
 4. **Gruppo di risorse:** indica il gruppo di risorse a cui appartengono le macchine virtuali di origine. Tutte le VM nel gruppo di risorse selezionato verranno elencate per la protezione nel passaggio successivo.
 
@@ -69,26 +69,26 @@ In **Macchine virtuali > Seleziona macchine virtuali** fare clic per selezionare
     ![Abilitare la replica](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
 
 
-Nella sezione Impostazioni è possibile configurare le proprietà del sito di destinazione.
+Nella sezione Impostazioni è possibile configurare le proprietà del sito di destinazione
 
 1. **Percorso di destinazione:** indica la posizione in cui verrà eseguita la replica dei dati delle macchine virtuali di origine. In base al percorso selezionato per le macchine virtuali, Site Recovery fornirà l'elenco di aree di destinazione idonee.
 
     > [!TIP]
     > È consigliabile usare lo stesso percorso di destinazione dell'insieme di credenziali dei servizi di ripristino.
 
-2. **Gruppo di risorse di destinazione:** indica il gruppo di risorse a cui apparterranno tutte le macchine virtuali replicate. Per impostazione predefinita, Azure Site Recovery creerà un nuovo gruppo di risorse nell'area di destinazione, con un nome con suffisso "asr". Nel caso in cui il gruppo di risorse creato da Azure Site Recovery esista già, verrà riutilizzato. È anche possibile scegliere di personalizzarlo, come illustrato nella sezione seguente.    
-3. **Target Virtual Network (Rete virtuale di destinazione):** per impostazione predefinita, Azure Site Recovery creerà una nuova rete virtuale nell'area di destinazione con un nome con suffisso "asr". Questa rete verrà mappata alla rete di origine e verrà usata per la protezione futura.
+2. **Gruppo di risorse di destinazione:** è il gruppo di risorse a cui tutte le macchine virtuali replicate appartengono. Per impostazione predefinita, Azure Site Recovery crea un nuovo gruppo di risorse nell'area di destinazione il cui nome presenta il suffisso "asr". Nel caso in cui il gruppo di risorse creato da Azure Site Recovery esista già, verrà riutilizzato. È anche possibile scegliere di personalizzarlo, come illustrato nella sezione seguente.    
+3. **Rete virtuale di destinazione:** per impostazione predefinita, Azure Site Recovery creerà una nuova rete virtuale nell'area di destinazione con un nome con suffisso "asr". Questa rete verrà mappata alla rete di origine e verrà usata per la protezione futura.
 
     > [!NOTE]
     > [Controllare i dettagli sulla rete](site-recovery-network-mapping-azure-to-azure.md) per ottenere altre informazioni sul mapping di rete.
 
-4. **Target Storage accounts (Account di archiviazione di destinazione):** per impostazione predefinita, Azure Site Recovery creerà un nuovo account di archiviazione di destinazione, che rispecchia la configurazione delle risorse di archiviazione della VM di origine. Nel caso in cui l'account di archiviazione creato da Azure Site Recovery esista già, verrà riutilizzato.
+4. **Account di archiviazione di destinazione:** per impostazione predefinita, Azure Site Recovery creerà un nuovo account di archiviazione di destinazione, che rispecchia la configurazione delle risorse di archiviazione della macchina virtuale di origine. Nel caso in cui l'account di archiviazione creato da Azure Site Recovery esista già, verrà riutilizzato.
 
-5. **Cache Storage accounts (Account di archiviazione della cache):** Azure Site Recovery necessita di un account di archiviazione aggiuntivo, definito account di archiviazione della cache, nell'area di origine. Tutte le modifiche apportate nelle VM di origine vengono registrate e inviate all'account di archiviazione della cache prima della replica nella posizione di destinazione.
+5. **Account di archiviazione della cache:** Azure Site Recovery necessita di un account di archiviazione aggiuntivo, definito account di archiviazione della cache, nell'area di origine. Tutte le modifiche apportate nelle VM di origine vengono registrate e inviate all'account di archiviazione della cache prima della replica nella posizione di destinazione.
 
 6. **Set di disponibilità:** per impostazione predefinita, Azure Site Recovery creerà un nuovo set di disponibilità nell'area di destinazione, con un nome con suffisso "asr". Nel caso in cui il set di disponibilità creato da Azure Site Recovery esista già, verrà riutilizzato.
 
-7.  **Criteri di replica:** definisce le impostazioni per la cronologia della conservazione del punto di ripristino e per la frequenza snapshot coerenti con l'app. Per impostazione predefinita, Azure Site Recovery creerà un nuovo criterio di replica con impostazioni predefiniti di "24 ore" per la conservazione del punto di ripristino e di "60 minuti" per la frequenza snapshot coerenti con l'app.
+7.  **Criteri di replica:** definisce le impostazioni per la cronologia della conservazione del punto di ripristino e per la frequenza snapshot coerenti con l'app. Per impostazione predefinita, Azure Site Recovery creerà un nuovo criterio di replica con impostazioni predefinite di "24 ore" per la conservazione del punto di ripristino e di "60 minuti" per la frequenza snapshot coerente con l'app.
 
     ![Abilitare la replica](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 

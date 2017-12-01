@@ -4,7 +4,7 @@ description: Informazioni su come eseguire app Web nel servizio app mediante la 
 services: app-service\web
 documentationcenter: 
 author: rmcmurray
-manager: erikre
+manager: routlaw
 editor: 
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
@@ -12,18 +12,20 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 6/7/2017
+ms.date: 11/08/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ac8ef479be5a93b2c4baa76279c8d3e53389409a
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: d44fff1e59198d662356c4d7739c05e538ba57b9
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Creare la prima app Web Java in Azure
 
 Le [app Web](app-service-web-overview.md) di Azure forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione. Questa guida introduttiva illustra come distribuire un'app Web Java nel servizio app usando [Eclipse IDE for Java EE Developers](http://www.eclipse.org/).
+
+Al termine di questa guida introduttiva, l'applicazione visualizzata in un Web browser avrà un aspetto simile al seguente:
 
 ![App Web di esempio "Hello Azure" app Web di esempio](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
@@ -31,8 +33,8 @@ Le [app Web](app-service-web-overview.md) di Azure forniscono un servizio di hos
 
 Per completare questa guida introduttiva, installare:
 
-* Lo strumento gratuito [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/). In questa guida introduttiva viene usato Eclipse Neon.
-* [Azure Toolkit for Eclipse](/azure/azure-toolkit-for-eclipse-installation).
+* Lo strumento gratuito <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>. In questa guida introduttiva viene usato Eclipse Neon.
+* <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Azure Toolkit for Eclipse</a>.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -167,9 +169,9 @@ In Esplora progetti fare clic con il pulsante destro del mouse sul progetto e qu
 
 Viene visualizzata la finestra di dialogo **Distribuisci app Web** in cui viene illustrato il servizio app creato in precedenza. 
 
-> [!NOTE]
-> Selezionare **Deploy to root** (Distribuisci nella radice) ogni volta che si esegue una pubblicazione.
->
+> [!NOTE] 
+> Selezionare **Deploy to root** (Distribuisci nella radice) ogni volta che si esegue una pubblicazione. 
+> 
 
 Selezionare l'app Web e fare clic su **Distribuisci** per pubblicare le modifiche.
 

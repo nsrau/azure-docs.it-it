@@ -2,11 +2,14 @@ Una delle principali funzionalità di Azure IoT Edge è la possibilità di distr
 
 1. Nel portale di Azure passare all'hub IoT.
 1. Passare a **IoT Edge (preview)** (IoT Edge - anteprima) e selezionare il dispositivo di IoT Edge.
-1. Selezionare **Set modules** (Configura i moduli).
+1. Selezionare **Set Modules** (Configura i moduli).
 1. Selezionare **Add IoT Edge Module** (Aggiungi il modulo di IoT Edge).
 1. Nel campo **Nome** immettere `tempSensor`. 
 1. Nel campo **URI immagine** immettere `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`. 
 1. Lasciare invariate le altre impostazioni e selezionare **Salva**.
+
+   ![Salvare il modulo IoT Edge dopo l'immissione di nome e URI dell'immagine](./media/iot-edge-deploy-module/name-image.png)
+
 1. Nel passaggio **Aggiungi moduli** fare clic su **Avanti**.
 1. Nel passaggio **Specify routes** (Specifica route) selezionare **Avanti**.
 1. Nel passaggio **Review Template** (Verifica il modello) fare clic su **Invia**.

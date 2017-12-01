@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: f32c8cd6e32e99bc34d62435bcd1883ba957e716
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19bd7ed4bab915d7918a192a046653666cfaa498
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualizzare i log dei flussi dei gruppi di sicurezza di rete con Power BI
 
@@ -119,7 +119,7 @@ Questo scenario ha permesso di dimostrare come l'uso dei registri dei flussi dei
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come visualizzare i log dei flussi dei gruppi di sicurezza di rete con Elastick Stack, vedere [Visualize network traffic patterns to and from your VMs using open source tools](network-watcher-using-open-source-tools.md) (Visualizzare i modelli di traffico di rete da e verso le macchine virtuali con strumenti open source)
+Per informazioni su come visualizzare i log dei flussi dei gruppi di sicurezza di rete con Elastick Stack, vedere [Visualize Azure Network Watcher NSG flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) (Visualizzare i log dei flussi dei gruppi di sicurezza di rete di Azure Network Watcher tramite gli strumenti open source).
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png
