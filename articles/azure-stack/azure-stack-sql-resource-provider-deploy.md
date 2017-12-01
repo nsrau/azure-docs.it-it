@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 11/29/2017
 ms.author: JeffGo
-ms.openlocfilehash: 31ffd31b5d540617c4a7a1224e6cf0ee656c9678
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 6c74071cedb1da9a59f47b10eaf538d24cb9ab01
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Utilizzare i database SQL nello Stack di Microsoft Azure
 
@@ -49,10 +49,17 @@ Il provider di risorse è costituito da tre componenti:
 
     b. Nei sistemi a più nodi, l'host deve essere un sistema che possa accedere all'Endpoint con privilegi.
 
-3. [Scaricare i file binari del provider di risorse SQL](https://aka.ms/azurestacksqlrp) ed eseguire il programma di autoestrazione per estrarre il contenuto in una directory temporanea.
+3. Scaricare il provider di risorse SQL binario ed eseguire il programma di autoestrazione per estrarre il contenuto in una directory temporanea.
 
-    > [!NOTE]
-    > Se si è in esecuzione in uno Stack di Azure genera 20170928.3 o versioni precedenti, [scaricare questa versione](https://aka.ms/azurestacksqlrp1709).
+    >[!NOTE] 
+    > La compilazione di provider di risorse corrisponde alle compilazioni dello Stack di Azure. È necessario scaricare il file binario corretto per la versione dello Stack di Azure che è in esecuzione.
+
+    | Compilazione di Azure Stack | Programma di installazione di SQL RP |
+    | --- | --- |
+    | 1.0.171122.1 | [RP SQL versione 1.1.10.0](https://aka.ms/azurestacksqlrp) |
+    | 1.0.171028.1 | [RP SQL versione 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
+    | 1.0.170928.3 | [RP SQL versione 1.1.3.0](https://aka.ms/azurestacksqlrp1709) |
+   
 
 4. Il certificato radice dello Stack di Azure viene recuperato dall'Endpoint con privilegi. Per ASDK, viene creato un certificato autofirmato come parte di questo processo. Per più nodi, è necessario fornire un certificato appropriato.
 
@@ -102,7 +109,7 @@ $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set the credentials for the Resource Provider VM
+# Set credentials for the new Resource Provider VM
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
 

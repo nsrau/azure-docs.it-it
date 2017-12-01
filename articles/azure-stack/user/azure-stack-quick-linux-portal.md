@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 5f815bafdcc7c05ec7f4149fb7c9df178f0f80e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f986c060b26489e412f6230665ec76a4730293f1
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Creare una macchina virtuale Linux con il portale di Azure Stack
 
@@ -26,7 +26,7 @@ Macchine virtuali di Azure Stack può essere create tramite il portale di Azure 
 
 * **Un'immagine Linux nel marketplace Azure Stack**
 
-   Per impostazione predefinita, il marketplace Azure Stack non contiene un'immagine Linux. In tal caso, prima di creare una macchina virtuale Linux, verificare che l'operatore di Azure Stack ha scaricato la **Ubuntu Server 16.04 LT** immagine usando la procedura descritta nel [scaricare elementi del marketplace da Azure in Azure Stack](../azure-stack-download-azure-marketplace-item.md) argomento.
+   Per impostazione predefinita, il marketplace Azure Stack non contiene un'immagine Linux. In tal caso, prima di creare una macchina virtuale Linux, verificare che l'operatore di Azure Stack ha scaricato la **Ubuntu Server 16.04 LTS** immagine usando la procedura descritta nel [scaricare elementi del marketplace da Azure in Azure Stack](../azure-stack-download-azure-marketplace-item.md) argomento.
 
 * **Accesso a un client SSH**
 
