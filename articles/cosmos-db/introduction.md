@@ -98,7 +98,7 @@ Per un'introduzione ad Azure Cosmos DB, fare riferimento alle guide introduttive
 * [Come iniziare a usare l'API DocumentDB di Azure Cosmos DB](create-documentdb-dotnet.md)
 * [Come iniziare a usare l'API MongoDB di Azure Cosmos DB](create-mongodb-nodejs.md)
 * [Come iniziare a usare l'API Graph di Azure Cosmos DB](create-graph-dotnet.md)
-* [Come iniziare a usare l'API Table di Azure Cosmos DB](create-table-dotnet.md)
+* [Come iniziare a usare l'API di tabella di Azure Cosmos DB](create-table-dotnet.md)
 
 > [!div class="nextstepaction"]
 > [Prova gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)
