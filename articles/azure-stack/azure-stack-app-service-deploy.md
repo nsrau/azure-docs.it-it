@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: dba3da6f1aaf47c1b518fe0dba7ea22ae555c8c0
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 522e5a334b5165344b66524d03f0d85468b81332
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Aggiungere un provider di risorse del servizio App di Azure Stack
 
@@ -73,7 +73,7 @@ Per distribuire il provider di risorse di servizio App, seguire questi passaggi:
     ![Programma di installazione del servizio App](media/azure-stack-app-service-deploy/image04.png)
 
 8. Nella pagina successiva:
-    1. Nel **ID applicazione identità** , immettere il GUID per l'applicazione in uso per l'identità.
+    1. Nel **ID applicazione identità** , immettere il GUID per l'applicazione in uso per l'identità (da Azure AD).
     2. Nel **file di certificato di identità applicazione** casella, immettere (o passare a) il percorso del file di certificato.
     3. Nel **password certificato di identità applicazione** , immettere la password per il certificato. Questa password è quello che si sia preso nota quando si usa lo script per creare i certificati.
     4. Nel **file del certificato radice Azure Resource Manager** casella, immettere (o passare a) il percorso del file di certificato.
@@ -157,7 +157,7 @@ Dopo avere distribuito e registrare il provider di risorse del servizio App, tes
 >
 Si *deve* ha una sottoscrizione tenant a creare applicazioni che utilizzano il servizio App nello Stack di Azure. Le uniche funzionalità che è possibile completare un amministratore del servizio all'interno del portale di amministrazione sono correlate per l'amministrazione del provider di risorse del servizio App. Queste funzionalità includono l'aggiunta di capacità e la configurazione delle origini di distribuzione, SKU e piani di lavoro.
 >
-A partire dalla technical preview terzo, per creare web API e Azure funzioni App, è necessario utilizzare il portale tenant e dispone di una sottoscrizione tenant.
+Per creare web API e Azure funzioni App, è necessario utilizzare il portale tenant e dispone di una sottoscrizione tenant.
 
 1. Nel portale tenant di Azure Stack, fare clic su **New** > **Web e dispositivi mobili** > **App Web**.
 

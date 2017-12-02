@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: f2e7b5b96b70333ae4ee92d24c354960008c7f00
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 17967131853d4334ae2c0ba3c0aa01089b7f3b61
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Prima di iniziare con il servizio App nello Stack di Azure
 
@@ -68,7 +68,7 @@ Il primo script funziona con l'autorità di certificazione dello Stack di Azure 
 
 Eseguire lo script nell'host di Azure Stack Development Kit e verificare che sia in esecuzione di PowerShell come azurestack\CloudAdmin.
 
-1. In una sessione di PowerShell in esecuzione come azurestack\CloudAdmin, eseguire lo script di creazione AppServiceCerts.ps1 dalla cartella in cui sono stati estratti gli script di supporto. Lo script crea quattro certificati nella stessa cartella lo script di creazione certificati necessari servizio App.
+1. In una sessione di PowerShell in esecuzione come azurestack\AzureStackAdmin, eseguire lo script di creazione AppServiceCerts.ps1 dalla cartella in cui sono stati estratti gli script di supporto. Lo script crea quattro certificati nella stessa cartella lo script di creazione certificati necessari servizio App.
 2. Immettere una password per proteggere i file con estensione pfx e prendere nota di esso. È necessario immetterlo nel servizio App sul programma di installazione dello Stack di Azure.
 
 #### <a name="create-appservicecertsps1-parameters"></a>AppServiceCerts.ps1 creare parametri
@@ -120,7 +120,7 @@ Il certificato di identità deve contenere un oggetto che corrisponde al formato
 | --- | --- |
 | SSO.appservice. \<area\>.\< DomainName\>.\< estensione\> | SSO.appservice.Redmond.azurestack.External |
 
-#### <a name="extract-the-azure-stack-azure-resource-manager-root-certificate"></a>Estrarre il certificato radice di Stack Azure Azure Resource Manager
+### <a name="extract-the-azure-stack-azure-resource-manager-root-certificate"></a>Estrarre il certificato radice di Stack Azure Azure Resource Manager
 
 In una sessione di PowerShell in esecuzione come azurestack\CloudAdmin, eseguire lo script Get-AzureStackRootCert.ps1 dalla cartella in cui sono stati estratti gli script di supporto. Lo script crea quattro certificati nella stessa cartella lo script di creazione certificati necessari servizio App.
 
@@ -134,12 +134,10 @@ In una sessione di PowerShell in esecuzione come azurestack\CloudAdmin, eseguire
 
 Servizio App di Azure richiede l'utilizzo di un file server. Per le distribuzioni di produzione, il File Server deve essere configurato per essere a disponibilità elevata e in grado di gestire gli errori.
 
-Per l'utilizzo con solo le distribuzioni di Azure Stack Development Kit, è possibile utilizzare questo esempio il modello di distribuzione Azure Resource Manager per distribuire un singolo nodo configurato file server: https://aka.ms/appsvconmasdkfstemplate.
+Per l'utilizzo con solo le distribuzioni di Azure Stack Development Kit, è possibile utilizzare questo esempio il modello di distribuzione Azure Resource Manager per distribuire un singolo nodo configurato file server: https://aka.ms/appsvconmasdkfstemplate. Il file server singolo nodo sarà un gruppo di lavoro.
 
 ### <a name="provision-groups-and-accounts-in-active-directory"></a>Eseguire il provisioning di gruppi e account in Active Directory
 
->[!NOTE]
-> Eseguire tutti i comandi seguenti, quando si configura il File Server, in una sessione del prompt dei comandi di amministratore.  **Non utilizzare PowerShell.**
 
 1. Creare i seguenti gruppi di sicurezza globali di Active Directory:
     - FileShareOwners
@@ -159,7 +157,10 @@ Per l'utilizzo con solo le distribuzioni di Azure Stack Development Kit, è poss
 
 ### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Eseguire il provisioning di gruppi e account in un gruppo di lavoro
 
-Un gruppo di lavoro, eseguire net e i comandi WMIC per eseguire il provisioning di gruppi e account.
+>[!NOTE]
+> Eseguire tutti i comandi seguenti, quando si configura il File Server, in una sessione del prompt dei comandi di amministratore.  **Non utilizzare PowerShell.**
+
+Quando si utilizza il modello di gestione risorse di Azure precedente, gli utenti sono già stati creati.
 
 1. Eseguire i comandi seguenti per creare gli account FileShareOwner e FileShareUser. Sostituire <password> con valori personalizzati.
 ``` DOS
@@ -185,11 +186,11 @@ La condivisione del contenuto contiene contenuto del sito web tenant. La procedu
 
 #### <a name="provision-the-content-share-on-a-single-file-server-ad-or-workgroup"></a>Eseguire il provisioning della condivisione contenuto in un singolo file server (AD o gruppo di lavoro)
 
-In un singolo file server, eseguire i comandi seguenti a un prompt dei comandi con privilegi elevati. Sostituire il valore per < C:\WebSites > con i percorsi corrispondenti nell'ambiente in uso.
+In un singolo file server, eseguire i comandi seguenti a un prompt dei comandi con privilegi elevati. Sostituire il valore per 'C:\WebSites' con i percorsi corrispondenti nell'ambiente in uso.
 
 ```DOS
 set WEBSITES_SHARE=WebSites
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 md %WEBSITES_FOLDER%
 net share %WEBSITES_SHARE% /delete
 net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
@@ -223,7 +224,7 @@ Eseguire i comandi seguenti a un prompt dei comandi con privilegi elevati nel Fi
 #### <a name="active-directory"></a>Active Directory
 ```DOS
 set DOMAIN=<DOMAIN>
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
 icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant %DOMAIN%\FileShareOwners:(OI)(CI)(M)
@@ -234,7 +235,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 #### <a name="workgroup"></a>Gruppo di lavoro
 ```DOS
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
 icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant FileShareOwners:(OI)(CI)(M)
@@ -251,7 +252,7 @@ Per l'utilizzo con il Kit di sviluppo dello Stack di Azure, è possibile utilizz
 
 Per la produzione e una disponibilità elevata, è necessario utilizzare una versione completa di SQL 2014 SP2 o versioni successive, abilitare l'autenticazione modalità mista e distribuire un [configurazione a disponibilità elevata](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
-Il servizio App di Azure nel Server SQL di Azure Stack deve essere accessibile da tutti i ruoli del servizio App. SQL Server può essere distribuito nella sottoscrizione di Provider predefinito nello Stack di Azure. È possibile impostare o utilizzare dell'infrastruttura esistente all'interno dell'organizzazione (purché vi sia connettività allo Stack di Azure).
+Il servizio App di Azure nel Server SQL di Azure Stack deve essere accessibile da tutti i ruoli del servizio App. SQL Server può essere distribuito nella sottoscrizione di Provider predefinito nello Stack di Azure. È possibile impostare o utilizzare dell'infrastruttura esistente all'interno dell'organizzazione (purché vi sia connettività allo Stack di Azure). Se si utilizza un'immagine di Azure Marketplace, è necessario configurare il firewall in modo appropriato. 
 
 Per uno dei ruoli di SQL Server, è possibile utilizzare un'istanza predefinita o un'istanza denominata. Tuttavia, se si utilizza un'istanza denominata, assicurarsi che si avvia manualmente il servizio SQL Browser e aprire la porta 1434.
 
@@ -269,12 +270,12 @@ Gli amministratori devono configurare SSO per:
 
 A tale scopo, seguire questa procedura:
 
-1. Aprire un'istanza di PowerShell come azurestack\cloudadmin.
+1. Aprire un'istanza di PowerShell come azurestack\AzureStackAdmin.
 2. Passare al percorso di script scaricati ed estratti nel [prerequisito](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
 3. [Installare PowerShell Azure Stack](azure-stack-powershell-install.md).
 4. Eseguire il **crea AADIdentityApp.ps1** script. Quando viene richiesto per l'ID del tenant di Azure AD, immettere l'ID tenant di Azure AD in uso per la distribuzione di Azure Stack, ad esempio, myazurestack.onmicrosoft.com.
 5. Nel **credenziali** finestra, immettere la password e account di amministratore del servizio di Azure AD. Fare clic su **OK**.
-6. Immettere il percorso del file di certificato e la password del certificato per il [certificato creato in precedenza](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Il certificato creato per questo passaggio per impostazione predefinita è sso.appservice.local.azurestack.external.pfx.
+6. Immettere il percorso del file di certificato e la password del certificato per il [certificato creato in precedenza](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Il certificato creato per questo passaggio per impostazione predefinita è **sso.appservice.local.azurestack.external.pfx**.
 7. Lo script crea una nuova applicazione nel tenant di Azure AD. Prendere nota dell'ID applicazione che viene restituito nell'output di PowerShell. È necessario queste informazioni durante l'installazione.
 8. Aprire una nuova finestra del browser e accedere al portale di Azure (portal.azure.com) come il **amministratore del servizio Azure Active Directory**.
 9. Aprire il provider di risorse di Azure AD.

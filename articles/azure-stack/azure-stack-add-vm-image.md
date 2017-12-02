@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.openlocfilehash: 54b6a6984e66f32642336f4ea5e1e9f4ec9d03f3
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: b54bb67e1188037385d0b373850b6b923eb8d7ac
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Creare un'immagine di macchina virtuale personalizzata disponibile nello Stack di Azure
 
@@ -184,7 +184,7 @@ Le immagini devono essere in grado di fare riferimento a un URI di archiviazione
 
 2. Accedi allo Stack di Azure come operatore. Nel menu, selezionare **più servizi** > **i provider di risorse**. Selezionare quindi **calcolo** > **immagini di macchina virtuale** > **Aggiungi**.
 
-3. In **aggiungere un'immagine di macchina virtuale**, immettere il server di pubblicazione, l'offerta, SKU e versione dell'immagine della macchina virtuale. Questi segmenti dei nomi di fare riferimento all'immagine di macchina virtuale in modelli di gestione risorse. Assicurarsi di selezionare il **osType** valore correttamente. Per **URI Blob del disco OD**, immettere l'URI del Blob in cui l'immagine è stata caricata. Selezionare quindi **crea** per iniziare a creare l'immagine di macchina virtuale.
+3. In **aggiungere un'immagine di macchina virtuale**, immettere il server di pubblicazione, l'offerta, SKU e versione dell'immagine della macchina virtuale. Questi segmenti dei nomi di fare riferimento all'immagine di macchina virtuale in modelli di gestione risorse. Assicurarsi di selezionare il **osType** valore correttamente. Per **URI Blob del disco del sistema operativo**, immettere l'URI del Blob in cui l'immagine è stata caricata. Selezionare quindi **crea** per iniziare a creare l'immagine di macchina virtuale.
    
    ![Iniziare a creare l'immagine](./media/azure-stack-add-vm-image/image4.png)
 
