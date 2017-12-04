@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0f0591a9f2b8c932cb9a03e7186dbf6877b96197
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 35a38be747f7bb75ed8865dedbd446a43e5397a8
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Sviluppare e distribuire un modulo C# per IoT Edge in un dispositivo simulato - Anteprima
 
@@ -34,7 +34,7 @@ Il modulo di IoT Edge creato in questa esercitazione filtra i dati relativi alla
 * La chiave primaria della stringa di connessione del dispositivo IoT Edge.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Estensione Azure IoT Edge per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
-* [Estensione C# per Visual Studio Code (con tecnologia OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
+* [Estensione C# per Visual Studio Code con tecnologia OmniSharp](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
 * [Docker](https://docs.docker.com/engine/installation/) nello stesso computer con Visual Studio Code. La Community Edition (CE) è sufficiente per questa esercitazione. 
 * [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 
@@ -222,7 +222,7 @@ La procedura seguente illustra come creare un modulo di IoT Edge basato su .NET 
 3. Eseguire il push dell'immagine nel repository di Docker. Selezionare **Visualizza** > **Riquadro comandi** e cercare il comando di menu **Edge: Push IoT Edge module Docker image**(Edge: esegui il push dell'immagine Docker per il modulo di IoT Edge). Nella casella di testo popup nella parte superiore della finestra di Visual Studio Code immettere il nome dell'immagine. Usare lo stesso nome di immagine usato nel passaggio 1.d.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Aggiungere le credenziali del registro al runtime di Edge
-Aggiungere le credenziali per il registro al runtime di Edge nel computer in cui si esegue il dispositivo perimetrale, in modo da consentire al runtime l'accesso per il pull del contenitore. 
+Aggiungere le credenziali per il registro al runtime di Edge nel computer in cui si esegue il dispositivo perimetrale di Edge, in modo da consentire al runtime l'accesso per il pull del contenitore. 
 
 - Per Windows, eseguire il comando seguente:
     
@@ -239,7 +239,7 @@ Aggiungere le credenziali per il registro al runtime di Edge nel computer in cui
 ## <a name="run-the-solution"></a>Eseguire la soluzione
 
 1. Nel [portale di Azure](https://portal.azure.com) passare all'hub IoT.
-2. Passare a **IoT Edge (anteprima)** e selezionare il dispositivo di IoT Edge.
+2. Passare a **IoT Edge (preview)** (IoT Edge - anteprima) e selezionare il dispositivo di IoT Edge.
 3. Selezionare **Set Modules** (Configura i moduli). 
 2. Verificare che il modulo **tempSensor** venga inserito automaticamente. In caso contrario, seguire questa procedura:
     1. Selezionare **Add IoT Edge Module** (Aggiungi il modulo di IoT Edge).
@@ -263,12 +263,12 @@ Aggiungere le credenziali per il registro al runtime di Edge nel computer in cui
  
     6. Fare clic su **Salva**.
 12. Fare clic su **Avanti**.
-13. Nel passaggio **Specify Routes** (Specificare le route) copiare il codice JSON seguente nella casella di testo. I moduli pubblicano tutti i messaggi nel runtime di Edge. Le regole dichiarative nel runtime definiscono la destinazione del flusso di messaggi. In questa esercitazione sono necessarie due route. La prima route trasporta i messaggi dal sensore relativo alla temperatura al modulo di filtro tramite l'endpoint "input1", ovvero l'endpoint configurato con il gestore **FilterMessages**. La seconda route trasporta i messaggi dal modulo di filtro all'hub IoT. In questa route `upstream` è una destinazione speciale che indica all'hub di Edge di inviare messaggi all'hub IoT. 
+13. Nel passaggio **Specify Routes** (Specifica route) copiare il codice JSON seguente nella casella di testo. I moduli pubblicano tutti i messaggi nel runtime di Edge. Le regole dichiarative nel runtime definiscono la destinazione del flusso di messaggi. In questa esercitazione sono necessarie due route. La prima route trasporta i messaggi dal sensore della temperatura al modulo di filtro tramite l'endpoint "input1", ovvero l'endpoint configurato con il gestore **FilterMessages**. La seconda route trasporta i messaggi dal modulo del filtro all'hub IoT. In questa route `upstream` è una destinazione speciale che indica all'hub di Edge di inviare messaggi all'hub IoT. 
 
     ```json
     {
        "routes":{
-          "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+          "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterModule/inputs/input1\")",
           "filterToIoTHub":"FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
        }
     }
@@ -285,7 +285,7 @@ Per monitorare i messaggi da dispositivo a cloud inviati dal dispositivo di IoT 
     1. Aprire lo strumento di esplorazione di Visual Studio Code selezionando **Visualizza** > **Explorer**. 
     3. Nello strumento di esplorazione fare clic su **IOT HUB DEVICES** (DISPOSITIVI DELL'HUB IOT) e quindi fare clic su **...**. Fare clic su **Set IoT Hub Connection String** (Configura la stringa di connessione dell'hub IoT) e immettere la stringa di connessione per l'hub IoT a cui si connette il dispositivo di IoT Edge nella finestra popup. 
 
-        Per trovare la stringa di connessione, fare clic sul riquadro dell'hub IoT nel portale di Azure e quindi fare clic su **Criteri di accesso condivisi**. In **Criteri di accesso condivisi** fare clic sul criterio **iothubowner** e copiare la stringa di connessione dell'hub IoT nella finestra **iothubowner**.   
+        Per trovare la stringa di connessione, fare clic sul riquadro dell'hub IoT nel portale di Azure e quindi fare clic su **Criteri di accesso condiviso**. In **Criteri di accesso condiviso** fare clic sul criterio **iothubowner** e copiare la stringa di connessione dell'hub IoT nella finestra **iothubowner**.   
 
 1. Per monitorare i dati in arrivo nell'hub IoT, usare **Visualizza** > **Riquadro comandi** e cercare il comando di menu **IoT: Start monitoring D2C message** (IoT: avvia il monitoraggio del messaggio D2C). 
 2. Per interrompere il monitoraggio dei dati, usare il comando di menu **IoT: Stop monitoring D2C message** (IoT: interrompi il monitoraggio del messaggio D2C). 

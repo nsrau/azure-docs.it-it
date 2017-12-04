@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5d2c581b25d34ea1b83f54292b5b65b2286e5a9d
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 4428f3da5dd9423aa60daa697e4ea15c99f92188
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Approfondimento di sicurezza sull'autenticazione pass-through di Azure Active Directory
 
@@ -39,7 +39,7 @@ Di seguito sono elencati gli aspetti principali realtivi alla sicurezza di quest
 - Solo le porte standard, ovvero le porte 80 e 443, vengono usate per le comunicazioni in uscita dagli agenti di autenticazione ad Azure AD. Non è necessario aprire porte in ingresso nel firewall. 
   - La porta 443 viene usata per tutte le comunicazioni in uscita autenticate.
   - La porta 80 viene usata solo per il download degli elenchi di revoche di certificati per verificare che nessun certificato utilizzato dalla funzionalità sia stato revocato.
-  - Per l'elenco completo dei requisiti di rete, vedere [Autenticazione pass-through di Azure Active Directory - Avvio rapido](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-prerequisites).
+  - Per l'elenco completo dei requisiti di rete, vedere [Autenticazione pass-through di Azure Active Directory - Avvio rapido](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 - Le password fornite dagli utenti durante l'accesso vengono crittografate nel cloud prima di essere accettate dagli agenti di autenticazione locale per la convalida con Active Directory.
 - Il canale HTTPS tra Azure AD e un agente di autenticazione locale viene protetto mediante l'autenticazione reciproca.
 - La funzionalità si integra perfettamente con le funzionalità di protezione cloud di Azure AD, ad esempio i criteri di accesso condizionale, che includono Azure Multi-Factor Authentication, la protezione dell'identità e il blocco intelligente.

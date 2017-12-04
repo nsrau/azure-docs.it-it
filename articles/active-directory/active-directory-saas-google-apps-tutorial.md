@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 1d92e673a948dd139ff2d4a24f2e602180be43c5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: bdcf2f8a06c782270683e34e9a4cbc2ab2c7f443
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-google-apps"></a>Esercitazione: Integrazione di Azure Active Directory con Google Apps
 
@@ -136,13 +136,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     | |
     |--|
-    | `http://google.com/a/<yourdomain.com>`|
-    | `http://google.com`|    
-    | `google.com/<yourdomain.com>`|
     | `google.com`|
-
+    | `http://google.com`|
+    | `google.com/<yourdomain.com>`|
+    | `http://google.com/a/<yourdomain.com>`|
+       
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Google Apps](https://www.google.com/contact/). 
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Google Apps](https://www.google.com/contact/). 
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato** e quindi salvare il file del certificato nel computer.
 

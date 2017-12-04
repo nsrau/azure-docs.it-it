@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: tdykstra
-ms.openlocfilehash: 63e63f69cb6463adcca480eccf1cc485574d9eff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 522d0590595b0fc0fef503599f1677658f223bd8
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Riferimento host.json per Funzioni di Azure
 
@@ -165,23 +165,7 @@ Indica la durata del timeout per tutte le funzioni. Nei piani di consumo, l'inte
 
 Impostazione di configurazione per i [trigger e le associazioni http](functions-bindings-http-webhook.md).
 
-```json
-{
-    "http": {
-        "routePrefix": "api",
-        "maxOutstandingRequests": 20,
-        "maxConcurrentRequests": 
-        "dynamicThrottlesEnabled": false
-    }
-}
-```
-
-|Proprietà  |Default | Descrizione |
-|---------|---------|---------| 
-|routePrefix|api|Il prefisso della route che si applica a tutte le route. Utilizzare una stringa vuota per rimuovere il prefisso predefinito. |
-|maxOutstandingRequests|-1|Il numero massimo di richieste in sospeso che verrà mantenuto in un determinato intervallo (-1 indica non associato). Il limite include le richieste che vengono messe in coda ma non hanno avviato l'esecuzione, nonché le esecuzioni in corso. Le richieste in arrivo che superano questo limite vengono rifiutate con la risposta 429 "Occupato". I chiamanti possono utilizzare tale risposta per impiegare strategie di ripetizione basate sul tempo. Questa impostazione controlla solo l’accodamento che si verifica all'interno del percorso di esecuzione dell’host di processo. Altre code, ad esempio la coda di richieste ASP.NET, non sono interessate da questa impostazione. |
-|maxConcurrentRequests|-1|Il numero massimo di funzioni HTTP che verrà eseguito in parallelo (-1 indica non associato). Ad esempio, è possibile impostare un limite se le funzioni HTTP utilizzano troppe risorse di sistema quando la concorrenza è elevata. Oppure se le funzioni mandano richieste a un servizio di terze parti, tali chiamate dovrebbero essere a frequenza limitata.|
-|dynamicThrottlesEnabled|false|Fa sì che la pipeline di elaborazione delle richieste controlli periodicamente i contatori delle prestazioni del sistema. I contatori includono connessioni, thread, processi, memoria e cpu. Se uno qualsiasi dei contatori si trova oltre una soglia predefinita (80%), le richieste vengono rifiutate con una risposta 429 "Occupato" fino a quando i contatori non tornano a livelli normali.|
+[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
 ## <a name="id"></a>id
 

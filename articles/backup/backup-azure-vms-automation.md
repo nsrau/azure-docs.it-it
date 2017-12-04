@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/17/2017
+ms.date: 11/28/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d6682bf5e4b0b64d5309f939379906efff6e017d
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: ddd45dfb1f9e08add7a61a42e4f9b570dc25495d
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Usare i cmdlet AzureRM.RecoveryServices.Backup per eseguire il backup di macchine virtuali
 > [!div class="op_single_selector"]
@@ -106,7 +106,7 @@ Nei passaggi seguenti viene descritto come creare un insieme di credenziali dei 
 2. L'insieme di credenziali dei Servizi di ripristino è una risorsa Resource Manager, pertanto è necessario inserirlo all'interno di un gruppo di risorse. È possibile usare un gruppo di risorse esistente o crearne uno con il cmdlet **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)**. Quando si crea un nuovo gruppo di risorse, è necessario specificare il nome e il percorso per il gruppo di risorse.  
 
     ```
-    PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
+    PS C:\> New-AzureRmResourceGroup -Name "test-rg" -Location "West US"
     ```
 3. Usare il cmdlet **[New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)** per creare un nuovo insieme di credenziali dei Servizi di ripristino. Assicurarsi di specificare per l'insieme di credenziali lo stesso percorso usato per il gruppo di risorse.
 
@@ -116,7 +116,7 @@ Nei passaggi seguenti viene descritto come creare un insieme di credenziali dei 
 4. Specificare il tipo di ridondanza di archiviazione da usare, ad esempio [archiviazione con ridondanza locale (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) o [archiviazione con ridondanza geografica (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Nell'esempio seguente l'opzione BackupStorageRedundancy per testvault è impostata su GeoRedundant.
 
     ```
-    PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testvault"
+    PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault -Name "testvault"
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
     ```
 
@@ -290,8 +290,8 @@ Per ripristinare i dati di backup, identificare l'elemento sottoposto a backup e
 Per ottenere l'oggetto di PowerShell che identifica l'elemento di backup corretto, iniziare dal contenitore nell'insieme di credenziali e procedere verso il basso nella gerarchia degli oggetti. Per selezionare il contenitore che rappresenta la macchina virtuale, usare il cmdlet **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)** e inviarlo tramite pipe al cmdlet **[Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)**.
 
 ```
-PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" –Status "Registered" -FriendlyName "V2VM"
-PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem –Container $namedContainer  –WorkloadType "AzureVM"
+PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
+PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM"
 ```
 
 ### <a name="choose-a-recovery-point"></a>Scegliere un punto di ripristino
@@ -525,8 +525,8 @@ La procedura di base per il ripristino di un file dal backup della macchina virt
 Per ottenere l'oggetto di PowerShell che identifica l'elemento di backup corretto, iniziare dal contenitore nell'insieme di credenziali e procedere verso il basso nella gerarchia degli oggetti. Per selezionare il contenitore che rappresenta la macchina virtuale, usare il cmdlet **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)** e inviarlo tramite pipe al cmdlet **[Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)**.
 
 ```
-PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" –Status "Registered" -FriendlyName "V2VM"
-PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem –Container $namedContainer  –WorkloadType "AzureVM"
+PS C:\> $namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
+PS C:\> $backupitem = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM"
 ```
 
 ### <a name="choose-a-recovery-point"></a>Scegliere un punto di ripristino
