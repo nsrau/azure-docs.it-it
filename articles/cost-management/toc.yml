@@ -27,6 +27,10 @@
   items:
     - name: Informazioni sui report dei costi
       href: understading-cost-reports.md
+- name: Guide alle procedure
+  items:
+    - name: Usare i report di Gestione costi
+      href: use-reports.md
 - name: Risorse
   items:
     - name: Video su Gestione dei costi

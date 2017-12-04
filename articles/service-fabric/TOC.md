@@ -6,7 +6,9 @@
 ## [Creare un'applicazione .NET](service-fabric-quickstart-dotnet.md)
 ## [Distribuire un'applicazione contenitore Linux](service-fabric-quickstart-containers-linux.md)
 ## [Distribuire un'applicazione contenitore Windows](service-fabric-quickstart-containers.md)
-## [Distribuire un'applicazione Java](service-fabric-quickstart-java.md)
+## Guide introduttive su Java
+### [Distribuire un'applicazione Spring Boot](service-fabric-quickstart-java-spring-boot.md)
+### [Distribuire un'applicazione Reliable Services](service-fabric-quickstart-java-reliable-services.md)
 
 # Esercitazioni
 ## Distribuire un'app .NET
@@ -29,7 +31,9 @@
 #### [1a- Creare un cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b- Creare un cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2- Ridimensionare il cluster](service-fabric-tutorial-scale-cluster.md)
-### [3- Distribuire Gestione API e Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+### [3- Aggiornare il runtime del cluster](service-fabric-tutorial-upgrade-cluster.md)
+### [4- Distribuire Gestione API con Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 
 
 # Esempi

@@ -1,0 +1,38 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione di Azure Site Recovery
+metadata:
+  title: 'Documentazione di Azure Site Recovery: esercitazioni e informazioni di riferimento sulle API | Microsoft Docs'
+  meta.description: Learn how to migrate to Azure with Azure Site Recovery
+  services: site-recovery
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: site-recovery
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/26/2017
+  ms.author: raynew
+abstract:
+  description: 'Oltre a orchestrare il ripristino di emergenza di VM di Azure e computer locali, Azure Site Recovery orchestra e gestisce la migrazione di computer locali ad Azure e la migrazione di VM di Azure tra aree di Azure. Le esercitazioni illustrano come configurare la migrazione.'
+sections:
+  - title: Esercitazioni dettagliate
+    items:
+      - type: paragraph
+        text: Informazioni su come eseguire la migrazione di VM locali.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-azure">Preparare Azure</a>
+          - html: <a href="tutorial-migrate-on-premises-to-azure">Eseguire la migrazione di computer locali ad Azure</a>
+          - html: <a href="tutorial-migrate-aws-to-azure">Eseguire la migrazione di istanze AWS ad Azure</a>
+  - title: riferimento
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Riga di comando
+            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/site-recovery/">Informazioni di riferimento sulle API REST</a></p>

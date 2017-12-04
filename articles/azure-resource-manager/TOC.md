@@ -67,26 +67,20 @@
 
 ## Risoluzione dei problemi
 ### [Errori di distribuzione comuni](resource-manager-common-deployment-errors.md)
-### [Informazioni sugli errori di distribuzione](resource-manager-troubleshoot-tips.md)
-### Risolvere gli errori
 #### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
 #### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+#### [Problemi di distribuzione di Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
 #### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+#### [Problemi di provisioning e allocazione per Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+#### [Problemi di provisioning e allocazione per Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
 #### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
-### Errori di distribuzione delle macchine virtuali
-#### Linux
-##### [Problemi di distribuzione](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-##### [Problemi di provisioning e allocazione](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
-##### [Messaggi di errore comuni](../virtual-machines/linux/error-messages.md)
-#### Windows
-##### [Problemi di distribuzione](../virtual-machines/windows/troubleshoot-deploy-vm.md)
-##### [Problemi di provisioning e allocazione](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
-##### [Messaggi di errore comuni](../virtual-machines/windows/error-messages.md)
+#### [Problemi di distribuzione di Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+### [Informazioni sugli errori di distribuzione](resource-manager-troubleshoot-tips.md)
 
 # riferimento
 ## [Formato del modello](/azure/templates/)

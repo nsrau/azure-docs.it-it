@@ -127,6 +127,8 @@
               href: app-service-mobile-how-to-configure-twitter-authentication.md
         - name: Usare l'identità dei servizi gestiti
           href: app-service-managed-service-identity.md
+        - name: Usare un certificato SSL nel codice dell'applicazione
+          href: app-service-web-ssl-cert-load.md
         - name: Configurare l'autenticazione reciproca TLS
           href: app-service-web-configure-tls-mutual-auth.md
     - name: Ridimensionare un'app

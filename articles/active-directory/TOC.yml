@@ -40,8 +40,6 @@
 - name: Identità dei servizi gestiti
   href: msi-overview.md
   items:
-    - name: Come accedere o acquisire un token
-      href: msi-how-to-get-access-token-using-msi.md
     - name: Configurare MSI per macchine virtuali di Azure
       items:
         - name: Uso del portale di Azure
@@ -62,6 +60,14 @@
           href: msi-howto-assign-access-powershell.md
         - name: Utilizzare l'interfaccia della riga di comando di Azure
           href: msi-howto-assign-access-cli.md
+    - name: Come usare un'identità del servizio gestito della VM
+      items:
+        - name: Acquisire un token di accesso
+          href: msi-how-to-use-vm-msi-token.md
+        - name: Accesso con PowerShell e interfaccia della riga di comando di Azure
+          href: msi-how-to-use-vm-msi-sign-in.md
+        - name: Uso con Azure SDK
+          href: msi-how-to-use-vm-msi-sdk.md
     - name: Usare un'identità del servizio gestito della VM per accedere ad Azure Data Lake Store
       items:
         - name: Da una VM Windows

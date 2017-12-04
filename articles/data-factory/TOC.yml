@@ -4,6 +4,8 @@
   items:
     - name: Introduzione al servizio Data factory
       href: introduction.md
+    - name: Confrontare le versioni 1 e 2
+      href: compare-versions.md
 - name: Guide introduttive
   expanded: true
   items:
@@ -19,6 +21,8 @@
           href: quickstart-create-data-factory-rest-api.md
         - name: di Microsoft Azure
           href: quickstart-create-data-factory-portal.md
+        - name: Modello di Resource Manager
+          href: quickstart-create-data-factory-resource-manager-template.md
 - name: Esercitazioni
   items:
     - name: 1 - Distribuire i pacchetti SSIS in Azure

@@ -1,0 +1,165 @@
+- name: Documentazione di Site Recovery
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Che cos'è Site Recovery?
+      href: ../site-recovery-overview.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+- name: Esercitazioni
+  items:
+    - name: Configurare Azure
+      href: ../tutorial-prepare-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: Preparare VM VMware per la migrazione
+      href: ../tutorial-prepare-on-premises-vmware.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: Eseguire la migrazione di computer locali ad Azure
+      href: tutorial-migrate-on-premises-to-azure.md
+    - name: Eseguire la migrazione di istanze AWS ad Azure
+      href: tutorial-migrate-aws-to-azure.md
+- name: Concetti
+  items:
+    - name: Migrazione ad Azure
+      href: ../site-recovery-migrate-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: Matrice di supporto da locale ad Azure
+      href: ../site-recovery-support-matrix-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: Matrice di supporto da Azure ad Azure
+      href: ../site-recovery-support-matrix-azure-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: Architettura da Azure ad Azure
+      href: ../concepts-azure-to-azure-architecture.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: Architettura da VMware ad Azure
+      href: ../concepts-vmware-to-azure-architecture.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: Architettura da Hyper-V ad Azure
+      href: ../concepts-hyper-v-to-azure-architecture.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: Architettura da server fisico ad Azure
+      href: ../concepts-hyper-v-to-azure-architecture.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: Matrice di supporto da locale ad Azure
+      href: ../site-recovery-support-matrix-azure-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: Permessi degli accessi in base al ruolo
+      href: ../site-recovery-role-based-linked-access-control.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: domande frequenti
+      href: ../site-recovery-faq.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+- name: Guide pratiche
+  items:
+    - name: Migrazione
+      items:
+        - name: Eseguire la migrazione di VM di Azure a un'altra area
+          href: site-recovery-migrate-azure-to-azure.md
+        - name: Replicare i computer dopo la migrazione
+          href: site-recovery-azure-to-azure-after-migration.md
+    - name: Ripristino di emergenza
+      items:
+        - name: Da VM Hyper-V ad Azure
+          href: ../tutorial-hyper-v-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Da server fisici ad Azure
+          href: ../tutorial-physical-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: Failover e failback
+      items:
+        - name: Eseguire un failover di test in Azure
+          href: ../tutorial-dr-drill-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Configurare piani di ripristino
+          href: ../site-recovery-create-recovery-plans.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Aggiungere runbook di Azure a piani di ripristino
+          href: ../site-recovery-runbook-automation.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Eseguire un failover
+          href: ../site-recovery-failover.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: Configurare
+      items:
+        - name: Configurare l'ambiente di origine
+          items:
+            - name: Configurare l'ambiente di origine per VMware
+              href: ../site-recovery-set-up-vmware-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+            - name: Configurare l'ambiente di origine per server fisici
+              href: ../site-recovery-set-up-physical-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Configurare l'ambiente di destinazione
+          items:
+            - name: Configurare l'ambiente di destinazione per VMware
+              href: ../site-recovery-prepare-target-vmware-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+            - name: Configurare l'ambiente di destinazione per server fisici
+              href: ../site-recovery-prepare-target-physical-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+            - name: Configurare le impostazioni di replica per VMware
+              href: ../site-recovery-setup-replication-settings-vmware.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Distribuire il servizio Mobility per la replica VMware
+          href: ../site-recovery-vmware-to-azure-install-mob-svc.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+          items:
+            - name: Distribuire il servizio Mobility con System Center Configuration Manager
+              href: ../site-recovery-install-mobility-service-using-sccm.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+            - name: Distribuire il servizio Mobility con Automation DSC per Azure
+              href: ../site-recovery-automate-mobility-service-install.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Abilitare la replica
+          items:
+            - name: Abilitare la replica da Azure ad Azure
+              href: ../site-recovery-replicate-azure-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+            - name: Abilitare la replica da VMware ad Azure
+              href: ../site-recovery-replicate-vmware-to-azure.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: Carichi di lavoro
+      items:
+        - name: Active Directory e DNS
+          href: ../site-recovery-active-directory.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Replicare SQL Server
+          href: ../site-recovery-sql.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: SharePoint
+          href: ../site-recovery-sharepoint.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Dynamics AX
+          href: ../site-recovery-dynamicsax.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Servizi desktop remoto
+          href: '../site-recovery-workload.md#protect-rds?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json'
+        - name: Exchange
+          href: '../site-recovery-workload.md#protect-exchange?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json'
+        - name: SAP
+          href: ../site-recovery-sap.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: File Server
+          href: ../file-server-disaster-recovery.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Applicazioni Web basate su IIS
+          href: ../site-recovery-iis.md?toc=%2fazure%2fsite-recovery%2fazure-to-azure%2ftoc.json
+        - name: Citrix XenApp e XenDesktop
+          href: ../site-recovery-citrix-xenapp-and-xendesktop.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Altri carichi di lavoro
+          href: '../site-recovery-workload.md#workload-summary?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json'
+    - name: Gestisci
+      items:
+        - name: Eseguire l'aggiornamento a un insieme di credenziali di Servizi di ripristino
+          href: ../upgrade-site-recovery-vaults.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Gestire server di elaborazione in Azure
+          href: ../site-recovery-vmware-setup-azure-ps-resource-manager.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Gestire il server di configurazione
+          href: ../site-recovery-vmware-to-azure-manage-configuration-server.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Gestire server vCenter
+          href: ../site-recovery-vmware-to-azure-manage-vCenter.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Rimuovere server e disabilitare la protezione
+          href: ../site-recovery-manage-registration-and-protection.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Eliminare un insieme di credenziali
+          href: ../delete-vault.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+    - name: Risoluzione dei problemi
+      items:
+        - name: Problemi di replica da Azure ad Azure
+          href: ../site-recovery-azure-to-azure-troubleshoot-errors.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Problemi di replica da sito locale ad Azure
+          href: ../site-recovery-vmware-to-azure-protection-troubleshoot.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Problemi del servizio Mobility
+          href: ../site-recovery-vmware-to-azure-push-install-error-codes.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Problemi del failover in Azure
+          href: ../site-recovery-failover-to-azure-troubleshoot.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+        - name: Raccogliere i log e risolvere i problemi locali
+          href: ../site-recovery-monitoring-and-troubleshooting.md?toc=%2fazure%2fsite-recovery%2fmigrate%2ftoc.json
+- name: riferimento
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.siterecovery
+    - name: Azure PowerShell classico
+      href: /powershell/module/azure/?view=azuresmps-3.7.0
+    - name: REST
+      href: 'https://msdn.microsoft.com/en-us/library/mt750497'
+- name: Risorse
+  items:
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Blog
+      href: 'http://azure.microsoft.com/blog/tag/azure-site-recovery/'
+    - name: Forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
+    - name: Percorso di apprendimento
+      href: 'https://azure.microsoft.com/documentation/learning-paths/site-recovery/'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/site-recovery/'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=site-recovery'

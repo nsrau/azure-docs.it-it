@@ -7,8 +7,10 @@
 - name: Guide introduttive
   expanded: true
   items:
-    - name: Creare un cluster del servizio contenitore di Azure
+    - name: 'Creare un cluster del servizio contenitore di Azure: interfaccia della riga di comando'
       href: kubernetes-walkthrough.md
+    - name: 'Creare un cluster del servizio contenitore di Azure: portale'
+      href: kubernetes-walkthrough-portal.md
 - name: Esercitazioni
   items:
     - name: '1: Preparare l''applicazione per il servizio contenitore di Azure'
