@@ -15,23 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/05/2017
 ms.author: zhongc
-ms.openlocfilehash: 0a5a1129c5b7fc693ed7c187d928a128650f28b9
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f25a27a86b366b2302657c44108cd823b0384831
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulazione di trading ad alta frequenza con Analisi di flusso
-La combinazione di funzioni e aggregazioni definite dall'utente di JavaScript e del linguaggio SQL di Analisi di flusso di Azure è uno strumento efficace per consentire agli utenti di eseguire analisi avanzate, tra cui il training e l'assegnazione di punteggi di apprendimento automatico online nonché la simulazione di processi con stato. Questo articolo illustra come eseguire la regressione lineare in un processo di Analisi di flusso di Azure che esegue il training e l'assegnazione di punteggi in modo continuo in uno scenario di trading ad alta frequenza.
+La combinazione di linguaggio SQL, funzioni definite dall'utente di JavaScript e aggregazioni definite dall'utente in Analisi di flusso di Azure consente agli utenti di eseguire analisi avanzate. Le analisi avanzate possono includere il training e l'assegnazione dei punteggi di Machine Learning online, oltre alla simulazione di processi con stato. Questo articolo illustra come eseguire la regressione lineare in un processo di Analisi di flusso di Azure che esegue il training e l'assegnazione di punteggi in modo continuo in uno scenario di trading ad alta frequenza.
 
 ## <a name="high-frequency-trading"></a>Trading ad alta frequenza
-Il flusso logico del trading ad alta frequenza prevede la ricezione di quotazioni in tempo reale da una borsa valori, la creazione di un modello predittivo relativo alle quotazioni, per poter prevedere la variazione dei prezzi, e il conseguente invio di ordini di acquisto o di vendita per realizzare un guadagno dalla corretta previsione delle variazioni di prezzo. Sono quindi necessari gli elementi seguenti:
-* Feed di quotazioni in tempo reale
-* Modello predittivo applicabile alle quotazioni in tempo reale
-* Simulazione di trading che offre una dimostrazione di profitti e perdite dell'algoritmo di trading
+Il flusso logico del trading ad alta frequenza include:
+1. Acquisizione di quotazioni in tempo reale da un listino di Borsa.
+2. Creazione di un modello predittivo basato sulle quotazioni, per poter anticipare l'andamento dei prezzi.
+3. Esecuzione di ordini di acquisto o di vendita per trarre profitto dalla stima corretta degli andamenti dei prezzi. 
+
+Sono quindi necessari:
+* Feed di quotazioni in tempo reale.
+* Modello predittivo applicabile alle quotazioni in tempo reale.
+* Simulazione di trading che offre una dimostrazione di profitti o perdite dell'algoritmo di trading.
 
 ### <a name="real-time-quote-feed"></a>Feed di quotazioni in tempo reale
-IEX offre gratuitamente quotazioni di richiesta e di offerta in tempo reale usando socket.io, come illustrato all'indirizzo https://iextrading.com/developer/docs/#websockets. È possibile scrivere un semplice programma console per ricevere le quotazioni in tempo reale ed eseguire il push a Hub eventi come origine dati. Di seguito è illustrata la struttura del programma. La gestione degli errori è stata omessa per brevità. Sarà anche necessario includere nel progetto i pacchetti NuGet SocketIoClientDotNet e WindowsAzure.ServiceBus.
+IEX offre gratuitamente [quotazioni di richiesta e di offerta in tempo reale](https://iextrading.com/developer/docs/#websockets) usando socket.io. È possibile scrivere un semplice programma console per ricevere le quotazioni in tempo reale ed eseguire il push a Hub eventi di Azure come origine dati. Il codice seguente è una struttura del programma. Il codice omette la gestione degli errori per brevità. È anche necessario includere nel progetto i pacchetti NuGet SocketIoClientDotNet e WindowsAzure.ServiceBus.
 
 
     using Quobject.SocketIoClientDotNet.Client;
@@ -51,7 +56,7 @@ IEX offre gratuitamente quotazioni di richiesta e di offerta in tempo reale usan
         socket.Emit("subscribe", symbols);
     });
 
-Di seguito sono riportati alcuni eventi di esempio generati.
+Di seguito sono riportati alcuni eventi di esempio generati:
 
     {"symbol":"MSFT","marketPercent":0.03246,"bidSize":100,"bidPrice":74.8,"askSize":300,"askPrice":74.83,"volume":70572,"lastSalePrice":74.825,"lastSaleSize":100,"lastSaleTime":1506953355123,"lastUpdated":1506953357170,"sector":"softwareservices","securityType":"commonstock"}
     {"symbol":"GOOG","marketPercent":0.04825,"bidSize":114,"bidPrice":870,"askSize":0,"askPrice":0,"volume":11240,"lastSalePrice":959.47,"lastSaleSize":60,"lastSaleTime":1506953317571,"lastUpdated":1506953357633,"sector":"softwareservices","securityType":"commonstock"}
@@ -65,9 +70,11 @@ Di seguito sono riportati alcuni eventi di esempio generati.
 >Il timestamp dell'evento è **lastUpdated**, sotto forma di valore epoch.
 
 ### <a name="predictive-model-for-high-frequency-trading"></a>Modello predittivo per il trading ad alta frequenza
-A scopo di dimostrazione verrà usato un modello lineare descritto da Darryl Shen nel documento disponibile all'indirizzo http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf.
+A scopo di dimostrazione verrà usato un modello lineare descritto da Darryl Shen in [questo documento](http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf).
 
-Lo squilibrio negli ordini di volumi (VOI, Volume Order Imbalance) è una funzione di prezzo e volume di offerta/richiesta correnti e prezzo/volume di offerta/richiesta dell'ultimo tick. Il documento identifica una correlazione tra VOI e variazione di prezzo futura e definisce un modello lineare tra gli ultimi 5 valori VOI e il cambiamento di prezzo nei 10 tick successivi. Il training del modello viene eseguito usando i dati del giorno precedente con regressione lineare. Il modello sottoposto a training viene quindi usato per ottenere le previsioni del cambiamento di prezzo per le quotazioni nel giorno di trading corrente in tempo reale. Quando è previsto un cambiamento di prezzo sufficientemente elevato, viene eseguita una negoziazione. A seconda dell'impostazione della soglia, nel corso di un giorno di trading possono verificarsi migliaia di negoziazioni per un singolo titolo.
+Lo squilibrio negli ordini di volumi (VOI, Volume Order Imbalance) è una funzione di prezzo e volume di offerta/richiesta correnti e prezzo e volume di offerta/richiesta dell'ultimo tick. Il documento identifica una correlazione tra VOI e variazione di prezzo futura e definisce un modello lineare tra gli ultimi 5 valori VOI e il cambiamento di prezzo nei 10 tick successivi. Il training del modello viene eseguito usando i dati del giorno precedente con regressione lineare. 
+
+Il modello sottoposto a training viene quindi usato per ottenere le previsioni del cambiamento di prezzo per le quotazioni nel giorno di trading corrente in tempo reale. Quando è previsto un cambiamento di prezzo sufficientemente elevato, viene eseguita una negoziazione. A seconda dell'impostazione della soglia, nel corso di un giorno di trading possono verificarsi migliaia di negoziazioni per un singolo titolo.
 
 ![Definizione di VOI](./media/stream-analytics-high-frequency-trading/voi-formula.png)
 
@@ -93,7 +100,7 @@ Per prima cosa, viene eseguita la pulizia degli input. Il valore epoch viene con
     ),
     timefilteredquotes AS (
         /* filter between 7am and 1pm PST, 14:00 to 20:00 UTC */
-        /* cleanup invalid data points */
+        /* clean up invalid data points */
         SELECT * FROM typeconvertedquotes
         WHERE DATEPART(hour, lastUpdated) >= 14 AND DATEPART(hour, lastUpdated) < 20 AND bidSize > 0 AND askSize > 0 AND bidPrice > 0 AND askPrice > 0
     ),
@@ -116,7 +123,7 @@ Successivamente, si usa la funzione **LAG** per ottenere i valori dell'ultimo ti
         FROM timefilteredquotes
     ),
 
-È quindi possibile calcolare il valore VOI. Si noti che i valori Null vengono filtrati, nell'eventualità che il tick precedente non esista.
+È quindi possibile calcolare il valore VOI. I valori Null vengono filtrati, nell'eventualità che il tick precedente non esista.
 
     currentPriceAndVOI AS (
         /* calculate VOI */
@@ -163,7 +170,7 @@ A questo punto, si usa di nuovo **LAG** per creare una sequenza con 2 valori VOI
         FROM currentPriceAndVOI
     ),
 
-I dati vengono quindi trasformati in input per un modello lineare a due variabili. Anche in questo caso si filtrano gli eventi per cui non sono disponibili tutti i dati.
+I dati vengono quindi trasformati in input per un modello lineare a due variabili. Anche in questo caso vengono filtrati gli eventi per cui non sono disponibili tutti i dati.
 
     modelInput AS (
         /* create feature vector, x being VOI, y being delta price */
@@ -230,7 +237,7 @@ Dato che Analisi di flusso di Azure non include una funzione di regressione line
         FROM modelparambs
     ),
 
-Per usare il modello del giorno precedente per l'assegnazione dei punteggi dell'evento corrente, si vogliono unire le quotazioni con il modello. Invece di usare **JOIN**, tuttavia, si esegue **UNION** su eventi di modello ed eventi di quotazione e quindi si usa **LAG** per associare gli eventi al modello del giorno precedente e poter così ottenere esattamente una corrispondenza. A causa del fine settimana, è necessario tornare indietro di tre giorni. Usando un semplice **JOIN**, si otterrebbero tre modelli per ogni evento di quotazione.
+Per usare il modello del giorno precedente per l'assegnazione dei punteggi dell'evento corrente, si vogliono unire le quotazioni con il modello. Invece di usare **JOIN**, tuttavia, si esegue **UNION** su eventi di modello ed eventi di quotazione e quindi si usa **LAG** per associare gli eventi al modello del giorno precedente e poter così ottenere esattamente una corrispondenza. A causa del fine settimana, è necessario tornare indietro di tre giorni. Se venisse usato un semplice **JOIN**, si otterrebbero tre modelli per ogni evento di quotazione.
 
     shiftedVOI AS (
         /* get two consecutive VOIs */
@@ -266,7 +273,7 @@ Per usare il modello del giorno precedente per l'assegnazione dei punteggi dell'
         FROM model
     ),
     VOIANDModelJoined AS (
-        /* match VOIs with the latest model within 3 days (72 hours, to take weekend into account) */
+        /* match VOIs with the latest model within 3 days (72 hours, to take the weekend into account) */
         SELECT
             symbol,
             midPrice,
@@ -279,7 +286,7 @@ Per usare il modello del giorno precedente per l'assegnazione dei punteggi dell'
         WHERE type = 'voi'
     ),
 
-È ora possibile creare previsioni e generare segnali di acquisto/vendita in base al modello, con un valore di soglia di 0,02. Un valore di negoziazione 10 corrisponde a un acquisto, mentre un valore di negoziazione -10 corrisponde a una vendita.
+È ora possibile creare previsioni e generare segnali di acquisto/vendita in base al modello, con un valore di soglia di 0,02. Un valore di negoziazione 10 corrisponde a un acquisto. Un valore di negoziazione -10 corrisponde a una vendita.
 
     prediction AS (
         /* make prediction if there is a model */
@@ -308,11 +315,13 @@ Per usare il modello del giorno precedente per l'assegnazione dei punteggi dell'
     ),
 
 ### <a name="trading-simulation"></a>Simulazione di trading
-Dopo aver definito i segnali di trading, si vuole testare l'efficacia della strategia di trading senza eseguire realmente negoziazioni. A questo scopo si usa un'aggregazione definita dall'utente, con finestre di salto per ogni minuto. Con il raggruppamento aggiuntivo in base alla data e la clausola having, la finestra può coprire solo eventi appartenenti allo stesso giorno. Per una finestra di salto su due giorni, la funzione **GROUP BY** in base alla data separa il raggruppamento in giorno precedente e giorno corrente. La clausola **HAVING** filtra le finestre che terminano nel giorno corrente con raggruppamento nel giorno precedente.
+Dopo aver definito i segnali di trading, si vuole testare l'efficacia della strategia di trading senza eseguire realmente negoziazioni. 
+
+A questo scopo si usa un'aggregazione definita dall'utente, con finestre di salto per ogni minuto. Con il raggruppamento aggiuntivo in base alla data e la clausola having, la finestra può coprire solo eventi appartenenti allo stesso giorno. Per una finestra di salto su due giorni, la funzione **GROUP BY** in base alla data separa il raggruppamento in giorno precedente e giorno corrente. La clausola **HAVING** filtra le finestre che terminano nel giorno corrente con raggruppamento nel giorno precedente.
 
     simulation AS
     (
-        /* perform trade simulation for the past 7 hours to cover an entire trading day, generate output every minute */
+        /* perform trade simulation for the past 7 hours to cover an entire trading day, and generate output every minute */
         SELECT
             DateAdd(hour, -7, System.Timestamp) AS time,
             symbol,
@@ -323,7 +332,13 @@ Dopo aver definito i segnali di trading, si vuole testare l'efficacia della stra
         Having DateDiff(day, date, time) < 1 AND DATEPART(hour, time) < 13
     )
 
-L'aggregazione definita dall'utente di JavaScript inizializza tutti gli accumulatori nella funzione init, calcola la transizione di stato con ogni evento aggiunto alla finestra e restituisce i risultati della simulazione alla fine della finestra. Il processo generale di trading prevede l'acquisto di titoli quando non se ne possiedono e viene ricevuto un segnale di acquisto e la vendita di titoli quando viene ricevuto un segnale di vendita e si possiedono titoli oppure una vendita allo scoperto se non se ne è in possesso. In caso di posizione di scoperto, se viene ricevuto un segnale di acquisto si esegue l'acquisto a copertura. In questa simulazione non si possiedono o si vendono mai allo scoperto 10 azioni di un determinato titolo e il costo della transazione è fisso a 8 dollari.
+L'aggregazione definita dall'utente di JavaScript inizializza tutti gli accumulatori nella funzione `init`, calcola la transizione di stato con ogni evento aggiunto alla finestra e restituisce i risultati della simulazione alla fine della finestra. Il processo generale di trading prevede:
+
+- Acquisto di titoli quando non se ne possiedono e viene ricevuto un segnale di acquisto.
+- Vendita di titoli quando se ne possiedono e viene ricevuto un segnale di vendita.
+- Vendita allo scoperto se non si è in possesso di titoli. 
+
+In caso di posizione di scoperto, se viene ricevuto un segnale di acquisto viene eseguito l'acquisto a copertura. In questa simulazione non si possiedono o si vendono mai allo scoperto 10 azioni di un determinato titolo e il costo della transazione è fisso a 8 dollari.
 
 
     function main() {
@@ -432,6 +447,10 @@ L'output viene infine inserito in un dashboard di Power BI per la visualizzazion
 
 
 ## <a name="summary"></a>Riepilogo
-Come si può osservare, è possibile implementare un modello di trading ad alta frequenza realistico con una query moderatamente complessa in Analisi di flusso di Azure. A causa dell'assenza di una funzione di regressione lineare predefinita, è necessario semplificare il modello passando da cinque variabili di input a due. Un utente determinato può tuttavia implementare anche algoritmi con dimensioni superiori e complessità maggiore come aggregazioni definite dall'utente di JavaScript. È opportuno rilevare che la maggior parte della query, tranne l'aggregazione definita dall'utente di JavaScript, può essere testata e sottoposta a debug in Visual Studio con gli [strumenti di Analisi di flusso di Azure per Visual Studio](stream-analytics-tools-for-visual-studio.md). Dopo aver scritto la query iniziale, l'autore ha impiegato meno di 30 minuti per il test e il debug della query in Visual Studio. Attualmente non è possibile eseguire il debug dell'aggregazione definita dall'utente in Visual Studio. Questa funzionalità verrà presto abilitata con la possibilità di scorrere il codice JavaScript. Notare anche che i nomi dei campi impiegati nell'aggregazione definita dall'utente sono interamente in lettere minuscole. In fase di test della query, questo comportamento non era ovvio. Con il livello di compatibilità 1.1 di Analisi di flusso di Azure, tuttavia, è consentito il mantenimento dell'uso di lettere maiuscole e minuscole nei nomi dei campi ed è quindi un comportamento più naturale.
+È possibile implementare un modello di trading ad alta frequenza realistico con una query moderatamente complessa in Analisi di flusso di Azure. A causa dell'assenza di una funzione di regressione lineare predefinita, è necessario semplificare il modello passando da cinque variabili di input a due. Un utente determinato può tuttavia implementare anche algoritmi con dimensioni superiori e complessità maggiore come aggregazioni definite dall'utente di JavaScript. 
+
+È opportuno rilevare che la maggior parte della query, tranne l'aggregazione definita dall'utente di JavaScript, può essere testata e sottoposta a debug in Visual Studio tramite gli [strumenti di Analisi di flusso di Azure per Visual Studio](stream-analytics-tools-for-visual-studio.md). Dopo aver scritto la query iniziale, l'autore ha impiegato meno di 30 minuti per il test e il debug della query in Visual Studio. 
+
+Attualmente non è possibile eseguire il debug dell'aggregazione definita dall'utente in Visual Studio. Questa funzionalità verrà presto abilitata con la possibilità di scorrere il codice JavaScript. Notare anche che i nomi dei campi impiegati nell'aggregazione definita dall'utente sono interamente in lettere minuscole. In fase di test della query, questo comportamento non era ovvio. Con il livello di compatibilità 1.1 di Analisi di flusso di Azure, tuttavia, viene mantenuto l'uso di lettere maiuscole e minuscole nei nomi dei campi ed è quindi un comportamento più naturale.
 
 Questo articolo ha lo scopo di offrire uno spunto a tutti gli utenti di Analisi di flusso di Azure, che potranno usare questo servizio per eseguire analisi avanzate quasi in tempo reale, in modo continuo. Inviare eventuali commenti e suggerimenti per semplificare l'implementazione di query per scenari di analisi avanzata.

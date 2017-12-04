@@ -11,11 +11,11 @@ ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e00dd828ef24b9bc97665f0f5fe8d7e14f4e4630
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 1a23835f341bf02f8e662782984d95bfe194030b
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="compare-azure-iot-options"></a>Confrontare le opzioni di Azure IoT
 
@@ -50,7 +50,7 @@ La scelta del prodotto Azure IoT è una parte essenziale della pianificazione de
 | Accesso ai servizi PaaS sottostanti          | L'utente ha accesso ai servizi di Azure sottostanti per gestirli o, se necessario, sostituirli. | SaaS. Soluzione completamente gestita. I servizi sottostanti non sono esposti. |
 | Flessibilità            | Elevata. Il codice per i microservizi è open source e può essere modificato come si preferisce. È anche possibile personalizzare l'infrastruttura di distribuzione.| Media. È possibile usare l'esperienza utente basata su browser predefinita per personalizzare il modello di soluzione e aspetti dell'interfaccia utente. L'infrastruttura non è personalizzabile perché i diversi componenti non sono esposti.|
 | Livello di competenze                 | Medio-alto. Sono necessarie competenze in Java o .NET per personalizzare il back-end della soluzione e competenze in JavaScript per personalizzare la visualizzazione. | Bassa. Sono necessarie competenze di modellazione per personalizzare la soluzione. Non sono richieste competenze nella creazione di codice. |
-| Esperienza iniziale | Soluzioni preconfigurate implementano scenari IoT comuni, distribuibili in pochi minuti. | Vengono offerti modelli predefiniti, distribuibili in pochi minuti. |
+| Esperienza iniziale | Soluzioni preconfigurate implementano scenari IoT comuni, distribuibili in pochi minuti. | I modelli di applicazione e i modelli di dispositivo forniscono modelli predefiniti distribuibili in pochi minuti. |
 | Prezzi                | È possibile ottimizzare i servizi per controllare i costi. | Struttura di prezzi semplice e prevedibile. |
 
 La scelta del prodotto da usare per creare la propria soluzione IoT è determinata in definitiva da:

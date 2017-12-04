@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: af27d01108cbfb3bd71023ffbce85f348abb0cfe
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 359887a8527d5432e705d9739e30f0eb2363e34f
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Entità servizio con il servizio contenitore di Azure
 
@@ -43,7 +43,7 @@ Quando si distribuisce un cluster del servizio contenitore di Azure con il coman
 Nell'esempio seguente viene creato un cluster del servizio contenitore di Azure e poiché non è specificata un'entità servizio, ne viene creata una per il cluster. Per completare questa operazione, l'account deve avere i diritti appropriati per la creazione di un'entità servizio.
 
 ```azurecli
-az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys
+az aks create --name myK8SCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 ## <a name="use-an-existing-sp"></a>Usare un'entità servizio esistente
@@ -52,8 +52,6 @@ az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 Quando si usa un'entità servizio esistente, questa deve soddisfare i requisiti seguenti:
 
-- Ambito: sottoscrizione usata per distribuire il cluster
-- Ruolo: Collaboratore
 - Segreto client: deve essere una password
 
 ## <a name="pre-create-a-new-sp"></a>Creare in anticipo una nuova entità servizio
@@ -61,8 +59,7 @@ Quando si usa un'entità servizio esistente, questa deve soddisfare i requisiti 
 Per creare l'entità servizio con l'interfaccia della riga di comando di Azure, usare il comando [az ad sp create-for-rbac]().
 
 ```azurecli
-id=$(az account show --query id --output tsv)
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$id"
+az ad sp create-for-rbac --skip-assignment
 ```
 
 L'output è simile al seguente. Prendere nota dei valori di `appId` e `password`. Questi valori vengono usati durante la creazione di un cluster del servizio contenitore di Azure.
@@ -82,7 +79,7 @@ L'output è simile al seguente. Prendere nota dei valori di `appId` e `password`
 Quando si usa un'entità servizio già creata, specificare `appId` e `password` come valori di argomento nel comando `az aks create`.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> ----client-secret <password>
+az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> --client-secret <password>
 ```
 
 Se si distribuisce un cluster del servizio contenitore di Azure dal portale di Azure, immettere questi valori nel modulo di configurazione del cluster.
@@ -99,6 +96,7 @@ Quando si usano entità servizio del servizio contenitore di Azure e di Azure AD
 * Nelle macchine virtuali master e del nodo nel cluster Kubernetes le credenziali dell'entità servizio vengono archiviate nel file /etc/kubernetes/azure.json.
 * Quando si usa il comando `az aks create` per generare automaticamente l'entità servizio, le credenziali dell'entità servizio vengono scritte nel file ~/.azure/acsServicePrincipal.json nel computer usato per eseguire il comando.
 * Quando si usa il comando `az aks create` per generare automaticamente l'entità servizio, questa può anche eseguire l'autenticazione con un [registro contenitori di Azure](../container-registry/container-registry-intro.md) creato nella stessa sottoscrizione.
+* Quando si elimina un cluster del Servizio contenitore di Azure creato da `az aks create`, l'entità servizio creata automaticamente non verrà eliminata. È possibile usare `az ad sp delete --id $clientID` per eliminarla.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

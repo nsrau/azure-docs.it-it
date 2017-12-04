@@ -11,6 +11,10 @@
       href: quickstart-create-databricks-workspace-portal.md
 - name: Risorse
   items:
+    - name: Domande frequenti
+      href: frequently-asked-questions-databricks.md
+    - name: Note sulla versione
+      href: 'https://docs.azuredatabricks.net/release-notes/index.html'
     - name: Documentazione di Databricks
       href: 'https://docs.azuredatabricks.net/user-guide/index.html'
     - name: Roadmap per Azure

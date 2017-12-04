@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2017
 ms.author: cherylmc
-ms.openlocfilehash: 12d414b9653aa6f07648fff991b6291e5f91be4c
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 00a9e580a324ded8e979c2a3c58d51319091b628
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione del certificato (versione classica): portale di Azure
 
@@ -35,8 +35,10 @@ Questo articolo illustra come creare una rete virtuale con una connessione da pu
 
 Un gateway VPN da punto a sito (P2S) consente di creare una connessione sicura alla rete virtuale da un singolo computer client. Le connessioni VPN da punto a sito sono utili per connettersi alla rete virtuale da una posizione remota, ad esempio nel caso di telecomunicazioni da casa o durante una riunione. Una VPN P2S è anche una soluzione utile da usare al posto di una VPN da sito a sito quando solo pochi client devono connettersi a una rete virtuale. Una connessione VPN P2S viene stabilita avviandola dal computer client.
 
-Il modello di distribuzione classica supporta solo i client VPN Windows e usa SSTP (Secure Socket Tunneling Protocol), un protocollo VPN basato su SSL. Per supportare i client VPN non Windows, è necessario creare la rete virtuale con il modello di distribuzione Resource Manager. Il modello di distribuzione Resource Manager supporta VPN IKEv2, oltre a SSTP. Per altre informazioni, vedere [Informazioni sulle connessioni da punto a sito](point-to-site-about.md).
-
+> [!IMPORTANT]
+> Il modello di distribuzione classica supporta solo i client VPN Windows e usa SSTP (Secure Socket Tunneling Protocol), un protocollo VPN basato su SSL. Per supportare i client VPN non Windows, è necessario creare la rete virtuale con il modello di distribuzione Resource Manager. Il modello di distribuzione Resource Manager supporta VPN IKEv2, oltre a SSTP. Per altre informazioni, vedere [Informazioni sulle connessioni da punto a sito](point-to-site-about.md).
+>
+>
 
 ![Diagramma da punto a sito](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 

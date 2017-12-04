@@ -1,6 +1,6 @@
 ---
-title: Articolo introduttivo per gli strumenti di Visual Studio Code per Machine Learning in Azure | Microsoft Docs
-description: Questo articolo illustra come iniziare a usare gli strumenti di Visual Studio Code per Machine Learning, dalla creazione di un esperimento al training di un modello e all'uso di un servizio Web.
+title: Articolo introduttivo per gli strumenti di Visual Studio per Machine Learning in Azure | Microsoft Docs
+description: Questo articolo illustra come iniziare a usare gli strumenti di Visual Studio per Machine Learning, dalla creazione di un esperimento al training di un modello e all'uso di un servizio Web.
 services: machine-learning
 author: ahgyger
 ms.author: ahgyger
@@ -10,72 +10,71 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: get-started-article
-ms.date: 09/12/2017
-ms.openlocfilehash: 400fc384519f2ff5c9bb7d83dab6499f5008a833
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.date: 11/15/2017
+ms.openlocfilehash: 582ec5babf2bac34f20d4e9c7517f78ee2002e0b
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="visual-studio-code-tools-for-ai"></a>Visual Studio Code Tools for AI
-Visual Studio Code Tools for AI è un'estensione di sviluppo per la compilazione, il test e la distribuzioni di soluzioni per Deep Learning e intelligenza artificiale. Offre l'integrazione senza problemi con Azure Machine Learning e in particolare una visualizzazione della cronologia di esecuzione, con informazioni dettagliate sulle prestazioni dei training precedenti e metriche personalizzate. Offre una visualizzazione di esplorazione degli esempi, che consente di esplorare e avviare un nuovo progetto con [Microsoft Cognitive Toolkit (noto in precedenza come CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) e altri framework per Deep Learning. Fornisce infine una visualizzazione di esplorazione per le destinazioni di calcolo, che consente di inviare processi per eseguire il training dei modelli in ambienti remoti come Macchine virtuali di Azure o server Linux con GPU. 
+# <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools for AI
+Visual Studio Tools for AI è un'estensione di sviluppo per la compilazione, il test e la distribuzione di soluzioni per apprendimento avanzato e intelligenza artificiale. Offre l'integrazione senza problemi con Azure Machine Learning e in particolare una visualizzazione della cronologia di esecuzione, con informazioni dettagliate sulle prestazioni dei training precedenti e metriche personalizzate. Offre una visualizzazione di esplorazione degli esempi, che consente di esplorare e avviare un nuovo progetto con [Microsoft Cognitive Toolkit (noto in precedenza come CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) e altri framework per Deep Learning. Fornisce infine una visualizzazione di esplorazione per le destinazioni di calcolo, che consente di inviare processi per eseguire il training dei modelli in ambienti remoti come Macchine virtuali di Azure o server Linux con GPU. Offre anche un accesso facilitato ad [Azure Batch per intelligenza artificiale (anteprima)](https://docs.microsoft.com/en-us/azure/batch-ai/).
  
 ## <a name="getting-started"></a>introduttiva 
-Per iniziare, è prima di tutto necessario scaricare e installare [Visual Studio Code](https://code.visualstudio.com/Download). Dopo avere aperto Visual Studio Code, seguire questa procedura:
-1. Fare clic sull'icona dell'estensione sulla barra delle attività. 
-2. Cercare "Visual Studio Code Tools for AI". 
-3. Fare clic sul pulsante **Installa**. 
-4. Dopo l'installazione, fare clic sul pulsante **Ricarica**. 
+Per iniziare, è prima di tutto necessario scaricare e installare [Visual Studio](https://www.visualstudio.com/downloads/). Dopo avere aperto Visual Studio, seguire questa procedura:
+1. Scegliere "Estensioni e aggiornamenti" dalla barra dei menu in Visual Studio.
+2. Fare clic sulla scheda "Online" e selezionare "Search Visual Studio Marketplace" (Cerca in Visual Studio Marketplace).
+3. Cercare "Visual Studio for AI". 
+3. Fare clic sul pulsante **Download** . 
+4. Dopo l'installazione riavviare Visual Studio. 
 
-Dopo il ricaricamento di Visual Studio Code, l'estensione risulta attivata. [Altre informazioni sull'installazione delle estensioni](https://code.visualstudio.com/docs/editor/extension-gallery).
+Dopo il ricaricamento di Visual Studio, l'estensione risulta attiva. [Altre informazioni sulla ricerca delle estensioni](hhttps://docs.microsoft.com/en-us/visualstudio/ide/finding-and-using-visual-studio-extensions).
+
+> [!NOTE]
+> Visual Studio Tools for AI richiede Visual Studio 2015 o 2017, edizione Professional o Enterprise. Non supporta la versione OSX di Apple. 
+
 
 ## <a name="exploring-project-samples"></a>Esplorazione degli esempi di progetto
-Visual Studio Code Tools for AI include una visualizzazione di esplorazione degli esempi, che semplifica l'individuazione di un esempio e consente di provare gli esempi con pochi clic. Per aprire la visualizzazione di esplorazione, seguire questa procedura:   
-1. Aprire il riquadro comandi scegliendo Visualizza > **Riquadro comandi** oppure tramite **CTRL+MAIUSC+P**.
-2. Immettere "AI Sample". 
-3. Viene visualizzato un consiglio relativo ad "AI: Open Azure ML Sample Explorer". Selezionare l'esempio e premere INVIO. 
+Visual Studio Tools for AI include una visualizzazione di esplorazione degli esempi, che semplifica l'individuazione di un esempio e consente di provare gli esempi con pochi clic. Per aprire la visualizzazione di esplorazione, seguire questa procedura:   
+1. Scegliere **AI Tools** (Strumenti AI) dalla barra dei menu.
+2. Fare clic su "Azure Machine Learning Gallery" (Raccolta di Azure Machine Learning).
 
-In alternativa, è possibile fare clic sull'icona della visualizzazione di esplorazione degli esempi.
+Viene aperta una scheda con tutti gli esempi di Azure ML.
 
 ## <a name="creating-a-new-project-from-the-sample-explorer"></a>Creazione di un nuovo progetto dalla visualizzazione di esplorazione degli esempi 
 È possibile esaminare diversi esempi e ottenere altre informazioni su ogni esempio. Individuare l'esempio "Classifying Iris". Per creare un nuovo progetto basato su questo esempio, seguire questa procedura:
-1. Fare clic sul pulsante di installazione nell'esempio di progetto. Notare i comandi richiesti, che illustrano in modo dettagliato la procedura di creazione di un nuovo progetto. 
-2. Scegliere un nome per il progetto, ad esempio "Iris".
-3. Scegliere un percorso per la cartella in cui creare il progetto, quindi premere INVIO. 
-4. Selezionare un'area di lavoro esistente, quindi premere INVIO.
+1. Fare clic sul pulsante **installa** nell'esempio di progetto. Verrà aperta una nuova finestra di dialogo. 
+2. Selezionare un gruppo di risorse, un account e un'area di lavoro.
+3. È possibile lasciare il tipo di progetto impostato su Generale.
+4. Immettere un percorso di progetto e un nome di progetto, quindi premere INVIO. 
+5. Viene aperta una finestra di dialogo in cui viene chiesto di salvare una soluzione. Fare clic su Salva. 
 
-Verrà creato il progetto.
+Al termine, viene aperto un nuovo progetto in una nuova istanza di Visual Studio. 
 
 > [!TIP]
-> Sarà necessario essere connessi per accedere alla risorsa di Azure. Dal terminale incorporato immettere "az login" e seguire le istruzioni. 
+> È necessario essere connessi per accedere alla risorsa di Azure. Dal terminale incorporato immettere "az login" e seguire le istruzioni. 
 
 ## <a name="submitting-experiment-with-the-new-project"></a>Invio di un esperimento con il nuovo progetto
-Quando il nuovo progetto è aperto in Visual Studio Code, è possibile inviare un processo alla destinazione di calcolo diversa (locale e VM con Docker).
-Visual Studio Code Tools for AI consente di inviare un esperimento in molti modi. 
-1. Menu di scelta rapida (clic con il pulsante destro del mouse): **AI: Submit Job**.
-2. Dal riquadro comandi: "AI: Submit Job".
-3. In alternativa, è possibile eseguire il comando direttamente usando l'interfaccia della riga di comando di Azure oppure i comandi di Machine Learning tramite il terminale incorporato.
+Quando il nuovo progetto è aperto in Visual Studio, inviare un processo a una destinazione di calcolo (locale o VM con Docker).
+Per inviare il processo, seguire questa procedura: 
+1. Da Esplora soluzioni fare clic con il pulsante destro del mouse sul file che si vuole inviare e scegliere **Imposta come file di avvio**.
+2. Selezionare il nome del progetto, fare clic con il pulsante destro del mouse e scegliere **Invia processo**.
+3. Verrà aperta una nuova finestra di dialogo, in cui è possibile scegliere il cluster (o destinazione di calcolo) per eseguire lo script.
+4. Fare clic su **Invia**
 
-Aprire il file iris_sklearn.py, fare clic con il pulsante destro del mouse, quindi scegliere **AI: Submit Job**.
-1. Selezionare la piattaforma: "Azure Machine Learning".
-2. Selezionare la configurazione di esecuzione: "Docker-Python."
-
-> [!NOTE]
-> Se si invia un processo per la prima volta, viene visualizzato un messaggio analogo a "Non è stata trovata alcuna configurazione per Machine Learning, creazione...". Viene aperto un file JSON. Salvarlo (**CTRL+S**).
-
-Dopo l'invio del processo, il terminale incorporato mostra lo stato delle esecuzioni. 
+Dopo l'invio del processo, il terminale incorporato mostra lo stato delle esecuzioni.
 
 ## <a name="view-list-of-jobs"></a>Visualizzare l'elenco dei processi
-Dopo l'invio dei processi, è possibile elencare i processi dalla cronologia di esecuzione.
-1. Aprire il riquadro comandi scegliendo Visualizza > **Riquadro comandi** oppure tramite **CTRL+MAIUSC+P**.
-2. Immettere "AI List."
-3. Viene visualizzato un consiglio relativo ad "AI: List Jobs". Selezionare e premere INVIO.
+Dopo l'invio del processo, è possibile elencare i processi dalla cronologia di esecuzione.
+1. In **Esplora server** fare clic su **AI Tools** (Strumenti AI).
+2. Selezionare quindi **Azure Machine Learning**
+3. Fare clic sul menu **Processi**.
 
-Viene aperta la visualizzazione Elenco processi e vengono mostrate tutte le esecuzioni e alcune informazioni correlate.
+Esplora processi elenca tutti gli esperimenti inviati per questo progetto. 
 
 ## <a name="view-job-details"></a>Visualizza i dettagli dei processi
-Con la visualizzazione Elenco processi ancora aperta, fare clic sulla prima esecuzione nell'elenco.
-Per visualizzare informazioni dettagliate sui risultati di un processo, fare clic sul primo **ID processo**. 
+Con la visualizzazione Esplora processi aperta, fare clic sulla prima esecuzione nell'elenco.
+Verranno caricati il pannello Riepilogo processi e il pannello Logs and Outputs (Log e output).
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]

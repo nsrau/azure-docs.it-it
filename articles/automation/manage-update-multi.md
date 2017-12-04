@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: bb9c19bb489873d1a2175f4a85f7654a3bf099b8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c073cb28f5c37a402c04d5315d7f8e18de8a1b26
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gestire gli aggiornamenti per più macchine virtuali
 
@@ -87,6 +87,16 @@ La gestione degli aggiornamenti è abilitata per la macchina virtuale.
 Per istruzioni su come abilitare la gestione degli aggiornamenti per computer e macchine virtuali Windows non di Azure, vedere [Connettere computer Windows al servizio Log Analytics in Azure](../log-analytics/log-analytics-windows-agents.md).
 
 Per istruzioni su come abilitare Gestione aggiornamenti per computer e macchine virtuali Linux non di Azure, vedere [Connettere computer Linux a Log Analytics](../log-analytics/log-analytics-agent-linux.md).
+
+## <a name="view-computers-attached-to-your-automation-account"></a>Visualizzare i computer associati all'account di Automazione
+Dopo avere abilitato la gestione degli aggiornamenti per i computer, è possibile visualizzare le rispettive informazioni facendo clic su **Computer**. Sono disponibili le informazioni relative ai computer, ad esempio *Nome*, *Conformità*, *Ambiente*, *Tipo di sistema operativo*, *Aggiornamenti critici o della sicurezza* e *Altri aggiornamenti*. 
+
+  ![Visualizzare la scheda Computer](./media/manage-update-multi/update-computers-tab.png)
+
+Per i computer abilitati di recente alla gestione degli aggiornamenti, è possibile che non siano ancora disponibili valutazioni. Lo stato relativo alla conformità per tali computer sarà *Valutazione non eseguita*.  Ecco un elenco di valori per lo stato relativo alla conformità:
+* Conforme: computer senza aggiornamenti critici o della sicurezza mancanti.
+* Non conforme: computer in cui non è presente almeno un aggiornamento critico o della sicurezza.
+* Valutazione non eseguita: i dati relativi alla valutazione dell'aggiornamento non sono stati ricevuti dal computer entro l'intervallo di tempo previsto.  Per i computer Linux si tratta delle ultime tre ore e per i computer Windows delle ultime 12 ore.  
 
 ## <a name="view-an-update-assessment"></a>Visualizzare una valutazione degli aggiornamenti
 

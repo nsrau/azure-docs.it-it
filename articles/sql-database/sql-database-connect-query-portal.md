@@ -15,13 +15,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/01/2017
+ms.date: 08/02/2017
 ms.author: ayolubek
-ms.openlocfilehash: 788b9d2e7ff9e1dba2aca5eca982e4ddf045a6c4
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: ae7ce2c138a9948654d96e018c167d12356ae93d
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Portale di Azure: usare l'editor di query SQL per connettersi ai dati ed eseguire query
 
@@ -31,10 +31,7 @@ L'editor di query SQL è uno strumento di query basato su browser che offre un m
 
 Questa guida introduttiva usa come punto di partenza le risorse create in una delle guide introduttive seguenti:
 
-- [Creare un database: portale](sql-database-get-started-portal.md)
-- [Creare un database: interfaccia della riga di comando](sql-database-get-started-cli.md)
-- [Creare un database: PowerShell](sql-database-get-started-powershell.md)
-
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 ## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
 

@@ -35,7 +35,7 @@
 
 ## Usare gli strumenti di Visual Studio
 ### [Installare](stream-analytics-tools-for-visual-studio-install.md)
-### [Introduzione](stream-analytics-tools-for-visual-studio.md)
+### [Attività iniziali](stream-analytics-tools-for-visual-studio.md)
 ### [Configurare pipeline CI/CD](stream-analytics-tools-for-visual-studio-cicd.md)
 
 ## Monitorare e ottimizzare
@@ -57,7 +57,6 @@
 ### [Pannello Integrità risorse](stream-analytics-resource-health.md)
 ### [Diagramma dei processi e metriche](stream-analytics-job-diagram-with-metrics.md)
 ### [Debug di SELECT INTO](stream-analytics-select-into.md)
-### [Gestione dell'ordine degli eventi](stream-analytics-out-of-order-and-late-events.md)
 ### [Considerazioni sull'ordinamento degli eventi](stream-analytics-out-of-order-and-late-events.md)
 ### [Limiti del lettore dell'hub eventi](stream-analytics-event-hub-consumer-groups.md)
 ### [Log di diagnostica](stream-analytics-job-diagnostic-logs.md)

@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9c0d9274ac78a5e1c4c12ea8e373b69b6f9e165c
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 2c07bebb98345981d36eb928bea14a09df9bc741
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Configurare un'entità servizio di Azure AD per un cluster Kubernetes nel servizio contenitore
 
@@ -36,7 +36,7 @@ Questo articolo illustra le diverse opzioni disponibili per configurare un'entit
 
 È possibile usare un'entità servizio di Azure AD esistente che soddisfi i requisiti seguenti oppure crearne una nuova.
 
-* **Ambito**: la sottoscrizione usata per distribuire il cluster.
+* **Ambito**: gruppo di risorse usato per distribuire il cluster.
 
 * **Ruolo**: **Collaboratore**.
 

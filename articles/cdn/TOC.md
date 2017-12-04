@@ -21,8 +21,8 @@
 ## Gestisci
 ### [Gestire con Azure PowerShell](cdn-manage-powershell.md)
 ### Configurare la durata (TTL)
-#### [Contenuto App Web/Servizi cloud, ASP.NET o IIS](cdn-manage-expiration-of-cloud-service-content.md)
-#### [Contenuto del servizio BLOB del servizio di archiviazione](cdn-manage-expiration-of-blob-content.md)
+#### [Contenuto Web di Azure](cdn-manage-expiration-of-cloud-service-content.md)
+#### [Archivio BLOB di Azure](cdn-manage-expiration-of-blob-content.md)
 ### [Limitare l'accesso in base al paese](cdn-restrict-access-by-country.md)
 ### [Compressione dei file per migliorare le prestazioni](cdn-improve-performance.md)
 ### Memorizzare il contenuto nella cache per stringa di query

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/15/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: b2da1c7148e27ca8dd8eb774d4201415a969fada
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: a660e8e83220d77f2b55020fade0732b3a140c54
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Configurare una connessione gateway VPN tra reti virtuali con il portale di Azure
 
-Questo articolo descrive come creare una connessione gateway VPN tra reti virtuali. Le reti virtuali possono trovarsi in aree geografiche uguali o diverse e in sottoscrizioni uguali o diverse. Quando si connettono reti virtuali da sottoscrizioni diverse, non è necessario che le sottoscrizioni siano associate allo stesso tenant di Active Directory. 
+Questo articolo mostra come connettere reti virtuali tramite il tipo di connessione da rete virtuale a rete virtuale. Le reti virtuali possono trovarsi in aree geografiche uguali o diverse e in sottoscrizioni uguali o diverse. Quando si connettono reti virtuali da sottoscrizioni diverse, non è necessario che le sottoscrizioni siano associate allo stesso tenant di Active Directory. 
 
 La procedura illustrata in questo articolo si applica al modello di distribuzione Resource Manager e usano il portale di Azure. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:
 
@@ -39,15 +39,15 @@ La procedura illustrata in questo articolo si applica al modello di distribuzion
 
 ![Diagramma V2V](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-La connessione di una rete virtuale a un'altra rete virtuale (da rete virtuale a rete virtuale) è simile alla connessione di una rete virtuale a un percorso di sito locale. Entrambi i tipi di connettività utilizzano un gateway VPN per fornire un tunnel sicuro tramite IPsec/IKE. È possibile creare connessioni da sito a sito (IPsec) tra reti virtuali, invece che da rete virtuale a rete virtuale. Entrambi i tipi di connessione funzionano nello stesso modo durante la comunicazione. Quando tuttavia si crea una connessione da rete virtuale a rete virtuale, se si aggiorna lo spazio indirizzi per una rete virtuale, l'altra rete virtuale eseguirà automaticamente l'instradamento allo spazio indirizzi aggiornato. Se si creano connessioni da sito a sito (IPsec), è necessario configurare manualmente lo spazio indirizzi per il gateway di rete locale. Quando si usano configurazioni complesse, può essere preferibile creare connessioni IPsec, invece che da rete virtuale a rete virtuale. In questo modo è possibile specificare manualmente spazio indirizzi aggiuntivo per il gateway di rete locale.
+## <a name="about"></a>Informazioni sulla connessione di reti virtuali
 
-Se le reti virtuali si trovano nella stessa area, è consigliabile considerare la possibilità di connetterle tramite peering reti virtuali. Peering reti virtuali non usa un gateway VPN. Per altre informazioni, vedere [Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md).
+La connessione di una rete virtuale a un'altra rete virtuale tramite il tipo di connessione da rete virtuale a rete virtuale è simile alla creazione di una connessione IPsec a un percorso di sito locale. Entrambi i tipi di connettività usano un gateway VPN per fornire un tunnel sicuro tramite IPsec/IKE ed entrambi funzionano in modo analogo durante la comunicazione. La differenza tra i tipi di connessione è costituita dal modo in cui viene configurato il gateway di rete locale. Quando si crea una connessione da rete virtuale a rete virtuale, non viene visualizzato lo spazio indirizzi del gateway di rete locale, che viene creato e popolato automaticamente. Se si aggiorna lo spazio indirizzi per una rete virtuale, l'altra rete virtuale eseguirà automaticamente il routing allo spazio indirizzi aggiornato.
 
-La comunicazione tra reti virtuali può essere associata a configurazioni multisito. In questo modo è possibile definire topologie di rete che consentono di combinare la connettività cross-premise con la connettività tra reti virtuali, come illustrato nel diagramma seguente:
+Se si usa una configurazione complessa, è possibile che si preferisca usare il tipo di connessione IPsec invece della connessione da rete virtuale a rete virtuale. Ciò consente di specificare uno spazio indirizzi aggiuntivo per il gateway di rete locale per il routing del traffico. Se si connettono le reti virtuali con il tipo di connessione IPsec, è necessario creare e configurare manualmente il gateway di rete locale. Per altre informazioni, vedere [Configurazioni da sito a sito](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-![Informazioni sulle connessioni](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "Informazioni sulle connessioni")
+Se inoltre le reti virtuali si trovano nella stessa area, è consigliabile considerare la possibilità di connetterle tramite peering reti virtuali. Il peering reti virtuali non usa un gateway VPN e presenta prezzi e funzionalità diversi. Per altre informazioni, vedere [Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md).
 
-### <a name="why-connect-virtual-networks"></a>Perché connettere reti virtuali?
+### <a name="why"></a>Vantaggi di una connessione da rete virtuale a rete virtuale
 
 È possibile connettere reti virtuali per i seguenti motivi:
 
@@ -59,7 +59,11 @@ La comunicazione tra reti virtuali può essere associata a configurazioni multis
 
   * All'interno di una stessa area è possibile configurare applicazioni multilivello con più reti virtuali connesse tra loro a causa dell'isolamento o di requisiti amministrativi.
 
-Quando si segue questa procedura come esercizio, è possibile usare i valori delle impostazioni di esempio. Nell'esempio, le reti virtuali sono nella stessa sottoscrizione, ma in gruppi di risorse diversi. Se le reti virtuali si trovano in sottoscrizioni diverse, non sarà possibile creare la connessione nel portale. È possibile usare [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) o l'[interfaccia della riga di comando](vpn-gateway-howto-vnet-vnet-cli.md). Per altre informazioni sulle connessioni da rete virtuale a rete virtuale, vedere la sezione [Domande frequenti relative alla connessione da rete virtuale a rete virtuale](#faq) alla fine di questo articolo.
+La comunicazione tra reti virtuali può essere associata a configurazioni multisito. In questo modo è possibile definire topologie di rete che consentono di combinare la connettività cross-premise con la connettività tra reti virtuali, come illustrato nel diagramma seguente:
+
+![Informazioni sulle connessioni](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "Informazioni sulle connessioni")
+
+Questo articolo illustra come connettere le reti virtuali usando il tipo di connessione da rete virtuale a rete virtuale. Quando si segue questa procedura come esercizio, è possibile usare i valori delle impostazioni di esempio. Nell'esempio, le reti virtuali sono nella stessa sottoscrizione, ma in gruppi di risorse diversi. Se le reti virtuali si trovano in sottoscrizioni diverse, non sarà possibile creare la connessione nel portale. È possibile usare [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) o l'[interfaccia della riga di comando](vpn-gateway-howto-vnet-vnet-cli.md). Per altre informazioni sulle connessioni da rete virtuale a rete virtuale, vedere la sezione [Domande frequenti relative alla connessione da rete virtuale a rete virtuale](#faq) alla fine di questo articolo.
 
 ### <a name="values"></a>Impostazioni di esempio
 

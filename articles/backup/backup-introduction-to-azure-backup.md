@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d26fb8caacdd775b62d704a4b474e68e2f5a3ec
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: b1212bf46261b3fc4cc22224223cf00ec53881cb
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Panoramica delle funzionalità di Backup di Azure
 Backup di Azure è il servizio basato su Azure che consente di eseguire il backup, la protezione e il ripristino dei dati in Microsoft Cloud. Backup di Azure sostituisce la soluzione di backup locale o esterna esistente con una soluzione basata sul cloud affidabile, sicura e conveniente. Backup di Azure offre più componenti che vengono scaricati e distribuiti nel computer o server appropriato o nel cloud. Il componente o l'agente distribuito dipende da ciò che si intende proteggere. Tutti i componenti di Backup di Azure consentono di eseguire il backup dei dati in un insieme di credenziali di Servizi di ripristino, a prescindere che i dati da proteggere si trovino in locale o nel cloud. Vedere la [tabella dei componenti di Backup di Azure](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) più avanti in questo articolo per informazioni sul componente da usare per proteggere dati, applicazioni o carichi di lavoro specifici.
@@ -53,7 +53,7 @@ Se non si è certi del componente di Backup di Azure più adatto alle proprie es
 
 | Componente | Vantaggi | Limiti | Quali elementi vengono protetti? | Dove vengono archiviati i backup? |
 | --- | --- | --- | --- | --- |
-| Agente di Backup di Azure (MARS) |<li>Backup di file e cartelle nel sistema operativo Windows fisico o virtuale. Le VM possono trovarsi in locale o in Azure.<li>Non è necessario un server di backup separato. |<li>Backup 3 volte al giorno <li>Senza riconoscimento dell'applicazione; ripristino solo a livello di file, cartelle e volumi, <li>  Nessun supporto per Linux. |<li>File, <li>Cartelle |Insieme di credenziali dei servizi di ripristino |
+| Agente di Backup di Azure (MARS) |<li>Backup di file e cartelle nel sistema operativo Windows fisico o virtuale. Le VM possono trovarsi in locale o in Azure.<li>Non è necessario un server di backup separato. |<li>Backup 3 volte al giorno <li>Senza riconoscimento dell'applicazione; ripristino solo a livello di file, cartelle e volumi, <li>  Nessun supporto per Linux. |<li>File, <li>Cartelle, <li>Stato del sistema |Insieme di credenziali dei servizi di ripristino |
 | System Center DPM |<li>Snapshot con riconoscimento dell'applicazione (servizio Copia Shadow del volume)<li>Flessibilità completa in merito a quando eseguire i backup<li>Granularità ripristino (tutto)<li>Possibilità di usare un insieme di credenziali di Servizi di ripristino<li>Supporto di Linux in macchine virtuali Hyper-V e VMware <li>Eseguire il backup e il ripristino di VM VMware usando DPM 2012 R2 |Non è possibile eseguire il backup del carico di lavoro di Oracle.|<li>File, <li>Cartelle,<li> Volumi, <li>Macchine virtuali,<li> Applicazioni,<li> Carichi di lavoro |<li>Insieme di credenziali di Servizi di ripristino,<li> Disco collegato al computer locale,<li>  Nastro (solo in locale) |
 | Server di backup di Azure |<li>Snapshot con riconoscimento dell'app (servizio Copia Shadow del volume)<li>Flessibilità completa in merito a quando eseguire i backup<li>Granularità ripristino (tutto)<li>Possibilità di usare un insieme di credenziali di Servizi di ripristino<li>Supporto di Linux in macchine virtuali Hyper-V e VMware<li>Eseguire il backup e il ripristino di VM VMware <li>Non richiede una licenza per System Center |<li>Non è possibile eseguire il backup del carico di lavoro di Oracle.<li>Richiede sempre una sottoscrizione di Azure attiva<li>Nessun supporto per il backup su nastro |<li>File, <li>Cartelle,<li> Volumi, <li>Macchine virtuali,<li> Applicazioni,<li> Carichi di lavoro |<li>Insieme di credenziali di Servizi di ripristino,<li> Disco collegato al computer locale |
 | Backup di VM IaaS di Azure |<li>Backup nativi per Windows/Linux<li>Non è richiesta l'installazione un agente specifico<li>Backup a livello di infrastruttura senza che sia necessaria un'infrastruttura di backup |<li>Backup delle VM una volta al giorno <li>Ripristino delle VM solo a livello di disco<li>Non può eseguire il backup in locale |<li>Macchine virtuali, <li>Tutti i dischi (tramite PowerShell) |<p>Insieme di credenziali dei servizi di ripristino</p> |

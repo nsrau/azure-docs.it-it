@@ -43,6 +43,10 @@ sections:
               src: /azure/data-factory/media/index/portal.svg
             text: Portale di Azure
             href: /azure/data-factory/quickstart-create-data-factory-portal
+          - image:
+              src: /azure/data-factory/media/index/logo_azure_resource_manager.svg
+            text: Modello di Resource Manager
+            href: /azure/data-factory/quickstart-create-data-factory-resource-manager-template
   - title: Esercitazioni dettagliate
     items:
       - type: paragraph
