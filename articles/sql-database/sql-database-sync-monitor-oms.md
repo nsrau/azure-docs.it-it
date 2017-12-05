@@ -74,7 +74,7 @@ Per altre informazioni sulla creazione di un runbook, vedere [Il primo runbook P
 
 3.  Selezionare **Importare un runbook esistente**.
 
-4.  In **	File di runbook** usare il file `DataSyncLogPowerShellRunbook` specifico. Impostare il **tipo di runbook** come `PowerShell`. Assegnare un nome al runbook.
+4.  In **File di runbook** usare il file `DataSyncLogPowerShellRunbook` specifico. Impostare il **tipo di runbook** come `PowerShell`. Assegnare un nome al runbook.
 
 5.  Selezionare **Crea**. È ora disponibile un runbook.
 
