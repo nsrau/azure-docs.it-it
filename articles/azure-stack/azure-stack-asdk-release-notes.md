@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/03/2017
 ms.author: andredm
-ms.openlocfilehash: 56d8ad4fecf14dfa69ade43438672c31a4954209
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 6abbad8a086571702fd2e9d4d5d172189bb3c339
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Note sulla versione di Azure Stack Development Kit
 
@@ -56,7 +56,7 @@ Queste note sulla versione offrono informazioni sui miglioramenti e correzioni d
    Per risolvere i problemi ultimi due, è possibile digitare il nome della sottoscrizione o del gruppo di risorse (se si conosce) oppure è possibile usare PowerShell.
 
 - Verrà visualizzato un **attivazione richiesto** messaggio di avviso che consiglia di registrare il Kit di sviluppo dello Stack di Azure. Questo comportamento è previsto.
-- Nel **attivazione richiesto** avviso dettagli dell'avviso, non fare clic sul collegamento per il **AzureBridge** componente. In caso contrario, il **Panoramica** pannello correttamente tenterà di caricare, e non è previsto un timeout.
+- Se il **componente** si fa clic sul collegamento da qualsiasi **ruolo infrastruttura** di avviso, il valore risultante **Panoramica** pannello tenta di caricare e ha esito negativo. Inoltre il * * Panoramica * * blade non ha timeout.
 - Se si elimina utente sottoscrizioni nelle risorse orfane. In alternativa, eliminare prima le risorse utente o l'intero gruppo di risorse e quindi eliminare le sottoscrizioni dell'utente.
 - Non è in grado di visualizzare le autorizzazioni per la sottoscrizione tramite i portali di Stack di Azure. In alternativa, è possibile verificare le autorizzazioni tramite PowerShell.
  
