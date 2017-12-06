@@ -1,0 +1,57 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione di Gestione API
+metadata:
+  title: 'Documentazione di Gestione API di Azure: esercitazioni e informazioni di riferimento sulle API | Microsoft Docs'
+  description: 'Informazioni su come usare Gestione API per pubblicare API per sviluppatori esterni, partner e dipendenti in modo sicuro e scalabile. Esercitazioni, informazioni di riferimento sulle API e altri documenti illustrano come creare e gestire gateway API moderni per servizi back-end esistenti ospitati ovunque.'
+  services: api-management
+  author: czeumault
+  manager: carolz
+  ms.service: api-management
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/15/2017
+  ms.author: carolz
+abstract:
+  description: 'Informazioni su come usare Gestione API per pubblicare API per sviluppatori esterni, partner e dipendenti in modo sicuro e scalabile. Esercitazioni, informazioni di riferimento sulle API e altri documenti illustrano come creare e gestire gateway API moderni per servizi back-end esistenti ospitati ovunque.'
+sections:
+  - title: Guide introduttive di 5 minuti
+    items:
+      - type: paragraph
+        text: Creare un'istanza di Gestione API.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg'
+            text: 'Creare un''istanza: portale'
+            href: /azure/api-management/get-started-create-service-instance
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg'
+            text: 'Creare un''istanza: PowerShell'
+            href: /azure/api-management/powershell-create-service-instance
+  - title: Esercitazioni dettagliate
+    items:
+      - type: paragraph
+        text: Informazioni su come gestire gestione API.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/api-management/import-and-publish">Importare e pubblicare la prima API</a>
+          - html: <a href="/azure/api-management/api-management-howto-add-products">Creare e pubblicare un prodotto</a>
+          - html: <a href="/azure/api-management/mock-api-responses">Simulare le risposte di un'API</a>
+          - html: <a href="/azure/api-management/transform-api">Trasformare e proteggere l'API</a>
+          - html: <a href="/azure/api-management/api-management-howto-use-azure-monitor">Monitorare le API pubblicate</a>
+          - html: <a href="/azure/api-management/api-management-howto-api-inspector">Eseguire il debug delle API con la traccia delle richieste</a>
+          - html: <a href="/azure/api-management/api-management-get-started-revise-api">Usare le revisioni per apportare modifiche non di rilievo in modo sicuro</a>
+          - html: <a href="/azure/api-management/api-management-get-started-publish-versions">Pubblicare più versioni dell'API</a>
+          - html: <a href="/azure/api-management/api-management-customize-styles">Personalizzare lo stile delle pagine del portale per sviluppatori</a>
+  - title: Esempi
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/api-management/policy-samples">Criteri</a>
+          - html: <a href="/azure/api-management/powershell-samples">Azure PowerShell</a>

@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentazione del servizio Device Provisioning in hub IoT di Azure (anteprima)
+title: Documentazione del servizio Device Provisioning in hub IoT di Azure
 metadata:
-  title: 'Documentazione del servizio Device Provisioning in hub IoT di Azure (anteprima): esercitazioni e informazioni di riferimento sulle API'
+  title: 'Documentazione del servizio Device Provisioning in hub IoT di Azure: esercitazioni e informazioni di riferimento sulle API'
   meta.description: Overview of Azure IoT Hub Device Provisioning Service.
   services: iot-dps
   author: nberdy
@@ -14,7 +14,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: nberdy
 abstract:
-  description: 'Il servizio Device Provisioning in hub IoT (anteprima) è un servizio helper per l''hub IoT che esegue il provisioning JIT in modo completamente automatico, consentendo ai clienti di effettuare il provisioning di milioni di dispositivi in modo sicuro e scalabile. Informazioni su come effettuare il provisioning dei dispositivi negli hub IoT con guide introduttive, esercitazioni ed esempi.'
+  description: 'Device Provisioning in hub IoT è un servizio helper per l''hub IoT che supporta il provisioning JIT nell''hub IoT corretto senza alcun intervento da parte dell''utente e consente così ai clienti di effettuare il provisioning di milioni di dispositivi in modo sicuro e scalabile. Informazioni su come effettuare il provisioning dei dispositivi negli hub IoT con guide introduttive, esercitazioni ed esempi.'
 sections:
   - title: Guide introduttive di 5 minuti
     items:
@@ -34,7 +34,7 @@ sections:
   - title: Esercitazioni dettagliate
     items:
       - type: paragraph
-        text: Informazioni su come usare il servizio Device Provisioning in hub IoT (anteprima) per il provisioning automatico di dispositivi con sicurezza abilitata in uno o più hub IoT.
+        text: Informazioni su come usare il servizio Device Provisioning in hub IoT per il provisioning automatico di dispositivi con sicurezza abilitata in uno o più hub IoT.
       - type: list
         style: ordered
         items:

@@ -135,13 +135,29 @@
         - name: Pianificazione della capacità per la replica VMware in Azure
           href: site-recovery-plan-capacity-vmware.md
         - name: Strumento Deployment Planner per la replica VMware in Azure
-          href: site-recovery-deployment-planner.md
-        - name: Pianificazione della capacità per la replica Hyper-V in Azure
-          href: site-recovery-capacity-planner.md
-        - name: Strumento Capacity Planner per la replica Hyper-V in Azure
-          href: site-recovery-capacity-planning-for-hyper-v-replication.md
+          href: null
+          items:
+            - name: Panoramica e prerequisiti
+              href: site-recovery-deployment-planner.md
+            - name: Eseguire Deployment Planner
+              href: site-recovery-vmware-deployment-planner-run.md
+            - name: Analizzare il report generato
+              href: site-recovery-vmware-deployment-planner-analyze-report.md
+            - name: Analizzare il report di stima dei costi del ripristino di emergenza
+              href: site-recovery-vmware-deployment-planner-cost-estimation.md
         - name: Server di elaborazione con scalabilità orizzontale per la replica VMware
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
+        - name: Pianificazione della distribuzione e relativo strumento per la replica Hyper-V in Azure
+          href: null
+          items:
+            - name: Panoramica e prerequisiti
+              href: site-recovery-hyper-v-deployment-planner.md
+            - name: Eseguire Deployment Planner
+              href: site-recovery-hyper-v-deployment-planner-run.md
+            - name: Analizzare il report generato
+              href: site-recovery-hyper-v-deployment-planner-analyze-report.md
+            - name: Analizzare il report di stima dei costi del ripristino di emergenza
+              href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
         - name: Test della scalabilità delle prestazioni per la replica Hyper-V tra siti locali
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: Configurare

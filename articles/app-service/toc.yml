@@ -13,8 +13,10 @@
 - name: Guide introduttive
   expanded: true
   items:
-    - name: Creare un'app .NET
+    - name: Creare un'app .NET Core
       href: app-service-web-get-started-dotnet.md
+    - name: Creare un'app .NET Framework
+      href: app-service-web-get-started-dotnet-framework.md
     - name: Creare un'app Node.js
       href: app-service-web-get-started-nodejs.md
     - name: Creare un'app PHP
