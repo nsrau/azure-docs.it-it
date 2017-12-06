@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/15/2017
+  ms.date: 11/29/2017
   ms.author: carolz
 abstract:
   description: 'Azure Cosmos DB è un servizio di database multimodello e distribuito a livello globale. Usare queste guide introduttive, le esercitazioni e gli esempi per sviluppare database di documenti, con coppie chiave-valore, con colonna ampia e con elementi grafici usando le API e i modelli di programmazione più diffusi. È possibile ottenere informazioni su come replicare i dati in qualsiasi area di Azure e ridimensionare la velocità effettiva indipendentemente dalle risorse di archiviazione, sfruttando al tempo stesso i vantaggi dei contratti di servizio completi.'
@@ -63,7 +63,7 @@ sections:
               - href: /azure/cosmos-db/create-graph-java
               - href: /azure/cosmos-db/create-graph-dotnet
               - href: /azure/cosmos-db/create-graph-nodejs
-              - href: null
+              - href: /azure/cosmos-db/create-graph-python
               - href: /azure/cosmos-db/create-graph-gremlin-console
           - title: API di tabella
             values:
