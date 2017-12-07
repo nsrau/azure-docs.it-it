@@ -3,8 +3,8 @@ title: Ripristinare un'istanza di Azure Data Warehouse - Ridondanza geografica e
 description: Panoramica delle opzioni di ripristino del database per ripristinare un database in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: Lakshmi1812
-manager: jhubbard
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 3e01c65c-6708-4fd7-82f5-4e1b5f61d304
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: backup-restore
-ms.date: 10/31/2016
-ms.author: lakshmir;barbkess
-ms.openlocfilehash: ea42b7135d0695b66d569095e70bb3d9f8b9594b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: abf8f0b1005aec71812dc8ebfd12fe65250d7a0e
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="sql-data-warehouse-restore"></a>Ripristino di SQL Data Warehouse
 > [!div class="op_single_selector"]

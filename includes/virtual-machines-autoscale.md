@@ -44,7 +44,7 @@ Le [regole](../articles/monitoring-and-diagnostics/monitoring-autoscale-scale-by
 
 È possibile aggiungere o rimuovere VM modificando la capacità del set di scalabilità. Nel portale di Azure si può ridurre o aumentare il numero di VM (riportato come **numero di istanze**) nel set di scalabilità spostando verso sinistra o destra la barra del dispositivo di scorrimento in Override condition (Condizione di override) nella schermata Ridimensionamento.
 
-Usando Azure PowerShell, è necessario ottenere l'oggetto set di scalabilità con [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Si imposta quindi la proprietà **sku.capacity** sul numero di VM desiderato e si aggiorna il set di scalabilità con [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Usando l'interfaccia della riga di comando di Azure, si modifica la capacità con il parametro **--new-capacity** del comando [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#scale).
+Usando Azure PowerShell, è necessario ottenere l'oggetto set di scalabilità con [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Si imposta quindi la proprietà **sku.capacity** sul numero di VM desiderato e si aggiorna il set di scalabilità con [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Usando l'interfaccia della riga di comando di Azure, si modifica la capacità con il parametro **--new-capacity** del comando [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale).
 
 ### <a name="vertical"></a>Vertical
 

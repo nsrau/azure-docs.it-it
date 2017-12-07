@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: cf077fef6df2fd21cf51f6b4fd4e26a4b5081247
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: b5cd022c87a6a7a9e18f33b869db04e72be5cef7
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Note sulla versione di Microsoft Azure Storage Explorer (anteprima)
 
@@ -76,7 +76,7 @@ Questo articolo contiene le note sulla versione di anteprima di Azure Storage Ex
 * Sebbene Azure Stack attualmente non supporta le condivisioni file, viene comunque visualizzato un nodo delle condivisioni di file in un account di archiviazione di Azure Stack associato.
 * La shell Electron utilizzata da Azure Storage Explorer ha problemi con l'accelerazione hardware di alcune GPU (graphics processing unit, unità di elaborazione grafica). Se Azure Storage Explorer mostra una finestra principale vuota, è possibile provare ad avviare Azure Storage Explorer dalla riga di comando e disattivare l'accelerazione GPU aggiungendo il parametro `--disable-gpu`:
 ```
-./StorageExplorer.exe --disable-gpu
+./StorageExplorer --disable-gpu
 ```
 * Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
 
@@ -137,7 +137,7 @@ Questo articolo contiene le note sulla versione di anteprima di Azure Storage Ex
 * Sebbene Azure Stack attualmente non supporta le condivisioni file, viene comunque visualizzato un nodo delle condivisioni di file in un account di archiviazione di Azure Stack associato.
 * La shell Electron utilizzata da Azure Storage Explorer ha problemi con l'accelerazione hardware di alcune GPU (graphics processing unit, unità di elaborazione grafica). Se Azure Storage Explorer mostra una finestra principale vuota, è possibile provare ad avviare Azure Storage Explorer dalla riga di comando e disattivare l'accelerazione GPU aggiungendo il parametro `--disable-gpu`:
 ```
-./StorageExplorer.exe --disable-gpu
+./StorageExplorer --disable-gpu
 ```
 * Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
 

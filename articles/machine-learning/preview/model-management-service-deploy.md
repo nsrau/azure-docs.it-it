@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 0ebf8964bc565e5d4f95fb1ad3edbc16f841851c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d59dccec4532ff0903972f2b15ed9dd8429a2ed
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Distribuzione di un modello di Machine Learning come un servizio Web
 
@@ -25,7 +25,7 @@ Questo documento illustra i passaggi per distribuire i modelli come servizi Web 
 ## <a name="deploying-web-services"></a>Distribuzione dei servizi Web
 Usando le interfacce della riga di comando è possibile distribuire servizi Web per l'esecuzione nel computer locale o in un cluster.
 
-È consigliabile iniziare con una distribuzione locale. Per prima cosa confermare che il modello e il codice funzionino e quindi eseguire la distribuzione del servizio Web in un cluster per l'uso a livello di produzione. Per altre informazioni sulla configurazione dell'ambiente per la distribuzione di cluster, vedere [Model Management configuration](model-management-configuration.md) (Configurazione della Gestione modelli). 
+È consigliabile iniziare con una distribuzione locale. Per prima cosa confermare che il modello e il codice funzionino e quindi eseguire la distribuzione del servizio Web in un cluster per l'uso a livello di produzione. Per altre informazioni sulla configurazione dell'ambiente per la distribuzione di cluster, vedere [Model Management configuration](deployment-setup-configuration.md) (Configurazione della Gestione modelli). 
 
 Di seguito sono indicati i passaggi di distribuzione:
 1. Usare il modello di Machine Learning salvato e sottoposto a training
@@ -186,4 +186,4 @@ az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\"
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ora che il servizio Web è stato testato per l'esecuzione in locale è possibile distribuirlo a un cluster per l'uso su larga scala. Per informazioni dettagliate sull'impostazione di un cluster per la distribuzione dei servizi Web, vedere [Model Management Configuration](model-management-configuration.md) (Configurazione della Gestione modelli). 
+Ora che il servizio Web è stato testato per l'esecuzione in locale è possibile distribuirlo a un cluster per l'uso su larga scala. Per informazioni dettagliate sull'impostazione di un cluster per la distribuzione dei servizi Web, vedere [Model Management Configuration](deployment-setup-configuration.md) (Configurazione della Gestione modelli). 

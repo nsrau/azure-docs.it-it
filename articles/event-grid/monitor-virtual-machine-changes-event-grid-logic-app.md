@@ -9,13 +9,13 @@ ms.assetid:
 ms.workload: logic-apps
 ms.service: logic-apps
 ms.topic: article
-ms.date: 08/16/2017
+ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 8b9c7c9502be1a9d8681a304a6663c23c02c0298
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: df1e19b772b41064aff1f345dee93813f0c21c73
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Monitorare le modifiche a una macchina virtuale con Griglia di eventi di Azure e app per la logica
 
@@ -91,7 +91,7 @@ Per prima cosa, creare un'app per la logica e aggiungere un trigger di Griglia d
    ![Accedere con le credenziali di Azure](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
-   > Se è stato effettuato l'accesso con un account Microsoft personale, ad esempio @outlook.com o @hotmail.com, è possibile che il trigger di Griglia di eventi di Azure non venga visualizzato correttamente. In alternativa, scegliere [Connetti usando l'entità servizio](/azure-resource-manager/resource-group-create-service-principal-portal.md) o eseguire l'autenticazione come membro di Azure Active Directory associato alla sottoscrizione di Azure, ad esempio *nome-utente*@emailoutlook.onmicrosoft.com.
+   > Se è stato effettuato l'accesso con un account Microsoft personale, ad esempio @outlook.com o @hotmail.com, è possibile che il trigger di Griglia di eventi di Azure non venga visualizzato correttamente. In alternativa, scegliere [Connetti usando l'entità servizio](../azure-resource-manager/resource-group-create-service-principal-portal.md) o eseguire l'autenticazione come membro di Azure Active Directory associato alla sottoscrizione di Azure, ad esempio *nome-utente*@emailoutlook.onmicrosoft.com.
 
 8. A questo punto eseguire la sottoscrizione dell'app per la logica agli eventi dell'editore. Specificare i dettagli per la sottoscrizione dell'evento, come indicato nella tabella seguente:
 

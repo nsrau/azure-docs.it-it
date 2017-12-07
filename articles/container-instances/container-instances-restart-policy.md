@@ -2,26 +2,17 @@
 title: "Eseguire attività in contenitori in Istanze di contenitore di Azure"
 description: "Informazioni su come usare Istanze di contenitore di Azure per eseguire attività eseguite fino al completamento, ad esempio nella compilazione, nei test o nei processi per il rendering di immagini."
 services: container-instances
-documentationcenter: 
 author: mmacy
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/16/2017
 ms.author: marsma
-ms.custom: 
-ms.openlocfilehash: ae2466bdd3b21984b141c9178ea46bd25bb6357b
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 3c7c57b05220d1e82c3baa8bc266e02d961a84be
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Eseguire un'attività in contenitori in Istanze di contenitore di Azure
 

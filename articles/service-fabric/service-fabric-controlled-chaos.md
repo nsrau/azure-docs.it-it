@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: motanv
-ms.openlocfilehash: c78d9e77d807f3ccf8c1f56d856abad8135989c2
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 9a205d1b8e088b7007bb8c3a64139732d8858267
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Eseguire Chaos in ambiente controllato nei cluster di Service Fabric
 I sistemi distribuiti di grandi dimensioni come le infrastrutture cloud sono intrinsecamente inaffidabili. Azure Service Fabric consente agli sviluppatori di scrivere servizi distribuiti affidabili in un'infrastruttura inaffidabile. Per scrivere servizi distribuiti affidabili in un'infrastruttura inaffidabile, gli sviluppatori devono poter testare la stabilità dei servizi quando nell'infrastruttura inaffidabile sottostante si verificano transizioni di stato complesse a causa di errori.
@@ -70,9 +70,6 @@ Per sapere quali errori sono stati indotti da Chaos, è possibile usare l'API Ge
 * **WaitTimeBetweenFaults**: quantità di tempo di attesa tra due errori consecutivi in una singola iterazione. Maggiore è il valore, minore sarà la concorrenza degli errori, ovvero la loro sovrapposizione.
 * **ClusterHealthPolicy**: criteri di integrità del cluster usati per convalidare l'integrità del cluster tra iterazioni di Chaos. Se si verifica un errore di integrità del cluster o un'eccezione imprevista durante l'esecuzione dell'errore, Chaos attende 30 minuti prima del successivo controllo di integrità, per fornire al cluster il tempo di recupero.
 * **Context**: raccolta di coppie chiave-valore di tipo (string, string). La mappa può essere usata per registrare le informazioni sull'esecuzione di Chaos. Non possono esserci più di 100 coppie di questo tipo e ogni stringa (chiave o valore) può essere costituita da un massimo di 4095 caratteri. Questa mappa viene impostata dalla funzione di avvio dell'esecuzione di Chaos per l'archiviazione facoltativa del contesto dell'esecuzione specifica.
-* **ChaosTargetFilter**: questo filtro consente di generare errori Chaos solo in nodi di tipo specifico o solo in alcune istanze dell'applicazione. Se non si usa ChaosTargetFilter, gli errori Chaos interessano tutte le entità del cluster. Se si usa ChaosTargetFilter, gli errori Chaos interessano solo le entità che soddisfano le specifiche di ChaosTargetFilter. NodeTypeInclusionList e ApplicationInclusionList consentono solo la semantica di unione. In altre parole, non è possibile specificare un'intersezione tra NodeTypeInclusionList e ApplicationInclusionList. Non è ad esempio possibile specificare "genera un errore in questa applicazione solo quando si trova in quel tipo di nodo". Dopo che un'entità è stata inclusa in NodeTypeInclusionList o in ApplicationInclusionList, tale entità non può essere esclusa tramite ChaosTargetFilter. Anche se in ApplicationInclusionList non compare applicationX, in alcune iterazioni di Chaos applicationX può presentare un errore, perché si trova per caso in un nodo di tipo nodeTypeY incluso in NodeTypeInclusionList. Se NodeTypeInclusionList e ApplicationInclusionList sono entrambi Null o vuoti, viene generata un'eccezione ArgumentException.
-    * **NodeTypeInclusionList**: elenco di tipi di nodo da includere negli errori Chaos. Tutti i tipi di errore (riavvio di nodo, riavvio di pacchetto di codice, rimozione di replica, riavvio di replica, spostamento di replica primaria e spostamento di replica secondaria) sono abilitati per i nodi di questi tipi di nodo. Se un tipo di nodo (ad esempio NodeTypeX) non compare in NodeTypeInclusionList, gli errori a livello di nodo (ad esempio NodeRestart) non verranno mai abilitati per i nodi di tipo NodeTypeX. Gli errori di pacchetto di codice e di replica, tuttavia, possono comunque essere abilitati per NodeTypeX se un'applicazione in ApplicationInclusionList si trova in un nodo di tipo NodeTypeX. In questo elenco possono essere inclusi al massimo 100 tipi di nodo. Per aumentare questo numero, è necessario un aggiornamento della configurazione di MaxNumberOfNodeTypesInChaosTargetFilter.
-    * **ApplicationInclusionList**: elenco di URI dell'applicazione da includere negli errori Chaos. Tutte le repliche appartenenti ai servizi di queste applicazioni sono soggette a errori di replica (riavvio di replica, rimozione di replica, spostamento di replica primaria, spostamento di replica secondaria) generati da Chaos. Chaos può riavviare un pacchetto di codice solo se quest'ultimo ospita solo repliche di queste applicazioni. Se un'applicazione non compare in questo elenco, può comunque presentare errori in alcune iterazioni di Chaos se l'applicazione finisce per trovarsi in un nodo di un tipo incluso in NodeTypeInclusionList. Se tuttavia applicationX è associata a nodeTypeY tramite vincoli di posizionamento, applicationX non è presente in ApplicationInclusionList e nodeTypeY non è presente in NodeTypeInclusionList, applicationX non presenterà mai errori. In questo elenco possono essere inclusi al massimo 1000 nomi di applicazione. Per aumentare questo numero, è necessario un aggiornamento della configurazione di MaxNumberOfApplicationsInChaosTargetFilter.
 
 ## <a name="how-to-run-chaos"></a>Come eseguire Chaos
 
@@ -139,23 +136,7 @@ class Program
                 MaxPercentUnhealthyApplications = 100,
                 MaxPercentUnhealthyNodes = 100
             };
-
-            // All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
-            // for nodes of type 'FrontEndType'
-            var nodetypeInclusionList = new List<string> { "FrontEndType"};
-
-            // In addition to the faults included by nodetypeInclusionList, 
-            // restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
-            // even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
-            var applicationInclusionList = new List<string> { "fabric:/TestApp2" };
-
-            // List of cluster entities to target for Chaos faults.
-            var chaosTargetFilter = new ChaosTargetFilter
-            {
-                NodeTypeInclusionList = nodetypeInclusionList,
-                ApplicationInclusionList = applicationInclusionList
-            };
-
+            
             var parameters = new ChaosParameters(
                 maxClusterStabilizationTimeout,
                 maxConcurrentFaults,
@@ -164,7 +145,7 @@ class Program
                 startContext,
                 waitTimeBetweenIterations,
                 waitTimeBetweenFaults,
-                clusterHealthPolicy) {ChaosTargetFilter = chaosTargetFilter};
+                clusterHealthPolicy);
 
             try
             {
@@ -269,26 +250,12 @@ $clusterHealthPolicy.ConsiderWarningAsError = $False
 # This map is set by the starter of the Chaos run to optionally store the context about the specific run.
 $context = @{"ReasonForStart" = "Testing"}
 
-#List of cluster entities to target for Chaos faults.
-$chaosTargetFilter = new-object -TypeName System.Fabric.Chaos.DataStructures.ChaosTargetFilter
-$chaosTargetFilter.NodeTypeInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
-
-# All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
-# for nodes of type 'FrontEndType'
-$chaosTargetFilter.NodeTypeInclusionList.AddRange( [string[]]@("FrontEndType") )
-$chaosTargetFilter.ApplicationInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
-
-# In addition to the faults included by nodetypeInclusionList, 
-# restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
-# even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
-$chaosTargetFilter.ApplicationInclusionList.Add("fabric:/TestApp2")
-
 Connect-ServiceFabricCluster $clusterConnectionString
 
 $events = @{}
 $now = [System.DateTime]::UtcNow
 
-Start-ServiceFabricChaos -TimeToRunMinute $timeToRunMinute -MaxConcurrentFaults $maxConcurrentFaults -MaxClusterStabilizationTimeoutSec $maxClusterStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ClusterHealthPolicy $clusterHealthPolicy -ChaosTargetFilter $chaosTargetFilter
+Start-ServiceFabricChaos -TimeToRunMinute $timeToRunMinute -MaxConcurrentFaults $maxConcurrentFaults -MaxClusterStabilizationTimeoutSec $maxClusterStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ClusterHealthPolicy $clusterHealthPolicy
 
 while($true)
 {
@@ -319,5 +286,5 @@ while($true)
 
     Start-Sleep -Seconds 1
 }
+
 ```
-git 

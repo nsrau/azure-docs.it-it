@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: a3872aae3a9eb8da0b881ec9388f54546e84b08b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c775780a39c4d423c62bf88f55d35675c70442c7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Come usare il controllo degli accessi in base al ruolo in Gestione API di Azure
 Gestione API di Azure si basa sul controllo degli accessi in base al ruolo di Azure per abilitare la gestione degli accessi con granularità fine per i servizi e le entità di Gestione API (ad esempio, API e criteri). Questo articolo offre una panoramica dei ruoli predefiniti e personalizzati in Gestione API. Per altre informazioni sulla gestione degli accessi nel portale di Azure, vedere [Introduzione alla gestione degli accessi nel portale di Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
@@ -61,9 +61,12 @@ New-AzureRmRoleAssignment -ObjectId <object ID of the user account> -RoleDefinit
 
 Nell'articolo [Operazioni di provider di risorse con Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md#microsoftapimanagement) è disponibile l'elenco delle autorizzazioni che possono essere concesse a livello di Gestione API.
 
-## <a name="watch-a-video-overview"></a>Guardare un video introduttivo
+## <a name="video"></a>Video
 
-Per altre informazioni, è possibile guardare il video [Role-Based Access Control in API Management](https://channel9.msdn.com/Blogs/AzureApiMgmt/Role-Based-Access-Control-in-API-Management/player) (Controllo degli accessi in base al ruolo in Gestione API).
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Role-Based-Access-Control-in-API-Management/player]
+>
+>
 
 ## <a name="next-steps"></a>Passaggi successivi
 

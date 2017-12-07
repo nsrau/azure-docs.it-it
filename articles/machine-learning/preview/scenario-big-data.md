@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: b962ad3da6d5daff2c8b2524828a9450da702abb
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: c7ed8e695097d0cf2f5c99f8ccf3378c4e553c3b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsione del carico di lavoro server in terabyte di dati
 
@@ -203,7 +203,7 @@ Il secondo argomento è DEBUG. Se lo si imposta su FILTER_IP, l'iterazione è pi
 
 Avviare la riga di comando da Machine Learning Workbench selezionando **File** > **Apri prompt dei comandi**. Quindi eseguire: 
 
-```az ml computetarget attach --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password --type remotedocker```
+```az ml computetarget attach remotedocker --name dockerdsvm --address $DSVMIPaddress  --username $user --password $password ```
 
 I due file seguenti vengono creati nella cartella aml_config del progetto:
 
@@ -266,7 +266,7 @@ Dopo aver completato correttamente la sperimentazione sui dati di piccole dimens
 
 ##### <a name="1-create-the-compute-target-in-machine-learning-workbench-for-the-hdinsight-cluster"></a>1. Creare la destinazione di calcolo in Machine Learning Workbench per il cluster HDInsight
 
-```az ml computetarget attach --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password --type cluster```
+```az ml computetarget attach cluster --name myhdi --address $clustername-ssh.azurehdinsight.net --username $username --password $password```
 
 I due file seguenti vengono creati nella cartella aml_config:
     

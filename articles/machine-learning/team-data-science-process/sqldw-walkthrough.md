@@ -4,7 +4,7 @@ description: Advanced Analytics Process and Technology in azione
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 88ba8e28-0bd7-49fe-8320-5dfa83b65724
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: bradsev;hangzh;weig
-ms.openlocfilehash: 9a913533074bfd9b077d66d133f0ad02319a53ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/24/2017
+ms.author: bradsev;weig
+ms.openlocfilehash: 9c858427b01f7b94aae87136a46e1d9ae5e09a1c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Data Warehouse
 In questa esercitazione verranno esaminate la compilazione e la distribuzione di un modello di Machine Learning usando SQL Data Warehouse (SQL DW) per un set di dati disponibile pubblicamente, il set di dati [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). Il modello di classificazione binaria costruito stabilisce se sia stata lasciata o meno una mancia per una corsa. Vengono illustrati anche i modelli per la regressione e la classificazione multiclasse che consentono di stimare la distribuzione delle mance pagate.
@@ -839,7 +839,6 @@ In questo esercizio i dati sono già stati esplorati e compilati in SQL Data War
 3. Immissione del nome DNS del database nel campo **Nome server database** . Formato: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Immissione del **Nome database** nel campo corrispondente.
 5. Immettere il *nome utente SQL* in **Server user account name** (Nome account utente server) e la *password* in **Server user account password** (Password account utente server).
-6. Fare clic sull'opzione **Accept any server certificate** (Accetta qualsiasi certificato server).
 7. Nell'area di testo di modifica **Query database** , incollare la query che consente di estrarre i campi di database necessari (inclusi i campi calcolati come le etichette) e sottocampionare i dati nella dimensione campione desiderata.
 
 Nella figura seguente è illustrato un esempio di esperimento di classificazione binaria per la lettura dei dati direttamente dal database SQL Data Warehouse. Si ricordi di sostituire i nomi delle tabelle nyctaxi_trip e nyctaxi_fare con il nome schema e i nomi delle tabelle usati nella procedura dettagliata. È possibile creare esperimenti dello stesso tipo per i problemi di classificazione multiclasse e di regressione.

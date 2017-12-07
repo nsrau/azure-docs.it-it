@@ -2,25 +2,18 @@
 title: Esercitazione per Registro contenitori di Azure - Distribuire un'app Web dal Registro contenitori di Azure
 description: Distribuire un'app Web basata su Linux usando un'immagine del contenitore da un registro contenitori di Azure con replica geografica. Seconda parte di una serie in tre parti.
 services: container-registry
-documentationcenter: 
 author: mmacy
 manager: timlt
-editor: neilpeterson
-tags: acr, azure-container-registry, geo-replication
-keywords: Docker, contenitori, Registro contenitori, Azure
 ms.service: container-registry
-ms.devlang: 
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: marsma
-ms.custom: 
-ms.openlocfilehash: 90d4b51dfaad409298f72887480dfaf827aef9f0
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.custom: mvc
+ms.openlocfilehash: d775a17cb8069a7521788d850d7d52b92cc67526
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-web-app-from-azure-container-registry"></a>Distribuire un'app Web dal Registro contenitori di Azure
 

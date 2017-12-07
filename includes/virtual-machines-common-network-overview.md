@@ -19,7 +19,7 @@ Oltre a queste risorse di base è opportuno prendere in considerazione anche que
 
 Un'[interfaccia di rete (NIC)](../articles/virtual-network/virtual-network-network-interface.md) rappresenta l'interconnessione tra una VM e una rete virtuale. Una VM deve avere almeno un'interfaccia di rete, ma può averne più di una, a seconda delle dimensioni della VM creata. Vedere quante interfacce di rete supporta ogni dimensione di VM per [Windows](../articles/virtual-machines/windows/sizes.md) o [Linux](../articles/virtual-machines/linux/sizes.md).
 
-È possibile creare una macchina virtuale con più interfacce di rete e aggiungere o rimuovere le interfacce durante il ciclo di vita di una macchina virtuale. Con più interfacce di rete, una macchina virtuale può connettersi a subnet diverse e inviare o ricevere il traffico attraverso l'interfaccia più appropriata. Vedere come usare più interfacce di rete con una macchina virtuale [Windows](../articles/virtual-machines/windows/multiple-nics.md) o [Linux](../articles/virtual-machines/linux/multiple-nics.md).
+È possibile creare una macchina virtuale con più interfacce di rete e aggiungere o rimuovere le interfacce durante il ciclo di vita di una macchina virtuale. Con più interfacce di rete, una macchina virtuale può connettersi a subnet diverse e inviare o ricevere il traffico attraverso l'interfaccia più appropriata.
 
 Se la VM viene aggiunta a un set di disponibilità, tutte le VM del set di disponibilità devono avere una o più interfacce di rete. Le VM con più interfacce di rete non devono avere necessariamente lo stesso numero di interfacce, a condizione che ognuna ne abbia tuttavia almeno due.
 
@@ -30,8 +30,8 @@ Questa tabella elenca i metodi che è possibile usare per creare un'interfaccia 
 | Metodo | Description |
 | ------ | ----------- |
 | Portale di Azure | Quando si crea una VM nel portale di Azure, viene creata automaticamente un'interfaccia di rete. Non è possibile usare un'interfaccia di rete creata separatamente dall'utente. Il portale crea una VM con una sola interfaccia di rete. Una VM con più di un'interfaccia di rete dovrà essere creata con un metodo diverso. |
-| [Azure PowerShell](../articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md) | Usare [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) con il parametro **-PublicIpAddressId** per specificare l'identificatore dell'indirizzo IP pubblico creato in precedenza. |
-| [Interfaccia della riga di comando di Azure](../articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md) | Per specificare l'identificatore dell'indirizzo IP pubblico creato in precedenza, usare [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) con il parametro **--public-ip-address**. |
+| [Azure PowerShell](../articles/virtual-machines/windows/multiple-nics.md) | Usare [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) con il parametro **-PublicIpAddressId** per specificare l'identificatore dell'indirizzo IP pubblico creato in precedenza. |
+| [Interfaccia della riga di comando di Azure](../articles/virtual-machines/linux/multiple-nics.md) | Per specificare l'identificatore dell'indirizzo IP pubblico creato in precedenza, usare [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) con il parametro **--public-ip-address**. |
 | [Modello](../articles/virtual-network/virtual-network-deploy-multinic-arm-template.md) | Vedere [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) (Interfaccia di rete in una rete virtuale con indirizzo IP pubblico) per istruzioni sulla distribuzione di un'interfaccia di rete con un modello. |
 
 ## <a name="ip-addresses"></a>Indirizzi IP 

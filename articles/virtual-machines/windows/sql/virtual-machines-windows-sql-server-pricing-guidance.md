@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/17/2017
 ms.author: jroth
-ms.openlocfilehash: 391f30e0c81aeaf313d58f1f4af877b5be9ed919
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: fa1611944d266001a54c4d78205c942a5226d97b
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Guida ai prezzi per le VM di SQL Server in Azure
 
@@ -102,8 +102,11 @@ Per creare una VM di Azure con SQL Server 2016 con una di queste immagini Bring 
 - [VM SQL Server 2016 Enterprise di Azure](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1EnterpriseWindowsServer2016)
 - [VM SQL Server 2016 Standard di Azure](https://ms.portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP1StandardWindowsServer2016)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Si prega di comunicare entro 10 giorni il numero di licenze di SQL Server che si useranno in Azure. Nei collegamenti alle immagini precedenti sono incluse le istruzioni su come eseguire questa operazione.
+
+> [!NOTE]
+> Non è possibile modificare il modello di licenza di una VM di SQL Server con costo al minuto per utilizzare la propria licenza. In questo caso, è necessario creare una nuova VM BYOL ed eseguire la migrazione dei database alla nuova VM. 
 
 ## <a name="avoid-unnecessary-costs"></a>Evitare i costi non necessari
 

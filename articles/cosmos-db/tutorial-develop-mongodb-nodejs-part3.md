@@ -11,14 +11,15 @@ ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: mimig
-ms.openlocfilehash: 1fb8d7b9f1014f37f0f3afa20605fce10c45a967
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: ff75b4546a85c1c0bbf5c256977a3d33016c8c44
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Creare un'app MongoDB con Angular e Azure Cosmos DB - Parte 3: Creare l'interfaccia utente con Angular
 
@@ -40,7 +41,7 @@ La Parte 3 dell'esercitazione è basata sulla [Parte 2](tutorial-develop-mongodb
 Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completato le procedure illustrate nella [Parte 2](tutorial-develop-mongodb-nodejs-part2.md) dell'esercitazione.
 
 > [!TIP]
-> Questa esercitazione illustra in modo dettagliato la procedura per la creazione dell'applicazione. Se si vuole scaricare il progetto finito, è possibile ottenere l'applicazione completa dal [repository angular-cosmosdb](https://github.com/Azure-Samples/angular-cosmosdb) in GitHub.
+> Questa esercitazione illustra in modo dettagliato la procedura per la creazione dell'applicazione. Se si vuole scaricare il progetto finito, è possibile ottenere l'applicazione completa dal [repository angular-cosmosdb](https://github.com/Azure-Samples/angular-cosmosdb) su GitHub.
 
 ## <a name="build-the-ui"></a>Creare l'interfaccia utente
 
@@ -228,7 +229,7 @@ Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completa
 
 ## <a name="use-css-to-set-the-look-and-feel"></a>Uso di CSS per configurare l'aspetto
 
-1. Nel riquadro di Esplora risorse aprire il file **src/client/styles.scss**.
+1. Nel riquadro Esplora risorse aprire il file **src/client/styles.scss**.
 
 2. Copiare il codice seguente nel file **styles.scss**, sostituendo il contenuto esistente del file.
 
@@ -416,7 +417,7 @@ Quando il componente è disponibile, è necessario fare in modo che venga visual
     create src\client\app\hero.ts
     ```
 
-4. Nel riquadro di Esplora risorse aprire **src\client\app\hero.ts**.
+4. Nel riquadro Esplora risorse aprire **src\client\app\hero.ts**.
 
 5. Nel file **hero.ts** sostituire il contenuto del file con il codice seguente, che consente di aggiungere una classe Hero con un ID, un nome e un elemento saying. 
 

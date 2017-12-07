@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/15/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: b95dc0a83d8e5618effb573353f419e1837d30c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3e3ea323e00d64e6848850c22073f5948dd0b7e2
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Eseguire il backup di un client o server Windows in Azure con Backup di Azure usando il modello di distribuzione Resource Manager
 > [!div class="op_single_selector"]
@@ -186,7 +186,7 @@ Se il computer/proxy ha un accesso a Internet limitato, verificare che le impost
     2. *.Microsoft.com
     3. windowsazure.com
     4. *.microsoftonline.com
-    5. *. windows.ne
+    5. *.windows.net
 
 
 ## <a name="create-the-backup-policy"></a>Creare i criteri di backup

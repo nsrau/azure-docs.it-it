@@ -4,7 +4,7 @@ description: "Usare le funzionalità di Cortana Intelligence per ottenere inform
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: aaeb29a5-4a13-4eab-bbf1-885690d86c56
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
+ms.date: 11/15/2017
 ms.author: bradsev
-ms.openlocfilehash: 4a28ef3765518fe2948853d1c6334cf034b40d34
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 626987ec0648f9e770499b4a48bc4ca2d175d2b4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Istruzioni di configurazione del dashboard di Power BI per il modello di soluzione per l'analisi dei dati di telemetria del veicolo
 Questo menu contiene i collegamenti alle sezioni dello studio: 

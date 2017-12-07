@@ -1,5 +1,5 @@
 ---
-title: Esempi dell'interfaccia della riga di comando di Azure per scalare un database di Azure per il server MySQL | Microsoft Docs
+title: Esempi dell'interfaccia della riga di comando di Azure per scalare un database di Azure per il server MySQL | Documentazione Microsoft
 description: Questo esempio di script dell'interfaccia della riga di comando di Azure scala un database di Azure per il MySQL a un diverso livello di prestazioni dopo le query sulle metriche.
 services: mysql
 author: v-chenyh
@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/02/2017
-ms.openlocfilehash: e37e706c3c12b87cc4b49315589582ae7ab8b015
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 517208b76757655990f82f50677267320eb1393c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>Monitorare a scalare un database di Azure per il server MySQL usando l'interfaccia della riga di comando di Azure
 Questo esempio di script dell'interfaccia della riga di comando di Azure scala un singolo database di Azure per il server MySQL a un diverso livello di prestazioni dopo le query sulle metriche.
@@ -35,10 +35,10 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | **Comando** | **Note** |
 |---|---|
-| [az group create](/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az mysql server create](/cli/azure/mysql/server#create) | Crea un server MySQL che ospita i database. |
-| [az monitor metrics list](/cli/azure/monitor/metrics#list) | Elencare il valore metrico per le risorse. |
-| [az group delete](/cli/azure/group#delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create) | Crea un server MySQL che ospita i database. |
+| [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) | Elencare il valore metrico per le risorse. |
+| [az group delete](/cli/azure/group#az_group_delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sull'interfaccia della riga di comando di Azure: [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure/overview).

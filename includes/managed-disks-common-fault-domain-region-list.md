@@ -32,3 +32,9 @@
 | Australia sudorientale | 2                       |
 |                     |                         |
 | Brasile meridionale        | 2                       |
+|                     |                         |
+| US Gov Virginia     | 2                       |
+| Governo degli Stati Uniti - Texas        | 2                       |
+| Governo degli Stati Uniti - Arizona      | 2                       |
+| Dipartimento della difesa Stati Uniti centrali      | 2                       |
+| Dipartimento della difesa Stati Uniti orientali         | 2                       |

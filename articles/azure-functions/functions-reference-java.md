@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: e8a4b0cc620c887aac3cc442154429b43336d8f1
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Cosmos DB | N/D
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
 App per dispositivi mobili | N/D
 Hub di notifica | N/D
-Archiviazione BLOB | <ul><li>`BlobTrigger`</li><li>`BlobOutput`</li><li>`BlobOutput`</li></ul>
+Archiviazione BLOB | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
 Coda di archiviazione | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
 Tabella di archiviazione | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
 Timer | <ul><li>`TimerTrigger`</li></ul>

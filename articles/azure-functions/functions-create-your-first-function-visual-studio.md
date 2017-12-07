@@ -14,18 +14,20 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 12/1/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 14ab60a5bb6059794d730151193aad36bc2a969e
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 7f71ecb2b58728f466371c7aa6d2aac965177863
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Creare la prima funzione con Visual Studio
 
 Funzioni di Azure consente di eseguire il codice in un ambiente [senza server](https://azure.microsoft.com/overview/serverless-computing/), senza dover prima creare una macchina virtuale o pubblicare un'applicazione Web.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/DrhG-Rdm80k]
 
 Questo argomento illustra come usare gli strumenti di Visual Studio 2017 per Funzioni di Azure per creare e testare una funzione "hello world" in locale. Il codice della funzione verrà quindi pubblicato in Azure. Questi strumenti sono disponibili come parte del carico di lavoro di sviluppo di Azure in Visual Studio 2017 versione 15.3 o successiva.
 

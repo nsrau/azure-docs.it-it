@@ -10,14 +10,15 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: cc7bdd7860506c20187dc913b72111824d1737ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: 9f7343102cf7af6d7f2ba6b4b2f08b7b855da6f8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app #
 
@@ -218,7 +219,7 @@ Servizio App di Azure fornisce molte misure di sicurezza che proteggono il siste
 
 Per altre informazioni sulla configurazione dell'ambiente del servizio app ILB con un dispositivo WAF, vedere [Configurazione di un Web application firewall (WAF) per l'ambiente del servizio app][ASEWAF]. Questo articolo spiega come usare un'appliance virtuale Barracuda con il proprio ambiente del servizio app. Un'altra opzione consiste nell'usare il gateway applicazione Azure. Il gateway applicazione usa le regole di base OWASP per proteggere le applicazioni associate allo stesso. Per altre informazioni sul gateway applicazione Azure, vedere [Web application firewall (WAF)][AppGW].
 
-## <a name="get-started"></a>Attività iniziali ##
+## <a name="get-started"></a>Introduzione ##
 
 * Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione ad Ambiente del servizio app][Intro].
  

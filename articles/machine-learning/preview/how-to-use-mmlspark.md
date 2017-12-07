@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 6714e8ad77693f0cdefe3e40c99153299e1c72d0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 228ff59e2a495e8ca7c310214327bc846ecfb828
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="how-to-use-microsoft-machine-learning-library-for-apache-spark"></a>Informazioni su come usare la libreria Microsoft Machine Learning per Apache Spark
 
@@ -68,7 +68,7 @@ Aprire una finestra dell'interfaccia della riga di comando in Azure Machine Lear
 Nella finestra dell'interfaccia della riga di comando eseguire questi comandi:
 
 ```
-az ml computetarget attach --name <myhdi> --address <myhdi-ssh.azurehdinsight.net> --username <sshusername> --password <sshpwd> --type cluster
+az ml computetarget attach cluster --name <myhdi> --address <myhdi-ssh.azurehdinsight.net> --username <sshusername> --password <sshpwd> 
 ```
 
 ```

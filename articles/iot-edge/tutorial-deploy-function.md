@@ -3,17 +3,18 @@ title: Distribuire Funzioni di Azure con Azure IoT Edge | Microsoft Docs
 description: Distribuire Funzione di Azure come modulo in un dispositivo perimetrale
 services: iot-edge
 keywords: 
-author: JimacoMS2
+author: kgremban
 manager: timlt
 ms.author: v-jamebr
 ms.date: 11/15/2017
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-ms.openlocfilehash: cba901e8929d3626dc06e4600437b6d364e9bc44
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.custom: mvc
+ms.openlocfilehash: fb295b37819788ed14f54e4123ae0fe1b52d0210
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Distribuire Funzioni di Azure come modulo di IoT Edge: anteprima
 È possibile usare Funzioni di Azure per distribuire il codice che implementa la logica di business direttamente nei dispositivi di IoT Edge. Questa esercitazione illustra in modo dettagliato la creazione e la distribuzione di Funzioni di Azure che filtra i dati dei sensori nel dispositivo di IoT Edge simulato creato nelle esercitazioni sulla distribuzione di Azure IoT Edge in un dispositivo simulato su [Windows][lnk-tutorial1-win] o [Linux][lnk-tutorial1-lin]. In questa esercitazione si apprenderà come:     

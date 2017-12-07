@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2014
-ms.author: support@blitline.com
-ms.openlocfilehash: 1d90599e028b3407a513b04b878e3aefc39928a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cwatson
+ms.openlocfilehash: 254af305592ebef755ccfcb3ae4367b27fb0fc4a
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-use-blitline-with-azure-and-azure-storage"></a>Come utilizzare Blitline con Azure e l'archiviazione di Azure
 In questa guida verrà descritto come accedere ai servizi Blitline e come inviare i processi a Blitline.

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 31b859d86e82c92839462280721c5f84f1d923cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0474e7ae77128a46fc6218de814913d07aa63d97
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-model-management"></a>Gestione modelli di Azure Machine Learning
 
@@ -124,4 +124,4 @@ Il flusso di lavoro completo che descrive questi concetti è presentato nella fi
    Certo. È possibile eseguire 100 volte i servizi/endpoint nello stesso cluster. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per iniziare a usare Gestione modelli, vedere l'articolo sulla [configurazione di Gestione modelli](model-management-configuration.md).
+Per iniziare a usare Gestione modelli, vedere l'articolo sulla [configurazione di Gestione modelli](deployment-setup-configuration.md).

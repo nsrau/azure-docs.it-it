@@ -6,13 +6,14 @@ keywords: backup di macchine virtuali; back up di macchine virtuali; back up di 
 author: markgalioto
 ms.author: markgal
 ms.date: 09/16/2017
-ms.topic: article
+ms.topic: tutorial
 ms.service: backup
-ms.openlocfilehash: f144db921a8b2d01dbfe883a48574c4fabdae6f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: 74ccf95b559b690eb53c2f4df14513dab5a94677
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Usare il portale di Azure per eseguire il backup di più macchine virtuali
 

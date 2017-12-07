@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/03/2017
-ms.openlocfilehash: 286b16148d28509714862714dcc5986496d9af44
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 9a94f257e5cd3534127e8594ddee3c5f837876df
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Elencare e aggiornare le configurazioni di un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure
 Questo script dell'interfaccia della riga di comando di esempio elenca tutti i parametri di configurazione disponibili, nonché i relativi valori consentiti per il database di Azure per il server MySQL e imposta *innodb_lock_wait_timeout* su un valore diverso da quello predefinito.
@@ -37,12 +37,12 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | **Comando** | **Note** |
 |---|---|
-| [az group create](/cli/azure/group#create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az mysql server create](/cli/azure/mysql/server#create) | Crea un server MySQL che ospita i database. |
-| [az mysql server configuration list](/cli/azure/mysql/server/configuration#list) | Elencare le configurazioni di un Database di Azure per il server MySQL. |
-| [az mysql server configuration set](/cli/azure/mysql/server/configuration#set) | Aggiornare le configurazioni di un Database di Azure per il server MySQL. |
-| [az mysql server configuration show](/cli/azure/mysql/server/configuration#show) | Mostrare le configurazioni di un Database di Azure per il server MySQL. |
-| [az group delete](/cli/azure/group#delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az mysql server create](/cli/azure/mysql/server#az_msql_server_create) | Crea un server MySQL che ospita i database. |
+| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az_msql_server_configuration_list) | Elencare le configurazioni di un Database di Azure per il server MySQL. |
+| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_msql_server_configuration_set) | Aggiornare le configurazioni di un Database di Azure per il server MySQL. |
+| [az mysql server configuration show](/cli/azure/mysql/server/configuration#az_msql_server_configuration_show) | Mostrare le configurazioni di un Database di Azure per il server MySQL. |
+| [az group delete](/cli/azure/group#az_group_delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sull'interfaccia della riga di comando di Azure: [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure/overview).

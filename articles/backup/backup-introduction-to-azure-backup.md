@@ -12,15 +12,15 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1212bf46261b3fc4cc22224223cf00ec53881cb
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.custom: H1Hack27Feb2017, mvc
+ms.openlocfilehash: 304db0cdcf650697f8e7d328b5f7214ab5ccef8c
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Panoramica delle funzionalità di Backup di Azure
 Backup di Azure è il servizio basato su Azure che consente di eseguire il backup, la protezione e il ripristino dei dati in Microsoft Cloud. Backup di Azure sostituisce la soluzione di backup locale o esterna esistente con una soluzione basata sul cloud affidabile, sicura e conveniente. Backup di Azure offre più componenti che vengono scaricati e distribuiti nel computer o server appropriato o nel cloud. Il componente o l'agente distribuito dipende da ciò che si intende proteggere. Tutti i componenti di Backup di Azure consentono di eseguire il backup dei dati in un insieme di credenziali di Servizi di ripristino, a prescindere che i dati da proteggere si trovino in locale o nel cloud. Vedere la [tabella dei componenti di Backup di Azure](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) più avanti in questo articolo per informazioni sul componente da usare per proteggere dati, applicazioni o carichi di lavoro specifici.

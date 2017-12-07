@@ -1,6 +1,6 @@
 # <a name="azure-managed-disks-overview"></a>Panoramica di Azure Managed Disks
 
-Azure Managed Disks semplifica la gestione dei dischi per le macchine virtuali IaaS di Azure grazie alla gestione degli [account di archiviazione](../articles/storage/common/storage-introduction.md) associati ai dischi delle macchine virtuali. Specificando il tipo, [Premium](../articles/storage/common/storage-premium-storage.md) o [Standard](../articles/storage/common/storage-standard-storage.md), e le dimensioni del disco necessarie, Azure crea e gestisce automaticamente il disco.
+Azure Managed Disks semplifica la gestione dei dischi per le macchine virtuali IaaS di Azure grazie alla gestione degli [account di archiviazione](../articles/storage/common/storage-introduction.md) associati ai dischi delle macchine virtuali. Specificando il tipo, [Premium](../articles/virtual-machines/windows/premium-storage.md) o [Standard](../articles/virtual-machines/windows/standard-storage.md), e le dimensioni del disco necessarie, Azure crea e gestisce automaticamente il disco.
 
 ## <a name="benefits-of-managed-disks"></a>Vantaggi dei dischi gestiti
 
@@ -44,7 +44,7 @@ Quando si usa Managed Disks, tenere conto delle considerazioni seguenti relative
 
 Tali considerazioni vengono ora esaminate più in dettaglio.
 
-**Tipo di archiviazione:** Managed Disks offre due livelli di prestazioni, [Premium](../articles/storage/common/storage-premium-storage.md), basato su unità SSD, e [Standard](../articles/storage/common/storage-standard-storage.md), basato su unità disco rigido. La fatturazione di un disco gestito dipende dal tipo di archiviazione scelto per il disco.
+**Tipo di archiviazione:** Managed Disks offre due livelli di prestazioni, [Premium](../articles/virtual-machines/windows/premium-storage.md), basato su unità SSD, e [Standard](../articles/virtual-machines/windows/standard-storage.md), basato su unità disco rigido. La fatturazione di un disco gestito dipende dal tipo di archiviazione scelto per il disco.
 
 
 **Dimensione disco**: per un disco di archiviazione Premium la fatturazione dipende dalle dimensioni del disco di cui è stato effettuato il provisioning. Azure associa la dimensione del disco, arrotondata per eccesso, all'opzione relativa a Managed Disks più vicina, come specificato nelle tabelle seguenti. Viene eseguito il mapping di ogni disco gestito a una delle dimensioni di provisioning supportate e viene eseguita la relativa fatturazione. Se, ad esempio, si crea un disco gestito Standard e si specifica una dimensione del disco di cui è stato effettuato il provisioning pari a 200 GB, i costi addebitati si basano sui prezzi del tipo di disco S20.
@@ -131,9 +131,9 @@ Per altre informazioni su Managed Disks, vedere gli articoli seguenti.
 
 ### <a name="compare-managed-disks-storage-options"></a>Confronto tra le opzioni di archiviazione di Managed Disks
 
-* [Dischi e Archiviazione Premium](../articles/storage/common/storage-premium-storage.md)
+* [Dischi e Archiviazione Premium](../articles/virtual-machines/windows/premium-storage.md)
 
-* [Dischi e Archiviazione Standard](../articles/storage/common/storage-standard-storage.md)
+* [Dischi e Archiviazione Standard](../articles/virtual-machines/windows/standard-storage.md)
 
 ### <a name="operational-guidance"></a>Informazioni operative
 

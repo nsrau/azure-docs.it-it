@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: maheshu
-ms.openlocfilehash: 8946166c04ce778d751ad79f7a010c9a5e71a05c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b41cebcc8592468fcabb157b1aee830dfe954229
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Aggiungere una macchina virtuale Ubuntu a un dominio gestito in Azure
 Questo articolo illustra come aggiungere una macchina virtuale Ubuntu Linux a un dominio gestito di Azure AD Domain Services.
@@ -29,7 +29,7 @@ Per eseguire le attività elencate in questo articolo sono necessari gli element
 1. Una **sottoscrizione di Azure**valida.
 2. Una **directory di Azure AD** sincronizzata con una directory locale o con una directory solo cloud.
 3. **Servizi di dominio Azure AD** devono essere abilitati per la directory di Azure AD. Se non è stato fatto, eseguire tutte le attività descritte nella [guida introduttiva](active-directory-ds-getting-started.md).
-4. Assicurarsi di aver configurato gli indirizzi IP del dominio gestito come server DNS per la rete virtuale. Per altre informazioni, vedere la procedura [Aggiornare le impostazioni DNS per la rete virtuale di Azure](active-directory-ds-getting-started-dns.md)
+4. Assicurarsi di aver configurato gli indirizzi IP del dominio gestito come server DNS per la rete virtuale. Per altre informazioni, vedere la [procedura per aggiornare le impostazioni DNS per la rete virtuale di Azure](active-directory-ds-getting-started-dns.md).
 5. Completare i passaggi necessari per [sincronizzare le password nel dominio gestito di Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md).
 
 
@@ -120,12 +120,12 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
     sudo realm discover CONTOSO100.COM
     ```
 
-      > [!NOTE] 
-      > **Risoluzione dei problemi:** se *realm discover* non riesce a trovare il dominio gestito:
-        * Ensure that the domain is reachable from the virtual machine (try ping).
-        * Check that the virtual machine has indeed been deployed to the same virtual network in which the managed domain is available.
-        * Check to see if you have updated the DNS server settings for the virtual network to point to the domain controllers of the managed domain.
-      >
+   > [!NOTE] 
+   > **Risoluzione dei problemi:** se *realm discover* non riesce a trovare il dominio gestito:
+     * Verificare che il dominio sia raggiungibile dalla macchina virtuale (provare a effettuare il ping).
+     * Verificare che la macchina virtuale sia stata effettivamente distribuita nella stessa rete virtuale in cui è disponibile il dominio gestito.
+     * Verificare che le impostazioni del server DNS per la rete virtuale siano state aggiornate affinché puntino ai controller di dominio del dominio gestito.
+   >
 
 2. Inizializzare Kerberos. Nel terminale SSH digitare il comando seguente: 
 

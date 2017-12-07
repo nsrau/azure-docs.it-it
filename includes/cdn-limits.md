@@ -1,7 +1,7 @@
 
 | Risorsa | Limite predefinito | Limite massimo | 
 | --- | --- | --- |
-| Profili di rete CDN |8 |25 |
+| Profili di rete CDN |25 |25 |
 | Endpoint di rete CDN per profilo |10 |25 |
 | Domini personalizzati per endpoint |10 |25 |
 

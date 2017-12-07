@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: 944a29aebf7abfe32a7789ab239718b1cd2d7b15
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3adf4dd824b31d5e3d368a0199bc2e981cafe176
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Risolvere eventuali problemi di distribuzione dei servizi cloud
 Quando si distribuisce un pacchetto dell'applicazione di servizi cloud in Azure, è possibile ottenere informazioni sulla distribuzione nel riquadro **Proprietà** del portale di Azure. I dettagli riportati in questo riquadro possono essere usati per risolvere i problemi relativi al servizio cloud e queste informazioni possono essere fornite al supporto tecnico di Azure quando viene aperta una nuova richiesta di supporto.
@@ -27,7 +27,6 @@ Quando si distribuisce un pacchetto dell'applicazione di servizi cloud in Azure,
 È possibile trovare il riquadro **Proprietà** come indicato di seguito:
 
 * Nel portale di Azure fare clic sulla distribuzione del servizio cloud, selezionare **Tutte le impostazioni** e quindi **Proprietà**.
-* Nel portale di Azure classico fare clic sulla distribuzione del servizio cloud e selezionare **DASHBOARD**, che si trova nell'angolo inferiore destro della pagina, in **Riepilogo rapido**. Tenere presente che l'etichetta "Proprietà" è mancante in questo riquadro.
 
 > [!NOTE]
 > È possibile copiare il contenuto del riquadro **Proprietà** negli Appunti facendo clic sull'icona nell'angolo superiore destro del riquadro.

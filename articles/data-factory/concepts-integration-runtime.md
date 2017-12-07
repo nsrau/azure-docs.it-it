@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/15/2017
+ms.date: 12/05/2017
 ms.author: shlo
-ms.openlocfilehash: c3cf9bfeabb65fa15941e3085d9f9146c3feef80
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 5c78f61074258c734cefade28d6aca1055519758
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Runtime di integrazione in Azure Data Factory
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le seguenti funzionalità di integrazione di dati in diversi ambienti di rete:
@@ -141,7 +141,7 @@ Stati Uniti | Stati Uniti orientali | Stati Uniti orientali
 &nbsp; | Stati Uniti centro-meridionali | Stati Uniti centro-meridionali
 &nbsp; | Stati Uniti centro-occidentali | Stati Uniti centro-occidentali
 &nbsp; | Stati Uniti occidentali | Stati Uniti occidentali
-&nbsp; | Stati Uniti occidentali 2 | Stati Uniti occidentali
+&nbsp; | Stati Uniti occidentali 2 | Stati Uniti occidentali 2
 Canada | Canada orientale | Canada centrale
 &nbsp; | Canada centrale | Canada centrale
 Brasile | Brasile meridionale | Brasile meridionale

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: d27a4be968dc12818f7031b59ed40fbc9f9d88d3
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 17ecf39128994dad93f017f87f105254f3017230
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>Perché scegliere Servizi cloud
 Servizi cloud di Azure è la scelta giusta? In Azure sono disponibili diversi modelli di hosting per l'esecuzione di applicazioni. Ognuno fornisce un diverso set di servizi, pertanto quello da scegliere dipende dalle attività che si tenta di eseguire.
@@ -50,7 +50,7 @@ Anche se le applicazioni sono eseguite nelle macchine virtuali, è importante ca
 ## <a name="scaling-and-management"></a>Scalabilità e gestione
 Se si usa Servizi cloud, non è necessario creare macchine virtuali. Fornire invece un file di configurazione che specifica ad Azure quante macchine virtuali di ogni tipo sono richieste, ad esempio **tre istanze del ruolo Web** e **due istanze del ruolo di lavoro**. Le macchine virtuali vengono poi create automaticamente dalla piattaforma.  L'utente decide le [dimensioni](cloud-services-sizes-specs.md) delle macchine virtuali di supporto, ma non le crea esplicitamente. Se l'applicazione deve gestire un carico maggiore, è possibile richiedere VM aggiuntive e tali istanze verranno create automaticamente da Azure. Se il carico diminuisce, è possibile chiudere tali istanze e interromperne il pagamento.
 
-Un'applicazione di Servizi cloud viene in genere resa disponibile agli utenti mediante un processo in due fasi. Prima di tutto lo sviluppatore [carica l'applicazione](cloud-services-how-to-create-deploy-portal.md) nell'area di gestione temporanea della piattaforma. Quando lo sviluppatore è pronto per l'attivazione dell'applicazione, usa il portale per il passaggio in produzione. Il [passaggio dalla gestione temporanea alla produzione](cloud-services-nodejs-stage-application.md) può essere eseguito senza tempi di inattività, consentendo l'aggiornamento di un'applicazione in esecuzione a una nuova versione senza interferire con l'uso da parte degli utenti.
+Un'applicazione di Servizi cloud viene in genere resa disponibile agli utenti mediante un processo in due fasi. Prima di tutto lo sviluppatore [carica l'applicazione](cloud-services-how-to-create-deploy-portal.md) nell'area di gestione temporanea della piattaforma. Quando lo sviluppatore è pronto per l'attivazione dell'applicazione, usa il portale per il passaggio in produzione. Il [passaggio dalla gestione temporanea alla produzione](cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production) può essere eseguito senza tempi di inattività, consentendo l'aggiornamento di un'applicazione in esecuzione a una nuova versione senza interferire con l'uso da parte degli utenti.
 
 ## <a name="monitoring"></a>Monitoraggio
 Servizi cloud offre inoltre funzionalità di monitoraggio. Analogamente a Macchine virtuali di Azure, rileva un server fisico in errore e riavvia le VM in esecuzione su tale server in una nuova macchina. Servizi cloud consente inoltre di rilevare errori di macchine virtuali e applicazioni, non solo errori hardware. A differenza di Macchine virtuali, dispone di un agente in ogni ruolo Web e di lavoro ed è quindi in grado di avviare nuove macchine virtuali e istanze di applicazione in caso di errori.

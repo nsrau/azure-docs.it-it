@@ -1,20 +1,11 @@
 
-> [!NOTE] 
-> Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le condizioni d'uso. Per altre informazioni, vedere [Condizioni Supplementari di Microsoft Azure le Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Questa anteprima è limitata alle aree seguenti:
-> - Stati Uniti occidentali 2
-> - Stati Uniti orientali
-> - Europa occidentale
-> - Asia Pacifico sud-orientale
-
-
 La famiglia di macchine virtuali della serie B consente di scegliere le dimensioni di VM che offrono le prestazioni di livello base necessarie per il carico di lavoro, con la possibilità di aumentare le prestazioni della CPU fino al 100% per una vCPU con processore Intel® Broadwell E5-2673 v4 2,3GHz o Intel® Haswell 2,4 GHz E5-2673 v3.
 
 Le VM della serie B sono ideali per carichi di lavoro che non necessitano in modo continuativo delle prestazioni complete della CPU, ad esempio server Web, database di piccole dimensioni e ambienti di sviluppo e test. Questi carichi di lavoro hanno in genere requisiti relativi alle prestazioni che prevedono burst. La serie B offre la possibilità di acquistare una dimensione di VM con prestazioni baseline e l'istanza della VM accumula crediti quando il relativo utilizzo è inferiore alla baseline. Quando la VM ha accumulato crediti, può eseguire il burst rispetto alla baseline, usando fino al 100% della vCPU quando l'applicazione richiede prestazioni superiori per la CPU.
 
 La serie B offre le sei dimensioni seguenti per le macchine virtuali:
 
-| Dimensione          | vCPU | Memoria: GiB | Unità SSD locale: GiB | Prestazioni base della CPU della VM | Prestazioni massime della CPU della VM | Crediti accumulati/Ora | Crediti massimi accumulati |
+| Dimensione          | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Prestazioni base della CPU della VM | Prestazioni massime della CPU della VM | Crediti accumulati/Ora | Crediti massimi accumulati |
 |---------------|--------|-------------|----------------|--------------------------------|---------------------------|-----------------------|--------------------|
 | Standard_B1s  | 1      | 1           | 4              | 10%                            | 100%                      | 6                     | 144                |
 | Standard_B1ms | 1      | 2           | 4              | 20%                            | 100%                      | 12                    | 288                |
@@ -26,16 +17,11 @@ La serie B offre le sei dimensioni seguenti per le macchine virtuali:
 
 
 
-## <a name="q--a-about-this-preview"></a>Domande e risposte su questa anteprima
-
-### <a name="q-how-can-i-participate-in-this-preview"></a>D: Come si può partecipare all'anteprima?
-**R**: Richiedere una quota per la serie B in una delle aree supportate.  Dopo l'approvazione della quota, è possibile usare il portale o le API per eseguire la distribuzione seguendo la procedura normale. Per altre informazioni, vedere [Richieste di aumento della quota di core per Resource Manager](../articles/azure-supportability/resource-manager-core-quotas-request.md).
+## <a name="q--a"></a>Domande e risposte 
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>D: Come si ottengono prestazioni baseline del 135% da una VM?
 **R**: La quantità pari al 135% è condivisa tra 8 vCPU che costituiscono le dimensioni della VM. Se, ad esempio, l'applicazione sfrutta 4 degli 8 core dedicati all'elaborazione batch e ognuna di queste 4 vCPU è in esecuzione con un livello di utilizzo pari al 30%, la quantità totale di prestazioni della CPU della VM equivale al 120%.  La macchina virtuale, quindi, accumula tempo di credito in base al differenziale del 15% rispetto alle prestazioni baseline.  Quando sono disponibili crediti, la stessa VM può quindi usare il 100% di tutte le 8 vCPU, ottenendo un livello massimo di prestazioni della CPU pari all'800%.
 
-### <a name="q-is-there-a-discount-on-price-during-the-preview"></a>D: È previsto uno sconto sul prezzo durante l'anteprima?
-**R**: Sì, i prezzi dell'anteprima possono essere visualizzati nella [pagina dei prezzi](http://aka.ms/vmsizes).
 
 ### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>D: Come si possono monitorare il saldo e l'utilizzo del credito?
 **R**: Nelle prossime settimane verranno introdotte 2 nuove metriche, ovvero la metrica **Credit** che consentirò di visualizzare la quantità di crediti accumulati dalla VM e la metrica **ConsumedCredit** che mostrerà la quantità di crediti di CPU utilizzata dalla VM rispetto alla quantità accumulata.    Sarà possibile visualizzare queste metriche dal riquadro delle metriche nel portale o a livello di programmazione tramite le API di Monitoraggio di Azure.
@@ -58,14 +44,7 @@ Se si considerano i 120 crediti accumulati negli orari non di picco e si sottrag
 **R**: Sì, tutte le dimensioni della serie B supportano dischi dati di Archiviazione Premium.   
     
 
-### <a name="q-which-regions-can-i-access-the-preview-from"></a>D: In quali aree è accessibile l'anteprima?
-**R**: L'anteprima della serie B sarà disponibile nelle aree seguenti:
-- Stati Uniti occidentali 2
-- Stati Uniti orientali
-- Europa occidentale
-- Asia Pacifico sud-orientale
 
-Al termine dell'anteprima, la serie B sarà disponibile in tutte le aree rimanenti.
     
 
     

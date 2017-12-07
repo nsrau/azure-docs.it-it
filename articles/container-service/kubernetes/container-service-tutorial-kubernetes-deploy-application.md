@@ -1,27 +1,19 @@
 ---
-title: Esercitazione sul servizio contenitore di Azure - Distribuire un'applicazione | Microsoft Docs
+title: Esercitazione sul servizio contenitore di Azure - Distribuire un'applicazione
 description: Esercitazione sul servizio contenitore di Azure - Distribuire un'applicazione
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service
-keywords: Docker, contenitori, Micro-Service, Kubernetes, DC/OS, Azure
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2c9563a38f0aedcb6f67fd44031a47a712088ddc
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 397bb22918d5b181692a42d0f4c2d87be086c534
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="run-applications-in-kubernetes"></a>Eseguire applicazioni in Kubernetes
 

@@ -2,26 +2,17 @@
 title: Procedure consigliate in Registro contenitori di Azure
 description: Informazioni su come usare il Registro contenitori di Azure in modo efficace seguendo queste procedure consigliate.
 services: container-registry
-documentationcenter: 
 author: mmacy
 manager: timlt
-editor: mmacy
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-registry
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/05/2017
 ms.author: marsma
-ms.custom: 
-ms.openlocfilehash: 9ec5573082dbf9de1288e1511f5041f8c20b416e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5ccbb3022dc38f13eed9b5aa24beb14dfdb3b5b6
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Procedure consigliate per il Registro contenitori di Azure
 
