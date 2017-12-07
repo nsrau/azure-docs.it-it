@@ -14,13 +14,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 11/29/2017
 ms.author: daleche
-ms.openlocfilehash: dda284b45e2e8a35a7228d77afef0ad058c8ea42
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1db0dee597ffe60c587e7bacd00640a308d04e99
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Risolvere, diagnosticare ed evitare gli errori di connessione SQL e gli errori temporanei per il database SQL
 Questo articolo illustra come evitare, risolvere, diagnosticare e ridurre gli errori di connessione e gli errori temporanei che si verificano nell'applicazione client durante l'interazione con il database SQL di Azure. Informazioni su come configurare la logica di ripetizione dei tentativi, compilare la stringa di connessione e modificare altre impostazioni di connessione.
@@ -40,16 +40,17 @@ Se il programma client usa ADO.NET, l'errore temporaneo verrà segnalato al prog
 * **Si verifica un errore temporaneo durante un tentativo di connessione**: riprovare a stabilire la connessione dopo un intervallo di alcuni secondi.
 * **Si verifica un errore temporaneo durante un comando di query SQL**: non riprovare immediatamente a eseguire il comando. È invece consigliabile stabilire una nuova connessione dopo un breve intervallo di tempo. Sarà quindi possibile provare a rieseguire il comando.
 
+
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
-### <a name="retry-logic-for-transient-errors"></a>Logica di ripetizione dei tentativi per errori temporanei
+## <a name="retry-logic-for-transient-errors"></a>Logica di ripetizione dei tentativi per errori temporanei
 I programmi client in cui occasionalmente si verifica un errore temporaneo sono più affidabili se contengono una logica di ripetizione dei tentativi.
 
 Se il programma comunica con il database SQL di Azure tramite middleware di terze parti, chiedere al fornitore se il middleware include la logica di ripetizione dei tentativi per errori temporanei.
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
 
-#### <a name="principles-for-retry"></a>Principi per la ripetizione dei tentativi
+### <a name="principles-for-retry"></a>Principi per la ripetizione dei tentativi
 * È consigliabile ripetere un tentativo di stabilire una connessione se l'errore è temporaneo.
 * Non è consigliabile riprovare direttamente a eseguire un'istruzione SQL SELECT non riuscita con un errore temporaneo.
   
@@ -58,30 +59,31 @@ Se il programma comunica con il database SQL di Azure tramite middleware di terz
   
   * La logica di ripetizione dei tentativi deve assicurare il completamento dell'intera transazione di database o il rollback dell'intera transazione.
 
-#### <a name="other-considerations-for-retry"></a>Altre considerazioni per la ripetizione dei tentativi
+### <a name="other-considerations-for-retry"></a>Altre considerazioni per la ripetizione dei tentativi
 * Un programma batch avviato automaticamente dopo l'orario di lavoro e con completamento previsto prima del mattino può permettersi di attendere a lungo tra i diversi tentativi.
 * Un programma di interfaccia utente deve tenere conto della tendenza degli utenti a desistere dopo un'attesa troppo lunga.
   
   * La soluzione, tuttavia, non deve prevedere nuovi tentativi con intervalli di pochi secondi, perché un criterio simile può inondare il sistema con un numero eccessivo di richieste.
 
-#### <a name="interval-increase-between-retries"></a>Incremento dell'intervallo tra i tentativi
+### <a name="interval-increase-between-retries"></a>Incremento dell'intervallo tra i tentativi
 È consigliabile attendere 5 secondi prima di riprovare. Al primo tentativo con un ritardo inferiore a 5 secondi, si rischia di sovraccaricare il servizio cloud. Per ogni tentativo successivo, aumentare in modo esponenziale il ritardo, fino a un massimo di 60 secondi.
 
 Per i client che usano ADO.NET, è disponibile una discussione sul *periodo di blocco* in [Pool di connessioni di SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 È anche possibile che si voglia impostare un numero massimo di nuovi tentativi prima dell'autoterminazione del programma.
 
-#### <a name="code-samples-with-retry-logic"></a>Esempi di codice con logica di ripetizione dei tentativi
-Esempi di codice con logica di ripetizione dei tentativi in diversi linguaggi di programmazione sono disponibili in:
+### <a name="code-samples-with-retry-logic"></a>Esempi di codice con logica di ripetizione dei tentativi
+Esempi di codice di logica di ripetizione dei tentativi sono disponibili in:
 
-* [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md)
+- [Connettersi in modo resiliente a SQL con ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [Connettersi in modo resiliente a SQL tramite PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
-#### <a name="test-your-retry-logic"></a>Eseguire test sulla logica di ripetizione tentativi
+### <a name="test-your-retry-logic"></a>Eseguire test sulla logica di ripetizione tentativi
 Per testare la logica di ripetizione dei tentativi, è necessario simulare o provocare un errore che può essere corretto mentre il programma è ancora in esecuzione.
 
-##### <a name="test-by-disconnecting-from-the-network"></a>Eseguire il test mediante la disconnessione dalla rete
+#### <a name="test-by-disconnecting-from-the-network"></a>Eseguire il test mediante la disconnessione dalla rete
 Uno dei modi per testare la logica di ripetizione dei tentativi consiste nel disconnettere il computer client dalla rete mentre il programma è in esecuzione. Verrà visualizzato un errore analogo a:
 
 * **SqlException.Number** = 11001
@@ -98,7 +100,7 @@ Per semplificare le operazioni, disconnettere il computer dalla rete prima di av
    * Sospensione delle ulteriori esecuzioni con il metodo **Console.ReadLine** o una finestra di dialogo con un pulsante OK. L'utente preme il tasto INVIO dopo la connessione del computer alla rete.
 5. Nuovo tentativo di connessione, con esito positivo previsto.
 
-##### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Eseguire il test mediante la digitazione non corretta del nome del database durante la connessione
+#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Eseguire il test mediante la digitazione non corretta del nome del database durante la connessione
 Il programma può intenzionalmente digitare in modo errato il nome utente prima del primo tentativo di connessione. Verrà visualizzato un errore analogo a:
 
 * **SqlException.Number** = 18456
@@ -114,15 +116,15 @@ Per semplificare le operazioni, il programma potrebbe riconoscere un parametro d
 4. Rimozione di 'WRONG_' dal nome utente.
 5. Nuovo tentativo di connessione, con esito positivo previsto.
 
+
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
-### <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parametri di SqlConnection di .NET per nuovi tentativi di connessione
+## <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parametri di SqlConnection di .NET per nuovi tentativi di connessione
 Se il programma client si connette al database SQL di Azure usando la classe **System.Data.SqlClient.SqlConnection**, è necessario usare .NET 4.6.1 o versioni successive (o .NET Core) per poterne sfruttare la funzionalità di ripetizione dei tentativi di connessione. Per conoscere i dettagli della funzionalità, vedere [qui](http://go.microsoft.com/fwlink/?linkid=393996).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
-
 
 Quando si crea la [stringa di connessione](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) per l'oggetto **SqlConnection** , è necessario coordinare i valori tra i parametri seguenti:
 
@@ -138,7 +140,7 @@ Ad esempio, se il numero = 3 e l'intervallo = 10 secondi, un timeout di soli 29 
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
-### <a name="connection-versus-command"></a>Confronto tra connessione e comando
+## <a name="connection-versus-command"></a>Confronto tra connessione e comando
 I parametri **ConnectRetryCount** e **ConnectRetryInterval** consentono all'oggetto **SqlConnection** di ripetere l'operazione di connessione senza interferire con il programma, ad esempio per restituire il controllo al programma. I tentativi possono verificarsi nelle situazioni seguenti:
 
 * Chiamata al metodo mySqlConnection.Open
@@ -146,8 +148,9 @@ I parametri **ConnectRetryCount** e **ConnectRetryInterval** consentono all'ogge
 
 È importante sottolineare che, se si verifica un errore temporaneo durante l'esecuzione della *query*, l'oggetto **SqlConnection** non ripete l'operazione di connessione e certamente non ritenta l'esecuzione della query. Prima di inviare la query per l'esecuzione, tuttavia, **SqlConnection** controlla rapidamente la connessione e, se viene rilevato un problema, **SqlConnection** ritenta l'operazione di connessione. Se il tentativo ha esito positivo, la query viene inviata per l'esecuzione.
 
-#### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>Opportunità di combinare ConnectRetryCount con la logica di ripetizione dei tentativi nell'applicazione
+### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>Opportunità di combinare ConnectRetryCount con la logica di ripetizione dei tentativi nell'applicazione
 Si supponga che l'applicazione disponga di una logica di ripetizione dei tentativi particolarmente avanzata, in cui l'operazione di connessione può essere ritentata fino a 4 volte. Se si aggiunge **ConnectRetryInterval** e **ConnectRetryCount** = 3 alla stringa di connessione, il numero dei tentativi aumenterà a 4 * 3 = 12 tentativi. Un numero così elevato di tentativi potrebbe non essere consigliabile.
+
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
@@ -373,9 +376,7 @@ Per informazioni dettagliate vedere [5 - Più facile che mai: uso del blocco app
 ### <a name="entlib60-istransient-method-source-code"></a>Codice sorgente del metodo IsTransient di EntLib60
 La classe **SqlDatabaseTransientErrorDetectionStrategy** include anche il codice sorgente C# per il metodo **IsTransient**. Il codice sorgente chiarisce gli errori considerati temporanei e idonei alla ripetizione dei tentativi, a partire da aprile 2013.
 
-Molte righe **//comment** sono state rimosse da questa copia per migliorarne la leggibilità.
-
-```
+```csharp
 public bool IsTransient(Exception ex)
 {
   if (ex != null)
@@ -444,6 +445,14 @@ public bool IsTransient(Exception ex)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per risolvere altri problemi di connessione del database SQL di Azure, visitare [Risoluzione dei problemi di connessione al database SQL di Azure](sql-database-troubleshoot-common-connection-issues.md).
-* [Pool di connessioni di SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
+* [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md)
+* [Pool di connessioni di SQL Server (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 * [*Retrying* è una libreria generica Apache 2.0 di ripetizione dei tentativi scritta in **Python** per semplificare l'attività di aggiunta del comportamento di ripetizione dei tentativi a qualsiasi codice.](https://pypi.python.org/pypi/retrying)
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
 

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 11/22/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6d53d08156d0e5d1d070361db5b74d201f18a224
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 2342690d983b6e27fa008b5c72a736a9ecda8f47
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurazione dell'accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory
 Quando si chiede agli utenti di aggiungere i dispositivi personali all'area di lavoro con il servizio Registrazione dispositivo di Azure Active Directory (Azure AD), i dispositivi possono essere contrassegnati come noti all'organizzazione. Di seguito è riportata una guida dettagliata all'abilitazione dell'accesso condizionale alle applicazioni locali con Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
@@ -166,9 +166,9 @@ In questo caso `yourdomainname` è il nome di dominio configurato con Azure Acti
 4. Quando richiesto, accedere con le proprie credenziali. Il dispositivo ora è aggiunto.
 
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Aggiungere un dispositivo Windows 7 con Registrazione dispositivo di Azure Active Directory
-Per registrare dispositivi Windows 7 aggiunti a un dominio, è necessario distribuire il pacchetto software di registrazione dispositivo. Il pacchetto software è denominato "Workplace Join for Windows 7" ed è disponibile per il download dal [sito Web Microsoft Connect](https://connect.microsoft.com/site1164). 
+Per registrare dispositivi Windows 7 aggiunti a un dominio, è necessario distribuire il [pacchetto software di registrazione dispositivo](https://www.microsoft.com/download/details.aspx?id=53554).
 
-Per le istruzioni su come usare il pacchetto, vedere [Come configurare la registrazione automatica dei dispositivi Windows aggiunti a un dominio con Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+Per istruzioni su come usare il pacchetto, vedere [Pacchetti di Windows Installer per i computer non Windows 10](device-management-hybrid-azuread-joined-devices-setup.md#windows-installer-packages-for-non-windows-10-computers).
 
 ## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>Verificare che venga eseguito il writeback dei dispositivi registrati in Active Directory
 È possibile verificare che sia stato eseguito il writeback degli oggetti dispositivo in Active Directory usando LDP.exe o ADSI Edit. Entrambi sono disponibili con gli strumenti dell'amministratore di Active Directory.

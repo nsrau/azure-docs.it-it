@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - Guida alla risoluzione dei problemi e problemi noti 
 Questo articolo consente di trovare e correggere errori o guasti riscontrati durante l'uso dell'applicazione Azure Machine Learning Workbench. 
@@ -39,6 +39,17 @@ Se si verificano errori durante l'installazione, i file di log del programma di 
 /tmp/amlinstaller/logs/*
 ```
 È possibile comprimere i contenuti delle directory e inviarli per la diagnostica.
+
+### <a name="app-update"></a>Aggiornamento dell'app 
+#### <a name="no-update-notification-on-windows-desktop"></a>Nessuna notifica di aggiornamento sul desktop di Windows 
+Questo problema verrà risolto in uno dei prossimi aggiornamenti. Nel frattempo, la soluzione alternativa consiste nell'evitare di avviare l'app dal collegamento aggiunto alla barra delle applicazioni. Avviare invece l'app usando il menu Start o la barra di ricerca in Start oppure il collegamento sul desktop (se presente). 
+
+#### <a name="no-update-notification-on-an-ubuntu-data-sciece-virtual-machine-dsvm"></a>Nessuna notifica di aggiornamento in un sistema Ubuntu Data Science Virtual Machine (DSVM)
+Eseguire i passaggi seguenti per scaricare l'applicazione più recente:   
+   - Rimuovere la cartella \Utenti\AppData\Local\amlworkbench
+   - Rimuovere lo script `c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - Rimuovere il collegamento sul desktop che avvia lo script precedente
+   - Eseguire un'installazione pulita tramite [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)
 
 ### <a name="workbench-desktop-app"></a>App desktop Workbench
 Se si riscontrano problemi di accesso, o se desktop Workbench si arresta in modo anomalo, è possibile trovare i file di log qui:

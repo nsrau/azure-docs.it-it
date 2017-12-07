@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: c5c93c8e8d108a9a5a29477a532d682659c9d512
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ddac8feedc8ded73e0f436c1e5dd6391016943a9
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Come ottenere Azure Multi-Factor Authentication
 
@@ -56,7 +56,7 @@ La tabella seguente indica un elenco delle funzionalità disponibili nelle varie
 | SMS come secondo fattore |● |● |● |
 | Password di app per i client che non supportano MFA |● |● |● |
 | Controllo amministrativo sui metodi di verifica |● |● |● |
-| Proteggere gli account non amministratore con MFA | | |● |
+| Proteggere gli account non amministratore con MFA |● (Solo per le applicazioni di Office 365) | |● |
 | Modalità PIN | | |● |
 | Avviso di illecito | | |● |
 | Report MFA | | |● |

@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.openlocfilehash: 3d0d5ea6cc3f3cc7bc0550b83dabbf0ae6af8a27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5c7810a88bee65cf22276082f72b18a7f9e983f
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gestire gli aggiornamenti in panoramica di Azure Stack
 
 *Si applica a: Azure Stack integrate di sistemi*
 
-Microsoft rilascerà i pacchetti di aggiornamento per i sistemi Azure Stack integrato a intervalli regolari. Ogni versione di Microsoft degli aggiornamenti del software viene fornito come un singolo pacchetto di aggiornamento. Come operatore di Stack di Azure, è possibile importare, installare e monitorare l'avanzamento dell'installazione di questi pacchetti dal portale di amministrazione di aggiornamento. 
+Microsoft rilascerà i pacchetti di aggiornamento per i sistemi Azure Stack integrato a un ritmo regolari che possono essere suddivise il quarto martedì di ogni mese, a partire da disponibilità generale. Chiedere l'OEM sul processo di notifica specifica per garantire l'organizzazione di copertura di notifiche di aggiornamento, oppure fare clic qui in sistemi notes\Integrated Concepts\Release note sulla versione per altre informazioni sulle specifiche versioni.
+
+Ogni versione di Microsoft degli aggiornamenti del software viene fornito come un singolo pacchetto di aggiornamento. Come operatore di Stack di Azure, è possibile importare, installare e monitorare l'avanzamento dell'installazione di questi pacchetti dal portale di amministrazione di aggiornamento. 
 
 Il fornitore dell'hardware (OEM) original equipment manufacturer rilasceranno anche gli aggiornamenti, ad esempio aggiornamenti di driver e firmware. Questi aggiornamenti vengono distribuiti come pacchetti separati dal fornitore dell'hardware OEM e vengono gestiti separatamente da Microsoft Update.
 

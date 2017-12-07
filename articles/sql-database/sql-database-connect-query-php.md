@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 08/08/2017
+ms.date: 11/29/2017
 ms.author: carlrab
-ms.openlocfilehash: ae8cf7b847442883f03078a8c34d0921f8992b02
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b45acf8a7abdee070c6db2c5d7f4c108a073b1bb
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>Usare PHP per eseguire query su un database SQL di Azure
 
@@ -27,17 +27,13 @@ Questa esercitazione introduttiva illustra come usare [PHP](http://php.net/manua
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa esercitazione introduttiva, accertarsi di avere:
+Per completare questa esercitazione introduttiva, accertarsi di soddisfare i requisiti seguenti:
 
-- un database SQL di Azure. Questa guida introduttiva usa le risorse create in una delle guide introduttive seguenti: 
+[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-   - [Creare un database: portale](sql-database-get-started-portal.md)
-   - [Creare un database: interfaccia della riga di comando](sql-database-get-started-cli.md)
-   - [Creare un database: PowerShell](sql-database-get-started-powershell.md)
+- Avere una [regola del firewall a livello di server](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) per l'indirizzo IP pubblico del computer usato per questa esercitazione introduttiva.
 
-- Una [regola del firewall a livello di server](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) per l'indirizzo IP pubblico del computer usato per questa esercitazione introduttiva.
-
-- Avere installato PHP e il software correlato per il sistema operativo.
+- Avere installato PHP e il software correlato adatti per il sistema operativo in uso:
 
     - **MacOS**: installare Homebrew e PHP, installare il driver ODBC e SQLCMD e quindi installare il driver PHP per SQL Server. Vedere i [passaggi 1.2, 1.3 e 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/).
     - **Ubuntu**: installare PHP e gli altri pacchetti necessari e quindi installare il driver PHP per SQL Server. Vedere i [passaggi 1.2 e 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/).
@@ -45,15 +41,7 @@ Per completare questa esercitazione introduttiva, accertarsi di avere:
 
 ## <a name="sql-server-connection-information"></a>Informazioni di connessione SQL Server
 
-Ottenere le informazioni di connessione necessarie per connettersi al database SQL di Azure. Nelle procedure successive saranno necessari il nome completo del server, il nome del database e le informazioni di accesso.
-
-1. Accedere al [Portale di Azure](https://portal.azure.com/).
-2. Scegliere **Database SQL** dal menu a sinistra, quindi fare clic sul database nella pagina **Database SQL**. 
-3. Nella pagina **Panoramica** per il database, verificare il nome completo del server, come mostrato nell'immagine seguente. È possibile passare il puntatore sul nome del server per visualizzare l'opzione **Fare clic per copiare**.  
-
-   ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
-
-4. Se si dimenticano le informazioni di accesso per il server, passare alla pagina del server del database SQL per visualizzare il nome dell'amministratore del server e, se necessario, reimpostare la password.     
+[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
     
 ## <a name="insert-code-to-query-sql-database"></a>Inserire il codice per eseguire query sul database SQL
 
@@ -100,3 +88,10 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 - [Progettare il primo database SQL di Azure](sql-database-design-first-database.md)
 - [Driver Microsoft PHP per SQL Server](https://github.com/Microsoft/msphpsql/)
 - [Segnalare problemi o porre domande](https://github.com/Microsoft/msphpsql/issues)
+- [Esempio di logica di ripetizione dei tentativi: connettersi in modo resiliente a SQL tramite PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+

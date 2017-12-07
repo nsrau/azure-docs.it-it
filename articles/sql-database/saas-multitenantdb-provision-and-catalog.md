@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: billgib
-ms.openlocfilehash: ec753027c8ce8040cbc574279a44eb24590fcb05
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: e7de7bb545e0ce04dc1b3dd398cc920213d09bae
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-sql-database"></a>Effettuare il provisioning di nuovi tenant e catalogarli in un'applicazione SaaS di esempio con un database SQL partizionato multi-tenant
 
@@ -78,19 +78,18 @@ Per completare questa esercitazione, verificare che siano soddisfatti i prerequi
 * È stata distribuita l'app SaaS di database multi-tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS di database multi-tenant Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
 * Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
-## <a name="get-the-wingtip-tickets-management-scripts"></a>Ottenere gli script di gestione di Wingtip Tickets
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Ottenere gli script e il codice sorgente dell'applicazione SaaS di database multi-tenant Wingtip Tickets
 
-Gli script di gestione e il codice sorgente dell'applicazione sono disponibili nel repository [WingtipTicketsSaaS-MultiTenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) di GitHub. <!--See [Steps to download the Wingtip SaaS scripts](saas-tenancy-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).-->
-
+Gli script e il codice sorgente dell'applicazione SaaS di database multi-tenant Wingtip Tickets sono disponibili nel repository [WingtipTicketsSaaS-MultiTenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) di GitHub. Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets. 
 
 ## <a name="provision-a-tenant-in-a-shared-database-with-other-tenants"></a>Eseguire il provisioning di un tenant in un database condiviso con altri tenant
 
 Per comprendere in che modo l'applicazione Wingtip Tickets implementi il nuovo provisioning di tenant in un database condiviso, procedere passo per passo attraverso il flusso di lavoro dopo aver aggiunto un punto di interruzione:
 
-1. In _PowerShell ISE_, aprire ...\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ e impostare i parametri seguenti:
-   * **$TenantName** = **Bushwillow Blues**, nome della nuova sede di eventi.
-   * **$VenueType** = **blues**, uno dei tipi di sede predefiniti: *blues*, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (in minuscolo e senza spazi).
-   * **$Scenario** = **1**, per *eseguire il provisioning di un tenant in un database condiviso con altri tenant*.
+1. In _PowerShell ISE_ aprire ...\\Learning Modules\\ProvisionTenants\\_Demo-ProvisionTenants.ps1_ e impostare i parametri seguenti:
+   * **$TenantName** = **Bushwillow Blues**, nome di una nuova sede di eventi.
+   * **$VenueType** = **blues**, uno dei tipi di sede predefiniti: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (in minuscolo e senza spazi).
+   * **$DemoScenario** = **1** per *eseguire il provisioning di un tenant in un database condiviso con altri tenant*.
 
 1. Aggiungere un punto di interruzione posizionando il cursore in un punto qualsiasi nella riga 38 contenente il testo: *New-Tenant `* e premere **F9**.
 
@@ -121,10 +120,10 @@ Di seguito sono indicati gli elementi chiave del flusso di lavoro di provisionin
 
 A questo punto seguire dettagliatamente questa procedura durante la creazione di un tenant nel database autonomo:
 
-1. Di nuovo in ...\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ impostare i parametri seguenti:
-   * **$TenantName** = **Sequoia Soccer**, il nome del nuovo evento.
-   * **$VenueType** = **soccer**, uno dei tipi di sede predefiniti: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, *soccer* (in minuscolo e senza spazi).
-   * **$Scenario** = **2**, per *eseguire il provisioning di un tenant in un database condiviso con altri tenant*.
+1. Ancora in ...\\Learning Modules\\ProvisionTenants\\_Demo-ProvisionTenants.ps1_ impostare i parametri seguenti:
+   * **$TenantName** = **Sequoia Soccer**, il nome di una nuova sede di eventi.
+   * **$VenueType** = **soccer**, uno dei tipi di sede predefiniti: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (in minuscolo e senza spazi).
+   * **$DemoScenario** = **2** per *effettuare il provisioning di un tenant in un database dedicato*.
 
 1. Aggiungere un nuovo punto di interruzione posizionando il cursore in un punto qualsiasi nella riga 57 contenente il testo: *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `* e premere **F9**.
 
@@ -152,30 +151,31 @@ Di seguito sono indicati gli elementi chiave del flusso di lavoro di provisionin
 
 Questo esercizio descrive come effettuare il provisioning di un batch di 17 tenant. È consigliabile eseguire il provisioning di questo batch di tenant prima di iniziare le altre esercitazioni di Wingtip Tickets, in modo da avere più database da usare.
 
-1. In *PowerShell ISE* aprire ...\\Learning Modules\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1* e impostare il parametro *$Scenario* su 3:
-   * **$Scenario** = **3** per *effettuare il provisioning di un batch di tenant in un database condiviso*.
+
+1. In *PowerShell ISE* aprire ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* e impostare il parametro *$DemoScenario* su 4:
+   * **$DemoScenario** = **4** per *effettuare il provisioning di un batch di tenant in un database condiviso*.
 1. Premere **F5** ed eseguire lo script.
 
 
 ### <a name="verify-the-deployed-set-of-tenants"></a>Verificare il set di tenant distribuito 
-A questo punto l'utente dispone di diversi tenant distribuiti in un database condiviso e tenant distribuiti nei database autonomi. Il portale di Azure può essere usato per controllare i database creati:  
-
-* Nel [portale di Azure](https://portal.azure.com) aprire il server **tenants1-mt-\<UTENTE\>** passando all'elenco di server SQL.  L'elenco di **database SQL** deve includere il database **tenants1** condiviso e i database per i tenant che si trovano nel proprio database:
+A questo punto l'utente dispone di diversi tenant distribuiti in un database condiviso e tenant distribuiti in database dedicati. Il portale di Azure può essere usato per controllare i database creati. Nel [portale di Azure](https://portal.azure.com) aprire il server **tenants1-mt-\<UTENTE\>** passando all'elenco di server SQL.  L'elenco di **database SQL** deve includere il database **tenants1** condiviso e i database per i tenant che si trovano nel proprio database:
 
    ![elenco di database](media/saas-multitenantdb-provision-and-catalog/Databases.png)
 
 Sebbene il portale di Azure mostri il tenant di database, non è possibile vedere i tenant *all'interno* del database condiviso. L'elenco completo dei tenant è consultabile nella pagina dell'hub eventi di Wingtip Tickets ed esplorando il catalogo:   
 
-1. Aprire la pagina Hub eventi nel browser (http:events.wingtip-mt.\<UTENTE\>.trafficmanager.net)  
+**Uso della pagina dell'hub eventi di Wingtip Tickets** <br>
+Aprire la pagina Hub eventi nel browser (http:events.wingtip-mt.\<UTENTE\>.trafficmanager.net)  
 
-   L'elenco completo dei tenant e i database corrispondenti è disponibile nel catalogo. Una visualizzazione SQL è disponibile nel database tenantcatalog che unisce il nome del tenant archiviato nella tabella dei tenant al nome del database nelle tabelle di gestione delle partizioni. Questa visualizzazione dimostra correttamente il valore dell'estensione dei metadati archiviati nel catalogo.
+**Uso del database di catalogo** <br>
+L'elenco completo dei tenant e i database corrispondenti è disponibile nel catalogo. Una visualizzazione SQL è disponibile nel database tenantcatalog che unisce il nome del tenant archiviato nella tabella dei tenant al nome del database nelle tabelle di gestione delle partizioni. Questa visualizzazione dimostra correttamente il valore dell'estensione dei metadati archiviati nel catalogo.
 
-2. In *SQL Server Management Studio* connettersi al server del tenant **tenants1-mt.\<UTENTE\>.database.windows.net**, con l'account di accesso: **sviluppatore**, Password: **P@ssword1**
+1. In *SQL Server Management Studio* connettersi al server del tenant **catalog-mt.\<UTENTE\>.database.windows.net**, con l'account di accesso: **developer**, Password: **P@ssword1**
 
     ![Finestra di dialogo di connessione di SQL Server Management Studio](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
-2. In *Esplora oggetti* selezionare le viste del database *tenantcatalog*.
-2. Fare clic con il pulsante destro del mouse sulla vista *TenantsExtended* e scegliere **Select Top 1000 Rows** (Seleziona le prime 1000 righe). Si noti il mapping tra nome e il database del tenant per diversi tenant.
+1. In *Esplora oggetti* selezionare le viste del database *tenantcatalog*.
+1. Fare clic con il pulsante destro del mouse sulla vista *TenantsExtended* e scegliere **Select Top 1000 Rows** (Seleziona le prime 1000 righe). Si noti il mapping tra nome e il database del tenant per diversi tenant.
 
     ![Visualizzazione ExtendedTenants in SQL Server Management Studio](media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
       

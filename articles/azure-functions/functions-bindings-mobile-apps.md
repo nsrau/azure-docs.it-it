@@ -1,5 +1,5 @@
 ---
-title: Associazioni di app per dispositivi mobili in Funzioni di Azure | Documentazione Microsoft
+title: Associazioni di app per dispositivi mobili per Funzioni di Azure
 description: Informazioni su come usare le associazioni di app per dispositivi mobili in Funzioni di Azure
 services: functions
 documentationcenter: na
@@ -8,75 +8,44 @@ manager: cfowler
 editor: 
 tags: 
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
-ms.assetid: faad1263-0fa5-41a9-964f-aecbc0be706a
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: d2c0e4e233761584bad2df05a8e702e4fc77e84f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c29c43f88608760cc6d5f19f27f692c8448ebd9
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
-# <a name="azure-functions-mobile-apps-bindings"></a>Associazioni di app per dispositivi mobili in Funzioni di Azure
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+# <a name="mobile-apps-bindings-for-azure-functions"></a>Associazioni di app per dispositivi mobili per Funzioni di Azure 
 
-Questo articolo illustra come configurare e scrivere il codice delle [associazioni di App per dispositivi mobili di Azure](../app-service-mobile/app-service-mobile-value-prop.md) in Funzioni di Azure. Funzioni di Azure supporta le associazioni di input e output per App per dispositivi mobili.
+Questo articolo descrive come usare le associazioni di [app per dispositivi mobili](../app-service-mobile/app-service-mobile-value-prop.md) in Funzioni di Azure. Funzioni di Azure supporta le associazioni di input e output per App per dispositivi mobili.
 
-Le associazioni di input e output per App per dispositivi mobili consentono di [leggere e scrivere tabelle di dati](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) nella propria app per dispositivi mobili.
+Le associazioni di app per dispositivi mobili consentono di leggere e aggiornare le tabelle di dati nelle app per dispositivi mobili.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-<a name="input"></a>
+## <a name="input"></a>Input
 
-## <a name="mobile-apps-input-binding"></a>Associazione di input di App per dispositivi mobili
 L'associazione di input di App per dispositivi mobili carica un record da un endpoint tabella per dispositivi mobili e lo passa alla propria funzione. Nelle funzioni C# e F# eventuali modifiche apportate al record vengono automaticamente inviate alla tabella se la funzione termina correttamente.
 
-L'input di App per dispositivi mobili in una funzione usa l'oggetto JSON seguente nella matrice `bindings` di function.json:
+## <a name="input---example"></a>Input - esempio
 
-```json
-{
-    "name": "<Name of input parameter in function signature>",
-    "type": "mobileTable",
-    "tableName": "<Name of your mobile app's data table>",
-    "id" : "<Id of the record to retrieve - see below>",
-    "connection": "<Name of app setting that has your mobile app's URL - see below>",
-    "apiKey": "<Name of app setting that has your mobile app's API key - see below>",
-    "direction": "in"
-}
-```
+Vedere l'esempio specifico per ciascun linguaggio:
 
-Tenere presente quanto segue:
+<!-- * [Precompiled C#](#input---c-example)-->
+* [Script C#](#input---c-script-example)
+* [JavaScript](#input---javascript-example)
 
-* `id` può essere statico oppure può essere basato sul trigger che richiama la funzione. Se ad esempio si usa un [trigger della coda]() per la propria funzione, `"id": "{queueTrigger}"` userà il valore di stringa del messaggio della coda come ID del record da recuperare.
-* `connection` deve contenere il nome di un'impostazione dell'app per le funzioni, in cui è contenuto l'URL dell'app per dispositivi mobili. La funzione usa questo URL per creare le operazioni REST da eseguire sull'app per dispositivi mobili. A questo scopo, è necessario [creare un'impostazione nell'app per le funzioni]() che contenga l'URL dell'app per dispositivi mobili (simile a `http://<appname>.azurewebsites.net`) e quindi specificare il nome dell'impostazione dell'app nella proprietà `connection` dell'associazione di input. 
-* È necessario specificare `apiKey` se si [implementa una chiave API nel back-end dell'app per dispositivi mobili Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) o se si [implementa una chiave API nel back-end dell'app per dispositivi mobili .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). A questo scopo, è necessario [creare un'impostazione nell'app per le funzioni]() che contenga la chiave API e quindi aggiungere la proprietà `apiKey` nell'associazione di input con il nome dell'impostazione dell'app. 
-  
-  > [!IMPORTANT]
-  > Questa chiave API non deve essere condivisa con i client dell'app per dispositivi mobili. Può essere distribuita in modo sicuro solo ai client sul lato servizio, come Funzioni di Azure. 
-  > 
-  > [!NOTE]
-  > Funzioni di Azure archivia le informazioni di connessione e le chiavi API come impostazioni dell'app in modo che non vengano controllate nel repository di controllo del codice sorgente. In questo modo viene garantita la protezione delle informazioni riservate.
-  > 
-  > 
+### <a name="input---c-script-example"></a>Input - esempio di script C#
 
-<a name="inputusage"></a>
+L'esempio seguente mostra un'associazione di input dell'app per dispositivi mobili in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione viene attivata da un messaggio in coda contenente un identificatore di record. La funzione legge il record specificato e modifica la proprietà `Text`.
 
-## <a name="input-usage"></a>Uso dell'input
-In questa sezione viene illustrato come usare l'associazione di input di App per dispositivi mobili nel codice di funzione. 
-
-Se il record corrispondente alla tabella e all'ID di record specificati viene trovato, il record viene passato al parametro denominato [JObject](http://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm) (in Node.js viene passato all'oggetto `context.bindings.<name>`). Se il record non viene trovato, il parametro è `null`. 
-
-Nelle funzioni C# e F# eventuali modifiche apportate al record di input (parametro di input) vengono automaticamente inviate alla tabella di App per dispositivi mobili quando la funzione termina correttamente. Nelle funzioni Node.js si accede al record di input usando `context.bindings.<name>`. In Node.js, inoltre, non è possibile modificare i record.
-
-<a name="inputsample"></a>
-
-## <a name="input-sample"></a>Esempio di input
-Si supponga di avere il seguente function.json, che recupera un record della tabella di App per dispositivi mobili tramite l'ID del messaggio di attivazione della coda:
+Ecco i dati di associazione nel file *function.json*:
 
 ```json
 {
@@ -101,15 +70,9 @@ Si supponga di avere il seguente function.json, che recupera un record della tab
 "disabled": false
 }
 ```
+Queste proprietà sono descritte nella sezione [configuration](#input---configuration).
 
-Vedere l'esempio specifico del linguaggio che usa il record di input dall'associazione. Gli esempi in C# e F# modificano anche la proprietà `text` del record.
-
-* [C#](#inputcsharp)
-* [Node.js](#inputnodejs)
-
-<a name="inputcsharp"></a>
-
-### <a name="input-sample-in-c"></a>Esempio di input in C# #
+Ecco il codice script C#:
 
 ```cs
 #r "Newtonsoft.Json"    
@@ -124,21 +87,38 @@ public static void Run(string myQueueItem, JObject record)
 }
 ```
 
-<!--
-<a name="inputfsharp"></a>
-### Input sample in F# ## 
+### <a name="input---javascript"></a>Input - JavaScript
 
-```fsharp
-#r "Newtonsoft.Json"    
-open Newtonsoft.Json.Linq
-let Run(myQueueItem: string, record: JObject) =
-  inputDocument?text <- "This has changed."
+L'esempio seguente mostra un'associazione di input dell'app per dispositivi mobili in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione viene attivata da un messaggio in coda contenente un identificatore di record. La funzione legge il record specificato e modifica la proprietà `Text`.
+
+Ecco i dati di associazione nel file *function.json*:
+
+```json
+{
+"bindings": [
+    {
+    "name": "myQueueItem",
+    "queueName": "myqueue-items",
+    "connection":"",
+    "type": "queueTrigger",
+    "direction": "in"
+    },
+    {
+        "name": "record",
+        "type": "mobileTable",
+        "tableName": "MyTable",
+        "id" : "{queueTrigger}",
+        "connection": "My_MobileApp_Url",
+        "apiKey": "My_MobileApp_Key",
+        "direction": "in"
+    }
+],
+"disabled": false
+}
 ```
--->
+Queste proprietà sono descritte nella sezione [configuration](#input---configuration).
 
-<a name="inputnodejs"></a>
-
-### <a name="input-sample-in-nodejs"></a>Esempio di input in Node.js
+Ecco il codice JavaScript:
 
 ```javascript
 module.exports = function (context, myQueueItem) {    
@@ -147,48 +127,71 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-<a name="output"></a>
+## <a name="input---attributes"></a>Input - attributi
 
-## <a name="mobile-apps-output-binding"></a>Associazione di output di App per dispositivi mobili
-L'associazione di output di App per dispositivi mobili consente di scrivere un nuovo record in un endpoint tabella di App per dispositivi mobili.  
+Per funzioni in [C# precompilato](functions-dotnet-class-library.md) usare l'attributo [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
-L'output di App per dispositivi mobili per una funzione usa l'oggetto JSON seguente nella matrice `bindings` di function.json:
+Per informazioni sulle proprietà degli attributi che è possibile configurare, vedere la [sezione seguente relativa alla configurazione](#input---configuration).
 
-```json
+## <a name="input---configuration"></a>Input - configurazione
+
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `MobileTable`.
+
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
+|---------|---------|----------------------|
+| **type**|| Deve essere impostato su "mobileTable"|
+| **direction**||Deve essere impostato su "in"|
+| **nome**|| Nome del parametro di input nella firma della funzione.|
+|**tableName** |**TableName**|Nome della tabella di dati dell'app per dispositivi mobili|
+| **id**| **Id** | Identificatore del record da recuperare. Può essere statico o basato sul trigger che richiama la funzione. Se, ad esempio, si usa un trigger della coda per la funzione, `"id": "{queueTrigger}"` userà il valore di stringa del messaggio della coda come ID del record da recuperare.|
+|**connessione**|**Connection**|Il nome di un'impostazione dell'app con l'URL dell'app per dispositivi mobili. La funzione usa questo URL per creare le operazioni REST da eseguire sull'app per dispositivi mobili. Creare un'impostazione nell'app per le funzioni che contenga l'URL dell'app per dispositivi mobili e quindi specificare il nome dell'impostazione dell'app nella proprietà `connection` dell'associazione di input. L'URL ha l'aspetto seguente: `http://<appname>.azurewebsites.net`.
+|**apiKey**|**ApiKey**|Il nome di un'impostazione dell'app con la chiave API dell'app per dispositivi mobili. Specificare la chiave API se si [implementa una chiave API nell'app per dispositivi mobili Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) oppure se si [implementa una chiave API nell'app per dispositivi mobili .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Per specificare la chiave, creare un'impostazione nell'app per le funzioni che contenga la chiave API e quindi aggiungere la proprietà `apiKey` nell'associazione di input con il nome dell'impostazione dell'app. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+> [!IMPORTANT]
+> Non condividere la chiave API con i client dell'app per dispositivi mobili. Può essere distribuita in modo sicuro solo ai client sul lato servizio, come Funzioni di Azure. Funzioni di Azure archivia le informazioni di connessione e le chiavi API come impostazioni dell'app in modo che non vengano controllate nel repository di controllo del codice sorgente. In questo modo viene garantita la protezione delle informazioni riservate.
+
+## <a name="input---usage"></a>Input - uso
+
+Quando nelle funzioni C# viene trovato, il record con l'ID specificato viene passato nel parametro denominato [JObject](http://www.newtonsoft.com/json/help/html/t_newtonsoft_json_linq_jobject.htm). Se il record non viene trovato, il valore del parametro è `null`. 
+
+Nelle funzioni JavaScript il record viene passato all'oggetto `context.bindings.<name>`. Se il record non viene trovato, il valore del parametro è `null`. 
+
+Nelle funzioni C# e F# eventuali modifiche apportate al record di input (parametro di input) vengono automaticamente inviate alla tabella quando la funzione termina correttamente. Non è possibile modificare un record nelle funzioni JavaScript.
+
+## <a name="output"></a>Output
+
+L'associazione di output di app per dispositivi mobili consente di scrivere un nuovo record in una tabella di app per dispositivi mobili.  
+
+## <a name="output---example"></a>Output - esempio
+
+Vedere l'esempio specifico per ciascun linguaggio:
+
+* [C# precompilato](#output---c-example)
+* [Script C#](#output---c-script-example)
+* [JavaScript](#output---javascript-example)
+
+### <a name="output---c-example"></a>Output - esempio in C#
+
+L'esempio seguente mostra una [funzione in C# precompilato](functions-dotnet-class-library.md) che viene attivata da un messaggio in coda e che crea un record in una tabella di app per dispositivi mobili.
+
+```csharp
+[FunctionName("MobileAppsOutput")]        
+[return: MobileTable(ApiKeySetting = "MyMobileAppKey", TableName = "MyTable", MobileAppUriSetting = "MyMobileAppUri")]
+public static object Run(
+    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
+    TraceWriter log)
 {
-    "name": "<Name of output parameter in function signature>",
-    "type": "mobileTable",
-    "tableName": "<Name of your mobile app's data table>",
-    "connection": "<Name of app setting that has your mobile app's URL - see below>",
-    "apiKey": "<Name of app setting that has your mobile app's API key - see below>",
-    "direction": "out"
+    return new { Text = $"I'm running in a C# function! {myQueueItem}" };
 }
 ```
 
-Tenere presente quanto segue:
+### <a name="output---c-script-example"></a>Output - esempio di script C#
 
-* `connection` deve contenere il nome di un'impostazione dell'app per le funzioni, in cui è contenuto l'URL dell'app per dispositivi mobili. La funzione usa questo URL per creare le operazioni REST da eseguire sull'app per dispositivi mobili. A questo scopo, è necessario [creare un'impostazione nell'app per le funzioni]() che contenga l'URL dell'app per dispositivi mobili (simile a `http://<appname>.azurewebsites.net`) e quindi specificare il nome dell'impostazione dell'app nella proprietà `connection` dell'associazione di input. 
-* È necessario specificare `apiKey` se si [implementa una chiave API nel back-end dell'app per dispositivi mobili Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) o se si [implementa una chiave API nel back-end dell'app per dispositivi mobili .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). A questo scopo, è necessario [creare un'impostazione nell'app per le funzioni]() che contenga la chiave API e quindi aggiungere la proprietà `apiKey` nell'associazione di input con il nome dell'impostazione dell'app. 
-  
-  > [!IMPORTANT]
-  > Questa chiave API non deve essere condivisa con i client dell'app per dispositivi mobili. Può essere distribuita in modo sicuro solo ai client sul lato servizio, come Funzioni di Azure. 
-  > 
-  > [!NOTE]
-  > Funzioni di Azure archivia le informazioni di connessione e le chiavi API come impostazioni dell'app in modo che non vengano controllate nel repository di controllo del codice sorgente. In questo modo viene garantita la protezione delle informazioni riservate.
-  > 
-  > 
+L'esempio seguente mostra un'associazione di output dell'app per dispositivi mobili in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione viene attivata da un messaggio in coda e crea un nuovo record con valore hardcoded per la proprietà `Text`.
 
-<a name="outputusage"></a>
-
-## <a name="output-usage"></a>Uso dell'output
-In questa sezione viene illustrato come usare l'associazione di output di App per dispositivi mobili nel codice di funzione. 
-
-Nelle funzioni C# è necessario usare un parametro di output denominato di tipo `out object` per accedere al record di output. Nelle funzioni Node.js si accede al record di output usando `context.bindings.<name>`.
-
-<a name="outputsample"></a>
-
-## <a name="output-sample"></a>Esempio di output
-Si supponga di avere il seguente function.json, che definisce un trigger della coda e un output di App per dispositivi mobili:
+Ecco i dati di associazione nel file *function.json*:
 
 ```json
 {
@@ -213,14 +216,9 @@ Si supponga di avere il seguente function.json, che definisce un trigger della c
 }
 ```
 
-Vedere l'esempio specifico del linguaggio che crea un record nell'endpoint tabella di App per dispositivi mobili con il contenuto del messaggio della coda.
+Queste proprietà sono descritte nella sezione [configuration](#output---configuration).
 
-* [C#](#outcsharp)
-* [Node.js](#outnodejs)
-
-<a name="outcsharp"></a>
-
-### <a name="output-sample-in-c"></a>Esempio di output in C# #
+Ecco il codice script C#:
 
 ```cs
 public static void Run(string myQueueItem, out object record)
@@ -231,16 +229,38 @@ public static void Run(string myQueueItem, out object record)
 }
 ```
 
-<!--
-<a name="outfsharp"></a>
-### Output sample in F# ## 
-```fsharp
+### <a name="output---javascript-example"></a>Output - esempio JavaScript
 
+L'esempio seguente mostra un'associazione di output dell'app per dispositivi mobili in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione viene attivata da un messaggio in coda e crea un nuovo record con valore hardcoded per la proprietà `Text`.
+
+Ecco i dati di associazione nel file *function.json*:
+
+```json
+{
+"bindings": [
+    {
+    "name": "myQueueItem",
+    "queueName": "myqueue-items",
+    "connection":"",
+    "type": "queueTrigger",
+    "direction": "in"
+    },
+    {
+    "name": "record",
+    "type": "mobileTable",
+    "tableName": "MyTable",
+    "connection": "My_MobileApp_Url",
+    "apiKey": "My_MobileApp_Key",
+    "direction": "out"
+    }
+],
+"disabled": false
+}
 ```
--->
-<a name="outnodejs"></a>
 
-### <a name="output-sample-in-nodejs"></a>Esempio di output in Node.js
+Queste proprietà sono descritte nella sezione [configuration](#output---configuration).
+
+Ecco il codice JavaScript:
 
 ```javascript
 module.exports = function (context, myQueueItem) {
@@ -253,6 +273,54 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+## <a name="output---attributes"></a>Output - attributi
 
+Per funzioni in [C# precompilato](functions-dotnet-class-library.md) usare l'attributo [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+
+Per informazioni sulle proprietà degli attributi che è possibile configurare, vedere la sezione [Output - configurazione](#output---configuration). Di seguito è riportato un esempio dell'attributo `MobileTable` in una firma del metodo:
+
+```csharp
+[FunctionName("MobileAppsOutput")]        
+[return: MobileTable(ApiKeySetting = "MyMobileAppKey", TableName = "MyTable", MobileAppUriSetting = "MyMobileAppUri")]
+public static object Run(
+    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
+    TraceWriter log)
+{
+    ...
+}
+```
+
+Per un esempio completo, vedere [Output - esempio in C# precompilato](#output---c-example).
+
+## <a name="output---configuration"></a>Output - configurazione
+
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `MobileTable`.
+
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
+|---------|---------|----------------------|
+| **type**|| Deve essere impostato su "mobileTable"|
+| **direction**||Deve essere impostato su "out"|
+| **nome**|| Nome del parametro di output nella firma della funzione.|
+|**tableName** |**TableName**|Nome della tabella di dati dell'app per dispositivi mobili|
+|**connessione**|**MobileAppUriSetting**|Il nome di un'impostazione dell'app con l'URL dell'app per dispositivi mobili. La funzione usa questo URL per creare le operazioni REST da eseguire sull'app per dispositivi mobili. Creare un'impostazione nell'app per le funzioni che contenga l'URL dell'app per dispositivi mobili e quindi specificare il nome dell'impostazione dell'app nella proprietà `connection` dell'associazione di input. L'URL ha l'aspetto seguente: `http://<appname>.azurewebsites.net`.
+|**apiKey**|**ApiKeySetting**|Il nome di un'impostazione dell'app con la chiave API dell'app per dispositivi mobili. Specificare la chiave API se si [implementa una chiave API nel back-end dell'app per dispositivi mobili Node.js](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key) o se si [implementa una chiave API nel back-end dell'app per dispositivi mobili .NET](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Per specificare la chiave, creare un'impostazione nell'app per le funzioni che contenga la chiave API e quindi aggiungere la proprietà `apiKey` nell'associazione di input con il nome dell'impostazione dell'app. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+> [!IMPORTANT]
+> Non condividere la chiave API con i client dell'app per dispositivi mobili. Può essere distribuita in modo sicuro solo ai client sul lato servizio, come Funzioni di Azure. Funzioni di Azure archivia le informazioni di connessione e le chiavi API come impostazioni dell'app in modo che non vengano controllate nel repository di controllo del codice sorgente. In questo modo viene garantita la protezione delle informazioni riservate.
+
+## <a name="output---usage"></a>Output - uso
+
+Nelle funzioni script C# è necessario usare un parametro di output denominato di tipo `out object` per accedere al record di output. Nelle funzioni in C# precompilato l'attributo `MobileTable` può essere usato con uno qualsiasi dei tipi seguenti:
+
+* `ICollector<T>` o `IAsyncCollector<T>`, dove `T` è `JObject` o qualsiasi tipo con una proprietà `public string Id`.
+* `out JObject`
+* `out T` o `out T[]`, dove `T` è un tipo qualsiasi con una proprietà `public string Id`.
+
+Nelle funzioni Node.js si accede al record di output usando `context.bindings.<name>`.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+> [!div class="nextstepaction"]
+> [Altre informazioni su trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)

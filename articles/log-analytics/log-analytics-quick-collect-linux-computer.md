@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/13/2017
+ms.date: 11/28/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: d22fe6456c3bd886f8f8863d362c0084fbe03da3
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 66748adc49ef921ab8adb5306b2a483234b076ae
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="collect-data-from-linux-computers-hosted-in-your-environment"></a>Raccogliere dati dai computer Linux ospitati nell'ambiente in uso
 [Azure Log Analytics](log-analytics-overview.md) può raccogliere i dati direttamente dai computer fisici o macchine virtuali Linux e da altre risorse nell'ambiente in uso in un unico repository per procedere a analisi dettagliate e alla correlazione.  Questo avvio rapido illustra come configurare e raccogliere dati dal computer Linux in pochi semplici passaggi.  Per le macchine virtuali Linux di Azure vedere l'argomento seguente [Raccogliere dati sulle macchine virtuali di Azure](log-analytics-quick-collect-azurevm.md).  
- 
+
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="log-in-to-azure-portal"></a>Accedere al portale di Azure
@@ -55,6 +55,9 @@ Prima di installare l'agente OMS per Linux, sono necessari l'ID e la chiave dell
 
 ## <a name="install-the-agent-for-linux"></a>Installare l'agente per Linux
 I passaggi seguenti configurano l'installazione dell'agente per Log Analytics in Azure e il cloud di Microsoft Azure per enti pubblici.  
+
+>[!NOTE]
+>L'agente OMS per Linux non può essere configurato per inviare report a più di un'area di lavoro di Log Analytics.  
 
 1. Per configurare il computer Linux per connettersi a Log Analytics, eseguire il comando seguente fornendo l'ID e la chiave primaria dell'area di lavoro copiati in precedenza.  Questo comando scarica l'agente, convalida il relativo checksum e ne esegue l'installazione. 
     
@@ -98,7 +101,7 @@ Log Analytics può raccogliere gli eventi da Syslog Linux e dai contatori delle 
 7. Fare clic su **Salva** nella parte superiore della pagina per salvare la configurazione.
 
 ## <a name="view-data-collected"></a>Visualizzare i dati raccolti
-Ora che la raccolta di dati è stata abilitata, verrà eseguito un semplice esempio di ricerca log per visualizzare alcuni dati dal computer di destinazione.  
+Ora che la raccolta di dati è stata abilitata, verrà eseguito un semplice esempio di ricerca nel log per visualizzare alcuni dati dal computer di destinazione.  
 
 1. Nel portale di Azure passare a Log Analytics e selezionare l'area di lavoro creata prima.
 2. Fare clic sul riquadro **Ricerca log** e nel riquadro Ricerca log digitare `Perf` nel campo della query e quindi premere INVIO o fare clic sul pulsante della ricerca a destra del campo della query.<br><br> ![Esempio di query di ricerca log di Log Analytics](media/log-analytics-quick-collect-linux-computer/log-analytics-portal-queryexample.png)<br><br> La query nella figura seguente, ad esempio, ha restituito 735 record relativi alle prestazioni.<br><br> ![Risultato della ricerca log di Log Analytics](media/log-analytics-quick-collect-linux-computer/log-analytics-search-perf.png)
@@ -113,7 +116,7 @@ Per rimuovere l'agente, eseguire la procedura seguente.
 
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
-Per eliminare l'area di lavoro, selezionare l'area di lavoro di Log Analytics creata prima e nella pagina delle risorse fare clic su **Elimina**.<br><br> ![Eliminare la risorsa Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
+Per eliminare l'area di lavoro, selezionare l'area di lavoro di Log Analytics creata in precedenza e nella pagina delle risorse fare clic su **Elimina**.<br><br> ![Eliminare la risorsa Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che è in corso la raccolta di dati operativi e sulle prestazioni dal computer Linux locale, è possibile iniziare facilmente a esplorare, analizzare e modificare i dati raccolti *gratuitamente*.  

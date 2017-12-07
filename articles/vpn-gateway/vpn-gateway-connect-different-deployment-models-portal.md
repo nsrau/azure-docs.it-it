@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/23/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2100b2b8710207ddb5d1848f11f4d6133f1dfd91
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 8fd058d74d00ecc980d295ee6bd9680ff832f891
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connettere reti virtuali da modelli di distribuzione diversi usando il portale
 
@@ -49,7 +49,9 @@ Se le reti virtuali si trovano nella stessa area, è consigliabile considerare i
 
 Nome rete virtuale = ClassicVNet <br>
 Spazio indirizzi = 10.0.0.0/24 <br>
-Subnet-1 = 10.0.0.0/27 <br>
+Nome subnet = Subnet-1 <br>
+Intervallo di indirizzi subnet = 10.0.0.0/27 <br>
+Sottoscrizione = sottoscrizione che si vuole usare <br>
 Gruppo di risorse = ClassicRG <br>
 Località = Stati Uniti occidentali <br>
 GatewaySubnet: 10.0.0.32/28 <br>
@@ -59,18 +61,20 @@ Sito locale = RMVNetLocal <br>
 
 Nome della rete virtuale = RMVNet <br>
 Spazio indirizzi = 192.168.0.0/16 <br>
-Subnet-1 = 192.168.1.0/24 <br>
-GatewaySubnet = 192.168.0.0/26 <br>
 Gruppo di risorse= RG1 <br>
 Località = Stati Uniti orientali <br>
+Nome subnet = Subnet-1 <br>
+Intervallo di indirizzi = 192.168.1.0/24 <br>
+GatewaySubnet = 192.168.0.0/26 <br>
 Nome gateway di rete virtuale = RMGateway <br>
 Tipo di gateway = VPN <br>
 Tipo VPN= Basato su route <br>
-Nome indirizzo IP pubblico del gateway = rmgwpip <br>
-Gateway di rete locale = ClassicVNetLocal <br>
+SKU = VpnGw1 <br>
+Località = Stati Uniti orientali <br>
+Rete virtuale = RMVNet <br> (associare il gateway VPN alla rete virtuale) Prima configurazione IP = rmgwpip <br> (gateway indirizzo IP pubblico) Gateway di rete locale = ClassicVNetLocal <br>
 Nome della connessione = RMtoClassic
 
-### <a name="connection-overview"></a>Panoramica sulla connessione
+### <a name="connectoverview"></a>Panoramica sulla connessione
 
 Per questa configurazione si crea una connessione gateway VPN tramite un tunnel VPN IPsec/IKE tra le reti virtuali. Assicurarsi che nessun intervallo di reti virtuali si sovrapponga a un altro o a una delle reti locali alle quali si connette.
 
@@ -83,82 +87,104 @@ La tabella seguente illustra un esempio di come sono definiti le reti virtuali e
 
 ## <a name="classicvnet"></a>Sezione 1: Configurare le impostazioni di una rete virtuale classica
 
-In questa sezione vengono creati il gateway di rete locale (sito locale) e il gateway di rete virtuale per la rete virtuale classica. Se si eseguono questi passaggi come esercizio e non si dispone di una rete virtuale classica, è possibile creare una rete virtuale usando [questo articolo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e i valori delle impostazioni dell'[Esempio](#values) riportati sopra.
+In questa sezione vengono creati il gateway di rete virtuale classica, il gateway di rete locale (sito locale) e il gateway di rete virtuale. Gli screenshot sono forniti come esempio. Sostituire i valori con i valori personalizzati o usare i valori dell'[Esempio](#values).
 
-Quando si usa il portale per creare una rete virtuale classica, è necessario passare alla pagina della rete virtuale tramite la procedura seguente; in caso contrario l'opzione per creare una rete virtuale classica non viene visualizzata:
+### 1. <a name="classicvnet">Creare una rete virtuale classica</a>
 
-1. Fare clic su "+" per aprire la pagina "Nuovo".
-2. Nel campo "Cerca nel Marketplace" digitare "Rete virtuale". Se invece si seleziona Rete -> Rete virtuale, non sarà possibile ottenere l'opzione per creare una rete virtuale classica.
-3. Cercare "Rete virtuale" nell'elenco restituito e fare clic per aprire la pagina Rete virtuale. 
-4. Nella pagina della rete virtuale, selezionare "Classica" per creare una rete virtuale classica. 
+Se si eseguono questi passaggi come esercizio e non si dispone di una rete virtuale classica, è possibile creare una rete virtuale usando [questo articolo](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) e i valori delle impostazioni dell'[Esempio](#values) riportati sopra.
 
-Se si dispone già di una rete virtuale con un gateway VPN, verificare che il gateway sia dinamico. Se è statico, è necessario eliminare il gateway VPN prima di procedere.
+Se si dispone già di una rete virtuale con un gateway VPN, verificare che il gateway sia dinamico. Se è statico, è prima necessario eliminare il gateway VPN, quindi procedere a [configurare il sito locale](#local).
 
-Gli screenshot sono forniti come esempio. Sostituire i valori con i valori personalizzati o usare i valori dell'[Esempio](#values).
+1. Aprire il [portale di Azure](https://ms.portal.azure.com) e accedere con l'account Azure.
+2. Fare clic su **+ Crea una risorsa** per aprire la pagina "Nuovo".
+3. Nel campo "Cerca nel Marketplace" digitare "Rete virtuale". Se invece si seleziona Rete -> Rete virtuale, non sarà possibile ottenere l'opzione per creare una rete virtuale classica.
+4. Cercare "Rete virtuale" nell'elenco restituito e fare clic per aprire la pagina Rete virtuale. 
+5. Nella pagina della rete virtuale, selezionare "Classica" per creare una rete virtuale classica. Se si accettano le impostazioni predefinite, si otterrà invece una rete virtuale di Resource Manager.
 
-### 1. <a name="local"></a>Configurare il sito locale
-
-Aprire il [portale di Azure](https://ms.portal.azure.com) e accedere con l'account Azure.
+### 2. <a name="local"></a>Configurare il sito locale
 
 1. Passare a **Tutte le risorse** e individuare la voce **ClassicVNet** nell'elenco.
-2. Nella pagina **Panoramica** della sezione **Connessioni VPN** fare clic sull'elemento grafico **Gateway** per creare un gateway.
-
-    ![Configurare un gateway VPN](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configurare un gateway VPN")
+2. Nella pagina **Panoramica** della sezione **Connessioni VPN** fare clic su **Gateway** per creare un gateway.
+  ![Configurare un gateway VPN](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configurare un gateway VPN")
 3. Nella pagina **Nuova connessione VPN** selezionare **Da sito a sito** in **Tipo di connessione**.
 4. In **Sito locale** fare clic su **Configurare le impostazioni necessarie**. Verrà visualizzata la pagina **Sito locale**.
 5. Nella pagina **Sito locale** creare un nome da usare per fare riferimento alla rete virtuale di Resource Manager, ad esempio "RMVNetLocal".
 6. Se il gateway VPN per la rete virtuale di Resource Manager ha già un indirizzo IP pubblico, usare il valore del campo **Indirizzo IP del gateway VPN**. Se si stanno eseguendo questi passaggi come esercizio o non si dispone ancora di un gateway di rete virtuale per la rete virtuale di Resource Manager, è possibile creare un indirizzo IP segnaposto. Assicurarsi che l'indirizzo IP segnaposto usi un formato valido. In seguito sarà necessario sostituire l'indirizzo IP segnaposto con l'indirizzo IP pubblico del gateway di rete virtuale di Resource Manager.
-7. Per **Spazio indirizzi client** usare i valori per gli spazi di indirizzi IP di rete virtuale per la rete virtuale di Resource Manager. Questa impostazione viene usata per specificare gli spazi indirizzi per il routing alla rete virtuale di Resource Manager.
+7. Per **Spazio indirizzi client** usare i [valori](#connectoverview) per gli spazi di indirizzi IP di rete virtuale per la rete virtuale di Resource Manager. Questa impostazione viene usata per specificare gli spazi indirizzi per il routing alla rete virtuale di Resource Manager. Nell'esempio viene usato 192.168.0.0/16, l'intervallo di indirizzi per RMVNet.
 8. Fare clic su **OK** per salvare i valori e tornare alla pagina **Nuova connessione VPN**.
 
-### <a name="classicgw"></a>2. Creare il gateway di rete virtuale
+### <a name="classicgw"></a>3. Creare il gateway di rete virtuale
 
-1. Nella pagina **Nuova connessione VPN** selezionare la casella di controllo **Crea gateway immediatamente** e fare clic su **Configurazione gateway facoltativa** per aprire la pagina **Configurazione gateway**. 
+1. Nella pagina **Nuova connessione VPN** selezionare la casella di controllo **Crea gateway immediatamente**.
+2. Fare clic su **Configurazione gateway facoltativa** per aprire la pagina **Configurazione gateway**.
 
-    ![Aprire la pagina Configurazione gateway](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Aprire la pagina Configurazione gateway")
-2. Fare clic su **Subnet - Configurare le impostazioni necessarie** per aprire la pagina **Aggiungi subnet**. Il **Nome** è già configurato con il valore **GatewaySubnet** richiesto.
-3. **Intervallo indirizzi** si riferisce all'intervallo per la subnet del gateway. Sebbene sia possibile creare una subnet del gateway con un intervallo di indirizzi /29 (3 indirizzi), è consigliabile creare una subnet del gateway che contiene più indirizzi IP. Questo la rende compatibile con configurazioni future che potrebbero richiedere più indirizzi IP disponibili. Se possibile, usare /27 o /28. Se si segue questa procedura come esercizio, è possibile usare i valori dell'[Esempio](#values). Fare clic su **OK** per creare la subnet del gateway.
-4. Nella pagina **Configurazione gateway**, **Dimensioni** si riferisce allo SKU del gateway. Selezionare lo SKU del gateway per il gateway VPN.
-5. Verificare che **Tipo di routing** sia **Dinamico** e quindi fare clic su **OK** per tornare alla pagina **Nuova connessione VPN**.
-6. Nella pagina **Nuova connessione VPN** fare clic su **OK** per iniziare a creare il gateway VPN. Per completare la creazione di un gateway VPN possono essere necessari fino a 45 minuti.
+  ![Aprire la pagina Configurazione gateway](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Aprire la pagina Configurazione gateway")
+3. Fare clic su **Subnet - Configurare le impostazioni necessarie** per aprire la pagina **Aggiungi subnet**. Il **Nome** è già configurato con il valore **GatewaySubnet** richiesto.
+4. **Intervallo indirizzi** si riferisce all'intervallo per la subnet del gateway. Sebbene sia possibile creare una subnet del gateway con un intervallo di indirizzi /29 (3 indirizzi), è consigliabile creare una subnet del gateway che contiene più indirizzi IP. Questo la rende compatibile con configurazioni future che potrebbero richiedere più indirizzi IP disponibili. Se possibile, usare /27 o /28. Se si segue questa procedura come esercizio, è possibile usare i valori dell'[Esempio](#values). In questo esempio viene usato il nome "10.0.0.32/28". Fare clic su **OK** per creare la subnet del gateway.
+5. Nella pagina **Configurazione gateway**, **Dimensioni** si riferisce allo SKU del gateway. Selezionare lo SKU del gateway per il gateway VPN.
+6. Verificare che **Tipo di routing** sia **Dinamico** e quindi fare clic su **OK** per tornare alla pagina **Nuova connessione VPN**.
+7. Nella pagina **Nuova connessione VPN** fare clic su **OK** per iniziare a creare il gateway VPN. Per completare la creazione di un gateway VPN possono essere necessari fino a 45 minuti.
 
-### <a name="ip"></a>3. Copiare l'indirizzo IP pubblico del gateway di rete virtuale
+### <a name="ip"></a>4. Copiare l'indirizzo IP pubblico del gateway di rete virtuale
 
 Dopo aver creato il gateway di rete virtuale è possibile visualizzare l'indirizzo IP del gateway. 
 
 1. Passare alla rete virtuale classica e fare clic su **Panoramica**.
-2. Fare clic su **Connessioni VPN** per aprire la pagina Connessioni VPN. Nella pagina Connessioni VPN è possibile visualizzare l'indirizzo IP pubblico. Si tratta dell'indirizzo IP pubblico assegnato al gateway di rete virtuale. 
-3. Scrivere o copiare l'indirizzo IP. Sarà necessario nei passaggi successivi quando si useranno le impostazioni di configurazione del gateway di rete locale di Resource Manager. È anche possibile visualizzare lo stato delle connessioni gateway. Si noti che il sito di rete locale creato viene elencato come "Connessione". Lo stato verrà modificato dopo aver creato le connessioni.
-4. Chiudere la pagina dopo aver copiato l'indirizzo IP del gateway.
+2. Fare clic su **Connessioni VPN** per aprire la pagina Connessioni VPN. Nella pagina Connessioni VPN è possibile visualizzare l'indirizzo IP pubblico. Si tratta dell'indirizzo IP pubblico assegnato al gateway di rete virtuale. Prendere nota dell'indirizzo IP. Sarà necessario nei passaggi successivi quando si useranno le impostazioni di configurazione del gateway di rete locale di Resource Manager. 
+3. È possibile visualizzare lo stato delle connessioni gateway. Si noti che il sito di rete locale creato viene elencato come "Connessione". Lo stato verrà modificato dopo aver creato le connessioni. Terminata la visualizzazione dello stato, chiudere la pagina.
 
 ## <a name="rmvnet"></a>Sezione 2: Configurare le impostazioni della rete virtuale di Resource Manager
 
-In questa sezione vengono creati il gateway di rete virtuale e il gateway di rete locale per la rete virtuale di Resource Manager. Se si eseguono questi passaggi come esercizio e non si dispone di una rete virtuale di Resource Manager, è possibile creare una rete virtuale usando [questo articolo](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) e i valori delle impostazioni dell'[Esempio](#values) riportati sopra.
+In questa sezione vengono creati il gateway di rete virtuale e il gateway di rete locale per la rete virtuale di Resource Manager. Gli screenshot sono forniti come esempio. Sostituire i valori con i valori personalizzati o usare i valori dell'[Esempio](#values).
 
-Gli screenshot sono forniti come esempio. Sostituire i valori con i valori personalizzati o usare i valori dell'[Esempio](#values).
+### <a name="1-create-a-virtual-network"></a>1. Crea rete virtuale
 
-### <a name="1-create-a-gateway-subnet"></a>1. Creare una subnet del gateway
+**Valori di esempio:**
 
-Prima di creare un gateway di rete virtuale è necessario creare una subnet del gateway. Creare una subnet del gateway con conteggio CIDR /28 o superiore, ad esempio /27, /26 e così via.
+* Nome della rete virtuale = RMVNet <br>
+* Spazio indirizzi = 192.168.0.0/16 <br>
+* Gruppo di risorse= RG1 <br>
+* Località = Stati Uniti orientali <br>
+* Nome subnet = Subnet-1 <br>
+* Intervallo di indirizzi = 192.168.1.0/24 <br>
+
+
+Se si eseguono questi passaggi come esercizio e non si dispone di una rete virtuale di Resource Manager, è possibile creare una rete virtuale usando [questo articolo](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) e i valori dell'Esempio.
+
+### <a name="2-create-a-gateway-subnet"></a>2. Creare una subnet del gateway
+
+**Valore di esempio:** GatewaySubnet = 192.168.0.0/26
+
+Prima di creare un gateway di rete virtuale è necessario creare una subnet del gateway. Creare una subnet del gateway con conteggio CIDR /28 o superiore (/27, /26 e così via). Se si crea questa configurazione come esercizio, è possibile usare valori di esempio.
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
-### <a name="creategw"></a>2. Creare un gateway di rete virtuale
+### <a name="creategw"></a>3. Creare un gateway di rete virtuale
+
+**Valori di esempio:**
+
+* Nome gateway di rete virtuale = RMGateway <br>
+* Tipo di gateway = VPN <br>
+* Tipo VPN= Basato su route <br>
+* SKU = VpnGw1 <br>
+* Località = Stati Uniti orientali <br>
+* Rete virtuale = RMVNet <br>
+* Prima configurazione IP = rmgwpip <br>
 
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-### <a name="createlng"></a>3. Creare un gateway di rete locale
+### <a name="createlng"></a>4. Creare un gateway di rete locale
 
-Il gateway di rete locale specifica l'intervallo di indirizzi e l'indirizzo IP pubblico associati alla rete virtuale classica e al relativo gateway di rete virtuale.
-
-Se si eseguono questi passaggi come esercizio, fare riferimento alle impostazioni seguenti:
+**Valori di esempio:**Gateway di rete locale = ClassicVNetLocal
 
 | Rete virtuale | Spazio di indirizzi | Region | Si connette al sito della rete locale |Indirizzo IP pubblico del gateway|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |Stati Uniti occidentali | RMVNetLocal (192.168.0.0/16) |L'indirizzo IP pubblico assegnato al gateway ClassicVNet|
 | RMVNet | (192.168.0.0/16) |Stati Uniti orientali |ClassicVNetLocal (10.0.0.0/24) |L'indirizzo IP pubblico assegnato al gateway RMVNet.|
+
+Il gateway di rete locale specifica l'intervallo di indirizzi e l'indirizzo IP pubblico associati alla rete virtuale classica e al relativo gateway di rete virtuale. Se si eseguono questi passaggi come esercizio, fare riferimento ai valori di esempio.
 
 [!INCLUDE [vpn-gateway-add-lng-rm-portal](../../includes/vpn-gateway-add-lng-rm-portal-include.md)]
 

@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: d3496a5b18d8fecfbd8dff95ef667d456bbb1d59
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: b8aa841cca63c0c4eb45105e3ccff91920ad35e3
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Creare regole basate su attributi per l'appartenenza dinamica ai gruppi in Azure Active Directory
 In Azure Active Directory (Azure AD) è possibile creare regole avanzate per abilitare complesse appartenenze dinamiche ai gruppi basate su attributi. Questo articolo descrive in dettaglio la sintassi e gli attributi per creare regole di appartenenza dinamica per utenti o dispositivi.
@@ -163,6 +163,7 @@ Operatori consentiti
 | companyName | Qualsiasi valore di stringa o *null* | (user.companyName -eq "value") |
 | department |Qualsiasi valore di stringa o *null* |(user.department -eq "valore") |
 | displayName |Qualsiasi valore stringa. |(user.displayName -eq "valore") |
+| employeeId |Qualsiasi valore stringa. |(user.employeeId -eq "valore")<br>(user.employeeId -ne *null*) |
 | facsimileTelephoneNumber |Qualsiasi valore di stringa o *null* |(user.facsimileTelephoneNumber -eq "valore") |
 | givenName |Qualsiasi valore di stringa o *null* |(user.givenName -eq "valore") |
 | jobTitle |Qualsiasi valore di stringa o *null* |(user.jobTitle -eq "valore") |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: damaerte
-ms.openlocfilehash: e45d66eff4be4918ffd6e7940bbfb5adb4c88c00
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9c2eeef9c20f25d2af97e6c754f005b698222385
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Funzionalità e strumenti per PowerShell in Azure Cloud Shell (anteprima)
 
@@ -37,7 +37,7 @@ PowerShell in Cloud Shell (anteprima) autentica in modo sicuro e automatico l'ac
 
 ### <a name="files-persistence-across-sessions"></a>File di persistenza tra le sessioni
 
-Per rendere persistenti i file fra le sessioni, Cloud Shell illustra come associare una condivisione file di Azure al primo avvio.
+Per rendere persistenti i file fra le sessioni, Cloud Shell illustra come associare una condivisione di File di Microsoft Azure al primo avvio.
 Al termine, Cloud Shell assocerà automaticamente la risorsa di archiviazione (montata come `$home\clouddrive`) per tutte le sessioni future.
 Poiché ogni richiesta per Cloud Shell viene allocata su un computer temporaneo, i file esterni a `$home\clouddrive` e lo stato del computer non sono mantenuti tra le sessioni.
 

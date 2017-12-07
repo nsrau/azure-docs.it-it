@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/20/2017
 ms.author: vturecek
-ms.openlocfilehash: eb076c30eda63c37a8b555d40d5903cbbf0d426a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ea17cf744779f390fe4b3f4049deb0c1ad985024
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introduzione a Reliable Actors
 > [!div class="op_single_selector"]
@@ -101,7 +101,7 @@ Creare una semplice applicazione console per chiamare il servizio attore.
     ![Finestra di dialogo Aggiunta di un nuovo progetto][6]    
     
     > [!NOTE]
-    > Un'applicazione console non è il tipo di applicazione che in genere si usa come client in Service Fabric, ma è un esempio utile per il debug e il testing con l'emulatore Service Fabric locale.
+    > Un'applicazione console non è il tipo di app che in genere si usa come client in Service Fabric, ma è un esempio utile per il debug e il testing con il cluster Service Fabric locale.
 
 3. L'applicazione console deve essere un'applicazione a 64 bit per garantire la compatibilità con il progetto interfaccia e le altre dipendenze.  In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ActorClient** e quindi scegliere **Proprietà**.  Nella scheda **Build**impostare **Piattaforma di destinazione** su **x64**.
     

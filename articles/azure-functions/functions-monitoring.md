@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 355cb2cef52b5dfecddae228d0cc24a069d3b695
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="monitor-azure-functions"></a>Monitorare Funzioni di Azure
 
@@ -50,7 +50,7 @@ Abilitare Application Insights nella pagina **Crea** dell'app per le funzioni:
 
 ### <a name="existing-function-app"></a>App per le funzioni esistente
 
-Ottenere una chiave di strumentazione e salvarla in un'app per le funzioni:
+Ottenere la chiave di strumentazione e salvarla in un'app per le funzioni:
 
 1. Creare l'istanza di Application Insights. Impostare il tipo di applicazione su **Generale**.
 
@@ -60,7 +60,7 @@ Ottenere una chiave di strumentazione e salvarla in un'app per le funzioni:
 
    ![Copiare la chiave di strumentazione di Application Insights](media/functions-monitoring/copy-ai-key.png)
 
-1. Nella pagina **Impostazioni applicazione** dell'app per le funzioni [aggiungere un'impostazione dell'app](functions-how-to-use-azure-function-app-settings.md#settings) denominata APPINSIGHTS_INSTRUMENTATIONKEY e incollare la chiave di strumentazione.
+1. Nella pagina **Impostazioni applicazione** dell'app per le funzioni [aggiungere un'impostazione applicazione](functions-how-to-use-azure-function-app-settings.md#settings) facendo clic su **Aggiungi nuova impostazione**. Denominare la nuova impostazione APPINSIGHTS_INSTRUMENTATIONKEY e incollare la chiave di strumentazione copiata.
 
    ![Aggiungere la chiave di strumentazione alle impostazioni dell'app](media/functions-monitoring/add-ai-key.png)
 
@@ -68,7 +68,7 @@ Ottenere una chiave di strumentazione e salvarla in un'app per le funzioni:
 
 ## <a name="view-telemetry-data"></a>Visualizzare i dati di telemetria
 
-Per passare da un'app per le funzioni nel portale ad Application Insights, selezionare il collegamento **Application Insights** nella pagina **Panoramica** dell'app per le funzioni.
+Per passare da un'app per le funzioni nel portale all'istanza connessa di Application Insights, selezionare il collegamento **Application Insights** nella pagina **Panoramica** dell'app per le funzioni.
 
 Per informazioni su come usare Application Insights, vedere la [documentazione su Application Insights](https://docs.microsoft.com/azure/application-insights/). Questa sezione mostra alcuni esempi su come visualizzare i dati in Application Insights. Se si ha già familiarità con Application Insights, è possibile passare direttamente alle [sezioni sulla configurazione e la personalizzazione dei dati di telemetria](#configure-categories-and-log-levels).
 
@@ -84,7 +84,7 @@ Nella scheda [Prestazioni](../application-insights/app-insights-performance-coun
 
 ![Prestazioni](media/functions-monitoring/performance.png)
 
-La scheda **Server** mostra l'uso delle risorse e la velocità effettiva per ogni server. Questi dati possono essere utili negli scenari di debug in cui le funzioni bloccano le risorse sottostanti. I server sono denominati *Istanze del ruolo del cloud*. 
+La scheda **Server** mostra l'uso delle risorse e la velocità effettiva per ogni server. Questi dati possono essere utili negli scenari di debug in cui le funzioni bloccano le risorse sottostanti. I server sono denominati **Istanze del ruolo del cloud**.
 
 ![Server](media/functions-monitoring/servers.png)
 
@@ -94,7 +94,7 @@ La scheda [Live Metrics Stream](../application-insights/app-insights-live-stream
 
 ## <a name="query-telemetry-data"></a>Query sui dati di telemetria
 
-[Analytics di Application Insights](../application-insights/app-insights-analytics.md) consente di accedere a tutti i dati di telemetria sotto forma di tabelle in un database. Analytics offre un linguaggio di query per l'estrazione e la manipolazione dei dati.
+[Analytics di Application Insights](../application-insights/app-insights-analytics.md) consente di accedere a tutti i dati di telemetria sotto forma di tabelle in un database. Analytics offre un linguaggio di query per l'estrazione, la manipolazione e la visualizzazione dei dati.
 
 ![Selezionare Analytics](media/functions-monitoring/select-analytics.png)
 
@@ -131,7 +131,7 @@ Il runtime indica `customDimensions.LogLevel` e `customDimensions.Category`. È 
 
 ## <a name="configure-categories-and-log-levels"></a>Configurare le categorie e i livelli di registrazione
 
-È possibile usare Application Insights senza una configurazione personalizzata, ma la configurazione predefinita può creare volumi elevati di dati. Se si usa una sottoscrizione di Azure di Visual Studio, si potrebbe raggiunge il limite d'uso dati per App Insights. La parte rstante di questo articolo illustra come configurare e personalizzare i dati inviati dalle funzioni ad Application Insights.
+È possibile usare Application Insights senza una configurazione personalizzata, ma la configurazione predefinita può creare volumi elevati di dati. Se si usa una sottoscrizione di Azure di Visual Studio, si potrebbe raggiunge il limite d'uso dati per Application Insights. La parte rstante di questo articolo illustra come configurare e personalizzare i dati inviati dalle funzioni ad Application Insights.
 
 ### <a name="categories"></a>Categorie
 
@@ -178,7 +178,7 @@ Il file *host.json* configura il numero di registrazioni che un'app per le funzi
 
 In questo esempio vengono impostate due regole:
 
-1. Per i log con categoria "Host.Results" o "Function", inviare ad Application Insights solo i log di livello `Error` e livelli superiori. I log di livello `Information` e livelli inferiori vengono ignorati.
+1. Per i log con categoria "Host.Results" o "Function", inviare ad Application Insights solo i log di livello `Error` e livelli superiori. I log di livello `Warning` e livelli inferiori vengono ignorati.
 2. Per i log con categoria Host. Aggregator, inviare ad Application Insights solo i log di livello `Information` e superiori. I log di livello `Debug` e livelli inferiori vengono ignorati.
 3. Per tutti gli altri log, inviare ad Application Insights solo i log di livello `Information` e superiori.
 
@@ -217,7 +217,7 @@ Tutti questi log vengono scritti al livello `Information`, pertanto se si applic
 
 Questi log indicano il numero e le medie di chiamate alla funzione in un periodo di tempo [configurabile](#configure-the-aggregator). Il periodo predefinito è 30 secondi o 1000 risultati, ovvero quello che viene prima. 
 
-I log vengono visualizzati come "customMetrics" in Application Insights. Gli esempi indicano il numero di esecuzioni, la percentuale di successo e la durata.
+I log sono disponibili nella tabella **customMetrics** in Application Insights. Gli esempi indicano il numero di esecuzioni, la percentuale di successo e la durata.
 
 ![query customMetrics](media/functions-monitoring/custom-metrics-query.png)
 
@@ -225,7 +225,7 @@ Tutti questi log vengono scritti al livello `Information`, pertanto se si applic
 
 ### <a name="other-categories"></a>Altre categorie
 
-Tutti i log per le categorie diverse da quelle già elencate vengono visualizzate come "tracce" in Application Insights.
+Tutti i log per le categorie diverse da quelle già elencate sono disponibili nella tabella **tracce** in Application Insights.
 
 ![query di tracce](media/functions-monitoring/analytics-traces.png)
 
@@ -291,7 +291,7 @@ Se si mantenere la stessa stringa del messaggio e si inverte l'ordine dei parame
 
 I segnaposto vengono gestiti in modo da poter eseguire la registrazione strutturata. Oltre alla stringa del messaggio, Application Insights archivia le coppie nome-valore del parametro. Il risultato è che gli argomenti del messaggio diventano campi su cui è possibile eseguire delle query.
 
-Ad esempio, se la chiamata al metodo del logger è simile all'esempio precedente, è possibile eseguire una query per il campo `customDimensions.prop__rowKey`. Il prefisso viene aggiunto per verificare che non ci siano conflitti tra i campi aggiunti dal runtime e i campi aggiunti dal codice funzione.
+Ad esempio, se la chiamata al metodo del logger è simile all'esempio precedente, è possibile eseguire una query per il campo `customDimensions.prop__rowKey`. Il prefisso `prop__` viene aggiunto per verificare che non ci siano conflitti tra i campi aggiunti dal runtime e i campi aggiunti dal codice funzione.
 
 È anche possibile eseguire query sulla stringa del messaggio originale facendo riferimento al campo `customDimensions.prop__{OriginalFormat}`.  
 
@@ -454,7 +454,7 @@ Il parametro `tagOverrides` imposta `operation_Id` sull'ID di chiamata alla funz
 
 ### <a name="dependencies"></a>Dipendenze
 
-Le dipendenze non vengono visualizzate automaticamente, ma è possibile scrivere il codice personalizzato per visualizzarle. Il codice di esempio nella [sezione relativa ai dati di telemetria personalizzati C#](#custom-telemetry-in-c-functions) ne illustra le modalità. Il codice di esempio crea una *mappa dell'applicazione* in Application Insights simile alla seguente:
+Le dipendenze tra la funzione e gli altri servizi non vengono visualizzate automaticamente, ma è possibile scrivere codice personalizzato per visualizzarle. Il codice di esempio nella [sezione relativa ai dati di telemetria personalizzati C#](#custom-telemetry-in-c-functions) ne illustra le modalità. Il codice di esempio crea una *mappa dell'applicazione* in Application Insights simile alla seguente:
 
 ![Mappa delle applicazioni](media/functions-monitoring/app-map.png)
 
@@ -473,7 +473,7 @@ Selezionare la scheda **Monitoraggio** per una funzione per ottenere un elenco d
 
 ### <a name="real-time-monitoring"></a>Monitoraggio in tempo reale
 
-Il monitoraggio in tempo reale è disponibile facendo clic su **flusso eventi live** nella scheda **Monitoraggio** della funzione. Il flusso di eventi live viene visualizzato in un grafico in una nuova scheda nel browser
+Il monitoraggio in tempo reale è disponibile facendo clic su **flusso eventi live** nella scheda **Monitoraggio** della funzione. Il flusso eventi live viene visualizzato in un grafico in una nuova scheda nel browser.
 
 > [!NOTE]
 > A causa di un problema noto, è possibile che il popolamento dei dati abbia esito negativo. Potrebbe essere necessario chiudere la scheda del browser che include il flusso eventi live e quindi fare di nuovo clic su **flusso eventi live** per consentire il popolamento corretto dei dati del flusso di eventi. 

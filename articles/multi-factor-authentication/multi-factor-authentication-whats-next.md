@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2017
+ms.date: 11/29/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: 585e0ab016dcf489ab99f30a9db43b879a8d3070
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 11f3a3fdc5caf96ce672976067e47680822315d4
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Configurare le impostazioni di Azure Multi-Factor Authentication: anteprima pubblica
 
@@ -170,23 +170,42 @@ Quando la funzionalità Indirizzi IP attendibili è abilitata, *non* è necessar
 
 Sia che la funzionalità Indirizzi IP attendibili sia abilitata o meno, è necessario usare la verifica in due passaggi per i flussi del browser e le password dell'app per le applicazioni rich client meno recenti. 
 
-### <a name="to-enable-trusted-ips"></a>Per abilitare gli indirizzi IP attendibili
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
-2. A sinistra, selezionare **Active Directory**.
-3. Selezionare la directory da gestire. 
-4. Selezionare **Configura**
-5. In Multi-Factor Authentication selezionare **Gestisci impostazioni del servizio**.
-6. Nella pagina Impostazioni servizio in Indirizzi IP attendibili sono disponibili due opzioni:
+### <a name="enable-named-locations-using-conditional-access"></a>Abilitare le posizioni specifiche usando l'accesso condizionale
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Sulla sinistra selezionare **Azure Active Directory** > **Accesso condizionale** > **Posizioni specifiche**
+3. Selezionare **Nuovo percorso**
+4. Specificare un nome per il percorso
+5. Selezionare **Contrassegna come posizione attendibile**
+6. Specificare l'intervallo di indirizzi IP nella notazione CIDR (Ad esempio, 192.168.1.1/24)
+7. Selezionare **Crea**
+
+### <a name="enable-trusted-ips-using-conditional-access"></a>Abilitare gli indirizzi IP attendibili usando l'accesso condizionale
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Sulla sinistra selezionare **Azure Active Directory** > **Accesso condizionale** > **Posizioni specifiche**
+3. Selezionare **Configura indirizzi IP attendibili MFA**
+4. Nella pagina Impostazioni servizio in Indirizzi IP attendibili sono disponibili due opzioni:
    
-   * Casella di controllo **For requests from federated users originating from my intranet** (Per le richieste provenienti da utenti federati nella Intranet). Tutti gli utenti federati che eseguono l'accesso dalla rete aziendale possono ignorare la verifica in due passaggi usando un'attestazione rilasciata da AD FS. Assicurarsi che AD FS abbia una regola per aggiungere l'attestazione intranet al traffico appropriato. Se la regola non esiste, creare la seguente regola in AD FS: "c:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
-
-
+   * Casella di controllo **For requests from federated users originating from my intranet** (Per le richieste provenienti da utenti federati nella Intranet). Tutti gli utenti federati che eseguono l'accesso dalla rete aziendale possono ignorare la verifica in due passaggi usando un'attestazione rilasciata da AD FS. Assicurarsi che AD FS abbia una regola per aggiungere l'attestazione intranet al traffico appropriato. Se la regola non esiste, creare la seguente regola in AD FS: "c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
 
    * **For requests from a specific range of public IPs** (Per le richieste da un intervallo specifico di IP pubblici): immettere gli indirizzi IP nella casella disponibile usando la notazione CIDR. Ad esempio: xxx.xxx.xxx.0/24 per gli indirizzi IP nell'intervallo xxx.xxx.xxx.1 – xxx.xxx.xxx.254 oppure xxx.xxx.xxx.xxx/32 per un singolo indirizzo IP. È possibile immettere fino a 50 intervalli di indirizzi IP. Gli utenti che accedono da tali indirizzi IP possono ignorare la verifica in due passaggi.
-7. Fare clic su **Save**.
-8. Dopo aver applicato gli aggiornamenti, fare clic su **Chiudi**.
+5. Selezionare **Salva**.
 
-![Indirizzi IP attendibili](./media/multi-factor-authentication-whats-next/trustedips3.png)
+### <a name="enable-trusted-ips-using-service-settings"></a>Abilitare gli indirizzi IP attendibili usando le impostazioni di servizio
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Sulla sinistra selezionare **Azure Active Directory** > **Utenti e gruppi** > **Tutti gli utenti**
+3. Selezionare **Multi-Factor Authentication**
+4. In Multi-Factor Authentication selezionare **Impostazioni servizio**.
+5. Nella pagina Impostazioni servizio in Indirizzi IP attendibili sono disponibili due opzioni:
+   
+   * Casella di controllo **For requests from federated users originating from my intranet** (Per le richieste provenienti da utenti federati nella Intranet). Tutti gli utenti federati che eseguono l'accesso dalla rete aziendale possono ignorare la verifica in due passaggi usando un'attestazione rilasciata da AD FS. Assicurarsi che AD FS abbia una regola per aggiungere l'attestazione intranet al traffico appropriato. Se la regola non esiste, creare la seguente regola in AD FS: "c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);"
+
+   * **For requests from a specific range of public IPs** (Per le richieste da un intervallo specifico di IP pubblici): immettere gli indirizzi IP nella casella disponibile usando la notazione CIDR. Ad esempio: xxx.xxx.xxx.0/24 per gli indirizzi IP nell'intervallo xxx.xxx.xxx.1 – xxx.xxx.xxx.254 oppure xxx.xxx.xxx.xxx/32 per un singolo indirizzo IP. È possibile immettere fino a 50 intervalli di indirizzi IP. Gli utenti che accedono da tali indirizzi IP possono ignorare la verifica in due passaggi.
+6. Selezionare **Salva**.
+
+![IP attendibili](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
 ## <a name="app-passwords"></a>Password dell'app
 Alcune applicazioni, come Office 2010 o le versioni meno recenti di Apple Mail, non supportano la verifica in due passaggi e non sono configurate per accettare una seconda verifica. Per usare queste app, è necessario usare le password dell'app al posto della password tradizionale. La password dell'app consente all'applicazione di ignorare la verifica in due passaggi e continuare a funzionare.
@@ -239,11 +258,10 @@ Azure AD supporta la federazione (Single Sign-On) con Active Directory Domain Se
 ### <a name="allow-app-password-creation"></a>Consentire la creazione di password dell'app
 Per impostazione predefinita, gli utenti non possono creare password dell'app. Questa funzionalità deve essere abilitata. Per consentire agli utenti di creare password dell'app, seguire questa procedura:
 
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
-2. A sinistra, selezionare **Active Directory**.
-3. Selezionare la directory da gestire. 
-4. Selezionare **Configura**
-5. In Multi-Factor Authentication selezionare **Gestisci impostazioni del servizio**.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Sulla sinistra selezionare **Azure Active Directory** > **Utenti e gruppi** > **Tutti gli utenti**
+3. Selezionare **Multi-Factor Authentication**
+4. In Multi-Factor Authentication selezionare **Impostazioni servizio**.
 6. Selezionare il pulsante di opzione **Consenti agli utenti di creare password dell'app per accedere alle app non basate su browser**.
 
 ![Creazione di password dell'app](./media/multi-factor-authentication-whats-next/trustedips3.png)
@@ -270,16 +288,16 @@ Pertanto si tenga presente che MFA sui dispositivi attendibili riduce il numero 
 >Questa funzionalità non è compatibile con la funzionalità "Mantieni l'accesso" di ADFS quando gli utenti eseguono la verifica in due passaggi per ADFS tramite il Azure MFA Server o una soluzione MFA di terze parti. Se gli utenti selezionano "Mantieni l'accesso" su AD FS e inoltre contrassegnano il dispositivo come attendibile per l'autenticazione a più fattori, non saranno in grado di eseguire la verifica dopo che è passato il numero di giorni "Memorizzazione di MFA". Azure AD richiede una nuova verifica in due passaggi, ma AD FS restituisce un token con l'attestazione MFA e la data originali invece di eseguire di nuovo la verifica in due passaggi. Ciò attiva un ciclo di verifica tra Azure AD e AD FS. 
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Abilitare la funzionalità Memorizza Multi-Factor Authentication
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
-2. A sinistra, selezionare **Active Directory**.
-3. Selezionare la directory da gestire. 
-4. Selezionare **Configura**
-5. In Multi-Factor Authentication selezionare **Gestisci impostazioni del servizio**.
-6. Nella pagina Impostazioni servizio nelle impostazioni di gestione dei dispositivi utente selezionare la casella **Consenti agli utenti di memorizzare l'autenticazione a più fattori nei dispositivi attendibili**.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Sulla sinistra selezionare **Azure Active Directory** > **Utenti e gruppi** > **Tutti gli utenti**
+3. Selezionare **Multi-Factor Authentication**
+4. In Multi-Factor Authentication selezionare **Impostazioni servizio**.
+5. Nella pagina Impostazioni servizio, in **Memorizza Multi-Factor Authentication** selezionare la casella **Consenti agli utenti di memorizzare l'autenticazione a più fattori nei dispositivi attendibili**.
+
    ![Memorizzare dispositivi](./media/multi-factor-authentication-whats-next/remember.png)
-7. Impostare il numero di giorni per cui consentire ai dispositivi attendibili di ignorare la verifica in due passaggi. Il valore predefinito è 14 giorni.
-8. Fare clic su **Save**.
-9. Fare clic su **Close**.
+
+6. Impostare il numero di giorni per cui consentire ai dispositivi attendibili di ignorare la verifica in due passaggi. Il valore predefinito è 14 giorni.
+7. Selezionare **Salva**.
 
 ### <a name="mark-a-device-as-trusted"></a>Contrassegnare un dispositivo come attendibile
 
@@ -300,13 +318,12 @@ Quando gli utenti registrano i propri account per l'autenticazione MFA, scelgono
 | Codice di verifica dall'app per dispositivi mobili |L'app Microsoft Authenticator genera un nuovo codice di verifica OATH ogni 30 secondi. L'utente immette il codice di verifica nell'interfaccia di accesso.<br>L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="how-to-enabledisable-authentication-methods"></a>Come abilitare o disabilitare i metodi di autenticazione
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
-2. A sinistra, selezionare **Active Directory**.
-3. Selezionare la directory da gestire. 
-4. Selezionare **Configura**
-5. In Multi-Factor Authentication selezionare **Gestisci impostazioni del servizio**.
-6. Nella pagina Impostazioni servizio, nelle opzioni di verifica, selezionare o deselezionare le opzioni da usare.
-   ![Opzioni di verifica](./media/multi-factor-authentication-whats-next/authmethods.png)
-7. Fare clic su **Save**.
-8. Fare clic su **Close**.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Sulla sinistra selezionare **Azure Active Directory** > **Utenti e gruppi** > **Tutti gli utenti**
+3. Selezionare **Multi-Factor Authentication**
+4. In Multi-Factor Authentication selezionare **Impostazioni servizio**.
+5. Nella pagina Impostazioni servizio, nelle **opzioni di verifica**, selezionare o deselezionare le opzioni da usare.
 
+   ![Opzioni di verifica](./media/multi-factor-authentication-whats-next/authmethods.png)
+
+6. Fare clic su **Salva**.

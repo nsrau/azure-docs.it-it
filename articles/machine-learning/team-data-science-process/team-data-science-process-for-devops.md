@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 11/21/2017
 ms.author: bradsev;BuckWoody
-ms.openlocfilehash: e043de0aa4ed861139f50291a98c3300574e6078
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 2ab36da70e2c08b770973f4c4d33eddfdebed9e1
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>Team Data Science Process per le operazioni di sviluppo
 
-Questo articolo esamina le funzioni delle operazioni di sviluppo (DevOps) specifiche dell'implementazione di una soluzione basata sull'analisi avanzata e Servizi cognitivi. Fa riferimento ad argomenti che implicano la comprensione del processo e della piattaforma di data science, i processi DevOps e la toolchain DevOps specifica dei progetti e delle soluzioni di data science e intelligenza artificiale (IA).
+Questo articolo esamina le funzioni delle operazioni di sviluppo (DevOps) specifiche dell'implementazione di una soluzione basata sull'analisi avanzata e Servizi cognitivi. Questo materiale didattico riguarda il Processo di analisi scientifica dei dati per i team e i toolkit e software open source e Microsoft che consentono di immaginare, eseguire e fornire soluzioni di data science. Fa riferimento ad argomenti che illustrano la toolchain DevOps specifica dei progetti e delle soluzioni di data science e intelligenza artificiale (IA).
 
 ## <a name="lesson-path"></a>Percorso delle lezioni
 La tabella seguente fornisce indicazioni ai livelli specificati per contribuire al completamento degli obiettivi DevOps necessari per implementare soluzioni di data science con le tecnologie di Azure.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: sstein
-ms.openlocfilehash: cb55bf1f1c7eeb0fc7608aca8d70818b5e3e06c0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 1ef4355f7234bc6a534d21a57fa52b480983b99b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Distribuire ed esplorare un'applicazione di database multi-tenant partizionato che usa il database SQL di Azure
 
@@ -120,7 +120,7 @@ L'app presenta sedi di eventi, come sale concerto, jazz club e club sportivi. Qu
 Un **hub eventi** centrale visualizza un elenco di collegamenti ai tenant nella specifica distribuzione.
 
 1. Aprire la pagina *Events Hub* (Hub eventi) nel Web browser:
-    - http://events.wingtip-mt.&lt;UTENTE&gt;.trafficmanager.net &nbsp; *(sostituire UTENTE con il valore relativo all'utente della distribuzione)*
+    - http://events.wingtip.&lt;UTENTE&gt;.trafficmanager.net &nbsp; *(sostituire UTENTE con il valore relativo all'utente della distribuzione)*
 
     ![Hub eventi](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -130,7 +130,7 @@ Un **hub eventi** centrale visualizza un elenco di collegamenti ai tenant nella 
 
 Per controllare la distribuzione delle richieste in ingresso, l'app usa [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md). Negli URL delle pagine degli eventi, che sono specifiche del tenant, sono inclusi il nome del tenant e il valore specifico relativo all'utente nel formato seguente:
 
-- http://events.wingtip-mt.&lt;UTENTE&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip.&lt;UTENTE&gt;.trafficmanager.net/*fabrikamjazzclub*
  
 L'app degli eventi analizza il nome del tenant dall'URL e ne esegue l'hash per creare una chiave di accesso a un catalogo usando il [gestore delle mappe partizioni](sql-database-elastic-scale-shard-map-management.md). Il catalogo esegue il mapping della chiave alla posizione del database del tenant. L'**hub eventi** elenca tutti i tenant registrati nel catalogo **e** usa i metadati estesi nel catalogo per recuperare il nome del tenant associato a ogni mapping in modo da generare gli URL.
 
@@ -156,7 +156,7 @@ Può essere opportuno riavviare la sessione del generatore di carico per usare v
 
 La distribuzione iniziale include tre tenant di esempio nel database *Tenants1*. Si creerà un altro tenant per verificarne l'impatto sull'applicazione distribuita. Questo passaggio descrive come creare rapidamente un nuovo tenant.
 
-1. Aprire ...\\Learning Modules\ProvisionTenants\\*Demo-ProvisionTenants.ps1* in *PowerShell ISE*.
+1. Aprire ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionTenants.ps1* in *PowerShell ISE*.
 2. Premere **F5** per eseguire lo script (per il momento lasciare i valori predefiniti).
 
    > [!NOTE]
@@ -174,7 +174,7 @@ Il modello multi-tenant partizionato consente di scegliere se effettuare il prov
 
 A questo punto si effettua il provisioning di un altro tenant, questa volta in un database autonomo.
 
-1. In ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* modificare *$TenantName* in **Salix Salsa**, *$VenueType* in **dance** e *$Scenario* in **2**.
+1. In ...\\Learning Modules\\Provision and Catalog\*Demo-ProvisionTenants.ps1*, impostare *$TenantName* su **Salix Salsa**, *$VenueType* su **dance** e *$Scenario* su **2**.
 
 2. Premere **F5** per eseguire nuovamente lo script.
     - Premendo F5 si effettua il provisioning del nuovo tenant in un database separato. Il database e il tenant vengono registrati nel catalogo e quindi viene visualizzata la pagina degli eventi del tenant nel browser.
@@ -239,7 +239,7 @@ In questa esercitazione si è appreso:
 > - Come visualizzare l'utilizzo del pool per monitorare l'attività dei tenant
 > - Come eliminare le risorse di esempio per interrompere la fatturazione correlata
 
-È ora possibile continuare provando l'[esercitazione per eseguire il provisioning di tenant](sql-database-saas-tutorial-provision-and-catalog.md).
+È ora possibile continuare provando l'[esercitazione su provisioning e catalogazione](sql-database-saas-tutorial-provision-and-catalog.md).
 
 
 

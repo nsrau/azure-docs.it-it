@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: debadde78d937bcd4ec1df665aacfd1887fbcd02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03326304e438f3b716c43d268f07d8e22cd15ea3
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installare l'estensione Funzioni permanenti e i relativi esempi (Funzioni di Azure)
 
@@ -33,7 +33,7 @@ Visual Studio offre al momento l'esperienza ottimale per lo sviluppo di applicaz
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-* Installare la versione più recente di [Visual Studio](https://www.visualstudio.com/downloads/) (versione 15.3 o superiore). Includere gli strumenti di Azure nelle opzioni di installazione.
+* Installare la versione più recente di [Visual Studio](https://www.visualstudio.com/downloads/) (versione 15.3 o superiore). Includere il carico di lavoro di **sviluppo di Azure** nelle opzioni di installazione.
 
 ### <a name="start-with-sample-functions"></a>Iniziare con funzioni di esempio
 
@@ -61,7 +61,7 @@ Seguire le stesse istruzioni fornite per l'avvio con l'esempio, ma eseguire i pa
 
 1. Creare una nuova app per le funzioni in [functions.azure.com](https://functions.azure.com/signin).
 2. Configurare l'app per le funzioni affinché usi la [versione di runtime 2.0](functions-versions.md).
-3. Creare una nuova funzione e selezionare il modello dell'**agente di orchestrazione di Funzioni permanenti - C#**.
+3. Creare una nuova funzione, scegliendo C# come linguaggio e tutti gli scenari. Selezionare quindi il modello dell'**agente di orchestrazione di Funzioni permanenti - C#**.
 4. In **Estensioni non installate**, fare clic su **Installa** per scaricare l'estensione da NuGet.org.
 
 ### <a name="copy-sample-code-to-the-function-app"></a>Copiare il codice di esempio nell'app per le funzioni

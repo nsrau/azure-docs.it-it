@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: cf44d749ecbfcffb3d5a6e5e12aa49e66f7cde2e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 620b0f62bceeda6fac87c31b325a078260f7d3d0
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Esercitazione: Integrazione di Azure Active Directory con Cezanne HR Software
 
@@ -108,11 +108,14 @@ In questa sezione nel portale di Azure viene abilitato l'accesso Single Sign-On 
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Cezanne HR Software](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_url.png)
 
-    a. Nella casella di testo **URL accesso** digitare l'URL: `https://w3.cezanneondemand.com/CezanneOnDemand/-/optyma`
+    a. Nella casella di testo **URL accesso** digitare l'URL: `https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`
 
     b. Nella casella di testo **Identificatore** digitare l'URL: `https://w3.cezanneondemand.com/CezanneOnDemand/`
 
-    c. Nella casella di testo **URL di risposta** digitare l'URL: `https://w3.cezanneondemand.com:443/cezanneondemand/-/optyma/Saml/samlp`
+    c. Nella casella di testo **URL di risposta** digitare l'URL: `https://w3.cezanneondemand.com:443/cezanneondemand/-/<tenantidentifier>/Saml/samlp`
+    
+    > [!NOTE]
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di accesso e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Cezanne HR Software](https://cezannehr.com/services/support/).
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
@@ -146,7 +149,7 @@ In questa sezione nel portale di Azure viene abilitato l'accesso Single Sign-On 
     
     a. Immettere il nome del provider di identità in **Display Name**(Nome visualizzato).
 
-    b. Nella casella di testo **Entity Identifier** (Identificatore entità) incollare il valore **SAML Entity ID** (ID entità SAML) copiato dal portale di Azure. 
+    b. Nella casella di testo **Entity Identifier** (Identificatore entità) incollare il valore di **SAML Entity ID** (ID entità SAML) copiato dal portale di Azure. 
 
     c. Modificare il valore **SAML Binding** (Associazione SAML) in 'POST'.
 

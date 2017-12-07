@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2017
+ms.date: 11/29/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 16ce69855aa7505f52cd9d01dcd0843784fcb706
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: f084ea3a9fb97a334f3dec90f2c9020a842bc27c
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="controls-in-azure-active-directory-conditional-access"></a>Controlli nell'accesso condizionale di Azure Active Directory 
 
@@ -111,7 +111,7 @@ Di seguito sono elencati i provider che attualmente offrono un servizio compatib
 
 - RSA
 
-- Trusona
+- [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
 
 Per altre informazioni su questi servizi, contattare direttamente i provider.
 

@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: ec93bbb477a047a028328964d3e152c1ab4bb58f
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 549b6abf5728e50ee365f40326263d391e4b26fd
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Analisi su più tenant con dati estratti
 
@@ -72,8 +72,8 @@ Comprendendo quanto viene usato il servizio da ogni tenant è possibile creare p
 
 Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
 
-- Viene distribuita l'applicazione del database multi-tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione di database multi-tenant SaaS Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
-- Gli script e il [codice sorgente](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) dell'applicazione SaaS Wingtip vengono scaricati da GitHub. Assicurarsi di *sbloccare il file ZIP* prima di estrarne il contenuto.
+- Viene distribuita l'applicazione del database multi-tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS di database multi-tenant Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
+- Gli script e il [codice sorgente](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) dell'applicazione SaaS Wingtip vengono scaricati da GitHub. Assicurarsi di *sbloccare il file ZIP* prima di estrarne il contenuto. Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
 - Power BI Desktop è installato. Scaricare [Power BI Desktop](https://powerbi.microsoft.com/downloads/).
 - È stato effettuato il provisioning del batch di tenant aggiuntivi. Vedere l'[**esercitazione sul provisioning di tenant**](saas-multitenantdb-provision-and-catalog.md).
 - Sono stati creati un account per i processi e un database di tale account. Vedere la procedura appropriata nell'[**esercitazione sulla gestione dello schema**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).

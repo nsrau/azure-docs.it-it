@@ -17,11 +17,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: jejiang
-ms.openlocfilehash: 6f9259ae5e8f382c6714d468004624c2cbcbbc33
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 87cda776195dc93a35c6e978b18e823bf54c9ffb
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Eseguire il debug delle applicazioni Spark in modalità remota o locale su un cluster HDInsight con Azure Toolkit per IntelliJ tramite SSH
 
@@ -121,7 +121,7 @@ Per risolvere questo errore, [scaricare il file eseguibile](http://public-repo-1
    
    ![Pulsante di esecuzione remota](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run.png)
 
-7. Se non si desidera visualizzare il log in esecuzione nel riquadro a destra, è possibile fare clic sul pulsante **Disconnect** (Disconnetti). Tuttavia, il log è ancora in esecuzione nel back-end e il risultato verrà visualizzato nel riquadro a sinistra.
+7. Fare clic sul pulsante **Disconnetti**. I log di invio non vengono visualizzati nel riquadro sinistro, ma l'esecuzione è ancora in corso nel back-end.
 
    ![Pulsante di esecuzione remota](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
 

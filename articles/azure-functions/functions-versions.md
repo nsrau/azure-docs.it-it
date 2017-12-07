@@ -10,13 +10,13 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 063232e40b30d03b0ee8b087a602fed0fee3be0a
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 588437af80ecf60b7c4b24dbf6bccc67fc33da7a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Come specificare le versioni del runtime per Funzioni di Azure
 
@@ -44,9 +44,11 @@ Per altre informazioni, vedere [Linguaggi supportati](supported-languages.md).
 
 ### <a name="bindings"></a>Associazioni 
 
-Le associazioni sperimentali supportate dalla versione 1.x del runtime non sono disponibili nella versione 2.x. Per informazioni sul supporto delle associazioni e su altre discrepanze a livello di funzioni nella versione 2.x, vedere l'argomento relativo ai [problemi noti del runtime 2.0](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
-
 Il runtime 2.x consente di creare [estensioni di associazione](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) personalizzate. Le associazioni predefinite che usano questo modello di estendibilità sono disponibili solo nella versione 2.x. Come primo esempio di queste associazioni è possibile citare le [associazioni di Microsoft Graph](functions-bindings-microsoft-graph.md).
+
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+Per altre informazioni sul supporto delle associazioni e su altre discrepanze a livello funzionale nella versione 2.x, vedere i [problemi noti della versione 2.0 del runtime](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
 
 ### <a name="cross-platform-development"></a>Sviluppo multipiattaforma
 

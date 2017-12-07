@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: d93667f16f2d72995e4a42e79e9125b8e3f6b07c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 598387b6066612c6c4a4c92cba5ba03e03a55203
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Esercitazione: Integrazione di Azure Active Directory con Trello
 
@@ -96,6 +96,10 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Trello, è ne
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Trello.
 
+>[!NOTE]
+    >È necessario ottenere il campo dati dinamico **\<enterprise\>** da Trello. Se non si dispone del valore per il campo dati dinamico, contattare il [team di supporto di Trello](mailto:support@trello.com) per ottenere il campo dati dinamico relativo all'organizzazione.
+    > 
+
 **Per configurare Single Sign-On di Azure AD con Trello, seguire questa procedura:**
 
 1. Nella pagina di integrazione dell'applicazione **Trello** del portale di Azure fare clic su **Single Sign-On**.
@@ -112,17 +116,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://trello.com/auth/saml/consume/<enterprise>`
 
-4. Per configurare l'applicazione in modalità avviata da **SP**, nella sezione **URL e dominio Trello** seguire questa procedura:
-    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
+4. Per configurare l'applicazione in **modalità avviata da SP** seguire questa procedura:
+
+  ![Configura accesso Single Sign-On](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
 
     a. Fare clic su **Mostra impostazioni URL avanzate**.
 
-    b. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://trello.com/auth/saml/consume/<enterprise>`
+    b. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://trello.com/auth/saml/login/<enterprise>`
 
-    >[!NOTE]
-    >È necessario ottenere il campo dati dinamico **\<enterprise\>** da Trello. Se non si dispone del valore per il campo dati dinamico, contattare il [team di supporto di Trello](mailto:support@trello.com) per ottenere il campo relativo all'organizzazione.
-    > 
+  c. Nella casella di testo **Identificatore** digitare l'URL seguente: `https://trello.com/auth/saml/metadata`
 
 5. L'applicazione Trello prevede che le asserzioni SAML contengano attributi specifici. Configurare gli attributi seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla scheda **"Attributi utente"** dell'applicazione. La schermata seguente illustra un esempio relativo a questa operazione.
 

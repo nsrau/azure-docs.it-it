@@ -13,20 +13,20 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 11/28/2017
 ms.author: ddove
-ms.openlocfilehash: 604690325fd755dcf5c997cc281fe9e5825c51a4
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 18870b763546a9bccb77df85b01640cfd3c8b852
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Aumentare il numero di istanze dei database con il gestore delle mappe partizioni
 Per aumentare facilmente il numero di istanze dei database in SQL Azure, usare un gestore delle mappe partizioni. Il gestore delle mappe partizioni è un database speciale che gestisce le informazioni di mapping globale su tutte le partizioni (database) in un set di partizioni. I metadati consentono all'applicazione di connettersi al database corretto in base al valore della **chiave di partizionamento orizzontale**. Inoltre, ogni partizione nel set contiene le mappe che tengono traccia dei dati delle partizioni locali (i cosiddetti **shardlet**). 
 
 ![Gestione mappe partizioni](./media/sql-database-elastic-scale-shard-map-management/glossary.png)
 
-Per gestire le mappe partizioni, è fondamentale comprenderne il processo di creazione. A questo scopo si usa la [classe ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx), disponibile nella [libreria client dei database elastici](sql-database-elastic-database-client-library.md).  
+Per gestire le mappe partizioni, è fondamentale comprenderne il processo di creazione. A questo scopo si usa la classe ShardMapManager ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx), [Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager)), disponibile nella [libreria client dei database elastici](sql-database-elastic-database-client-library.md).  
 
 ## <a name="shard-maps-and-shard-mappings"></a>Mappe partizioni e mapping di partizioni
 Per ogni partizione, è necessario selezionare il tipo di mappa partizioni da creare. La scelta dipende dall'architettura del database: 
@@ -48,16 +48,18 @@ In alternativa è possibile implementare un modello di database multi-tenant usa
 
 ![Tenant multipli su database singolo][3] 
 
-### <a name="supported-net-types-for-sharding-keys"></a>Tipi .NET supportati per le chiavi di partizionamento orizzontale
-Scalabilità elastica supporta i seguenti tipi di .NET Framework come chiavi di partizionamento orizzontale:
+### <a name="supported-types-for-sharding-keys"></a>Tipi supportati per le chiavi di partizionamento orizzontale
+La scalabilità elastica supporta i tipi seguenti come chiavi di partizionamento orizzontale:
 
-* numero intero
-* long
-* guid
-* byte[]  
-* datetime
-* timespan
-* datetimeoffset
+| .NET | Java |
+| --- | --- |
+| numero intero |numero intero |
+| long |long |
+| guid |uuid |
+| byte[]  |byte[] |
+| datetime | timestamp |
+| Intervallo di tempo | duration|
+| datetimeoffset |offsetdatetime |
 
 ### <a name="list-and-range-shard-maps"></a>Mappe partizioni di tipo elenco e intervallo
 Le mappe partizioni possono essere create usando **elenchi di singoli valori di chiavi di partizionamento orizzontale** oppure tramite **intervalli di valori di chiavi di partizionamento orizzontale**. 
@@ -76,7 +78,7 @@ Le **partizioni** includono **shardlet** e il mapping degli shardlet alle partiz
 ### <a name="range-shard-maps"></a>Mappa partizioni di tipo intervallo
 In una **mappa partizioni di tipo intervallo** l'intervallo chiave è descritto da una coppia di tipo **[Low Value, High Value)**, dove *Low Value* indica la chiave minima dell'intervallo e *High Value* è il primo valore superiore all'intervallo. 
 
-Ad esempio, **[0, 100)** include tutti i numeri interi superiori o uguali a 0 e inferiori a 100. Si noti che più intervalli possono fare riferimento allo stesso database e che sono supportati intervalli non contigui. Ad esempio, [100,200) e [400,600) fanno entrambi riferimento al Database C nel seguente esempio.
+Ad esempio, **[0, 100)** include tutti i numeri interi superiori o uguali a 0 e inferiori a 100. Si noti che più intervalli possono fare riferimento allo stesso database e che sono supportati intervalli non contigui. Ad esempio, [100,200) e [400,600) fanno entrambi riferimento al Database C nell'esempio seguente.
 
 | Chiave | Percorso della partizione |
 | --- | --- |
@@ -96,66 +98,111 @@ Il gestore mappe partizioni nella libreria client è una raccolta di mappe parti
 3. **Cache dell'applicazione**: ogni istanza di applicazione che accede a un oggetto **ShardMapManager** gestisce una cache in memoria locale dei rispettivi mapping, in cui vengono archiviate le informazioni di routing appena recuperate. 
 
 ## <a name="constructing-a-shardmapmanager"></a>Creazione di un oggetto ShardMapManager
-Un oggetto **ShardMapManager** viene creato con un modello [factory](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx) . Il metodo **[ShardMapManagerFactory.GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)** accetta credenziali, inclusi il nome del server e il nome del database contenente la mappa globale partizioni, sotto forma di oggetto **ConnectionString** e restituisce un'istanza di **ShardMapManager**.  
+Un oggetto **ShardMapManager** viene creato con un criterio factory ([.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory)). Il metodo **ShardMapManagerFactory.GetSqlShardMapManager** ([.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.getsqlshardmapmanager)) accetta credenziali, inclusi il nome del server e il nome del database contenente la mappa globale partizioni, sotto forma di oggetto **ConnectionString**, e restituisce un'istanza di un oggetto **ShardMapManager**.  
 
-**Nota:** è sufficiente creare una sola istanza di **ShardMapManager** per ogni dominio app, nel codice di inizializzazione dell'applicazione. La creazione di istanze aggiuntive di ShardMapManager nello stesso dominio comporterà un aumento dell'utilizzo della memoria e della CPU dell'applicazione. Un oggetto **ShardMapManager** può includere un numero qualsiasi di mappe partizioni. Anche se è possibile che una singola mappa partizioni sia sufficiente per molte applicazioni, in alcune situazioni vengono usati diversi set di database per schemi diversi o per finalità specifiche. In questi casi è preferibile usare più mappe partizioni. 
+**Nota:** è sufficiente creare una sola istanza di **ShardMapManager** per ogni dominio app, nel codice di inizializzazione dell'applicazione. La creazione di istanze aggiuntive di ShardMapManager nello stesso dominio comporta un aumento dell'utilizzo della memoria e della CPU dell'applicazione. Un oggetto **ShardMapManager** può includere un numero qualsiasi di mappe partizioni. Anche se è possibile che una singola mappa partizioni sia sufficiente per molte applicazioni, in alcune situazioni vengono usati diversi set di database per schemi diversi o per finalità specifiche. In questi casi è preferibile usare più mappe partizioni. 
 
-Nel codice seguente un'applicazione prova ad aprire un oggetto **ShardMapManager** esistente con il [metodo TryGetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx).  Se gli oggetti che rappresentano un oggetto **ShardMapManager** globale non esistono ancora nel database, vengono creati dalla libreria client con il [metodo CreateSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx).
+Nel codice seguente, un'applicazione prova ad aprire un oggetto **ShardMapManager** esistente con il metodo TryGetSqlShardMapManager ([.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager)).  Se gli oggetti che rappresentano un oggetto **ShardMapManager** globale non esistono ancora nel database,vengono creati dalla libreria client con il metodo CreateSqlShardMapManager ([.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager)).
 
-    // Try to get a reference to the Shard Map Manager 
-     // via the Shard Map Manager database.  
-    // If it doesn't already exist, then create it. 
-    ShardMapManager shardMapManager; 
-    bool shardMapManagerExists = ShardMapManagerFactory.TryGetSqlShardMapManager(
+```csharp
+// Try to get a reference to the Shard Map Manager via the Shard Map Manager database.  
+// If it doesn't already exist, then create it. 
+ShardMapManager shardMapManager; 
+bool shardMapManagerExists = ShardMapManagerFactory.TryGetSqlShardMapManager(
                                         connectionString, 
                                         ShardMapManagerLoadPolicy.Lazy, 
                                         out shardMapManager); 
 
-    if (shardMapManagerExists) 
-     { 
-        Console.WriteLine("Shard Map Manager already exists");
-    } 
-    else
-    {
-        // Create the Shard Map Manager. 
-        ShardMapManagerFactory.CreateSqlShardMapManager(connectionString);
-        Console.WriteLine("Created SqlShardMapManager"); 
+if (shardMapManagerExists) 
+{ 
+    Console.WriteLine("Shard Map Manager already exists");
+} 
+else
+{
+    // Create the Shard Map Manager. 
+    ShardMapManagerFactory.CreateSqlShardMapManager(connectionString);
+    Console.WriteLine("Created SqlShardMapManager"); 
 
-        shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager(
+    shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager(
             connectionString, 
             ShardMapManagerLoadPolicy.Lazy);
 
-        // The connectionString contains server name, database name, and admin credentials 
-        // for privileges on both the GSM and the shards themselves.
-    } 
+// The connectionString contains server name, database name, and admin credentials for privileges on both the GSM and the shards themselves.
+} 
+```
 
-In alternativa, è possibile utilizzare Powershell per creare un nuovo gestore delle mappe di partizionamento. Un esempio è disponibile [qui](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+```Java
+// Try to get a reference to the Shard Map Manager in the shardMapManager database.
+// If it doesn't already exist, then create it.
+ShardMapManager shardMapManager = null;
+boolean shardMapManagerExists = ShardMapManagerFactory.tryGetSqlShardMapManager(shardMapManagerConnectionString,ShardMapManagerLoadPolicy.Lazy, refShardMapManager);
+shardMapManager = refShardMapManager.argValue;
+
+if (shardMapManagerExists) {
+    ConsoleUtils.writeInfo("Shard Map %s already exists", shardMapManager);
+}
+else {
+    // The Shard Map Manager does not exist, so create it
+    shardMapManager = ShardMapManagerFactory.createSqlShardMapManager(shardMapManagerConnectionString);
+    ConsoleUtils.writeInfo("Created Shard Map %s", shardMapManager);
+}
+```
+
+Per la versione .NET, è possibile usare PowerShell per creare un nuovo gestore delle mappe partizioni. Un esempio è disponibile [qui](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 ## <a name="get-a-rangeshardmap-or-listshardmap"></a>Ottenere una mappa RangeShardMap o ListShardMap
-Dopo la creazione di un gestore mappe partizioni, è possibile ottenere [RangeShardMap](https://msdn.microsoft.com/library/azure/dn807318.aspx) o [ListShardMap](https://msdn.microsoft.com/library/azure/dn807370.aspx) con il metodo [TryGetRangeShardMap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), [TryGetListShardMap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx) o [GetShardMap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx).
+Dopo la creazione di un gestore di mappe partizioni, è possibile ottenere RangeShardMap ([.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map)) o ListShardMap ([.NET](https://msdn.microsoft.com/library/azure/dn807370.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map)) con il metodo TryGetRangeShardMap ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap)), TryGetListShardMap ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx), [Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap)) o GetShardMap ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx), [Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap)).
 
-    /// <summary>
-    /// Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
-    /// </summary>
-    public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shardMapManager, string shardMapName)
+```csharp
+// Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
+public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shardMapManager, string shardMapName)
+{
+    // Try to get a reference to the Shard Map.
+    RangeShardMap<T> shardMap;
+    bool shardMapExists = shardMapManager.TryGetRangeShardMap(shardMapName, out shardMap);
+
+    if (shardMapExists)
     {
-        // Try to get a reference to the Shard Map.
-        RangeShardMap<T> shardMap;
-        bool shardMapExists = shardMapManager.TryGetRangeShardMap(shardMapName, out shardMap);
+        ConsoleUtils.WriteInfo("Shard Map {0} already exists", shardMap.Name);
+    }
+    else
+    {
+        // The Shard Map does not exist, so create it
+        shardMap = shardMapManager.CreateRangeShardMap<T>(shardMapName);
+        ConsoleUtils.WriteInfo("Created Shard Map {0}", shardMap.Name);
+    }
 
-        if (shardMapExists)
-        {
-            ConsoleUtils.WriteInfo("Shard Map {0} already exists", shardMap.Name);
-        }
-        else
-        {
-            // The Shard Map does not exist, so create it
-            shardMap = shardMapManager.CreateRangeShardMap<T>(shardMapName);
-            ConsoleUtils.WriteInfo("Created Shard Map {0}", shardMap.Name);
-        }
+    return shardMap;
+} 
+```
 
-        return shardMap;
-    } 
+```Java
+// Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
+static <T> RangeShardMap<T> createOrGetRangeShardMap(ShardMapManager shardMapManager,
+            String shardMapName,
+            ShardKeyType keyType) {
+    // Try to get a reference to the Shard Map.
+    ReferenceObjectHelper<RangeShardMap<T>> refRangeShardMap = new ReferenceObjectHelper<>(null);
+    boolean isGetSuccess = shardMapManager.tryGetRangeShardMap(shardMapName, keyType, refRangeShardMap);
+    RangeShardMap<T> shardMap = refRangeShardMap.argValue;
+
+    if (isGetSuccess && shardMap != null) {
+        ConsoleUtils.writeInfo("Shard Map %1$s already exists", shardMap.getName());
+    }
+    else {
+        // The Shard Map does not exist, so create it
+        try {
+            shardMap = shardMapManager.createRangeShardMap(shardMapName, keyType);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        ConsoleUtils.writeInfo("Created Shard Map %1$s", shardMap.getName());
+    }
+
+    return shardMap;
+}
+```
 
 ### <a name="shard-map-administration-credentials"></a>Credenziali di amministrazione delle mappe partizioni
 Le applicazioni che amministrano e modificano le mappe partizioni sono diverse da quelle che usano le mappe partizioni per il routing delle connessioni. 
@@ -167,154 +214,46 @@ Vedere [Credenziali usate per accedere alla libreria client dei database elastic
 ### <a name="only-metadata-affected"></a>Impatto solo sui metadati
 I metodi usati per popolare o modificare i dati di **ShardMapManager** non influiscono sui dati utente archiviati nelle partizioni stesse. Ad esempio, i metodi come **CreateShard**, **DeleteShard**, **UpdateMapping** e così via interessano solo i metadati della mappa partizioni. Essi non rimuovono, aggiungono o modificano i dati utente contenuti nelle partizioni. Questi metodi sono stati invece progettati per l'uso insieme a operazioni separate eseguite per creare o rimuovere i database effettivi o per rimuovere righe da una partizione a un'altra, in modo da bilanciare nuovamente un ambiente partizionato  (il servizio di **suddivisione-unione** incluso negli strumenti dei database elastici usa queste API, oltre a orchestrare lo spostamento effettivo dei dati tra le partizioni). Vedere [Scalabilità tramite lo strumento di suddivisione-unione del database elastico](sql-database-elastic-scale-overview-split-and-merge.md).
 
-## <a name="populating-a-shard-map-example"></a>Esempio di popolamento di una mappa partizioni
-Di seguito è disponibile una sequenza di esempio delle operazioni necessarie per popolare una mappa partizioni specifica. Il codice esegue i seguenti passaggi: 
-
-1. Creazione di una nuova mappa partizioni in un gestore delle mappe partizioni. 
-2. Aggiunta di metadati per due partizioni diverse a una mappa partizioni. 
-3. Aggiunta di diversi mapping di intervalli di chiavi e visualizzazione dei contenuti complessivi della mappa partizioni. 
-
-Il codice è scritto in modo che sia possibile rieseguire il metodo se si verifica un errore. Prima di tentare di creare una partizione o un mapping, ogni richiesta verifica se la partizione o il mapping esiste già. Il codice presuppone che i database denominati **sample_shard_0**, **sample_shard_1** e **sample_shard_2** siano già stati creati nel server al quale fa riferimento la stringa **shardServer**. 
-
-    public void CreatePopulatedRangeMap(ShardMapManager smm, string mapName) 
-        {            
-            RangeShardMap<long> sm = null; 
-
-            // check if shardmap exists and if not, create it 
-            if (!smm.TryGetRangeShardMap(mapName, out sm)) 
-            { 
-                sm = smm.CreateRangeShardMap<long>(mapName); 
-            } 
-
-            Shard shard0 = null, shard1=null; 
-            // Check if shard exists and if not, 
-            // create it (Idempotent / tolerant of re-execute) 
-            if (!sm.TryGetShard(new ShardLocation(
-                                     shardServer, 
-                                     "sample_shard_0"), 
-                                     out shard0)) 
-            { 
-                Shard0 = sm.CreateShard(new ShardLocation(
-                                            shardServer, 
-                                            "sample_shard_0")); 
-            } 
-
-            if (!sm.TryGetShard(new ShardLocation(
-                                    shardServer, 
-                                    "sample_shard_1"), 
-                                    out shard1)) 
-            { 
-                Shard1 = sm.CreateShard(new ShardLocation(
-                                             shardServer, 
-                                            "sample_shard_1"));  
-            } 
-
-            RangeMapping<long> rmpg=null; 
-
-            // Check if mapping exists and if not,
-            // create it (Idempotent / tolerant of re-execute) 
-            if (!sm.TryGetMappingForKey(0, out rmpg)) 
-            { 
-                sm.CreateRangeMapping(
-                          new RangeMappingCreationInfo<long>
-                          (new Range<long>(0, 50), 
-                          shard0, 
-                          MappingStatus.Online)); 
-            } 
-
-            if (!sm.TryGetMappingForKey(50, out rmpg)) 
-            { 
-                sm.CreateRangeMapping(
-                         new RangeMappingCreationInfo<long> 
-                         (new Range<long>(50, 100), 
-                         shard1, 
-                         MappingStatus.Online)); 
-            } 
-
-            if (!sm.TryGetMappingForKey(100, out rmpg)) 
-            { 
-                sm.CreateRangeMapping(
-                         new RangeMappingCreationInfo<long>
-                         (new Range<long>(100, 150), 
-                         shard0, 
-                         MappingStatus.Online)); 
-            } 
-
-            if (!sm.TryGetMappingForKey(150, out rmpg)) 
-            { 
-                sm.CreateRangeMapping(
-                         new RangeMappingCreationInfo<long> 
-                         (new Range<long>(150, 200), 
-                         shard1, 
-                         MappingStatus.Online)); 
-            } 
-
-            if (!sm.TryGetMappingForKey(200, out rmpg)) 
-            { 
-               sm.CreateRangeMapping(
-                         new RangeMappingCreationInfo<long> 
-                         (new Range<long>(200, 300), 
-                         shard0, 
-                         MappingStatus.Online)); 
-            } 
-
-            // List the shards and mappings 
-            foreach (Shard s in sm.GetShards()
-                         .OrderBy(s => s.Location.DataSource)
-                         .ThenBy(s => s.Location.Database))
-            { 
-               Console.WriteLine("shard: "+ s.Location); 
-            } 
-
-            foreach (RangeMapping<long> rm in sm.GetMappings()) 
-            { 
-                Console.WriteLine("range: [" + rm.Value.Low.ToString() + ":" 
-                        + rm.Value.High.ToString()+ ")  ==>" +rm.Shard.Location); 
-            } 
-        } 
-
-In alternativa, è possibile usare script di PowerShell per ottenere lo stesso risultato. Alcuni degli esempi di PowerShell sono disponibili [qui](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).     
-
-Dopo il popolamento delle mappe partizioni, sarà possibile creare o modificare le applicazioni di accesso ai dati in modo che usino le mappe. Sarà necessario popolare o modificare di nuovo le mappe solo se occorrerà modificare il **layout delle mappe** .  
-
 ## <a name="data-dependent-routing"></a>Routing dipendente dei dati
-Lo strumento di gestione delle mappe partizioni viene usato principalmente dalle applicazioni che per eseguire specifiche operazioni sui dati richiedono connessioni a database. Tali connessioni devono essere associate al database corretto. Questa procedura è nota come **routing dipendente dai dati**. Per queste applicazioni è necessario creare istanze di un oggetto gestore delle mappe partizioni dal factory, usando le credenziali con accesso di sola lettura per il database della mappa globale partizioni. Le singole richieste per connessioni successive forniscono le credenziali necessarie per la connessione al database partizioni appropriato.
+Lo strumento di gestione delle mappe partizioni viene usato dalle applicazioni che richiedono connessioni a database per eseguire operazioni specifiche sui dati. Tali connessioni devono essere associate al database corretto. Questa procedura è nota come **routing dipendente dai dati**. Per queste applicazioni è necessario creare istanze di un oggetto gestore delle mappe partizioni dal factory, usando le credenziali con accesso di sola lettura per il database della mappa globale partizioni. Le singole richieste per connessioni successive forniscono le credenziali necessarie per la connessione al database partizioni appropriato.
 
 Si noti che queste applicazioni, che usano l'oggetto **ShardMapManager** aperto con credenziali di sola lettura, non possono apportare modifiche alle mappe o ai mapping. A questo scopo è possibile creare applicazioni specifiche per l'amministrazione o script di PowerShell che forniscono credenziali con privilegi elevati, come illustrato in precedenza. Vedere [Credenziali usate per accedere alla libreria client dei database elastici](sql-database-elastic-scale-manage-credentials.md).
 
-Per informazioni dettagliate, vedere [Routing dipendente dei dati](sql-database-elastic-scale-data-dependent-routing.md). 
+Per altre informazioni, vedere [Routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md). 
 
 ## <a name="modifying-a-shard-map"></a>Modifica di una mappa partizioni
 È possibile modificare una mappa partizioni in molti modi diversi. Tutti i seguenti metodi modificano i metadati che descrivono le partizioni e i rispettivi mapping, ma non modificano fisicamente i dati nelle partizioni e non creano o eliminano i database effettivi.  Potrebbe essere necessario coordinare alcune operazioni sulla mappa partizioni descritte di seguito con le azioni amministrative che spostano fisicamente i dati o che aggiungono e rimuovono i database che fungono da partizioni.
 
 Questi metodi interagiscono tra loro come i blocchi predefiniti disponibili per la modifica della distribuzione complessiva dei dati nell'ambiente di database partizionati.  
 
-* Per aggiungere o rimuovere partizioni, usare **[CreateShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx)** e **[DeleteShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard.aspx)** della [classe Shardmap](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.aspx). 
+* Per aggiungere o rimuovere partizioni: usare **CreateShard** ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.createshard)) e **DeleteShard** ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard.aspx), [Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.deleteshard)) della classe Shardmap ([.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map)). 
   
     Per permettere l'esecuzione di queste operazioni, è necessario che il server e il database che rappresentano la partizione di destinazione esistano già. Questi metodi non hanno alcun impatto sui database stessi. Influiscono solo sui metadati nella mappa partizioni.
-* Per creare o rimuovere punti o intervalli mappati alle partizioni, usare **[CreateRangeMapping](https://msdn.microsoft.com/library/azure/dn841993.aspx)** e **[DeleteMapping](https://msdn.microsoft.com/library/azure/dn824200.aspx)** della [classe RangeShardMapping](https://msdn.microsoft.com/library/azure/dn807318.aspx) e **[CreatePointMapping](https://msdn.microsoft.com/library/azure/dn807218.aspx)** di [ListShardMap](https://msdn.microsoft.com/library/azure/dn842123.aspx).
+* Per creare o rimuovere punti o intervalli mappati alle partizioni: usare **CreateRangeMapping** ([.NET](https://msdn.microsoft.com/library/azure/dn841993.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.createrangemapping)) e **DeleteMapping** ([.NET](https://msdn.microsoft.com/library/azure/dn824200.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.deletemapping)) della classe RangeShardMapping ([.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map)) e **CreatePointMapping** ([.NET](https://msdn.microsoft.com/library/azure/dn807218.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map.createpointmapping)) della classe ListShardMap ([.NET](https://msdn.microsoft.com/library/azure/dn842123.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map)).
   
-    È possibile mappare molti punti o intervalli diversi alla stessa partizione. Questi metodi influiscono solo sui metadati, non sui dati eventualmente già presenti nelle partizioni. Se è necessario rimuovere dati dal database per assicurare la coerenza con le operazioni di tipo **DeleteMapping** , occorrerà eseguire queste operazioni separatamente, ma insieme all'uso di questi metodi.  
-* Per dividere in due gli intervalli esistenti o unire intervalli adiacenti in un unico intervallo, usare **[SplitMapping](https://msdn.microsoft.com/library/azure/dn824205.aspx)** e **[MergeMappings](https://msdn.microsoft.com/library/azure/dn824201.aspx)**.  
+    È possibile mappare molti punti o intervalli diversi alla stessa partizione. Questi metodi influiscono solo sui metadati, non sui dati eventualmente già presenti nelle partizioni. Se è necessario rimuovere dati dal database per assicurare la coerenza con le operazioni di tipo **DeleteMapping**, eseguire queste operazioni separatamente, ma contemporaneamente all'uso di questi metodi.  
+* Per dividere in due gli intervalli esistenti o unire intervalli adiacenti in un unico intervallo: usare **SplitMapping** ([.NET](https://msdn.microsoft.com/library/azure/dn824205.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.splitmapping)) e **MergeMappings** ([.NET](https://msdn.microsoft.com/library/azure/dn824201.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.mergemappings)).  
   
     Si noti che le operazioni di suddivisione e unione **non modificano la partizione a cui sono mappati i valori di chiave**. Una suddivisione divide un intervallo esistente in due parti, ma ne mantiene il mapping alla stessa partizione. Un'unione viene applicata a due intervalli adiacenti già mappati alla stessa partizione e li unisce in un singolo intervallo.  Lo spostamento di punti o degli stessi intervalli tra le partizioni deve essere coordinato tramite l'uso di **UpdateMapping** insieme allo spostamento effettivo dei dati.  È possibile usare il servizio di **suddivisione/unione** , incluso nello strumento dei database elastici, per coordinare le modifiche della mappa partizioni con lo spostamento dei dati, nei casi in cui lo spostamento è necessario. 
-* Per eseguire di nuovo il mapping o spostare singoli punti o intervalli in partizioni diverse, usare **[UpdateMapping](https://msdn.microsoft.com/library/azure/dn824207.aspx)**.  
+* Per eseguire di nuovo il mapping di singoli punti o intervalli o spostare punti o intervalli in partizioni diverse, usare **UpdateMapping** ([.NET](https://msdn.microsoft.com/library/azure/dn824207.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.updatemapping)).  
   
-    Poiché potrebbe essere necessario spostare i dati da una partizione a un'altra per mantenerne la coerenza con le operazioni di tipo **UpdateMapping** , occorrerà eseguire separatamente lo spostamento, ma insieme all'uso di questi metodi.
-* Per impostare i mapping come online e offline, usare **[MarkMappingOffline](https://msdn.microsoft.com/library/azure/dn824202.aspx)** e **[MarkMappingOnline](https://msdn.microsoft.com/library/azure/dn807225.aspx)** per controllare lo stato online di un mapping. 
+    Poiché potrebbe essere necessario spostare i dati da una partizione a un'altra per mantenere la coerenza con le operazioni di tipo **UpdateMapping**, occorre eseguire separatamente lo spostamento, ma contemporaneamente all'uso di questi metodi.
+* Per impostare i mapping come online e offline: usare **MarkMappingOffline** ([.NET](https://msdn.microsoft.com/library/azure/dn824202.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.markmappingoffline)) e **MarkMappingOnline** ([.NET](https://msdn.microsoft.com/library/azure/dn807225.aspx), [Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.markmappingonline)) per controllare lo stato online di un mapping. 
   
-    Alcune operazioni sui mapping di partizioni, incluse le operazioni **UpdateMapping** e **DeleteMapping**, sono consentite solo se lo stato del mapping è "offline". Quando un mapping è offline, una richiesta dipendente dai dati e basata su una chiave inclusa nel mapping restituirà un errore. Quando si porta offline per la prima volta un intervallo, inoltre, tutte le connessioni alla partizione interessata verranno terminate automaticamente per evitare risultati incoerenti o incompleti per le query dirette agli intervalli sottoposti a modifica. 
+    Alcune operazioni sui mapping di partizioni, incluse le operazioni **UpdateMapping** e **DeleteMapping**, sono consentite solo se lo stato del mapping è "offline". Quando un mapping è offline, una richiesta dipendente dai dati e basata su una chiave inclusa nel mapping restituisce un errore. Quando si porta offline per la prima volta un intervallo, inoltre, tutte le connessioni alla partizione interessata verranno terminate automaticamente per evitare risultati incoerenti o incompleti per le query dirette agli intervalli sottoposti a modifica. 
 
 I mapping sono oggetti non modificabili in .NET.  Tutti i metodi precedenti che modificano i mapping invalidano anche tutti i riferimenti ad essi nel codice. Per semplificare l’esecuzione di sequenze di operazioni che modificano lo stato di un mapping, tutti i metodi che consentono di modificare un mapping restituiscono un nuovo riferimento di mapping, in modo che le operazioni possano essere concatenate. Ad esempio, per eliminare un mapping esistente in shardmap sm che contiene la chiave 25, è possibile eseguire le operazioni seguenti: 
 
-        sm.DeleteMapping(sm.MarkMappingOffline(sm.GetMappingForKey(25)));
+```
+    sm.DeleteMapping(sm.MarkMappingOffline(sm.GetMappingForKey(25)));
+```
 
 ## <a name="adding-a-shard"></a>Aggiunta di una partizione
-Le applicazioni devono spesso aggiungere semplicemente nuove partizioni per gestire i dati previsti dalle nuove chiavi o dai nuovi intervalli di chiavi, per una mappa partizioni già esistente. Ad esempio, è possibile che un'applicazione partizionata dall'ID tenant debba eseguire il provisioning di una nuova partizione per un nuovo tenant, oppure è possibile che i dati partizionati ogni mese richiedano il provisioning di una nuova partizione prima dell'inizio di ogni nuovo mese. 
+Per una mappa partizioni già esistente, le applicazioni devono spesso aggiungere nuove partizioni per gestire i dati previsti dalle nuove chiavi o dai nuovi intervalli di chiavi. Ad esempio, è possibile che un'applicazione partizionata dall'ID tenant debba eseguire il provisioning di una nuova partizione per un nuovo tenant, oppure è possibile che i dati partizionati ogni mese richiedano il provisioning di una nuova partizione prima dell'inizio di ogni nuovo mese. 
 
-Se il nuovo intervallo di valori di chiave non è già incluso in un mapping esistente e non è necessario alcuno spostamento di dati, l'aggiunta della nuova partizione e l'associazione della nuova chiave o dell'intervallo a quella partizione risulteranno molto semplici. Per informazioni dettagliate sull'aggiunta di nuove partizioni, vedere [Aggiunta di una nuova partizione](sql-database-elastic-scale-add-a-shard.md).
+Se il nuovo intervallo di valori di chiave non è ancora incluso in un mapping esistente e non è necessario alcuno spostamento di dati, l'aggiunta della nuova partizione e l'associazione della nuova chiave o del nuovo intervallo a tale partizione sono semplici. Per informazioni dettagliate sull'aggiunta di nuove partizioni, vedere [Aggiunta di una nuova partizione](sql-database-elastic-scale-add-a-shard.md).
 
-Per gli scenari che richiedono lo spostamento di dati, tuttavia, il servizio di suddivisione-unione è necessario per l'orchestrazione dello spostamento di dati tra le partizioni insieme agli aggiornamenti necessari per la mappa partizioni. Per informazioni dettagliate sull'uso del servizio di suddivisione-unione, vedere [Panoramica del servizio di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md) 
+Per gli scenari che richiedono lo spostamento di dati, tuttavia, il servizio di suddivisione-unione è necessario per l'orchestrazione dello spostamento di dati tra le partizioni insieme agli aggiornamenti necessari per la mappa partizioni. Per informazioni dettagliate sull'uso dello strumento di suddivisione-unione, vedere [Panoramica dello strumento di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md) 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

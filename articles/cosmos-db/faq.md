@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 2f46fc37b9050b19b83685c97198c29a5ce46289
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 0f45468616884a6866bd95ef53acab71b4fed06c
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Domande frequenti su Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Nozioni fondamentali su Azure Cosmos DB
@@ -194,9 +194,11 @@ Esistono alcune differenze a livello di comportamento che gli utenti di archivia
 * L'API Tabelle di Azure Cosmos DB usa un modello di capacità riservata per assicurare prestazioni garantite, ma ciò comporta il pagamento della capacità non appena viene creata la tabella, anche se la capacità non viene usata. L'archiviazione tabelle di Azure prevede solo il pagamento della capacità effettivamente usata. Questo è il motivo per cui l'API Tabelle può offrire un contratto di servizio con 10 ms di lettura e 15 ms di scrittura al 99% mentre l'archiviazione tabelle di Azure offre un contratto di servizio con 10 secondi. Con l'API Tabelle, tuttavia, sono previsti costi anche per le tabelle vuote senza richieste, in modo da assicurare che sia disponibile la capacità per la gestione di eventuali richieste in base al contratto di servizio offerto da Azure Cosmos DB.
 * I risultati delle query restituiti dall'API Tabelle non vengono ordinati in base a chiave di partizione/chiave di riga, come avviene in archiviazione tabelle di Azure.
 * Le chiavi di riga possono avere una dimensione massima di 255 byte.
+* I batch possono contenere solo fino a 2 MB
 * Le chiamate CreateIfNotExists vengono limitate da una limitazione di gestione fissa e separata da altre operazioni di tabella coperte dalle unità richiesta. Gli utenti che effettuano un numero elevato di chiamate CreateIfNotExists vengono limitati e non potranno modificare la limitazione, perché il limite non viene applicato dalle rispettive unità richiesta.
 * CORS non è attualmente supportato.
 * I nomi di tabella nell'archiviazione tabelle di Azure non rispettano la distinzione tra maiuscole e minuscole, ma tale distinzione viene rispettata nell'API Tabelle di Azure Cosmos DB.
+* Alcuni dei formati interni di Azure Cosmos DB per le informazioni di codifica, ad esempio i campi binari, non offrono attualmente l'efficienza auspicabile. Di conseguenza questo può causare limitazioni impreviste per le dimensioni dei dati. Ad esempio, attualmente non è possibile usare l'intero MB di un'entità tabella per archiviare i dati binari, perché la codifica incrementa le dimensioni dei dati.
 
 Per quanto riguarda l'API REST, sono disponibili alcune opzioni relative a endpoint/query non supportate dall'API Tabelle di Azure Cosmos DB:
 | Metodi REST | Opzione relativa a endpoint/query REST | URL della documentazione | Spiegazione |

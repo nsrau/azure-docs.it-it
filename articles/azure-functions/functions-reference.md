@@ -3,7 +3,7 @@ title: Linee guida per lo sviluppo di Funzioni di Azure | Documentazione Microso
 description: Informazioni sui concetti e sulle tecniche di Funzioni di Azure necessari per sviluppare funzioni in Azure in tutti i linguaggi e i binding di programmazione.
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
@@ -15,12 +15,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
-ms.author: chrande
-ms.openlocfilehash: cf965170e0c645e77a9b8829a10a18b29889a061
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.author: tdykstra
+ms.openlocfilehash: 80996c8bc6e40665201057ed185700ddaeea170a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Manuale dello sviluppatore di Funzioni di Azure
 In Funzioni di Azure funzioni specifiche condividono alcuni concetti tecnici e componenti di base, indipendentemente dal linguaggio o dall'associazione che vengono usati. Prima di passare all'apprendimento di dettagli specifici per un linguaggio o un'associazione, assicurarsi di leggere questa panoramica generale.
@@ -81,11 +81,8 @@ L'editor funzioni incorporato nel portale di Azure consente di aggiornare il fil
 Le app per le funzioni sono basate sul servizio app, quindi tutte le [opzioni di distribuzione disponibili per le app Web standard](../app-service/app-service-deploy-local-git.md) sono disponibili anche per le app per le funzioni. Ecco alcuni metodi per caricare o aggiornare file delle app per le funzioni. 
 
 #### <a name="to-use-app-service-editor"></a>Per usare l'editor del servizio app
-1. Nel portale Funzioni di Azure fare clic su **Impostazioni dell'app per le funzioni**.
-2. Nella sezione **Impostazioni avanzate** fare clic su **Passa a Impostazioni del servizio app**.
-3. Fare clic su **Editor del servizio app** nel menu di navigazione dell'applicazione in **DEVELOPMENT TOOLS** (STRUMENTI DI SVILUPPO).
-4. Fare clic su **Vai**.
-   
+1. Nel portale Funzioni di Azure fare clic su **Funzionalità della piattaforma**.
+2. Nella sezione **Strumenti di sviluppo** fare clic su **Editor del servizio app**.   
    Dopo il caricamento dell'editor del servizio app, il file *host.json* e le cartelle delle funzioni vengono visualizzati in *wwwroot*. 
 5. Aprire i file per modificarli oppure selezionare e trascinare i file dal computer di sviluppo per caricarli.
 

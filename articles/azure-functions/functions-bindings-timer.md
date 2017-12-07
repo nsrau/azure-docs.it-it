@@ -1,9 +1,9 @@
 ---
-title: Trigger timer in Funzioni di Azure
+title: Trigger timer per Funzioni di Azure
 description: Informazioni su come usare trigger timer in Funzioni di Azure.
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: 
 tags: 
@@ -15,15 +15,15 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
-ms.author: glenga
+ms.author: tdykstra
 ms.custom: 
-ms.openlocfilehash: 2a62d70b22081e45bc318dd9fb624b37cf7069e3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: fd9c1d40ba1398c7ca3f48f0423457482da9a483
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="azure-functions-timer-trigger"></a>Trigger timer in Funzioni di Azure
+# <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure 
 
 Questo articolo illustra come usare trigger timer in Funzioni di Azure. Un trigger timer consente di eseguire una funzione in base a una pianificazione. 
 
@@ -118,7 +118,7 @@ Ecco i dati di associazione nel file *function.json*:
 }
 ```
 
-Ecco il codice script F#:
+Ecco il codice script JavaScript:
 
 ```JavaScript
 module.exports = function (context, myTimer) {
@@ -134,7 +134,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## <a name="attributes-for-precompiled-c"></a>Attributi per C# precompilato
+## <a name="attributes"></a>Attributi
 
 Per le funzioni in [C# precompilato](functions-dotnet-class-library.md) usare l'oggetto [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions).
 
@@ -143,9 +143,14 @@ Il costruttore dell'attributo accetta un'espressione CRON, come illustrato nell'
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+{
+   ...
+}
  ```
 
 È possibile specificare un oggetto `TimeSpan` invece di un'espressione CRON se l'app per le funzioni viene eseguita in un piano di servizio app (non un piano a consumo).
+
+Per un esempio completo, vedere [Esempio in C# precompilato](#c-example).
 
 ## <a name="configuration"></a>Configurazione
 
@@ -156,7 +161,9 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**type** | n/d | Il valore deve essere impostato su "timerTrigger". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction** | n/d | Il valore deve essere impostato su "in". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
 |**nome** | n/d | Nome della variabile che rappresenta l'oggetto timer nel codice della funzione. | 
-|**schedule**|**ScheduleExpression**|Nel piano a consumo è possibile definire le pianificazioni con un'espressione CRON. Se si usa un piano di servizio app, è anche possibile usare una stringa `TimeSpan`. Le sezioni seguenti illustrano le espressioni CRON. È possibile inserire l'espressione schedule in un'impostazione dell'app e impostare questa proprietà su un valore racchiuso tra simboli **%**, come in questo esempio: "%NomeImpostazioneAppConEspressioneCRON%". Quando si sviluppa in locale, le impostazioni dell'app vengono inserite nei valori del [file local.settings.json](functions-run-local.md#local-settings-file).|
+|**schedule**|**ScheduleExpression**|Nel piano a consumo è possibile definire le pianificazioni con un'espressione CRON. Se si usa un piano di servizio app, è anche possibile usare una stringa `TimeSpan`. Le sezioni seguenti illustrano le espressioni CRON. È possibile inserire l'espressione schedule in un'impostazione dell'app e impostare questa proprietà su un valore racchiuso tra simboli **%**, come in questo esempio: "%NomeImpostazioneAppConEspressioneCRON%". |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ### <a name="cron-format"></a>Formato CRON 
 

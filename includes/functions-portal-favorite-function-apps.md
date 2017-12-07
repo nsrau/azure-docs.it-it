@@ -12,6 +12,6 @@ Se non è già stato fatto, aggiungere App per le funzioni ai Preferiti del port
 
 3. Chiudere il menu e scorrere verso il basso fino a trovare l'icona Funzioni. Fare clic sull'icona per visualizzare l'elenco di tutte le app per le funzioni. Fare clic sull'app per le funzioni per eseguire operazioni sulle funzioni all'interno dell'app. 
  
-    ![](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
+    ![App per le funzioni nei Preferiti](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
  
      

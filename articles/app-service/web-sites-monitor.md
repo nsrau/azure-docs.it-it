@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 283428c603cc73d23f0afa94670a23dbb45068d5
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 58ccdba6f01cfb7de72f28f185102bf7f618eab4
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Procedura: Eseguire il monitoraggio delle app nel servizio app di Azure
 Il [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) offre una funzionalità di monitoraggio incorporata nel [portale di Azure](https://portal.azure.com).
-Consente, ad esempio, di esaminare **quote** e **metriche** di un'app e il relativo piano di servizio app, configurare**avvisi** e impostare il **ridimensionamento** automatico in base a tali metriche.
+Il portale di Azure consente, ad esempio, di esaminare **quote** e **metriche** di un'app e il relativo piano di servizio app, configurare**avvisi** e impostare il **ridimensionamento** automatico in base a tali metriche.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -37,7 +37,7 @@ Se l'applicazione è ospitata in un piano **Basic**, **Standard** o **Premium**,
 Le **quote** per le app ospitate nel piano **gratuito** o **condiviso** sono:
 
 * **CPU (breve)**
-  * Quantità di CPU consentita per l'applicazione in un intervallo di 5 minuti. Questa quota viene reimpostata automaticamente ogni 5 minuti.
+  * Quantità di CPU consentita per l'applicazione in un intervallo di 5 minuti. Questa quota viene reimpostata automaticamente ogni cinque minuti.
 * **CPU (giorno)**
   * Quantità totale di CPU consentita per l'applicazione in un giorno. Questa quota viene reimpostata automaticamente ogni 24 ore a mezzanotte (ora UTC).
 * **Memoria**
@@ -125,14 +125,14 @@ Le metriche che riflettono l'utilizzo della CPU sono due. **Tempo CPU** e **Perc
 
 **Tempo CPU** è utile per le app ospitate nei piani **gratuito** o **condiviso**, dal momento che una delle relative quote è definita in minuti di CPU usati dall'app.
 
-**Percentuale CPU** è utile per le app ospitate nei piani **Basic**, **Standard** e **Premium**, dal momento che è possibile aumentarne il numero di istanze e questa metrica è un ottimo indicatore dell'uso complessivo in tutte le istanze.
+**Percentuale CPU** è utile per le app ospitate nei piani **Basic**, **Standard** e **Premium**, dal momento che è possibile aumentarne il numero di istanze. Percentuale CPU è un ottimo indicatore dell'uso complessivo in tutte le istanze.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Granularità delle metriche e criteri di conservazione
 Le metriche per un'applicazione e un piano di servizio app vengono registrate e aggregate dal servizio con le granularità e i criteri di conservazione seguenti:
 
-* Le metriche di granularità **minuto** vengono mantenute per **48 ore**
+* Le metriche di granularità **minuto** vengono mantenute per **30 ore**
 * Le metriche di granularità **ora** vengono mantenute per **30 giorni**
-* Le metriche di granularità **giorno** vengono mantenute per **90 giorni**
+* Le metriche di granularità **giorno** vengono mantenute per **30 giorni**
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Monitoraggio di quote e metriche nel portale di Azure
 È possibile esaminare lo stato delle diverse **quote** e **delle varie metriche** che interessano un'applicazione nel [portale di Azure](https://portal.azure.com).
@@ -149,7 +149,7 @@ Per altre informazioni sulle metriche, vedere [Monitor service metrics](../monit
 ## <a name="alerts-and-autoscale"></a>Avvisi e scalabilità automatica
 Le metriche per un'app o per un piano di servizio app possono essere collegate ad avvisi specifici. Per altre informazioni, vedere [Ricevere notifiche di avvisi](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-Le app del servizio app ospitate nei piani di servizio app Basic, Standard e Premium supportano il **ridimensionamento automatico**. È quindi possibile configurare regole per il monitoraggio delle metriche del piano di servizio app e aumentare o ridurre automaticamente il numero di istanze per fornire risorse aggiuntive quando necessario o per risparmiare denaro quando il provisioning dell'applicazione è eccessivo rispetto all'utilizzo effettivo. Per altre informazioni sul ridimensionamento automatico, vedere [How to Scale](../monitoring-and-diagnostics/insights-how-to-scale.md) (Come ridimensionare) e [Best practices for Azure Monitor autoscaling](../monitoring-and-diagnostics/insights-autoscale-best-practices.md) (Procedure consigliate per il ridimensionamento automatico in Monitoraggio di Azure)
+Le app del servizio app ospitate nei piani di servizio app Basic, Standard e Premium supportano il **ridimensionamento automatico**. Il ridimensionamento automatico consente di configurare le regole che monitorano le metriche del piano di servizio app. Le regole possono aumentare o diminuire il numero di istanze per concedere risorse aggiuntive in base alla esigenze. Le regole consentono anche di risparmiare quando l'applicazione ha un provisioning eccessivo. Per altre informazioni sul ridimensionamento automatico, vedere [How to Scale](../monitoring-and-diagnostics/insights-how-to-scale.md) (Come ridimensionare) e [Best practices for Azure Monitor autoscaling](../monitoring-and-diagnostics/insights-autoscale-best-practices.md) (Procedure consigliate per il ridimensionamento automatico in Monitoraggio di Azure)
 
 > [!NOTE]
 > Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.

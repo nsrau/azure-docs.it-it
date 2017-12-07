@@ -6,19 +6,19 @@ documentationCenter: na
 author: jeevansd
 manager: femila
 ms.reviewer: joflore
-ms.assetid: f39f0ddd-b504-4562-971f-77b88d1e75fb
+ms.assetid: 2263e583-3eb2-4a06-982d-33f5f54858f4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 11/27/2017
 ms.author: jeedes
-ms.openlocfilehash: ad03516f684acc59912ffc57f6e0712828bd03f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f1f16865a3adb55fc63c09c1dbdc9720b02f9c33
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Esercitazione: Integrazione di Azure Active Directory con FileCloud
 
@@ -108,12 +108,12 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Informazioni su URL e dominio per Single Sign-On di FileCloud](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.filecloudhosted.com`.
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.filecloudonline.com`.
 
-    b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<subdomain>.filecloudhosted.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
+    b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<subdomain>.filecloudonline.com/simplesaml/module.php/saml/sp/metadata.php/default-sp`
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di FileCloud](mailto:support@codelathe.com).
+    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di FileCloud](mailto:support@codelathe.com). 
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
@@ -129,25 +129,25 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 7. In un'altra finestra del browser Web accedere al tenant FileCloud come amministratore.
 
-8. Nella barra di spostamento a sinistra fare clic su **Settings** (Impostazioni). 
+8. Nella barra di spostamento a sinistra fare clic su **Settings**(Impostazioni). 
    
-    ![Sezione Settings (Impostazioni) sul lato dell'app](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
+    ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_000.png)
 
 9. Fare clic sulla scheda **SSO** nella sezione Settings (Impostazioni). 
    
-    ![Scheda SSO sul lato dell'app](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
+    ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_001.png)
 
 10. Impostare **SAML** come **Default SSO Type** (Tipo SSO predefinito) nel riquadro **Single Sign On (SSO) Settings** (Impostazioni Single Sign-On - SSO).
    
-    ![Pannello Single Sign-On Settings (Impostazioni Single Sign-On - SSO) sul lato dell'app](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
+    ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_002.png)
 
-11. Incollare il valore **SAML Entity ID** (ID entità SAML) copiato dal portale di Azure nella casella di testo **IdP End Point URL** (URL entità IdP).
+11. Nella casella di testo **IdP End Point URL** (URL endpoint IdP) incollare il valore di **SAML Entity ID** (ID di entità SAML) copiato dal portale di Azure.
 
-    ![Casella di testo IdP End Point URL (URL entità IdP)](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
+    ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_003.png)
 
 12. Aprire il file di metadati scaricato in Blocco note, copiare i contenuti negli Appunti, quindi incollarli nella casella di testo **IdP Meta Data** (Metadati IdP) nel riquadro **SAML Settings** (Impostazioni SAML).
 
-    ![Sezione IdP Meta Data (Metadati IdP) sul lato dell'app](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
+    ![Configurazione accesso Single Sign-On sul lato app](./media/active-directory-saas-filecloud-tutorial/tutorial_filecloud_004.png)
 
 13. Fare clic sul pulsante **Salva** .
 
@@ -192,7 +192,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in FileCloud. FileCloud supporta il provisioning just-in-time, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a FileCloud viene creato un nuovo utente, se questo non esiste già.
 
 >[!NOTE]
->Per creare un utente manualmente, è necessario contattare il [team di supporto clienti di FileCloud](mailto:support@codelathe.com). 
+>Per creare un utente manualmente, è necessario contattare il [team di supporto clienti di FileCloud](mailto:support@codelathe.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -226,9 +226,10 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
     
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
-Questa sezione descrive come testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro FileCloud nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione FileCloud.
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

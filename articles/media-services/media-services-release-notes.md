@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 3000acf91a66af3ec512af52362f7f1e2ba0019b
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 310306e22a9f3c4c770e326d3284d02da7f06039
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
 Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto alle versioni precedenti e i problemi noti.
@@ -411,7 +411,7 @@ Nella versione 3.0.0.3 sono state introdotte le seguenti modifiche:
 
 L'SDK di Servizi multimediali è ora disponibile nella versione 3.0.0.0. È possibile scaricare il pacchetto più recente dal sito Web di NuGet oppure ottenere i bit da [GitHub].
 
-A partire da Media Services SDK versione 3.0.0.0, è possibile usare nuovamente i token di [Azure Active Directory Access Control (ACS)] . Per altre informazioni, vedere la sezione "Riutilizzo di token del Servizio di controllo di accesso" nell'articolo [Connessione a Servizi multimediali con Media Services SDK per .NET].
+A partire da Media Services SDK versione 3.0.0.0, è possibile usare nuovamente i token di Azure Active Directory Access Control (ACS). 
 
 ### <a name="dec_13_donnet_ext_changes"></a>Estensioni dell'SDK di Servizi multimediali di Azure per .NET versione 2.0.0.0
 Azure Media Services .NET SDK Extensions è il nome di un set di metodi di estensione e funzioni di supporto che semplificano il codice e lo sviluppo con Servizi multimediali di Azure. È possibile ottenere i bit più recenti sul sito Web relativo a [Azure Media Services .NET SDK Extensions].
@@ -580,8 +580,8 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Creazione di sovrimpressioni]: http://msdn.microsoft.com/library/azure/dn640496.aspx
 [Unione dei segmenti video]: http://msdn.microsoft.com/library/azure/dn640504.aspx
 [SDK di Servizi multimediali di Azure per .NET versioni 3.0.0.1 e 3.0.0.2]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
-[Azure Active Directory Access Control (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
-[Connessione a Servizi multimediali con Media Services SDK per .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
+[Azure Active Directory Access Control Service (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
+[Connecting to Media Services with the Media Services SDK for .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
 [Azure Media Services .NET SDK Extensions]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [azure-sdk-tools]: https://github.com/Azure/azure-sdk-tools
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services

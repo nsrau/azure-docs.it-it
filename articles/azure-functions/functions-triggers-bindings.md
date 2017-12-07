@@ -1,5 +1,5 @@
 ---
-title: Usare trigger e associazioni in Funzioni di Azure | Microsoft Docs
+title: Usare trigger e associazioni in Funzioni di Azure
 description: Informazioni su come usare trigger e associazioni in Funzioni di Azure per connettere l'esecuzione del codice a eventi online e servizi basati su cloud.
 services: functions
 documentationcenter: na
@@ -8,26 +8,25 @@ manager: cfowler
 editor: 
 tags: 
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server
-ms.assetid: cbc7460a-4d8a-423f-a63e-1cd33fef7252
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 7d22a6749216486de6132a6d39e2dcf683d0e678
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e3413c9e1055ca9198dae4a467bcf47372ad4ecb
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
 Funzioni di Azure consente di scrivere codice in risposta agli eventi in Azure e in altri servizi, tramite *trigger* e *associazioni*. In questo articolo viene fornita una panoramica concettuale di trigger e associazioni per tutti i linguaggi di programmazione supportati. Le funzionalità comuni a tutte le associazioni sono descritte di seguito.
 
 ## <a name="overview"></a>Panoramica
 
-I trigger e le associazioni sono un modo dichiarativo per definire come viene invocata una funzione e con quali dati opera. Un *trigger* definisce come viene richiamata una funzione. Una funzione deve avere esattamente un trigger. I trigger hanno dei dati associati, ovvero in genere il payload che ha attivato la funzione. 
+I trigger e le associazioni sono un modo dichiarativo per definire come viene invocata una funzione e con quali dati opera. Un *trigger* definisce come viene richiamata una funzione. Una funzione deve avere esattamente un trigger. I trigger hanno dei dati associati, ovvero in genere il payload che ha attivato la funzione.
 
 Le *associazioni* di input e output forniscono una modalità dichiarativa per connettersi ai dati dall'interno del codice. Analogamente ai trigger, specificare le stringhe di connessione e le altre proprietà nella configurazione della funzione. Le associazioni sono facoltative e una funzione può avere più associazioni di input e output. 
 
@@ -35,11 +34,13 @@ Usando i trigger e le associazioni, è possibile scrivere codice più generico e
 
 È possibile configurare i trigger e le associazioni nella scheda **Integrazione** nel portale delle Funzioni di Azure. Dietro le quinte, l'interfaccia utente modifica un file denominato file *function.json* nella directory della funzione. È possibile modificare questo file passando all'**Editor avanzato**.
 
-La tabella seguente mostra i trigger e le associazioni supportate con le Funzioni di Azure. 
+## <a name="supported-bindings"></a>Binding supportati
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-### <a name="example-queue-trigger-and-table-output-binding"></a>Esempio: trigger di coda e tabella di associazione di output
+Per informazioni sulle associazioni in anteprima o approvate per l'uso in ambiente di produzione, vedere [Linguaggi supportati ](supported-languages.md).
+
+## <a name="example-queue-trigger-and-table-output-binding"></a>Esempio: trigger di coda e tabella di associazione di output
 
 Si supponga di voler scrivere una nuova riga in archiviazione tabelle di Azure ogni volta che viene visualizzato un messaggio nuovo in archiviazione code di Azure. Questo scenario può essere implementato tramite un trigger della coda di Azure e un'associazione di output di archiviazione tabelle di Azure. 
 
@@ -126,9 +127,9 @@ Per visualizzare e modificare i contenuti della *funzione .json* nel portale di 
 
 Per altri esempi di codice e informazioni dettagliate sull'integrazione con archiviazione di Azure, vedere [Associazioni del BLOB del servizio di archiviazione di Funzioni di Azure](functions-bindings-storage.md).
 
-### <a name="binding-direction"></a>Direzione dell'associazione
+## <a name="binding-direction"></a>Direzione dell'associazione
 
-Tutti i trigger e le associazioni hanno una proprietà `direction`:
+Tutti i trigger e le associazioni hanno una proprietà `direction` nel file *function.json*:
 
 - Per i trigger, la direzione è sempre `in`
 - Le associazioni di input e di output usano `in` e `out`
@@ -243,7 +244,7 @@ Un trigger di archiviazione code di Azure ad esempio supporta le proprietà segu
 
 I dettagli delle proprietà dei metadati per ogni trigger sono descritti nell'argomento di riferimento corrispondente. La documentazione è disponibile anche nella scheda **Integrazione** del portale nella sezione **Documentazione** sotto l'area di configurazione dell'associazione.  
 
-Poiché ad esempio i trigger BLOB presentano alcuni ritardi, è possibile usare un trigger di coda per l'esecuzione della funzione (vedere [Trigger del BLOB del servizio di archiviazione](functions-bindings-storage-blob.md#blob-storage-trigger)). Il messaggio della coda contiene il filename del BLOB da attivare. Con l'uso della proprietà dei metadati `queueTrigger`, è possibile specificareper intero questo comportamento nella configurazione, invece che nel codice.
+Poiché ad esempio i trigger BLOB presentano alcuni ritardi, è possibile usare un trigger di coda per l'esecuzione della funzione (vedere [Trigger del BLOB del servizio di archiviazione](functions-bindings-storage-blob.md#trigger)). Il messaggio della coda contiene il filename del BLOB da attivare. Con l'uso della proprietà dei metadati `queueTrigger`, è possibile specificareper intero questo comportamento nella configurazione, invece che nel codice.
 
 ```json
   "bindings": [

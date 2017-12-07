@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ef6e649d2f5563ea066b70d5ef3f80c5af36ce23
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 85484b79012243afd374a97e7f518e9a8b1043ea
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Scenario di fan-out/fan-it in Funzioni permanenti - Esempio di backup cloud
 
@@ -67,13 +67,13 @@ Le operazioni di questa funzione dell'agente di orchestrazione sono le seguenti:
 4. Attesa del completamento di tutti i caricamenti.
 5. Restituzione dei byte totali caricati in Archiviazione BLOB di Azure.
 
-Si noti la riga `await Task.WhenAll(tasks);`. Tutte le chiamate alla funzione `E2_CopyFileToBlob` *non* erano in attesa. Questa condizione è intenzionale per consentire l'esecuzione in parallelo. Quando si passa questa matrice di attività a `Task.WhenAll`, viene restituita un'attività che non verrà completata *fino al completamento di tutte le operazioni di copia*. Se si ha familiarità con Task Parallel Library (TPL) in .NET, questo scenario non è una novità. La differenza è che queste attività potrebbero essere in esecuzione su più macchine virtuali contemporaneamente e l'estensione assicura che l'esecuzione end-to-end sia resiliente al riciclo dei processi.
+Si noti la riga `await Task.WhenAll(tasks);`. Tutte le chiamate alla funzione `E2_CopyFileToBlob` *non* erano in attesa. Questa condizione è intenzionale per consentire l'esecuzione in parallelo. Quando si passa questa matrice di attività a `Task.WhenAll`, viene restituita un'attività che non verrà completata *fino al completamento di tutte le operazioni di copia*. Se si ha familiarità con Task Parallel Library (TPL) in .NET, questo scenario non è una novità. La differenza è che queste attività potrebbero essere in esecuzione in più macchine virtuali contemporaneamente e l'estensione di Funzioni permanenti assicura che l'esecuzione end-to-end sia resiliente al riciclo dei processi.
 
 Dopo l'attesa da `Task.WhenAll`, tutte le chiamate di funzione sono state completate e hanno restituito valori. Ogni chiamata a `E2_CopyFileToBlob` restituisce il numero di byte caricato e di conseguenza per calcolare il numero di byte totale è sufficiente sommare tutti i valori restituiti.
 
 ## <a name="helper-activity-functions"></a>Funzioni di attività helper
 
-Le funzioni di attività helper, in modo analogo ad altri esempi, sono normali funzioni che usano l'associazione di trigger `activityTrigger`. Il file *il function.json* per `E2_GetFileList` è ad esempio analogo al seguente:
+Le funzioni di attività helper, in modo analogo agli altri esempi, sono normali funzioni che usano l'associazione di trigger `activityTrigger`. Il file *function.json* per `E2_GetFileList` è ad esempio simile al seguente:
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/function.json)]
 
@@ -92,7 +92,7 @@ Anche l'implementazione è semplice perché usa alcune funzionalità avanzate de
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-L'implementazione carica il file dal disco e invia il contenuto in modo asincrono in un BLOB con lo stesso nome. Il valore restituito è il numero di byte copiati nell'archiviazione, che viene quindi usato dalla funzione dell'agente di orchestrazione per calcolare la somma di aggregazione.
+L'implementazione carica il file dal disco e trasmette il contenuto in modo asincrono in un BLOB con lo stesso nome nel contenitore dei backup. Il valore restituito è il numero di byte copiati nell'archiviazione, che viene quindi usato dalla funzione dell'agente di orchestrazione per calcolare la somma di aggregazione.
 
 > [!NOTE]
 > Questo è un esempio perfetto dello spostamento delle operazioni di I/O in una funzione `activityTrigger`. In questo modo non solo il lavoro può essere distribuito tra molte macchine virtuali diverse, ma è anche possibile ottenere i vantaggi determinati dall'uso di checkpoint per lo stato di avanzamento. Se il processo host viene interrotto per qualsiasi motivo, è possibile conoscere quali caricamenti sono già stati completati.

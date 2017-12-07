@@ -9,11 +9,11 @@ ms.technology: search
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: heidist
-ms.openlocfilehash: 02d5fac8cf9067ec544668f306fe49b805b3d164
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcd66991375a9f063345cda20c69f6a41c512ed2
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Ricerca di Azure: Domande frequenti
  
@@ -30,7 +30,7 @@ Ricerca di Azure supporta più origini dati, [l'analisi linguistica per molti li
 Quando si confrontano le tecnologie di ricerca, i clienti spesso chiedono informazioni sulle specifiche di Ricerca di Azure in confronto a Elasticsearch. I clienti che preferiscono Ricerca di Azure a Elasticsearch per i propri progetti di applicazioni di ricerca lo fanno in genere per usufruire di un'attività chiave che è stata semplificata o perché necessitano dell'integrazione incorporata con altre tecnologie Microsoft:
 
 + Ricerca di Azure è un servizio cloud completamente gestito con contratti di servizio (SLA) al 99,9% quando offerto in provisioning con una ridondanza sufficiente (2 repliche per l'accesso in lettura, 3 repliche per l'accesso in lettura e scrittura).
-+ I [processori di linguaggio naturale](https://docs.microsoft.com/rest/api/searchservice/language-support) offrono l'analisi linguistica all'avanguardia.  
++ I [processori del linguaggio naturale](https://docs.microsoft.com/rest/api/searchservice/language-support) Microsoft offrono funzioni di analisi linguistica all'avanguardia.  
 + Gli [indicizzatori di Ricerca di Azure](search-indexer-overview.md) possono eseguire ricerche di un'ampia gamma di origini dati di Azure per l'indicizzazione iniziale e incrementale.
 + Se si desidera una risposta rapida alle fluttuazioni nei volumi di query o di indicizzazione, è possibile usare i [dispositivi di scorrimento](search-manage.md#scale-up-or-down) nel portale di Azure o eseguire uno [script di PowerShell](search-manage-powershell.md), evitando direttamente la gestione delle partizioni.  
 + Le [funzionalità di assegnazione di punteggi e di ottimizzazione](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) forniscono i mezzi per influenzare i punteggi della classificazione delle ricerche, oltre a ciò che il semplice motore di ricerca può offrire. 

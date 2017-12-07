@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 3cb22b935624041ab51e64028a1b668fd694f9b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ba6e3a79e5eb4eca4a3c7d35ada8c58bfe2295e
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Acquistare un nome di dominio personalizzato per app Web Azure
 
@@ -31,6 +31,7 @@ Questo articolo è per il Servizio app di Azure (app Web, app per le API, app pe
 Per completare questa esercitazione:
 
 * [Creare un'app del servizio app](/azure/app-service/) oppure usare un'app creata per un'altra esercitazione.
+* [Rimuovere il limite di spesa per la sottoscrizione](../billing/billing-spending-limit.md#remove). Non è possibile acquistare domini del servizio app con crediti della sottoscrizione gratuiti.
 
 ## <a name="prepare-the-app"></a>Preparare l'app
 
@@ -82,15 +83,25 @@ Nella scheda **App Web** fare clic sul nome dell'app Web, selezionare **Impostaz
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
-Nella pagina **Domini personalizzati** fare clic su **Acquista domini**.
+Nella pagina **Domini personalizzati** fare clic su **Acquista il dominio**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
+> [!NOTE]
+> Se non è possibile visualizzare la sezione **Domini del servizio app**, è necessario rimuovere il limite di spesa per l'account di Azure (vedere [Prerequisiti](#prerequisites)).
+>
+>
+
 ### <a name="configure-the-domain-purchase"></a>Configurare l’acquisto del dominio
 
-Nella pagina **Dominio del servizio app**, digitare il nome di dominio che si desidera acquistare nel riquadro **Ricerca dominio** , quindi digitare `Enter`. I domini disponibili suggeriti vengono visualizzati sotto la casella di testo. Selezionare uno o più domini che si desidera acquistare. 
+Nella pagina **Dominio del servizio app**, digitare il nome di dominio che si desidera acquistare nel riquadro **Ricerca dominio** , quindi digitare `Enter`. I domini disponibili suggeriti vengono visualizzati sotto la casella di testo. Selezionare uno o più domini che si desidera acquistare.
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
+
+> [!NOTE]
+> I [domini di primo livello](https://wikipedia.org/wiki/Top-level_domain) seguenti sono supportati dai domini del servizio app: _com_, _net_, _co.uk_, _org_, _nl_, _in_, _biz_, _org.uk_ e _co.in_.
+>
+>
 
 Scegliere **Informazioni di contatto** e compilare il modulo di informazioni di contatto del dominio. Al termine, fare clic su **OK** per tornare alla pagina del dominio di servizio app.
    
@@ -100,8 +111,7 @@ Selezionare quindi le opzioni desiderate per il dominio. Vedere la tabella segue
 
 | Impostazione | Valore consigliato | Descrizione |
 |-|-|-|
-|Rinnovo automatico | **Abilitazione** | Rinnova il dominio del servizio App automaticamente ogni anno. Al momento del rinnovo, sulla carta di credito viene addebitato lo stesso prezzo di acquisto. |
-|Protezione della privacy | Abilita | Optare per "Protezione della privacy", che è incluso nel prezzo di acquisto _gratuitamente_ (ad eccezione dei domini di primo livello il cui registro non supporta la protezione della privacy, ad esempio _.co.in_, _.co.uk_ e così via). |
+|Protezione della privacy | Abilita | Dare il consenso esplicito per l'opzione "Protezione della privacy", inclusa _gratuitamente_ nel prezzo di acquisto. Alcuni domini di primo livello, elencati nella pagina **Protezione della privacy**, sono gestiti da registrar che non supportano la protezione della privacy. |
 | Assegnare i nomi host predefiniti | **www** e **@** | Selezionare le associazioni del nome host desiderate, se necessario. Una volta completata l'operazione di acquisto del dominio, l'app Web è accessibile tramite i nomi host selezionati. Se l'app Web è nascosta da [Gestione traffico di Microsoft Azure](https://azure.microsoft.com/services/traffic-manager/), non viene visualizzata l'opzione per assegnare il dominio radice (@), perché Gestione traffico non supporta record A. Al termine dell'acquisto di un dominio, è possibile apportare modifiche alle assegnazioni di nome host. |
 
 ### <a name="accept-terms-and-purchase"></a>Accettare i termini di acquisto
@@ -125,7 +135,7 @@ Se sono stati assegnati nomi host predefiniti all'app Web, è anche possibile vi
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-I nomi host selezionati vengono visualizzati nella pagina **Domini personalizzati**, nella sezione **Nomi host**. 
+I nomi host selezionati vengono visualizzati nella pagina **Domini personalizzati**, nella sezione **Nomi host personalizzati**. 
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
@@ -182,7 +192,25 @@ Viene visualizzato il nome host appena assegnato nella pagina dell’app **Domin
 
 Navigare tra i nomi host elencati nel browser. Nell'esempio della schermata precedente, navigare in _abc.kontoso.net_.
 
-<a name="custom" />
+## <a name="renew-the-domain"></a>Rinnovare il dominio
+
+Il dominio del servizio app acquistato è valido per un anno dalla data di acquisto. Per impostazione predefinita, il dominio è configurato per il rinnovo automatico tramite l'addebito dell'importo per l'anno successivo in base al metodo di pagamento selezionato. Se si desidera disattivare il rinnovo automatico o se si desidera rinnovare manualmente il dominio, eseguire la procedura seguente.
+
+Nella scheda **App Web** fare clic sul nome dell'app Web, selezionare **Impostazioni** e quindi **Domini personalizzati**.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+
+Nella sezione **Domini del servizio app** selezionare il dominio che si desidera configurare.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+
+Nel riquadro di spostamento a sinistra del dominio selezionare **Rinnovo del dominio**. Per interrompere il rinnovo automatico del dominio, selezionare **No** e quindi **Salva**. 
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
+
+Per rinnovare manualmente il dominio, selezionare **Rinnova dominio**. Tuttavia, questo pulsante non è attivo fino a 90 giorni prima della scadenza del dominio.
+
+<a name="custom"></a>
 
 ## <a name="manage-custom-dns-records"></a>Gestire i record DNS personalizzati
 
@@ -236,6 +264,14 @@ Se non è trascorso il periodo di cancellazione del dominio acquistato, selezion
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
 
-Selezionare **OK** per confermare l'operazione. Se non si desidera continuare, fare clic su qualsiasi punto all'esterno della finestra di dialogo di conferma.
+Per confermare l'operazione, selezionare **ì**.
 
 Al termine dell’operazione, il dominio viene rilasciato dalla sottoscrizione e può essere riacquistato dagli altri utenti. 
+
+## <a name="direct-default-url-to-a-custom-directory"></a>URL diretto predefinito a una directory personalizzata
+
+Per impostazione predefinita, il servizio app indirizza le richieste Web alla directory radice del codice dell'app. Per indirizzarle a una sottodirectory, ad esempio `public`, vedere la sezione relativa all'[indirizzamento dell'URL predefinito a una directory personalizzata](app-service-web-tutorial-custom-domain.md#virtualdir).
+
+## <a name="more-resources"></a>Altre risorse
+
+[Domande frequenti: dominio del servizio app (anteprima) e domini personalizzati](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)

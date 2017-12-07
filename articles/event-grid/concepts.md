@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b69478bf00284594b984fde452f6bed4e73859b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccbd861c985e54a3808c0d4e8ea6169b6a61f134
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concetti di Griglia di eventi di Azure
 
@@ -20,7 +20,7 @@ I concetti principali di Griglia di eventi di Azure sono i seguenti:
 
 ## <a name="events"></a>Events
 
-Un evento è la quantità minima di informazioni che descrive in modo completo qualcosa che si è verificato nel sistema.  Ogni evento ha informazioni comuni, come: l'origine dell'evento, l'ora in cui l'evento si è verificato e un identificatore univoco.  Ogni evento ha anche informazioni specifiche rilevanti solo per l'evento specifico. Un evento di creazione di un nuovo file in Archiviazione di Azure contiene ad esempio i dettagli sul file, come il valore lastTimeModified. Un evento di riavvio di una macchina virtuale contiene invece il nome della macchina virtuale e il motivo del riavvio. Ogni evento è limitato a 64 KB di dati.
+Un evento è la quantità minima di informazioni che descrive in modo completo qualcosa che si è verificato nel sistema.  Ogni evento ha informazioni comuni, come: l'origine dell'evento, l'ora in cui l'evento si è verificato e un identificatore univoco.  Ogni evento ha anche informazioni specifiche rilevanti solo per il tipo di evento specifico. Un evento di creazione di un nuovo file in Archiviazione di Azure contiene i dettagli sul file, ad esempio il valore `lastTimeModified`. Un evento di riavvio di una macchina virtuale contiene invece il nome della macchina virtuale e il motivo del riavvio. Ogni evento è limitato a 64 KB di dati.
 
 ## <a name="event-sourcespublishers"></a>Origini/autori di eventi
 
@@ -46,7 +46,7 @@ Quando si sottoscrive un argomento, è possibile filtrare gli eventi inviati all
 
 ## <a name="security"></a>Sicurezza
 
-L'evento fornisce la sicurezza per la sottoscrizione degli argomenti e la pubblicazione degli argomenti. Quando si esegue la sottoscrizione, è necessario avere le autorizzazioni appropriate per la risorsa o l'argomento. Quando si esegue la pubblicazione, è necessario avere un token di firma di accesso condiviso o l'autenticazione con chiave per l'argomento. Per altre informazioni, vedere [Event Grid security and authentication](security-authentication.md) (Sicurezza e autenticazione di Griglia di eventi).
+Griglia di eventi fornisce la sicurezza per la sottoscrizione e la pubblicazione degli argomenti. Quando si esegue la sottoscrizione, è necessario avere le autorizzazioni appropriate per la risorsa o l'argomento. Quando si esegue la pubblicazione, è necessario avere un token di firma di accesso condiviso o l'autenticazione con chiave per l'argomento. Per altre informazioni, vedere [Event Grid security and authentication](security-authentication.md) (Sicurezza e autenticazione di Griglia di eventi).
 
 ## <a name="failed-delivery"></a>Recapito non riuscito
 

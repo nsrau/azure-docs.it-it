@@ -1,5 +1,5 @@
 ---
-title: Gestione traffico di Azure - Domande frequenti | Microsoft Docs
+title: Gestione traffico di Azure - Domande frequenti | Documentazione Microsoft
 description: Questo articolo risponde ad alcune domande frequenti su Gestione traffico
 services: traffic-manager
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: eac9c3c2b7fde4ac225e17cc3b98ca5ee926c3b3
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 5b0a7d423bc0d8d9f9f7cad56838bd006e944050
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) su Gestione traffico
 
@@ -277,7 +277,7 @@ Azure Resource Manager richiede che tutti i gruppi di risorse specifichino una p
 
 Lo stato di monitoraggio corrente di ogni endpoint viene visualizzato nel portale di Azure, insieme al profilo complessivo. Queste informazioni sono anche disponibili con l'[API REST](https://msdn.microsoft.com/library/azure/mt163667.aspx) di Gestione traffico, i [cmdlet PowerShell](https://msdn.microsoft.com/library/mt125941.aspx) e l'[interfaccia della riga di comando multipiattaforma di Azure](../cli-install-nodejs.md).
 
-In Azure non vengono visualizzate informazioni cronologiche sull'integrità precedente degli endpoint e non è possibile generare avvisi sulle modifiche dell'integrità degli endpoint.
+È anche possibile usare Monitoraggio di Azure per monitorare l'integrità degli endpoint e vedere una rappresentazione visiva dei risultati. Per altre informazioni su Monitoraggio di Azure, vedere la [documentazione del Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 ### <a name="can-i-monitor-https-endpoints"></a>È possibile monitorare gli endpoint HTTPS?
 
@@ -288,6 +288,10 @@ Gestione traffico non prevede alcuna convalida di certificati, tra cui:
 * I certificati sul lato server non vengono convalidati
 * I certificati SNI sul lato server non sono supportati
 * I certificati client non sono supportati
+
+### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>L'endpoint del servizio cloud e dell'applicazione Web Azure è stato interrotto nel profilo di Gestione traffico, ma non si riceve traffico neanche dopo il riavvio. Come si risolve questo problema?
+
+Quando un endpoint del servizio cloud e dell'applicazione Web Azure viene interrotto, Gestione traffico non ne verifica più l'integrità e riavvia i controlli di integrità solo quando rileva che l'endpoint è stato riavviato. Per evitare questo ritardo, disabilitare e riabilitare l'endpoint nel profilo di Gestione traffico dopo aver riavviato l'endpoint.   
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>È possibile usare Gestione traffico anche se l'applicazione non supporta HTTP o HTTPS?
 

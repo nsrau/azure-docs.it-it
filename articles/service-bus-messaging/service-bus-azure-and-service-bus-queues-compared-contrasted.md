@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: d566b74429bf158e0c9cc51419ba35c9e6c32f64
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: f13c7330c9e828abe6557149b9a31c7170e33dcd
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Analogie e differenze tra le code di archiviazione e le code del bus di servizio
 Questo articolo analizza le differenze e le analogie presenti tra i due tipi di code offerte attualmente da Microsoft Azure: code di archiviazione e code del bus di servizio. Grazie a queste informazioni, è possibile confrontare e contrapporre le rispettive tecnologie ed essere quindi in grado di fare una scelta più oculata riguardo alla soluzione che soddisfa meglio le proprie esigenze.
@@ -30,12 +30,12 @@ Le **code di archiviazione**, che fanno parte dell'infrastruttura di [Archiviazi
 
 Le **code del bus di servizio** fanno parte di un'infrastruttura di [messaggistica di Azure](https://azure.microsoft.com/services/service-bus/) più ampia che supporta accodamento, pubblicazione/sottoscrizione e modelli di integrazione più avanzati. Per altre informazioni su code, argomenti e sottoscrizioni del bus di servizio, vedere la [panoramica del bus di servizio](service-bus-messaging-overview.md).
 
-Anche se entrambe le tecnologie di accodamento sono disponibili contemporaneamente, le code di archiviazione sono state introdotte per prime, come meccanismo dedicato di archiviazione code basato sui servizi di Archiviazione di Azure. Le code del bus di servizio sono basate sulla più ampia infrastruttura di "messaggistica" progettata per integrare applicazioni e componenti delle applicazioni che usano più protocolli di comunicazione, contratti dati, domini di trust e/o ambienti di rete.
+Anche se entrambe le tecnologie di accodamento sono disponibili contemporaneamente, le code di archiviazione sono state introdotte per prime, come meccanismo dedicato di archiviazione code basato sui servizi di Archiviazione di Azure. Le code del bus di servizio sono basate sulla più ampia infrastruttura di messaggistica progettata per integrare applicazioni e componenti delle applicazioni che possono usare più protocolli di comunicazione, contratti di dati, domini di trust e/o ambienti di rete.
 
 ## <a name="technology-selection-considerations"></a>Considerazioni sulla selezione della tecnologia
 Sia le code di archiviazione sia le code del bus di servizio sono implementazioni del servizio di accodamento messaggi attualmente disponibile in Microsoft Azure. Ogni tecnologia presenta un set di funzionalità leggermente diverso, pertanto è possibile scegliere l'una o l'altra, o entrambe, a seconda delle esigenze della particolare soluzione in uso o di un problema aziendale o tecnico da risolvere.
 
-Quando si stabilisce la tecnologia di accodamento che soddisfa lo scopo di una determinata soluzione, è consigliabile che gli architetti e gli sviluppatori di soluzioni tengano in considerazione le indicazioni seguenti. Per altri dettagli, vedere la sezione successiva.
+Durante la determinazione della tecnologia di accodamento in grado di soddisfare lo scopo di una soluzione specifica, gli architetti e gli sviluppatori di soluzioni devono tenere in considerazione questi consigli. Per altri dettagli, vedere la sezione successiva.
 
 Gli architetti e gli sviluppatori di soluzioni **dovrebbero considerare l'uso delle code di Azure** quando:
 
@@ -75,8 +75,8 @@ Questa sezione confronta alcune delle funzionalità di accodamento fondamentali 
 | API di tipo push |**No** |**Sì**<br/><br/>Interfaccia API di .NET per sessioni [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) e **OnMessage**. |
 | Modalità di ricezione |**Visualizzazione e lease** |**Visualizzazione e blocco**<br/><br/>**Ricezione ed eliminazione** |
 | Modalità di accesso esclusivo |**Basato sul lease** |**Basato sul blocco** |
-| Durata lease/blocco |**30 secondi (impostazione predefinita)**<br/><br/>**7 giorni (durata massima)** (È possibile rinnovare o rilasciare un lease di messaggio tramite l'interfaccia API di [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx)). |**60 secondi (impostazione predefinita)**<br/><br/>È possibile rinnovare un blocco di messaggio tramite l'interfaccia API di [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock). |
-| Precisione lease/blocco |**Livello di messaggio**<br/><br/>(ogni messaggio può avere un valore di timeout diverso che è possibile aggiornare come necessario durante l'elaborazione del messaggio tramite l'interfaccia API [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx)). |**Livello di coda**<br/><br/>(ogni coda ha una precisione di blocco applicata a tutti i relativi messaggi, tuttavia è possibile rinnovare il blocco tramite l'interfaccia API [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock)). |
+| Durata lease/blocco |**30 secondi (impostazione predefinita)**<br/><br/>**7 giorni (durata massima)** (È possibile rinnovare o rilasciare un lease di messaggio tramite l'interfaccia API di [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage)). |**60 secondi (impostazione predefinita)**<br/><br/>È possibile rinnovare un blocco di messaggio tramite l'interfaccia API di [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock). |
+| Precisione lease/blocco |**Livello di messaggio**<br/><br/>(ogni messaggio può avere un valore di timeout diverso che è possibile aggiornare come necessario durante l'elaborazione del messaggio tramite l'interfaccia API [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage)). |**Livello di coda**<br/><br/>(ogni coda ha una precisione di blocco applicata a tutti i relativi messaggi, tuttavia è possibile rinnovare il blocco tramite l'interfaccia API [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock)). |
 | Ricezione in batch |**Sì**<br/><br/>(specifica esplicitamente il numero di messaggi durante il recupero dei messaggi, fino a un massimo di 32 messaggi). |**Sì**<br/><br/>(abilita implicitamente una proprietà di prelettura o esplicitamente tramite l'uso di transazioni). |
 | Invio in batch |**No** |**Sì**<br/><br/>(tramite l'uso di transazioni o invio in batch sul lato client). |
 
@@ -132,9 +132,9 @@ Questa sezione confronta le code di Azure e le code del bus di servizio in termi
 | Criteri di confronto | Code di archiviazione | Code del bus di servizio |
 | --- | --- | --- |
 | Dimensioni massime della coda |**500 TB**<br/><br/>(limitate alla [capacità di un singolo account di archiviazione](../storage/common/storage-introduction.md#queue-storage)) |**Da 1 GB a 80 GB**<br/><br/>(valori definiti al momento della creazione della coda e dell'[abilitazione del partizionamento](service-bus-partitioning.md). Vedere la sezione "Informazioni aggiuntive"). |
-| Dimensioni massime del messaggio |**64 KB**<br/><br/>(48 KB quando si usa una codifica **Base64**)<br/><br/>Poiché Azure supporta messaggi di grandi dimensioni combinando code e BLOB, è possibile accodare fino a 200 GB per un singolo elemento. |**256 KB** o **1 MB**<br/><br/>(inclusi l'intestazione e il corpo, dimensioni massime dell'intestazione: 64 KB).<br/><br/>Dipende dal [livello di servizio](service-bus-premium-messaging.md). |
+| Dimensioni massime del messaggio |**64 KB**<br/><br/>(48 KB quando si usa una codifica **Base64**)<br/><br/>Azure supporta messaggi di grandi dimensioni combinando code e BLOB. È quindi possibile accodare fino a 200 GB per un unico elemento. |**256 KB** o **1 MB**<br/><br/>(inclusi l'intestazione e il corpo, dimensioni massime dell'intestazione: 64 KB).<br/><br/>Dipende dal [livello di servizio](service-bus-premium-messaging.md). |
 | Durata TTL massima del messaggio |**7 giorni** |**TimeSpan.Max** |
-| Numero massimo di code |**Illimitato** |**10.000**<br/><br/>(per spazio dei nomi del servizio, può essere aumentato) |
+| Numero massimo di code |**Illimitato** |**10.000**<br/><br/>(per spazio dei nomi del servizio) |
 | Numero massimo di client concorrenti |**Illimitato** |**Illimitato**<br/><br/>(limite di 100 connessioni simultanee applicato solo alla comunicazione basata su protocollo TCP) |
 
 ### <a name="additional-information"></a>Informazioni aggiuntive

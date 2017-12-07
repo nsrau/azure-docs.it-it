@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 4cd65c01d75af8539f5fa13dbbd2aaec548aea0b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 646ade828e96810bdc3b07d4dc5c0276a1621969
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Come configurare le porte a disponibilità elevata per il servizio di bilanciamento del carico interno
 
@@ -41,13 +41,10 @@ Figura 1: Appliance virtuali di rete distribuite dietro un servizio di bilanciam
 
 ## <a name="preview-sign-up"></a>Iscrizione all'anteprima
 
-Per partecipare all'anteprima della funzionalità delle porte a disponibilità elevata nel servizio Load Balancer Standard e poter accedere tramite interfaccia della riga di comando di Azure 2.0 o PowerShell, è necessario effettuare una sottoscrizione.  Registrare la sottoscrizione per
-
-1. [l'anteprima di Load Balancer Standard](https://aka.ms/lbpreview#preview-sign-up) e 
-2. [l'anteprima delle Porte a disponibilità elevata](https://aka.ms/haports#preview-sign-up).
+Per partecipare all'anteprima della funzionalità delle porte a disponibilità elevata nel servizio Load Balancer Standard e poter accedere tramite interfaccia della riga di comando di Azure 2.0 o PowerShell, è necessario effettuare una sottoscrizione. Registrare la sottoscrizione per [l'anteprima di Load Balancer Standard](https://aka.ms/lbpreview#preview-sign-up).
 
 >[!NOTE]
->Per usare questa funzionalità, è necessario iscriversi all'[Anteprima Standard](https://aka.ms/lbpreview#preview-sign-up) di Load Balancer oltre alla funzionalità Porte a disponibilità elevata. La registrazione delle funzionalità Porte a disponibilità elevata o Load Balancer Standard (anteprima) potrebbe richiedere fino a un'ora.
+>La registrazione delle anteprime di Load Balancer Standard potrebbe richiedere fino a un'ora.
 
 ## <a name="configuring-ha-ports"></a>Configurazione di porte a disponibilità elevata
 

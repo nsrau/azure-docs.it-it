@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: f1df2f52d00444ba0a27644a6e65cee789788f58
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: ad2a5891e207f6e8320c3e54ae7c817b49db4672
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Analisi di flusso di Azure in IoT Edge (anteprima)
 
@@ -61,6 +61,11 @@ Le procedure generali sono descritte nella tabella seguente. Altri dettagli sono
 
 #### <a name="create-an-asa-edge-job"></a>Creare un processo Edge di Analisi di flusso di Azure
 1. Dal portale di Azure creare un nuovo "processo di Analisi di flusso". [Collegamento diretto per la creazione di un nuovo processo di Analisi di flusso di Azure](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
+
+> [!Note]
+> È possibile creare dei processi Edge in tutte le regioni supportate da Analisi di flusso di Azure, **ad eccezione dell'area "Stati Uniti occidentali 2"**.
+> Questa limitazione verrà rimossa a breve.
+
 2. Nella schermata di creazione selezionare **Edge** come **Ambiente host** (vedere la figura seguente). ![Creazione del processo](media/stream-analytics-edge/ASAEdge_create.png)
 3. Definizione del processo
     1. **Define Input Stream(s)** (Definisci flussi di input). Definire uno o più flussi di input per il processo.

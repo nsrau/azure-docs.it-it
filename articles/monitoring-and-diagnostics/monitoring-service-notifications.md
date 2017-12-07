@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: d85281c02b792921f12cc62e6d60bef3e7c13b3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efdd42d244710b27fc33154b708cfbe40312e3b0
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="service-health-notifications"></a>Notifiche sull'integrità del servizio
 ## <a name="overview"></a>Panoramica
 
 Questo articolo descrive come visualizzare le notifiche sull'integrità del servizio usando il portale di Azure.
 
-Le notifiche sull'integrità del servizio consentono di visualizzare i messaggi sull'integrità del servizio pubblicati dal team di Azure che possono interessare le risorse della sottoscrizione. Queste notifiche sono una sottoclasse di eventi del log attività e sono disponibili anche nel pannello del log attività. Le notifiche sull'integrità del servizio possono essere informative o operative a seconda della classe.
+Le notifiche sull'integrità del servizio consentono di visualizzare i messaggi sull'integrità del servizio pubblicati dal team di Azure che possono interessare le risorse della sottoscrizione. Queste notifiche sono una sottoclasse di eventi del log attività e sono disponibili anche nel log attività. Le notifiche sull'integrità del servizio possono essere informative o operative a seconda della classe.
 
 Sono disponibili sei classi di notifiche sull'integrità del servizio:  
 
-- **Azione richiesta:** è possibile che venga rilevato un evento insolito nell'account. Potrebbe essere necessario l'intervento dell'utente per risolvere il problema. Viene inviata una notifica con informazioni dettagliate sulle azioni da eseguire o con i dati necessari per contattare il supporto tecnico o l'assistenza di Azure.  
-- **Recupero assistito:** si è verificato un evento e i tecnici confermano gli effetti dell'evento ancora presenti. I tecnici hanno la necessità di collaborare con l'utente per ripristinare i servizi.  
+- **Azione richiesta:** è possibile che Azure rilevi un evento insolito nell'account. Potrebbe essere necessario l'intervento dell'utente per risolvere il problema. Azure invierà una notifica con informazioni dettagliate sulle azioni da eseguire o con i dati necessari per contattare il supporto tecnico o l'assistenza di Azure.  
+- **Recupero assistito:** si è verificato un evento e i tecnici confermano gli effetti dell'evento ancora presenti. I tecnici di Azure hanno la necessità di collaborare con l'utente per ripristinare integralmente i servizi.  
 - **Evento imprevisto:** un evento del servizio ha effetto su una o più risorse della sottoscrizione.  
 - **Manutenzione:** notifica che segnala all'utente un'atività di manutenzione pianificata che potrebbe avere effetto su una o più risorse della sottoscrizione.  
-- **Informazioni:** saltuariamente vengono inviate notifiche che segnalano all'utente possibili ottimizzazioni che possono migliorare l'uso delle risorse.  
+- **Informazioni:** saltuariamente Azure invia delle notifiche che segnalano all'utente possibili ottimizzazioni che possono migliorare l'uso delle risorse.  
 - **Sicurezza:** informazioni urgenti relative alla sicurezza delle soluzioni in esecuzione in Azure.
 
-Ogni notifica sull'integrità del servizio contiene informazioni dettagliate sull'ambito e sull'effetto sulle risorse. Le informazioni includono:
+Ogni notifica sull'integrità del servizio contiene informazioni dettagliate sull'ambito e sull'effetto sulle risorse. I dettagli includono:
 
 Nome proprietà | Descrizione
 -------- | -----------
@@ -69,15 +69,13 @@ Properties.communicationId | La comunicazione a cui è associato l'evento.
 ## <a name="viewing-your-service-health-notifications-in-the-azure-portal"></a>Visualizzazione delle notifiche sull'integrità del servizio nel portale di Azure
 1.  Nel [portale](https://portal.azure.com) passare al servizio **Monitoraggio**
 
-    ![Monitoraggio](./media/monitoring-service-notifications/home-monitor.png)
-2.  Fare clic sull'opzione **Monitoraggio** per aprire il relativo pannello. che riunisce tutte le impostazioni e i dati di monitoraggio in un'unica vista consolidata. Per prima cosa si apre la sezione **Log di attività**.
+    ![Monitorare](./media/monitoring-service-notifications/home-monitor.png)
+2.  Fare clic sull'opzione **Monitoraggio** per aprire il relativo riquadro. Monitoraggio di Azure riunisce tutte le impostazioni e i dati di monitoraggio in un'unica vista consolidata. Per prima cosa si apre la sezione **Log di attività**.
 
-3.  Fare clic sulla sezione **Notifiche del servizio**
+3.  Fare clic sulla sezione **Avvisi**
 
-    ![Monitoraggio](./media/monitoring-service-notifications/service-health-summary.png)
-4.  Fare clic su una delle voci per visualizzare altri dettagli
-
-5. Fare clic sull'operazione **+ Aggiungi AVVISO del log attività** per ricevere le notifiche per assicurarsi di ricevere le future notifiche del servizio di questo tipo. Per altre informazioni sulla configurazione degli avvisi nelle notifiche del servizio [fare clic qui](monitoring-activity-log-alerts-on-service-notifications.md)
+    ![Monitorare](./media/monitoring-service-notifications/service-health-summary.png)
+4. Fare clic su **+ Aggiungi AVVISO del log attività** per configurare le notifiche per assicurarsi di ricevere le future notifiche del servizio. Per altre informazioni sulla configurazione degli avvisi per le notifiche del servizio, [vedere la pagina relativa agli avvisi del log attività e alle notifiche sul servizio](monitoring-activity-log-alerts-on-service-notifications.md).
 
 ## <a name="next-steps"></a>Passaggi successivi:
 Ricevere [notifiche di avviso per ogni notifica sull'integrità del servizio](monitoring-activity-log-alerts-on-service-notifications.md)  

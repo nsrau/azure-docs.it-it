@@ -3,7 +3,7 @@ title: DNS inverso per i servizi di Azure | Microsoft Docs
 description: Informazioni su come configurare ricerche DNS inverse per i servizi ospitati in Azure
 services: dns
 documentationcenter: na
-author: jtuliani
+author: KumudD
 manager: timlt
 ms.service: dns
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: jonatul
-ms.openlocfilehash: 63701e1ce0c1c6dcf2ce02ebce272b8280395e7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: kumud
+ms.openlocfilehash: 0c5d12e9d6b5ddbee2a930e4e537b8180b7a9c7b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Configurare il DNS inverso per i servizi ospitati in Azure
 
@@ -28,9 +28,8 @@ Questo scenario non deve essere confuso con la possibilità di [eseguire l'hosti
 
 Prima di leggere questo articolo, è necessario leggere [Panoramica del DNS inverso e supporto in Azure](dns-reverse-dns-overview.md).
 
-Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md).
-* Nel modello di distribuzione di Resource Manager, le risorse di calcolo, ad esempio macchine virtuali, set di scalabilità di macchine virtuali o cluster di Service Fabric, vengono esposte tramite una risorsa PublicIpAddress. Le ricerche DNS inverse vengono configurate usando la proprietà 'ReverseFqdn' di PublicIpAddress.
-* Nel modello di distribuzione classica, le risorse di calcolo vengono esposte tramite i servizi cloud. Le ricerche DNS inverse vengono configurate usando la proprietà 'ReverseDnsFqdn' del servizio cloud.
+Nel servizio DNS di Azure le risorse di calcolo, ad esempio macchine virtuali, set di scalabilità di macchine virtuali o cluster di Service Fabric, vengono esposte tramite una risorsa PublicIpAddress. Le ricerche DNS inverse vengono configurate usando la proprietà 'ReverseFqdn' di PublicIpAddress.
+
 
 Il DNS inverso non è attualmente supportato per il servizio app di Azure.
 
