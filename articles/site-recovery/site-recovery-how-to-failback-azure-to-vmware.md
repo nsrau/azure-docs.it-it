@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 1ca34b262a51b694cb9541750588bbea139eeae1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad424818f41e6b48e754dd0d39771248a1cd04fb
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Eseguire il failback da Azure a un sito locale
 
@@ -135,3 +135,17 @@ Al termine del processo di riprotezione, la macchina virtuale viene replicata in
 
 ## <a name="common-issues"></a>Problemi comuni
 Assicurarsi che vCenter sia in uno stato connesso prima di eseguire un failback. In caso contrario, la disconnessione dei dischi e il ricollegamento alla macchina virtuale avrà esito negativo.
+
+### <a name="common-error-codes"></a>Codici errore comuni
+
+#### <a name="error-code-8038"></a>Codice di errore 8038
+
+*Non è stato possibile accedere alla macchina virtuale locale a causa dell'errore*
+
+Ciò si verifica quando 
+1. Si accede alla macchina virtuale locale su un host in cui non è stato effettuato il provisioning di una quantità di memoria sufficiente.
+
+Per risolvere il problema
+1. È possibile effettuare il provisioning di una quantità maggiore di memoria nell'host ESXi.
+2. Spostare la macchina virtuale su un altro host ESXi in cui sia disponibile memoria sufficiente per avviare la macchina virtuale.
+

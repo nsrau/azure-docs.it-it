@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: jgao
-ms.openlocfilehash: 4799e50056941b4fe477ce85c56cebf5d4e32def
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e5ed66e263c3048981279ad26cb204ded8e8fba3
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizzare cluster HDInsight tramite Bootstrap
 
@@ -41,6 +41,7 @@ A volte può essere necessario modificare i file di configurazione che includono
 * tez-site.xml
 * webhcat-site.xml
 * yarn-site.xml
+* server.properties (configurazione kafka-broker)
 
 Sono disponibili tre metodi per usare Bootstrap:
 

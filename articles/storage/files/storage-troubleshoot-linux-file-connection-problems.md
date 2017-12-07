@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
-ms.openlocfilehash: 660fe4fb9f962c835de9a2f900ceaabb4371b0db
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8fd09c748786f0bfe070c3f41201eddc3d272116
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Risolvere i problemi di File di Azure in Linux
 
@@ -154,6 +154,21 @@ Le cause comuni di questo problema sono le seguenti:
 ### <a name="solution"></a>Soluzione
 
 Per risolvere il problema, usare lo [strumento di risoluzione dei problemi per gli errori di montaggio di File di Azure in Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Questo strumento consente di convalidare l'ambiente che esegue il client, di rilevare la configurazione client incompatibile che provocherebbe un errore di accesso per File di Azure, fornisce indicazioni sulla correzione autonoma da parte dell'utente e raccoglie le tracce di diagnostica.
+
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: non è possibile accedere a '&lt;percorso&gt;': errore di input/output
+
+Quando si prova a elencare i file in una condivisione file di Azure tramite il comando ls, questo si blocca durante la generazione dell'elenco e viene visualizzato l'errore seguente:
+
+**ls: cannot access '&lt;percorso&gt;': Input/output error** (IS: non è possibile accedere a 'percorso': errore di input/output)
+
+
+### <a name="solution"></a>Soluzione
+Aggiornare il kernel di Linux a una delle versioni seguenti che prevedono una correzione per questo problema:
+
+- 4.4.87+
+- 4.9.48+
+- 4.12.11+
+- Tutte le versioni successive o corrispondenti alla 4.13
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 

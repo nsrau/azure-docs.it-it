@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 78ce74450ce933e2aced4b6e62504373de7954f8
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 8c9d8dadcd6181d9894ab6ee7110841afdec5708
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Proteggere un file server usando Azure Site Recovery 
 
@@ -24,9 +24,8 @@ Il servizio [Azure Site Recovery](site-recovery-overview.md) contribuisce a real
 
 Questo articolo descrive come proteggere un file server usando Azure Site Recovery e include altre raccomandazioni specifiche per i vari ambienti.     
 
-- [Proteggere le macchine di file server IaaS di Azure](#disaster-recovery-recommendation-for-azure-iaas-virtual-machines)
-- [Proteggere i file server locali](#replicate-an-onpremises-file-server-using-azure-site-recovery)
-
+- [Replicare macchine virtuali file server IaaS di Azure](#disaster-recovery-recommendation-for-azure-iaas-virtual-machines)
+- [Replicare un file server locale usando Azure Site Recovery](#replicate-an-onpremises-file-server-using-azure-site-recovery)
 
 ## <a name="file-server-architecture"></a>Architettura del file server
 L'obiettivo di un sistema di condivisione distribuito aperto consiste nel fornire un ambiente in cui un gruppo di utenti distribuiti geograficamente può collaborare per lavorare sui file in modo efficiente e garantire che vengano applicati i requisiti di integrità. Un ecosistema di file server locale tipico che supporta un numero elevato di utenti simultanei e un numero elevato di elementi di contenuto usa la replica DFS (file system distribuito) per pianificare le repliche e limitare la larghezza di banda. La replica DFS usa un algoritmo di compressione, noto come compressione RDC (Remote Differential Compression), che consente di aggiornare in modo efficiente i file in una rete con larghezza di banda limitata. Rileva gli inserimenti, le rimozioni e le riorganizzazioni di dati nei file consentendo di replicare solo i blocchi di file modificati quando vengono aggiornati i file. Esistono anche ambienti di file server, in cui i backup giornalieri vengono eseguiti a intervalli non di punta, che soddisfano le esigenze di emergenza e non prevedono l'implementazione della replica DFS.
@@ -45,18 +44,18 @@ Nel riferimento precedente più file server, a cui viene fatto riferimento come 
 
     Dopo che sono state gestite le dipendenze della connettività VPN da sito a sito e di Active Directory e che è stata applicata la replica DFS, quando non è possibile accedere a uno o più file server locali, i client possono connettersi alla macchina virtuale di Azure che soddisferà le richieste.
 
-    Questo approccio è consigliabile nel caso in cui le macchine virtuali abbiano configurazioni non supportate da Azure Site Recovery, ad esempio un disco cluster condiviso che viene talvolta usato comunemente negli ambienti di file server.  La replica DFS funziona correttamente anche negli ambienti con larghezza di banda ridotta con varianza media. Deve essere tenuto in considerazione anche il costo aggiuntivo dovuto a una macchina virtuale di Azure sempre in esecuzione.  
+    Questo approccio è consigliabile nel caso in cui le macchine virtuali abbiano configurazioni non supportate da Azure Site Recovery, ad esempio un disco cluster condiviso che viene in alcuni casi usato comunemente negli ambienti di file server.  La replica DFS funziona correttamente anche negli ambienti con larghezza di banda ridotta con varianza media. Deve essere tenuto in considerazione anche il costo aggiuntivo dovuto a una macchina virtuale di Azure sempre in esecuzione.  
 
 3.  Usare il servizio Sincronizzazione file di Azure per replicare i file: se si sta preparando il passaggio al cloud o si sta già usando una macchina virtuale di Azure, è consigliabile usare il servizio Sincronizzazione file di Azure che offre la sincronizzazione delle condivisioni file completamente gestite nel cloud accessibili tramite il protocollo [Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (SMB) standard di settore. Le condivisioni file di Azure possono essere montate simultaneamente da distribuzioni cloud o locali di Windows, macOS e Linux. 
 
-La rappresentazione grafica seguente mira a semplificare la scelta della strategia da usare per l'ambiente di file server.
+Il diagramma seguente offre una rappresentazione grafica per facilitare la scelta della strategia da usare per l'ambiente di file server.
 
 ![decisiontree](media/site-recovery-file-server/decisiontree.png)
 
 
-### <a name="factors-to-consider-while-making-disaster-recovery-decision"></a>Fattori da considerare per la scelta di operare un ripristino di emergenza
+### <a name="factors-to-consider-while-making-decision-of-disaster-recovery-to-azure"></a>Fattori da considerare per la decisione di un ripristino di emergenza in Azure
 
-|Environment  |Raccomandazione  |Elementi da considerare: |
+|Ambiente  |Raccomandazione  |Elementi da considerare |
 |---------|---------|---------|
 |Ambiente di file server con/senza replica DFS|   [Usare Azure Site Recovery per la replica](#replicate-an-onpremises-file-servers-using-azure-site-recovery)   |    Azure Site Recovery non supporta il cluster di dischi condivisi, il dispositivo NAS. Se nell'ambiente è presente una di queste configurazioni, usare uno degli altri approcci in base alle esigenze. <br> Azure Site Recovery non supporta il protocollo SMB 3.0, il che significa che solo quando le modifiche apportate ai file vengono aggiornate nella posizione originale del file, la macchina virtuale replicata incorporerà le modifiche.
 |Ambiente di file server con replica DFS     |  [Estendere la replica DFS a una macchina virtuale IaaS di Azure:](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |     La replica DFS funziona correttamente in ambienti di larghezza di banda estremamente ridotta, ma questo approccio richiede la presenza di una macchina virtuale di Azure sempre in esecuzione. Il costo della macchina virtuale deve essere tenuto in considerazione nella pianificazione.         |
@@ -84,44 +83,42 @@ Fare riferimento: [Estendere Active Directory locale ad Azure](https://docs.micr
 
 ## <a name="disaster-recovery-recommendation-for-azure-iaas-virtual-machines"></a>Raccomandazioni sul ripristino di emergenza per le macchine virtuali IaaS di Azure
 
-Se si sta configurando e gestendo il ripristino di emergenza di file server in hosting nelle macchine virtuali IaaS di Azure, è possibile scegliere tra due opzioni a seconda che si desideri passare a [File di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
+Se si configura e gestisce il ripristino di emergenza di file server in hosting nelle macchine virtuali IaaS di Azure, è possibile scegliere tra due opzioni, a seconda che si voglia o meno passare a [File di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
 1. [Usare Sincronizzazione file di Azure](#use-azure-file-sync-service-to-replicate-files-hosted-on-iaas-virtual-machine)
 2. [Usare Azure Site Recovery](#replicate-an-iaas-file-server-virtual-machine-using-azure-site-recovery)
 
 ## <a name="use-azure-file-sync-service-to-replicate-files-hosted-on-iaas-virtual-machine"></a>Usare il servizio Sincronizzazione file di Azure per replicare file ospitati nella macchina virtuale IaaS
 
-È possibile usare **File di Azure** per sostituire completamente o integrare i dispositivi NAS o i file server locali tradizionali. Le condivisioni di File di Azure possono anche essere replicate nei server Windows con Sincronizzazione file di Azure, in locale o nel cloud, per il caching efficiente e distribuito dei dati lì dove vengono usati. I passaggi di seguito descrivono in dettaglio la raccomandazione sul ripristino di emergenza per le macchine virtuali di Azure che eseguono la stessa funzionalità dei file server tradizionali:
-1.  Proteggere le macchine usando Azure Site Recovery usando i passaggi indicati di seguito
+È possibile usare **File di Azure** per sostituire completamente o integrare i dispositivi NAS o i file server locali tradizionali. Le condivisioni di File di Azure possono anche essere replicate nei server Windows con Sincronizzazione file di Azure, in locale o nel cloud, per il caching efficiente e distribuito dei dati lì dove vengono usati. I passaggi seguenti descrivono in dettaglio la raccomandazione sul ripristino di emergenza per le macchine virtuali di Azure che eseguono la stessa funzionalità dei file server tradizionali:
+1.  Proteggere le macchine con Azure Site Recovery usando i passaggi indicati [qui](azure-to-azure-quickstart.md).
 2.  Usare Sincronizzazione file di Azure per replicare i file dalla macchina virtuale che funge da file server al cloud.
-3.  Usare la funzionalità di pianificazione del ripristino di Azure Site Recovery per aggiungere gli script per [montare la condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) e accedere alla condivisione nella macchina virtuale.
+3.  Usare la funzionalità di [pianificazione del ripristino](site-recovery-create-recovery-plans.md) di Azure Site Recovery per aggiungere gli script per [montare la condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) e accedere alla condivisione nella macchina virtuale.
 
 I passaggi seguenti descrivono brevemente come usare il servizio Sincronizzazione file di Azure:
 
-1. [Creare un account di archiviazione in Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se si è scelto Archiviazione con ridondanza geografica e accesso in lettura per gli account di archiviazione, si avrà l'accesso in lettura ai dati dall'area secondaria in caso di emergenza. Per altre informazioni, consultare le [strategie di ripristino di emergenza della condivisione file di Azure](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
-
-2. [Creare una condivisione file](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)
-
+1. [Creare un account di archiviazione in Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se si è scelto Archiviazione con ridondanza geografica e accesso in lettura per gli account di archiviazione, si ottiene l'accesso in lettura ai dati dall'area secondaria in caso di emergenza. Per altre informazioni, consultare le [strategie di ripristino di emergenza della condivisione file di Azure](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+2. [Creare una condivisione file](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Distribuire Sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) sul file server di Azure.
-
 4. Creare un gruppo di sincronizzazione: gli endpoint all'interno di un gruppo di sincronizzazione vengono mantenuti sincronizzati tra loro. Un gruppo di sincronizzazione deve contenere almeno un endpoint cloud, che rappresenta una condivisione file di Azure, e un endpoint server, che rappresenta un percorso in Windows Server.
 5.  I file ora verranno mantenuti sincronizzati tra la condivisione file di Azure e il server locale.
-6.  In caso di emergenza nell'ambiente locale procedere all'esecuzione come failover usando un piano di ripristino e aggiungere lo script per [montare la condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) e accedere alla condivisione nella macchina virtuale.
+6.  In caso di emergenza nell'ambiente locale, procedere all'esecuzione come failover usando un [piano di ripristino](site-recovery-create-recovery-plans.md) e aggiungere lo script per [montare la condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows) e accedere alla condivisione nella macchina virtuale.
 
 ### <a name="replicate-an-iaas-file-server-virtual-machine-using-azure-site-recovery"></a>Replicare una macchina virtuale che funge da file server IaaS usando Azure Site Recovery
 
-Se sono disponibili client locali che accedono alla macchina virtuale file server IaaS eseguire i primi 2 passaggi; in alternativa procedere al passaggio 3.
+Se sono disponibili client locali che accedono alla macchina virtuale file server IaaS eseguire anche i primi due passaggi, altrimenti proseguire con il passaggio 3.
 
-1. Stabilire la connessione VPN da sito a sito tra il sito locale e la rete Azure.  
-2. Estendere Active Directory locale.
-3. [Configurare il ripristino di emergenza](azure-to-azure-tutorial-enable-replication.md) per il computer di file server IaaS in un'area secondaria.
+1. Stabilire la connessione VPN da sito a sito tra il sito locale e la rete Azure.
+1. Estendere Active Directory locale.
+1. [Configurare il ripristino di emergenza](azure-to-azure-tutorial-enable-replication.md) per il computer di file server IaaS in un'area secondaria.
 
 
 Per altre informazioni sul ripristino di emergenza in un'area secondaria, fare riferimento [qui](concepts-azure-to-azure-architecture.md).
 
 
 ## <a name="replicate-an-on-premises-file-server-using-azure-site-recovery"></a>Replicare un file server locale usando Azure Site Recovery
-La procedura seguente descrive in dettaglio la replica per una macchina virtuale VMware; la replica per una macchina virtuale Hyper-V è descritta qui.
+
+La procedura seguente descrive in dettaglio la replica per una macchina virtuale VMware. Per i passaggi da seguire per replicare una macchina virtuale Hyper-V, vedere [qui](tutorial-hyper-v-to-azure.md).
 
 1.  [Preparare le risorse di Azure](tutorial-prepare-azure.md) per la replica dei computer locali.
 2.  Stabilire la connessione VPN da sito a sito tra il sito locale e la rete Azure.  
@@ -134,33 +131,26 @@ La procedura seguente descrive in dettaglio la replica per una macchina virtuale
 1.  Stabilire la connessione VPN da sito a sito tra il sito locale e la rete Azure. 
 2.  Estendere Active Directory locale.
 3.  [Creare ed eseguire il provisioning di un file server di VM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) nella rete virtuale di Microsoft Azure.
-
-    Verificare che la macchina virtuale sia stata aggiunta alla stessa rete virtuale di Microsoft Azure, che dispone della Cross Connection con l'ambiente locale. 
-
+Verificare che la macchina virtuale sia stata aggiunta alla stessa rete virtuale di Microsoft Azure, che dispone della Cross Connection con l'ambiente locale. 
 4.  Installare e [configurare la replica DFS](https://blogs.technet.microsoft.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx) in Windows Server.
-
 5.  [Implementare uno spazio dei nomi DFS](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/deploying-dfs-namespaces).
 6.  Con lo spazio dei nomi DFS implementato, è possibile eseguire il failover delle cartelle condivise dalla produzione ai siti di ripristino di emergenza aggiornando le destinazioni di cartelle dello spazio dei nomi DFS.  Dopo che queste modifiche dello spazio dei nomi DFS sono state replicate tramite Active Directory, gli utenti vengono connessi alle destinazioni di cartelle appropriate in modo trasparente.
 
 ## <a name="use-azure-file-sync-service-to-replicate-your-on-premises-files"></a>Usare il servizio Sincronizzazione file di Azure per replicare i file locali:
 Tramite il servizio Sincronizzazione file di Azure è possibile replicare i file desiderati nel cloud; in caso di emergenza e non disponibilità del file server locale è quindi possibile montare i percorsi di file desiderati dal cloud e continuare a soddisfare le richieste del servizio dalle macchine client.
 L'approccio consigliato per l'integrazione di Sincronizzazione file di Azure è il seguente:
-1.  Proteggere i computer di file server tramite Azure Site Recovery con i passaggi indicati [qui](tutorial-vmware-to-azure.md)
+1.  Proteggere le macchine virtuali file server tramite Azure Site Recovery seguendo i passaggi indicati [qui](tutorial-vmware-to-azure.md).
 2.  Usare Sincronizzazione file di Azure per replicare i file dal computer che funge da file server, nel cloud.
 3.  Usare la funzionalità di pianificazione di ripristino di Azure Site Recovery per aggiungere script per montare la condivisione file di Azure sulla macchina virtuale file server in cui è stato eseguito il failover in Azure.
 
 I passaggi di seguito descrivono in dettaglio l'utilizzo del servizio Sincronizzazione file di Azure:
 
-1. [Creare un account di archiviazione in Microsoft Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se si è scelto Archiviazione con ridondanza geografica e accesso in lettura (consigliato) per gli account di archiviazione, si avrà l'accesso in lettura ai dati dall'area secondaria in caso di emergenza. Per altre informazioni, consultare le [strategie di ripristino di emergenza della condivisione file di Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
-
-2. [Creare una condivisione file](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)
-
+1. [Creare un account di archiviazione in Microsoft Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se si è scelto Archiviazione con ridondanza geografica e accesso in lettura (consigliato) per gli account di archiviazione, si ha l'accesso in lettura ai dati dall'area secondaria in caso di emergenza. Per altre informazioni, consultare le [strategie di ripristino di emergenza della condivisione file di Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+2. [Creare una condivisione file](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Distribuire Sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) nel file server locale.
-
 4. Creare un gruppo di sincronizzazione: gli endpoint all'interno di un gruppo di sincronizzazione vengono mantenuti sincronizzati tra loro. Un gruppo di sincronizzazione deve contenere almeno un endpoint cloud, che rappresenta una condivisione file di Azure, e un endpoint server, che rappresenta un percorso in Windows Server locale.
-
 1. I file ora verranno mantenuti sincronizzati tra la condivisione file di Azure e il server locale.
-6.  In caso di emergenza nell'ambiente locale procedere all'esecuzione come failover usando un piano di ripristino e aggiungere lo script per montare la condivisione file di Azure e accedere alla condivisione nella macchina virtuale.
+6.  In caso di emergenza nell'ambiente locale procedere all'esecuzione come failover usando un [piano di ripristino](site-recovery-create-recovery-plans.md) e aggiungere lo script per montare la condivisione file di Azure e accedere alla condivisione nella macchina virtuale.
 
 > [!NOTE]
 > Assicurarsi che la porta 445 sia aperta: File di Azure usa il protocollo SMB. SMB comunica tramite la porta TCP 445: verificare che il firewall non blocchi le porte TCP 445 dal computer client.
@@ -186,4 +176,4 @@ Per le linee guida su come eseguire il failover di test per Active Directory e D
 3.  Fare clic su 'Failover'.
 4.  Selezionare il punto di recupero per avviare il processo di failover.
 
-Per altre informazioni sull'esecuzione del failover di test, vedere [qui](site-recovery-failover.md).
+Per altre informazioni sull'esecuzione di un failover di test, vedere [qui](site-recovery-failover.md).

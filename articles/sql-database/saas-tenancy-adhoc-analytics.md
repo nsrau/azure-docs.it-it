@@ -1,6 +1,6 @@
 ---
 title: "Eseguire query di reporting ad hoc su più database SQL di Azure | Microsoft Docs"
-description: "Eseguire query di analisi ad hoc su più database SQL in un esempio di app multi-tenant."
+description: "Eseguire query di reporting ad hoc su più database SQL in un esempio di app multi-tenant."
 keywords: esercitazione database SQL
 services: sql-database
 documentationcenter: 
@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: articles
 ms.date: 11/13/2017
 ms.author: billgib; sstein; AyoOlubeko
-ms.openlocfilehash: db8a079c76f38bbf7b90f8d914ce1bbf192343d7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: ddad47ccac57ddbb9387709ababbc5be6bad3462
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Eseguire query di reporting ad hoc su più database SQL di Azure
 
-In questa esercitazione si eseguono query distribuite sull'intero set di database tenant per consentire il reporting ad hoc interattivo. Queste query consentono di estrarre informazioni approfondite nascoste nei dati operativi quotidiani dell'app SaaS Wingtip Tickets. Si richiede a tal fine la distribuzione di un database di analisi aggiuntivo nel server di catalogo e l'uso di query elastica per abilitare le query distribuite.
+In questa esercitazione si eseguono query distribuite sull'intero set di database tenant per consentire il reporting ad hoc interattivo. Queste query consentono di estrarre informazioni approfondite nascoste nei dati operativi quotidiani dell'app SaaS Wingtip Tickets. A questo scopo, si richiede la distribuzione di un database di analisi aggiuntivo nel server di catalogo e l'uso di query elastica per abilitare le query distribuite.
 
 
 In questa esercitazione si apprenderà:
@@ -57,13 +57,13 @@ Grazie alla distribuzione delle query tra i database tenant, la query elastica o
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Ottenere gli script dell'applicazione del database per tenant SaaS Wingtip Tickets
 
-Gli script e il codice sorgente dell'applicazione database per tenant SaaS Wingtip Tickets sono disponibili nel [repository GitHub WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/). Assicurarsi di seguire i passaggi di blocco descritti nel file Leggimi.
+Gli script e il codice sorgente dell'applicazione SaaS di database multi-tenant Wingtip Tickets sono disponibili nel repository [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) di GitHub. Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
 
 ## <a name="create-ticket-sales-data"></a>Creare i dati di vendita dei biglietti
 
 Per eseguire query su un set di dati più interessante, creare i dati di vendita dei biglietti eseguendo il generatore di biglietti.
 
-1. In *PowerShell ISE* aprire lo script ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocAnalytics.ps1* e impostare i valori seguenti:
+1. In *PowerShell ISE* aprire lo script ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\*Demo-AdhocReporting.ps1* e impostare i valori seguenti:
    * **$DemoScenario** = 1, **Acquistare biglietti per gli eventi in tutte le sedi**.
 2. Premere **F5** per eseguire lo script e generare i dati di vendita dei biglietti. Durante l'esecuzione dello script, è possibile continuare la procedura in questa esercitazione. I dati sui biglietti vengono recuperati nella sezione *Eseguire query distribuite ad hoc*, quindi attendere che il generatore di biglietti completi le operazioni.
 
@@ -73,7 +73,7 @@ Nell'applicazione database per tenant SaaS Wingtip Tickets a ogni tenant viene a
 
 Per simulare questo modello, viene aggiunto un set di viste "globali" al database tenant che proiettano un ID tenant in ogni tabella sottoposta a query a livello globale. Ad esempio, la vista *VenueEvents* aggiunge un *VenueId* calcolato alle colonne proiettate dalla tabella *Events*. Le viste *VenueTicketPurchases* e *VenueTickets*, analogamente, aggiungono una colonna *VenueId* calcolata proiettata dalle rispettive tabelle. Tali viste vengono usate dalla query elastica per parallelizzare le query ed eseguirne il push al database tenant remoto appropriato quando è presente una colonna *VenueId*. Questo riduce drasticamente la quantità di dati restituita e determina un miglioramento sostanziale delle prestazioni per molte query. Queste viste globali sono state già create in tutti i database tenant.
 
-1. Aprire SSMS e [connettersi al server tenants1-&lt;USER&gt;](saas-dbpertenant-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
+1. Aprire SSMS e [connettersi al server tenants1-&lt;USER&gt;](saas-tenancy-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
 2. Espandere **Database**, fare clic con il pulsante destro del mouse su **contosoconcerthall** e selezionare **Nuova query**.
 3. Eseguire le query seguenti per esplorare la differenza tra le tabelle a tenant singolo e le viste globali:
 
@@ -95,7 +95,7 @@ In queste viste, *VenueId* viene calcolato come hash del nome Venue, ma si può 
 
 Per esaminare la definizione della vista *Venues*:
 
-1. In **Esplora oggetti** espandere **contosoconcethall** > **Viste**:
+1. In **Esplora oggetti** espandere **contosoconcerthall** > **Viste**:
 
    ![Viste](media/saas-tenancy-adhoc-analytics/views.png)
 
@@ -121,13 +121,13 @@ Questo esercizio aggiunge lo schema (definizioni dell'origine dati esterna e del
 
 1. Aprire SQL Server Management Studio e connettersi al database di reporting ad hoc creato nel passaggio precedente. Il nome del database è *adhocreporting*.
 2. Aprire ...\Learning Modules\Operational Analytics\Adhoc Reporting\ *Initialize-AdhocReportingDB.sql* in SQL Server Management Studio.
-3. Esaminare lo script SQL e tenere presente quanto segue:
+3. Esaminare lo script SQL e annotare quanto segue:
 
    La query elastica usa credenziali con ambito database per accedere a ognuno dei database tenant. Tali credenziali devono essere disponibili in tutti i database e, in genere, devono avere i diritti minimi necessari per abilitare le query ad hoc.
 
     ![creare le credenziali](media/saas-tenancy-adhoc-analytics/create-credential.png)
 
-   L'origine dati esterna, definita in modo da usare la mappa partizioni del tenant nel database del catalogo. Usando questa come origine dati esterna, le query verranno distribuite a tutti i database registrati nel catalogo nel momento in cui viene eseguita la query. Dato che i nomi dei server sono diversi per ogni distribuzione, questo script di inizializzazione ottiene la posizione del database del catalogo recuperando il server corrente (@@servername) in cui viene eseguito lo script.
+   Usando questo database di catalogo come origine dati esterna, le query vengono distribuite a tutti i database registrati nel catalogo nel momento in cui viene eseguita la query. Dato che i nomi dei server sono diversi per ogni distribuzione, questo script di inizializzazione ottiene la posizione del database del catalogo recuperando il server corrente (@@servername) in cui viene eseguito lo script.
 
     ![creare l'origine dati esterna](media/saas-tenancy-adhoc-analytics/create-external-data-source.png)
 
@@ -160,7 +160,7 @@ Quando si esamina il piano di esecuzione, passare il mouse sulle icone del piano
 
    La query restituisce l'intero elenco di sedi, dimostrando come sia semplice e veloce eseguire una query su tutti i tenant e restituire i dati da ogni tenant.
 
-   Esaminare il piano e notare che l'intero costo è la query remota, perché l'operazione prevede semplicemente il passaggio a ogni database tenant e la selezione delle informazioni sulle sedi degli eventi.
+   Esaminare il piano e notare che l'intero costo è costituito dalla query remota, poiché ogni database tenant gestisce la propria query e restituisce informazioni sulle sedi degli eventi.
 
    ![SELECT * FROM dbo.Venues](media/saas-tenancy-adhoc-analytics/query1-plan.png)
 
@@ -168,13 +168,13 @@ Quando si esamina il piano di esecuzione, passare il mouse sulle icone del piano
 
    La query unisce i dati dai database tenant e dalla tabella locale *VenueTypes* (locale perché è una tabella nel database *adhocreporting*).
 
-   Esaminare il piano e verificare che la maggior parte del costo è rappresentato dalla query remota, perché vengono recuperate le informazioni sulle sedi di ogni tenant (dbo.Venues) e quindi si esegue un rapido join locale con la tabella *VenueTypes* locale per visualizzare il nome descrittivo.
+   Esaminare il piano e notare che la maggior parte del costo è rappresentato dalla query remota. Ogni database tenant restituisce informazioni sulle sedi degli eventi ed esegue un join locale con la tabella *VenueTypes* locale per visualizzare il nome descrittivo.
 
    ![Creare un join su dati remoti e locali](media/saas-tenancy-adhoc-analytics/query2-plan.png)
 
 6. Selezionare ora la query *On which day were the most tickets sold?* e premere **F5**.
 
-   Questa query esegue operazioni un po' più complesse di join e aggregazione. È importante tenere presente che la maggior parte dell'elaborazione viene eseguita in remoto e ancora una volta vengono recuperate solo le righe necessarie, restituendo una singola riga per il totale delle vendite di biglietti aggregato al giorno di ogni sede.
+   Questa query esegue operazioni un po' più complesse di join e aggregazione. È importante tenere presente che la maggior parte dell'elaborazione viene eseguita in remoto e, ancora una volta, vengono restituite solo le righe necessarie, ovvero una singola riga per il totale delle vendite di biglietti aggregato al giorno di ogni sede.
 
    ![query](media/saas-tenancy-adhoc-analytics/query3-plan.png)
 

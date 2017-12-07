@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: AyoOlubeko
-ms.openlocfilehash: c85dec1023e4d4f0a14dfbc249850b6dc6e78edf
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c0ed3eb344ea8ec7e2d3e86125d60c8cc28f723d
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Eseguire query di reporting ad hoc su più database SQL di Azure
 
@@ -52,12 +52,11 @@ L'accesso a questi dati è semplice quando sono raccolti in un singolo database 
 
 Grazie alla distribuzione delle query tra i database tenant, la query elastica offre informazioni dettagliate immediate sui dati di produzione attivi. Tuttavia, dato che la query elastica esegue il pull dei dati potenzialmente da molti database, la latenza delle query può talvolta essere superiore a quella di query equivalenti inviate a un singolo database multi-tenant. Assicurarsi di progettare query che riducano al minimo i dati restituiti. La query elastica è spesso la soluzione ideale per eseguire query su piccole quantità di dati in tempo reale, in alternativa alla creazione di query analitiche o report usati di frequente e complessi. Se le query non offrono prestazioni adeguate, esaminare il [piano di esecuzione](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) per scoprire quale parte della query è stata inviata al database remoto e quanti dati vengono restituiti. Per ottenere un servizio migliore per le query che richiedono un'elaborazione analitica complessa, in alcuni casi è consigliabile salvare i dati tenant estratti in un database ottimizzato per le query analitiche. Database SQL e SQL Data Warehouse possono ospitare un database analitico di questo tipo.
 
-<!-- ?? This pattern for analytics is explained in the [tenant analytics tutorial](saas-multitenantdb-tenant-analytics.md).
--->
+Questo modello di analisi è spiegato nell'[esercitazione sull'analisi dei tenant](saas-multitenantdb-tenant-analytics.md).
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-scripts"></a>Ottenere gli script dell'applicazione SaaS di database multi-tenant Wingtip Tickets
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Ottenere gli script e il codice sorgente dell'applicazione SaaS di database multi-tenant Wingtip Tickets
 
-Gli script e il codice sorgente dell'applicazione SaaS di database multi-tenant Wingtip Tickets sono disponibili nel repository [WingtipTicketsSaaS-MultiTenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) di GitHub. Assicurarsi di seguire i passaggi di sblocco descritti nel file Leggimi.
+Gli script e il codice sorgente dell'applicazione SaaS di database multi-tenant Wingtip Tickets sono disponibili nel repository [WingtipTicketsSaaS-MultiTenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) di GitHub. Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
 
 ## <a name="create-ticket-sales-data"></a>Creare i dati di vendita dei biglietti
 
@@ -96,7 +95,7 @@ Questo esercizio aggiunge lo schema (definizioni dell'origine dati esterna e del
 
     ![creare le credenziali](media/saas-multitenantdb-adhoc-reporting/create-credential.png)
 
-   L'origine dati esterna, definita in modo da usare la mappa partizioni del tenant nel database del catalogo. Usando questa come origine dati esterna, le query verranno distribuite a tutti i database registrati nel catalogo nel momento in cui viene eseguita la query. Dato che i nomi dei server sono diversi per ogni distribuzione, questo script di inizializzazione ottiene la posizione del database del catalogo recuperando il server corrente (@@servername) in cui viene eseguito lo script.
+   Usando questo database di catalogo come origine dati esterna, le query vengono distribuite a tutti i database registrati nel catalogo nel momento in cui viene eseguita la query. Dato che i nomi dei server sono diversi per ogni distribuzione, questo script di inizializzazione ottiene la posizione del database del catalogo recuperando il server corrente (@@servername) in cui viene eseguito lo script.
 
     ![creare l'origine dati esterna](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
@@ -120,7 +119,7 @@ Dopo avere configurato il database *adhocreporting*, è possibile procedere ed e
 
 Quando si esamina il piano di esecuzione, passare il mouse sulle icone del piano per visualizzare i dettagli. 
 
-1. Aprire ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* in SQL Server Management Studio.
+1. In *SSMS* aprire ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql*.
 2. Assicurarsi di essere connessi al database **adhocreporting**.
 3. Selezionare il menu **Query** e fare clic su **Includi piano di esecuzione effettivo**
 4. Evidenziare la query *Which venues are currently registered?* e premere **F5**.
@@ -155,9 +154,7 @@ In questa esercitazione si è appreso come:
 > * Eseguire query distribuite su tutti i database tenant
 > * Distribuire un database di reporting ad hoc e aggiungervi lo schema per eseguire query distribuite.
 
-<!-- ??
-Now try the [Tenant Analytics tutorial](saas-multitenantdb-tenant-analytics.md) to explore extracting data to a separate analytics database for more complex analytics processing...
--->
+Eseguire ora l'[esercitazione sull'analisi dei tenant](saas-multitenantdb-tenant-analytics.md) per esaminare l'estrazione dei dati in un database di analisi separato per elaborazioni analitiche più complesse.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -1,5 +1,5 @@
 ---
-title: Esportare in Power BI da Application Insights | Documentazione Microsoft
+title: Esportare dati in Power BI da Azure Application Insights | Microsoft Docs
 description: Le query di Analisi possono essere visualizzate in Power BI.
 services: application-insights
 documentationcenter: 
@@ -13,115 +13,117 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: ae204b79be228d55b30bb543dd25efdd9c3f0436
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 19595983ba49a88d9139c85afbf38d3106d4a81d
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed di Power BI da Application Insights
-[Power BI](http://www.powerbi.com/) è una suite di strumenti di analisi business che consente di analizzare i dati e condividere informazioni dettagliate. Dashboard completi sono disponibili in tutti i dispositivi. È possibile combinare dati provenienti da diverse origini, incluse le query di Analytics di [Azure Application Insights](app-insights-overview.md).
+[Power BI](http://www.powerbi.com/) è un insieme di strumenti aziendali che consente di analizzare i dati e condividere informazioni dettagliate e significative. Dashboard completi sono disponibili in tutti i dispositivi. È possibile combinare dati provenienti da diverse origini, incluse le query di Analytics di [Azure Application Insights](app-insights-overview.md).
 
 Esistono tre metodi consigliati per esportare i dati di Application Insights in Power BI. Possono essere usati insieme o separatamente.
 
-* [**Adattatore Power BI**](#power-pi-adapter): consente di impostare un dashboard di dati di telemetria completo dall'app. Il set di tabelle è predefinito, ma è possibile aggiungere query da qualsiasi altra origine.
-* [**Esportazione di query di Analisi**](#export-analytics-queries): è possibile scrivere qualsiasi query tramite lo strumento Analisi o dalla visualizzazione Imbuto ed esportarla in Power BI. È possibile inserire questa query in un dashboard insieme a tutti gli altri dati.
-* [**Esportazione continua e analisi di flusso**](app-insights-export-stream-analytics.md): l'impostazione è più impegnativa. È utile se si desidera conservare i dati per lunghi periodi. Altrimenti, si consiglia di usare gli altri metodi.
+* [**Adattatore Power BI**](#power-pi-adapter). Configurare un dashboard di dati di telemetria completo dall'app. Il set di tabelle è predefinito, ma è possibile aggiungere query da qualsiasi altra origine.
+* [**Esportare query di Analisi**](#export-analytics-queries). Scrivere le query desiderate ed esportarle in Power BI. Per scrivere una query è possibile usare Analisi o le visualizzazioni Imbuto. La query può essere inserita in un dashboard, insieme a tutti gli altri dati.
+* [**Esportazione continua e Analisi di flusso di Azure**](app-insights-export-stream-analytics.md). Questo metodo è utile se i dati devono essere mantenuti a lungo. In caso contrario, usare uno degli altri metodi, poiché questo richiede un maggiore lavoro di configurazione.
 
 ## <a name="power-bi-adapter"></a>Adattatore Power BI
 Con questo metodo si crea un dashboard di dati di telemetria completo per l'utente. Il set di dati iniziale è predefinito, ma è possibile aggiungere altri dati.
 
 ### <a name="get-the-adapter"></a>Scaricare l'adattatore
 1. Accedere a [Power BI](https://app.powerbi.com/).
-2. Aprire **Get Data** (Ottieni dati), **Servizi**, **Application Insights**
+2. Aprire **Recupera dati**, **Servizi** e quindi **Application Insights**.
    
-    ![Scaricare da un'origine dati di Application Insights](./media/app-insights-export-power-bi/power-bi-adapter.png)
+    ![Screenshot per il recupero di dati dall'origine dati di Application Insights](./media/app-insights-export-power-bi/power-bi-adapter.png)
 3. Specificare i dettagli della risorsa di Application Insights.
    
-    ![Scaricare da un'origine dati di Application Insights](./media/app-insights-export-power-bi/azure-subscription-resource-group-name.png)
+    ![Screenshot per il recupero di dati dall'origine dati di Application Insights](./media/app-insights-export-power-bi/azure-subscription-resource-group-name.png)
 4. Attendere uno o due minuti per il completamento dell'importazione dei dati.
    
-    ![Adattatore Power BI](./media/app-insights-export-power-bi/010.png)
+    ![Screenshot dell'adattatore Power BI](./media/app-insights-export-power-bi/010.png)
 
-È possibile modificare il dashboard unendo i grafici di Application Insights con i grafici di altre origini e con le query di Analisi. È disponibile una raccolta di visualizzazioni nella quale è possibile ottenere più grafici e ogni grafico include parametri che possono essere impostati.
+È possibile modificare il dashboard unendo i grafici di Application Insights con i grafici di altre origini e con le query di Analisi. Nella raccolta di visualizzazioni sono disponibili più grafici, ciascuno dei quali include parametri che è possibile impostare.
 
 Dopo l'importazione iniziale, il dashboard e i report continuano a essere aggiornati ogni giorno. È possibile controllare la pianificazione dell'aggiornamento nel set di dati.
 
 ## <a name="export-analytics-queries"></a>Esportare query di Analisi
-Questo percorso consente di scrivere tutte le query di Analisi desiderate o di esportarle dalla visualizzazione Imbuto e quindi esportarle in un dashboard di Power BI. È possibile aggiungerle al dashboard creato dall'adattatore.
+Questo metodo consente di scrivere tutte le query di Analisi desiderate, o di esportarle dalle visualizzazioni Imbuto, e quindi di inserirle in un dashboard di Power BI. È possibile aggiungerle al dashboard creato dall'adattatore.
 
 ### <a name="one-time-install-power-bi-desktop"></a>Operazione da eseguire una sola volta: installazione di Power BI Desktop
-Per importare la query di Application Insights, usare la versione desktop di Power BI. Tuttavia, successivamente è possibile pubblicarla sul Web o nell'area di lavoro cloud di Power BI. 
+Per importare la query di Application Insights, usare la versione desktop di Power BI. Sarà quindi possibile pubblicarla sul Web o nell'area di lavoro cloud di Power BI. 
 
 Installare [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Esportare una query di Analisi
 1. [Aprire Analisi e scrivere la query](app-insights-analytics-tour.md).
-2. Testare e affinare la query fino a quando non si è soddisfatti dei risultati.
-
-   **Verificare che la query venga eseguita correttamente in Analytics prima di esportarla.**
+2. Testare e affinare la query fino a quando non si è soddisfatti dei risultati. Verificare che la query venga eseguita correttamente in Analisi prima di esportarla.
 3. Nel menu **Esporta** scegliere **Power BI (M)**. Salvare il file di testo.
    
-    ![Esportare la query di Power BI](./media/app-insights-export-power-bi/analytics-export-power-bi.png)
-4. In Power BI Desktop selezionare **Get Data (Ottieni dati), Query vuota** e quindi nell'editor di query andare su **Visualizza** e selezionare **Editor query avanzata**.
+    ![Screenshot di Analisi con il menu Esporta evidenziato](./media/app-insights-export-power-bi/analytics-export-power-bi.png)
+4. In Power BI Desktop selezionare **Recupera dati** > **Query vuota**. Nella scheda **Visualizza** dell'editor di query selezionare **Editor avanzato**.
 
-    Incollare lo script del linguaggio M esportato nell'Editor query avanzata.
+    Nell'Editor avanzato incollare lo script in linguaggio M esportato.
 
-    ![Editor query avanzata](./media/app-insights-export-power-bi/power-bi-import-analytics-query.png)
+    ![Screenshot di Power BI Desktop, con l'Editor avanzato evidenziato](./media/app-insights-export-power-bi/power-bi-import-analytics-query.png)
 
-1. Potrebbe essere necessario fornire le credenziali per consentire a Power BI di accedere ad Azure. Andare su Account aziendale per accedere con l'account Microsoft.
+1. Per consentire a Power BI di accedere ad Azure può essere necessario specificare le credenziali. Scegliere **Account aziendale** per accedere con l'account Microsoft personale.
    
-    ![Specificare le credenziali di Azure per consentire a Power BI di eseguire la query di Application Insights](./media/app-insights-export-power-bi/power-bi-import-sign-in.png)
+    ![Screenshot della finestra di dialogo Impostazioni query di Power BI](./media/app-insights-export-power-bi/power-bi-import-sign-in.png)
 
-    Se è necessario verificare le credenziali, usare il comando di menu Impostazioni origine dati nell'editor di query. Assicurarsi di specificare le credenziali usate per Azure, che potrebbero essere diverse da quelle di Power BI.
-2. Scegliere una visualizzazione per la query e selezionare i campi per l'asse x, l'asse y e le dimensioni di segmentazione.
+    Se è necessario verificare le credenziali, usare il comando di menu **Impostazioni origine dati** nell'editor di query. Assicurarsi di specificare le credenziali usate per Azure, che potrebbero essere diverse da quelle di Power BI.
+2. Scegliere una visualizzazione per la query e selezionare i campi per le assi X e Y e per le dimensioni di segmentazione.
    
-    ![Selezionare la visualizzazione](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
+    ![Screenshot delle opzioni di visualizzazione di Power BI Desktop](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
 3. Pubblicare il report nell'area di lavoro cloud di Power BI. Da qui è possibile incorporare una versione sincronizzata in altre pagine Web.
    
-    ![Selezionare la visualizzazione](./media/app-insights-export-power-bi/publish-power-bi.png)
+    ![Screenshot di Power BI Desktop, con il pulsante Pubblica evidenziato](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. Aggiornare manualmente il report a intervalli oppure impostare un aggiornamento pianificato nella pagina Opzioni.
 
 ### <a name="export-a-funnel"></a>Esportare una visualizzazione Imbuto
-1. [Creare la propria visualizzazione Imbuto](usage-funnels.md)
-2. Fare clic sul pulsante Power BI. 
+1. [Creare una visualizzazione Imbuto](usage-funnels.md).
+2. Selezionare **Power BI**. 
 
-   ![Pulsante Power BI](./media/app-insights-export-power-bi/button.png)
+   ![Screenshot del pulsante Power BI](./media/app-insights-export-power-bi/button.png)
    
-3. In Power BI Desktop selezionare **Recupera dati e Query vuota** e quindi nell'editor di query in **Visualizza** selezionare **Editor query avanzata**.
+3. In Power BI Desktop selezionare **Recupera dati** > **Query vuota**. Nella scheda **Visualizza** dell'editor di query selezionare **Editor avanzato**.
 
-   ![Query vuota](./media/app-insights-export-power-bi/blankquery.png)
+   ![Screenshot di Power BI Desktop, con il pulsante Query vuota evidenziato](./media/app-insights-export-power-bi/blankquery.png)
 
-   Incollare lo script del linguaggio M esportato nell'Editor query avanzata. 
+   Nell'Editor avanzato incollare lo script in linguaggio M esportato. 
 
-   ![Editor query avanzata](./media/app-insights-export-power-bi/advancedquery.png)
+   ![Screenshot di Power BI Desktop, con l'Editor avanzato evidenziato](./media/app-insights-export-power-bi/advancedquery.png)
 
-4. Selezionare gli elementi nella query e scegliere la visualizzazione Imbuto
+4. Selezionare gli elementi dalla query e scegliere una visualizzazione Imbuto.
 
-   ![Selezionare una sequenza e una visualizzazione Imbuto](./media/app-insights-export-power-bi/selectsequence.png)
+   ![Screenshot delle opzioni di visualizzazione di Power BI Desktop](./media/app-insights-export-power-bi/selectsequence.png)
 
-5. Modificare il titolo per renderlo più significativo e pubblicare il report nell'area di lavoro del cloud di Power BI. 
+5. Modificare il titolo specificando un testo significativo e pubblicare il report nell'area di lavoro cloud di Power BI. 
 
-   ![Modificare il titolo](./media/app-insights-export-power-bi/changetitle.png)
+   ![Screenshot di Power BI Desktop, con la modifica del titolo evidenziata](./media/app-insights-export-power-bi/changetitle.png)
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-### <a name="401-or-403-unauthorized"></a>401 o 403 - Non autorizzato 
-Questo errore può verificarsi se il token di aggiornamento non è stato aggiornato. Provare a eseguire la procedura seguente per verificare di avere ancora accesso. Se si ha accesso e non è possibile aggiornare le credenziali, aprire un ticket di supporto.
+È possibile che vengano restituiti errori relativi alle credenziali o alla dimensione del set di dati. Ecco alcune informazioni su come gestirli.
 
-1. Accedere al portale di Azure e verificare di poter accedere alla risorsa
-2. Provare ad aggiornare le credenziali per il dashboard
+### <a name="unauthorized-401-or-403"></a>Non autorizzato (401 o 403)
+Questo errore può verificarsi se il token di aggiornamento non è stato aggiornato. Provare a eseguire questi passaggi per verificare di avere ancora i diritti di accesso:
 
-### <a name="502-bad-gateway"></a>502 - Gateway non valido
-Questo errore è in genere causato da una query di Analisi che restituisce troppi dati. Provare a usare un intervallo di tempo minore oppure usare le funzioni [ago](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#ago) o [startofweek/startofmonth](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#startofweek) per [includere tramite l'operatore project](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-reference#project-operator) solo i campi necessari.
+1. Accedere al portale di Azure e verificare di poter accedere alla risorsa.
+2. Provare ad aggiornare le credenziali per il dashboard.
 
-Se la riduzione del set di dati proveniente dalla query di Analisi non soddisfa i propri requisiti, può essere utile usare l'[API](https://dev.applicationinsights.io/documentation/overview) per estrarre un set di dati di dimensioni maggiori. Di seguito sono riportate le istruzioni per convertire l'esportazione della query M per l'uso dell'API.
+ Se si ha accesso e non è possibile aggiornare le credenziali, aprire un ticket di supporto.
 
-1. Creare una [chiave API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)
-2. Aggiornare lo script M di Power BI esportato da Analisi sostituendo l'URL ARM con l'API AI (vedere l'esempio seguente)
+### <a name="bad-gateway-502"></a>Gateway non valido (502)
+Questo errore è in genere causato da una query di Analisi che restituisce troppi dati. Provare a usare un intervallo di tempo più breve per la query. 
+
+Se la riduzione del set di dati risultante dalla query di Analisi non è una soluzione adeguata alle proprie esigenze, valutare l'opportunità di usare l'[API](https://dev.applicationinsights.io/documentation/overview) per estrarre un set di dati di dimensioni maggiori. Per convertire l'esportazione della query M per l'uso dell'API, seguire questa procedura.
+
+1. Creare una [chiave API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
+2. Aggiornare lo script M di Power BI esportato da Analisi sostituendo l'URL di Azure Resource Manager con l'API di Application Insights.
    * Sostituire **https://management.azure.com/subscriptions/...**
    * con **https://api.applicationinsights.io/beta/apps/...**
-3. Infine, aggiornare le credenziali in credenziali base e usare la chiave API
+3. Aggiornare infine le credenziali in credenziali di base e usare la chiave API.
   
 
 **Script esistente**
@@ -134,7 +136,7 @@ Se la riduzione del set di dati proveniente dalla query di Analisi non soddisfa 
  ```
 
 ## <a name="about-sampling"></a>Informazioni sul campionamento
-Se l'applicazione invia una grande quantità di dati, la funzionalità di campionamento adattivo può essere usata e inviare solo una percentuale dei dati di telemetria. La stessa considerazione vale se il campionamento è stato impostato manualmente nell'SDK o durante l'inserimento. [Altre informazioni sul campionamento.](app-insights-sampling.md)
+Se l'applicazione invia una grande quantità di dati, può essere opportuno usare la funzionalità di campionamento adattivo, che invia solo una percentuale dei dati di telemetria. La stessa considerazione vale se il campionamento è stato impostato manualmente nell'SDK o durante l'inserimento. [Altre informazioni sul campionamento](app-insights-sampling.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

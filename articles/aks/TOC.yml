@@ -31,6 +31,8 @@
       href: tutorial-kubernetes-upgrade-cluster.md
 - name: Guide alle procedure
   items:
+    - name: Eseguire l'integrazione con Azure tramite OSBA
+      href: integrate-azure.md
     - name: Ridimensionare un cluster del servizio contenitore di Azure
       href: scale-cluster.md
     - name: Aggiornare un cluster del servizio contenitore di Azure

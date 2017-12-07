@@ -55,5 +55,7 @@ sections:
         items:
           - title: Riga di comando
             html: <p><a href="/cli/azure/acr">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
+          - title: Lingue
+            html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
           - title: REST
-            html: <p><a href="/rest/api/containerregistry">Informazioni di riferimento sulle API REST</a></p>
+            html: <p><a href="/rest/api/containerregistry">Informazioni di riferimento sulle API REST</a></p><p><a href="/azure/templates/microsoft.containerregistry/registries">Modello di Resource Manager</a></p><p><a href="/azure/container-registry/container-registry-webhook-reference">Schema dei webhook</a></p>

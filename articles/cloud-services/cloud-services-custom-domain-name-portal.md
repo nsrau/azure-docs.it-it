@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: afda0bc79a26c8cb9736c754a681ebb602e41af1
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 139ec6578dc9e76039c5fb13e7a7741aa8ba4e0d
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure
 Quando si crea un servizo cloud, Azure lo assegna a un sottodominio di **cloudapp.net**. Ad esempio, se il servizio cloud è denominato "contoso", gli utenti saranno in grado di accedere all'applicazione da un URL come http://contoso.cloudapp.net. Azure assegna anche un indirizzo IP virtuale.
@@ -28,7 +28,7 @@ Quando si crea un servizo cloud, Azure lo assegna a un sottodominio di **cloudap
 Se si conoscono già i record CNAME e A, [saltare la spiegazione](#add-a-cname-record-for-your-custom-domain).
 
 > [!NOTE]
-> Le procedure in questa attività si applicano ai servizi cloud di Azure. Per Servizi app, vedere [questo articolo](../app-service/app-service-web-tutorial-custom-domain.md). Per gli account di archiviazione, vedere [questo articolo](../storage/blobs/storage-custom-domain-name.md).
+> Le procedure in questa attività si applicano ai servizi cloud di Azure. Per Servizi app, vedere [Esecuzione del mapping di un nome DNS personalizzato esistente con un app Web di Azure](../app-service/app-service-web-tutorial-custom-domain.md). Per gli account di archiviazione, vedere [Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB](../storage/blobs/storage-custom-domain-name.md).
 > 
 > 
 

@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 11/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a8024a12c4a79e92e37df0a56b6e6bd0cb6a8d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Risolvere gli errori di quota delle risorse
 
@@ -93,9 +93,29 @@ Virtual Machines                             0 10000 Count
 
 ### <a name="solution-3"></a>Soluzione 3
 
-Se è necessario aumentare il limite di quota, accedere al portale e rivolgersi all'assistenza per richiedere l'aumento della quota per l'area di destinazione della distribuzione.
+Per ottenere un aumento della quota, accedere al portale e inviare una richiesta di supporto. Nella richiesta specificare un aumento della quota per l'area di destinazione della distribuzione.
 
 > [!NOTE]
 > Tenere presente che per i gruppi di risorse, la quota è riferita alle singole aree e non all'intera sottoscrizione. Se è necessario distribuire 30 core nell'area Stati Uniti occidentali, è necessario richiedere 30 core di gestione delle risorse per Stati Uniti occidentali. Se è necessario distribuire 30 core in qualsiasi area a cui si ha accesso, è consigliabile richiedere 30 core di Resource Manager in tutte le aree.
 >
 >
+
+1. Selezionare **Sottoscrizioni**.
+
+   ![Sottoscrizioni](./media/resource-manager-quota-errors/subscriptions.png)
+
+2. Selezionare la sottoscrizione per cui è necessario ottenere un aumento della quota.
+
+   ![Selezionare la sottoscrizione](./media/resource-manager-quota-errors/select-subscription.png)
+
+3. Selezionare **Utilizzo e quote**.
+
+   ![Selezionare Utilizzo e quote](./media/resource-manager-quota-errors/select-usage-quotas.png)
+
+4. Nell'angolo superiore destro selezionare **Richiedi aumento**.
+
+   ![Richiedi aumento](./media/resource-manager-quota-errors/request-increase.png)
+
+5. Compilare i moduli per il tipo di quota che è necessario aumentare.
+
+   ![Compilare i moduli](./media/resource-manager-quota-errors/forms.png)

@@ -16,11 +16,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: d9816f53e1d0e09f938452a022c75a3d20a43da4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a5eab88e10b330bf4da88c01d24a11e95277439
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrazione di applicazioni con Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -178,7 +178,7 @@ La sezione seguente illustra come esporre gli ambiti di accesso modificando il m
   }
   ```
   > [!NOTE]
-  > Il valore "id" deve essere generato usando uno strumenti di creazione di GUID come [guidgen]](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) o a livello di codice. Rappresenta un identificatore univoco per l'ambio esposto dall'API Web. Quando un client è configurato in modo appropriato con le autorizzazioni per accedere all'API web, viene generato un token di accesso OAuth 2.0 da Azure AD. Quando il client chiama l'API Web, presenta il token di accesso che ha l'attestazione di ambito (scp) impostata sulle autorizzazioni richieste nella registrazione della relativa applicazione.
+  > Il valore "id" deve essere generato a livello di codice oppure usando uno strumento per la generazione di GUID, ad esempio [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). Rappresenta un identificatore univoco per l'ambio esposto dall'API Web. Dopo che un client è stato configurato in modo appropriato con le autorizzazioni di accesso all'API Web, viene generato un token di accesso OAuth 2.0 da Azure AD. Quando il client chiama l'API Web, presenta il token di accesso che ha l'attestazione di ambito (scp) impostata sulle autorizzazioni richieste nella registrazione della relativa applicazione.
   >
   > Se necessario, è possibile esporre altri ambiti successivamente. Tenere presente che l'API Web può esporre più ambiti associati a molte funzioni diverse. La risorsa può controllare l'accesso all'API Web in fase di esecuzione, valutando l'attestazione (o le attestazioni) di ambito (`scp`) nel token di accesso OAuth 2.0 ricevuto.
   > 

@@ -1,9 +1,9 @@
 ---
-title: Come installare un server di destinazione master Linux per il failover da Azure a locale | Documentazione Microsoft
+title: Come installare un server di destinazione master Linux per il failover da Azure a locale | Microsoft Docs
 description: "Prima di eseguire la riprotezione di una macchina virtuale Linux, è necessario dotarsi di un server di destinazione master Linux. Di seguito viene descritto come installarlo."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 08/11/2017
-ms.author: ruturajd
-ms.openlocfilehash: 5341e3e56e0c366079958dd9a885f6ee3e8436cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: 7b2416617696e1df30b08f039ab39bfe7b57e093
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-linux-master-target-server"></a>Installare un server di destinazione master Linux
 Dopo aver eseguito il failover delle macchine virtuali, è possibile eseguirne il failback nel sito locale. Per eseguire il failback, è necessario riproteggere la macchina virtuale da Azure al sito locale. A tale scopo, è necessario un server di destinazione master locale che riceva il traffico. 
@@ -206,7 +206,7 @@ Per abilitare il parametro, attenersi alla procedura seguente:
 
 #### <a name="disable-kernel-upgrades"></a>Disabilitare gli aggiornamenti del kernel
 
-Dato che il server di destinazione master per Azure Site Recovery richiede una versione molto specifica di Ubuntu, assicurarsi che gli aggiornamenti del kernel siano disabilitati per la macchina virtuale.
+Dato che il server di destinazione master per Azure Site Recovery richiede una versione specifica di Ubuntu, verificare che gli aggiornamenti del kernel siano disabilitati per la macchina virtuale.
 
 Se sono abilitati, eventuali aggiornamenti regolari causeranno malfunzionamenti del server di destinazione master.
 
@@ -369,12 +369,12 @@ Dopo aver completato l'installazione, registrare il server di configurazione tra
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
     ```
 
-   Attendere il termine dello script. Se il server di destinazione master viene registrato correttamente, viene elencato nella pagina **Infrastruttura di Site Recovery** nel portale.
+   Attendere il termine dello script. Se registrato correttamente, il server di destinazione master viene elencato nella pagina **Infrastruttura di Site Recovery** del portale.
 
 
 ### <a name="upgrade-the-master-target"></a>Aggiornare il server di destinazione master
 
-Eseguire il programma di installazione. Tale programma rileva automaticamente che l'agente è installato nella destinazione master. Selezionare **Y** per eseguire l'aggiornamento.  Una volta completata l'installazione, controllare la versione della destinazione master installata con il comando seguente.
+Eseguire il programma di installazione. Tale programma rileva automaticamente che l'agente è installato nella destinazione master. Selezionare **Y** per eseguire l'aggiornamento.  Al termine dell'installazione, controllare la versione del server di destinazione master installata usando il comando seguente:
 
     ```
     cat /usr/local/.vx_version
@@ -387,7 +387,7 @@ Eseguire il programma di installazione. Tale programma rileva automaticamente ch
 È necessario installare gli strumenti VMware per consentire al server di destinazione master di rilevare gli archivi dati. Se non sono installati gli strumenti, la schermata di riprotezione non viene elencata negli archivi dati. Dopo l'installazione degli strumenti VMware è necessario riavviare il computer.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Al termine dell'installazione e della registrazione del server, quest'ultimo viene visualizzato nella sezione del **server di destinazione master** della pagina **Infrastruttura di Site Recovery**, nella panoramica del server di configurazione.
+Al termine dell'installazione e della registrazione del server di destinazione master, quest'ultimo viene visualizzato nella sezione **Destinazione master** della pagina **Infrastruttura di Site Recovery**, nelle informazioni generali sul server di configurazione.
 
 È ora possibile procedere con la [riprotezione](site-recovery-how-to-reprotect.md), seguita dal failback.
 

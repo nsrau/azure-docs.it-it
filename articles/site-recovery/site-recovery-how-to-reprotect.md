@@ -3,7 +3,7 @@ title: Abilitare la riprotezione da Azure a un sito locale | Microsoft Docs
 description: "Dopo il failover delle macchine virtuali in Azure, è possibile avviare il failback per riportarle in locale. Informazioni su come abilitare la riprotezione prima di un failback."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
-ms.author: ruturajd
-ms.openlocfilehash: 3644b41c3e3293a263bd9ff996d4e3d26417aeed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rajanaki
+ms.openlocfilehash: 17a43de3faaa3a146fa9d8f43d36545d6d82b274
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Abilitare la riprotezione da Azure a un sito locale
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 Questo articolo descrive come eseguire la riprotezione di macchine virtuali di Azure da Azure a un sito locale. Seguire le istruzioni riportate in questo articolo quando si è pronti a eseguire il failback delle macchine virtuali VMware o dei server fisici Windows/Linux dopo aver eseguito il failover dal sito locale in Azure (come descritto in [Eseguire la replica di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery](site-recovery-failover.md)).
 
 > [!WARNING]
-> Non è possibile eseguire il failback se è stata [completata la migrazione](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), la macchina virtuale è stata spostata in un altro gruppo di risorse o la macchina virtuale di Azure è stata eliminata. Se si disabilita la protezione della macchina virtuale, non è possibile eseguire il failback.
+> Non è possibile eseguire il failback se è stata [completata la migrazione](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), la macchina virtuale è stata spostata in un altro gruppo di risorse o la macchina virtuale di Azure è stata eliminata. Se si disabilita la protezione della macchina virtuale, non è possibile eseguire il failback. Se la macchina virtuale è stata creata in Azure, ovvero è nata nel cloud, non è possibile riproteggerla in locale. Prima della riprotezione è necessario che la macchina virtuale sia stata inizialmente protetta in locale e che ne sia stato eseguito il failover in Azure.
 
 
 Al termine della riprotezione e dopo l'avvio della replica delle macchine virtuali protette, è possibile avviare un failback nelle macchine virtuali per spostarle nel sito locale.
@@ -62,13 +62,20 @@ Quando ci si prepara per la riprotezione di macchine virtuali, eseguire o prende
   * **Server di destinazione master**: il server di destinazione riceve i dati di failback. Nel server di gestione locale creato è installato un server di destinazione master per impostazione predefinita. Tuttavia, a seconda del volume di traffico sottoposto a failback, potrebbe essere necessario creare un server di destinazione master separato per il failback.
     * [Per una macchina virtuale Linux è necessario un server di destinazione master Linux](site-recovery-how-to-install-linux-master-target.md).
     * Per una macchina virtuale Windows è necessario un server di destinazione master Windows. È possibile usare ancora il server di elaborazione locale e i computer di destinazione master.
+    * La destinazione master ha altri prerequisiti elencati in [Elementi comuni da controllare dopo aver installato un server di destinazione master](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
-    La destinazione master ha altri prerequisiti elencati in [Elementi comuni da controllare dopo aver installato un server di destinazione master](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
+> [!NOTE]
+> Le macchine virtuali di un gruppo di replica devono avere tutte lo stesso tipo di sistema operativo, ovvero devono essere tutte Windows o tutte Linux. Non è attualmente previsto il supporto per la riprotezione e il failback in locale di un gruppo di replica con sistemi operativi misti. Ciò è dovuto al fatto che il server di destinazione master deve avere lo stesso sistema operativo della macchina virtuale e tutte le macchine virtuali di un gruppo di replica devono avere lo stesso server di destinazione master. 
+
+    
 
 * Quando si esegue un failback, è necessario un server di configurazione locale. Durante il failback, la macchina virtuale deve esistere nel database del server di configurazione. In caso contrario, il failback ha esito negativo. 
 
 > [!IMPORTANT]
 > Assicurarsi di pianificare backup regolari del server di configurazione. In caso di emergenza, ripristinare il server con lo stesso indirizzo IP in modo che il failback funzioni.
+
+> [!WARNING]
+> Un gruppo di replica deve avere macchine virtuali solo Windows o solo Linux e non una combinazione dei due sistemi operativi. Ciò è dovuto al fatto che tutte le macchine virtuali in un gruppo di replica usano lo stesso server di destinazione master, che deve essere Linux o Windows a seconda del sistema operativo delle macchine virtuali nel gruppo.
 
 * Configurare l'impostazione `disk.EnableUUID=true` nei parametri di configurazione della macchina virtuale di destinazione master in VMware. Se questa riga non esiste, aggiungerla perché questa impostazione è necessaria per fornire un valore UUID coerente al disco della macchina virtuale (VMDK) in modo che venga installato correttamente.
 
@@ -170,6 +177,8 @@ Azure Site Recovery attualmente supporta il failback solo in un archivio dati VM
 * Il server di destinazione master non può avere snapshot dei dischi. Se sono presenti snapshot, la riprotezione e il failback non riusciranno.
 
 * Il server di destinazione master non può avere un controller SCSI Paravirtual. Il controller può essere solo un controller LSI Logic. Senza un controller LSI Logic, la riprotezione non riuscirà.
+
+* In qualsiasi istanza, al server di destinazione master possono essere collegati al massimo 60 dischi. Se le macchine virtuali da riproteggere nel server di destinazione master locale hanno in totale un numero di dischi superiore a 60, la riprotezione nel server di destinazione master avrà esito negativo. Verificare di avere slot di disco sufficienti sul server di destinazione master o distribuire altri server.
 
 <!--
 ### Failback policy

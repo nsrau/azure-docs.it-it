@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 9970452b62b31f28f8277580dd1075c306767d8b
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 7fad1b662c587fed6cd7dd6a1792d8598f0e4f85
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -45,7 +45,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 ### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>Abilitare la connettività di rete virtuale usando il portale di Azure
 
 1. Nel [portale di Azure](https://portal.azure.com/) passare all'istanza di Gestione API.
-2. Selezionare **Domini e SSL personalizzati**.
+2. Selezionare **Rete virtuale**.
 3. Configurare l'istanza di Gestione API da distribuire all'interno di una rete virtuale.
 
     ![Menu della rete virtuale di Gestione API][api-management-using-vnet-menu]
@@ -116,6 +116,7 @@ Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, ve
 | * / 14000 - 14999 |In uscita |TCP |VIRTUAL_NETWORK / INTERNET|**Accesso a SQL Azure versione 12** |Esterno e interno |
 | * / 5671 |In uscita |AMQP |VIRTUAL_NETWORK / INTERNET|Dipendenza per il criterio Registra a Hub eventi |Esterno e interno |
 | * / 445 |In uscita |TCP |VIRTUAL_NETWORK / INTERNET|Dipendenza dalla condivisione file di Azure per GIT |Esterno e interno |
+| * / 25028 |In uscita |TCP |VIRTUAL_NETWORK / INTERNET|Connettersi al server di inoltro SMTP per l'invio di messaggi di posta elettronica |Esterno e interno |
 | * / 6381 - 6383 |In ingresso e in uscita |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Istanze di accesso Cache Redis tra RoleInstances |Esterno e interno |
 | * / * | In ingresso |TCP |VIRTUAL_NETWORK/AZURE_LOADBALANCER| Bilanciamento del carico di infrastruttura di Azure |Esterno e interno |
 

@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: Autenticazione pass-through - Domande frequenti | Microsoft Docs'
-description: Questo articolo risponde ad alcune domande frequenti relative all'autenticazione pass-through di Azure Active Directory.
+description: Fornisce le risponde alle domande frequenti sull'autenticazione pass-through di Azure Active Directory.
 services: active-directory
 keywords: Autenticazione pass-through di Azure AD Connect, installare Active Directory, componenti necessari per Azure AD, SSO, Single Sign-On
 documentationcenter: 
@@ -14,94 +14,94 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 821d70ec7236e165d4f60ed6217c49d10de1cfc3
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d6a405f7245bf1b9635872efd0e29f8361d6a2f6
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticazione pass-through di Azure Active Directory: domande frequenti
 
-Questo articolo risponde ad alcune domande frequenti relative all'autenticazione pass-through di Azure Active Directory (Azure AD). Visitare questa pagina regolarmente per nuovi contenuti.
+Questo articolo risponde alle domande frequenti sull'autenticazione pass-through di Azure Active Directory (Azure AD). Visitare questa pagina regolarmente per eventuali aggiornamenti.
 
-## <a name="which-of-the-azure-ad-sign-in-methods---pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs---should-i-choose"></a>Quale dei metodi di accesso di Azure AD, tra l'autenticazione pass-through, la sincronizzazione dell'hash delle password e Active Directory Federation Services (AD FS), è preferibile usare?
+## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Quale metodo di accesso a Azure AD è preferibile usare tra autenticazione pass-through, sincronizzazione dell'hash delle password e Active Directory Federation Services (AD FS)?
 
-Dipende dall'ambiente locale e dai requisiti dell'organizzazione. Esaminare questo articolo per un [confronto tra i vari metodi di accesso di AD Azure](active-directory-aadconnect-user-signin.md).
+Dipende dall'ambiente locale e dai requisiti dell'organizzazione. Esaminare l'articolo [Opzioni di accesso utente di Azure AD Connect](active-directory-aadconnect-user-signin.md) per un confronto tra i vari metodi di accesso di Azure AD.
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>L'autenticazione pass-through è una funzionalità gratuita?
 
-L'autenticazione pass-through è una funzionalità gratuita e non serve acquistare edizioni a pagamento di Azure AD per usarla.
+L'autenticazione pass-through è una funzionalità gratuita. Per usare Azure AD non sono necessarie edizioni a pagamento.
 
-## <a name="is-pass-through-authentication-available-in-microsoft-cloud-germanyhttpwwwmicrosoftdecloud-deutschland-and-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>L'autenticazione pass-through è disponibile in [Microsoft Cloud per la Germania](http://www.microsoft.de/cloud-deutschland) e [Microsoft Azure Government Cloud](https://azure.microsoft.com/features/gov/)?
+## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>L'autenticazione pass-through è disponibile nel [cloud Microsoft Azure Germania](http://www.microsoft.de/cloud-deutschland) e nel [cloud Microsoft Azure per enti pubblici](https://azure.microsoft.com/features/gov/)?
 
-No, l'autenticazione pass-through è disponibile solo nell'istanza di Azure AD a livello mondiale.
+No. L'autenticazione pass-through è disponibile solo nell'istanza di Azure AD a livello mondiale.
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>L'[accesso condizionale](../active-directory-conditional-access-azure-portal.md) funziona con l'autenticazione pass-through?
 
-Sì, tutte le funzionalità di accesso condizionale, incluso Azure Multi-Factor Authentication, funzionano con l'autenticazione pass-through.
+Sì. Tutte le funzionalità di accesso condizionale, incluso Azure Multi-Factor Authentication, funzionano con l'autenticazione pass-through.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>L'autenticazione pass-through supporta "Alternate ID" come nome utente, al posto di "userPrincipalName"?
 
-Sì. L'autenticazione pass-through supporta `Alternate ID` come nome utente quando è configurata in Azure AD Connect come mostrato [qui](active-directory-aadconnect-get-started-custom.md). Non tutte le applicazioni di Office 365 supportano `Alternate ID`. Fare riferimento alla documentazione dell'applicazione specifica per sapere se è supportato.
+Sì. L'autenticazione pass-through supporta `Alternate ID` come nome utente quando è configurata in Azure AD Connect. Per altre informazioni, vedere [Installazione personalizzata di Azure AD Connect](active-directory-aadconnect-get-started-custom.md). Non tutte le applicazioni di Office 365 supportano `Alternate ID`. Fare riferimento all'informativa sul supporto contenuta nella documentazione dell'applicazione specifica.
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>La sincronizzazione dell'hash delle password agisce da fallback per l'autenticazione pass-through?
 
-No, l'autenticazione pass-through _non_ esegue automaticamente il failover sulla sincronizzazione dell'hash delle password. Agisce da fallback solo in [scenari che l'autenticazione pass-through attualmente non supporta](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Per evitare errori di accesso dell'utente, è consigliabile configurare l'autenticazione pass-through per la [disponibilità elevata](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+No. L'autenticazione pass-through _non_ esegue automaticamente il failover sulla sincronizzazione dell'hash delle password. Agisce da fallback solo in [scenari che l'autenticazione pass-through attualmente non supporta](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Per evitare errori di accesso dell'utente, è consigliabile configurare l'autenticazione pass-through per la [disponibilità elevata](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
 ## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>È possibile installare un connettore del [proxy di applicazione di Azure AD](../active-directory-application-proxy-get-started.md) nello stesso server in cui è presente un agente di autenticazione pass-through?
 
-Sì, questa configurazione è supportata con le versioni dell'agente di autenticazione pass-through ridenominate (versioni 1.5.193.0 o successive).
+Sì. Questa configurazione è supportata nelle versioni ridenominate dell'agente di autenticazione pass-through (versione 1.5.193.0 o successive).
 
 ## <a name="what-versions-of-azure-ad-connect-and-pass-through-authentication-agent-do-you-need"></a>Quali versioni di Azure AD Connect e dell'agente di autenticazione pass-through sono necessarie?
 
-Per usare questa funzionalità, è necessario disporre della versione 1.1.486.0 o versioni successive per Azure AD Connect e della versione 1.5.58.0 o versioni successive per l'agente di autenticazione pass-through. Tutto il software deve essere installato in server con Windows Server 2012 R2 o versioni successive.
+Per il corretto funzionamento di questa funzionalità è necessario disporre della versione 1.1.486.0 di Azure AD Connect (o versioni successive) e della versione 1.5.58.0 dell'agente di autenticazione pass-through (o versioni successive). Installare tutto il software in server Windows Server 2012 R2 o versioni successive.
 
-## <a name="what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-using-pass-through-authentication"></a>Cosa accade se la password dell'utente è scaduta e l'utente tenta di accedere usando l'autenticazione pass-through?
+## <a name="what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication"></a>Cosa accade se la password dell'utente è scaduta e l'utente prova ad accedere usando l'autenticazione pass-through?
 
-Se è stato configurato il [writeback delle password](../active-directory-passwords-update-your-own-password.md) per un utente specifico e se l'utente esegue l'accesso usando l'autenticazione pass-through, questi può modificare o reimpostare la password. Le password vengono riscritte in Active Directory locale come previsto.
+Se è stato configurato il [writeback delle password](../active-directory-passwords-update-your-own-password.md) per un utente specifico e se l'utente esegue l'accesso usando l'autenticazione pass-through, la password può essere modificata o reimpostata. Le password vengono riscritte in Active Directory locale come previsto.
 
-Se invece il writeback delle password non è configurato per un utente specifico o se l'utente non dispone di una licenza di Azure AD valida, l'utente non può aggiornare la propria password nel cloud, neanche se la password è scaduta. L'utente vedrà un messaggio simile a questo: "L'organizzazione non consente l'aggiornamento della password in questo sito. Aggiornare la password usando il metodo consigliato dall'organizzazione oppure contattare l'amministratore, se è necessaria assistenza". L'utente o l'amministratore deve reimpostare la password in Active Directory locale.
+Se non è stato configurato il writeback delle password per un utente specifico o se l'utente non dispone di una licenza di Azure AD valida, la password non può essere aggiornata nel cloud neanche se è scaduta. L'utente vedrà un messaggio simile a questo: "L'organizzazione non consente l'aggiornamento della password in questo sito. Aggiornare la password usando il metodo consigliato dall'organizzazione oppure contattare l'amministratore per chiedere assistenza". L'utente o l'amministratore deve reimpostare la password in Active Directory locale.
 
-## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>La modalità autenticazione pass-through è una protezione dagli attacchi di forza bruta alle password?
+## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>In che modo l'autenticazione pass-through protegge dagli attacchi di forza bruta contro le password?
 
-Per maggiori informazioni, leggere [questo articolo](active-directory-aadconnect-pass-through-authentication-smart-lockout.md).
+Per altre informazioni, leggere [Autenticazione pass-through di Azure Active Directory: blocco smart](active-directory-aadconnect-pass-through-authentication-smart-lockout.md).
 
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>Cosa comunicano gli agenti di autenticazione pass-through sulle porte 80 e 443?
 
 - Gli agenti di autenticazione inviano le richieste HTTP sulla porta 443 per tutte le operazioni di funzionalità.
-- Gli agenti di autenticazione inviano le richieste HTTP sulla porta 80 per scaricare gli elenchi di revoche di certificati SSL.
+- Gli agenti di autenticazione inviano richieste HTTP sulla porta 80 per scaricare gli elenchi di revoche di certificati (CRL) SSL.
 
      >[!NOTE]
-     >Negli aggiornamenti recenti abbiamo ridotto il numero di porte richiesto dalla funzionalità. Se si dispone di versioni precedenti di Azure AD Connect o dell'agente di autenticazione, tenere aperte anche tali porte: 5671, 8080, 9090, 9091, 9350, 9352 e 10100-10120.
+     >In aggiornamenti recenti è stato ridotto il numero di porte necessarie per la funzionalità. Se si dispone di versioni precedenti di Azure AD Connect o dell'agente di autenticazione, tenere aperte anche le porte seguenti: 5671, 8080, 9090, 9091, 9350, 9352 e 10100-10120.
 
 ## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>Gli agenti di autenticazione pass-through possono comunicare su un server proxy Web in uscita?
 
-Sì. Se il servizio WPAD (Web Proxy Auto-Discovery) è abilitato nell'ambiente locale, gli agenti di autenticazione tentano automaticamente di individuare e usare un server proxy Web nella rete.
+Sì. Se Web Proxy Auto-Discovery (WPAD) è abilitato nell'ambiente locale, gli agenti di autenticazione provano automaticamente a individuare e usare un server proxy Web della rete.
 
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>È possibile installare due o più agenti di autenticazione pass-through nello stesso server?
 
-No, è possibile installare solo un agente di autenticazione pass-through in un singolo server. Se si desidera configurare l'autenticazione pass-through per la disponibilità elevata, seguire invece le istruzioni in questo [articolo](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+No, è possibile installare solo un agente di autenticazione pass-through in un singolo server. Se si vuole configurare l'autenticazione pass-through per la disponibilità elevata, seguire le istruzioni fornite in [Autenticazione pass-through di Azure Active Directory - Avvio rapido](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
-## <a name="i-already-use-active-directory-federation-services-ad-fs-for-azure-ad-sign-in-how-do-i-switch-it-to-pass-through-authentication"></a>Si usa già Active Directory Federation Services (ADFS) per l'accesso ad AD Azure. Come si passa all'autenticazione pass-through?
+## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Si usa già AD FS per eseguire l'accesso a Azure AD. Come si passa all'autenticazione pass-through?
 
-Se ADFS è stato configurato come metodo di accesso usando la procedura guidata Azure AD Connect, cambiare il metodo di accesso utente nell'autenticazione pass-through. Questa modifica abilita l'autenticazione pass-through nel tenant e converte _tutti_ i domini federati in domini gestiti. Tutte le successive richieste di accesso nel tenant verranno gestite mediante l'autenticazione pass-through. Non esiste al momento un modo supportato all'interno di Azure AD Connect per usare una combinazione di AD FS e autenticazione pass-through in domini diversi.
+Se AD FS è stato configurato come metodo di accesso usando la procedura guidata di Azure AD Connect, impostare il metodo di accesso utente su Autenticazione pass-through. Questa modifica abilita l'autenticazione pass-through nel tenant e converte _tutti_ i domini federati in domini gestiti. Tutte le successive richieste di accesso al tenant vengono gestite tramite l'autenticazione pass-through. Non esiste al momento un modo supportato all'interno di Azure AD Connect per usare una combinazione di AD FS e autenticazione pass-through in domini diversi.
 
-Se ADFS è stato configurato come metodo di accesso _esternamente_ alla procedura guidata Azure AD Connect, cambiare il metodo di accesso utente nell'autenticazione pass-through (dall'opzione "Non configurare"). Questa modifica abilita l'autenticazione pass-through nel tenant. Tutti i domini federati continuano tuttavia a usare ADFS per l'accesso. Usare PowerShell per convertire manualmente alcuni o tutti questi domini federati in domini gestiti. Tutte le richieste di accesso nei domini gestiti (_solo_) verranno quindi gestite mediante l'autenticazione pass-through.
+Se AD FS è stato configurato come metodo di accesso _fuori_ dalla procedura guidata di Azure AD Connect, impostare il metodo di accesso utente su Autenticazione pass-through. È possibile apportare questa modifica dall'opzione **Non configurare**. Questa modifica abilita l'autenticazione pass-through nel tenant ma tutti i domini federati, per eseguire l'accesso, continueranno a usare AD FS. Usare PowerShell per convertire manualmente tutti questi domini federati o solo alcuni in domini gestiti. Dopo aver apportato questa modifica, tutte le richieste di accesso ai domini gestiti saranno gestite *soltanto* tramite l'autenticazione pass-through.
 
 >[!IMPORTANT]
->L'autenticazione pass-through non gestisce l'accesso per gli utenti di Active Directory solo cloud.
+>L'autenticazione pass-through non gestisce l'accesso per gli utenti di Azure AD solo cloud.
 
-## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-ad-environment"></a>È possibile usare l'autenticazione pass-through in un ambiente Active Directory a più foreste?
+## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>È possibile usare l'autenticazione pass-through in un ambiente Active Directory a più foreste?
 
-Sì. Gli ambienti a più foreste sono supportati se sono presenti relazioni di trust tra le foreste AD e se il routing del suffisso del nome è configurato correttamente.
+Sì. Gli ambienti a più foreste sono supportati se sono presenti relazioni di trust tra le foreste di Active Directory e se il routing del suffisso del nome è configurato correttamente.
 
 ## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Quanti agenti di autenticazione pass-through è necessario installare?
 
-L'installazione di più agenti di autenticazione pass-through garantisce la [disponibilità elevata](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability), Non fornisce tuttavia un bilanciamento del carico deterministico tra gli agenti di autenticazione.
+L'installazione di più agenti di autenticazione pass-through garantisce la [disponibilità elevata](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability), ma non offre un bilanciamento del carico deterministico tra gli agenti.
 
 Considerare il carico massimo e medio di richieste di accesso previsto nel tenant. Come benchmark, un singolo agente di autenticazione può gestire da 300.000 a 400.000 autenticazioni al secondo in un server standard con CPU a 4 core e 16 GB di RAM. Per la maggior parte dei clienti, un totale di due o tre agenti di autenticazione è sufficiente ai fini della capacità e della disponibilità elevata.
 
-È consigliabile installare gli agenti di autenticazione vicino al controller di dominio per migliorare la latenza di accesso.
+È consigliabile installare gli agenti di autenticazione vicino ai controller di dominio per migliorare la latenza di accesso.
 
 ## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>È possibile installare il primo agente di autenticazione pass-through in un server diverso da quello che esegue Azure AD Connect?
 
@@ -112,26 +112,27 @@ No, questo scenario _non_ è supportato.
 È consigliabile:
 
 - Installare due o tre agenti di autenticazione in totale. Questa configurazione è sufficiente per la maggior parte dei clienti.
-- Installare gli agenti di autenticazione sui controller di dominio (o il più vicino possibile) per migliorare la latenza di accesso.
-- Assicurarsi che i server (in cui sono installati gli agenti di autenticazione) vengano aggiunti alla stessa foresta Active Directory degli utenti le cui password devono essere convalidate.
+- Installare gli agenti di autenticazione nei controller di dominio (o il più vicino possibile) per migliorare la latenza di accesso.
+- Assicurarsi di aggiungere i server in cui sono stati installati gli agenti di autenticazione alla stessa foresta di Active Directory degli utenti di cui è necessario convalidare le password.
 
 >[!NOTE]
 >Esiste un limite di sistema di 12 agenti di autenticazione per ogni tenant.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Come si disabilita l'autenticazione pass-through?
 
-Eseguire nuovamente la procedura guidata Azure AD Connect e scegliere un metodo di accesso utente diverso da Autenticazione pass-through. Questa modifica disabilita l'autenticazione pass-through nel tenant e disinstalla l'agente di autenticazione nel server. Gli agenti di autenticazione negli altri server devono essere disinstallati manualmente.
+Eseguire nuovamente la procedura guidata Azure AD Connect e scegliere un metodo di accesso utente diverso da Autenticazione pass-through. Questa modifica disabilita l'autenticazione pass-through nel tenant e disinstalla l'agente di autenticazione nel server. Gli agenti di autenticazione degli altri server devono essere disinstallati manualmente.
 
 ## <a name="what-happens-when-i-uninstall-a-pass-through-authentication-agent"></a>Cosa accade quando si disinstalla un agente di autenticazione pass-through?
 
-Se si disinstalla un agente di autenticazione pass-through in un server, il server non accetta più richieste di accesso. Prima di eseguire questa operazione, verificare che un altro agente di autenticazione sia in esecuzione per evitare di interrompere l'accesso utente nel tenant.
+Se si disinstalla un agente di autenticazione pass-through in un server, il server non accetta più richieste di accesso. Per evitare l'interruzione della funzionalità di accesso utente al tenant, verificare che sia in esecuzione un altro agente di autenticazione prima di disinstallare l'agente di autenticazione pass-through.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [**Limitazioni correnti**](active-directory-aadconnect-pass-through-authentication-current-limitations.md): informazioni su quali scenari sono supportati e quali non lo sono.
-- [**Guida introduttiva**](active-directory-aadconnect-pass-through-authentication-quick-start.md): avvio ed esecuzione dell'autenticazione pass-through di Azure AD.
-- [**Blocco intelligente**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): configurare la funzionalità Blocco intelligente nel tenant per proteggere gli account utente.
-- [**Approfondimento tecnico**](active-directory-aadconnect-pass-through-authentication-how-it-works.md): informazioni sul funzionamento di questa funzionalità.
-- [**Risoluzione dei problemi**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): informazioni su come risolvere i problemi comuni relativi a questa funzionalità.
-- [**Approfondimento sulla sicurezza**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): informazioni tecniche approfondite sulla funzionalità.
-- [**Seamless Single Sign-On di Azure AD**](active-directory-aadconnect-sso.md): altre informazioni su questa funzionalità complementare.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): per l'invio di richieste di nuove funzionalità.
+- [Limitazioni correnti](active-directory-aadconnect-pass-through-authentication-current-limitations.md): apprendere quali sono gli scenari supportati.
+- [Avvio rapido](active-directory-aadconnect-pass-through-authentication-quick-start.md): iniziare a usare l'autenticazione pass-through di Azure AD.
+- [Blocco smart](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): apprendere come configurare la funzionalità di blocco smart nel tenant per proteggere gli account utente.
+- [Approfondimento tecnico](active-directory-aadconnect-pass-through-authentication-how-it-works.md): comprendere come funziona l'autenticazione pass-through.
+- [Risoluzione dei problemi](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): apprendere come risolvere i problemi comuni relativi alla funzionalità di autenticazione pass-through.
+- [Approfondimento sulla sicurezza](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): ottenere informazioni tecniche approfondite sulla funzionalità di autenticazione pass-through.
+- [Accesso Single Sign-On facile di Azure AD](active-directory-aadconnect-sso.md): ottenere altre informazioni su questa funzionalità complementare.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): usare il forum di Azure Active Directory per inviare richieste di nuove funzionalità.
+

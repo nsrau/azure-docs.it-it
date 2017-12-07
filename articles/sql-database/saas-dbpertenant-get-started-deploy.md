@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: sstein
-ms.openlocfilehash: 9b1ae219eb1278b818e3e1d4237d04fe54c980ec
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f91ddff81e51e7cc3d1561dc799013764530924b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Distribuire ed esplorare un'applicazione SaaS multi-tenant che usa il modello di database per tenant con il database SQL di Azure
 
@@ -38,7 +38,7 @@ In questa esercitazione si apprenderà:
 > * Informazioni sui server, i pool e i database che costituiscono l'app
 > * Come vengono mappati i tenant e i relativi dati con il *catalogo*
 > * Come effettuare il provisioning di un nuovo tenant
-> * Come monitorare l'attività dei tenant nell'app
+> * Come monitorare l'attività del tenant nell'app
 
 Per esplorare i vari modelli di progettazione e gestione SaaS, è disponibile una [serie di esercitazioni correlate](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) basate su questa distribuzione iniziale. Esaminando le varie esercitazioni, approfondire gli script forniti e analizzare le modalità di implementazione dei diversi modelli SaaS. Analizzare in dettaglio i vari passaggi degli script in ogni esercitazione per comprendere in modo più approfondito come implementare le molte funzionalità di database SQL che semplificano lo sviluppo di applicazioni SaaS.
 
@@ -121,7 +121,7 @@ Una pagina centrale **Events Hub** (Hub eventi) visualizza un elenco di collegam
 
 Per controllare la distribuzione delle richieste in ingresso, l'app usa [*Gestione traffico di Microsoft Azure*](../traffic-manager/traffic-manager-overview.md). Le pagine degli eventi, specifiche del tenant, richiedono che gli URL includano i nomi del tenant. Tutti gli URL dei tenant includono il valore specifico relativo all'*utente* nel formato http://events.wingtipp-dpt.&lt;UTENTE&gt;.trafficmanager.net/*fabrikamjazzclub*. L'app degli eventi analizza il nome del tenant dall'URL e lo usa per creare una chiave di accesso a un catalogo implementato usando il [*gestore delle mappe partizioni*](sql-database-elastic-scale-shard-map-management.md). Il catalogo esegue il mapping della chiave alla posizione del database del tenant. L'**hub eventi** usa i metadati estesi nel catalogo per recuperare il nome del tenant associato a ogni database che fornisce l'elenco di URL.
 
-In ambiente di produzione si crea in genere un record DNS CNAME per [*impostare un dominio Internet aziendale in modo che punti*](../traffic-manager/traffic-manager-point-internet-domain.md) al profilo di Gestione traffico.
+In ambiente di produzione si crea in genere un record DNS CNAME per [*puntare un dominio Internet aziendale*](../traffic-manager/traffic-manager-point-internet-domain.md) al profilo di Gestione traffico.
 
 ## <a name="start-generating-load-on-the-tenant-databases"></a>Iniziare a generare carico sui database tenant
 
@@ -173,7 +173,7 @@ Dopo aver avviato l'esecuzione di un carico sulla raccolta di tenant, è tempo d
 
 Se il generatore di carico è rimasto in esecuzione per diversi minuti, dovrebbero essere disponibili abbastanza dati per iniziare a esaminare alcune delle funzionalità di monitoraggio incorporate nei pool e nei database.
 
-1. Passare al server **tenants1-dpt-&lt;UTENTE&gt;** e fare clic su **Pool1** per visualizzare l'utilizzo delle risorse per il pool. Nei grafici seguenti il generatore di carico è stato eseguito per un'ora:
+Passare al server **tenants1-dpt-&lt;UTENTE&gt;** e fare clic su **Pool1** per visualizzare l'utilizzo delle risorse per il pool. Nei grafici seguenti il generatore di carico è stato eseguito per un'ora:
 
    ![monitorare il pool](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 

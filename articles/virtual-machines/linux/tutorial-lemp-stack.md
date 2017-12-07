@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: 87d60ae51aaa33b709d272605419fd85eeb5d93d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c77cd0148a7e3e7b99e90e29bc1499dae8f95028
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Installare un server Web LEMP in una macchina virtuale di Azure
 Questo articolo illustra come distribuire un server Web NGINX, MySQL e PHP (lo stack LEMP) in una VM Ubuntu in Azure. Lo stack LEMP è un alternativa al popolare [stack LAMP](tutorial-lamp-stack.md), che è anche possibile installare in Azure. Per verificare il funzionamento del server LEMP, è facoltativamente possibile installare e configurare un sito WordPress. In questa esercitazione si apprenderà come:
@@ -31,6 +31,8 @@ Questo articolo illustra come distribuire un server Web NGINX, MySQL e PHP (lo s
 > * Verificare l'installazione e la configurazione
 > * Installare WordPress nel server LEMP
 
+
+Questa installazione è utilizzabile per i test rapidi o il modello di prova.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -73,15 +75,16 @@ Controllare la versione di MySQL con il comando seguente. Si noti il parametro `
 mysql -V
 ```
 
-È consigliabile eseguire lo script seguente per proteggere l'installazione di MySQL:
+Per un'installazione sicura di MySQL, eseguire lo script `mysql_secure_installation`. Se si sta solo configurando un server temporaneo, è possibile ignorare questo passaggio. 
 
 ```bash
 mysql_secure_installation
 ```
 
-Immettere la password radice per MySQL e configurare le impostazioni di sicurezza per l'ambiente.
+Immettere una password radice per MySQL e configurare le impostazioni di sicurezza per l'ambiente.
 
-Per creare un database MySQL, aggiungere utenti o modificare le impostazioni di configurazione, accedere a MySQL:
+Per provare le funzionalità di MySQL, ovvero creare un database MySQL, aggiungere utenti o modificare le impostazioni di configurazione, accedere a MySQL. Questo passaggio non è obbligatorio per completare l'esercitazione. 
+
 
 ```bash
 mysql -u root -p

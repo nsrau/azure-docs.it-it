@@ -11,22 +11,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2017
+ms.date: 11/28/2017
 ms.author: bwren
-ms.openlocfilehash: 38cb11befe844178572981abb29fe5439286dbc1
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 9c487ab33859ae453a0074ef0344f61de19c7b4d
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Transizione al nuovo linguaggio di query di Azure Log Analytics
 Log Analytics ha recentemente implementato un nuovo linguaggio di query.  Questo articolo offre informazioni utili per la transizione a questo linguaggio di Log Analytics se si ha già familiarità con il linguaggio legacy ma è comunque necessaria assistenza.
+
+## <a name="resources"></a>Risorse
+
 
 ## <a name="language-converter"></a>Convertitore di linguaggio
 
 Se si ha familiarità con il linguaggio di query di Log Analytics legacy, il modo più semplice per creare la stessa query nel nuovo linguaggio consiste nell'usare il convertitore di linguaggio che viene installato nel portale per la ricerca log al momento della conversione dell'area di lavoro.  L'uso del convertitore è molto semplice. È sufficiente digitare una query legacy nella casella di testo superiore e quindi fare clic su **Converti**.  È possibile fare clic sul pulsante di ricerca per eseguire la query o copiare e incollare la query per usarla altrove.
 
 ![Convertitore di linguaggio](media/log-analytics-log-search-upgrade/language-converter.png)
+
+
+## <a name="resources"></a>Risorse
+Sul [sito della documentazione per il linguaggio di query di Log Analytics](https://docs.loganalytics.io) sono disponibili tutte le risorse necessarie per imparare a usare velocemente il nuovo linguaggio,  inclusi esempi, esercitazioni e una guida di riferimento completa.
 
 
 ## <a name="cheat-sheet"></a>Tabella di riepilogo

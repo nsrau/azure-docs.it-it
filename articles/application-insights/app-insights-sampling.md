@@ -1,5 +1,5 @@
 ---
-title: Campionamento della telemetria in Azure Application Insights | Documentazione Microsoft
+title: Campionamento della telemetria in Azure Application Insights | Microsoft Docs
 description: Come tenere sotto controllo il volume della telemetria.
 services: application-insights
 documentationcenter: windows
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: bf5f12e4a20d9692e311550fc7a02f14f0b4aaad
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 3ae7df7939431e3bd13c070d65876145706e06b5
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -309,7 +309,9 @@ Quando la telemetria viene ripresentata all'utente, il servizio Application Insi
 
 La precisione dell'approssimazione dipende in gran parte dalla percentuale di campionamento configurata. La precisione è anche maggiore per le applicazioni che gestiscono un volume elevato di richieste generalmente simili da una grande quantità di utenti. Per le applicazioni che non gestiscono un carico di lavoro significativo, invece, il campionamento non è necessario perché queste applicazioni in genere riescono a inviare tutti i dati di telemetria senza superare la quota e senza causare perdite di dati dovute alla limitazione. 
 
-Si noti che Application Insights non campiona i tipi di telemetria relativi a metrica e sessioni, perché la riduzione della precisione per questi tipi non è consigliabile. 
+> [!WARNING]
+> Application Insights non esegue il campionamento di metriche e tipi di dati di telemetria delle sessioni. La riduzione della precisione può risultare estremamente inappropriata per questi tipi di dati di telemetria.
+> 
 
 ### <a name="adaptive-sampling"></a>Campionamento adattivo
 Il campionamento adattivo aggiunge un componente che monitora la frequenza corrente di trasmissione dall'SDK e regola la percentuale di campionamento per cercare di rimanere entro la frequenza massima di destinazione. La rettifica viene ricalcolata a intervalli regolari e si basa su una media mobile della frequenza di trasmissione in uscita.

@@ -14,46 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 4a33df43ca218545d6c684103a64f2cd1460913b
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 978ad8f14d70fe60cb220136e87ce4a064672b8a
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticazione pass-through di Azure Active Directory - Limitazioni correnti
 
 >[!IMPORTANT]
->L'autenticazione pass-through di Azure AD è una funzionalità gratuita e non serve alcuna delle edizioni a pagamento di Azure AD per poterla usare. L'autenticazione pass-through è disponibile solo nell'istanza di Azure AD a livello mondiale, non in [Microsoft Cloud per la Germania](http://www.microsoft.de/cloud-deutschland) o nel [cloud di Microsoft Azure per enti pubblici](https://azure.microsoft.com/features/gov/).
+>L'autenticazione pass-through di Azure Active Directory (Azure AD) è una funzionalità gratuita che può essere usata senza acquistare edizioni a pagamento. L'autenticazione pass-through è disponibile solo nell'istanza di Azure AD a livello globale, non nel [cloud Microsoft Azure Germania](http://www.microsoft.de/cloud-deutschland) o nel [cloud Microsoft Azure per enti pubblici](https://azure.microsoft.com/features/gov/).
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 
 Sono completamente supportati gli scenari seguenti:
 
-- L'utente accede a tutte le applicazioni basate su Web browser.
-- L'utente accede ad applicazioni client di Office 365 che supportano l'[autenticazione moderna](https://aka.ms/modernauthga): Office 2016 e Office 2013 _con_ l'autenticazione moderna.
-- Aggiunta ad Azure AD per dispositivi Windows 10.
-- Supporto di Exchange ActiveSync.
+- Accessi utente a tutte le applicazioni basate su Web browser
+- Accessi utente ad applicazioni client di Office 365 che supportano l'[autenticazione moderna](https://aka.ms/modernauthga)
+- Office 2016 e Office 2013 _con_ autenticazione moderna
+- Aggiunte al dominio Azure AD per dispositivi Windows 10
+- Supporto di Exchange ActiveSync
 
 ## <a name="unsupported-scenarios"></a>Scenari non supportati
 
 _Non_ sono supportati gli scenari seguenti:
 
-- L'utente accede ad applicazioni client legacy di Office: Office 2010 e Office 2013 _senza_ l'autenticazione moderna). Le organizzazioni sono incoraggiate a passare all'autenticazione moderna, se possibile. L'autenticazione moderna permette di supportare l'autenticazione pass-through e contribuisce anche a proteggere gli account utente tramite le funzionalità di [accesso condizionale](../active-directory-conditional-access-azure-portal.md), come l'autenticazione a più fattori.
-- Accesso degli utenti ad applicazioni client Skype for Business, incluso Skype for Business 2016.
-- L'utente accede a PowerShell v 1.0. È consigliabile tuttavia usare PowerShell 2.0.
-- Azure AD Domain Services.
-- Password di app per MFA.
+- Accessi utente ad applicazioni client legacy di Office: Office 2010 e Office 2013 _senza_ autenticazione moderna. Le organizzazioni sono incoraggiate a passare all'autenticazione moderna, se possibile. L'autenticazione moderna consente il supporto dell'autenticazione pass-through. Consente anche di proteggere gli account utente tramite funzionalità di [accesso condizionale](../active-directory-conditional-access-azure-portal.md), ad esempio Azure Multi-Factor Authentication.
+- Accessi utente ad applicazioni client Skype for Business, incluso Skype for Business 2016.
+- Accessi utente a PowerShell versione 1.0. È consigliabile usare PowerShell versione 2.0.
+- Azure Active Directory Domain Services.
+- Password di app per Multi-Factor Authentication.
 - Rilevamento di utenti con [credenziali perse](../active-directory-reporting-risk-events.md#leaked-credentials).
 
 >[!IMPORTANT]
->Come soluzione alternativa _solo_ per gli scenari non supportati, abilitare la sincronizzazione dell'hash delle password nella pagina [Funzionalità facoltative](active-directory-aadconnect-get-started-custom.md#optional-features) della procedura guidata di Azure AD Connect. Consente inoltre di eseguire il failover dell'autenticazione se viene interrotto completamente il funzionamento dell'infrastruttura locale. Il failover dall'autenticazione pass-through alla sincronizzazione dell'hash delle password non è automatico, ma va effettuato con l'aiuto del supporto tecnico Microsoft.
+>Come soluzione alternativa _solo_ per gli scenari non supportati, abilitare la sincronizzazione dell'hash delle password nella pagina [Funzionalità facoltative](active-directory-aadconnect-get-started-custom.md#optional-features) della procedura guidata di Azure AD Connect. Abilitando questa funzionalità è possibile anche effettuare il failover dell'autenticazione se il funzionamento dell'infrastruttura locale è interrotto. Il failover dall'autenticazione pass-through alla sincronizzazione dell'hash delle password non avviene automaticamente, ma deve essere effettuato con l'aiuto del supporto tecnico Microsoft.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [**Guida introduttiva**](active-directory-aadconnect-pass-through-authentication-quick-start.md): avvio ed esecuzione dell'autenticazione pass-through di Azure AD.
-- [**Blocco intelligente**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): configurare la funzionalità Blocco intelligente nel tenant per proteggere gli account utente.
-- [**Approfondimento tecnico**](active-directory-aadconnect-pass-through-authentication-how-it-works.md): informazioni sul funzionamento di questa funzionalità.
-- [**Domande frequenti**](active-directory-aadconnect-pass-through-authentication-faq.md): risposte alle domande più frequenti.
-- [**Risoluzione dei problemi**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): informazioni su come risolvere i problemi comuni relativi a questa funzionalità.
-- [**Approfondimento sulla sicurezza**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): informazioni tecniche approfondite sulla funzionalità.
-- [**Seamless Single Sign-On di Azure AD**](active-directory-aadconnect-sso.md): altre informazioni su questa funzionalità complementare.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): per l'invio di richieste di nuove funzionalità.
+- [Avvio rapido](active-directory-aadconnect-pass-through-authentication-quick-start.md): iniziare a usare l'autenticazione pass-through di Azure AD.
+- [Blocco smart](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): apprendere come configurare la funzionalità di blocco smart nel tenant per proteggere gli account utente.
+- [Approfondimento tecnico](active-directory-aadconnect-pass-through-authentication-how-it-works.md): comprendere come funziona l'autenticazione pass-through.
+- [Domande frequenti](active-directory-aadconnect-pass-through-authentication-faq.md): trovare risposte alle domande frequenti sulla funzionalità di autenticazione pass-through.
+- [Risoluzione dei problemi](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): apprendere come risolvere i problemi comuni relativi alla funzionalità di autenticazione pass-through.
+- [Approfondimento sulla sicurezza](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): ottenere informazioni tecniche approfondite sulla funzionalità di autenticazione pass-through.
+- [Accesso Single Sign-On facile di Azure AD](active-directory-aadconnect-sso.md): ottenere altre informazioni su questa funzionalità complementare.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): usare il forum di Azure Active Directory per inviare richieste di nuove funzionalità.
+

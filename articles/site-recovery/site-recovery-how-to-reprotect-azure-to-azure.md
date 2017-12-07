@@ -3,7 +3,7 @@ title: Come riproteggere le macchine virtuali di Azure sottoposte a failover nel
 description: "Dopo il failover delle macchine virtuali da un'area di Azure a un'altra, è possibile utilizzare Azure Site Recovery per proteggere le macchine nella direzione inversa. Imparare i passaggi per eseguire la riprotezione prima di un failover."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/11/2017
-ms.author: ruturajd
-ms.openlocfilehash: 32f5d2d142940bc515849dcd0edb1bb1f152aa6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: 3e614b6c3c8358585f3b502f301cc659d2088e2f
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reprotect-from-failed-over-azure-region-back-to-primary-region"></a>Eseguire la riprotezione dall'area di Azure sottoposta a failover nell'area primaria
 
@@ -31,10 +31,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="overview"></a>Panoramica
 Quando si esegue il [failover](site-recovery-failover.md) delle macchine virtuali da un'area di Azure a un'altra, le macchine virtuali si trovano in uno stato non protetto. Se si desidera riportarle nell'area primaria, è innanzitutto necessario proteggere le macchine virtuali e sottoporle nuovamente a failover. Non vi è differenza tra l'esecuzione del failover in una direzione o nell'altra. Analogamente, dopo l'abilitazione della protezione delle macchine virtuali, non vi è differenza tra la riprotezione post failover o post failback.
-Per spiegare i flussi di lavoro della riprotezione e per evitare confusione, si userà il sito primario delle macchine protette come Asia orientale e il sito di ripristino delle macchine come Asia sudorientale. Durante il failover, si eseguirà il failover delle macchine virtuali nell'area Asia sudorientale. Prima di eseguire il failback, è necessario riproteggere le macchine virtuali dall'area Asia sudorientale all'area Asia orientale. Questo articolo descrive i passaggi necessari per eseguire la riprotezione.
+Per spiegare i flussi di lavoro della riprotezione ed evitare confusione, verrà fatto riferimento al sito primario delle macchine protette come Asia orientale e al sito di ripristino delle macchine come Asia sudorientale. Durante il failover, le macchine virtuali verranno avviate nell'area Asia sudorientale. Prima di eseguire il failback, è necessario riproteggere le macchine virtuali dall'area Asia sudorientale all'area Asia orientale. Questo articolo descrive i passaggi necessari per eseguire la riprotezione.
 
 > [!WARNING]
-> Se è stata [completata la migrazione](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), la macchina virtuale è stata spostata in un altro gruppo di risorse o la macchina virtuale di Azure è stata eliminata, non è possibile eseguire il failback.
+> Se si è [completata la migrazione](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), si è spostata la macchina virtuale in un altro gruppo di risorse o si è eliminata la macchina virtuale di Azure, non è possibile eseguire la riprotezione o il failback della macchina virtuale.
 
 Al termine della riprotezione e dopo l'avvio della replica delle macchine virtuali protette, è possibile avviare un failover sulle macchine virtuali per riportarle nell'area Asia orientale.
 
@@ -56,9 +56,9 @@ Di seguito sono riportati i passaggi necessari per riproteggere una macchina vir
 
 ![Riproteggere il pannello](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotectblade.png)
 
-3. Rivedere le informazioni su **gruppo di risorse, rete, set di disponibilità e archiviazione** e fare clic su OK. Le eventuali risorse contrassegnate (nuove) verranno create come parte della riprotezione.
+3. Rivedere le informazioni su **gruppo di risorse, rete, archiviazione e set di disponibilità** e fare clic su OK. Le eventuali risorse contrassegnate (nuove) verranno create come parte della riprotezione.
 
-Verrà avviato un processo di riprotezione che eseguirà il seeding del sito di destinazione (SEA in questo caso) con i dati più recenti, e al termine, replicherà i valori delta prima di rieseguire il failover nell'area Asia sudorientale.
+Il processo di riprotezione eseguirà innanzitutto il seeding del sito di destinazione (in questo caso, SEA) con i dati più recenti, e al termine, replicherà i valori delta prima di rieseguire il failover nell'area Asia sudorientale.
 
 ### <a name="reprotect-customization"></a>Personalizzazione della riprotezione
 Se si desidera scegliere l'account di archiviazione di estrazione o la rete durante la riprotezione, è possibile usare l'opzione di personalizzazione fornita nel pannello riprotezione.
@@ -72,7 +72,7 @@ Durante la riprotezione è possibile personalizzare le proprietà seguenti della
 |Proprietà |Note  |
 |---------|---------|
 |Gruppo di risorse di destinazione     | È possibile scegliere di modificare il gruppo di risorse di destinazione in cui verrà creata la macchina virtuale. Nell'ambito della riprotezione, la macchina virtuale di destinazione verrà eliminata, pertanto è possibile scegliere un nuovo gruppo di risorse in cui creare la macchina virtuale post failover         |
-|Rete virtuale di destinazione     | La rete non può essere modificata durante la riprotezione. Per modificare la rete, ripetere il mapping di rete.         |
+|Rete virtuale di destinazione     | Durante il processo di riprotezione, la rete non può essere modificata. Per modificare la rete, ripetere il mapping di rete.         |
 |Archiviazione di destinazione     | È possibile modificare l'account di archiviazione in cui verrà creata la macchina virtuale post failover.         |
 |Archiviazione cache     | È possibile specificare un account di archiviazione cache che verrà usato durante la replica. Se si procede con i valori predefiniti, se non esiste verrà creato un nuovo account di archiviazione cache.         |
 |Set di disponibilità     |Se la macchina virtuale in Asia orientale fa parte di un set di disponibilità, è possibile scegliere un set di disponibilità per la macchina virtuale di destinazione in Asia sudorientale. I valori predefiniti troveranno il set di disponibilità SEA esistente e proveranno a usarlo. Durante la personalizzazione, è possibile specificare un set di disponibilità completamente nuovo.         |
@@ -80,7 +80,7 @@ Durante la riprotezione è possibile personalizzare le proprietà seguenti della
 
 ### <a name="what-happens-during-reprotect"></a>Cosa accade durante la riprotezione?
 
-Proprio come dopo la prima azione Abilita protezione, di seguito si trovano gli elementi che vengono creati se si utilizzano le impostazioni predefinite.
+Come dopo la prima azione di abilitazione della protezione, di seguito sono elencati gli elementi che vengono creati se si usano le impostazioni predefinite.
 1. Un account di archiviazione cache viene creato nell'area Asia orientale.
 2. Se l'account di archiviazione di destinazione (l'account di archiviazione originale della macchina virtuale in Asia sudorientale) non esiste, ne viene creato uno nuovo. Il nome è composto dall'account di archiviazione della macchina virtuale in Asia orientale più il suffisso "asr".
 3. Se il set di disponibilità di destinazione non esiste e le impostazioni predefinite rilevano che è necessario crearne uno nuovo, verrà creato durante il processo di riprotezione. Se la riprotezione è stata personalizzata, verrà usato il set di disponibilità selezionato.
@@ -88,7 +88,7 @@ Proprio come dopo la prima azione Abilita protezione, di seguito si trovano gli 
 
 Di seguito è riportato l'elenco delle azioni che si verificano quando si avvia un processo di riprotezione. Questo avviene nel caso in cui la macchina virtuale di destinazione esista.
 
-1. Gli elementi necessari vengono creati durante la riprotezione. Se esistono già, vengono riusati.
+1. Gli elementi necessari vengono creati nell'ambito della riprotezione. Se esistono già, vengono riusati.
 2. La macchina virtuale di destinazione (Asia sudorientale) viene prima di tutto disattivata, se è in esecuzione.
 3. Il disco della macchina virtuale di destinazione viene copiato da Azure Site Recovery in un contenitore come BLOB di inizializzazione.
 4. La macchina virtuale di destinazione viene quindi eliminata.
@@ -99,7 +99,7 @@ Di seguito è riportato l'elenco delle azioni che si verificano quando si avvia 
 > [!NOTE]
 > Non è possibile eseguire la riprotezione a un livello di piano di ripristino. È solo possibile eseguire la riprotezione solo a un livello di macchina virtuale.
 
-Dopo la riprotezione, la macchina virtuale entrerà in uno stato protetto.
+Al termine del processo di riprotezione, la macchina virtuale entrerà in uno stato protetto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

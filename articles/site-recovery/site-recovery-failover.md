@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: pratshar
-ms.openlocfilehash: 9c00cf88fa8b754c92cfd0f01be61a596d04d7c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 160457fdad57cd947077aeb3a4ed85fd2a2849d8
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="failover-in-site-recovery"></a>Failover in Site Recovery
 Questo articolo descrive come eseguire il failover di macchine virtuali e server fisici protetti da Site Recovery.
@@ -70,7 +70,7 @@ Questa procedura descrive come eseguire un failover per un [piano di ripristino]
 1. Quando la macchina virtuale sottoposta a failover è pronta, è possibile eseguire il **commit** del failover. Il commit elimina tutti i punti di ripristino disponibili con il servizio e l'opzione **Modifica punto di ripristino** non sarà disponibile.
 
 ## <a name="planned-failover"></a>Failover pianificato
-Le macchine virtuali e i server fisici protetti con Site Recovery supportano anche il **failover pianificato**. Il failover pianificato è un'opzione di failover senza alcuna perdita di dati. Quando viene attivato un failover pianificato, prima le macchine virtuali di origine vengono arrestate, vengono sincronizzati i dati non ancora sincronizzati e quindi viene attivato il failover.
+Le macchine virtuali e i server fisici protetti con Site Recovery supportano anche il **failover pianificato**. Il failover pianificato è un'opzione di failover senza alcuna perdita di dati. Quando viene attivato un failover pianificato, prima vengono arrestate le macchine virtuali di origine, vengono sincronizzati i dati più recenti e quindi viene attivato il failover.
 
 > [!NOTE]
 > Quando si esegue il failover di macchine virtuali Hyper-V da un sito locale a un altro sito locale, per tornare al sito locale primario è prima necessario **eseguire la replica inversa** della macchina virtuale nel sito primario e quindi attivare il failover. Se la macchina virtuale primaria non è disponibile, prima di avviare la **replica inversa** è necessario ripristinare la macchina virtuale da un backup.   

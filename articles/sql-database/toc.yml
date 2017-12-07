@@ -203,6 +203,8 @@
       items:
         - name: Modelli di progettazione SaaS
           href: saas-tenancy-app-design-patterns.md
+        - name: Indicizzatore video SaaS
+          href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
         - name: Sicurezza delle app SaaS
           href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: Sviluppare database

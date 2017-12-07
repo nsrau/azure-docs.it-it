@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: mimig
-ms.openlocfilehash: fd0454252080679fa880eecb677d609ea0734f09
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 1c53be736ad65a53767626033be27f0891de06ba
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Importare dati da usare con l'API Tabelle di Azure Cosmos DB
 
@@ -32,11 +32,11 @@ Questa esercitazione illustra le attività seguenti:
 
 ## <a name="data-migration-tool"></a>Utilità di migrazione dati
 
-L'Utilità di migrazione dati di Azure Cosmos DB da riga di comando (dt.exe) consente di importare i dati dell'archiviazione tabelle di Azure esistenti in un account GA dell'API Table o di migrare i dati da un account dell'API Table (anteprima) a un account GA dell'API Table. Al momento non sono supportate altre origini.
+L'Utilità di migrazione dati di Azure Cosmos DB da riga di comando (dt.exe) consente di importare i dati dell'archiviazione tabelle di Azure esistenti in un account GA dell'API Table o di migrare i dati da un account dell'API Table (anteprima) a un account GA dell'API Table. Al momento non sono supportate altre origini. L'Utilità di migrazione dati basata su interfaccia utente (dtui.exe) non è attualmente supportata per gli account dell'API Table. 
 
 Per eseguire una migrazione dei dati di tabelle, completare le attività seguenti:
 
-1. Scaricare l'Utilità di migrazione dati dall'[Area download Microsoft](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) o da [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
+1. Scaricare l'Utilità di migrazione dati da [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
 2. Eseguire `dt.exe` usando gli argomenti della riga di comando per lo scenario in questione.
 
 dt.exe accetta un comando nel formato seguente:
@@ -92,7 +92,7 @@ Usare le opzioni della destinazione seguenti per definire l'API Table di Azure C
 Ecco un esempio di riga di comando per importare dall'archiviazione tabelle di Azure all'API Table:
 
 ```
-dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey==<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
+dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 <a id="table-api-preview"></a>
 ### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Comando di esempio: l'origine è l'API Table (anteprima) di Azure Cosmos DB

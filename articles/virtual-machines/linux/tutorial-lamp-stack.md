@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: c00e6a190633348411f47490808739d570cafd69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8fcf411db844e227e0c4db0e690a1832f98b42f1
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-lamp-web-server-on-an-azure-vm"></a>Installare un server Web LAMP in una macchina virtuale di Azure
 Questo articolo illustra come distribuire un server Web Apache, MySQL e PHP (lo stack LAMP) in una VM Ubuntu in Azure. Se si preferisce il server Web NGINX, vedere l'esercitazione [LEMP stack](tutorial-lemp-stack.md) (Stack LEMP). Per verificare il funzionamento del server LAMP, è facoltativamente possibile installare e configurare un sito WordPress. In questa esercitazione si apprenderà come:
@@ -32,7 +32,7 @@ Questo articolo illustra come distribuire un server Web Apache, MySQL e PHP (lo 
 > * Installare WordPress nel server LAMP
 
 
-Per altre informazioni sullo stack LAMP, incluse le raccomandazioni per un ambiente di produzione, vedere la [documentazione di Ubuntu](https://help.ubuntu.com/community/ApacheMySQLPHP).
+Questa installazione è utilizzabile per i test rapidi o il modello di prova. Per altre informazioni sullo stack LAMP, incluse le raccomandazioni per un ambiente di produzione, vedere la [documentazione di Ubuntu](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -42,13 +42,12 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="install-apache-mysql-and-php"></a>Installare Apache, MySQL e PHP
 
-Usare il comando seguente per aggiornare le origini dei pacchetti Ubuntu e installare Apache, MySQL e PHP. Si noti l'accento circonflesso (^) alla fine del comando.
+Usare il comando seguente per aggiornare le origini dei pacchetti Ubuntu e installare Apache, MySQL e PHP. Si noti che alla fine del comando è presente un accento circonflesso (^) che fa parte del nome del pacchetto `lamp-server^`. 
 
 
 ```bash
 sudo apt update && sudo apt install lamp-server^
 ```
-
 
 
 Viene chiesto di installare i pacchetti e le altre dipendenze. Quando viene richiesto, impostare una password radice per MySQL e quindi premere [INVIO] per continuare. Seguire i prompt rimanenti. In questo modo vengono installate le estensioni PHP minime richieste per l'uso di PHP con MySQL. 
@@ -78,15 +77,15 @@ Controllare la versione di MySQL con il comando seguente. Si noti il parametro `
 mysql -V
 ```
 
-È consigliabile eseguire lo script seguente per proteggere l'installazione di MySQL:
+Per un'installazione sicura di MySQL, eseguire lo script `mysql_secure_installation`. Se si sta solo configurando un server temporaneo, è possibile ignorare questo passaggio.
 
 ```bash
 mysql_secure_installation
 ```
 
-Immettere la password radice per MySQL e configurare le impostazioni di sicurezza per l'ambiente.
+Immettere una password radice per MySQL e configurare le impostazioni di sicurezza per l'ambiente.
 
-Per creare un database MySQL, aggiungere utenti o modificare le impostazioni di configurazione, accedere a MySQL:
+Per provare le funzionalità di MySQL, ovvero creare un database MySQL, aggiungere utenti o modificare le impostazioni di configurazione, accedere a MySQL. Questo passaggio non è obbligatorio per completare l'esercitazione.
 
 ```bash
 mysql -u root -p

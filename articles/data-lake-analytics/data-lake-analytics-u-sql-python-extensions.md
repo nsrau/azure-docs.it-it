@@ -1,5 +1,5 @@
 ---
-title: Estendere gli script U-SQL con Python in Azure Data Lake Analytics | Documentazione Microsoft
+title: Estendere gli script U-SQL con Python in Azure Data Lake Analytics | Microsoft Docs
 description: Informazioni su come eseguire il codice Python negli script U-SQL
 services: data-lake-analytics
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/20/2017
 ms.author: saveenr
-ms.openlocfilehash: d18ef1f747aee2fa01cef9891432d0461031ee4c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 51c0bac3cd03965d002b3fe87804a0d7ea6cf63e
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-get-started-with-extending-u-sql-with-python"></a>Esercitazione: Introduzione all'estensione di U-SQL con Python
 
@@ -98,4 +98,4 @@ A ogni vertice è assegnata una quantità di memoria limitata, che attualmente c
 * [Panoramica di Analisi Data Lake di Microsoft Azure](data-lake-analytics-overview.md)
 * [Sviluppare script U-SQL mediante Strumenti di Data Lake per Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Uso delle funzioni finestra di U-SQL per i processi di Analisi Azure Data Lake](data-lake-analytics-use-window-functions.md)
-
+* [Usare gli Strumenti Azure Data Lake per Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)

@@ -11,11 +11,11 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: a157e612ca4fca06a57df478eaa20793c8b35d60
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c2f511cd024accc099423f2ed5bbb15d2dd23414
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Come abilitare la virtualizzazione annidata in una macchina virtuale di Azure
 
@@ -140,7 +140,7 @@ Seguire la procedura seguente per configurare DHCP nella macchina virtuale host 
   
 2. Nella procedura guidata fare clic su **Avanti** finché non viene visualizzata la pagina Ruoli server.
   
-3. Selezionare la casella di controllo **Server DHCP**, fare clic su **Aggiungi funzionalità** e quindi fare clic su **Avanti** fino al completamento della procedura guidata.
+3. Selezionare la casella di controllo **Server DHCP**, fare clic su **Aggiungi funzionalità** e quindi fare clic su **Avanti** fino a completare la procedura guidata.
   
 4. Fare clic su **Installa**.
 
