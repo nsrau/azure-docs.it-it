@@ -9,14 +9,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/28/2017
+ms.date: 11/29/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: 89e2192b3b5c978da4a41dea51d0ab70181b500d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 161d9fda75caa7836e012e6e1ff79df576281137
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Compilare un'app Web Python Docker e PostgreSQL in Azure
 
@@ -445,7 +445,7 @@ Al termine della creazione dell'app Web, l'interfaccia della riga di comando di 
 
 In precedenza in questa esercitazione sono state definite variabili di ambiente per la connessione al database PostgreSQL.
 
-Nel servizio app le variabili di ambiente vengono impostate come _impostazioni dell'app_ usando il comando [az webapp config appsettings set](/cli/azure/webapp/config#az_webapp_config_appsettings_set).
+Nel servizio app le variabili di ambiente vengono impostate come _impostazioni dell'app_ usando il comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set).
 
 L'esempio seguente specifica i dettagli di connessione del database come impostazioni dell'app. Viene usata anche la variabile *PORT* per eseguire il mapping della porta 5000 dal contenitore Docker per ricevere il traffico HTTP nella porta 80.
 

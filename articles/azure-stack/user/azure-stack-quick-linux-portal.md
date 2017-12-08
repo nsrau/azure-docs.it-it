@@ -12,7 +12,7 @@ ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: f986c060b26489e412f6230665ec76a4730293f1
 ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/01/2017
 ---
