@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: 17967131853d4334ae2c0ba3c0aa01089b7f3b61
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: d6962bf2ffbf731a4aa301e663c7c7d3428080d4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Prima di iniziare con il servizio App nello Stack di Azure
 
@@ -250,7 +250,7 @@ Per il servizio App di Azure in hosting dello Stack di Azure e database di contr
 
 Per l'utilizzo con il Kit di sviluppo dello Stack di Azure, è possibile utilizzare SQL Express 2014 SP2 o versione successiva.
 
-Per la produzione e una disponibilità elevata, è necessario utilizzare una versione completa di SQL 2014 SP2 o versioni successive, abilitare l'autenticazione modalità mista e distribuire un [configurazione a disponibilità elevata](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
+Per la produzione e una disponibilità elevata, è necessario utilizzare una versione completa di SQL 2014 SP2 o versioni successive, abilitare l'autenticazione modalità mista e distribuire un [configurazione a disponibilità elevata](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
 Il servizio App di Azure nel Server SQL di Azure Stack deve essere accessibile da tutti i ruoli del servizio App. SQL Server può essere distribuito nella sottoscrizione di Provider predefinito nello Stack di Azure. È possibile impostare o utilizzare dell'infrastruttura esistente all'interno dell'organizzazione (purché vi sia connettività allo Stack di Azure). Se si utilizza un'immagine di Azure Marketplace, è necessario configurare il firewall in modo appropriato. 
 

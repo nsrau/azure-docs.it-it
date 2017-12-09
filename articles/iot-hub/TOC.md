@@ -3,7 +3,7 @@
 ## [Che cos'è l'hub IoT di Azure?](iot-hub-what-is-iot-hub.md)
 ## [Panoramica della gestione dei dispositivi](iot-hub-device-management-overview.md)
 
-# [Introduzione](iot-hub-get-started.md)
+# [Attività iniziali](iot-hub-get-started.md)
 
 ## Configurare il dispositivo
 ### [Simulare un dispositivo sul PC](iot-hub-get-started-simulated.md)
@@ -150,8 +150,8 @@
 ## [.NET (dispositivi)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (servizio)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (dispositivi)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [Node.js (dispositivi)](https://docs.microsoft.com/en-us/javascript/api/azure-iot-device/)
-## [Node.js (servizio)](https://docs.microsoft.com/en-us/javascript/api/azure-iothub)
+## [Node.js (dispositivi)](https://docs.microsoft.com/javascript/api/azure-iot-device/)
+## [Node.js (servizio)](https://docs.microsoft.com/javascript/api/azure-iothub)
 ## [SDK per dispositivi C](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (provider di risorse)](https://docs.microsoft.com/rest/api/iothub/iothubresource)

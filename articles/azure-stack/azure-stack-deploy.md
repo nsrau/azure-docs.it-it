@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 19a8db99c62fb4f560ce082d0974ef619080ef2d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Prerequisiti per la distribuzione di Azure Stack
 
@@ -176,7 +176,7 @@ Per configurare i dati di telemetria di SQL Server, vedere [come configurare SQL
 
 Tramite la registrazione, Stack di Azure è configurato anche per informazioni sull'utilizzo di inoltro a Azure. Report sull'utilizzo viene controllato in modo indipendente da dati di telemetria. È possibile disattivare la segnalazione quando utilizzo [registrazione](azure-stack-register.md) usando lo script su Github. È sufficiente impostare la **$reportUsage** parametro **$false**.
 
-Dati di utilizzo vengono formattati come descritto nel [dati di utilizzo dello Stack di Azure di Report in Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting). Gli utenti di Azure il Kit di sviluppo dello Stack non vengono addebitati effettivamente. Questa funzionalità è inclusa nel kit di sviluppo in modo da poter testare per verificare il funzionamento del report di utilizzo. 
+Dati di utilizzo vengono formattati come descritto nel [dati di utilizzo dello Stack di Azure di Report in Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting). Gli utenti di Azure il Kit di sviluppo dello Stack non vengono addebitati effettivamente. Questa funzionalità è inclusa nel kit di sviluppo in modo da poter testare per verificare il funzionamento del report di utilizzo. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

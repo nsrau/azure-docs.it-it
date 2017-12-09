@@ -7,11 +7,11 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.openlocfilehash: 68da653052d0e3dfd66d6b65958046e42cefce73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c37ad8ac5b6c37261e22237e843dd97e2bbd09f9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introduzione alle macchine virtuali di Azure Stack
 
@@ -121,8 +121,8 @@ La tabella seguente illustra alcuni modi per ottenere informazioni su una macchi
 |Metodo|Descrizione|
 |---------|---------|
 |Portale di Azure Stack|Nel menu hub fare clic su macchine virtuali e quindi selezionare la macchina virtuale dall'elenco. Nella pagina per la macchina virtuale, è possibile accedere a informazioni generali, impostare valori e metriche di monitoraggio.|
-|Azure PowerShell|La gestione di macchine virtuali è simile in Azure e Azure Stack. Per ulteriori informazioni sull'utilizzo di PowerShell, vedere l'argomento di Azure seguente:<br>[Creare e gestire macchine virtuali di Windows con il modulo PowerShell di Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|Client SDK|Usa c# per gestire le macchine virtuali è simile in Azure e Azure Stack. Per ulteriori informazioni, vedere l'argomento di Azure seguente:<br>[Creare e gestire macchine virtuali di Windows in Azure utilizzando il linguaggio c#](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/csharp)|
+|Azure PowerShell|La gestione di macchine virtuali è simile in Azure e Azure Stack. Per ulteriori informazioni sull'utilizzo di PowerShell, vedere l'argomento di Azure seguente:<br>[Creare e gestire macchine virtuali di Windows con il modulo PowerShell di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
+|Client SDK|Usa c# per gestire le macchine virtuali è simile in Azure e Azure Stack. Per ulteriori informazioni, vedere l'argomento di Azure seguente:<br>[Creare e gestire macchine virtuali di Windows in Azure utilizzando il linguaggio c#](https://docs.microsoft.com/azure/virtual-machines/windows/csharp)|
 
 ### <a name="connect-to-the-vm"></a>Connettersi alla VM
 

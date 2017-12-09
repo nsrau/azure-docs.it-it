@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: 19b712d622276b6521317d79c68fc093dba547db
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
-ms.translationtype: HT
+ms.openlocfilehash: fd2d355b2556faddb06acf2998b54ffcc9aa7919
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Panoramica del servizio app in Azure Stack
 
@@ -37,8 +37,8 @@ Ecco alcune caratteristiche e funzionalità chiave del servizio app:
 
 Servizio App offre numerosi tipi di app, ognuno dei quali deve ospitare un carico di lavoro specifico:
 
-- [Le app Web](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) per l'hosting di siti e applicazioni web.
-- [App per le API](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-apps-why-best-platform) per API REST per l'hosting.
+- [Le app Web](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) per l'hosting di siti e applicazioni web.
+- [App per le API](https://docs.microsoft.com/azure/app-service-api/app-service-api-apps-why-best-platform) per API REST per l'hosting.
 - Funzioni di Azure per ospitare i carichi di lavoro senza guidata dagli eventi.
 
 L'app word qui si riferisce alle risorse host dedicate all'esecuzione di un carico di lavoro. Prendendo ad esempio le "app Web", si è probabilmente abituati a considerare un'app Web come costituita dalle risorse di calcolo e dal codice dell'applicazione che insieme forniscono funzionalità a un browser. Ma nel servizio App un'app web le risorse di calcolo che fornisce dello Stack di Azure per ospitare il codice dell'applicazione.
