@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: 91d1c52c0abf14656e08b511e4f6c8041e319020
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7fd3c36825746a009c01c97fb8664e04278159f
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 *Si applica a: Azure Stack Development Kit*
 
@@ -28,7 +28,7 @@ Dopo aver [distribuzione il Kit di sviluppo di Azure Stack](azure-stack-run-powe
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Creare un account tenant di Azure Stack usando il portale di Azure
 Per usare il portale di Azure, è necessario disporre di una sottoscrizione di Azure.
 
-1. Accedere a [Azure](http://manage.windowsazure.com).
+1. Accedere ad [Azure](https://portal.azure.com).
 2. Nella barra di spostamento sinistra di Microsoft Azure fare clic su **Active Directory**.
 3. Nell'elenco di directory fare clic sulla directory che si vuole usare per Azure Stack o crearne una nuova.
 4. In questa pagina della directory fare clic su **Utenti**.
