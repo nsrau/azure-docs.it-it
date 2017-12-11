@@ -11,6 +11,9 @@
   items:
     - name: Iniziare a usare HBase e NoSQL
       href: apache-hbase-tutorial-get-started-linux.md
+    - name: Installare app HDInsight
+      href: ../hdinsight-apps-install-applications.md
+      maintainContext: true
     - name: Pianificazione della capacità dei cluster
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -38,29 +41,17 @@
           href: apache-hbase-phoenix-squirrel-linux.md
     - name: Estendere i cluster
       items:
-        - name: Usare un account di archiviazione abilitato sicuro
-          href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-          maintainContext: true
         - name: Personalizzare i cluster usando bootstrap
           href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
           maintainContext: true
         - name: Personalizzare i cluster con l'azione script
           href: ../hdinsight-hadoop-customize-cluster-linux.md
           maintainContext: true
-        - name: Connettere HDInsight alla rete locale
-          href: ../connect-on-premises-network.md
-          maintainContext: true
         - name: Sviluppare azioni di script
           href: ../hdinsight-hadoop-script-actions-linux.md
           maintainContext: true
-        - name: Usare la rete virtuale
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: Sviluppare applicazioni HDInsight
           items:
-            - name: Installare app HDInsight
-              href: ../hdinsight-apps-install-applications.md
-              maintainContext: true
             - name: Installare app personalizzate
               href: ../hdinsight-apps-install-custom-applications.md
               maintainContext: true
@@ -101,10 +92,6 @@
             - name: Usare i modelli di Gestione risorse di Azure
               href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
               maintainContext: true
-        - name: Creare il cluster nella rete virtuale
-          href: apache-hbase-provision-vnet.md
-        - name: Configurare la replica di HBase
-          href: apache-hbase-replication.md
         - name: Creare cluster su richiesta
           href: ../hdinsight-hadoop-create-linux-clusters-adf.md
           maintainContext: true
@@ -161,20 +148,6 @@
         - name: Applicazione di patch del sistema operativo per il cluster HDInsight
           href: ../hdinsight-os-patching.md
           maintainContext: true
-    - name: Monitorare
-      items:
-        - name: Usare Azure Log Analytics
-          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Dashboard specifici per i cluster
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
-          maintainContext: true
-        - name: Usare query con Log Analytics
-          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-          maintainContext: true
-        - name: Monitorare le prestazioni di un cluster
-          href: ../hdinsight-key-scenarios-to-monitor.md
-          maintainContext: true
     - name: Risoluzione dei problemi
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
@@ -214,6 +187,37 @@
             - name: Ottimizzare le query Hive
               href: ../hdinsight-hadoop-optimize-hive-query.md
               maintainContext: true
+- name: Soluzione pronta per l'azienda
+  items:
+    - name: Protezione dei dati
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+      maintainContext: true
+    - name: Accesso alla rete
+      items:
+        - name: HDInsight nella rete virtuale di Azure
+          href: ../hdinsight-extend-hadoop-virtual-network.md
+          maintainContext: true
+        - name: Connettere HDInsight alla rete locale
+          href: ../connect-on-premises-network.md
+          maintainContext: true
+        - name: Creare cluster HBase nella rete virtuale di Azure
+          href: apache-hbase-provision-vnet.md
+        - name: Replica di cluster HBase nella rete virtuale di Azure
+          href: apache-hbase-replication.md
+    - name: Monitoraggio tramite OMS
+      items:
+        - name: Usare Azure Log Analytics
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+          maintainContext: true
+        - name: Dashboard specifici per i cluster
+          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+          maintainContext: true
+        - name: Usare query con Log Analytics
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+          maintainContext: true
+        - name: Monitorare le prestazioni di un cluster
+          href: ../hdinsight-key-scenarios-to-monitor.md
+          maintainContext: true
 - name: riferimento
   items:
     - name: Esempi di codice

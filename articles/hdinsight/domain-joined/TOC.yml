@@ -1,29 +1,53 @@
 - name: Documentazione di Azure HDInsight
   href: /azure/hdinsight
-- name: Sicurezza aziendale in HDInsight
+- name: Sicurezza aziendale
   items:
     - name: Panoramica
       href: apache-domain-joined-introduction.md
-    - name: Pianificare HDInsight aggiunto al dominio
+    - name: Pianificare la sicurezza aziendale
       href: apache-domain-joined-architecture.md
-    - name: Controllo delle versioni dei componenti
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-- name: Introduzione
-  items:
-    - name: Configurare HDInsight aggiunto al dominio
+    - name: Configurare la sicurezza aziendale in HDInsight
       href: apache-domain-joined-configure.md
-    - name: Configurare HDInsight aggiunto al dominio con Azure Active Directory Domain Services
+    - name: Configurare la sicurezza aziendale in HDInsight con Azure Active Directory Domain Services
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Configurare criteri Hive
       href: apache-domain-joined-run-hive.md
     - name: Pianificazione della capacità
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
-- name: Procedure
-  items:
-    - name: Gestire i cluster
+    - name: Gestire i cluster con la sicurezza aziendale
       href: apache-domain-joined-manage.md
+- name: Protezione dei dati
+  href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+  maintainContext: true
+- name: Accesso alla rete
+  items:
+    - name: HDInsight nella rete virtuale di Azure
+      href: ../hdinsight-extend-hadoop-virtual-network.md
+      maintainContext: true
+    - name: Connettere HDInsight alla rete locale
+      href: ../connect-on-premises-network.md
+      maintainContext: true
+    - name: Creare cluster HBase nella rete virtuale di Azure
+      href: ../hbase/apache-hbase-provision-vnet.md
+      maintainContext: true
+    - name: Replica di cluster HBase nella rete virtuale di Azure
+      href: ../hbase/apache-hbase-replication.md
+      maintainContext: true
+- name: Monitoraggio tramite OMS
+  items:
+    - name: Usare Azure Log Analytics
+      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+      maintainContext: true
+    - name: Dashboard specifici per i cluster
+      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+      maintainContext: true
+    - name: Usare query con Log Analytics
+      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+      maintainContext: true
+    - name: Monitorare le prestazioni di un cluster
+      href: ../hdinsight-key-scenarios-to-monitor.md
+      maintainContext: true
 - name: riferimento
   items:
     - name: Esempi di codice

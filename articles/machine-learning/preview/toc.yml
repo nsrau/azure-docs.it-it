@@ -128,6 +128,8 @@
           href: scenario-tdsp-classifying-us-incomes.md
         - name: Classificazione delle immagini con CNTK
           href: scenario-image-classification-using-cntk.md
+        - name: Apprendimento avanzato per la manutenzione predittiva
+          href: scenario-deep-learning-for-predictive-maintenance.md
 - name: riferimento
   items:
     - name: Preparazione dei dati

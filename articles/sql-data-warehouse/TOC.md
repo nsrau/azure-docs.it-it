@@ -38,6 +38,7 @@
 
 ## Integrare
 ### [Panoramica](sql-data-warehouse-overview-integrate.md)
+### [Query elastica del database SQL](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 
 ## Monitorare e ottimizzare
@@ -100,9 +101,8 @@
 
 
 ## Integrare
-###  [Configurare una query elastica dal database SQL](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
+### [Configurare la query elastica del database SQL](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ### [Aggiungere un processo di Analisi di flusso di Azure](sql-data-warehouse-integrate-azure-stream-analytics.md)
-### [Configurare una query elastica](how-to-use-elastic-query-with-sql-data-warehouse.md)
 ### [Usare Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 ### [Visualizzare con Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 

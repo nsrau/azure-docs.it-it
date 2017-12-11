@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 309fcb901a1a3878edbfbe06e12122615b74664e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 328b2778a68e32d95b666124bf7bba969a5f52a6
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurare l'ambiente di sviluppo in Mac OS X
 > [!div class="op_single_selector"]
@@ -28,30 +28,30 @@ ms.lasthandoff: 11/23/2017
 >
 >  
 
-È possibile creare applicazioni di Service Fabric da eseguire in cluster Linux usando Mac OS X. Questo documento illustra come configurare il computer Mac per lo sviluppo.
+È possibile creare applicazioni di Azure Service Fabric da eseguire in cluster Linux usando Mac OS X. Questo documento illustra come configurare il computer Mac per lo sviluppo.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Service Fabric non viene eseguito in modo nativo in OS X. Per eseguire un cluster di Service Fabric locale, viene offerta un'immagine del contenitore Docker preconfigurata. Prima di iniziare, sono necessari:
+Azure Service Fabric non viene eseguito in modo nativo in Mac OS X. Per eseguire un cluster di Service Fabric locale, viene offerta un'immagine del contenitore Docker preconfigurata. Prima di iniziare, sono necessari:
 
-* Almeno 4 GB di RAM
-* Ultima versione di [Docker](https://www.docker.com/)
-* Accesso all'[immagine](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/) del contenitore Docker onebox di Service Fabric
+* Almeno 4 GB di RAM.
+* La versione più recente di [Docker](https://www.docker.com/).
+* Accesso all'[immagine del contenitore Docker onebox](https://hub.docker.com/r/servicefabricoss/service-fabric-onebox/) di Service Fabric.
 
 >[!TIP]
-> * Per installare Docker nel computer Mac, è possibile seguire la procedura descritta nella [documentazione](https://docs.docker.com/docker-for-mac/install/#what-to-know-before-you-install) ufficiale di Docker. 
-> * Al termine dell'installazione, verificare che sia stata eseguita correttamente seguendo la procedura descritta [qui](https://docs.docker.com/docker-for-mac/#check-versions-of-docker-engine-compose-and-machine).
+>
+>Per installare Docker nel computer Mac, è possibile seguire la procedura descritta nella [documentazione di Docker](https://docs.docker.com/docker-for-mac/install/#what-to-know-before-you-install). Al termine, [verificare l'installazione](https://docs.docker.com/docker-for-mac/#check-versions-of-docker-engine-compose-and-machine).
+>
 
-
-## <a name="create-a-local-container-and-setup-service-fabric"></a>Creare un contenitore locale e configurare Service Fabric
+## <a name="create-a-local-container-and-set-up-service-fabric"></a>Creare un contenitore locale e configurare Service Fabric
 Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service Fabric, seguire questa procedura:
 
-1. Eseguire il pull dell'immagine dal repository dell'hub Docker:
+1. Eseguire il pull dell'immagine del contenitore onebox di Service Fabric dal repository Docker Hub:
 
     ```bash
     docker pull servicefabricoss/service-fabric-onebox
     ```
 
-2. Aggiornare la configurazione del daemon Docker nell'host con il codice seguente e riavviare il daemon Docker: 
+2. Aggiornare la configurazione del daemon Docker nell'host con le impostazioni seguenti e riavviare il daemon Docker: 
 
     ```json
     {
@@ -59,16 +59,27 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    È possibile aggiornarla direttamente in daemon.json nel percorso di installazione di Docker, la cui posizione può essere diversa da un computer all'altro, ad esempio ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json. Per eseguire l'aggiornamento, è consigliabile andare all'icona di Docker > Preferenze > Daemon > Avanzate.
+    È possibile aggiornare queste impostazioni direttamente nel file daemon.json nel percorso di installazione di Docker.
+    
+    >[!NOTE]
+    >
+    >Il percorso del file daemon.json può essere diverso a seconda del computer, ad esempio ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
+    >
+    >È consigliabile modificare direttamente le impostazioni di configurazione del daemon in Docker. Selezionare l'**icona Docker** e quindi selezionare **Preferences** (Preferenze) > **Daemon** > **Advanced** (Avanzate).
+    >
 
-3. Avviare un'istanza del contenitore onebox di Service Fabric con l'immagine:
+3. Avviare un'istanza del contenitore onebox di Service Fabric e usare l'immagine di cui si è eseguito il pull nel primo passaggio:
 
     ```bash
     docker run -itd -p 19080:19080 --name sfonebox servicefabricoss/service-fabric-onebox
     ```
     >[!TIP]
-    > * Specificando un nome per l'istanza del contenitore, è possibile gestirla in modo più leggibile. 
-    > * Se l'applicazione è in ascolto su determinate porte, deve essere specificata usando tag -p aggiuntivi. Se ad esempio l'applicazione è in ascolto sulla porta 8080, eseguire docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox
+    >Specificare un nome per l'istanza del contenitore per poterla gestire in modo più leggibile. 
+    >
+    >Se l'applicazione è in ascolto su determinate porte, le porte devono essere specificate usando tag `-p` aggiuntivi. Se ad esempio l'applicazione è in ascolto sulla porta 8080, aggiungere il tag `-p` seguente:
+    >
+    >`run docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox servicefabricoss/service-fabric-onebox`
+    >
 
 4. Accedere al contenitore Docker in modalità SSH interattiva:
 
@@ -76,44 +87,44 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
     docker exec -it sfonebox bash
     ```
 
-5. Eseguire lo script di configurazione, che recupererà le dipendenze necessarie e successivamente avvierà il cluster nel contenitore.
+5. Eseguire lo script di configurazione per recuperare le dipendenze necessarie e avviare il cluster nel contenitore:
 
     ```bash
     ./setup.sh     # Fetches and installs the dependencies required for Service Fabric to run
     ./run.sh       # Starts the local cluster
     ```
 
-6. Dopo il completamento del passaggio 5, è possibile accedere a ``http://localhost:19080`` dal computer Mac e visualizzare Service Fabric Explorer.
+6. Al termine del passaggio 5, passare a `http://localhost:19080` dal Mac. Verrà visualizzato Service Fabric Explorer.
 
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Configurare l'interfaccia della riga di comando di Service Fabric (sfctl) in un computer Mac
 
 Per installare l'interfaccia della riga di comando di Service Fabric (`sfctl`) in un computer Mac, seguire le istruzioni riportate in [Interfaccia della riga di comando di Azure Service Fabric](service-fabric-cli.md#cli-mac).
-I comandi dell'interfaccia della riga di comando consentono di interagire con entità di Service Fabric come cluster, applicazioni e servizi.
+I comandi dell'interfaccia della riga di comando supportano l'interazione con entità di Service Fabric come cluster, applicazioni e servizi.
 
-## <a name="create-application-on-your-mac-using-yeoman"></a>Creare un'applicazione in un computer Mac con Yeoman
+## <a name="create-your-application-on-your-mac-by-using-yeoman"></a>Creare l'applicazione in un computer Mac usando Yeoman
 
-Service Fabric offre strumenti di scaffolding che consentono di creare un'applicazione di Service Fabric dal terminale usando il generatore di modelli Yeoman. Seguire questa procedura per assicurarsi che nel computer sia disponibile il generatore di modelli Yeoman di Service Fabric.
+Service Fabric fornisce strumenti di scaffolding che consentono di creare un'applicazione di Service Fabric dal terminale usando il generatore di modelli Yeoman. Usare la procedura seguente per assicurarsi che nel computer sia disponibile il generatore di modelli Yeoman di Service Fabric:
 
-1. È necessario che Node.js e NPM siano installati nel computer Mac. In caso contrario, è possibile installare Node.js e NPM usando Homebrew con il passaggio seguente:
+1. Node.js e Node Package Manager (NPM) devono essere installati nel Mac. Il software può essere installato usando [HomeBrew](https://brew.sh/), come segue:
 
     ```bash
     brew install node
     node -v
     npm -v
     ```
-2. Installare il generatore di modelli [Yeoman](http://yeoman.io/) nel computer da NPM.
+2. Installare il generatore di modelli [Yeoman](http://yeoman.io/) nel computer da NPM:
 
     ```bash
     npm install -g yo
     ```
-3. Installare il generatore Yeoman da usare, seguendo la procedura disponibile nella [documentazione](service-fabric-get-started-linux.md) introduttiva. Per creare applicazioni di Service Fabric con Yeoman, seguire questa procedura:
+3. Installare il generatore Yeoman preferito seguendo la procedura disponibile nella [documentazione](service-fabric-get-started-linux.md) introduttiva. Per creare applicazioni di Service Fabric con Yeoman, seguire questa procedura:
 
     ```bash
     npm install -g generator-azuresfjava       # for Service Fabric Java Applications
     npm install -g generator-azuresfguest      # for Service Fabric Guest executables
     npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
     ```
-4. Per compilare un'applicazione Java di Service Fabric nel computer Mac, è necessario che nel computer host siano installati JDK 1.8 e Gradle. Se non sono già presenti, è possibile eseguire l'installazione con [Homebrew](https://brew.sh/). 
+4. Per compilare un'applicazione Java di Service Fabric nel computer Mac, JDK versione 1.8 e Gradle devono essere installati nel computer host. Il software può essere installato usando [HomeBrew](https://brew.sh/), come segue: 
 
     ```bash
     brew update
@@ -121,17 +132,17 @@ Service Fabric offre strumenti di scaffolding che consentono di creare un'applic
     brew install gradle
     ```
 
-## <a name="deploy-application-on-your-mac-from-terminal"></a>Distribuire l'applicazione nel computer Mac dal terminale
+## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>Distribuire l'applicazione nel computer Mac dal terminale
 
-Dopo aver creato e compilato l'applicazione di Service Fabric, è possibile distribuirla con l'[interfaccia della riga di comando di Service Fabric](service-fabric-cli.md#cli-mac) seguendo questa procedura:
+Dopo aver creato e compilato l'applicazione di Service Fabric, è possibile distribuirla con l'[interfaccia della riga di comando di Service Fabric](service-fabric-cli.md#cli-mac):
 
-1. Connettersi al cluster di Service Fabric in esecuzione all'interno dell'istanza del contenitore nel computer Mac.
+1. Connettersi al cluster di Service Fabric in esecuzione nell'istanza del contenitore nel computer Mac:
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
     ```
 
-2. Passare alla directory di progetto ed eseguire lo script di installazione.
+2. Dalla directory di progetto eseguire lo script di installazione:
 
     ```bash
     cd MyProject
@@ -142,28 +153,33 @@ Dopo aver creato e compilato l'applicazione di Service Fabric, è possibile dist
 
 Installare il [.NET Core 2.0 SDK per Mac](https://www.microsoft.com/net/core#macos) per avviare la [creazione di applicazioni C# di Service Fabric](service-fabric-create-your-first-linux-application-with-csharp.md). I pacchetti per le applicazioni .NET Core 2.0 di Service Fabric sono ospitati in NuGet.org, attualmente in anteprima.
 
-## <a name="install-the-service-fabric-plugin-for-eclipse-neon-on-your-mac"></a>Installare il plug-in Service Fabric per Eclipse Neon nel computer Mac
+## <a name="install-the-service-fabric-plug-in-for-eclipse-neon-on-your-mac"></a>Installare il plug-in Service Fabric per Eclipse Neon nel computer Mac
 
-Service Fabric offre un plug-in per **Eclipse Neon per l'ambiente IDE Java** che può semplificare il processo di creazione, compilazione e distribuzione di servizi Java. È possibile seguire la procedura di installazione illustrata in questa [documentazione](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon) generale sull'installazione o l'aggiornamento all'ultima versione del plug-in Service Fabric per Eclipse.
+Azure Service Fabric fornisce un plug-in per Eclipse Neon per l'ambiente IDE Java. Il plug-in semplifica il processo di creazione, compilazione e distribuzione di servizi Java. Per installare o aggiornare il plug-in Service Fabric per Eclipse alla versione più recente, seguire [questa procedura](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse-neon). Sono applicabili anche gli altri passaggi della [documentazione di Service Fabric per Eclipse](service-fabric-get-started-eclipse.md): compilare un'applicazione, aggiungere un servizio a un'applicazione, disinstallare un'applicazione e così via.
 
-Tutti gli altri passaggi indicati nella [documentazione sul plug-in Service Fabric per Eclipse](service-fabric-get-started-eclipse.md) per compilare un'applicazione, aggiungervi un servizio, installare/disinstallare l'applicazione e così via sono applicabili anche in questo contesto.
+L'ultimo passaggio prevede la creazione di un'istanza del contenitore con un percorso condiviso con l'host. Il plug-in richiede che questo tipo di creazione di istanza usi il contenitore Docker nel Mac, ad esempio:
 
-Oltre ai passaggi precedenti, per garantire il funzionamento del plug-in Service Fabric per Eclipse con il contenitore Docker nel computer è consigliabile creare un'istanza del contenitore con un percorso condiviso con l'host, come segue:
 ```bash
 docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox servicefabricoss/service-fabric-onebox
 ```
-``/Users/sayantan/work/workspaces/mySFWorkspace`` è il percorso completo dell'area di lavoro in Mac e ``/tmp/mySFWorkspace`` è il percorso all'interno del contenitore, a cui deve essere mappato.
 
-> [!NOTE]
->1. Se il nome o il percorso dell'area di lavoro è diverso, aggiornarlo di conseguenza nel comando ``docker run`` riportato sopra.
->2. Se si avvia il contenitore con un nome diverso da ``sfonebox``, aggiornare il nome nel file ``testclient.sh`` nell'applicazione Java di Service Fabric Actors.
+Gli attributi sono definiti come segue:
+* `/Users/sayantan/work/workspaces/mySFWorkspace` è il percorso completo dell'area di lavoro nel Mac.
+* `/tmp/mySFWorkspace` è il percorso all'interno del contenitore a cui eseguire il mapping dell'area di lavoro.
+
+>[!NOTE]
+> 
+>Se l'area di lavoro ha un nome/percorso diverso, aggiornare questi valori nel comando `docker run`.
+> 
+>Se si avvia il contenitore con un nome diverso da `sfonebox`, aggiornare il valore del nome nel file testclient.sh nell'applicazione Java di Service Fabric Actors.
+>
 
 ## <a name="next-steps"></a>Passaggi successivi
 <!-- Links -->
 * [Creare e distribuire la prima applicazione Java di Service Fabric in Linux usando Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
-* [Create and deploy your first Service Fabric Java application on Linux using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md) (Creare e distribuire la prima applicazione Java di Service Fabric in Linux usando il plug-in Service Fabric per Eclipse)
+* [Creare e distribuire la prima applicazione Java di Service Fabric in Linux usando il plug-in Service Fabric per Eclipse](service-fabric-get-started-eclipse.md)
 * [Creare un cluster di Service Fabric nel portale di Azure](service-fabric-cluster-creation-via-portal.md)
-* [Creare un cluster di Service Fabric con Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
+* [Creare un cluster di Service Fabric usando Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 * [Informazioni sul modello applicativo di Service Fabric](service-fabric-application-model.md)
 * [Usare l'interfaccia della riga di comando di Service Fabric per gestire le applicazioni](service-fabric-application-lifecycle-sfctl.md)
 * [Prepare a Linux development environment on Windows (Preparare un ambiente di sviluppo Linux in Windows)](service-fabric-local-linux-cluster-windows.md)

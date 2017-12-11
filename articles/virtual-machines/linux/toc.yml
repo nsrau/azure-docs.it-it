@@ -73,6 +73,9 @@
           href: sizes-compute.md
         - name: Ottimizzate per la memoria
           href: sizes-memory.md
+          items:
+            - name: vCPU vincolate
+              href: constrained-vcpu.md
         - name: Ottimizzate per l'archiviazione
           href: sizes-storage.md
         - name: Ottimizzate per la GPU
