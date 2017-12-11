@@ -204,12 +204,7 @@
 ##### [Desktop remoto](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
-#### [Risoluzione dei problemi](active-directory-application-proxy-troubleshoot.md)
-#### Usare il portale classico
-##### [Scaricare i connettori](application-proxy-enable-classic-portal.md)
-##### [Pubblicare le app](active-directory-application-proxy-publish.md)
-##### [Usare i connettori](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Accesso condizionale](application-proxy-enable-remote-access-sharepoint.md)
+#### [Risolvere i problemi](active-directory-application-proxy-troubleshoot.md)
 
 ### Gestire le app aziendali
 #### [Assegnare utenti](active-directory-coreapps-assign-user-azure-portal.md)

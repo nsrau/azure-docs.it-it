@@ -11,11 +11,11 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 04/25/2017
 ms.author: carolz
-ms.openlocfilehash: 384597b6a34ba41fb5337d6d42fe2790b138fb83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a3adcb2cbfe101ff8ba26d4d88223c2b5705546
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 <div class="content">
    <h1>Chef in Azure</h1>
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 </ol>
 <h2>Risorse</h2>
 <p>Per ottenere altri materiali di riferimento e strumenti per l'uso di Chef in Azure, vedere i collegamenti seguenti.</p>
-<a href="https://docs.microsoft.com/en-us/powershell/module/azure/get-azurevmchefextension?view=azuresmps-4.0.0">Informazioni di riferimento su Chef per PowerShell</a><br/>
+<a href="https://docs.microsoft.com/powershell/module/azure/get-azurevmchefextension?view=azuresmps-4.0.0">Informazioni di riferimento su Chef per PowerShell</a><br/>
 <a href="https://github.com/chef-partners/vsts-chef/wiki/Getting-Started">Introduzione a Chef e VSTS</a><br/>
 Video: <a href="https://channel9.msdn.com/Events/TechDaysOnline/UK-TechDays-Online-2016/Release-Management-with-VSTS--integration-with-Azure--Chef-Deployment">Release Management with VSTS, Chef, and Octopus Deploy (Release Management con VSTS, Chef e Octopus Deploy)</a><br/>
 <a href="https://blog.chef.io/2017/05/10/integrate-chef-into-your-build-and-release-pipelines-with-microsoft-visual-studio-team-services/">Blog su VSTS e Chef</a><br/>

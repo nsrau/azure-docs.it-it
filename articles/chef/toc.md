@@ -6,7 +6,7 @@
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog su VSTS e Chef](https://blog.chef.io/2017/05/10/integrate-chef-into-your-build-and-release-pipelines-with-microsoft-visual-studio-team-services/)
-## [Chef e Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azure/get-azurevmchefextension?view=azuresmps-4.0.0) 
+## [Chef e Azure PowerShell](https://docs.microsoft.com/powershell/module/azure/get-azurevmchefextension?view=azuresmps-4.0.0) 
 ## [Chef e VSTS](https://github.com/chef-partners/vsts-chef/wiki/Getting-Started)
 ## [Sito di Chef](https://www.chef.io)
 ## [Video su Chef e VSTS](https://channel9.msdn.com/Events/TechDaysOnline/UK-TechDays-Online-2016/Release-Management-with-VSTS--integration-with-Azure--Chef-Deployment)
