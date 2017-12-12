@@ -83,12 +83,6 @@
           href: concepts-compatibility.md
         - name: Sviluppo di applicazioni
           href: concepts-database-application-development.md
-    - name: Eseguire la migrazione del database
-      items:
-        - name: Dump e ripristino
-          href: concepts-migrate-dump-restore.md
-        - name: Importazione ed esportazione
-          href: concepts-migrate-import-export.md
 - name: Guide alle procedure
   items:
     - name: Gestire un server
@@ -107,6 +101,12 @@
           href: howto-restore-server-portal.md
         - name: Interfaccia della riga di comando di Azure
           href: howto-restore-server-cli.md
+    - name: Eseguire la migrazione di un database
+      items:
+        - name: Dump e ripristino
+          href: concepts-migrate-dump-restore.md
+        - name: Importazione ed esportazione
+          href: concepts-migrate-import-export.md
     - name: Connettere le applicazioni
       items:
         - name: Creare gli utenti

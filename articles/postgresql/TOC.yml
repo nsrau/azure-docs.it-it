@@ -89,7 +89,7 @@
           href: howto-restore-server-portal.md
         - name: Interfaccia della riga di comando di Azure
           href: howto-restore-server-cli.md
-    - name: Eseguire la migrazione del database
+    - name: Eseguire la migrazione di un database
       items:
         - name: Dump e ripristino
           href: howto-migrate-using-dump-and-restore.md
