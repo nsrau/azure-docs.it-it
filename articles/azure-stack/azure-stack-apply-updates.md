@@ -3,8 +3,8 @@ title: Applicare gli aggiornamenti nello Stack di Azure | Documenti Microsoft
 description: Informazioni su come importare e installare pacchetti di aggiornamento di Microsoft per un sistema integrato dello Stack di Azure.
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: twooley
-ms.openlocfilehash: b00bd606faaffaad30ff6cea3bcf47dc85282f69
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.author: mabrigg
+ms.openlocfilehash: 10e82c13dc2bb8461fb628435484a3a6e1877aa8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="apply-updates-in-azure-stack"></a>Applicare gli aggiornamenti nello Stack di Azure
 

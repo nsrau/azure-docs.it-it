@@ -3,8 +3,8 @@ title: Connettersi a Azure Stack con CLI | Documenti Microsoft
 description: Informazioni su come utilizzare l'interfaccia della riga di comando multipiattaforma (CLI) per gestire e distribuire le risorse sullo Stack di Azure
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
-ms.author: sngun
-ms.openlocfilehash: 1cfbe988d881075d1a7bfc7513fbe5f44a531abd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: mabrigg
+ms.openlocfilehash: 5d15815e9b1d20ab03b5716de45ad0fa77a11057
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Installare e configurare CLI per l'utilizzo con Azure Stack
 
@@ -195,4 +195,3 @@ Esistono alcuni problemi noti che è necessario considerare quando si usa CLI ne
 [Distribuire modelli con l'interfaccia della riga di comando di Azure](azure-stack-deploy-template-command-line.md)
 
 [Gestire le autorizzazioni utente](azure-stack-manage-permissions.md)
-

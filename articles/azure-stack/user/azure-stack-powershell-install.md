@@ -3,33 +3,33 @@ title: Installare PowerShell per Azure Stack | Documenti Microsoft
 description: Informazioni su come installare PowerShell per Azure Stack.
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: F8D99A91-15B5-4073-BE07-A43514A6D2CF
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
-ms.author: sngun
-ms.openlocfilehash: 1c4c9aa36836398ad87c3655ff039a9dc8730456
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.author: mabrigg
+ms.openlocfilehash: b5cc53387b6867d776059856b6e7793abbc67c9a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installare PowerShell per Azure Stack  
 
 Moduli di Azure PowerShell compatibili Stack Azure necessarie per lavorare con lo Stack di Azure. In questa guida sono illustrati i passaggi necessari per installare PowerShell per Azure Stack. È possibile utilizzare i passaggi descritti in questo articolo del Kit di sviluppo dello Stack di Azure o da un client esterno basato su Windows, se si è connessi tramite VPN.
 
-In questo articolo contiene istruzioni dettagliate per installare PowerShell per Azure Stack. Tuttavia, se si desidera installare e configurare PowerShell rapidamente, è possibile utilizzare lo script che viene fornito nell'argomento "Diventare operativi con PowerShell". 
+In questo articolo contiene istruzioni dettagliate per installare PowerShell per Azure Stack. Tuttavia, se si desidera installare e configurare PowerShell rapidamente, è possibile utilizzare lo script che viene fornito nell'articolo "Diventare operativi con PowerShell". 
 
 > [!NOTE]
 > Le operazioni seguenti richiedono PowerShell 5.0. Per controllare la versione in uso, eseguire $PSVersionTable.PSVersion e confrontare la versione "Principale".
 
-I comandi di PowerShell per lo Stack di Azure vengono installati tramite PowerShell gallery. Per il repository PSGallery regiser, aprire una sessione di PowerShell con privilegi elevata del kit di sviluppo o da un client esterno basato su Windows se si sono connessi tramite VPN ed eseguire il comando seguente:
+I comandi di PowerShell per lo Stack di Azure vengono installati tramite PowerShell gallery. Per registrare il repository PSGallery, aprire una sessione di PowerShell con privilegi elevata del kit di sviluppo o da un client esterno basato su Windows se si sono connessi tramite VPN ed eseguire il comando seguente:
 
 ```powershell
 Set-PSRepository `
@@ -78,7 +78,7 @@ Per verificare l'installazione, eseguire il comando seguente:
   Get-Module `
     -ListAvailable | where-Object {$_.Name -like “Azure*”}
   ```
-  Se l'installazione ha esito positivo, i moduli di Azure Resource Manager e AzureStack vengono visualizzati nell'output.
+  Se l'installazione ha esito positivo, i moduli di Azure Resource Manager e Stack di Azure vengono visualizzati nell'output.
 
 ## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Installare PowerShell in un disconnesso o per uno scenario di connesso parziale (con connettività internet limitata)
 

@@ -3,7 +3,7 @@ title: Note sulla versione di Microsoft Azure Stack Development Kit | Documenti 
 description: Miglioramenti, correzioni e problemi noti per Azure Stack Development Kit.
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: mattbriggs
 manager: femila
 editor: 
 ms.assetid: a7e61ea4-be2f-4e55-9beb-7a079f348e05
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2017
-ms.author: andredm
-ms.openlocfilehash: 6abbad8a086571702fd2e9d4d5d172189bb3c339
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.date: 11/02/2017
+ms.author: mabrigg
+ms.openlocfilehash: ca966dd4664861f476401c5691ab73b95d3f5a2b
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Note sulla versione di Azure Stack Development Kit
 

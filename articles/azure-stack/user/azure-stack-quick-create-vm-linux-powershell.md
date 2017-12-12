@@ -3,23 +3,23 @@ title: Creare una macchina virtuale Linux usando PowerShell nello Stack di Azure
 description: Creare una macchina virtuale Linux con PowerShell nello Stack di Azure.
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: 03EE5929-4F05-47D7-B246-EA93D6FC47CD
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/25/2017
-ms.author: sngun
+ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 579246a2f5aefda0d48cea235d74f196cd814331
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 97847c0c2fcc4ab7d5fe8e4e5badd5809b7e2363
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-linux-virtual-machine-by-using-powershell-in-azure-stack"></a>Creare una macchina virtuale Linux usando PowerShell nello Stack di Azure 
 
@@ -221,4 +221,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida introduttiva, aver distribuito una semplice macchina virtuale di Linux. Per ulteriori informazioni sulle macchine virtuali di Azure Stack, continuare a [considerazioni per le macchine virtuali in Azure Stack](azure-stack-vm-considerations.md).
+In questa Guida rapida, aver distribuito una semplice macchina virtuale di Linux. Per ulteriori informazioni sulle macchine virtuali di Azure Stack, continuare a [considerazioni per le macchine virtuali in Azure Stack](azure-stack-vm-considerations.md).

@@ -3,26 +3,26 @@ title: Configurare l'ambiente di PowerShell dell'utente Azure Stack | Documenti 
 description: Configurare l'ambiente di PowerShell dell'utente Azure Stack
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: sngun
-ms.openlocfilehash: e0ad968cac50ebb1e9ca0a4ff228c748f2da5f28
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.author: mabrigg
+ms.openlocfilehash: 0bd5b4a98fee7a5d914e53e49a9517f5d3682a88
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-the-azure-stack-users-powershell-environment"></a>Configurare l'ambiente di PowerShell dell'utente Azure Stack
 
-Come un utente di Stack di Azure, è possibile configurare l'ambiente di PowerShell il Azure Stack Development Kit. Dopo aver configurato, è possibile utilizzare PowerShell per gestire le risorse, ad esempio effettuare la sottoscrizione, Stack di Azure creare macchine virtuali, distribuire modelli di gestione risorse di Azure e così via. L'ambito di questo argomento per l'utilizzo con l'utente ambienti, se si desidera configurare PowerShell per l'ambiente cloud operatore, fare riferimento solo a è il [configurare l'ambiente di PowerShell dell'operatore Azure Stack](../azure-stack-powershell-configure-admin.md) argomento. 
+Come un utente di Stack di Azure, è possibile configurare l'ambiente di PowerShell il Azure Stack Development Kit. Dopo aver configurato, è possibile utilizzare PowerShell per gestire le risorse, ad esempio effettuare la sottoscrizione, Stack di Azure creare macchine virtuali, distribuire modelli di gestione risorse di Azure e così via. L'ambito di questo argomento per l'utilizzo con l'utente ambienti, se si desidera configurare PowerShell per l'ambiente cloud operatore, fare riferimento solo a è il [configurare l'ambiente di PowerShell dell'operatore Azure Stack](../azure-stack-powershell-configure-admin.md) articolo. 
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
@@ -33,7 +33,7 @@ Eseguire i seguenti prerequisiti dal [kit di sviluppo](azure-stack-connect-azure
 
 ## <a name="configure-the-user-environment-and-sign-in-to-azure-stack"></a>Configurare l'ambiente utente e accedere a Azure Stack
 
-In base al tipo di distribuzione (Azure Active Directory o AD FS), eseguire uno dello script seguente per configurare PowerShell per Azure Stack (verificare di sostituire il tenantName AAD, GraphAudience endpoint e ArmEndpoint valori in base alla configurazione dell'ambiente):
+In base al tipo di distribuzione (Azure Active Directory o AD FS), eseguire uno degli script di seguito per configurare PowerShell per Azure Stack (assicurarsi di sostituire il tenantName AAD, GraphAudience endpoint e ArmEndpoint valori in base alla configurazione dell'ambiente):
 
 ### <a name="azure-active-directory-aad-based-deployments"></a>Distribuzioni basate su Azure Active Directory (AAD)
        
@@ -118,7 +118,7 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -F
 
 ## <a name="test-the-connectivity"></a>Testare la connettività
 
-Ora che abbiamo tutto ciò che è impostato, è possibile utilizzare PowerShell per creare risorse all'interno dello Stack di Azure. Ad esempio, è possibile creare un gruppo di risorse per un'applicazione e aggiungere una macchina virtuale. Utilizzare il comando seguente per creare un gruppo di risorse denominato "MyResourceGroup":
+Ora che abbiamo tutti gli elementi di configurazione, è possibile utilizzare PowerShell per creare le risorse all'interno dello Stack di Azure. Ad esempio, è possibile creare un gruppo di risorse per un'applicazione e aggiungere una macchina virtuale. Utilizzare il comando seguente per creare un gruppo di risorse denominato "MyResourceGroup":
 
 ```powershell
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"

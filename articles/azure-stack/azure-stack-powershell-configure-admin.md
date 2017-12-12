@@ -3,22 +3,22 @@ title: Configurare l'ambiente di PowerShell dell'operatore dello Stack di Azure 
 description: Informazioni su come configurare l'ambiente di PowerShell dell'operatore dello Stack di Azure.
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: 37D9CAC9-538B-4504-B51B-7336158D8A6B
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
-ms.author: sngun
-ms.openlocfilehash: 54f0305afb94b8b19ea7fada837a73f7c6a1963c
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.author: mabrigg
+ms.openlocfilehash: 96ce59d0390affaa57d05d6d08657f5c1a3c466a
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-the-azure-stack-operators-powershell-environment"></a>Configurare l'ambiente di PowerShell dell'operatore Azure Stack
 

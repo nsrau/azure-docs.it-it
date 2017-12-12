@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2017
+ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 19a8db99c62fb4f560ce082d0974ef619080ef2d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2bfd9b2603575545fef1c26310a2eecd2c8968e4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Prerequisiti per la distribuzione di Azure Stack
 
@@ -121,62 +121,6 @@ Assicurarsi che sia disponibile un server DHCP nella rete a cui si connette la s
 
 ### <a name="internet-access"></a>Accesso a Internet
 Stack di Azure richiede l'accesso a Internet, direttamente o tramite un proxy trasparente. Stack di Azure non supporta la configurazione di un proxy web per abilitare l'accesso a Internet. L'IP dell'host sia il nuovo indirizzo IP assegnato al BGPNAT01 di definiti, tramite DHCP o indirizzo IP statico, deve essere in grado di accedere a Internet. Con i domini graph.windows.net e login.microsoftonline.com vengono utilizzate porte 80 e 443.
-
-## <a name="telemetry"></a>Telemetria
-
-Dati di telemetria contribuiscono a forma di versioni future dello Stack di Azure. Consente a rispondere rapidamente ai commenti e suggerimenti, offre nuove funzionalità e migliorare la qualità. Microsoft Azure Stack include Windows Server 2016 e SQL Server 2014. Nessuno di questi prodotti vengono modificate dalle impostazioni predefinite e sono descritti per l'informativa sulla Privacy di Microsoft Enterprise. Stack di Azure contiene anche il software open source che non è stato modificato per inviare dati di telemetria a Microsoft. Di seguito sono riportati alcuni esempi di dati di telemetria dello Stack di Azure:
-
-- informazioni sulla registrazione di distribuzione
-- Quando un avviso viene aperto e chiuso
-- il numero di risorse di rete
-
-Per supportare il flusso di dati di telemetria, la porta 443 (HTTPS) deve essere aperta nella rete. L'endpoint client è https://vortex-win.data.microsoft.com.
-
-Se non si desidera fornire dati di telemetria per lo Stack di Azure, è possibile disattivare, l'host del kit di sviluppo e le macchine virtuali di infrastruttura come illustrato di seguito.
-
-### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Disattivare la telemetria nell'host di kit di sviluppo (facoltativo)
-
->[!NOTE]
-Se si desidera disattivare la telemetria per l'host del kit di sviluppo, è necessario farlo prima di eseguire lo script di distribuzione.
-
-Prima di [l'esecuzione dello script asdk installer.ps1]() per distribuire l'host del kit di sviluppo, l'avvio di CloudBuilder.vhdx ed eseguire lo script seguente in una finestra di PowerShell con privilegi elevata:
-```powershell
-### Get current AllowTelmetry value on DVM Host
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-### Set & Get updated AllowTelemetry value for ASDK-Host 
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name "AllowTelemetry" -Value '0'  
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-```
-
-Impostazione **AllowTelemetry** su 0, verranno disattivate telemetria per la distribuzione di Windows e Stack di Azure. Vengono inviati solo eventi di sicurezza critiche dal sistema operativo. L'impostazione di controlli dati di telemetria di Windows in tutti gli host e macchine virtuali di infrastruttura e viene riapplicato a nodi di nuovo le macchine virtuali quando vengono eseguite operazioni di scalabilità orizzontale.
-
-
-### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Disattivare la telemetria nelle macchine virtuali dell'infrastruttura (facoltativo)
-
-Dopo la distribuzione ha esito positivo, eseguire lo script seguente in una finestra di PowerShell con privilegi elevata (come l'utente AzureStack\AzureStackAdmin) nell'host di kit di sviluppo:
-
-```powershell
-$AzSVMs= get-vm |  where {$_.Name -like "AzS-*"}
-### Show current AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-### Set & Get updated AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {Set-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name "AllowTelemetry" -Value '0'}
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-```
-
-Per configurare i dati di telemetria di SQL Server, vedere [come configurare SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
-
-### <a name="usage-reporting"></a>Report sull'utilizzo
-
-Tramite la registrazione, Stack di Azure è configurato anche per informazioni sull'utilizzo di inoltro a Azure. Report sull'utilizzo viene controllato in modo indipendente da dati di telemetria. È possibile disattivare la segnalazione quando utilizzo [registrazione](azure-stack-register.md) usando lo script su Github. È sufficiente impostare la **$reportUsage** parametro **$false**.
-
-Dati di utilizzo vengono formattati come descritto nel [dati di utilizzo dello Stack di Azure di Report in Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting). Gli utenti di Azure il Kit di sviluppo dello Stack non vengono addebitati effettivamente. Questa funzionalità è inclusa nel kit di sviluppo in modo da poter testare per verificare il funzionamento del report di utilizzo. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

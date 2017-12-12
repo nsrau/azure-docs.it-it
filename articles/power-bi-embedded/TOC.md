@@ -1,7 +1,7 @@
 # Panoramica
 ## [Informazioni su Power BI Embedded](what-is-power-bi-embedded.md)
 
-# Attività iniziali
+# Introduzione
 ## [Introduzione a Power BI Embedded](get-started.md)
 ## [Esempio introduttivo](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
 
@@ -24,7 +24,7 @@
 
 # riferimento
 ## API
-### [API REST di Gestione delle risorse di Azure](/rest/api/powerbiembedded/)
+### [API REST di Gestione delle risorse di Azure](https://docs.microsoft.com/rest/api/power-bi-embedded/)
 ### [API REST](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
 ## SDK
 ### [Download di .NET SDK](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)

@@ -3,22 +3,22 @@ title: Gestire l'insieme di credenziali chiave nello Stack di Azure tramite il p
 description: Informazioni su come gestire l'insieme di credenziali chiave nello Stack di Azure tramite il portale
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: D4300668-461F-45F6-BF3B-33B502C39D17
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
-ms.author: sngun
-ms.openlocfilehash: d263cbcc81be37eaedfdb771436fd13ef25362f8
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.author: mabrigg
+ms.openlocfilehash: d76a1e188c5a5bf008ac2fba9b43741a6a8d97b1
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>Gestire l'insieme di credenziali chiave nello Stack di Azure tramite il portale
 
@@ -76,7 +76,7 @@ Dopo la chiave viene creata correttamente, è possibile selezionare in **chiavi*
 
 ![Chiave URI](media/azure-stack-kv-manage-portal/image4.png)  
 
-### <a name="create-a-secret"></a>Creare un segreto 
+### <a name="create-a-secret"></a>Crea un segreto 
 
 1. Accedi al [portale per gli utenti](https://portal.local.azurestack.external).  
 2. Dal dashboard, selezionare **tutte le risorse**, selezionare l'insieme di credenziali chiave creato in precedenza e quindi selezionare il **segreti** riquadro.  

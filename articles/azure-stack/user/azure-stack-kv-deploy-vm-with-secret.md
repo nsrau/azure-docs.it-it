@@ -3,8 +3,8 @@ title: Distribuire una macchina virtuale con password archiviate in modo sicuro 
 description: Informazioni su come distribuire una macchina virtuale usando una password archiviate nell'insieme di credenziali chiave di Azure Stack
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 23322a49-fb7e-4dc2-8d0e-43de8cd41f80
 ms.service: azure-stack
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/08/2017
-ms.author: sngun
-ms.openlocfilehash: 3292a2dfefc17e5034c66122a3eab24d6c03e694
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 8d9a2cebd7a28ca13cf88518a7c83b217af4c0e1
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-virtual-machine-by-retrieving-the-password-stored-in-a-key-vault"></a>Creare una macchina virtuale per il recupero della password archiviata in un insieme di credenziali chiave
 
@@ -28,7 +28,7 @@ In questo articolo sono illustrati i passaggi necessari per distribuire una macc
 
 ## <a name="prerequisites"></a>Prerequisiti
  
-* È necessario deve sottoscrivere un'offerta che include il servizio insieme di credenziali chiave.  
+* È necessario sottoscrivere un'offerta che include il servizio insieme di credenziali chiave.  
 * [Installare PowerShell per Azure dello Stack.](azure-stack-powershell-install.md)  
 * [Configurare l'ambiente di PowerShell di Azure Stack dell'utente.](azure-stack-powershell-configure-user.md)
 

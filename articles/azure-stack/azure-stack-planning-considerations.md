@@ -3,8 +3,8 @@ title: Considerazioni sulla pianificazione per Azure Stack integrati sistemi | D
 description: "Informazioni sulle operazioni per l'ora di pianificare e preparare per lo Stack di Azure a più nodi."
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 90f8fa1a-cace-4bfa-852b-5abe2b307615
 ms.service: azure-stack
@@ -13,12 +13,12 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: twooley
-ms.openlocfilehash: 8484f7947f23a00c05b34babf13cd75f9d227740
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.author: mabrigg
+ms.openlocfilehash: b39b3b8f73f9deef48173c712d7966eb13c6ecc3
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="planning-considerations-for-azure-stack-integrated-systems"></a>Considerazioni sulla pianificazione per Azure Stack integrati sistemi
 
@@ -102,7 +102,7 @@ Nella tabella seguente sono riepilogate queste decisioni di nomi di dominio.
 
 | Nome | Descrizione | 
 | -------- | ------------- | 
-|nome dell'area | Il nome dell'area dello Stack di Azure prima. Questo nome viene utilizzato come parte del nome FQDN per i pubblici indirizzi IP virtuali (VIP) che gestisce dello Stack di Azure. In genere, il nome dell'area sarebbe un identificatore di posizione fisica, ad esempio un'ubicazione del Data Center. | 
+|Nome dell'area | Il nome dell'area dello Stack di Azure prima. Questo nome viene utilizzato come parte del nome FQDN per i pubblici indirizzi IP virtuali (VIP) che gestisce dello Stack di Azure. In genere, il nome dell'area sarebbe un identificatore di posizione fisica, ad esempio un'ubicazione del Data Center. | 
 | Nome di dominio esterno | Il nome della zona sistema DNS (Domain Name) per gli endpoint con gli indirizzi VIP esterna. Utilizzata nel FQDN per i VIP pubblici. | 
 | Nome di dominio (interna) privato | Il nome del dominio (e zona DNS interno) creato nello Stack di Azure per la gestione dell'infrastruttura. 
 | | |
@@ -227,7 +227,7 @@ Nella tabella seguente sono riepilogati gli scenari di connettività ibrida con 
 | Stack di Azure multi-tenant, distribuzione in internet | Da sito a VPN | Il traffico proveniente da tenant rete virtuale di destinazione è protetto. | Larghezza di banda è limitata dal tunnel VPN da sito a sito.<br><br>Richiede un gateway nella rete virtuale e un dispositivo VPN della rete di destinazione. | Hosting di scenari in cui il provider desidera realizzare un cloud multi-tenant, in cui i tenant non attendibili tra loro e il traffico deve essere crittografato.
 |  |  |  |  |  |
 
-#### <a name="using-expressroute"></a>Uso di ExpressRoute
+#### <a name="using-expressroute"></a>Utilizzo di ExpressRoute
 
 È possibile connettersi dello Stack di Azure in Azure tramite [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) per scenari multi-tenant e single-tenant intranet. È necessario un circuito ExpressRoute di provisioning tramite [un provider di connettività](https://docs.microsoft.com/azure/expressroute/expressroute-locations).
 

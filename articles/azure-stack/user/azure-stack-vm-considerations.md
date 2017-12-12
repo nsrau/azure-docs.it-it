@@ -3,28 +3,28 @@ title: Le differenze e le considerazioni per le macchine virtuali nello Stack di
 description: Informazioni sulle considerazioni e le differenze quando si lavora con le macchine virtuali nello Stack di Azure.
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
+author: mattbriggs
 manager: femila
 editor: 
-ms.assetid: 
+ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
-ms.author: sngun
-ms.openlocfilehash: fa4816079660467e530237fef62aeadfef7fa8bd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: mabrigg
+ms.openlocfilehash: fe655facf4da99d951a430db8ce603cc0ec7f224
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considerazioni per le macchine virtuali in Azure Stack
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Macchine virtuali sono un su richiesta, le risorse di elaborazione scalabili offerti dallo Stack di Azure. Quando si usano macchine virtuali, è necessario comprendere che non esistono differenze tra le funzionalità disponibili in Azure e Azure Stack. In questo articolo viene fornita una panoramica delle considerazioni univoche per le macchine virtuali e delle relative funzionalità nello Stack di Azure. Per ulteriori informazioni sulle differenze generali tra Stack di Azure e Azure, vedere il [considerazioni chiave](azure-stack-considerations.md) argomento.
+Macchine virtuali sono un su richiesta, le risorse di elaborazione scalabili offerti dallo Stack di Azure. Quando si usano macchine virtuali, è necessario comprendere che non esistono differenze tra le funzionalità disponibili in Azure e Azure Stack. In questo articolo viene fornita una panoramica delle considerazioni univoche per le macchine virtuali e delle relative funzionalità nello Stack di Azure. Per ulteriori informazioni sulle differenze generali tra Stack di Azure e Azure, vedere il [considerazioni chiave](azure-stack-considerations.md) articolo.
 
 ## <a name="cheat-sheet-virtual-machine-differences"></a>Schede di riferimento rapido: macchina virtuale differenze
 
@@ -33,11 +33,11 @@ Macchine virtuali sono un su richiesta, le risorse di elaborazione scalabili off
 | Immagini di macchine virtuali | Azure Marketplace contiene le immagini che è possibile utilizzare per creare una macchina virtuale. Vedere il [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) pagina per visualizzare l'elenco delle immagini che sono disponibili in Azure Marketplace. | Per impostazione predefinita, sono non sono presenti immagini disponibili in marketplace dello Stack di Azure. L'amministratore del cloud di Azure Stack deve pubblicare o scaricare immagini marketplace Azure Stack prima che gli utenti possono usare tali. |
 | Dimensioni delle macchine virtuali | Azure supporta un'ampia gamma di dimensioni per le macchine virtuali. Per conoscere le dimensioni disponibili e le opzioni, vedere il [dimensioni delle macchine virtuali di Windows](../../virtual-machines/virtual-machines-windows-sizes.md) e [dimensioni delle macchine virtuali Linux](../../virtual-machines/linux/sizes.md) argomenti. | Stack di Azure supporta un subset di dimensioni delle macchine virtuali che sono disponibili in Azure. Per visualizzare l'elenco dei formati supportati, vedere il [dimensioni delle macchine virtuali](#virtual-machine-sizes) sezione di questo articolo. |
 | Quote macchina virtuale | [I limiti di quota](../../azure-subscription-service-limits.md#service-specific-limits) impostati da Microsoft | L'amministratore del cloud di Azure Stack deve assegnare quote prima di macchine virtuali che offrono agli utenti. |
-| Estensioni di macchine virtuali |Azure supporta un'ampia gamma di estensioni di macchina virtuale. Per ulteriori informazioni sulle estensioni disponibili, consultare il [estensioni delle macchine virtuali e le funzionalità](../../virtual-machines/windows/extensions-features.md) argomento.| Stack di Azure supporta un subset di estensioni che sono disponibili in Azure e dell'estensione hanno versioni specifiche. L'amministratore del cloud di Azure Stack possa scegliere le estensioni da messe a disposizione per i propri utenti. Per visualizzare l'elenco di estensioni supportate, consultare il [estensioni delle macchine virtuali](#virtual-machine-extensions) sezione di questo articolo. |
+| Estensioni macchina virtuale |Azure supporta un'ampia gamma di estensioni di macchina virtuale. Per ulteriori informazioni sulle estensioni disponibili, consultare il [estensioni delle macchine virtuali e le funzionalità](../../virtual-machines/windows/extensions-features.md) articolo.| Stack di Azure supporta un subset di estensioni che sono disponibili in Azure e dell'estensione hanno versioni specifiche. L'amministratore del cloud di Azure Stack possa scegliere le estensioni da messe a disposizione per i propri utenti. Per visualizzare l'elenco di estensioni supportate, consultare il [estensioni delle macchine virtuali](#virtual-machine-extensions) sezione di questo articolo. |
 | Rete della macchina virtuale | Indirizzi IP pubblici assegnati alle macchine virtuali tenant sono accessibili tramite Internet.<br><br><br>Macchine virtuali di Azure è un nome DNS predefinito | Indirizzi IP pubblici assegnati a una macchina virtuale tenant sono accessibili solo l'ambiente Azure Stack Development Kit. Un utente deve avere accesso al Kit di sviluppo dello Stack di Azure tramite [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) o [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) per connettersi a una macchina virtuale che viene creata nello Stack di Azure.<br><br>Macchine virtuali create all'interno di un'istanza specifica di Stack di Azure è un nome DNS in base al valore configurato dall'amministratore del cloud. |
 | Archiviazione della macchina virtuale | Supporta [dischi gestiti.](../../virtual-machines/windows/managed-disks-overview.md) | Dischi gestiti non sono ancora supportati nello Stack di Azure. |
 | Versioni dell'API | Azure offre sempre le versioni più recenti di API per tutte le funzionalità di macchina virtuale. | Stack di Azure supporta versioni specifiche di API e servizi di Azure specifici per questi servizi. Per visualizzare l'elenco delle versioni API supportate, consultare il [versioni API](#api-versions) sezione di questo articolo. |
-|Set di disponibilità di macchine virtuali|Più domini di errore (2 o 3 regione)<br>Più domini di aggiornamento<br>Supporto disco gestito|Dominio di errore singolo<br>Dominio di aggiornamento singolo<br>Nessun supporto per dischi gestiti|
+|Set di disponibilità della macchina virtuale|Più domini di errore (2 o 3 regione)<br>Più domini di aggiornamento<br>Supporto disco gestito|Dominio di errore singolo<br>Dominio di aggiornamento singolo<br>Nessun supporto per dischi gestiti|
 |set di scalabilità di macchine virtuali|Scalabilità automatica è supportata|Scalabilità automatica non è supportato.<br>Aggiungere più istanze di una scala impostata utilizzando il portale, i modelli di gestione risorse o PowerShell.
 
 ## <a name="virtual-machine-sizes"></a>Dimensioni delle macchine virtuali 
@@ -57,7 +57,7 @@ Il Kit di sviluppo dello Stack di Azure supporta le dimensioni seguenti:
 
 Dimensioni delle macchine virtuali e le relative quantità di risorse associati sono coerenti tra Stack di Azure e Azure. Ad esempio, ciò include la quantità di memoria, numero di core e la dimensione o numero di dischi dati che possono essere creati. Prestazioni delle stesse dimensioni di macchina virtuale nello Stack di Azure dipendono tuttavia le caratteristiche di un particolare ambiente dello Stack di Azure sottostante.
 
-## <a name="virtual-machine-extensions"></a>Estensioni di macchine virtuali 
+## <a name="virtual-machine-extensions"></a>Estensioni macchina virtuale 
 
  Il Kit di sviluppo dello Stack di Azure supporta le seguenti versioni di estensione di macchina virtuale:
 

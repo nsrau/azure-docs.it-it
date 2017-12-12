@@ -3,8 +3,8 @@ title: Connettersi a Azure Stack | Documenti Microsoft
 description: Informazioni su come connettersi a Azure Stack
 services: azure-stack
 documentationcenter: 
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 3cebbfa6-819a-41e3-9f1b-14ca0a2aaba3
 ms.service: azure-stack
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2017
-ms.author: sngun
-ms.openlocfilehash: 914f2e5d10aa341cea5eba8c24c7c37610e6b626
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mabrigg
+ms.openlocfilehash: 7479202a8afabf5a84560691a2bccf849206c077
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connect-to-azure-stack"></a>Connettersi ad Azure Stack
 
-Per gestire le risorse, è necessario connettersi al Kit di sviluppo dello Stack di Azure. I dettagli di questo argomento i passaggi necessari per connettersi al kit di sviluppo. È possibile utilizzare una delle opzioni di connessione seguente:
+Per gestire le risorse, è necessario connettersi al Kit di sviluppo dello Stack di Azure. Questo articolo presenta i passaggi necessari per connettersi al kit di sviluppo. È possibile utilizzare una delle opzioni di connessione seguente:
 
 * [Desktop remoto](#connect-with-remote-desktop): consente di connettersi rapidamente nel kit di sviluppo di un singolo utente simultaneo.
 * [Rete privata virtuale (VPN, Virtual Private Network)](#connect-with-vpn): consente di connettersi più utenti simultanei dai client di fuori dell'infrastruttura di Azure Stack (richiede la configurazione).
@@ -51,7 +51,7 @@ Con una connessione Desktop remoto, è possibile utilizzare un singolo utente si
 
 ### <a name="configure-vpn-connectivity"></a>Configurare la connettività VPN
 
-Per creare una connessione VPN al kit di sviluppo, aprire una sessione di PowerShell con privilegi elevata da un computer basato su Windows locale ed eseguire lo script seguente (assicurarsi di aggiornare il i valori di password e l'indirizzo IP per l'ambiente):
+Per creare una connessione VPN al kit di sviluppo, aprire una sessione di PowerShell con privilegi elevata da un computer basato su Windows locale ed eseguire lo script seguente (assicurarsi di aggiornare i valori di password e l'indirizzo IP per l'ambiente):
 
 ```PowerShell 
 # Configure winrm if it's not already configured
@@ -82,7 +82,7 @@ Add-AzsVpnConnection `
 
 ```
 
-Se il set di backup ha esito positivo, dovrebbe essere **azurestack** nell'elenco delle connessioni VPN.
+Se ha esito positivo della configurazione, dovrebbe **azurestack** nell'elenco delle connessioni VPN.
 
 ![Connessioni di rete](media/azure-stack-connect-azure-stack/image3.png)  
 
