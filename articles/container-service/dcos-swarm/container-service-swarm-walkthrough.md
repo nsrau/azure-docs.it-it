@@ -1,27 +1,19 @@
 ---
-title: 'Guida introduttiva: cluster Docker Swarm di Azure per Linux | Microsoft Docs'
+title: Guida introduttiva - Cluster Docker Swarm di Azure per Linux
 description: Informazioni per creare rapidamente un cluster Docker Swarm per contenitori Linux nel servizio contenitore di Azure con l'interfaccia della riga di comando di Azure.
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service, Docker, Swarm
-keywords: 
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/14/2017
 ms.author: nepeters
 ms.custom: 
-ms.openlocfilehash: 876135d62d548e155f4ebefd8bbd9d9cca8b87d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79e4fab9501141c78bca4b28eabb3964604be909
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="deploy-docker-swarm-cluster"></a>Distribuire un cluster Docker Swarm
 

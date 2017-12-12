@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
 ms.author: garye
-ms.openlocfilehash: 2b4d04af7fe7a40a1d907a06ab8772f20956bc19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b162d7534eff0d1f79808fc86bacf92dbfc2f84a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Domande frequenti su Azure Machine Learning: fatturazione, funzionalità, limitazioni e supporto
 Di seguito sono riportate alcune domande frequenti e le corrispondenti risposte su Azure Machine Learning, un servizio cloud che consente di sviluppare modelli predittivi e rendere operative le soluzioni tramite servizi Web. Questo articolo contiene domande sull'uso del servizio, includendo il modello di fatturazione, le funzionalità, le limitazioni e il supporto.
@@ -230,7 +230,7 @@ Per altre informazioni, vedere [Ripetere il training dei modelli di Machine Lear
 
 **Come monitorare il servizio Web distribuito in produzione?**
 
-Dopo aver distribuito un modello predittivo, è possibile monitorarlo dal portale di Azure classico (solo in caso di servizi Web classici) o dal portale dei servizi Web di Azure Machine Learning. Ogni servizio distribuito ha un proprio dashboard, in cui è possibile visualizzare le informazioni di monitoraggio per il servizio. Per altre informazioni sulla gestione dei servizi Web distribuiti, vedere [Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning](manage-new-webservice.md) e [Gestire un'area di lavoro di Azure Machine Learning](manage-workspace.md).
+Dopo aver distribuito un modello predittivo, è possibile monitorarlo dal portale dei servizi Web di Azure Machine Learning. Ogni servizio distribuito ha un proprio dashboard, in cui è possibile visualizzare le informazioni di monitoraggio per il servizio. Per altre informazioni sulla gestione dei servizi Web distribuiti, vedere [Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning](manage-new-webservice.md) e [Gestire un'area di lavoro di Azure Machine Learning](manage-workspace.md).
 
 **Esiste una posizione in cui è possibile visualizzare l'output di RRS/BES?**
 
@@ -285,7 +285,7 @@ No.
 ## <a name="security-and-availability"></a>Sicurezza e disponibilità
 **Chi può accedere per impostazione predefinita all'endpoint HTTP per il servizio Web? Come limitare l'accesso all'endpoint?**
 
-Dopo avere distribuito un servizio Web, viene creato un endpoint predefinito per tale servizio. L'endpoint predefinito può essere chiamato usando la chiave API. È possibile aggiungere altri endpoint con le rispettive chiavi dal portale di Azure classico o a livello di codice usando le API Gestione servizi Web. Le chiavi di accesso sono necessarie per effettuare le chiamate al servizio Web. Per altre informazioni, vedere [Come usare un servizio Web di Azure Machine Learning pubblicato da un esperimento di Machine Learning](consume-web-services.md).
+Dopo avere distribuito un servizio Web, viene creato un endpoint predefinito per tale servizio. L'endpoint predefinito può essere chiamato usando la chiave API. È possibile aggiungere altri endpoint con le rispettive chiavi dal portale dei servizi Web o a livello di codice usando le API di gestione dei servizi Web. Le chiavi di accesso sono necessarie per effettuare le chiamate al servizio Web. Per altre informazioni, vedere [Come usare un servizio Web di Azure Machine Learning pubblicato da un esperimento di Machine Learning](consume-web-services.md).
 
 **Cosa succede se non viene trovato l'account di archiviazione di Azure?**
 
@@ -297,7 +297,7 @@ Se si elimina accidentalmente l'account di archiviazione, ricrearlo con lo stess
 
 Machine Learning Studio si basa su un account di archiviazione di Azure specificato dall'utente per archiviare i dati intermedi quando esegue il flusso di lavoro. Questo account di archiviazione viene fornito a Machine Learning Studio quando si crea un'area di lavoro e le chiavi di accesso sono associate all'area di lavoro. Se le chiavi di accesso vengono modificate dopo la creazione dell'area di lavoro, l'area di lavoro non riuscirà più ad accedere all'account di archiviazione. L'area di lavoro non funzionerà più e tutti gli esperimenti al suo interno avranno esito negativo.
 
-Se sono state modificate le chiavi di accesso dell'account di archiviazione, risincronizzare le chiavi di accesso nell'area di lavoro usando il portale di Azure classico.  
+Se sono state modificate le chiavi di accesso dell'account di archiviazione, sincronizzarle di nuovo nell'area di lavoro usando il portale di Azure.  
 
 ## <a name="support-and-training"></a>Supporto e training
 **Dove si trovano i training per Azure Machine Learning?**
@@ -509,7 +509,7 @@ Oltre agli addebiti precedenti, nel caso dei servizi Web basati su Resource Mana
 
 **Come ci si iscrive al livello Standard di Azure Machine Learning?**
 
-Per creare un'area di lavoro di Machine Learning di livello Standard è prima di tutto necessario avere accesso a una sottoscrizione di Azure. È possibile iscriversi per ottenere una sottoscrizione della versione di valutazione gratuita di Azure di 30 giorni ed eseguire in seguito l'aggiornamento a una sottoscrizione di Azure a pagamento oppure acquistare direttamente una sottoscrizione di Azure a pagamento. Dopo aver ottenuto l'accesso alla sottoscrizione, è possibile creare un'area di lavoro di Machine Learning dal portale di Microsoft Azure classico. Vedere le [istruzioni dettagliate](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
+Per creare un'area di lavoro di Machine Learning di livello Standard è prima di tutto necessario avere accesso a una sottoscrizione di Azure. È possibile iscriversi per ottenere una sottoscrizione della versione di valutazione gratuita di Azure di 30 giorni ed eseguire in seguito l'aggiornamento a una sottoscrizione di Azure a pagamento oppure acquistare direttamente una sottoscrizione di Azure a pagamento. Dopo aver ottenuto l'accesso alla sottoscrizione, è possibile creare un'area di lavoro di Machine Learning dal portale di Microsoft Azure. Vedere le [istruzioni dettagliate](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
 
 In alternativa, si può essere invitati dal proprietario di un'area di lavoro di Machine Learning di livello Standard ad accedere alla sua area di lavoro.
 

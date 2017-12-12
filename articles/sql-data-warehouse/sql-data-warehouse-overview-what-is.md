@@ -4,7 +4,7 @@ description: "Database distribuito di livello aziendale, in grado di elaborare v
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: bjhubbard
+manager: jenniehubbard
 editor: 
 ms.assetid: 4006c201-ec71-4982-b8ba-24bba879d7bb
 ms.service: sql-data-warehouse
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: overview
 ms.date: 10/23/2017
-ms.author: jrj;barbkess
-ms.openlocfilehash: d5ad5b566bd8d40ab6d7a9151af54890fd47cc88
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.author: jrj
+ms.openlocfilehash: 7fd17c29c413905084c6b3736018d111d3b28fea
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Che cos'è SQL Data Warehouse di Azure?
 
@@ -43,7 +43,7 @@ SQL Data Warehouse offre [livelli di prestazioni](performance-tiers.md) progetta
 
 - Il **livello di prestazioni Ottimizzato per l'elasticità** separa i livelli di calcolo e di archiviazione nell'architettura. Questa opzione è ideale per i carichi di lavoro che possono sfruttare la separazione tra calcolo e archiviazione, con scalabilità frequente a supporto di brevi periodi di attività di picco. Questo livello di calcolo garantisce il costo più basso, con scalabilità sufficiente a supportare la maggior parte dei carichi di lavoro dei clienti.
 
-- Il **livello di prestazioni Ottimizzato per il calcolo** usa l'hardware di Azure più recente per introdurre una nuova cache SSD (Solid State Disk) NVMe che conserva i dati usati più spesso vicino alla CPU, ovvero nella posizione migliore possibile. Grazie alla suddivisione automatica dei livelli di archiviazione, questo livello di prestazioni è straordinario per le query complesse, perché tutte le operazioni di I/O avvengono in locale nel livello di calcolo. L'indice columnstore è stato migliorato per archiviare una quantità di dati illimitata in SQL Data Warehouse. Il livello di prestazioni Ottimizzato per il calcolo offre la massima scalabilità, consentendo di arrivare fino a 30.000 DWU a elevato utilizzo di calcolo. Scegliere questo livello per i carichi di lavoro che richiedono prestazioni continue ed estremamente veloci.
+- Il **livello di prestazioni ottimizzato per il calcolo** usa l'hardware di Azure più recente per introdurre una nuova cache SSD (Solid State Disk) NVMe che mantiene i dati usati più spesso vicino alla CPU, ovvero nella posizione migliore possibile. Grazie alla suddivisione automatica dei livelli di archiviazione, questo livello di prestazioni è straordinario per le query complesse, perché tutte le operazioni di I/O avvengono in locale nel livello di calcolo. Il columnstore è stato migliorato per archiviare una quantità di dati illimitata in SQL Data Warehouse. Il livello di prestazioni ottimizzato per il calcolo offre la massima scalabilità, consentendo di arrivare fino a 30.000 DWU a elevato utilizzo di calcolo. Scegliere questo livello per i carichi di lavoro che richiedono prestazioni continue ed estremamente veloci.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver appreso alcune informazioni su SQL Data Warehouse, vedere come [creare un SQL Data Warehouse][create a SQL Data Warehouse] rapidamente e [caricare i dati di esempio][load sample data]. Se non si ha familiarità con Azure, il [glossario di Azure][Azure glossary] può essere utile quando si incontrano termini nuovi. Oppure vedere alcune delle altre risorse disponibili per SQL Data Warehouse.  

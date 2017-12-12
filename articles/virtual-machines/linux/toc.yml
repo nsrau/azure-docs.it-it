@@ -124,6 +124,8 @@
       items:
         - name: Linee guida per l'infrastruttura
           href: infrastructure-example.md
+        - name: Quote vCPU
+          href: quotas.md
 - name: Guide alle procedure
   items:
     - name: Creare VM

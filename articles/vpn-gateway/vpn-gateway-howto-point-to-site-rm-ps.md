@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 12/04/2017
 ms.author: cherylmc
-ms.openlocfilehash: 8c4b2d578a8a586fc63c972ab5da694b2dd9d571
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 367288e313ae5517b126b17c905ae291b5b37975
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione del certificato di Azure nativo: PowerShell
 
@@ -36,7 +36,7 @@ Un gateway VPN da punto a sito (P2S) consente di creare una connessione sicura a
 
 I client che si connettono possono usare i metodi di autenticazione seguenti:
 
-* Server RADIUS: attualmente in fase di anteprima
+* Server RADIUS
 * Autenticazione del certificato di Azure nativo tramite il gateway VPN
 
 Questo articolo illustra come eseguire una configurazione P2S con l'autenticazione usando l'autenticazione del certificato di Azure nativo. Per usare RADIUS per autenticare gli utenti che si connettono, vedere [P2S using RADIUS authentication](point-to-site-how-to-radius-ps.md) (P2S con autenticazione RADIUS).
@@ -47,11 +47,7 @@ Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo 
 
 * SSTP è un tunnel VPN basato su SSL supportato solo nelle piattaforme client Windows. Può penetrare i firewall e per questo è l'opzione ideale per connettersi ad Azure ovunque. Sul lato server sono supportate le versioni 1.0, 1.1 e 1.2 di SSTP. Il client decide quale versione usare. Per Windows 8.1 e versioni successive, SSTP usa per impostazione predefinita la versione 1.2.
 
-* VPN IKEv2, una soluzione VPN IPsec basata su standard. VPN IKEv2 può essere usato per connettersi da dispositivi Mac (versioni OSX 10.11 e successive). IKEv2 è attualmente in fase di anteprima.
-
->[!NOTE]
->IKEv2 per P2S è attualmente in fase di anteprima.
->
+* VPN IKEv2, una soluzione VPN IPsec basata su standard. VPN IKEv2 può essere usato per connettersi da dispositivi Mac (versioni OSX 10.11 e successive).
 
 Le connessioni da punto a sito con l'autenticazione del certificato di Azure nativo richiedono gli elementi seguenti:
 
@@ -69,10 +65,10 @@ Per altre informazioni al riguardo, vedere [About Point-to-Site connections](poi
 
 ### <a name="example"></a>Valori di esempio
 
-È possibile usare i valori di esempio per creare un ambiente di test o fare riferimento a questi valori per comprendere meglio gli esempi di questo articolo. Le variabili sono state impostate nella sezione [1](#declare) di questo articolo. È possibile seguire la procedura dettagliata e usare i valori senza modificarle oppure modificarli in base all'ambiente.
+È possibile usare i valori di esempio per creare un ambiente di test o fare riferimento a questi valori per comprendere meglio gli esempi di questo articolo. Le variabili vengono impostate nella sezione [1](#declare) dell'articolo. È possibile seguire la procedura dettagliata e usare i valori senza modificarle oppure modificarli in base all'ambiente.
 
 * **Nome: VNet1**
-* **Spazio degli indirizzi: 192.168.0.0/16** e **10.254.0.0/16**<br>Per questo esempio, si usa più di uno spazio indirizzi per mostrare che la configurazione funziona con più spazi indirizzi, ma per questa configurazione non sono necessari più spazi indirizzi.
+* **Spazio degli indirizzi: 192.168.0.0/16** e **10.254.0.0/16**<br>Questo esempio usa più di uno spazio indirizzi per mostrare che la configurazione funziona con più spazi indirizzi, ma per questa configurazione non sono necessari più spazi indirizzi.
 * **Nome subnet: FrontEnd**
   * **Intervallo di indirizzi subnet: 192.168.1.0/24**
 * **Nome subnet: BackEnd**
@@ -143,7 +139,7 @@ In questa sezione si accede e si dichiarano i valori usati per la configurazione
   ```
 3. Creare la rete virtuale.
 
-  In questo esempio il parametro del server -DnsServer è facoltativo. Se si specifica un valore, non verrà creato un nuovo server DNS. L'indirizzo IP del server DNS specificato deve essere un server DNS che riesce a risolvere i nomi per le risorse a cui ci si connette dalla rete virtuale. Per questo esempio, è stato usato un indirizzo IP privato, ma è probabile che non si tratti dell'indirizzo IP del server DNS. Assicurarsi di usare valori personalizzati. Il valore specificato viene usato dalle risorse distribuite nella rete virtuale, non dalla connessione P2S o dal client VPN.
+  In questo esempio il parametro del server -DnsServer è facoltativo. Se si specifica un valore, non verrà creato un nuovo server DNS. L'indirizzo IP del server DNS specificato deve essere un server DNS che riesce a risolvere i nomi per le risorse a cui ci si connette dalla rete virtuale. Questo esempio usa un indirizzo IP privato, ma è probabile che non si tratti dell'indirizzo IP del server DNS in uso. Assicurarsi di usare valori personalizzati. Il valore specificato viene usato dalle risorse distribuite nella rete virtuale, non dalla connessione P2S o dal client VPN.
 
   ```powershell
   New-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG -Location $Location -AddressPrefix $VNetPrefix1,$VNetPrefix2 -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
@@ -167,14 +163,14 @@ In questa sezione si accede e si dichiarano i valori usati per la configurazione
 
 Configurare e creare il gateway di rete virtuale per la rete virtuale.
 
-* *-GatewayType* deve essere **Vpn** e *-VpnType* deve essere **RouteBased**.
-* -VpnClientProtocols viene usato per specificare i tipi di tunnel che si vuole abilitare. Le due opzioni per i tunnel sono **SSTP** e **IKEv2**. È possibile scegliere di abilitarne una o entrambe. Per abilitarle entrambe, specificare entrambi i nomi separati da virgola. Il client Strongswan in Android e Linux e il client VPN IKEv2 nativo in iOS e OSX useranno solo il tunnel IKEv2 per la connessione. I client Windows provano prima IKEv2 e, se la connessione non viene stabilita, tornano a SSTP.
-* Per il completamento di un gateway VPN possono essere necessari fino a 45 minuti, in base allo [SKU del gateway](vpn-gateway-about-vpn-gateway-settings.md) selezionato. In questo esempio viene usato IKEv2, che è attualmente in fase di anteprima.
+* -GatewayType deve essere **Vpn** e -VpnType deve essere **RouteBased**.
+* -VpnClientProtocol consente di specificare i tipi di tunnel da abilitare. Le due opzioni per i tunnel sono **SSTP** e **IKEv2**. È possibile scegliere di abilitarne una o entrambe. Per abilitarle entrambe, specificare entrambi i nomi separati da virgola. Il client Strongswan in Android e Linux e il client VPN IKEv2 nativo in iOS e OSX useranno solo il tunnel IKEv2 per la connessione. I client Windows provano prima IKEv2 e, se la connessione non viene stabilita, tornano a SSTP.
+* Per il completamento di un gateway VPN possono essere necessari fino a 45 minuti, in base allo [SKU del gateway](vpn-gateway-about-vpn-gateway-settings.md) selezionato. Questo esempio usa IKEv2, attualmente disponibile in versione di anteprima.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
--VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 -VpnClientProtocols "IKEv2"
+-VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 -VpnClientProtocol "IKEv2"
 ```
 
 ## <a name="addresspool"></a>4. Aggiungere il pool di indirizzi client VPN
@@ -319,7 +315,7 @@ Si tratta del metodo più efficiente per caricare un certificato radice.
 
 #### <a name="certmethod2"></a>Metodo 2
 
-Questo metodo prevede più passaggi rispetto al Metodo 1, ma permette di ottenere lo stesso risultato. Viene incluso qualora si voglia visualizzare i dati del certificato.
+Questo metodo prevede più passaggi rispetto al metodo 1, ma permette di ottenere lo stesso risultato. Viene incluso qualora si voglia visualizzare i dati del certificato.
 
 1. Creare e preparare il nuovo certificato da aggiungere in Azure. Esportare la chiave pubblica come file CER con codifica Base 64 X.509 e aprirla con un editor di testo. Copiare i valori, come illustrato nell'esempio seguente:
 

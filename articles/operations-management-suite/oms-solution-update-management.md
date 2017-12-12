@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2017
-ms.author: eslesar
-ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/01/2017
+ms.author: magoedte;eslesar
+ms.openlocfilehash: 668065933745168c88a1f4bf755f1adc0cc31d7f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="update-management-solution-in-oms"></a>Soluzione Gestione aggiornamenti in OMS
 
@@ -57,7 +57,7 @@ Le informazioni di conformità vengono quindi elaborate e riepilogate nei dashbo
 Alla data e ora specificate nella distribuzione degli aggiornamenti, i computer di destinazione eseguono la distribuzione in parallelo.  Viene prima di tutto eseguita un'analisi per verificare che gli aggiornamenti siano ancora necessari, quindi viene eseguita l'installazione.  È importante notare che per i computer client WSUS, la distribuzione degli aggiornamenti avrà esito negativo se gli aggiornamenti non sono approvati in WSUS.  I risultati degli aggiornamenti applicati vengono inoltrati a OMS e saranno elaborati e riepilogati nei dashboard oppure saranno disponibili tramite ricerche negli eventi.     
 
 ## <a name="prerequisites"></a>Prerequisiti
-* La soluzione supporta l'esecuzione delle valutazioni degli aggiornamenti in Windows Server 2008 e versioni successive e le distribuzioni degli aggiornamenti in Windows Server 2008 R2 SP1 e versioni successive.  Le opzioni di installazione Server Core e Nano Server non sono supportate.
+* La soluzione supporta l'esecuzione delle valutazioni degli aggiornamenti in Windows Server 2008 e versioni successive e le distribuzioni degli aggiornamenti in Windows Server 2008 R2 SP1 e versioni successive.  Nano Server non è supportato.
 
     > [!NOTE]
     > Il supporto per la distribuzione degli aggiornamenti in Windows Server 2008 R2 SP1 richiede .NET Framework 4.5 e WMF 5.0 o versioni successive.

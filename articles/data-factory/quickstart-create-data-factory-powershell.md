@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 11/16/2017
+ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: cb58fe167fe8b369f51e234badd8e419ebd284e4
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 4bbac0e82181e46b84afee5ff7601da018226ec0
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>Creare una data factory di Azure con PowerShell 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,30 +42,26 @@ Questa guida introduttiva descrive come usare PowerShell per creare una data fac
     $resourceGroupName = "ADFQuickStartRG";
     ```
 
-    Se il gruppo di risorse esiste già, potrebbe essere preferibile non sovrascriverlo. Assegnare un valore diverso alla variabile `$resourceGroupName` ed eseguire di nuovo il comando.
+    Se il gruppo di risorse esiste già, potrebbe essere preferibile non sovrascriverlo. Assegnare un valore diverso alla variabile `$ResourceGroupName` ed eseguire di nuovo il comando.
 2. Per creare il gruppo di risorse di Azure, eseguire questo comando: 
 
     ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
+    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'eastus'
     ``` 
-    Se il gruppo di risorse esiste già, potrebbe essere preferibile non sovrascriverlo. Assegnare un valore diverso alla variabile `$resourceGroupName` ed eseguire di nuovo il comando. 
+    Se il gruppo di risorse esiste già, potrebbe essere preferibile non sovrascriverlo. Assegnare un valore diverso alla variabile `$ResourceGroupName` ed eseguire di nuovo il comando. 
 3. Definire una variabile per il nome della data factory. 
 
     > [!IMPORTANT]
     >  Aggiornare il nome della data factory in modo che sia univoco a livello globale. Ad esempio, ADFTutorialFactorySP1127. 
 
     ```powershell
-    $dataFactoryName = "ADFQuickStartFactory";
+    $DataFactoryName = "ADFQuickStartFactory";
     ```
-1. Definire una variabile per la località della data factory: 
 
-    ```powershell
-    $location = "East US"
-    ```
-5. Per creare la data factory, eseguire questo cmdlet **Set-AzureRmDataFactoryV2**: 
+5. Per creare la data factory, eseguire il cmdlet **Set-AzureRmDataFactoryV2** usando le proprietà Location e ResourceGroupName della variabile $ResGrp: 
     
     ```powershell       
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
+    $DataFactory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName -Location $ResGrp.Location -Name $dataFactoryName 
     ```
 
 Tenere presente quanto segue:
@@ -104,10 +100,14 @@ Creare servizi collegati in una data factory per collegare gli archivi dati e i 
     Se si usa Blocco note, selezionare **Tutti i file** per il campo **Tipo file** nella finestra di dialogo **Salva con nome**. In caso contrario, è possibile che venga aggiunta l'estensione `.txt` al file. ad esempio `AzureStorageLinkedService.json.txt`. Se si crea il file in Esplora file prima di aprirlo in Blocco note, è possibile che l'estensione `.txt` non venga visualizzata perché l'opzione **Nascondi estensioni per i tipi di file conosciuti** è selezionata per impostazione predefinita. Rimuovere l'estensione `.txt` prima di procedere al passaggio successivo.
 2. In **PowerShell** passare alla cartella **ADFv2QuickStartPSH**.
 
+```powershell
+Set-Location 'C:\ADFv2QuickStartPSH'
+```
+
 3. Eseguire il cmdlet **Set-AzureRmDataFactoryV2LinkedService** per creare il servizio collegato **AzureStorageLinkedService**. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -DefinitionFile ".\AzureStorageLinkedService.json"
+    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "AzureStorageLinkedService" -DefinitionFile ".\AzureStorageLinkedService.json"
     ```
 
     Di seguito è riportato l'output di esempio:
@@ -151,7 +151,7 @@ In questo passaggio è necessario definire un set di dati che rappresenta i dati
 2. Per creare il set di dati **BlobDataset**, eseguire il cmdlet **Set-AzureRmDataFactoryV2Dataset**.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "BlobDataset" -DefinitionFile ".\BlobDataset.json"
+    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "BlobDataset" -DefinitionFile ".\BlobDataset.json"
     ```
 
     Di seguito è riportato l'output di esempio:
@@ -221,7 +221,7 @@ In questa guida introduttiva si crea una pipeline con un'attività che accetta d
 2. Per creare la pipeline **Adfv2QuickStartPipeline**, eseguire il cmdlet **Set-AzureRmDataFactoryV2Pipeline**.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "Adfv2QuickStartPipeline" -DefinitionFile ".\Adfv2QuickStartPipeline.json"
+    $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "Adfv2QuickStartPipeline" -DefinitionFile ".\Adfv2QuickStartPipeline.json"
     ```
 
     Di seguito è riportato l'output di esempio:
@@ -249,7 +249,7 @@ In questo passaggio impostare valori per i parametri della pipeline **inputPath*
 2. Eseguire il cmdlet **Invoke-AzureRmDataFactoryV2Pipeline** per creare un'esecuzione della pipeline e passare i valori di parametro. Il cmdlet restituisce l'ID di esecuzione della pipeline per il monitoraggio futuro.
 
     ```powershell
-    $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
+    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineName $DFPipeLine.Name -ParameterFile .\PipelineParameters.json
     ```
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorare l'esecuzione della pipeline
@@ -258,19 +258,19 @@ In questo passaggio impostare valori per i parametri della pipeline **inputPath*
 
     ```powershell
     while ($True) {
-        $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
+        $Run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResGrp.ResourceGroupName -DataFactoryName $DataFactory.DataFactoryName -PipelineRunId $RunId
 
-        if ($run) {
+        if ($Run) {
             if ($run.Status -ne 'InProgress') {
-                Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
-                $run
+                Write-Output ("Pipeline run finished. The status is: " +  $Run.Status)
+                $Run
                 break
             }
-            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
+            Write-Output  "Pipeline is running...status: InProgress"
         }
 
         Start-Sleep -Seconds 10
-    }
+    }   
     ```
 
     Ecco l'output di esempio dell'esecuzione della pipeline:
@@ -314,15 +314,15 @@ In questo passaggio impostare valori per i parametri della pipeline **inputPath*
 1. Eseguire lo script seguente per recuperare i dettagli sull'esecuzione dell'attività di copia, ad esempio le dimensioni dei dati letti/scritti.
 
     ```powershell
-    Write-Host "Activity run details:" -foregroundcolor "Yellow"
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
-    $result
-    
-    Write-Host "Activity 'Output' section:" -foregroundcolor "Yellow"
-    $result.Output -join "`r`n"
-    
-    Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
-    $result.Error -join "`r`n"
+    Write-Output "Activity run details:"
+    $Result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineRunId $RunId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $Result
+
+    Write-Output "Activity 'Output' section:"
+    $Result.Output -join "`r`n"
+
+    Write-Output "Activity 'Error' section:"
+    $Result.Error -join "`r`n"
     ```
 3. Assicurarsi di visualizzare un output simile all'output di esempio seguente come risultato dell'esecuzione dell'attività:
 

@@ -1,26 +1,19 @@
 ---
-title: "Entità servizio per cluster Azure Kubernetes | Documentazione Microsoft"
+title: "Entità servizio per il cluster Kubernetes di Azure"
 description: "Creare e gestire un'entità servizio di Azure Active Directory per un cluster Kubernetes nel servizio contenitore di Azure"
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acs, azure-container-service, kubernetes
-keywords: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/26/2017
+ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2c07bebb98345981d36eb928bea14a09df9bc741
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 0c7e05525f1c6d11c17b4b36946dd797a7a95d08
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Configurare un'entità servizio di Azure AD per un cluster Kubernetes nel servizio contenitore
 
@@ -36,9 +29,9 @@ Questo articolo illustra le diverse opzioni disponibili per configurare un'entit
 
 È possibile usare un'entità servizio di Azure AD esistente che soddisfi i requisiti seguenti oppure crearne una nuova.
 
-* **Ambito**: gruppo di risorse usato per distribuire il cluster.
+* **Ambito**: gruppo di risorse
 
-* **Ruolo**: **Collaboratore**.
+* **Ruolo**: collaboratore
 
 * **Segreto client**: deve essere una password. Non è attualmente possibile usare un'entità servizio configurata per l'autenticazione del certificato.
 
@@ -59,7 +52,7 @@ az account set --subscription "mySubscriptionID"
 
 az group create --name "myResourceGroup" --location "westus"
 
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>"
 ```
 
 L'output è simile al seguente (visualizzato con alcune modifiche):
@@ -126,11 +119,50 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * Quando si specifica l'**ID client** dell'entità servizio, è possibile usare il valore di `appId`, come illustrato in questo articolo, o il valore `name` corrispondente dell'entità servizio, ad esempio `https://www.contoso.org/example`.
 
-* Nelle macchine virtuali master e dell'agente nel cluster Kubernetes, le credenziali dell'entità servizio vengono archiviate nel file /etc/kubernetes/azure.json.
+* Nelle macchine virtuali master e agente nel cluster Kubernetes, le credenziali dell'entità servizio sono archiviate nel file `/etc/kubernetes/azure.json`.
 
-* Quando si usa il comando `az acs create` per generare automaticamente l'entità servizio, le credenziali dell'entità servizio vengono scritte nel file ~/.azure/acsServicePrincipal.json nel computer usato per eseguire il comando.
+* Quando si usa il comando `az acs create` per generare automaticamente l'entità servizio, le credenziali dell'entità servizio vengono scritte nel file `~/.azure/acsServicePrincipal.json` nel computer usato per eseguire il comando.
 
 * Quando si usa il comando `az acs create` per generare automaticamente l'entità servizio, questa può anche eseguire l'autenticazione con un [registro contenitori di Azure](../../container-registry/container-registry-intro.md) creato nella stessa sottoscrizione.
+
+* Le credenziali dell'entità servizio possono scadere e in questo caso i nodi del cluster passano a uno stato **Non pronto**. Per informazioni sulle opzioni di mitigazione, vedere la sezione [Scadenza delle credenziali](#credential-expiration).
+
+## <a name="credential-expiration"></a>Scadenza delle credenziali
+
+Se non si specifica una finestra di validità personalizzata con il parametro `--years` quando si crea un'entità servizio, le relative credenziali sono valide per un anno dal momento della creazione. Quando le credenziali scadono, i nodi del cluster possono passare a uno stato **Non pronto**.
+
+Per verificare la data di scadenza di un'entità servizio, eseguire il comando [az ad app show](/cli/azure/ad/app#az_ad_app_show) con il parametro `--debug` e cercare il valore `endDate` di `passwordCredentials` nella parte inferiore dell'output:
+
+```azurecli
+az ad app show --id <appId> --debug
+```
+
+Output (troncato):
+
+```json
+...
+"passwordCredentials":[{"customKeyIdentifier":null,"endDate":"2018-11-20T23:29:49.316176Z"
+...
+```
+
+Se le credenziali dell'entità servizio sono scadute, usare il comando [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials) per aggiornarle:
+
+```azurecli
+az ad sp reset-credentials --name <appId>
+```
+
+Output:
+
+```json
+{
+  "appId": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "name": "4fd193b0-e6c6-408c-a21a-803441ad2851",
+  "password": "404203c3-0000-0000-0000-d1d2956f3606",
+  "tenant": "72f988bf-0000-0000-0000b-2d7cd011db47"
+}
+```
+
+Aggiornare quindi `/etc/kubernetes/azure.json` con le nuove credenziali in tutti i nodi del cluster e riavviare i nodi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

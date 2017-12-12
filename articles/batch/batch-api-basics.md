@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3028e913937db304ac0a1df8e6a095072630505d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 22c5597cf14f27671667176dce8782cf0c79918d
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Sviluppare soluzioni di calcolo parallele su larga scala con Batch
 
@@ -56,10 +56,8 @@ Alcune delle risorse seguenti, ovvero account, nodi di calcolo, pool, processi e
 * [Nodo di calcolo](#compute-node)
 * [Pool](#pool)
 * [Processo](#job)
-
   * [Pianificazioni dei processi](#scheduled-jobs)
 * [Attività](#task)
-
   * [Attività di avvio](#start-task)
   * [Attività di gestione dei processi](#job-manager-task)
   * [Attività di preparazione e rilascio dei processi](#job-preparation-and-release-tasks)
@@ -264,6 +262,9 @@ Quando si crea un'attività, è possibile specificare:
 * **Pacchetti dell'applicazione** per distribuire il nodo di calcolo in cui è pianificata l'esecuzione dell'attività. [Application packages](#application-packages) consentono una distribuzione e un controllo delle versioni più semplici delle applicazioni eseguite dalle attività. I pacchetti dell'applicazione a livello di attività sono particolarmente utili in ambienti di pool condivisi, in cui diversi processi vengono eseguiti in un pool e il pool non viene eliminato quando viene completato un processo. Se il processo ha meno attività che nodi nel pool, i pacchetti dell'applicazione di attività possono ridurre il trasferimento dei dati, perché l'applicazione viene distribuita solo nei nodi che eseguono le attività.
 * Un riferimento all'**immagine del contenitore** nell'hub Docker oppure in un registro privato e altre impostazioni per creare un contenitore Docker in cui l'attività viene eseguita nel nodo. Queste informazioni vengono specificate solo se il pool è definito con una configurazione del contenitore.
 
+> [!NOTE]
+> La durata massima di un'attività, da quando viene aggiunta al processo a quando viene completata, è di 7 giorni. Le attività completate persistono per un tempo illimitato. I dati per le attività non completate entro la durata massima non sono accessibili.
+
 Oltre alle attività definite dall'utente per eseguire il calcolo in un nodo, il servizio Batch fornisce anche le attività speciali seguenti:
 
 * [Attività di avvio](#start-task)
@@ -275,7 +276,7 @@ Oltre alle attività definite dall'utente per eseguire il calcolo in un nodo, il
 ### <a name="start-task"></a>Attività di avvio
 Associando un' **attività di avvio** a un pool, è possibile preparare l'ambiente operativo dei rispettivi nodi. È ad esempio possibile eseguire azioni quali l'installazione delle applicazioni che vengono eseguite dalle attività o l'avvio dei processi in background. L'attività di avvio viene eseguita a ogni avvio di un nodo per tutto il tempo in cui questa rimane nel pool, incluso il momento in cui il nodo viene aggiunto al pool e in cui viene riavviato o ne viene ricreata l'immagine.
 
-Il vantaggio principale dell'attività di avvio consiste nel fatto che può contenere tutte le informazioni necessarie per configurare un nodo di calcolo e installare le applicazioni necessarie per l'esecuzione dell'attività. Pertanto, l'aumento del numero di nodi in un pool è semplice quanto specificare il nuovo numero di nodi di destinazione. L'attività di avvio fornisce al servizio Batch le informazioni necessarie per configurare i nuovi nodi e prepararli per l'accettazione delle attività.
+Il vantaggio principale dell'attività di avvio consiste nel fatto che può contenere tutte le informazioni necessarie per configurare un nodo di calcolo e installare le applicazioni richieste per l'esecuzione delle attività. Pertanto, l'aumento del numero di nodi in un pool è semplice quanto specificare il nuovo numero di nodi di destinazione. L'attività di avvio fornisce al servizio Batch le informazioni necessarie per configurare i nuovi nodi e prepararli ad accettare le attività.
 
 Come per qualsiasi attività di Azure Batch, è possibile specificare un elenco di **file di risorse** in [Archiviazione di Azure][azure_storage], oltre a una **riga di comando** da eseguire. Il servizio Batch copia prima di tutto i file di risorse nel nodo da Archiviazione di Azure, quindi esegue la riga di comando. Per un'attività di avvio del pool l'elenco di file include in genere l'applicazione dell'attività e le rispettive dipendenze.
 

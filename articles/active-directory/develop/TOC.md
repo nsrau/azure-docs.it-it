@@ -62,6 +62,7 @@
 ### [Che cosa è successo al progetto API Web?](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 ## [Migrazione del servizio di controllo di accesso](active-directory-acs-migration.md)
+## [Procedure consigliate per la gestione degli errori di ADAL](active-directory-devhowto-adal-error-handling.md)
 # riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Librerie di autenticazione (ADAL)](active-directory-authentication-libraries.md)

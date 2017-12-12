@@ -1,29 +1,29 @@
 ---
-title: Indicizzare, eseguire query e filtrare nelle pagine del portale di Ricerca di Azure | Microsoft Docs
-description: "Nel portale di Azure è possibile usare i dati dell'esempio predefinito per generare un indice. È possibile esplorare la ricerca full-text, i filtri, i facet, la ricerca fuzzy, la ricerca geografica e altro ancora."
+title: Esercitazione di Ricerca di Azure per indicizzazione, query e filtri tramite il portale di Azure | Microsoft Docs
+description: "Nel portale di Azure usare i dati di esempio predefiniti per generare un indice in Ricerca di Azure. È possibile esplorare la ricerca full-text, i filtri, i facet, la ricerca fuzzy, la ricerca geografica e altro ancora."
 services: search
 documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
 editor: 
 tags: azure-portal
-ms.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958
+ms.assetid: 
 ms.service: search
 ms.devlang: na
 ms.workload: search
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
+ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: a67de3d385ccb1f65d026acfa0d4413df889bafe
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 098faa777746ac23ce7e88aa01fc727f88d4259c
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Creare, eseguire query e filtrare un indice di Ricerca di Azure nel portale
 
-Nel portale di Azure è possibile iniziare con un set di dati di esempio predefinito per generare rapidamente un indice con la procedura guidata **Importa dati**. Con **Esplora ricerche** è possibile esplorare la ricerca full-text, i filtri, i facet, la ricerca fuzzy e la ricerca geografica.  
+Nel portale di Azure iniziare con un set di dati di esempio predefinito per generare rapidamente un indice di Ricerca di Azure usando la procedura guidata **Importa dati**. Con **Esplora ricerche** è possibile esplorare la ricerca full-text, i filtri, i facet, la ricerca fuzzy e la ricerca geografica.  
 
 Questa introduzione senza codice permette di iniziare a usare i dati predefiniti per poter scrivere query interessanti fin da subito. Gli strumenti del portale non sostituiscono il codice, ma potrebbero essere utili per eseguire queste attività:
 

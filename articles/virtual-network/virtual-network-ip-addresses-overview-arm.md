@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: 3840ed000d5a9fe5d3c8fd01c061bf13674c0ce5
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: e3baedba814cf6ac19df72c49e1c95ea2cd5cf73
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione in Azure
 
@@ -150,7 +150,7 @@ Un indirizzo IP privato viene allocato dall'intervallo di indirizzi della subnet
 Un indirizzo IP privato può essere allocato con due metodi.
 
 - **Dinamico**: Azure assegna l'indirizzo IP disponibile successivo non assegnato o non riservato nell'intervallo di indirizzi della subnet. Ad esempio, Azure assegna 10.0.0.10 a una nuova risorsa se gli indirizzi 10.0.0.4-10.0.0.9 sono già assegnati ad altre. Il metodo di allocazione predefinito è quello dinamico. Dopo che sono stati assegnati, gli indirizzi IP dinamici vengono rilasciati solo se un'interfaccia di rete viene eliminata o assegnata a un'altra subnet della stessa rete virtuale oppure se il metodo di allocazione viene modificato in statico e viene specificato un diverso indirizzo IP. Quando si modifica il metodo di allocazione da dinamico a statico, per impostazione predefinita Azure assegna l'indirizzo assegnato dinamicamente precedente come indirizzo statico.
-- **Statico**: si seleziona e si assegna l'indirizzo IP disponibile successivo non assegnato o non riservato nell'intervallo di indirizzi della subnet. Ad esempio, se l'intervallo di indirizzi di una subnet è 10.0.0.0/16 e gli indirizzi 10.0.0.4-10.0.0.9 sono già assegnati ad altre risorse, è possibile assegnare qualsiasi indirizzo da 10.0.0.10 a 10.0.255.254. Gli indirizzi statici vengono rilasciati solo in caso di eliminazione di un'interfaccia di rete. Se si modifica il metodo di allocazione in statico, Azure assegna dinamicamente l'indirizzo IP statico assegnato in precedenza come indirizzo dinamico, anche se non è l'indirizzo disponibile successivo nell'intervallo di indirizzi della subnet. L'indirizzo viene modificato anche in caso di assegnazione dell'interfaccia di rete a un'altra subnet nella stessa rete virtuale, ma per assegnare l'interfaccia di rete a un'altra subnet è prima necessario modificare il metodo di allocazione da statico a dinamico. Dopo aver assegnato l'interfaccia di rete a un'altra subnet, è possibile modificare il metodo di allocazione di nuovo in statico e assegnare un indirizzo IP dell'intervallo di indirizzi della nuova subnet.
+- **Statico**: si seleziona e si assegna l'indirizzo IP disponibile successivo non assegnato o non riservato nell'intervallo di indirizzi della subnet. Ad esempio, se l'intervallo di indirizzi di una subnet è 10.0.0.0/16 e gli indirizzi 10.0.0.4-10.0.0.9 sono già assegnati ad altre risorse, è possibile assegnare qualsiasi indirizzo da 10.0.0.10 a 10.0.255.254. Gli indirizzi statici vengono rilasciati solo in caso di eliminazione di un'interfaccia di rete. Se si modifica il metodo di allocazione in dinamico, Azure assegna dinamicamente l'indirizzo IP statico assegnato in precedenza come indirizzo dinamico, anche se non è l'indirizzo disponibile successivo nell'intervallo di indirizzi della subnet. L'indirizzo viene modificato anche in caso di assegnazione dell'interfaccia di rete a un'altra subnet nella stessa rete virtuale, ma per assegnare l'interfaccia di rete a un'altra subnet è prima necessario modificare il metodo di allocazione da statico a dinamico. Dopo aver assegnato l'interfaccia di rete a un'altra subnet, è possibile modificare il metodo di allocazione di nuovo in statico e assegnare un indirizzo IP dell'intervallo di indirizzi della nuova subnet.
 
 ### <a name="virtual-machines"></a>Macchine virtuali
 

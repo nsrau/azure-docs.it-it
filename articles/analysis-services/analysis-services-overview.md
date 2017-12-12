@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 12/04/2017
 ms.author: owend
-ms.openlocfilehash: 350f95b2f9ec8dc4a3e2dc8f7d390f841b248fa1
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -124,7 +124,7 @@ I client usano le [librerie client](analysis-services-data-providers.md) MSOLAP,
 ## <a name="get-help"></a>Ottenere aiuto
 
 #### <a name="documentation"></a>Documentazione
-La gestione e la configurazione di Azure Analysis Services sono semplici. In quest'area è possibile trovare tutte le informazioni necessarie per creare e gestire i servizi del server. La creazione di un modello dati per la distribuzione al server è analoga alla creazione di un modello dati distribuiti a un server locale. È disponibile una ricca libreria concettuale, procedurale e di esercitazioni e articoli di riferimento in [Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).
+La gestione e la configurazione di Azure Analysis Services sono semplici. In quest'area è possibile trovare tutte le informazioni necessarie per creare e gestire i servizi del server. La creazione di un modello dati per la distribuzione al server è analoga alla creazione di un modello dati distribuiti a un server locale. È disponibile una ricca libreria di articoli concettuali, procedurali, di esercitazioni e di riferimento nell'articolo di [informazioni su SQL Server Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).
 
 #### <a name="videos"></a>Video
 In [Azure Analysis Services su Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services) sono disponibili alcuni video utili.

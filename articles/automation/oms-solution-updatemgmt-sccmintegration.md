@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.openlocfilehash: c3ae8da65e03fe9e11b5657a6a40d02de0567da6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04540524f83e367f92912171ddc55b6e6f82f80e
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="integrate-system-center-configuration-manager-with-oms-update-management-preview"></a>Integrare System Center Configuration Manager con Gestione aggiornamenti OMS [Anteprima]
+# <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Integrare System Center Configuration Manager con Gestione aggiornamenti OMS
 
 I clienti che hanno investito in System Center Configuration Manager per gestire PC, server e dispositivi mobili si affidano alle caratteristiche potenti e avanzate di questa soluzione anche per gestire gli aggiornamenti software come parte del loro ciclo di Gestione aggiornamenti software.  
 
@@ -42,12 +42,13 @@ Le modalità di gestione dei client ospitati nella soluzione IaaS di Azure con l
 Se si vuole continuare a gestire le distribuzioni di aggiornamenti da Configuration Manager, eseguire la procedura illustrata di seguito.  OMS si connette a Configuration Manager per applicare gli aggiornamenti ai computer client connessi all'area di lavoro di Log Analytics. Il contenuto degli aggiornamenti è disponibile dalla cache del computer client, come se la distribuzione fosse stata gestita da Configuration Manager.  
 
 1. Creare una distribuzione di aggiornamenti software dal sito principale della gerarchia di Configuration Manager usando il processo descritto in [Distribuire gli aggiornamenti software](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates).  L'unica impostazione che deve essere configurata in modo diverso rispetto a una distribuzione standard è l'opzione **Non installare aggiornamenti software** per controllare il comportamento di download del pacchetto di distribuzione. Questo comportamento viene gestito dalla soluzione Gestione aggiornamenti OMS creando una distribuzione di aggiornamenti pianificata nel passaggio successivo.  
-2. Nel portale di Azure selezionare l'account di Automazione nella schermata **Account di Automazione** e creare una variabile di tipo booleano denominata **UseOMSForSCCMUpdates** con valore **true** seguendo le istruzioni in [Per creare una nuova variabile con il portale di Azure](../automation/automation-variables.md#to-create-a-new-variable-with-the-azure-portal).
-3. Nel portale di OMS aprire il dashboard Gestione aggiornamenti.  Creare una nuova distribuzione seguendo i passaggi descritti in [Creazione di una distribuzione degli aggiornamenti](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) e selezionare la raccolta appropriata di Configuration Manager rappresentata come gruppo di computer OMS nell'elenco a discesa.  Tenere presente questi punti importanti:
+
+1. Nel portale di OMS aprire il dashboard Gestione aggiornamenti.  Creare una nuova distribuzione seguendo i passaggi descritti in [Creazione di una distribuzione degli aggiornamenti](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) e selezionare la raccolta appropriata di Configuration Manager rappresentata come gruppo di computer OMS nell'elenco a discesa.  Tenere presente questi punti importanti:
     1. Se è definita una finestra di manutenzione per la raccolta di dispositivi di Configuration Manager selezionata, i membri della raccolta rispettano questa finestra invece dell'impostazione **Durata** definita nella distribuzione pianificata in OMS.
-    2. I membri della raccolta di destinazione devono avere una connessione Internet (diretta, attraverso un server proxy o attraverso il gateway OMS).  
+    1. I membri della raccolta di destinazione devono avere una connessione Internet (diretta, attraverso un server proxy o attraverso il gateway OMS).  
 
 Dopo aver completato la distribuzione di aggiornamenti con la soluzione OMS, i computer di destinazione che sono membri del gruppo di computer selezionato installeranno gli aggiornamenti all'ora pianificata dalla cache client locale.  È possibile [visualizzare lo stato della distribuzione di aggiornamenti](../operations-management-suite/oms-solution-update-management.md#viewing-update-deployments) per monitorare i risultati della distribuzione.  
+
 
 ### <a name="manage-software-updates-from-oms"></a>Gestire gli aggiornamenti software da OMS
 

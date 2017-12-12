@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 8a772680355a62c13dbe0361b5b58029642cf84d
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 54cb7a9630a64be1a3012604929613fe0a843666
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurare una connessione gateway VPN tra reti virtuali usando PowerShell
 
@@ -39,15 +39,23 @@ I passaggi di questo articolo sono applicabili al modello di distribuzione Resou
 
 ## <a name="about"></a>Informazioni sulla connessione di reti virtuali
 
-La connessione di una rete virtuale a un'altra rete virtuale tramite il tipo di connessione da rete virtuale a rete virtuale (VNet2VNet) è simile alla creazione di una connessione IPsec a un percorso di sito locale. Entrambi i tipi di connettività usano un gateway VPN per fornire un tunnel sicuro tramite IPsec/IKE ed entrambi funzionano in modo analogo durante la comunicazione. La differenza tra i tipi di connessione è costituita dal modo in cui viene configurato il gateway di rete locale. Quando si crea una connessione da rete virtuale a rete virtuale, non viene visualizzato lo spazio indirizzi del gateway di rete locale, che viene creato e popolato automaticamente. Se si aggiorna lo spazio indirizzi per una rete virtuale, l'altra rete virtuale eseguirà automaticamente il routing allo spazio indirizzi aggiornato.
+Ci sono diversi modi per connettere le reti virtuali. Le sezioni seguenti descrivono i diversi metodi di connessione delle reti virtuali.
 
-Se si usa una configurazione complessa, è possibile che si preferisca usare il tipo di connessione IPsec invece della connessione da rete virtuale a rete virtuale. Ciò consente di specificare uno spazio indirizzi aggiuntivo per il gateway di rete locale per il routing del traffico. Se si connettono le reti virtuali con il tipo di connessione IPsec, è necessario creare e configurare manualmente il gateway di rete locale. Per altre informazioni, vedere [Configurazioni da sito a sito](vpn-gateway-create-site-to-site-rm-powershell.md).
+### <a name="vnet-to-vnet"></a>Tra reti virtuali
 
-Se inoltre le reti virtuali si trovano nella stessa area, è consigliabile considerare la possibilità di connetterle tramite peering reti virtuali. Il peering reti virtuali non usa un gateway VPN e presenta prezzi e funzionalità diversi. Per altre informazioni, vedere [Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md).
+La configurazione di una connessione da rete virtuale a rete virtuale rappresenta un buon metodo per connettere facilmente le reti virtuali. La connessione di una rete virtuale a un'altra rete virtuale tramite il tipo di connessione da rete virtuale a rete virtuale (VNet2VNet) è simile alla creazione di una connessione IPsec da sito a sito in una posizione locale.  Entrambi i tipi di connettività usano un gateway VPN per fornire un tunnel sicuro tramite IPsec/IKE ed entrambi funzionano in modo analogo durante la comunicazione. La differenza tra i tipi di connessione è costituita dal modo in cui viene configurato il gateway di rete locale. Quando si crea una connessione da rete virtuale a rete virtuale, non viene visualizzato lo spazio indirizzi del gateway di rete locale, che viene creato e popolato automaticamente. Se si aggiorna lo spazio indirizzi per una rete virtuale, l'altra rete virtuale eseguirà automaticamente il routing allo spazio indirizzi aggiornato. La creazione di una connessione da rete virtuale a rete virtuale è in genere più veloce e semplice rispetto alla creazione di una connessione da sito a sito tra reti virtuali.
 
-### <a name="why"></a>Vantaggi di una connessione da rete virtuale a rete virtuale
+### <a name="site-to-site-ipsec"></a>Da sito a sito (IPsec)
 
-È possibile connettere reti virtuali per i seguenti motivi:
+Se si usa una configurazione di rete complessa, potrebbe essere preferibile connettersi alle reti virtuali usando la procedura di connessione [da sito a sito](vpn-gateway-create-site-to-site-rm-powershell.md) invece di quella di connessione da rete virtuale a rete virtuale. Con la procedura di connessione da sito a sito, è necessario creare e configurare manualmente i gateway di rete locali. Il gateway di rete locale per ogni rete virtuale considera l'altra rete virtuale come sito locale. Ciò consente di specificare uno spazio indirizzi aggiuntivo per il gateway di rete locale per il routing del traffico. Se lo spazio indirizzi per una rete virtuale cambia, è necessario aggiornare di conseguenza il gateway di rete locale corrispondente. L'aggiornamento non avviene automaticamente.
+
+### <a name="vnet-peering"></a>Peering reti virtuali
+
+È possibile connettere le reti virtuali tramite il peering reti virtuali. Il peering reti virtuali non usa un gateway VPN e presenta vincoli diversi. I [prezzi per il peering reti virtuali](https://azure.microsoft.com/pricing/details/virtual-network) vengono inoltre calcolati in modo diverso rispetto ai [prezzi per il gateway VPN da rete virtuale a rete virtuale](https://azure.microsoft.com/pricing/details/vpn-gateway). Per altre informazioni, vedere [Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md).
+
+## <a name="why"></a>Vantaggi di una connessione da rete virtuale a rete virtuale
+
+È possibile connettere le reti virtuali con una connessione da rete virtuale a rete virtuale per i motivi seguenti:
 
 * **Presenza e ridondanza in più aree geografiche**
 
@@ -59,7 +67,7 @@ Se inoltre le reti virtuali si trovano nella stessa area, è consigliabile consi
 
 La comunicazione tra reti virtuali può essere associata a configurazioni multisito. Questo permette di definire topologie di rete che consentono di combinare la connettività cross-premise con la connettività tra reti virtuali.
 
-## <a name="which-set-of-steps-should-i-use"></a>Quale procedura è consigliabile seguire?
+## <a name="steps"></a>Quale procedura per la connessione da rete virtuale a rete virtuale è preferibile seguire?
 
 Questo articolo riporta due diverse procedure. Una per le [reti virtuali che si trovano nella stessa sottoscrizione](#samesub) e una per le [reti virtuali che si trovano in sottoscrizioni diverse](#difsub).
 La differenza principale tra le due è costituita dal fatto che quando si configurano le connessioni per reti virtuali che si trovano in sottoscrizioni diverse, è necessario usare sessioni di PowerShell separate. 

@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2017
+ms.date: 11/30/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: c073cb28f5c37a402c04d5315d7f8e18de8a1b26
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 119d8abcea91bf5c6ea03212fcb886f9e31c1ada
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gestire gli aggiornamenti per più macchine virtuali
 
@@ -43,7 +43,7 @@ La gestione degli aggiornamenti è supportato nei sistemi operativi seguenti.
 
 ### <a name="windows"></a>Windows
 
-* Windows Server 2008 e versioni successive e distribuzioni di aggiornamenti in Windows Server 2008 R2 SP1 e versioni successive. Le opzioni di installazione Server Core e Nano Server non sono supportate.
+* Windows Server 2008 e versioni successive e distribuzioni di aggiornamenti in Windows Server 2008 R2 SP1 e versioni successive. Nano Server non è supportato.
 
   Il supporto per la distribuzione di aggiornamenti in Windows Server 2008 R2 SP1 richiede .NET Framework 4.5 e Windows Management Framework 5.0 o versioni successive.
 
