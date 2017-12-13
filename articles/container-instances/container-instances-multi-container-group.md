@@ -1,41 +1,33 @@
 ---
-title: Istanze di contenitore di Azure - Gruppo multicontenitore | Azure Docs
-description: Istanze di contenitore di Azure - Gruppo multicontenitore
+title: "Distribuire gruppi di più contenitori in Istanze di contenitore di Azure"
+description: "Informazioni su come distribuire un gruppo di contenitori con più contenitori in Istanze di contenitore di Azure."
 services: container-instances
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 140f58582645ea32f77e901eb13364ed145bbecf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e1f23e20b001404d3f781e7e6deac87ede12684
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-a-container-group"></a>Distribuire un gruppo di contenitori
 
-Istanze di contenitore di Azure supporta la distribuzione di più contenitori in un singolo host usando un *gruppo di contenitori*. Ciò è utile quando si compila un contenitore collaterale dell'applicazione per la registrazione, il monitoraggio o qualsiasi altra configurazione in cui un servizio necessita di un secondo processo associato. 
+Istanze di contenitore di Azure supporta la distribuzione di più contenitori in un singolo host usando un *gruppo di contenitori*. Ciò è utile quando si compila un contenitore collaterale dell'applicazione per la registrazione, il monitoraggio o qualsiasi altra configurazione in cui un servizio necessita di un secondo processo associato.
 
 Questo documento descrive come eseguire una configurazione multicontenitore con contenitore collaterale tramite un modello di Azure Resource Manager.
 
 ## <a name="configure-the-template"></a>Configurare il modello
 
-Creare un file denominato `azuredeploy.json` e copiare il codice JSON seguente al suo interno. 
+Creare un file denominato `azuredeploy.json` e copiare il codice JSON seguente al suo interno.
 
-In questo esempio viene definito un gruppo di contenitori con due contenitori e un indirizzo IP pubblico. Il primo contenitore del gruppo esegue un'applicazione con connessione Internet. Il secondo contenitore, ovvero il contenitore collaterale, invia una richiesta HTTP all'applicazione Web principale tramite la rete locale del gruppo. 
+In questo esempio viene definito un gruppo di contenitori con due contenitori e un indirizzo IP pubblico. Il primo contenitore del gruppo esegue un'applicazione con connessione Internet. Il secondo contenitore, ovvero il contenitore collaterale, invia una richiesta HTTP all'applicazione Web principale tramite la rete locale del gruppo.
 
-Questo esempio di contenitore collaterale può essere esteso per attivare un avviso se si riceve un codice di risposta HTTP diverso da 200 OK. 
+Questo esempio di contenitore collaterale può essere esteso per attivare un avviso se si riceve un codice di risposta HTTP diverso da 200 OK.
 
 ```json
 {
@@ -46,7 +38,7 @@ Questo esempio di contenitore collaterale può essere esteso per attivare un avv
   "variables": {
     "container1name": "aci-tutorial-app",
     "container1image": "microsoft/aci-helloworld:latest",
-    "container2name": "aci-tutorial-sidecar",    
+    "container2name": "aci-tutorial-sidecar",
     "container2image": "microsoft/aci-tutorial-sidecar"
   },
     "resources": [
@@ -135,7 +127,7 @@ Distribuire il modello con il comando [az group deployment create](/cli/azure/gr
 az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
-Entro pochi secondi si riceverà una risposta iniziale da Azure. 
+Entro pochi secondi si riceverà una risposta iniziale da Azure.
 
 ## <a name="view-deployment-state"></a>Visualizzare lo stato della distribuzione
 
@@ -153,9 +145,9 @@ Name              ResourceGroup    ProvisioningState    Image                   
 myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
 ```
 
-## <a name="view-logs"></a>Visualizzare i log   
+## <a name="view-logs"></a>Visualizzare i log
 
-Visualizzare l'output del log di un contenitore con il comando `az container logs`. L'argomento `--container-name` specifica il contenitore da cui effettuare il pull dei log. In questo esempio viene specificato il primo contenitore. 
+Visualizzare l'output del log di un contenitore con il comando `az container logs`. L'argomento `--container-name` specifica il contenitore da cui effettuare il pull dei log. In questo esempio viene specificato il primo contenitore.
 
 ```azurecli-interactive
 az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup

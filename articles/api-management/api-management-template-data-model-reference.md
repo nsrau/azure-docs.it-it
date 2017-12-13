@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 72936a4d38f809934ddea74e5ae4a6029450a97c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92a52910ef8b9f078a8ea6ac409f89719f889b24
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Informazioni di riferimento sui modelli di dati per i modelli di Gestione API di Azure
 Questo argomento descrive le rappresentazioni di entità e tipi per elementi comuni usati nei modelli di dati per i modelli del portale per sviluppatori in Gestione API di Azure.  
@@ -332,7 +332,7 @@ Questo argomento descrive le rappresentazioni di entità e tipi per elementi com
 |DelegationEnabled|boolean|Se l'accesso delegato è abilitato.|  
 |DelegationUrl|string|URL di accesso delegato, se abilitato.|  
 |SsoSignUpUrl|string|URL di accesso Single Sign-On per l'utente, se presente.|  
-|AuxServiceUrl|string|Se l'utente corrente è un amministratore, questo è un collegamento all'istanza del servizio nel portale di Azure classico.|  
+|AuxServiceUrl|string|Se l'utente corrente è un amministratore, questo è un collegamento all'istanza del servizio nel portale di Azure.|  
 |Providers|Raccolta di entità [Provider](#Provider).|Provider di autenticazione per l'utente.|  
 |UserRegistrationTerms|string|Condizioni che l'utente deve accettare prima dell'accesso.|  
 |UserRegistrationTermsEnabled|boolean|Se le condizioni sono accettate.|  

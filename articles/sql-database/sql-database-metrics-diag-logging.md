@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 6d5fc10b5186f2830f724325846a485e4064d12b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9f201454d58dbc646923d0155ff41761d593ab7e
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica 
 Il database SQL di Azure può generare metriche e log di diagnostica per facilitare il monitoraggio. È possibile configurare il database SQL per archiviare l'utilizzo delle risorse, ruoli di lavoro, sessioni e connettività in una delle risorse di Azure seguenti:
@@ -48,7 +48,7 @@ Quando si abilitano le metriche e la registrazione diagnostica, è necessario sp
 
 È possibile eseguire il provisioning di una nuova risorsa di Azure o selezionare una risorsa esistente. Dopo aver selezionato la risorsa di archiviazione, è necessario specificare quali dati raccogliere. Le opzioni disponibili includono:
 
-- [Metriche 1 minuto](sql-database-metrics-diag-logging.md#1-minute-metrics): contiene percentuale DTU, limite DTU, percentuale CPU, percentuale lettura dati fisici, percentuale scrittura log, riuscito/non riuscito/bloccato dalle connessioni firewall, percentuale sessioni, percentuale ruoli di lavoro, risorsa di archiviazione, percentuale di archiviazione, percentuale di archiviazione XTP.
+- [Tutte le metriche](sql-database-metrics-diag-logging.md#all-metrics): contiene percentuale DTU, limite DTU, percentuale CPU, percentuale lettura dati fisici, percentuale scrittura log, riuscito/non riuscito/bloccato dalle connessioni firewall, percentuale sessioni, percentuale ruoli di lavoro, risorsa di archiviazione, percentuale di archiviazione, percentuale di archiviazione XTP.
 - [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): contiene le informazioni sulle statistiche di runtime delle query, ad esempio l'uso della CPU e la durata delle query.
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): contiene le informazioni sulle statistiche di attesa delle query che indicano le cause di attesa delle query, ad esempio CPU, log o blocchi.
 - [Errors](sql-database-metrics-diag-logging.md#errors-dataset): contiene le informazioni sugli errori SQL che si sono verificati in questo database.
@@ -213,7 +213,7 @@ I log di diagnostica e le metriche del database SQL possono essere trasmessi in 
 ### <a name="what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs"></a>Cosa fare con le metriche e i log di diagnostica in Hub eventi
 Dopo aver eseguito lo streaming dei dati selezionati in Hub eventi, sarà possibile iniziare a valutare scenari di monitoraggio avanzati. Hub eventi funge da ingresso per una pipeline di eventi. Dopo aver raccolto i dati in un hub eventi, potranno essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatore di invio in batch/archiviazione. Hub eventi separa la produzione di un flusso di eventi dal consumo di tali eventi. In questo modo, i consumer eventi possono accedere agli eventi in una pianificazione personalizzata. Per altre informazioni sugli hub eventi, vedere:
 
-- [Cosa sono gli hub eventi di Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [Che cos'è Hub eventi?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Introduzione all'Hub eventi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 
@@ -243,7 +243,7 @@ O, più semplicemente:
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Ad esempio, un nome del BLOB per la metrica 1 minuto potrebbe essere:
+Ad esempio, un nome del BLOB per l'opzione Tutte le metriche potrebbe essere:
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
@@ -261,7 +261,7 @@ Informazioni su come [scaricare le metriche e i log di diagnostica da Archiviazi
 
 ## <a name="metrics-and-logs-available"></a>Le metriche e i log disponibili
 
-### <a name="1-minute-metrics"></a>metriche 1 minuto
+### <a name="all-metrics"></a>Tutte le metriche
 
 |**Risorsa**|**Metriche**|
 |---|---|

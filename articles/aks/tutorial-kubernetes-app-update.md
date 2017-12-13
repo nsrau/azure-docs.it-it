@@ -1,27 +1,19 @@
 ---
-title: 'Esercitazione su Kubernetes in Azure: aggiornare un''applicazione | Microsoft Docs'
+title: 'Esercitazione su Kubernetes in Azure: aggiornare un''applicazione'
 description: 'Esercitazione sul servizio contenitore di Azure: aggiornare un''applicazione'
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: Docker, contenitori, Micro-Service, Kubernetes, DC/OS, Azure
-ms.assetid: 
 ms.service: container-service
-ms.devlang: aurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e788a982d2580e90309df977c8e2e1cb22daadaf
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 95c609ab49fe478eda48b2a2eca6a772d1356d18
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>Aggiornare un'applicazione nel servizio contenitore di Azure
 

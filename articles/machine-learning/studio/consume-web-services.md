@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
 ms.author: garye
-ms.openlocfilehash: 13de6daabf2b6d83cc703ae6b3f0a30a1dfa34d6
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: ed41ec58dbdfd41931e8bab3a3cbe33caafe9a74
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Come usare un servizio Web di Azure Machine Learning
 
@@ -64,18 +64,11 @@ Per recuperare la chiave API per un nuovo servizio Web Machine Learning di tipo 
 5. Copiare e salvare la **Chiave primaria**.
 
 ### <a name="classic-web-service"></a>Servizio Web classico
- La chiave di un servizio Web di tipo classico può essere recuperata anche da Machine Learning Studio o dal portale di Azure classico.
+ La chiave di un servizio Web di tipo classico può essere recuperata anche da Machine Learning Studio.
 
 #### <a name="machine-learning-studio"></a>Machine Learning Studio
 1. In Machine Learning Studio fare clic su **WEB SERVICES** (Servizi Web) a sinistra.
 2. Fare clic su un servizio Web. La **chiave API** si trova nella scheda **DASHBOARD**.
-
-#### <a name="azure-classic-portal"></a>portale di Azure classico
-1. Fare clic su **MACHINE LEARNING** a sinistra.
-2. Fare clic sull'area di lavoro in cui si trova il servizio Web.
-3. Fare clic su **WEB SERVICES**.
-4. Fare clic su un servizio Web.
-5. Fare clic su un endpoint. La "CHIAVE API" si trova in basso a destra.
 
 ## <a id="connect"></a>Connettersi a un servizio Web di Machine Learning
 È possibile connettersi a un servizio Web di Machine Learning usando qualsiasi linguaggio di programmazione che supporta la risposta e la richiesta HTTP. È possibile visualizzare gli esempi in C#, Python e R da una pagina della guida del servizio Web di Machine Learning.

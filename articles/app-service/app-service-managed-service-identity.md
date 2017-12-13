@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 59e6db7caf4988623e6d2f93e986b423db7d7248
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6b2dcaa4b0e0f59bf8a632b48813ba6a24202ec5
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Come usare Identità del servizio gestito di Azure (anteprima pubblica) nel Servizio App e in Funzioni di Azure
 
@@ -45,6 +45,35 @@ Per impostare un'identità del servizio gestito nel portale, è prima necessario
 4. Impostare **Register with Azure Active Directory** (Registra con Azure Active Directory) su **On**. Fare clic su **Salva**.
 
 ![Identità del servizio gestito in Servizio app](media/app-service-managed-service-identity/msi-blade.png)
+
+### <a name="using-the-azure-cli"></a>Uso dell'interfaccia della riga di comando di Azure
+
+Per configurare un'identità del servizio gestito usando l'interfaccia della riga di comando di Azure, è necessario usare il comando `az webapp assign-identity` sull'applicazione esistente. Sono disponibili tre opzioni per l'esecuzione degli esempi di questa sezione:
+
+- Usare [Azure Cloud Shell](../cloud-shell/overview.md) dal portale di Azure.
+- Usare Azure Cloud Shell incorporato tramite il pulsante "Prova", che si trova nell'angolo in alto a destra di ogni blocco di codice indicato di seguito.
+- [Installare la versione più recente dell'interfaccia della riga di comando 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.21 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale. 
+
+La procedura seguente consente di creare di un'app Web e assegnarle un'identità usando l'interfaccia della riga di comando:
+
+1. Se si usa l'interfaccia della riga di comando di Azure in una console locale, accedere prima di tutto ad Azure tramite [az login](/cli/azure/#login). Usare un account associato alla sottoscrizione di Azure in cui si desidera distribuire l'applicazione:
+
+    ```azurecli-interactive
+    az login
+    ```
+2. Creare un'applicazione Web con l'interfaccia della riga di comando. Per altri esempi su come usare l'interfaccia della riga di comando con il Servizio app, vedere [Esempi dell'interfaccia della riga di comando del Servizio app](../app-service/app-service-cli-samples.md):
+
+    ```azurecli-interactive
+    az group create --name myResourceGroup --location westus
+    az appservice plan create --name myplan --resource-group myResourceGroup --sku S1
+    az webapp create --name myapp --resource-group myResourceGroup --plan myplan
+    ```
+
+3. Eseguire il comando `assign-identity` per creare l'identità per l'applicazione:
+
+    ```azurecli-interactive
+    az webapp assign-identity --name myApp --resource-group myResourceGroup
+    ```
 
 ### <a name="using-an-azure-resource-manager-template"></a>Uso di un modello di Azure Resource Manager
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5a0344dcef779a9818be3e320bd5c269a2859f71
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 68686e128d7e9528396f338b95f483adf07c3292
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Snapshot di debug per le eccezioni nelle app .NET
 
@@ -27,6 +27,16 @@ Quando si verifica un'eccezione, è possibile raccogliere automaticamente uno sn
 La raccolta di snapshot è disponibile per:
 * Applicazioni .NET Framework e ASP.NET che eseguono .NET Framework 4.5 o versione successiva.
 * Applicazioni .NET Core 2.0 e ASP.NET Core 2.0 in esecuzione in Windows.
+
+Sono supportati i seguenti ambienti:
+* Servizio app di Azure.
+* Servizio cloud di Azure in esecuzione nella famiglia del sistema operativo 4 o versione successiva.
+* Servizi Azure Service Fabric in esecuzione su Windows Server 2012 R2 o versione successiva.
+* Macchine virtuali di Azure in esecuzione su Windows Server 2012 R2 o versione successiva.
+* Macchine fisiche o virtuali locali in esecuzione su Windows Server 2012 R2 o versione successiva.
+
+> [!NOTE]
+> Le applicazioni client (ad esempio, WPF, Windows Forms o piattaforma UWP) non sono supportate.
 
 ### <a name="configure-snapshot-collection-for-aspnet-applications"></a>Configurare la raccolta di snapshot per le applicazioni ASP.NET
 

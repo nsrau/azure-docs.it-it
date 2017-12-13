@@ -3,22 +3,21 @@ title: Configurare notifiche e modelli di posta elettronica in Gestione API di A
 description: Informazioni su come configurare notifiche e modelli di posta elettronica in Gestione API di Azure.
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: ee25f26d-4752-433b-af9c-3817db38aed5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 2029405e4fa05c061cdf7b38fcaa05dd38f9c804
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: ec560bbab3caf4cde090ed3c9a47ccc0afcb2492
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Come configurare notifiche e modelli di posta elettronica in Gestione API di Azure
 Gestione API consente di configurare notifiche per eventi specifici nonché di configurare modelli di posta elettronica da usare per comunicare con gli amministratori e gli sviluppatori di un'istanza di Gestione API. In questo argomento viene illustrato come configurare notifiche per gli eventi disponibili e viene offerta una panoramica sulla configurazione di modelli di posta elettronica usati per tali eventi.
@@ -29,7 +28,7 @@ Per configurare le notifiche, fare clic su **Portale di pubblicazione** nel port
 ![Portale di pubblicazione][api-management-management-console]
 
 > [!NOTE] 
-> Se non è stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][Create an API Management service instance] nell'esercitazione [Introduzione a Gestione API di Azure][Get started with Azure API Management].
+> Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][Create an API Management service instance].
 
 Fare clic su **Notifiche** dal menu **Gestione API** a sinistra per visualizzare le notifiche disponibili.
 
@@ -117,5 +116,5 @@ Per salvare le modifiche al modello di posta elettronica, fare clic su **Salva**
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
-[Get started with Azure API Management]: api-management-get-started.md
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: get-started-create-service-instance.md
+[Create an API Management service instance]: get-started-create-service-instance.md

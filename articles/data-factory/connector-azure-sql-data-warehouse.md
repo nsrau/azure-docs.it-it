@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: bd5de92a418ae5caa23ae4b081b688707cedcf06
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: ddddf280613554e81884dbcbd0c0011e505500bc
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare dati da o in Azure SQL Data Warehouse usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -269,7 +269,7 @@ PolyBase di SQL Data Warehouse supporta direttamente Archiviazione BLOB di Azure
 Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostazioni e usa automaticamente il meccanismo BULKINSERT per lo spostamento dei dati.
 
 1. Il **servizio collegato origine** è di tipo: **AzureStorage** o **AzureDataLakeStore**.
-2. Il **set di dati di input** è di tipo **AzureBlob** o **AzureDataLakeStoreFile** e il tipo di formato nelle proprietà `type` è **OrcFormat** o **TextFormat**, con le configurazioni seguenti:
+2. Il **set di dati di input** è di tipo **AzureBlob** o **AzureDataLakeStoreFile** e il tipo di formato nelle proprietà `type` è **OrcFormat** **ParquetFormat** o **TextFormat**, con le configurazioni seguenti:
 
    1. `rowDelimiter` deve essere **\n**.
    2. `nullValue` è impostato su **stringa vuota** ("") o `treatEmptyAsNull` è impostato su **true**.

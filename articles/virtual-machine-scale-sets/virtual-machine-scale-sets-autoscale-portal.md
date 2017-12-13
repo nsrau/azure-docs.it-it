@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 3714a4feb14bc47132e501629fc339bc7d0e40a1
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 141ae5f004ec1c85c506955873c69c03a89cd08c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Ridimensionare automaticamente un set di scalabilità di macchine virtuali nel portale di Azure
 Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app.
@@ -122,7 +122,7 @@ Negli esempi precedenti viene aumentato o ridotto automaticamente un set di scal
 
     ![Creare regole di scalabilità automatica basate su una pianificazione](media/virtual-machine-scale-sets-autoscale-portal/schedule-autoscale.PNG)
 
-Per visualizzare la modalità in cui vengono applicate le regole di scalabilità automatica, selezionare **Cronologia di esecuzione** nella parte superiore della finestra **Proporzioni**. Il grafo e gli eventi elencati mostrano quando si attivano le regole di scalabilità automatica e il numero di istanze di macchine virtuali nella scalabilità aumenta o diminuisce.
+Per visualizzare la modalità in cui vengono applicate le regole di scalabilità automatica, selezionare **Cronologia di esecuzione** nella parte superiore della finestra **Proporzioni**. Il grafo e gli eventi elencati mostrano quando si attivano le regole di scalabilità automatica e il numero di istanze di macchine virtuali nel set di scalabilità aumenta o diminuisce.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

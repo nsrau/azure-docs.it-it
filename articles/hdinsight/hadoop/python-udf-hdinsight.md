@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 822293da48f14dc3fe29e7e95e7a30faaadbfea4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 002072c8eac37ffb1548b44627ec08e941c96a1d
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Usare le funzioni definite dall'utente di Python (UDF) con Hive e Pig in HDInsight
 
@@ -166,7 +166,7 @@ def create_structure(input):
     return date, time, classname, level, detail
 ```
 
-Nell'esempio Pig Latin l'input di `LINE` è stato definito come chararray perché non contiene uno schema coerente. Con lo script Python i dati vengono trasformati in uno schema coerente per l'output.
+Nell'esempio Pig Latin l'input di `LINE` è stato definito come chararray perché non esiste uno schema coerente. Con lo script Python i dati vengono trasformati in uno schema coerente per l'output.
 
 1. L'istruzione `@outputSchema` definisce il formato dei dati che verranno restituiti a Pig. In questo caso si tratta di un **contenitore di dati**, ovvero un tipo di dati Pig. Il contenitore include i seguenti campi, che sono tutti chararray (stringhe):
 
@@ -178,7 +178,7 @@ Nell'esempio Pig Latin l'input di `LINE` è stato definito come chararray perch�
 
 2. Successivamente `def create_structure(input)` definisce la funzione a cui Pig passerà le voci.
 
-3. I dati di esempio in `sample.log` sono per lo più conformi allo schema date, time, classname, level e detail che si intende restituire. Contengono tuttavia alcune righe che iniziano con `*java.lang.Exception*`. Queste righe devono essere modificate in modo che corrispondano allo schema. L'istruzione `if` verifica la presenza di queste righe, quindi forza i dati di input a spostare la stringa `*java.lang.Exception*` alla fine, portando i dati in linea con lo schema di output previsto.
+3. I dati di esempio in `sample.log` sono per lo più conformi allo schema date, time, classname, level e detail. Contengono tuttavia alcune righe che iniziano con `*java.lang.Exception*`. Queste righe devono essere modificate in modo che corrispondano allo schema. L'istruzione `if` verifica la presenza di queste righe, quindi forza i dati di input a spostare la stringa `*java.lang.Exception*` alla fine, portando i dati in linea con lo schema di output previsto.
 
 4. Viene quindi usato il comando `split` per dividere i dati in corrispondenza dei primi quattro spazi. L'output viene assegnato in `date`, `time`, `classname`, `level` e `detail`.
 

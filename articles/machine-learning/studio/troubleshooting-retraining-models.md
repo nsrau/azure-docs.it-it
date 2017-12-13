@@ -3,7 +3,7 @@ title: Risoluzione dei problemi relativi alla ripetizione del training di un ser
 description: Identificare e correggere i problemi comuni rilevati durante la ripetizione del training del modello per un servizio Web di Azure Machine Learning.
 services: machine-learning
 documentationcenter: 
-author: VDonGlover
+author: garyericson
 manager: raymondl
 editor: 
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2017
-ms.author: v-donglo
-ms.openlocfilehash: 85cf9175bb4a5f253c7b47b2edc3ac8b00616ba2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 011/01/2017
+ms.author: garye
+ms.openlocfilehash: 1e5327ad135d9bc8881354679dc3f1b8a472cad3
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Risoluzione dei problemi relativi alla ripetizione del training di un servizio Web classico di Azure Machine Learning
 ## <a name="retraining-overview"></a>Panoramica sulla ripetizione del training
@@ -27,12 +27,12 @@ Un esperimento predittivo distribuito come servizio Web di assegnazione dei punt
 Per una procedura dettagliata completa del processo di ripetizione del training di un servizio Web classico, vedere [Ripetere il training dei modelli di Machine Learning a livello di codice](retrain-models-programmatically.md).
 
 ## <a name="retraining-process"></a>Processo di ripetizione del training
-Quando è necessario ripetere il training del servizio Web, devono essere aggiunti alcuni elementi:
+Quando è necessario ripetere il training del servizio Web, si devono aggiungere alcune parti:
 
 * Un servizio Web distribuito dall'esperimento di training. L'esperimento deve avere un modulo **Web service output** (Output servizio Web) collegato all'output del modulo **Train Model** (Modello di training).  
   
     ![Collegare l'output del servizio Web al modello di training.][image1]
-* Un nuovo endpoint aggiunto al servizio Web di assegnazione dei punteggi.  È possibile aggiungere l'endpoint a livello di codice usando il codice di esempio a cui si fa riferimento nell'argomento Ripetere il training dei modelli di Machine Learning a livello di codice o tramite il portale di Azure classico.
+* Un nuovo endpoint aggiunto al servizio Web di assegnazione dei punteggi.  È possibile aggiungere l'endpoint a livello di codice usando il codice di esempio a cui si fa riferimento nell'argomento Ripetere il training dei modelli di Machine Learning a livello di codice o tramite il portale dei servizi Web di Azure Machine Learning.
 
 È quindi possibile usare il codice C# di esempio dalla pagina della guida dell'API del servizio Web di training per ripetere il training del modello. Una volta valutati e approvati i risultati, si aggiorna il servizio Web di assegnazione di punteggi del modello con training usando il nuovo endpoint aggiunto.
 
@@ -58,21 +58,19 @@ Per ottenere l'URL PATCH corretto:
 3. Incollare l'URL in un browser per passare a una pagina contenente i collegamenti della guida per il servizio Web.
 4. Fare clic sul collegamento **Aggiorna risorsa** per aprire la pagina della guida per l'applicazione di patch.
 
-**Opzione 2: usare il portale di Azure classico**
+**Opzione 2: usare il portale dei servizi Web di Azure Machine Learning**
 
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
-2. Aprire la scheda Machine Learning. ![Scheda Machine Learning.][image4]
-3. Fare clic sul nome dell'area di lavoro, quindi su **Servizi Web**.
-4. Fare clic sul servizio Web di assegnazione dei punteggi in uso. Se il nome del servizio Web non è stato modificato, terminerà con [Scoring Exp.].
-5. Fare clic su **Aggiungi endpoint**.
-6. Una volta aggiunto l'endpoint, fare clic sul nome dell'endpoint. Fare quindi clic su **Aggiorna risorsa** per aprire la pagina della guida per l'applicazione di patch.
+1. Accedere al [portale dei servizi Web di Azure Machine Learning](https://services.azureml.net/).
+2. Fare clic su **Servizi Web** o **Servizi Web classici** nella parte superiore.
+4. Fare clic sul servizio Web di assegnazione dei punteggi in uso (se il nome predefinito del servizio Web non è stato modificato, il nome termina in "[Scoring Exp]".).
+5. Fare clic su **+Nuovo**.
+6. Una volta aggiunto l'endpoint, fare clic sul nome dell'endpoint.
+7. Sotto all'URL **patch** fare clic su **API Help** (Guida API) per aprire la pagina della Guida relativa all'applicazione di patch.
 
 > [!NOTE]
 > Se l'endpoint è stato aggiunto al servizio Web di training invece che al servizio Web predittivo, quando si fa clic sul collegamento **Aggiorna risorsa** si riceve un messaggio di errore che indica che la funzionalità non è supportata o non è disponibile in questo contesto. Questo servizio Web non dispone di alcuna risorsa aggiornabile. Ci scusiamo per l'inconveniente e stiamo lavorando per migliorare questo flusso di lavoro.
 > 
 > 
-
-![Dashboard del nuovo endpoint.][image3]
 
 La pagina della guida di PATCH contiene l'URL PATCH da usare e fornisce il codice di esempio che è possibile usare per chiamarlo.
 
@@ -82,32 +80,32 @@ La pagina della guida di PATCH contiene l'URL PATCH da usare e fornisce il codic
 * Non applicare la patch al servizio Web di training: l'operazione di applicazione della patch deve essere eseguita sul servizio Web di assegnazione dei punteggi.
 * Non applicare la patch all'endpoint predefinito nel servizio Web: l'operazione di applicazione della patch deve essere eseguita sul nuovo endpoint del servizio Web di assegnazione dei punteggi aggiunto.
 
-Per verificare in quale servizio Web si trova l'endpoint, visitare il portale di Azure classico. 
+Per verificare in quale servizio Web si trova l'endpoint, visitare il portale dei servizi Web. 
 
 > [!NOTE]
-> Assicurarsi di aggiungere l'endpoint al servizio Web predittivo, non al servizio Web di training. Se sono stati distribuiti correttamente sia un servizio Web di training che uno predittivo, verranno elencati due servizi Web separati. Il servizio Web predittivo deve terminare con "[predictive exp.]".
+> Assicurarsi di aggiungere l'endpoint al servizio Web predittivo, non al servizio Web di training. Se sono stati distribuiti correttamente sia un servizio Web di training che uno predittivo, verranno visualizzati due servizi Web elencati separatamente. Il servizio Web predittivo deve terminare con "[predictive exp.]".
 > 
 > 
 
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
-2. Aprire la scheda Machine Learning. ![Interfaccia utente dell'area di lavoro di Machine Learning.][image4]
-3. Selezionare l'area di lavoro.
-4. Fare clic su **Servizi Web**.
-5. Selezionare il servizio Web predittivo.
-6. Verificare che il nuovo endpoint sia stato aggiunto al servizio Web.
+1. Accedere al [portale dei servizi Web di Azure Machine Learning](https://services.azureml.net/).
+2. Fare clic su **Servizi Web** o **Servizi Web classici**.
+3. Selezionare il servizio Web predittivo.
+4. Verificare che il nuovo endpoint sia stato aggiunto al servizio Web.
 
-### <a name="check-the-workspace-that-your-web-service-is-in-to-ensure-it-is-in-the-correct-region"></a>Controllare l'area di lavoro in cui si trova il servizio Web per assicurarsi che sia nell'area corretta
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
-2. Scegliere Machine Learning dal menu.
+### <a name="check-that-your-workspace-is-in-the-same-region-as-the-web-service"></a>Verificare che l'area di lavoro sia nella stessa area del servizio web
+1. Accedere a [Machine Learning Studio](https://studio.azureml.net/).
+2. Nella parte superiore fare clic nell'elenco di riepilogo a discesa delle aree di lavoro.
+
    ![Interfaccia utente dell'area di Machine Learning.][image4]
-3. Verificare la posizione dell'area di lavoro.
+
+3. Verificare l'area in cui si trova l'area di lavoro.
 
 <!-- Image Links -->
 
 [image1]: ./media/troubleshooting-retraining-a-model/ml-studio-tm-connnected-to-web-service-out.png
 [image2]: ./media/troubleshooting-retraining-a-model/addEndpoint-output.png
 [image3]: ./media/troubleshooting-retraining-a-model/azure-portal-update-resource.png
-[image4]: ./media/troubleshooting-retraining-a-model/azure-portal-machine-learning-tab.png
+[image4]: ./media/troubleshooting-retraining-a-model/check-workspace-region.png
 [image5]: ./media/troubleshooting-retraining-a-model/ml-help-page-patch-url.png
 [image6]: ./media/troubleshooting-retraining-a-model/retraining-output.png
 [image7]: ./media/troubleshooting-retraining-a-model/web-services-tab.png

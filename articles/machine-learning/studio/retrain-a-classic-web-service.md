@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 04e019501be6880fcc7e92de690a9f31195282e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab3c0b5776f9a32ab2703f462d58071f7bfd52ff
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="retrain-a-classic-web-service"></a>Ripetere il training di un servizio Web classico
 Il servizio Web predittivo distribuito è l'endpoint dei punteggi predefinito. Gli endpoint predefiniti vengono mantenuti sincronizzati con gli esperimenti di training e di assegnazione dei punteggi di origine, quindi il modello con training per l'endpoint predefinito non può essere sostituito. Per ripetere il training del servizio Web è necessario aggiungere un nuovo endpoint al servizio Web. 
@@ -43,11 +43,10 @@ Per creare un nuovo endpoint dei punteggi, nel servizio Web predittivo che può 
 > 
 > 
 
-Esistono tre modi per aggiungere un nuovo endpoint a un servizio Web:
+Esistono due modi per aggiungere un nuovo endpoint a un servizio Web:
 
 1. A livello di codice
 2. Usare il portale dei servizi Web di Microsoft Azure
-3. Usare il portale di Azure classico
 
 ### <a name="programmatically-add-an-endpoint"></a>Aggiungere un endpoint a livello di codice
 È possibile aggiungere endpoint di assegnazione dei punteggi usando il codice di esempio disponibile in questo [repository GitHub](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
@@ -58,18 +57,10 @@ Esistono tre modi per aggiungere un nuovo endpoint a un servizio Web:
 3. Fare clic su **Aggiungi**.
 4. Immettere un nome e una descrizione per il nuovo endpoint. Selezionare il livello di registrazione e indicare se i dati di esempio sono abilitati. Per altre informazioni sulla registrazione, vedere [Abilitare la registrazione per i servizi Web di Machine Learning](web-services-logging.md).
 
-### <a name="use-the-azure-classic-portal-to-add-an-endpoint"></a>Usare il portale di Azure classico per aggiungere un endpoint
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
-2. Nel menu a sinistra fare clic su **Machine Learning**.
-3. In Nome fare clic sull'area di lavoro e quindi su **Servizi Web**.
-4. In Nome fare clic su **Census Model [predictive exp.]**.
-5. Nella parte inferiore della pagina fare clic su **Aggiungi endpoint**. Per altre informazioni sull'aggiunta di endpoint, vedere [Creazione di endpoint](create-endpoint.md). 
-
 ## <a name="update-the-added-endpoints-trained-model"></a>Aggiornare il modello con training dell'endpoint aggiunto
 Per completare il processo di ripetizione del training, è necessario aggiornare il modello con training del nuovo endpoint aggiunto.
 
-* Se il nuovo endpoint è stato aggiunto usando il portale di Azure classico, è possibile fare clic sul nome del nuovo endpoint nel portale, quindi sul collegamento **UpdateResource** per ottenere l'URL necessario per aggiornare il modello dell'endpoint.
-* Se l'endpoint è stato aggiunto usando il codice di esempio, è inclusa la posizione dell'URL della guida identificato dal valore *HelpLocationURL* nell'output.
+Se l'endpoint è stato aggiunto usando il codice di esempio, è inclusa la posizione dell'URL della guida identificato dal valore *HelpLocationURL* nell'output.
 
 Per recuperare l'URL del percorso:
 

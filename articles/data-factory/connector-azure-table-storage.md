@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: jingwang
-ms.openlocfilehash: ca5f8e43b6667aa1c2e3ac38e7ea00b5bd86b72f
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: a80a947f5dc6176aaa6334a10eabf1a2b4be5847
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="copy-data-to-or-from-azure-table-using-azure-data-factory"></a>Copiare dati da o in Tabella di Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -173,17 +173,19 @@ Per copiare dati da Tabella di Azure, impostare il tipo di origine nell'attivit�
 
 ### <a name="azuretablesourcequery-examples"></a>esempi di azureTableSourceQuery
 
-Se la colonna della tabella di Azure è di tipo stringa:
-
-```json
-"azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00_0000}\\' and PartitionKey le \\'{0:yyyyMMddHH00_9999}\\'', <datetime parameter>)"
-```
-
 Se la colonna della tabella di Azure è di tipo datetime:
 
 ```json
-"azureTableSourceQuery": "$$Text.Format('DeploymentEndTime gt datetime\\'{0:yyyy-MM-ddTHH:mm:ssZ}\\' and DeploymentEndTime le datetime\\'{1:yyyy-MM-ddTHH:mm:ssZ}\\'', <datetime parameter>, <datetime parameter>)"
+"azureTableSourceQuery": "LastModifiedTime gt datetime'2017-10-01T00:00:00' and LastModifiedTime le datetime'2017-10-02T00:00:00'"
 ```
+
+Se la colonna della tabella di Azure è di tipo stringa:
+
+```json
+"azureTableSourceQuery": "LastModifiedTime ge '201710010000_0000' and LastModifiedTime le '201710010000_9999'"
+```
+
+Se si usa un parametro della pipeline, eseguire il cast del valore datetime al formato corretto come illustrato negli esempi precedenti.
 
 ### <a name="azure-table-as-sink"></a>Tabella di Azure come sink
 

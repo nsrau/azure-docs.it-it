@@ -1,5 +1,5 @@
 ---
-title: Ripetere il training di un servizio Web predittivo esistente | Microsoft Docs
+title: Ripetere il training di un servizio Web predittivo esistente | Documentazione Microsoft
 description: Informazioni su come ripetere il training di un modello e aggiornare il servizio Web per usare il modello appena sottoposto a training in Azure Machine Learning.
 services: machine-learning
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 4f117e7099ffd0a8f85aa96f0fd075d4bcbeb6b4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Ripetere il training di un servizio Web predittivo esistente
 Questo documento descrive il processo di ripetizione del training nello scenario seguente:
@@ -86,20 +86,19 @@ Nella sezione **Basic consumption info** (Informazioni di base sul consumo) dell
 ### <a name="update-the-azure-storage-information"></a>Aggiornare le informazioni di archiviazione di Azure
 Il codice di esempio BES carica un file da un'unità locale (ad esempio, "C:\temp\CensusIpnput.csv") in Archiviazione di Azure, lo elabora e scrive i risultati in Archiviazione di Azure.  
 
-Per aggiornare le informazioni di Archiviazione di Azure è necessario recuperare il nome dell'account di archiviazione, la chiave e le informazioni del contenitore per l'account di archiviazione dal portale di Azure classico e quindi aggiornare i valori corrispondenti nel codice.
 Dopo aver eseguito l'esperimento, il flusso di lavoro risultante dovrebbe essere simile al seguente:
 
 ![Flusso di lavoro risultante dopo l'esecuzione][4]
 
-1. Accedere al portale di Microsoft Azure classico.
-2. Nella colonna di spostamento a sinistra fare clic su **Archiviazione**.
+1. Accedere al portale di Azure.
+2. Nella colonna a sinistra fare clic su **Altri servizi** e usare **Account di archiviazione** per cercare e selezionare un account.
 3. Nell'elenco degli account di archiviazione selezionarne uno per l'archiviazione del modello per il quale è stato ripetuto il training.
-4. Nella parte inferiore della pagina fare clic su **Gestisci chiavi di accesso**.
-5. Copiare e salvare la **chiave di accesso primaria** , quindi chiudere la finestra di dialogo.
-6. Nella parte superiore della pagina fare clic su **Contenitori**.
+4. Nella colonna di spostamento a sinistra fare clic su **Chiavi di accesso**.
+5. Copiare e salvare la **chiave di accesso primaria**.
+6. Nella colonna di spostamento a sinistra fare clic su **Contenitori**.
 7. Selezionare un contenitore esistente oppure crearne uno nuovo e salvare il nome.
 
-Individuare le dichiarazioni *StorageAccountName*, *StorageAccountKey* e *StorageContainerName* e aggiornare i valori salvati dal portale classico.
+Individuare le dichiarazioni *StorageAccountName*, *StorageAccountKey* e *StorageContainerName* e aggiornare i valori salvati dal portale.
 
     const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
     const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 11/30/2017
 ms.author: tomfitz
-ms.openlocfilehash: e789a234979be877d990665902fd6219ae7ec40b
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7e02bd9c6130ef8b120282fafa9f0ee517890d0d
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione
 
@@ -66,7 +66,11 @@ Indipendentemente dal fatto che si usi un insieme di credenziali delle chiavi nu
 
 ## <a name="reference-a-secret-with-static-id"></a>Fare riferimento a un segreto con un ID statico
 
-Il modello che riceve un segreto dell'insieme di credenziali delle chiavi è come qualsiasi altro modello. Infatti **si fa riferimento all'insieme di credenziali delle chiavi nel file dei parametri, non nel modello**. Il modello seguente, ad esempio, distribuisce un database SQL che include una password dell'amministratore. Il parametro della password è impostato su una stringa sicura, ma il modello non specifica la provenienza di tale valore.
+Il modello che riceve un segreto dell'insieme di credenziali delle chiavi è come qualsiasi altro modello. Infatti **si fa riferimento all'insieme di credenziali delle chiavi nel file dei parametri, non nel modello**. L'immagine seguente mostra come il file dei parametri fa riferimento al segreto e passa tale valore al modello.
+
+![ID statico](./media/resource-manager-keyvault-parameter/statickeyvault.png)
+
+Il [modello seguente](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json), ad esempio, distribuisce un database SQL che include una password dell'amministratore. Il parametro della password è impostato su una stringa sicura, ma il modello non specifica la provenienza di tale valore.
 
 ```json
 {
@@ -102,7 +106,7 @@ Il modello che riceve un segreto dell'insieme di credenziali delle chiavi è com
 }
 ```
 
-Creare ora un file dei parametri per il modello precedente. Nel file dei parametri specificare un parametro corrispondente al nome del parametro nel modello. Per il valore del parametro, fare riferimento al segreto dall'insieme di credenziali delle chiavi. Si fa riferimento alla chiave privata passando l'identificatore della risorsa dell'insieme di credenziali chiave e il nome della chiave privata. Nell'esempio seguente il segreto dell'insieme di credenziali delle chiavi deve esistere già e si deve fornire un valore statico per il relativo ID risorsa.
+Creare ora un file dei parametri per il modello precedente. Nel file dei parametri specificare un parametro corrispondente al nome del parametro nel modello. Per il valore del parametro, fare riferimento al segreto dall'insieme di credenziali delle chiavi. Si fa riferimento alla chiave privata passando l'identificatore della risorsa dell'insieme di credenziali chiave e il nome della chiave privata. Nel [file dei parametri seguente](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.parameters.json) il segreto dell'insieme di credenziali delle chiavi deve esistere già e si deve fornire un valore statico per il relativo ID risorsa. Copiare questo file in locale e impostare l'ID sottoscrizione, il nome dell'insieme di credenziali e il nome del server SQL.
 
 ```json
 {
@@ -127,25 +131,27 @@ Creare ora un file dei parametri per il modello precedente. Nel file dei paramet
 }
 ```
 
-A questo punto, distribuire il modello e passare il file dei parametri. Per l'interfaccia della riga di comando di Azure usare:
+A questo punto, distribuire il modello e passare il file dei parametri. È possibile usare il modello di esempio da GitHub, ma è necessario usare un file di parametri locale con i valori impostati sull'ambiente in uso.
+
+Per l'interfaccia della riga di comando di Azure usare:
 
 ```azurecli-interactive
-az group create --name datagroup --location "Central US"
+az group create --name datagroup --location "South Central US"
 az group deployment create \
     --name exampledeployment \
     --resource-group datagroup \
-    --template-file sqlserver.json \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json \
     --parameters @sqlserver.parameters.json
 ```
 
 Per PowerShell, usare:
 
 ```powershell
-New-AzureRmResourceGroup -Name datagroup -Location "Central US"
+New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
 New-AzureRmResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `
-  -TemplateFile sqlserver.json `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json `
   -TemplateParameterFile sqlserver.parameters.json
 ```
 
@@ -153,7 +159,13 @@ New-AzureRmResourceGroupDeployment `
 
 La sezione precedente ha illustrato come passare un ID risorsa statico per il segreto dell'insieme di credenziali delle chiavi. In alcuni scenari, tuttavia, è necessario fare riferimento a un segreto dell'insieme di credenziali delle chiavi che varia a seconda della distribuzione corrente. In questo caso non è possibile impostare come hardcoded l'ID risorsa nel file dei parametri. Non è sfortunatamente possibile generare in modo dinamico l'ID risorsa nel file dei parametri, perché le espressioni del modello non sono consentite nel file dei parametri.
 
-Per generare in modo dinamico l'ID risorsa per un segreto dell'insieme di credenziali delle chiavi, è necessario spostare la risorsa che necessita del segreto in un modello annidato. Nel modello principale aggiungere il modello annidato e passare un parametro che include l'ID risorsa generato in modo dinamico. Il modello annidato deve essere disponibile tramite un URI esterno. Nel resto di questo articolo si presuppone che il modello precedente sia stato aggiunto a un account di archiviazione e sia disponibile tramite l'URI - `https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json`.
+Per generare in modo dinamico l'ID risorsa per un segreto dell'insieme di credenziali delle chiavi, è necessario spostare la risorsa che necessita del segreto in un modello collegato. Nel modello padre aggiungere il modello collegato e passare un parametro che include l'ID risorsa generato in modo dinamico. La figura seguente mostra come un parametro nel modello collegato fa riferimento al segreto.
+
+![ID dinamico](./media/resource-manager-keyvault-parameter/dynamickeyvault.png)
+
+Il modello collegato deve essere disponibile tramite un URI esterno. In genere, aggiungere il modello a un account di archiviazione e accedervi tramite l'URI, ad esempio `https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json`.
+
+Il [modello seguente](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json) crea l'ID dell'insieme di credenziali delle chiavi in modo dinamico e lo passa come parametro. Il modello è collegato a un [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json) in GitHub.
 
 ```json
 {
@@ -184,7 +196,7 @@ Per generare in modo dinamico l'ID risorsa per un segreto dell'insieme di creden
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "https://<storage-name>.blob.core.windows.net/templatecontainer/sqlserver.json",
+          "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json",
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
@@ -205,7 +217,29 @@ Per generare in modo dinamico l'ID risorsa per un segreto dell'insieme di creden
 }
 ```
 
-Distribuire il modello precedente e specificare i valori dei parametri.
+Distribuire il modello precedente e specificare i valori dei parametri. È possibile usare il modello di esempio da GitHub, ma è necessario specificare i valori dei parametri per l'ambiente in uso.
+
+Per l'interfaccia della riga di comando di Azure usare:
+
+```azurecli-interactive
+az group create --name datagroup --location "South Central US"
+az group deployment create \
+    --name exampledeployment \
+    --resource-group datagroup \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json \
+    --parameters vaultName=<your-vault> vaultResourceGroup=examplegroup secretName=examplesecret adminLogin=exampleadmin sqlServerName=<server-name>
+```
+
+Per PowerShell, usare:
+
+```powershell
+New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
+New-AzureRmResourceGroupDeployment `
+  -Name exampledeployment `
+  -ResourceGroupName datagroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json `
+  -vaultName <your-vault> -vaultResourceGroup examplegroup -secretName examplesecret -adminLogin exampleadmin -sqlServerName <server-name>
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per informazioni generali sugli insiemi di credenziali delle chiavi, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md).

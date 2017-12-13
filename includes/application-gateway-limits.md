@@ -8,11 +8,13 @@
 | Listener HTTP |20 | |
 | Regole di bilanciamento del carico HTTP |200 |Numero di listener HTTP * n (valore predefinito n=10) |
 | Impostazioni HTTP back-end |20 |1 per pool di indirizzi back-end |
-| Istanze per gateway |10 | |
+| Istanze per gateway |10 | Per più istanze, aprire un ticket di supporto |
 | Certificati SSL |20 |1 per listener HTTP |
 | Certificati di autenticazione |5 | Massimo 10 |
 | Timeout minimo delle richieste |1 secondo | |
 | Timeout massimo delle richieste |24 ore | |
 | Numero di siti |20 |1 per listener HTTP |
 | Mappe URL per listener |1 | |
+| Dimensioni massime caricamento file Standard |2 GB | |
+| Dimensioni massime caricamento file WAF |100 MB| |
 

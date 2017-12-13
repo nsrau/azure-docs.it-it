@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 265c5f660c4bee53a2faf4a073384587eb3f65fc
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: f12ee39f900373fcab80e59bc20de59fa039f0ff
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Risolvere i problemi di Sincronizzazione File di Azure (anteprima)
-È possibile usare Sincronizzazione file di Azure (anteprima) per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, le prestazioni e la compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
+È possibile usare Sincronizzazione file di Azure (anteprima) per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
 
 L'obiettivo di questo articolo è aiutare l'utente a individuare e risolvere i problemi che si possono incontrare con la distribuzione di Sincronizzazione file di Azure. Viene inoltre spiegato come raccogliere i log importanti dal sistema per effettuare un'analisi più approfondita dei problemi. Se non è presente la risposta a una domanda specifica, è possibile contattare Microsoft tramite i seguenti canali (in ordine di escalation):
 
 1. Sezione dei commenti di questo articolo.
-2. [Forum di Archiviazione di Azure](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredata).
+2. [Forum di Archiviazione di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [UserVoice per File di Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Supporto tecnico Microsoft. Per creare una nuova richiesta di supporto, nel portale di Azure, nella scheda **Guida**, selezionare **Guida e supporto** e quindi selezionare **Nuova richiesta di supporto**.
 
@@ -55,7 +55,7 @@ Se un server non è presente nell'elenco **Server registrati** per un servizio d
 
 Questo messaggio viene visualizzato se il server è stato registrato in precedenza con un servizio di sincronizzazione archiviazione. Per annullare la registrazione del server con il servizio di sincronizzazione archiviazione corrente e registrarlo con un nuovo servizio di sincronizzazione archiviazione, seguire la procedura descritta in [Annullare la registrazione del server con Sincronizzazione file di Azure](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
-Se il server non è presente nell'elenco **Server registrati** nel Servizio sincronizzazione archiviazione, nel server di cui si vuole annullare la registrazione, eseguire i comandi PowerShell seguenti:
+Se il server non è presente nell'elenco **Server registrati** del servizio di sincronizzazione archiviazione, nel server di cui si vuole annullare la registrazione eseguire i comandi PowerShell seguenti:
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
@@ -72,19 +72,19 @@ Questo errore si verifica perché durante la registrazione del server sono abili
 <a id="cloud-endpoint-using-share"></a>**La creazione di endpoint cloud ha esito negativo e restituisce un messaggio di errore che indica che la condivisione file di Azure specificata è già usata da un endpoint cloud diverso**  
 Questo errore si verifica se la condivisione file di Azure è già in uso da parte di un altro endpoint cloud. 
 
-Se viene visualizzato questo messaggio e la condivisione file di Azure non viene attualmente usata da un endpoint cloud, attenersi ai passaggi seguenti per cancellare i metadati di Sincronizzazione file di Azure nella condivisone file di Azure:
+Se viene visualizzato questo messaggio e la condivisione file di Azure non è attualmente in uso da alcun endpoint cloud, attenersi ai passaggi seguenti per cancellare i metadati di Sincronizzazione file di Azure nella condivisone file di Azure:
 
 > [!Warning]  
-> L'eliminazione dei metadati nella condivisione file di Azure che è attualmente in uso da parte di un endpoint cloud impedisce il corretto funzionamento di Sincronizzazione file di Azure. 
+> L'eliminazione dei metadati nella condivisione file di Azure attualmente in uso da un endpoint cloud impedisce il corretto funzionamento di Sincronizzazione file di Azure. 
 
 1. Nel portale di Azure passare alla condivisione file di Azure.  
 2. Fare clic con il pulsante destro del mouse sulla condivisione file di Azure e scegliere **Modifica metadati**.
 3. Fare clic con il pulsante destro del mouse su **SyncService** e quindi fare clic su **Elimina**.
 
-<a id="cloud-endpoint-authfailed"></a>**La creazione dell'endpoint cloud ha esito negativo e viene restituito il messaggio di errore "AuthorizationFailed".**  
-Questo problema si verifica se l'account utente non dispone di diritti sufficienti per creare un endpoint cloud. 
+<a id="cloud-endpoint-authfailed"></a>**La creazione dell'endpoint cloud ha esito negativo e viene restituito il messaggio di errore "AuthorizationFailed"**  
+Questo problema si verifica se l'account utente non ha diritti sufficienti per creare un endpoint cloud. 
 
-Per creare un endpoint cloud l'account utente deve avere le seguenti autorizzazioni Microsoft:  
+Per creare un endpoint cloud, l'account utente deve avere le autorizzazioni Microsoft seguenti:  
 * Lettura: Ottieni definizione ruolo
 * Scrittura: Crea o aggiorna la definizione del ruolo personalizzata
 * Lettura: Ottieni assegnazione ruolo
@@ -102,7 +102,7 @@ Per determinare se il ruolo dell'account utente in uso dispone delle autorizzazi
     * In **Assegnazione ruolo** devono essere impostate le autorizzazioni **Lettura** e **Scrittura**.
     * In **Definizione ruolo** devono essere impostate le autorizzazioni **Lettura** e **Scrittura**.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**L'eliminazione di un endpoint ha esito negativo e viene restituito l'errore "MgmtInternalError".**  
+<a id="cloud-endpoint-deleteinternalerror"></a>**L'eliminazione di un endpoint ha esito negativo e viene restituito l'errore "MgmtInternalError"**  
 Questo problema può verificarsi se l'account di condivisione file o l'account di archiviazione di Azure viene eliminato prima dell'endpoint cloud. Questo problema verrà risolto in un aggiornamento futuro. Sarà a quel punto possibile eliminare un endpoint cloud dopo aver eliminato l'account di archiviazione o di condivisione file di Azure.
 
 Nel frattempo, per impedire che si verifichi questo problema, eliminare l'endpoint cloud prima dell'account di condivisione file o dell'account di archiviazione di Azure.
@@ -132,7 +132,29 @@ Se la sincronizzazione di file singoli ha esito negativo:
     > [!NOTE]
     > Sincronizzazione file di Azure crea periodicamente snapshot VSS per sincronizzare i file con handle aperti.
 
-## <a name="cloud-tiering"></a>Suddivisione in livelli nel cloud 
+## <a name="cloud-tiering"></a>Archiviazione a livelli nel cloud 
+Nell'archiviazione a livelli nel cloud possono prendere forma due percorsi di errore:
+
+- È possibile che i file non possano essere archiviati a livelli, ovvero che Sincronizzazione file di Azure non riesca ad archiviare a livelli i file in File di Azure.
+- È possibile che i file non possano essere richiamati, ovvero che il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys) non riesca a scaricare i dati quando un utente tenta di accedere a un file archiviato a livelli.
+
+Dai questi due percorsi di errore possono essere generate due principali classi di errore:
+
+- Errori di archiviazione cloud
+    - *Problemi di disponibilità del servizio di archiviazione temporanea*. Per altre informazioni, vedere [Contratto di Servizio per Archiviazione](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
+    - *Condivisione file di Azure non accessibile*. Questo errore si verifica in genere quando si elimina una condivisione file di Azure che si trova ancora in un endpoint cloud di un gruppo di sincronizzazione.
+    - *Account di archiviazione inaccessibile*. Questo errore si verifica in genere quando si elimina un account di archiviazione che ha ancora una condivisione file di Azure costituita da un endpoint cloud di un gruppo di sincronizzazione. 
+- Errori del server 
+    - *Il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys) non è caricato*. Per rispondere alle richieste di archiviazione a livelli/richiamo, è necessario che il filtro del file system di Sincronizzazione file di Azure sia caricato. È possibile che un filtro non risulti caricato per vari motivi, ma la causa più comune è che un amministratore lo abbia scaricato manualmente. Il filtro del file system di Sincronizzazione file di Azure deve risultare sempre caricato per garantire il corretto funzionamento di Sincronizzazione file di Azure.
+    - *Reparse point mancante, danneggiato o non funzionante*. Un reparse point è una speciale struttura di dati in un file costituita da due parti:
+        1. Un tag di reparse, che indica al sistema operativo che per eseguire alcune operazioni di I/O sul file è possibile che sia necessario il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys). 
+        2. I dati di reparse, che indicano al filtro del file system l'URI del file nell'endpoint cloud associato (la condivisione file di Azure). 
+        
+        Nella maggior parte dei casi, un reparse point viene danneggiato quando un amministratore tenta di modificarne il tag o i dati. 
+    - *Problemi di connettività di rete*. Per archiviare a livelli o richiamare un file, il server deve avere la connettività Internet.
+
+Le sezioni seguenti indicano come risolvere problemi di archiviazione a livelli nel cloud e determinare se si tratta di un problema di archiviazione cloud o di un problema del server.
+
 <a id="files-fail-tiering"></a>**Risolvere i problemi dei file che non è possibile archiviare a livelli**  
 Se non è possibile archiviare a livelli i file in File di Azure:
 

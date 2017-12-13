@@ -13,52 +13,50 @@ ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2016
+ms.date: 11/28/2017
 ms.author: torsteng
-ms.openlocfilehash: b4827fafdfd2f8b094c4f541a7511d6233dd4e6f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 33128357bd5b2bd744c5c1c3032f658ebe865d49
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="multi-shard-querying"></a>Esecuzione di query su più partizioni
 ## <a name="overview"></a>Panoramica
 Con gli [strumenti dei database elastici](sql-database-elastic-scale-introduction.md) è possibile creare soluzioni di database partizionati. La funzionalità di **query su più partizioni** viene usata per attività che richiedono l'esecuzione di una query su più partizioni, ad esempio la raccolta o la creazione di report sui dati, a differenza del [routing dipendente dai dati](sql-database-elastic-scale-data-dependent-routing.md), che consente di eseguire tutto il lavoro su una singola partizione. 
 
-1. Ottenere una mappa [**RangeShardMap**](https://msdn.microsoft.com/library/azure/dn807318.aspx) o [**ListShardMap**](https://msdn.microsoft.com/library/azure/dn807370.aspx) con il metodo [**TryGetRangeShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), [**TryGetListShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx) o [**GetShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx). Vedere [**Creazione di un oggetto ShardMapManager**](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager) e [**Ottenere una mappa RangeShardMap o ListShardMap**](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap).
-2. Creare un oggetto **[MultiShardConnection](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection.aspx)**.
-3. Creare un **[MultiShardCommand](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.aspx)**. 
-4. Impostare la **[proprietà CommandText](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.commandtext.aspx#P:Microsoft.Azure.SqlDatabase.ElasticScale.Query.MultiShardCommand.CommandText)** su un comando T-SQL.
-5. Eseguire il comando chiamando il **[metodo ExecuteReader](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.executereader.aspx)**.
-6. Vedere i risultati usando la **[classe MultiShardDataReader](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)**. 
+1. Ottenere **RangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)) or **ListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807370.aspx)) con il metodo **TryGetRangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx)), **TryGetListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx)) o **GetShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx)). Vedere **[Creazione di un oggetto ShardMapManager](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager)** e **[Ottenere una mappa RangeShardMap o ListShardMap](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap)**.
+2. Creare un oggetto **MultiShardConnection** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_connection), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection.aspx)).
+3. Creare un oggetto **MultiShardStatement o MultiShardCommand** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_statement), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.aspx)). 
+4. Impostare la **proprietà CommandText** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_statement), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.commandtext.aspx#P:Microsoft.Azure.SqlDatabase.ElasticScale.Query.MultiShardCommand.CommandText)) su un comando T-SQL.
+5. Eseguire il comando chiamando il metodo **ExecuteQueryAsync or ExecuteReader** ([Java](), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.executereader.aspx)).
+6. Visualizzare i risultati usando la classe **MultiShardResultSet or MultiShardDataReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_result_set), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)). 
 
 ## <a name="example"></a>Esempio
 Il codice seguente illustra l'uso delle query su più partizioni mediante uno specifico oggetto **ShardMap** denominato *myShardMap*. 
 
-    using (MultiShardConnection conn = new MultiShardConnection( 
-                                        myShardMap.GetShards(), 
-                                        myShardConnectionString) 
-          ) 
-    { 
+```csharp
+using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards(), myShardConnectionString)) 
+{ 
     using (MultiShardCommand cmd = conn.CreateCommand())
-           { 
-            cmd.CommandText = "SELECT c1, c2, c3 FROM ShardedTable"; 
-            cmd.CommandType = CommandType.Text; 
-            cmd.ExecutionOptions = MultiShardExecutionOptions.IncludeShardNameColumn; 
-            cmd.ExecutionPolicy = MultiShardExecutionPolicy.PartialResults; 
+    { 
+        cmd.CommandText = "SELECT c1, c2, c3 FROM ShardedTable"; 
+        cmd.CommandType = CommandType.Text; 
+        cmd.ExecutionOptions = MultiShardExecutionOptions.IncludeShardNameColumn; 
+        cmd.ExecutionPolicy = MultiShardExecutionPolicy.PartialResults; 
 
-            using (MultiShardDataReader sdr = cmd.ExecuteReader()) 
-                { 
-                    while (sdr.Read())
-                        { 
-                            var c1Field = sdr.GetString(0); 
-                            var c2Field = sdr.GetFieldValue<int>(1); 
-                            var c3Field = sdr.GetFieldValue<Int64>(2);
-                        } 
-                 } 
-           } 
+        using (MultiShardDataReader sdr = cmd.ExecuteReader()) 
+        { 
+            while (sdr.Read())
+            { 
+                var c1Field = sdr.GetString(0); 
+                var c2Field = sdr.GetFieldValue<int>(1); 
+                var c3Field = sdr.GetFieldValue<Int64>(2);
+            } 
+        } 
     } 
-
+} 
+```
 
 Un'importante differenza risiede nella costruzione delle connessioni a più partizioni. Mentre **SqlConnection** agisce su un singolo database, **MultiShardConnection** accetta come input una ***raccolta di partizioni***. Popolare la raccolta di partizioni da una mappa partizioni. La query viene quindi eseguita sulla raccolta di partizioni usando la semantica di **UNION ALL** per assemblare un unico risultato complessivo. Facoltativamente, è possibile aggiungere all'output il nome della partizione di origine della riga usando la proprietà **ExecutionOptions** nel comando. 
 
@@ -71,8 +69,4 @@ Le query su più partizioni non verificano se gli shardlet presenti nel database
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-## <a name="see-also"></a>Vedere anche
-Classi e metodi **[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient.aspx)**.
-
-Gestire le partizioni con la [libreria client dei database elastici](sql-database-elastic-database-client-library.md). Comprende uno spazio dei nomi denominato [Microsoft.Azure.SqlDatabase.ElasticScale.Query](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.aspx), che consente di eseguire query su più partizioni usando una singola query con un unico risultato. Fornisce l'astrazione delle query su una raccolta di partizioni, nonché criteri di esecuzione alternativi, in particolare risultati parziali, per la gestione degli errori quando si eseguono query su molte partizioni.  
 

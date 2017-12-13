@@ -11,13 +11,13 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/13/2017
+ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: da8ccf35dcc873a5c31842c6eb7bdf72879854c2
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 0bcf56e06c34af94746d42d8af18e32fcd9a7496
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard del settore, anche noto come CIFS o Common Internet File System. È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure (anteprima) per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/20/2017
 Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e funzionalità di File di Azure, tra cui l'uso di Sincronizzazione file di Azure con File di Azure. Se non è presente la risposta a una domanda specifica, è possibile contattare Microsoft tramite i seguenti canali (in ordine di escalation):
 
 1. Sezione dei commenti di questo articolo.
-2. [Forum di Archiviazione di Azure](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuredata).
+2. [Forum di Archiviazione di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [UserVoice per File di Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Supporto tecnico Microsoft. Per creare una nuova richiesta di supporto, nel portale di Azure, nella scheda **Guida**, selezionare **Guida e supporto** e quindi selezionare **Nuova richiesta di supporto**.
 
@@ -147,6 +147,9 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
     ```
+
+* <a id="afs-effective-vfs"></a>**Come viene interpretato lo *spazio disponibile del volume* quando in un volume sono presenti più endpoint server?**  
+    Quando in un volume sono presenti più endpoint server, la soglia valida dello spazio disponibile del volume è data dal valore più elevato specificato per tale spazio su qualsiasi endpoint server in tale volume. I file vengono suddivisi in livelli in base ai criteri di uso indipendentemente dall'endpoint server di appartenenza. Ad esempio, se sono presenti due endpoint server in un volume, Endpoint1 ed Endpoint2, dove Endpoint1 è associato a una soglia di spazio disponibile del volume pari a 25% mentre Endpoint2 è associato a una soglia di spazio disponibile del volume pari a 50%, la soglia valida per entrambi gli endpoint server sarà pari a 50%.
 
 * <a id="afs-files-excluded"></a>**Quali file o cartelle vengono automaticamente esclusi da Sincronizzazione file di Azure?**  
     Per impostazione predefinita, Sincronizzazione file di Azure esclude i file seguenti:

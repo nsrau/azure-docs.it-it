@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-ms.openlocfilehash: d203580f676d55acbad4936160982a40592af1d0
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: baed3e290ed29d1459455441e7cac7c5b1b1ebd9
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Ridimensionare un cluster di Service Fabric
 
@@ -30,6 +30,13 @@ In questa esercitazione si apprenderà come:
 > * Leggere il conteggio dei nodi del cluster
 > * Aggiungere nodi del cluster (aumentare il numero di istanze)
 > * Rimuovere nodi del cluster (ridurre il numero di istanze)
+
+In questa serie di esercitazioni si apprenderà come:
+> [!div class="checklist"]
+> * Creare [un cluster di Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o un [cluster di Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) protetto in Azure usando un modello
+> * Aumentare o ridurre un cluster
+> * [Aggiornare il runtime di un cluster](service-fabric-tutorial-upgrade-cluster.md)
+> * [Distribuire Gestione API e Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione:
@@ -250,8 +257,8 @@ In questa esercitazione si è appreso come:
 > * Rimuovere nodi del cluster (ridurre il numero di istanze)
 
 
-Procedere con l'esercitazione seguente per scoprire come distribuire un'applicazione e usare la gestione API.
+Procedere quindi con l'esercitazione seguente per scoprire come aggiornare il runtime di un cluster.
 > [!div class="nextstepaction"]
-> [Distribuire Gestione API](service-fabric-tutorial-deploy-api-management.md)
+> [Aggiornare il runtime di un cluster](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster

@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
-ms.openlocfilehash: 8dd5490fcd5c57077c65b76f3ce44068219d1222
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0fc32960fc2f1ae69315dbfd6bfb8c34c4adc0fa
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="manage-domain-joined-hdinsight-clusters-preview"></a>Gestione dei cluster HDInsight aggiunti al dominio (anteprima)
+# <a name="manage-domain-joined-hdinsight-clusters"></a>Gestione dei cluster HDInsight aggiunti al dominio
 Informazioni su utenti e ruoli nei cluster HDInsight aggiunti al dominio e su come gestire i cluster HDInsight aggiunti al dominio.
 
 ## <a name="users-of-domain-joined-hdinsight-clusters"></a>Utenti dei cluster HDInsight aggiunti al dominio

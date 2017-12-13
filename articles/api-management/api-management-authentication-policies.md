@@ -12,17 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 2907c1e4e39f975b4dc4e9382d7258c5d56dbbdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4d13d9dbea9da9db5bfe9a9af85fdbf9eab1ae84
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-authentication-policies"></a>Criteri di autenticazione di Gestione API di Azure
 Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
-  
+
 ##  <a name="AuthenticationPolicies"></a> Criteri di autenticazione  
   
 -   [Autenticazione con base](api-management-authentication-policies.md#Basic): consente di eseguire l'autenticazione con un servizio back-end tramite l'autenticazione di base.  
@@ -100,4 +100,9 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
+Per altre informazioni sull'uso di questi criteri, vedere:
+
++ [Criteri di Gestione API](api-management-howto-policies.md)
++ [API Transform](transform-api.md)
++ [Informazioni di riferimento per i criteri](api-management-policy-reference.md) per un elenco completo di istruzioni dei criteri e delle relative impostazioni
++ [Esempi di criteri](policy-samples.md)   

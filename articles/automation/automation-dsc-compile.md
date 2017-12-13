@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; eslesar
-ms.openlocfilehash: 1aadd604e676659475f00760af3b0bdfb13a4792
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilazione di configurazioni in Azure Automation DSC
 
@@ -128,6 +128,50 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 ```
 
 Per informazioni sul passaggio di PSCredentials come parametri, vedere <a href="#credential-assets">**Asset credenziali**</a> più avanti.
+
+## <a name="composite-resources"></a>Risorse composite
+
+Le **risorse composite** consentono di usare le configurazioni DSC come risorse annidate in una configurazione.  Questo consente di applicare più configurazioni a un'unica risorsa.  Per informazioni sulle **risorse composite**, vedere [Risorse composite: uso di una configurazione DSC come risorsa](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite)
+
+> [!NOTE]
+> Per compilare le **risorse composite** nel modo corretto, verificare che le risorse DSC su cui si basa la risorsa composita siano installate nel repository del modulo Account di automazione di Azure altrimenti non verranno importate nel modo corretto.
+
+Per aggiungere una **risorsa composita** DSC, aggiungere il modulo di risorsa a un archivio (*.zip). Accedere al repository dei moduli nell'account di automazione di Azure  e fare clic sul pulsante Aggiungi un modulo.
+
+![Aggiungi modulo](./media/automation-dsc-compile/add_module.png)
+
+Passare alla directory in cui si trova l'archivio.  Selezionare il file di archivio e fare clic su OK.
+
+![Seleziona modulo](./media/automation-dsc-compile/select_dscresource.png)
+
+Si verrà indirizzati alla directory dei moduli da dove è possibile monitorare lo stato della **risorsa composita** mentre viene decompressa e registrata in Automazione di Azure.
+
+![Importare le risorse composite](./media/automation-dsc-compile/register_composite_resource.png)
+
+Fare clic sul modulo registrato per verificare che le **risorse composite** siano disponibili per l'uso in una configurazione.
+
+![Verificare le risorse composite](./media/automation-dsc-compile/validate_composite_resource.png)
+
+A questo punto è possibile chiamare la **risorsa composita** nella configurazione in questo modo:
+
+```powershell
+
+    Node ($AllNodes.Where{$_.Role -eq "WebServer"}).NodeName
+    {
+            
+            JoinDomain DomainJoin
+            {
+                DomainName = $DomainName
+                Admincreds = $Admincreds
+            }
+
+            PSWAWebServer InstallPSWAWebServer
+            {
+                DependsOn = "[JoinDomain]DomainJoin"
+            }        
+    }
+
+```
 
 ## <a name="configurationdata"></a>ConfigurationData
 **ConfigurationData** consente di separare la configurazione strutturale dalla configurazione specifica di qualsiasi ambiente mentre si usa PowerShell DSC. Vedere il blog relativo alla [distinzione tra "cosa" e "dove" in PowerShell DSC](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) per altre informazioni su **ConfigurationData**.

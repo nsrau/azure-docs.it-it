@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 0815c4d826d9ee09f2e787d9b27258149c55d400
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e9b979861f5ad815fd3794a98f3b9ca2115b415c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-app-service-plan-overview"></a>Panoramica del piano di servizio app di Azure
 
@@ -117,4 +117,4 @@ In questo modo è possibile allocare un nuovo set di risorse per l'app e ottener
 ## <a name="manage-an-app-service-plan"></a>Gestire un piano di servizio app
 
 > [!div class="nextstepaction"]
-> [Aumentare le prestazioni di un'app in Azure](app-service-plan-manage.md)
+> [Gestire un piano di servizio app](app-service-plan-manage.md)

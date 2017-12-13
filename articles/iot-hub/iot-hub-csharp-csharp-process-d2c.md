@@ -1,6 +1,6 @@
 ---
-title: Elaborare messaggi da dispositivo a cloud dell'hub IoT di Azure usando i route (.NET) |Microsoft Docs
-description: Come elaborare i messaggi da dispositivo a cloud dell'hub IoT usando le regole di routing e gli endpoint personalizzati per inviare i messaggi agli altri servizi di back-end.
+title: Routing dei messaggi tramite Hub IoT di Azure (.NET) | Microsoft Docs
+description: Come elaborare i messaggi da dispositivo a cloud di Hub IoT di Azure usando le regole di routing e gli endpoint personalizzati per inviare i messaggi agli altri servizi di back-end.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 1d2b52ea005ab520bf294efa603512c00a92ee63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8fed08aa22577574b30b360ec164daf592ed456
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="process-iot-hub-device-to-cloud-messages-using-routes-net"></a>Elaborare messaggi da dispositivo a cloud dell'hub IoT usando i route (.NET)
+# <a name="routing-messages-with-iot-hub-net"></a>Routing dei messaggi tramite Hub IoT (.NET)
 
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
@@ -43,7 +43,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 * Visual Studio 2015 o Visual Studio 2017.
 * Un account Azure attivo. <br/>Se non si ha un account, è possibile creare un [account gratuito](https://azure.microsoft.com/free/) in pochi minuti.
 
-È necessaria una conoscenza di base di [Archiviazione di Azure] e del [bus di servizio di Azure].
+Si consiglia anche la lettura della documentazione su [Archiviazione di Azure] e [Bus di servizio di Azure].
 
 ## <a name="send-interactive-messages"></a>Inviare messaggi interattivi
 
@@ -74,8 +74,16 @@ private static async void SendDeviceToCloudMessagesAsync()
 
         if (rand.NextDouble() > 0.7)
         {
-            messageString = "This is a critical message";
-            levelValue = "critical";
+            if (rand.NextDouble() > 0.5)
+            {
+                messageString = "This is a critical message";
+                levelValue = "critical";
+            }
+            else 
+            {
+                messageString = "This is a storage message";
+                levelValue = "storage";
+            }
         }
         else
         {
@@ -93,13 +101,13 @@ private static async void SendDeviceToCloudMessagesAsync()
 }
 ```
 
-Con questo metodo La proprietà `"level": "critical"` verrà aggiunta in modo casuale ai messaggi inviati dal dispositivo, il quale simula un messaggio che richiede un intervento immediato del back-end della soluzione. L'app del dispositivo passa queste informazioni nelle proprietà del messaggio anziché nel corpo del messaggio, in modo che l'hub IoT possa indirizzare il messaggio alla destinazione messaggi appropriata.
+Questo metodo aggiunge in modo casuale la proprietà `"level": "critical"` e `"level": "storage"` ai messaggi inviati dal dispositivo, simulando così un messaggio che richiede l'intervento immediato del back-end dell'applicazione o uno che richiede l'archiviazione permanente. L'applicazione passa queste informazioni nelle proprietà del messaggio anziché nel corpo del messaggio, in modo che l'hub IoT possa indirizzare il messaggio alla destinazione messaggi appropriata.
 
 > [!NOTE]
 > È possibile usare le proprietà del messaggio per indirizzare i messaggi in diversi scenari, tra cui l'elaborazione del percorso a freddo, oltre all'esempio del percorso a caldo mostrato qui.
 
 > [!NOTE]
-> Per semplicità, questa esercitazione non implementa alcun criterio di ripetizione. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN relativo alla [Transient Fault Handling](Gestione degli errori temporanei).
+> È consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come indicato nell'articolo di MSDN relativo alla [Transient Fault Handling](Gestione degli errori temporanei).
 
 ## <a name="route-messages-to-a-queue-in-your-iot-hub"></a>Eseguire il routing dei messaggi a una coda nell'hub IoT
 
@@ -177,6 +185,30 @@ A questo punto è possibile eseguire le applicazioni.
    
    ![Tre app console][50]
 
+## <a name="optional-add-storage-container-to-your-iot-hub-and-route-messages-to-it"></a>(Facoltativo) Aggiungere un contenitore di archiviazione all'hub IoT ed eseguirvi il routing dei messaggi
+
+In questa sezione, viene illustrato come creare un account di archiviazione, come connettere tale account all'hub IoT e come configurare l'hub IoT per inviare messaggi all'account in base alla presenza di una proprietà del messaggio. Per altre informazioni su come gestire l'archiviazione, vedere la [documentazione di Archiviazione di Azure][Archiviazione di Azure].
+
+ > [!NOTE]
+   > Se lo scenario non è limitato a un **endpoint**, è possibile configurare l'endpoint **StorageContainer** oltre all'endpoint **CriticalQueue** ed eseguire entrambi contemporaneamente.
+
+1. Creare un account di archiviazione come descritto nella [documentazione di Archiviazione di Azure][lnk-storage]. Prendere nota del nome dell'account.
+
+2. Nel Portale di Azure, aprire l'hub IoT e fare clic su **Endpoint**.
+
+3. Nel pannello **Endpoint** selezionare l'endpoint **CriticalQueue** e fare clic su **Elimina**. Fare clic su **Sì** e quindi su **Aggiungi**. Assegnare un nome all'endpoint **StorageContainer**, usare gli elenchi a discesa per selezionare **Contenitore di archiviazione di Azure** e creare un **account di archiviazione** e un **contenitore di archiviazione**.  Prendere nota dei nomi.  Al termine, fare clic su **OK** nella parte inferiore. 
+
+ > [!NOTE]
+   > Se lo scenario non è limitato a un **endpoint**, non è necessario eliminare l'endpoint **CriticalQueue**.
+
+4. Fare clic su **Route** nell'hub IoT. Fare clic su **Aggiungi** nella parte superiore del pannello per creare una regola di routing che indirizzi i messaggi alla coda appena aggiunta. Selezionare **Messaggi del dispositivo** come origine dei dati. Immettere `level="storage"` come condizione e scegliere **StorageContainer** come endpoint personalizzato, come endpoint della regola di routing. Fare clic su **Salva** nella parte inferiore.  
+
+    Assicurarsi che il route di fallback sia impostato su **ON**. Questa impostazione è la configurazione predefinita dell'hub IoT.
+
+1. Verificare che le applicazioni precedenti siano ancora in esecuzione. 
+
+1. Nel portale di Azure passare all'account di archiviazione, in **Servizio BLOB** fare clic su **Esplora BLOB**.  Selezionare il contenitore, passare al file JSON e fare clic su di esso e quindi fare clic su **Download** per visualizzare i dati.
+
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione è stato descritto come inviare i messaggi da dispositivo a cloud in modo affidabile usando la funzionalità di routing dei messaggi dell'hub IoT.
 
@@ -198,11 +230,11 @@ Per ulteriori informazioni sul routing dei messaggi nell'hub IoT, vedere [Inviar
 <!-- Links -->
 [Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [Archiviazione di Azure]: https://azure.microsoft.com/documentation/services/storage/
-[bus di servizio di Azure]: https://azure.microsoft.com/documentation/services/service-bus/
+[Bus di servizio di Azure]: https://azure.microsoft.com/documentation/services/service-bus/
 [Guida per sviluppatori dell'hub IoT]: iot-hub-devguide.md
 [Introduzione a hub IoT]: iot-hub-csharp-csharp-getstarted.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Centro per sviluppatori Azure IoT]: https://azure.microsoft.com/develop/iot
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[lnk-c2d]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-c2d]: iot-hub-csharp-csharp-c2d.md
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/

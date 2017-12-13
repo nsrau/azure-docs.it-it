@@ -4,7 +4,7 @@ description: Scaricare il modello per una macchina virtuale per facilitare l'aut
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 51ef4f51-0942-4249-afea-4a3f87ce1ff8
@@ -13,24 +13,24 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 9e4c0c3cf0e233447369a24b1d5fe27495abd1cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93ed84cb146119c877c3a143c5f7af9ca8ba0656
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="download-the-template-for-a-vm"></a>Scaricare il modello per una VM
 Quando si crea una macchina virtuale in Azure con il portale o con PowerShell, viene creato automaticamente un modello di Resource Manager. È possibile usare questo modello per duplicare rapidamente una distribuzione. Il modello contiene informazioni su tutte le risorse in un gruppo di risorse. Per una macchina virtuale, questo significa che il modello contiene tutto ciò che viene creato in supporto della macchina virtuale all'interno del gruppo di risorse, comprese le risorse di rete.
 
 ## <a name="download-the-template-using-the-portal"></a>Scaricare il modello usando il portale
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
-2. Selezionare **Macchine virtuali** nel menu dell'hub.
+2. Nel menu a sinistra selezionare **Macchine virtuali**.
 3. Selezionare la macchina virtuale dall'elenco.
 4. Selezionare **Script di automazione**.
-5. Selezionare **Scarica** e salvare il file .zip nel computer locale.
-6. Aprire il file .zip ed estrarne i file in una cartella. Il file .zip contiene:
+5. Selezionare **Scarica** dal menu nella parte superiore e salvare il file con estensione zip nel computer locale.
+6. Aprire il file .zip ed estrarne i file in una cartella. Il file con estensione zip contiene:
    
    * deploy.ps1
    * deploy.sh 

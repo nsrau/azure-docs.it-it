@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: neerajkh
-ms.openlocfilehash: eea085308a5ca755cbf570465b97019de800768e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b4fcef51b2704f07f5d1d08a4bd16970864b0fd
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>Ridimensionamento di un servizio Web di Azure Machine Learning con l'aggiunta di altri endpoint
 > [!NOTE]
@@ -27,11 +27,11 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-Per impostazione predefinita, ogni servizio Web pubblicato è configurato per supportare 20 richieste simultanee e può gestire fino a 200 richieste simultanee. Il portale di Azure classico permette di impostare questo valore, mentre Azure Machine Learning ottimizza automaticamente questa impostazione per offrire le prestazioni migliori per il servizio Web, ignorando il valore del portale. 
+Per impostazione predefinita, ogni servizio Web pubblicato è configurato per supportare 20 richieste simultanee e può gestire fino a 200 richieste simultanee. Azure Machine Learning ottimizza automaticamente questa impostazione per offrire le prestazioni migliori per il servizio Web, ignorando il valore del portale. 
 
 Se si prevede di chiamare l'API con un carico superiore rispetto al valore di 200 per il numero massimo di chiamate simultanee supportate, è consigliabile creare più endpoint nello stesso servizio Web. È quindi possibile distribuire casualmente il carico tra tutti gli endpoint.
 
-Il ridimensionamento di un servizio Web è un'attività comune. Alcuni motivi per il ridimensionamento consistono nella necessità di supportare più di 200 richieste simultanee, aumentare la disponibilità tramite più endpoint o fornire endpoint separati per il servizio Web. È possibile aumentare la scalabilità mediante l'aggiunta di altri endpoint per lo stesso servizio Web tramite il [portale di Azure classico](https://manage.windowsazure.com/) o il [portale dei servizi Web di Azure Machine Learning](https://services.azureml.net/).
+Il ridimensionamento di un servizio Web è un'attività comune. Alcuni motivi per il ridimensionamento consistono nella necessità di supportare più di 200 richieste simultanee, aumentare la disponibilità tramite più endpoint o fornire endpoint separati per il servizio Web. È possibile aumentare la scalabilità mediante l'aggiunta di altri endpoint per lo stesso servizio Web tramite il portale del [servizio Web di Azure Machine Learning](https://services.azureml.net/).
 
 Per altre informazioni sull'aggiunta di nuovi endpoint, vedere [Creazione di endpoint](create-endpoint.md).
 

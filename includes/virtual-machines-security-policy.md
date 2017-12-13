@@ -24,7 +24,7 @@ Quando ci si connette alle macchine virtuali (VM), è consigliabile usare la cri
 
 ## <a name="policies"></a>Criteri
 
-È possibile usare [criteri di Azure Resource Manager](../articles/azure-resource-manager/resource-manager-policy.md) per definire il comportamento desiderato per le [macchine virtuali Windows](../articles/virtual-machines/windows/policy.md) e le [macchine virtuali Linux](../articles/virtual-machines/linux/policy.md) dell'organizzazione. Tramite i criteri è possibile imporre diverse convenzioni e regole in tutta l'organizzazione. L'imposizione del comportamento desiderato consente di attenuare i rischi, contribuendo nello stesso tempo al successo dell'organizzazione.
+È possibile usare [criteri di Azure](../articles/azure-policy/azure-policy-introduction.md) per definire il comportamento desiderato per le [macchine virtuali Windows](../articles/virtual-machines/windows/policy.md) e le [macchine virtuali Linux](../articles/virtual-machines/linux/policy.md) dell'organizzazione. Tramite i criteri è possibile imporre diverse convenzioni e regole in tutta l'organizzazione. L'imposizione del comportamento desiderato consente di attenuare i rischi, contribuendo nello stesso tempo al successo dell'organizzazione.
 
 ## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
 

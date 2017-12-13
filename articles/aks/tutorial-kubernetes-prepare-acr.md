@@ -1,27 +1,19 @@
 ---
-title: 'Esercitazione su Kubernetes in Azure: preparare il Registro contenitori di Azure | Microsoft Docs'
+title: 'Esercitazione su Kubernetes in Azure: preparare Registro contenitori di Azure'
 description: 'Esercitazione sul servizio contenitore di Azure: preparare Registro contenitori di Azure'
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: Docker, contenitori, Micro-Service, Kubernetes, DC/OS, Azure
-ms.assetid: 
 ms.service: container-service
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 15b54f6131c847551295061df6c6ad6a476a7da6
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 1283d3cff4edc0c99d22612c65fda48f9dddfbd3
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Distribuire e usare il Registro contenitori di Azure
 
@@ -56,7 +48,7 @@ Creare un Registro contenitori di Azure con il comando [az acr create](/cli/azur
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-Nella parte restante di questa esercitazione si usa `<acrname>` come segnaposto per il nome del registro contenitori.
+Nella parte restante di questa esercitazione si usa `<acrName>` come segnaposto per il nome del registro contenitori.
 
 ## <a name="container-registry-login"></a>Accesso al registro contenitori
 

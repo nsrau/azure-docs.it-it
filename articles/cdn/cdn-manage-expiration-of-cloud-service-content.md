@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: fe519c3ad5f99899277bf005929142c52a4c4724
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: dca6ca5f21f4a4f1701af57eb40d92094b6a4754
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Gestire la scadenza del contenuto Web nella rete per la distribuzione di contenuti di Azure
 > [!div class="op_single_selector"]
@@ -26,10 +26,12 @@ ms.lasthandoff: 11/23/2017
 > * [Archivio BLOB di Azure](cdn-manage-expiration-of-blob-content.md)
 > 
 
-I file provenienti da un server Web di origine accessibile pubblicamente possono essere memorizzati nella cache della rete per la distribuzione di contenuti (CDN) di Azure fino allo scadere della relativa durata (TTL). La durata (TTL) è determinata dall'intestazione `Cache-Control` nella risposta HTTP del server di origine. Questo articolo descrive come impostare le intestazioni `Cache-Control` per la funzionalità App Web di Servizio app di Microsoft Azure, Servizi cloud di Azure, applicazioni ASP.NET e siti Internet Information Services (IIS), che hanno tutti una configurazione simile. È possibile impostare l'intestazione `Cache-Control` usando i file di configurazione o a livello di codice.
+I file provenienti da un server Web di origine accessibile pubblicamente possono essere memorizzati nella cache della rete per la distribuzione di contenuti (CDN) di Azure fino allo scadere della relativa durata (TTL). La durata (TTL) è determinata dall'intestazione `Cache-Control` nella risposta HTTP del server di origine. Questo articolo descrive come impostare le intestazioni `Cache-Control` per la funzionalità App Web di Servizio app di Microsoft Azure, Servizi cloud di Azure, applicazioni ASP.NET e siti Internet Information Services (IIS), che hanno tutti una configurazione simile. È possibile impostare l'intestazione `Cache-Control` usando i file di configurazione o a livello di codice. 
+
+È inoltre possibile controllare le impostazioni della cache dal portale di Azure mediante l'impostazione delle [regole di memorizzazione nella cache della rete CDN](cdn-caching-rules.md). Se si imposta una o più regole di memorizzazione nella cache e il relativo comportamento su **Ignora** o **Ignora cache**, le impostazioni di memorizzazione nella cache fornite in origine e descritte in questo articolo vengono ignorate. Per informazioni sui concetti generali sulla memorizzazione nella cache, vedere [Come funziona la memorizzazione nella cache](cdn-how-caching-works.md).
 
 > [!TIP]
-> È possibile scegliere di non impostare alcuna durata (TTL) per un file. In tal caso, la rete CDN di Azure applica automaticamente una durata (TTL) predefinita di sette giorni. Questa impostazione predefinita di durata (TTL) si applica solo alle ottimizzazioni di distribuzione web generali. Per le ottimizzazioni di file di grandi dimensioni, il valore TTL predefinito è un giorno e per le ottimizzazioni dei flussi dei file multimediali, il valore TTL predefinito è un anno.
+> È possibile scegliere di non impostare alcuna durata (TTL) per un file. In questo caso, la rete CDN di Azure applica automaticamente una durata (TTL) predefinita di sette giorni, a meno che non siano state configurate le regole di memorizzazione nella cache nel portale di Azure. Questa impostazione predefinita di durata (TTL) si applica solo alle ottimizzazioni di distribuzione web generali. Per le ottimizzazioni di file di grandi dimensioni, il valore TTL predefinito è un giorno e per le ottimizzazioni dei flussi dei file multimediali, il valore TTL predefinito è un anno.
 > 
 > Per altre informazioni sull'uso della rete CDN di Azure per velocizzare l'accesso a file e altre risorse, vedere [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md).
 > 
@@ -83,4 +85,4 @@ Response.Cache.SetLastModified(DateTime.Now);
 * [Vedere informazioni dettagliate sull'elemento **clientCache**](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
 * [Vedere la documentazione sulla proprietà **HttpResponse.Cache**](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
 * [Vedere la documentazione sulla classe **HttpCachePolicy**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
-
+* [Informazioni sui concetti di memorizzazione nella cache](cdn-how-caching-works.md)

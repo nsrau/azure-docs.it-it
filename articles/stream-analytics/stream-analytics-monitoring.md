@@ -4,7 +4,7 @@ description: Informazioni sul monitoraggio dei processi di Analisi di flusso
 keywords: monitoraggio di query
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5f5cc00f-4a7b-491e-89e1-dbafea46d399
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 12545dd3875e81f8f2248acceb66d2d840cf6702
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7474f45494c6190ffcac354e75458b18f5777fb9
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informazioni sul monitoraggio dei processi di Analisi di flusso e su come monitorare le query
 
@@ -40,7 +40,7 @@ Verrà visualizzata la finestra mostrata di seguito:
 | Eventi di output          | Quantità di dati inviata dal processo di Analisi di flusso alla destinazione di output, in termini di numero di eventi. |
 | Eventi non ordinati    | Numero di eventi non ordinati ricevuti che sono stati eliminati o a cui è stato assegnato un timestamp modificato, in base ai Criteri di ordinamento eventi. Può essere influenzato dalla configurazione dell'impostazione della Finestra di tolleranza elementi non in ordine. |
 | Errori di conversione dati | numero di errori di conversione dei dati rilevati da un processo di Analisi di flusso. |
-| Errori di runtime         | Numero totale di errori che si sono verificati durante l'esecuzione di un processo di Analisi di flusso. |
+| Errori di runtime         | Numero totale di errori correlati all'elaborazione delle query (esclusi gli errori rilevati durante l'inserimento di eventi o l'output dei risultati) |
 | Ultimi eventi di input      | Numero di eventi che arrivano in ritardo dall'origine che sono stati eliminati oppure il cui timestamp è stato modificato, in base alla configurazione dei Criteri di ordinamento eventi dell'impostazione della Finestra di tolleranza elementi non in ordine. |
 | Richieste di funzioni      | Numero di chiamate alla funzione di Azure Machine Learning (se presente). |
 | Richieste di funzioni non riuscite | Numero di chiamate non riuscite alla funzione di Azure Machine Learning (se presente). |

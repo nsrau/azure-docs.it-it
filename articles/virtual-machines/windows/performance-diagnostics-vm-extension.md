@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 85d4764534c77ea0e4d999e249abe456d0234d75
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d9384af2cf1d8b3f55f9ec2316046536634c124e
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Estensione per macchine virtuali Diagnostica prestazioni di Azure per Windows
 
@@ -46,7 +46,6 @@ Il codice JSON seguente illustra lo schema dell'estensione Diagnostica prestazio
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -72,13 +71,11 @@ Il codice JSON seguente illustra lo schema dell'estensione Diagnostica prestazio
 |typeHandlerVersion|1.0|Versione del gestore dell'estensione
 |performanceScenario|basic|Scenario di prestazioni per il quale acquisire i dati. I valori validi sono: **basic**, **vmslow**, **azurefiles** e **custom**.
 |traceDurationInSeconds|300|Durata delle tracce se è selezionata una delle opzioni di traccia.
-|DiagnosticsTrace|d|Opzione che abilita la traccia di diagnostica. I valori validi sono **d** o un valore vuoto. Se non si vuole acquisire la traccia, lasciare vuoto il valore.
 |perfCounterTrace|p|Opzione che abilita la traccia del contatore delle prestazioni. I valori validi sono **p** o un valore vuoto. Se non si vuole acquisire la traccia, lasciare vuoto il valore.
 |networkTrace|n|Opzione che abilita la traccia Netmon. I valori validi sono **n** o un valore vuoto. Se non si vuole acquisire la traccia, lasciare vuoto il valore.
 |xperfTrace|x|Opzione che abilita la traccia XPerf. I valori validi sono **x** o un valore vuoto. Se non si vuole acquisire la traccia, lasciare vuoto il valore.
 |storPortTrace|s|Opzione che abilita la traccia StorPort. I valori validi sono s o un valore vuoto. Se non si vuole acquisire la traccia, lasciare vuoto il valore.
 |srNumber|123452016365929|Numero del ticket di supporto, se disponibile. Se non è disponibile, lasciare vuoto il valore.
-|requestTimeUtc|9/2/2017 11:06:00 PM|Data e ora correnti in formato UTC. Questo valore non è necessario se si installa l'estensione tramite il portale.
 |storageAccountName|mystorageaccount|Nome dell'account di archiviazione con cui archiviare i log di diagnostica e i risultati.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|Chiave per l'account di archiviazione.
 
@@ -153,10 +150,6 @@ Le estensioni macchina virtuale di Azure possono essere distribuite con i modell
       "type": "int",
     "defaultValue": 300
     },
-    "diagnosticsTrace": {
-      "type": "string",
-      "defaultValue": "d"
-    },
     "perfCounterTrace": {
       "type": "string",
       "defaultValue": "p"
@@ -192,7 +185,6 @@ Le estensioni macchina virtuale di Azure possono essere distribuite con i modell
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -216,8 +208,8 @@ Il comando `Set-AzureRmVMExtension` consente di distribuire l'estensione per mac
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario" = "basic"; "traceDurationInSeconds" = 300; "diagnosticsTrace" = "d"; "perfCounterTrace" = "p"; "networkTrace" = ""; "xperfTrace" = ""; "storPortTrace" = ""; "srNumber" = ""; "requestTimeUtc" = "2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName" = "mystorageaccount" ; "storageAccountKey" = "mystoragekey"}
+$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -237,7 +229,7 @@ Lo strumento PerfInsights raccoglie i diversi dati di log, configurazione, diagn
 
 Per impostazione predefinita, l'output dell'estensione viene archiviato in una cartella denominata log_collection nell'unità Temp (in genere D:\log_collection). In questa cartella è possibile visualizzare uno o più file con estensione zip contenenti i log di diagnostica e un report contenente risultati e consigli.
 
-Il file con estensione zip creato viene caricato anche nell'account di archiviazione specificato durante l'installazione e viene condiviso per 30 giorni tramite [firme di accesso condiviso (SAS, Shared Access Signature)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Viene anche creato un file di testo denominato *nomefilezip*_saslink.txt nella cartella log_collection. Questo file contiene il collegamento SAS creato per scaricare il file con estensione zip. Con questo collegamento qualsiasi utente sarà in grado di scaricare il file con estensione zip.
+Il file con estensione zip creato viene caricato anche nell'account di archiviazione specificato durante l'installazione e viene condiviso per 30 giorni tramite [firme di accesso condiviso (SAS, Shared Access Signature)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Viene anche creato un file di testo denominato *nomefilezip*_saslink.txt nella cartella log_collection. Questo file contiene il collegamento SAS creato per scaricare il file con estensione zip. Con questo collegamento qualsiasi utente è in grado di scaricare il file con estensione zip.
 
 Microsoft può usare il collegamento SAS per scaricare i dati di diagnostica e consentire al tecnico del supporto responsabile di un ticket di eseguire un'analisi più approfondita.
 

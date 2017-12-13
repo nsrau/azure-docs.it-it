@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 11/23/2017
+ms.date: 12/04/2017
 ms.author: anoopkv
-ms.openlocfilehash: 1b7a2d99cfa9f7d54d5303c21202fc34cf6d15ab
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 2dcca54c9e1e9330bf7c2a37dc08f67817b6af47
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="manage-vmware-vcenter-server-in-azure-site-recovery"></a>Gestire un server VMware vCenter in Azure Site Recovery
 Questo articolo prende in esame le varie operazioni di Site Recovery che possono essere eseguite su un server VMware vCenter.
@@ -27,7 +27,7 @@ Questo articolo prende in esame le varie operazioni di Site Recovery che possono
 
 **Supporto per host VMware vCenter e VMware vSphere ESX** | **Dettagli** |
 |--- | --- |
-|**Server VMware locali** | Uno o più server VMware vSphere, che eseguono la versione 6.0, 5.5 o 5.1 con gli ultimi aggiornamenti. I server devono trovarsi nella stessa rete del server di configurazione (o del server di elaborazione separato).<br/><br/> È consigliabile usare un server vCenter, che esegue la versione 6.0 o 5.5 con gli ultimi aggiornamenti, per gestire gli host. Quando si distribuisce la versione 6.0, sono supportate solo le funzionalità disponibili nella versione 5.5.|
+|**Server VMware locali** | Uno o più server VMware vSphere, che eseguono la versione 6.5, 6.0 o 5.5 con gli ultimi aggiornamenti. I server devono trovarsi nella stessa rete del server di configurazione (o del server di elaborazione separato).<br/><br/> È consigliabile usare un server vCenter, che esegue la versione 6.5, 6.0 o 5.5 con gli ultimi aggiornamenti, per gestire gli host. Quando si distribuisce la versione 6.0, sono supportate solo le funzionalità disponibili nella versione 5.5.|
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Preparare un account per l'individuazione automatica
 Site Recovery deve avere accesso a VMware per l'individuazione automatica delle macchine virtuali da parte del server di elaborazione e per il failover e il failback delle macchine virtuali.

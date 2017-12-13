@@ -6,19 +6,18 @@ documentationcenter:
 author: miaojiang
 manager: erikre
 editor: 
-ms.assetid: 7406a8ce-5f9c-4fae-9b0f-e574befb2ee9
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: c2bed904b82c569b28a6e00d0cc9b49107c148dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18869b34b399e33bac00cf125e6324861c8b9f02
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-transformation-policies"></a>Criteri di trasformazione di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -703,4 +702,9 @@ OriginalUrl.
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  
   
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
+
+Per ulteriori informazioni, vedere gli argomenti seguenti:
+
++ [Criteri di Gestione API](api-management-howto-policies.md)
++ [Informazioni di riferimento per i criteri](api-management-policy-reference.md) per un elenco completo di istruzioni dei criteri e delle relative impostazioni
++ [Esempi di criteri](policy-samples.md)   

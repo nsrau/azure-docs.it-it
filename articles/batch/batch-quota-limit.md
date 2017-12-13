@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 11/29/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8bb5470918aa3ad15cb9081f5c02b40984d83f51
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 210ba4a90f24ce9b0b55c4565028232c2b7fd7cc
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quote e limiti del servizio Batch
 
@@ -51,10 +51,11 @@ Se è stata usata una versione precedente dell'API Batch per creare un account B
 | Pacchetti dell'applicazione per applicazione |40 |
 | Dimensioni del pacchetto dell'applicazione (ciascuno) |Circa 195 GB<sup>1</sup> |
 | Dimensione massima dell'attività di avvio | 32768 caratteri<sup>2</sup> |
+| Durata massima dell'attività | 7 giorni<sup>3</sup> |
 
 <sup>1</sup> Limite di archiviazione di Azure per le dimensioni massime del BLOB in blocchi<br />
-<sup>2</sup> include i file di risorse e le variabili di ambiente
-
+<sup>2</sup> Include i file di risorse e le variabili di ambiente<br />
+<sup>3</sup> La durata massima di un'attività, da quando viene aggiunta al processo a quando viene completata, è di 7 giorni. Le attività completate persistono per un tempo illimitato. I dati per le attività non completate entro la durata massima non sono accessibili.
 
 
 ## <a name="view-batch-quotas"></a>Visualizzare le quote Batch

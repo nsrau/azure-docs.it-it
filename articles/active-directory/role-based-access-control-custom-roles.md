@@ -15,11 +15,11 @@ ms.date: 07/11/2017
 ms.author: andredm
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e72f2c8095d13c4b6df3c6576bd58806a3c0f2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2bb671e1870ae22eb515adc36ce0235e1d8ecddd
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Creare ruoli personalizzati per il controllo degli accessi in base al ruolo di Azure
 Creare un ruolo personalizzato nel Controllo degli accessi in base al ruolo di Azure, se nessuno dei ruoli predefiniti soddisfa le esigenze di accesso specifiche. I ruoli personalizzati possono essere creati usando [Azure PowerShell](role-based-access-control-manage-access-powershell.md), l'[interfaccia della riga di comando di Azure](role-based-access-control-manage-access-azure-cli.md) e l'[API REST](role-based-access-control-manage-access-rest.md). Analogamente ai ruoli predefiniti, è possibile assegnare ruoli personalizzati a utenti, gruppi e applicazioni nell'ambito della sottoscrizione, del gruppo di risorse e delle risorse. I ruoli personalizzati vengono archiviati in un tenant di Azure AD e possono essere condivisi tra le sottoscrizioni.
@@ -28,7 +28,7 @@ Ogni tenant può creare fino a 2000 ruoli personalizzati.
 
 L'esempio seguente mostra un ruolo personalizzato, che consente il monitoraggio e il riavvio di macchine virtuali:
 
-```
+```json
 {
   "Name": "Virtual Machine Operator",
   "Id": "cadb4a5a-4e7a-47be-84db-05cad13b6769",
@@ -67,7 +67,7 @@ La proprietà **Actions** di un ruolo personalizzato specifica le operazioni di 
 
 Usare `Get-AzureRmProviderOperation` in PowerShell o `azure provider operations show` nell'interfaccia della riga di comando di Azure per elencare le operazioni dei provider di risorse di Azure. È anche possibile usare questi comandi per verificare la validità di una stringa di operazione e per espandere le stringhe di operazione con caratteri jolly.
 
-```
+```powershell
 Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName
 
 Get-AzureRMProviderOperation Microsoft.Network/*
@@ -75,7 +75,7 @@ Get-AzureRMProviderOperation Microsoft.Network/*
 
 ![Schermata PowerShell - Get-AzureRMProviderOperation](./media/role-based-access-control-configure/1-get-azurermprovideroperation-1.png)
 
-```
+```azurecli
 azure provider operations show "Microsoft.Compute/virtualMachines/*/action" --js on | jq '.[] | .operation'
 
 azure provider operations show "Microsoft.Network/*"
@@ -118,6 +118,7 @@ La proprietà **AssignableScopes** del ruolo personalizzato controlla anche qual
 
 ## <a name="see-also"></a>Vedere anche
 * [Controllo degli accessi in base al ruolo](role-based-access-control-configure.md): introduzione al controllo degli accessi in base al ruolo nel portale di Azure.
+* Per un elenco di operazioni disponibili, vedere [Operazioni di provider di risorse con Azure Resource Manager](role-based-access-control-resource-provider-operations.md).
 * Informazioni su come gestire l'accesso con:
   * [PowerShell](role-based-access-control-manage-access-powershell.md)
   * [Interfaccia della riga di comando di Azure](role-based-access-control-manage-access-azure-cli.md)

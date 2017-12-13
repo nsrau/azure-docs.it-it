@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: a8bbe6c4f6919f150012163b0c7559d2986e072f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9872ee033d8c0bed215f8b37d64395e5dcd534c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-access-restriction-policies"></a>Criteri di limitazione dell'accesso di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -26,17 +26,11 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 ##  <a name="AccessRestrictionPolicies"></a> Criteri di limitazione dell'accesso  
   
 -   [check-header](api-management-access-restriction-policies.md#CheckHTTPHeader) : impone l'esistenza e/o il valore di un'intestazione HTTP.  
-  
 -   [Limita frequenza delle chiamate per sottoscrizione](api-management-access-restriction-policies.md#LimitCallRate) : impedisce picchi di utilizzo delle API limitando la frequenza delle chiamate per ogni sottoscrizione.  
-  
 -   [Limita frequenza delle chiamate per chiave](#LimitCallRateByKey) : impedisce picchi di utilizzo delle API limitando la frequenza delle chiamata, per ogni chiave.  
-  
 -   [ip-filter](api-management-access-restriction-policies.md#RestrictCallerIPs) : filtra (permette/rifiuta) le chiamate provenienti da indirizzi IP e/o intervalli di indirizzi IP specifici.  
-  
 -   [Imposta quota di utilizzo per sottoscrizione](api-management-access-restriction-policies.md#SetUsageQuota) : consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per sottoscrizione.  
-  
 -   [Imposta quota di utilizzo per chiave](#SetUsageQuotaByKey) : consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per chiave.  
-  
 -   [validate-JWT](api-management-access-restriction-policies.md#ValidateJWT) : impone l'esistenza e la validità di un token JWT estratto da un'intestazione HTTP specificata o da un parametro di query specificato.  
   
 ##  <a name="CheckHTTPHeader"></a> Intestazione check-header  
@@ -235,7 +229,6 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound  
-  
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  
   
 ##  <a name="SetUsageQuota"></a> Imposta quota di utilizzo per sottoscrizione  
@@ -291,7 +284,6 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound  
-  
 -   **Ambiti del criterio:** prodotto  
   
 ##  <a name="SetUsageQuotaByKey"></a> Impostare la quota per chiave  
@@ -352,7 +344,6 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound  
-  
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  
   
 ##  <a name="ValidateJWT"></a> Convalida token JWT  
@@ -523,8 +514,13 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound  
-  
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  
   
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
+
+Per altre informazioni sull'uso di questi criteri, vedere:
+
++ [Criteri di Gestione API](api-management-howto-policies.md)
++ [API Transform](transform-api.md)
++ [Informazioni di riferimento per i criteri](api-management-policy-reference.md) per un elenco completo di istruzioni dei criteri e delle relative impostazioni
++ [Esempi di criteri](policy-samples.md)   

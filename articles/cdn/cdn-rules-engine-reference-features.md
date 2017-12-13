@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: ec2555df27f4b709d06b660bf161f741e5b86ea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 107601fcc53e5f5b6f809bb3c7fceaf5e5c03d36
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Funzionalità del motore regole della rete CDN di Azure
 Questo argomento offre descrizioni dettagliate delle funzionalità disponibili per il [motore regole](cdn-rules-engine.md) della rete per la distribuzione di contenuti (CDN, Content Delivery Network) di Azure.
@@ -644,7 +644,7 @@ Disabled|L'intestazione di risposta X-EC-Debug verrà esclusa dalla risposta.
 
 **Comportamento predefinito:** Disabled.
 
-###<a name="modify-client-response-header"></a>Modificare intestazione risposta client
+###<a name="modify-client-request-header"></a>Modifica intestazione richiesta client
 **Scopo:** ogni richiesta contiene un set di [intestazioni di richiesta]() che la descrivono. Questa funzionalità può:
 
 - Aggiungere o sovrascrivere il valore assegnato a un'intestazione di richiesta. Se l'intestazione di richiesta specificata non esiste, questa funzionalità la aggiungerà alla richiesta.
@@ -680,7 +680,7 @@ Informazioni chiave:
 ###<a name="modify-client-response-header"></a>Modificare intestazione risposta client
 Ogni risposta contiene un set di [intestazioni di risposta]() che la descrivono. Questa funzionalità può:
 
-- Aggiungere o sovrascrivere il valore assegnato a un'intestazione di risposta. Se l'intestazione di richiesta specificata non esiste, questa funzionalità la aggiungerà alla risposta.
+- Aggiungere o sovrascrivere il valore assegnato a un'intestazione di risposta. Se l'intestazione di risposta specificata non esiste, questa funzionalità la aggiungerà alla risposta.
 - Eliminare dalla risposta un'intestazione di risposta.
 
 Per impostazione predefinita, i valori delle intestazioni di risposta vengono definiti da un server di origine e dai server periferici.
@@ -689,9 +689,9 @@ Su un'intestazione di risposta è possibile eseguire una delle azioni seguenti:
 
 Opzione|Descrizione|Esempio
 -|-|-
-Append|Il valore specificato verrà aggiunto alla fine del valore dell'intestazione di richiesta esistente.|**Valore intestazione risposta (Client):**Value1 <br/> **Valore intestazione risposta (Motore regole HTTP):** Value2 <br/>**Valore nuova intestazione risposta:** Value1Value2
-Overwrite|Il valore dell'intestazione di richiesta verrà impostato sul valore specificato.|**Valore intestazione risposta (Client):**Value1 <br/>**Valore intestazione risposta (Motore regole HTTP):** Value2 <br/>**Valore nuova intestazione risposta:** Value2 <br/>
-Elimina|Elimina l'intestazione di richiesta specificata.|**Valore intestazione richiesta (Client):**Value1 <br/> **Configurazione Modify Client Request Header (Modifica intestazione richiesta client):** elimina l'intestazione di risposta in questione. <br/>**Risultato:** l'intestazione di risposta specificata non verrà inoltrata al richiedente.
+Append|Il valore specificato verrà aggiunto alla fine del valore dell'intestazione di risposta esistente.|**Valore intestazione risposta (Client):**Value1 <br/> **Valore intestazione risposta (Motore regole HTTP):** Value2 <br/>**Valore nuova intestazione risposta:** Value1Value2
+Overwrite|Il valore dell'intestazione di risposta verrà impostato sul valore specificato.|**Valore intestazione risposta (Client):**Value1 <br/>**Valore intestazione risposta (Motore regole HTTP):** Value2 <br/>**Valore nuova intestazione risposta:** Value2 <br/>
+Elimina|Elimina l'intestazione di risposta specificata.|**Valore intestazione risposta (Client):**Value1 <br/> **Configurazione Modify Client Request Header (Modifica intestazione risposta client):** elimina l'intestazione di risposta in questione. <br/>**Risultato:** l'intestazione di risposta specificata non verrà inoltrata al richiedente.
 
 Informazioni chiave:
 

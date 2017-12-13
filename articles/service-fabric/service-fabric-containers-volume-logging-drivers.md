@@ -1,6 +1,6 @@
 ---
-title: Anteprima di Docker Compose di Azure Service Fabric | Microsoft Docs
-description: "Azure Service Fabric accetta il formato Docker Compose per semplificare l'orchestrazione di contenitori esistenti usando Service Fabric. Questo supporto è attualmente disponibile in versione di anteprima."
+title: Docker Compose di Azure Service Fabric (anteprima) | Microsoft Docs
+description: "Azure Service Fabric accetta il formato Docker Compose per orchestrare più facilmente i contenitori esistenti. Il supporto per Docker Compose è attualmente in anteprima."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,22 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 955f84e5656bbf568234cbaf69faa4dd0a741206
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 433424a6700d3e8940e3d1142ce2ff579a92067c
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="using-volume-plugins-and-logging-drivers-in-your-container"></a>Uso di plug-in di volume e driver di registrazione per il contenitore
-Service Fabric supporta la specifica di [plug-in di volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) e i [driver di registrazione Docker](https://docs.docker.com/engine/admin/logging/overview/) per il servizio di contenitore.  Ciò consente di rendere persistenti i dati in [File di Azure](https://azure.microsoft.com/en-us/services/storage/files/) anche se il contenitore viene spostato o riavviato in un host diverso.
+# <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Usare il plug-in di volume e driver di registrazione Docker per il contenitore
+Azure Service Fabric supporta la specifica di [plug-in di volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) e i [driver di registrazione Docker](https://docs.docker.com/engine/admin/logging/overview/) per il servizio di contenitore. È possibile rendere persistenti i dati in [File di Azure](https://azure.microsoft.com/services/storage/files/) quando il contenitore viene spostato o riavviato in un host diverso.
 
-Attualmente, come illustrato di seguito, sono presenti solo driver di volume per contenitori Linux.  Se si usano contenitori Windows, è possibile eseguire il mapping di un volume a una [condivisione SMB3](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/) di File di Azure senza un driver di volume con la versione più recente (1709) di Windows Server. Ciò richiede l'aggiornamento delle macchine virtuali nel cluster alla versione 1709 di Windows Server.
+Attualmente sono supportati solo driver di volume per contenitori Linux. Se si usano contenitori di Windows, è possibile mappare un volume a una [condivisione SMB3](https://blogs.msdn.microsoft.com/clustering/2017/08/10/container-storage-support-with-cluster-shared-volumes-csv-storage-spaces-direct-s2d-smb-global-mapping/) File di Azure senza un driver di volume. Per questo mapping è necessario aggiornare le macchine virtuali nel cluster alla versione 1709 di Windows Server.
 
 
-## <a name="install-volumelogging-driver"></a>Installare i driver di volume/registrazione
+## <a name="install-the-docker-volumelogging-driver"></a>Installare i driver di volume/registrazione Docker
 
-Se il driver di volume/registrazione Docker non è installato nel computer, installarlo manualmente tramite accesso RDP/SSH al computer, tramite uno [script di avvio VMSS](https://azure.microsoft.com/en-us/resources/templates/201-vmss-custom-script-windows/) o tramite uno script [SetupEntryPoint](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model#describe-a-service). La scelta di uno dei metodi indicati consente di predisporre uno script per installare il [driver di volume Docker per Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/):
+Il driver di volume/registrazione Docker non è installato nel computer, è possibile installarlo manualmente usando i protocolli RDP/SSH. È possibile eseguire l'installazione con questi protocolli tramite un [script di avvio del set di scalabilità di macchine virtuali](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) o uno [script SetupEntryPoint](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model#describe-a-service).
 
+Un esempio di script per installare il [driver di volume Docker per Azure](https://docs.docker.com/docker-for-azure/persistent-data-volumes/) è riportato di seguito:
 
 ```bash
 docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:17.09.0-ce-azure1  \
@@ -39,8 +40,8 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
     DEBUG=1
 ```
 
-## <a name="specify-the-plugin-or-driver-in-the-manifest"></a>Specificare il plug-in o il driver nel manifesto
-I plug-in sono specificati nel manifesto dell'applicazione, come illustrato nel manifesto seguente:
+## <a name="specify-the-plug-in-or-driver-in-the-manifest"></a>Specificare il plug-in o il driver nel manifesto
+I plug-in sono specificati nel manifesto dell'applicazione, come illustrato di seguito:
 
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
@@ -75,19 +76,16 @@ I plug-in sono specificati nel manifesto dell'applicazione, come illustrato nel 
 </ApplicationManifest>
 ```
 
-Nell'esempio precedente, il tag `Source` per `Volume` fa riferimento alla cartella di origine. La cartella di origine potrebbe essere una cartella nella macchina virtuale che ospita i contenitori o un archivio remoto persistente. Il tag `Destination` è il percorso in cui viene eseguito il mapping di `Source` all'interno del contenitore in esecuzione.  La destinazione non può quindi essere un percorso già esistente all'interno del contenitore.
+Il tag **Source** per l'elemento **Volume** fa riferimento alla cartella di origine. La cartella di origine può essere una cartella nella macchina virtuale che ospita i contenitori o un archivio remoto persistente. Il tag **Destination** è il percorso in cui viene eseguito il mapping di **Source** all'interno del contenitore in esecuzione. La destinazione non può quindi essere un percorso già esistente all'interno del contenitore.
 
-Quando si specifica un plug-in di un volume, Service Fabric crea automaticamente il volume usando i parametri specificati. Il tag `Source` è il nome del volume e il tag `Driver` specifica il plug-in del driver del volume. Le opzioni possono essere specificate usando il tag `DriverOption`, come illustrato nel frammento di codice seguente:
+Quando si specifica un plug-in di volume, Service Fabric crea automaticamente il volume usando i parametri specificati. Il tag **Source** è il nome del volume e il tag **Driver** specifica il plug-in del driver del volume. Le opzioni possono essere specificate tramite il tag **DriverOption** come indicato di seguito:
 
 ```xml
 <Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
 </Volume>
 ```
-Se viene specificato un driver di registro Docker, è necessario distribuire gli agenti o i contenitori per gestire i registri nel cluster.  Il tag `DriverOption` può essere usato anche per specificare le opzioni del driver di log.
+Se viene specificato un driver di log Docker, è necessario distribuire gli agenti o i contenitori per gestire i registri nel cluster. Il tag **DriverOption** può essere usato per specificare le opzioni per il driver di log.
 
-Vedere gli articoli seguenti per distribuire i contenitori a un cluster Service Fabric:
-
-
-[Distribuire un contenitore in Service Fabric](service-fabric-deploy-container.md)
-
+## <a name="next-steps"></a>Passaggi successivi
+Per distribuire i contenitori in un cluster di Service Fabric, vedere [Creare la prima applicazione contenitore di Service Fabric in Windows](service-fabric-deploy-container.md).

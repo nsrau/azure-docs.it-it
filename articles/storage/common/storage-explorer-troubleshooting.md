@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: e06c73c2c00b27178f8431b83b5c5a42110b6b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -172,6 +172,14 @@ Se ci si connette a un servizio tramite un URL SAS e si verifica questo errore:
 - Verificare che l'URL non sia scaduto.
 
 - Se l'URL SAS si basa su un criterio di accesso, verificare che i criteri di accesso non siano stati revocati.
+
+Se per errore è stato associato un URL SAS non valido e risulta impossibile annullare l'associazione, eseguire la procedura seguente:
+1.  Durante l'esecuzione di Storage Explorer, premere il tasto F12 per aprire la finestra Strumenti di sviluppo.
+2.  Fare clic sulla scheda Applicazione e quindi fare clic su Risorsa di archiviazione locale > file:// nell'albero a sinistra.
+3.  Trovare la chiave associata al tipo di servizio dell'URI SAS che ha generato il problema. Ad esempio, se l'URI SAS non valido fa riferimento a un contenitore BLOB, cercare la chiave denominata “StorageExplorer_AddStorageServiceSAS_v1_blob”.
+4.  Il valore della chiave deve essere una matrice JSON. Trovare l'oggetto associato all'URI non valido e rimuoverlo.
+5.  Premere CTRL + R per ricaricare Storage Explorer.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

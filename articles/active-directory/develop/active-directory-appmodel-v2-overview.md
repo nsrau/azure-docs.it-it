@@ -1,6 +1,6 @@
 ---
 title: Endpoint v2.0 di Azure Active Directory | Microsoft Docs
-description: Introduzione alla compilazione di app con l'accesso sia per account Microsoft che per Azure Active Directory.
+description: Introduzione alla compilazione di applicazioni con accesso sia tramite account Microsoft che tramite Azure Active Directory.
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -15,42 +15,40 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a6a7c6bdf3deaee3a3949fe409a7fab6b7664695
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: bd090450fad0be855240788c4cfa9dc58c1c4c6d
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>Accesso per account Microsoft e utenti di Azure AD nella stessa app
-In passato, gli sviluppatori di app che intendevano supportare sia gli account personali che quelli aziendali di Microsoft da Azure Active Directory dovevano eseguire l'integrazione con due sistemi separati.  L'**endpoint v2.0 di Azure AD** introduce una nuova versione dell'API di autenticazione che consente agli utenti di accedere con entrambi i tipi di account usando una semplice integrazione.  Le app che usano l'endpoint v2.0 possono anche usare le API REST da [Microsoft Graph](https://graph.microsoft.io) con entrambi i tipi di account.
+# <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Accesso di utenti con account Microsoft e con account Azure Active Directory a un'unica applicazione
+In passato, gli sviluppatori di applicazioni che intendevano supportare sia gli account Microsoft personali che quelli aziendali da Azure Active Directory dovevano eseguire l'integrazione con due sistemi separati. L'endpoint di Azure Active Directory (Azure AD) versione 2.0 introduce una nuova versione dell'API di autenticazione che semplifica questo processo. L'endpoint consente di accedere con entrambi i tipi di account tramite un'unica integrazione. Le applicazioni che usano l'endpoint di Azure AD versione 2.0 possono anche usare le API REST dalle [API Microsoft Graph](https://graph.microsoft.io) tramite entrambi i tipi di account.
 
-## <a name="getting-started"></a>Introduzione
-Scegliere dall'elenco seguente la piattaforma preferita per compilare un'app usando le nostre librerie open source e i framework.  In alternativa, è possibile usare la documentazione relativa al protocollo OAuth 2.0 e OpenID Connect per inviare e ricevere i messaggi di protocollo direttamente senza usare una libreria di autenticazione.
-
+## <a name="getting-started"></a>introduttiva
+Scegliere dall'elenco seguente la piattaforma preferita per compilare un'applicazione usando le librerie e i framework open source Microsoft. È anche possibile usare i protocolli OAuth 2.0 e OpenID Connect per inviare e ricevere messaggi di protocollo direttamente senza usare una libreria di autenticazione.
 <br />
 
-[!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
+[!INCLUDE [Azure AD v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
 
-## <a name="whats-new"></a>Novità
-Le informazioni fornite di seguito saranno utili per individuare le operazioni che possono essere eseguite o meno con l'endpoint v2.0.
+## <a name="learn-more-about-the-azure-ad-v20-endpoint"></a>Altre informazioni sull'endpoint di Azure AD versione 2.0
+Altre informazioni sulle possibilità di utilizzo dell'endpoint di Azure AD versione 2.0:
 
-* Informazioni sui [tipi di app che si possono creare con l'endpoint v2.0](active-directory-v2-flows.md).
-* Informazioni su [limitazioni, restrizioni e vincoli](active-directory-v2-limitations.md) dell'endpoint v2.0.
-* Leggere questa panoramica video per l'endpoint v 2.0:
+* Individuare i [tipi di applicazioni che è possibile compilare con l'endpoint di Azure AD versione 2.0](active-directory-v2-flows.md).
+* Comprendere [le limitazioni, le restrizioni e i vincoli](active-directory-v2-limitations.md) dell'endpoint di Azure AD versione 2.0.
+* Per una panoramica dell'endpoint di Azure AD versione 2.0, guardare questo video:
 
 >[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
 
-## <a name="reference"></a>riferimento
-I collegamenti seguenti sono utili per un'esplorazione più approfondita della piattaforma:
+## <a name="additional-resources"></a>Risorse aggiuntive
+Per approfondire la conoscenza della piattaforma endpoint di Azure AD versione 2.0:
 
-* [Riferimento al protocollo v2.0](active-directory-v2-protocols.md)
-* [Riferimento al token v2.0](active-directory-v2-tokens.md)
-* [Informazioni di riferimento sulla libreria v2.0](active-directory-v2-libraries.md)
-* [Ambiti e consenso nell'endpoint v2.0](active-directory-v2-scopes.md)
-* [Microsoft Graph](https://graph.microsoft.io)
+* [Informazioni di riferimento sui protocolli di Azure AD versione 2.0](active-directory-v2-protocols.md)
+* [Informazioni di riferimento sui token di Azure AD versione 2.0](active-directory-v2-tokens.md)
+* [Informazioni di riferimento sulle librerie di autenticazione di Azure AD versione 2.0](active-directory-v2-libraries.md)
+* [Ambiti e consenso nell'endpoint di Azure AD versione 2.0](active-directory-v2-scopes.md)
+* [API Microsoft Graph](https://graph.microsoft.io)
 
 > [!NOTE]
-> Se occorre effettuare l'accesso agli account di lavoro e dell'istituto di istruzione da Azure Active Directory, è consigliabile iniziare con la [guida per gli sviluppatori di Azure AD](active-directory-developers-guide.md).  L'uso dell'endpoint v2.0 è destinato agli sviluppatori che devono eseguire l'accesso agli account personali di Microsoft in modo esplicito.
+> Se occorre effettuare l'accesso con un account aziendale o dell'istituto di istruzione da Azure Active Directory, iniziare con la [Guida di Azure AD per sviluppatori](active-directory-developers-guide.md). L'uso dell'endpoint di Azure AD versione 2.0 è destinato agli sviluppatori che devono eseguire l'accesso ad account personali di Microsoft in modo esplicito.
 
-
-[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE  [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

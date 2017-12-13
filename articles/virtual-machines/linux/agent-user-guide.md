@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 486ad6bb148583a957fb82b7954ff94f853b12cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Informazioni e uso dell'agente Linux di Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -143,6 +143,7 @@ Un file di configurazione (/etc/waagent.conf) controlla le azioni dell'agente wa
     Provisioning.MonitorHostName=y
     Provisioning.DecodeCustomData=n
     Provisioning.ExecuteCustomData=n
+    Provisioning.AllowResetSysUser=n
     Provisioning.PasswordCryptId=6
     Provisioning.PasswordCryptSaltLength=10
     ResourceDisk.Format=y
@@ -157,6 +158,7 @@ Un file di configurazione (/etc/waagent.conf) controlla le azioni dell'agente wa
     OS.OpensslPath=None
     HttpProxy.Host=None
     HttpProxy.Port=None
+    AutoUpdate.Enabled=y
 
 Di seguito sono descritte le opzioni di configurazione disponibili in modo dettagliato. Le opzioni di configurazione sono di tre tipi: Boolean, String o Integer. Le opzioni di configurazione booleane possono essere specificate come "y" o "n". È possibile usare la parola chiave speciale "None" per alcune voci di configurazione di tipo stringa, come indicato di seguito.
 
@@ -209,9 +211,13 @@ Predefinito: n
 
 Se impostato, waagent eseguirà CustomData dopo il provisioning.
 
+**Provisioning.AllowResetSysUser** Tipo: Boolean Impostazione predefinita: n
+
+Questa opzione consente la reimpostazione della password per l'utente sys. L'impostazione predefinita corrisponde alla disabilitazione della funzionalità.
+
 **Provisioning.PasswordCryptId**  
-Tipo: stringa  
-Predefinito: 6
+Tipo: String  
+Impostazione predefinita: 6
 
 Algoritmo usato dalla crittografia durante la generazione di hash della password.  
  1 - MD5  
@@ -220,8 +226,8 @@ Algoritmo usato dalla crittografia durante la generazione di hash della password
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
-Tipo: stringa  
-Predefinito: 10
+Tipo: String  
+Valore predefinito: 10
 
 Lunghezza di salt casuale usata durante la generazione di hash della password.
 
@@ -290,6 +296,12 @@ Tipo: String
 Predefinito: nessuno
 
 Se impostato, l'agente userà il server proxy per accedere a Internet. 
+
+**AutoUpdate.Enabled** Tipo: Boolean Impostazione predefinita: y
+
+Consente di abilitare o disabilitare l'aggiornamento automatico per l'elaborazione dello stato degli obiettivi. L'impostazione predefinita corrisponde all'abilitazione della funzionalità.
+
+
 
 ## <a name="ubuntu-cloud-images"></a>Immagini di Ubuntu Cloud
 Si noti che le immagini di Ubuntu Cloud utilizzano [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) per eseguire molte attività di configurazione che verrebbero altrimenti gestite dall’agente Linux di Azure.  Tenere presenti le differenze seguenti:

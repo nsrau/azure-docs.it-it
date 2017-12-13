@@ -26,7 +26,7 @@ Per iniziare a usare Archiviazione Premium, [creare un account Azure gratuito](h
 Per informazioni sulla migrazione delle VM esistenti in Archiviazione Premium, vedere [Conversione dei dischi di una macchina virtuale da non gestiti a gestiti](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md) o [Come convertire una macchina virtuale Linux da dischi non gestiti ad Azure Managed Disks](../articles/virtual-machines/linux/convert-unmanaged-to-managed-disks.md).
 
 > [!NOTE]
-> Archiviazione Premium è disponibile in molte aree geografiche. Per un elenco delle aree disponibili, in [Servizi di Azure in base all'area](https://azure.microsoft.com/regions/#services) esaminare le aree in cui sono supportate le VM delle serie con dimensioni specifiche che supportano Archiviazione Premium (VM serie DS, DSV2, GS e Fs).
+> Archiviazione Premium è disponibile in molte aree geografiche. Per l'elenco delle aree disponibili, vedere la riga relativa allo **spazio di archiviazione su disco** nella pagina [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/#services).
 > 
 
 ## <a name="features"></a>Funzionalità

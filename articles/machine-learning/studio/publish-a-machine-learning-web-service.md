@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
-ms.openlocfilehash: bdf0bd54130521a7178af3a28731f4c0e21e3e0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 75577ad318f2ff23a7b7d10cf551f3bced56fb62
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Distribuire un servizio Web di Azure Machine Learning
 Azure Machine Learning consente di compilare, testare e distribuire soluzioni di analisi predittiva.
@@ -108,7 +108,7 @@ Nella pagina **CONFIGURAZIONE** è possibile modificare la descrizione e il tito
 Dopo aver distribuito il servizio Web, è possibile:
 
 * **Accedervi** tramite l'API del servizio Web.
-* **Gestirlo** tramite il portale dei servizi Web di Azure Machine Learning o il portale di Azure classico.
+* **Gestirlo** mediante il portale dei servizi Web di Azure Machine Learning.
 * **Aggiornarlo** se il modello viene modificato.
 
 #### <a name="access-your-new-web-service"></a>Accedere al nuovo servizio Web
@@ -141,7 +141,7 @@ Per testare il servizio Esecuzione batch, fare clic sul collegamento di anteprim
 
 ![Testare il servizio Web](./media/publish-a-machine-learning-web-service/figure-3.png)
 
-Nella pagina **CONFIGURATION** (CONFIGURAZIONE) è possibile modificare il nome visualizzato per il servizio e assegnare una descrizione. Il nome e la descrizione vengono visualizzati nel [portale di Azure classico](http://manage.windowsazure.com/) , in cui è possibile gestire i propri servizi Web.
+Nella pagina **CONFIGURATION** (CONFIGURAZIONE) è possibile modificare il nome visualizzato per il servizio e assegnare una descrizione. Il nome e la descrizione vengono visualizzati nel [portale di Azure](https://portal.azure.com/), in cui è possibile gestire i propri servizi Web.
 
 È anche possibile fornire una descrizione per i dati di input e output, nonché parametri del servizio Web immettendo una stringa per ogni colonna in **INPUT SCHEMA** (SCHEMA DI INPUT), **OUTPUT SCHEMA** (SCHEMA DI OUTPUT) e **Web SERVICE PARAMETER** (PARAMETRO SERVIZIO WEB). Queste descrizioni vengono usate nella documentazione del codice di esempio fornita per il servizio Web.
 

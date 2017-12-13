@@ -14,28 +14,27 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 855e315f66858210875039f91f7f05055ff7d9b9
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f8e3af4e183952aaac5a8320966aab035b90a1a7
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modalità di rete del contenitore di Service Fabric
 
-La modalità del servizio di rete predefinita offerta nel cluster di Service Fabric per i servizi del contenitore è la modalità di rete `nat`. Con la modalità di rete `nat`, la presenza di più di un servizio di contenitori in ascolto per gli stessi risultati di porta comporta errori di distribuzione. Per eseguire diversi servizi in ascolto sulla stessa porta, Service Fabric supporta la modalità di rete `Open` (versione 5.7 o versioni successive). Con la modalità di rete `Open`, ogni servizio del contenitore ottiene un indirizzo IP assegnato dinamicamente internamente, consentendo più servizi in ascolto sulla stessa porta.   
+Per impostazione predefinita, un cluster di Azure Service Fabric per servizi contenitore usa la modalità di rete **nat**. Quando più servizi contenitore sono in ascolto sulla stessa porta ed è in uso la modalità nat, possono verificarsi errori di distribuzione. Per supportare più servizi contenitore in ascolto sulla stessa porta, Service Fabric offre la modalità di rete **Open** (versione 5.7 e successive). In modalità Open, ogni servizio contenitore è un indirizzo IP interno assegnato dinamicamente che supporta più servizi in ascolto sulla stessa porta.  
 
-Pertanto, con un singolo tipo di servizio con un endpoint statico definito nel manifesto del servizio, è possibile creare ed eliminare nuovi servizi senza errori di distribuzione tramite la modalità di rete `Open`. Analogamente, è possibile usare lo stesso file `docker-compose.yml` con il mapping delle porte statiche per la creazione di più servizi.
+Se nel manifesto del servizio è presente un servizio contenitore con un endpoint statico, è possibile creare ed eliminare nuovi servizi usando la modalità Open senza errori di distribuzione. Lo stesso file docker-compose.yml può essere usato anche con il mapping delle porte statiche per la creazione di più servizi.
 
-Usare l'IP assegnato dinamicamente per individuare i servizi non è consigliabile poiché l'indirizzo IP cambia quando il servizio viene riavviato o viene spostato in un altro nodo. Usare solo **Service Fabric Naming Service** o il **servizio DNS** per l'individuazione del servizio. 
+Quando un servizio contenitore viene riavviato o spostato in un altro nodo del cluster, l'indirizzo IP cambia. Per individuare i servizi contenitore, quindi, non è consigliabile usare l'indirizzo IP assegnato dinamicamente, ma solo Service Fabric Naming Service o il servizio DNS. 
 
-
-> [!WARNING]
-> È consentito solo un totale di 4096 indirizzi IP per ogni rete virtuale in Azure. Di conseguenza, la somma del numero di nodi e il numero di istanze del servizio contenitore (con rete `Open`) non può superare i 4096 all'interno di una rete virtuale. Per questi scenari ad alta densità, si consiglia la modalità di rete `nat`.
+>[!WARNING]
+>Azure consente fino a 4.096 indirizzi IP per ogni rete virtuale. In una rete virtuale, quindi, la somma del numero di nodi e del numero di istanze del servizio contenitore (in modalità Open) non può superare 4.096 indirizzi IP. Per gli scenari ad alta densità, è consigliabile la modalità di rete nat.
 >
 
-## <a name="setting-up-open-networking-mode"></a>Configurazione della modalità di rete Open
+## <a name="set-up-open-networking-mode"></a>Configurare la modalità di rete Open
 
-1. Configurare il modello di Azure Resource Manager, abilitando il servizio DNS e il provider di IP in `fabricSettings`. 
+1. Configurare il modello Azure Resource Manager. Nella sezione **fabricSettings** abilitare il servizio DNS e il provider di IP: 
 
     ```json
     "fabricSettings": [
@@ -78,7 +77,7 @@ Usare l'IP assegnato dinamicamente per individuare i servizi non è consigliabil
             ],
     ```
 
-2. Configurare la sezione del profilo di rete per consentire la configurazione di più indirizzi IP in ogni nodo del cluster. Nell'esempio seguente si configurano cinque indirizzi IP per ogni nodo (pertanto è possibile avere cinque istanze del servizio in ascolto della porta su ogni nodo) per un cluster di Windows/Linux Service Fabric.
+2. Configurare la sezione del profilo di rete per consentire la configurazione di più indirizzi IP in ogni nodo del cluster. Nell'esempio seguente vengono configurati cinque indirizzi IP per ogni nodo di un cluster di Service Fabric basato su Windows/Linux. Per ogni nodo, quindi, è possibile avere cinque istanze di servizio in ascolto sulla porta.
 
     ```json
     "variables": {
@@ -175,15 +174,19 @@ Usare l'IP assegnato dinamicamente per individuare i servizi non è consigliabil
               }
    ```
  
+3. Solo per i cluster Windows, configurare una regola del gruppo di sicurezza di rete che consenta di aprire la porta UDP/53 per la rete virtuale con i valori seguenti:
 
-3. Solo per i cluster di Windows, configurare una regola del gruppo di sicurezza di rete aprendo la porta UDP/53 per la rete virtuale con i valori seguenti:
+   |Impostazione |Valore | |
+   | --- | --- | --- |
+   |Priorità |2000 | |
+   |Nome |Custom_Dns  | |
+   |Sorgente |VirtualNetwork | |
+   |Destination | VirtualNetwork | |
+   |Service | DNS (UDP/53) | |
+   |Azione | CONSENTI  | |
+   | | |
 
-   | Priorità |    Nome    |    Sorgente      |  Destination   |   Service    | Azione |
-   |:--------:|:----------:|:--------------:|:--------------:|:------------:|:------:|
-   |     2000 | Custom_Dns | VirtualNetwork | VirtualNetwork | DNS (UDP/53) | CONSENTI  |
-
-
-4. Specificare la modalità di rete nel manifesto dell'app per ogni servizio `<NetworkConfig NetworkType="Open">`.  La modalità `Open` consente al servizio di ottenere un indirizzo IP dedicato. Se non si specifica una modalità, viene impostata la modalità predefinita di base `nat`. Pertanto, nell'esempio di manifesto seguente, `NodeContainerServicePackage1` e `NodeContainerServicePackage2` possono essere in ascolto sulla stessa porta (entrambi i servizi sono in ascolto su `Endpoint1`). Quando è specificata la modalità di rete `Open`, non è possibile specificare configurazioni `PortBinding`.
+4. Specificare la modalità di rete nel manifesto dell'applicazione per ogni servizio: `<NetworkConfig NetworkType="Open">`. La modalità di rete **Open** consente al servizio di ottenere un indirizzo IP dedicato. Se non è specificata alcuna modalità, viene impostata la modalità predefinita **nat**. Nell'esempio di manifesto seguente, i servizi `NodeContainerServicePackage1` e `NodeContainerServicePackage2` possono essere in ascolto sulla stessa porta (entrambi i servizi sono in ascolto su `Endpoint1`). Se è specificata la modalità di rete Open, non è possibile specificare configurazioni `PortBinding`.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -211,13 +214,15 @@ Usare l'IP assegnato dinamicamente per individuare i servizi non è consigliabil
       </ServiceManifestImport>
     </ApplicationManifest>
     ```
-È possibile combinare e abbinare diverse modalità di rete tra servizi all'interno di un'applicazione per un cluster di Windows. Pertanto, è possibile avere alcuni servizi sulla modalità `Open` e alcuni sulla modalità di rete `nat`. Quando un servizio è configurato con `nat`, la porta su cui è in ascolto deve essere univoca. La combinazione di modalità di rete per diversi servizi non è supportata nei cluster di Linux. 
 
+    È possibile combinare e abbinare diverse modalità di rete tra servizi all'interno di un'applicazione per un cluster di Windows. Alcuni servizi possono usare la modalità Open e altri la modalità nat. Se un servizio è configurato per usare la modalità nat, la porta su cui è in ascolto il servizio deve essere univoca.
+
+    >[!NOTE]
+    >Nei cluster Linux non è supportato l'uso di più modalità di rete per servizi diversi. 
+    >
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo sono state fornite informazioni sulle modalità di rete offerte da Service Fabric.  
-
-* [Modello di applicazione di Service Fabric](service-fabric-application-model.md)
-* [Risorse del manifesto del servizio di Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Informazioni sul modello applicativo di Service Fabric](service-fabric-application-model.md)
+* [Informazioni sulle risorse del manifesto del servizio di Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Distribuire un contenitore Windows in Service Fabric su Windows Server 2016](service-fabric-get-started-containers.md)
 * [Distribuire un contenitore Docker in Service Fabric su Linux](service-fabric-get-started-containers-linux.md)

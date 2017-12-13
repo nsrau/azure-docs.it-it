@@ -1,5 +1,5 @@
 ---
-title: Modelli del portale per sviluppatori di Gestione API di Azure | Documentazione Microsoft
+title: Modelli del portale per sviluppatori di Gestione API di Azure | Microsoft Docs
 description: Informazioni su come personalizzare il contenuto delle pagine del portale per sviluppatori usando un set di modelli in Gestione API di Azure.
 services: api-management
 documentationcenter: 
@@ -12,22 +12,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 2f2a943657dd328fc5657b775ba0273f99718f39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 540e9804d2ee84c050531f5287d4c4b8922ae999
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="azure-api-management-developer-portal-templates"></a>Modelli del portale per sviluppatori di Gestione API di Azure
+# <a name="developer-portal-templates"></a>Modelli del portale per sviluppatori
+
 In Gestione API di Azure è possibile personalizzare le pagine del portale per sviluppatori usando un set di modelli che ne configurano il contenuto. La sintassi [DotLiquid](http://dotliquidmarkup.org/) usata insieme all'editor di propria scelta, quale [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e a un set di [risorse stringa](api-management-template-resources.md#strings), [risorse Glifo](api-management-template-resources.md#glyphs) e [controlli di pagina](api-management-page-controls.md) offre una grande flessibilità nella configurazione personalizzata del contenuto delle pagine attraverso questi modelli.  
   
- Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli](api-management-developer-portal-templates.md).  
+Per altre informazioni sull'uso dei modelli, vedere [Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli](api-management-developer-portal-templates.md).  
 
-
-
-  
 ##  <a name="DeveloperPortalTemplates"></a> Modelli del portale per sviluppatori  
   
 -   [API](api-management-api-templates.md)  
@@ -60,9 +58,9 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
     -   [Iscrizione](api-management-page-templates.md#SignUp)  
     -   [Pagina non trovata](api-management-page-templates.md#PageNotFound)
 
-
 ## <a name="next-steps"></a>Passaggi successivi  
--   [Informazioni di riferimento sul modello](api-management-developer-portal-templates-reference.md)  
--   [Informazioni di riferimento sul modello di dati](api-management-template-data-model-reference.md)  
--   [Controlli di pagina](api-management-page-controls.md)  
--   [Risorse del modello](api-management-template-resources.md)
+
++ [Informazioni di riferimento sul modello](api-management-developer-portal-templates-reference.md)  
++ [Informazioni di riferimento sul modello di dati](api-management-template-data-model-reference.md)  
++ [Controlli di pagina](api-management-page-controls.md)  
++ [Risorse del modello](api-management-template-resources.md)

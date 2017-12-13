@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: mazha
-ms.openlocfilehash: 98d4900e28f1850050dc4fbe1f97435e52afaf08
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: fd36b94c64ad31064dbb2e0badceaee5e5bc400f
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="add-a-custom-domain-to-your-cdn-endpoint"></a>Aggiungere un dominio personalizzato all'endpoint della rete CDN
 Dopo aver creato un profilo, in genere vengono creati anche uno o più [endpoint](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint) della rete CDN, ovvero un sottodominio di `azureedge.net`, per distribuire il contenuto mediante HTTP e HTTPS. Per impostazione predefinita, questo endpoint è incluso in tutti gli URL, ad esempio `https://contoso.azureedge.net/photo.png`. Per comodità, la rete CDN di Azure offre la possibilità di associare un dominio personalizzato, ad esempio `www.contoso.com`, all'endpoint. Con questa opzione, anziché l'endpoint si usa un dominio personalizzato per distribuire il contenuto. Questa opzione è utile se, ad esempio, si desidera che il nome di dominio sia visibile ai clienti per scopi di personalizzazione.
@@ -54,7 +54,7 @@ Per eseguire il mapping del dominio personalizzato a un endpoint della rete CDN,
  
   | NOME             | TIPO  | VALORE                  |
   |------------------|-------|------------------------|
-  | www\.consoto.com | CNAME | consoto\.azureedge.net |
+  | www\.contoso.com | CNAME | contoso\.azureedge.net |
 
 
 - Opzione 2: mapping con il sottodominio **cdnverify**. Se nel dominio personalizzato è in esecuzione traffico di produzione che non può essere interrotto, è possibile creare un mapping CNAME temporaneo all'endpoint della rete CDN. Con questa opzione viene usato il sottodominio **cdnverify** di Azure per rendere disponibile un passaggio di registrazione intermedio in modo che gli utenti possano accedere al dominio senza interruzione durante l'esecuzione del mapping DNS.
@@ -64,7 +64,7 @@ Per eseguire il mapping del dominio personalizzato a un endpoint della rete CDN,
 
    | NOME                       | TIPO  | VALORE                            |
    |----------------------------|-------|----------------------------------|
-   | cdnverify.www\.consoto.com | CNAME | cdnverify.consoto\.azureedge.net | 
+   | cdnverify.www\.contoso.com | CNAME | cdnverify.contoso\.azureedge.net | 
 
 
 ## <a name="step-3-enable-the-cname-record-mapping-in-azure"></a>Passaggio 3: Abilitare il mapping dei record CNAME in Azure
@@ -103,7 +103,7 @@ Questo passaggio dipende dal passaggio 2, opzione 2 (mapping con il sottodominio
  
    | NOME             | TIPO  | VALORE                  |
    |------------------|-------|------------------------|
-   | www\.consoto.com | CNAME | consoto\.azureedge.net |
+   | www\.contoso.com | CNAME | contoso\.azureedge.net |
 2. Eliminare il record CNAME con il sottodominio **cdnverify** creato in precedenza.
 
 ## <a name="see-also"></a>Vedere anche

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.openlocfilehash: 47e023e7240cfae3553b220ebc44c95ec96d62a7
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: bf4b0f67a4c3667fb0c0cb826a822d6090c36375
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>Distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure
 Questa è la prima di una serie di esercitazioni. Si apprenderà come distribuire un cluster Linux di Service Fabric in una rete virtuale e in una subnet di Azure esistente tramite l'interfaccia della riga di comando di Azure. Al termine, si ottiene un cluster in esecuzione nel cloud nel quale è possibile distribuire applicazioni. Per creare un cluster Windows tramite PowerShell, vedere [Creare un cluster sicuro di Windows in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
@@ -35,7 +35,8 @@ In questa esercitazione si apprenderà come:
 In questa serie di esercitazioni si apprenderà come:
 > [!div class="checklist"]
 > * Creare un cluster sicuro in Azure
-> * [Aumentare o ridurre un cluster](/service-fabric-tutorial-scale-cluster.md)
+> * [Aumentare o ridurre un cluster](service-fabric-tutorial-scale-cluster.md)
+> * [Aggiornare il runtime di un cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Distribuire Gestione API e Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Prerequisiti

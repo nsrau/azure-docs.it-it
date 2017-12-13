@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: e8837b8d62bb8caeee9460661438368c2d11697a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bc71c0745493d52128553a78a31c45a3bca30f8
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="error-handling-in-api-management-policies"></a>Gestione degli errori nei criteri di Gestione API
 Gestione API di Azure consente agli autori di rispondere alle condizioni di errore che possono verificarsi durante l'elaborazione delle richieste al proxy fornendo un oggetto `ProxyError`. È possibile accedere all'oggetto `ProxyError` tramite la proprietà [context.LastError](api-management-policy-expressions.md#ContextVariables). I criteri possono utilizzarlo nella sezione dei criteri `on-error`. In questo argomento vengono indicati dei riferimenti per le funzionalità di gestione degli errori in Gestione API di Azure.  
@@ -56,27 +56,16 @@ Gestione API di Azure consente agli autori di rispondere alle condizioni di erro
  È possibile usare i seguenti criteri nella sezione di criteri `on-error`.  
   
 -   [choose](api-management-advanced-policies.md#choose)  
-  
 -   [set-variable](api-management-advanced-policies.md#set-variable)  
-  
 -   [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody)  
-  
 -   [return-response](api-management-advanced-policies.md#ReturnResponse)  
-  
 -   [set-header](api-management-transformation-policies.md#SetHTTPheader)  
-  
 -   [set-method](api-management-advanced-policies.md#SetRequestMethod)  
-  
 -   [set-status](api-management-advanced-policies.md#SetStatus)  
-  
 -   [send-request](api-management-advanced-policies.md#SendRequest)  
-  
 -   [send-one-way-request](api-management-advanced-policies.md#SendOneWayRequest)  
-  
 -   [log-to-eventhub](api-management-advanced-policies.md#log-to-eventhub)  
-  
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)  
-  
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)  
   
 ## <a name="lasterror"></a>LastError  
@@ -128,4 +117,10 @@ Gestione API di Azure consente agli autori di rispondere alle condizioni di erro
 |validate-jwt|Altri errori di convalida|JwtInvalid|<messaggio dalla libreria JWT\>|
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
+
+Per altre informazioni sull'uso di questi criteri, vedere:
+
++ [Criteri di Gestione API](api-management-howto-policies.md)
++ [API Transform](transform-api.md)
++ [Informazioni di riferimento per i criteri](api-management-policy-reference.md) per un elenco completo di istruzioni dei criteri e delle relative impostazioni
++ [Esempi di criteri](policy-samples.md)   

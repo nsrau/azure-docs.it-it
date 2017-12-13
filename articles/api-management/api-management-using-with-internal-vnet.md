@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 2a496059d1959a6c9e762e70dfbeff9bf961c4d4
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: df2ebb6ee8b1f108c751226188556ced907314e1
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servizio Gestione API di Azure con una rete virtuale interna
 Grazie alle reti virtuali di Azure, Gestione API è in grado di gestire API non accessibili su Internet. Sono disponibili varie tecnologie VPN per stabilire la connessione. È possibile distribuire Gestione API in due modalità principali all'interno di una rete virtuale:
@@ -50,7 +50,7 @@ Il servizio Gestione API in una rete virtuale interna viene ospitato dietro un s
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Abilitare la connessione a una rete virtuale usando il portale di Azure
 
 1. Selezionare l'istanza di Gestione API di Azure nel [portale di Azure](https://portal.azure.com/).
-2. Selezionare **Domini e SSL personalizzati**.
+2. Selezionare **Rete virtuale**.
 3. Configurare l'istanza di Gestione API da distribuire all'interno della rete virtuale.
 
     ![Menu per la configurazione di Gestione API di Azure in una rete virtuale interna][api-management-using-internal-vnet-menu]
@@ -121,7 +121,6 @@ Per altre informazioni, vedere gli articoli seguenti:
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png
 [api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png
 
-
-[Create API Management service]: api-management-get-started.md#create-service-instance
+[Create API Management service]: get-started-create-service-instance.md
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
 

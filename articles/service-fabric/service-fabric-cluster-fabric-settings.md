@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: 19caa05f0de7b4ff4ed7f4eafe50839d04f4ab50
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 986aa2a3254374f77c5e21b7d7b7562ced660744
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizzare le impostazioni del cluster Service Fabric e dei criteri di aggiornamento dell'infrastruttura
-Questo documento illustra come personalizzare le varie impostazioni dell'infrastruttura e i criteri di aggiornamento della stessa per il cluster di Service Fabric. Le impostazioni possono essere personalizzate nel [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager.
+Questo documento illustra come personalizzare le varie impostazioni e i criteri di aggiornamento dell'infrastruttura per il cluster di Service Fabric. Le impostazioni possono essere personalizzate nel [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager.
 
 > [!NOTE]
 > Non tutte le impostazioni sono disponibili nel portale. Se una delle impostazioni elencate di seguito non è disponibile tramite il portale, personalizzarlo usando un modello di Azure Resource Manager.
@@ -772,8 +772,8 @@ PropertyGroup|X509NameMap, valore predefinito: None|Dinamico| |
 |MaxPrimaryReplicationQueueMemorySize|uint, valore predefinito: 0|statico|Valore massimo della coda di replica primaria in byte.|
 |MaxSecondaryReplicationQueueSize|uint, valore predefinito: 2048|statico|Numero massimo di operazioni che possono essere presenti nella coda di replica secondaria. Si noti che deve essere una potenza di 2.|
 |MaxSecondaryReplicationQueueMemorySize|uint, valore predefinito: 0|statico|Valore massimo della coda di replica secondaria in byte.|
-|QueueHealthMonitoringInterval|TimeSpan, valore predefinito: Common::TimeSpan::FromSeconds(30)|statico|Specificare l'intervallo di tempo in secondi. Questo valore determina il periodo di tempo impiegato dal Replicator per monitorare gli eventi di integrità di avviso/errore nelle code delle operazioni di replica. Il valore '0' disabilita il monitoraggio dell'integrità |
-|QueueHealthWarningAtUsagePercent|uint, valore predefinito: 80|statico|Questo valore determina l'utilizzo della coda di replica (in percentuale) dopo il quale verrà generato un avviso per segnalare un utilizzo elevato della coda. La segnalazione avviene dopo un intervallo di tolleranza corrispondente a QueueHealthMonitoringInterval. Se l'utilizzo della coda scende sotto questa percentuale nell'intervallo di tolleranza.|
+|QueueHealthMonitoringInterval|TimeSpan, valore predefinito: Common::TimeSpan::FromSeconds(30)|statico|Specificare l'intervallo di tempo in secondi. Questo valore determina il periodo di tempo impiegato dal Replicator per monitorare gli eventi di integrità di avviso/errore nelle code delle operazioni di replica. Il valore '0' disabilita il monitoraggio dell'integrità. |
+|QueueHealthWarningAtUsagePercent|uint, valore predefinito: 80|statico|Questo valore determina l'utilizzo della coda di replica (in percentuale) dopo il quale verrà generato un avviso per segnalare un utilizzo elevato della coda. La segnalazione avviene dopo un intervallo di tolleranza corrispondente a QueueHealthMonitoringInterval. Se l'uso della coda scende sotto questa percentuale nell'intervallo di tolleranza, la segnalazione non viene visualizzata.|
 |RetryInterval|TimeSpan, valore predefinito: Common::TimeSpan::FromSeconds(5)|statico|Specificare l'intervallo di tempo in secondi. Quando un'operazione viene persa o rifiutata, questo timer determina la frequenza con cui il replicatore ritenterà l'operazione di invio.|
 
 ### <a name="section-name-transport"></a>Nome della sezione: Transport

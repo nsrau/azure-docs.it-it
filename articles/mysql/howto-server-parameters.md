@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 10/10/2017
-ms.openlocfilehash: 06c7f9f6bd49ebfaf03b04cb6e30b963593bfb35
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: f3fc8fb08cd23543ecfcbdc4010aabc9c0184a65
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Come configurare i parametri di server in Database di Azure per MySQL usando il portale di Azure
 
@@ -44,7 +44,7 @@ I parametri seguenti non sono configurabili e sono associati al [piano tariffari
 | Standard 400 | 10240 | 800 | 
 | Standard 800 | 20480 | 1600 |
 
-Altri valori predefiniti per i parametri del server per la versione [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) e [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
+Tutti gli altri parametri del server che non sono elencati nella tabella precedente vengono impostati sui valori predefiniti per le versioni [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) e [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Raccolte connessioni per il Database di Azure per MySQL](concepts-connection-libraries.md).

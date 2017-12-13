@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 11/22/2017
 ms.author: jgao
-ms.openlocfilehash: 7d5534649595a3109442619e0adf13c0b354cc0f
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: a65daae8931c5ef892bf01eb049897488d6b15c7
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire cluster Hadoop in HDInsight tramite il portale di Azure
 
@@ -36,14 +36,17 @@ Per seguire la procedura descritta in questo articolo, è necessaria una **sotto
 1. Accedere a [https://portal.azure.com](https://portal.azure.com).
 2. Dopo avere aperto il portale, è possibile:
 
-   * Scegliere **Nuovo** dal menu di sinistra per creare un nuovo cluster:
+   * Scegliere **Crea una risorsa** dal menu di sinistra per creare un nuovo cluster:
 
        ![Pulsante Nuovo cluster HDInsight](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
+
+       Immettere **HDInsight** in **Cerca nel Marketplace**, fare clic su **HDInsight** e quindi su **Crea**.
+
    * Fare clic su **Cluster HDInsight** nel menu a sinistra per visualizzare un elenco dei cluster esistenti:
 
        ![Pulsante Cluster HDInsight del portale di Azure](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
-       Se non viene visualizzato il pulsante **Cluster HDInsight**, fare clic su **Altri servizi** nella parte inferiore dell'elenco e quindi su **Cluster HDInsight** nella sezione **Intelligence e analisi**.
+       Se non viene visualizzato il pulsante **Cluster HDInsight**, fare clic su **Cluster HDInsight** nella sezione **Intelligence e analisi**.
 
 
 ## <a name="create-clusters"></a>Creare i cluster
@@ -73,7 +76,7 @@ Se viene visualizzato l'errore NoRegisteredProviderFound o l'errore MissingSubsc
 
 ## <a name="list-and-show-clusters"></a>Elencare e visualizzare i cluster
 1. Accedere a [https://portal.azure.com](https://portal.azure.com).
-2. Fare clic su **Cluster HDInsight** nel menu a sinistra per elencare i cluster esistenti. Se **Cluster HDInsight** non è visualizzato, prima fare clic su **Altri servizi**.
+2. Fare clic su **Cluster HDInsight** nel menu a sinistra per elencare i cluster esistenti. Se il pulsante **Cluster HDInsight** non è visualizzato, prima fare clic su **Tutti i servizi**.
 3. Fare clic sul nome del cluster. Se l'elenco di cluster è lungo, è possibile utilizzare il filtro nella parte superiore della pagina.
 4. Fare clic su un cluster nell'elenco per visualizzare la pagina della panoramica:
 
@@ -81,6 +84,7 @@ Se viene visualizzato l'errore NoRegisteredProviderFound o l'errore MissingSubsc
     * **Dashboard**: consente di aprire il dashboard del cluster, ovvero Ambari Web per i cluster basati su Linux.
     * **Secure Shell**: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH).
     * **Scala Cluster**: consente di modificare il numero di nodi del ruolo di lavoro per questo cluster.
+    * **Sposta**: consente di spostare il cluster in un gruppo di risorse o una sottoscrizione diversi.
     * **Elimina**: elimina il cluster.
 
     **Menu a sinistra:**
@@ -92,17 +96,18 @@ Se viene visualizzato l'errore NoRegisteredProviderFound o l'errore MissingSubsc
     * **Script di automazione**: visualizza ed esporta il modello di Azure Resource Manager per il cluster. Attualmente è possibile esportare solo l'account di archiviazione di Azure dipendente. Vedere [Creare cluster Hadoop basati su Linux in HDInsight tramite modelli di Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
     * **Avvio rapido**: visualizza informazioni utili per iniziare a usare HDInsight.
     * **Strumenti per HDInsight**: informazioni della Guida per gli strumenti correlati a HDInsight.
-    * **Account di accesso del cluster**: visualizza le informazioni di accesso del cluster.
     * **Utilizzo di core della sottoscrizione**: visualizza i core usati e disponibili per la sottoscrizione.
     * **Ridimensiona cluster**: aumenta e diminuisce il numero di nodi di lavoro del cluster. Vedere [Ridimensionare i cluster](hdinsight-administer-use-management-portal.md#scale-clusters).
-    * **Secure Shell**: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH). Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+    * **SSH + Account di accesso del cluster**: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH). Per altre informazioni, vedere [Connettersi a HDInsight (Hadoop) con SSH](hdinsight-hadoop-linux-use-ssh-unix.md) e reimpostare le credenziali di accesso al cluster.
     * **Partner HDInsight**: aggiunge/rimuove il Partner HDInsight corrente.
     * **Metastore esterni**: visualizza i metastore Hive e Oozie. I metastore possono essere configurati solo durante il processo di creazione dei cluster. Vedere [Usare metastore Hive/Oozie](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Azioni script**: esegue script Bash nel cluster. Vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).
     * **Applicazioni**: aggiungere/rimuovere applicazioni HDInsight.  Vedere [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md).
+    * **Monitoraggio**: consente di monitorare il cluster in Azure Operations Management Suite e Azure Log Analytics.
     * **Proprietà**: visualizza le proprietà del cluster.
     * **Account di archiviazione**: visualizza gli account di archiviazione e le chiavi. Gli account di archiviazione vengono configurati durante il processo di creazione dei cluster.
-    * **Identità AAD cluster**:
+    * **Accesso a Data Lake Store**: consente di configurare l'accesso a Data Lake Store.  Vedere [Creare cluster HDInsight con Data Lake Store tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    * **Integrità risorse** : vedere [Panoramica su Integrità risorse di Azure](../service-health/resource-health-overview.md).
     * **Nuova richiesta di supporto**: consente di creare un ticket di supporto con il supporto Microsoft.
     
 6. Fare clic su **Proprietà**:
@@ -128,7 +133,7 @@ Se viene visualizzato l'errore NoRegisteredProviderFound o l'errore MissingSubsc
 L'eliminazione di un cluster non determina l'eliminazione dell'account di archiviazione predefinito né di eventuali account di archiviazione collegati. È possibile ricreare il cluster usando gli stessi account di archiviazione e gli stessi metastore. È consigliabile usare un nuovo contenitore BLOB predefinito quando si ricrea il cluster.
 
 1. Accedere al [portale][azure-portal].
-2. Scegliere **Cluster HDInsight** dal menu di sinistra. Se **Cluster HDInsight** non è visualizzato, prima fare clic su **Altri servizi**.
+2. Scegliere **Cluster HDInsight** dal menu di sinistra. Se il pulsante **Cluster HDInsight** non è visualizzato, prima fare clic su **Tutti i servizi**.
 3. Fare clic sul cluster che si vuole eliminare.
 4. Scegliere **Elimina** dal menu in alto e quindi seguire le istruzioni.
 
