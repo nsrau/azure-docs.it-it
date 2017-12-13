@@ -283,8 +283,9 @@
 #### [Attività iniziali](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Procedure consigliate](active-directory-conditional-access-best-practices.md)
 #### [Informazioni sui criteri relativi ai dispositivi per i servizi di Office 365](active-directory-conditional-access-device-policies.md)
+#### [Eseguire la migrazione di criteri classici](active-directory-conditional-access-migration.md)
 #### Attività
-##### [Eseguire la migrazione di criteri classici](active-directory-conditional-access-migration.md)
+##### [Eseguire la migrazione di criteri di MFA classici](active-directory-conditional-access-migration-mfa.md)
 ##### [Configurare l'accesso condizionale basato su dispositivo](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Configurare l'accesso condizionale basato su app](active-directory-conditional-access-mam.md)
 ##### [Specificare le condizioni per l'utilizzo per utenti e app](active-directory-tou.md)

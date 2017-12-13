@@ -26,6 +26,9 @@
     - name: Scalabilità con gli agenti di macchine virtuali di Azure
       href: /azure/jenkins/jenkins-azure-vm-agents
       maintainContext: true
+    - name: Compilare con Istanze di contenitore di Azure
+      href: /azure/jenkins/azure-container-agents-plugin-run-container-as-an-agent
+      maintainContext: true
 - name: Procedura
   items:
     - name: Proteggere Jenkins in Azure
