@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: 07e74c64e587cce99612cd5047516bf131943f2e
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="aerial-image-classification"></a>Classificazione delle immagini aeree
 
@@ -59,9 +59,14 @@ Le istruzioni seguenti consentono di eseguire il processo di configurazione dell
 - [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
     - Seguire la [Guida introduttiva all'installazione e alla creazione](quickstart-installation.md) per installare Azure Machine Learning Workbench e creare gli account di sperimentazione e di gestione dei modelli.
 - [Batch AI](https://github.com/Azure/BatchAI) Python SDK e interfaccia della riga di comando di Azure 2.0
-    - Installare Batch AI SDK e l'interfaccia della riga di comando di Azure 2.0 seguendo le istruzioni nella [sezione relativa ai file recipe prerequisiti](https://github.com/Azure/BatchAI/tree/master/recipes).
-        - Nell'ambito di questo documento Azure Machine Learning Workbench usa un fork separato dell'interfaccia della riga di comando di Azure 2.0. Per maggiore chiarezza, verrà fatto riferimento alla versione dell'interfaccia della riga di comando di Workbench come "interfaccia della riga di comando avviata da Azure Machine Learning Workbench" e alla versione generale (che include Batch AI) come "interfaccia della riga di comando di Azure 2.0".
-    - Creare un'applicazione Azure Active Directory e un'entità servizio seguendo [queste istruzioni](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Registrare ID client, segreto e ID tenant.
+    - Completare le sezioni seguenti del [file leggimi per i recipe di Batch per intelligenza artificiale](https://github.com/Azure/BatchAI/tree/master/recipes):
+        - "Prerequisites" (Prerequisiti)
+        - "Create and get your Azure Active Directory (AAD) application" (Creare e ottenere l'applicazione di Azure Active Directory)
+        - "Register BatchAI Resource Providers" (Registrare i provider di risorse di Batch per intelligenza artificiale), in "Run Recipes Using Azure CLI 2.0" (Eseguire i recipe con l'interfaccia della riga di comando di Azure 2.0)
+        - "Install Azure Batch AI Management Client" (Installare il client di gestione di Azure Batch per intelligenza artificiale)
+        - "Install Azure Python SDK" (Installare Azure Python SDK)
+    - Registrare ID client, segreto e ID tenant dell'applicazione di Azure Active Directory da creare. Tali credenziali verranno usate più avanti in questa esercitazione.
+    - Al momento della stesura di questo articolo, Azure Machine Learning Workbench e Azure Batch per intelligenza artificiale usano fork separati dell'interfaccia della riga di comando di Azure 2.0. Per maggiore chiarezza, verrà fatto riferimento alla versione dell'interfaccia della riga di comando di Workbench come "interfaccia della riga di comando avviata da Azure Machine Learning Workbench" e alla versione generale (che include Batch AI) come "interfaccia della riga di comando di Azure 2.0".
 - [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), un'utilità gratuita per il coordinamento del trasferimento dei file fra account di archiviazione di Azure
     - Verificare che la cartella contenente il file eseguibile AzCopy sia nella variabile di ambiente PATH del sistema (istruzioni su come modificare le variabili di ambiente sono disponibili [qui](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp)).
 - Un client SSH. È consigliabile [PuTTY](http://www.putty.org/).
@@ -215,7 +220,7 @@ Il cluster Batch AI accede ai dati di training in un file server di rete. L'acce
 1. Usare il comando seguente per creare un nuovo file server di rete:
 
     ```
-    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_D2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
 1. Verificare lo stato di provisioning del file server di rete usando il comando seguente:

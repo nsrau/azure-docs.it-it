@@ -12,11 +12,11 @@ Le VM serie F sono un'ottima scelta per i carichi di lavoro che richiedono CPU p
 
 La serie Fs offre tutti i vantaggi della serie F, oltre all'archiviazione Premium.
 
-## <a name="fsv2-series"></a>Serie Fsv2
+## <a name="fsv2-series"></a>Serie Fsv2*
 
 ACU: 195 - 210
 
-| Dimensione             | vCPU | Memoria: GiB | Unità SSD locale: GiB | Valore massimo per dischi di dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
+| Dimensione             | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Valore massimo per dischi di dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Moderata                                       |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Moderata                                       |
@@ -25,7 +25,7 @@ ACU: 195 - 210
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Estremamente elevate                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Estremamente elevate                                 |
 | Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Estremamente elevate                                 |
-
+* Le macchine virtuali Serie Fsv2 integrano la tecnologia Intel® Hyper-Threading
 
 ## <a name="fs-series"></a>Serie Fs*
 

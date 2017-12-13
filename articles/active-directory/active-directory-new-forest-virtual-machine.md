@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: joflore
-ms.openlocfilehash: 0a45a563d8aed45dd30cc76a13b0e197c248be84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18151f647b857dec78e659a3394359ff21a818c7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Installazione di una nuova foresta Active Directory in una rete virtuale di Azure
-In questo argomento viene illustrato come creare un nuovo ambiente Windows Server Active Directory su una macchina virtuale (VM) in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). In questo caso, la rete virtuale di Azure non è connessa a una rete locale.
+Questo argomento illustra come creare un nuovo ambiente Windows Server Active Directory in una macchina virtuale (VM, Virtual Machine) in una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). In questo caso, la rete virtuale di Azure non è connessa a una rete locale.
 
-Altri argomenti di interesse:
+Articoli correlati:
 
 * Per un video che illustra questa procedura, vedere [Come installare una nuova foresta Active Directory in una rete virtuale di Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 * Facoltativamente, è possibile [configurare una VPN da sito a sito](../vpn-gateway/vpn-gateway-site-to-site-create.md) e quindi installare una nuova foresta, oppure estendere una foresta locale a una rete virtuale di Azure. Per la procedura, vedere [Installazione di un controller di dominio Active Directory di replica in una rete virtuale di Azure](active-directory-install-replica-active-directory-domain-controller.md).
@@ -87,7 +87,7 @@ Al termine dell'installazione del controller di dominio, connettersi nuovamente 
    3. Nella scheda **Server di inoltro** fare clic sull'indirizzo IP del server di inoltro, quindi scegliere **Modifica**.  Selezionare l'indirizzo IP e fare clic su **Elimina**.
    4. Fare clic su **OK** per chiudere l'editor, quindi nuovamente su **OK** per chiudere le proprietà del server DNS.
 2. Aggiornare l'impostazione del server DNS per la rete virtuale.
-   1. Fare clic su **Reti virtuali** > fare doppio clic sulla rete virtuale creata > **Configura** > **Server DNS**, quindi digitare il nome e il DIP di una delle macchine virtuali che eseguono il ruolo del controller di dominio o del server DNS e fare clic su **Salva**.
+   1. Fare clic su **Reti virtuali** > fare doppio clic sulla rete virtuale creata > **Configura** > **Server DNS**, digitare il nome e l'IP di una delle VM che svolgono il ruolo di controller di dominio o di server DNS e fare clic su **Salva**.
    2. Selezionare la VM e fare clic su **Restart** per fare in modo che la VM configuri le impostazioni del resolver DNS con l'indirizzo IP del nuovo server DNS.
 
 ## <a name="create-vms-for-domain-members"></a>Creare macchine virtuali per i membri del dominio

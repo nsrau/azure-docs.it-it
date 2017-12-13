@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: faee3bc9b0b1a10a48a514d830af5045cb047e02
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: e1c1b8bdf94104c0047e367f67a29d557fcc8df9
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Domande frequenti sulla creazione di report in Azure Active Directory
 
@@ -119,5 +119,11 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 **D: come vengono calcolati gli indirizzi IP nel report degli accessi e degli accessi a rischio?**
 
 **R:** Gli indirizzi IP vengono rilasciati in modo che non esista una connessione certa tra un IP e la posizione in cui si trova fisicamente il computer con tale indirizzo. A ciò si aggiungono fattori come la possibilità che provider di telefonia mobile e VPN rilascino indirizzi IP da pool centrali spesso molto distanti dal luogo in cui viene effettivamente usato il dispositivo client. Per questi motivi, la conversione di un indirizzo IP in una posizione fisica è un'approssimazione basata su tracce, dati del Registro di sistema, ricerche inverse e altre informazioni. 
+
+---
+
+**D: Cosa significa l'evento di rischio "È stato rilevato un accesso con rischi aggiuntivi"?**
+
+**R:** Per offrire informazioni approfondite su tutti gli accessi rischiosi effettuati nell'ambiente, viene visualizzato l'evento di rischio "È stato rilevato un accesso con rischi aggiuntivi" per gli accessi considerati rischiosi a seguito di rilevamenti effettuati esclusivamente per i sottoscrittori di Azure AD Identity Protection.
 
 ---

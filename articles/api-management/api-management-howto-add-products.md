@@ -3,151 +3,100 @@ title: Come creare e pubblicare un prodotto in Gestione API di Azure
 description: Informazioni su come creare e pubblicare prodotti in Gestione API di Azure.
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 31de55cb-9384-490b-a2f2-6dfcf83da764
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/15/2016
+ms.custom: mvc
+ms.topic: tutorial
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 2cf905967f26de97613ff7d5fc495c9223e11390
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 89e1115291fbb2ba3499801981b70e10eb23eb94
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="how-to-create-and-publish-a-product-in-azure-api-management"></a>Come creare e pubblicare un prodotto in Gestione API di Azure
-In Gestione API di Azure un prodotto contiene una o più API, oltre a una quota di utilizzo e alle condizioni per l'utilizzo. Dopo la pubblicazione di un prodotto, gli sviluppatori possono eseguire la sottoscrizione al prodotto e iniziare a usare le API del prodotto. L'argomento include una guida per la creazione di un prodotto, l'aggiunta di un'API e la pubblicazione per gli sviluppatori.
+# <a name="create-and-publish-a-product"></a>Creare e pubblicare un prodotto  
 
-## <a name="create-product"> </a>Creare un prodotto
-Le operazioni vengono aggiunte e configurate in un'API nel portale di pubblicazione. Per accedere al portale di pubblicazione, fare clic su **Portale di pubblicazione** nel portale di Azure per il servizio Gestione API.
+In Gestione API di Azure un prodotto contiene una o più API, oltre a una quota di utilizzo e alle condizioni per l'utilizzo. Dopo la pubblicazione di un prodotto, gli sviluppatori possono eseguire la sottoscrizione al prodotto e iniziare a usare le API del prodotto.  
 
-![Portale di pubblicazione][api-management-management-console]
+In questa esercitazione si apprenderà come:
 
-> Se non è stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][Create an API Management service instance] nell'esercitazione [Introduzione a Gestione API di Azure][Get started with Azure API Management].
-> 
-> 
+> [!div class="checklist"]
+> * Creare e pubblicare un prodotto
+> * Aggiungere un'API al prodotto
 
-Fare clic su **Prodotti** nel menu a sinistra per visualizzare la pagina **Prodotti** e fare clic su **Aggiungi prodotto**.
+![Prodotto aggiunto](media/api-management-howto-add-products/added-product.png)
 
-![Prodotti][api-management-products]
+## <a name="prerequisites"></a>Prerequisiti
 
-![Nuovo prodotto][api-management-add-new-product]
++ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
++ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
 
-Immettere un nome descrittivo per il prodotto nel campo **Nome** e una descrizione del prodotto nel campo **Descrizione**.
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-Lo stato dei prodotti in Gestione API può essere **Aperto** o **Protetto**. Per usare i prodotti protetti, è prima di tutto necessaria una sottoscrizione, mentre i prodotti aperti possono essere usati senza sottoscrizione. Per creare un prodotto protetto che richiede una sottoscrizione, selezionare **Richiedi approvazione della sottoscrizione** . Questa è l'impostazione predefinita.
+## <a name="create-and-publish-a-product"></a>Creare e pubblicare un prodotto
 
-Selezionare **Richiedi approvazione della sottoscrizione** se si preferisce che i tentativi di sottoscrizione al prodotto vengano esaminati e quindi accettati o rifiutati da un amministratore. Se la casella è deselezionata, i tentativi di sottoscrizione verranno approvati automaticamente. Per altre informazioni sulle sottoscrizioni, vedere [Visualizzare i sottoscrittori di un prodotto][View subscribers to a product].
+1. Fare clic su **Prodotti** nel menu a sinistra per visualizzare la pagina **Prodotti**.
+2. Fare clic su **+ Prodotto**.
 
-Per consentire agli account per sviluppatore di sottoscrivere più volte il prodotto, selezionare la casella di controllo **Consenti più sottoscrizioni** . Se questa casella non è selezionata, ogni account per sviluppatore può sottoscrivere il prodotto una sola volta.
+    ![Prodotto aggiunto](media/api-management-howto-add-products/add-product.png)
 
-![Più sottoscrizioni senza limitazioni][api-management-unlimited-multiple-subscriptions]
+    Quando si aggiunge un prodotto, è necessario fornire le informazioni seguenti: 
 
-Per limitare il numero di più sottoscrizioni simultanee, selezionare la casella di controllo **Limita numero di sottoscrizioni simultanee a** e immettere il limite per le sottoscrizioni. Nell'esempio seguente le sottoscrizioni simultanee sono limitate a quattro per ogni account per sviluppatore.
+    |Nome|Descrizione|
+    |---|---|
+    |Nome visualizzato|Nome con cui deve essere visualizzato nel **portale per sviluppatori**.|
+    |Nome|Nome descrittivo del prodotto.|
+    |Descrizione|Il campo **Descrizione** consente di specificare informazioni dettagliate sul prodotto, ad esempio lo scopo, le API a cui fornisce l'accesso e altre informazioni utili.|
+    |Stato|Fare clic su **Pubblicato** se si vuole pubblicare il prodotto. Per poter chiamare le API in un prodotto, il prodotto deve essere pubblicato. Per impostazione predefinita, i nuovi prodotti non sono pubblicati e sono visibili solo agli utenti nel gruppo **Amministratori**.|
+    |Richiede approvazione|Selezionare **Richiedi approvazione della sottoscrizione** se si preferisce che i tentativi di sottoscrizione al prodotto vengano esaminati e quindi accettati o rifiutati da un amministratore. Se la casella è deselezionata, i tentativi di sottoscrizione vengono approvati automaticamente. |
+    |Limite per il numero di sottoscrizioni|Per limitare il numero di più sottoscrizioni simultanee, immettere il limite per le sottoscrizioni. |
+    |Note legali|È possibile includere le condizioni per l'utilizzo del prodotto che i sottoscrittori devono accettare per usare il prodotto.|
+    |API|I prodotti sono associazioni di una o più API. È possibile includere diverse API e proporle agli sviluppatori tramite il portale per sviluppatori. <br/> È possibile aggiungere un'API esistente durante la creazione di prodotto. È possibile aggiungere un'API al prodotto in un secondo momento, dalla pagina **Impostazioni** dei prodotti o durante la creazione di un'API.|<br/>Gli sviluppatori devono prima sottoscrivere un prodotto per avere accesso all'API. Quando eseguono la sottoscrizione, ottengono una chiave valida per tutte le API nel prodotto.<br/> Se si è creata l'istanza di Gestione API, si è già un amministratore e si è quindi effettuata la sottoscrizione a ogni prodotto per impostazione predefinita.|
 
-![Quattro sottoscrizioni][api-management-four-multiple-subscriptions]
+3. Fare clic su **Salva** per creare il nuovo prodotto.
 
-Dopo aver configurato tutte le opzioni del nuovo prodotto, fare clic su **Salva** per creare il nuovo prodotto.
+### <a name="add-more-configurations"></a>Aggiungere altre configurazioni
 
-![Prodotti][api-management-products-page]
+È possibile continuare a configurare il prodotto dopo averlo salvato scegliendo la scheda **Impostazioni**. 
 
-> Per impostazione predefinita, i nuovi prodotti non sono pubblicati e sono visibili solo agli utenti nel gruppo **Amministratori**.
-> 
-> 
+Visualizzare/Aggiungere i sottoscrittori al prodotto dalla scheda **Sottoscrizioni**.
 
-Per configurare un prodotto, fare clic sul nome del prodotto nella scheda **Prodotti** .
+Impostare una visibilità di un prodotto per sviluppatori o guest dalla scheda **Controllo dell'accesso**.
 
-## <a name="add-apis"> </a>Aggiungere API a un prodotto
-La pagina **Prodotti** contiene quattro collegamenti per la configurazione: **Riepilogo**, **Impostazioni**, **Visibilità** e **Sottoscrittori**. La scheda **Riepilogo** consente di aggiungere le API e di pubblicare o annullare la pubblicazione di un prodotto.
+## <a name="add-apis"></a>Aggiungere API a un prodotto
 
-![Riepilogo][api-management-new-product-summary]
+I prodotti sono associazioni di una o più API. È possibile includere diverse API e proporle agli sviluppatori tramite il portale per sviluppatori. È possibile aggiungere un'API esistente durante la creazione di prodotto. È possibile aggiungere un'API al prodotto in un secondo momento, dalla pagina **Impostazioni** dei prodotti o durante la creazione di un'API.
 
-Prima di pubblicare il prodotto, è necessario aggiungere una o più API. A tale scopo, fare clic su **Aggiungi API al prodotto**.
+Gli sviluppatori devono prima sottoscrivere un prodotto per avere accesso all'API. Quando eseguono la sottoscrizione, ottengono una chiave valida per tutte le API nel prodotto. Se si è creata l'istanza di Gestione API, si è già un amministratore e si è quindi effettuata la sottoscrizione a ogni prodotto per impostazione predefinita.
 
-![Aggiunta di API][api-management-add-apis-to-product]
+### <a name="add-an-api-to-an-existing-product"></a>Aggiungere un'API a un prodotto esistente
 
-Selezionare le API desiderate e fare clic su **Salva**.
+1. Selezionare un prodotto.
+2. Selezionare la scheda API.
+3. Fare clic su **+API**.
+4. Scegliere un'API e fare clic su **Crea**.
 
-## <a name="add-description"></a>Aggiungere informazioni descrittive a un prodotto
-La scheda **Impostazioni** consente di specificare informazioni dettagliate sul prodotto, ad esempio lo scopo, le API a cui fornisce l'accesso e altre informazioni utili. Il contenuto è indirizzato agli sviluppatori che chiameranno l'API e può essere scritto come testo normale o commenti HTML.
-
-![Impostazioni prodotto][api-management-product-settings]
-
-Selezionare **Richiedi sottoscrizione** per creare un prodotto protetto che richiede l'uso di una sottoscrizione oppure deselezionarla per creare un prodotto aperto che può essere chiamato senza sottoscrizione.
-
-Selezionare **Richiedi approvazione della sottoscrizione** se si preferisce approvare manualmente tutte le richieste di sottoscrizione al prodotto. Per impostazione predefinita, tutte le sottoscrizioni al prodotto vengono concesse automaticamente.
-
-Per consentire agli account per sviluppatore di sottoscrivere più volte il prodotto, selezionare la casella di controllo **Consenti più sottoscrizioni** e, se necessario, specificare un limite. Se questa casella non è selezionata, ogni account per sviluppatore può sottoscrivere il prodotto una sola volta.
-
-Immettere eventualmente nel campo **Condizioni per l'utilizzo** la descrizione delle condizioni per l'utilizzo del prodotto che i sottoscrittori devono accettare per usare il prodotto.
-
-## <a name="publish-product"></a>Pubblicare un prodotto
-Per poter chiamare le API in un prodotto, il prodotto deve essere pubblicato. Nella scheda **Riepilogo** del prodotto fare clic su **Pubblica**, quindi su **Sì, pubblica** per confermare. Per impostare come privato un prodotto pubblicato in precedenza, fare clic **Annulla pubblicazione**.
-
-![Pubblicazione prodotto][api-management-publish-product]
-
-## <a name="make-visible"></a>Rendere un prodotto visibile per gli sviluppatori
-La scheda **Visibilità** consente di scegliere i ruoli che possono visualizzare il prodotto nel portale per sviluppatori e sottoscrivere il prodotto.
-
-![Visibilità prodotto][api-management-product-visiblity]
-
-Per abilitare o disabilitare la visibilità di un prodotto per gli sviluppatori di un gruppo, selezionare o deselezionare la casella di controllo accanto al gruppo e quindi fare clic su **Salva**.
-
-> Per altre informazioni, vedere [Come creare e usare gruppi per gestire account di sviluppatori in Gestione API di Azure][How to create and use groups to manage developer accounts in Azure API Management].
-> 
-> 
-
-## <a name="view-subscribers"> </a>Visualizzare i sottoscrittori di un prodotto
-Nella scheda **Sottoscrittori** sono elencati gli sviluppatori che hanno sottoscritto il prodotto. Per visualizzare i dettagli e le impostazioni per ogni sviluppatore, fare clic sul nome dello sviluppatore. In questo esempio nessuno sviluppatore ha ancora sottoscritto il prodotto.
-
-![Sviluppatori:][api-management-developer-list]
-
-## <a name="next-steps"></a>Passaggi successivi
-Una volta che le API desiderate sono state aggiunte e il prodotto pubblicato, gli sviluppatori possono sottoscrivere il prodotto e iniziare a chiamare le API. Per una dimostrazione di questi elementi e della configurazione avanzata del prodotto, vedere l'esercitazione [Come creare e configurare le impostazioni avanzate del prodotto in Gestione API di Azure][How create and configure advanced product settings in Azure API Management].
-
-Per altre informazioni sull'uso dei prodotti, vedere il video seguente.
+## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Using-Products/player]
 > 
 > 
 
-[Create a product]: #create-product
-[Add APIs to a product]: #add-apis
-[Add descriptive information to a product]: #add-description
-[Publish a product]: #publish-product
-[Make a product visible to developers]: #make-visible
-[View subscribers to a product]: #view-subscribers
-[Next steps]: #next-steps
+## <a name="next-steps"></a>Passaggi successivi
 
-[api-management-management-console]: ./media/api-management-howto-add-products/api-management-management-console.png
-[api-management-add-product]: ./media/api-management-howto-add-products/api-management-add-product.png
-[api-management-add-new-product]: ./media/api-management-howto-add-products/api-management-add-new-product.png
-[api-management-unlimited-multiple-subscriptions]: ./media/api-management-howto-add-products/api-management-unlimited-multiple-subscriptions.png
-[api-management-four-multiple-subscriptions]: ./media/api-management-howto-add-products/api-management-four-multiple-subscriptions.png
-[api-management-products-page]: ./media/api-management-howto-add-products/api-management-products-page.png
-[api-management-new-product-summary]: ./media/api-management-howto-add-products/api-management-new-product-summary.png
-[api-management-add-apis-to-product]: ./media/api-management-howto-add-products/api-management-add-apis-to-product.png
-[api-management-product-settings]: ./media/api-management-howto-add-products/api-management-product-settings.png
-[api-management-publish-product]: ./media/api-management-howto-add-products/api-management-publish-product.png
-[api-management-product-visiblity]: ./media/api-management-howto-add-products/api-management-product-visibility.png
-[api-management-developer-list]: ./media/api-management-howto-add-products/api-management-developer-list.png
+In questa esercitazione si è appreso come:
 
+> [!div class="checklist"]
+> * Creare e pubblicare un prodotto
+> * Aggiungere un'API al prodotto
 
+Passare all'esercitazione successiva:
 
-[api-management-products]: ./media/api-management-howto-add-products/api-management-products.png
-[api-management-]: ./media/api-management-howto-add-products/
-[api-management-]: ./media/api-management-howto-add-products/
-
-
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to create and publish a product]: api-management-howto-add-products.md
-[Get started with Azure API Management]: api-management-get-started.md
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
-[Next steps]: #next-steps
-[How to create and use groups to manage developer accounts in Azure API Management]: api-management-howto-create-groups.md
-[How create and configure advanced product settings in Azure API Management]: api-management-howto-product-with-rules.md 
+> [!div class="nextstepaction"]
+> [Creare un'API vuota e simulare le risposte di un'API](mock-api-responses.md)

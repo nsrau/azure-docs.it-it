@@ -14,102 +14,92 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2017
+ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: db8f0056fa3813e95c2c5bea583d7b66ac64260f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 78ab44a7afa6523e1e9e4082b3f45b1a28affe77
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="run-interactive-queries-on-an-hdinsight-spark-cluster"></a>Eseguire query interattive in un cluster HDInsight Spark
+# <a name="run-interactive-queries-on-spark-clusters-in-hdinsight"></a>Eseguire query interattive nei cluster Spark in HDInsight
 
-In questo articolo si userà un notebook di Jupyter per eseguire query SQL Spark interattive su un cluster Spark. Il notebook di Jupyter è un'applicazione basata su browser che consente di estendere al Web l'esperienza interattiva basata su console. Per altre informazioni, vedere [The Jupyter notebook](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) (Il notebook di Jupyter).
+Informazioni su come usare il notebook di Jupyter per eseguire query SQL Spark interattive su un cluster Spark. 
 
-In questa esercitazione si userà il kernel **PySpark** nel notebook di Jupyter per eseguire una query SQL Spark interattiva. I notebook di Jupyter nei cluster HDInsight supportano anche due altri kernel: **PySpark3** e **Spark**. Per altre informazioni sui kernel e i vantaggi offerti dall'uso di **PySpark**, vedere [Usare i kernel per Jupyter Notebook con cluster Apache Spark in HDInsight](apache-spark-jupyter-notebook-kernels.md).
+Il [notebook di Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) è un'applicazione basata su browser che consente di estendere al Web l'esperienza interattiva basata su console. Spark in HDInsight include anche [Zeppelin Notebook](apache-spark-zeppelin-notebook.md). Per questa esercitazione viene usato Jupyter Notebook.
+
+Gli oggetti Jupyter Notebook nei cluster HDInsight supportano tre kernel: **PySpark**, **PySpark3** e **Spark**. In questa esercitazione viene usato il kernel **PySpark**. Per altre informazioni sui kernel e i vantaggi offerti dall'uso di **PySpark**, vedere [Usare i kernel per Jupyter Notebook con cluster Apache Spark in HDInsight](apache-spark-jupyter-notebook-kernels.md). Per usare il notebook di Zeppelin, vedere [Usare i notebook di Zeppelin con cluster Apache Spark in Azure HDInsight](./apache-spark-zeppelin-notebook.md).
+
+In questa esercitazione viene eseguita una query dei dati in un file csv. È necessario caricare prima i dati in Spark come frame di dati. È quindi possibile eseguire query sul frame di dati usando il notebook di Jupyter. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Cluster Azure HDInsight Spark**. Per istruzioni, vedere [Creare un cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* **Cluster Azure HDInsight Spark**. Per le istruzioni, vedere [Creare un cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* **Notebook di Jupyter con PySpark**. Per le istruzioni, vedere [Creare un notebook di Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-## <a name="create-a-jupyter-notebook-to-run-interactive-queries"></a>Creare un notebook di Jupyter per eseguire query interattive
+## <a name="create-a-dataframe-from-a-csv-file"></a>Creare un frame di dati da un file csv
 
-Per eseguire le query si useranno i dati di esempio disponibili per impostazione predefinita nella risorsa di archiviazione associata al cluster. È necessario, tuttavia, caricare prima i dati in Spark come un dataframe. Solo a questo punto sarà possibile eseguire query sul dataframe usando il notebook di Jupyter. In questo articolo viene illustrato come:
+Con SQLContext, le applicazioni possono creare frame di dati da un set di dati RDD esistente, da una tabella Hive o da origini dati. 
 
-* Registrare un set di dati di esempio come un dataframe di Spark.
-* Eseguire query sul dataframe.
+**Per creare un frame di dati da un file csv**
 
-Di seguito sono riportati i requisiti iniziali.
+1. Creare un notebook di Jupyter usando PySpark, se necessario. Per le istruzioni, vedere [Creare un notebook di Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-1. Aprire il [portale di Azure](https://portal.azure.com/). Se si è scelto di aggiungere il cluster al dashboard, fare clic sul riquadro del cluster nel dashboard per avviare il relativo pannello.
+2. Incollare il codice seguente in una cella vuota del notebook e quindi premere **MAIUSC+INVIO** per eseguire il codice. Il codice importa i tipi necessari per questo scenario:
 
-    Se il cluster non è stato aggiunto al dashboard, nel riquadro sinistro fare clic su **Cluster HDInsight** e quindi sul cluster creato.
+    ```PySpark
+    from pyspark.sql import *
+    from pyspark.sql.types import *
+    ```
+    Usando il kernel PySpark per creare un notebook, i contesti Spark e Hive vengono creati automaticamente quando si esegue la prima cella di codice. Non è necessario creare in modo esplicito i contesti.
 
-3. In **Collegamenti rapidi** fare clic su **Dashboard cluster** e quindi su **Notebook di Jupyter**. Se richiesto, immettere le credenziali per il cluster.
-
-   ![Aprire Jupyter Notebook per eseguire la query interattiva Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-start-jupyter-interactive-spark-sql-query.png "Aprire Jupyter Notebook per eseguire la query interattiva Spark SQL")
-
-   > [!NOTE]
-   > È anche possibile accedere all'istanza di Jupyter Notebook per il cluster aprendo l'URL seguente nel browser. Sostituire **CLUSTERNAME** con il nome del cluster:
-   >
-   > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   >
-   >
-3. Creare un notebook. Fare clic su **Nuovo** e quindi su **PySpark**.
-
-   ![Creare un'istanza di Jupyter Notebook per eseguire la query interattiva Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Creare un'istanza di Jupyter Notebook per eseguire la query interattiva Spark SQL")
-
-   Un nuovo notebook verrà creato e aperto con il nome Untitled (Untitled.pynb).
-
-4. Fare clic sul nome del notebook nella parte superiore e, se si vuole, immettere un nome descrittivo.
-
-    ![Specificare un nome per l'istanza di Jupyter Notebook dalla quale eseguire la query interattiva Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-jupyter-notebook-name.png "Specificare un nome per l'istanza di Jupyter Notebook dalla quale eseguire la query interattiva Spark")
-
-5. Incollare il codice seguente in una cella vuota e quindi premere **MAIUSC + INVIO** per eseguire il codice. Il codice importa i tipi necessari per questo scenario:
-
-        from pyspark.sql import *
-        from pyspark.sql.types import *
-
-    Poiché il notebook è stato creato tramite il kernel PySpark, non è necessario creare contesti in modo esplicito. I contesti Spark e Hive vengono creati automaticamente quando si esegue la prima cella di codice.
+    Quando si esegue una query interattiva in Jupyter, la barra del titolo della scheda o della finestra del Web browser visualizza lo stato **(Occupato)** accanto al titolo del notebook. È anche visibile un cerchio pieno accanto al testo **PySpark** nell'angolo in alto a destra. Al termine del processo viene visualizzato un cerchio vuoto.
 
     ![Stato della query interattiva Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Stato della query interattiva Spark SQL")
 
-    Ogni volta che si esegue una query interattiva in Jupyter, il titolo della finestra del Web browser visualizza lo stato **(Occupato)** accanto al titolo del notebook. È anche visibile un cerchio pieno accanto al testo **PySpark** nell'angolo in alto a destra. Al termine del processo viene visualizzato un cerchio vuoto.
+3. Eseguire il codice seguente per creare un frame di dati e una tabella temporanea (**hvac**). Il codice non estrae tutte le colonne disponibili nel file CSV. 
 
-6. Prima di caricare i dati in un cluster Spark, è possibile visualizzarne di seguito uno snapshot. I dati di esempio usati in questa esercitazione sono disponibili come file CSV in tutti i cluster HDInsight Spark all'indirizzo **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. I dati acquisiscono le variazioni di temperatura di un edificio. Di seguito sono riportate le prime righe di dati.
+    ```PySpark
+    # Create an RDD from sample data
+    hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    
+    # Create a schema for our data
+    Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
+    
+    # Parse the data and create a schema
+    hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
+    hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
+    
+    # Infer the schema and create a table       
+    hvacTable = sqlContext.createDataFrame(hvac)
+    hvacTable.registerTempTable('hvactemptable')
+    dfw = DataFrameWriter(hvacTable)
+    dfw.saveAsTable('hvac')
+    ```
+    Lo screenshot seguente mostra uno snapshot del file HVAC.csv. Il file CSV è disponibile con tutti i cluster HDInsight Spark. I dati acquisiscono le variazioni di temperatura di un edificio.
 
     ![Snapshot di dati per query SQL Spark interattive](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Snapshot di dati per query SQL Spark interattive")
 
-6. Creare un dataframe e una tabella temporanea (**hvac**) eseguendo il codice seguente. Per questa esercitazione non vengono create tutte le colonne disponibili nel file CSV. 
+## <a name="run-queries-on-the-dataframe"></a>Eseguire query sul frame di dati
 
-        # Create an RDD from sample data
-        hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+Dopo aver creato la tabella, è possibile eseguire una query interattiva sui dati.
 
-        # Create a schema for our data
-        Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
+**Per eseguire una query**
 
-        # Parse the data and create a schema
-        hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
-        hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
-        
-        # Infer the schema and create a table       
-        hvacTable = sqlContext.createDataFrame(hvac)
-        hvacTable.registerTempTable('hvactemptable')
-        dfw = DataFrameWriter(hvacTable)
-        dfw.saveAsTable('hvac')
+1. Eseguire il codice seguente in una cella vuota del notebook:
 
-7. Dopo aver creato la tabella, eseguire una query interattiva sui dati usando il codice seguente.
+    ```PySpark
+    %%sql
+    SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
+    ```
 
-        %%sql
-        SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
-
-   Dato che si usa un kernel PySpark, è ora possibile eseguire direttamente una query SQL interattiva sulla tabella temporanea **hvac** creata usando il comando Magic `%%sql`. Per altre informazioni sul comando Magic `%%sql` e sugli altri comandi Magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+   Poiché nel notebook viene usato il kernel PySpark, è ora possibile eseguire direttamente una query SQL interattiva sulla tabella temporanea **hvac** creata usando il comando Magic `%%sql`. Per altre informazioni sul comando Magic `%%sql` e sugli altri comandi Magic disponibili con il kernel PySpark, vedere [Kernel disponibili per i notebook di Jupyter con cluster Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
    L'output tabulare seguente viene visualizzato per impostazione predefinita.
 
      ![Tabella di output dei risultati della query interattiva Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Tabella di output dei risultati della query interattiva Spark")
 
-9. È anche possibile visualizzare i risultati in altri formati. Per visualizzare un grafico ad area per lo stesso output, selezionare **Area** e quindi impostare altri valori, come illustrato.
+3. È anche possibile visualizzare i risultati in altri formati. Per visualizzare un grafico ad area per lo stesso output, selezionare **Area** e quindi impostare altri valori, come illustrato.
 
     ![Grafico ad area dei risultati della query interattiva Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Grafico ad area dei risultati della query interattiva Spark")
 

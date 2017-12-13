@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 12/01/2017
 ms.author: jeedes
-ms.openlocfilehash: e8ca7fdacf8361570d88260b3c359ee6e2fd3e17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 026eca7fc8f17602ba44ba38db138d645c9d7713
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Esercitazione: Configurare Google Apps per il provisioning utenti automatico
 
@@ -90,6 +90,10 @@ Questa sezione illustra il processo di connessione di Azure AD all'API di provis
      ![Domain](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_4.png)
 
     e. Ripetere i passaggi precedenti per tutti i domini che si desidera aggiungere alla directory.
+
+    > [!NOTE]
+    Per il provisioning utenti, il dominio personalizzato Google Apps deve corrispondere al nome di dominio di Azure AD di origine. Se non corrispondono, per risolvere il problema può essere utile implementare la personalizzazione del mapping degli attributi.
+
 
 5. Ora che tutti i domini sono stati verificati con Azure AD, è necessario verificarli nuovamente con Google Apps. Per ogni dominio non ancora registrato con Google Apps, procedere come segue:
    

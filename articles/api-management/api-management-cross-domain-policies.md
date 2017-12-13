@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 05b25ffad4a91859932cd53475d82b11bf3e43e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 590831454e8a18678e357b4824eb35a717d1fee0
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-cross-domain-policies"></a>Criteri tra domini di Gestione API
 Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -26,9 +26,7 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
 ##  <a name="CrossDomainPolicies"></a> Criteri tra domini  
   
 -   [Permetti chiamate tra i domini](api-management-cross-domain-policies.md#AllowCrossDomainCalls) : rende accessibile l'API da client Adobe Flash e Microsoft Silverlight basati su browser.  
-  
 -   [CORS](api-management-cross-domain-policies.md#CORS) : aggiunge il supporto per CORS (Cross-Origin Resource Sharing) a un'operazione o a un'API per permettere le chiamate tra domini da client basati su browser.  
-  
 -   [JSONP](api-management-cross-domain-policies.md#JSONP) : aggiunge il supporto per JSON con riempimento (JSONP) a un'operazione o a un'API per permettere le chiamate tra domini da client JavaScript basati su browser.  
   
 ##  <a name="AllowCrossDomainCalls"></a> Permetti chiamate tra i domini  
@@ -63,7 +61,6 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** in ingresso  
-  
 -   **Ambiti del criterio:** globali  
   
 ##  <a name="CORS"></a> CORS  
@@ -147,7 +144,6 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** in ingresso  
-  
 -   **Ambiti del criterio:** API, operazione  
   
 ##  <a name="JSONP"></a> JSONP  
@@ -185,8 +181,13 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
  Questo criterio può essere utilizzato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) di criteri seguenti.  
   
 -   **Sezioni del criterio:** in uscita  
-  
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  
   
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
+
+Per altre informazioni sull'uso di questi criteri, vedere:
+
++ [Criteri di Gestione API](api-management-howto-policies.md)
++ [API Transform](transform-api.md)
++ [Informazioni di riferimento per i criteri](api-management-policy-reference.md) per un elenco completo di istruzioni dei criteri e delle relative impostazioni
++ [Esempi di criteri](policy-samples.md)   

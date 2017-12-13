@@ -8,11 +8,11 @@ ms.topic: article
 ms.author: dmpechyo
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 643cea5cc134a2eb25a0dec4abefd9edca726332
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Ottimizzazione distribuita di iperparametri con Azure Machine Learning Workbench
 
@@ -27,9 +27,9 @@ Di seguito è disponibile il collegamento al repository GitHub pubblico:
 
 Molti algoritmi di apprendimento automatico hanno uno o più controlli, detti iperparametri. Questi controlli consentono di regolare gli algoritmi per ottimizzarne le prestazioni sui dati futuri, in base a metriche specificate dall'utente, ad esempio, accuratezza, RMSE (radice errore quadratico medio) e AUC (area sottesa della curva). I data scientist devono fornire i valori degli iperparametri quando creano un modello in base ai dati di training e prima di visualizzare i dati di test futuri. In che modo, in base ai dati di training noti, è possibile configurare i valori degli iperparametri in modo che il modello abbia buone prestazioni sui dati di test non noti? 
 
-Una tecnica comune per l'ottimizzazione degli iperparametri consiste in una *ricerca a griglia* combinata con la *convalida incrociata*. La convalida incrociata è una tecnica che valuta l'accuratezza con cui un modello, di cui è stato eseguito il training in base a un set di training, esegue le stime sul set di test. Usando questa tecnica, inizialmente il set di dati viene diviso in K parti e quindi viene eseguito il training dell'algoritmo K volte, in base a uno schema round robin su tutte le parti eccetto una, che viene esclusa. Si calcola il valore medio delle metriche di K modelli sulle K parti escluse. Questo valore medio, detto *stima delle prestazioni con convalida incrociata*, dipende dai valori degli iperparametri usati per la creazione di K modelli. Quando si ottimizzano gli iperparametri, si cerca nello spazio dei valori degli iperparametri candidati per trovare quelli che consentono di ottimizzare la stima delle prestazioni della convalida incrociata. La ricerca a griglia è una tecnica comune di ricerca, in cui lo spazio dei valori candidati di più iperparametri è un prodotto incrociato di un set di valori candidati dei singoli iperparametri. 
+Una tecnica comune per l'ottimizzazione degli iperparametri consiste in una *ricerca a griglia* combinata con la *convalida incrociata*. La convalida incrociata è una tecnica che valuta l'accuratezza con cui un modello, di cui è stato eseguito il training in base a un set di training, esegue le stime sul set di test. Usando questa tecnica, prima il set di dati viene diviso in K-iterazioni e quindi viene eseguito il training dell'algoritmo per K volte, in base a uno schema round robin. Questa operazione viene eseguita su tutte le iterazioni tranne una, che viene esclusa. Si calcola il valore medio delle metriche di K modelli sulle K parti escluse. Questo valore medio, detto *stima delle prestazioni con convalida incrociata*, dipende dai valori degli iperparametri usati per la creazione di K modelli. Quando si ottimizzano gli iperparametri, si cerca nello spazio dei valori degli iperparametri candidati per trovare quelli che consentono di ottimizzare la stima delle prestazioni della convalida incrociata. La ricerca a griglia è una tecnica comune di ricerca, in cui lo spazio dei valori candidati di più iperparametri è un prodotto incrociato di set dei valori candidati dei singoli iperparametri. 
 
-La ricerca a griglia con la convalida incrociata può richiedere molto tempo. Se un algoritmo ha 5 iperparametri, ognuno con 5 valori candidati e si usano K=5 parti, per completare una ricerca a griglia è necessario eseguire il training di 5<sup>6</sup>=15625 modelli. Fortunatamente, la ricerca a griglia con convalida incrociata è una procedura con un elevatissimo livello di parallelismo e il training di tutti questi modelli può essere eseguito in parallelo.
+La ricerca a griglia con la convalida incrociata può richiedere molto tempo. Se un algoritmo ha cinque iperparametri, ognuno con cinque valori candidati, si usa K=5 iterazioni. Una ricerca a griglia viene quindi completata eseguendo il training di 5<sup>6</sup>=15625 modelli. Fortunatamente, la ricerca a griglia con convalida incrociata è una procedura con un elevatissimo livello di parallelismo e il training di tutti questi modelli può essere eseguito in parallelo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -37,11 +37,19 @@ La ricerca a griglia con la convalida incrociata può richiedere molto tempo. Se
 * Una copia di [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) installata seguendo la [guida introduttiva all'installazione e alla creazione](./quickstart-installation.md) per installare Workbench e creare gli account.
 * Questo scenario presuppone che Azure ML Workbench sia in esecuzione in un computer Windows 10 o MacOS con il motore Docker installato in locale. 
 * Per eseguire lo scenario con un contenitore Docker remoto, effettuare il provisioning di una macchina virtuale di data science (DSVM) Ubuntu seguendo le [istruzioni](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). È consigliabile usare una macchina virtuale con almeno 8 core e 28 GB di memoria. Le istanze D4 delle macchine virtuali offrono questa capacità. 
-* Per eseguire questo scenario con un cluster Spark, effettuare il provisioning del cluster HDInsight seguendo le [istruzioni](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). È consigliabile usare un cluster con almeno sei nodi del ruolo di lavoro e almeno 8 core e 28 GB di memoria sia nel modo head che nei nodi del ruolo di lavoro. Le istanze D4 delle macchine virtuali offrono questa capacità. Per ottimizzare le prestazioni del cluster, si consiglia di modificare i parametri spark.executor.instances, spark.executor.cores e spark.executor.memory seguendo le [istruzioni](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) e modificando le definizioni nella sezione relativa alle impostazioni predefinite di Spark personalizzate.
+* Per eseguire questo scenario con un cluster Spark, effettuare il provisioning del cluster Azure HDInsight seguendo queste [istruzioni](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). È consigliabile avere un cluster con almeno: 
+- sei nodi di lavoro
+- otto core
+- 28 GB di memoria sia nel nodo head che nei nodi di lavoro. Le istanze D4 delle macchine virtuali offrono questa capacità. Per ottimizzare le prestazioni del cluster, è consigliabile modificare i parametri seguenti.
+- spark.executor.instances
+- spark.executor.cores
+- spark.executor.memory 
 
-     **Risoluzione dei problemi**: la sottoscrizione di Azure potrebbe prevedere una quota per il numero di core che è possibile usare. Il portale di Azure non consente la creazione di cluster con un numero totale di core superiore alla quota. Per individuare la quota, andare alla sezione Sottoscrizioni nel portale di Azure, fare clic sulla sottoscrizione usata per distribuire un cluster e quindi fare clic su **Utilizzo e quote**. In genere, le quote sono definite per ogni area di Azure ed è possibile scegliere di distribuire il cluster Spark in un'area in cui c'è un numero sufficiente di core liberi. 
+È possibile seguire queste [istruzioni](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) e modificare le definizioni nella sezione delle impostazioni predefinite di Spark personalizzate.
 
-* Creare un account di archiviazione di Azure per l'archiviazione del set di dati. Seguire le [istruzioni](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) per creare un account di archiviazione.
+     **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
+
+* Creare un account di archiviazione di Azure per l'archiviazione del set di dati. Seguire queste [istruzioni](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) per creare un account di archiviazione.
 
 ## <a name="data-description"></a>Descrizione dei dati
 
@@ -72,7 +80,7 @@ Vengono usati i pacchetti [scikit-learn](https://anaconda.org/conda-forge/scikit
 
 Il file conda\_dependencies.yml modificato è archiviato nella directory aml_config dell'esercitazione. 
 
-Nei passaggi successivi l'ambiente di esecuzione viene connesso all'account di Azure. Aprire la finestra di interfaccia della riga di comando facendo clic sul menu File nell'angolo superiore destro di Azure Machine Learning Workbench e scegliendo il comando per l'apertura del prompt dei comandi. Eseguire quindi nell'interfaccia della riga di comando:
+Nei passaggi successivi l'ambiente di esecuzione viene connesso all'account di Azure. Fare clic sul menu File nell'angolo superiore sinistro di Azure Machine Learning Workbench e scegliere "Open Command Prompt" (Apri prompt dei comandi). Eseguire quindi nell'interfaccia della riga di comando:
 
     az login
 
@@ -84,19 +92,19 @@ Passare a questa pagina Web, immettere il codice e accedere all'account di Azure
 
     az account list -o table
 
-e trovare l'ID della sottoscrizione di Azure con l'account di Azure Machine Learning Workbench. Infine, eseguire nell'interfaccia della riga di comando:
+Trovare quindi l'ID della sottoscrizione di Azure che include l'account dell'area di lavoro di Azure Machine Learning Workbench. Infine, eseguire nell'interfaccia della riga di comando:
 
     az account set -s <subscription ID>
 
 per completare la connessione alla sottoscrizione di Azure.
 
-Nelle due sezioni successive viene illustrato come completare la configurazione di un contenitore Docker remoto e di un cluster Spark.
+Nelle due sezioni successive viene illustrato come completare la configurazione di un contenitore Docker remoto e un cluster Spark.
 
 #### <a name="configuration-of-remote-docker-container"></a>Configurazione del contenitore Docker remoto
 
  Per configurare un contenitore Docker remoto, eseguire nell'interfaccia della riga di comando:
 
-    az ml computetarget attach --name dsvm --address <IP address> --username <username> --password <password> --type remotedocker
+    az ml computetarget attach remotedocker --name dsvm --address <IP address> --username <username> --password <password> 
 
 con indirizzo IP, nome utente e password della macchina virtuale di data science (DSVM). L'indirizzo IP della macchina virtuale di data science è disponibile nella sezione di panoramica della pagina relativa alla macchina stessa nel portale di Azure:
 
@@ -106,7 +114,7 @@ con indirizzo IP, nome utente e password della macchina virtuale di data science
 
 Per configurare l'ambiente Spark, eseguire nell'interfaccia della riga di comando:
 
-    az ml computetarget attach --name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> --type cluster
+    az ml computetarget attach cluster--name spark --address <cluster name>-ssh.azurehdinsight.net  --username <username> --password <password> 
 
 con il nome del cluster e la password e il nome utente SSH del cluster. Il valore predefinito del nome utente SSH è `sshuser`, a meno che non sia stato modificato durante il provisioning del cluster. Il nome del cluster è indicato nella sezione delle proprietà nella pagina del cluster nel portale di Azure:
 
@@ -142,7 +150,7 @@ Selezionare quindi il contenitore denominato dataset nell'elenco e fare clic sul
 
 Il caricamento dei file richiede alcuni minuti, a seconda della connessione Internet. 
 
-Nel codice viene usato [Azure Storage SDK](https://azure-storage.readthedocs.io/en/latest/) per scaricare il set di dati dall'archiviazione BLOB nell'ambiente di esecuzione corrente. Il download viene eseguito nella funzione load\_data() del file load_data.py. Per usare questo codice, è necessario sostituire <ACCOUNT_NAME> e <ACCOUNT_KEY> con il nome e la chiave primaria dell'account di archiviazione che ospita il set di dati. Il nome dell'account è indicato nell'angolo superiore sinistro della pagina di Azure relativa all'account di archiviazione. Per ottenere la chiave dell'account, selezionare Chiavi di accesso nella pagina di Azure dell'account di archiviazione (vedere il primo screenshot nella sezione relativa all'inserimento dei dati) e quindi copiare la lunga stringa nella prima riga di colonne chiave:
+Nel codice viene usato [Azure Storage SDK](https://azure-storage.readthedocs.io/en/latest/) per scaricare il set di dati dall'archiviazione BLOB nell'ambiente di esecuzione corrente. Il download viene eseguito nella funzione load\_data() del file load_data.py. Per usare questo codice, è necessario sostituire <ACCOUNT_NAME> e <ACCOUNT_KEY> con il nome e la chiave primaria dell'account di archiviazione che ospita il set di dati. Il nome dell'account viene visualizzato nell'angolo superiore sinistro della pagina di Azure relativa all'account di archiviazione. Per ottenere la chiave dell'account, selezionare Chiavi di accesso nella pagina di Azure dell'account di archiviazione (vedere il primo screenshot nella sezione relativa all'inserimento dei dati) e quindi copiare la lunga stringa nella prima riga di colonne chiave:
  
 ![Chiave di accesso](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 
@@ -161,7 +169,7 @@ Il codice seguente della funzione load_data() scarica un singolo file:
     # Load blob
     my_service.get_blob_to_path(CONTAINER_NAME, 'app_events.csv.zip', 'app_events.csv.zip')
 
-Si noti che non è necessario eseguire manualmente il file load_data.py. Più avanti, lo si chiamerà da altri file.
+Si noti che non è necessario eseguire manualmente il file load_data.py. Più avanti verrà chiamato da altri file.
 
 ### <a name="feature-engineering"></a>Progettazione delle funzioni
 Il codice per il calcolo di tutte le funzionalità è nel file feature\_engineering.py. Non è necessario eseguire manualmente il file feature_engineering.py. Più avanti, lo si chiamerà da altri file.
@@ -190,7 +198,7 @@ Poiché l'ambiente locale è troppo piccolo per calcolare tutti i set di funzion
 Viene usata l'implementazione [xgboost](https://anaconda.org/conda-forge/xgboost) [1] del potenziamento del gradiente di alberi. Si usa il pacchetto [scikit-learn](http://scikit-learn.org/) per ottimizzare gli iperparametri di xgboost. Sebbene xgboost non faccia parte del pacchetto scikit-learn, implementa l'API scikit-learn e quindi può essere usato con le funzioni di ottimizzazione degli iperparametri di scikit-learn. 
 
 Xgboost ha otto iperparametri:
-* n_esitmators
+* n_estimators
 * max_depth
 * reg_alpha
 * reg_lambda
@@ -198,7 +206,10 @@ Xgboost ha otto iperparametri:
 * learning_rate
 * colsample\_by_level
 * subsample
-* objective. Una descrizione di questi iperparametri è disponibile [qui](http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn) e [qui](https://github.com/dmlc/xgboost/blob/master/doc/parameter.md). Inizialmente si usa una macchina virtuale di data science remota e si ottimizzano gli iperparametri da una piccola griglia di valori candidati:
+* objective. Una descrizione di questi iperparametri è disponibile agli indirizzi
+- http://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn- e https://github.com/dmlc/xgboost/blob/master/doc/parameter.md. 
+- 
+Inizialmente si usa una macchina virtuale di data science remota e si ottimizzano gli iperparametri da una piccola griglia di valori candidati:
 
     tuned_parameters = [{'n_estimators': [300,400], 'max_depth': [3,4], 'objective': ['multi:softprob'], 'reg_alpha': [1], 'reg_lambda': [1], 'colsample_bytree': [1],'learning_rate': [0.1], 'colsample_bylevel': [0.1,], 'subsample': [0.5]}]  
 
@@ -224,7 +235,7 @@ Dopo aver creato il modello, si salvano i risultati dell'ottimizzazione degli ip
     for key in clf_cv.best_params_.keys():
         run_logger.log(key, clf_cv.best_params_[key]) 
 
-Si crea inoltre il file sweeping_results.txt con le perdite logaritmiche negative con convalida incrociata di tutte le combinazioni di valori degli iperparametri nella griglia:
+Si crea anche il file sweeping_results.txt con le perdite logaritmiche negative con convalida incrociata di tutte le combinazioni di valori degli iperparametri nella griglia.
 
     if not path.exists('./outputs'):
         makedirs('./outputs')
@@ -249,13 +260,13 @@ Questo comando richiede 1 ora e 38 minuti per il completamento se la macchina vi
 
 ![Cronologia di esecuzione](media/scenario-distributed-tuning-of-hyperparameters/run_history.png)
 
-Per impostazione predefinita, la finestra della cronologia di esecuzione mostra valori e grafici dei primi 1-2 valori registrati. Per visualizzare l'elenco completo dei valori scelti degli iperparametri, fare clic sull'icona delle impostazioni contrassegnata con un cerchio rosso nello screenshot precedente e selezionare gli iperparametri da visualizzare nella tabella. Inoltre, per selezionare i grafici visualizzati nella parte superiore della finestra della cronologia di esecuzione, fare clic sull'icona delle impostazioni contrassegnata con un cerchio blu e selezionare i grafici nell'elenco. 
+Per impostazione predefinita, la finestra della cronologia di esecuzione mostra valori e grafici dei primi 1-2 valori registrati. Per visualizzare l'elenco completo dei valori scelti degli iperparametri, fare clic sull'icona delle impostazioni contrassegnata con un cerchio rosso nello screenshot precedente. Selezionare quindi gli iperparametri da visualizzare nella tabella. Inoltre, per selezionare i grafici visualizzati nella parte superiore della finestra della cronologia di esecuzione, fare clic sull'icona delle impostazioni contrassegnata con un cerchio blu e selezionare i grafici nell'elenco. 
 
 I valori scelti degli iperparametri possono anche essere esaminati nella finestra delle proprietà di esecuzione: 
 
 ![Proprietà di esecuzione](media/scenario-distributed-tuning-of-hyperparameters/run_properties.png)
 
-Nell'angolo superiore destro della finestra delle proprietà di esecuzione c'è una sezione relativa ai file di output con l'elenco di tutti i file creati nella cartella ".\output" nell'ambiente di esecuzione. È possibile scaricare sweep\_results.txt da questa posizione, selezionando il file e facendo clic sul pulsante Download. L'output di sweeping_results.txt dovrebbe essere il seguente:
+Nell'angolo superiore destro della finestra delle proprietà di esecuzione è presente una sezione relativa ai file di output con l'elenco di tutti i file creati nella cartella ".\output". È possibile scaricare sweep\_results.txt da questa posizione, selezionando il file e facendo clic sul pulsante Download. L'output di sweeping_results.txt dovrebbe essere il seguente:
 
     metric =  neg_log_loss
     mean: -2.29096, std: 0.03748, params: {'colsample_bytree': 1, 'learning_rate': 0.1, 'subsample': 0.5, 'n_estimators': 300, 'reg_alpha': 1, 'objective': 'multi:softprob', 'colsample_bylevel': 0.1, 'reg_lambda': 1, 'max_depth': 3}
@@ -297,15 +308,15 @@ nell'interfaccia della riga di comando di Windows. L'installazione richiede alcu
 
     az ml experiment submit -c spark .\distributed_sweep.py
 
-Questo comando richiede 1 ora e 6 minuti per il completamento se il cluster Spark ha 6 nodi del ruolo di lavoro e 28 GB di memoria. È possibile accedere ai risultati dell'ottimizzazione degli iperparametri nel cluster Spark, ovvero log, valori migliori degli iperparametri e file sweeping_results.txt, in Azure Machine Learning Workbench analogamente a quanto avviene con l'esecuzione nella macchina virtuale di data science remota. 
+Questo comando richiede 1 ora e 6 minuti per il completamento se il cluster Spark ha 6 nodi del ruolo di lavoro e 28 GB di memoria. È possibile accedere ai risultati dell'ottimizzazione degli iperparametri in Azure Machine Learning Workbench così come avviene per l'esecuzione della macchina virtuale di data science remota, specificamente a log, valori migliori degli iperparametri e file sweeping_results.txt.
 
 ### <a name="architecture-diagram"></a>Diagramma dell'architettura
 
-Il diagramma seguente illustra il flusso di lavoro end-to-end: ![architettura](media/scenario-distributed-tuning-of-hyperparameters/architecture.png) 
+Il diagramma seguente illustra il flusso di lavoro complessivo: ![Architettura](media/scenario-distributed-tuning-of-hyperparameters/architecture.png) 
 
 ## <a name="conclusion"></a>Conclusioni 
 
-In questo scenario è stato illustrato come usare Azure Machine Learning Workbench per eseguire l'ottimizzazione di iperparametri nella macchina virtuale remota e nel cluster Spark remoto. È stato illustrato come Azure Machine Learning Workbench fornisca strumenti che semplificano la configurazione degli ambienti di esecuzione e il passaggio tra di essi. 
+In questo scenario è stato illustrato come usare Azure Machine Learning Workbench per eseguire l'ottimizzazione di iperparametri in macchine virtuali remote e cluster Spark. È stato mostrato come Azure Machine Learning Workbench offra strumenti che semplificano la configurazione degli ambienti di esecuzione e il passaggio tra di essi. 
 
 ## <a name="references"></a>Riferimenti
 

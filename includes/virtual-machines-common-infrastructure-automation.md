@@ -41,21 +41,24 @@ Per creare e gestire macchine virtuali (VM) in modo coerente e scalabile, è in 
 
 
 ## <a name="cloud-init"></a>cloud-init
-[Cloud-init](https://cloudinit.readthedocs.io) è un approccio diffuso per personalizzare una macchina virtuale Linux al primo avvio. Cloud-init consente di installare pacchetti e scrivere file o configurare utenti e impostazioni di sicurezza. Quando cloud-init viene eseguito durante il processo di avvio iniziale non vi sono altri passaggi o agenti necessari per applicare la configurazione.
+[Cloud-init](https://cloudinit.readthedocs.io) è un approccio diffuso per personalizzare una macchina virtuale Linux al primo avvio. Cloud-init consente di installare pacchetti e scrivere file o configurare utenti e impostazioni di sicurezza. Poiché cloud-init viene chiamato durante il processo di avvio iniziale, non è necessario applicare passaggi aggiuntivi o agenti alla configurazione.  Per altre informazioni su come formattare correttamente i file `#cloud-config`, vedere il [sito della documentazione di cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  I file `#cloud-config` sono file di testo codificati in formato base64.
 
 Cloud-init funziona anche fra distribuzioni. Ad esempio, non si usa **apt-get install** o **yum install** per installare un pacchetto. In alternativa, è possibile definire un elenco di pacchetti da installare. Cloud-init userà automaticamente lo strumento di gestione del pacchetto nativo per la distribuzione selezionata.
 
-Microsoft collabora con i partner per promuovere l'inclusione e il funzionamento di cloud-init con le immagini da essi fornite per Azure. La tabella seguente illustra l'attuale disponibilità di cloud-init nelle immagini della piattaforma Azure:
+ Microsoft sta collaborando attivamente con i partner di distribuzione Linux approvati per offrire immagini abilitate per cloud-init in Azure Marketplace. Queste immagini permetteranno il funzionamento uniforme di distribuzioni e configurazioni di cloud-init con macchine virtuali e set di scalabilità di macchine virtuali. La tabella seguente contiene le attuali immagini abilitate per cloud-init disponibili nella piattaforma Azure:
 
-| Alias | Autore | Offerta | SKU | Versione |
+| Autore | Offerta | SKU | Versione | Pronta per cloud-init
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |più recenti |
-| UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |più recenti |
-| CoreOS |CoreOS |CoreOS |Stabile |più recenti |
+|Canonical |UbuntuServer |16.04-LTS |più recenti |sì | 
+|Canonical |UbuntuServer |14.04.5-LTS |più recenti |sì |
+|CoreOS |CoreOS |Stabile |più recenti |sì |
+|OpenLogic |CentOS |7-CI |più recenti |preview |
+|RedHat |RHEL |7-RAW-CI |più recenti |preview |
 
-È possibile passare agli argomenti seguenti:
+Altre informazioni dettagliate su cloud-init in Azure:
 
-- [Personalizzare una macchina virtuale Linux con cloud-init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
+- [Supporto di cloud-init per macchine virtuali Linux in Azure](../articles/virtual-machines/linux/using-cloud-init.md)
+- [Provare un'esercitazione sulla configurazione automatica della macchina virtuale tramite cloud init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
 
 
 ## <a name="powershell-dsc"></a>PowerShell DSC

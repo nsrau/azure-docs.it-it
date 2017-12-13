@@ -47,4 +47,4 @@ In un set di disponibilità, le singole macchine virtuali vengono distribuite su
 
 I set di scalabilità delle macchine virtuali sono una risorsa di calcolo di Azure che consente di distribuire e gestire un set di macchine virtuali identiche come una singola risorsa. Il set di scalabilità viene distribuito automaticamente nei domini di aggiornamento, ad esempio le VM in un set di disponibilità. Esattamente come con i set di disponibilità, con i set di scalabilità viene interessato un solo dominio di aggiornamento per volta.
 
-Per altre informazioni sulla configurazione delle macchine virtuali per una disponibilità elevata, vedere Gestire la disponibilità delle macchine virtuali per Windows (../articles/virtual-machines/windows/manage-availability.md) o [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Per altre informazioni sulla configurazione delle macchine virtuali per la disponibilità elevata, vedere Gestire la disponibilità delle macchine virtuali per [Windows](../articles/virtual-machines/windows/manage-availability.md) o [Linux](../articles/virtual-machines/linux/manage-availability.md).

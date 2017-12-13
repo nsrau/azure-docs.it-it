@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 12/4/2017
 ms.author: sethm
-ms.openlocfilehash: 25311958314cca049d109ecbe3f46aaaa36b694d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2b714c5de96a8fb7ed66a30c62daaa38b84fdc5b
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Inviare eventi a Hub di eventi di Azure usando C
 
@@ -27,16 +27,16 @@ Hub eventi è un sistema di inserimento a scalabilità elevata, in grado di inse
 
 Per altre informazioni, vedere [Panoramica di Hub eventi][Panoramica di Hub eventi].
 
-In questa esercitazione si apprenderà come inviare eventi a un hub eventi usando un'applicazione console in C. Per ricevere gli eventi, fare clic sulla lingua di destinazione appropriata nel sommario a sinistra.
+Questa esercitazione illustra come inviare eventi a un hub eventi usando un'applicazione console in C. Per informazioni su come ricevere gli eventi, fare clic sul linguaggio di ricezione appropriato nel sommario a sinistra.
 
-Per completare questa esercitazione, sono necessari gli elementi seguenti:
+Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Ambiente di sviluppo in C. Per questa esercitazione si presuppone l'uso di uno stack gcc in una VM Linux in Azure con Ubuntu 14.04.
+* Ambiente di sviluppo in C. Questa esercitazione presuppone l'uso di uno stack gcc in una VM Linux di Azure con Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
 * Un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="send-messages-to-event-hubs"></a>Inviare messaggi all'hub eventi
-In questa sezione si scrive un'app C per inviare eventi all'hub eventi. Il codice usa la libreria Proton AMQP dal [progetto Apache Qpid](http://qpid.apache.org/). Il procedimento è simile a quello adottato per l'uso da C di code e argomenti del bus di servizio con AMQP, come illustrato [qui](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Per altre informazioni, vedere la [documentazione di Qpid Proton](http://qpid.apache.org/proton/index.html).
+In questa sezione viene illustrato come scrivere un'app C per inviare eventi all'hub eventi. Il codice usa la libreria Proton AMQP dal [progetto Apache Qpid](http://qpid.apache.org/). Il procedimento è simile a quello adottato per l'uso di code e argomenti del bus di servizio con AMQP da C, come illustrato [in questo esempio](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Per altre informazioni, vedere la [documentazione di Qpid Proton](http://qpid.apache.org/proton/index.html).
 
 1. Dalla [pagina di Qpid AMQP Messenger](https://qpid.apache.org/proton/messenger.html) seguire le istruzioni per l'installazione di Qpid Proton a seconda dell'ambiente corrente.
 2. Per compilare la libreria Proton, installare i seguenti pacchetti:
@@ -59,7 +59,7 @@ In questa sezione si scrive un'app C per inviare eventi all'hub eventi. Il codic
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. Nella directory di lavoro creare un nuovo file denominato **sender.c** con il codice seguente. Ricordare di sostituire i valori del nome dell'hub eventi e del nome dello spazio dei nomi. È anche necessario sostituire una versione codificata con URL della chiave per l'elemento **SendRule** creato in precedenza. È possibile creare la versione codificata con URL [qui](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. Nella directory di lavoro creare un nuovo file denominato **sender.c** con il codice seguente. Ricordare di sostituire i valori per la chiave o il nome della firma di accesso condiviso, il nome dell'hub eventi e lo spazio dei nomi. È anche necessario sostituire una versione codificata con URL della chiave per l'elemento **SendRule** creato in precedenza. È possibile creare la versione codificata con URL [qui](http://www.w3schools.com/tags/ref_urlencode.asp).
    
     ```c
     #include "proton/message.h"
@@ -147,15 +147,13 @@ In questa sezione si scrive un'app C per inviare eventi all'hub eventi. Il codic
     ```
 
     > [!NOTE]
-    > In questo codice viene usata una finestra in uscita pari a 1 per imporre un invio dei messaggi il più rapido possibile. In generale l'applicazione dovrebbe cercare di riunire i messaggi in batch per migliorare la velocità effettiva. Vedere la [pagina di Qpid AMQP Messenger](https://qpid.apache.org/proton/messenger.html) per informazioni sull'uso della libreria Qpid Proton in questo e in altri ambienti e anche nelle piattaforme per le quali sono disponibili associazioni, al momento Perl, PHP, Python e Ruby.
+    > Questo codice usa una finestra in uscita pari a 1 per imporre un invio dei messaggi il più rapido possibile. È opportuno che l'applicazione provi a inviare i messaggi in batch per aumentare la velocità effettiva. Vedere la [pagina di Qpid AMQP Messenger](https://qpid.apache.org/proton/messenger.html) per informazioni sull'uso della libreria Qpid Proton in questo e in altri ambienti e anche nelle piattaforme per le quali sono disponibili associazioni, al momento Perl, PHP, Python e Ruby.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
-* [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md
-)
-* [Creare un hub eventi](event-hubs-create.md)
+* [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
 
 <!-- Images. -->

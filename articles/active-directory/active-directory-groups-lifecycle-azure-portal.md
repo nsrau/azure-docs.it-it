@@ -1,5 +1,5 @@
 ---
-title: "Funzionalità di anteprima di scadenza dei gruppi di Office 365 in Azure Active Directory | Microsoft Docs"
+title: Scadenza dei gruppi di Office 365 in Azure Active Directory | Microsoft Docs
 description: Come configurare la scadenza dei gruppi di Office 365 in Azure Active Directory (anteprima)
 services: active-directory
 documentationcenter: 
@@ -12,29 +12,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 12/01/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 8a43df84fd050d7b4bd8d937b8c55e744cb805d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2dd56bd34e5b7845298fab1f36e231113a2e28e
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="configure-office-365-groups-expiration-preview"></a>Configurare la scadenza dei gruppi di Office 365 (anteprima)
+# <a name="configure-expiration-for-office-365-groups-preview"></a>Configurare la scadenza per i gruppi di Office 365 (anteprima)
 
-È ora possibile gestire il ciclo di vita dei gruppi di Office 365 impostando la scadenza per qualsiasi gruppo di Office 365 selezionato. Dopo che la scadenza è stata impostata, ai proprietari dei gruppi viene chiesto di rinnovare il gruppo, se è ancora necessario. Qualsiasi gruppo di Office 365 che non viene rinnovato sarà eliminato. Qualsiasi gruppo di Office 365 eliminato può essere ripristinato entro 30 giorni dall'amministratore o dai proprietari del gruppo.  
-
+È ora possibile gestire il ciclo di vita dei gruppi di Office 365 impostando funzionalità di scadenza per questi ultimi. È possibile configurare la scadenza dei soli gruppi di Office 365 in Azure Active Directory (Azure AD). Dopo l'impostazione della scadenza di un gruppo:
+-   Quando la scadenza si avvicina, i proprietari del gruppo ricevono la notifica della necessità di rinnovare il gruppo
+-   I gruppi che non vengono rinnovati vengono eliminati
+-   I gruppi di Office 365 eliminati possono essere ripristinati entro 30 giorni dai proprietari o dall'amministratore.
 
 > [!NOTE]
-> È possibile impostare la scadenza solo per i gruppi di Office 365.
->
-> Per impostare la scadenza per i gruppi di Office 365, è necessario che venga assegnata una licenza di Azure AD Premium a
->   - L'amministratore che configura le impostazioni di scadenza per il tenant
->   - Tutti i membri dei gruppi selezionati per questa impostazione
+> L'impostazione della scadenza per i gruppi di Office 365 richiede una licenza Azure AD Premium o Azure AD Basic EDU per tutti i membri dei gruppi a cui sono applicate le impostazioni relative alla scadenza.
+> 
+> Per configurare questi criteri per la prima volta, i clienti con licenza Azure AD Basic EDU devono usare i cmdlet di Azure Active Directory PowerShell. In seguito è possibile aggiornare le impostazioni relative alla scadenza in PowerShell o nel portale di Azure AD con un account amministratore di account utente o con un account amministratore globale nel tenant di Azure AD.
 
-## <a name="set-office-365-groups-expiration"></a>Impostare la scadenza dei gruppi di Office 365
+Per informazioni su come scaricare e installare i cmdlet di Azure AD PowerShell, vedere [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) (Azure Active Directory PowerShell per Graph: versione di anteprima pubblica 2.0.0.137).
+
+## <a name="set-group-expiration"></a>Impostare la scadenza dei gruppi
 
 1. Aprire l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con un account di amministratore globale per il tenant di Azure AD.
 
@@ -51,7 +53,6 @@ ms.lasthandoff: 10/11/2017
   * Selezionare i gruppi di Office 365 che scadono. È possibile abilitare la scadenza per **tutti** i gruppi di Office 365, selezionare alcuni tra i gruppi di Office 365 oppure selezionare **Nessuno** per disabilitare la scadenza per tutti i gruppi.
   * Al termine salvare le impostazioni facendo clic su **Salva**.
 
-Per istruzioni su come scaricare e installare il modulo di Microsoft PowerShell per configurare la scadenza per i gruppi di Office 365 tramite PowerShell, vedere [Azure Active Directory V2 PowerShell Module - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) (Modulo di PowerShell per Azure Active Directory V2 - Versione di anteprima pubblica 2.0.0.137).
 
 Le notifiche tramite posta elettronica di questo tipo vengono inviate ai proprietari del gruppo di Office 365 30 giorni, 15 giorni e 1 giorno prima della scadenza del gruppo.
 
@@ -68,7 +69,8 @@ Il gruppo può essere ripristinato selezionando **Restore group** (Ripristina gr
 Se il gruppo che si sta ripristinando contiene documenti, siti di SharePoint o altri oggetti persistenti, potrebbero essere necessarie fino a 24 ore per ripristinare completamente il gruppo e il relativo contenuto.
 
 > [!NOTE]
-> * Quando si distribuiscono le impostazioni di scadenza, potrebbero esserci alcuni gruppi anteriori all'intervallo di scadenza. Questi gruppi non vengono eliminati immediatamente, ma ne viene impostata la scadenza dopo 30 giorni. La prima notifica di rinnovo viene inviata tramite posta elettronica entro un giorno. Ad esempio, il gruppo A è stato creato da 400 giorni e l'intervallo di scadenza è impostato su 180 giorni. Quando si applicano le impostazioni di scadenza, il gruppo A ha 30 giorni prima di essere eliminato, a meno che il proprietario non lo rinnovi.
+> * Quando si configura la scadenza per la prima volta, la scadenza di tutti i gruppi creati prima dell'intervallo di scadenza scelto viene impostata su 30 giorni. La prima notifica di rinnovo viene inviata tramite posta elettronica entro un giorno. 
+>   Ad esempio, il gruppo A è stato creato da 400 giorni e l'intervallo di scadenza è impostato su 180 giorni. Quando si applicano le impostazioni di scadenza, il gruppo A ha 30 giorni prima di essere eliminato, a meno che il proprietario non lo rinnovi.
 > * Quando un gruppo dinamico viene eliminato e ripristinato, viene considerato come un nuovo gruppo e popolato nuovamente in base alla regola. Questo processo può richiedere fino a 24 ore.
 
 ## <a name="next-steps"></a>Passaggi successivi

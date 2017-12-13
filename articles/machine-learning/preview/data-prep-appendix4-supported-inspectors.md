@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 35d7c04f245e93d8cc795dca7c01c2bab5a14eb8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 51a1b65446a1a0db93c21378f156b608a38ef817
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Controlli supportati per la preparazione dati di Azure Machine Learning - Anteprima
 Questo documento descrive il set di controlli disponibili in questa anteprima.
@@ -113,3 +113,18 @@ Una mappa con punti tracciati, presupponendo che siano state specificate latitud
 Questo controllo supporta la funzione di filtro tramite selezione di punti sulla mappa. Premere **CTRL** e quindi fare clic e trascinare per formare un quadrato intorno ai punti. Applicare i filtri come descritto in precedenza.
 
 È possibile modificare rapidamente le dimensioni della mappa perché visualizzi solo i punti possibili premendo la **E** sul lato sinistro della mappa stessa.
+
+
+## <a name="pattern-frequency"></a>Frequenza dei modelli 
+
+Questo controllo mostra un elenco di modelli nella colonna stringa selezionata. I modelli vengono rappresentati usando una sintassi come quella delle espressioni regolari. Al passaggio del mouse sul modello vengono visualizzati gli esempi dei valori rappresentati da tale modello. Oltre ai modelli, vengono visualizzate anche le coperture approssimative in termini di percentuale.
+
+![Immagine del controllo dei modelli](media/data-prep-appendix4-supported-inspectors/PatternInspectorProductNumber.png)
+
+### <a name="options"></a>Opzioni
+- Numero di valori superiori
+- Decrescente
+- Mostra alone
+
+### <a name="actions"></a>Azioni
+Questo controllo supporta l'applicazione di filtri in base ai modelli visualizzati. Premere **CTRL** e quindi selezionare le barre piene nel controllo dei modelli. Applicare i filtri come descritto in precedenza. Come risultato dell'azione dell'utente, viene aggiunto un passaggio di filtro avanzato. È possibile visualizzare e modificare il codice Python generato richiamando l'opzione di modifica del passaggio di filtro avanzato.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: c2de89ba3adaaa7d745731cff74269deecef03e2
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 62b1bf66647c762b17410c37fe6ebd996f577d25
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Copiare dati da/in Dynamics 365/Dynamics CRM usando Azure Data Factory
 
@@ -30,14 +30,20 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 È possibile copiare dati da Dynamics 365/Dynamics CRM in qualsiasi archivio dati di sink supportato o da qualsiasi archivio dati di origine supportato in Dynamics 365/Dynamics CRM. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
-In particolare, il connettore Dynamics supporta le versioni di Dynamics e i tipi di autenticazione seguenti:
+Questo connettore Dynamics supporta le versioni di Dynamics e i tipi di autenticazione seguenti. *IFD (Internet Facing Deployment) indica una distribuzione con connessione Internet*:
 
 | Versioni di Dynamics | Tipi di autenticazione | Esempi di servizi collegati |
 |:--- |:--- |:--- |
 | Dynamics 365 Online <br> Dynamics CRM Online | Office365 | [Dynamics Online + autenticazione di Office365](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 locale con IFD <br> Dynamics CRM 2016 locale con IFD <br> Dynamics CRM 2015 locale con IFD | IFD | [Dynamics locale IFD + autenticazione IFD](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
 
-*IFD è l'acronimo di Internet Facing Deployment (distribuzione con connessione Internet).*
+Per Dynamics 365 in particolare, sono supportati i tipi di applicazioni seguenti:
+
+- Dynamics 365 for Sales
+- Dynamics 365 for Customer Service
+- Dynamics 365 for Field Service
+- Dynamics 365 for Project Service Automation
+- Dynamics 365 for Marketing
 
 > [!NOTE]
 > Per usare il connettore Dynamics, archiviare la password in Azure Key Vault e consentire all'attività di copia di Azure Data Factory di effettuare il pull da qui quando esegue la copia dei dati. Per informazioni sulle procedure di configurazione, vedere la sezione [Proprietà del servizio collegato](#linked-service-properties).

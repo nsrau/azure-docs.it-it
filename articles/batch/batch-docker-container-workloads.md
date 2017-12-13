@@ -1,6 +1,6 @@
 ---
-title: Carichi di lavoro del contenitore Docker in Azure Batch | Microsoft Docs
-description: Informazioni su come eseguire le applicazioni dalle immagini del contenitore Docker in Azure Batch.
+title: Carichi di lavoro del contenitore in Azure Batch | Microsoft Docs
+description: Informazioni su come eseguire le applicazioni dalle immagini del contenitore in Azure Batch.
 services: batch
 author: v-dotren
 manager: timlt
@@ -8,15 +8,15 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 12/01/2017
 ms.author: v-dotren
-ms.openlocfilehash: fc15b2db051b5ebbf39665b803b22d3a5e4885f9
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 1795bdde5506f599849a30d4e59ed7b916595ac4
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="run-docker-container-applications-on-azure-batch"></a>Eseguire le applicazioni del contenitore Docker in Azure Batch
+# <a name="run-container-applications-on-azure-batch"></a>Eseguire le applicazioni del contenitore in Azure Batch
 
 Azure Batch consente di eseguire e ridimensionare tantissimi processi di batch computing in Azure. Fino ad ora, le attività di Batch sono state eseguite direttamente sulle macchine virtuali in un pool di Batch, ma ora è possibile configurare un pool di Batch che esegua le attività in contenitori Docker.
 
@@ -112,12 +112,11 @@ Il processo di pull, o di prelettura, consente di pre-caricare le immagini del c
 
 ### <a name="pool-without-prefetched-container-images"></a>Pool senza immagini del contenitore prelette
 
-Per configurare il pool senza immagini del contenitore prelette, usare `ContainerConfiguration` come illustrato nell'esempio seguente. Questo e gli esempi seguenti presuppongono che si usi un'immagine Ubuntu 16.04 LTS personalizzata con il motore Docker installato.
+Per configurare il pool senza immagini del contenitore prelette, definire gli oggetti `ContainerConfiguration` e `VirtualMachineConfiguration` come illustrato nell'esempio seguente. Questo e gli esempi seguenti presuppongono che si usi un'immagine Ubuntu 16.04 LTS personalizzata con il motore Docker installato.
 
 ```csharp
 // Specify container configuration
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker");
+ContainerConfiguration containerConfig = new ContainerConfiguration();
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
@@ -136,14 +135,14 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 pool.Commit();
 ```
 
+
 ### <a name="prefetch-images-for-container-configuration"></a>Prelettura delle immagini per la configurazione del contenitore
 
-Per eseguire la prelettura delle immagini del contenitore nel pool, aggiungere l'elenco di immagini del contenitore, `containerImageNames`, alla configurazione del contenitore e assegnare un nome all'elenco immagini. L'esempio seguente presuppone che si usi un'immagine personalizzata di Ubuntu 16.04 LTS, che si esegua una prelettura di un'immagine TensorFlow dall'[Hub Docker](https://hub.docker.com) e che si avvii TensorFlow in un'attività di avvio.
+Per eseguire la prelettura delle immagini del contenitore nel pool, aggiungere l'elenco di immagini del contenitore, `containerImageNames`, a `ContainerConfiguration` e assegnare un nome all'elenco immagini. L'esempio seguente presuppone che si usi un'immagine personalizzata di Ubuntu 16.04 LTS, che si esegua una prelettura di un'immagine TensorFlow dall'[Hub Docker](https://hub.docker.com) e che si avvii TensorFlow in un'attività di avvio.
 
 ```csharp
 // Specify container configuration, prefetching Docker images
 ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker",
     containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
 
 // VM configuration
@@ -176,7 +175,7 @@ pool.Commit();
 
 ### <a name="prefetch-images-from-a-private-container-registry"></a>Prelettura delle immagini da un registro di sistema del contenitore privato
 
-È anche possibile eseguire la prelettura delle immagini del contenitore eseguendo l'autenticazione a un server del registro di sistema del contenitore privato. L'esempio seguente presuppone che si usi un'immagine personalizzata di Ubuntu 16.04 LTS e che si esegua la prelettura di un'immagine privata di TensorFlow dal registro di sistema del contenitore privato di Azure.
+È anche possibile eseguire la prelettura delle immagini del contenitore eseguendo l'autenticazione a un server del registro di sistema del contenitore privato. Nell'esempio seguente gli oggetti `ContainerConfiguration` e `VirtualMachineConfiguration` usano un'immagine personalizzata di Ubuntu 16.04 LTS ed eseguono la prelettura di un'immagine privata di TensorFlow dal registro contenitori privato di Azure.
 
 ```csharp
 // Specify a container registry
@@ -187,7 +186,6 @@ ContainerRegistry containerRegistry = new ContainerRegistry (
 
 // Create container configuration, prefetching Docker images from the container registry
 ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker",
     containerImageNames: new List<string> {
         "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" },
     containerRegistries: new List<ContainerRegistry> { containerRegistry } );

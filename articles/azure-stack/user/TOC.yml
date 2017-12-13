@@ -119,6 +119,10 @@
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
     - name: Interfaccia della riga di comando di Azure Stack
       href: /cli/azure/?view=azure-cli-2017-03-09-profile
+- name: Risorse correlate
+  items:
+    - name: Documentazione dell'operatore di Azure Stack
+      href: /azure/azure-stack/
 - name: Risorse
   items:
     - name: Roadmap per Azure

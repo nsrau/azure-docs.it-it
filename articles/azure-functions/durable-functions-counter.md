@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ec7d51d3f30eb3417a48fbf8d31a9b8359e39ab9
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 05099e868e62f612be0a3354eb8b339507ac7e4a
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Singleton con stato in Funzioni permanenti - Contatore di esempio
 
@@ -45,13 +45,31 @@ Le Funzioni permanenti facilitano l'implementazione di questo tipo di scenario, 
 
 Questo articolo analizza la funzione **E3_Counter** nell'app di esempio.
 
-Le sezioni seguenti illustrano il codice usato per lo sviluppo di Visual Studio. Il codice per lo sviluppo del portale di Azure è simile.
+
 
 ## <a name="the-counter-orchestration"></a>Orchestrazione del contatore
+
+Le sezioni seguenti illustrano il codice usato per lo sviluppo in Visual Studio Code e nel portale di Azure.
+
+### <a name="c-script"></a>Script C#
+
+Il file function.json:
+
+[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Counter/function.json)]
+
+Il file run.csx:
+
+[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Counter/run.csx)]
+
+### <a name="precompiled-c"></a>C# precompilato 
+
+Le sezioni seguenti illustrano il codice usato per lo sviluppo di Visual Studio.
 
 Il codice che implementa la funzione dell'agente di orchestrazione è il seguente:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Counter.cs)]
+
+### <a name="explanation-of-the-code"></a>Descrizione del codice
 
 Le operazioni di questa funzione dell'agente di orchestrazione sono le seguenti:
 

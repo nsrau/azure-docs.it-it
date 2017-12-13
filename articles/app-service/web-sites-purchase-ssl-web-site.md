@@ -1,11 +1,10 @@
 ---
-title: Aggiungere un certificato SSL all'app del Servizio app di Azure | Documentazione Microsoft
-description: Informazioni su come aggiungere un certificato SSL all'app del Servizio app.
+title: Acquistare e configurare un certificato SSL per il servizio app di Azure | Microsoft Docs
+description: Informazioni su come acquistare un certificato del servizio app e associarlo all'app del servizio app
 services: app-service
 documentationcenter: .net
-author: ahmedelnably
-manager: stefsch
-editor: cephalin
+author: cephalin
+manager: cfowler
 tags: buy-ssl-certificates
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
@@ -13,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
-ms.author: apurvajo
-ms.openlocfilehash: 214f05f45f59b0403e6902988f9184d6b62618bd
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 12/01/2017
+ms.author: apurvajo;cephalin
+ms.openlocfilehash: 256cb9a33d49bc3c24b2d94c417632edb0c8df31
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Acquistare e configurare un certificato SSL per il servizio app di Azure
 
@@ -74,12 +73,16 @@ Dopo aver selezionato l'archivio del Key Vault in cui archiviare il certificato,
 
 ## <a name="step-4---verify-the-domain-ownership"></a>Passaggio 4: verificare la proprietà del dominio
 
-> [!NOTE]
-> Esistono 3 tipi di verifica del dominio supportati da Certificati del servizio app: Domain, Mail, Manual Verification. Questi tipi di verifica sono illustrati più dettagliatamente nella [sezione Avanzate](#advanced).
-
 Nella stessa pagina **Configurazione certificato** usata nel passaggio 3 fare clic su **Passaggio 2: verificare**.
 
-La **verifica del dominio** è il processo più semplice **SOLO IN CASO DI**acquisto **[del dominio personalizzato dal Servizio app di Azure.](custom-dns-web-site-buydomains-web-app.md)**
+Scegliere il metodo di verifica del dominio preferito. 
+
+Esistono quattro tipi di verifica del dominio supportati da Certificati del servizio app: Servizio app, Dominio, Posta e Verifica manuale. Questi tipi di verifica sono illustrati più dettagliatamente nella [sezione Avanzate](#advanced).
+
+> [!NOTE]
+> **Verifica del servizio app** è l'opzione più efficiente quando il dominio che si intende verificare è già mappato a un'app del servizio app nella stessa sottoscrizione in quanto l'app del servizio app ha già verificato la proprietà del dominio.
+>
+
 Fare clic sul pulsante **Verifica** per completare questo passaggio.
 
 ![inserimento immagine della verifica del dominio](./media/app-service-web-purchase-ssl-web-site/DomainVerificationRequired.png)
@@ -142,6 +145,10 @@ Per completare il passaggio di verifica tramite posta elettronica, aprire la pos
 
 Se è necessario un nuovo invio del messaggio di verifica, fare clic sul pulsante **Invia di nuovo il messaggio di posta elettronica**.
 
+#### <a name="domain-verification"></a>Verifica del dominio
+
+Scegliere questa opzione solo per un [dominio del servizio app che è stato acquistato da Azure.](custom-dns-web-site-buydomains-web-app.md). Azure aggiunge automaticamente il record TXT di verifica e completa il processo.
+
 #### <a name="manual-verification"></a>Verifica manuale
 
 > [!IMPORTANT]
@@ -197,6 +204,7 @@ Se il certificato SSL è configurato per il rinnovo automatico, ma non viene rin
 - GoDaddy, che genera i certificati del servizio app, richiede la verifica del dominio una volta ogni tre anni. Per la verifica del dominio, l'amministratore di dominio riceve un messaggio di posta elettronica una volta ogni tre anni. Se il messaggio di posta elettronica non viene letto oppure la verifica del dominio non viene eseguita, il certificato del servizio app non potrà essere rinnovato automaticamente. 
 - Tutti i certificati del servizio app rilasciati prima del 31 marzo 2017 richiedono la nuova verifica del dominio al momento del rinnovo successivo, anche se per il certificato è abilitato il rinnovo automatico. Questo requisito deriva dalla modifica dei criteri di GoDaddy. Controllare la posta elettronica ed eseguire questa verifica del dominio occasionale per proseguire il rinnovo automatico del certificato del servizio app. 
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="more-resources"></a>Altre risorse
 
-* [Aggiungere una Rete per la distribuzione di contenuti (CDN)](app-service-web-tutorial-content-delivery-network.md)
+* [Usare un certificato SSL nel codice dell'applicazione in Servizio app di Azure](app-service-web-ssl-cert-load.md)
+* [Domande frequenti: Certificati del servizio app](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

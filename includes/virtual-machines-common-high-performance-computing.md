@@ -68,8 +68,9 @@ Eseguire applicazioni HPC personalizzate o commerciali in Azure. Per alcuni esem
 
 ### <a name="ai-and-deep-learning"></a>AI e apprendimento avanzato
 
+* Evento di formazione [Intelligenza artificiale per Batch](../articles/batch-ai/overview.md) per i modelli di apprendimento avanzato
 * [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
-* [Deep learning toolkit for Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
+* [Macchina virtuale per l'apprendimento avanzato](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [Soluzioni di Batch Shipyard per l'apprendimento avanzato](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
 
 
@@ -104,7 +105,7 @@ I fornitori o sviluppatori di SaaS possono usare gli strumenti e gli SDK di Batc
 
 * [Introduzione allo sviluppo con Batch](../articles/batch/batch-dotnet-get-started.md)
 * [Usare gli esempi di codice per Azure Batch](https://github.com/Azure/azure-batch-samples)
-* [Usare le VM con priorità bassa in Batch (anteprima)](../articles/batch/batch-low-pri-vms.md)
+* [Usare le macchine virtuali con priorità bassa in Batch](../articles/batch/batch-low-pri-vms.md)
 * [Eseguire carichi di lavoro HPC inclusi in contenitori con Batch Shipyard](https://github.com/Azure/batch-shipyard)
 * [Usare il linguaggio R con Batch](https://github.com/Azure/doAzureParallel)
 
@@ -138,7 +139,7 @@ Le macchine virtuali di Azure, i set di scalabilità di macchine virtuali, Batch
 * [Archiviazione file](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Dati e analisi
-* [HDInsight](../articles/hdinsight/hdinsight-hadoop-introduction.md) per cluster Hadoop in Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) per cluster Hadoop in Azure
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)

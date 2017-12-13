@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: c7604fdb948a2f4d2adca5d6821d9ea36e96dae6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 488a4c4b7daf5c07ca5f6b6bb72464279658d372
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="api-management-caching-policies"></a>Criteri di memorizzazione nella cache in Gestione API
 Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -28,15 +28,12 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
 -   Criteri di memorizzazione nella cache della risposta  
   
     -   [Recupera dalla cache](api-management-caching-policies.md#GetFromCache): esegue una ricerca nella cache e restituisce risposte valide memorizzate nella cache, se disponibili.  
-  
     -   [Archivia nella cache](api-management-caching-policies.md#StoreToCache): memorizza nella cache le risposte in base alla configurazione del controllo cache specificata.  
   
 -   Criteri di memorizzazione dei valori nella cache  
-  
-    -   [Recupera valore dalla cache](#GetFromCacheByKey) : recupera un elemento memorizzato nella cache per chiave.  
-  
-    -   [Archivia valore nella cache](#StoreToCacheByKey) : archivia un elemento nella cache per chiave.  
-  
+
+    -   [Recupera valore dalla cache](#GetFromCacheByKey) : recupera un elemento memorizzato nella cache per chiave. 
+    -   [Archivia valore nella cache](#StoreToCacheByKey) : archivia un elemento nella cache per chiave. 
     -   [Rimuovi valore dalla cache](#RemoveCacheByKey) : rimuove un elemento dalla cache in base alla chiave.  
   
 ##  <a name="GetFromCache"></a> Recupera dalla cache  
@@ -54,7 +51,7 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
   <vary-by-header>Accept-Charset</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Authorization</vary-by-header>  
-  <!-- should be present when allow-authorized-response-caching is "true"-->  
+  <!-- should be present when allow-private-response-caching is "true"-->  
   <vary-by-header>header name</vary-by-header>  
   <!-- optional, can repeated several times -->  
   <vary-by-query-parameter>parameter name</vary-by-query-parameter>  
@@ -119,14 +116,13 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
 |allow-private-response-caching|Se impostato su `true`, consente la memorizzazione nella cache delle richieste contenenti un'intestazione di autorizzazione.|No|false|  
 |downstream-caching-type|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   none - Non è consentita la memorizzazione nella cache downstream.<br />-   private - È consentita la memorizzazione nella cache downstream privata.<br />-   public - È consentita la memorizzazione nella cache downstream privata e condivisa.|No|nessuno|  
 |must-revalidate|Quando è abilitata la memorizzazione nella cache downstream, questo attributo attiva o disattiva la direttiva di controllo di memorizzazione della cache `must-revalidate` nelle risposte del gateway.|No|true|  
-|vary-by-developer|Impostare su `true` per memorizzare le risposte nella cache per ogni chiave sviluppatore.|No|false|  
-|vary-by-developer-groups|Impostare su `true` per memorizzare le risposte nella cache per ogni ruolo utente.|No|false|  
+|vary-by-developer|Impostare su `true` per memorizzare le risposte nella cache per ogni chiave sviluppatore.|Sì||  
+|vary-by-developer-groups|Impostare su `true` per memorizzare le risposte nella cache per ogni ruolo utente.|Sì||  
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** in ingresso  
-  
 -   **Ambiti del criterio:** API, operazione, prodotto  
   
 ##  <a name="StoreToCache"></a> Archivia nella cache  
@@ -198,8 +194,7 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere utilizzato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) di criteri seguenti.  
   
--   **Sezioni del criterio:** in uscita  
-  
+-   **Sezioni del criterio:** in uscita    
 -   **Ambiti del criterio:** API, operazione, prodotto  
   
 ##  <a name="GetFromCacheByKey"></a> Recupera valore dalla cache  
@@ -244,7 +239,6 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error  
-  
 -   **Ambiti del criterio:** global, API, operation, product  
   
 ##  <a name="StoreToCacheByKey"></a> Archivia valore nella cache  
@@ -287,11 +281,10 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error  
-  
 -   **Ambiti del criterio:** global, API, operation, product  
   
 ###  <a name="RemoveCacheByKey"></a> Rimuovi valore dalla cache  
- `cache-remove-value` elimina un elemento memorizzato nella cache identificato in base alla chiave. La chiave può avere un valore di stringa arbitrario e viene indicata in genere usando un'espressione di criteri.  
+`cache-remove-value` elimina un elemento memorizzato nella cache identificato in base alla chiave. La chiave può avere un valore di stringa arbitrario e viene indicata in genere usando un'espressione di criteri.  
   
 #### <a name="policy-statement"></a>Istruzione del criterio  
   
@@ -325,9 +318,13 @@ Questo argomento fornisce un riferimento per i seguenti criteri di Gestione API.
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound, outbound, backend, on-error  
-  
 -   **Ambiti del criterio:** global, API, operation, product  
-  
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sull'uso dei criteri, vedere [Criteri di Gestione API](api-management-howto-policies.md).  
+
+Per altre informazioni sull'uso di questi criteri, vedere:
+
++ [Criteri di Gestione API](api-management-howto-policies.md)
++ [API Transform](transform-api.md)
++ [Informazioni di riferimento per i criteri](api-management-policy-reference.md) per un elenco completo di istruzioni dei criteri e delle relative impostazioni
++ [Esempi di criteri](policy-samples.md)   

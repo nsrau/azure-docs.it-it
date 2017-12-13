@@ -54,7 +54,7 @@ No. No, i dischi nelle macchine virtuali in un set di disponibilità devono esse
 
 **Managed Disks è l'opzione predefinita nel portale di Azure?**
 
-Non attualmente, ma diventerà l'impostazione predefinita in futuro.
+Sì. 
 
 **È possibile creare un disco vuoto gestito?**
 
@@ -108,6 +108,40 @@ No. Non è possibile aggiornare la proprietà del nome del computer. La nuova VM
 **Dove si possono trovare modelli di Azure Resource Manager di esempio per creare macchine virtuali con dischi gestiti?**
 * [Elenco di modelli che usano Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
+
+## <a name="migrate-to-managed-disks"></a>Eseguire la migrazione a Managed Disks 
+
+**Quali modifiche sono necessarie in una configurazione del servizio Backup di Azure preesistente prima/dopo la migrazione a Managed Disks?**
+
+Non sono necessarie modifiche. 
+
+**I backup di macchine virtuali creati tramite il servizio Backup di Azure prima della migrazione continueranno a funzionare correttamente?**
+
+Sì, i backup continueranno a funzionare senza problemi.
+
+**Quali modifiche sono necessarie in una configurazione preesistente di Crittografia dischi di Azure prima/dopo la migrazione a Managed Disks?**
+
+Non sono necessarie modifiche. 
+
+**È supportata la migrazione automatica di un set di scalabilità di macchine virtuali di Microsoft Azure (VMSS) da dischi non gestiti a Managed Disks?**
+
+No. È possibile creare un nuovo set di scalabilità di macchine virtuali di Microsoft Azure con Managed Disks usando l'immagine dal vecchio set di scalabilità con dischi non gestiti. 
+
+**È possibile creare un disco gestito da uno snapshot di BLOB di pagine eseguito prima della migrazione a Managed Disks?**
+
+No. È possibile esportare uno snapshot di BLOB di pagine come BLOB di pagine e quindi creare un disco gestito dal BLOB di pagine esportato. 
+
+**È possibile eseguire il failover su macchine virtuali locali protette da Azure Site Recovery in una macchina virtuale con Managed Disks?**
+
+Sì, è possibile scegliere di eseguire il failover su una macchina virtuale con Managed Disks.
+
+**La migrazione su macchine virtuali di Azure protette da Azure Site Recovery (ASR) tramite la replica da Azure ad Azure ha qualche ripercussione?**
+
+Sì. La protezione tramite Azure Site Recovery (ASR) da Azure ad Azure non è supportata per le macchine virtuali con Managed Disks. Sarà supportata alla fine del 2018. 
+
+**È possibile eseguire la migrazione di macchine virtuali con dischi non gestiti ubicati in account di archiviazione che sono o sono stati crittografati in precedenza in VM con dischi gestiti?**
+
+Sì
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks e crittografia del servizio di archiviazione 
 

@@ -1,5 +1,5 @@
 ---
-title: Confronto di piani di hosting per Funzioni di Azure | Microsoft Docs
+title: Ridimensionamento e hosting di Funzioni di Azure | Microsoft Docs
 description: Informazioni su come scegliere tra il piano di utilizzo di Funzioni di Azure e piano di servizio app.
 services: functions
 documentationcenter: na
@@ -17,15 +17,15 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09bb662e30a97e2741303e2e4630582625954909
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ff3f7072792c76c5d05310451771bde61b61e009
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/01/2017
 ---
-# <a name="azure-functions-hosting-plans-comparison"></a>Confronto di piani di hosting per Funzioni di Azure
+# <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
-È possibile eseguire Funzioni di Azure in due modalità diverse, ovvero con piano a consumo e piano di servizio app di Azure. Il piano a consumo alloca automaticamente funzionalità di calcolo durante l'esecuzione del codice, aumenta il numero di istanze in base alla necessità per gestire il carico e quindi riduce le prestazioni quando il codice non è in esecuzione. Non è quindi necessario pagare per le macchine virtuali inattive e non è necessario riservare in anticipo la capacità. Questo articolo è incentrato sul piano a consumo, un modello App [senza server](https://azure.microsoft.com/overview/serverless-computing/). Per informazioni dettagliate sul funzionamento del piano di servizio app, vedere [Panoramica approfondita dei piani di servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+È possibile eseguire Funzioni di Azure in due modalità diverse, ovvero con piano a consumo e piano di servizio app di Azure. Il piano a consumo alloca automaticamente funzionalità di calcolo durante l'esecuzione del codice, aumenta il numero di istanze in base alla necessità per gestire il carico e quindi riduce le prestazioni quando il codice non è in esecuzione. Non è necessario pagare per le macchine virtuali inattive e non è necessario riservare in anticipo la capacità. Questo articolo è incentrato sul piano a consumo, un modello App [senza server](https://azure.microsoft.com/overview/serverless-computing/). Per informazioni dettagliate sul funzionamento del piano di servizio app, vedere [Panoramica approfondita dei piani di servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 >[!NOTE]  
 > L'hosting in Linux è attualmente disponibile solo per un piano di servizio app.
@@ -84,18 +84,20 @@ L'opzione Sempre online è disponibile solo nel piano di servizio app. In un pia
 
 In un piano a consumo o un piano di servizio app è necessario che un'app per le funzioni abbia un account di Archiviazione di Microsoft Azure generale che supporti l'archiviazione BLOB, code, file e tabelle. Funzioni di Azure usa internamente Archiviazione di Azure per operazioni come la gestione dei trigger e la registrazione dell'esecuzione delle funzioni. Alcuni account di archiviazione non supportano code e tabelle, ad esempio gli account di archiviazione solo BLOB (tra cui Archiviazione Premium) e gli account di archiviazione di uso generico con replica archiviazione con ridondanza della zona. Tali account vengono filtrati dal pannello **Account di archiviazione** quando si crea un'app per le funzioni.
 
+<!-- JH: Does using a PRemium Storage account improve perf? -->
+
 Per altre informazioni sui tipi di account di archiviazione, vedere [Introduzione ai servizi di archiviazione di Azure](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
 
 ## <a name="how-the-consumption-plan-works"></a>Funzionamento del piano a consumo
 
-Nel piano a consumo il controller di scalabilità offre la scalabilità automatica di CPU e delle risorse di memoria aggiungendo altre istanze dell'host di Funzioni di Azure, in base al numero di eventi che attivano le rispettive funzioni. Ogni istanza dell'host di Funzioni è limitata a 1,5 GB di memoria.
+Nel piano a consumo il controller di scalabilità offre la scalabilità automatica di CPU e delle risorse di memoria aggiungendo altre istanze dell'host di Funzioni di Azure, in base al numero di eventi che attivano le rispettive funzioni. Ogni istanza dell'host di Funzioni è limitata a 1,5 GB di memoria.  Un'istanza dell'host è l'app per le funzioni, vale a dire tutte le funzioni all'interno di un'app per le funzioni condividono le risorse all'interno di un'istanza e vengono ridimensionale nello stesso momento.
 
 Quando si usa un piano di hosting a consumo, i file di codice delle funzioni vengono archiviati nelle condivisioni di File di Azure nell'account di archiviazione principale della funzione. Quando si elimina l'account di archiviazione principale dell'app per le funzioni, i file di codice delle funzioni vengono eliminati e non possono essere recuperati.
 
 > [!NOTE]
 > Quando si usa un trigger di tipo BLOB in un piano a consumo, può verificarsi un ritardo massimo di 10 minuti per l'elaborazione di nuovi BLOB in caso di inattività di un'app per le funzioni. Quando l'app per le funzioni è in esecuzione, i BLOB vengono elaborati immediatamente. Per evitare questo ritardo iniziale, prendere in considerazione una delle opzioni seguenti:
 > - Eseguire l'hosting dell'app per le funzioni in un piano di servizio app con l'opzione Always On abilitata.
-> - Usare un altro meccanismo per attivare l'elaborazione dei BLOB, ad esempio un messaggio della coda che contiene il nome del BLOB. Per un esempio, vedere gli [esempi di script C# e JavaScript per le associazioni di input e di output dei BLOB](functions-bindings-storage-blob.md#input--output---example).
+> - Usare un altro meccanismo per attivare l'elaborazione dei BLOB, ad esempio una sottoscrizione di Griglia di eventi o un messaggio della coda che contiene il nome del BLOB. Per un esempio, vedere gli [esempi di script C# e JavaScript per le associazioni di input e di output dei BLOB](functions-bindings-storage-blob.md#input--output---example).
 
 ### <a name="runtime-scaling"></a>Ridimensionamento in fase di runtime
 
@@ -104,6 +106,20 @@ Funzioni di Azure usa un componente denominato *controller di scalabilità* per 
 L'unità di scalabilità è l'app per le funzioni. In caso di aumento del numero di istanze dell'app per le funzioni, vengono allocate altre risorse per l'esecuzione di più istanze dell'host di Funzioni di Azure. In caso di riduzione delle richieste di calcolo, il controller di scalabilità rimuove le istanze dell'host di Funzioni. Il numero di istanze viene ridotto a zero quando non è in esecuzione alcuna funzione in un'app per le funzioni.
 
 ![Monitoraggio degli eventi e creazione delle istanze da parte del controller di scalabilità](./media/functions-scale/central-listener.png)
+
+### <a name="understanding-scaling-behaviors"></a>Introduzione al ridimensionamento
+
+Il ridimensionamento può variare in base a numerosi fattori e comportarsi diversamente a seconda del trigger e della lingua selezionati. Esistono tuttavia alcuni aspetti del ridimensionamento comuni a livello di sistema:
+* Un'app per le funzioni verrà ridimensionata solo fino a un massimo di 200 istanze. Una singola istanza può elaborare più di un messaggio o più di una richiesta alla volta. Pertanto, non esiste alcun limite per quanto riguarda il numero di esecuzioni parallele.
+* Le nuove istanze verranno allocate al massimo una volta ogni 10 secondi.
+
+Trigger distinti possono avere limiti di ridimensionamento diversi come illustrato di seguito:
+
+* [Hub eventi](functions-bindings-event-hubs.md#trigger---scaling)
+
+### <a name="best-practices-and-patterns-for-scalable-apps"></a>Procedure consigliate e modelli per app scalabili
+
+Esistono molti aspetti di un'app per le funzioni che hanno un impatto sull'accuratezza del ridimensionamento, ad esempio la configurazione dell'host, il footprint del runtime e l'efficienza delle risorse.  Per altre informazioni, vedere la [sezione relativa alla scalabilità nell'articolo sulle prestazioni](functions-best-practices.md#scalability-best-practices).
 
 ### <a name="billing-model"></a>Modello di fatturazione
 

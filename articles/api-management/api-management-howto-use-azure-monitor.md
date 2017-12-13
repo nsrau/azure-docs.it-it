@@ -1,144 +1,124 @@
 ---
-title: Monitorare Gestione API con Monitoraggio di Azure | Microsoft Docs
-description: Informazioni su come monitorare il servizio Gestione API di Azure usando Monitoraggio di Azure.
+title: Monitorare le API pubblicate con Gestione API di Azure | Microsoft Docs
+description: Eseguire le procedure di questa esercitazione per monitorare le API con Gestione API di Azure.
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 2fa193cd-ea71-4b33-a5ca-1f55e5351e23
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/23/2017
+ms.custom: mvc
+ms.topic: tutorial
+ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 717e033aa4bbd4dd8ebcc727c3f551aee81770dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bdca9d4968e9e68314f350787907f15e417821f7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="monitor-api-management-with-azure-monitor"></a>Monitorare Gestione API con Monitoraggio di Azure
+# <a name="monitor-published-apis"></a>Monitorare le API pubblicate
+
 Monitoraggio di Azure è un servizio di Azure che offre un'unica origine per il monitoraggio di tutte le risorse di Azure. Con Monitoraggio di Azure è possibile visualizzare, eseguire query, indirizzare, archiviare ed effettuare operazioni sulle metriche e sui log provenienti dalle risorse di Azure, tra cui Gestione API. 
 
-Il video seguente illustra come monitorare Gestione API usando Monitoraggio di Azure. Per altre informazioni su Monitoraggio di Azure, vedere l'[introduzione a Monitoraggio di Azure]. 
+In questa esercitazione si apprenderà come:
 
+> [!div class="checklist"]
+> * Visualizzare log di attività
+> * Visualizzare i log di diagnostica
+> * Visualizzare le metriche dell'API 
+> * Configurare una regola di avviso quando l'API riceve delle chiamate non autorizzate
+
+Il video seguente illustra come monitorare Gestione API usando Monitoraggio di Azure. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 >
 >
- 
-## <a name="metrics"></a>Metrica
-Gestione API attualmente genera cinque metriche e si prevede di aggiungerne altre in futuro. Le metriche vengono generate ogni minuto in modo da ottenere una visibilità quasi in tempo reale dello stato e dell'integrità delle API. Di seguito è riportato un riepilogo delle metriche:
+
+## <a name="prerequisites"></a>Prerequisiti
+
++ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
++ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
+
+[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
+
+## <a name="diagnostic-logs"></a>Visualizzare log di attività
+
+I log attività offrono informazioni dettagliate sulle operazioni eseguite nei servizi Gestione API. L'uso del log attività consente di acquisire informazioni dettagliate su qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sui servizi Gestione API. 
+
+> [!NOTE]
+> I log attività non includono le operazioni di lettura (GET) né le operazioni eseguite nel portale di pubblicazione classico o usando le API di gestione originali.
+
+È possibile accedere ai log attività del servizio Gestione API o ai log di tutte le risorse di Azure in Monitoraggio di Azure. 
+
+Per visualizzare i log di attività:
+
+1. Dall'istanza di **Gestione API** fare clic su **Log attività**.
+
+## <a name="view-diagnostic-logs"></a>Visualizzare i log di diagnostica
+
+I log di diagnostica offrono informazioni dettagliate sulle operazioni e gli errori importanti per il controllo e per la risoluzione dei problemi. I log di diagnostica differiscono dai log attività. I log attività offrono informazioni approfondite sulle operazioni eseguite nelle risorse di Azure. I log di diagnostica forniscono informazioni approfondite sulle operazioni che la risorsa esegue automaticamente.
+
+Per accedere ai log di diagnostica:
+
+1. Dall'istanza di **Gestione API** fare clic su **Log di diagnostica**.
+
+## <a name="view-metrics-of-your-apis"></a>Visualizzare le metriche delle API
+
+Gestione API genera le metriche ogni minuto in modo da ottenere una visibilità quasi in tempo reale dello stato e dell'integrità delle API. Di seguito è riportato un riepilogo delle metriche disponibili:
+
+* Capacità (anteprima): consente di decidere se eseguire l'aggiornamento o il downgrade dei servizi di Gestione API. La metrica viene emessa ogni minuto e riflette la capacità del gateway nel momento in cui viene eseguito il report. La metrica ha un intervallo compreso tra 0 e 100 e viene calcolata in base alle risorse gateway, quali uso della CPU e della memoria.
 * Totale richieste gateway: numero di richieste di API nel periodo. 
 * Richieste gateway riuscite: numero di richieste di API che hanno ricevuto codici di risposta HTTP corretta, tra cui 304, 307 e qualsiasi valore inferiore a 301, ad esempio, 200. 
 * Richieste gateway non riuscite: numero di richieste di API che hanno ricevuto codici di risposta HTTP errata, tra cui 400 e qualsiasi valore superiore a 500.
 * Richieste gateway non autorizzate: numero di richieste di API che hanno ricevuto codici di risposta HTTP tra cui 401, 403 e 429. 
 * Altre richieste gateway: numero di richieste di API che hanno ricevuto codici di risposta HTTP che non appartengono a una delle categorie precedenti, ad esempio, 418.
 
-È possibile accedere alle metriche del servizio Gestione API o alle metriche di tutte le risorse di Azure in Monitoraggio di Azure. Per visualizzare le metriche del servizio Gestione API:
-1. Aprire il Portale di Azure.
-2. Accedere al servizio Gestione API.
-3. Fare clic su **Metrica**.
+Per accedere alle metriche:
 
-![Pannello delle metriche][metrics-blade]
+1. Selezionare **Metriche** dal menu nella parte inferiore della pagina.
+2. Dall'elenco a discesa selezionare le metriche desiderate. È possibile aggiungere più metriche. 
+    
+    Selezionare ad esempio **Totale richieste gateway** e **Richieste gateway non riuscite** dall'elenco delle metriche disponibili.
+3. Il grafico mostra il numero totale di chiamate API. Viene indicato anche il numero di chiamate API non riuscite. 
 
-Per altre informazioni sull'uso delle metriche, vedere [Panoramica delle metriche].
+## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configurare una regola di avviso per le richieste non autorizzate
 
-## <a name="activity-logs"></a>Log attività
-I log attività offrono informazioni dettagliate sulle operazioni eseguite nei servizi Gestione API. In precedenza erano noti come "log di controllo" o "log operativi". L'uso del log attività consente di acquisire informazioni dettagliate su qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sui servizi Gestione API. 
-
-> [!NOTE]
-> I log attività non includono le operazioni di lettura (GET) né le operazioni eseguite nel portale di pubblicazione classico o usando le API di gestione originali.
-
-È possibile accedere ai log attività del servizio Gestione API o ai log di tutte le risorse di Azure in Monitoraggio di Azure. Per visualizzare i log attività del servizio Gestione API:
-1. Aprire il Portale di Azure.
-2. Accedere al servizio Gestione API.
-3. Fare clic su **Log attività**.
-
-![Pannello dei log attività][activity-logs-blade]
-
-Per altre informazioni sull'uso dei log attività, vedere [Panoramica del log attività di Azure].
-
-## <a name="alerts"></a>Avvisi
 È possibile configurare un avviso basato sulle metriche e sui log attività. Monitoraggio di Azure consente di configurare un avviso in modo che, se attivato, esegua queste operazioni:
 
 * Inviare una notifica via posta elettronica
 * Chiamare un webhook
 * Richiamare un'app per la logica di Azure
 
-È possibile configurare regole per gli avvisi nel servizio Gestione API o in Monitoraggio di Azure. Per configurarle in Gestione API: 
-1. Aprire il Portale di Azure.
-2. Accedere al servizio Gestione API.
-3. Fare clic su **Regole di avviso**.
+Per configurare gli avvisi:
 
-![Pannello Regole di avviso][alert-rules-blade]
+1. Selezionare **Regole di avviso** nella barra dei menu nella parte inferiore della pagina.
+2. Selezionare **Aggiungi avviso per la metrica**.
+3. Immettere un **nome** per questo avviso.
+4. Selezionare **Richieste del gateway non autorizzate** come metrica da monitorare.
+5. Selezionare **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori**.
+6. Premere **OK**.
+7. Provare a chiamare l'API Conferenza senza una chiave API. In quanto proprietario del servizio Gestione API, l'utente riceverà un avviso di posta elettronica. 
 
-Per altre informazioni sull'uso degli avvisi, vedere [Panoramica degli avvisi].
+    > [!TIP]
+    > Quando viene attivata, la regola di avviso può anche chiamare un webhook o un'app per la logica di Azure.
 
-## <a name="diagnostic-logs"></a>Log di diagnostica
-I log di diagnostica offrono informazioni dettagliate sulle operazioni e gli errori importanti per il controllo e per la risoluzione dei problemi. I log di diagnostica differiscono dai log attività. I log attività offrono informazioni approfondite sulle operazioni eseguite nelle risorse di Azure. I log di diagnostica forniscono informazioni approfondite sulle operazioni che la risorsa esegue automaticamente.
+    ![set-up-alert](./media/api-management-azure-monitor/set-up-alert.png)
 
-Attualmente Gestione API offre ogni ora log di diagnostica in batch sulla singola richiesta API con ogni voce con la struttura seguente:
+## <a name="next-steps"></a>Passaggi successivi
 
-```
-{
-    "Tenant": "",
-      "DeploymentName": "",
-      "time": "",
-      "resourceId": "",
-      "category": "GatewayLogs",
-      "operationName": "Microsoft.ApiManagement/GatewayLogs",
-      "durationMs": ,
-      "Level": ,
-      "properties": "{
-          "ApiId": "",
-          "OperationId": "",
-          "ProductId": "",
-          "SubscriptionId": "",
-          "Method": "",
-          "Url": "",
-          "RequestSize": ,
-          "ServiceTime": "",
-          "BackendMethod": "",
-          "BackendUrl": "",
-          "BackendResponseCode": ,
-          "ResponseCode": ,
-          "ResponseSize": ,
-          "Cache": "",
-          "UserId"
-      }"
- }
-```
+In questa esercitazione si è appreso come:
 
-È possibile accedere ai log di diagnostica del servizio Gestione API o ai log di tutte le risorse di Azure in Monitoraggio di Azure. Per visualizzare i log di diagnostica del servizio Gestione API:
-1. Aprire il Portale di Azure.
-2. Accedere al servizio Gestione API.
-3. Fare clic su **Log di diagnostica**.
+> [!div class="checklist"]
+> * Visualizzare log di attività
+> * Visualizzare i log di diagnostica
+> * Visualizzare le metriche dell'API 
+> * Configurare una regola di avviso quando l'API riceve delle chiamate non autorizzate
 
-![Pannello Log di diagnostica][diagnostic-logs-blade]
+Passare all'esercitazione successiva:
 
-Per altre informazioni sull'uso dei log di diagnostica, vedere [Raccogliere e usare i dati di diagnostica dalle risorse di Azure].
-
-## <a name="next-step"></a>Passaggio successivo
-
-* [introduzione a Monitoraggio di Azure]
-* [Panoramica delle metriche]
-* [Panoramica del log attività di Azure]
-* [Raccogliere e usare i dati di diagnostica dalle risorse di Azure]
-* [Panoramica degli avvisi]
-
-[introduzione a Monitoraggio di Azure]: ../monitoring-and-diagnostics/monitoring-get-started.md
-[Panoramica delle metriche]: ../monitoring-and-diagnostics/monitoring-overview-metrics.md
-[Panoramica del log attività di Azure]: ../monitoring-and-diagnostics/monitoring-overview-activity-logs.md
-[Raccogliere e usare i dati di diagnostica dalle risorse di Azure]: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md
-[Panoramica degli avvisi]: ../monitoring-and-diagnostics/insights-alerts-portal.md
-
-
-
-[metrics-blade]: ./media/api-management-azure-monitor/api-management-metrics-blade.png
-[activity-logs-blade]: ./media/api-management-azure-monitor/api-management-activity-logs-blade.png
-[alert-rules-blade]: ./media/api-management-azure-monitor/api-management-alert-rules-blade.png
-[diagnostic-logs-blade]: ./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png
+> [!div class="nextstepaction"]
+> [Tracciare le chiamate](api-management-howto-api-inspector.md)

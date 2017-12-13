@@ -2,46 +2,36 @@
 title: Webhook del Registro contenitori di Azure
 description: Informazioni su come usare i webhook per attivare eventi specifici quando nei repository del registro si verificano determinate azioni.
 services: container-registry
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: acr, azure-container-registry
-keywords: Docker, contenitori, registro contenitori di Azure
-ms.assetid: 
 ms.service: container-registry
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/08/2017
+ms.date: 12/02/2017
 ms.author: nepeters
-ms.openlocfilehash: 5a9dab91aafb92f944b473f05144242143e36477
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 133e36179a500dc65c3a543266a7afcf9988b87d
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Uso dei webhook del Registro contenitori di Azure
 
-Un registro contenitori di Azure archivia e gestisce le immagini dei contenitori Docker private, in modo analogo a come Docker Hub archivia le immagini Docker pubbliche. Usando i webhook, è possibile attivare eventi specifici quando in uno dei repository del registro si verificano determinate azioni. I webhook possono rispondere agli eventi a livello di registro oppure possono essere limitati a un tag di repository specifico.
+Un registro contenitori di Azure archivia e gestisce le immagini dei contenitori Docker private, in modo analogo a come Docker Hub archivia le immagini Docker pubbliche. È possibile usare i webhook per attivare eventi specifici quando in uno dei repository del registro si verificano determinate azioni. I webhook possono rispondere agli eventi a livello di registro oppure possono essere limitati a un tag di repository specifico.
 
-Per altri concetti e informazioni di base, vedere [Informazioni sul Registro contenitori di Azure](./container-registry-intro.md).
+Per informazioni dettagliate sulle richieste di webhook, vedere le [informazioni di riferimento sullo schema del webhook del registro contenitori di Azure](container-registry-webhook-reference.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un registro contenitori gestito in Azure: creare un registro contenitori gestito nella sottoscrizione di Azure Ad esempio usare il [portale di Azure](container-registry-get-started-portal.md) oppure l'[interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md).
-- Interfaccia della riga di comando di Docker: per configurare il computer locale come host Docker e accedere ai comandi della riga di comando di Docker, installare [Docker Engine](https://docs.docker.com/engine/installation/).
+* Registro di contenitori di Azure: creare un registro di contenitori nella sottoscrizione di Azure. Ad esempio usare il [portale di Azure](container-registry-get-started-portal.md) oppure l'[interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md).
+* Interfaccia della riga di comando di Docker: per configurare il computer locale come host Docker e accedere ai comandi della riga di comando di Docker, installare [Docker Engine](https://docs.docker.com/engine/installation/).
 
 ## <a name="create-webhook-azure-portal"></a>Creare un webhook tramite il portale di Azure
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e passare al registro in cui si vuole creare i webhook.
-
-2. Nel pannello del contenitore selezionare **Webhook** in **SERVIZI**.
-
-3. Selezionare **Aggiungi** nella barra degli strumenti del pannello relativo al webhook.
-
-4. Completare il modulo *Crea webhook* con le informazioni seguenti:
+1. Accedere al [portale di Azure](https://portal.azure.com)
+1. Passare al registro contenitori in cui si intende creare un webhook.
+1. In **Servizi** selezionare **Webhook**.
+1. Selezionare **Aggiungi** nella barra degli strumenti relativa al webhook.
+1. Completare il modulo *Crea webhook* con le informazioni seguenti:
 
 | Valore | Descrizione |
 |---|---|
@@ -68,7 +58,7 @@ az acr webhook create --registry mycontainerregistry --name myacrwebhook01 --act
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Prima di usare il webhook in azioni di push o eliminazione di un'immagine del contenitore, è possibile testarlo tramite il pulsante **Ping**. Il comando Ping invia una richiesta POST generica all'endpoint specificato e registra la risposta. Ciò consente di verificare se la configurazione del webhook è corretta.
+Prima di usare il webhook in azioni di push o eliminazione di un'immagine del contenitore, è possibile testarlo tramite il pulsante **Ping**. Il comando Ping invia una richiesta POST generica all'endpoint specificato e registra la risposta. L'uso del comando Ping consente di verificare se la configurazione del webhook è corretta.
 
 1. Selezionare il webhook da testare.
 2. Nella barra degli strumenti superiore selezionare l'azione **Ping**.
@@ -101,3 +91,7 @@ Per eliminare un webhook, è possibile selezionarlo e usare il pulsante **Elimin
 ```azurecli-interactive
 az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 ```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+[Informazioni di riferimento sullo schema del webhook del registro contenitori di Azure](container-registry-webhook-reference.md)

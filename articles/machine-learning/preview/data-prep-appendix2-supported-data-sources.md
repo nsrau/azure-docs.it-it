@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: db4774de28a17e022de111986f72a1f15ec32beb
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 458338cd23c704c40c512dd96b22a4790f27d017
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Origini dati supportate disponibili per la preparazione dei dati di Microsoft Azure Machine Learning 
 Questo articolo illustra le origini dati attualmente supportate nella preparazione dei dati di Microsoft Azure Machine Learning.
@@ -24,6 +24,25 @@ Questo articolo illustra le origini dati attualmente supportate nella preparazio
 Le origini dati supportate per questa versione sono elencate di seguito.
 
 ## <a name="types"></a>Tipi 
+
+### <a name="sql-server"></a>SQL Server
+Lettura dal database SQL di Azure o da SQL Server locale.
+
+#### <a name="options"></a>Opzioni
+- Server Address
+- Server attendibile (anche quando il certificato nel server non è valido. Usare con cautela)
+- Tipo di autenticazione (Windows, server)
+- User Name
+- Password
+- Database a cui connettersi
+- Query SQL
+
+#### <a name="notes"></a>Note
+- Le colonne sql-variant non sono supportate
+- La colonna dell'ora viene convertita in datetime aggiungendo l'ora dal database alla data 1/1/1970
+- Se eseguite nel cluster Spark, tutte le colonne correlate a dati (date, datetime, datetime2, datetimeoffset) restituiranno valori non corretti per le date precedenti al 1583
+- I valori nelle colonne decimali possono perdere la precisione a causa della conversione in numero decimale
+
 ### <a name="directory-vs-file"></a>Directory e file
 Scegliere un singolo file e leggerlo nella preparazione dei dati. Il tipo di file viene analizzato per determinare i parametri predefiniti per la connessione file mostrata nella schermata successiva.
 
@@ -88,6 +107,9 @@ L'esecuzione della scalabilità orizzontale (scale-out) si basa sulle funzionali
 ## <a name="locations"></a>Località
 ### <a name="local"></a>Local
 Posizione di archiviazione in rete mappata o in unità disco locale.
+
+### <a name="sql-server"></a>SQL Server
+Database SQL di Azure o SQL Server locale.
 
 ### <a name="azure-blob-storage"></a>Archivio BLOB di Azure
 Archivio BLOB di Azure, che richiede una sottoscrizione di Azure.
