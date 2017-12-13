@@ -4,11 +4,11 @@ hide_bc: True
 title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
 featureFlags: clicktale
-ms.openlocfilehash: 1d6ff00b9fdabbf612cba15fa09f923d0b08a58e
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4cc932ca2dcdad16f4b1b7cfc2494eec0ccf18b3
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -4106,7 +4106,7 @@ Interfaccia della riga di comando di Azure </h3>
                                                     <a href="https://www.visualstudio.com/vs/azure-tools/">Strumenti di Visual Studio per Azure</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids">Download</a>
+                                                    <a href="https://www.visualstudio.com/vs/azure-tools/">Download</a>
                                                 </p>
                                             </div>
                                         </div>
