@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2017
 ms.author: xshi
-ms.openlocfilehash: deb362796966524ec2db5808623d2f92a1bf44e1
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 6a9d5e029e48c1bb62ad4731c7413f023b97c8c9
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>Connettere DevKit di IoT AZ3166 all'hub IoT di Azure nel cloud
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/27/2017
 ## <a name="what-you-do"></a>Operazioni da fare
 Connettere il [DevKit](https://microsoft.github.io/azure-iot-developer-kit/) a un hub IoT di Azure creato, raccogliere i dati sulla temperatura e l'umidità rilevati dai sensori e inviarli all'hub IoT.
 
-Non hai ancora DevKit? [Ottienine uno](https://aka.ms/iot-devkit-purchase).
+Non hai ancora DevKit? Provare il [simulatore DevKit](https://azure-samples.github.io/iot-devkit-web-simulator/) o [ottenerne uno](https://aka.ms/iot-devkit-purchase).
 
 ## <a name="what-you-learn"></a>Contenuto dell'esercitazione
 

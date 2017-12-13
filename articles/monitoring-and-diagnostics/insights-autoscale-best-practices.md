@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: df5059b5509ca4989369cf3bcba8cb89f1c25db4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70ec03d2ed32cb0362bf2f7b24c66979093603be
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Procedure consigliate per la scalabilità automatica
 Questo articolo illustra le procedure consigliate per applicare la scalabilità automatica in Azure. Il ridimensionamento automatico di Monitoraggio di Azure si applica solo a [set di scalabilità di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Servizi cloud](https://azure.microsoft.com/services/cloud-services/) e [app Web del servizio app](https://azure.microsoft.com/services/app-service/web/). Altri servizi Azure usano metodi di ridimensionamento diversi.
@@ -30,8 +30,8 @@ Questo articolo illustra le procedure consigliate per applicare la scalabilità 
   Un'impostazione di scalabilità automatica ha un valore massimo, uno minimo e uno predefinito di istanze.
 * Un processo di scalabilità automatica legge sempre la metrica associata alla scala controllando se ha superato la soglia configurata per l'aumento o la riduzione del numero di istanze. Per un elenco delle metriche in base alle quali può essere applicata la scalabilità automatica, vedere [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](insights-autoscale-common-metrics.md).
 * Tutte le soglie vengono calcolate a livello di istanza. Ad esempio, "aumentare il numero di istanze di 1 quando la media CPU > 80% quando il conteggio delle istanze è 2", significa aumentare il numero di istanze quando la media CPU in tutte le istanze è superiore all'80%.
-* Le notifiche di errore vengono sempre ricevute tramite posta elettronica. In particolare, è il proprietario, il collaboratore e i lettori della risorsa di destinazione a ricevere il messaggio di posta elettronica. Si riceverà sempre un messaggio di posta elettronica di *ripristino* anche quando la scalabilità automatica viene ripristinata dopo un errore e inizia a funzionare normalmente.
-* È possibile acconsentire esplicitamente a ricevere una notifica relativa a un'azione di scalabilità riuscita tramite posta elettronica e webhook.
+* Tutti gli errori di scalabilità automatica vengono registrati nel log attività. È quindi possibile configurare un [avviso di log attività](./monitoring-activity-log-alerts.md) in modo da ricevere una notifica tramite posta elettronica, SMS, webhook e così via, ogni volta che si verifica un errore di scalabilità automatica.
+* Analogamente, tutte le azioni di scalabilità riuscite vengono registrate nel log attività. È quindi possibile configurare un avviso di log attività in modo da ricevere una notifica tramite posta elettronica, SMS, webhook e così via per ogni azione di scalabilità automatica riuscita. È inoltre possibile configurare le notifiche tramite posta elettronica o webhook per ricevere una notifica delle azioni di scalabilità riuscite tramite la scheda delle notifiche dell'impostazione di scalabilità automatica.
 
 ## <a name="autoscale-best-practices"></a>Procedure consigliate per la scalabilità automatica
 Usare le procedure consigliate seguenti quando si usa la scalabilità automatica.
@@ -40,7 +40,7 @@ Usare le procedure consigliate seguenti quando si usa la scalabilità automatica
 Se il valore minimo di un'impostazione è 2 e il valore massimo è 2 e il conteggio di istanze correnti è 2, non può verificarsi alcuna azione di scalabilità. Mantenere un margine adeguato tra i conteggi massimo e minimo delle istanze, che sono valori inclusivi. La scalabilità automatica viene sempre applicata entro questi limiti.
 
 ### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>La scalabilità manuale viene reimpostata dai valori minimo e massimo della scalabilità automatica
-Se si aggiorna manualmente il conteggio delle istanze impostandolo su un valore al di sopra o al di sotto di quello massimo, il motore di scalabilità automatica utilizza automaticamente il valore minimo (se al di sotto) o il valore massimo (se al di sopra). Ad esempio, se l'utente imposta l'intervallo tra i valori e 3 e 6, in presenza di un'istanza in esecuzione, il motore di scalabilità automatica esegue il ridimensionamento a 3 istanze alla successiva esecuzione. Analogamente, eseguirà il ridimensionamento di 8 istanze a 6 alla successiva esecuzione.  La scalabilità manuale è molto temporanea, a meno che non si reimpostino anche le regole di scalabilità automatica.
+Se si aggiorna manualmente il conteggio delle istanze impostandolo su un valore al di sopra o al di sotto di quello massimo, il motore di scalabilità automatica utilizza automaticamente il valore minimo (se al di sotto) o il valore massimo (se al di sopra). Ad esempio, se l'utente imposta l'intervallo tra i valori e 3 e 6, in presenza di un'istanza in esecuzione, il motore di scalabilità automatica esegue il ridimensionamento a 3 istanze alla successiva esecuzione. Analogamente, se si imposta manualmente la scala su 8 istanze, nell'esecuzione successiva la scalabilità automatica rieseguirà il ridimensionamento a 6 istanze.  La scalabilità manuale è molto temporanea, a meno che non si reimpostino anche le regole di scalabilità automatica.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Usare sempre una combinazione di regole di aumento e di riduzione del numero di istanze
 Se si usa solo una parte della combinazione, la scalabilità automatica viene applicata solo per aumentare o ridurre il numero di istanze fino a raggiungere il valore massimo o minimo.
@@ -113,7 +113,7 @@ Per spiegarlo, verrà usato un esempio:
 
 L'immagine seguente illustra un'impostazione di scalabilità automatica con un profilo predefinito con un numero minimo di istanze = 2 e un numero massimo = 10. In questo esempio, le regole vengono configurate per aumentare il numero di istanze quando il conteggio dei messaggi nella coda è maggiore di 10 e per ridurlo quando il conteggio dei messaggi nella coda è minore di 3. Ora la risorsa può quindi essere ridimensionata tra le 2 e le 10 istanze.
 
-È anche stato impostato un profilo ricorrente per il lunedì. È stato impostato per un numero minimo di istanze = 2 e un numero massimo di istanze = 12. Quindi il lunedì, la prima volta che la scalabilità automatica controlla questa condizione, se il conteggio delle istanze è 2, lo ridimensiona al nuovo valore minimo pari a 3. Finché la scalabilità automatica continua a trovare una corrispondenza per la condizione di questo profilo (lunedì), elabora sole le regole di aumento/riduzione del numero di istanze basate sulla CPU configurate per questo profilo. Al momento non controlla la lunghezza della coda. Se, tuttavia, si vuole controllare anche la condizione della lunghezza della coda, è necessario includere anche le regole del profilo predefinito nel profilo del lunedì.
+È anche stato impostato un profilo ricorrente per il lunedì. È stato impostato per un numero minimo di istanze = 3 e un numero massimo di istanze = 10. Quindi il lunedì, la prima volta che la scalabilità automatica controlla questa condizione, se il conteggio delle istanze è 2, lo ridimensiona al nuovo valore minimo pari a 3. Finché la scalabilità automatica continua a trovare una corrispondenza per la condizione di questo profilo (lunedì), elabora sole le regole di aumento/riduzione del numero di istanze basate sulla CPU configurate per questo profilo. Al momento non controlla la lunghezza della coda. Se, tuttavia, si vuole controllare anche la condizione della lunghezza della coda, è necessario includere anche le regole del profilo predefinito nel profilo del lunedì.
 
 Allo stesso modo, quando la scalabilità automatica torna al profilo predefinito, per prima cosa controlla se sono soddisfatte le condizioni minima e massima. Se al momento il numero di istanze è 12, ne riduce il numero a 10, il massimo consentito per il profilo predefinito.
 
@@ -143,14 +143,17 @@ Ma, se la CPU è pari al 25% e la memoria è pari al 51%, la scalabilità automa
 Il conteggio predefinito delle istanze è importante perché è in base a tale conteggio che la scalabilità automatica ridimensiona il servizio quando le metriche non sono disponibili. Selezionare quindi un conteggio di istanze predefinito sicuro per i carichi di lavoro.
 
 ### <a name="configure-autoscale-notifications"></a>Configurare le notifiche relative alla scalabilità automatica
-La scalabilità automatica invia una notifica tramite posta elettronica agli amministratori e ai collaboratori della risorsa se si verifica una delle condizioni seguenti:
+La scalabilità automatica eseguirà la registrazione sul log attività se si verifica una delle condizioni seguenti:
 
-* Il servizio di scalabilità automatica non riesce a eseguire un'azione.
+* La scalabilità automatica esegue un'operazione di scalabilità
+* Il servizio di scalabilità automatica esegue correttamente un'azione di scalabilità
+* Il servizio di scalabilità automatica non riesce a eseguire un'azione di scalabilità.
 * Non sono disponibili metriche che consentono al servizio di scalabilità automatica di prendere una decisione sulla scalabilità.
 * Sono di nuovo disponibili metriche (ripristino) che consentono di prendere una decisione sulla scalabilità.
-  Oltre alle condizioni precedenti, è possibile configurare notifiche di posta elettronica o webhook per ricevere notifiche relative alle azioni di scalabilità riuscite.
-  
+
 Per monitorare l'integrità del motore di scalabilità automatica si può anche usare un avviso di log attività. Di seguito sono riportati esempi di come [creare un avviso di log attività per monitorare tutte le operazioni del motore di scalabilità automatica per la sottoscrizione](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) e per [creare un avviso di log attività per monitorare tutte le operazioni di scalabilità automatica in riduzione e in aumento non riuscite per la sottoscrizione](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+
+Oltre a usare gli avvisi di log attività, è possibile configurare le notifiche tramite posta elettronica o webhook per ricevere una notifica delle azioni di scalabilità riuscite tramite la scheda delle notifiche dell'impostazione di scalabilità automatica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Creare un avviso di log attività per monitorare tutte le operazioni del motore di scalabilità automatica della sottoscrizione.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi dei ruoli che non vengono avviati | Documentazione Microsoft
+title: Risolvere i problemi dei ruoli che non vengono avviati | Microsoft Docs
 description: Informazioni su alcuni motivi comuni del mancato avvio di un ruolo del servizio cloud. Include anche soluzioni per questi problemi.
 services: cloud-services
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: ec33ba08c6284e90edc1870eef4bf3059b917efb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d24a55fd3b93760035f852a24537c1cec9e4bab2
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Risolvere i problemi dei ruoli del servizio cloud che non vengono avviati
 Ecco alcuni problemi e soluzioni comini correlati ai ruoli di Servizi cloud di Azure che non vengono avviati.
@@ -63,8 +63,7 @@ Quando il servizio viene ridistribuito, verrà visualizzato un messaggio di erro
 
 1. Verificare che sia installato Azure SDK 1.3 o versione successiva.
 2. Durante la distribuzione della soluzione con Visual Studio, scegliere "Configura connessioni Desktop remoto". Per altre informazioni sulla configurazione della connessione Desktop remoto, vedere [Utilizzo di Desktop remoto con i ruoli Azure](../vs-azure-tools-remote-desktop-roles.md).
-3. Quando lo stato dell'istanza è **Pronto**, nel portale di Microsoft Azure classico fare clic su una delle istanze del ruolo.
-4. Fare clic sull'icona **Connetti** nell'area **Accesso remoto** della barra multifunzione.
+3. Quando lo stato dell'istanza è **Pronto**, nel portale di Microsoft Azure accedere in remoto all'istanza. Per altre informazioni sull'utilizzo di Desktop remoto con Servizi cloud di Microsoft Azure, vedere [Accedere in remoto alle istanze del ruolo](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Accedere alla macchina virtuale usando le credenziali specificate durante la configurazione di Desktop remoto.
 6. Aprire una finestra di comando.
 7. Digitare `IPconfig`.

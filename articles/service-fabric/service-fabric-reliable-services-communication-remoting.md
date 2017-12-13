@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 53c9072f98dfe9c03b85eb7409b8ed91c3c0ce33
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Comunicazione remota con i servizi con Reliable Services
 Per i servizi che non sono legati a un protocollo di comunicazione o uno stack particolare, ad esempio WebAPI, Windows Communication Foundation (WCF) o altri, il framework Reliable Services fornisce un meccanismo remoto per impostare in modo semplice e rapido una chiamata di procedura remota per i servizi.
@@ -79,10 +79,10 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 ```
 
-Il framework remoto propaga le eccezioni generate nel servizio al client. La logica di gestione delle eccezioni nel client tramite `ServiceProxy` , quindi, è in grado di gestire direttamente le eccezioni generate dal servizio.
+Il framework remoto propaga le eccezioni generate dal servizio al client. Di conseguenza, quando si usa `ServiceProxy`, il client è responsabile per la gestione delle eccezioni generate dal servizio.
 
 ## <a name="service-proxy-lifetime"></a>Durata del proxy servizio
-La creazione del proxy servizio è un'operazione semplice e, pertanto, l'utente può creare quanti proxy desidera. Le istanze del proxy servizio possono essere usate più volte, fintanto che l'utente ne ha necessità. Se una chiamata di procedura remota genera un'eccezione, gli utenti possono comunque riusare la stessa istanza del proxy. Ogni proxy servizio contiene un client di comunicazione usato per inviare messaggi sulla rete. Durante chiamate remote, vengono effettuati controlli interni per verificare che il client di comunicazione sia valido. In base al risultato, il client di comunicazione viene ricreato. Pertanto, se si verifica un'eccezione, l'utente non deve ricreare il proxy servizio, ma questa operazione viene eseguita in modo trasparente.
+La creazione del proxy servizio è un'operazione semplice e, pertanto, l'utente può creare quanti proxy desidera. Le istanze del proxy servizio possono essere usate più volte, fintanto che l'utente ne ha necessità. Se una chiamata di procedura remota genera un'eccezione, gli utenti possono comunque riusare la stessa istanza del proxy. Ogni proxy servizio contiene un client di comunicazione usato per inviare messaggi sulla rete. Durante chiamate remote, vengono effettuati controlli interni per verificare che il client di comunicazione sia valido. In base al risultato, il client di comunicazione viene ricreato. Pertanto, se si verifica un'eccezione, l'utente non deve ricreare `ServiceProxy` perché questa operazione viene eseguita in modo trasparente.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Durata di ServiceProxyFactory
 [ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) è una factory che crea istanze di proxy per interfacce di connessione remota diverse. Se si usa l'API `ServiceProxy.Create` per la creazione di un proxy, il framework crea un singleton ServiceProxy.
@@ -91,12 +91,13 @@ La creazione di una factory è un'operazione costosa. ServiceProxyFactory mantie
 La procedura consigliata consiste nel memorizzare nella cache ServiceProxyFactory il più a lungo possibile.
 
 ## <a name="remoting-exception-handling"></a>Gestione delle eccezioni remote
-Tutte le eccezioni generate dall'API del servizio vengono inviate nuovamente al client come AggregateException. Le eccezioni remote devono essere serializzabili per DataContract; in caso contrario, viene generata una [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) nell'API del proxy contenente l'errore di serializzazione.
+Tutte le eccezioni generate dall'API del servizio vengono inviate nuovamente al client come AggregateException. RemoteExceptions deve essere serializzabile per DataContract; in caso contrario, l'API del proxy genera una [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) contenente l'errore di serializzazione.
 
-Il proxy servizio non gestisce tutte le eccezioni di failover per la partizione del servizio per la quale è stato creato. Risolve nuovamente gli endpoint in presenza di eccezioni di failover (eccezioni non temporanee) e tenta di nuovo la chiamata con l'endpoint corretto. Il numero di tentativi per l'eccezione di failover è indefinito.
-In caso di eccezioni temporanee, proxy ripete la chiamata.
+ServiceProxy gestisce tutte le eccezioni di failover per la partizione del servizio per la quale è stato creato. Risolve nuovamente gli endpoint in presenza di eccezioni di failover (eccezioni non temporanee) e tenta di nuovo la chiamata con l'endpoint corretto. Il numero di tentativi per le eccezioni di failover è indefinito.
+In caso di eccezioni temporanee, il proxy ripete la chiamata.
 
-Parametri di ripetizione dei tentativi predefiniti sono forniti da [OperationRetrySettings]. (https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings) L'utente può configurare questi valori passando l'oggetto OperationRetrySettings al costruttore di ServiceProxyFactory.
+I parametri di ripetizione dei tentativi predefiniti sono forniti da [OperationRetrySettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+L'utente può configurare questi valori passando l'oggetto OperationRetrySettings al costruttore ServiceProxyFactory.
 ## <a name="how-to-use-remoting-v2-stack"></a>Come usare lo stack V2 per la comunicazione remota
 Con il pacchetto per la comunicazione remota NuGet 2.8, è possibile usare lo stack V2 per la comunicazione remota. Lo stack V2 per la comunicazione remota è più efficiente e offre funzionalità come API serializzabili personalizzate e più collegabili.
 Per impostazione predefinita, se non si effettuano le modifiche seguenti, viene ancora usato lo stack V1 per la comunicazione remota.

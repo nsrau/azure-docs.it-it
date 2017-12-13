@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
-ms.openlocfilehash: 15acfbce3bde585ed2b39762b08733901133a3dd
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5057a741a60bf9632f15dbc47236791e06f5bf6b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>Aggiornare il runtime di un cluster di Service Fabric
 
-Questa esercitazione, che costituisce la quarta parte di una serie, illustra come aggiornare il runtime di Service Fabric in un cluster di Azure Service Fabric. Questa parte dell'esercitazione è scritta per cluster di Service Fabric in esecuzione in Azure e non si applica a cluster di Service Fabric self-hosted.
+Questa esercitazione, che costituisce la terza parte di una serie, illustra come aggiornare il runtime di Service Fabric in un cluster di Azure Service Fabric. Questa parte dell'esercitazione è scritta per cluster di Service Fabric in esecuzione in Azure e non si applica a cluster di Service Fabric autonomi.
 
 > [!WARNING]
 > Questa parte dell'esercitazione richiede PowerShell. L'aggiornamento del runtime del cluster non è ancora supportato dagli strumenti dell'interfaccia della riga di comando di Azure. In alternativa, è possibile aggiornare un cluster nel portale. Per altre informazioni, vedere [Aggiornare un cluster di Azure Service Fabric](service-fabric-cluster-upgrade.md).
@@ -34,6 +34,13 @@ In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
 > * Leggere la versione del cluster
 > * Impostare la versione del cluster
+
+In questa serie di esercitazioni si apprenderà come:
+> [!div class="checklist"]
+> * Creare [un cluster di Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o un [cluster di Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) protetto in Azure usando un modello
+> * [Aumentare o ridurre un cluster](service-fabric-tutorial-scale-cluster.md)
+> * Aggiornare il runtime di un cluster
+> * [Distribuire Gestione API e Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione:
@@ -190,3 +197,7 @@ In questa esercitazione si è appreso come:
 > * Ottenere la versione del runtime del cluster
 > * Aggiornare il runtime del cluster
 > * Effettuare il monitoraggio dell'aggiornamento
+
+Procedere con l'esercitazione seguente per scoprire come distribuire Gestione API con un cluster Service Fabric.
+> [!div class="nextstepaction"]
+> [Distribuire Gestione API e Service Fabric](service-fabric-tutorial-deploy-api-management.md)

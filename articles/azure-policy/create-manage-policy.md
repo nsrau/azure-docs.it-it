@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 517f85307e97c1e98a84da95cb51660d6d4fe679
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Creare e gestire i criteri per applicare la conformità
 
@@ -26,22 +26,6 @@ Comprendere come creare e gestire i criteri in Azure è importante per assicurar
 > * Implementare un nuovo criterio all'interno dell'organizzazione
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-
-## <a name="opt-in-to-azure-policy"></a>Consenso esplicito per Criteri di Azure
-
-Criteri di Azure è attualmente disponibile in anteprima limitata, quindi è necessario registrarsi per richiedere l'accesso.
-
-1. Passare a Criteri di Azure all'indirizzo https://aka.ms/getpolicy e selezionare **Iscrizione** nel riquadro a sinistra.
-
-   ![Ricerca di criteri](media/assign-policy-definition/sign-up.png)
-
-2. Acconsentire esplicitamente all'uso di Criteri di Azure selezionando le sottoscrizioni che si vuole usare nell'elenco **Sottoscrizione**. Selezionare quindi **Registra**.
-
-   L'elenco delle sottoscrizioni include tutte le sottoscrizioni di Azure.
-
-   ![Consenso esplicito per l'uso di Criteri di Azure](media/assign-policy-definition/preview-opt-in.png)
-
-   Potrebbero trascorrere un paio di giorni prima che Microsoft accetti la richiesta di registrazione, a seconda della domanda. Dopo l'accettazione della richiesta si riceverà conferma tramite posta elettronica che è possibile iniziare a usare il servizio.
 
 ## <a name="assign-a-policy"></a>Assegnare i criteri
 
@@ -69,7 +53,7 @@ Il primo passaggio per applicare la conformità a Criteri di Azure consiste nell
 
    Per Criteri di Azure esistono due piani tariffari, ovvero *Gratuito* e *Standard*. Con il piano Gratuito è possibile applicare i criteri solo alle risorse future, mentre con quello Standard è possibile applicarli anche a risorse esistenti per ottenere una migliore comprensione dello stato di conformità. Trattandosi di un'anteprima limitata, non è ancora stato rilasciato un modello di determinazione dei prezzi, quindi non si riceverà fattura selezionando *Standard*. Per altre informazioni sui prezzi, vedere [Prezzi di Criteri di Azure](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
 
-8. Selezionare l'**ambito**, ovvero la sottoscrizione o il gruppo di risorse registrato quando è stato dato il consenso esplicito all'uso di Criteri di Azure. L'ambito determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di un criterio e può variare da una sottoscrizione a gruppi di risorse.
+8. Selezionare lo **scope**: l'abbonamento (o gruppo di risorse) registrato in precedenza. L'ambito determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri e può variare da una sottoscrizione a gruppi di risorse.
 
    In questo esempio viene usata la sottoscrizione **Azure Analytics Capacity Dev**, ma le opzioni disponibili sono diverse.
 
@@ -94,9 +78,9 @@ Dopo aver assegnato la definizione dei criteri, viene creato un nuovo criterio p
       - Le regole/condizioni del criterio, in questo caso: dimensione dello SKU della VM uguale alla serie G.
       - L'effetto del criterio, in questo caso: **Nega**.
 
-   Di seguito viene mostrato l'aspetto del codice json:
+    Di seguito viene mostrato l'aspetto del codice json:
 
-```json
+    ```json
 {
     "policyRule": {
       "if": {
@@ -116,11 +100,9 @@ Dopo aver assegnato la definizione dei criteri, viene creato un nuovo criterio p
       }
     }
 }
-```
+    ```
 
-<!-- Update the following link to the top level samples page
--->
-   Per visualizzare esempi di codice json, leggere l'articolo [Modelli per Criteri di Azure](json-samples.md)
+    Per visualizzare esempi di codice json, leggere l'articolo [Modelli per Criteri di Azure](json-samples.md).
 
 4. Selezionare **Salva**.
 

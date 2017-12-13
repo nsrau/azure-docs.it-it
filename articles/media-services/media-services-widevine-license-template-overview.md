@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 667ff16dc7608dab2a5b8b1fd7df715da4620ca1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 68d519cd36d41728f57419cd6cecd2a79d65a4af
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="widevine-license-template-overview"></a>Panoramica del modello di licenza Widevine
-## <a name="overview"></a>Overview
-Servizi multimediali di Azure consente ora di configurare e richiedere licenze Widevine. Quando il lettore dell'utente finale tenta di riprodurre contenuto protetto da Widevine, viene inviata una richiesta al servizio di distribuzione di licenze per ottenere una licenza. Se il servizio licenze approva la richiesta, la licenza viene rilasciata e inviata al client e potrà essere usata per decrittografare e riprodurre il contenuto specificato.
+Servizi multimediali di Azure consente di configurare e richiedere licenze Widevine. Quando il lettore dell'utente finale tenta di riprodurre contenuto protetto da Widevine, viene inviata una richiesta al servizio di distribuzione di licenze per ottenere una licenza. Se il servizio licenze approva la richiesta, la licenza viene rilasciata e inviata al client e potrà essere usata per decrittografare e riprodurre il contenuto specificato.
 
 La richiesta per la licenza Widevine è formattata come messaggio JSON.  
 
@@ -197,5 +196,5 @@ L'esempio seguente mostra come usare le API .NET per configurare una licenza Wid
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vedere anche
-[Uso della crittografia comune dinamica PlayReady e/o Widevine](media-services-protect-with-drm.md)
+[Uso della crittografia comune dinamica PlayReady e/o Widevine](media-services-protect-with-playready-widevine.md)
 

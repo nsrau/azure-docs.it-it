@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/22/2017
 ms.author: raynew
-ms.openlocfilehash: 1c21364c3ff5cfb61866c912a699b722f2668607
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: b0818fbc1d227093fcc1b9b925d0859b8580f9c1
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Individuare e valutare le macchine virtuali VMware locali per la migrazione ad Azure
 
@@ -37,10 +37,14 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- **VMware**: è necessario avere almeno una macchina virtuale VMware in un cluster o un host ESXi che esegue la versione 5.0 o successiva. L'host o il cluster deve essere gestito da un server vCenter che esegue la versione 5.5, 6.0 o 6.5.
-- **Account vCenter**: è necessario avere un account di sola lettura con credenziali di amministratore per il server vCenter. Azure Migrate usa questo account per individuare le macchine virtuali.
+- **VMware**: le macchine virtuali di cui si intende eseguire la migrazione devono essere gestite dal server vCenter in esecuzione nella versione 5.5, 6.0 o 6.5. Inoltre, è necessario che sia in esecuzione l'host ESXi versione 5.0 o versione successiva per distribuire la macchina virtuale dell'agente di raccolta. 
+ 
+> [!NOTE]
+> Il supporto per Hyper-V è in programma e verrà abilitato a breve. 
+
+- **Account server vCenter**: è necessario un account di sola lettura per accedere al server vCenter. Azure Migrate usa questo account per individuare le macchine virtuali.Azure Migrate usa questo account per individuare le macchine virtuali locali.
 - **Autorizzazioni**: nel server vCenter è necessario avere le autorizzazioni per creare una macchina virtuale importando un file con estensione ova. 
-- **Impostazioni delle statistiche**: prima di avviare la distribuzione, le statistiche del server vCenter devono essere impostate sul livello 3. Con un livello inferiore a 3, viene eseguita la valutazione, ma non vengono raccolti i dati sulle prestazioni per l'archiviazione e la rete.
+- **Impostazioni delle statistiche**: prima di avviare la distribuzione, le statistiche del server vCenter devono essere impostate sul livello 3. Con un livello inferiore a 3, viene eseguita la valutazione, ma non vengono raccolti i dati sulle prestazioni per l'archiviazione e la rete. In questo caso le dimensioni consigliate verranno stabilite in base ai dati sulle prestazioni per i dati di CPU, memoria e configurazione per le schede disco e di rete. 
 
 ## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
 Accedere al [Portale di Azure](https://portal.azure.com).
@@ -51,7 +55,7 @@ Accedere al [Portale di Azure](https://portal.azure.com).
 2. Cercare **Azure Migrate** e selezionare il servizio **Azure Migrate (preview)** nei risultati della ricerca. Fare quindi clic su **Crea**.
 3. Specificare un nome di progetto e la sottoscrizione di Azure per il progetto.
 4. Creare un nuovo gruppo di risorse.
-5. Specificare l'area in cui creare il progetto e quindi fare clic su **Crea**. In questa area verranno archiviati i metadati raccolti dalle macchine virtuali locali. Per questa anteprima è possibile creare un progetto di Azure Migrate solo nell'area Stati Uniti centro-occidentali, ma è possibile valutare le macchine virtuali anche per un'area diversa.
+5. Specificare l'area in cui creare il progetto e quindi fare clic su **Crea**. In questa area verranno archiviati i metadati raccolti dalle macchine virtuali locali. Per questa anteprima è possibile creare un progetto di Azure Migrate solo nell'area Stati Uniti centro-occidentali, Tuttavia, è comunque possibile pianificare la migrazione per qualsiasi località di Azure di destinazione. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -143,7 +147,7 @@ Il tempo di individuazione dipende dal numero di macchine virtuali da individuar
 Dopo aver individuato le macchine virtuali, è possibile raggrupparle e creare una valutazione. 
 
 1. Nella pagina **Panoramica** del progetto fare clic su **+Crea valutazione**.
-2. Fare clic su **Visualizza tutto** per rivedere le impostazioni di valutazione.
+2. Fare clic su **Visualizza tutto** per rivedere le proprietà di valutazione.
 3. Creare il gruppo e specificarne il nome.
 4. Selezionare le macchine virtuali da aggiungere al gruppo.
 5. Fare clic su **Crea valutazione** per creare il gruppo e la valutazione.
@@ -168,13 +172,16 @@ Questa visualizzazione mostra lo stato di idoneità di ogni macchina virtuale.
 
 #### <a name="monthly-cost-estimate"></a>Stima costo mensile
 
-Questa visualizzazione mostra i costi per il calcolo e l'archiviazione relativi a ogni macchina virtuale. Le stime dei costi vengono calcolate usando le impostazioni delle proprietà di valutazione e le dimensioni consigliate in base alle prestazioni per una macchina virtuale e i relativi dischi.
+In questa visualizzazione viene mostrato il costo di calcolo e archiviazione totale dell'esecuzione delle macchine virtuali in Azure con i dettagli per ogni computer. Le stime dei costi vengono calcolate usando le impostazioni delle proprietà di valutazione e le dimensioni consigliate in base alle prestazioni per una macchina virtuale e i relativi dischi. 
 
-I costi mensili stimati per il calcolo e l'archiviazione vengono aggregati per tutte le macchine virtuali del gruppo. È possibile fare clic su ogni macchina per eseguire il drill-down e visualizzare informazioni più dettagliate. 
+> [!NOTE]
+> La stima dei costi fornita da Azure Migrate si riferisce all'esecuzione delle macchine virtuali locali come macchine virtuali dell'infrastruttura distribuita come servizio (IaaS) di Azure. Non vengono considerati i costi relativi alla piattaforma distribuita come servizio (PaaS, Platform as a Service) o al software come un servizio (SaaS, Software as a Service). 
+
+I costi mensili stimati per il calcolo e l'archiviazione vengono aggregati per tutte le macchine virtuali del gruppo. 
 
 ![Valutazione dei costi delle macchine virtuali](./media/tutorial-assessment-vmware/assessment-vm-cost.png) 
 
-È possibile eseguire il drill-down per visualizzare i costi relativi a una macchina specifica.
+È possibile eseguire il drill-down per visualizzare i dettagli relativi a una macchina specifica.
 
 ![Valutazione dei costi delle macchine virtuali](./media/tutorial-assessment-vmware/assessment-vm-drill.png) 
 

@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e7007bd6cca24dc4c2573fb274cecbf88ecfa374
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala - Anteprima
 
@@ -42,19 +42,21 @@ Per altre informazioni sui dispositivi gemelli e i tag, vedere [Comprendere e us
 
 1. Accedere al [portale di Azure][lnk-portal] e passare all'hub IoT. 
 1. Selezionare **IoT Edge (preview)** (IoT Edge - anteprima).
-1. Selezionare **Create Edge Deployment** (Crea distribuzione Edge).
+1. Selezionare **Add IoT Edge device** (Aggiungi il dispositivo di IoT Edge).
 
 La creazione di una distribuzione prevede cinque passaggi, illustrati nelle sezioni seguenti. 
 
-### <a name="step-1-label-deployment"></a>Passaggio 1: Distribuzione delle etichette
+### <a name="step-1-name-and-label"></a>Passaggio 1: Nome ed etichetta
 
-1. Assegnare un ID univoco alla distribuzione. Evitare gli spazi e i seguenti caratteri non validi: `& ^ [ ] { } \ | " < > /`.
+1. Assegnare un nome univoco alla distribuzione. Evitare gli spazi e i seguenti caratteri non validi: `& ^ [ ] { } \ | " < > /`.
 1. Aggiungere etichette per tenere traccia delle distribuzioni. Le etichette sono coppie di **Nome** e **Valore** che descrivono la distribuzione. Ad esempio, `HostPlatform, Linux` o `Version, 3.0.1`.
 1. Selezionare **Avanti** per procedere al passaggio due. 
 
-### <a name="step-2-add-modules"></a>Passaggio 2: Aggiungere moduli
+### <a name="step-2-add-modules-optional"></a>Passaggio 2: Aggiungere moduli (facoltativo)
 
 Esistono due tipi di moduli che è possibile aggiungere a una distribuzione. Il primo è un modulo basato su un servizio di Azure, ad esempio un account di archiviazione o Analisi di flusso. Il secondo è un modulo basato su codice personalizzato. È possibile aggiungere più moduli di entrambi i tipi a una distribuzione. 
+
+Se si crea una distribuzione senza moduli, tutti i moduli esistenti vengono rimossi dai dispositivi. 
 
 >[!NOTE]
 >Azure Machine Learning e Funzioni di Azure non supportano ancora la distribuzione automatica dei servizi di Azure. Usare la distribuzione di moduli personalizzati per aggiungere manualmente questi servizi alla distribuzione. 
@@ -94,7 +96,7 @@ Usare la proprietà tags dai dispositivi per selezionare i dispositivi specifici
 Dato che più distribuzioni potrebbero avere come destinazione lo stesso dispositivo, è necessario assegnare a ogni distribuzione un numero di priorità. In caso di conflitto, prevale la distribuzione con la priorità più alta. Se due distribuzioni hanno lo stesso numero di priorità, prevale quella creata più di recente. 
 
 1. Immettere un numero intero positivo in **Priority** (Priorità) per la distribuzione.
-1. Specificare una condizione in **Target condition** (Condizione di destinazione) per determinare i dispositivi di destinazione di questa distribuzione. La condizione è basata sui tag del dispositivo gemello e deve corrispondere al formato di espressione. Ad esempio `tags.environment='test'`. 
+1. Specificare una condizione in **Target condition** (Condizione di destinazione) per determinare i dispositivi di destinazione di questa distribuzione. La condizione è basata sui tag del dispositivo gemello e deve corrispondere al formato di espressione. ad esempio `tags.environment='test'`. 
 1. Selezionare **Avanti** per procedere al passaggio finale.
 
 ### <a name="step-5-review-template"></a>Passaggio 5: Rivedere il modello

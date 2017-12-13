@@ -1,5 +1,5 @@
 ---
-title: Proteggere il contenuto HLS con Microsoft PlayReady o con Apple FairPlay | Documentazione Microsoft
+title: Proteggere il contenuto HLS con Microsoft PlayReady o con Apple FairPlay | Microsoft Docs
 description: Questo argomento offre una panoramica su come usare Servizi multimediali di Azure per crittografare dinamicamente il contenuto HTTP Live Streaming (HLS) con Apple FairPlay. Viene anche illustrato come usare il servizio di distribuzione delle licenze di Servizi multimediali per distribuire le licenze FairPlay ai client.
 services: media-services
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 895d6307b1cef74e195cc2ffd8dbef4196e97b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2027aed8a604c33c96c66c23e9ddaa51f632edb5
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Proteggere il contenuto HLS con Apple FairPlay o Microsoft PlayReady
 Servizi multimediali di Azure consente di crittografare dinamicamente il contenuto di HTTP Live Streaming (HLS) usando i formati seguenti:  
@@ -33,12 +33,12 @@ Servizi multimediali di Azure consente di crittografare dinamicamente il contenu
 
 L'immagine seguente illustra il flusso di lavoro della **crittografia dinamica HLS + FairPlay o PlayReady**.
 
-![Diagramma del flusso di lavoro della crittografia dinamica](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
+![Diagramma del flusso di lavoro della crittografia dinamica](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
-Questo argomento illustra come usare Servizi multimediali per crittografare dinamicamente il contenuto HLS con Apple FairPlay. Viene anche illustrato come usare il servizio di distribuzione delle licenze di Servizi multimediali per distribuire le licenze FairPlay ai client.
+Questo articolo illustra come usare Servizi multimediali per crittografare dinamicamente il contenuto HLS con Apple FairPlay. Viene anche illustrato come usare il servizio di distribuzione delle licenze di Servizi multimediali per distribuire le licenze FairPlay ai client.
 
 > [!NOTE]
-> Se si vuole crittografare anche il contenuto HLS con PlayReady, è necessario creare una chiave di contenuto comune e associarla all'asset. È anche necessario configurare i criteri di autorizzazione della chiave simmetrica, come descritto in [Uso della crittografia comune dinamica PlayReady](media-services-protect-with-drm.md).
+> Se si vuole crittografare anche il contenuto HLS con PlayReady, è necessario creare una chiave di contenuto comune e associarla all'asset. È anche necessario configurare i criteri di autorizzazione della chiave simmetrica, come descritto in [Uso della crittografia comune dinamica PlayReady](media-services-protect-with-playready-widevine.md).
 >
 >
 
@@ -65,14 +65,14 @@ Se si usa Servizi multimediali per distribuire contenuto HLS crittografato con F
         Passare alla cartella contenente il certificato FairPlay e altri file forniti da Apple.
     2. Eseguire il comando seguente dalla riga di comando. Il comando converte il file con estensione cer in un file con estensione pem.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in fairplay.cer -out fairplay-out.pem
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in FairPlay.cer -out FairPlay-out.pem
     3. Eseguire il comando seguente dalla riga di comando. Questo comando converte il file con estensione pem in un file con estensione pfx con la chiave privata. La password per il file con estensione pfx viene quindi richiesta da OpenSSL.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
+        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
   * **App Cert password**: password del cliente per creare il file con estensione pfx.
   * **App Cert password ID**: è necessario caricare la password con una procedura simile a quella usata per caricare le altre chiavi di Servizi multimediali. Usare il valore di enumerazione **ContentKeyType.FairPlayPfxPassword** per ottenere l'ID di Servizi multimediali. Questo valore è necessario nell'opzione dei criteri di distribuzione delle chiavi.
   * **iv**: valore casuale di 16 byte che deve corrispondere al valore iv nei criteri di distribuzione dell'asset. Si genera l'iv e lo inserisce sia nei criteri di distribuzione dell'asset che nell'opzione dei criteri di distribuzione delle chiavi.
-  * **ASK**: chiave ricevuta quando si genera la certificazione usando il portale Apple Developer. Ogni team di sviluppo riceve una chiave ASK univoca. Salvare una copia della chiave ASK e archiviarla in un luogo sicuro. Successivamente sarà necessario configurare la chiave ASK come FairPlayAsk in Servizi multimediali.
+  * **ASK**: chiave ricevuta quando si genera la certificazione usando il portale Apple Developer. Ogni team di sviluppo riceve una chiave ASK univoca. Salvare una copia della chiave ASK e archiviarla in un luogo sicuro. Successivamente è necessario configurare la chiave ASK come FairPlayAsk in Servizi multimediali.
   * **ID ASK**: ID ottenuto quando si carica la chiave privata dell'applicazione in Servizi multimediali. È necessario caricare la chiave privata dell'applicazione usando il valore di enumerazione **ContentKeyType.FairPlayASk**. Verrà restituito l'ID di Servizi multimediali che dovrà essere usato per impostare l'opzione dei criteri di distribuzione delle chiavi.
 
 Sul lato client FPS è necessario impostare quanto segue:
@@ -125,7 +125,7 @@ Di seguito sono indicati i passaggi generali per la protezione degli asset con F
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Per impostazione predefinita, Azure Media Player non supporta la riproduzione FairPlay. Per poter eseguire la riproduzione FairPlay in MAC OS X, ottenere il lettore di esempio dall'account per sviluppatori di Apple.
+> Azure Media Player supporta la riproduzione FairPlay. Vedere la [documentazione di Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) per altre informazioni.
 >
 >
 
@@ -157,7 +157,7 @@ L'esempio seguente illustra la funzionalità che consente di usare Servizi multi
 Sovrascrivere il codice nel file Program.cs con il codice riportato in questa sezione.
 
 >[!NOTE]
->È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) argomento.
+>È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) articolo.
 
 Assicurarsi di aggiornare le variabili in modo da puntare alle cartelle in cui si trovano i file di input.
 

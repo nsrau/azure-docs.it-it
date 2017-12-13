@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/04/2017
 ms.author: johnkem
-ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Servizi, schemi e categorie supportati per i log di Diagnostica di Azure
 
@@ -29,6 +29,7 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 
 | Service | Schema e documenti |
 | --- | --- |
+| Analysis Services | Lo schema non è disponibile. |
 | Gestione API | [Log di diagnostica di Gestione API](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Gateway applicazione |[Registrazione diagnostica per il gateway applicazione](../application-gateway/application-gateway-diagnostics.md) |
 | Automazione di Azure |[Analisi dei log per Automazione di Azure](../automation/automation-manage-send-joblogs-log-analytics.md) |
@@ -45,8 +46,8 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 | App per la logica |[Schema di rilevamento personalizzato per le app per la logica B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Gruppi di sicurezza di rete |[Analisi dei log per i gruppi di sicurezza di rete](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Protezione DDoS | Lo schema non è disponibile. |
-| Servizi di ripristino | Lo schema non è disponibile.|
-| Search |[Abilitazione e uso di Analisi del traffico di ricerca](../search/search-traffic-analytics.md) |
+| Servizi di ripristino | [Modello di dati per Backup di Microsoft Azure](../backup/backup-azure-reports-data-model.md)|
+| Ricerca |[Abilitazione e uso di Analisi del traffico di ricerca](../search/search-traffic-analytics.md) |
 | Gestione server | Lo schema non è disponibile. |
 | Bus di servizio |[Log di diagnostica del bus di servizio di Azure](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | Database SQL | [Registrazione diagnostica del database SQL di Azure](../sql-database/sql-database-metrics-diag-logging.md) |
@@ -56,6 +57,7 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 ## <a name="supported-log-categories-per-resource-type"></a>Categorie di log supportate per tipo di risorsa
 |Tipo di risorsa|Categoria|Nome visualizzato della categoria|
 |---|---|---|
+|microsoft.aadiam/tenants|Signin|Signin|
 |Microsoft.AnalysisServices/servers|Engine (Motore)|Engine (Motore)|
 |Microsoft.AnalysisServices/servers|Service|Service|
 |Microsoft.ApiManagement/service|GatewayLogs|Log correlati ad ApiManagement Gateway|
@@ -63,6 +65,7 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 |Microsoft.Automation/automationAccounts|JobStreams|Flussi del processo|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Stato del nodo Dsc|
 |Microsoft.Batch/batchAccounts|ServiceLog|Log del servizio|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Ottiene le metriche dell'endpoint, ad esempio la larghezza di banda, i dati in uscita e così via|
 |Microsoft.CustomerInsights/hubs|AuditEvents|Eventi di controllo|
 |Microsoft.DataFactory/factories|ActivityRuns|Log delle esecuzioni di attività pipeline|
 |Microsoft.DataFactory/factories|PipelineRuns|Log delle esecuzioni di pipeline|

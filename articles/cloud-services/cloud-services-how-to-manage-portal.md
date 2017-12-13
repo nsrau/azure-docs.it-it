@@ -1,5 +1,5 @@
 ---
-title: "Attività comuni di gestione di servizi cloud | Documentazione Microsoft"
+title: "Attività comuni di gestione di servizi cloud | Microsoft Docs"
 description: Informazioni su come gestire i servizi cloud nel portale di Azure. Questi esempi utilizzano il portale di Azure.
 services: cloud-services
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 9af1fdeb5cfe69631cabe13bd341b43319175aae
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: a06becda42541b22d3e090087dd96cd08c980f44
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>Come gestire i servizi cloud
-Nell'area **Servizi cloud (versione classica)** del portale di Azure è possibile aggiornare un ruolo di servizio o una distribuzione, convertire una pre-distribuzione in una distribuzione di produzione, collegare risorse al servizio cloud per visualizzare le dipendenze delle risorse e ridimensionare le risorse insieme, oltre a eliminare un servizio cloud o una distribuzione.
+Nell'area **Servizi cloud** del portale di Azure è possibile aggiornare un ruolo di servizio o una distribuzione, convertire una distribuzione di gestione temporanea in una distribuzione di produzione, collegare risorse al servizio cloud per visualizzare le dipendenze delle risorse e scalare le risorse insieme, nonché eliminare un servizio cloud o una distribuzione.
 
 Altre informazioni sul ridimensionamento del servizio cloud sono disponibili [qui](cloud-services-how-to-scale-portal.md).
 
@@ -80,9 +80,6 @@ Si noti che anche gli aggiornamenti del sistema operativo guest e le operazioni 
 **Uno scambio comporta un tempo di inattività per l'applicazione? Come gestire questa situazione?**
 
 Come descritto nella sezione precedente, lo scambio di distribuzioni è in genere veloce perché è una semplice modifica della configurazione in Azure Load Balancer. In alcuni casi, tuttavia, può richiedere più di dieci secondi e causare errori di connessione temporanei. Per limitare l'impatto sui clienti, si consiglia di implementare la [logica di ripetizione dei tentativi nel client](../best-practices-retry-general.md).
-
-## <a name="how-to-link-a-resource-to-a-cloud-service"></a>Procedura: Collegare una risorsa a un servizio cloud
-Il portale di Azure non collega tra loro le risorse come nel portale di Azure classico. Distribuire invece risorse aggiuntive allo stesso gruppo di risorse usato dal servizio cloud.
 
 ## <a name="how-to-delete-deployments-and-a-cloud-service"></a>Procedura: Eliminare le distribuzioni e un servizio cloud
 Per eliminare un servizio cloud è necessario prima eliminare tutte le distribuzioni esistenti.

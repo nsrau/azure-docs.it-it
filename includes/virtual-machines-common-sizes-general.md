@@ -8,15 +8,7 @@ Le dimensioni delle macchine virtuali di utilizzo generico offrono un rapporto C
 
 - Le dimensioni del livello Basic sono destinate principalmente ai carichi di lavoro di sviluppo e alle altre applicazioni che non necessitano di bilanciamento del carico, scalabilità automatica o macchine virtuali con utilizzo intensivo della memoria. Per informazioni sulle dimensioni di macchine virtuali ottimali per applicazioni di produzione, vedere (Dimensioni per le macchine virtuali)[virtual-machines-size-specs.md] e per informazioni sui prezzi delle VM, vedere [Prezzi di Macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-## <a name="b-series-preview"></a>Serie B (anteprima)
-
-> [!NOTE] 
-> Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le condizioni d'uso. Per altre informazioni, vedere [Condizioni Supplementari di Microsoft Azure le Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Questa anteprima sarà limitata alle aree seguenti:
-> - Stati Uniti occidentali 2
-> - Stati Uniti orientali
-> - Europa occidentale
-> - Asia Pacifico sud-orientale
+## <a name="b-series"></a>Serie B
 
 Le VM della serie B che prevedono burst sono ideali per carichi di lavoro che non necessitano in modo continuativo delle prestazioni complete della CPU, ad esempio server Web, database di piccole dimensioni e ambienti di sviluppo e test. Questi carichi di lavoro hanno in genere requisiti relativi alle prestazioni che prevedono burst. La serie B offre a questi clienti la possibilità di acquistare dimensioni per la VM con prestazioni baseline in relazione al prezzo, che consentono all'istanza della VM di accumulare crediti quando la VM utilizza meno prestazioni di quelle base. Quando la VM ha accumulato crediti, può eseguire il burst rispetto alla baseline della VM, usando fino al 100% della CPU quando l'applicazione richiede prestazioni superiori per la CPU.
 
@@ -31,7 +23,7 @@ Le VM della serie B che prevedono burst sono ideali per carichi di lavoro che no
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## <a name="dsv3-series"></a>Serie Dsv3
+## <a name="dsv3-series"></a>Serie Dsv3*
 
 Unità di calcolo di Azure: 160-190
 
@@ -46,9 +38,9 @@ Le dimensioni della serie Dsv3 sono basate sul processore Intel Xeon® E5-2673 v
 | Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32,000 / 256 (400)                                                    | 25.600/384                              | 8/alta                                       |
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64,000 / 512 (800)                                                    | 51.200/768                              | 8/estremamente alta                                       |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80,000 / 1200                              | 8/estremamente alta                                       |
+* Le macchine virtuali Serie Dsv3 integrano la tecnologia Intel® Hyper-Threading
 
-
-## <a name="dv3-series"></a>Serie Dv3
+## <a name="dv3-series"></a>Serie Dv3* 
 
 Unità di calcolo di Azure: 160-190
 
@@ -65,7 +57,7 @@ L'archiviazione su disco dati viene fatturata separatamente dalle macchine virtu
 | Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8/alta                     |
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8/estremamente alta                     |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8/estremamente alta                     |
-
+* Le macchine virtuali Serie Dv3 integrano la tecnologia Intel® Hyper-Threading
 
 ## <a name="dsv2-series"></a>Serie DSv2
 

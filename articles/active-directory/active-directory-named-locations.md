@@ -1,6 +1,6 @@
 ---
 title: "Località denominate in Azure Active Directory | Microsoft Docs"
-description: "Configurando località denominate, è possibile evitare che indirizzi IP di proprietà dell'organizzazione generino falsi positivi per eventi di rischio di tipo Trasferimento impossibile a posizioni atipiche."
+description: "Informazioni sulle località denominate e le modalità di configurazione."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,22 +11,50 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: da437908509e40386ed23863648bd6956b308186
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 126646d7460831f0235221595b8a93c88be6146d
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Località denominate in Azure Active Directory
 
-La funzionalità delle località denominate di Azure Active Directory consente di etichettare intervalli di indirizzi IP attendibili nelle organizzazioni. Nell'ambiente in uso si possono usare le località denominate nel contesto del rilevamento degli [eventi di rischio](active-directory-reporting-risk-events.md). Questa funzionalità consente di ridurre il numero di falsi positivi segnalati per gli eventi di rischio di tipo *Trasferimento impossibile a posizioni atipiche*. 
+Con le località denominate è possibile etichettare gli intervalli di indirizzi IP attendibili all'interno dell'organizzazione. Azure Active Directory usa le località denominate nel contesto seguente:
 
-## <a name="configuration"></a>Configurazione
+- Il rilevamento di [eventi di rischio](active-directory-reporting-risk-events.md) per ridurre il numero di falsi positivi segnalati.  
 
-Per configurare una località denominata:
+- [Accesso condizionale basato sulla località](active-directory-conditional-access-azure-portal.md#locations).
+
+
+Questo articolo descrive come configurare le località denominate nell'ambiente in uso.
+
+
+## <a name="entry-points"></a>Punti di ingresso
+
+È possibile accedere alla pagina di configurazione delle località denominate nella sezione **Sicurezza** di Azure Active Directory, facendo clic su:
+
+![Punti di ingresso](./media/active-directory-named-locations/34.png)
+
+- **Accesso condizionale:**
+
+    - Nella sezione **Gestisci** fare clic su **Località denominate**.
+    
+        ![Comando Località denominate](./media/active-directory-named-locations/06.png)
+
+- **Accessi a rischio:**
+
+    - Nella barra degli strumenti in alto fare clic su **Aggiungi intervalli di indirizzi IP noti**.
+
+       ![Comando Località denominate](./media/active-directory-named-locations/35.png)
+
+
+
+## <a name="configuration-example"></a>Esempio di configurazione
+
+**Per configurare una località denominata:**
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale.
 
@@ -34,22 +62,22 @@ Per configurare una località denominata:
 
     ![Collegamento ad Azure Active Directory nel riquadro sinistro](./media/active-directory-named-locations/01.png)
 
-3. Nella sezione **Sicurezza** del pannello **Azure Active Directory** fare clic su **Accesso condizionale**.
+3. Nella sezione **Sicurezza** della pagina **Azure Active Directory** fare clic su **Accesso condizionale**.
 
     ![Comando Accesso condizionale](./media/active-directory-named-locations/05.png)
 
 
-4. Nella sezione **Gestisci** del pannello **Accesso condizionale** fare clic su **Località denominate**.
+4. Nella sezione **Gestisci** della pagina **Accesso condizionale** fare clic su **Località denominate**.
 
     ![Comando Località denominate](./media/active-directory-named-locations/06.png)
 
 
-5. Nel pannello **Località denominate** fare clic su **Nuovo percorso**.
+5. Nella pagina **Località denominate** fare clic su **Nuova località**.
 
     ![Comando Nuovo percorso](./media/active-directory-named-locations/07.png)
 
 
-6. Nel pannello **Nuovo** eseguire queste operazioni:
+6. Nella pagina **Nuovo** eseguire la procedura seguente:
 
     ![Pannello Nuovo](./media/active-directory-named-locations/56.png)
 
@@ -73,5 +101,10 @@ Per configurare una località denominata:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sugli eventi di rischio, vedere [Eventi di rischio di Azure Active Directory](active-directory-reporting-risk-events.md).
+Per altre informazioni su:
 
+- **Eventi di rischio**, vedere [Eventi di rischio di Azure Active Directory](active-directory-reporting-risk-events.md).
+
+- **Accesso condizionale**, vedere [Accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+
+- **Report degli accessi a rischio**, vedere [Report degli accessi a rischio nel portale di Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md).  

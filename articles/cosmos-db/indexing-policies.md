@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.openlocfilehash: 30a21645831f0cfcb3b52c797dbddfa6b5283960
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53bf756963c305b8b31ac1a90d219f143522d051
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Come vengono indicizzati i dati da Azure Cosmos DB?
 
@@ -68,7 +68,7 @@ Azure Cosmos DB supporta tre modalità di indicizzazione che possono essere conf
 
 **Coerente**: se i criteri di una raccolta di Azure Cosmos DB vengono designati come "coerenti", le query su una determinata raccolta di Azure Cosmos DB seguono lo stesso livello di coerenza specificato per le letture punto (assoluta, decadimento ristretto, di sessione o finale). L'indice viene aggiornato in modo sincrono come parte dell'aggiornamento del documento (ad esempio come parte di un'operazione di inserimento, sostituzione, aggiornamento ed eliminazione di un documento in una raccolta di Azure Cosmos DB).  L'indicizzazione coerente supporta query coerenti al costo della riduzione nella velocità effettiva di scrittura. Questa riduzione è una funzione di percorsi univoci che devono essere indicizzati e il "livello di coerenza". La modalità di indicizzazione coerente è progettata per carichi di lavoro "scrivi rapidamente, esegui query immediatamente".
 
-**Differita**: per consentire la massima velocità effettiva di inserimento dei documenti, una raccolta di Azure Cosmos DB può essere configurata con coerenza differita, che prevede la coerenza finale delle query. L'indice viene aggiornato in modo asincrono quando una raccolta di Azure Cosmos DB è inattiva, ad esempio quando la capacità di velocità effettiva della raccolta non viene usata completamente per rispondere alle richieste utente. Per carichi di lavoro “inserisci ora, esegui la query più tardi” che richiedono l’inserimento del documento senza alcun impedimento, la modalità di indicizzazione “differita” è più adatta.
+**Differito**: l'indice viene aggiornato in modo asincrono quando una raccolta di Azure Cosmos DB è inattiva, ad esempio quando la capacità di velocità effettiva della raccolta non viene usata completamente per rispondere alle richieste utente. Per carichi di lavoro “inserisci ora, esegui la query più tardi” che richiedono l'inserimento del documento, la modalità di indicizzazione “differita” è più adatta. I risultati potrebbero essere incoerenti perché i dati vengono inseriti e indicizzati lentamente. Ciò significa che le query del conteggio o i risultati di una query specifica non sono necessariamente corretti o ripetibili fino a quando i dati non vengono indicizzati. L'indice è in genere in modalità di recupero. Indicizzazione differita WRT: la modifica alla durata (TTL) comporta l'eliminazione e la nuova creazione dell'indice, pertanto questa attività può generare risultati imprevisti. Per maggior parte dei clienti è consigliabile usare l'indicizzazione coerente.
 
 **Nessuna**: una raccolta contrassegnata con la modalità "Nessuna" non include indici associati. Questa opzione si usa in genere se Azure Cosmos DB viene usato come archivio di coppie chiave-valore e l'accesso ai documenti avviene solo tramite la relativa proprietà ID. 
 

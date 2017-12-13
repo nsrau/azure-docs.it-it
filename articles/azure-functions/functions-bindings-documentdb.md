@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a725d6e08721107ddd83999dac85dddb88896ebf
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 91289507b9989da9d5c36628fe25cd2e60b8814d
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure
 
@@ -170,9 +170,49 @@ L'associazione di input per l'API di DocumentDB recupera uno o più documenti di
 
 Vedere l'esempio specifico del linguaggio che legge un singolo documento:
 
+* [C# precompilato](#input---c-example)
 * [Script C#](#input---c-script-example)
 * [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
+
+### <a name="input---c-example"></a>Input - esempio in C#
+
+L'esempio seguente mostra una [funzione in C# precompilato](functions-dotnet-class-library.md) che recupera un singolo documento da un database e una raccolta specifici. Prima di tutto, i valori `Id` e `Maker` per un'istanza `CarReview` vengono trasferiti su una coda. 
+
+ ```cs
+    public class CarReview
+    {
+        public string Id { get; set; }
+        public string Maker { get; set; }
+        public string Description { get; set; }
+        public string Model { get; set; }
+        public string Image { get; set; }
+        public string Review { get; set; }
+    }
+ ```
+
+Il binding di Cosmos DB usa `Id` e `Maker` dal messaggio in coda per recuperare il documento dal database.
+
+```cs
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Azure.WebJobs.Host;
+    using Microsoft.Azure.WebJobs.Extensions.DocumentDB;
+
+    namespace CosmosDB
+    {
+        public static class SingleEntry
+        {
+            [FunctionName("SingleEntry")]
+            public static void Run(
+                [QueueTrigger("car-reviews", Connection = "StorageConnectionString")] CarReview carReview,
+                [DocumentDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] CarReview document,
+                TraceWriter log)
+            {
+                log.Info( $"Selected Review - {document?.Review}"); 
+            }
+        }
+    }
+```
 
 ### <a name="input---c-script-example"></a>Input - esempio di script C#
 

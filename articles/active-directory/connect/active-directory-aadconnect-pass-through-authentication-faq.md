@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: d6a405f7245bf1b9635872efd0e29f8361d6a2f6
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 8722d7827aad10bcae3e8ec06b7014ebc64179d5
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticazione pass-through di Azure Active Directory: domande frequenti
 
@@ -99,24 +99,20 @@ Sì. Gli ambienti a più foreste sono supportati se sono presenti relazioni di t
 
 L'installazione di più agenti di autenticazione pass-through garantisce la [disponibilità elevata](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability), ma non offre un bilanciamento del carico deterministico tra gli agenti.
 
-Considerare il carico massimo e medio di richieste di accesso previsto nel tenant. Come benchmark, un singolo agente di autenticazione può gestire da 300.000 a 400.000 autenticazioni al secondo in un server standard con CPU a 4 core e 16 GB di RAM. Per la maggior parte dei clienti, un totale di due o tre agenti di autenticazione è sufficiente ai fini della capacità e della disponibilità elevata.
+Considerare il carico massimo e medio di richieste di accesso previsto nel tenant. Come benchmark, un singolo agente di autenticazione può gestire da 300 a 400 autenticazioni al secondo in un server standard con CPU a 4 core e 16 GB di RAM.
 
-È consigliabile installare gli agenti di autenticazione vicino ai controller di dominio per migliorare la latenza di accesso.
+Per stimare il traffico di rete, usare le indicazioni seguenti relative al dimensionamento:
+- Ogni richiesta ha una dimensione di payload di (0.5K + 1K * num_of_agents) byte. Ad esempio, i dati da Azure AD per l'agente di autenticazione. In questo caso, "num_of_agents" indica il numero di agenti di autenticazione registrati nel tenant.
+- Ogni risposta ha una dimensione di payload di 1 KB. Ad esempio, i dati dall'agente di autenticazione ad Azure AD.
+
+Per la maggior parte dei clienti, un totale di due o tre agenti di autenticazione è sufficiente ai fini della capacità e della disponibilità elevata. È consigliabile installare gli agenti di autenticazione vicino ai controller di dominio per migliorare la latenza di accesso.
+
+>[!NOTE]
+>Esiste un limite di sistema di 12 agenti di autenticazione per ogni tenant.
 
 ## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>È possibile installare il primo agente di autenticazione pass-through in un server diverso da quello che esegue Azure AD Connect?
 
 No, questo scenario _non_ è supportato.
-
-## <a name="how-many-pass-through-authentication-agents-should-i-install"></a>Quanti agenti di autenticazione pass-through è consigliabile installare?
-
-È consigliabile:
-
-- Installare due o tre agenti di autenticazione in totale. Questa configurazione è sufficiente per la maggior parte dei clienti.
-- Installare gli agenti di autenticazione nei controller di dominio (o il più vicino possibile) per migliorare la latenza di accesso.
-- Assicurarsi di aggiungere i server in cui sono stati installati gli agenti di autenticazione alla stessa foresta di Active Directory degli utenti di cui è necessario convalidare le password.
-
->[!NOTE]
->Esiste un limite di sistema di 12 agenti di autenticazione per ogni tenant.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Come si disabilita l'autenticazione pass-through?
 

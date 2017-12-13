@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 6213019131eec60263172f468ced516037a33c61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9b236ab8dd80b0c34501e0d60ba74dee3043d262
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Impostare automaticamente come scaduti i dati nelle raccolte di Cosmos DB usando la durata (TTL)
 Le applicazioni posso produrre e archiviare grandi quantità di dati. Alcuni di questi, come i dati eventi generati da computer, i registri e le informazioni sulle sessioni utente sono utili per un periodo di tempo limitato. Quando i dati eccedono le esigenze dell'applicazione è possibile eliminarli e ridurre le risorse di archiviazione necessarie per l'applicazione.
@@ -149,8 +149,10 @@ Per disabilitare del tutto la durata (TTL) in una raccolta e impedire al process
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
+## <a name="ttl-and-index-interaction"></a>Interazione di durata (TTL) e indice
+L'aggiunta o la modifica di una durata (TTL) è una modifica all'indice sottostante. Quando non c'è alcuna durata (TTL) e si specifica un valore di durata (TTL) valido, viene eseguita un'operazione di reindicizzazione. Per l'indice coerente, l'utente non vedrà alcuna modifica nello stato dell'indice. In caso di indice differito, l'indice deve prima di tutto sempre allinearsi e con la modifica della durata (TTL), l'indice viene ricreato da zero. L'impatto in quest'ultimo caso è che le query eseguite durante la ricompilazione dell'indice non restituiranno risultati completi o corretti. Non modificare la durata (TTL) per l'indice differito se è necessario un numero di dati esatto e così via, in quanto la modalità di indicizzazione stessa è differita.  In teoria bisognerebbe scegliere sempre l'indice coerente. 
 
-## <a name="faq"></a>Domande frequenti
+## <a name="faq"></a>domande frequenti
 **Quanto costa la durata (TTL)?**
 
 Non sono previsti costi aggiuntivi per l'impostazione di una durata (TTL) in un documento.

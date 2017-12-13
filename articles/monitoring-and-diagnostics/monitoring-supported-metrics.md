@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: ancav
-ms.openlocfilehash: 05830547a5b8a24a59571edf6dd44d101b660189
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef27a15bb6a6305f7a762716a20487ef983cb5d1
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra cui la creazione di grafici nel portale, l'accesso tramite l'API REST o l'esecuzione di query tramite PowerShell o l'interfaccia della riga di comando. Di seguito è riportato un elenco completo di tutte le metriche attualmente disponibili con la pipeline delle metriche di monitoraggio di Azure.
@@ -509,7 +509,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |jobs.completed|Processi completati|Numero|Totale|Numero di tutti i processi completati.|Nessuna dimensione|
 |jobs.failed|Processi non riusciti|Numero|Totale|Numero di tutti i processi non riusciti.|Nessuna dimensione|
 |d2c.telemetry.ingress.sendThrottle|Number of throttling errors (Numero di errori di limitazione)|Numero|Totale|Numero di errori di limitazione dovuti alle limitazioni della velocità effettiva del dispositivo|Nessuna dimensione|
-|dailyMessageQuotaUsed|Total number of messages used (Numero totale di messaggi usati)|Numero|Media|Numero totale di messaggi usati nella data odierna|Nessuna dimensione|
+|dailyMessageQuotaUsed|Total number of messages used (Numero totale di messaggi usati)|Numero|Media|Numero totale di messaggi usati nella data odierna. Si tratta di un valore cumulativo che viene reimpostato su zero alle 00:00 UTC ogni giorno.|Nessuna dimensione|
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 

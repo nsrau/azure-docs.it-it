@@ -12,40 +12,43 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/15/2017
+ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: dc17ba7f8cc1326790b0256de277ccb2eaa20949
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: bd6e5c1591d01329d95ccb168e5a14e436920baf
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Impostazioni di configurazione per un cluster autonomo in Windows
-Questo articolo descrive come configurare un cluster autonomo di Azure Service Fabric usando il file ClusterConfig.JSON. È possibile usare questo file per specificare informazioni quali i nodi di Service Fabric, i relativi indirizzi IP e i diversi tipi di nodi nel cluster. È anche possibile specificare le configurazioni di sicurezza, nonché la topologia di rete in termini di domini di errore e aggiornamento per il cluster autonomo.
+Questo articolo descrive come configurare un cluster autonomo di Azure Service Fabric usando il file ClusterConfig.json. Questo file verrà usato per specificare informazioni sui nodi del cluster, le configurazioni di sicurezza, nonché la topologia di rete in termini di domini di errore e di aggiornamento.
 
-Quando si [scarica un pacchetto autonomo di Service Fabric](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), alcuni campioni del file ClusterConfig.JSON vengono scaricati sul computer in uso. I campioni i cui nomi contengono DevCluster aiuteranno a creare un cluster con tutti e tre i nodi nello stesso computer, ad esempio nodi logici. Almeno uno di questi nodi deve essere contrassegnato come primario. Questo cluster è utile per un ambiente di sviluppo o test. Non è supportato come cluster di produzione. I campioni i cui nomi contengono MultiMachine aiuteranno a creare un cluster di qualità di produzione, in cui ogni nodo si trova in un computer separato. Il numero di nodi primari per i cluster si basa sul [livello di affidabilità](#reliability). Nella versione 05-2017 dell'API 5.7 la proprietà del livello di affidabilità è stata rimossa. Il codice calcola invece il livello di affidabilità ottimale per il cluster. Non usare questa proprietà nella versione del codice 5.7 e successive.
+Quando si [scarica il pacchetto di Service Fabric autonomo](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), sono disponibili anche gli esempi di ClusterConfig.json. I campioni i cui nomi contengono "DevCluster" creano un cluster con tutti e tre i nodi nello stesso computer, usando nodi logici. Almeno uno di questi nodi deve essere contrassegnato come primario. Questo tipo di cluster è utile per gli ambienti di sviluppo o test. Non è supportato come cluster di produzione. I campioni i cui nomi contengono "MultiMachine" creano un cluster di grado di produzione, in cui ogni nodo si trova in un computer separato. Il numero di nodi primari per i cluster si basa sul [livello di affidabilità](#reliability) del cluster stesso. Nella versione 05-2017 dell'API 5.7 la proprietà del livello di affidabilità è stata rimossa. Il codice calcola invece il livello di affidabilità ottimale per il cluster. Non tentare di impostare un valore per questa proprietà nelle versioni a partire dalla 5.7.
 
 
-* ClusterConfig.Unsecure.DevCluster.JSON e ClusterConfig.Unsecure.MultiMachine.JSON mostrano rispettivamente come creare cluster senza protezione per test e produzione.
+* ClusterConfig.Unsecure.DevCluster.json e ClusterConfig.Unsecure.MultiMachine.json mostrano rispettivamente come creare cluster senza protezione per test e produzione.
 
-* ClusterConfig.Windows.DevCluster.JSON e ClusterConfig.Windows.MultiMachine.JSON mostrano come creare cluster di test o produzione protetti tramite [sicurezza di Windows](service-fabric-windows-cluster-windows-security.md).
+* ClusterConfig.Windows.DevCluster.jsob e ClusterConfig.Windows.MultiMachine.json mostrano come creare cluster di test o produzione protetti tramite [sicurezza di Windows](service-fabric-windows-cluster-windows-security.md).
 
-* ClusterConfig.X509.DevCluster.JSON e ClusterConfig.X509.MultiMachine.JSON mostrano come creare cluster di test o produzione protetti tramite [sicurezza basata su certificato X509](service-fabric-windows-cluster-x509-security.md).
+* ClusterConfig.X509.DevCluster.json e ClusterConfig.X509.MultiMachine.json mostrano come creare cluster di test o produzione protetti tramite [sicurezza basata su certificato X509](service-fabric-windows-cluster-x509-security.md).
 
-Verranno esaminate ora le diverse sezioni di un file ClusterConfig.JSON.
+Verranno esaminate ora le diverse sezioni di un file ClusterConfig.json.
 
 ## <a name="general-cluster-configurations"></a>Configurazioni generali del cluster
 Le Configurazioni generali del cluster comprendono le ampie configurazioni specifiche del cluster, come illustrato nel frammento JSON seguente:
 
+```json
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
     "apiVersion": "01-2017",
+```
 
 È possibile attribuire qualsiasi nome descrittivo al cluster di Service Fabric assegnandolo alla variabile name. Il clusterConfigurationVersion è il numero di versione del cluster. Aumentarlo ogni volta che si esegue l'aggiornamento del cluster di Service Fabric. Lasciare la proprietà apiVersion impostata sul valore predefinito.
 
+## <a name="nodes-on-the-cluster"></a>Nodi del cluster
+
     <a id="clusternodes"></a>
 
-## <a name="nodes-on-the-cluster"></a>Nodi del cluster
 È possibile configurare i nodi nel cluster di Service Fabric tramite la sezione nodes, come illustrato nel frammento seguente:
 
     "nodes": [{
@@ -79,12 +82,12 @@ Un cluster di Service Fabric deve contenere almeno 3 nodi. È possibile aggiunge
 | upgradeDomain |I domini di aggiornamento descrivono set di nodi che vengono arrestati per gli aggiornamenti di Service Fabric quasi contemporaneamente. È possibile scegliere i nodi da assegnare a determinati domini di aggiornamento perché non sono limitati da eventuali requisiti fisici. |
 
 ## <a name="cluster-properties"></a>Proprietà del cluster
-La sezione properties in ClusterConfig.JSON viene usata per configurare il cluster come indicato di seguito:
-
-    <a id="reliability"></a>
+La sezione properties in ClusterConfig.json viene usata per configurare il cluster come indicato di seguito:
 
 ### <a name="reliability"></a>Affidabilità
 Il concetto di reliabilityLevel definisce il numero di repliche o istanze dei servizi di sistema di Service Fabric eseguibili nei nodi primari del cluster. Determina l'affidabilità di questi servizi e quindi del cluster. Il valore viene calcolato dal sistema in fase di creazione e di aggiornamento del cluster.
+
+    <a id="reliability"></a>
 
 ### <a name="diagnostics"></a>Diagnostica
 La sezione diagnosticsStore consente di configurare i parametri per consentire la diagnostica e la risoluzione degli errori di nodi o cluster, come illustrato nel frammento riportato di seguito: 
@@ -119,9 +122,10 @@ La sezione security è necessaria per la protezione di un cluster di Service Fab
 
 La variabile metadata descrive il cluster protetto e può essere impostata in base alla configurazione in uso. ClusterCredentialType e ServerCredentialType determinano il tipo di protezione implementata dal cluster e dai nodi. È possibile impostarle su *X509* per una protezione basata su certificato o su *Windows* per una protezione basata su Azure Active Directory. Il resto della sezione security sarà basato sul tipo di protezione. Leggere l'articolo sulla [sicurezza basata su certificati in un cluster autonomo](service-fabric-windows-cluster-x509-security.md) o sulla [sicurezza di Windows in un cluster autonomo](service-fabric-windows-cluster-windows-security.md) per informazioni su come compilare il resto della sezione security.
 
+### <a name="node-types"></a>Tipi di nodi
+
     <a id="nodetypes"></a>
 
-### <a name="node-types"></a>Tipi di nodi
 La sezione nodeTypes descrive il tipo di nodi del cluster. Per ogni cluster deve essere specificato almeno un tipo di nodo, come illustrato nel frammento riportato di seguito: 
 
     "nodeTypes": [{
@@ -197,5 +201,5 @@ Per abilitare il supporto dei contenitori sia per i contenitori di Windows Serve
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver creato un file ClusterConfig.JSON completo, configurato in base all'impostazione cluster autonomo, è possibile distribuire il cluster. Eseguire la procedura in [Creare un cluster autonomo di Service Fabric](service-fabric-cluster-creation-for-windows-server.md). Procedere quindi con [Visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) e seguire i passaggi.
+Dopo aver creato un file ClusterConfig.json completo, configurato in base all'impostazione cluster autonomo, è possibile distribuire il cluster. Eseguire la procedura in [Creare un cluster autonomo di Service Fabric](service-fabric-cluster-creation-for-windows-server.md). Procedere quindi con [Visualizzare il cluster con Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) e seguire i passaggi.
 

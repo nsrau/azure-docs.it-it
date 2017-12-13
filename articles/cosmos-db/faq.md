@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 0f45468616884a6866bd95ef53acab71b4fed06c
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: f32d23caa0a89b7f9336628280d726a351fb0603
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-cosmos-db-faq"></a>Domande frequenti su Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Nozioni fondamentali su Azure Cosmos DB
@@ -195,7 +195,6 @@ Esistono alcune differenze a livello di comportamento che gli utenti di archivia
 * I risultati delle query restituiti dall'API Tabelle non vengono ordinati in base a chiave di partizione/chiave di riga, come avviene in archiviazione tabelle di Azure.
 * Le chiavi di riga possono avere una dimensione massima di 255 byte.
 * I batch possono contenere solo fino a 2 MB
-* Le chiamate CreateIfNotExists vengono limitate da una limitazione di gestione fissa e separata da altre operazioni di tabella coperte dalle unità richiesta. Gli utenti che effettuano un numero elevato di chiamate CreateIfNotExists vengono limitati e non potranno modificare la limitazione, perché il limite non viene applicato dalle rispettive unità richiesta.
 * CORS non è attualmente supportato.
 * I nomi di tabella nell'archiviazione tabelle di Azure non rispettano la distinzione tra maiuscole e minuscole, ma tale distinzione viene rispettata nell'API Tabelle di Azure Cosmos DB.
 * Alcuni dei formati interni di Azure Cosmos DB per le informazioni di codifica, ad esempio i campi binari, non offrono attualmente l'efficienza auspicabile. Di conseguenza questo può causare limitazioni impreviste per le dimensioni dei dati. Ad esempio, attualmente non è possibile usare l'intero MB di un'entità tabella per archiviare i dati binari, perché la codifica incrementa le dimensioni dei dati.
@@ -504,7 +503,7 @@ Usare la [metrica](use-metrics.md) Usare i [log di diagnostica](logging.md).
 ### <a name="which-client-sdks-can-work-with-apache-cassandra-api-of-azure-cosmos-db"></a>Quali SDK client possono essere usati con l'API Apache Cassandra di Azure Cosmos DB?
 In anteprima privata, per i programmi client sono stati usati i driver del client di Apache Cassandra SDK, che usano CQLv3. In caso di uso di altri driver o se si verificano problemi, inviare un messaggio di posta elettronica all'indirizzo [ askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com). 
 
-### <a name="is-composite-primary-key-supported"></a>La chiave composta primaria è supportata?
+### <a name="is-composite-partition-key-supported"></a>La chiave di partizione composta è supportata?
 Sì, è possibile usare la sintassi normale per creare una chiave di partizione composta. 
 
 ### <a name="can-i-use-sstable-loader-for-data-loading"></a>È possibile usare il caricatore sstable per il caricamento di dati?

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 70219ada2f4886f40d088486063afda2bc489611
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5e0ff1b98be73eb5990601ae7c5528e4a7af670b
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Associazioni di Hub eventi di Azure per Funzioni di Azure
 
@@ -33,6 +33,27 @@ Questo articolo illustra come usare le associazioni di [Hub eventi di Azure](../
 È possibile usare il trigger di Hub eventi per rispondere a un evento inviato a un flusso di eventi di Hub eventi. Per configurare il trigger è necessario avere accesso in lettura ad Hub eventi.
 
 Quando viene attivata una funzione trigger di Hub eventi, il messaggio che la attiva viene passato alla funzione sotto forma di stringa.
+
+## <a name="trigger---scaling"></a>Trigger - ridimensionamento
+
+Ogni istanza di una funzione attivata di Hub eventi è supportata da una sola istanza di EventProcessorHost (EPH). Hub eventi garantisce che solo un EPH può ottenere un lease in una determinata partizione.
+
+Si supponga, ad esempio, di iniziare con la configurazione e i presupposti seguenti per un Hub eventi:
+
+1. 10 partizioni.
+1. 1000 eventi distribuiti in modo uniforme tra tutte le partizioni = > 100 messaggi in ogni partizione.
+
+Quando la funzione viene abilitata per la prima volta, è presente solo un'istanza della funzione. Denominiamo questa istanza della funzione Function_0. Function_0 avrà un EPH che gestisce per ottenere un lease in tutte le 10 partizioni. Inizierà la lettura degli eventi dalle partizioni da 0 a 9. A partire da questo punto potranno verificarsi una delle condizioni seguenti:
+
+* **È necessaria una sola istanza della funzione**  - Function_0 è in grado di elaborare tutti i 1000 eventi prima che si attivi la logica di ridimensionamento delle Funzioni di Azure. Di conseguenza, tutti i 1000 messaggi vengono elaborati da Function_0.
+
+* **Aggiunta di un'altra istanza della funzione** - La logica di ridimensionamento delle Funzioni di Azure determina che Function_0 presenta più messaggi di quanti ne possa elaborare e quindi viene creata una nuova istanza, Function_1. Hub eventi rileva che una nuova istanza EPH sta tentando di leggere i messaggi. Hub eventi avvierà il bilanciamento del carico delle partizioni tra le istanze EPH, ad esempio, le partizioni da 0 a 4 vengono assegnate a Function_0 e le partizioni da 5 a 9 a Function_1. 
+
+* **Aggiunta di N altre istanze della funzione** - La logica di ridimensionamento delle Funzioni di Azure determina che sia Function_0 sia Function_1 hanno più messaggi di quanti ne possano elaborare. Verrà eseguito il ridimensionamento per Function_2...N, dove N è maggiore delle partizioni di Hub eventi. Hub eventi eseguirà il bilanciamento del carico delle partizioni nelle istanze Function_0... 9.
+
+Un fattore univoco della logica di ridimensionamento corrente delle Funzioni di Azure è che N è maggiore del numero di partizioni. Questa operazione viene eseguita per assicurare che ci siano sempre istanze di EPH immediatamente disponibili per ottenere rapidamente un blocco delle partizioni appena diventano disponibili da altre istanze. Agli utenti vengono addebitati solo i costi delle risorse usate quando viene eseguita l'istanza della funzione e non vengono addebitati i costi dell'overprovisioning.
+
+Se tutte le esecuzioni delle funzioni riescono senza errori, i checkpoint vengono aggiunti all'account di archiviazione associato. Quando il checkpoint ha esito positivo, non sarà più necessario recuperare nuovamente tutti i 1000 messaggi.
 
 ## <a name="trigger---example"></a>Trigger - esempio
 
@@ -372,7 +393,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su "eventHub". |
-|**direction** | n/d | Il valore deve essere impostato su "out". Questo parametro viene impostato automaticamente quando si crea l'associazione nel portale di Azure. |
+|**direction** | n/d | Deve essere impostato su "out". Questo parametro viene impostato automaticamente quando si crea l'associazione nel portale di Azure. |
 |**nome** | n/d | Nome della variabile usato nel codice della funzione che rappresenta l'evento. | 
 |**path** |**EventHubName** | Nome di Hub eventi. | 
 |**connessione** |**Connection** | Nome di un'impostazione dell'app che contiene la stringa di connessione per lo spazio dei nomi di Hub eventi. Copiare questa stringa di connessione facendo clic sul pulsante **Informazioni di connessione** per lo *spazio dei nomi*, non per lo stesso Hub eventi. Per inviare il messaggio al flusso di eventi, questa stringa di connessione deve disporre di autorizzazioni Send.|

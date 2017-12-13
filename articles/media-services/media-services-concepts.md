@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: da2dc87543fd8a0aa99e1de3018a310abe93fa3a
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fb21280921f353d2300767059290a1a8fac05e71
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-media-services-concepts"></a>Concetti relativi ai Servizi multimediali di Azure
 Questo argomento fornisce una panoramica dei concetti più importanti su Servizi multimediali.
@@ -151,10 +151,9 @@ I criteri di autorizzazione delle chiavi simmetriche possono avere una o più re
 Quando si configurano i criteri di restrizione Token, è necessario specificare i parametri primary verification key, issuer e audience. Il parametro primary verification key include la chiave usata per firmare il token. Il parametro issuer è il servizio token di sicurezza che emette il token. Il parametro audience (talvolta denominato scope) descrive l'ambito del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione delle chiavi di Servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello.
 
 Per altre informazioni, vedere gli articoli seguenti:
-
-[Informazioni generali sulla protezione dei contenuti](media-services-content-protection-overview.md)
-[Proteggere contenuti con AES-128](media-services-protect-with-aes128.md)
-[Proteggere contenuti con DRM](media-services-protect-with-drm.md)
+- [Informazioni generali sulla protezione dei contenuti](media-services-content-protection-overview.md)
+- [Protezione con AES-128](media-services-protect-with-aes128.md)
+- [Protezione con PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Recapito
 ### <a id="dynamic_packaging"></a>Creazione dinamica dei pacchetti

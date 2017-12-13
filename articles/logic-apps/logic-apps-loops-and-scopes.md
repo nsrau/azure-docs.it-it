@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 413a2ba9107ca259ed577825bf0a17ff5622f1ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17de187f67c075147ea8ff7f69434014eea3fdb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Cicli, ambiti e debatching delle app per la logica
   
@@ -26,7 +26,7 @@ Le app per la logica offrono una serie di metodi per usare matrici, raccolte, ba
   
 ## <a name="foreach-loop-and-arrays"></a>Matrici e cicli ForEach
   
-App per la logica consente di eseguire un ciclo su un set di dati e di eseguire un'azione per ogni elemento.  Per queste operazioni viene usata l'azione `foreach` .  Nella finestra di progettazione è possibile specificare l'aggiunta di un loop ForEach.  Dopo aver selezionato la matrice su cui si vuole eseguire un'iterazione, è possibile iniziare ad aggiungere azioni.  Attualmente è possibile eseguire solo un'azione per ogni loop ForEach, ma questa limitazione verrà rimossa nelle prossime settimane.  All'interno del loop è possibile iniziare a specificare cosa deve avvenire in corrispondenza di ogni valore della matrice.
+App per la logica consente di eseguire un ciclo su un set di dati e di eseguire un'azione per ogni elemento.  Per queste operazioni viene usata l'azione `foreach` .  Nella finestra di progettazione è possibile specificare l'aggiunta di un loop ForEach.  Dopo aver selezionato la matrice su cui si vuole eseguire un'iterazione, è possibile iniziare ad aggiungere azioni.  È possibile aggiungere più azioni per ciclo foreach.  All'interno del loop è possibile iniziare a specificare cosa deve avvenire in corrispondenza di ogni valore della matrice.
 
 Se si usa la visualizzazione del codice, è possibile specificare un loop ForEach come nell'illustrazione che segue.  In questo esempio di loop ForEach viene inviato un messaggio di posta elettronica per ogni indirizzo di posta elettronica che contiene "microsoft.com":
 

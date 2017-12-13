@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: genli
-ms.openlocfilehash: 7b435b6904b05228a63e3ed3a9fed78747b843c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d86f3ec043c504c9d79b18f1f0b4c9cf0adb115b
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di connettività e rete per Servizi cloud di Azure: domande frequenti
 
@@ -48,8 +48,8 @@ Azure implementa una sicurezza di rete su più livelli per proteggere i servizi 
 
 ## <a name="when-i-try-to-rdp-to-my-cloud-service-instance-i-get-the-message-the-user-account-has-expired"></a>Quando si prova a usare RDP nell'istanza del servizio cloud, viene visualizzato il messaggio "L'account utente è scaduto".
 Il messaggio di errore "L'account utente è scaduto" potrebbe venire visualizzato quando si ignora la data di scadenza configurata nelle impostazioni RDP. È possibile modificare la data di scadenza dal portale seguendo questa procedura:
-1. Accedere alla console di gestione di Azure (https://manage.windowsazure.com), passare al servizio cloud e selezionare la scheda **Configura**.
-2. Selezionare **Remoto**.
+1. Accedere al [portale di Azure](https://portal.azure.com), passare al servizio cloud e selezionare la scheda **Desktop remoto**.
+2. Selezionare lo slot di distribuzione **Produzione** o **Gestione temporanea**.
 3. Modificare la data di scadenza e quindi salvare la configurazione.
 
 A questo punto dovrebbe essere possibile usare RDP nel computer.

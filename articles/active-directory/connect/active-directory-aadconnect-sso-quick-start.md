@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: b85afe54832319fae2ea3a2501ec268bc63fc7c1
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1bc76062b05938992b71eedaa71b3c7dfedd7ef4
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: guida introduttiva
 
@@ -127,7 +127,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
 ### <a name="browser-considerations"></a>Considerazioni sui browser
 
-#### <a name="mozilla-firefox"></a>Mozilla Firefox
+#### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (tutte le piattaforme)
 
 Mozilla Firefox non usa automaticamente l'autenticazione Kerberos. Ogni utente deve aggiungere manualmente gli URL di Azure AD alle impostazioni di Firefox usando la procedura seguente:
 1. Eseguire Firefox e immettere `about:config` nella barra degli indirizzi. Eliminare tutte le notifiche visualizzate.
@@ -136,11 +136,15 @@ Mozilla Firefox non usa automaticamente l'autenticazione Kerberos. Ogni utente d
 4. Nel campo immettere https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net.
 5. Fare clic su **OK** e quindi riaprire il browser.
 
-#### <a name="safari-on-mac-os"></a>Safari su Mac OS
+#### <a name="safari-mac-os"></a>Safari (Mac OS)
 
 Verificare che il computer che esegue Mac OS sia stato aggiunto a Azure AD. Per istruzioni sull'aggiunta a Azure AD, vedere [Best Practices for Integrating OS X with Active Directory](http://training.apple.com/pdf/Best_Practices_for_Integrating_OS_X_with_Active_Directory.pdf) (Procedure consigliate per l'integrazione di OS X con Active Directory).
 
-#### <a name="google-chrome-on-mac-os"></a>Google Chrome su Mac OS
+#### <a name="google-chrome-all-platforms"></a>Google Chrome (tutte le piattaforme)
+
+Nel caso siano state ignorate le impostazioni dei criteri [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) o [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) nell'ambiente in uso, assicurarsi di aggiungere anche gli URL di Azure AD (https://autologon.microsoftazuread-sso.com e https://aadg.windows.net.nsatc.net).
+
+#### <a name="google-chrome-mac-os-only"></a>Google Chrome (solo Mac OS)
 
 Per Google Chrome su Mac OS e altre piattaforme non Windows, fare riferimento a [The Chromium Project Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) (Elenco criteri dei progetti Chromium) per informazioni su come aggiungere gli URL di Azure AD all'elenco elementi consentiti per l'autenticazione integrata.
 
@@ -149,9 +153,6 @@ L'uso di estensioni di terze parti di Criteri di gruppo di Active Directory per 
 #### <a name="known-browser-limitations"></a>Limitazioni note dei browser
 
 L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox e nel browser Edge. Non funziona nemmeno in Internet Explorer se il browser è in esecuzione in modalità protetta avanzata.
-
->[!IMPORTANT]
->Di recente è stato eseguito il rollback del supporto per Edge per analizzare i problemi segnalati dai clienti.
 
 ## <a name="step-4-test-the-feature"></a>Passaggio 4: Testare la funzionalità
 

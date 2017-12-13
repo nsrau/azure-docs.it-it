@@ -9,16 +9,20 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 4a142648793f934e939be26378504c19facf40e1
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d29889a4c972638f5d127e9c518aa85fbc19d861
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Inviare processi di ritaglio da Azure Media Clipper
 Per gestire l'invio di processi di ritaglio, Azure Media Clipper richiede l'implementazione di un metodo **submitSubclipCallback**. Questa funzione è necessaria per implementare un'operazione POST HTTP per l'output di Clipper in un servizio Web. Nel servizio Web sarà possibile inviare il processo di codifica. L'output di Clipper è un set di impostazioni di codifica di Media Encoder Standard per i processi con rendering o il payload dell'API REST per chiamate di filtri manifesto dinamico. Questo modello pass-through è necessario perché le credenziali dell'account Servizi multimediali non sono sicure nel browser del client.
 
-L'esempio di codice seguente illustra un metodo **submitSubclipCallback** di esempio. In questo metodo si implementa l'operazione POST HTTP per il set di impostazioni di codifica MES. Se l'operazione POST ha esito positivo (**result**), l'oggetto **Promise** viene risolto. In caso contrario, viene rifiutato con i dettagli dell'errore.
+Il diagramma di sequenza seguente illustra il flusso di lavoro tra il browser client, il servizio Web e Servizi multimediali di Azure: ![Diagramma di sequenza di Azure Media Clipper](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)
+
+Nel diagramma precedente le quattro entità sono: il browser dell'utente finale, il servizio Web, l'endpoint rete per la distribuzione di contenuti di hosting delle risorse di Clipper e Servizi multimediali di Azure. Quando l'utente finale accede a una pagina Web, la pagina ottiene le risorse JavaScript e CSS di Clipper dall'edpoint rete per la distribuzione di contenuti di hosting. L'utente finale configura il processo di ritaglio o la chiamata di creazione del filtro manifesto dinamico dal browser. Quando l'utente finale invia il processo o la chiamata di creazione del filtro, il browser inserisce il payload del processo in un servizio Web da distribuire. Questo servizio Web invia infine il processo di ritaglio o la chiamata di creazione del filtro a Servizi multimediali di Azure usando le credenziali dell'account servizi multimediali.
+
+L'esempio di codice seguente illustra un metodo **submitSubclipCallback** di esempio. In questo metodo si implementa l'operazione POST HTTP per il set di impostazioni di codifica Media Encoder Standard. Se l'operazione POST ha esito positivo (**result**), l'oggetto **Promise** viene risolto. In caso contrario, viene rifiutato con i dettagli dell'errore.
 
 ```javascript
 // Submit Subclip Callback
@@ -49,9 +53,11 @@ var subclipper = new subclipper({
     submitSubclipCallback: onSubmitSubclip,
 });
 ```
-L'output dell'invio del processo è il set di impostazioni di codifica MES per un processo con rendering o il payload dell'API REST per i filtri manifesto dinamico.
+L'output dell'invio del processo è il set di impostazioni di codifica Media Encoder Standard per un processo con rendering o il payload dell'API REST per i filtri manifesto dinamico.
 
-## <a name="rendered-output"></a>Output sottoposto a rendering
+## <a name="submitting-encoding-job-to-create-video"></a>Invio di un processo di codifica per creare video
+È possibile inviare un processo di codifica Media Encoder Standard per creare una clip video con fotogrammi accurati. Il processo di codifica produce video con rendering, un nuovo file MP4 frammentato.
+
 Il contratto di output del processo per il ritaglio con rendering è un oggetto JSON con le proprietà seguenti:
 
 ```json
@@ -145,8 +151,10 @@ Il contratto di output del processo per il ritaglio con rendering è un oggetto 
 }
 ```
 
-## <a name="filter-output"></a>Output di filtro
-Il contratto di output per un ritaglio con filtro è un oggetto JSON con le proprietà seguenti:
+Per eseguire il processo di codifica, inviare il processo di codifica Media Encoder Standard col il set di impostazioni associato. Vedere questo articolo per informazioni dettagliate sull'invio di processi di codifica tramite [.NET SDK](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) o [API REST](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-encode-asset).
+
+## <a name="quickly-creating-video-clips-without-encoding"></a>Creazione rapida di clip video senza codifica
+In alternativa alla creazione di un processo di codifica è possibile usare Azure Media Clipper per creare i filtri manifesto dinamico. I filtri non richiedono la codifica e possono essere creati rapidamente in quanto non viene creato un nuovo asset. Il contratto di output per un ritaglio con filtro è un oggetto JSON con le proprietà seguenti:
 
 ```json
 {
@@ -218,3 +226,5 @@ Il contratto di output per un ritaglio con filtro è un oggetto JSON con le prop
   }
 }
 ```
+
+Per inviare la chiamata REST per creare un filtro manifesto dinamico, inviare il payload del filtro associato tramite [API REST](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-dynamic-manifest).

@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 54038785f513e56b07f5f3fafa3dbd6d4b6e7400
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - Guida alla risoluzione dei problemi e problemi noti 
 Questo articolo consente di trovare e correggere errori o guasti riscontrati durante l'uso dell'applicazione Azure Machine Learning Workbench. 
@@ -112,6 +112,19 @@ Sfortunatamente non è disponibile alcuna correzione in questo caso. È necessar
    - Rimuovere lo script `C:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
    - Rimuovere il collegamento sul desktop che avvia lo script precedente
    - Scaricare il programma di installazione https://aka.ms/azureml-wb-msi e ripetere l'installazione.
+
+## <a name="get-stuck-at-checking-experimentation-account-screen-after-logging-in"></a>Dopo l'accesso si rimane bloccati nella schermata "Verifica account sperimentazione in corso"
+Dopo l'accesso, l'app Workbench potrebbe bloccarsi su una schermata vuota con un messaggio che mostra "Verifica account sperimentazione in corso" con una ruota che gira. Per risolvere il problema, eseguire la procedura seguente:
+1. Arrestare l'app
+2. Eliminare il file seguente:
+  ```
+  # on Windows
+  %appdata%\AmlWorkbench\AmlWb.settings
+
+  # on macOS
+  ~/Library/Application Support/AmlWorkbench/AmlWb.settings
+  ```
+3. Riavviare l'app.
 
 ## <a name="cant-delete-experimentation-account"></a>Non è possibile eliminare l'account di Sperimentazione
 È possibile usare l'interfaccia della riga di comando per eliminare un account di Sperimentazione, ma è necessario eliminare innanzitutto le aree di lavoro figlio e i progetti figlio al loro interno. In caso contrario, viene visualizzato un errore.

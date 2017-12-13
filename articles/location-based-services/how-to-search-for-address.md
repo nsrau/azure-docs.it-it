@@ -8,11 +8,11 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: how-to
 ms.service: location-based-services
-ms.openlocfilehash: f7337c1c5821016987096da47dda4ac1124d7910
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Come trovare un indirizzo usando il servizio di ricerca di Servizi Location Based di Azure (anteprima)
 Il servizio di ricerca è un set RESTful di API progettato per gli sviluppatori che consente di cercare indirizzi, località, punti di interesse, elenchi di aziende e altre informazioni geografiche. Il servizio di ricerca assegna una coppia latitudine/longitudine a un indirizzo, una strada secondaria, una caratteristica geografica o un punto di interesse specifico. I valori di latitudine e longitudine restituiti dalle API del servizio di ricerca possono essere usati come parametri in altre istanze di Servizi Location Based di Azure come le API di itinerario e flusso di traffico.
@@ -62,12 +62,11 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
     
     I risultati sono diversi per questa query e non sono associati ad alcuna località di riferimento. È possibile usare il parametro **countrySet** per specificare solo i paesi per cui l'applicazione richiede copertura, in quanto il comportamento predefinito consiste nel cercare nel mondo intero, con il rischio di restituire risultati non necessari.
 
-5. Aggiungere il valore seguente alla stringa di query e fare clic su **Send** (Invia):
-    ```
-        ,countrySet=US
-    ```
-    >[!NOTE] 
-    >Assicurarsi di usare virgole per separare tra loro i parametri URI aggiuntivi nella stringa di query.
+5. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
+
+    | Chiave | Valore |
+    |------------------|-------------------------|
+    | countrySet | Stati Uniti |
     
     I risultati sono ora limitati dall'indicativo paese e la query restituisce le pizzerie negli Stati Uniti.
     
@@ -116,10 +115,11 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
         400 Broad, Seattle
     ```
 
-5. Aggiungere il valore seguente alla stringa di query e fare clic su **Send** (Invia):
-    ```
-        ,typeahead
-    ```
+5. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
+
+    | Chiave | Valore |
+    |-----|------------|
+    | typeahead | true |
 
     Il flag **typeahead** indica all'API di ricerca di indirizzi di considerare la query un input parziale e di restituire una matrice di valori predittivi.
 
@@ -150,37 +150,43 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
     
     La risposta include la voce del punto di interesse per Safeco Field con una categoria di punto di interesse "stadio". 
     
-4. Aggiungere il valore seguente alla stringa di query e fare clic su **Send** (Invia):
-    ```
-        ,number
-    ```
+4. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
+
+    | Chiave | Valore |
+    |-----|------------|
+    | number | true |
+
     Se con la richiesta viene inviato il parametro di query [number](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la risposta può includere il lato della via (sinistro/destro) e anche una posizione di variazione per il numero.
     
-5. Aggiungere il valore seguente alla stringa di query e fare clic su **Send** (Invia):
-    ```
-        ,spatialKeys
-    ```
+5. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
+
+    | Chiave | Valore |
+    |-----|------------|
+    | spatialKeys | true |
 
     Quando è impostato il parametro di query [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la risposta contiene informazioni proprietarie relative alla chiave geospaziale per la località specificata.
 
-6. Aggiungere il valore seguente alla stringa di query e fare clic su **Send** (Invia):
-    ```
-        ,returnSpeedLimit
-    ```
+6. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
+
+    | Chiave | Valore |
+    |-----|------------|
+    | returnSpeedLimit | true |
     
     Quando è impostato il parametro di query [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la risposta restituisce il limite di velocità pubblicato.
 
-7. Aggiungere il valore seguente alla stringa di query e fare clic su **Send** (Invia):
-    ```
-        ,returnRoadUse
-    ```
+7. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
+
+    | Chiave | Valore |
+    |-----|------------|
+    | returnRoadUse | true |
 
     Quando è impostato il parametro di query [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la risposta restituisce la matrice degli usi stradali per codifiche geografiche inverse a livello di via.
 
-8. Aggiungere il valore seguente alla stringa di query e fare clic su **Send** (Invia):
-    ```
-        ,roadUse
-    ```
+8. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
+
+    | Chiave | Valore |
+    |-----|------------|
+    | roadUse | true |
 
     È possibile limitare la query di codifica geografica inversa a un tipo specifico di uso stradale usando il parametro di query [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters).
     

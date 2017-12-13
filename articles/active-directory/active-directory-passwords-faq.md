@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 112bfeea29eacd0615f1d134567ec52264318b5f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 6497421b1c51e361d6881332a19c19c7d47c8e29
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Domande frequenti sulla gestione delle password
 
@@ -81,6 +81,19 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 
 ## <a name="password-reset"></a>Reimpostazione delle password
 
+* **D: Agli utenti viene impedito di effettuare più tentativi di reimpostazione di una password in un breve periodo di tempo?**
+
+  > **R:** Sì. Per evitarne un uso improprio, il processo di reimpostazione password include funzionalità di sicurezza. 
+  >
+  > Gli utenti possono effettuare solo cinque tentativi di reimpostazione password nell'arco di 24 ore, dopo i quali verranno bloccati per 24 ore. 
+  >
+  > Gli utenti possono provare a convalidare un numero di telefono, inviare un SMS o convalidare domande e risposte di sicurezza solo cinque volte nell'arco di un'ora, dopodiché verranno bloccati per 24 ore. 
+  >
+  > Gli utenti possono inviare un messaggio di posta elettronica massimo 10 volte nell'arco di 10 minuti, trascorsi i quali verranno bloccati per 24 ore.
+  >
+  > I contatori vengono reimpostati dopo che un utente ha reimpostato la password.
+  >
+  >
 * **D: Quanto tempo occorre attendere prima di ricevere un messaggio di posta elettronica, un SMS o una telefonata relativa alla reimpostazione della password?**
 
   > **R:** Messaggi di posta elettronica, SMS e telefonate dovrebbero essere ricevuti in meno di un minuto. L'intervallo normale è da 5 a 20 secondi.
@@ -163,11 +176,6 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 * **D: Se un utente ha registrato un numero di domande superiore al numero massimo delle domande necessarie per la reimpostazione, come vengono selezionate le domande di sicurezza durante la reimpostazione?**
 
   > **R:** Dal numero totale di domande di sicurezza per cui un utente ha eseguito la registrazione viene selezionato in modo casuale un numero *N* di domande, dove *N* è il valore impostato per l'opzione **Numero di domande necessarie per la reimpostazione**. Se un utente ha registrato cinque domande di sicurezza ma per reimpostare una password ne sono necessarie solo tre, ad esempio, al momento della reimpostazione vengono selezionate in modo casuale e presentate solo tre delle cinque domande. Per evitare attacchi hammering sulle domande, se l'utente sbaglia le risposte alle domande, il processo di selezione ricomincia.
-  >
-  >
-* **D: Agli utenti viene impedito di effettuare più tentativi di reimpostazione di una password in un breve periodo di tempo?**
-
-  > **R:** Sì. Per evitarne un uso improprio, il processo di reimpostazione password include funzionalità di sicurezza. Gli utenti possono effettuare solo cinque tentativi di reimpostazione password nell'arco di un'ora, dopo i quali verranno bloccati per 24 ore. Gli utenti possono provare a convalidare un numero di telefono solo cinque volte nell'arco di un'ora, dopodiché verranno bloccati per 24 ore. Gli utenti possono provare un singolo metodo di autenticazione solo cinque volte nell'arco di un'ora, dopodiché verranno bloccati per 24 ore.
   >
   >
 * **D: Per quanto tempo sono validi i passcode monouso inviati per posta elettronica o SMS?**
