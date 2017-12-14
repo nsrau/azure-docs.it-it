@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 10/20/2017
 ms.author: LADocs; estfan
 ms.openlocfilehash: 5906605192f9b03f612e6ca3a445434a23713d7f
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="automate-your-first-workflow-to-process-data-with-a-logic-app"></a>Automatizzare il primo flusso di lavoro per elaborare i dati con un'app per la logica
 
@@ -80,7 +80,7 @@ La guida introduttiva non richiede l'uso di codice, ma App per la logica support
    > [!NOTE]
    > Se non si vuole aggiungere l'app per la logica, per continuare è necessario trovare e aprire manualmente l'app per la logica dopo la distribuzione.
 
-   Dopo che Azure distribuisce l'app per la logica, Progettazione app per la logica si apre mostrando una pagina con un video introduttivo. 
+   Quando Azure ha distribuito l'app per la logica, Progettazione app per la logica si apre e visualizza una pagina con un video introduttivo. 
    Sotto il video è possibile trovare i modelli di app per la logica comuni. 
    Questa guida introduttiva crea l'app per la logica da zero. 
 
@@ -127,7 +127,7 @@ Ora che si ha un trigger, aggiungere un'[azione](../logic-apps/logic-apps-what-a
 
    ![Selezionare una voce nell'elenco di azioni](./media/logic-apps-create-a-logic-app/logic-app-actions.png)
 
-2. Nella casella di ricerca immettere "invia messaggio di posta elettronica" come filtro. Trovare e selezionare il connettore di posta elettronica da usare. Selezionare quindi l'azione "invia messaggio di posta elettronica" per il connettore. Ad esempio: 
+2. Nella casella di ricerca immettere "invia messaggio di posta elettronica" come filtro. Trovare e selezionare il connettore di posta elettronica da usare. Selezionare quindi l'azione "invia messaggio di posta elettronica" per il connettore. ad esempio: 
 
    * Per un account aziendale o dell'istituto di istruzione di Azure, selezionare Office 365 Outlook. 
    * Per gli account Microsoft personali, selezionare Outlook.com. 
@@ -229,7 +229,7 @@ Scegliere **Panoramica** dal menu dell'app per la logica. Sulla barra degli stru
   ![Disabilitare l'app per la logica](./media/logic-apps-create-a-logic-app/turn-off-disable-logic-app.png)
 
   > [!TIP]
-  > Se il menu dell'app per la logica non viene visualizzato, provare a tornare al dashboard di Azure e riaprire l'app per la logica.
+  > Se il menu dell'app per la logica non è visualizzato, provare a tornare al dashboard di Azure e riaprire l'app per la logica.
 
 ### <a name="delete-logic-app"></a>Eliminare l'app per la logica
 

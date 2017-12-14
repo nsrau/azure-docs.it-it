@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: yurid
-ms.openlocfilehash: 6ea08dc4a3082ead9e18fb6c0c30f2ed1df765d8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f533afebcb945a5ffe269ad8f21a095a81f54a18
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guida alla pianificazione e alla gestione del Centro sicurezza di Azure
 Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud le cui organizzazioni intendano usare il Centro sicurezza di Azure.
@@ -125,7 +125,7 @@ Un criterio di sicurezza definisce la configurazione specifica dei carichi di la
 
 I criteri del Centro sicurezza includono i componenti seguenti:
 - [Raccolta di dati](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): provisioning dell'agente e impostazioni della raccolta di dati.
-- [Criteri di sicurezza](https://docs.microsoft.com/azure/security-center/security-center-policies): un [criterio di Azure](http://docs.microsoft.com/en-us/azure/azure-policy/azure-policy-introduction) che determina quali controlli vengono monitorati e consigliati dal Centro sicurezza. In alternativa, è possibile usare i criteri di Azure per creare nuove definizioni, definire criteri aggiuntivi e assegnare criteri nei gruppi di gestione.
+- [Criteri di sicurezza](https://docs.microsoft.com/azure/security-center/security-center-policies): un [criterio di Azure](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) che determina quali controlli vengono monitorati e consigliati dal Centro sicurezza. In alternativa, è possibile usare i criteri di Azure per creare nuove definizioni, definire criteri aggiuntivi e assegnare criteri nei gruppi di gestione.
 - [Notifiche tramite posta elettronica](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): contatti e impostazioni di notifica relativi alla sicurezza.
 - [Piano tariffario](https://docs.microsoft.com/azure/security-center/security-center-pricing): sono disponibili le opzioni Gratuito o Standard, che determinano le funzionalità del Centro sicurezza disponibili per le risorse nell'ambito. Questo criterio può essere specificato per sottoscrizioni, gruppi di risorse e aree di lavoro.
 

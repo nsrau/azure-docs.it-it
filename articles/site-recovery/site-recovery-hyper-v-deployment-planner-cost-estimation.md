@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 47cdbf31e6b01055405cefedda11d5eeef82f32e
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: b36e8064da2661e6424d68f11b1e08d5af96131f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Report di stima dei costi di Azure Site Recovery Deployment Planner  
 
@@ -26,11 +26,11 @@ Il report di Deployment Planner offre il riepilogo della stima dei costi nei fog
 
 ### <a name="cost-estimation-summary"></a>Riepilogo della stima dei costi 
 Il grafico offre la visualizzazione di riepilogo del costo stimato totale del ripristino di emergenza in Azure per l'area di destinazione scelta e la valuta specificata per la generazione del report.
-![Riepilogo della stima dei costi](media/site-recovery-hyper-v-deployment-planner-analyze-report/cost-estimation-summary-h2a.png) Il riepilogo consente di conoscere il costo che è necessario sostenere per archiviazione, calcolo, rete e licenza in caso di protezione di tutte le VM compatibili in Azure con Azure Site Recovery. Il costo viene calcolato sulle VM compatibili e non su tutte le VM profilate.  
+![Riepilogo della stima dei costi](media/site-recovery-hyper-v-deployment-planner-analyze-report/cost-estimation-summary-h2a.png) Il riepilogo consente di conoscere il costo che è necessario sostenere per archiviazione, calcolo, rete e licenza in caso di protezione di tutte le macchine virtuali compatibili in Azure con Azure Site Recovery. Il costo viene calcolato per le macchine virtuali compatibili e non per tutte le macchine virtuali profilate.  
  
 È possibile visualizzare i costi su base mensile o annuale. Vedere altre informazioni sulle [aree di destinazione supportate](./site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) e sulle [valute supportate](./site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies).
 
-**Cost by components** (Costo per componente). Il costo totale del ripristino di emergenza è suddiviso tra quattro componenti: calcolo, archiviazione, rete e costo della licenza di Azure Site Recovery. Il costo viene calcolato in base all'utilizzo che si verificherà durante la replica e in fase di esercitazione sul ripristino di emergenza per il calcolo, l'archiviazione (Premium e Standard), la connessione ExpressRoute/VPN configurata tra il sito locale e Azure e la licenza di Azure Site Recovery.
+**Cost by components** (Costo per componente): il costo totale per il ripristino di emergenza è suddiviso tra quattro componenti, ovvero calcolo, archiviazione, rete e costo della licenza di Azure Site Recovery. Il costo viene calcolato in base all'utilizzo che si verificherà durante la replica e in fase di esercitazione sul ripristino di emergenza per il calcolo, l'archiviazione (Premium e Standard), la connessione ExpressRoute/VPN configurata tra il sito locale e Azure e la licenza di Azure Site Recovery.
 
 **Cost by states** (Costo per stato). Il costo totale del ripristino di emergenza viene classificato in base a due diversi stati: Replication (Replica) e DR-Drill (Esercitazione sul ripristino di emergenza). 
 
@@ -162,4 +162,4 @@ Azure Site Recovery Deployment Planner può generare il report dei costi con una
 |TRY|Lira turca (TL)||USD| Dollaro USA ($)||ZAR|Rand sudafricano (R)|
 
 ## <a name="next-steps"></a>Passaggi successivi
-Altre informazioni sulla protezione di [VM Hyper-V in Azure con Azure Site Recovery](https://docs.microsoft.com/en-us/azure/site-recovery/tutorial-hyper-v-to-azure).
+Altre informazioni sulla protezione di [VM Hyper-V in Azure con Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-hyper-v-to-azure).

@@ -6,17 +6,17 @@ keywords:
 author: dsk-2015
 ms.author: dkshir
 ms.date: 11/28/2017
-ms.topic: article
+ms.topic: overview
 ms.service: location-based-services
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c8ebce06a72bcaf769a11ec954702463d7489aa0
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 9b4b54c3a4cf0ed4350f570259f6997e4398682b
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Introduzione a Servizi Location Based di Azure (anteprima)
 Servizi Location Based di Azure è un portfolio di servizi geospaziali che include API di servizi per mappe, ricerca, pianificazione del percorso, informazioni sul traffico e fusi orari. Il portfolio di servizi conformi con Azure OneAPI consente di usare strumenti di sviluppo già noti per sviluppare e ridimensionare rapidamente soluzioni che integrano informazioni sulla posizione nelle soluzioni di Azure. Servizi Location Based di Azure offre agli sviluppatori di qualsiasi settore potenti funzionalità geospaziali che includono dati delle mappe aggiornati, indispensabili per fornire il contesto geografico alle applicazioni Web e per dispositivi mobili. Questi servizi sono costituiti da un set di API REST conforme con Azure OneAPI, accompagnato da un controllo JavaScript basato sul Web, che rende lo sviluppo estremamente semplice, flessibile e compatibile con più supporti. 

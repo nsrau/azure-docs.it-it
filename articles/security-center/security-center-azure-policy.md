@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: f0cb50c5ad991073b83dc5e87fbfb0300f40fc03
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: c359b77efbfdbcf7d2c0193dc015ce418a3d997d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integrare i criteri di sicurezza del Centro sicurezza con Criteri di Azure
 Questo articolo illustra la configurazione dei criteri di sicurezza del Centro sicurezza di Azure, basati sulla tecnologia di Criteri di Azure. 
@@ -30,7 +30,7 @@ Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito pe
 * Monitorare la conformità ai criteri.
 
 > [!NOTE]
-> Criteri di Azure è disponibile in anteprima limitata. Per partecipare, passare all'[iscrizione per Criteri di Azure](https://aka.ms/getpolicy). Per altre informazioni su Criteri di Azure, vedere [Creare e gestire i criteri per applicare la conformità](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy).
+> Criteri di Azure è disponibile in anteprima limitata. Per partecipare, passare all'[iscrizione per Criteri di Azure](https://aka.ms/getpolicy). Per altre informazioni su Criteri di Azure, vedere [Creare e gestire i criteri per applicare la conformità](http://docs.microsoft.com/azure/azure-policy/create-manage-policy).
 
 ## <a name="edit-security-policies"></a>Modificare i criteri di sicurezza
 È possibile modificare i criteri di sicurezza predefiniti per ogni sottoscrizione di Azure nel Centro sicurezza. Per modificare i criteri di sicurezza, è necessario essere un proprietario, un collaboratore o un amministratore della sicurezza della sottoscrizione o del gruppo di gestione che la include. Per visualizzare i criteri di sicurezza nel Centro sicurezza, seguire questa procedura:

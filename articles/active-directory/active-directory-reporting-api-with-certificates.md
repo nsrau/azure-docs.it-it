@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/08/2017
 ms.author: ramical
-ms.openlocfilehash: 38c240ed1608b2e99bde78f3633e722f8e2fa30b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4900e47084256ad6c85886f7ba363399678da9aa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>Ottenere dati con l'API di creazione report di Azure AD con certificati
 Questo articolo spiega come usare l'API di creazione report di Azure AD con le credenziali del certificato per ottenere i dati provenienti da directory senza intervento dell'utente. 
@@ -89,7 +89,7 @@ Per ottenere un token di accesso, usare il cmdlet Get-AzureADGraphAPIAccessToken
 A questo punto è possibile esportare in un file CSV e salvare in un sistema SIEM. È anche possibile eseguire il wrapping dello script in un'attività pianificata per ottenere periodicamente i dati di Azure AD dal tenant senza dover archiviare le chiavi dell'applicazione nel codice sorgente. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Concetti fondamentali sulla gestione delle identità di Azure](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals-identity)<br>
+[Concetti fondamentali sulla gestione delle identità di Azure](https://docs.microsoft.com/azure/active-directory/fundamentals-identity)<br>
 
 
 

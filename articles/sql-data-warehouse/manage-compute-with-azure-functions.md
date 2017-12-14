@@ -15,17 +15,17 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 11/06/2017
 ms.author: elbutter
-ms.openlocfilehash: e2138f26a78338406b466bdd2aa6e756e602726d
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 8947da9d34261be46ad9aea961b6020141484172
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-functions-to-automate-sql-dw-compute-levels"></a>Usare Funzioni di Azure per automatizzare i livelli di calcolo di SQL Data Warehouse
 
 Questa esercitazione illustra come è possibile usare Funzioni di Azure per gestire i livelli di calcolo di Azure SQL Data Warehouse. È consigliabile usare queste architetture con SQL Data Warehouse con il livello di prestazioni [Ottimizzato per l'elasticità][Performance Tiers].
 
-Per usare app per le funzioni di Azure con SQL Data Warehouse, è necessario creare un [account dell'entità servizio](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal) con accesso come collaboratore nella stessa sottoscrizione dell'istanza di Data Warehouse. 
+Per usare app per le funzioni di Azure con SQL Data Warehouse, è necessario creare un [account dell'entità servizio](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) con accesso come collaboratore nella stessa sottoscrizione dell'istanza di Data Warehouse. 
 
 ## <a name="deploy-timer-based-scaler-with-an-azure-resource-manager-template"></a>Distribuire uno strumento di ridimensionamento basato su timer con un modello di Azure Resource Manager
 

@@ -5,7 +5,7 @@ keywords: "Ad fs con Gestione traffico di Azure, adfs con Gestione traffico di A
 services: active-directory
 documentationcenter: 
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: a14bc870-9fad-45ed-acd5-a90ccd432e54
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
-ms.openlocfilehash: 077710049894d2690299ce0fcb0ead9911aa4bb6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e984d3d590021e3dd9e46d0f12493889b2acc229
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Distribuzione di AD FS a disponibilità elevata tra aree geografiche in Azure con Gestione traffico di Azure
 [Distribuzione di AD FS in Azure](active-directory-aadconnect-azure-adfs.md) offre istruzioni dettagliate sulla distribuzione di una semplice infrastruttura AD FS per l'organizzazione in Azure. Questo articolo illustra i passaggi successivi per creare una distribuzione di AD FS tra aree geografiche in Azure usando [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md). Gestione traffico di Azure consente di creare per l'organizzazione un'infrastruttura AD FS geograficamente distribuita e a disponibilità e prestazioni elevate tramite una serie di metodi di routing messi a disposizione per soddisfare diverse esigenze.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.openlocfilehash: 04540524f83e367f92912171ddc55b6e6f82f80e
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ec97432cd14c6289928f0419c242e1ccc2c8d876
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Integrare System Center Configuration Manager con Gestione aggiornamenti OMS
 
@@ -41,7 +41,7 @@ Le modalità di gestione dei client ospitati nella soluzione IaaS di Azure con l
 
 Se si vuole continuare a gestire le distribuzioni di aggiornamenti da Configuration Manager, eseguire la procedura illustrata di seguito.  OMS si connette a Configuration Manager per applicare gli aggiornamenti ai computer client connessi all'area di lavoro di Log Analytics. Il contenuto degli aggiornamenti è disponibile dalla cache del computer client, come se la distribuzione fosse stata gestita da Configuration Manager.  
 
-1. Creare una distribuzione di aggiornamenti software dal sito principale della gerarchia di Configuration Manager usando il processo descritto in [Distribuire gli aggiornamenti software](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates).  L'unica impostazione che deve essere configurata in modo diverso rispetto a una distribuzione standard è l'opzione **Non installare aggiornamenti software** per controllare il comportamento di download del pacchetto di distribuzione. Questo comportamento viene gestito dalla soluzione Gestione aggiornamenti OMS creando una distribuzione di aggiornamenti pianificata nel passaggio successivo.  
+1. Creare una distribuzione di aggiornamenti software dal sito principale della gerarchia di Configuration Manager usando il processo descritto in [Distribuire gli aggiornamenti software](https://docs.microsoft.com/sccm/sum/deploy-use/deploy-software-updates).  L'unica impostazione che deve essere configurata in modo diverso rispetto a una distribuzione standard è l'opzione **Non installare aggiornamenti software** per controllare il comportamento di download del pacchetto di distribuzione. Questo comportamento viene gestito dalla soluzione Gestione aggiornamenti OMS creando una distribuzione di aggiornamenti pianificata nel passaggio successivo.  
 
 1. Nel portale di OMS aprire il dashboard Gestione aggiornamenti.  Creare una nuova distribuzione seguendo i passaggi descritti in [Creazione di una distribuzione degli aggiornamenti](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) e selezionare la raccolta appropriata di Configuration Manager rappresentata come gruppo di computer OMS nell'elenco a discesa.  Tenere presente questi punti importanti:
     1. Se è definita una finestra di manutenzione per la raccolta di dispositivi di Configuration Manager selezionata, i membri della raccolta rispettano questa finestra invece dell'impostazione **Durata** definita nella distribuzione pianificata in OMS.
