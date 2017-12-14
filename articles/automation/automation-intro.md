@@ -3,7 +3,7 @@ title: Informazioni su Automazione di Azure | Microsoft Docs
 description: "Informazioni sui vantaggi offerti da Automazione di Azure e risposte alle domande più comuni per iniziare a creare e usare runbook e Automation DSC per Azure."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 keywords: "che cos'è l'automazione, Automazione di Azure, esempi di Automazione di Azure"
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
-ms.openlocfilehash: c9f5c346350a62540ba29444b1b00cc9dc398d56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae2b607be9a02e688a6b513d593f79eeb985ca93
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-overview"></a>Panoramica di Automazione di Azure
 Automazione di Microsoft Azure offre agli utenti la possibilità di automatizzare le attività manuali, a esecuzione prolungata, soggette a errori e ripetute di frequente comunemente eseguite negli ambienti cloud e aziendali. Consente di risparmiare tempo e aumenta l'affidabilità delle normali attività amministrative e le pianifica anche per essere eseguite automaticamente a intervalli regolari. È possibile automatizzare i processi utilizzando runbook o automatizzare la gestione della configurazione tramite Configurazione dello stato desiderato. Questo articolo fornisce una breve panoramica su Automazione di Azure e risposte ad alcune domande comuni. È possibile fare riferimento ad altri articoli in questa raccolta per informazioni più dettagliate su argomenti diversi.

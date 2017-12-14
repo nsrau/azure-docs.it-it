@@ -1,3 +1,4 @@
+
 1. Dopo che la macchina virtuale di Azure è stata creata ed è in esecuzione, fare clic sull'icona di Macchine virtuali nel portale di Azure per visualizzare le VM.
 
 1. Fare clic sui puntini di sospensione, **...**, per la nuova VM.

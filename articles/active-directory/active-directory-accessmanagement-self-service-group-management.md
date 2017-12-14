@@ -4,7 +4,7 @@ description: Creare e gestire gruppi di sicurezza o gruppi di Office 365 in Azur
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 904d5c70-c34a-46c4-a9a7-d1efecf4821c
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 09/07/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 7a7370eb076ba8602a58a260a14bb863c55bc803
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4798c9f9b289f8fa089498398079565c35ccdd2a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-azure-active-directory-for-self-service-group-management"></a>Configurare Azure Active Directory per la gestione dei gruppi self-service
 Gli utenti possono creare e gestire gruppi di sicurezza o gruppi di Office 365 in Azure Active Directory (Azure AD). Gli utenti possono anche richiedere l'appartenenza a gruppi di sicurezza o gruppi di Office 365, che il proprietario del gruppo può quindi approvare o rifiutare. Il controllo giornaliero dell'appartenenza al gruppo può essere delegato a persone che conoscono il contesto aziendale pertinente. Le funzionalità di gestione self-service dei gruppi sono disponibili solo per i gruppi di sicurezza e i gruppi di Office 365, ma non per i gruppi di protezione abilitati alla posta o le liste di distribuzione.

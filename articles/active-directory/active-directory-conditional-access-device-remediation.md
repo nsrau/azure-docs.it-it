@@ -5,7 +5,7 @@ services: active-directory
 keywords: accesso condizionale basato su dispositivo, registrazione dispositivo, abilitare registrazione dispositivo, registrazione dispositivo e software MDM
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: b013939e9b0dd473c6278a25b65b38ddeb8d4656
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: cd0349361e3e1978072225c50cd671445183fc46
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Messaggio "Non è possibile accedervi da qui" in un dispositivo Windows
 

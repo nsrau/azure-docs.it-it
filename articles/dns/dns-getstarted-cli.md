@@ -15,18 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: kumud
-ms.openlocfilehash: adcbe69abca72aa0372b78eb357efdc56acf1c26
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 76782ac1e78cd0f7da4bc1aad8eff00d79865ed7
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Introduzione a DNS Azure con l'interfaccia della riga di comando di Azure 2.0
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
-> * [Interfaccia della riga di comando di Azure 1.0](dns-getstarted-cli-nodejs.md)
 > * [Interfaccia della riga di comando di Azure 2.0](dns-getstarted-cli.md)
 
 Questo articolo illustra i passaggi per creare la prima zona e il primo record DNS usando l'interfaccia della riga di comando di Azure 2.0 tra piattaforme, disponibile per Windows, Mac e Linux. È anche possibile eseguire questi passaggi tramite il portale di Azure o Azure PowerShell.

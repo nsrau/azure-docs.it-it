@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 601e059af6040834f1ceb520ffe23aeadb6cdb18
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 #  <a name="agent-health-solution-in-oms"></a>Soluzione Integrità agente in OMS
 La soluzione Integrità agente in OMS consente di individuare gli agenti che non rispondono e quelli che inviano dati operativi tra tutti gli agenti che inviano report direttamente all'area di lavoro di OMS o a un gruppo di gestione di System Center Operations Manager connesso a OMS.  È anche possibile tenere traccia del numero di agenti distribuiti, della rispettiva ubicazione ed eseguire altre query per rimanere aggiornati sulla distribuzione degli agenti distribuiti in Azure, in altri ambienti cloud o in locale.    
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di distribuire questa soluzione, assicurarsi che l'invio di report da parte degli [agenti di Windows](../log-analytics/log-analytics-windows-agents.md) all'area di lavoro di OMS o a un [gruppo di gestione di Operations Manager](../log-analytics/log-analytics-om-agents.md) integrato con l'area di lavoro di OMS sia attualmente supportato.    
+Prima di distribuire questa soluzione, assicurarsi che l'invio di report da parte degli [agenti di Windows](../log-analytics/log-analytics-windows-agent.md) all'area di lavoro di OMS o a un [gruppo di gestione di Operations Manager](../log-analytics/log-analytics-om-agents.md) integrato con l'area di lavoro di OMS sia attualmente supportato.    
 
 ## <a name="solution-components"></a>Componenti della soluzione
 Questa soluzione è costituita dalle risorse seguenti che vengono aggiunte all'area di lavoro e agli agenti direttamente connessi o al gruppo di gestione connesso di Operations Manager.

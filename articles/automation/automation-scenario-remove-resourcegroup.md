@@ -3,7 +3,7 @@ title: Automatizzare la rimozione di gruppi di risorse | Documentazione Microsof
 description: Versione del flusso di lavoro PowerShell di uno scenario di Automazione di Azure che include runbook per rimuovere tutti i gruppi di risorse nella sottoscrizione.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 ms.assetid: b848e345-fd5d-4b9d-bc57-3fe41d2ddb5c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: magoedte
-ms.openlocfilehash: 8b23e55a597f293b17183e80eea6c2763aabe9ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7b27ca64d9aacabf96fdff8e7dca16f13000d19
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Scenario di Automazione di Azure: automatizzare la rimozione di gruppi di risorse
 Molti clienti creano più gruppi di risorse. Alcuni potrebbero essere usati per gestire applicazioni di produzione e altri come ambienti di sviluppo, test e staging. La rimozione di un gruppo di risorse con un clic è più complessa rispetto all'automazione della distribuzione di queste risorse. È possibile semplificare questa comune attività di gestione con Automazione di Azure. Ciò è utile se si usa una sottoscrizione di Azure con un limite di spesa tramite un'offerta riservata ai membri, ad esempio di MSDN o del programma Microsoft Partner Network Cloud Essentials.

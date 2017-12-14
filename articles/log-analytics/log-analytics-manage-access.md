@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: d9f86ac19044fd13e77d35d6c3dd9964c3852001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1549408c6885ee556a142ab7de613ebb1629070d
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-workspaces"></a>Gestire le aree di lavoro
 
@@ -51,7 +51,7 @@ In base alle caratteristiche precedenti, si possono creare più aree di lavoro s
 * Si opera come provider di servizi gestiti e per ogni cliente gestito è necessario mantenere i dati di Log Analytics isolati da altri dati del cliente.
 * Si gestiscono più clienti e si desidera che ogni cliente, reparto o gruppo aziendale visualizzi i propri dati, ma non i dati di altri.
 
-Quando si usano agenti per la raccolta dei dati, è possibile [configurare ogni agente in modo che faccia riferimento a una o più aree di lavoro](log-analytics-windows-agents.md).
+Quando si usano agenti per la raccolta dei dati, è possibile [configurare ogni agente in modo che faccia riferimento a una o più aree di lavoro](log-analytics-windows-agent.md).
 
 Se si usa System Center Operations Manager, ogni gruppo di gestione di Operations Manager può essere connesso con una sola area di lavoro. Microsoft Monitoring Agent può tuttavia essere configurato sul computer per l'invio di report sia a Operations Manager che a una diversa area di lavoro di Log Analytics.  
 

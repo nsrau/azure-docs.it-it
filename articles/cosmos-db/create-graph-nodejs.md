@@ -3,7 +3,7 @@ title: Creare un'applicazione Node.js Azure Cosmos DB tramite l'API Graph | Micr
 description: Presenta un esempio di codice Node.js che permette di connettersi ad Azure Cosmos DB ed eseguire query sul servizio
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/29/2017
-ms.author: denlee
-ms.openlocfilehash: 361f63141a8bf3f901eee6c93742f1a7fdc4348f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.author: lbosq
+ms.openlocfilehash: d60a431f53b72544c0116080cc78381fb302b7be
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Creare un'applicazione Node.js tramite l'API Graph
 

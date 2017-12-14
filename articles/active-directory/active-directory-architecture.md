@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: 
 author: MarkusVi
 writer: v-lorisc
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: infrastructure-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: fa25f0435df79a78d39e8f89d702d3b64db79d65
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 3917984e4d7567fb70a34497cc1dd68a8e8c32b0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understand-azure-active-directory-architecture"></a>Informazioni sull'architettura di Azure Active Directory
 Azure Active Directory (Azure AD) consente di gestire in modo sicuro l'accesso ai servizi e alle risorse di Azure per gli utenti. In Azure AD è inclusa una suite completa di funzionalità di gestione delle identità. Per informazioni sulle funzionalità di Azure AD, vedere [Informazioni su Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis).

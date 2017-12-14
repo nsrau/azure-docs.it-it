@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 668065933745168c88a1f4bf755f1adc0cc31d7f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="update-management-solution-in-oms"></a>Soluzione Gestione aggiornamenti in OMS
 
@@ -81,7 +81,7 @@ Alla data e ora specificate nella distribuzione degli aggiornamenti, i computer 
     > Un agente OMS per Linux configurato per l'invio di report a più aree di lavoro OMS non è supportato con questa soluzione.  
     >
 
-Per altre informazioni su come installare l'agente OMS per Linux e scaricare la versione più recente, vedere l'[agente Operations Management Suite per Linux](https://github.com/microsoft/oms-agent-for-linux).  Per informazioni su come installare l'agente OMS per Windows, vedere l'[agente Operations Management Suite per Windows](../log-analytics/log-analytics-windows-agents.md).  
+Per altre informazioni su come installare l'agente OMS per Linux e scaricare la versione più recente, vedere l'[agente Operations Management Suite per Linux](https://github.com/microsoft/oms-agent-for-linux).  Per informazioni su come installare l'agente OMS per Windows, vedere l'[agente Operations Management Suite per Windows](../log-analytics/log-analytics-windows-agent.md).  
 
 ### <a name="permissions"></a>autorizzazioni
 Per creare distribuzioni di aggiornamenti, è necessario avere il ruolo Collaboratore sia nell'account di Automazione che nell'area di lavoro di Log Analytics.  
@@ -126,7 +126,7 @@ In un computer Windows, la connettività degli agenti con OMS può essere verifi
 1.  Aprire Microsoft Monitoring Agent nel Pannello di controllo. Nella scheda **Analisi dei log di Azure (OMS)** l'agente visualizza il messaggio **The Microsoft Monitoring Agent has successfully connected to the Microsoft Operations Management Suite service** (Microsoft Monitoring Agent ha eseguito la connessione al servizio Microsoft Operations Management Suite).   
 2.  Aprire il registro eventi di Windows, passare a **Registri applicazioni e servizi\Operations Manager** e cercare gli ID evento 3000 e 5002 del connettore del servizio di origine.  Questi eventi indicano che il computer ha eseguito la registrazione all'area di lavoro OMS e sta ricevendo la configurazione.  
 
-Se l'agente non può comunicare con il servizio OMS ed è configurato per la comunicazione con Internet tramite firewall o server proxy, verificare che il firewall o il server proxy sia configurato correttamente come descritto nei paragrafi relativi alla [configurazione di rete per l'agente Windows](../log-analytics/log-analytics-windows-agents.md#network) o alla [configurazione di rete per l'agente Linux](../log-analytics/log-analytics-agent-linux.md#network).
+Se l'agente non può comunicare con il servizio OMS ed è configurato per la comunicazione con Internet tramite firewall o server proxy, verificare che il firewall o il server proxy sia configurato correttamente come descritto nei paragrafi relativi alla [configurazione di rete per l'agente Windows](../log-analytics/log-analytics-windows-agent.md) o alla [configurazione di rete per l'agente Linux](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Se i sistemi Linux sono configurati per la comunicazione con un proxy o il gateway OMS e si sta eseguendo il caricamento di questa soluzione, aggiornare le autorizzazioni *proxy.conf* per concedere al gruppo omiuser le necessarie autorizzazioni di lettura per il file eseguendo i comandi seguenti:  
