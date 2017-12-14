@@ -2,26 +2,25 @@
 title: "Integrazione di Azure Data Center di Stack - identità"
 description: Informazioni su come integrare Azure Stack AD FS con AD FS Data Center
 services: azure-stack
-author: troettinger
+author: mattbriggs
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/20/2017
-ms.author: victorh
+ms.date: 12/12/2017
+ms.author: mabrigg
 keywords: 
-ms.openlocfilehash: c66761d44266a33ddfa1e95444355d3908186ef8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 642ed3298eec0bab5515df117c0310786358e417
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrazione di Azure Data Center di Stack - identità
 
 *Si applica a: Azure Stack integrate di sistemi*
 
-Stack di Azure possono essere distribuiti tramite Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. Questa scelta deve essere effettuata prima della distribuzione. La distribuzione tramite ADFS viene detta anche la distribuzione di Azure Stack in modalità disconnessa.
+È possibile distribuire dello Stack di Azure mediante Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. Prima di distribuire Azure Stack, è necessario effettuare la scelta. Distribuzione tramite ADFS viene detta anche la distribuzione di Azure Stack in modalità disconnessa.
 
 Nella tabella seguente vengono illustrate le differenze tra le opzioni di due identità:
-
 
 ||Fisicamente disconnesso|Fisicamente connesso|
 |---------|---------|---------|
@@ -75,33 +74,36 @@ Le informazioni seguenti sono necessari come input per i parametri di automazion
 Facoltativamente, è possibile creare un account per il servizio del grafico in Active Directory esistente. Eseguire questo passaggio se si dispone già di un account che si desidera utilizzare.
 
 1. In Active Directory esistente, creare l'account utente di seguenti (consigliato):
-   - Nome utente: graphservice
-   - Password: utilizzare una password complessa<br>Configurare la password senza scadenza.
+   - **Nome utente**: graphservice
+   - **Password**: utilizzare una password complessa<br>Configurare la password senza scadenza.
 
-   È richiesto alcun autorizzazioni speciali o l'appartenenza
+   È richiesto alcun autorizzazioni speciali o l'appartenenza.
 
-**Automazione di trigger per configurare grafico**
+#### <a name="trigger-automation-to-configure-graph"></a>Automazione di trigger per configurare grafico
 
 Per questa procedura, utilizzare un computer della rete di Data Center in grado di comunicare con l'endpoint con privilegi nello Stack di Azure.
 
-2. Aprire una sessione di Windows PowerShell con privilegi elevata (Esegui come amministratore) e connettersi all'indirizzo IP dell'endpoint con privilegi. Utilizzare le credenziali per CloudAdmin per l'autenticazione.
+2. Aprire una sessione di Windows PowerShell con privilegi elevata (Esegui come amministratore) e connettersi all'indirizzo IP dell'endpoint con privilegi. Utilizzare le credenziali per **CloudAdmin** per l'autenticazione.
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-3. Ora che si è connessi all'endpoint con privilegi, eseguire i comandi seguenti. Quando richiesto, specificare le credenziali per l'account utente che si desidera utilizzare per il servizio di grafico (ad esempio graphservice).
+3. Ora che si è connessi all'endpoint con privilegi, eseguire il comando seguente: 
 
-   `Register-DirectoryService -CustomADGlobalCatalog contoso.com`
+   ```powershell
+   Register-DirectoryService -CustomADGlobalCatalog contoso.com
+   ```
+
+   Quando richiesto, specificare le credenziali per l'account utente che si desidera utilizzare per il servizio di grafico (ad esempio graphservice).
 
    > [!IMPORTANT]
    > Attendere che le credenziali popup (Get-Credential non è supportato nell'endpoint con privilegi) e immettere le credenziali dell'Account di servizio di grafico.
 
-**Grafico protocolli e porte**
+#### <a name="graph-protocols-and-ports"></a>Grafico protocolli e porte
 
 Servizio Graph nello Stack di Azure Usa le seguenti porte e protocolli per comunicare con Active Directory di destinazione:
-
 
 |Tipo|Porta|Protocol|
 |---------|---------|---------|
@@ -114,7 +116,6 @@ Servizio Graph nello Stack di Azure Usa le seguenti porte e protocolli per comun
 
 Sono necessarie le seguenti informazioni come input per i parametri di automazione:
 
-
 |Parametro|Descrizione|Esempio|
 |---------|---------|---------|
 |CustomAdfsName|Nome del provider di attestazioni. <cr>Viene visualizzato in questo modo nella pagina di destinazione di ADFS.|Contoso|
@@ -123,22 +124,26 @@ Sono necessarie le seguenti informazioni come input per i parametri di automazio
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automazione di trigger per configurare l'attendibilità di provider di attestazioni nello Stack di Azure
 
-Per questa procedura, utilizzare un computer in grado di comunicare con l'endpoint con privilegi nello Stack di Azure. È previsto che il certificato utilizzato dall'account del servizio token di sicurezza AD FS è attendibile dallo Stack di Azure.
+Per questa procedura, utilizzare un computer in grado di comunicare con l'endpoint con privilegi nello Stack di Azure. È previsto che il certificato utilizzato dall'account **STS AD FS** trusted dallo Stack di Azure.
 
 1. Aprire una sessione di Windows PowerShell con privilegi elevata e connettersi all'endpoint con privilegi.
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Ora che si è connessi all'endpoint con privilegi, eseguire il comando seguente utilizzando i parametri appropriati per l'ambiente:
 
-   `Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml`
+   ```powershell
+   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml
+   ```
 
 3. Eseguire il comando seguente per aggiornare il proprietario della sottoscrizione del provider predefinito, utilizzando i parametri appropriati per l'ambiente:
 
-   `Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"`
+   ```powershell
+   Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
+   ```
 
 ## <a name="setting-up-ad-fs-integration-by-providing-federation-metadata-file"></a>Impostazione dell'integrazione di AD FS, fornendo il file di metadati di federazione
 
@@ -161,7 +166,7 @@ Per la procedura seguente, è necessario utilizzare un computer con connettivit�
 
 1. Aprire una sessione di Windows PowerShell con privilegi elevata ed eseguire il comando seguente, usando i parametri appropriati per l'ambiente:
 
-   ```
+   ```powershell
    [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
 
    $Metadata.outerxml|out-file c:\metadata.xml
@@ -176,18 +181,22 @@ Per questa procedura, utilizzare un computer in grado di comunicare con l'endpoi
 
 1. Aprire una sessione di Windows PowerShell con privilegi elevata e connettersi all'endpoint con privilegi.
 
-   ```
+   ```powershell
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Ora che si è connessi all'endpoint con privilegi, eseguire il comando seguente utilizzando i parametri appropriati per l'ambiente:
 
-   `Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml`
+   ```powershell
+   Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml
+   ```
 
 3. Eseguire il comando seguente per aggiornare il proprietario della sottoscrizione del provider predefinito, utilizzando i parametri appropriati per l'ambiente:
 
-   `Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"`
+   ```powershell
+   Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
+   ```
 
 ## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>Configurare una relying party nella distribuzione di ADFS esistente (account del servizio token di sicurezza)
 
@@ -199,7 +208,7 @@ Se si decide di eseguire manualmente i comandi, eseguire la procedura seguente:
 
 1. Copiare il contenuto seguente in un file con estensione txt (ad esempio, salvato come c:\ClaimRules.txt) nel membro di istanza o una farm di ADFS del Data Center:
 
-   ```
+   ```text
    @RuleTemplate = "LdapClaims"
    @RuleName = "Name claim"
    c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer == "AD AUTHORITY"]
@@ -232,28 +241,43 @@ Se si decide di eseguire manualmente i comandi, eseguire la procedura seguente:
 
 2. Per abilitare l'autenticazione basata su Windows Form, aprire una sessione di Windows PowerShell come utente con privilegi elevati ed eseguire il comando seguente:
 
-   `Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")`
+   ```powershell
+   Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
+   ```
 
 3. Per aggiungere il trust della relying party, eseguire il comando di Windows PowerShell seguente l'istanza di AD FS o un membro della farm. Assicurarsi di aggiornare l'endpoint di ADFS e puntare al file creato nel passaggio 1.
 
    **Per AD FS 2016**
 
-   `Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"`
+   ```powershell
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
+   ```
 
    **Per AD FS 2012/2012 R2**
 
-   `Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true`
+   ```powershell
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
+   ```
 
    > [!IMPORTANT]
    > Per configurare le regole di autorizzazione rilascio quando si utilizza Windows Server 2012 o 2012 R2 AD FS, è necessario utilizzare lo snap-in MMC di AD FS.
 
 4. Quando si utilizza Internet Explorer o il browser Edge per accedere allo Stack di Azure, è necessario ignorare associazioni dei token. In caso contrario, i tentativi di accesso esito negativo. L'istanza di AD FS o un membro della farm, eseguire il comando seguente:
 
-   `Set-AdfsProperties -IgnoreTokenBinding $true`
+   ```powershell
+   Set-AdfsProperties -IgnoreTokenBinding $true
+   ```
+
+5. Per abilitare i token di aggiornamento, aprire una sessione di Windows PowerShell con privilegi elevata ed eseguire il comando seguente:
+
+   ```powershell
+   Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
+   ```
 
 ## <a name="spn-creation"></a>Creazione di SPN
 
 Esistono molti scenari che richiedono l'uso di un nome principale servizio (SPN) per l'autenticazione. Di seguito sono riportati alcuni esempi:
+
 - Utilizzo CLI con la distribuzione di ADFS dello Stack di Azure
 - System Center Management Pack per Azure Stack quando distribuito con AD FS
 - Provider di risorse nello Stack di Azure quando distribuito con AD FS
@@ -271,21 +295,25 @@ Se si verifica un errore che lasciano l'ambiente in uno stato in cui non è poss
 
 1. Aprire una sessione di Windows PowerShell con privilegi elevata ed eseguire i comandi seguenti:
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Eseguire quindi il cmdlet seguente:
 
-   `Reset-DatacenterIntegationConfiguration`
+   ```powershell
+   Reset-DatacenterIntegationConfiguration
+   ```
 
-   Dopo aver eseguito l'azione di rollback, tutte le modifiche di configurazione rollback. Solo l'autenticazione con l'utente "CloudAdmin" incorporata è possibile.
+   Dopo aver eseguito l'azione di rollback, tutte le modifiche di configurazione rollback. Solo l'autenticazione con l'elemento predefinito **CloudAdmin** utente è possibile.
 
    > [!IMPORTANT]
    > È necessario configurare il proprietario della sottoscrizione del provider predefinito originale
 
-   `Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"`
+   ```powershell
+   Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"
+   ```
 
 ### <a name="collecting-additional-logs"></a>La raccolta dei log aggiuntivi
 
@@ -293,14 +321,16 @@ Se uno dei cmdlet non riesce, è possibile raccogliere i log usando il `Get-Azur
 
 1. Aprire una sessione di Windows PowerShell con privilegi elevata ed eseguire i comandi seguenti:
 
-   ```
+   ```powershell
    $creds = Get-Credential
    Enter-pssession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Quindi, eseguire il cmdlet seguente:
 
-   `Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE`
+   ```powershell
+   Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE
+   ```
 
 
 ## <a name="next-steps"></a>Passaggi successivi

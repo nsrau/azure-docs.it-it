@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 2bfd9b2603575545fef1c26310a2eecd2c8968e4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Prerequisiti per la distribuzione di Azure Stack
 
@@ -85,7 +85,7 @@ Per distribuire Azure Stack utilizzando un account di Azure AD, è necessario pr
 
 1. Creare un account di Azure AD che è l'amministratore di directory per Azure AD almeno uno. Se si dispone già di uno, è possibile utilizzarlo. In caso contrario, è possibile crearne uno gratuitamente a [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in Cina, visitare <http://go.microsoft.com/fwlink/?LinkID=717821> invece). Se si prevede di in un secondo momento [registro dello Stack di Azure con Azure](azure-stack-register.md), è inoltre necessario avere una sottoscrizione in questo nuovo account.
    
-    Salvare queste credenziali per l'utilizzo nel passaggio 6 di [distribuire il kit di sviluppo](azure-stack-run-powershell-script.md#deploy-the-development-kit). Questo *amministratore del servizio* account è possibile configurare e gestire cloud di risorse, account utente, piani di tenant, quote e prezzi. Nel portale l'amministratore può creare piani, cloud di siti Web e cloud privati di macchine virtuali, nonché gestire le sottoscrizioni utente.
+    Salvare queste credenziali per l'utilizzo nel passaggio 6 di [distribuire il kit di sviluppo](azure-stack-run-powershell-script.md). Questo *amministratore del servizio* account è possibile configurare e gestire cloud di risorse, account utente, piani di tenant, quote e prezzi. Nel portale l'amministratore può creare piani, cloud di siti Web e cloud privati di macchine virtuali, nonché gestire le sottoscrizioni utente.
 2. [Creare](azure-stack-add-new-user-aad.md) almeno un account in modo che è possibile accedere al kit di sviluppo come tenant.
    
    | **Account di Azure Active Directory** | **Supportato?** |

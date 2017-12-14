@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: 3d3f31775ae9384faeae20f108b71cea5dcc2934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04742a587284cf72632360a9575a63a576da36e8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-development-kit-deployment-quickstart"></a>Guida introduttiva alla distribuzione di Azure Stack Development Kit
 
@@ -31,9 +31,9 @@ Il [Kit di sviluppo di Azure Stack](azure-stack-poc.md) è un ambiente di testin
 
 2. [**Scaricare ed estrarre il pacchetto di distribuzione**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit). È possibile scaricare il pacchetto di distribuzione per l'host del kit di sviluppo o per un altro computer. I file estratti distribuzione richiedere 60 GB di spazio libero su disco, in modo usando un altro computer consente di ridurre i requisiti hardware per l'host del kit di sviluppo.
 
-3. [**Preparare l'host del kit di sviluppo** ](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) tramite il programma di installazione. Dopo questo passaggio, verrà avviato l'host del kit di sviluppo di Cloudbuilder.vhdx (file di installazione di un disco rigido virtuale che include un sistema operativo avviabile e lo Stack di Azure).
+3. [**Preparare l'host del kit di sviluppo** ](azure-stack-run-powershell-script.md) tramite il programma di installazione. Dopo questo passaggio, verrà avviato l'host del kit di sviluppo di Cloudbuilder.vhdx (file di installazione di un disco rigido virtuale che include un sistema operativo avviabile e lo Stack di Azure).
 
-4. [**Distribuire il kit di sviluppo** ](azure-stack-run-powershell-script.md#deploy-the-development-kit) nell'host di kit di sviluppo.
+4. [**Distribuire il kit di sviluppo** ](azure-stack-run-powershell-script.md) nell'host di kit di sviluppo.
 
 5. Se la distribuzione di Azure Stack Usa Azure Active Directory, è necessario [registro dello Stack di Azure con Azure](azure-stack-register.md) in modo che sia possibile [il download di Azure marketplace elementi](azure-stack-download-azure-marketplace-item.md) allo Stack di Azure.
 
