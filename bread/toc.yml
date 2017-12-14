@@ -150,7 +150,7 @@
         - name: Viso
           tocHref: /azure/cognitive-services/face/
           topicHref: /azure/cognitive-services/face/
-        - name: Language Understanding Intelligent Service (LUIS)
+        - name: Comprensione del linguaggio (LUIS)
           tocHref: /azure/cognitive-services/LUIS/
           topicHref: /azure/cognitive-services/LUIS/
         - name: Text Analytics
@@ -367,7 +367,7 @@
     - name: Database SQL
       tocHref: /azure/sql-database/
       topicHref: /azure/sql-database/
-    - name: Estensione database di SQL Server
+    - name: SQL Server Stretch Database
       tocHref: /azure/sql-server-stretch-database/
       topicHref: /azure/sql-server-stretch-database/
     - name: Archiviazione

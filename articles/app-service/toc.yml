@@ -89,6 +89,8 @@
       items:
         - name: Distribuire l'app
           items:
+            - name: Distribuire un file ZIP
+              href: app-service-deploy-zip.md
             - name: Eseguire la distribuzione tramite FTP
               href: app-service-deploy-ftp.md
             - name: Eseguire la distribuzione tramite la sincronizzazione con il cloud
