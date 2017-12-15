@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/14/2017
 ms.author: JeffGo
-ms.openlocfilehash: e1752bfe40fb53568b79e2b7eec56ca9f3139d4c
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 37fc6a737bd1cfb09caf69ea2c6d81ea0b7d8693
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Utilizzare i database MySQL in Microsoft Azure Stack
 
@@ -59,6 +59,10 @@ L'account di sistema deve disporre dei privilegi seguenti:
     a. Nelle installazioni di Azure Stack Development Kit (ASDK), accedere all'host fisico.
 
     b. Nei sistemi a più nodi, l'host deve essere un sistema che possa accedere all'Endpoint con privilegi.
+    
+    >[!NOTE]
+    > Il sistema in cui viene eseguito lo script *deve* un sistema di Windows 10 o Windows Server 2016 con la versione più recente del runtime di .NET installata. Installazione avrà esito negativo in caso contrario. L'host ASDK soddisfa i criteri.
+    
 
 3. Scaricare il provider di risorse MySQL binario ed eseguire il programma di autoestrazione per estrarre il contenuto in una directory temporanea.
 
@@ -67,15 +71,19 @@ L'account di sistema deve disporre dei privilegi seguenti:
 
     | Compilazione di Azure Stack | Programma di installazione di MySQL RP |
     | --- | --- |
-    | 1.0.171122.1 | [RP MySQL versione 1.1.10.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.171122.1 | [RP MySQL versione 1.1.12.0](https://aka.ms/azurestackmysqlrp) |
     | 1.0.171028.1 | [RP MySQL versione 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
     | 1.0.170928.3 | [RP MySQL versione 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  Il certificato radice dello Stack di Azure viene recuperato dall'Endpoint con privilegi. Per ASDK, viene creato un certificato autofirmato come parte di questo processo. Per più nodi, è necessario fornire un certificato appropriato.
 
-    Se è necessario fornire il proprio certificato, è necessario il certificato seguente:
+    Se è necessario fornire il proprio certificato, è necessario un file PFX nella **DependencyFilesLocalPath** (vedere sotto) come indicato di seguito:
 
-    Un certificato con caratteri jolly per \*.dbadapter.\< area\>.\< fqdn esterno\>. Questo certificato deve essere considerato attendibile, ad esempio potrebbe essere emesso da un'autorità di certificazione. Vale a dire la catena di certificati deve esistere senza richiedere i certificati intermedi. Con il nome di macchina virtuale esplicito [mysqladapter] utilizzato durante l'installazione, è possibile utilizzare un certificato del singolo sito.
+    - Un certificato con caratteri jolly per \*.dbadapter.\< area\>.\< fqdn esterno\> o un certificato del singolo sito con un nome comune mysqladapter.dbadapter.\< area\>.\< fqdn esterno\>
+    - Questo certificato deve essere considerato attendibile, ad esempio potrebbe essere emesso da un'autorità di certificazione. Vale a dire la catena di certificati deve esistere senza richiedere i certificati intermedi.
+    - Solo un singolo file di certificato esiste nel DependencyFilesLocalPath.
+    - Il nome del file non deve contenere caratteri speciali.
+
 
 
 5. Aprire un **nuova** console di PowerShell con privilegi elevati (amministratore) e modifica della directory in cui sono stati estratti i file. Per evitare problemi che potrebbero emergere dalla corretti moduli PowerShell già caricati nel sistema, utilizzare una nuova finestra.

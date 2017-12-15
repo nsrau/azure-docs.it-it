@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 12/14/2017
 ms.author: JeffGo
-ms.openlocfilehash: 58c83b74041e0e2e82729f569c53aca59f3aed43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da76eaf92bf27195b4f1780511818a7689300f66
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="add-hosting-servers-for-use-by-the-sql-adapter"></a>Aggiungere i server di hosting per l'utilizzo dall'adapter SQL
 
@@ -28,11 +28,9 @@ ms.lasthandoff: 10/11/2017
 * L'istanza SQL deve essere dedicata per l'utilizzo dei carichi di lavoro RP e utente. È possibile utilizzare un'istanza di SQL utilizzato da qualsiasi altro consumer, inclusi i servizi di App.
 * L'adapter di relying Party non è aggiunto a un dominio e può connettersi solo utilizzando l'autenticazione SQL.
 * È necessario configurare un account con privilegi appropriati per l'utilizzo dal componente.
-* Traffico di rete dal componente di SQL utilizza la porta 1433 e non può essere modificato.
 * Gli utenti, ad esempio le app Web RP utilizzano la rete dell'utente, pertanto è necessaria una connessione all'istanza di SQL su questa rete. Questo requisito significa in genere che l'indirizzo IP per le istanze SQL deve essere in una rete pubblica.
 * Gestione di istanze di SQL e dei relativi host è responsabilità dell'utente; il componente non eseguire l'applicazione di patch, backup, credenziali rotazione e così via.
 * SKU consente di creare classi diverse funzionalità di SQL, ad esempio le prestazioni, sempre in, e così via.
-
 
 
 Un numero di immagini di macchina virtuale SQL IaaS è disponibile tramite la funzionalità di gestione di Marketplace. Assicurarsi sempre di scaricare la versione più recente dell'estensione SQL IaaS prima di distribuire una macchina virtuale usando un elemento del Marketplace. Le immagini SQL sono gli stessi come macchine virtuali di SQL disponibili in Azure. Per le macchine virtuali SQL creata da queste immagini, l'estensione di IaaS e corrispondente miglioramenti del portale di fornire funzionalità quali l'applicazione automatica di patch e funzionalità di backup.
@@ -73,6 +71,8 @@ Per aggiungere un computer autonomo che contiene il server che è già stato eff
 
   ![Nuovo Server di Hosting](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
+    È possibile includere un nome di istanza e un numero di porta può essere fornito se l'istanza non viene assegnato alla porta predefinita 1433.
+
   > [!NOTE]
   > Fino a quando l'istanza SQL è possibile accedere dall'utente e amministratore Gestione risorse di Azure, può essere inserita nel controllo del codice del provider di risorse. L'istanza SQL __deve__ essere allocate esclusivamente al relying Party.
 
@@ -86,10 +86,10 @@ Per aggiungere un computer autonomo che contiene il server che è già stato eff
 
     Esempio:
 
-    ![SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+![SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 >[!NOTE]
-SKU può richiedere a un'ora per essere visibile nel portale. È possibile creare un database fino a quando non lo SKU creazione è stata completata.
+> SKU può richiedere a un'ora per essere visibile nel portale. Gli utenti non è possibile creare un database fino a quando non lo SKU creazione è stata completata.
 
 ## <a name="provide-capacity-using-sql-always-on-availability-groups"></a>Offrono capacità di utilizzo SQL gruppi di disponibilità AlwaysOn
 Configurazione delle istanze di SQL Always On richiede passaggi aggiuntivi e include almeno tre macchine virtuali (o computer fisici).
@@ -126,7 +126,7 @@ Per aggiungere i server di hosting SQL Always On, seguire questi passaggi:
     Il **server di Hosting SQL** pannello è dove è possibile connettersi il Provider di risorse di SQL Server per le istanze effettive di SQL Server che fungono da back-end del provider di risorse.
 
 
-3. Riempire il form con i dettagli della connessione dell'istanza di SQL Server, assicurarsi di usare l'indirizzo FQDN o IPv4 del sempre nel Listener. Fornire le informazioni sull'account per l'account che è configurato con privilegi di amministratore di sistema.
+3. Riempire il form con i dettagli della connessione dell'istanza di SQL Server, assicurarsi di usare l'indirizzo FQDN o IPv4 del sempre sul Listener (e il numero di porta facoltativa). Fornire le informazioni sull'account per l'account che è configurato con privilegi di amministratore di sistema.
 
 4. Selezionare questa casella per abilitare il supporto per le istanze di SQL gruppo di disponibilità AlwaysOn.
 
@@ -137,7 +137,7 @@ Per aggiungere i server di hosting SQL Always On, seguire questi passaggi:
 
 ## <a name="making-sql-databases-available-to-users"></a>Rendere disponibili agli utenti i database SQL
 
-Creare i piani e le offerte per rendere disponibili i database SQL per gli utenti. Aggiungere il servizio Microsoft.SqlAdapter al piano e aggiungere una Quota esistente o crearne uno nuovo. Se si crea una quota, è possibile specificare la capacità per consentire all'utente.
+Creare i piani e le offerte per rendere disponibili i database SQL per gli utenti. Aggiungere il servizio Microsoft.SqlAdapter al piano e aggiungere una Quota di un esistente o crearne uno nuovo. Se si crea una quota, specificare la capacità per consentire all'utente.
 
 ![Creare i piani e le offerte per includere i database](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
 
