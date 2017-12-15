@@ -64,8 +64,8 @@
 ## Archiviare dati
 ### [BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
 ### [Condivisioni file](https://docs.microsoft.com/azure/storage/files/storage-dotnet-how-to-use-files)
-### [Coppie chiave-valore](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet)
-### [Documenti JSON](https://docs.microsoft.com/azure/cosmos-db/documentdb-get-started)
+### [Coppie chiave-valore](https://docs.microsoft.com/azure/cosmos-db/create-table-dotnet)
+### [Documenti JSON](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet)
 ### [Tabelle relazionali](https://docs.microsoft.com/azure/sql-database/sql-database-get-started)
 ### [Code di messaggi](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 

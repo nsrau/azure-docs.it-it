@@ -4,8 +4,8 @@ hide_bc: True
 title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
 featureFlags: clicktale
-ms.openlocfilehash: 41b9a56fbf0979dfc8bd228c5eff0ae4c74864b0
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: a32159494fc374a162db07b67eb95ade87390d31
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/14/2017
@@ -598,7 +598,7 @@ ms.lasthandoff: 12/14/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/bot-framework/azure-bot-service-overview">
+                                            <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
                                                 <img src="media/index/bot-service.svg" alt="" />
                                                 <p>Servizio bot di Azure</p>
                                             </a>
@@ -2563,7 +2563,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                 </a>
                             </li>
                             <li>
-                                <a href="/bot-framework/azure-bot-service-overview/">
+                                <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">

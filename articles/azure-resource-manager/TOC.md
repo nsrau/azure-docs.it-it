@@ -19,11 +19,7 @@
 ### [Eseguire il collegamento ad altri modelli](resource-group-linked-templates.md)
 ### [Definire la dipendenza tra risorse](resource-group-define-dependencies.md)
 ### [Creare più istanze](resource-group-create-multiple.md)
-### [Impostare la posizione](resource-manager-template-location.md)
-### [Assegnare i tag](resource-manager-template-tags.md)
-### [Impostare il nome e il tipo della risorsa figlio](resource-manager-template-child-resource.md)
 ### [Aggiornare una risorsa](resource-manager-update.md)
-### [Usare gli oggetti per i parametri](resource-manager-objects-as-parameters.md)
 ### [Condividere lo stato tra modelli collegati](best-practices-resource-manager-state.md)
 ### [Schemi per la progettazione di modelli](best-practices-resource-manager-design-templates.md)
 
