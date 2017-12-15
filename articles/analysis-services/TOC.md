@@ -21,6 +21,7 @@
 ## [Ottenere le librerie client](analysis-services-data-providers.md)
 ## [Backup e ripristino](analysis-services-backup.md)
 ## [Configurare l'aumento del numero di istanze](analysis-services-scale-out.md)
+## [Configurare un alias del nome server](analysis-services-server-alias.md)
 ## [Stabilire la connessione con Excel](analysis-services-connect-excel.md)
 ## [Stabilire la connessione con Power BI](analysis-services-connect-pbi.md)
 ## [Creare un file con estensione odc](analysis-services-odc.md)

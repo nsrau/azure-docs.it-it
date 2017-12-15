@@ -265,6 +265,7 @@
 #### [Assign admin roles](active-directory-users-assign-role-azure-portal.md) (Assegnare ruoli amministrativi)
 ### [Unità amministrative](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md) (Configurare la durata dei token)
+### [Gestire gli account amministrativi di accesso di emergenza](active-directory-admin-manage-emergency-access-accounts.md)
 
 ## Verifiche di accesso
 ### [Panoramica delle verifiche di accesso](active-directory-azure-ad-controls-access-reviews-overview.md)

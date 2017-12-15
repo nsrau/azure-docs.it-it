@@ -241,6 +241,8 @@
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
         - name: Gestire server vCenter
           href: site-recovery-vmware-to-azure-manage-vCenter.md
+        - name: Gestire il multi-tenancy con Cloud Solution Provider (CSP)
+          href: site-recovery-manage-multi-tenancy-with-csp.md
         - name: Rimuovere server e disabilitare la protezione
           href: site-recovery-manage-registration-and-protection.md
         - name: Eliminare un insieme di credenziali
