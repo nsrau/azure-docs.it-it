@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: JeffGoldner
-ms.openlocfilehash: 939ae243c02eb375251cc4d959ab5d46dc41c040
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 4701891600ab0f3eb6105bec26ca4b911568c4ee
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/15/2017
@@ -30,10 +30,13 @@ ms.lasthandoff: 12/15/2017
 
 |  | Nome dell'elemento | Descrizione | Autore | OS Type (Tipo di sistema operativo) |
 | --- | --- | --- | --- | --- |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Estensione SQL IaaS](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Download dell'estensione per distribuire un Server SQL nel elemento del Marketplace di Windows, questa operazione è necessaria.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Estensione Script personalizzata](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Scaricare l'aggiornamento alla versione nella casella dell'estensione Script personalizzato per Windows.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/dsc.png) | [Estensione DSC PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Scaricare l'aggiornamento alla versione dell'estensione DSC PowerShell in uso.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Estensione Antimalware Microsoft](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| Microsoft Antimalware per Azure è una soluzione con un agente singolo per applicazioni e ambienti tenant, progettata per l'esecuzione in background senza intervento da parte dell'utente. | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Estensione docker per le macchine virtuali Linux. | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [Estensione SQL IaaS](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Download dell'estensione per distribuire un Server SQL nel elemento del Marketplace di Windows, questa operazione è necessaria.</b> | Microsoft | Windows |
-| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Estensione Acronis Backup per Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | L'estensione di Backup Acronis per Microsoft Azure fa parte della famiglia di prodotti di protezione dati Acronis Backup. | GmbH internazionali Acronis. | Windows |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Estensione di Backup Acronis per Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | L'estensione di Backup Acronis per Microsoft Azure fa parte della famiglia di prodotti di protezione dati Acronis Backup. | GmbH internazionali Acronis. | Linux |
+| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Estensione Acronis Backup per Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | L'estensione di Backup Acronis per Microsoft Azure fa parte della famiglia di prodotti di protezione dati Acronis Backup. | GmbH internazionali Acronis. | Windows |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Deep Security Agent per Linux](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-linux) | Estensione di Trend Micro Deep Security per Linux. | Trend Micro | Linux |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Deep Security Agent per Windows](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm) | Trend Micro Deep Security estensione Windows. | Trend Micro | Windows |
 
