@@ -58,6 +58,7 @@
 #### [Aggiungere un utente B2B a un ruolo](active-directory-b2b-add-guest-to-role.md)
 #### [Gruppi dinamici e utenti B2B](active-directory-b2b-dynamic-groups.md)
 #### [Controllo e report](active-directory-b2b-auditing-and-reporting.md)
+#### [B2B per organizzazioni ibride](active-directory-b2b-hybrid-organizations.md)
 #### [Condivisione esterna di Office 365 e B2B](active-directory-b2b-o365-external-user.md)
 #### [Licenze B2B](active-directory-b2b-licensing.md)
 #### [Limitazioni correnti](active-directory-b2b-current-limitations.md)

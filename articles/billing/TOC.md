@@ -27,17 +27,17 @@
 ### [Informazioni su Utilizzo istanze riservate per Enterprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## Gestisci sottoscrizioni
+### [Trovare una sottoscrizione o un gruppo di gestione](billing-enterprise-mgmt-grp-find.md)
 ### [Gestire i ruoli di amministratore](billing-add-change-azure-subscription-administrator.md)
 ### [Trasferire la proprietà della sottoscrizione](billing-subscription-transfer.md)
 ### [Riattivare una sottoscrizione disabilitata](billing-subscription-become-disable.md)
 ### [Eseguire l'aggiornamento dalla sottoscrizione gratuita](billing-upgrade-azure-subscription.md)
 ### [Passare a un'offerta di sottoscrizione diversa](billing-how-to-switch-azure-offer.md)
+### [Collegare un tenant di Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json)
 ### [Annullare la sottoscrizione](billing-how-to-cancel-azure-subscription.md)
-### [Trovare una sottoscrizione o un gruppo di gestione](billing-enterprise-mgmt-grp-find.md)
 ## Gestire l'account
 ### [Modificare il profilo](billing-how-to-change-azure-account-profile.md)
 ### [Aggiornare le informazioni di pagamento](billing-how-to-change-credit-card.md)
-### [Collegare il tenant di Office 365](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Pagare le sottoscrizioni con fattura](billing-how-to-pay-by-invoice.md)
 ## [Gestire le istanze di macchina virtuale riservate](billing-manage-reserved-vm-instance.md)
 ## Risoluzione dei problemi
