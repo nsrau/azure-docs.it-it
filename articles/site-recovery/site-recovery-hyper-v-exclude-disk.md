@@ -1,6 +1,6 @@
 ---
 title: Escludere dischi dalla protezione tramite Azure Site Recovery | Microsoft Docs
-description: "Descrive perché e come escludere dalla replica dischi di VM per scenari da VMware ad Azure."
+description: "Descrive perché e come escludere dalla replica dischi di macchine virtuali per scenari da Hyper-V ad Azure."
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -14,24 +14,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/12/2017
 ms.author: nisoneji
-ms.openlocfilehash: af3f934c0572b50b22cdfb99a8a94bb856042b1b
+ms.openlocfilehash: 17a7f8032cc40b8b4a18240e7d20570d73ec9c49
 ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/13/2017
 ---
-# <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>Escludere dischi dalla replica per lo scenario da VMware ad Azure
-Questo articolo descrive come escludere dischi dalla replica, in modo da ottimizzare la larghezza di banda di replica usata o le risorse lato destinazione usate dai dischi. 
+# <a name="exclude-disks-from-replication"></a>Escludere dischi dalla replica
+Questo articolo descrive come escludere dischi dalla replica, in modo da ottimizzare la larghezza di banda di replica usata o le risorse lato destinazione usate dai dischi.
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 **Funzionalità** | **Da VMware ad Azure** | **Da Hyper-V ad Azure** | **Da Azure ad Azure**| **Da Hyper-V a Hyper-V** 
 --|--|--|--|--
 Esclusione disco | Sì | Sì | No | No
-
-## <a name="prerequisites"></a>Prerequisiti
-
-Per impostazione predefinita, vengono replicati tutti i dischi presenti in un computer. Per escludere un disco dalla replica, è necessario installare manualmente il servizio Mobility nel computer prima di abilitare la replica, se si esegue la replica da VMware ad Azure.
-
 
 ## <a name="why-exclude-disks-from-replication"></a>Perché escludere dischi dalla replica
 Spesso è necessario escludere dischi dalla replica per i motivi riportati di seguito:
@@ -46,28 +41,22 @@ Spesso è necessario escludere dischi dalla replica per i motivi riportati di se
 1. Suddividere il singolo disco virtuale in due dischi virtuali, uno con il sistema operativo e l'altro con il file di paging.
 2. Escludere il disco del file di paging dalla replica.
 
-Analogamente, per ottimizzare un disco in cui sono presenti sia il file tempdb di Microsoft SQL Server sia il file del database di sistema, è possibile eseguire queste operazioni:
+Analogamente, per ottimizzare un disco in cui sono presenti sia il file tempdb di Microsoft SQL Server sia il file di database di sistema, è possibile eseguire queste operazioni:
 
 1. Archiviare il database di sistema e il tempdb in due dischi distinti.
 2. Escludere il disco del tempdb dalla replica.
 
-## <a name="how-to-exclude-disks-from-replication"></a>Come escludere dischi dalla replica
+## <a name="how-to-exclude-disks"></a>Come escludere i dischi
+Per proteggere una macchina virtuale dal portale di Azure Site Recovery, seguire il flusso di lavoro [Abilitare la replica](site-recovery-hyper-v-site-to-azure.md). Nel passaggio 4 del flusso di lavoro usare la colonna **DISCHI DA REPLICARE** per escludere dischi dalla replica. Per impostazione predefinita, tutti i dischi sono selezionati per la replica. Deselezionare la casella di controllo relativa ai dischi da escludere dalla replica e quindi seguire la procedura per abilitare la replica.
 
-Per proteggere una macchina virtuale dal portale di Azure Site Recovery, seguire il flusso di lavoro [Abilitare la replica](site-recovery-vmware-to-azure.md). Nel passaggio 4 del flusso di lavoro usare la colonna **DISCHI DA REPLICARE** per escludere dischi dalla replica. Per impostazione predefinita, tutti i dischi sono selezionati per la replica. Deselezionare la casella di controllo relativa ai dischi da escludere dalla replica e quindi seguire la procedura per abilitare la replica.
-
-![Escludere i dischi dalla replica e abilitare la replica per il failback da VMware ad Azure](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
-
+![Escludere i dischi dalla replica e abilitare la replica per il failback da Hyper-V ad Azure](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
 >[!NOTE]
 >
-> * È possibile escludere solo i dischi in cui è già installato il servizio Mobility. È necessario installare manualmente il servizio Mobility perché questo servizio viene installato tramite il meccanismo di push solo dopo l'abilitazione della replica.
-> * Solo i dischi di base possono essere esclusi dalla replica. Non è possibile escludere dischi del sistema operativo o dinamici.
-> * Dopo aver abilitato la replica, non è più possibile aggiungere o rimuovere dischi da replicare. Se si vuole aggiungere o escludere un disco, è necessario disabilitare la protezione per il computer e quindi riabilitarla.
+> * È possibile escludere dalla replica solo dischi di base. Non è possibile escludere dischi del sistema operativo e non è consigliabile escludere dischi dinamici. Azure Site Recovery non è in grado di identificare se un disco rigido virtuale è un disco di base o un disco dinamico all'interno della macchina virtuale guest.  Se non vengono esclusi tutti i volumi dinamici dipendenti, in caso di failover della macchina virtuale il disco dinamico protetto risulta in stato di errore e non è possibile accedere ai dati in esso contenuti.
+> * Dopo aver abilitato la replica, non è più possibile aggiungere o rimuovere dischi da replicare. Se si vuole aggiungere o escludere un disco, è necessario disabilitare la protezione per la macchina virtuale e quindi riabilitarla.
 > * Se si esclude un disco necessario per il funzionamento di un'applicazione, dopo il failover in Azure è necessario crearlo manualmente in Azure per consentire l'esecuzione dell'applicazione replicata. In alternativa, è possibile integrare Automazione di Azure in un piano di ripristino per creare il disco durante il failover del computer.
-> * Macchina virtuale Windows: per i dischi creati manualmente in Azure non viene eseguito il failback. Se, ad esempio, si esegue il failover di tre dischi e se ne creano due direttamente in Macchine virtuali di Azure, viene eseguito il failback solo dei tre dischi sottoposti a failover. Non è possibile includere i dischi creati manualmente nel failback o nella riprotezione da locale ad Azure.
-> * Macchina virtuale Linux: per i dischi creati manualmente in Azure non viene eseguito il failback. Se, ad esempio, si esegue il failover di tre dischi e se ne creano due direttamente in Macchine virtuali di Azure, viene eseguito il failback di tutti e cinque i dischi. Non è possibile escludere i dischi creati manualmente dall'operazione di failback.
->
-
+> * Per i dischi creati manualmente in Azure non viene eseguito il failback. Se, ad esempio, si esegue il failover di tre dischi e se ne creano due direttamente in Macchine virtuali di Azure, viene eseguito il failback da Azure a Hyper-V solo dei tre dischi sottoposti a failover. Non è possibile includere nel failback o nella replica inversa da Hyper-V ad Azure i dischi creati manualmente.
 
 ## <a name="end-to-end-scenarios-of-exclude-disks"></a>Scenari end-to-end di esclusione dei dischi
 Per capire la funzionalità di esclusione dei dischi, si prendano in considerazione i due scenari seguenti:
@@ -75,7 +64,7 @@ Per capire la funzionalità di esclusione dei dischi, si prendano in considerazi
 - Disco del tempdb di SQL Server
 - Disco del file di paging (pagefile.sys)
 
-## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Esempio 1: Escludere il disco del tempdb di SQL Server
+## <a name="excample-1-exclude-the-sql-server-tempdb-disk"></a>Esempio 1: Escludere il disco del tempdb di SQL Server
 Si prenda ad esempio una macchina virtuale di SQL Server con un tempdb che è possibile escludere.
 
 Il nome della macchina virtuale è SalesDB.
@@ -153,7 +142,7 @@ Vedere le linee guida di Azure seguenti per il disco di archiviazione temporanea
 * [Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)
 
 ## <a name="failback-from-azure-to-an-on-premises-host"></a>Failback da Azure a un host locale
-Questa sezione illustra i dischi che vengono replicati in caso di failover da Azure a VMware in locale. Per i dischi creati manualmente in Azure non viene eseguita la replica. Se, ad esempio, si esegue il failover di tre dischi e se ne creano due direttamente in Macchine virtuali di Azure, viene eseguito il failback solo dei tre dischi sottoposti a failover. Non è possibile includere i dischi creati manualmente nel failback o nella riprotezione da locale ad Azure. Negli host locali non viene eseguita la replica neppure del disco di archiviazione temporanea.
+Questa sezione illustra quali dischi vengono replicati quando si esegue il failover da Azure all'host Hyper-V locale. Per i dischi creati manualmente in Azure non viene eseguita la replica. Se, ad esempio, si esegue il failover di tre dischi e se ne creano due direttamente in Macchine virtuali di Azure, viene eseguito il failback solo dei tre dischi sottoposti a failover. Non è possibile includere i dischi creati manualmente nel failback o nella riprotezione da locale ad Azure. Negli host locali non viene eseguita la replica neppure del disco di archiviazione temporanea.
 
 ### <a name="failback-to-original-location-recovery"></a>Ripristino di failback nella posizione originale
 
@@ -166,15 +155,17 @@ Disk1 | E:\ | Archiviazione temporanea</br /> </br />Azure aggiunge questo disco
 Disk2 | D:\ | Database di sistema SQL e Database1 dell'utente
 Disk3 | G:\ | Database2 dell'utente
 
-Al termine del failback nella posizione originale, la configurazione dei dischi della macchina virtuale di failback non prevede l'esclusione di dischi. Nella macchina virtuale di failback non saranno quindi disponibili i dischi esclusi dalla replica da VMware ad Azure.
+Quando il failback viene eseguito nella posizione originale, la configurazione dei dischi della macchina virtuale di failback rimane identica a quella della macchina virtuale originale per Hyper-V. Nella macchina virtuale di failback non saranno quindi disponibili i dischi esclusi dalla replica dal sito Hyper-V ad Azure.
 
-Dopo il failover pianificato da Azure a VMware in locale, i dischi della macchina virtuale VMWare (posizione originale) avranno la configurazione seguente:
+Dopo il failover pianificato da Azure a Hyper-V in locale, i dischi della macchina virtuale Hyper-V (posizione originale) avranno la configurazione seguente:
 
-**N. disco sistema operativo guest** | **Lettera di unità** | **Tipo di dati nel disco**
---- | --- | ---
-DISK0 | C:\ | Disco del sistema operativo
-Disk1 | D:\ | Database di sistema SQL e Database1 dell'utente
-Disk2 | G:\ | Database2 dell'utente
+**Nome del disco** | **N. disco sistema operativo guest** | **Lettera di unità** | **Tipo di dati nel disco**
+--- | --- | --- | ---
+DB-Disk0-OS | DISK0 |   C:\ | Disco del sistema operativo
+DB-Disk1 | Disk1 | D:\ | Database di sistema SQL e Database1 dell'utente
+DB-Disk2 (disco escluso) | Disk2 | E:\ | File temporanei
+DB-Disk3 (disco escluso) | Disk3 | F:\ | Database tempdb SQL (percorso della cartella, F:\MSSQL\Data\)
+DB-Disk4 | Disk4 | G:\ | Database2 dell'utente
 
 ## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Esempio 2: Escludere il disco del file di paging (pagefile.sys)
 
@@ -195,8 +186,7 @@ Di seguito sono illustrate le impostazioni del file di paging nella macchina vir
 
 ![Impostazioni del file di paging nella macchina virtuale di origine](./media/site-recovery-exclude-disk/pagefile-on-d-drive-sourceVM.png)
 
-
-Dopo il failover della macchina virtuale da VMware ad Azure, i dischi nella macchina virtuale di Azure hanno la configurazione seguente:
+Dopo il failover della macchina virtuale da Hyper-V ad Azure, i dischi nella macchina virtuale di Azure hanno la configurazione seguente:
 
 **Nome del disco** | **N. disco sistema operativo guest** | **Lettera di unità** | **Tipo di dati nel disco**
 --- | --- | --- | ---
@@ -226,7 +216,7 @@ Di seguito sono illustrate le impostazioni del file di paging nella macchina vir
 
 ![Impostazioni del file di paging nella macchina virtuale locale](./media/site-recovery-exclude-disk/pagefile-on-g-drive-sourceVM.png)
 
-Dopo il failover della macchina virtuale da VMware ad Azure, i dischi nella macchina virtuale di Azure hanno la configurazione seguente:
+Dopo il failover della macchina virtuale da Hyper-V ad Azure, i dischi nella macchina virtuale di Azure hanno la configurazione seguente:
 
 **Nome del disco**| **N. disco sistema operativo guest**| **Lettera di unità** | **Tipo di dati nel disco**
 --- | --- | --- | ---

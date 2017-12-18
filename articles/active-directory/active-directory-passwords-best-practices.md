@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4e2f788f4e4dfd013754925d8f6dbc3bf35b1a91
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 79089f09342f520f7d43115cc606d794db6c1602
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Come implementare la reimpostazione della password self-service
 
@@ -37,6 +37,10 @@ Per garantire un'implementazione semplice della funzionalità di reimpostazione 
 9. Stabilire quando si vuole applicare la registrazione. È possibile scegliere di applicare la registrazione in qualsiasi momento. È anche possibile richiedere agli utenti di riconfermare le informazioni di autenticazione dopo un certo periodo di tempo.
 10. Usare la funzionalità di creazione report. Nel corso del tempo, è possibile riesaminare la registrazione degli utenti e l'utilizzo con la [funzionalità di creazione di report di Azure AD](active-directory-passwords-reporting.md).
 11. Abilitare la reimpostazione della password. Quando si è pronti, abilitare la reimpostazione della password per tutti gli utenti impostando l'opzione **Reimpostazione delle password self-service abilitata** su **Tutti**. 
+
+   > [!NOTE]
+   > La modifica di questa opzione da un gruppo selezionato a tutti gli utenti non invalida i dati di autenticazione esistenti registrati da un utente come parte di un gruppo di test. Gli utenti configurati e aventi dati di autenticazione validi registrati continuano a funzionare.
+
 12. [Consentire agli utenti di Windows 10 di reimpostare la password nella schermata di accesso](active-directory-passwords-login.md).
 
    > [!IMPORTANT]
@@ -56,9 +60,9 @@ Molti clienti ritengono che il modo più facile per invitare gli utenti a usare 
 
 Molti clienti scelgono di ospitare una pagina Web e di creare una voce DNS radice, ad esempio https://passwords.contoso.com. Popolano questa pagina con collegamenti alle informazioni seguenti:
 
-* [Portale di reimpostazione della password di Azure AD](https://aka.ms/sspr)
-* [Portale per la registrazione della reimpostazione della password di Azure AD](http://aka.ms/ssprsetup)
-* [Portale di modifica della password di Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
+* [Portale di reimpostazione della password di Azure AD: https://aka.ms/sspr](https://aka.ms/sspr)
+* [Portale di registrazione per la reimpostazione della password di Azure AD: http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Portale di modifica della password di Azure AD: https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * Altre informazioni specifiche dell'organizzazione
 
 In qualsiasi comunicazione cartacea o di posta elettronica inviata è possibile includere un URL personalizzato facile da ricordare al quale gli utenti possono accedere quando devono usare i servizi. È stata creata una [pagina di reimpostazione della password di esempio](https://github.com/ajamess/password-reset-page), che è possibile usare e personalizzare in base alle esigenze dell'organizzazione.

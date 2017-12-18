@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 5472c41af9b0c524b931ed3e6b149270e17a633a
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2d9213a74fd881a7be52f51ff8ebb49171c77283
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database"></a>Caricare dati in modo incrementale da più tabelle in SQL Server al database SQL di Azure
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati differenziali da più tabelle di un database di SQL Server locale a un database SQL di Azure.    
@@ -215,7 +215,8 @@ END
 
 ```
 
-[!INCLUDE [data-factory-quickstart-prerequisites-2](../../includes/data-factory-quickstart-prerequisites-2.md)]
+### <a name="azure-powershell"></a>Azure PowerShell
+Installare i moduli di Azure PowerShell più recenti seguendo le istruzioni descritte in [Come installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
 1. Definire una variabile per il nome del gruppo di risorse usato in seguito nei comandi di PowerShell. Copiare il testo del comando seguente in PowerShell, specificare un nome per il [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) tra virgolette doppie e quindi eseguire il comando. Ad esempio: `"adfrg"`. 
@@ -866,6 +867,6 @@ In questa esercitazione sono stati eseguiti i passaggi seguenti:
 Passare all'esercitazione successiva per informazioni sulla trasformazione dei dati usando un cluster Spark in Azure:
 
 > [!div class="nextstepaction"]
->[Caricare dati in modo incrementale dal database SQL di Azure all'archiviazione BLOB di Azure tramite la tecnologia Rilevamento modifiche](tutorial-incremental-copy-multiple-tables-powershell.md)
+>[Caricare dati in modo incrementale dal database SQL di Azure all'archiviazione BLOB di Azure tramite la tecnologia Rilevamento modifiche](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 

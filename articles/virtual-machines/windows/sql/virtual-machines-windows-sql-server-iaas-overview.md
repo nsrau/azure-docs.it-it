@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/02/2017
+ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 36fa884b451d41ed7443312cc21b49b0b720a954
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 140e59b971da379d7475097bf3e26d5b070fa610
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Cos'è SQL Server in Macchine virtuali di Azure? (Windows)
 
@@ -34,7 +34,7 @@ Le macchine virtuali di Azure vengono eseguite in diverse [aree geografiche](htt
 
 Le VM di SQL Server Azure possono usare l'[applicazione automatica delle patch](virtual-machines-windows-sql-automated-patching.md) per pianificare una finestra di manutenzione per l'installazione automatica di importanti aggiornamenti di Windows e SQL Server.
 
-## <a name="automated-backups"></a>Backup automatici
+## <a name="automated-backups"></a>Backup automatizzati
 
 Le VM di SQL Server Azure possono sfruttare il [backup automatico](virtual-machines-windows-sql-automated-backup-v2.md), che crea periodicamente backup del database nell'archiviazione BLOB. È anche possibile usare questa tecnica manualmente. Per altre informazioni, vedere [Usare Archiviazione di Azure per il backup e il ripristino di SQL Server](virtual-machines-windows-use-storage-sql-server-backup-restore.md).
 
@@ -42,7 +42,7 @@ Le VM di SQL Server Azure possono sfruttare il [backup automatico](virtual-machi
 
 Se è necessaria la disponibilità elevata, è consigliabile configurare i gruppi di disponibilità di SQL Server. Ciò richiede la presenza di più VM di SQL Server Azure in una rete virtuale. È possibile configurare la soluzione a disponibilità elevata manualmente oppure è possibile usare i modelli nel portale di Azure per la configurazione automatica. Per una panoramica di tutte le opzioni di disponibilità elevata, vedere [Disponibilità elevata e ripristino di emergenza per SQL Server nelle macchine virtuali di Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
-## <a name="get-started-with-sql-vms"></a>Introduzione alle VM SQL
+## <a name="get-started-with-sql-vms"></a>Introduzione alle VM di SQL
 
 Per iniziare, scegliere un'immagine di macchina virtuale di SQL Server con la versione, l'edizione e il sistema operativo appropriati. Le sezioni seguenti forniscono collegamenti diretti al portale di Azure per le immagini della raccolta di macchine virtuali di SQL Server.
 
@@ -103,7 +103,7 @@ Il programma Analisi utilizzo software è abilitato per impostazione predefinita
 
 Introduzione a SQL Server in Macchine virtuali di Azure:
 
-* [Creare una VM di SQL Server nel portale di Azure](virtual-machines-windows-portal-sql-server-provision.md)
+* [Creare una VM di SQL Server nel portale di Azure](quickstart-sql-vm-create-portal.md)
 
 Risposte alle domande comuni sulle VM SQL:
 

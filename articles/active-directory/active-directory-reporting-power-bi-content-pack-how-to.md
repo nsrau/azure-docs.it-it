@@ -3,21 +3,21 @@ title: Come usare il pacchetto di contenuto Power BI di Azure Active Directory |
 description: Informazioni su come usare il pacchetto di contenuto Power BI di Azure Active Directory
 services: active-directory
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ba3f9f74fd7ba658b4e082775e471ed65a386fed
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 503b3f4c576382d8ce965d1f90aadda32c819a0b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Come usare il pacchetto di contenuto Power BI di Azure Active Directory
 
@@ -46,7 +46,7 @@ Questo argomento offre istruzioni dettagliate su come installare e usare il pacc
 5.  Quando richiesto, digitare l'ID tenant di Azure AD e quindi fare clic su **Avanti**.
 
     > [!TIP] 
-    > Un modo rapido per ottenere l'ID del tenant di Office 365 / Azure AD consiste nell'accedere al portale di Azure AD, eseguire il drill-down fino alla directory e copiare l'ID dall'URL seguente: https://manage.windowsazure.com/woodgroveonline.com#Workspaces/ActiveDirectoryExtension/Directory/<tenantid>/directoryQuickStart
+    > Un modo rapido per ottenere l'ID del tenant di Office 365 / Azure AD consiste nell'accedere al portale di Azure AD, eseguire il drill-down fino alla directory e copiare l'**ID directory** dalla pagina [**Proprietà**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 
     ![Pacchetto di contenuto Power BI di Azure Active Directory](./media/active-directory-reporting-power-bi-content-pack-how-to/04.png) 
 

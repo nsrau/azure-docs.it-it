@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c472cf080f8138ec6d0210f3ca4a8b3f3c33e7ae
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Esecuzione e trigger di pipeline in Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -131,7 +131,7 @@ Per un esempio completo, vedere [Avvio rapido: Creare una data factory usando .N
 ## <a name="triggers"></a>Trigger
 I trigger sono il secondo modo per avviare l'esecuzione di una pipeline. I trigger rappresentano un'unità di elaborazione che determina quando deve essere avviata l'esecuzione di una pipeline. Data Factory supporta attualmente un trigger che richiama una pipeline con una pianificazione basata sul tempo reale. Viene chiamato **trigger dell'utilità di pianificazione**. Attualmente il servizio Data Factory non supporta i trigger basati su eventi, ad esempio il trigger di un'esecuzione di pipeline in caso di ricezione di un file.
 
-Pipeline e trigger hanno una relazione "n-m". Più trigger possono avviare una singola pipeline e lo stesso trigger può avviare più pipeline. Nella seguente definizione JSON di un trigger, la proprietà **pipelines** referenzia un elenco di pipeline attivate dal trigger specifico e ai valori per i parametri della pipeline.
+Pipeline e trigger hanno una relazione molti-a-molti. Più trigger possono avviare una singola pipeline e un singolo trigger può avviare più pipeline. Nella seguente definizione JSON di un trigger, la proprietà **pipelines** referenzia un elenco di pipeline attivate dal trigger specifico e ai valori per i parametri della pipeline.
 
 ### <a name="basic-trigger-definition"></a>Definizione del trigger di base: 
 ```json
@@ -165,7 +165,7 @@ Il trigger dell'utilità di pianificazione esegue le pipeline con una pianificaz
 ### <a name="scheduler-trigger-json-definition"></a>Definizione JSON del trigger dell'utilità di pianificazione
 Quando si crea un trigger dell'utilità di pianificazione, è possibile specificare la pianificazione e la ricorrenza usando JSON, come illustrato nell'esempio in questa sezione. 
 
-Per fare in modo che il trigger dell'utilità di pianificazione attivi l'esecuzione di una pipeline, includere un riferimento di pipeline della pipeline specifica nella definizione del trigger. Pipeline e trigger hanno una relazione "n-m". Più trigger possono attivare una singola pipeline. Lo stesso trigger può attivare più pipeline.
+Per fare in modo che il trigger dell'utilità di pianificazione attivi l'esecuzione di una pipeline, includere un riferimento di pipeline della pipeline specifica nella definizione del trigger. Pipeline e trigger hanno una relazione molti-a-molti. Più trigger possono attivare una singola pipeline. Un singolo trigger può attivare più pipeline.
 
 ```json
 {

@@ -3,7 +3,7 @@ Per iniziare a usare le entità di messaggistica del bus di servizio in Azure, p
 Per creare uno spazio dei nomi:
 
 1. Accedere al [portale di Azure][Azure portal].
-2. Nel riquadro di spostamento sinistro del portale fare clic su **Nuovo**, quindi su **Enterprise Integration** e infine su **Bus di servizio**.
+2. Nel riquadro di spostamento sinistro del portale fare clic su **+ Crea una risorsa**, quindi su **Enterprise Integration** e infine su **Bus di servizio**.
 3. Nella finestra di dialogo **Crea spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
 4. Dopo aver verificato che il nome dello spazio dei nomi sia disponibile, scegliere il piano tariffario, ovvero Basic, Standard o Premium.
 5. Nel campo **Sottoscrizione** scegliere una sottoscrizione di Azure in cui creare lo spazio dei nomi.
@@ -14,14 +14,14 @@ Per creare uno spazio dei nomi:
 8. Fare clic su **Crea**. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
 
 ### <a name="obtain-the-management-credentials"></a>Ottenere le credenziali di gestione
-Con la creazione di un nuovo spazio dei nomi verrà generata automaticamente una regola di firma di accesso condiviso iniziale con una coppia di chiavi primaria e secondaria associata che concede il controllo completo di tutti gli aspetti dello spazio dei nomi. Vedere [Autenticazione e autorizzazione del bus di servizio](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) per informazioni su come creare altre regole con diritti più limitati per mittenti e destinatari normali. Per copiare la regola iniziale seguire questa procedura: 
+Con la creazione di un nuovo spazio dei nomi viene generata automaticamente una regola di firma di accesso condiviso iniziale con una coppia associata di chiavi primaria e secondaria, ognuna delle quali concede il controllo completo su tutti gli aspetti dello spazio dei nomi. Per informazioni su come creare altre regole con diritti più limitati per mittenti e ricevitori normali, vedere [Autenticazione e autorizzazione del bus di servizio](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md). Per copiare la regola iniziale seguire questa procedura: 
 
 1. Nell'elenco degli spazi dei nomi fare clic sul nome dello spazio dei nomi appena creato.
-2. Nel pannello dello spazio dei nomi fare clic su **Criteri di accesso condivisi**.
-3. Nel pannello **Criteri di accesso condivisi** fare clic su **RootManageSharedAccessKey**.
+2. Nella finestra dello spazio dei nomi fare clic su **Criteri di accesso condiviso**.
+3. Nella schermata **Criteri di accesso condiviso** fare clic su **RootManageSharedAccessKey**.
    
     ![connection-info][connection-info]
-4. Nel pannello **Criteri: RootManageSharedAccessKey** fare clic sul pulsante Copia accanto a **Stringa di connessione - chiave primaria** per copiare la stringa di connessione negli Appunti e usarla in un secondo momento. Incollare questo valore nel Blocco note o in un'altra posizione temporanea.
+4. Nella finestra **Criteri: RootManageSharedAccessKey** fare clic sul pulsante Copia accanto a **Stringa di connessione - chiave primaria** per copiare la stringa di connessione negli Appunti e usarla in un secondo momento. Incollare questo valore nel Blocco note o in un'altra posizione temporanea.
    
     ![connection-string][connection-string]
 

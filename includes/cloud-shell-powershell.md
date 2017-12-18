@@ -1,13 +1,16 @@
 
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 
-Azure Cloud Shell è una shell gratuita che può essere eseguita direttamente nel portale di Azure. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Fare clic sul pulsante **Cloud Shell** nel menu nel riquadro in alto a destra nel [portale di Azure](https://portal.azure.com).
+Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. È sufficiente fare clic su **Copia** per copiare il codice, incollarlo in Cloud Shell e quindi premere INVIO per eseguirlo. Esistono due modi per avviare Cloud Shell:
 
-[![Cloud Shell](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com)
+|  |   |
+|-----------------------------------------------|---|
+| Fare clic su **Prova** nell'angolo superiore destro di un blocco di codice. | ![Cloud Shell in questo articolo](./media/cloud-shell-powershell/cloud-shell-powershell-try-it.png) |
+| Fare clic sul pulsante **Cloud Shell** nel menu in alto a destra nel portale di Azure. | [![Cloud Shell nel portale](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com) |
+|  |  |
 
-Il pulsante avvia una shell interattiva che è possibile usare per eseguire tutti i passaggi in questo argomento:
 
-[![Screenshot che mostra la finestra di Cloud Shell nel portale](./media/cloud-shell-powershell/cloud-shell-powershell.png)](https://portal.azure.com)
+
 
 
 

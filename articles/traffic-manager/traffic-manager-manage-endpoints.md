@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c80d104fc456849f8bfd5169dd8ce1361d906a65
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Aggiungere, disabilitare, abilitare o eliminare gli endpoint
 
@@ -39,7 +39,7 @@ La funzionalità App Web nell’Azure App Service offre già funzionalità di ro
     1. In **Tipo** fare clic su **Endpoint di Azure**.
     2. Indicare un **nome** con il quale si desidera identificare l'endpoint.
     3. Per **Tipo di risorsa di destinazione** scegliere il tipo di risorsa appropriato nell'elenco a discesa.
-    4. Per **Risorsa di destinazione** scegliere la risorsa di destinazione appropriata nell'elenco a discesa per visualizzare l'elenco delle risorse nella stessa sottoscrizione nel pannello **Risorse**. Nel pannello **Risorse** visualizzato selezionare il servizio da aggiungere come primo endpoint.
+    4. Per **Risorsa di destinazione** fare clic sul selettore **Scegli** per visualizzare un elenco delle risorse nella stessa sottoscrizione nel **pannello Risorse**. Nel pannello **Risorse** visualizzato selezionare il servizio da aggiungere come primo endpoint.
     5. In **Priorità** selezionare **1**. In questo modo tutto il traffico viene instradato a questo endpoint se è integro.
     6. Mantenere deselezionata l'opzione **Aggiungi come disabilitato**.
     7. Fare clic su **OK**

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 665bb65d17e9abec98262b92afffba008ed6c891
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 0910d5802d64ca637b3ecd1e392a6df8629c7f25
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Azure Site Recovery Deployment Planner per distribuzioni da VMware ad Azure
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
@@ -42,6 +42,8 @@ Lo strumento indica i dettagli seguenti:
 * Larghezza di banda stimata necessaria per la replica differenziale
 * Velocità effettiva ottenibile da Site Recovery dall'ambiente locale ad Azure
 * Numero di VM da riunire in batch in base alla larghezza di banda stimata per completare la replica iniziale in un determinato periodo di tempo
+* RPO che può essere ottenuto per una determinata larghezza di banda
+* Impatto sull'obiettivo RPO desiderato se viene effettuato il provisioning di una larghezza di banda inferiore.
 
 **Requisiti dell'infrastruttura di Azure**
 
@@ -55,7 +57,7 @@ Lo strumento indica i dettagli seguenti:
 **Requisiti dell'infrastruttura locale**
 * Numero di server di configurazione e di server di elaborazione da distribuire in locale
 
-**Stima dei costi del ripristino di emergenza in Azure** 
+**Stima dei costi del ripristino di emergenza in Azure**
 * Stima dei costi totali del ripristino di emergenza in Azure: costi di calcolo, archiviazione, rete e licenza di Azure Site Recovery
 * Analisi dei costi dettagliata per ogni VM
 

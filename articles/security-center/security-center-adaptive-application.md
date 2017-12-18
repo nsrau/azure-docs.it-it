@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 12/13/2017
 ms.author: yurid
-ms.openlocfilehash: e68ec1b7d82a0e1d98953521b05f423044e6d2f2
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 71dcafab92a9045388c2e602c0dc297aed32e527
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Controlli delle applicazioni adattivi nel Centro sicurezza di Azure (anteprima)
 Questa procedura dettagliata fornisce informazioni su come configurare il controllo delle applicazioni nel Centro sicurezza di Azure.
@@ -32,9 +32,6 @@ I controlli delle applicazioni adattivi consentono di controllare quali applicaz
 - Evitare l'esecuzione di app obsolete e non supportate.
 - Impedire l'uso di strumenti software specifici non consentiti nell'organizzazione.
 - Consentire al personale IT di controllare l'accesso ai dati sensibili tramite l'utilizzo delle app.
-
-> [!NOTE]
-> I controlli delle applicazioni adattivi sono disponibili per i clienti Standard del Centro sicurezza di Azure come anteprima pubblica limitata. Inviare un messaggio di posta elettronica con l'ID sottoscrizione a [Microsoft](mailto:ASC_appcontrol@microsoft.com) per accedere all'anteprima.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Come si abilitano i controlli delle applicazioni adattivi?
 I controlli delle applicazioni adattivi aiutano a definire un set di applicazioni che è possibile eseguire in gruppi di risorse configurati. Questa funzionalità è disponibile solo per computer Windows (tutte le versioni, versione classica o Azure Resource Manager). La procedura seguente può essere usata per configurare l'inserimento delle applicazioni nell'elenco elementi consentiti nel Centro sicurezza:
@@ -72,7 +69,7 @@ In **Seleziona macchine virtuali** esaminare l'elenco di macchine virtuali consi
 
 - **NOME**: percorso completo dell'applicazione.
 - **PROCESSI**: numero di applicazioni in ogni percorso.
-- **COMUNE**: true indica che i processi sono stati eseguiti nella maggior parte delle macchine virtuali nel gruppo di risorse.
+- **COMUNE**: "Sì" indica che i processi sono stati eseguiti nella maggior parte delle macchine virtuali nel gruppo di risorse.
 - **SFRUTTABILE**: un'icona di avviso indica se le applicazioni possono essere usate da un utente malintenzionato per aggirare l'inserimento nell'elenco elementi consentiti. È consigliabile esaminare queste applicazioni prima di approvarle. 
 
 Dopo avere selezionato le opzioni desiderate, fare clic sul pulsante **Crea**. Per impostazione predefinita, il Centro sicurezza abilita sempre il controllo delle applicazioni in modalità *Controllo*. Dopo aver verificato che l'elenco elementi consentiti non abbia effetti negativi sul carico di lavoro, è possibile modificare la modalità scegliendo *Applica*.

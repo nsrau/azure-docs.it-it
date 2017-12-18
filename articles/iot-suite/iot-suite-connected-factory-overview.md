@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 3b56c91accfb6fe6358032e1dd329a931abfc3c1
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: bd68859e3837f7e5adbe911518631cb7abc2c2ce
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Introduzione alla soluzione preconfigurata di connected factory
 
@@ -33,8 +33,6 @@ Per completare l'esercitazione, è necessaria una sottoscrizione di Azure attiva
 
 > [!NOTE]
 > Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure][lnk_free_trial].
-> 
-> 
 
 ## <a name="provision-the-solution"></a>Effettuare il provisioning della soluzione
 
@@ -80,17 +78,17 @@ Il dashboard della soluzione consente di gestire la soluzione distribuita. Si tr
 
 Il dashboard visualizza le informazioni seguenti:
 
-* Un pannello con l'**elenco degli stabilimenti** che visualizza stato, località e configurazione di produzione corrente nella soluzione. Quando si esegue la soluzione per la prima volta, sono disponibili alcuni dispositivi simulati. La simulazione delle linee di produzione è costituita da tre server OPC UA reali per ogni linea di produzione che eseguono attività simulate e condividono i dati. Per altre informazioni su OPC UA, vedere le [domande frequenti sulla soluzione di connected factory](iot-suite-faq-cf.md).
+* Un pannello **Factory locations** (Posizioni factory) che visualizza stato, località e configurazione di produzione corrente nella soluzione. Quando si esegue la soluzione per la prima volta, sono disponibili alcuni dispositivi simulati. La simulazione delle linee di produzione è costituita da tre server OPC UA reali per ogni linea di produzione che eseguono attività simulate e condividono i dati. Per altre informazioni su OPC UA, vedere le [domande frequenti sulla soluzione di connected factory](iot-suite-faq-cf.md).
 * Una **mappa** che visualizza la posizione di ogni dispositivo connesso alla soluzione. La soluzione può usare l'API di Bing Mappe per tracciare le informazioni sulla mappa. Se la sottoscrizione è abilitata per l'API di Bing Mappe per le aziende, questa funzionalità viene usata automaticamente. In caso contrario, vedere le [domande frequenti][lnk-faq] per informazioni su come rendere dinamica la mappa.
-* Un pannello degli **avvisi** che visualizza gli avvisi generati quando un valore OEE/KPI o di telemetria supera una soglia specifica.
+* Un pannello **Alarms** (Avvisi) che visualizza gli avvisi generati quando un valore OEE/KPI o di telemetria supera una soglia specifica.
 * Un pannello **Overall Equipment Efficiency** che visualizza i valori OEE per l'intera azienda o per lo stabilimento, la linea di produzione o la postazione in esame. Questo valore viene aggregato dalla vista della postazione fino al livello aziendale. Il valore OEE e i relativi elementi costitutivi possono essere analizzati nei dettagli.
 * Un pannello **Key Performance Indicators** (Indicatori di prestazioni chiave) che visualizza il numero di unità prodotte e l'energia usata dall'intera azienda o dallo stabilimento, dalla linea di produzione o dalla postazione in esame. Questi valori vengono aggregati dalla vista della postazione fino al livello aziendale.
 
 ## <a name="view-factories"></a>Visualizzare gli stabilimenti
 
-Il pannello degli *stabilimenti* visualizza la posizione geografica di tutti gli stabilimenti presenti nella soluzione, con lo stato e la configurazione di produzione corrente. Dall'elenco delle località è possibile passare agli altri livelli della gerarchia della soluzione. Le righe nell'elenco sono collegamenti ipertestuali che consentono di visualizzare i dettagli delle linee di produzione di tale località. È quindi possibile esaminare i dettagli delle linee di produzione fino al livello della postazione. È anche possibile applicare un filtro all'elenco.
+Il pannello *Factory locations* (Posizioni factory) visualizza la posizione geografica di tutti gli stabilimenti presenti nella soluzione, con lo stato e la configurazione di produzione corrente. Dall'elenco delle località è possibile passare agli altri livelli della gerarchia della soluzione. Le righe nell'elenco sono collegamenti ipertestuali che consentono di visualizzare i dettagli delle linee di produzione di tale località. È quindi possibile esaminare i dettagli delle linee di produzione fino al livello della postazione. È anche possibile applicare un filtro all'elenco.
 
-![Stabilimenti della soluzione preconfigurata di connected factory][cf-img-factories] 
+![Stabilimenti della soluzione preconfigurata di connected factory][cf-img-factories]
 
 1. Il **pannello degli stabilimenti** visualizza l'elenco di stabilimenti presenti in questa soluzione.
 
@@ -110,9 +108,9 @@ Se la sottoscrizione ha accesso all'API di Bing Mappe, la mappa degli *stabilime
 
 ![Mappa della soluzione preconfigurata di connected factory][cf-img-map]
 
-## <a name="view-alerts"></a>Visualizzare gli avvisi
+## <a name="view-alarms"></a>Visualizzare gli avvisi
 
-Il pannello **Alert** (Avvisi) indica gli avvisi generati a causa di un valore segnalato o un valore OEE/KPI calcolato superiore alla soglia configurata. Questo pannello visualizza gli avvisi per ogni livello della gerarchia, dalla vista a livello di postazione fino alla vista globale. Gli avvisi contengono descrizione dell'avviso, data, ora, località e numero di occorrenze. È possibile ottenere informazioni dettagliate sulle cause dell'avviso usando i dati di Time Series Insights. I dati di Time Series Insights vengono visualizzati negli avvisi, se applicabile. Gli amministratori possono eseguire azioni predefinite sugli avvisi, ad esempio:
+Il pannello **Alarms** (Avvisi) indica gli avvisi generati a causa di un valore segnalato o un valore OEE/KPI calcolato superiore alla soglia configurata. Questo pannello visualizza gli avvisi per ogni livello della gerarchia, dalla vista a livello di postazione fino alla vista globale. Gli avvisi contengono descrizione dell'avviso, data, ora, località e numero di occorrenze. È possibile ottenere informazioni dettagliate sulle cause dell'avviso usando i dati di Time Series Insights. I dati di Time Series Insights vengono visualizzati negli avvisi, se applicabile. Gli amministratori possono eseguire azioni predefinite sugli avvisi, ad esempio:
 
 * Chiudere l'avviso.
 * Confermare l'avviso.
@@ -128,7 +126,7 @@ Il pannello **Alert** (Avvisi) indica gli avvisi generati a causa di un valore s
 > [!NOTE]
 > Questi avvisi vengono generati da regole specificate in un file di configurazione della soluzione preconfigurata. Queste regole possono generare avvisi quando i valori di OEE o KPI o del nodo OPC UA superano la soglia configurata.
 
-1. Il **pannello degli avvisi** indica gli avvisi generati in questa soluzione.
+1. Il **pannello Alarms** (Avvisi) indica gli avvisi generati in questa soluzione.
 
 2. Per visualizzare i dettagli di un avviso, fare clic su di esso nel pannello.
 
@@ -160,7 +158,7 @@ La soluzione offre due indicatori di prestazioni chiave, *unità per ogni ora* e
 
 1. Per visualizzare le unità per ogni ora o l'energia usata per qualsiasi livello della gerarchia, passare alla vista specifica. Le unità per ogni ora e l'energia usata verranno visualizzate nel pannello.
 
-2. Per eseguire altre analisi sulle unità per ogni ora o sull'energia usata per qualsiasi livello della gerarchia, fare clic sul misuratore nel pannello **Key Performance Indicators** (Indicatori di prestazioni chiave). Si aprirà un pannello contestuale con visualizzazioni di Time Series Insights che indicano i dati dell'ultima ora, delle ultime 24 ore e degli ultimi 7 giorni.
+2. Per analizzare le unità per ogni ora o l'energia usata per qualsiasi livello della gerarchia, fare clic sul misuratore nel pannello **Key Performance Indicators** (Indicatori di prestazioni chiave). Si aprirà un pannello contestuale con visualizzazioni di Time Series Insights che indicano i dati dell'ultima ora, delle ultime 24 ore e degli ultimi 7 giorni.
 
 ## <a name="scenario-review"></a>Analisi dello scenario
 
@@ -172,9 +170,9 @@ Le sezioni seguenti descrivono alcune funzionalità aggiuntive della soluzione d
 
 ## <a name="apply-filters"></a>Applicare filtri
 
-1. Fare clic sulla **freccia di espansione** per visualizzare un elenco dei filtri disponibili nel pannello delle località degli stabilimenti o nel pannello degli avvisi.
+1. Fare clic sull'icona dell'**imbuto** per visualizzare un elenco dei filtri disponibili nel pannello delle località degli stabilimenti o nel pannello degli avvisi.
 
-2. Verrà visualizzato il pannello dei filtri. 
+2. Verrà visualizzato il pannello dei filtri.
 
     ![Filtri della soluzione preconfigurata di connected factory][cf-img-alert-filter]
 
@@ -193,7 +191,7 @@ Le sezioni seguenti descrivono alcune funzionalità aggiuntive della soluzione d
 
 Quando si distribuisce la soluzione preconfigurata, viene effettuato automaticamente il provisioning dei server OPC UA simulati che è possibile esplorare tramite il browser della soluzione. Questi server sono *server OPC UA simulati* . I server simulati consentono di provare facilmente la soluzione preconfigurata senza la necessità di distribuire server fisici reali. Per connettere un server OPC UA reale alla soluzione, vedere l'esercitazione [Connettere il dispositivo OPC UA alla soluzione preconfigurata di connected factory][lnk-connect-cf].
 
-1. Fare clic sull'**icona dello stabilimento** nella barra di spostamento del dashboard.
+1. Fare clic sull'**icona del browser** nella barra di spostamento del dashboard.
 
     ![Browser dei server della soluzione preconfigurata di connected factory][cf-img-server-browser]
 
@@ -223,11 +221,11 @@ Quando si esplora un *server OPC UA simulato* è anche possibile scegliere di pu
 
 4. Verrà visualizzato un pannello contestuale che indica che la pubblicazione ha avuto esito positivo. Il nodo viene visualizzato al livello delle postazioni con un segno di spunta accanto.
 
-    ![Pubblicazione eseguita nella soluzione preconfigurata di connected factory][cf-img-publish-success]
+    ![Pubblicazione eseguita nella connected factory preconfigurata][cf-img-publish-success]
 
 ## <a name="command-and-control"></a>Comando e controllo
 
-La soluzione di connected factory consente di comandare e gestire i dispositivi industriali direttamente dal cloud. È possibile usare questa funzionalità per rispondere agli avvisi generati dal dispositivo. È ad esempio possibile inviare un comando al dispositivo dal cloud. È possibile trovare i comandi disponibili nel nodo **StationCommands** dell'albero del browser dei server OPC UA. In questo scenario si apre una valvola di sfiato nella postazione di un gruppo di componenti di una linea di produzione situata a Monaco di Baviera. Per usare la funzionalità di comando e controllo è necessario il ruolo **Amministratore** per la distribuzione della soluzione preconfigurata.
+La soluzione di connected factory consente di comandare e controllare i dispositivi industriali direttamente dal cloud. È possibile usare questa funzionalità per rispondere agli avvisi generati dal dispositivo. È ad esempio possibile inviare un comando al dispositivo dal cloud. È possibile trovare i comandi disponibili nel nodo **StationCommands** dell'albero del browser dei server OPC UA. In questo scenario si apre una valvola di sfiato nella postazione di un gruppo di componenti di una linea di produzione situata a Monaco di Baviera. Per usare la funzionalità di comando e controllo è necessario il ruolo **Amministratore** per la distribuzione della soluzione preconfigurata.
 
 1. Passare al nodo **StationCommands** nell'albero del browser dei server OPC UA.
 
@@ -248,7 +246,6 @@ La soluzione di connected factory consente di comandare e gestire i dispositivi 
 7. Il pannello contestuale viene aggiornato per indicare che la chiamata al metodo ha avuto esito positivo. È possibile verificare che la chiamata abbia avuto esito positivo leggendo il valore del nodo della pressione aggiornato in seguito alla chiamata.
 
     ![Chiamata eseguita nella soluzione preconfigurata di connected factory][cf-img-call-success]
-
 
 ## <a name="behind-the-scenes"></a>Dietro le quinte
 

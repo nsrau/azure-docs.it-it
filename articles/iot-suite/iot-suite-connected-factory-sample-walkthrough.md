@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 237ca28c699984e89127a95b2141fe9131ad868c
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 88fe50460baf8b7180da113b33a03120f39cf44f
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Procedura dettagliata per la soluzione preconfigurata di connected factory
 
@@ -166,11 +166,11 @@ L'app Web distribuita nell'ambito della soluzione preconfigurata è costituita d
     - Usa la comunicazione protetta TCP/TLS.
     - Questo passaggio è interno al data center.
 
-11. Il Web browser si connette all'app Web della fabbrica connessa.
-    - Esegue il rendering del dashboard della fabbrica connessa.
+11. Il Web browser si connette all'app Web di connected factory.
+    - Esegue il rendering del dashboard di connected factory.
     - Si connette tramite HTTPS.
-    - Per accedere all'app della fabbrica connessa, è necessaria l'autenticazione dell'utente tramite Azure Active Directory.
-    - Le chiamate API Web all'app della fabbrica connessa sono protette da token antifalsificazione.
+    - Per accedere all'app di connected factory è necessaria l'autenticazione dell'utente tramite Azure Active Directory.
+    - Le chiamate API Web all'app di connected factory sono protette da token antifalsificazione.
 
 12. Quando i dati vengono aggiornati, l'app Web della fabbrica connessa li invia al Web browser.
     - Usa il protocollo SignalR.
@@ -190,7 +190,7 @@ L'app Web distribuita nell'ambito della soluzione preconfigurata è costituita d
     - Legge tutti i dispositivi noti dall'hub IoT.
     - Usa MQTT su TLS su socket o WebSocket sicuro.
 
-3. Il Web browser si connette all'app Web della fabbrica connessa ed esegue il rendering del dashboard della fabbrica connessa.
+3. Il Web browser si connette all'app Web di connected factory ed esegue il rendering del dashboard di connected factory.
     - Usa HTTPS.
     - Un utente seleziona un server OPC UA a cui connettersi.
 
@@ -199,7 +199,7 @@ L'app Web distribuita nell'ambito della soluzione preconfigurata è costituita d
 
 5. Il trasporto proxy OPC riceve una richiesta dallo stack OPC UA per stabilire una connessione socket TCP al server OPC UA.
     - Recupera solo il payload TCP e lo usa senza modificarlo.
-    - Questo passaggio è interno all'app Web della fabbrica connessa.
+    - Questo passaggio è interno all'app Web di connected factory.
 
 6. Il proxy OPC (componente client) cerca il dispositivo proxy OPC (componente server) nel Registro di sistema del dispositivo hub IoT. Chiama quindi un metodo del dispositivo proxy OPC (componente server) nell'hub IoT.
     - Usa HTTPS su TCP/TLS per cercare il proxy OPC.
@@ -215,7 +215,7 @@ L'app Web distribuita nell'ambito della soluzione preconfigurata è costituita d
 
 10. La risposta viene ricevuta dal socket del proxy OPC (componente server).
     - Il proxy OPC invia i dati come valore restituito del metodo del dispositivo all'hub IoT e al proxy OPC (componente client).
-    - Questi dati vengono inviati allo stack OPC UA nell'app della fabbrica connessa.
+    - Questi dati vengono inviati allo stack OPC UA nell'app di connected factory.
 
 11. L'app Web della fabbrica connessa restituisce l'esperienza utente del browser OPC arricchita con le informazioni specifiche di OPC UA ricevute dal server OPC UA al Web browser per eseguirne il rendering.
     - Durante l'esplorazione tramite lo spazio indirizzi OPC e l'applicazione delle funzioni ai nodi nello spazio indirizzi OPC, la parte client dell'esperienza utente del browser OPC usa le chiamate AJAX su HTTPS protette con i token antifalsificazione per ottenere i dati dall'app Web della fabbrica connessa.
@@ -225,7 +225,7 @@ L'app Web distribuita nell'ambito della soluzione preconfigurata è costituita d
 > Il proxy OPC (componente server) e il componente proxy OPC (client) completano i passaggi da 4 a 10 per tutto il traffico TCP correlato alla comunicazione OPC UA.
 
 > [!NOTE]
-> Per il server OPC UA e lo stack OPC UA nell'app Web della fabbrica connessa, la comunicazione del proxy OPC è trasparente e vengono applicate tutte le funzionalità di sicurezza OPC UA per l'autenticazione e la crittografia.
+> Per il server OPC UA e lo stack OPC UA nell'app Web di connected factory, la comunicazione del proxy OPC è trasparente e vengono applicate tutte le funzionalità di sicurezza OPC UA per l'autenticazione e la crittografia.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/04/2017
+ms.date: 12/08/2017
 ms.author: owend
-ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -116,7 +116,7 @@ Per altre informazioni sulla sicurezza di Azure, vedere [Microsoft Trust Center]
 ## <a name="supports-the-latest-client-tools"></a>Supporto degli strumenti client più recenti
 ![Visualizzazioni di dati](./media/analysis-services-overview/aas-overview-clients.png)
 
-Gli strumenti moderni per l'esplorazione e la visualizzazione dei dati, come Power BI, Excel e strumenti di terze parti, forniscono agli utenti informazioni dettagliate a interattività elevata e visivamente accattivanti nei dati del modello.
+Gli strumenti moderni per l'esplorazione e la visualizzazione dei dati come Power BI, Excel, SQL Server 2017 Reporting Services e strumenti di terze parti sono tutti supportati e forniscono agli utenti informazioni dettagliate a interattività elevata e visivamente accattivanti nei dati del modello. 
 
 I client usano le [librerie client](analysis-services-data-providers.md) MSOLAP, AMO o ADOMD per la connessione ai server di Analysis Services. Le applicazioni client di Microsoft, come ad esempio Power BI Desktop ed Excel, installano tutte e tre le librerie client. A seconda della versione o della frequenza degli aggiornamenti, le librerie client potrebbero tuttavia non essere le versioni più recenti richieste da Azure Analysis Services. Lo stesso vale per le applicazioni personalizzate o per le altre interfacce come AsCmd, TOM e ADOMD.NET. Queste applicazioni richiedono in genere l'installazione manuale delle librerie come parte di un pacchetto.
 

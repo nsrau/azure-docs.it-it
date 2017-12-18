@@ -3,7 +3,7 @@ title: Creare un account utente di Azure AD | Microsoft Docs
 description: Questo articolo descrive come creare le credenziali di un account utente di Azure AD per i runbook di Automazione di Azure ai fini dell'autenticazione in Azure e nella distribuzione classica di Azure.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 keywords: utente di Azure Active Directory, Azure Service Management, account utente Azure AD
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 8f24e6e57c2eec5950c8c12d9f4383ce11cf5c11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 700c4419821934daac89025c889b21d8e2ef46b6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Autenticare i runbook con la distribuzione classica di Azure e Resource Manager
 Questo articolo descrive le procedure da eseguire per configurare un account utente di Azure AD per i runbook di Automazione di Azure in esecuzione in risorse di Azure Resource Manager o del modello di distribuzione classica di Azure.  Anche se questa identità di autenticazione è ancora supportata per i runbook basati su Azure Resource Manager, il metodo consigliato consiste nell'usare un account RunAs di Azure.       
@@ -42,7 +42,7 @@ Questo articolo descrive le procedure da eseguire per configurare un account ute
 La procedura descritta in questa sezione consente di creare nel portale di Azure un account di Automazione di Azure da usare con i runbook che gestiscono risorse nella distribuzione classica di Azure.  
 
 > [!NOTE]
-> Gli account di Automazione creati con il portale di Azure classico possono essere gestiti sia dal portale di Azure che dal portale di Azure classico e da entrambi i set di cmdlet. Una volta creato l'account, non fa alcuna differenza come si creano e gestiscono le risorse all'interno dell'account. Se si prevede di continuare a usare il portale di Azure classico, è consigliabile creare gli account di Automazione con tale portale anziché con il portale di Azure.
+> Gli account di Automazione creati con il portale di Azure classico possono essere gestiti sia dal portale di Azure che dal portale di Azure classico e da entrambi i set di cmdlet. Una volta creato l'account, non fa alcuna differenza come si creano e gestiscono le risorse all'interno dell'account. Se si prevede di continuare a usare il portale di Azure classico, è necessario usarlo invece del portale di Azure per creare gli account di automazione.
 > 
 > 
 

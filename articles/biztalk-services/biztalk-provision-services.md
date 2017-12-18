@@ -14,102 +14,25 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: eca77b4a82eb67e1755717bb4429f8d450a64dc5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61776b19ba0ee273b78e3b0a6f610e5701251dd0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Creazione di servizi BizTalk tramite il portale di Azure
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 > [!TIP]
 > Per accedere al portale di Azure, è necessario un account Azure e una sottoscrizione di Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Vedere [Versione di valutazione gratuita di Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
 
 
 ## <a name="CreateService"></a>Creare un servizio BizTalk
-A seconda dell'edizione scelta, non tutte le impostazioni del servizio BizTalk Service saranno disponibili.
 
-1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Nella del pannello di navigazione inferiore selezionare **NUOVO**:  
-   ![Selezionare il pulsante New][NEWButton]
-3. Selezionare **SERVIZI APP** > **SERVIZIO BIZTALK** > **CREAZIONE PERSONALIZZATA**:  
-   ![Selezionare BizTalk Service e quindi Custom Create][NewBizTalkService]
-4. Immettere le impostazioni del servizio BizTalk:
-   
-    <table border="1">
-    <tr>
-    <td><strong>Nome del servizio BizTalk</strong></td>
-    <td>È possibile inserire qualsiasi nome, ma deve essere specifico. Di seguito sono riportati alcuni esempi:<br/><br/>
-    <em>azienda</em>.biztalk.windows.net<br/>
-    <em>aziendaapplicazione</em>.biztalk.windows.net<br/>
-    <em>applicazione</em>.biztalk.windows.net<br/><br/>".biztalk.windows.net" viene aggiunto automaticamente al nome digitato. Verrà creato un URL usato per accedere al servizio BizTalk, ad esempio <strong>https://<em>applicazione</em>.biztalk.windows.net</strong>.
-    </td>
-    </tr>
-    <tr>
-    <td><strong>Edizione</strong></td>
-    <td>Se si è nella fase di testing/sviluppo, scegliere l'edizione <strong>Developer</strong>. Se si è nella fase di produzione, vedere <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302279">Servizi BizTalk: Grafico edizioni</a> per determinare se la scelta corretta per il proprio scenario aziendale sia l'edizione <strong>Premium</strong>, <strong>Standard</strong> o <strong>Basic</strong>.
-    </td>
-    </tr>
-    <tr>
-    <td><strong>Area</strong></td>
-    <td>Selezionare l'area geografica per ospitare il servizio BizTalk.</td>
-    </tr>
-    <tr>
-    <td><strong>URL del dominio</strong></td>
-    <td><strong>Facoltativo</strong>. Per impostazione predefinita, l'URL del dominio è <em>NomeServizioBizTalk</em>.biztalk.windows.net. È anche possibile specificare un dominio personalizzato. Se ad esempio il dominio è <em>contoso</em>, è possibile immettere: <br/><br/>
-    <em>Azienda</em>.contoso.com<br/>
-    <em>AziendaApplicazione</em>.contoso.com<br/>
-    <em>Applicazione</em>.contoso.com<br/>
-    <em>NomeServizioBizTalk</em>.contoso.com<br/>
-    </td>
-    </tr>
-    </table>
-Fare clic sulla freccia AVANTI.
-5. Immettere le impostazioni per archiviazione e database:  <table border="1">
-    <tr>
-    <td><strong>Account di archiviazione di monitoraggio/archiviazione</strong></td>
-    <td>Selezionare un account di archiviazione esistente o crearne uno nuovo. <br/><br/>Se si crea un nuovo account di archiviazione, specificarne il nome in <strong>Nome account di archiviazione</strong>.</td>
-    </tr>
-    <tr>
-    <td><strong>Database di rilevamento</strong></td>
-    <td>Se si usa un database SQL di Azure esistente, non potrà essere usato da un altro servizio BizTalk. È necessario disporre dell'account di accesso e della password immessi durante la creazione del server di database SQL di Azure.<br/><br/><strong>SUGGERIMENTO</strong> Creare il database di rilevamento e l'account di archiviazione di monitoraggio/archiviazione nella stessa area geografica del servizio BizTalk.</td>
-    </tr>
-    </table>
-Fare clic sulla freccia AVANTI.
-6. Immettere le impostazioni del database:  <table border="1">
-    <tr>
-    <td><strong>Nome</strong></td>
-    <td>Disponibile quando nella schermata precedente è stata selezionata l'opzione <strong>Crea nuova istanza di database SQL</strong>.
-    <br/><br/>
-Immettere il nome di un database SQL da usare con il servizio BizTalk.</td>
-    </tr>
-    <tr>
-    <td><strong>Server</strong></td>
-    <td>Disponibile quando nella schermata precedente è stata selezionata l'opzione <strong>Crea nuova istanza di database SQL</strong>.
-    <br/><br/>
-Selezionare un server di database SQL esistente o crearne uno nuovo.</td>
-    </tr>
-    <tr>
-    <td><strong>Nome account di accesso del server</strong></td>
-    <td>Immettere il proprio nome utente di accesso.</td>
-    </tr>
-    <tr>
-    <td><strong>Password di accesso server</strong></td>
-    <td>Immettere la password di accesso.</td>
-    </tr>
-    <tr>
-    <td><strong>Area</strong></td>
-    <td>Disponibile quando è stata selezionata l'opzione <strong>Crea nuova istanza di database SQL</strong>. Selezionare l'area geografica per ospitare il database SQL.</td>
-    </tr>
-    </table>
-
-Per completare la procedura guidata, fare clic sul segno di spunta. Viene visualizzata l'icona di avanzamento:   
-![Icona di avanzamento visualizzata al termine][ProgressComplete]
-
-Al termine, viene creato il servizio BizTalk di Azure che sarà disponibile per le applicazioni. Le impostazioni predefinite sono sufficienti. Se si desidera modificare le impostazioni predefinite, selezionare **SERVIZI BIZTALK** nel pannello di navigazione sinistro e quindi selezionare il proprio servizio BizTalk. Altre impostazioni sono disponibili nelle [schede Dashboard, Monitoraggio e Scalabilità](biztalk-dashboard-monitor-scale-tabs.md) in alto.
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 A seconda dello stato del servizio BizTalk, alcune operazioni potrebbero non essere completate. Per un elenco di queste operazioni, vedere [Servizi BizTalk: Tabella degli stati del servizio](biztalk-service-state-chart.md).
 
@@ -119,27 +42,16 @@ A seconda dello stato del servizio BizTalk, alcune operazioni potrebbero non ess
 * [Ottenere lo spazio dei nomi ACS](#ACS)
 
 #### <a name="InstallCert"></a>Installare il certificato in un computer locale
-Come parte del provisioning del servizio BizTalk, un certificato autofirmato viene creato e associato alla sottoscrizione del servizio BizTalk. È necessario scaricare questo certificato e installarlo nei computer da cui si distribuiscono applicazioni del servizio BizTalk o si inviano messaggi all'endpoint del servizio BizTalk.
 
-1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Fare clic su **SERVIZI BIZTALK** nel riquadro di spostamento sinistro e quindi selezionare la sottoscrizione del servizio BizTalk.
-3. Selezionare la scheda **Dashboard** .
-4. Selezionare **Scarica certificato SSL**:  
-   ![Modificare un certificato SSL][QuickGlance]
-5. Fare doppio clic sul certificato ed eseguire la procedura guidata per installarlo. Assicurarsi di installare il certificato nell'archivio **Autorità di certificazione radice attendibili** .
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 #### <a name="AddCert"></a>Aggiungere un certificato per l'ambiente di produzione
-Il certificato autofirmato creato automaticamente durante la creazione dei Servizi BizTalk è destinato all'uso solo negli ambienti di sviluppo. Per gli scenari di produzione, è necessario sostituirlo con un certificato di produzione.
 
-1. Nella scheda **Dashboard** fare clic su **Aggiorna certificato SSL**.
-2. Cercare il certificato SSL privato (*NomeCertificato*.pfx) che include il nome del servizio BizTalk, immettere la password e quindi fare clic sul segno di spunta.
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 #### <a name="ACS"></a>Ottenere lo spazio dei nomi ACS
-1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. Selezionare **SERVIZI BIZTALK** nel pannello di navigazione sinistro e quindi scegliere il servizio BizTalk.
-3. Nella barra delle applicazioni selezionare **Informazioni di connessione**:  
-   ![Selezionare Connection Information][ACSConnectInfo]
-4. Copiare i valori di ACS.
+
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 Quando si distribuisce un progetto di servizio BizTalk da Visual Studio, si inserisce questo spazio dei nomi. Lo spazio dei nomi del servizio di controllo di accesso viene creato automaticamente per il servizio BizTalk.
 
@@ -167,11 +79,11 @@ Questi requisiti non si applicano all'edizione gratuita.
 </tr>
 <tr>
 <td>Sottoscrizione di Azure</td>
-<td>La sottoscrizione determina chi può accedere al portale di Azure. Il titolare dell'account crea la sottoscrizione nella pagina <a HREF="https://account.windowsazure.com/Subscriptions"> Sottoscrizioni Azure</a>.
+<td>La sottoscrizione determina chi può accedere ad Azure. Il titolare dell'account crea la sottoscrizione nella pagina <a HREF="https://account.windowsazure.com/Subscriptions"> Sottoscrizioni Azure</a>.
 <br/><br/>
-L'account Azure può avere più sottoscrizioni e può essere gestito da qualsiasi utente autorizzato. Il titolare di un account Azure crea, ad esempio, una sottoscrizione denominata <em>SottoscrizioneServizioBizTalk</em> e concede l'accesso alla sottoscrizione agli amministratori di BizTalk all'interno dell'azienda, ad esempio ContosoBTSAdmins@live.com. In questo scenario gli amministratori di BizTalk accedono al portale di Azure e hanno i diritti di amministratore completi per tutti i servizi ospitati nella sottoscrizione, inclusi i Servizi BizTalk di Azure. Gli amministratori di BizTalk non sono titolari dell'account Azure e pertanto non possono accedere alle informazioni di fatturazione.
-<br/><br/>Nell'articolo 
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577">Gestire le sottoscrizioni e gli account di archiviazione nel portale di Azure</a> sono disponibili altre informazioni.
+L'account Azure può avere più sottoscrizioni e può essere gestito da qualsiasi utente autorizzato. Il titolare di un account Azure crea, ad esempio, una sottoscrizione denominata <em>SottoscrizioneServizioBizTalk</em> e concede l'accesso alla sottoscrizione agli amministratori di BizTalk all'interno dell'azienda, ad esempio ContosoBTSAdmins@live.com. In questo scenario, gli amministratori di BizTalk accedono ad Azure e hanno i diritti di amministratore completi per tutti i servizi ospitati nella sottoscrizione, inclusi i Servizi BizTalk di Azure. Gli amministratori di BizTalk non sono titolari dell'account Azure e pertanto non possono accedere alle informazioni di fatturazione.
+<br/><br/>L'articolo sulla 
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577">gestione delle sottoscrizioni e degli account di archiviazione in Azure</a> offre altre informazioni.
 </td>
 </tr>
 <tr>
@@ -200,7 +112,7 @@ La scalabilità del database SQL viene configurata automaticamente. In genere, l
 <td>Consente l'accesso alle tabelle, ai BLOB e alle code usati dal servizio BizTalk per salvare quando indicato di seguito:
 
 <ul>
-<li>File di log che monitorano il servizio BizTalk. L'output del monitoraggio viene anche visualizzato nella scheda **Monitoraggio** del portale di Azure.</li>
+<li>File di log che monitorano il servizio BizTalk. </li>
 <li>Quando si crea un contratto X12 o AS2 tra partner, è possibile abilitare la funzionalità di archiviazione per archiviare le proprietà dei messaggi. I dati vengono salvati nell'account di archiviazione.</li>
 </ul>
 <br/>
