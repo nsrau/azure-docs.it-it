@@ -72,10 +72,10 @@
   items:
     - name: Pianificare e progettare
       items:
+        - name: Opzioni dell'account di archiviazione
+          href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Replica
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Opzioni dell'account di archiviazione
-          href: storage-account-options.md
         - name: 'A caldo, a freddo e livelli di archiviazione'
           href: storage-blob-storage-tiers.md
         - name: Reazione agli eventi

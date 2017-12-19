@@ -46,16 +46,16 @@
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+      href: 'https://social.msdn.microsoft.com/Forums/azure'
     - name: Prezzi
-      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+      href: 'https://azure.microsoft.com/pricing/details/location-based-services'
     - name: Calcolatore prezzi
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Aggiornamenti del servizio
-      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+      href: 'https://azure.microsoft.com/updates'
     - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-iot-hub'
+      href: 'http://stackoverflow.com/questions/tagged/azure-location-based-services'
     - name: Case study tecnici
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: Video
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'
+      href: 'https://azure.microsoft.com/documentation/videos'

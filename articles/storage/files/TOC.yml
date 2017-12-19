@@ -24,6 +24,8 @@
   items:
     - name: Pianificare e progettare
       items:
+        - name: Opzioni dell'account di archiviazione
+          href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Pianificazione per la distribuzione dei file di Azure
           href: storage-files-planning.md
         - name: Come distribuire i file di Azure

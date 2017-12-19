@@ -6,11 +6,11 @@
       href: overview.md
 - name: Guide introduttive
   items:
-    - name: Creare l'applicazione gestita con l'interfaccia della riga di comando di Azure
+    - name: Creare l'applicazione gestita
       href: managed-apps-quickstart-cli.md
 - name: Esercitazioni
   items:
-    - name: Creare un'applicazione del catalogo di servizi
+    - name: Creare file di un'applicazione gestita
       href: publish-service-catalog-app.md
 - name: Esempi
   items:
@@ -26,7 +26,7 @@
       href: create-uidefinition-overview.md
     - name: Aggiornare le risorse gestite
       href: update-managed-resources.md
-    - name: Pubblicare un'app del catalogo di servizi - portale
+    - name: Usare il portale per la pubblicazione
       href: publish-portal.md
 - name: riferimento
   items:

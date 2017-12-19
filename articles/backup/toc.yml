@@ -59,8 +59,6 @@
           items:
             - name: Preparare i carichi di lavoro del server di Backup di Azure nel portale di Azure
               href: backup-azure-microsoft-azure-backup.md
-            - name: Preparare i carichi di lavoro del server di Backup di Azure nel portale classico
-              href: backup-azure-microsoft-azure-backup-classic.md
             - name: Aggiungere risorse di archiviazione al server di Backup di Azure
               href: backup-mabs-add-storage.md
             - name: Aggiornare il server di Backup di Azure alla versione 2
@@ -89,8 +87,6 @@
               href: backup-azure-arm-vms-prepare.md
             - name: Backup coerenti con l'applicazione delle macchine virtuali Linux
               href: backup-azure-linux-app-consistent.md
-            - name: Preparare le macchine virtuali di Azure
-              href: backup-azure-vms-prepare.md
         - name: Pianificare l'ambiente
           items:
             - name: Pianificare l'infrastruttura di backup delle macchine virtuali
@@ -101,16 +97,12 @@
               href: backup-azure-arm-vms.md
             - name: Backup delle macchine virtuali crittografate
               href: backup-azure-vms-encryption.md
-            - name: Eseguire il backup di macchine virtuali di Azure
-              href: backup-azure-vms.md
         - name: Gestire e monitorare le VM
           items:
             - name: Gestire i backup delle macchine virtuali di Azure nel portale di Azure
               href: backup-azure-manage-vms.md
             - name: Monitorare gli avvisi per i backup delle macchine virtuali di Azure nel portale di Azure
               href: backup-azure-monitor-vms.md
-            - name: Gestire e monitorare i backup delle macchine virtuali di Azure nel portale classico
-              href: backup-azure-manage-vms-classic.md
         - name: Ripristinare i dati dalle VM
           items:
             - name: Ripristinare i file dai backup delle macchine virtuali di Azure
@@ -119,8 +111,6 @@
               href: backup-azure-arm-restore-vms.md
             - name: Ripristinare le macchine virtuali crittografate
               href: backup-azure-vms-encryption.md
-            - name: Ripristinare macchine virtuali in Azure
-              href: backup-azure-restore-vms.md
             - name: Ripristinare la chiave e il segreto dell'insieme di credenziali delle chiavi per le macchine virtuali crittografate
               href: backup-azure-restore-key-secret.md
     - name: Configurare report di Backup di Azure
@@ -135,8 +125,6 @@
       items:
         - name: Preparare carichi di lavoro DPM nel portale di Azure
           href: backup-azure-dpm-introduction.md
-        - name: Preparare carichi di lavoro DPM nel portale classico
-          href: backup-azure-dpm-introduction-classic.md
         - name: Usare System Center DPM per eseguire il backup del server di Exchange
           href: backup-azure-backup-exchange-server.md
         - name: Ripristinare i dati in un server DPM alternativo
@@ -149,16 +137,10 @@
       items:
         - name: Macchine virtuali di Azure nel portale di Azure
           href: backup-azure-vms-automation.md
-        - name: Macchine virtuali di Azure nel portale classico
-          href: backup-azure-vms-classic-automation.md
         - name: DPM nel portale di Azure
           href: backup-dpm-automation.md
-        - name: DPM nel portale classico
-          href: backup-dpm-automation-classic.md
         - name: Windows Server nel portale di Azure
           href: backup-client-automation.md
-        - name: Windows Server nel portale classico
-          href: backup-client-automation-classic.md
     - name: Database SQL di Azure
       items:
         - name: Configurare la conservazione del backup a lungo termine
@@ -181,14 +163,6 @@
           href: backup-azure-restore-system-state.md
         - name: Monitorare e gestire insiemi di credenziali di Servizi di ripristino
           href: backup-azure-manage-windows-server.md
-        - name: Eseguire un backup e ripristino con il portale classico
-          items:
-            - name: Windows Server con il modello di distribuzione classica
-              href: backup-configure-vault-classic.md
-            - name: Gestire insiemi di credenziali di backup con il modello di distribuzione classica
-              href: backup-azure-manage-windows-server-classic.md
-            - name: Ripristinare file in Windows Server usando il modello di distribuzione classica
-              href: backup-azure-restore-windows-server-classic.md
     - name: Insieme di credenziali dei servizi di ripristino
       items:
         - name: Panoramica degli insiemi di credenziali di Servizi di ripristino
@@ -201,8 +175,6 @@
       items:
         - name: Problemi relativi al backup delle macchine virtuali di Azure nel portale di Azure
           href: backup-azure-vms-troubleshoot.md
-        - name: Problemi relativi al backup delle macchine virtuali di Azure nel portale classico
-          href: backup-azure-vms-troubleshoot-classic.md
         - name: 'Errore di backup delle VM di Azure: non è stato possibile comunicare con l''agente della macchina virtuale per lo stato dello snapshot a causa del timeout della sottoattività di creazione snapshot della macchina virtuale'
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Rallentamento delle prestazioni di backup di file e cartelle in Backup di Azure
