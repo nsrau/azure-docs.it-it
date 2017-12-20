@@ -32,7 +32,7 @@
 
 ## Caricare e spostare dati
 ### [Panoramica](design-elt-data-loading.md)
-### [Materiale sussidiario](guidance-for-loading-data.md)
+### [Procedure consigliate](guidance-for-loading-data.md)
 
 
 ## Integrare
