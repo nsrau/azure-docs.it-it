@@ -12,11 +12,11 @@ ms.topic: get-started-article
 ms.workload: iaas-sql-server
 ms.date: 10/02/2017
 ms.author: jroth
-ms.openlocfilehash: 787e696edd2a446bec280b763fe5ac591782c8ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f044fcba92eb7aa7f4ac44608571fab3db0e03f5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Panoramica di SQL Server in macchine virtuali di Azure (Linux)
 
@@ -37,7 +37,7 @@ Le VM di Azure consentono agli amministratori di database e agli sviluppatori di
 
 L'esecuzione di SQL Server in una VM di Azure costituisce un'opzione per archiviare i dati relazionali in Azure. È anche possibile usare il servizio database SQL di Azure. Per altre informazioni sulla scelta tra SQL Server in macchine virtuali e il database SQL di Azure, vedere [Scegliere un'opzione di SQL Server cloud: database SQL di Azure (PaaS) o SQL Server in VM di Azure (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
-## <a name="create-a-new-sql-vm"></a>Creare una nuova VM di SQL
+## <a id="create"></a> Creare una nuova VM di SQL
 
 Per indicazioni dettagliate per la creazione di una nuova VM di SQL, vedere l'esercitazione [Effettuare il provisioning di una macchina virtuale Linux di SQL Server nel portale di Azure](provision-sql-server-linux-virtual-machine.md).
 
