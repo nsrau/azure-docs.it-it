@@ -1,0 +1,2 @@
+>[!TIP] 
+> L'API SQL (DocumentDB) o API DocumentDB di Azure Cosmos DB è ora denominata API SQL di Azure Cosmos DB. Non è necessaria alcuna modifica per continuare a eseguire le app compilate con l'API DocumentDB. Le funzionalità rimangono invariate.
