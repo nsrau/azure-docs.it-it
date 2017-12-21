@@ -15,11 +15,11 @@ ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: 6e20cf37f039f6bec32aee712a4d3c564d54cfc6
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: dde2ec3b68f5951e268c32b1c6551641f22a0511
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Informazioni sugli account di archiviazione di Azure
 
@@ -99,7 +99,7 @@ Dopo aver creato l'account di archiviazione, è possibile modificarne la configu
 
 La modifica dell'opzione di replica modifica i prezzi. Per informazioni più dettagliate, vedere la pagina [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/) .
 
-Per gli account di archiviazione BLOB, la modifica del livello di accesso potrebbe comportare costi per la modifica stessa oltre alla variazione dei prezzi. Per informazioni dettagliate, vedere [Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente e sporadico - Prezzi e fatturazione](../blobs/storage-account-options.md#pricing-and-billing) .
+Per gli account di archiviazione BLOB, la modifica del livello di accesso potrebbe comportare costi per la modifica stessa oltre alla variazione dei prezzi. Per informazioni dettagliate, vedere [Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente e sporadico - Prezzi e fatturazione](storage-account-options.md#pricing-and-billing) .
 
 ### <a name="manage-your-storage-access-keys"></a>Gestire le chiavi di accesso alle risorse di archiviazione
 Quando si crea un account di archiviazione, Azure genera due chiavi di accesso alle risorse di archiviazione da 512 bit, che vengono utilizzate per l'autenticazione quando si accede all'account di archiviazione. Fornendo due chiavi di accesso alle risorse di archiviazione, Azure consente di rigenerare le chiavi senza interruzioni per il servizio di archiviazione o l'accesso a tale servizio.

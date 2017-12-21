@@ -16,11 +16,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: 26d8399ce4ea23b51677def85b3732468dcbc02f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f63c20831a2700f1024507bef614a5a7cc87d00e
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: servizio connesso di Visual Studio (anteprima)
 
@@ -33,7 +33,7 @@ Servizi connessi di Visual Studio consente agli sviluppatori di connettere facil
 Assicurarsi di avere quanto segue:
 
 * Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/). 
-* Account Azure Cosmos DB. Se non è già presente, seguire la procedura illustrata in [Creazione di un account Azure Cosmos DB](create-documentdb-dotnet.md) per crearne uno nel portale di Azure o vedere [Creare un account Azure Cosmos DB nello strumento di servizio connesso](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool). 
+* Account Azure Cosmos DB. Se non è già presente, seguire la procedura illustrata in [Creazione di un account Azure Cosmos DB](create-sql-api-dotnet.md) per crearne uno nel portale di Azure o vedere [Creare un account Azure Cosmos DB nello strumento di servizio connesso](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool). 
 * Per usare un ambiente locale a fini di sviluppo, è possibile usare l'[emulatore di Azure Cosmos DB](local-emulator.md). L'ambiente emula il servizio Azure Cosmos DB.
 * [Visual Studio](http://www.visualstudio.com/)
 * Bit più recenti del servizio connesso Azure Cosmos DB. È possibile scaricare il servizio connesso Azure Cosmos DB dal marketplace di Visual Studio, come illustrato nello screenshot seguente. Aprire **Visual Studio** nel computer. Scegliere **Estensioni e aggiornamenti** dal menu **Strumenti** e quindi scegliere **Online** / **Visual Studio Marketplace**. Immettere **cosmosdb** per cercare i bit.
@@ -119,8 +119,8 @@ In questo documento si è appreso come:
 
 Ora che Servizi connessi è operativo con l'account Azure Cosmos DB, passare a una delle esercitazioni per iniziare a sviluppare la soluzione:
 
-* [Sviluppare con l'API SQL in .NET](tutorial-develop-documentdb-dotnet.md).
-* [Azure Cosmos DB: Esercitazione introduttiva per l'API SQL](documentdb-get-started.md).
+* [Sviluppare con l'API SQL in .NET](tutorial-develop-sql-api-dotnet.md).
+* [Azure Cosmos DB: Esercitazione introduttiva per l'API SQL](sql-api-get-started.md).
 * Per la scalabilità e i test delle prestazioni con Azure Cosmos DB, Vedere [Test delle prestazioni e della scalabilità con Azure Cosmos DB](performance-testing.md).
 * Informazioni su come [monitorare un account Azure Cosmos DB](monitor-accounts.md).
 

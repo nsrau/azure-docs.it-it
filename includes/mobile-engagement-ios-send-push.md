@@ -3,7 +3,7 @@ Per consentire a Mobile Engagement di inviare notifiche push per conto dell'uten
 
 1. Passare al portale di Mobile Engagement. Verificare la posizione corretta e fare clic sul pulsante **Attiva** nella parte inferiore:
    
-    ![](./media/mobile-engagement-ios-send-push/engage-button.png)
+    ![](./media/mobile-engagement-create-app-in-portal-new/engage-button.png)
 2. Verrà visualizzata la pagina **Impostazioni** nel portale di Engagement. Da questa posizione fare clic sulla sezione **Push nativo** per aprire il certificato p12:
    
     ![](./media/mobile-engagement-ios-send-push/engagement-portal.png)

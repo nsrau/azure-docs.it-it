@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 8576f2b6adce044d2060c3ba6d19ac330e3637c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0731237c9376d5f762eea1c7559bc6a70a2025d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started"> </a>Informazioni su App per dispositivi mobili nel servizio app di Azure
 Il servizio app di Azure è un'offerta di [piattaforma distribuita come servizio ](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) interamente gestita per sviluppatori professionisti. Il servizio offre un set completo di funzionalità per scenari Web, per dispositivi mobili e di integrazione. 
@@ -88,7 +88,7 @@ Per altre informazioni sulla piattaforma Servizio app di Azure, vedere [Servizio
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [esercitazione introduttiva]: app-service-mobile-ios-get-started.md
 [Archiviazione tabelle di Azure]:../cosmos-db/table-storage-how-to-use-dotnet.md
-[Azure Cosmos DB]: ../cosmos-db/documentdb-get-started.md
+[Azure Cosmos DB]: ../cosmos-db/sql-api-get-started.md
 [funzionalità di autenticazione]: ./app-service-mobile-auth.md
 [funzionalità dati]: ./app-service-mobile-offline-data-sync.md
 [funzionalità di notifica push]: ../notification-hubs/notification-hubs-push-notification-overview.md

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: fd3ca18fd7a9d1226d41229d37e637a62478f92a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: b8f0f899dff0f9e238017cb77126b3ca1275f3cd
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente, ad accesso sporadico e archivio
 
@@ -32,7 +32,7 @@ Tutti questi scenari di accesso ai dati usufruiscono di un livello di archiviazi
 
 ## <a name="storage-accounts-that-support-tiering"></a>Account di archiviazione che supportano la suddivisione in livelli
 
-È possibile suddividere in livelli i dati di archiviazione di oggetti in dati ad accesso frequente, ad accesso sporadico o archivio solo in account di archiviazione BLOB o per utilizzo generico v2. Gli account per utilizzo generico v1 non supportano la suddivisione in livelli. I clienti possono tuttavia convertire facilmente gli account per utilizzo generico v1 o di archiviazione BLOB in account per utilizzo generico v2 tramite un semplice processo con un clic nel portale di Azure. L'utilizzo generico v2 fornisce un nuovo piano tariffario per BLOB, file e code, oltre all'accesso a diverse altre nuove funzionalità di archiviazione. In futuro inoltre alcune nuove funzionalità e tagli sui prezzi saranno offerti solo negli account per utilizzo generico v2. I clienti dovrebbero quindi valutare l'uso degli account v2, ma solo dopo avere verificato i prezzi per tutti i servizi perché alcuni carichi di lavoro nell'utilizzo generico v2 possono essere più costosi che nell'utilizzo generico v1. Per altre informazioni, vedere [Opzioni di account di archiviazione di Azure](storage-account-options.md).
+È possibile suddividere in livelli i dati di archiviazione di oggetti in dati ad accesso frequente, ad accesso sporadico o archivio solo in account di archiviazione BLOB o per utilizzo generico v2. Gli account per utilizzo generico v1 non supportano la suddivisione in livelli. I clienti possono tuttavia convertire facilmente gli account per utilizzo generico v1 o di archiviazione BLOB in account per utilizzo generico v2 tramite un semplice processo con un clic nel portale di Azure. L'utilizzo generico v2 fornisce un nuovo piano tariffario per BLOB, file e code, oltre all'accesso a diverse altre nuove funzionalità di archiviazione. In futuro inoltre alcune nuove funzionalità e tagli sui prezzi saranno offerti solo negli account per utilizzo generico v2. I clienti dovrebbero quindi valutare l'uso degli account v2, ma solo dopo avere verificato i prezzi per tutti i servizi perché alcuni carichi di lavoro nell'utilizzo generico v2 possono essere più costosi che nell'utilizzo generico v1. Per altre informazioni, vedere [Opzioni di account di archiviazione di Azure](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Gli account per utilizzo generico v2 espongono l'attributo **Livello di accesso** a livello di account, che consente di specificare il livello di archiviazione predefinito come ad accesso frequente o ad accesso sporadico per tutti i BLOB dell'account di archiviazione il cui livello non è impostato a livello di oggetto. Per gli oggetti con il livello impostato a livello di oggetto, il livello di account non verrà applicato. Il livello archivio è applicabile solo a livello di oggetto. È possibile passare da uno di questi livelli di archiviazione all'altro in qualsiasi momento.
 
@@ -139,7 +139,7 @@ Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 
 È consigliabile usare gli account per utilizzo generico v2 invece di quelli di archiviazione BLOB per la suddivisione in livelli. L'utilizzo generico v2 supporta tutte le funzionalità supportate dagli account di archiviazione BLOB oltre a molte altre. I prezzi dell'archivio BLOB e dell'utilizzo generico v2 sono quasi identici, ma alcune nuove funzionalità e tagli sui prezzi saranno disponibili solo negli account per utilizzo generico v2. Gli account per utilizzo generico v1 non supportano la suddivisione in livelli.
 
-Il piano tariffario per gli account per utilizzo generico v1 e v2 è diverso e i clienti devono valutarli entrambi con attenzione prima di decidere di usare gli account per utilizzo generico v2. È possibile convertire facilmente un account di archiviazione BLOB o per utilizzo generico v1 esistente in utilizzo generico v2 tramite un semplice processo con un clic. Per altre informazioni, vedere [Opzioni di account di archiviazione di Azure](storage-account-options.md).
+Il piano tariffario per gli account per utilizzo generico v1 e v2 è diverso e i clienti devono valutarli entrambi con attenzione prima di decidere di usare gli account per utilizzo generico v2. È possibile convertire facilmente un account di archiviazione BLOB o per utilizzo generico v1 esistente in utilizzo generico v2 tramite un semplice processo con un clic. Per altre informazioni, vedere [Opzioni di account di archiviazione di Azure](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 **È possibile archiviare oggetti in tutti e tre i livelli di archiviazione (ad accesso frequente, ad accesso sporadico e archivio) nello stesso account?**
 

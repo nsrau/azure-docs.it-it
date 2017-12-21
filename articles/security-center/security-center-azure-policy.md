@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: c359b77efbfdbcf7d2c0193dc015ce418a3d997d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 045cf83caa15cb2487b4781f3c1f42752880580c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integrare i criteri di sicurezza del Centro sicurezza con Criteri di Azure
 Questo articolo illustra la configurazione dei criteri di sicurezza del Centro sicurezza di Azure, basati sulla tecnologia di Criteri di Azure. 
@@ -39,14 +39,14 @@ Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito pe
 
 2. Nel dashboard **Centro sicurezza** in **Generale** selezionare **Criteri di sicurezza**.
 
-    ![Riquadro Gestione dei criteri](./media/security-center-policies/security-center-policies-fig10.png)
+    ![Riquadro Gestione dei criteri](./media/security-center-azure-policy/security-center-policies-fig10.png)
 
 3. Selezionare la sottoscrizione per cui abilitare un criterio di sicurezza.  
 
 4. Nella sezione **Componenti dei criteri** selezionare **Criteri di sicurezza**.  
     Viene visualizzata la finestra **Informazioni di base**.
 
-    ![Componenti dei criteri](./media/security-center-policies/security-center-policies-fig12.png)
+    ![Componenti dei criteri](./media/security-center-azure-policy/security-center-policies-fig12.png)
 
 5. Per eliminare una definizione di criterio, in **Policies and Parameters** (Criteri e parametri) selezionare **Elimina** accanto alla definizione da eliminare.
 
@@ -57,12 +57,12 @@ Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito pe
 
     * Per aggiungere una definizione di criterio, selezionare il segno più (+) accanto alla definizione.
 
-    ![Definizioni dei criteri disponibili](./media/security-center-policies/security-center-policies-fig11.png)
+    ![Definizioni dei criteri disponibili](./media/security-center-azure-policy/security-center-policies-fig11.png)
 
     * Per una spiegazione dettagliata di un criterio, selezionarlo.  
     Viene visualizzata una finestra di **Anteprima** della definizione. La finestra mostra una descrizione della definizione e un collegamento al codice JSON che fornisce la struttura della [definizione del criterio](../azure-policy/policy-definition.md).
 
-    ![Finestra Anteprima della definizione](./media/security-center-policies/security-center-policies-fig14.png)
+    ![Finestra Anteprima della definizione](./media/security-center-azure-policy/security-center-policies-fig14.png)
 
 7. Al termine delle modifiche, selezionare **Salva**.
 

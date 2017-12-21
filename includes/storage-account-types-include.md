@@ -19,7 +19,7 @@ Gli account di archiviazione BLOB espongono l'attributo **Livello di accesso** ,
 * Livello di accesso **frequente** , che indica un accesso più frequente agli oggetti nell'account di archiviazione. Questo permette di archiviare i dati a un costo di accesso inferiore.
 * Livello di accesso **sporadico** , che indica un accesso meno frequente agli oggetti nell'account di archiviazione. Questo permette di archiviare i dati a un costo di archiviazione dati inferiore.
 
-Se il modello di utilizzo dei dati cambia, è anche possibile passare da uno di questi livelli di accesso all'altro in qualsiasi momento. La modifica del livello di accesso può comportare costi aggiuntivi. Per informazioni dettagliate, vedere [Prezzi e fatturazione per gli account di archiviazione BLOB](../articles/storage/blobs/storage-account-options.md#pricing-and-billing) .
+Se il modello di utilizzo dei dati cambia, è anche possibile passare da uno di questi livelli di accesso all'altro in qualsiasi momento. La modifica del livello di accesso può comportare costi aggiuntivi. Per informazioni dettagliate, vedere [Prezzi e fatturazione per gli account di archiviazione BLOB](../articles/storage/common/storage-account-options.md#pricing-and-billing) .
 
 Per informazioni dettagliate sugli account di archiviazione BLOB, vedere [Archivio BLOB di Azure: livelli Frequente e Sporadico](../articles/storage/blobs/storage-blob-storage-tiers.md).
 
