@@ -26,6 +26,8 @@
 
 # Procedure
 ## Pianificare e progettare
+### [Identità del servizio gestito (anteprima)](service-bus-managed-service-identity.md)
+### [Controllo degli accessi in base al ruolo (anteprima)](service-bus-role-based-access-control.md)
 ### [Messaggistica Premium](service-bus-premium-messaging.md)
 ### [Confronto tra code di Azure e code del bus di servizio](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Ottimizzare le prestazioni](service-bus-performance-improvements.md)

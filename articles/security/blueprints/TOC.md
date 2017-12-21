@@ -18,7 +18,8 @@
 ### [Governance in Azure](../governance-in-azure.md)
 ### [Crittografia dei dati inattivi](../azure-security-encryption-atrest.md)
 ### Progetti di architetture
-#### [Conformità - PCI DSS](payment-processing-blueprint.md)
+#### Conformità - PCI DSS
+##### [Elaborazione dei pagamenti per ambienti conformi allo standard PCI DSS](payment-processing-blueprint.md)
 ##### [Panoramica dei requisiti](pci-dss-requirements-overview.md)
 ##### [Requisito 1: firewall](pci-dss-requirement-1-firewall.md)
 ##### [Requisito 2: password](pci-dss-requirement-2-password.md)
@@ -32,7 +33,8 @@
 ##### [Requisito 10: monitoraggio](pci-dss-requirement-10-monitoring.md)
 ##### [Requisito 11: test](pci-dss-requirement-11-testing.md)
 ##### [Requisito 12: criteri](pci-dss-requirement-12-policy.md)
-#### [Conformità - FedRAMP ](fedramp.md)
+#### Conformità - FedRAMP
+##### [Applicazioni Web per FedRAMP](fedramp.md)
 ##### [Panoramica dei controlli di sicurezza](fedramp-controls-overview.md)
 ##### [Controllo di accesso](fedramp-access-controls.md)
 ##### [Controllo e responsabilità](fedramp-audit-accountability-controls.md)
@@ -51,10 +53,11 @@
 ##### [Protezione del sistema e delle comunicazioni](fedramp-system-communications-protection-controls.md)
 ##### [Integrità del sistema e delle informazioni](fedramp-system-information-integrity-controls.md)
 ##### [Acquisizione del sistema e dei servizi](fedramp-system-services-acquisition-controls.md)
-#### [Conformità - UFFICIALE nel Regno Unito](uk-official-three-tier-applications-overview.md)
+#### Conformità - UK-OFFICIAL
+##### [Applicazioni Web a tre livelli per UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
 ##### [Panoramica](uk-official-three-tier-applications-overview.md)
 ##### [Panoramica dei principi](uk-official-three-tier-applications-principles-overview.md)
-#### [Conformità - Servizi finanziari](financial-services-regulated-workloads.md)
+#### Conformità - Servizi finanziari
 ##### [Servizi finanziari per carichi di lavoro regolamentati](financial-services-regulated-workloads.md)
 
 # Attività iniziali

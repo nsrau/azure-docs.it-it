@@ -90,6 +90,8 @@
           href: monitoring-enable-alerts-using-template.md
     - name: Usare la scalabilità automatica
       items:
+        - name: Informazioni sulle impostazioni di scalabilità automatica
+          href: monitoring-understanding-autoscale-settings.md
         - name: Procedure consigliate
           href: insights-autoscale-best-practices.md
         - name: Metriche comuni

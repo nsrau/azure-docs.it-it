@@ -22,6 +22,8 @@
 
 # Procedure
 ## Pianificare e progettare
+### [Identità del servizio gestito (anteprima)](event-hubs-managed-service-identity.md)
+### [Controllo degli accessi in base al ruolo (anteprima)](event-hubs-role-based-access-control.md)
 ### [Ripristino di emergenza geografico e replica geografica](event-hubs-geo-dr.md)
 ### [Hub eventi dedicati](event-hubs-dedicated-overview.md)
 ### [Panoramica sul modello di autenticazione e di protezione](event-hubs-authentication-and-security-model-overview.md)

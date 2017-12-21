@@ -1,3 +1,5 @@
+- name: Documentazione per Criteri di Azure
+  href: index.yml
 - name: Panoramica
   items:
     - name: Panoramica dei criteri di Azure

@@ -36,7 +36,11 @@
 - name: Guide alle procedure
   items:
     - name: Gestire le registrazioni dei dispositivi
-      href: how-to-manage-enrollments.md
+      items:
+        - name: Gestire le registrazioni dei dispositivi con il portale di Azure
+          href: how-to-manage-enrollments.md
+        - name: Gestire le registrazioni dei dispositivi con SDK di servizi
+          href: how-to-manage-enrollments-sdks.md
     - name: Usare il modulo di protezione hardware con SDK
       href: use-hsm-with-sdk.md
     - name: Controllare l'accesso al servizio di provisioning

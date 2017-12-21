@@ -13,18 +13,21 @@
 ## [Creare un modello nel portale di Azure (anteprima)](analysis-services-create-model-portal.md)
 
 # Procedura 
-## [Gestire un server](analysis-services-manage.md)
-## [Gestire gli utenti di database](analysis-services-database-users.md)
-## [Gestire gli amministratori di server](analysis-services-server-admins.md)
-## [Monitorare le metriche del server](analysis-services-monitor.md)
 ## [Installare e configurare un gateway dati locale](analysis-services-gateway-install.md)
-## [Ottenere le librerie client](analysis-services-data-providers.md)
 ## [Backup e ripristino](analysis-services-backup.md)
+## [Eseguire l'aggiornamento con l'API REST](analysis-services-async-refresh.md)
 ## [Configurare l'aumento del numero di istanze](analysis-services-scale-out.md)
-## [Configurare un alias del nome server](analysis-services-server-alias.md)
-## [Stabilire la connessione con Excel](analysis-services-connect-excel.md)
-## [Stabilire la connessione con Power BI](analysis-services-connect-pbi.md)
-## [Creare un file con estensione odc](analysis-services-odc.md)
+## Gestione server
+### [Configurare un alias del nome server](analysis-services-server-alias.md)
+### [Gestire un server](analysis-services-manage.md)
+### [Gestire gli utenti di database](analysis-services-database-users.md)
+### [Gestire gli amministratori di server](analysis-services-server-admins.md)
+### [Monitorare le metriche del server](analysis-services-monitor.md)
+## Connettere
+### [Ottenere le librerie client](analysis-services-data-providers.md)
+### [Stabilire la connessione con Excel](analysis-services-connect-excel.md)
+### [Stabilire la connessione con Power BI](analysis-services-connect-pbi.md)
+### [Creare un file con estensione odc](analysis-services-odc.md)
 ## Esercitazioni
 ### [Esercitazione su Adventure Works](tutorials/aas-adventure-works-tutorial.md)
 ### [Lezione 1: Creare un nuovo progetto di modello tabulare](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)

@@ -17,6 +17,7 @@
 ### [Analisi di flusso in IoT Edge (anteprima)](stream-analytics-edge.md)
 ### [Guida all'utilizzo del rilevamento delle anomalie in Azure (anteprima)](stream-analytics-machine-learning-anomaly-detection.md)
 ### [Simulazione di trading a frequenza elevata con Analisi di flusso](stream-analytics-high-frequency-trading.md)
+### [Funzioni di Azure con Analisi di flusso di Azure](stream-analytics-with-azure-functions.md)
 
 ## Creare processi
 ### [Creare input](stream-analytics-define-inputs.md)

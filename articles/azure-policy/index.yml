@@ -1,0 +1,69 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione per Criteri di Azure
+metadata:
+  title: 'Documentazione per Criteri di Azure: esercitazioni e informazioni di riferimento sulle API | Microsoft Docs'
+  description: Criteri di Azure consente di gestire ed evitare problemi IT con definizioni dei criteri che applicano regole e azioni per le risorse. L'uso di Criteri di Azure consente di assicurare che le risorse rimangano conformi con gli standard aziendali e i contratti di servizio. Informazioni su come creare, assegnare e gestire le definizioni dei criteri con guide introduttive, esercitazioni ed esempi.
+  services: azure-policy
+  author: czeumault
+  manager: carolz
+  ms.service: azure-policy
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 12/18/2017
+  ms.author: carolz
+  ms.openlocfilehash: b5945fe76973aba267b529078466c7a97e5e6421
+  ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 12/20/2017
+abstract:
+  description: Criteri di Azure consente di gestire ed evitare problemi IT con definizioni dei criteri che applicano regole e azioni per le risorse. L'uso di Criteri di Azure consente di assicurare che le risorse rimangano conformi con gli standard aziendali e i contratti di servizio. Informazioni su come creare, assegnare e gestire le definizioni dei criteri con guide introduttive, esercitazioni ed esempi.
+sections:
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: Informazioni su come creare, assegnare e gestire le definizioni dei criteri in Azure.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg
+      text: Portale di Azure
+      href: /azure/azure-policy/assign-policy-definition
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/azure-policy/assign-policy-definition-ps
+    - image:
+        src: https://docs.microsoft.com/en-us/media/common/cli.svg
+      text: Interfaccia della riga di comando di Azure
+      href: /azure/azure-policy/assign-policy-definition-cli
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: Informazioni su come creare, assegnare e gestire le definizioni dei criteri in Azure.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/azure-policy/create-manage-policy">Creare e gestire Criteri di Azure</a>
+- title: Esempi
+  items:
+  - type: paragraph
+    text: Usare gli esempi JSON seguenti per semplificare la creazione di definizioni dei criteri in Azure.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/azure-policy/json-samples">Azure PowerShell</a>
+- title: Riferimento
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Riga di comando
+      html: <p><a href="https://docs.microsoft.com/en-us/cli/azure/policy">Interfaccia della riga di comando di Azure</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/#policies">Azure PowerShell</a></p>
