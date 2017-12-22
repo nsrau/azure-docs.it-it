@@ -2,9 +2,12 @@
 ## [Informazioni sui set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md)
 
 # Attività iniziali
-## [Distribuire un set di scalabilità nel portale di Azure](virtual-machine-scale-sets-portal-create.md)
-## [Distribuire un set di scalabilità con PowerShell o l'interfaccia della riga di comando di Azure](virtual-machine-scale-sets-create.md)
-## [Distribuire un'app di scalabilità automatica usando un modello](virtual-machine-scale-sets-deploy-scaling-app-template.md)
+## [Creare nel portale di Azure](virtual-machine-scale-sets-create-portal.md)
+## [Creare con l'interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-create-cli.md)
+## [Creare con Azure PowerShell](virtual-machine-scale-sets-create-powershell.md)
+## Creare con un modello
+### [Set di scalabilità Linux](virtual-machine-scale-sets-create-template-linux.md)
+### [Set di scalabilità Windows](virtual-machine-scale-sets-create-template-windows.md)
 
 # Procedure
 ## Pianificare e progettare
@@ -17,9 +20,7 @@
 ### [Usare la scalabilità automatica basata su guest con un modello di set di scalabilità Linux](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## Distribuire
-### [Creare con il portale di Azure](virtual-machine-scale-sets-portal-create.md)
 ### [Creare con Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Creare con Azure PowerShell o con l'interfaccia della riga di comando di Azure](virtual-machine-scale-sets-create.md)
 ### [Set di scalabilità con Managed Disks](virtual-machine-scale-sets-managed-disks.md)
 ### [Ridimensionare automaticamente un set di scalabilità](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Usare il portale di Azure](virtual-machine-scale-sets-autoscale-portal.md)

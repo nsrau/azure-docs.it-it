@@ -1,6 +1,7 @@
 # Panoramica
 
 ## [Informazioni su SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
+## [Scheda di riferimento rapido](cheat-sheet.md)
 
 # Guide introduttive
 
