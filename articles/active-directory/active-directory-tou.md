@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: a935c3a7a5eeead8eaac5d8d0980c289b17f3289
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c01ea7c6a05c77244ab29fe6eec00ed1e49b6f7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Funzione Azure Active Directory Terms of Use (Condizioni per l'utilizzo di Azure Active Directory) (anteprima)
 Azure Active Directory Terms of Use (Condizioni per l'utilizzo di Azure Active Directory) offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali.  In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità.
@@ -52,14 +52,16 @@ Dopo avere completato le condizioni per l'utilizzo, seguire questa procedura per
 ### <a name="to-add-terms-of-use"></a>Per aggiungere le condizioni per l'utilizzo
 1. Passare al dashboard disponibile in [https://aka.ms/catou](https://aka.ms/catou)
 2. Fare clic su Aggiungi.</br>
-![Aggiungere le condizioni per l'utilizzo](media/active-directory-tou/tou2.png)
+![Aggiungere le condizioni per l'utilizzo](media/active-directory-tou/tou12.png)
 3. Immettere il **Nome** per le condizioni per l'utilizzo
 4. Immettere il **Nome visualizzato**.  Questa intestazione è ciò che vedono gli utenti quando effettuano l'accesso.
 5. Fare clic su **Sfoglia** per trovare il pdf delle condizioni per l'utilizzo completate e selezionarlo.  La dimensione consigliata per i caratteri è 24.
-6. È possibile usare l'opzione **Applica** per applicare le condizioni per l'utilizzo caricate tramite un modello o un criterio personalizzato di accesso condizionale.  I criteri personalizzati di accesso condizionale consentono condizioni per l'utilizzo granulari, fino a un'applicazione cloud o a un gruppo di utenti specifici.  Per altre informazioni, vedere [configurazione dei criteri di accesso condizionale](active-directory-conditional-access-best-practices.md)
-7. Fare clic su **Crea**.
-8. Se è stato selezionato un modello personalizzato di accesso condizionale, viene visualizzata una nuova schermata che consente di personalizzare il criterio dell'autorità di certificazione.
-7. A questo punto dovrebbero essere visualizzate le nuove condizioni per l'utilizzo.</br>
+6. **Selezionare** una lingua per le condizioni d'uso.  L'opzione relativa alla lingua consente di caricare più versioni delle condizioni d'uso, ognuna in una lingua diversa.  La versione visualizzata all'utente finale dipenderà dalle preferenze del browser.
+7. Attivare o disattivare l'opzione **Richiedi agli utenti di espandere le Condizioni d'uso**.  Se questa opzione è attivata, agli utenti finali verrà richiesto di visualizzare le condizioni d'uso prima dell'accettazione.
+8. Nella sezione **Accesso condizionale** è possibile **applicare** le condizioni d'uso caricate con un modello o criteri di accesso condizionale personalizzati.  I criteri personalizzati di accesso condizionale consentono condizioni per l'utilizzo granulari, fino a un'applicazione cloud o a un gruppo di utenti specifici.  Per altre informazioni, vedere [configurazione dei criteri di accesso condizionale](active-directory-conditional-access-best-practices.md)
+9. Fare clic su **Crea**.
+10. Se è stato selezionato un modello personalizzato di accesso condizionale, viene visualizzata una nuova schermata che consente di personalizzare il criterio dell'autorità di certificazione.
+11. A questo punto dovrebbero essere visualizzate le nuove condizioni per l'utilizzo.</br>
 
 ![Aggiungere le condizioni per l'utilizzo](media/active-directory-tou/tou3.png)
 
@@ -90,6 +92,19 @@ Una volta create e applicate le condizioni per l'utilizzo, agli utenti inclusi n
 ![Evento di controllo](media/active-directory-tou/tou10.png)
 -   Questa schermata è quella visualizzata nei dispositivi mobili</br></br>
 ![Evento di controllo](media/active-directory-tou/tou11.png)
+
+### <a name="review-terms-of-use"></a>Verificare le condizioni d'uso
+Gli utenti possono visualizzare e verificare le condizioni d'uso accettate.  Questa operazione può essere eseguita con questa procedura:
+
+1. Passare a [https://myapps.microsoft.com](https://myapps.microsoft.com) ed eseguire l'accesso.
+2. Nell'angolo superiore destro fare clic sul nome e selezionare **Profilo** nel menu a discesa.
+![Profilo](media/active-directory-tou/tou14.png)
+
+3. In Profilo fare clic su **Verificare le condizioni d'uso**.
+![Evento di controllo](media/active-directory-tou/tou13a.png)
+
+4.  Sarà quindi possibile verificare le condizioni d'uso accettate. 
+
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 Di seguito vengono riportate informazioni che possono risultare utili per l'uso delle condizioni per l'utilizzo.

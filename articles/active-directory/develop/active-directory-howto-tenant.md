@@ -15,18 +15,18 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b45e9479fa2e06f2c15ace9138e48ced94bacbda
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5874e6ce7d19c5106bc88ce9ff7fddd1842e0c3b
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Come ottenere un tenant di Azure Active Directory
 In Azure Active Directory (Azure AD), un [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) rappresenta un'organizzazione.  Si tratta di un'istanza dedicata del servizio Azure AD che l'organizzazione riceve al momento dell'iscrizione a un servizio cloud Microsoft, ad esempio Azure, Microsoft Intune o Office 365 e che diventa di sua proprietà.  Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD.  
 
 Un tenant ospita gli utenti di un'azienda e le informazioni su di essi, ad esempio password dati del profilo utente, autorizzazioni e così via.  Contiene anche gruppi, applicazioni e altre informazioni relative all'azienda e alla sicurezza.
 
-Per consentire agli utenti di Azure AD di accedere a un'applicazione, è necessario registrarla nel proprio tenant.  La pubblicazione di un'applicazione in un tenant di Azure AD è **assolutamente gratuita**.  Infatti, la maggior parte degli sviluppatori crea più tenant e applicazioni a fini di sperimentazione, sviluppo, staging e test.  Le organizzazioni che si iscrivono all'applicazione e che la utilizzano, possono facoltativamente scegliere se acquistare le licenze, nel caso in cui intendano usufruire delle funzionalità avanzate della directory.
+Per consentire agli utenti di Azure AD di accedere a un'applicazione, è necessario registrarla nel proprio tenant.  La pubblicazione di un'applicazione in un tenant di Azure AD è **assolutamente gratuita**.  La maggior parte degli sviluppatori crea infatti più tenant e applicazioni a fini di sperimentazione, sviluppo, staging e test.  Le organizzazioni che si iscrivono all'applicazione e che la utilizzano, possono facoltativamente scegliere se acquistare le licenze, nel caso in cui intendano usufruire delle funzionalità avanzate della directory.
 
 Come ottenere un tenant di Azure AD  La procedura può variare nei casi in cui:
 
@@ -43,7 +43,7 @@ Se in precedenza è stata creata una sottoscrizione di Azure usando il proprio a
 
 A tale scopo, seguire questa procedura.  In alternativa, è possibile creare un nuovo tenant e creare un amministratore in quel tenant seguendo una procedura simile.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con l'account personale.
+1. Accedere al [portale di Azure](https://portal.azure.com) con l'account personale
 2. Passare alla sezione "Azure Active Directory" del portale, che si trova nella barra di spostamento a sinistra in **Altri servizi**.
 3. Viene eseguito automaticamente l'accesso alla "directory predefinita". In caso contrario, è possibile passare a un'altra directory facendo clic sul nome dell'account nell'angolo superiore destro.
 4. Nella sezione **Attività rapide**  scegliere **Aggiungere un utente**.
@@ -53,14 +53,12 @@ A tale scopo, seguire questa procedura.  In alternativa, è possibile creare un 
    * Nome utente: scegliere un nome utente per questo amministratore
    * Profilo: specificare i valori appropriati per nome, cognome, posizione e reparto
    * Ruolo: Amministratore globale
-6. Una volta completato il modulo per l'aggiunta per l'utente e ricevuta la password temporanea per il nuovo utente amministrativo, assicurarsi di prendere nota della password in quanto sarà necessario eseguire l'accesso con questo nuovo utente per cambiare la password. È anche possibile inviare la password direttamente all'utente, usando un indirizzo di posta elettronica alternativo.
+6. Dopo avere completato il modulo per l'aggiunta dell'utente e avere ricevuto la password temporanea per il nuovo utente amministratore, assicurarsi di prendere nota della password perché è necessario eseguire l'accesso con questo nuovo utente per cambiare la password. È anche possibile inviare la password direttamente all'utente, usando un indirizzo di posta elettronica alternativo.
 7. Fare clic su **Crea** per creare il nuovo utente.
 8. Per modificare la password temporanea, accedere a [https://login.microsoftonline.com](https://login.microsoftonline.com) con questo nuovo account utente e modificare la password quando richiesto.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Usare una sottoscrizione di Azure aziendale
-Se in precedenza è stata creata una sottoscrizione di Azure usando il proprio account aziendale, si ha già un tenant.  Nel [Portale di Azure](https://portal.azure.com) dovrebbe essere visualizzato un tenant quando si passa a "Altri servizi" e "Azure Active Directory".  È possibile usare questo tenant in base alle esigenze.
+Se in precedenza è stata creata una sottoscrizione di Azure usando il proprio account aziendale, si ha già un tenant.  Nel [portale di Azure](https://portal.azure.com) dovrebbe essere visualizzato un tenant quando si passa ad "Altri servizi" e ad "Azure Active Directory".  È possibile usare questo tenant in base alle esigenze.
 
 ## <a name="start-from-scratch"></a>Iniziare da zero
-Se quanto descritto finora è incomprensibile, non è il caso di preoccuparsi.  Passare a [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) per iscriversi ad Azure con un nuovo account aziendale.  Al termine della procedura verrà creato il proprio tenant di Azure AD con il nome di dominio scelto durante l'iscrizione.  Per trovare il tenant nel [portale di Azure](https://portal.azure.com), passare ad "Azure Active Directory" nella barra di spostamento a sinistra.
-
-Durante la procedura di iscrizione ad Azure, verrà richiesto di indicare i dettagli della carta di credito.  Non c'è nulla di cui preoccuparsi, la pubblicazione di applicazioni in Azure AD o la creazione di nuovi tenant non vengono addebitate.
+Se quanto descritto finora è incomprensibile, non è il caso di preoccuparsi. Per creare una nuova directory di Azure AD, è sufficiente visitare il [portale di Azure](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Al termine del processo viene creato il tenant di Azure AD con il nome di dominio scelto durante l'iscrizione.  Per trovare il tenant nel [portale di Azure](https://portal.azure.com), passare ad **Azure Active Directory** nella barra di spostamento a sinistra.

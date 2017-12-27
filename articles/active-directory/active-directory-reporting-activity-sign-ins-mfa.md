@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8e4fc5c9eb031beef42b52c771ef88ea80dba068
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3c676b0c9c8090fb9680bc71051a9247ed0a4574
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="reference-for-multi-factor-authentication-reporting-in-the-azure-portal"></a>Informazioni di riferimento sui report dell'autenticazione a più fattori nel portale di Azure
 
@@ -27,7 +27,7 @@ Con i [report di Azure Active Directory (Azure AD)](active-directory-reporting-a
 
 I [report delle attività di accesso](active-directory-reporting-activity-sign-ins.md) forniscono informazioni sull'utilizzo delle applicazioni gestite e sulle attività di accesso, tra cui informazioni sull'utilizzo dell'autenticazione a più fattori. 
 
-I dati sull'autenticazione a più fattori forniscono informazioni approfondite sul funzionamento di questo tipo di autenticazione nell'organizzazione. Questi dati consentono di rispondere a domande simili alle seguenti: 
+I dati sull'autenticazione a più fattori forniscono informazioni approfondite sul funzionamento di questo tipo di autenticazione nell'organizzazione. Questi dati consentono di rispondere a domande come le seguenti: 
 
 - L'accesso è stato verificato con l'autenticazione a più fattori? 
 

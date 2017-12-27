@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: 7d3e6a34b5851a5a35a530b18efc3db3e2249274
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: df1d316654bdfd282965000966f79543e0d5124c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
@@ -63,13 +63,15 @@ Quando si configura il peering di rete virtuale, è possibile aprire o chiudere 
 
 ## <a name="service-chaining"></a>Concatenamento dei servizi
 
-È possibile configurare route definite dall'utente che puntano a macchine virtuali di reti virtuali con peering come indirizzo IP dell'hop successivo. In questo modo viene abilitato il concatenamento dei servizi, che consente di indirizzare il traffico da una rete virtuale a un'appliance virtuale in esecuzione in una rete virtuale con peering usando le tabelle di route definite dall'utente.
+È possibile configurare route definite dall'utente che puntano a macchine virtuali di reti virtuali con peering come indirizzo IP dell'*hop successivo* oppure che puntano a gateway di rete virtuali per abilitare il concatenamento dei servizi. Il concatenamento dei servizi consente di indirizzare il traffico da una rete virtuale a un'appliance virtuale o un gateway di rete virtuale in una rete virtuale con peering usando le tabelle di route definite dall'utente.
 
-È anche possibile creare in modo efficace ambienti di tipo hub e spoke, in cui l'hub può ospitare componenti dell'infrastruttura, come le appliance di rete virtuale, e tutte le reti virtuali spoke possono eseguire il peering con la rete virtuale dell'hub. Il traffico può quindi fluire attraverso le appliance di rete virtuale in esecuzione nella rete virtuale dell'hub. In breve, il peering di rete virtuale consente di usare l'indirizzo IP dell'hop successivo nella route definita dall'utente come indirizzo IP di una macchina virtuale nella rete virtuale con peering. Per altre informazioni sulle route definite dall'utente, vedere [Creare route definite dall'utente](virtual-networks-udr-overview.md). Per informazioni su come creare una topologia di rete hub-spoke, vedere l'articolo sulla [topologia di rete hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
+È possibile distribuire reti hub e spoke in cui la rete virtuale hub può ospitare componenti dell'infrastruttura, ad esempio un'appliance virtuale di rete o un gateway VPN. e tutte le reti virtuali spoke possono eseguire il peering con la rete virtuale dell'hub. Il traffico può fluire attraverso le appliance virtuali di rete o i gateway VPN nella rete virtuale hub. 
+
+Il peering di rete virtuale consente di usare come hop successivo di una route definita dall'utente l'indirizzo IP di una macchina virtuale nella rete virtuale con peering oppure un gateway VPN. Non è tuttavia possibile eseguire il routing tra reti virtuali con una route definita dall'utente specificando un gateway ExpressRoute come tipo di hop successivo. Per altre informazioni sulle route definite dall'utente, vedere [Route definite dall'utente](virtual-networks-udr-overview.md#user-defined). Per informazioni su come creare una topologia di rete hub-spoke, vedere l'articolo sulla [topologia di rete hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Gateway e connettività locale
 
-Ogni rete virtuale, che ne sia stato eseguito o meno il peering con un'altra rete virtuale, può comunque avere un proprio gateway e usarlo per connettersi a una rete locale. È possibile anche configurare [connessioni da rete virtuale a rete virtuale](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) tramite gateway, anche se è stato eseguito il peering delle reti virtuali.
+Ogni rete virtuale, che ne sia stato eseguito o meno il peering con un'altra rete virtuale, può comunque avere un proprio gateway e usarlo per connettersi a una rete locale. È possibile anche configurare [connessioni da rete virtuale a rete virtuale](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) tramite gateway, anche se è stato eseguito il peering delle reti virtuali.
 
 Quando vengono configurate entrambe le opzioni per la connettività tra reti virtuali, il flusso di traffico tra di esse seguirà la configurazione del peering, ovvero tramite il backbone di Azure.
 
@@ -98,20 +100,17 @@ Ad esempio, per eseguire il peering di reti virtuali denominate myVirtualNetwork
 
 ## <a name="monitor"></a>Monitorare
 
-Quando si esegue il peering di due reti virtuali create tramite Resource Manager, deve essere configurato un peering per ogni rete virtuale nel peering.
-È possibile monitorare lo stato della connessione peering. Lo stato del peering può avere uno dei valori seguenti:
+Quando si esegue il peering di due reti virtuali create tramite Resource Manager, deve essere configurato un peering per ogni rete virtuale nel peering. È possibile monitorare lo stato della connessione peering. Lo stato del peering può avere uno dei valori seguenti:
 
-* **Avviato**: quando si crea il peering alla seconda rete virtuale dalla prima rete virtuale, lo stato del peering è Avviato.
-
-* **Connesso**: quando si crea il peering dalla seconda rete virtuale alla prima rete virtuale, lo stato del peering è Connesso. Se si visualizza lo stato del peering per la prima rete virtuale, si osserva che lo stato è cambiato da Avviato a Connesso. Il peering è stabilito correttamente solo quando lo stato del peering per entrambe le reti virtuali è Connesso.
-
-* **Disconnesso**: se uno dei collegamenti per il peering viene eliminato dopo che è stata stabilita una connessione, lo stato del peering è Disconnesso.
+* **Avviato**: stato visualizzato quando si crea il peering dalla prima rete virtuale alla seconda.
+* **Connesso**: stato visualizzato dopo aver creato il peering dalla seconda rete virtuale alla prima. Lo stato del peering per la prima rete virtuale cambia da *Avviato* a *Connesso*. Il peering di rete virtuale non è stato stabilito correttamente finché lo stato del peering per entrambe le reti virtuali non è *Connesso*.
+* **Disconnesso**: stato visualizzato se un peering da una rete virtuale a un'altra viene eliminato dopo aver stabilito un peering tra due reti virtuali.
 
 ## <a name="troubleshoot"></a>Risoluzione dei problemi
 
-Per risolvere i problemi del traffico che passa attraverso la connessione peering, è possibile [verificare le route valide.](virtual-network-routes-troubleshoot-portal.md)
+Per verificare un peering di rete virtuale, è possibile [verificare le route valide](virtual-network-routes-troubleshoot-portal.md) per un'interfaccia di rete in una qualsiasi subnet di una rete virtuale. Se esiste un peering di rete virtuale, tutte le subnet all'interno della rete virtuale hanno route con tipo di hop successivo *Peering reti virtuali* per ogni spazio degli indirizzi di ogni rete virtuale con peering.
 
-È anche possibile risolvere i problemi di connettività a una macchina virtuale in una rete virtuale con peering usando [Verifica della connettività](../network-watcher/network-watcher-connectivity-portal.md) di Network Watcher. Verifica della connettività consente di vedere come avviene il routing dall'interfaccia di rete della VM di origine all'interfaccia di rete della VM di destinazione.
+È anche possibile risolvere i problemi di connettività a una macchina virtuale in una rete virtuale con peering usando il [controllo della connettività](../network-watcher/network-watcher-connectivity-portal.md) di Network Watcher. Il controllo della connettività consente di vedere come avviene il routing del traffico dall'interfaccia di rete della VM di origine all'interfaccia di rete della VM di destinazione.
 
 ## <a name="limits"></a>Limiti
 

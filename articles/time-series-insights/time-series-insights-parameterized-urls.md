@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: ac48969a9166080384dccf606f0401a82016a60a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Condividere una visualizzazione personalizzata usando un URL con parametri
 
@@ -72,6 +72,22 @@ Il parametro `timeSeriesDefinitions=<collection of term objects>` specifica i te
 - `predicate=<string>`
   - Clausola *where* per i filtri lato server.
 
+Il parametro 'multiChartStack=<true/false>' consente l'impilamento nel grafico, mentre il parametro 'multiChartSameScale=<true/false>' abilita la stessa scala dell'asse Y in tutti i termini di un parametro facoltativo.  
+
+- 'multiChartStack=false'
+  - 'True' è abilitato per impostazione predefinita, quindi passare 'false' per impilare.
+- 'multiChartStack=false&multiChartSameScale=true' 
+  - È necessario abilitare l'impilamento per usare la stessa scala dell'asse Y in tutti i termini.  L'impilamento è 'false' per impostazione predefinita, quindi la funzionalità verrà abilitata passando 'true'.  
+  
+'timeBucketUnit=<Unit>&timeBucketSize=<integer>' consente di modificare il dispositivo di scorrimento dell'intervallo per fornire una vista più granulare o più semplice e aggregata del grafico.  
+- 'timeBucketUnit=<Unit>&timeBucketSize=<integer>'
+  - Unità = giorni, ore, minuti, secondi, millisecondi.  Scrivere sempre in lettere maiuscole l'unità.
+  - Definire il numero di unità, passando l'intero desiderato per timeBucketSize.  Si noti che l'arco temporale è di 7 giorni.  
+  
+Il parametro 'timezoneOffset=<integer>' consente di impostare il fuso orario per il grafico da visualizzare come differenza dall'ora UTC.  
+  - 'timezoneOffset=-<integer>'
+    - L'intero viene sempre espresso in millisecondi.  
+    - Si noti che questa funzionalità è leggermente diversa da quella abilitata nell'ambiente di esplorazione TSI, nel quale è possibile scegliere l'ora locale (ora del browser) o l'ora UTC.  
  
 ### <a name="examples"></a>esempi
 

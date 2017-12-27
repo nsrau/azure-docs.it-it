@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: shlo
-ms.openlocfilehash: e1386d055e41d25b84630141b86ef2143f2fc8af
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: bcf3095e8e66ea9b3c49919dadb8f7c342a49006
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
 In questa esercitazione si crea una pipeline di Data Factory che illustra alcune funzionalità del flusso di controllo. La pipeline esegue una semplice copia da un contenitore nell'archivio BLOB di Azure a un altro contenitore nello stesso account di archiviazione. Se l'attività di copia ha esito positivo, si vogliono inviare i dettagli dell'operazione di copia completata (ad esempio, la quantità di dati scritti) in un messaggio di posta elettronica di operazione riuscita. Se l'attività di copia ha esito negativo, si vogliono inviare i dettagli dell'errore di copia (ad esempio, il messaggio di errore) in un messaggio di posta elettronica di operazione non riuscita. Nel corso dell'esercitazione verrà illustrato come passare i parametri.
@@ -452,7 +452,7 @@ La prima sezione della pipeline definisce i parametri.
 
 - sourceBlobContainer: parametro nella pipeline utilizzato dal set di dati del BLOB di origine.
 - sinkBlobContainer: parametro nella pipeline utilizzato dal set di dati del BLOB sink.
-- receiver: parametro nella pipeline utilizzato dalle due attività Web, relativo all'indirizzo di posta elettronica che riceverà il messaggio.
+- receiver: questo parametro viene usato dalle due attività Web della pipeline che inviano i messaggi di posta elettronica di operazione riuscita o non riuscita al destinatario il cui indirizzo di posta elettronica è specificato da questo parametro.
 
 
 ```csharp

@@ -1,12 +1,11 @@
 ---
-title: 'Azure Active Directory B2C: registrazione dell''applicazione | Documentazione Microsoft'
+title: 'Registrazione delle applicazioni: Azure Active Directory B2C'
 description: Come registrare l'applicazione con Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+author: PatAltimore
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
+editor: parakhj
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
-ms.openlocfilehash: 36a421056b123f397c3d5f7d7bfb4c5314c82b78
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b1d145466382c8fc2ea6c5e4e295940b0f000b97
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: registrare l'applicazione
 
@@ -28,7 +27,7 @@ Questa esercitazione introduttiva consente di registrare un'applicazione in un t
 
 Per compilare un'applicazione che accetta l'iscrizione e l'accesso dell'utente, è necessario innanzi tutto registrarla con tenant di Azure Active Directory B2C. Per ottenere il tenant, seguire la procedura illustrata in [Azure Active Directory B2C: creare un tenant di Azure AD B2C](active-directory-b2c-get-started.md).
 
-Le applicazioni create dal pannello Azure AD B2C nel portale di Azure devono essere gestite dalla stessa posizione. Le applicazioni B2C, se vengono modificate usando PowerShell o un altro portale, non sono più supportate e non funzionano con Azure AD B2C. Per altri dettagli, vedere la sezione [App con errori](#faulted-apps). 
+Le applicazioni create nel portale di Azure devono essere gestite dalla stessa posizione. Se vengono modificate con PowerShell o un altro portale, le applicazioni Azure AD B2C non sono più supportate e non funzionano con Azure AD B2C. Per altri dettagli, vedere la sezione [App con errori](#faulted-apps). 
 
 Questo articolo usa esempi utili per le operazioni preliminari con gli esempi. Per altre informazioni sugli esempi, vedere gli articoli successivi.
 
@@ -117,7 +116,7 @@ Gli ultimi due URL possono essere aggiunti perché si tratta di sottodomini del 
 
 Quando si sceglie un URI di reindirizzamento per applicazioni per dispositivi mobili/native, occorre tenere presenti due considerazioni importanti:
 
-* **Univocità**: lo schema dell'URI di reindirizzamento deve essere univoco per ogni applicazione. Nel nostro esempio (com.onmicrosoft.contoso.appname://redirect/path) viene usato com.onmicrosoft.contoso.appname come schema. È consigliabile seguire questo modello. Se due applicazioni condividono lo stesso schema, viene visualizzata una finestra di dialogo di selezione dell'app. Se la scelta dell'utente non è corretta, non è possibile accedere.
+* **Univocità**: lo schema dell'URI di reindirizzamento deve essere univoco per ogni applicazione. Nell'esempio (com.onmicrosoft.contoso.appname://redirect/path), come schema viene usato com.onmicrosoft.contoso.appname. È consigliabile seguire questo modello. Se due applicazioni condividono lo stesso schema, viene visualizzata una finestra di dialogo di selezione dell'app. Se la scelta dell'utente non è corretta, non è possibile accedere.
 * **Completezza**: l'URI di reindirizzamento deve avere uno schema e un percorso. Il percorso deve contenere almeno una barra rovesciata dopo il dominio, ad esempio, //contoso/ funziona e //contoso ha esito negativo.
 
 Verificare che nell'URI di reindirizzamento non siano presenti caratteri speciali come caratteri di sottolineatura.
@@ -126,16 +125,16 @@ Verificare che nell'URI di reindirizzamento non siano presenti caratteri special
 
 Le applicazioni B2C NON devono essere modificate:
 
-* In altri portali di gestione delle applicazioni, tra cui il [portale di Azure classico](https://manage.windowsazure.com/) o il [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/).
+* In altri portali di gestione delle applicazioni, come il [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/).
 * Usando l'API Graph o PowerShell
 
-Se si modifica l'applicazione B2C in uno di questi modi e si prova a modificarla di nuovo nel pannello delle funzionalità di Azure AD B2C nel portale di Azure, l'app si danneggia e non può più essere usata con Azure AD B2C. A questo punto, è necessario eliminare l'applicazione e crearla di nuovo.
+Se si modifica l'applicazione Azure AD B2C come descritto e quindi si prova a modificarla di nuovo usando le funzionalità di Azure AD B2C nel portale di Azure, l'app viene danneggiata e non può più essere usata con Azure AD B2C. È necessario eliminare l'applicazione e crearla di nuovo.
 
 Per eliminare l'app, passare al [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/) ed eliminarla nel portale. Per rendere l'applicazione visibile, è necessario essere il proprietario dell'applicazione (e non solo un amministratore del tenant).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver creato un'applicazione registrata con Azure AD B2C, è possibile completare una delle [esercitazioni di avvio rapido](active-directory-b2c-overview.md#get-started) per essere subito operativi.
+Dopo aver creato un'applicazione registrata con Azure AD B2C, è possibile completare una delle [esercitazioni introduttive](active-directory-b2c-overview.md#get-started) per essere subito operativi.
 
 > [!div class="nextstepaction"]
 > [Creare un'app Web ASP.NET con iscrizione, accesso e reimpostazione della password](active-directory-b2c-devquickstarts-web-dotnet-susi.md)

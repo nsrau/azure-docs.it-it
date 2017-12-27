@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 23d59d37e25775f67d01813bbf53d150f1973622
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9814dca53f1a410f4d1e95cc18b98373f27f9802
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Entità servizio con il servizio contenitore di Azure
 
@@ -83,7 +83,7 @@ Quando si usano entità servizio del servizio contenitore di Azure e di Azure AD
 * Quando si specifica l'**ID client** dell'entità servizio, è possibile usare il valore di `appId`, come illustrato in questo articolo, o il valore `name` corrispondente dell'entità servizio, ad esempio `https://www.contoso.org/example`.
 * Nelle macchine virtuali master e del nodo nel cluster Kubernetes le credenziali dell'entità servizio sono archiviate nel file `/etc/kubernetes/azure.json`.
 * Quando si usa il comando `az aks create` per generare automaticamente l'entità servizio, le credenziali dell'entità servizio vengono scritte nel file `~/.azure/acsServicePrincipal.json` nel computer usato per eseguire il comando.
-* Quando si usa il comando `az aks create` per generare automaticamente l'entità servizio, questa può anche eseguire l'autenticazione con un [registro contenitori di Azure][acr-into] creato nella stessa sottoscrizione.
+* Quando si usa il comando `az aks create` per generare automaticamente l'entità servizio, questa può eseguire anche l'autenticazione con un [registro contenitori di Azure][acr-intro] creato nella stessa sottoscrizione.
 * Quando si elimina un cluster del servizio contenitore di Azure creato da `az aks create`, l'entità servizio creata automaticamente non verrà eliminata. È possibile usare `az ad sp delete --id $clientID` per eliminarla.
 
 ## <a name="next-steps"></a>Passaggi successivi

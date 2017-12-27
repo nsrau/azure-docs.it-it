@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 1eddd18e9b5ac0b4cb174e635f0f3cfd2f41059d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fe50f159baedf5455c2ea3cfe825d6d826e70851
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Report di Azure Site Recovery Deployment Planner
 Il report di Microsoft Excel generato contiene i fogli riportati di seguito.
@@ -135,7 +135,7 @@ Il riepilogo consente di conoscere il costo che è necessario sostenere per arch
  
 È possibile visualizzare i costi su base mensile o annuale. Vedere altre informazioni sulle [aree di destinazione supportate](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) e sulle [valute supportate](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
 
-**Cost by components** (Costo per componente). Il costo totale del ripristino di emergenza è suddiviso tra quattro componenti: calcolo, archiviazione, rete e costo della licenza di Azure Site Recovery. Il costo viene calcolato in base all'utilizzo che si verificherà durante la replica e in fase di esercitazione sul ripristino di emergenza per il calcolo, l'archiviazione (Premium e Standard), la connessione ExpressRoute/VPN configurata tra il sito locale e Azure e la licenza di Azure Site Recovery.
+**Cost by components** (Costo per componente): il costo totale per il ripristino di emergenza è suddiviso tra quattro componenti, ovvero calcolo, archiviazione, rete e costo della licenza di Azure Site Recovery. Il costo viene calcolato in base all'utilizzo che si verificherà durante la replica e in fase di esercitazione sul ripristino di emergenza per il calcolo, l'archiviazione (Premium e Standard), la connessione ExpressRoute/VPN configurata tra il sito locale e Azure e la licenza di Azure Site Recovery.
 
 **Cost by states** (Costo per stato). Il costo totale del ripristino di emergenza viene classificato in base a due diversi stati: Replication (Replica) e DR-Drill (Esercitazione sul ripristino di emergenza). 
 
@@ -234,8 +234,8 @@ Se in virtù delle caratteristiche del carico di lavoro un disco appartiene alla
 * Le dimensioni totali della VM (replica + failover di test) superano i limiti supportati dall'account di archiviazione (35 TB). Questa incompatibilità si verifica in genere quando un singolo disco della VM ha una caratteristica di prestazioni che supera i limiti massimi supportati da Azure o da Site Recovery per l'archiviazione Standard. In questo caso la VM rientra nell'area dell'archiviazione Premium. Le dimensioni massime supportate da un account di archiviazione Premium sono tuttavia pari a 35 TB e non è possibile proteggere una singola VM su più account di archiviazione. Si noti anche che, quando un failover di test viene eseguito in una VM protetta, viene eseguito nello stesso account di archiviazione in cui è in corso la replica. In questo caso, configurare il doppio delle dimensioni del disco per far sì che la replica prosegua e il failover di test venga completato in parallelo.
 * Le operazioni di I/O al secondo di origine superano il limite supportato di archiviazione di 5000 operazioni per ogni disco.
 * Le operazioni di I/O al secondo di origine superano il limite supportato di archiviazione di 80.000 operazioni per ogni VM.
-* La varianza media dei dati supera il limite supportato da Site Recovery di 10 MBps per le dimensioni I/O medie del disco.
-* La varianza totale dei dati per tutti i dischi della macchina virtuale supera il limite massimo supportato da Site Recovery di 54 MBps per VM.
+* La varianza media dei dati supera il limite supportato da Site Recovery di 10 MB/s per le dimensioni I/O medie del disco.
+* La varianza totale dei dati per tutti i dischi della macchina virtuale supera il limite massimo supportato da Site Recovery di 54 MB/s per VM.
 * Le operazioni di I/O al secondo in scrittura superano il limite supportato da Site Recovery di 840 operazioni per disco.
 * L'archiviazione snapshot calcolata supera il limite supportato di 10 TB.
 
@@ -259,16 +259,16 @@ Se in virtù delle caratteristiche del carico di lavoro un disco appartiene alla
 
 
 ## <a name="azure-site-recovery-limits"></a>Limiti di Azure Site Recovery
-La tabella seguente contiene i limiti di Azure Site Recovery. Questi limiti si basano su test di Microsoft, ma non possono coprire tutte le possibili combinazioni di I/O delle applicazioni. I risultati effettivi possono variare in base alla combinazione di I/O delle applicazioni. Per risultati ottimali, anche dopo la pianificazione della distribuzione è sempre consigliabile eseguire test approfonditi delle applicazioni con un failover di test per ottenere il quadro reale delle prestazioni dell'applicazione.
+La tabella seguente indica i limiti di Azure Site Recovery. Questi limiti si basano su test di Microsoft, ma non possono coprire tutte le possibili combinazioni di I/O delle applicazioni. I risultati effettivi possono variare in base alla combinazione di I/O delle applicazioni. Per risultati ottimali, anche dopo la pianificazione della distribuzione è sempre consigliabile eseguire test approfonditi delle applicazioni con un failover di test per ottenere il quadro reale delle prestazioni dell'applicazione.
  
 **Destinazione archiviazione di replica** | **Dimensioni medie I/O disco di origine** |**Varianza dati media disco di origine** | **Varianza dati totale giornaliera disco di origine**
 ---|---|---|---
-Archiviazione standard | 8 KB | 2 MBps | 168 GB per disco
-Disco P10 o P15 Premium | 8 KB  | 2 MBps | 168 GB per disco
-Disco P10 o P15 Premium | 16 KB | 4 MBps |  336 GB per disco
-Disco P10 o P15 Premium | 32 KB o superiori | 8 MBps | 672 GB per disco
-Disco P20, P30, P40 o P50 Premium | 8 KB    | 5 MBps | 421 GB per disco
-Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |10 MBps | 842 GB per disco
+Archiviazione standard | 8 KB | 2 MB/s | 168 GB per disco
+Disco P10 o P15 Premium | 8 KB  | 2 MB/s | 168 GB per disco
+Disco P10 o P15 Premium | 16 KB | 4 MB/s |  336 GB per disco
+Disco P10 o P15 Premium | 32 KB o superiori | 8 MB/s | 672 GB per disco
+Disco P20, P30, P40 o P50 Premium | 8 KB    | 5 MB/s | 421 GB per disco
+Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |10 MB/s | 842 GB per disco
 
 Si tratta di numeri medi presupponendo una sovrapposizione I/O del 30%. Site Recovery può gestire una velocità effettiva maggiore in base alla percentuale di sovrapposizione, alle dimensioni di scrittura maggiori e all'effettivo I/O del carico di lavoro. I numeri precedenti presuppongono un backlog tipico di circa cinque minuti, ovvero i dati, dopo essere stati caricati, verranno elaborati e verrà creato un punto di ripristino entro cinque minuti.
 

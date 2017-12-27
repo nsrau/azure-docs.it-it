@@ -3,8 +3,8 @@ title: "Panoramica dei set di scalabilità di macchine virtuali di Azure | Micro
 description: "Informazioni sui set di scalabilità di macchine virtuali di Azure"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2017
-ms.author: guybo
+ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a0d181ad0732458e67d0f3f1d6676be099b52fc
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Informazioni sui set di scalabilità di macchine virtuali in Azure
-I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire un set di VM identiche. Dato che tutte le VM hanno la stessa configurazione, i set di scalabilità sono progettati per supportare l'effettiva scalabilità automatica, senza che sia necessario il provisioning preventivo delle VM. Ciò semplifica la creazione di servizi su larga scala destinati a carichi di lavoro Big Compute, Big Data e in contenitori.
+I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire un set di VM identiche. Dato che tutte le VM hanno la stessa configurazione, i set di scalabilità sono progettati per supportare l'effettiva scalabilità automatica, senza che sia necessario il provisioning preventivo delle VM. Ciò semplifica la creazione di servizi su larga scala destinati a carichi di lavoro Big Compute, con dati di grandi dimensioni e in contenitori.
 
 Per le applicazioni che richiedono la scalabilità (aumento e riduzione di istanze e capacità) delle risorse di calcolo, le operazioni di ridimensionamento vengono bilanciate in modo implicito tra domini di errore e domini di aggiornamento. Per un'introduzione aggiuntiva ai set di scalabilità, vedere l'[annuncio nel blog di Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
 
@@ -50,7 +50,7 @@ Per gli esempi di modelli di avvio rapido, un pulsante "Distribuisci in Azure" n
 ## <a name="autoscale"></a>Autoscale
 Per mantenere costanti le prestazioni dell'applicazione, è possibile aumentare o ridurre automaticamente il numero delle istanze di VM nel set di scalabilità. Questa funzionalità di scalabilità automatica riduce l'overhead di gestione richiesto dal monitoraggio e ottimizza il set di scalabilità quando il cliente richiede modifiche nel corso del tempo. Le regole vengono definite in base alle metriche delle prestazioni, alla risposta dell'applicazione o a una pianificazione fissa e il set di scalabilità viene ridimensionato automaticamente in base alle esigenze.
 
-Per le regole di scalabilità automatica di base, è possibile usare le metriche delle prestazioni basate sull'host, ad esempio l'utilizzo della CPU o l'I/O su disco. Queste metriche basate sull'host sono immediatamente disponibili, senza dover installare e configurare agenti o estensioni aggiuntive. È possibile creare regole di scalabilità automatica che usano metriche basate su host con uno degli strumenti seguenti:
+Per le regole di scalabilità automatica di base, è possibile usare le metriche delle prestazioni basate sull'host, ad esempio l'utilizzo della CPU o l'I/O su disco. Queste metriche basate sull'host sono automaticamente disponibili, senza dover installare e configurare agenti o estensioni aggiuntive. È possibile creare regole di scalabilità automatica che usano metriche basate su host con uno degli strumenti seguenti:
 
 - [Portale di Azure](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
@@ -159,10 +159,10 @@ Questa sezione contiene un elenco di alcuni scenari tipici dei set di scalabilit
 
 **D.** Quando si usano più estensioni in un set di scalabilità, è possibile imporre una sequenza di esecuzione?
 
-**R.** Non direttamente. Per l'estensione customScript, tuttavia, lo script potrebbe attendere il completamento di un'altra estensione. Indicazioni aggiuntive per la sequenziazione delle estensioni sono disponibili nel post di blog [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)(Sequenziazione delle estensioni nei set di scalabilità di macchine virtuali di Azure).
+**R.** Non direttamente. Per l'estensione customScript, tuttavia, lo script potrebbe attendere il completamento di un'altra estensione. Indicazioni aggiuntive per la sequenziazione delle estensioni sono disponibili nel post di blog [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/) (Sequenziazione delle estensioni nei set di scalabilità di macchine virtuali di Azure).
 
 **D.** I set di scalabilità si integrano con i set di disponibilità di Azure?
 
-**R.** Sì. Un set di scalabilità è un set di disponibilità implicito con 5 domini di errore e 5 domini di aggiornamento. I set di scalabilità di più di 100 VM si estendono su più *gruppi di posizionamento*, equivalenti a più set di disponibilità. Per altre informazioni sui gruppi di posizionamento, vedere [Uso di set di scalabilità di macchine virtuali di grandi dimensioni](virtual-machine-scale-sets-placement-groups.md). Un set di disponibilità di macchine virtuali può trovarsi nella stessa rete virtuale di un set di scalabilità di macchine virtuali. Una configurazione comune consiste nell'inserire le VM del nodo di controllo, che spesso richiedono una configurazione univoca, in un set di disponibilità e i nodi di dati nel set di scalabilità.
+**R.** Sì. Un set di scalabilità è un set di disponibilità implicito con cinque domini di errore e cinque domini di aggiornamento. I set di scalabilità di più di 100 VM si estendono su più *gruppi di posizionamento*, equivalenti a più set di disponibilità. Per altre informazioni sui gruppi di posizionamento, vedere [Uso di set di scalabilità di macchine virtuali di grandi dimensioni](virtual-machine-scale-sets-placement-groups.md). Un set di disponibilità di macchine virtuali può trovarsi nella stessa rete virtuale di un set di scalabilità di macchine virtuali. Una configurazione comune consiste nell'inserire le VM del nodo di controllo, che spesso richiedono una configurazione univoca, in un set di disponibilità e i nodi di dati nel set di scalabilità.
 
 Per altre domande e risposte sui set di scalabilità, vedere [Domande frequenti sui set di scalabilità di macchine virtuali di Azure](virtual-machine-scale-sets-faq.md).

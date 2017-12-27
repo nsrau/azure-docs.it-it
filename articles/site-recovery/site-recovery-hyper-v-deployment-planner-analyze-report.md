@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 714c2074f643d2b168c054c5af467b550f57daba
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 9340fe48c1da874d6c0cf02c026e5dec6ddabbe7
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analizzare il report di Azure Site Recovery Deployment Planner
 Il report di Microsoft Excel generato contiene i fogli seguenti:
@@ -120,18 +120,18 @@ Il tempo di completamento della replica iniziale varia in base alle dimensioni d
 Il grafico mostra una vista di riepilogo del costo totale stimato per il ripristino di emergenza in Azure per l'area di destinazione scelta e la valuta specificata per la generazione del report.
 ![Riepilogo della stima dei costi](media/site-recovery-hyper-v-deployment-planner-analyze-report/cost-estimation-summary-h2a.png) Il riepilogo consente di conoscere il costo che è necessario sostenere per archiviazione, calcolo, rete e licenza in caso di protezione di tutte le macchine virtuali compatibili in Azure con Azure Site Recovery. Il costo viene calcolato per le macchine virtuali compatibili e non per tutte le macchine virtuali profilate.  
  
-È possibile visualizzare il costo su base mensile o annuale. Vedere altre informazioni su [aree di destinazione supportate](./site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) e [valute supportate](./site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies).
+È possibile visualizzare i costi su base mensile o annuale. Vedere altre informazioni sulle [aree di destinazione supportate](./site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions) e sulle [valute supportate](./site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies).
 
-**Cost by components** (Costo per componente): il costo totale per il ripristino di emergenza è suddiviso tra quattro componenti, ovvero calcolo, archiviazione, rete e costo della licenza di Azure Site Recovery. Il costo viene calcolato in base al consumo durante la replica e l'esercitazione sul ripristino di emergenza per le risorse di calcolo e archiviazione (Premium e Standard), la connessione ExpressRoute/VPN configurata tra il sito locale e Azure e la licenza di Azure Site Recovery.
+**Cost by components** (Costo per componente): il costo totale per il ripristino di emergenza è suddiviso tra quattro componenti, ovvero calcolo, archiviazione, rete e costo della licenza di Azure Site Recovery. Il costo viene calcolato in base all'utilizzo che si verificherà durante la replica e in fase di esercitazione sul ripristino di emergenza per il calcolo, l'archiviazione (Premium e Standard), la connessione ExpressRoute/VPN configurata tra il sito locale e Azure e la licenza di Azure Site Recovery.
 
-**Cost by states** (Costo per stato): il costo totale per il ripristino di emergenza è suddiviso in categorie in base a due diversi stati, ovvero la replica e l'esercitazione sul ripristino di emergenza. 
+**Cost by states** (Costo per stato). Il costo totale del ripristino di emergenza viene classificato in base a due diversi stati: Replication (Replica) e DR-Drill (Esercitazione sul ripristino di emergenza). 
 
-**Costo della replica**: costo che verrà addebitato durante la replica. Include il costo di archiviazione, rete e licenza di Azure Site Recovery. 
+**Costo della replica**: costo che verrà addebitato durante la replica. Copre il costo dell'archiviazione, della rete e della licenza di Azure Site Recovery. 
 
-**Costo dell'esercitazione sul ripristino di emergenza**: costo che verrà addebitato durante i failover di test. Durante il failover di test, Azure Site Recovery avvia le macchine virtuali. Il costo dell'esercitazione sul ripristino di emergenza include il costo di calcolo e archiviazione delle macchine virtuali in esecuzione. 
+**Costo dell'esercitazione sul ripristino di emergenza**: costo che verrà addebitato durante i failover di test. Durante il failover di test, Azure Site Recovery attiva macchine virtuali. Il costo dell'esercitazione sul ripristino di emergenza copre il costo di calcolo e di archiviazione delle VM in esecuzione. 
 
-**Azure storage cost per Month/Year** (Costo di archiviazione mensile/annuale di Azure): mostra il costo di archiviazione totale che verrà addebitato per l'archiviazione Premium e Standard per la replica e l'esercitazione sul ripristino di emergenza.
-È possibile visualizzare un'analisi dettagliata dei costi per macchina virtuale nel foglio [Cost Estimation](site-recovery-hyper-v-deployment-planner-cost-estimation.md) (Stima dei costi).
+**Azure storage cost per Month/Year** (Costo di archiviazione di Azure al mese/all'anno). Mostra il costo di archiviazione totale che verrà addebitato per l'archiviazione Premium e Standard per la replica e l'esercitazione sul ripristino di emergenza.
+È possibile visualizzare un'analisi dettagliata dei costi per VM nel foglio [Cost Estimation](site-recovery-hyper-v-deployment-planner-cost-estimation.md) (Stima costi).
 
 ### <a name="growth-factor-and-percentile-values-used"></a>Fattore di crescita e valori percentili usati
 Questa sezione nella parte inferiore del foglio indica il valore percentile usato per tutti i contatori delle prestazioni delle VM profilate (il valore predefinito è il 95° percentile) e il fattore di crescita (il valore predefinito è il 30%) usato in tutti i calcoli.
@@ -178,7 +178,7 @@ Il report di Microsoft Excel generato da Azure Site Recovery Deployment Planner 
 * Da 1025 GB a 2048 GB rientrano nella categoria P40.
 * Da 2049 GB a 4095 GB rientrano nella categoria P50.
 
-Se, ad esempio, in virtù delle caratteristiche del carico di lavoro un disco appartiene alla categoria P20 o P30, ma le dimensioni sono mappate a un tipo di disco di archiviazione Premium inferiore, lo strumento contrassegna la macchina virtuale con **Yes**\* (Sì). Lo strumento consiglia anche di modificare le dimensioni del disco di origine per renderlo idoneo al tipo di disco di archiviazione Premium raccomandato oppure di modificare il tipo di disco di destinazione dopo il failover.
+Se in virtù delle caratteristiche del carico di lavoro un disco appartiene alla categoria P20 o P30, ma le dimensioni ne determinano l'associazione a un tipo di disco di archiviazione Premium inferiore, ad esempio, lo strumento contrassegna tale VM con **Yes**\* (Sì). Lo strumento consiglia anche di modificare le dimensioni del disco di origine per renderlo idoneo al tipo di disco di archiviazione Premium raccomandato oppure di modificare il tipo di disco di destinazione dopo il failover.
 
 **Storage Type** (Tipo di archiviazione): Standard o Premium.
 
@@ -188,7 +188,7 @@ Se, ad esempio, in virtù delle caratteristiche del carico di lavoro un disco ap
 
 **Peak R/W IOPS (with Growth Factor)** (Picco operazioni di I/O al secondo in lettura/scrittura - con fattore di crescita): carico di lavoro di picco di operazioni di I/O al secondo in lettura/scrittura nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che il numero totale di operazioni di I/O al secondo in lettura/scrittura di una macchina virtuale non corrisponde sempre alla somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi della macchina virtuale, perché il picco di operazioni di I/O al secondo in lettura/scrittura della macchina virtuale è il picco della somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi per ogni minuto del periodo di profilatura.
 
-**Peak Data Churn in MBps (with Growth Factor)** (Picco varianza dati in Mbps - con fattore di crescita): picco della frequenza di varianza nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che la varianza dei dati totale della VM non è sempre costituita dalla somma delle varianze dei singoli dischi della VM perché il picco della varianza dei dati corrisponde al picco della somma delle varianze dei singoli dischi per ogni minuto del periodo di profilatura.
+**Peak Data Churn in MB/s (with Growth Factor)** (Picco varianza dati in MB/s - con fattore di crescita): picco della frequenza di varianza nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che la varianza dei dati totale della VM non è sempre costituita dalla somma delle varianze dei singoli dischi della VM perché il picco della varianza dei dati corrisponde al picco della somma delle varianze dei singoli dischi per ogni minuto del periodo di profilatura.
 
 **Azure VM Size** (Dimensioni VM Azure): dimensioni ideali del mapping per Servizi cloud di Azure per questa VM locale. Il mapping si basa sulla memoria, sul numero di dischi/core/schede di interfaccia di rete e operazioni di I/O al secondo in lettura/scrittura della VM locale. La raccomandazione si riferisce sempre alle dimensioni minime della macchina virtuale di Azure corrispondenti a tutte le caratteristiche della macchina virtuale locale.
 
@@ -235,15 +235,15 @@ Il report di Microsoft Excel generato da Azure Site Recovery Deployment Planner 
 
 * Le operazioni di I/O al secondo di origine superano il limite supportato di archiviazione di 80.000 operazioni per ogni VM.
 
-* La varianza media dei dati supera il limite supportato da Azure Site Recovery di 10 MBps per dimensioni I/O medie del disco.
+* La varianza media dei dati della VM di origine supera il limite supportato da Azure Site Recovery di 10 MB/s per dimensioni I/O medie.
 
-* Il numero medio di operazioni di I/O al secondo in scrittura effettive supera il limite supportato da Azure Site Recovery di 840 operazioni per disco.
+* Il numero medio di operazioni di I/O al secondo in scrittura effettive della VM di origine supera il limite supportato da Azure Site Recovery di 840 operazioni.
 
 * L'archiviazione snapshot calcolata supera il limite supportato di 10 TB.
 
 **Peak R/W IOPS (with Growth Factor)** (Picco operazioni di I/O al secondo in lettura/scrittura - con fattore di crescita): carico di lavoro di picco di operazioni di I/O al secondo nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che il numero totale di operazioni di I/O al secondo in lettura/scrittura della VM non è sempre costituito dalla somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi della VM, perché il picco di operazioni di I/O al secondo in lettura/scrittura della VM è il picco della somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi per ogni minuto del periodo di profilatura.
 
-**Peak Data Churn in MBps (with Growth Factor)** (Picco varianza dati in Mbps - con fattore di crescita): picco della frequenza di varianza nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che la varianza dei dati totale della VM non è sempre costituita dalla somma delle varianze dei singoli dischi della VM perché il picco della varianza dei dati corrisponde al picco della somma delle varianze dei singoli dischi per ogni minuto del periodo di profilatura.
+**Peak Data Churn in MB/s (with Growth Factor)** (Picco varianza dati in MB/s - con fattore di crescita): picco della frequenza di varianza nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che la varianza dei dati totale della VM non è sempre costituita dalla somma delle varianze dei singoli dischi della VM perché il picco della varianza dei dati corrisponde al picco della somma delle varianze dei singoli dischi per ogni minuto del periodo di profilatura.
 
 **Number of Disks** (Numero di dischi): numero totale di dischi rigidi virtuali nella macchina virtuale.
 
@@ -260,14 +260,11 @@ Il report di Microsoft Excel generato da Azure Site Recovery Deployment Planner 
 ## <a name="azure-site-recovery-limits"></a>Limiti di Azure Site Recovery
 La tabella seguente indica i limiti di Azure Site Recovery. Questi limiti si basano su test di Microsoft, ma non possono coprire tutte le possibili combinazioni di I/O delle applicazioni. I risultati effettivi possono variare in base alla combinazione di I/O delle applicazioni. Per risultati ottimali, anche dopo la pianificazione della distribuzione è sempre consigliabile eseguire test approfonditi delle applicazioni con un failover di test per ottenere il quadro reale delle prestazioni dell'applicazione.
  
-**Destinazione archiviazione di replica** | **Dimensioni medie I/O disco di origine** |**Varianza dati media disco di origine** | **Varianza dati totale giornaliera disco di origine**
+**Destinazione archiviazione di replica** | **Dimensioni medie I/O VM di origine** |**Varianza dati media VM di origine** | **Varianza dati totale giornaliera VM di origine**
 ---|---|---|---
-Archiviazione standard | 8 KB | 2 MBps | 168 GB per disco
-Disco P10 o P15 Premium | 8 KB  | 2 MBps | 168 GB per disco
-Disco P10 o P15 Premium | 16 KB | 4 MBps |  336 GB per disco
-Disco P10 o P15 Premium | 32 KB o superiori | 8 MBps | 672 GB per disco
-Disco P20, P30, P40 o P50 Premium | 8 KB    | 5 MBps | 421 GB per disco
-Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |10 MBps | 842 GB per disco
+Archiviazione standard | 8 KB | 2 MB/s per VM | 168 GB per VM
+Archiviazione Premium | 8 KB  | 5 MB/s per VM | 421 GB per VM
+Archiviazione Premium | 16 KB o superiore| 10 MB/s per VM | 842 GB per VM
 
 Questi limiti rappresentano valori medi presupponendo una sovrapposizione di I/O del 30%. Azure Site Recovery può gestire una velocità effettiva maggiore in base alla percentuale di sovrapposizione, alle dimensioni di scrittura maggiori e all'effettivo I/O del carico di lavoro. I numeri precedenti presuppongono un backlog tipico di circa cinque minuti, ovvero i dati, dopo essere stati caricati, verranno elaborati e verrà creato un punto di ripristino entro cinque minuti.
 

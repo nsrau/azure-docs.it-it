@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/25/2017
-ms.author: mbullwin
-ms.openlocfilehash: afe37dd1fcf2b663f3bf97d04b187b356381f3f3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 12/14/2017
+ms.author: sdash
+ms.openlocfilehash: 6932802e7852efa90551c27f9145f7ca6e685d7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorare la disponibilità e la velocità di risposta dei siti Web
 Dopo aver distribuito l'app Web o il sito Web in qualsiasi server, è possibile configurare alcuni test per monitorarne la disponibilità e la velocità di risposta. [Azure Application Insights](app-insights-overview.md) invia richieste Web all'applicazione a intervalli regolari da diversi punti in tutto il mondo. Invia avvisi all'utente nel caso in cui l'applicazione risponda lentamente o non risponda affatto.
@@ -31,7 +31,7 @@ Sono disponibili due tipi di test di disponibilità:
 
 È possibile creare fino a 100 test di disponibilità per ogni risorsa dell'applicazione.
 
-## <a name="create"></a>1. Aprire una risorsa per i report dei test di disponibilità
+## <a name="create"></a>Aprire una risorsa per i report dei test di disponibilità
 
 **Se si è già configurato Application Insights** per l'app Web, aprire la risorsa di Application Insights nel [portale di Azure](https://portal.azure.com).
 
@@ -41,7 +41,7 @@ Sono disponibili due tipi di test di disponibilità:
 
 Fare clic su **Tutte le risorse** per aprire il pannello Panoramica per la nuova risorsa.
 
-## <a name="setup"></a>2. Creare un test di ping URL
+## <a name="setup"></a>Creare un test di ping URL
 Aprire il pannello Disponibilità e aggiungere un test.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -68,7 +68,7 @@ Aprire il pannello Disponibilità e aggiungere un test.
 Aggiungere altri test. Oltre a testare la home page, ad esempio, è possibile verificare che il database sia in esecuzione testando l'URL per una ricerca.
 
 
-## <a name="monitor"></a>3. Visualizzare i risultati del test di disponibilità
+## <a name="monitor"></a>Visualizzare i risultati dei test di disponibilità
 
 Dopo pochi minuti, fare clic su **Aggiorna** per visualizzare i risultati del test. 
 
@@ -102,14 +102,11 @@ Fare clic su un punto rosso.
 Dal risultato di un test di disponibilità è possibile eseguire le operazioni seguenti:
 
 * Controllare la risposta ricevuta dal server.
-* Aprire i dati di telemetria inviati dall'app server durante l'elaborazione dell'istanza della richiesta non riuscita.
+* Diagnosticare l'errore con i dati di telemetria lato server raccolti durante l'elaborazione dell'istanza di richiesta non riuscita.
 * Registrare un problema o elemento di lavoro in Git o VSTS per tenere traccia del problema. Il bug conterrà un collegamento a questo evento.
 * Aprire il risultato del test Web in Visual Studio.
 
-
-*Ha un aspetto corretto ma è segnalato come errore?* Controllare tutte le immagini, gli script, i fogli di stile e qualsiasi altro file caricato dalla pagina. In caso di errore in uno di essi, il test verrà segnalato come non superato, anche se la pagina HTML principale viene caricata correttamente.
-
-*Nessun elemento correlato?* Se Application Insights è configurato per l'applicazione lato server, il motivo può essere l'esecuzione del [campionamento](app-insights-sampling.md). 
+*Ha un aspetto corretto ma è segnalato come errore?* Vedere le [domande frequenti](#qna) per informazioni su come ridurre i risultati non significativi.
 
 ## <a name="multi-step-web-tests"></a>Test Web in più passaggi
 È possibile monitorare uno scenario che comporta una sequenza di URL. Ad esempio, se si monitora un sito Web di vendita, si potrebbe testare il corretto funzionamento dell'aggiunta di articoli al carrelli acquisti.
@@ -256,6 +253,20 @@ Al termine del test verranno visualizzati i tempi di risposta e le percentuali d
 * Configurare un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) che verrà chiamato quando viene generato un avviso.
 
 ## <a name="qna"></a>Domande? Problemi?
+* *Esito negativo intermittente dei test con un errore di violazione del protocollo?*
+
+    Un errore di tipo "Violazione del protocollo... CR deve essere seguito da LF" indica un problema relativo al server o alle dipendenze. Questa situazione si verifica quando nella risposta vengono impostate intestazioni in formato non valido e può essere causata da servizi di bilanciamento del carico o reti per la distribuzione di contenuti. In particolare, è possibile che alcune intestazioni non usino CRLF per indicare la fine della riga, violando così la specifica HTTP e non superando quindi la convalida a livello di WebRequest .NET. Controllare la risposta per individuare le intestazioni in cui potrebbe trovarsi la violazione.
+    
+    Nota: l'errore dell'URL potrebbe non verificarsi in browser con una convalida delle intestazioni HTTP meno rigida. Per una spiegazione dettagliata di questo problema, vedere questo post di blog: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+* *Il sito sembra funzionare correttamente ma i test risultano non superati?*
+
+    * Controllare tutte le immagini, gli script, i fogli di stile e qualsiasi altro file caricato dalla pagina. In caso di errore in uno di essi, il test verrà segnalato come non superato, anche se la pagina HTML principale viene caricata correttamente. Per eliminare la sensibilità del test a errori delle risorse di questo tipo, è sufficiente deselezionare "Analizza richieste dipendenti" nella configurazione di test. 
+
+    * Per ridurre le probabilità di risultati non significativi causati da problemi di rete temporanei e così via, verificare che sia selezionata l'opzione di configurazione che abilita nuovi tentativi in caso di test non superati. È anche possibile eseguire test da più posizioni e gestire la soglia delle regole di avviso di conseguenza per evitare che problemi specifici della posizione causino avvisi non dovuti.
+    
+* *Non vengono visualizzati dati di telemetria lato server correlati per eseguire la diagnosi per i test non superati?*
+    
+    Se Application Insights è configurato per l'applicazione lato server, il motivo può essere l'esecuzione del [campionamento](app-insights-sampling.md).
 * *È possibile chiamare codice da un test Web?*
 
     No. I passaggi del test devono essere nel file con estensione webtest. Inoltre non è possibile chiamare altri test web o utilizzare cicli. Esistono diversi plug-in che potrebbero risultare utili.

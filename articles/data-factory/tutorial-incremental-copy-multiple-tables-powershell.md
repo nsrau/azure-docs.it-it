@@ -1,6 +1,6 @@
 ---
 title: "Eseguire la copia incrementale di più tabelle con Azure Data Factory | Microsoft Docs"
-description: "In questa esercitazione si creerà una pipeline di Azure Data Factory che copia dati differenziali in modo incrementale da più tabelle di un database di SQL Server locale a un database SQL di Azure. "
+description: "In questa esercitazione si creerà una pipeline di Azure Data Factory che copia dati differenziali in modo incrementale da più tabelle di un database di SQL Server locale a un database SQL di Azure."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 2d9213a74fd881a7be52f51ff8ebb49171c77283
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4094d054595e82a6ddc0e19784309131f0506d27
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database"></a>Caricare dati in modo incrementale da più tabelle in SQL Server al database SQL di Azure
-In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati differenziali da più tabelle di un database di SQL Server locale a un database SQL di Azure.    
+# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Caricare dati in modo incrementale da più tabelle in SQL Server a un database SQL di Azure
+In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da più tabelle di un database di SQL Server locale a un database SQL di Azure.    
 
 In questa esercitazione vengono completati i passaggi seguenti:
 
@@ -28,48 +28,55 @@ In questa esercitazione vengono completati i passaggi seguenti:
 > * Preparare gli archivi dati di origine e di destinazione.
 > * Creare una data factory.
 > * Creare un runtime di integrazione self-hosted.
-> * Installare il runtime di integrazione 
+> * Installare il runtime di integrazione. 
 > * Creare servizi collegati. 
 > * Creare i set di dati di origine, sink e limite.
 > * Creare, eseguire e monitorare una pipeline.
-> * Esaminare i risultati
-> * Aggiungere o aggiornare dati nelle tabelle di origine
-> * Rieseguire e monitorare la pipeline
-> * Esaminare i risultati finali 
+> * Esaminare i risultati.
+> * Aggiungere o aggiornare dati nelle tabelle di origine.
+> * Rieseguire e monitorare la pipeline.
+> * Esaminare i risultati finali.
 
 > [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione su Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Questo articolo è applicabile alla versione 2 di Azure Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione di Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="overview"></a>Panoramica
 Di seguito sono descritti i passaggi fondamentali per la creazione di questa soluzione: 
 
 1. **Selezionare la colonna del limite**.
     Selezionare una colonna per ogni tabella nell'archivio dati di origine, che può essere usata per identificare i record nuovi o aggiornati per ogni esecuzione. I dati della colonna selezionata (ad esempio last_modify_time o ID) continuano in genere ad aumentare quando le righe vengono create o aggiornate. Il valore massimo di questa colonna viene usato come limite.
+
 2. **Preparare un archivio dati per l'archiviazione del valore limite**.   
-    In questa esercitazione si archivia il valore limite in un database SQL di Azure.
-3. **Creare una pipeline con le attività seguenti:** 
+    In questa esercitazione si archivia il valore limite in un database SQL.
+
+3. **Creare una pipeline con le attività seguenti**: 
     
-    1. Creare un'attività **ForEach** che esegue l'iterazione di un elenco di nomi di tabella di origine passato come parametro alla pipeline. Per ogni tabella di origine, l'attività richiama le attività seguenti per eseguire il caricamento differenziale per la tabella. 
-    2. Creare due attività di **ricerca**. Usare la prima attività di ricerca per recuperare l'ultimo valore limite. Usare la seconda attività di ricerca per recuperare il nuovo valore limite. Questi valori limite vengono passati all'attività di copia. 
-    3. Creare un'**attività di copia** che copi le righe dell'archivio dati di origine con il valore della colonna del limite maggiore del valore limite precedente e minore del nuovo valore limite. L'attività copierà quindi i dati delta dall'archivio dati di origine a un archivio BLOB come nuovo file. 
-    4. Creare un'**attività stored procedure** che aggiorni il valore limite per la pipeline che verrà eseguita la volta successiva. 
+    a. Creare un'attività ForEach che esegue l'iterazione di un elenco di nomi di tabella di origine passato come parametro alla pipeline. Per ogni tabella di origine, l'attività richiama le attività seguenti per eseguire il caricamento differenziale per la tabella.
 
-        Ecco il diagramma generale della soluzione: 
+    b. Creare due attività di ricerca. Usare la prima attività di ricerca per recuperare l'ultimo valore limite. Usare la seconda attività di ricerca per recuperare il nuovo valore limite. Questi valori limite vengono passati all'attività di copia.
 
-        ![Caricare i dati in modo incrementale](media\tutorial-incremental-copy-multiple-tables-powershell\high-level-solution-diagram.png)
+    c. Creare un'attività di copia che copi le righe dell'archivio dati di origine con il valore della colonna del limite maggiore del valore limite precedente e minore del nuovo valore limite. L'attività copierà quindi i dati delta dall'archivio dati di origine a un archivio BLOB di Azure come nuovo file.
+
+    d. Creare un'attività stored procedure che aggiorni il valore limite per la pipeline che verrà eseguita la volta successiva. 
+
+    Il diagramma generale della soluzione è il seguente: 
+
+    ![Caricare i dati in modo incrementale](media\tutorial-incremental-copy-multiple-tables-powershell\high-level-solution-diagram.png)
 
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* **SQL Server**. Usare un database di SQL Server locale come archivio dati **di origine** in questa esercitazione. 
-* **Database SQL di Azure**. Usare un database SQL di Azure come archivio dati **sink**. Se non si ha un database SQL di Azure, vedere la procedura per crearne uno nell'articolo [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md). 
+* **SQL Server**. Usare un database di SQL Server locale come archivio dati di origine in questa esercitazione. 
+* **Database SQL di Azure**. Usare un database SQL come archivio dati sink. Se non è disponibile un database SQL, vedere [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md) per crearne uno. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Creare le tabelle di origine nel database di SQL Server
 
-1. Avviare **SQL Server Management Studio** e connettersi all'ambiente SQL Server locale. 
+1. Aprire SQL Server Management Studio e connettersi al database SQL Server locale.
+
 2. In **Esplora server** fare clic con il pulsante destro del mouse sul database e scegliere **Nuova query**.
-3. Eseguire il comando SQL seguente sul database per creare due tabelle denominate `customer_table` e `project_table`.
+
+3. Eseguire il comando SQL seguente sul database per creare le tabelle denominate `customer_table` e `project_table`:
 
     ```sql
     create table customer_table
@@ -103,10 +110,12 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
     
     ```
 
-### <a name="create-destination-tables-in-your-azure-sql--database"></a>Creare le tabelle di destinazione nel database SQL di Azure
-1. Avviare **SQL Server Management Studio** e connettersi al server SQL di Azure. 
-2. In **Esplora server** fare clic con il pulsante destro del mouse sul **database** e scegliere **Nuova query**.
-3. Eseguire il comando SQL seguente sul database SQL di Azure per creare due tabelle denominate `customer_table` e `project_table`.  
+### <a name="create-destination-tables-in-your-sql-database"></a>Creare le tabelle di destinazione nel database SQL
+1. Aprire SQL Server Management Studio e connettersi al database di SQL Server.
+
+2. In **Esplora server** fare clic con il pulsante destro del mouse sul database e scegliere **Nuova query**.
+
+3. Eseguire questo comando SQL sul database SQL per creare le tabelle denominate `customer_table` e `project_table`:  
     
     ```sql
     create table customer_table
@@ -124,8 +133,8 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
     ```
 
-### <a name="create-another-table-in-azure-sql-database-to-store-the-high-watermark-value"></a>Creare un'altra tabella nel database SQL di Azure per archiviare il valore del limite massimo
-1. Eseguire il comando SQL seguente sul database SQL di Azure per creare una tabella denominata `watermarktable` per archiviare il valore limite.  
+### <a name="create-another-table-in-the-sql-database-to-store-the-high-watermark-value"></a>Creare un'altra tabella nel database SQL per archiviare il valore del limite massimo
+1. Eseguire questo comando SQL sul database SQL per creare una tabella denominata `watermarktable` in cui archiviare il valore limite: 
     
     ```sql
     create table watermarktable
@@ -135,7 +144,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
         WatermarkValue datetime,
     );
     ```
-3. Inserire i valori del limite iniziale per entrambe le tabelle di origine nella tabella dei limiti.
+2. Inserire i valori del limite iniziale per entrambe le tabelle di origine nella tabella dei limiti.
 
     ```sql
 
@@ -146,9 +155,9 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
     
     ```
 
-### <a name="create-a-stored-procedure-in-azure-sql-database"></a>Creare una stored procedure nel database SQL di Azure 
+### <a name="create-a-stored-procedure-in-the-sql-database"></a>Creare una stored procedure nel database SQL 
 
-Eseguire questo comando per creare una stored procedure nel database SQL di Azure. Questa stored procedure aggiorna il valore del limite dopo ogni esecuzione di pipeline. 
+Eseguire questo comando per creare una stored procedure nel database SQL. Questa stored procedure aggiorna il valore del limite dopo ogni esecuzione di pipeline. 
 
 ```sql
 CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
@@ -165,7 +174,7 @@ END
 ```
 
 ### <a name="create-data-types-and-additional-stored-procedures"></a>Creare tipi di dati e stored procedure aggiuntive
-Creare due stored procedure e due tipi di dati nel database SQL di Azure eseguendo la query seguente. Questi verranno usati per unire i dati dalle tabelle di origine alle tabelle di destinazione.
+Eseguire questa query per creare due stored procedure e due tipi di dati nel database SQL. Questi elementi vengono usati per unire i dati delle tabelle di origine nelle tabelle di destinazione.
 
 ```sql
 CREATE TYPE DataTypeforCustomerTable AS TABLE(
@@ -216,17 +225,18 @@ END
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Installare i moduli di Azure PowerShell più recenti seguendo le istruzioni descritte in [Come installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Installare i moduli di Azure PowerShell più recenti seguendo le istruzioni descritte in [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
-1. Definire una variabile per il nome del gruppo di risorse usato in seguito nei comandi di PowerShell. Copiare il testo del comando seguente in PowerShell, specificare un nome per il [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) tra virgolette doppie e quindi eseguire il comando. Ad esempio: `"adfrg"`. 
+1. Definire una variabile per il nome del gruppo di risorse usato in seguito nei comandi di PowerShell. Copiare il testo del comando seguente in PowerShell, specificare un nome per il [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) tra virgolette doppie e quindi eseguire il comando. Un esempio è `"adfrg"`. 
    
      ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 
     Se il gruppo di risorse esiste già, potrebbe essere preferibile non sovrascriverlo. Assegnare un valore diverso alla variabile `$resourceGroupName` ed eseguire di nuovo il comando.
-2. Definire una variabile per la località della data factory: 
+
+2. Definire una variabile per la località della data factory. 
 
     ```powershell
     $location = "East US"
@@ -236,11 +246,12 @@ Installare i moduli di Azure PowerShell più recenti seguendo le istruzioni desc
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
-    Se il gruppo di risorse esiste già, potrebbe essere preferibile non sovrascriverlo. Assegnare un valore diverso alla variabile `$resourceGroupName` ed eseguire di nuovo il comando. 
-3. Definire una variabile per il nome della data factory. 
+    Se il gruppo di risorse esiste già, potrebbe essere preferibile non sovrascriverlo. Assegnare un valore diverso alla variabile `$resourceGroupName` ed eseguire di nuovo il comando.
+
+4. Definire una variabile per il nome della data factory. 
 
     > [!IMPORTANT]
-    >  Aggiornare il nome della data factory in modo che sia univoco a livello globale. Ad esempio, ADFIncMultiCopyTutorialFactorySP1127. 
+    >  Aggiornare il nome della data factory in modo che sia univoco a livello globale. Un esempio è ADFIncMultiCopyTutorialFactorySP1127. 
 
     ```powershell
     $dataFactoryName = "ADFIncMultiCopyTutorialFactory";
@@ -253,30 +264,30 @@ Installare i moduli di Azure PowerShell più recenti seguendo le istruzioni desc
 
 Tenere presente quanto segue:
 
-* È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore seguente, modificare il nome e riprovare.
+* Il nome della data factory deve essere univoco a livello globale. Se viene visualizzato l'errore seguente, modificare il nome e riprovare:
 
     ```
     The specified Data Factory name 'ADFIncMultiCopyTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
-* Per creare istanze di Data Factory, l'account utente usato per accedere ad Azure deve essere un membro dei ruoli **collaboratore** o **proprietario** oppure un **amministratore** della sottoscrizione di Azure.
-* Data Factory versione 2 consente attualmente di creare data factory solo nelle aree Stati Uniti orientali, Stati Uniti orientali 2 ed Europa occidentale. Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
+* Per creare istanze di Data Factory, l'account utente usato per accedere ad Azure deve essere un membro dei ruoli collaboratore o proprietario oppure un amministratore della sottoscrizione di Azure.
+* Data Factory versione 2 consente attualmente di creare data factory solo nelle aree Stati Uniti orientali, Stati Uniti orientali 2 ed Europa occidentale. Gli archivi dati (Archiviazione di Azure, database SQL e così via) e le risorse di calcolo (Azure HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
 
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
-Si creano servizi collegati in una data factory per collegare gli archivi dati e i servizi di calcolo alla data factory. In questa sezione vengono creati i servizi collegati al database di SQL Server locale e al database SQL di Azure. 
+Si creano servizi collegati in una data factory per collegare gli archivi dati e i servizi di calcolo alla data factory. In questa sezione vengono creati i servizi collegati al database di SQL Server locale e al database SQL. 
 
-### <a name="create-sql-server-linked-service"></a>Creare il servizio collegato di SQL Server.
-In questo passaggio si collega SQL Server locale alla data factory.
+### <a name="create-the-sql-server-linked-service"></a>Creare il servizio collegato di SQL Server
+In questo passaggio si collega il database di SQL Server locale alla data factory.
 
-1. Creare un file JSON denominato **SqlServerLinkedService.json** nella cartella **C:\ADFTutorials\IncCopyMultiTableTutorial** con il contenuto seguente. Selezionare la sezione corretta in base all'**autenticazione** usata per connettersi a SQL Server. Se non esistono già, creare le cartelle locali. 
+1. Creare un file JSON denominato SqlServerLinkedService.json nella cartella C:\ADFTutorials\IncCopyMultiTableTutorial con il contenuto seguente. Selezionare la sezione corretta in base all'autenticazione usata per connettersi a SQL Server. Creare le cartelle locali, se non esistono già. 
 
     > [!IMPORTANT]
-    > Selezionare la sezione corretta in base all'**autenticazione** usata per connettersi a SQL Server.
+    > Selezionare la sezione corretta in base all'autenticazione usata per connettersi a SQL Server.
 
-    **Se si usa l'autenticazione SQL, copiare la definizione JSON seguente:**
+    Se si usa l'autenticazione SQL, copiare la definizione JSON seguente:
 
     ```json
     {
@@ -296,7 +307,7 @@ In questo passaggio si collega SQL Server locale alla data factory.
         "name": "SqlServerLinkedService"
     }
    ```    
-    **Se si usa l'autenticazione Windows, copiare la definizione JSON seguente:**
+    Se si usa l'autenticazione Windows, copiare la definizione JSON seguente:
 
     ```json
     {
@@ -322,13 +333,14 @@ In questo passaggio si collega SQL Server locale alla data factory.
     }    
     ```
     > [!IMPORTANT]
-    > - Selezionare la sezione corretta in base all'**autenticazione** usata per connettersi a SQL Server.
-    > - Sostituire **&lt;integration** **runtime** **name>** con il nome del runtime di integrazione.
-    > - Sostituire **&lt;servername>**, **&lt;databasename>**, **&lt;username>** e **&lt;password>** con i valori del server SQL prima di salvare il file.
-    > - Se è necessario usare una barra (`\`) nell'account utente o nel nome del server, usare il carattere di escape (`\`). ad esempio `mydomain\\myuser`.
+    > - Selezionare la sezione corretta in base all'autenticazione usata per connettersi a SQL Server.
+    > - Sostituire &lt;integration runtime name> con il nome del runtime di integrazione.
+    > - Prima di salvare il file, sostituire &lt;servername>, &lt;databasename>, &lt;username> e &lt;password> con i valori del database di SQL Server.
+    > - Se è necessario usare una barra (`\`) nell'account utente o nel nome del server, usare il carattere di escape (`\`). Un esempio è `mydomain\\myuser`.
 
-2. In **Azure PowerShell** passare alla cartella **C:\ADFTutorials\IncCopyMultiTableTutorial**.
-3. Eseguire il cmdlet **Set-AzureRmDataFactoryV2LinkedService** per creare il servizio collegato **AzureStorageLinkedService**. Nell'esempio seguente si passano i valori per i parametri **ResourceGroupName** e **DataFactoryName**. 
+2. In PowerShell passare alla cartella C:\ADFTutorials\IncCopyMultiTableTutorial.
+
+3. Eseguire il cmdlet **Set-AzureRmDataFactoryV2LinkedService** per creare il servizio collegato AzureStorageLinkedService. Nell'esempio seguente si passano i valori per i parametri *ResourceGroupName* e *DataFactoryName*: 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
@@ -343,8 +355,8 @@ In questo passaggio si collega SQL Server locale alla data factory.
     Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerLinkedService
     ```
 
-### <a name="create-azure-sql-database-linked-service"></a>Creare un servizio collegato Database SQL di Azure.
-1. Creare un file JSON denominato **AzureSQLDatabaseLinkedService.json** nella cartella **C:\ADFTutorials\IncCopyMultiTableTutorial** con il contenuto seguente. Creare la cartella ADF se non esiste già. Sostituire **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt; e &lt;password&gt;** con il nome del server SQL di Azure, il nome del database, l'ID utente e la password prima di salvare il file. 
+### <a name="create-the-sql-database-linked-service"></a>Creare il servizio collegato per il database SQL
+1. Creare un file JSON denominato AzureSQLDatabaseLinkedService.json nella cartella C:\ADFTutorials\IncCopyMultiTableTutorial con il contenuto seguente. Creare la cartella ADF, se non esiste. Prima di salvare il file, sostituire &lt;server&gt;, &lt;database name&gt;, &lt;user id&gt; e &lt;password&gt; con il nome del database di SQL Server, il nome del database, l'ID utente e la password. 
 
     ```json
     {
@@ -360,7 +372,7 @@ In questo passaggio si collega SQL Server locale alla data factory.
         }
     }
     ```
-2. In **Azure PowerShell** eseguire il cmdlet **Set-AzureRmDataFactoryV2LinkedService** per creare il servizio collegato **AzureSQLDatabaseLinkedService**. 
+2. In PowerShell eseguire il cmdlet **Set-AzureRmDataFactoryV2LinkedService** per creare il servizio collegato AzureSQLDatabaseLinkedService. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -376,11 +388,11 @@ In questo passaggio si collega SQL Server locale alla data factory.
     ```
 
 ## <a name="create-datasets"></a>Creare set di dati
-In questo passaggio vengono creati i set di dati per rappresentare l'origine dati, la destinazione dati e la posizione in cui archiviare il limite.
+In questo passaggio vengono creati i set di dati per rappresentare l'origine dati, la destinazione dati e la posizione di archiviazione del valore limite.
 
 ### <a name="create-a-source-dataset"></a>Creare set di dati di origine
 
-1. Creare un file JSON denominato **SourceDataset.json** nella stessa cartella con il contenuto seguente: 
+1. Creare un file JSON denominato SourceDataset.json nella stessa cartella con il contenuto seguente: 
 
     ```json
     {
@@ -399,8 +411,9 @@ In questo passaggio vengono creati i set di dati per rappresentare l'origine dat
    
     ```
 
-    Il nome della tabella è un nome fittizio. L'attività di copia nella pipeline usa una query SQL per caricare i dati invece di caricare l'intera tabella. 
-1.  Eseguire il cmdlet Set-AzureRmDataFactoryV2Dataset per creare il set di dati SourceDataset
+    Il nome della tabella è un nome fittizio. L'attività di copia nella pipeline usa una query SQL per caricare i dati invece di caricare l'intera tabella.
+
+2. Eseguire il cmdlet **Set-AzureRmDataFactoryV2Dataset** per creare il set di dati SourceDataset.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -418,7 +431,7 @@ In questo passaggio vengono creati i set di dati per rappresentare l'origine dat
 
 ### <a name="create-a-sink-dataset"></a>Creare un set di dati sink
 
-1. Creare un file JSON denominato **SinkDataset.json** nella stessa cartella con il contenuto seguente: il nome della tabella è impostato dinamicamente dalla pipeline al runtime. L'attività ForEach nella pipeline esegue l'iterazione di un elenco di nomi di tabella e passa il nome di tabella a questo set di dati in ogni interazione. 
+1. Creare un file JSON denominato SinkDataset.json nella stessa cartella con il contenuto seguente. L'elemento tableName viene impostato dalla pipeline in modo dinamico in fase di esecuzione. L'attività ForEach nella pipeline esegue l'iterazione di un elenco di nomi di tabella e passa il nome di tabella a questo set di dati in ogni interazione. 
 
     ```json
     {
@@ -444,7 +457,7 @@ In questo passaggio vengono creati i set di dati per rappresentare l'origine dat
     }
     ```
 
-2.  Eseguire il cmdlet Set-AzureRmDataFactoryV2Dataset per creare il set di dati SinkDataset
+2. Eseguire il cmdlet **Set-AzureRmDataFactoryV2Dataset** per creare il set di dati SinkDataset.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -460,7 +473,7 @@ In questo passaggio vengono creati i set di dati per rappresentare l'origine dat
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
     ```
 
-### <a name="create-a-dataset-for-watermark"></a>Creare un set di dati per il limite
+### <a name="create-a-dataset-for-a-watermark"></a>Creare un set di dati per un limite
 In questo passaggio si crea un set di dati per l'archiviazione di un valore limite massimo. 
 
 1. Creare un file JSON denominato WatermarkDataset.json nella stessa cartella con il contenuto seguente: 
@@ -480,7 +493,7 @@ In questo passaggio si crea un set di dati per l'archiviazione di un valore limi
         }
     }    
     ```
-2.  Eseguire il cmdlet Set-AzureRmDataFactoryV2Dataset per creare il set di dati WatermarkDataset
+2. Eseguire il cmdlet **Set-AzureRmDataFactoryV2Dataset** per creare il set di dati WatermarkDataset.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
@@ -497,12 +510,15 @@ In questo passaggio si crea un set di dati per l'archiviazione di un valore limi
     ```
 
 ## <a name="create-a-pipeline"></a>Creare una pipeline
-Questa pipeline accetta un elenco di nomi di tabella come parametro. L'**attività ForEach** esegue l'iterazione dell'elenco dei nomi di tabella ed esegue le operazioni seguenti: 
+Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività ForEach esegue l'iterazione dell'elenco dei nomi di tabella ed esegue le operazioni seguenti: 
 
-1. Usa l'**attività di ricerca** per recuperare il valore del limite precedente (valore iniziale o usato nell'ultima iterazione).
-2. Usa l'**attività di ricerca** per recuperare il nuovo valore del limite (valore massimo della colonna dei limiti nella tabella di origine).
-3. Usa l'**attività di copia** per copiare dati tra i due valori del limite dal database di origine al database di destinazione. 
-4. Usa l'**attività stored procedure** per aggiornare il valore del limite precedente da usare nel primo passaggio dell'iterazione successiva. 
+1. Usa l'attività di ricerca per recuperare il valore del limite precedente (valore iniziale o usato nell'ultima iterazione).
+
+2. Usa l'attività di ricerca per recuperare il nuovo valore del limite (valore massimo della colonna dei limiti nella tabella di origine).
+
+3. Usa l'attività di copia per copiare dati tra i due valori del limite dal database di origine al database di destinazione.
+
+4. Usa l'attività stored procedure per aggiornare il valore del limite precedente da usare nel primo passaggio dell'iterazione successiva. 
 
 ### <a name="create-the-pipeline"></a>Creare la pipeline
 1. Creare un file JSON denominato IncrementalCopyPipeline.json nella stessa cartella con il contenuto seguente: 
@@ -639,7 +655,7 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'**attivit
         }
     }
     ```
-2. Eseguire il cmdlet Set-AzureRmDataFactoryV2Pipeline per creare la pipeline: IncrementalCopyPipeline.
+2. Eseguire il cmdlet **Set-AzureRmDataFactoryV2Pipeline** per creare la pipeline IncrementalCopyPipeline.
     
    ```powershell
    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
@@ -657,7 +673,7 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'**attivit
  
 ## <a name="run-the-pipeline"></a>Eseguire la pipeline
 
-1. Creare un file di parametri denominato **Parameters.json** nella stessa cartella con il contenuto seguente:
+1. Creare un file di parametro denominato Parameters.json nella stessa cartella con il contenuto seguente:
 
     ```json
     {
@@ -678,7 +694,7 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'**attivit
         ]
     }
     ```
-2. Eseguire la pipeline **IncrementalCopyPipeline** usando il cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. Sostituire i segnaposto con il nome del gruppo di risorse e della data factory.
+2. Eseguire la pipeline IncrementalCopyPipeline usando il cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. Sostituire i segnaposto con il nome del gruppo di risorse e della data factory.
 
     ```powershell
     $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
@@ -687,25 +703,30 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'**attivit
 ## <a name="monitor-the-pipeline"></a>Monitorare la pipeline
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Fare clic su **Altri servizi**, eseguire una ricerca con la parola chiave `data factories` e selezionare **Data factory**. 
+
+2. Selezionare **Altri servizi**, eseguire una ricerca con la parola chiave *Data factory* e selezionare **Data factory**. 
 
     ![Menu Data factory](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-data-factories-menu-1.png)
-3. Cercare **la propria data factory** nell'elenco delle data factory e selezionarla per avviare la pagina Data factory. 
+
+3. Cercare la propria data factory nell'elenco delle data factory e selezionarla per aprire la pagina **Data factory**. 
 
     ![Cercare la data factory](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-search-data-factory-2.png)
-4. Nella pagina Data factory fare clic sul riquadro **Monitoraggio e gestione**. 
 
-    ![Riquadro Monitoraggio e gestione](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-monitor-manage-tile-3.png)    
-5. L'applicazione **Integrazione dati** viene avviata in una scheda separata. È possibile visualizzare tutte le **esecuzioni di pipeline** e i rispettivi stati. Notare che nell'esempio seguente lo stato dell'esecuzione della pipeline è **Riuscito**. È possibile controllare i parametri passati alla pipeline facendo clic sul collegamento nella colonna **Parametri**. Se si è verificato un errore, verrà visualizzato un collegamento nella colonna **Errore**. Fare clic sul collegamento nella colonna **Azioni**. 
+4. Nella pagina **Data factory** selezionare **Monitoraggio e gestione**. 
+
+    ![Riquadro Monitoraggio e gestione](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-monitor-manage-tile-3.png)
+
+5. Si aprirà l'applicazione **Integrazione dati** in una scheda separata. È possibile visualizzare tutte le esecuzioni di pipeline e i rispettivi stati. Notare che nell'esempio seguente lo stato dell'esecuzione della pipeline è **Riuscito**. Per verificare i parametri passati alla pipeline, selezionare il collegamento nella colonna **Parametri**. Se si è verificato un errore, verrà visualizzato un collegamento nella colonna **Errore**. Selezionare il collegamento nella colonna **Azioni**. 
 
     ![Esecuzioni di pipeline](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-4.png)    
-6. Quando si fa clic sul collegamento nella colonna **Azioni**, viene visualizzata la pagina seguente, che mostra tutte le **esecuzioni di attività** per la pipeline. 
+6. Quando si seleziona il collegamento nella colonna **Azioni**, viene visualizzata la pagina seguente con tutte le esecuzioni di attività per la pipeline: 
 
-    ![Esecuzioni attività](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-activity-runs-5.png)
-7. Per tornare alla visualizzazione **Esecuzioni di pipeline**, fare clic su **Pipeline**, come mostrato nell'immagine. 
+    ![Esecuzioni di attività](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-activity-runs-5.png)
+
+7. Per tornare alla visualizzazione **Esecuzioni di pipeline**, selezionare **Pipeline** come mostrato nell'immagine. 
 
 ## <a name="review-the-results"></a>Esaminare i risultati
-In SQL Server Management Studio eseguire le query seguenti sul database SQL di Azure di destinazione per verificare che i dati siano stati copiati dalle tabelle di origine alle tabelle di destinazione. 
+In SQL Server Management Studio eseguire queste query sul database SQL di destinazione per verificare che i dati siano stati copiati dalle tabelle di origine alle tabelle di destinazione: 
 
 **Query** 
 ```sql
@@ -724,7 +745,7 @@ PersonID    Name    LastModifytime
 5           Anny    2017-09-05 08:06:00.000
 ```
 
-**Query:**
+**Query**
 
 ```sql
 select * from project_table
@@ -761,7 +782,7 @@ Notare che i valori del limite per entrambe le tabelle sono stati aggiornati.
 
 ## <a name="add-more-data-to-the-source-tables"></a>Aggiungere altri dati alle tabelle di origine
 
-Eseguire la query seguente sul database di SQL Server di origine per aggiornare una riga esistente in customer_table e inserire una nuova riga in project_table. 
+Eseguire questa query sul database di SQL Server di origine per aggiornare una riga esistente in customer_table. Inserire una nuova riga in project_table. 
 
 ```sql
 UPDATE customer_table
@@ -780,15 +801,17 @@ VALUES
     ```powershell
     $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
     ```
-2. Monitorare le esecuzioni di pipeline seguendo le istruzioni contenute nella sezione [Monitorare la pipeline](#monitor-the-pipeline). Poiché lo stato della pipeline è **In corso**, viene visualizzato un altro collegamento a un'azione in **Azioni** per annullare l'esecuzione della pipeline. 
+2. Monitorare le esecuzioni di pipeline seguendo le istruzioni contenute nella sezione [Monitorare la pipeline](#monitor-the-pipeline). Poiché lo stato della pipeline è **In corso**, in **Azioni** viene visualizzato un altro collegamento a un'azione per annullare l'esecuzione della pipeline. 
 
-    ![Esecuzioni di pipeline](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-6.png)    
-3. Fare clic su **Aggiorna** per aggiornare l'elenco finché l'esecuzione della pipeline non riesce. 
+    ![Esecuzioni di pipeline in corso](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-6.png)
 
-    ![Esecuzioni di pipeline](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-succeded-7.png)
-4. Facoltativo: fare clic sul collegamento (icona) **Visualizza esecuzioni attività** in Azioni per visualizzare tutte le esecuzioni di attività associate a questa esecuzione di pipeline. 
+3. Selezionare **Aggiorna** per aggiornare l'elenco finché l'esecuzione della pipeline non riesce. 
 
-## <a name="review-final-results"></a>Esaminare i risultati finali
+    ![Aggiornare le esecuzioni di pipeline](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-succeded-7.png)
+
+4. Fare eventualmente clic sul collegamento **Visualizza esecuzioni attività** in **Azioni** per visualizzare tutte le esecuzioni di attività associate a questa esecuzione di pipeline. 
+
+## <a name="review-the-final-results"></a>Esaminare i risultati finali
 In SQL Server Management Studio eseguire le query seguenti sul database di destinazione per verificare che i dati nuovi/aggiornati siano stati copiati dalle tabelle di origine alle tabelle di destinazione. 
 
 **Query** 
@@ -808,9 +831,9 @@ PersonID    Name    LastModifytime
 5           Anny    2017-09-05 08:06:00.000
 ```
 
-Notare i nuovi valori di Name e LastModifytime per PersonID: 3. 
+Notare i nuovi valori di **Name** e **LastModifytime** per **PersonID** per il numero 3. 
 
-**Query:**
+**Query**
 
 ```sql
 select * from project_table
@@ -828,7 +851,7 @@ project3    2017-03-04 05:16:00.000
 NewProject  2017-10-01 00:00:00.000
 ```
 
-Notare che è stata aggiunta la voce NewProject a project_table. 
+Si noti che è stata aggiunta la voce **NewProject** a project_table. 
 
 **Query**
 
@@ -855,18 +878,18 @@ In questa esercitazione sono stati eseguiti i passaggi seguenti:
 > * Preparare gli archivi dati di origine e di destinazione.
 > * Creare una data factory.
 > * Creare un runtime di integrazione self-hosted.
-> * Installare il runtime di integrazione 
+> * Installare il runtime di integrazione.
 > * Creare servizi collegati. 
 > * Creare i set di dati di origine, sink e limite.
 > * Creare, eseguire e monitorare una pipeline.
-> * Esaminare i risultati
-> * Aggiungere o aggiornare dati nelle tabelle di origine
-> * Rieseguire e monitorare la pipeline
-> * Esaminare i risultati finali 
+> * Esaminare i risultati.
+> * Aggiungere o aggiornare dati nelle tabelle di origine.
+> * Rieseguire e monitorare la pipeline.
+> * Esaminare i risultati finali.
 
 Passare all'esercitazione successiva per informazioni sulla trasformazione dei dati usando un cluster Spark in Azure:
 
 > [!div class="nextstepaction"]
->[Caricare dati in modo incrementale dal database SQL di Azure all'archiviazione BLOB di Azure tramite la tecnologia Rilevamento modifiche](tutorial-incremental-copy-change-tracking-feature-powershell.md)
+>[Caricare dati in modo incrementale dal database SQL di Azure all'archivio BLOB di Azure tramite la tecnologia Rilevamento modifiche](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 

@@ -10,7 +10,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Creare un account di archiviazione standard per uso generico con il comando [az storage account create](/cli/azure/storage/account#create). L'account di archiviazione standard per uso generico può essere usato per tutti i quattro servizi: BLOB, file, tabelle e code. 
+Creare un account di archiviazione per utilizzo generico con il comando [az storage account create](/cli/azure/storage/account#create). L'account di archiviazione per utilizzo generico può essere usato per tutti e quattro i servizi: BLOB, file, tabelle e code. 
 
 ```azurecli-interactive
 az storage account create \

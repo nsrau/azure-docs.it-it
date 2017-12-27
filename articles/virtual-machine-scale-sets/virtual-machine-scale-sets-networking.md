@@ -3,8 +3,8 @@ title: "Rete per i set di scalabilità di macchine virtuali di Azure | Microsoft
 description: "Configurazione delle proprietà della rete per i set di scalabilità di macchine virtuali di Azure."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
-ms.author: guybo
-ms.openlocfilehash: a8520c6d8962cc362fc935f6b515a299c0ce75b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: negat
+ms.openlocfilehash: 21585717609a692d55ba60f74e39f3bccc0bc727
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rete per i set di scalabilità di macchine virtuali di Azure
 
@@ -138,7 +138,7 @@ Per elencare gli indirizzi IP pubblici del set di scalabilità usando PowerShell
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
-È anche possibile eseguire una query degli indirizzi IP pubblici facendo direttamente riferimento all'ID risorsa della configurazione degli indirizzi IP pubblici, ad esempio:
+È anche possibile eseguire una query sugli indirizzi IP pubblici facendo direttamente riferimento all'ID risorsa della configurazione degli indirizzi IP pubblici, ad esempio:
 ```PowerShell
 PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
@@ -306,4 +306,4 @@ ad esempio:
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle reti virtuali di Azure, vedere [questa documentazione](../virtual-network/virtual-networks-overview.md).
+Per altre informazioni sulle reti virtuali di Azure, vedere la [panoramica delle reti virtuali di Azure](../virtual-network/virtual-networks-overview.md).
