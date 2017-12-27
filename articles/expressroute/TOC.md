@@ -59,6 +59,7 @@
 
 ## Risoluzione dei problemi
 ### [Verifica della connettività ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
+### [Risolvere i problemi delle prestazioni di rete](expressroute-troubleshooting-network-performance.md)
 ### [Ripristinare un circuito in stato di errore](reset-circuit.md)
 ### [Recupero di tabelle ARP](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Recupero di tabelle ARP (versione classica)](expressroute-troubleshooting-arp-classic.md)

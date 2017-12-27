@@ -1,0 +1,31 @@
+- name: Identità del servizio gestito (assegnata dall'utente)
+  href: msi-overview.md
+  items:
+    - name: Configurare MSI per macchine virtuali di Azure
+      items:
+        - name: Utilizzare l'interfaccia della riga di comando di Azure
+          href: msi-qs-configure-cli-windows-vm.md
+        - name: Uso di Azure SDK
+          href: msi-qs-configure-sdk-windows-vm.md
+    - name: Concedere un accesso a Resource Manager con l'identità del servizio gestito
+      items:
+        - name: Utilizzare l'interfaccia della riga di comando di Azure
+          href: msi-howto-assign-access-cli.md
+    - name: Come usare un'identità del servizio gestito della VM
+      items:
+        - name: Acquisire un token di accesso
+          href: msi-how-to-use-vm-msi-token.md
+        - name: Accedere all'interfaccia della riga di comando di Azure
+          href: msi-how-to-use-vm-msi-sign-in.md
+        - name: Uso con Azure SDK
+          href: msi-how-to-use-vm-msi-sdk.md
+    - name: Usare un'identità del servizio gestito della VM per accedere ad Azure Resource Manager
+      items:
+        - name: Da una VM Linux
+          href: msi-tutorial-linux-vm-access-arm.md
+    - name: Usare un'identità del servizio gestito della VM per accedere ad Archiviazione di Azure
+      items:
+        - name: Da una VM Linux usando una chiave di accesso
+          href: msi-tutorial-linux-vm-access-storage.md
+    - name: Domande frequenti e problemi noti
+      href: msi-known-issues.md
