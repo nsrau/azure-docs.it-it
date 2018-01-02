@@ -17,7 +17,7 @@ ms.date: 09/20/2017
 ms.author: genli
 ms.openlocfilehash: d86f3ec043c504c9d79b18f1f0b4c9cf0adb115b
 ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/07/2017
 ---
@@ -68,7 +68,7 @@ Il modulo di riscrittura URL IIS può essere usato per reindirizzare il traffico
 
 ## <a name="how-can-i-blockdisable-the-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Come posso bloccare/disabilitare il traffico in ingresso per l'URL predefinito del servizio cloud? 
 
-È possibile impedire il traffico in ingresso per l'URL/Nome predefinito del servizio cloud (ad esempio, \*.cloudapp.net) impostando l'intestazione host su un nome DNS personalizzato (ad esempio www.MyCloudService.com) nella configurazione di associazione del sito nel file di definizione del servizio cloud (*.csdef) come indicato di seguito: 
+È possibile impedire il traffico in ingresso per l'URL/Nome predefinito del servizio cloud (ad esempio, \*.cloudapp.net) impostando l'intestazione host su un nome DNS personalizzato (ad esempio www.MyCloudService.com) nella configurazione di associazione del sito nel file di definizione del servizio cloud ( * .csdef) come indicato di seguito: 
  
 
     <?xml version="1.0" encoding="utf-8"?> 
@@ -90,7 +90,7 @@ Il modulo di riscrittura URL IIS può essere usato per reindirizzare il traffico
       </WebRole> 
     </ServiceDefinition> 
  
-Poiché l'associazione di intestazione host viene applicata tramite il file csdef, il servizio sarebbe accessibile solo tramite il nome personalizzato 'www.MyCloudService.com', mentre tutte le richieste in ingresso nel dominio '*.cloudapp.net' avrebbero sempre esito negativo. Ciò premesso, se nel servizio si usa un probe SLB personalizzato o un bilanciamento interno del carico, il blocco dell'URL/Nome predefinito può interferire con il comportamento del probe. 
+Poiché l'associazione di intestazione host viene applicata tramite il file csdef, il servizio sarebbe accessibile solo tramite il nome personalizzato 'www.MyCloudService.com', mentre tutte le richieste in ingresso nel dominio ' *.cloudapp.net' avrebbero sempre esito negativo. Ciò premesso, se nel servizio si usa un probe SLB personalizzato o un bilanciamento interno del carico, il blocco dell'URL/Nome predefinito può interferire con il comportamento del probe. 
 
 ## <a name="how-to-make-sure-the-public-facing-ip-address-of-a-cloud-service-aka-vip-never-changes-so-that-it-could-be-customarily-whitelisted-by-few-specific-clients"></a>Come assicurare che l'indirizzo IP pubblico di un servizio cloud (noto anche come, VIP) non cambi mai in modo che possa essere di norma inserito nell'elenco elementi consentiti da alcuni client specifici?
 
