@@ -90,7 +90,7 @@ Il modulo di riscrittura URL IIS può essere usato per reindirizzare il traffico
       </WebRole> 
     </ServiceDefinition> 
  
-Poiché l'associazione di intestazione host viene applicata tramite il file csdef, il servizio sarebbe accessibile solo tramite il nome personalizzato 'www.MyCloudService.com', mentre tutte le richieste in ingresso nel dominio ' *.cloudapp.net' avrebbero sempre esito negativo. Ciò premesso, se nel servizio si usa un probe SLB personalizzato o un bilanciamento interno del carico, il blocco dell'URL/Nome predefinito può interferire con il comportamento del probe. 
+Poiché l'associazione di intestazione host viene applicata tramite il file csdef, il servizio sarebbe accessibile solo tramite il nome personalizzato 'www.MyCloudService.com', mentre tutte le richieste in ingresso nel dominio ' * .cloudapp.net' avrebbero sempre esito negativo. Ciò premesso, se nel servizio si usa un probe SLB personalizzato o un bilanciamento interno del carico, il blocco dell'URL/Nome predefinito può interferire con il comportamento del probe. 
 
 ## <a name="how-to-make-sure-the-public-facing-ip-address-of-a-cloud-service-aka-vip-never-changes-so-that-it-could-be-customarily-whitelisted-by-few-specific-clients"></a>Come assicurare che l'indirizzo IP pubblico di un servizio cloud (noto anche come, VIP) non cambi mai in modo che possa essere di norma inserito nell'elenco elementi consentiti da alcuni client specifici?
 
