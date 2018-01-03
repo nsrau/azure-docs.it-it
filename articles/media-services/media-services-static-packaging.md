@@ -16,7 +16,7 @@ ms.date: 07/17/2017
 ms.author: juliako
 ms.openlocfilehash: 33fb0a18ea3e5bfec044a216c8e6a78942e3af40
 ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/07/2017
 ---
@@ -701,7 +701,7 @@ Se si desidera crittografare il contenuto HLS con AES-128, è possibile sceglier
 > [!NOTE]
 > Per convertire il contenuto in formato HLS, è necessario prima convertire/codificare il contenuto in formato Smooth Streaming.
 > Inoltre, per crittografare HLS con AES assicurarsi di impostare le proprietà seguenti nel file MediaPackager_SmoothToHLS.xml: impostare la proprietà encrypt su true, impostare il valore della chiave e il valore keyuri in modo che punti al server di autenticazione\autorizzazione.
-> Servizi multimediali crea un file di chiave e lo posiziona nel contenitore di asset. È necessario copiare il file /guidcontenitore-asset/*.key nel server, oppure creare il file di chiave personalizzato, e quindi eliminare il file *.key dal contenitore di asset.
+> Servizi multimediali crea un file di chiave e lo posiziona nel contenitore di asset. È necessario copiare il file /guidcontenitore-asset/* .key nel server, oppure creare il file di chiave personalizzato, e quindi eliminare il file * .key dal contenitore di asset.
 > 
 > 
 
