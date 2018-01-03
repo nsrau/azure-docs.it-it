@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 12/15/2017
 ms.author: JeffGo
-ms.openlocfilehash: 111b6274f4a3633fa4dd367866bf4e4e72d6e2df
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 80b693420768d574b2371211298562ba35e7ed97
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Utilizzare i database SQL nello Stack di Microsoft Azure
 
@@ -140,7 +140,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 ### <a name="deploysqlproviderps1-parameters"></a>Parametri DeploySqlProvider.ps1
 È possibile specificare questi parametri nella riga di comando. Se non fosse possibile, o qualsiasi parametro convalida non riesce, viene chiesto di fornire le.
 
-| Nome parametro | Descrizione | Commento o il valore predefinito |
+| Nome parametro | DESCRIZIONE | Commento o il valore predefinito |
 | --- | --- | --- |
 | **CloudAdminCredential** | Le credenziali per l'amministratore del cloud, necessaria per l'accesso all'Endpoint con privilegi. | _obbligatorio_ |
 | **AzCredential** | Specificare le credenziali per l'account di amministratore del servizio Azure dello Stack. Utilizzare le stesse credenziali utilizzate per la distribuzione dello Stack di Azure). | _obbligatorio_ |
@@ -150,8 +150,8 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 | **DefaultSSLCertificatePassword** | La password per il certificato con estensione pfx | _obbligatorio_ |
 | **MaxRetryCount** | Definire il numero di volte che si desidera ripetere ogni operazione se si verifica un errore.| 2 |
 | **RetryDuration** | Definire il timeout di tra due tentativi, in secondi. | 120 |
-| **Disinstallare** | Rimuovere il provider di risorse e tutte le risorse associate (vedere le note sottostanti) | No |
-| **DebugMode** | Impedisce la pulizia automatica in caso di errore | No |
+| **Disinstallare** | Rimuovere il provider di risorse e tutte le risorse associate (vedere le note sottostanti) | No  |
+| **DebugMode** | Impedisce la pulizia automatica in caso di errore | No  |
 
 
 ## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Verificare la distribuzione tramite il portale di Azure Stack
@@ -165,6 +165,73 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 2. Verificare che la distribuzione ha avuto esito positivo. Cerca **gruppi di risorse** &gt;, fare clic su di **system.\< percorso\>.sqladapter** risorse di gruppo e verificare che tutte le distribuzioni di quattro ha avuto esito positivo.
 
       ![Verificare la distribuzione del componente SQL](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+
+
+## <a name="update-the-sql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Aggiornare l'Adapter di Provider di risorse SQL (a più nodi solo, le compilazioni 1710 e versioni successive)
+Ogni volta che viene aggiornata la compilazione dello Stack di Azure, verrà rilasciato un nuovo adattatore di Provider di risorse SQL. Mentre l'adapter esistente potrebbe continuare a funzionare, è consigliabile aggiornare quanto prima all'ultima build dopo aver aggiornato lo Stack di Azure. Il processo di aggiornamento è molto simile al processo di installazione descritto in precedenza. Verrà creata una nuova macchina virtuale con il codice più recente di relying Party e impostazioni verranno migrate a questa istanza di nuovo tra database e l'hosting di informazioni sul server, nonché il record DNS necessario.
+
+Usare lo script UpdateSQLProvider.ps1 con gli stessi argomenti come illustrato in precedenza. È necessario fornire anche il certificato.
+
+> [!NOTE]
+> Aggiornamento è supportato solo nei sistemi a più nodi.
+
+```
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\SQLRP'
+
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
+
+# Set credentials for the new Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privileged Endpoint access
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# change the following as appropriate
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Change directory to the folder where you extracted the installation files
+# and adjust the endpoints
+. $tempDir\UpdateSQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert
+ ```
+
+### <a name="updatesqlproviderps1-parameters"></a>Parametri UpdateSQLProvider.ps1
+È possibile specificare questi parametri nella riga di comando. Se non fosse possibile, o qualsiasi parametro convalida non riesce, viene chiesto di fornire le.
+
+| Nome parametro | DESCRIZIONE | Commento o il valore predefinito |
+| --- | --- | --- |
+| **CloudAdminCredential** | Le credenziali per l'amministratore del cloud, necessaria per l'accesso all'Endpoint con privilegi. | _obbligatorio_ |
+| **AzCredential** | Specificare le credenziali per l'account di amministratore del servizio Azure dello Stack. Utilizzare le stesse credenziali utilizzate per la distribuzione dello Stack di Azure). | _obbligatorio_ |
+| **VMLocalCredential** | Definire le credenziali per l'account amministratore locale del provider di risorse SQL macchina virtuale. | _obbligatorio_ |
+| **PrivilegedEndpoint** | Specificare l'indirizzo IP o nome DNS del Privleged Endpoint. |  _obbligatorio_ |
+| **DependencyFilesLocalPath** | Il file PFX del certificato deve trovarsi in questa directory. | _parametro facoltativo_ (_obbligatorio_ a nodi multipli) |
+| **DefaultSSLCertificatePassword** | La password per il certificato con estensione pfx | _obbligatorio_ |
+| **MaxRetryCount** | Definire il numero di volte che si desidera ripetere ogni operazione se si verifica un errore.| 2 |
+| **RetryDuration** | Definire il timeout di tra due tentativi, in secondi. | 120 |
+| **Disinstallare** | Rimuovere il provider di risorse e tutte le risorse associate (vedere le note sottostanti) | No  |
+| **DebugMode** | Impedisce la pulizia automatica in caso di errore | No  |
+
 
 
 ## <a name="remove-the-sql-resource-provider-adapter"></a>Rimuovere la scheda Provider di risorse SQL

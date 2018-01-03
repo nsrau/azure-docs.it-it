@@ -51,7 +51,7 @@
           href: azure-stack-run-powershell-script.md
         - name: Installare PowerShell
           href: azure-stack-powershell-install.md
-        - name: Registra
+        - name: 'Register '
           href: azure-stack-register.md
         - name: Connettersi ad Azure Stack
           href: azure-stack-connect-azure-stack.md
@@ -121,6 +121,21 @@
               href: azure-stack-replace-disk.md
             - name: Sostituire componente
               href: azure-stack-replace-component.md
+        - name: Eseguire il backup di Azure Stack
+          href: azure-stack-backup-infrastructure-backup.md
+          items:
+            - name: Abilitare il Backup dalla console di amministrazione per lo Stack di Azure
+              href: azure-stack-backup-enable-backup-console.md
+            - name: Abilitare il Backup per lo Stack di Azure con PowerShell
+              href: azure-stack-backup-enable-backup-powershell.md
+            - name: Eseguire il backup di Azure Stack
+              href: azure-stack-backup-back-up-azure-stack.md
+            - name: Recupero dalla perdita di dati
+              href: azure-stack-backup-recover-data.md
+            - name: Backup e le procedure consigliate
+              href: azure-stack-backup-best-practices.md
+            - name: Riferimento di backup
+              href: azure-stack-backup-reference.md
     - name: 'Sicurezza, conformità e identità'
       items:
         - name: Panoramica della sicurezza
@@ -171,7 +186,7 @@
           items:
             - name: Panoramica del servizio app in Azure Stack
               href: azure-stack-app-service-overview.md
-            - name: Pianificazione della capacità
+            - name: pianificazione della capacità
               href: azure-stack-app-service-capacity-planning.md
             - name: Prima di iniziare
               href: azure-stack-app-service-before-you-get-started.md
@@ -195,6 +210,8 @@
               href: azure-stack-create-and-publish-marketplace-item.md
             - name: Utilizzare lo strumento di distribuzione di marketplace
               href: azure-stack-marketplace-publisher.md
+            - name: Sistemi operativi guest supportati per lo Stack di Azure
+              href: azure-stack-supported-os.md
             - name: Aggiungere un'immagine di macchina virtuale personalizzata
               href: azure-stack-add-vm-image.md
             - name: Aggiungere set di scalabilità di macchine virtuali
@@ -223,7 +240,7 @@
               href: azure-stack-vpn-gateway-settings.md
             - name: Connessione tramite ExpressRoute
               href: azure-stack-connect-expressroute.md
-    - name: Risoluzione dei problemi
+    - name: Risolvere problemi
       items:
         - name: Problemi noti
           href: azure-stack-troubleshooting.md
@@ -231,7 +248,7 @@
           href: azure-stack-diagnostics.md
         - name: Ridistribuire Azure Stack Development Kit
           href: azure-stack-redeploy.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: PowerShell per Azure Stack
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9

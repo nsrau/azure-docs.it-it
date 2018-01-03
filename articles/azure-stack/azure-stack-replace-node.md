@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: f3d6215b672be0d8de8ba0d94320b1a2413eadf1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4e5b1269e2bee31316cba99d69ea2a6d702faf05
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Sostituire un nodo di unità di scala su un sistema integrato dello Stack di Azure
 
@@ -51,6 +51,10 @@ Se si apre l'avviso "nodo unità di scala non in linea", la descrizione dell'avv
 I passaggi seguenti vengono forniti come una panoramica del processo di sostituzione nodo unità di scala. Vedere documentazione FRU del produttore dell'hardware OEM per la procedura dettagliata che sono specifiche per il sistema. Non eseguire la procedura senza fare riferimento alla documentazione fornita dall'OEM.
 
 1. Utilizzare il [svuotare](azure-stack-node-actions.md#scale-unit-node-actions) azione per inserire il nodo di unità di scala in modalità di manutenzione. Questa azione potrebbe non essere necessaria in base alla condizione dell'hardware fisica.
+
+   > [!NOTE]
+   > In ogni caso, un solo nodo possa essere svuotato e lo spegnimento nello stesso momento, senza interrompere le unità SSD (spazi di archiviazione diretta).
+
 2. Se il nodo è ancora attiva, utilizzare il [spegnere](azure-stack-node-actions.md#scale-unit-node-actions) azione. Questa azione potrebbe non essere necessaria in base alla condizione dell'hardware fisica.
  
    > [!NOTE]

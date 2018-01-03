@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: andredm
-ms.openlocfilehash: 3c51348be75a11419c12bc517ab7131323016a55
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-stack-1711-update"></a>Aggiornamento dello Stack 1711 Azure
 
@@ -51,6 +51,7 @@ Questo aggiornamento include i seguenti miglioramenti e correzioni per lo Stack 
 - Gli utenti ora possono attivare automaticamente macchine virtuali di Windows
 - Endpoint con privilegi aggiunti i cmdlet di PowerShell per recuperare le chiavi di ripristino BitLocker per scopi di memorizzazione
 - Supporto per l'aggiornamento delle immagini offline durante l'aggiornamento dell'infrastruttura
+- Abilitare il backup di infrastruttura con abilitare il servizio di Backup
 
 #### <a name="fixes"></a>Correzioni
 
@@ -87,7 +88,7 @@ In questa sezione contiene i problemi noti che possono verificarsi durante l'ins
 
 In questa sezione contiene i problemi noti di post-installazione con compilazione **20171201.3**.
 
-#### <a name="portal"></a>di Microsoft Azure
+#### <a name="portal"></a>Portale
 
 - Potrebbe non essere possibile visualizzare le risorse di calcolo o di archiviazione nel portale di amministrazione. Ciò indica che si è verificato un errore durante l'installazione dell'aggiornamento e che l'aggiornamento è stato segnalato in modo non corretto come esito positivo. Se si verifica questo problema, contattare Microsoft CSS per assistenza.
 - È possibile visualizzare un dashboard vuoto nel portale. Per ripristinare il dashboard, selezionare l'icona dell'ingranaggio in alto a destra del portale e quindi selezionare **ripristinare le impostazioni predefinite**.
@@ -139,6 +140,17 @@ Ambienti, distribuiti in Azure Active Directory Federation Services (ADFS) di **
 > [!IMPORTANT]
 > Anche se il **azurestack\cloudadmin** account è il proprietario della sottoscrizione del Provider predefinito in ambienti di distribuzione di ADFS, non dispone di autorizzazioni a RDP nell'host. Continuare a utilizzare il **azurestack\azurestackadmin** account o l'account amministratore locale per eseguire l'accesso, accedere e gestire l'host in base alle esigenze.
 
+#### <a name="infrastructure-backup-sevice"></a>Servizio di Backup di infrastruttura
+<!-- 1974890-->
+
+- **I backup di pre-1711 non sono supportati per il ripristino cloud.**  
+  Pre-1711 backup non sono compatibili con il ripristino cloud. È necessario aggiornare innanzitutto 1711 e abilitare i backup. Se già abilitato i backup, assicurarsi di eseguire un backup dopo l'aggiornamento a 1711. I backup di pre-1711 devono essere eliminati.
+
+- **Abilitazione backup infrastruttura ASDK è solo a scopo di test.**  
+  I backup di infrastruttura consente di ripristinare le soluzioni più nodi. È possibile abilitare il backup di infrastruttura in ASDK ma non è possibile testare il ripristino.
+
+Per ulteriori informazioni vedere [Backup e ripristino dei dati per lo Stack di Azure con il servizio di Backup di infrastruttura](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
+
 ## <a name="download-the-update"></a>Scaricare l'aggiornamento
 
 È possibile scaricare il pacchetto di aggiornamento da Azure Stack 1711 [qui](https://aka.ms/azurestackupdatedownload).
@@ -149,7 +161,7 @@ Microsoft ha fornito un modo per monitorare e riprendere gli aggiornamenti utili
 
 - Vedere il [monitorare gli aggiornamenti nello Stack di Azure utilizzando la documentazione di endpoint con privilegi](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 - Vedere [gestire gli aggiornamenti in panoramica di Azure Stack](azure-stack-updates.md) per una panoramica del processo di gestione nello Stack di Azure.
 - Vedere [applicare gli aggiornamenti in Azure Stack](azure-stack-apply-updates.md) per ulteriori informazioni su come applicare gli aggiornamenti con lo Stack di Azure.
