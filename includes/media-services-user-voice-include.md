@@ -5,6 +5,6 @@ Usare il forum di [suggerimenti degli utenti](http://go.microsoft.com/fwlink/?li
 * [Codifica ed elaborazione](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/)
 * [Streaming live](https://feedback.azure.com/forums/169396-media-services/category/144414-live-streaming/)
 * [Analisi di contenuti multimediali](https://feedback.azure.com/forums/169396-media-services/category/146181-media-analytics)
-* [Portale di Azure](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
+* [Azure portal](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
 * [API REST e piattaforma](https://feedback.azure.com/forums/169396-media-services/category/144423-rest-api-and-platform/)
 * [Video on Demand di streaming](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)

@@ -6,7 +6,7 @@ Accedere alla sottoscrizione di Azure con il comando `Login-AzureRmAccount` e se
 Login-AzureRmAccount
 ```
 
-Se non si sa quale posizione usare, è possibile elencare le posizioni disponibili. Nell'elenco visualizzato trovare la posizione da usare. In questo esempio viene usata la posizione **eastus**. Archiviare questo valore in una variabile e usare la variabile in modo da poter eseguire la modifica in un'unica posizione.
+Se non si sa quale posizione usare, è possibile elencare le posizioni disponibili. Nell'elenco visualizzato trovare la posizione da usare. Questo esempio viene utilizzato **eastus**. Archiviare questo valore in una variabile e usare la variabile in modo da poter eseguire la modifica in un'unica posizione.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -24,7 +24,7 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Creare un account di archiviazione standard per uso generico con replica dell'archiviazione con ridondanza locale mediante [New AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), quindi recuperare il contesto che definisce l'account di archiviazione da usare. Quando si usa un account di archiviazione, si può fare riferimento al contesto anziché fornire ripetutamente le credenziali. Questo esempio crea un account di archiviazione denominato *mystorageaccount* con archiviazione con ridondanza locale e con la crittografia BLOB abilitata.
+Creare un account di archiviazione standard per uso generico con replica dell'archiviazione con ridondanza locale mediante [New AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), quindi recuperare il contesto che definisce l'account di archiviazione da usare. Quando si usa un account di archiviazione, si può fare riferimento al contesto anziché fornire ripetutamente le credenziali. Questo esempio viene creato un account di archiviazione denominato *mystorageaccount* con la crittografia di blob e storage(LRS) localmente ridondante (abilitata per impostazione predefinita).
 
 ```powershell
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -32,7 +32,6 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Location $location `
   -SkuName Standard_LRS `
   -Kind Storage `
-  -EnableEncryptionService Blob
 
 $ctx = $storageAccount.Context
 ```
