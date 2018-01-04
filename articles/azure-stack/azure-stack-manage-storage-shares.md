@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: f305f6ca3c92824aeed8a3b04181cc87e34b5321
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 7056aefc6bc6203c8961b8a254a2b631c9072c7b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gestire la capacità di archiviazione per lo Stack di Azure
 
@@ -63,7 +63,7 @@ Dopo aver posizionato un blob in un contenitore, blob può iniziare a utilizzare
 
 I contenitori non sono limitati a una singola condivisione. Quando i dati blob combinati in un contenitore diventa più di 80% di utilizzo dello spazio disponibile, il contenitore immette *overflow* modalità. In modalità di overflow, qualsiasi nuovo BLOB creati in tale contenitore sono allocati a un volume diverso che disponga di spazio sufficiente. Nel corso del tempo, un contenitore in modalità di overflow può avere blob che sono distribuite in più volumi.
 
-Quando viene usato l'80% e il 90% dello spazio disponibile in un volume, il sistema genera avvisi nel portale di amministrazione di Azure Stack. Gli operatori di cloud devono esaminare la capacità di archiviazione disponibile e prevedere di ribilanciare il contenuto. Il servizio di archiviazione smette di funzionare quando un disco è 100% utilizzato e non esistono che alcun altri avvisi non vengono generati.
+Quando viene usato l'80% e il 90% dello spazio disponibile in un volume, il sistema genera avvisi nel portale di amministrazione di Azure Stack. Gli operatori di cloud devono esaminare la capacità di archiviazione disponibile e prevedere di ribilanciare il contenuto. Il servizio di archiviazione smette di funzionare quando un disco è 100% utilizzato e non altri avvisi vengono generati.
 
 ### <a name="disks"></a>Dischi
 Dischi di macchina virtuale vengono aggiunti ai contenitori dai tenant e includono un disco del sistema operativo. Le macchine virtuali possono anche avere uno o più dischi dati. Entrambi i tipi di dischi vengono archiviati come BLOB di pagine. Le linee guida per i tenant consiste nell'inserire ogni disco in un contenitore separato per migliorare le prestazioni della macchina virtuale.
@@ -123,7 +123,7 @@ Modelli di utilizzo di tenant, a causa di alcune condivisioni tenant usare più 
 
 Migrazione consolida tutte un blob in contenitori nella condivisione di nuovo.
 
-- Se un contenitore è in modalità overflow e ha inserito i BLOB nei volumi aggiuntivi, la nuova condivisione deve avere una capacità sufficiente a contenere tutti i BLOB per il contenitore in cui che si esegue la migrazione. Sono inclusi i blog che si trovano su condivisioni aggiuntive.
+- Se un contenitore è in modalità overflow e ha inserito i BLOB nei volumi aggiuntivi, la nuova condivisione deve avere una capacità sufficiente a contenere tutti i BLOB per il contenitore in cui che si esegue la migrazione. Questo include i blob che si trovano su condivisioni aggiuntive.
 
 - Il cmdlet PowerShell *Get AzsStorageContainer* identifica solo lo spazio utilizzato nel volume iniziale per un contenitore. Il cmdlet non identifica lo spazio utilizzato dal BLOB di mettere in volumi aggiuntivi. Pertanto, la dimensione totale di un contenitore potrebbe non essere evidente. È possibile che il consolidamento di un contenitore in una nuova condivisione può inviare tale nuova condivisione in una condizione di overflow in cui inserisce dati in condivisioni aggiuntive. Di conseguenza, potrebbe essere necessario ribilanciare condivisioni nuovamente.
 
@@ -187,5 +187,5 @@ Migrazione consolida tutte un blob in contenitori nella condivisione di nuovo.
 
 Il metodo per gestire lo spazio più estremo comporta lo spostamento di dischi di macchina virtuale. Poiché lo spostamento di un contenitore collegato (uno che contiene un disco di macchina virtuale) è complesso, contattare il supporto Microsoft per completare l'azione.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Altre informazioni, vedere [offerta di macchine virtuali per gli utenti](azure-stack-tutorial-tenant-vm.md).
