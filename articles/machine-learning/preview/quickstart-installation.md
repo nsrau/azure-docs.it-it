@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 10/13/2017
-ms.openlocfilehash: fd99fec7ead28c02ffe0d8b8165e8a0ab89d525e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 9a2648d800b803bf0d9d565a806e627c49bb1a00
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Creare account della versione di anteprima di Azure Machine Learning e installare Azure Machine Learning Workbench
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata end-to-end. Consente ai data scientist professionisti di preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
@@ -24,7 +24,7 @@ Questa guida introduttiva illustra come creare account di Sperimentazione e Gest
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Attualmente è possibile installare l'app desktop Azure Machine Learning Workbench solo nei sistemi operativi seguenti: 
 - Windows 10
@@ -49,12 +49,12 @@ Usare il portale di Azure per effettuare il provisioning degli account di Azure 
 
 4. Compilare il modulo di Sperimentazione di Machine Learning con le informazioni seguenti:
 
-   Impostazione|Valore consigliato|Descrizione
+   Impostazione|Valore consigliato|DESCRIZIONE
    ---|---|---
    Nome account di Experimentation | _Nome univoco_ |Scegliere un nome univoco per identificare l'account. È possibile usare il proprio nome o il nome di un reparto o un progetto che identifichi l'esperimento. Il nome deve avere una lunghezza compresa tra 2 e 32 caratteri. Può contenere solo caratteri alfanumerici e il trattino (-). 
    Sottoscrizione | _Sottoscrizione in uso_ |Scegliere la sottoscrizione di Azure da usare per l'esperimento. Se si hanno più sottoscrizioni, scegliere quella appropriata per la fatturazione della risorsa.
    Gruppo di risorse | _Il gruppo di risorse_ | È possibile creare un nuovo nome di gruppo di risorse o usarne uno esistente nella sottoscrizione.
-   Percorso | _Area più vicina ai propri utenti_ | Scegliere la località più vicina agli utenti e alle risorse di dati.
+   Località | _Area più vicina ai propri utenti_ | Scegliere la località più vicina agli utenti e alle risorse di dati.
    Number of seats (Numero di postazioni) | 2 | Immettere il numero di postazioni. Questa impostazione influisce sui [prezzi](https://azure.microsoft.com/pricing/details/machine-learning/). Le prime due postazioni sono gratuite. Usare due postazioni ai fini di questa guida rapida. È possibile aggiornare il numero di postazioni in seguito nel portale di Azure.
    Account di archiviazione | _Nome univoco_ | Selezionare **Crea nuovo** e specificare un nome per creare un account di archiviazione di Azure. In alternativa, selezionare **Usa esistente** e selezionare un account di archiviazione esistente nell'elenco a discesa. L'account di archiviazione è obbligatorio e viene usato per contenere gli elementi del progetto e i dati della cronologia di esecuzione. 
    Workspace for Experimentation account (Area di lavoro per account di Sperimentazione) | _Nome univoco_ | Specificare un nome per la nuova area di lavoro. Il nome deve avere una lunghezza compresa tra 2 e 32 caratteri. Può contenere solo caratteri alfanumerici e il trattino (-).

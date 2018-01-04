@@ -4,7 +4,7 @@ description: Informazioni su come aggiungere informazioni personalizzate distint
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 41f4ceea4842303760c5b156e90bd9e0746a7825
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
-ms.translationtype: HT
+ms.openlocfilehash: 0855129c35c0c3d0f1814e8d29b6f3ae7d950db7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Avvio rapido: Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso in Azure AD
 Per evitare confusione, molte aziende vogliono applicare un aspetto coerente a tutti i siti Web e servizi che gestiscono. Azure Active Directory (Azure AD) offre questa funzionalità consentendo di personalizzare l'aspetto della pagina di accesso, in modo da includere il logo e le combinazioni colori personalizzate dell'azienda. La pagina di accesso è la pagina visualizzata quando si accede a Office 365 o ad altre applicazioni basate sul Web che usano Azure AD come provider di identità. Interagire con questa pagina per immettere le credenziali.
@@ -45,32 +45,32 @@ Quando gli utenti visitano un URL generico, ad esempio www.office.com, la pagina
 
 ### <a name="banner-logo"></a>Logo banner 
 
-Descrizione | Vincoli | Raccomandazioni
+DESCRIZIONE | Vincoli | Raccomandazioni
 ------- | ------- | ----------
 Il logo del banner viene visualizzato nella pagina di accesso e nelle pagine del pannello di accesso.<br>Nella pagina di accesso viene visualizzato una volta determinata l'organizzazione dell'utente, in genere dopo l'immissione del nome utente.  | JPG o PNG trasparente<br>Altezza massima: 36 pixel<br>Larghezza massima: 245 pixel | Usare il logo dell'organizzazione in questa posizione.<br>Usare un'immagine trasparente. Non dare per scontato che lo sfondo sarà bianco.<br>Non aggiungere spaziatura interna intorno al logo nell'immagine o il logo apparirà sproporzionatamente piccolo.
 
 ### <a name="username-hint"></a>Suggerimento per il nome utente   
-Descrizione | Vincoli | Raccomandazioni
+DESCRIZIONE | Vincoli | Raccomandazioni
 ------- | ------- | ----------
 Consente di personalizzare il testo di suggerimento nel campo relativo al nome utente. | Testo Unicode contenente fino a 64 caratteri<br>Solo testo normale | Si consiglia di non impostare questo elemento se si prevede che utenti guest esterni all'organizzazione accedano all'app.
             
 ### <a name="sign-in-page-text"></a>Testo della pagina di accesso   
-Descrizione | Vincoli | Raccomandazioni
+DESCRIZIONE | Vincoli | Raccomandazioni
 ------- | ------- | ----------
 Questo testo viene visualizzato nella parte inferiore del modulo di accesso e può essere usato per comunicare informazioni aggiuntive, ad esempio il numero di telefono dell'help desk o una nota legale. | Testo Unicode fino a 256 caratteri<br>Solo testo normale, senza collegamenti o tag HTML   
 
 ### <a name="sign-in-page-image"></a>Immagine della pagina di accesso  
-Descrizione | Vincoli | Raccomandazioni
+DESCRIZIONE | Vincoli | Raccomandazioni
 ------- | ------- | ----------
 Questa immagine viene visualizzata sullo sfondo della pagina di accesso, è ancorata al centro dell'area visualizzabile e viene ridimensionata e ritagliata per riempire la finestra del browser.    <br>Negli schermi stretti, come quelli dei telefoni cellulari, l'immagine non viene visualizzata.<br>Quando la pagina viene caricata, il codice applica una maschera nera con opacità 0,55 sopra all'immagine. | JPG o PNG<br>Dimensioni immagine: 1920 x 1080 pixel<br>Dimensioni del file: &lt; 300 KB | <br>Usare le immagini nei casi in cui non è necessario richiamare l'attenzione sull'argomento. Il modulo di accesso opaco viene visualizzato sopra la parte centrale dell'immagine e può coprire qualsiasi parte dell'immagine, a seconda delle dimensioni della finestra del browser.<br>Mantenere le dimensioni del file quanto più piccole possibile per garantire tempi di caricamento rapidi. 
 
 ### <a name="background-color"></a>Colore di sfondo
-Descrizione | Vincoli | Raccomandazioni
+DESCRIZIONE | Vincoli | Raccomandazioni
 ------- | ------- | ----------
 Questo colore viene usato al posto dell'immagine di sfondo con le connessioni con larghezza di banda ridotta. | Colore RGB in formato esadecimale (esempio: #FFFFFF) | È consigliabile usare il colore primario del logo del banner o il colore dell'organizzazione.
 
 ### <a name="show-option-to-remain-signed-in"></a>Impostazione Mostra l'opzione per mantenere l'accesso
-Descrizione | Vincoli | Raccomandazioni
+DESCRIZIONE | Vincoli | Raccomandazioni
 ------- | ------- | ----------
 La pagina di accesso di Azure AD include un'opzione che consente a un utente di rimanere connesso quando chiude e riapre il browser. Usare questa impostazione per nascondere tale opzione.<br>Impostare il valore su "No" per nascondere l'opzione agli utenti. | &nbsp; | Questa impostazione non influisce sulla durata della sessione.<br>Alcune funzionalità di SharePoint Online e di Office 2010 dipendono dal fatto che gli utenti possano o meno scegliere se restare connessi. Se si configura questa impostazione come nascosta, gli utenti potrebbero visualizzare prompt aggiuntivi e imprevisti con una richiesta di accesso.
 

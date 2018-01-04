@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: cb517134-0b34-4a74-b40c-5a3223ca81b6
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: b858c6d26b78be4641a46b3453f53d103b512356
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cccce8025522a4be99670aacadbeb0ea83147931
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>Esercitazione: Integrazione di Azure Active Directory con LiquidFiles
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con LiquidFiles, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di LiquidFiles abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
@@ -47,7 +47,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di LiquidFiles dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -63,11 +63,11 @@ Per configurare l'integrazione di LiquidFiles in Azure AD, è necessario aggiung
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 4. Nella casella di ricerca digitare **LiquidFiles**.
 
@@ -86,7 +86,7 @@ Per stabilire la relazione di collegamento, in LiquidFiles assegnare il valore d
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con LiquidFiles, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di LiquidFiles](#creating-a-liquidfiles-test-user)**: per avere una controparte di Britta Simon in LiquidFiles collegata alla rappresentazione in Azure AD dell'utente.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -100,17 +100,17 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **LiquidFiles** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_samlbase.png)
 
 3. Nella sezione **URL e dominio LiquidFiles** seguire questa procedura:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<YOUR_SERVER_URL>/saml/init`.
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<YOUR_SERVER_URL>/saml/init`
 
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<YOUR_SERVER_URL>`
 
@@ -121,15 +121,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
 4. Nella sezione **Certificato di firma SAML** copiare il valore **IDENTIFICAZIONE PERSONALE** del certificato.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_certificate.png) 
 
 5. Fare clic sul pulsante **Salva** .
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_general_400.png)
 
-6. Nella sezione **Configurazione di LiquidFiles** fare clic su **Configura LiquidFiles** per visualizzare la finestra **Configura accesso**. Copiare l'**URL di disconnessione e l'URL del servizio Single Sign-On SAML** dalla **sezione di riferimento rapido**.
+6. Nella sezione **Configurazione di LiquidFiles** fare clic su **Configura LiquidFiles** per visualizzare la finestra **Configura accesso**. Copiare i valori **Sign-Out URL (URL di disconnessione) e SAML Single Sign-On Service URL (URL servizio Single Sign-On SAML)** dalla sezione **Quick Reference** (Riferimento rapido).
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_configure.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_configure.png)
  
 7. Accedere al sito aziendale LiquidFiles come amministratore.
 
@@ -137,7 +137,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 9. Nella pagina **Single Sign-On Configuration** (Configurazione Single Sign-On) seguire questa procedura
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_single_01.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_single_01.png)
 
     a. In **Single Sign On Method** (Metodo Single Sign-On) selezionare **SAML 2**.
 
@@ -151,7 +151,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     f. Nella casella di testo Authn Context (Contesto autorizzazione) digitare il valore **urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport**.
 
-    g. Fare clic su **Salva**.  
+    g. Fare clic su **Save**.  
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -206,7 +206,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco di applicazioni selezionare **LiquidFiles**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-liquidfiles-tutorial/tutorial_liquidfiles_app.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

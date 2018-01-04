@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 593cb6da3527a32906e8e9faa11dc13a3ef5440f
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: c8a25d64f3925ec963d8d02c827bd2045994feac
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Procedure consigliate e modelli per la sicurezza di Azure
 Attualmente sono disponibili gli articoli seguenti sulle procedure consigliate e sui modelli per la sicurezza di Azure. Ricordare di visitare periodicamente questo sito per conoscere gli aggiornamenti dell'elenco in continua espansione di procedure consigliate e modelli per la sicurezza di Azure:  
@@ -29,8 +29,8 @@ Attualmente sono disponibili gli articoli seguenti sulle procedure consigliate e
 * [Procedure consigliate per la sicurezza di Internet of Things](azure-security-iot-best-practices.md)
 * [Procedure consigliate per la sicurezza di carichi di lavoro IaaS in Azure] (azure-security-iaas.md)
 * [Procedure consigliate per la sicurezza dei limiti di Azure](../best-practices-network-security.md)
-* [Implementing a secure hybrid network architecture in Azure (Implementazione di un'architettura di rete ibrida sicura in Azure)](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
-* [Azure PaaS Best Practices] (https://docs.microsoft.com/en-us/azure/security/security-paas-deployments)
+* [Implementazione di un'architettura di rete ibrida sicura in Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
+* [Azure PaaS consigliate] (https://docs.microsoft.com/azure/security/security-paas-deployments)
 
 Azure fornisce una piattaforma sicura per creare le proprie soluzioni. Sono forniti anche servizi e tecnologie che rendono più sicure le soluzioni in Azure. Dato l'alto numero di opzioni disponibili, in molti hanno manifestato interesse per le procedure consigliate e i modelli suggeriti da Microsoft per aumentare la sicurezza.
 

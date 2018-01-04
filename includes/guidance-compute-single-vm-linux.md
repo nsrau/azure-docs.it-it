@@ -27,7 +27,7 @@ Il provisioning di una VM in Azure coinvolge un altri componenti mobili oltre al
 * **Gruppo di sicurezza di rete (NSG)**. Il [gruppo di sicurezza di rete][nsg] viene usato per consentire/negare il traffico di rete verso la subnet. Un NSG può essere associato a una singola scheda di interfaccia di rete o a una subnet. Se lo si associa a una subnet, le regole dell’NSG si applicano a tutte le VM nella subnet.
 * **Diagnostica.** La registrazione diagnostica è essenziale per la gestione e la risoluzione dei problemi della macchina virtuale.
 
-## <a name="recommendations"></a>Indicazioni
+## <a name="recommendations"></a>Raccomandazioni
 
 Le raccomandazioni seguenti sono valide per la maggior parte degli scenari. Seguire queste indicazioni, a meno che non si disponga di un requisito specifico che le escluda. 
 
@@ -51,7 +51,7 @@ Per ottimizzare le prestazioni I/O del disco, si consiglia di usare [Archiviazio
 
 Creare account di archiviazione di Azure separati per ogni VM e per contenere i dischi rigidi virtuali in modo da evitare di raggiungere i limiti di operazioni di I/O al secondo per gli account di archiviazione. 
 
-Aggiungere uno o più dischi dati. Quando si crea un VHD, il disco non è formattato. Accedere alla VM per formattare il disco. Nella shell di Linux, i dischi dati vengono visualizzati come `/dev/sdc`, `/dev/sdd` e così via. È possibile eseguire `lsblk` per elencare i dispositivi a blocchi, ad esempio i dischi. Per usare un disco dati, creare una partizione e un file system, quindi montare il disco. Ad esempio:
+Aggiungere uno o più dischi dati. Quando si crea un VHD, il disco non è formattato. Accedere alla VM per formattare il disco. Nella shell di Linux, i dischi dati vengono visualizzati come `/dev/sdc`, `/dev/sdd` e così via. È possibile eseguire `lsblk` per elencare i dispositivi a blocchi, ad esempio i dischi. Per usare un disco dati, creare una partizione e un file system, quindi montare il disco. Ad esempio: 
 
 ```bat
 # Create a partition.
@@ -155,7 +155,7 @@ m Una distribuzione di questa architettura di riferimento è disponibile in [Git
    * Poiché il nome del **gruppo di risorse** è già definito nel file dei parametri, selezionare **Crea nuovo** e immettere `ra-single-vm-rg` nella casella di testo.
    * Selezionare l'area dalla casella di riepilogo a discesa **Località**.
    * Non modificare le caselle di testo **Template Root Uri** (URI radice modello) né **Parameter Root Uri** (URI radice parametro).
-.   *Selezionare **linux** nella casella di riepilogo a discesa **Tipo di sistema operativo**.
+.   * Selezionare **linux** nel **tipo di sistema operativo** elenchi a discesa.
    * Leggere i termini e le condizioni, quindi fare clic sulla casella di controllo **Accetto le condizioni riportate sopra**.
    * Fare clic sul pulsante **Acquista**.
 3. Attendere il completamento della distribuzione.
@@ -188,7 +188,7 @@ Per una maggiore disponibilità, distribuire due o più macchine virtuali dietro
 [nsg-default-rules]: ../articles/virtual-network/virtual-networks-nsg.md#default-rules
 [OSPatching]: https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching
 [planned-maintenance]:../articles/virtual-machines/linux/planned-maintenance.md
-[premium-storage]:../articles/storage/common/storage-premium-storage.md
+[premium-storage]:../articles/virtual-machines/windows/premium-storage.md
 [rbac]: ../articles/active-directory/role-based-access-control-what-is.md
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
 [rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-labs-user

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: d354e50217dabebfeb16df29d4954181ff67e28f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: bb231b4a5210019b36bb4bb123795b4762374c66
+ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Gestire gli avvisi relativi alla manutenzione pianificata per le macchine virtuali Linux
 
@@ -30,9 +30,9 @@ Azure esegue periodicamente aggiornamenti per migliorare l'affidabilità, le pre
 - Se la manutenzione richiede un riavvio, si riceve un avviso che informa per quando è pianificata la manutenzione. In questi casi, viene anche indicata una finestra temporale in cui avviare la manutenzione manualmente, in un momento opportuno per l'utente.
 
 
-La manutenzione pianificata che richiede un riavvio viene pianificata a ondate. Ogni ondata ha un ambito diverso (aree),
+Manutenzione pianificata che richiede un riavvio è pianificata in onde. Ogni ondata ha un ambito diverso (aree),
 
-- e inizia con un avviso ai clienti. Per impostazione predefinita, l'avviso viene inviato ai comproprietari e ai proprietari della sottoscrizione. È possibile aggiungere più destinatari e le opzioni di messaggistica come messaggio di posta elettronica, SMS e ai Webhook, per le notifiche tramite Azure [gli avvisi del registro attività](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
+- e inizia con un avviso ai clienti. Per impostazione predefinita, l'avviso viene inviato ai comproprietari e ai proprietari della sottoscrizione. È possibile aggiungere più destinatari e le opzioni di messaggistica come messaggio di posta elettronica, SMS e ai webhook, per le notifiche tramite Azure [gli avvisi del registro attività](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
 - Al momento della notifica, un *self-service finestra* viene reso disponibile. Durante questo periodo, è possibile trovare le macchine virtuali inclusi in questo wave e avviare in modo proattivo manutenzione in base alle proprie esigenze di pianificazione.
 - Dopo la finestra di self-service, un *finestra di manutenzione pianificata* inizia. A un certo punto durante questa finestra di Azure pianifica e si applica la manutenzione necessaria per la macchina virtuale. 
 
@@ -87,13 +87,13 @@ az vm get-instance-view  - g rgName  -n vmName
 
 MaintenanceRedeployStatus restituisce i valori seguenti: 
 
-| Valore | Descrizione   |
+| Valore | DESCRIZIONE   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica se in questo momento è possibile avviare la manutenzione per la macchina virtuale ||
 | PreMaintenanceWindowStartTime         | Inizio della finestra di manutenzione self-service, che segnala la possibilità di avviare la manutenzione della VM ||
 | PreMaintenanceWindowEndTime           | Termine della finestra di manutenzione self-service, che segnala la possibilità di avviare la manutenzione della VM ||
-| MaintenanceWindowStartTime            | Inizio della finestra di manutenzione pianificata, che segnala la possibilità di avviare la manutenzione della VM ||
-| MaintenanceWindowEndTime              | Termine della finestra di manutenzione pianificata, che segnala la possibilità di avviare la manutenzione della VM ||
+| MaintenanceWindowStartTime            | Inizio della finestra di manutenzione pianificata in cui Azure avvia la manutenzione di una macchina virtuale ||
+| MaintenanceWindowEndTime              | La fine della finestra di manutenzione pianificata in cui Azure avvia la manutenzione di una macchina virtuale ||
 | LastOperationResultCode               | Risultato dell'ultimo tentativo di avviare la manutenzione della macchina virtuale ||
 
 
@@ -132,7 +132,7 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 ```
 
 
-## <a name="faq"></a>domande frequenti
+## <a name="faq"></a>Domande frequenti
 
 
 **D: Perché è necessario riavviare ora le macchine virtuali?**
@@ -159,7 +159,7 @@ Per ulteriori informazioni sulla disponibilità elevata, vedere [aree e disponib
 
 **D: Quanto tempo sarà necessario per riavviare la macchina virtuale?**
 
-**R:** A seconda delle dimensioni della VM, il riavvio può richiedere anche diversi minuti. Si noti che in caso di un set di disponibilità, imposta la scala di macchine virtuali o servizi Cloud (ruoli Web/di lavoro), sarà possibile 30 minuti tra ogni gruppo di macchine virtuali (UD). 
+**R:** a seconda delle dimensioni della macchina virtuale, riavviare il computer potrebbe richiedere alcuni minuti durante la finestra di manutenzione self-service. Durante il Azure avviate riavvii nella finestra di manutenzione pianificata, il riavvio in genere richiede circa 25 minuti. Si noti che in caso di un set di disponibilità, imposta la scala di macchine virtuali o servizi Cloud (ruoli Web/di lavoro), sarà possibile 30 minuti tra ogni gruppo di macchine virtuali (UD) durante la finestra di manutenzione pianificata.
 
 **D: che cos'è l'esperienza in caso di servizi Cloud (ruoli Web/di lavoro), Service Fabric e set di scalabilità di macchine virtuali?**
 
@@ -190,6 +190,6 @@ Per ulteriori informazioni sulla disponibilità elevata, vedere [aree e disponib
 **R:** se si è selezionato per aggiornare più istanze in un set di disponibilità in successione breve, Azure verranno inseriti nella coda le richieste e inizia a aggiornare solo le macchine virtuali nel dominio di aggiornamento (UD) alla volta. Tuttavia, poiché potrebbe esserci una pausa tra domini di aggiornamento, l'aggiornamento potrebbe sembrare richiedere più tempo. Se la coda di aggiornamento richiede più di 60 minuti, verranno visualizzate alcune istanze di **ignorata** stato anche se sono stati aggiornati correttamente. Per evitare questo stato non corretto, aggiornare la disponibilità del set facendo clic solo su istanza all'interno di una disponibilità impostato e attendere l'aggiornamento su tale macchina virtuale per il completamento prima di fare clic sulla macchina virtuale successiva in un dominio di aggiornamento diversi.
 
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Informazioni su come registrare eventi di manutenzione da una macchina virtuale usando [gli eventi pianificati](scheduled-events.md).

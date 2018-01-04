@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: davidmu
 ms.openlocfilehash: b167a0584740a4e583a35bd6d44ec5d616ba04f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Creare un probe personalizzato per il gateway applicazione di Azure (classico) con PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](application-gateway-create-probe-portal.md)
+> * [Azure portal](application-gateway-create-probe-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [PowerShell per Azure classico](application-gateway-create-probe-classic-ps.md)
 
@@ -60,7 +60,7 @@ Get-AzureApplicationGateway AppGwTest
 ```
 
 > [!NOTE]
-> Il valore predefinito per *InstanceCount* è 2, con un valore massimo di 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Small, Medium e Large.
+> Il valore predefinito per *InstanceCount* è 2, con un valore massimo pari a 10. Il valore predefinito per *GatewaySize* è Medium. È possibile scegliere tra Small, Medium e Large.
 > 
 > 
 
@@ -147,7 +147,7 @@ Viene aggiunto un nuovo elemento di configurazione \<Probe\> per configurare i p
 
 I parametri di configurazione sono:
 
-|Parametro|Descrizione|
+|Parametro|DESCRIZIONE|
 |---|---|
 |**Nome** |Nome di riferimento del probe personalizzato. |
 * **Protocol** | Protocollo usato. I valori possibili sono HTTP o HTTPS.|

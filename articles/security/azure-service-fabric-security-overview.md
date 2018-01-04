@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 908bdaf002e42035567974b204f5b39e73e82024
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 64717da922701aabd27e15a67e8da1b0acb30b77
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-security-overview"></a>Panoramica della sicurezza di Azure Service Fabric
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) è una piattaforma di sistemi distribuiti che semplifica la creazione di pacchetti, la distribuzione e la gestione di microservizi scalabili e affidabili. Service Fabric fa fronte alle principali problematiche correlate allo sviluppo e alla gestione delle applicazioni cloud. Gli sviluppatori e gli amministratori non devono più occuparsi di risolvere complessi problemi di infrastruttura e possono concentrarsi sull'implementazione di carichi di lavoro cruciali e impegnativi, con la certezza di assicurare scalabilità, affidabilità e gestibilità.
@@ -50,7 +50,7 @@ I cluster eseguiti in Azure o i cluster autonomi eseguiti in Windows possono usa
 
 Service Fabric usa i certificati server X.509 specificati quando si crea un cluster. Per una rapida panoramica di questi certificati e di come è possibile acquisirli o crearli, vedere [Utilizzo dei certificati](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/working-with-certificates).
 
-La sicurezza basata su certificati viene configurata durante la creazione del cluster tramite il portale di Azure, i modelli di Azure Resource Manager o un modello JSON autonomo. È possibile specificare un certificato primario e un certificato secondario facoltativo che viene usato per i rollover dei certificati. I certificati primario e secondario specificati devono essere diversi dai certificati client di amministrazione e dai certificati client di sola lettura specificati per la [sicurezza da client a nodo](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-security).
+La sicurezza basata su certificati viene configurata durante la creazione del cluster tramite il portale di Azure, i modelli di Azure Resource Manager o un modello JSON autonomo. È possibile specificare un certificato primario e un certificato secondario facoltativo che viene usato per i rollover dei certificati. I certificati primario e secondario specificati devono essere diversi dai certificati client di amministrazione e dai certificati client di sola lettura specificati per la [sicurezza da client a nodo](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security).
 
 ### <a name="client-to-node-security"></a>Sicurezza da client a nodo
 La sicurezza da client a nodo viene configurata usando le identità dei client. Per stabilire l'attendibilità tra un client e il cluster, è necessario configurare il cluster in modo che riconosca quali identità di client può considerare attendibili. È possibile, a questo scopo, eseguire una delle due operazioni seguenti:
@@ -120,7 +120,7 @@ I certificati digitali X.509 vengono comunemente usati per autenticare client e 
 
 La tabella seguente include un elenco dei certificati necessari per la configurazione del cluster:
 
-|Impostazione Informazioni sul certificato |Descrizione|
+|Impostazione Informazioni sul certificato |DESCRIZIONE|
 |-------------------------------|-----------|
 |ClusterCertificate|    Questo certificato è necessario per proteggere la comunicazione tra i nodi di un cluster. È possibile usare due diversi certificati, uno certificato primario e uno secondario per l'aggiornamento.|
 |ServerCertificate| Questo certificato viene presentato al client quando tenta di connettersi al cluster. È possibile usare due diversi certificati server, uno certificato primario e uno secondario per l'aggiornamento.|

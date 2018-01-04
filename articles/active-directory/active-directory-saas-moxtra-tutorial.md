@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 2aed2d4b-1dcd-4839-8fed-9419d107c61c
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: db2f041a44b6771b0a4f734e58d899298ef0847b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3b10d954a7759fe945b162119d760fd6ad44317c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Esercitazione: integrazione di Azure Active Directory con Moxtra
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con Moxtra, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di Moxtra abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
@@ -47,7 +47,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Moxtra dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -63,11 +63,11 @@ Per configurare l'integrazione di Moxtra in Azure AD, è necessario aggiungere M
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 4. Nella casella di ricerca, digitare **Moxtra**.
 
@@ -86,7 +86,7 @@ Per stabilire la relazione di collegamento, in Moxtra assegnare il valore del **
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Moxtra, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente di test di Moxtra](#creating-a-moxtra-test-user)**: per avere una controparte di Britta Simon in Moxtra collegata alla rappresentazione dell'utente in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -100,21 +100,21 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **Moxtra** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_samlbase.png)
 
 3. Nella sezione **URL e dominio Moxtra** seguire questa procedura:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_url.png)
 
     Nella casella di testo **URL di accesso** digitare l'URL come: `https://www.moxtra.com/service/#login`
 
 4. L'applicazione Moxtra prevede che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione. Lo screenshot seguente illustra un esempio di questa configurazione. 
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_attributes.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_attributes.png)
     
 5. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come illustrato nell'immagine e seguire questa procedura:
     
@@ -129,11 +129,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     a. Fare clic su **Aggiungi attributo** per aprire la finestra di dialogo **Aggiungi attributo**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_attribute_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_attribute_04.png)
 
     b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_attribute_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_attribute_05.png)
 
     c. Nell'elenco **Valore** digitare il valore dell'attributo indicato per la riga.
 
@@ -141,25 +141,25 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
 5. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_certificate.png) 
 
 6. Fare clic sul pulsante **Salva** .
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_general_400.png)
 
-7. Nella sezione **Configurazione di Moxtra** fare clic su **Configura Moxtra** per aprire la finestra **Configura accesso**. Copiare l'**ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla **sezione di riferimento rapido**.
+7. Nella sezione **Configurazione di Moxtra** fare clic su **Configura Moxtra** per aprire la finestra **Configura accesso**. Copiare l'**ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla **sezione di riferimento rapido.**
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_configure.png) 
 
 8. In un'altra finestra del browser, accedere al sito aziendale di Moxtra come amministratore.
 
 9. Nella barra degli strumenti a sinistra, fare clic su**Admin Console > SAML Single Sign-On** (Console di amministrazione > Single Sign-On SAML), quindi su **New** (Nuovo).
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_06.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_06.png) 
 
 10. Nella pagina **SAML** , eseguire i passaggi seguenti:
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_08.png)   
+    ![Configure Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_08.png)   
  
     a. Nella casella di testo **Nome** , digitare un nome per la configurazione (ad esempio *SAML*). 
   
@@ -224,7 +224,7 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Moxtra.
 
 2. Nella barra degli strumenti a sinistra, fare clic su**Admin Console > Gestione utente** e quindi su **Aggiungi utente**.
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_10.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_10.png) 
 
 3. Nella finestra di dialogo **Aggiungi utente** seguire questa procedura:
   
@@ -256,7 +256,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco di applicazioni, selezionare **Moxtra**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_app.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

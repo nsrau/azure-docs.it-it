@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 080c83fd0c34bdcb8978edf0ba4f783402a88b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7497753cc27867b1fdb9635ba6613ac75b449090
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticazione dei dispositivi con i certificati della CA X.509
 
@@ -81,8 +81,8 @@ Una connessione riuscita del dispositivo all'hub IoT completa il processo di aut
 
 Informazioni su come [completare questo passaggio di connessione del dispositivo](iot-hub-security-x509-get-started.md#authenticatedevice).
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Informazioni sul [significato dell'autenticazione con il certificato della CA X.509](iot-hub-x509ca-concept.md) in IoT.
 
-Introduzione al [servizio Device Provisioning ](https://docs.microsoft.com/en-us/azure/iot-dps/) nell'hub IoT.
+Introduzione al [servizio Device Provisioning ](https://docs.microsoft.com/azure/iot-dps/) nell'hub IoT.

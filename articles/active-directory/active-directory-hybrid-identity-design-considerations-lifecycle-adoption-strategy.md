@@ -4,7 +4,7 @@ description: "Consente di definire le attività della gestione ibrida delle iden
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 420b6046-bd9b-4fce-83b0-72625878ae71
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 18b40486a66d8e092a8af299460145989a1ab99d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ef8c4a0f672af2540f071f40eac77dc881eb31ac
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinare la strategia di adozione del ciclo di vita della soluzione ibrida di gestione delle identità
 In questa attività verrà definita la strategia di gestione delle identità in modo che la soluzione ibrida soddisfi i requisiti aziendali definiti in [Determinare le attività della gestione ibrida delle identità](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -72,7 +72,7 @@ Integrazione con altri provider di terze parti
 Azure Active Directory offre autenticazione Single Sign-On e sicurezza avanzata per l'accesso alle applicazioni a migliaia di applicazioni SaaS e di applicazioni Web locali. Per un elenco dettagliato delle applicazioni SaaS supportate nella raccolta di applicazioni di Azure Active Directory, vedere l'elenco di compatibilità per la federazione di Azure Active Directory: provider di identità di terze parti che possono essere usati per implementare l'accesso Single Sign-On
 
 ## <a name="define-synchronization-management"></a>Definire la soluzione di gestione della sincronizzazione
-L'integrazione delle directory locali con Azure AD rende gli utenti più produttivi in quanto fornisce un'identità comune per accedere alle risorse cloud e locali. Con questa integrazione utenti e organizzazioni possono sfruttare i vantaggi seguenti:
+L'integrazione delle directory locali con Azure AD rende gli utenti più produttivi, in quanto fornisce un'identità comune per accedere alle risorse cloud e locali. Con questa integrazione utenti e organizzazioni possono sfruttare i vantaggi seguenti:
 
 * Le organizzazioni possono fornire agli utenti un'identità ibrida comune per i servizi locali e basati sul cloud sfruttando Windows Server Active Directory per connettersi quindi ad Azure Active Directory.
 * Gli amministratori possono fornire l'accesso condizionale in base alla risorsa dell'applicazione, al dispositivo e all'identità utente, al percorso di rete e all'autenticazione a più fattori.

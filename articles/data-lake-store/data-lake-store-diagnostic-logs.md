@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: f6496fb62670c480ce543a51225856f0fb5d89b5
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
-ms.translationtype: HT
+ms.openlocfilehash: 1ca825d14b7d2bb7424883362a3053f243123462
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Accesso ai log di diagnostica per Archivio Data Lake di Azure
 Informazioni su come abilitare la registrazione diagnostica per l'account Data Lake Store e visualizzare i log raccolti per l'account.
@@ -26,7 +26,7 @@ Informazioni su come abilitare la registrazione diagnostica per l'account Data L
 Le organizzazioni possono abilitare la registrazione diagnostica per il loro account di Archivio Data Lake di Azure per raccogliere gli audit trial di accesso ai dati che forniscono varie informazioni, come l’elenco di utenti che hanno avuto accesso ai dati, la frequenza di accesso ai dati, la quantità di dati archiviati nell’account, ecc.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Account di Archivio Data Lake di Azure**. Seguire le istruzioni fornite in [Introduzione ad Archivio Azure Data Lake tramite il portale di Azure](data-lake-store-get-started-portal.md).
 
 ## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Abilitare la registrazione diagnostica per l'account di Archivio Data Lake
@@ -47,7 +47,7 @@ Le organizzazioni possono abilitare la registrazione diagnostica per il loro acc
         
         * Selezionare l'opzione per eseguire lo **streaming in Hub eventi** per trasmettere i dati di log a un Hub eventi di Azure. Molto probabilmente questa opzione viene utilizzata se si dispone di una pipeline di elaborazione a valle per analizzare in tempo reale i log in ingresso. Se si seleziona questa opzione, è necessario fornire i dettagli dell'Hub eventi di Azure che si desidera utilizzare.
 
-        * Selezionare l'opzione per **inviare a Log Analytics** per usare il servizio Log Analytics di Azure per analizzare i dati di log generati. Se si seleziona questa opzione, è necessario fornire i dettagli per l'area di lavoro di Operations Management Suite che si vuole usare per eseguire l'analisi dei log.
+        * Selezionare l'opzione per **inviare a Log Analytics** per usare il servizio Log Analytics di Azure per analizzare i dati di log generati. Se si seleziona questa opzione, è necessario fornire i dettagli per l'area di lavoro di Operations Management Suite che si vuole usare per eseguire l'analisi dei log. Vedere [visualizzazione o analizzare i dati raccolti con ricerca di log Log Analitica](../log-analytics/log-analytics-tutorial-viewdata.md) per informazioni dettagliate sull'utilizzo di Log Analitica.
      
    * Specificare se si desidera ottenere i log di controllo, i log delle richieste o entrambi.
    * Specificare il numero di giorni per cui devono essere conservati i dati. La conservazione dei dati è disponibile solo se si usano account di archiviazione di Azure per archiviare i dati del log.
@@ -114,27 +114,27 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
     }
 
 #### <a name="request-log-schema"></a>Schema del log delle richieste
-| Nome | Tipo | Descrizione |
+| NOME | type | DESCRIZIONE |
 | --- | --- | --- |
-| time |String |Il timestamp del log (fusorario UTC) |
-| resourceId |String |L’ID della risorsa interessata dall’operazione |
-| category |String |La categoria di log. Ad esempio, **Richieste**. |
-| operationName |String |Il nome dell'operazione registrata. Ad esempio, getfilestatus. |
-| resultType |String |Lo stato dell'operazione, ad esempio 200. |
-| callerIpAddress |String |L’indirizzo IP del client che esegue la richiesta |
-| correlationId |String |L'ID del log utilizzato per raggruppare un set di voci di log correlate |
+| time |string |Il timestamp del log (fusorario UTC) |
+| ResourceId |string |L’ID della risorsa interessata dall’operazione |
+| category |string |La categoria di log. Ad esempio, **Richieste**. |
+| operationName |string |Il nome dell'operazione registrata. Ad esempio, getfilestatus. |
+| resultType |string |Lo stato dell'operazione, ad esempio 200. |
+| callerIpAddress |string |L’indirizzo IP del client che esegue la richiesta |
+| correlationId |string |L'ID del log che può essere utilizzato per raggruppare un set di voci di log correlate |
 | identity |Oggetto |L'identità che ha generato il log |
 | properties |JSON |Vedere di seguito per ulteriori dettagli |
 
 #### <a name="request-log-properties-schema"></a>Schema delle proprietà del log di richiesta
-| Nome | Tipo | Descrizione |
+| NOME | type | DESCRIZIONE |
 | --- | --- | --- |
-| HttpMethod |String |Il metodo HTTP utilizzato per l'operazione. Esempio: GET. |
-| Path |String |Il percorso coinvolto nell'operazione |
+| HttpMethod |string |Il metodo HTTP utilizzato per l'operazione. Esempio: GET. |
+| path |string |Il percorso coinvolto nell'operazione |
 | RequestContentLength |int |La lunghezza del contenuto della richiesta HTTP |
-| ClientRequestId |String |L’ID che identifica in modo univoco la richiesta |
-| StartTime |String |L'ora in cui il server ha ricevuto la richiesta |
-| EndTime |String |L'ora in cui il server ha inviato una risposta |
+| ClientRequestId |string |L'ID che identifica in modo univoco questa richiesta |
+| StartTime |string |L'ora in cui il server ha ricevuto la richiesta |
+| EndTime |string |L'ora in cui il server ha inviato una risposta |
 
 ### <a name="audit-logs"></a>Log di controllo
 Di seguito viene riportata una voce di esempio nel log di controllo in formato JSON. Ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti di log.
@@ -160,26 +160,35 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
     }
 
 #### <a name="audit-log-schema"></a>Schema del log di controllo
-| Nome | Tipo | Descrizione |
+| NOME | type | DESCRIZIONE |
 | --- | --- | --- |
-| time |String |Il timestamp del log (fusorario UTC) |
-| resourceId |String |L’ID della risorsa interessata dall’operazione |
-| category |String |La categoria di log. Ad esempio, **Audit**. |
-| operationName |String |Il nome dell'operazione registrata. Ad esempio, getfilestatus. |
-| resultType |String |Lo stato dell'operazione, ad esempio 200. |
-| correlationId |String |L'ID del log utilizzato per raggruppare un set di voci di log correlate |
+| time |string |Il timestamp del log (fusorario UTC) |
+| ResourceId |string |L’ID della risorsa interessata dall’operazione |
+| category |string |La categoria di log. Ad esempio, **Audit**. |
+| operationName |string |Il nome dell'operazione registrata. Ad esempio, getfilestatus. |
+| resultType |string |Lo stato dell'operazione, ad esempio 200. |
+| correlationId |string |L'ID del log che può essere utilizzato per raggruppare un set di voci di log correlate |
 | identity |Oggetto |L'identità che ha generato il log |
 | properties |JSON |Vedere di seguito per ulteriori dettagli |
 
 #### <a name="audit-log-properties-schema"></a>Schema delle proprietà del log di controllo
-| Nome | Tipo | Descrizione |
+| NOME | type | DESCRIZIONE |
 | --- | --- | --- |
-| StreamName |String |Il percorso coinvolto nell'operazione |
+| StreamName |string |Il percorso coinvolto nell'operazione |
 
 ## <a name="samples-to-process-the-log-data"></a>Esempi per elaborare i dati di log
+Quando si inviano i log da archivio Azure Data Lake per Analitica di Log di Azure (vedere [visualizzazione o analizzare i dati raccolti con ricerca di log Log Analitica](../log-analytics/log-analytics-tutorial-viewdata.md) per informazioni dettagliate sull'utilizzo di Log Analitica), la query seguente restituisce una tabella contenente un elenco di utenti visualizzare i nomi, l'ora degli eventi e il numero di eventi per l'ora dell'evento insieme a un grafico visual. Può essere modificato facilmente per mostrare i GUID utente o altri attributi:
+
+```
+search *
+| where ( Type == "AzureDiagnostics" )
+| summarize count(TimeGenerated) by identity_s, TimeGenerated
+```
+
+
 Azure Data Lake Store fornisce un esempio su come elaborare e analizzare i dati di log. È possibile trovare l'esempio all'indirizzo [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Panoramica di Archivio Data Lake di Azure](data-lake-store-overview.md)
 * [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
 

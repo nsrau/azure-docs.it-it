@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: c5257ef5c635080f5eaca371e1882b13cc37e0fd
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: 13b043f3d6154852647f6bb738d3717be6802fa9
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Installare e configurare Ansible per gestire le macchine virtuali in Azure
-Questo articolo descrive come installare Ansible e i moduli di Azure Python SDK necessari per alcune delle distribuzioni di Linux più comuni. È possibile installare Ansible in altre distribuzioni regolando i pacchetti installati per adattarli alla piattaforma specifica. Per creare le risorse di Azure in modo sicuro, si apprenderà anche come creare e definire le credenziali da usare con Ansible. 
+In questo articolo viene illustrato come installare Ansible e i moduli di Azure SDK Python necessari per alcune distribuzioni di Linux più comuni. È possibile installare Ansible in altre distribuzioni regolando i pacchetti installati per adattarli alla piattaforma specifica. Per creare le risorse di Azure in modo sicuro, si apprenderà anche come creare e definire le credenziali da usare con Ansible. 
 
 Per altre opzioni di installazione e la procedura per altre piattaforme, vedere la [guida all'installazione di Ansible](https://docs.ansible.com/ansible/intro_installation.html).
 
@@ -34,16 +34,16 @@ Creare prima un gruppo di risorse con [az group create](/cli/azure/group#create)
 az group create --name myResourceGroupAnsible --location eastus
 ```
 
-A questo punto, creare una macchina virtuale e installare Ansible per una delle distribuzioni seguenti:
+A questo punto, creare una macchina virtuale e installare Ansible per uno delle distribuzioni di propria scelta seguenti:
 
 - [Ubuntu 16.04 LTS](#ubuntu1604-lts)
 - [CentOS 7.3](#centos-73)
 - [SLES 12 SP2](#sles-12-sp2)
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
-Creare una macchina virtuale con il comando [az vm create](/cli/azure/vm#create). L'esempio seguente crea una macchina virtuale denominata *myVMAnsible*:
+Creare una VM con il comando [az vm create](/cli/azure/vm#create). L'esempio seguente crea una macchina virtuale denominata *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -72,9 +72,9 @@ Passare ora a [Creare le credenziali di Azure](#create-azure-credentials).
 
 
 ### <a name="centos-73"></a>CentOS 7.3
-Creare una macchina virtuale con il comando [az vm create](/cli/azure/vm#create). L'esempio seguente crea una macchina virtuale denominata *myVMAnsible*:
+Creare una VM con il comando [az vm create](/cli/azure/vm#create). L'esempio seguente crea una macchina virtuale denominata *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -106,7 +106,7 @@ Passare ora a [Creare le credenziali di Azure](#create-azure-credentials).
 ### <a name="sles-12-sp2"></a>SLES 12 SP2
 Creare una VM con il comando [az vm create](/cli/azure/vm#create). L'esempio seguente crea una macchina virtuale denominata *myVMAnsible*:
 
-```bash
+```azurecli
 az vm create \
     --name myVMAnsible \
     --resource-group myResourceGroupAnsible \
@@ -125,39 +125,42 @@ Nella macchina virtuale installare i pacchetti richiesti per i moduli di Azure P
 
 ```bash
 ## Install pre-requisite packages
-sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 python-devel \
-    libopenssl-devel libtool python-pip python-setuptools
+sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 make \
+    python-devel libopenssl-devel libtool python-pip python-setuptools
 
 ## Install Ansible and Azure SDKs via pip
 sudo pip install ansible[azure]
+
+# Remove conflicting Python cryptography package
+sudo pip uninstall -y cryptography
 ```
 
 Passare ora a [Creare le credenziali di Azure](#create-azure-credentials).
 
 
 ## <a name="create-azure-credentials"></a>Creare credenziali di Azure
-Ansible comunica con Azure usando un nome utente e password o un'entità servizio. Un'entità servizio di Azure è un'identità di sicurezza che è possibile usare con le app, con i servizi e con strumenti di automazione come Ansible. Le autorizzazioni per le operazioni che l'entità servizio può eseguire in Azure vengono controllate e definite dall'utente. Per migliorare la sicurezza indicare un nome utente e password, questo esempio crea un'entità servizio di base.
+Ansible comunica con Azure usando un nome utente e password o un'entità servizio. Un'entità servizio di Azure è un'identità di sicurezza che è possibile usare con le app, con i servizi e con strumenti di automazione come Ansible. Le autorizzazioni per le operazioni che l'entità servizio può eseguire in Azure vengono controllate e definite dall'utente. Per migliorare la sicurezza rispetto alla semplice immissione di nome utente e password, questo esempio crea un'entità servizio di base.
 
-Creare un'entità servizio con [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) e generare l'output delle credenziali necessarie per Ansible:
+Creare un'entità servizio nel computer host con [az ad sp creare-per-rbac](/cli/azure/ad/sp#create-for-rbac) e le credenziali necessarie Ansible di output:
 
 ```azurecli
-az ad sp create-for-rbac --query [appId,password,tenant]
+az ad sp create-for-rbac --query [client_id: appId, secret: password, tenant: tenant]
 ```
 
 Ecco un esempio di output dei comandi precedenti:
 
 ```json
-[
-  "eec5624a-90f8-4386-8a87-02730b5410d5",
-  "531dcffa-3aff-4488-99bb-4816c395ea3f",
-  "72f988bf-86f1-41af-91ab-2d7cd011db47"
-]
+{
+  "client_id": "eec5624a-90f8-4386-8a87-02730b5410d5",
+  "secret": "531dcffa-3aff-4488-99bb-4816c395ea3f",
+  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+}
 ```
 
 Per eseguire l'autenticazione in Azure, è anche necessario ottenere l'ID della sottoscrizione di Azure con [az account show](/cli/azure/account#show):
 
 ```azurecli
-az account show --query [id] --output tsv
+az account show --query "{ subscription_id: id }"
 ```
 
 L'output di questi due comandi verrà usato nel passaggio successivo.
@@ -173,7 +176,7 @@ mkdir ~/.azure
 vi ~/.azure/credentials
 ```
 
-Il file delle *credenziali* combina l'ID della sottoscrizione con l'output ottenuto dalla creazione di un'entità servizio. L'output del comando [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) precedente segue lo stesso ordine in base alle esigenze di *client_id*, *secret* e *tenant*. Il file delle *credenziali* seguente mostra questi valori che corrispodono a quelli dell'output precedente. Immettere valori personalizzati come di seguito:
+Il file delle *credenziali* combina l'ID della sottoscrizione con l'output ottenuto dalla creazione di un'entità servizio. L'output dal precedente [az ad sp creare-per-rbac](/cli/azure/ad/sp#create-for-rbac) comando è identico a quello necessario per *client_id*, *secret*, e *tenant*. Il file delle *credenziali* seguente mostra questi valori che corrispodono a quelli dell'output precedente. Immettere valori personalizzati come di seguito:
 
 ```bash
 [default]

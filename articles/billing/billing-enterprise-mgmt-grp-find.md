@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.openlocfilehash: df4d85d0556a62311c112f24431b54d042333c7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f1b9c1ec2af8240ff71f6907516d8894c36ac9c3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="find-an-azure-subscription-or-management-group"></a>Trovare una sottoscrizione o un gruppo di gestione di Azure
 
-Se non si riesce a trovare una sottoscrizione o un gruppo di gestione in Azure, è possibile che si stia cercando nella directory sbagliata. Questo scenario potrebbe verificarsi se l'account è presente in più istanze di Azure Active Directory. Ogni [directory attiva è indipendente](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-directory-independence) e l'accesso non viene ereditato tra le directory.      
+Se non si riesce a trovare una sottoscrizione o un gruppo di gestione in Azure, è possibile che si stia cercando nella directory sbagliata. Questo scenario potrebbe verificarsi se l'account è presente in più istanze di Azure Active Directory. Ogni [directory attiva è indipendente](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-directory-independence) e l'accesso non viene ereditato tra le directory.      
 
 ![Cambiare menu delle directory](media/billing-enterprise-mgmt-groups/mgempty.png)
 
@@ -41,7 +41,7 @@ Se si riceve un messaggio di errore del tipo "Questa risorsa non è disponibile"
 ![asset-not-found](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Contattare l'amministratore della sottoscrizione o dei gruppi di gestione per ottenere l'accesso.  
-* Per le sottoscrizioni, fare riferimento al documento [Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) per informazioni sul ruolo necessario.
+* Per le sottoscrizioni, fare riferimento al documento [Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) per informazioni sul ruolo necessario.
 * Per i gruppi di gestione, il Controllo degli accessi in base al ruolo di Azure sarà presto disponibile. Contattare l'amministratore di Enterprise Portal per ottenere l'accesso.   
 
 ## <a name="improve-your-experience-with-management-groups-and-subscriptions-in-the-same-directory"></a>Migliorare l'utilizzo dei gruppi di gestione e delle sottoscrizioni nella stessa directory 

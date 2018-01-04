@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/19/2017
 ms.author: larryfr
-ms.openlocfilehash: 87c2aece68c5de06d683abf971b6c7ccf7f67a54
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 8c8cda26f2b9b564dee330e4883ec12f39feb652
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>Analizzare i dati del sensore con Apache Storm, hub eventi e HBase in HDInsight (Hadoop)
 
@@ -32,7 +32,7 @@ Il modello di Azure Resource Manager usato in questo documento illustra come cre
 >
 > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 ![diagramma dell'architettura](./media/apache-storm-sensor-data-analysis/devicesarchitecture.png)
 
@@ -361,7 +361,7 @@ Per scrivere in HBase dal cluster Storm, è necessario fornire al bolt HBase i d
     > [!NOTE]
     > Sostituire 'your_HDInsight_cluster_name' con il nome del cluster HDInsight. Quando richiesto, immettere la password per l'account di accesso amministratore di HDInsight.
     >
-    > Questo esempio richiede Azure PowerShell. Per altre informazioni sull'uso di Azure PowerShell, vedere [Getting started with Azure PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/Getting-Started-with-Windows-PowerShell?view=powershell-6) (Introduzione ad Azure PowerShell)
+    > Questo esempio richiede Azure PowerShell. Per altre informazioni sull'uso di Azure PowerShell, vedere [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/scripting/Getting-Started-with-Windows-PowerShell?view=powershell-6) (Introduzione ad Azure PowerShell)
 
     Le informazioni restituite da questi esempi sono simili al testo seguente:
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
-ms.openlocfilehash: 2ccadfdec0e653264671f5a9a38d4541b0fc4e69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: db82c2b8f0f9acec41b0b0f87b8839d3d7f49c68
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-faq"></a>Domande frequenti su Crittografia dischi di Azure
 
@@ -45,7 +45,7 @@ Questo articolo fornisce le risposte alle domande frequenti (FAQ) su Crittografi
 
 **R:** Crittografia dischi di Azure è supportato nelle distribuzioni e versioni del server Linux seguenti:
 
-| Distribuzione Linux | Versione | Tipo di volume supportato per la crittografia|
+| Distribuzione Linux | Version | Tipo di volume supportato per la crittografia|
 | --- | --- |--- |
 | Ubuntu | 16.04-DAILY-LTS | Disco del sistema operativo e dati |
 | Ubuntu | 14.04.5-DAILY-LTS | Disco del sistema operativo e dati |
@@ -119,7 +119,7 @@ Questo articolo fornisce le risposte alle domande frequenti (FAQ) su Crittografi
 * Eseguire la crittografia (può richiedere più ore o addirittura giorni a seconda delle caratteristiche della macchina virtuale e delle dimensioni di qualsiasi disco dati collegato)
 * Personalizzare e aggiungere il software all'immagine in base alle esigenze.
 
-Se questo flusso di lavoro non è possibile, l'uso della [crittografia del servizio di archiviazione](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) a livello di account di archiviazione della piattaforma può essere un'alternativa alla crittografia completa del disco tramite dm-crypt.
+Se questo flusso di lavoro non è possibile, l'uso della [crittografia del servizio di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) a livello di account di archiviazione della piattaforma può essere un'alternativa alla crittografia completa del disco tramite dm-crypt.
 
 **D:** Che cos'è il disco "volume BEK" o "/mnt/azure_bek_disk"?
 

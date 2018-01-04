@@ -4,7 +4,7 @@ description: Fornisce l'elenco degli attributi sincronizzati con Azure Active Di
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 08663916214cf2d34704ef2a355464bc6df9b138
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 1fb5772f58511b33d6927c3d0ff155980ed756ad
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory
 Questo argomento elenca gli attributi sincronizzati tramite il servizio di sincronizzazione Azure AD Connect.  
@@ -36,7 +36,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 >
 
 ## <a name="office-365-proplus"></a>Office 365 ProPlus
-| Nome attributo | Utente | Commento |
+| Nome attributo | Utente | Comment |
 | --- |:---:| --- |
 | accountEnabled |X |Definisce se un account è abilitato. |
 | cn |X | |
@@ -48,7 +48,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | userPrincipalName |X |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 
 ## <a name="exchange-online"></a>Exchange Online
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | Utente | Contatto | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | assistant |X |X | | |
@@ -172,7 +172,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>SharePoint Online
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | Utente | Contatto | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | authOrig |X |X |X | |
@@ -254,7 +254,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | wWWHomePage |X |X | | |
 
 ## <a name="lync-online-subsequently-known-as-skype-for-business"></a>Lync Online (successivamente diventato Skype for Business)
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | Utente | Contatto | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | c |X |X | | |
@@ -303,7 +303,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | Utente | Contatto | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | cn |X | |X |Nome comune o alias. In genere il prefisso del valore [mail]. |
@@ -319,7 +319,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | userPrincipalName |X | | |Questo nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 
 ## <a name="intune"></a>Intune
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | Utente | Contatto | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | c |X |X | | |
@@ -338,7 +338,7 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | userPrincipalName |X | | |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | Utente | Contatto | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | c |X |X | | |
@@ -378,7 +378,7 @@ Questo gruppo è un set di attributi usati come gli attributi minimi necessari p
 
 Questo gruppo è un set di attributi che può essere usato se non si utilizza la directory di Azure AD per supportare Office 365, Dynamics o Intune. Contiene un piccolo set di attributi principali.
 
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | Utente | Contatto | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
 | cn |X | |X | |
@@ -399,7 +399,7 @@ Questo gruppo è un set di attributi che può essere usato se non si utilizza la
 ## <a name="windows-10"></a>Windows 10
 I computer o dispositivi appartenenti a un dominio Windows 10 sincronizzano alcuni attributi in Azure AD. Per altre informazioni sugli scenari, vedere [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](../active-directory-azureadjoin-devices-group-policy.md). Questi attributi verranno sempre sincronizzati e Windows 10 non appare come app che è possibile deselezionare. Un computer appartenente a un dominio Windows 10 viene identificato se l’attributo userCertificate è popolato.
 
-| Nome attributo | Dispositivo | Commento |
+| Nome attributo | Dispositivo | Comment |
 | --- |:---:| --- |
 | accountEnabled |X | |
 | deviceTrustType |X |Valore hardcoded per i computer di dominio. |
@@ -413,7 +413,7 @@ I computer o dispositivi appartenenti a un dominio Windows 10 sincronizzano alcu
 
 Questi attributi per l' **utente** si aggiungono alle altre app selezionate.  
 
-| Nome attributo | Utente | Commento |
+| Nome attributo | Utente | Comment |
 | --- |:---:| --- |
 | domainFQDN |X |Anche chiamato dnsDomainName. Ad esempio, contoso.com. |
 | domainNetBios |X |Anche chiamato netBiosName. Ad esempio, CONTOSO. |
@@ -421,7 +421,7 @@ Questi attributi per l' **utente** si aggiungono alle altre app selezionate.
 ## <a name="exchange-hybrid-writeback"></a>Writeback della distribuzione ibrida Exchange
 Se si sceglie di abilitare la distribuzione **ibrida di Exchange**, per questi attributi viene eseguito il writeback da Azure AD ad Active Directory locale. A seconda della versione di Exchange in uso, potrebbe essere sincronizzato un numero minore di attributi.
 
-| Nome attributo | Utente | Contatto | Gruppo | Commento |
+| Nome attributo | Utente | Contatto | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | msDS-ExternalDirectoryObjectID |X | | |Derivato da cloudAnchor in Azure AD. Si tratta di un nuovo attributo di Exchange 2016 e Windows Server 2016 AD. |
 | msExchArchiveStatus |X | | |Archivio online: consente ai clienti di archiviare la posta elettronica. |
@@ -436,7 +436,7 @@ Se si sceglie di abilitare la distribuzione **ibrida di Exchange**, per questi a
 ## <a name="exchange-mail-public-folder"></a>Cartelle pubbliche della posta di Exchange
 Questi attributi vengono sincronizzati da Active Directory locale ad Azure AD quando si sceglie di abilitare **Cartelle pubbliche della posta di Exchange**.
 
-| Nome attributo | Cartella pubblica | Commento |
+| Nome attributo | Cartella pubblica | Comment |
 | --- | :---:| --- |
 | displayName | X |  |
 | mail | X |  |
@@ -448,7 +448,7 @@ Questi attributi vengono sincronizzati da Active Directory locale ad Azure AD qu
 ## <a name="device-writeback"></a>Writeback dispositivi
 Gli oggetti dispositivo vengono creati in Active Directory. Questi oggetti possono essere dispositivi aggiunti ad Azure AD o computer Windows 10 aggiunti al dominio.
 
-| Nome attributo | Dispositivo | Commento |
+| Nome attributo | Dispositivo | Comment |
 | --- |:---:| --- |
 | altSecurityIdentities |X | |
 | displayName |X | |

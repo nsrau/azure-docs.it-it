@@ -3,7 +3,7 @@ title: Procedura per l'esecuzione di query sui dati grafo in SQL in Azure Cosmos
 description: Informazioni sull'esecuzione di query sui dati grafo in Azure Cosmos DB
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 tags: 
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 05/10/2017
-ms.author: denlee
+ms.date: 01/02/2018
+ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: b47aee24d4cc8e7fdf05ce03ed3aa0fb7c7432b6
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: 5a635abfa9fa10cd8c8498e3c95a17af997cea3e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-with-the-graph-api-preview"></a>Azure Cosmos DB: procedura per l'esecuzione di query con l'API Graph (anteprima)
+# <a name="azure-cosmos-db-how-to-query-with-the-graph-api"></a>Azure Cosmos DB: Come eseguire una query con l'API Graph?
 
-L'[API Graph](graph-introduction.md) di Azure Cosmos DB (anteprima) supporta le query [Gremlin](https://github.com/tinkerpop/gremlin/wiki). Questo articolo include esempi di documenti e query per iniziare. L'articolo relativo al [supporto Gremlin](gremlin-support.md) include riferimenti Gremlin dettagliati.
+Il database di Azure Cosmos [API Graph](graph-introduction.md) supporta [Gremlin](https://github.com/tinkerpop/gremlin/wiki) query. Questo articolo include esempi di documenti e query per iniziare. L'articolo relativo al [supporto Gremlin](gremlin-support.md) include riferimenti Gremlin dettagliati.
 
 Questo articolo illustra le attività seguenti: 
 
@@ -85,4 +85,4 @@ In questa esercitazione sono state eseguite le operazioni seguenti:
 È ora possibile passare all'esercitazione successiva per imparare a distribuire i dati a livello globale.
 
 > [!div class="nextstepaction"]
-> [Distribuire i dati a livello globale](tutorial-global-distribution-documentdb.md)
+> [Distribuire i dati a livello globale](tutorial-global-distribution-sql-api.md)

@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9a4a839e7b5cc772fb9d4c57ed70484d90a87fdd
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigazione e dashboard nel portale Application Insights
 Dopo aver [impostato Application Insights nel progetto](app-insights-overview.md), i dati di telemetria sull'uso e le prestazioni dell'app verranno visualizzati nella risorsa di Application Insights del progetto nel [portale di Azure](https://portal.azure.com).
@@ -97,6 +97,9 @@ Dopo aver creato un dashboard, è possibile condividerlo con altri utenti.
 ![Fare clic su Condividi nell'intestazione del dashboard](./media/app-insights-dashboards/41.png)
 
 Altre informazioni su [ruoli e controllo di accesso](app-insights-resources-roles-access-control.md).
+
+## <a name="create-dashboards-programmatically"></a>Creare i dashboard a livello di codice
+È possibile automatizzare la creazione di dashboard usando [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) e un semplice editor di JSON.
 
 ## <a name="app-navigation"></a>Esplorazione delle app
 Il pannello Panoramica è il gateway per altre informazioni sull'app.

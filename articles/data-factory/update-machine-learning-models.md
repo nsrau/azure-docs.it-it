@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: df139383eb2fa20fe75ecc6b3f5e2aa0773f186c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: a33855213c4bd3a677c8ebbed6624c85138d8ea6
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Aggiornare i modelli di Azure Machine Learning tramite l'attività Aggiorna risorsa
 Questo articolo integra la versione principale di Azure Data Factory: articolo di integrazione di Azure Machine Learning: [Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory](transform-data-using-machine-learning.md). Se ancora non è stato fatto, consultare l'articolo principale prima di leggere questo articolo. 
@@ -60,10 +60,10 @@ Il frammento JSON seguente definisce un'attività Esecuzione batch di Azure Mach
 
 
 
-| Proprietà                      | Descrizione                              | Obbligatorio |
+| Proprietà                      | DESCRIZIONE                              | Obbligatoria |
 | :---------------------------- | :--------------------------------------- | :------- |
 | name                          | Nome dell'attività nella pipeline     | Sì      |
-| Descrizione                   | Testo che descrive l'attività.  | No       |
+| description                   | Testo che descrive l'attività.  | No        |
 | type                          | Per l'attività Aggiorna risorsa di Azure Machine Learning il tipo corrisponde ad **AzureMLUpdateResource**. | Sì      |
 | linkedServiceName             | Servizio collegato di Azure Machine Learning che contiene la proprietà updateResourceEndpoint. | Sì      |
 | trainedModelName              | Nome del modulo di modello con training nell'esperimento del servizio Web da aggiornare | Sì      |
@@ -86,33 +86,6 @@ Perché il flusso di lavoro end-to-end citato in precedenza funzioni, è necessa
 2. Uno per l'endpoint di aggiornamento delle risorse del servizio Web predittivo. Questo servizio collegato viene usato dall'attività Aggiorna risorsa per aggiornare il servizio Web predittivo tramite il file iLearner restituito dal passaggio precedente. 
 
 Per il secondo servizio collegato di Azure Machine Learning la configurazione è diversa a seconda che il servizio Web di Azure Machine Learning in uso sia un servizio Web classico o nuovo. Le differenze sono illustrate separatamente nelle sezioni seguenti. 
-
-## <a name="web-service-is-a-classic-web-service"></a>Il servizio Web è un servizio Web classico
-Se il servizio Web predittivo è un **servizio Web classico**, creare il secondo **endpoint non predefinito e aggiornabile** usando il portale di Azure. Per la procedura, vedere l'articolo [Creare endpoint](../machine-learning/machine-learning-create-endpoint.md) . Dopo aver creato l'endpoint aggiornabile non predefinito, seguire questa procedura:
-
-* Fare clic su **ESECUZIONE BATCH** per ottenere il valore dell'URI per la proprietà JSON **mlEndpoint**.
-* Fare clic su **AGGIORNA RISORSA** per ottenere il valore dell'URI per la proprietà JSON **updateResourceEndpoint**. La chiave API si trova nell'angolo in basso a destra della pagina dell'endpoint.
-
-![Endpoint aggiornabile](./media/update-machine-learning-models/updatable-endpoint.png)
-
-Usare quindi il servizio collegato di esempio seguente per creare un nuovo servizio collegato di Azure Machine Learning. Il servizio collegato usa il valore apiKey per l'autenticazione.  
-
-```json
-{
-    "name": "updatableScoringEndpoint2",
-    "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-            "apiKey": {
-            "type": "SecureString",
-            "value": "APIKeyOfEndpoint2"
-            },
-            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
-        }
-    }
-}
-```
 
 ## <a name="web-service-is-new-azure-resource-manager-web-service"></a>Il servizio Web è un nuovo servizio Web di Azure Resource Manager 
 

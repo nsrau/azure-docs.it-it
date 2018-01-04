@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 294cd6b8-74d7-44bc-92bc-020ccd13ff12
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: c6a618c9cb93fe5b82e97f84c346e3dc448737e4
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: e8ba836a021a06c017defee2c5b7379d200ac642
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configuring-docusign-for-user-provisioning"></a>Esercitazione: Configurazione di DocuSign per il provisioning utenti
 
@@ -27,7 +27,7 @@ Questa esercitazione descrive le procedure da eseguire in DocuSign e Azure AD pe
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
-*   Un tenant di Azure Active Directory.
+*   Tenant di Azure Active Directory.
 *   Una sottoscrizione di DocuSign abilitata per l'accesso Single Sign-On.
 *   Un account utente in DocuSign con autorizzazioni di amministratore di team.
 

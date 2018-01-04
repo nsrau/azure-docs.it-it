@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 256cb9a33d49bc3c24b2d94c417632edb0c8df31
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Acquistare e configurare un certificato SSL per il servizio app di Azure
 
-Questa esercitazione illustra come proteggere l'app Web tramite l'acquisto di un certificato SSL per il **[servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714)**, archiviandolo in modo sicuro in [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) e associandolo a un dominio personalizzato.
+Questa esercitazione illustra come proteggere l'app Web tramite l'acquisto di un certificato SSL per il **[servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714)**, archiviandolo in modo sicuro in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) e associandolo a un dominio personalizzato.
 
 ## <a name="step-1---log-in-to-azure"></a>Passaggio 1: Accedere ad Azure
 
@@ -49,7 +49,7 @@ Selezionare la **Sottoscrizione**, il **Gruppo di risorse** e lo **SKU del certi
 ## <a name="step-3---store-the-certificate-in-azure-key-vault"></a>Passaggio 3: archiviare il certificato nell'Azure Key Vault
 
 > [!NOTE]
-> Il [Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) è un servizio di Azure che consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud.
+> Il [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) è un servizio di Azure che consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud.
 >
 
 Dopo aver completato l'acquisto del certificato SSL, è necessario aprire la pagina [Certificati del servizio app](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders).
@@ -147,7 +147,7 @@ Se è necessario un nuovo invio del messaggio di verifica, fare clic sul pulsant
 
 #### <a name="domain-verification"></a>Verifica del dominio
 
-Scegliere questa opzione solo per un [dominio del servizio app che è stato acquistato da Azure.](custom-dns-web-site-buydomains-web-app.md). Azure aggiunge automaticamente il record TXT di verifica e completa il processo.
+Scegliere questa opzione solo per un [dominio del servizio app che è stato acquistato da Azure](custom-dns-web-site-buydomains-web-app.md). Azure aggiunge automaticamente il record TXT di verifica e completa il processo.
 
 #### <a name="manual-verification"></a>Verifica manuale
 

@@ -1,6 +1,6 @@
 ---
-title: Raccogliere log personalizzati in Log Analytics di OMS | Documentazione Microsoft
-description: "Log Analytics può raccogliere gli eventi dai file di testo nei computer Windows e Linux.  Questo articolo descrive come definire un nuovo log personalizzato e i dettagli dei record creati nel repository OMS."
+title: Raccogliere i log personalizzati in Azure Log Analitica | Documenti Microsoft
+description: "Log Analytics può raccogliere gli eventi dai file di testo nei computer Windows e Linux.  In questo articolo viene descritto come definire un nuovo log personalizzato e i dettagli dei record che creano nell'area di lavoro Log Analitica."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: bwren
-ms.openlocfilehash: addb1c8f4c71bb1979229c597665fd301dfb9fdf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log personalizzati in Log Analytics
-L'origine dati dei log personalizzati in Log Analytics consente di raccogliere gli eventi dai file di testo nei computer Windows e Linux. Molte applicazioni registrano le informazioni nei file di testo invece di usare servizi di registrazione standard come il registro eventi di Windows o Syslog.  Al termine della raccolta, è possibile analizzare ogni record del log in singoli campi usando la funzionalità [Campi personalizzati](log-analytics-custom-fields.md) di Log Analytics.
+L'origine dati dei log personalizzati in Log Analytics consente di raccogliere gli eventi dai file di testo nei computer Windows e Linux. Molte applicazioni registrano le informazioni nei file di testo invece di usare servizi di registrazione standard come il registro eventi di Windows o Syslog.  Una volta raccolti, è possibile analizzare ogni record di account di accesso ai singoli campi utilizzando la [campi personalizzati](log-analytics-custom-fields.md) funzionalità di Log Analitica.
 
 ![Raccolta di log personalizzati](media/log-analytics-data-sources-custom-logs/overview.png)
 
@@ -42,10 +42,10 @@ I file di log da raccogliere devono soddisfare i criteri seguenti.
 Usare la procedura seguente per definire un file di log personalizzato.  Scorrere fino alla fine dell'articolo per la procedura dettagliata di un esempio che spiega come aggiungere un log personalizzato.
 
 ### <a name="step-1-open-the-custom-log-wizard"></a>Passaggio 1. Aprire la procedura guidata per i log personalizzati
-La procedura guidata per i personalizzati viene eseguita nel portale di OMS e consente di definire un nuovo log personalizzato da raccogliere.
+La creazione guidata Registro personalizzata viene eseguita nel portale di Azure e consente di definire un nuovo log personalizzato per raccogliere.
 
-1. Nel portale di OMS passare a **Impostazioni**.
-2. Fare clic su **Dati**, quindi su **Log personalizzati**.
+1. Nel portale di Azure, selezionare **Log Analitica** > area di lavoro > **impostazioni avanzate**.
+2. Fare clic su **dati** > **di log personalizzati**.
 3. Per impostazione predefinita, viene eseguito automaticamente il push di tutte le modifiche di configurazione in tutti gli agenti.  Per gli agenti Linux, viene inviato un file di configurazione all'agente di raccolta dati Fluentd.  Per modificare questo file manualmente in ogni agente Linux, deselezionare la casella *Applica la configurazione seguente alle macchine virtuali Linux*.
 4. Fare clic su **Aggiungi+** per aprire la procedura guidata per i log personalizzati.
 
@@ -54,7 +54,7 @@ Per iniziare, caricare un esempio del log personalizzato.  La procedura guidata 
 
 **Nuova riga** è il delimitatore predefinito e viene usato per i file di log con una sola voce per riga.  Se la riga inizia con una data e ora in uno dei formati disponibili, è possibile specificare un delimitatore **Timestamp** che supporta le voci che si estendono su più righe.
 
-Se viene usato un delimitatore Timestamp, la proprietà TimeGenerated di ogni record archiviato in OMS viene popolata con la data/ora specificata per la voce nel file di log.  Se viene usato un delimitatore Nuova riga, TimeGenerated viene popolato con la data e l'ora in cui Log Analytics ha raccolto la voce.
+Se viene utilizzato un delimitatore di timestamp, la proprietà TimeGenerated di ogni record archiviati nel registro Analitica verrà popolata con la data/ora specificata per tale voce nel file di log.  Se viene usato un delimitatore Nuova riga, TimeGenerated viene popolato con la data e l'ora in cui Log Analytics ha raccolto la voce.
 
 
 1. Fare clic su **Sfoglia** e passare a un file di esempio.  In alcuni browser, questo pulsante potrebbe essere denominato **Scegli file** .
@@ -70,7 +70,7 @@ Ad esempio, un'applicazione potrebbe creare un file di log ogni giorno con la da
 
 La tabella seguente fornisce esempi di percorsi validi per specificare file di log diversi.
 
-| Descrizione | Path |
+| DESCRIZIONE | path |
 |:--- |:--- |
 | Tutti i file in *C:\Logs* con estensione txt nell'agente Windows |C:\Logs\\\*.txt |
 | Tutti i file in *C:\Logs* il cui nome inizia con log e aventi un'estensione txt nell'agente Windows |C:\Logs\log\*.txt |
@@ -103,13 +103,12 @@ L'intera voce di log viene archiviata in una singola proprietà denominata **Raw
 
 La procedura dettagliata per l'analisi della voce del log personalizzato non viene fornita in questa sede.  Per queste informazioni, vedere la documentazione [Campi personalizzati](log-analytics-custom-fields.md) .
 
-## <a name="disabling-a-custom-log"></a>Disabilitazione di un log personalizzato
-Dopo la creazione, la definizione del log personalizzato non può essere rimossa, ma può essere disabilitata rimuovendo tutti i relativi percorsi di raccolta.
+## <a name="removing-a-custom-log"></a>Rimozione di un log personalizzato
+Utilizzare la seguente procedura nel portale di Azure per rimuovere un registro personalizzato è definito in precedenza.
 
-1. Nel portale di OMS passare a **Impostazioni**.
-2. Fare clic su **Dati**, quindi su **Log personalizzati**.
-3. Fare clic su **Dettagli** accanto alla definizione del log personalizzato per disabilitarla.
-4. Rimuovere ogni percorso di raccolta della definizione del log personalizzato.
+1. Dal **dati** dal menu di **impostazioni avanzate** per l'area di lavoro, selezionare **log personalizzati** per elencare tutti i log personalizzati.
+2. Fare clic su **rimuovere** accanto il log personalizzato da rimuovere.
+
 
 ## <a name="data-collection"></a>Raccolta dei dati
 Log Analytics raccoglie nuove voci da ogni log personalizzato a intervalli di circa 5 minuti.  L'agente registra la propria posizione in ogni file di log da cui esegue la raccolta.  Se l'agente risulta offline per un certo periodo di tempo, Log Analytics raccoglie le voci dal momento in cui è stato interrotto, anche se le voci sono state create mentre l'agente era offline.
@@ -119,7 +118,7 @@ L'intero contenuto della voce di log viene scritto in una singola proprietà den
 ## <a name="custom-log-record-properties"></a>Proprietà dei record del log personalizzato
 Il tipo dei record del log personalizzato corrisponde al nome del log specificato e le proprietà sono indicate nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | TimeGenerated |Data e ora di raccolta del record con Log Analytics.  Se il log usa un delimitatore basato sul tempo, questa proprietà indica la data e l'ora raccolte dalla voce. |
 | SourceSystem |Tipo di agente da cui è stato raccolto il record. <br> OpsManager: agente Windows, con connessione diretta o System Center Operations Manager <br> Linux – Tutti gli agenti Linux |
@@ -127,11 +126,11 @@ Il tipo dei record del log personalizzato corrisponde al nome del log specificat
 | ManagementGroupName |Nome del gruppo di gestione per gli agenti System Center Operations Manager.  Per gli altri agenti, corrisponde ad AOI-\<ID area di lavoro\> |
 
 ## <a name="log-searches-with-custom-log-records"></a>Ricerche nei log con i record del log personalizzato
-I record dei log personalizzati vengono archiviati nel repository OMS esattamente come i record di qualsiasi altra origine dati.  Hanno un tipo corrispondente al nome fornito quando si definisce il log, quindi è possibile usare la proprietà Tipo nella ricerca per recuperare i record raccolti da un log specifico.
+Nell'area di lavoro Log Analitica come record di qualsiasi altra origine dati vengono archiviati i record di log personalizzati.  Hanno un tipo corrispondente al nome fornito quando si definisce il log, quindi è possibile usare la proprietà Tipo nella ricerca per recuperare i record raccolti da un log specifico.
 
 La tabella seguente mostra alcuni esempi di ricerche nei log che recuperano i record dai log personalizzati.
 
-| Query | Descrizione |
+| Query | DESCRIZIONE |
 |:--- |:--- |
 | MyApp_CL |Tutti gli eventi da un log personalizzato denominato MyApp_CL. |
 | MyApp_CL &#124; where Severity_CF=="error" |Tutti gli eventi di un log personalizzato denominato MyApp_CL con un valore di *error* in un campo personalizzato denominato *Severity_CF*. |
@@ -172,5 +171,5 @@ Viene usato Campi personalizzati per definire i campi *EventTime*, *Code*, *Stat
 ![Query di log con campi personalizzati](media/log-analytics-data-sources-custom-logs/query-02.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Usare [Campi personalizzati](log-analytics-custom-fields.md) per analizzare le voci del log personalizzato nei singoli campi.
-* Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.
+* Utilizzare [campi personalizzati](log-analytics-custom-fields.md) per analizzare le voci di account di accesso personalizzato ai singoli campi.
+* Altre informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.

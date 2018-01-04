@@ -4,7 +4,7 @@ description: Creazione di applicazioni Web tramite l'implementazione in Azure Ac
 services: active-directory-b2c
 documentationcenter: 
 author: saeedakhter-msft
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 21d420c8-3c10-4319-b681-adf2e89e7ede
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: b0c33a47dd0cae79eab32ac578448fae8bf59be5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0eb4194307d1d3953fa1cd88ac014ac7c2ba7311
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: accesso Web con OpenID Connect
 OpenID Connect è un protocollo di autenticazione basato su OAuth 2.0 che può essere usato per consentire agli utenti di accedere in modo sicuro alle applicazioni Web. Tramite l'implementazione in Azure Active Directory B2C (Azure AD B2C) di OpenID Connect è possibile assegnare esperienze di gestione delle iscrizioni, degli accessi e altre esperienze di gestione delle identità nelle applicazioni Web ad Azure AD. Questa guida illustra come eseguire questa operazione in modo indipendente dal linguaggio. La guida descrive come inviare e ricevere messaggi HTTP senza usare una delle librerie Microsoft open source.
@@ -76,16 +76,16 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| Parametro | Obbligatorio? | Descrizione |
+| Parametro | Obbligatorio? | DESCRIZIONE |
 | --- | --- | --- |
 | client_id |Obbligatoria |ID applicazione assegnato all'app dal [portale di Azure](https://portal.azure.com/) . |
-| response_type |Obbligatorio |Tipo di risposta, che deve includere un token ID per OpenID Connect. Se l'app Web necessita anche di token per chiamare un'API Web, è possibile usare `code+id_token`, come illustrato qui. |
+| response_type |Obbligatoria |Tipo di risposta, che deve includere un token ID per OpenID Connect. Se l'app Web necessita anche di token per chiamare un'API Web, è possibile usare `code+id_token`, come illustrato qui. |
 | redirect_uri |Consigliato |Parametro `redirect_uri` dell'app, dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno dei parametri `redirect_uri` registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. |
-| scope |Obbligatorio |Elenco di ambiti separati da spazi. Un valore per l'ambito singolo indica ad Azure AD entrambe le autorizzazioni richieste. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di token ID. Altre informazioni sono riportate più avanti in questo articolo. L’ambito `offline_access` è facoltativo per le applicazioni Web. Indica che l'app richiede un *token di aggiornamento* per un accesso di lunga durata alle risorse. |
+| scope |Obbligatoria |Elenco di ambiti separati da spazi. Un valore per l'ambito singolo indica ad Azure AD entrambe le autorizzazioni richieste. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di token ID. Altre informazioni sono riportate più avanti in questo articolo. L’ambito `offline_access` è facoltativo per le applicazioni Web. Indica che l'app richiede un *token di aggiornamento* per un accesso di lunga durata alle risorse. |
 | response_mode |Consigliato |Metodo da usare per inviare all'app il codice di autorizzazione risultante. Può essere `query`, `form_post` o `fragment`.  `form_post` è la modalità di risposta consigliata perché offre la sicurezza migliore. |
 | state |Consigliato |Valore incluso nella richiesta che viene restituito nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Per evitare gli attacchi di richiesta intersito falsa, viene in genere usato un valore univoco generato casualmente. Lo stato viene inoltre usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina in cui si trovava. |
-| nonce |Obbligatorio |Valore incluso nella richiesta, generato dall'app, che verrà incluso nel token ID risultante come attestazione. L'app può verificare questo valore per ridurre gli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che può essere usata per identificare l'origine della richiesta. |
-| p |Obbligatorio |Criteri che verranno eseguiti. Si tratta del nome di un criterio creato nel tenant B2C. Il valore del nome dei criteri deve iniziare con `b2c\_1\_`. Altre informazioni sui criteri sono disponibili nell'articolo relativo al [framework di criteri estendibile](active-directory-b2c-reference-policies.md). |
+| nonce |Obbligatoria |Valore incluso nella richiesta, generato dall'app, che verrà incluso nel token ID risultante come attestazione. L'app può verificare questo valore per ridurre gli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che può essere usata per identificare l'origine della richiesta. |
+| p |Obbligatoria |Criteri che verranno eseguiti. Si tratta del nome di un criterio creato nel tenant B2C. Il valore del nome dei criteri deve iniziare con `b2c\_1\_`. Altre informazioni sui criteri sono disponibili nell'articolo relativo al [framework di criteri estendibile](active-directory-b2c-reference-policies.md). |
 | prompt |Facoltativo |Tipo di interazione utente obbligatoria. L'unico valore valido in questa fase è `login`, che impone all'utente di immettere le credenziali per la richiesta. L'accesso Single Sign-On non avrà effetto. |
 
 Viene a questo punto richiesto all'utente di completare il flusso di lavoro dei criteri. È possibile che venga richiesto all'utente di immettere nome utente e password, di accedere con un'identità di social networking, di iscriversi alla directory o di seguire altre procedure, a seconda di come sono definiti i criteri.
@@ -101,7 +101,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- |
 | id_token |Token ID richiesto dall'app. È possibile usare il token ID per verificare l'identità dell'utente e avviare una sessione con l'utente. Altre informazioni dettagliate sui token ID e sul relativo contenuto sono incluse nelle [informazioni di riferimento sui token di Azure AD B2C](active-directory-b2c-reference-tokens.md). |
 | code |Codice di autorizzazione richiesto dall'app, se è stato usato `response_type=code+id_token`. L'app può usare il codice di autorizzazione per richiedere un token di accesso per una risorsa di destinazione. I codici di autorizzazione hanno una durata molto breve. In genere scadono dopo circa 10 minuti. |
@@ -116,7 +116,7 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- |
 | error |Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e per generare una reazione. |
 | error_description |Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore di autenticazione. |
@@ -170,14 +170,14 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 ```
 
-| Parametro | Obbligatorio? | Descrizione |
+| Parametro | Obbligatorio? | DESCRIZIONE |
 | --- | --- | --- |
-| p |Obbligatorio |Il criterio utilizzato per acquisire il codice di autorizzazione. Non è possibile usare un criterio diverso in questa richiesta. Si noti che questo parametro viene aggiunto alla stringa di query, non al corpo di `POST`. |
+| p |Obbligatoria |Il criterio utilizzato per acquisire il codice di autorizzazione. Non è possibile usare un criterio diverso in questa richiesta. Si noti che questo parametro viene aggiunto alla stringa di query, non al corpo di `POST`. |
 | client_id |Obbligatoria |ID applicazione assegnato all'app dal [portale di Azure](https://portal.azure.com/) . |
-| grant_type |Obbligatorio |Tipo di concessione, che deve essere `authorization_code` per il flusso del codice di autorizzazione. |
+| grant_type |Obbligatoria |Tipo di concessione, che deve essere `authorization_code` per il flusso del codice di autorizzazione. |
 | scope |Consigliato |Elenco di ambiti separati da spazi. Un valore per l'ambito singolo indica ad Azure AD entrambe le autorizzazioni richieste. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di parametri id_token. Può essere usato per ottenere i token nell'API Web back-end dell'app, che è rappresentata dallo stesso ID applicazione del client. L'ambito `offline_access` indica che l'app necessita di un token di aggiornamento per un accesso di lunga durata alle risorse. |
-| code |Obbligatorio |Codice di autorizzazione acquisito nella prima sezione del flusso. |
-| redirect_uri |Obbligatorio |Parametro `redirect_uri` dell'applicazione dove è stato ricevuto il codice di autorizzazione. |
+| code |Obbligatoria |Codice di autorizzazione acquisito nella prima sezione del flusso. |
+| redirect_uri |Obbligatoria |Parametro `redirect_uri` dell'applicazione dove è stato ricevuto il codice di autorizzazione. |
 | client_secret |Obbligatoria |La chiave privata dell’applicazione generata nel [Portale Azure](https://portal.azure.com/). La chiave privata dell'applicazione è un elemento di sicurezza importante. È necessario archiviarla in modo sicuro nel server. È necessario anche far ruotare periodicamente la chiave privata client. |
 
 Una risposta di token con esito positivo ha un aspetto simile al seguente:
@@ -192,7 +192,7 @@ Una risposta di token con esito positivo ha un aspetto simile al seguente:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- |
 | not_before |Il momento in cui il token viene considerato valido, nel periodo. |
 | token_type |Valore del tipo di token. L'unico tipo supportato da Azure AD è `Bearer`. |
@@ -210,7 +210,7 @@ Le risposte di errore si presentano nel modo seguente:
 }
 ```
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- |
 | error |Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e per generare una reazione. |
 | error_description |Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore di autenticazione. |
@@ -235,14 +235,14 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
 ```
 
-| Parametro | Obbligatorio | Descrizione |
+| Parametro | Obbligatoria | DESCRIZIONE |
 | --- | --- | --- |
-| p |Obbligatorio |Criteri usati per acquisire il token di aggiornamento originale. Non è possibile usare un criterio diverso in questa richiesta. Si noti che questo parametro viene aggiunto alla stringa di query, non al corpo di POST. |
+| p |Obbligatoria |Criteri usati per acquisire il token di aggiornamento originale. Non è possibile usare un criterio diverso in questa richiesta. Si noti che questo parametro viene aggiunto alla stringa di query, non al corpo di POST. |
 | client_id |Obbligatoria |ID applicazione assegnato all'app dal [portale di Azure](https://portal.azure.com/) . |
-| grant_type |Obbligatorio |Tipo di concessione, che deve essere un token di aggiornamento per questa parte del flusso del codice di autorizzazione. |
+| grant_type |Obbligatoria |Tipo di concessione, che deve essere un token di aggiornamento per questa parte del flusso del codice di autorizzazione. |
 | scope |Consigliato |Elenco di ambiti separati da spazi. Un valore per l'ambito singolo indica ad Azure AD entrambe le autorizzazioni richieste. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di token ID. Può essere usato per ottenere i token nell'API Web back-end dell'app, che è rappresentata dallo stesso ID applicazione del client. L'ambito `offline_access` indica che l'app necessita di un token di aggiornamento per un accesso di lunga durata alle risorse. |
 | redirect_uri |Consigliato |Parametro `redirect_uri` dell'applicazione dove è stato ricevuto il codice di autorizzazione. |
-| refresh_token |Obbligatorio |Token di aggiornamento originale acquisito nella seconda sezione del flusso. Si noti che per ricevere un token di aggiornamento, occorre avere usato l'ambito `offline_access` nelle richieste di autorizzazione e nelle richieste di token. |
+| refresh_token |Obbligatoria |Token di aggiornamento originale acquisito nella seconda sezione del flusso. Si noti che per ricevere un token di aggiornamento, occorre avere usato l'ambito `offline_access` nelle richieste di autorizzazione e nelle richieste di token. |
 | client_secret |Obbligatoria |La chiave privata dell’applicazione generata nel [Portale Azure](https://portal.azure.com/). La chiave privata dell'applicazione è un elemento di sicurezza importante. È necessario archiviarla in modo sicuro nel server. È necessario anche far ruotare periodicamente la chiave privata client. |
 
 Una risposta di token con esito positivo ha un aspetto simile al seguente:
@@ -257,7 +257,7 @@ Una risposta di token con esito positivo ha un aspetto simile al seguente:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- |
 | not_before |Il momento in cui il token viene considerato valido, nel periodo. |
 | token_type |Valore del tipo di token. L'unico tipo supportato da Azure AD è `Bearer`. |
@@ -275,7 +275,7 @@ Le risposte di errore si presentano nel modo seguente:
 }
 ```
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- |
 | error |Stringa di codice di errore che può essere usata per classificare i tipi di errori che si verificano e per generare una reazione. |
 | error_description |Messaggio di errore specifico che consente a uno sviluppatore di identificare la causa principale di un errore di autenticazione. |
@@ -291,9 +291,9 @@ p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| Parametro | Obbligatorio? | Descrizione |
+| Parametro | Obbligatorio? | DESCRIZIONE |
 | --- | --- | --- |
-| p |Obbligatorio |Criteri da usare per disconnettere l'utente dall'applicazione. |
+| p |Obbligatoria |Criteri da usare per disconnettere l'utente dall'applicazione. |
 | post_logout_redirect_uri |Consigliato |URL di destinazione al quale l'utente deve essere reindirizzato dopo la disconnessione. Se omesso, l'utente visualizzerà un messaggio generico di Azure AD B2C. |
 
 > [!NOTE]

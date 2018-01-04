@@ -11,14 +11,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: HT
+ms.openlocfilehash: 71322c650b2ee464bab91bf8d4b176f3b2d93949
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="update-management-solution-in-oms"></a>Soluzione Gestione aggiornamenti in OMS
 
@@ -83,7 +83,7 @@ Alla data e ora specificate nella distribuzione degli aggiornamenti, i computer 
 
 Per altre informazioni su come installare l'agente OMS per Linux e scaricare la versione più recente, vedere l'[agente Operations Management Suite per Linux](https://github.com/microsoft/oms-agent-for-linux).  Per informazioni su come installare l'agente OMS per Windows, vedere l'[agente Operations Management Suite per Windows](../log-analytics/log-analytics-windows-agent.md).  
 
-### <a name="permissions"></a>autorizzazioni
+### <a name="permissions"></a>Autorizzazioni
 Per creare distribuzioni di aggiornamenti, è necessario avere il ruolo Collaboratore sia nell'account di Automazione che nell'area di lavoro di Log Analytics.  
 
 ## <a name="solution-components"></a>Componenti della soluzione
@@ -142,12 +142,12 @@ Per verificare che un gruppo di gestione di Operations Manager comunichi con OMS
 ### <a name="supported-agents"></a>Agenti supportati
 La tabella seguente descrive le origini connesse che sono supportate da questa soluzione.
 
-| Origine connessa | Supportato | Descrizione |
+| Origine connessa | Supportato | DESCRIZIONE |
 | --- | --- | --- |
 | Agenti di Windows |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Windows e avvia l'installazione degli aggiornamenti necessari. |
 | Agenti Linux |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Linux e avvia l'installazione degli aggiornamenti necessari nelle distribuzioni supportate. |
 | Gruppo di gestione di Operations Manager |Sì |La soluzione raccoglie informazioni sugli aggiornamenti del sistema dagli agenti in un gruppo di gestione connesso.<br>Non è necessaria una connessione diretta dall'agente Operations Manager a Log Analytics. I dati vengono inoltrati dal gruppo di gestione al repository OMS. |
-| Account di archiviazione di Azure |No |Archiviazione di Azure non include informazioni sugli aggiornamenti del sistema. |
+| Account di archiviazione di Azure |No  |Archiviazione di Azure non include informazioni sugli aggiornamenti del sistema. |
 
 ### <a name="collection-frequency"></a>Frequenza della raccolta
 Per ogni computer Windows gestito viene eseguita un'analisi due volte al giorno. Ogni 15 minuti, l'API Windows viene chiamata per eseguire una query per la data/ora dell'ultimo aggiornamento e determinare se lo stato è stato modificato. In caso affermativo viene avviata un'analisi di conformità.  Per ogni computer Linux gestito viene eseguita un'analisi ogni 3 ore.
@@ -179,18 +179,18 @@ Fare clic sul riquadro **Distribuzione aggiornamento** per visualizzare l'elenco
 
 La tabella seguente descrive le proprietà visualizzate per ogni distribuzione degli aggiornamenti.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
-| Nome |Nome della distribuzione degli aggiornamenti. |
+| NOME |Nome della distribuzione degli aggiornamenti. |
 | Pianificazione |Tipo di pianificazione.  Le opzioni disponibili sono *Una sola volta*, *Ricorrenza settimanale* o *Ricorrenza mensile*. |
 | Ora di inizio |Data e ora pianificata per l'avvio della distribuzione degli aggiornamenti. |
-| Durata |Numero di minuti consentiti per l'esecuzione della distribuzione degli aggiornamenti.  Se non tutti gli aggiornamenti vengono installati entro questo periodo di tempo, gli aggiornamenti rimanenti dovranno attendere la distribuzione successiva. |
+| Duration |Numero di minuti consentiti per l'esecuzione della distribuzione degli aggiornamenti.  Se non tutti gli aggiornamenti vengono installati entro questo periodo di tempo, gli aggiornamenti rimanenti dovranno attendere la distribuzione successiva. |
 | Server |Numero di computer interessati dalla distribuzione degli aggiornamenti.  |
 | Status |Stato corrente della distribuzione degli aggiornamenti.<br><br>I valori possibili sono:<br>- Non avviato<br>- In esecuzione<br>- Operazione terminata |
 
 Selezionare una distribuzione degli aggiornamenti completata per visualizzare la schermata dei dettagli che include le colonne della tabella seguente.  Queste colonne non verranno popolate se la distribuzione degli aggiornamenti non è ancora iniziata.<br><br> ![Panoramica dei risultati della distribuzione degli aggiornamenti](./media/oms-solution-update-management/update-management-deploymentresults-dashboard.png)
 
-| Colonna | Descrizione |
+| Colonna | DESCRIZIONE |
 | --- | --- |
 | **Vista Computer** | |
 | Computer Windows |Elenca il numero di computer Windows nella distribuzione degli aggiornamenti in base allo stato.  Fare clic su uno stato per eseguire una ricerca log e ottenere tutti i record di aggiornamento con tale stato per la distribuzione degli aggiornamenti. |
@@ -203,13 +203,13 @@ Selezionare una distribuzione degli aggiornamenti completata per visualizzare la
 ### <a name="creating-an-update-deployment"></a>Creazione di una distribuzione degli aggiornamenti
 Creare una nuova distribuzione degli aggiornamenti facendo clic sul pulsante **Aggiungi** nella parte superiore della schermata per aprire la pagina **Nuova distribuzione aggiornamenti**.  È necessario specificare i valori per le proprietà nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
-| Nome |Nome univoco che identifica la distribuzione degli aggiornamenti. |
+| NOME |Nome univoco che identifica la distribuzione degli aggiornamenti. |
 | Fuso orario |Fuso orario da usare per l'ora di inizio. |
 | Tipo di pianificazione | Tipo di pianificazione.  Le opzioni disponibili sono *Una sola volta*, *Ricorrenza settimanale* o *Ricorrenza mensile*.  
 | Ora di inizio |Data e ora di inizio della distribuzione degli aggiornamenti. **Nota:** il primo momento possibile per la distribuzione è 30 minuti dall'ora corrente, se è necessario eseguire la distribuzione immediatamente. |
-| Durata |Numero di minuti consentiti per l'esecuzione della distribuzione degli aggiornamenti.  Se non tutti gli aggiornamenti vengono installati entro questo periodo di tempo, gli aggiornamenti rimanenti dovranno attendere la distribuzione successiva. |
+| Duration |Numero di minuti consentiti per l'esecuzione della distribuzione degli aggiornamenti.  Se non tutti gli aggiornamenti vengono installati entro questo periodo di tempo, gli aggiornamenti rimanenti dovranno attendere la distribuzione successiva. |
 | Computer |Nomi di computer o gruppi di computer da includere come destinazioni nella distribuzione degli aggiornamenti.  Selezionare una o più voci dall'elenco a discesa. |
 
 <br><br> ![Pagina Nuova distribuzione aggiornamenti](./media/oms-solution-update-management/update-newupdaterun-page.png)
@@ -225,9 +225,9 @@ La soluzione Gestione aggiornamenti crea due tipi di record nel repository OMS.
 ### <a name="update-records"></a>Record di aggiornamento
 Viene creato un record di tipo **Aggiornamento** per ogni aggiornamento installato o necessario in ogni computer. I record di aggiornamento hanno le proprietà elencate nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
-| Tipo |*Aggiornamento* |
+| type |*Aggiornamento* |
 | SourceSystem |Origine che ha approvato l'installazione dell'aggiornamento.<br>I valori possibili sono:<br>- Microsoft Update<br>- Windows Update<br>- SCCM<br>- Server Linux recuperati da Gestione pacchetti |
 | Approved |Specifica se l'aggiornamento è stato approvato per l'installazione.<br> Per i server Linux è attualmente facoltativo perché l'applicazione di patch non è gestita da OMS. |
 | Classificazione per Windows |Classificazione dell'aggiornamento.<br>I valori possibili sono:<br>- Applicazioni<br>- Aggiornamenti critici<br>- Aggiornamenti della definizione<br>- Feature Pack<br>- Aggiornamenti della sicurezza<br>- Service Pack<br>- Aggiornamenti cumulativi<br>- Aggiornamenti |
@@ -266,9 +266,9 @@ Nella visualizzazione **Elenco**, fare clic sul collegamento **Visualizza** acca
 ### <a name="updatesummary-records"></a>UpdateSummary records
 Viene creato un record di tipo **UpdateSummary** per ogni computer agente Windows. Questo record viene aggiornato ogni volta che il computer viene analizzato per verificare la disponibilità di aggiornamenti. I record **UpdateSummary** hanno le proprietà elencate nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
-| Tipo |UpdateSummary |
+| type |UpdateSummary |
 | SourceSystem |OpsManager |
 | Computer |Nome del computer. |
 | CriticalUpdatesMissing |Numero di aggiornamenti critici mancanti nel computer. |
@@ -289,7 +289,7 @@ Viene creato un record di tipo **UpdateSummary** per ogni computer agente Window
 ## <a name="sample-log-searches"></a>Ricerche di log di esempio
 La tabella seguente contiene esempi di ricerche log per i record di aggiornamento raccolti da questa soluzione.
 
-| Query | Descrizione |
+| Query | DESCRIZIONE |
 | --- | --- |
 | Type:Update OSType!=Linux UpdateState=Needed Optional=false Approved!=false &#124; measure count() by Computer |Computer server basati su Windows che richiedono aggiornamenti |
 | Type:Update OSType=Linux UpdateState!="Not needed" &#124; measure count() by Computer |Server Linux che richiedono aggiornamenti | 
@@ -319,7 +319,7 @@ I clienti che hanno investito in System Center Configuration Manager per gestire
 
 Per informazioni su come integrare la soluzione Gestione aggiornamenti di OMS con Sytem Center Configuration Manager, vedere [Integrare System Center Configuration Manager con Gestione aggiornamenti OMS](../automation/oms-solution-updatemgmt-sccmintegration.md).
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Questa sezione fornisce informazioni sulla risoluzione dei problemi della soluzione Gestione aggiornamenti.
 

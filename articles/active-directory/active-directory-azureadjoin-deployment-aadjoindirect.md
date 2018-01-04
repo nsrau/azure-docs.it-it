@@ -4,7 +4,7 @@ description: "Questo argomento illustra come gli amministratori possono configur
 services: active-directory
 documentationcenter: 
 author: femila
-manager: femila
+manager: mtillman
 editor: 
 tags: azure-classic-portal
 ms.assetid: 81d4461e-21c8-4fdd-9076-0e4991979f62
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.openlocfilehash: fd0aab1a14bbd324e734e5efe8fe101e8a8dfefa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 173ad6f07699ca6bfa534dedc053663bba571382
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="usage-scenarios-and-deployment-considerations-for-azure-ad-join"></a>Scenari di utilizzo e considerazioni sulla distribuzione per Aggiunta di Azure AD
 ## <a name="usage-scenarios-for-azure-ad-join"></a>Scenari di utilizzo per Aggiunta ad Azure AD

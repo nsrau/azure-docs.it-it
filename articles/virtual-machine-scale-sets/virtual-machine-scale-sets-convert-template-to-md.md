@@ -5,7 +5,7 @@ keywords: "set di scalabilità di macchine virtuali"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: madhana
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: bc8c377a-8c3f-45b8-8b2d-acc2d6d0b1e8
@@ -16,19 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: negat
-ms.openlocfilehash: 2f5cb85703888c5056611d466f508547ee72e44b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 760e30f5c6f4ecaff299bae1725548a6a7c5184c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Convertire un modello di set di scalabilità in un modello di set di scalabilità per i dischi gestiti
 
-I clienti con un modello di Resource Manager per la creazione di un set di scalabilità che non usa i dischi gestiti potrebbero volerlo modificare per usare i dischi gestiti. Questo articolo illustra come procedere, usando come esempio una richiesta pull dai [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates), un repository gestito dalla community di modelli di Resource Manager di esempio. La richiesta pull completa è disponibile all'indirizzo [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998). Le parti pertinenti del diff sono sotto, con le spiegazioni:
+I clienti con un modello di Resource Manager per la creazione di un set di scalabilità che non usa i dischi gestiti potrebbero volerlo modificare per usare i dischi gestiti. In questo articolo viene illustrato come utilizzare dischi gestiti, utilizzando ad esempio una richiesta di pull dal [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates), un repository basato sulla community per i modelli di gestione risorse di esempio. La richiesta pull completa è disponibile all'indirizzo [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998). Le parti pertinenti del diff sono sotto, con le spiegazioni:
 
 ## <a name="making-the-os-disks-managed"></a>Impostazione dei dischi del sistema operativo come gestiti
 
-Nel diff seguente è possibile osservare che sono state rimosse diverse variabili correlate all'account di archiviazione e alle proprietà dei dischi. Il tipo di account di archiviazione non è più necessario (Standard_LRS è il valore predefinito), ma è ugualmente possibile specificarlo, se si preferisce. Con il disco gestito sono supportati solo Standard_LRS e Premium_LRS. Nel modello precedente, per generare i nomi degli account di archiviazione, vengono usati un nuovo suffisso dell'account di archiviazione, una matrice di stringhe univoca e il conteggio degli account di archiviazione. Queste variabili non sono più necessarie nel nuovo modello perché il disco gestito crea automaticamente gli account di archiviazione per conto del cliente. Allo stesso modo, non sono più necessari il nome contenitore del disco rigido virtuale e il nome del disco del sistema operativo perché il disco gestito denomina automaticamente i dischi e i contenitori BLOB di archiviazione sottostanti.
+Nelle differenze seguenti, vengono rimossi diverse variabili correlate alle proprietà di account e il disco di archiviazione. Tipo di account di archiviazione non è più necessario (Standard_LRS è il valore predefinito), ma è possibile specificare se si desidera. Con il disco gestito sono supportati solo Standard_LRS e Premium_LRS. Nel modello precedente, per generare i nomi degli account di archiviazione, vengono usati un nuovo suffisso dell'account di archiviazione, una matrice di stringhe univoca e il conteggio degli account di archiviazione. Queste variabili non sono più necessarie nel nuovo modello perché il disco gestito crea automaticamente gli account di archiviazione per conto del cliente. Analogamente, il nome di contenitore vhd e il nome del disco del sistema operativo non sono più necessarie poiché disco gestito automaticamente nomi di contenitori di archiviazione blob e i dischi sottostanti.
 
 ```diff
    "variables": {
@@ -52,7 +52,7 @@ Nel diff seguente è possibile osservare che sono state rimosse diverse variabil
 ```
 
 
-Nel diff seguente è possibile osservare che la versione dell'API di calcolo è stata aggiornata a 2016-04-30-preview, che è la versione necessaria più recente per il supporto per il disco gestito con i set di scalabilità. Si noti che è ancora possibile usare dischi non gestiti nella nuova versione dell'API con la sintassi precedente, se si preferisce. In altre parole, se si aggiorna solo la versione dell'API di calcolo e non si modifica nient'altro, il modello continuerà a funzionare come prima.
+Le differenze seguenti, per calcolare che API viene aggiornata alla versione 2016-04-30-preview, ovvero la versione richiesta meno recente per il supporto di dischi gestiti con set di scalabilità. Se si desidera, è possibile utilizzare i dischi non gestiti nella nuova versione dell'API con la sintassi precedente. Se si solo aggiornare la versione API di calcolo e non modificare nemmeno altri elementi, il modello deve continuare a funzionare come prima.
 
 ```diff
 @@ -86,7 +74,7 @@
@@ -66,7 +66,7 @@ Nel diff seguente è possibile osservare che la versione dell'API di calcolo è 
    },
 ```
 
-Nel diff seguente si può osservare che la risorsa dell'account di archiviazione viene completamente rimossa dalla matrice di risorse. Non è più necessaria perché il disco gestito la crea automaticamente.
+Nelle differenze seguenti, la risorsa di account di archiviazione viene rimosso dalla matrice di risorse completamente. La risorsa non è più necessario come disco gestito vengono create automaticamente.
 
 ```diff
 @@ -113,19 +101,6 @@
@@ -91,7 +91,7 @@ Nel diff seguente si può osservare che la risorsa dell'account di archiviazione
        "location": "[resourceGroup().location]",
 ```
 
-Nel diff seguente è possibile osservare che viene rimossa la clausola depends on che crea un riferimento dal set di scalabilità al ciclo che crea gli account di archiviazione. Nel modello precedente ciò assicura che gli account di archiviazione vengano creati prima che il set di scalabilità inizi la creazione, ma questa clausola non è più necessaria con i dischi gestiti. Vengono rimosse anche la proprietà dei contenitori dei dischi rigidi virtuali e la proprietà del nome del disco del sistema operativo perché queste proprietà vengono gestite automaticamente in background dal disco gestito. Se necessario, è possibile aggiungere `"managedDisk": { "storageAccountType": "Premium_LRS" }` nella configurazione di "osDisk" se si preferiscono dischi di sistema operativo Premium. Solo le VM con una "s" maiuscola o minuscola nell'unità SKU possono usare dischi Premium.
+Nelle differenze seguenti, è possibile osservare che viene rimossa la dipende dalla clausola che fa riferimento dalla scala impostata per il ciclo che la creazione di account di archiviazione. Nel modello precedente ciò assicura che gli account di archiviazione vengano creati prima che il set di scalabilità inizi la creazione, ma questa clausola non è più necessaria con i dischi gestiti. La proprietà di contenitori di disco rigido virtuale viene rimossa anche, insieme alla proprietà di nome disco del sistema operativo come queste proprietà vengono gestite automaticamente dietro le quinte dal disco gestito. È possibile aggiungere `"managedDisk": { "storageAccountType": "Premium_LRS" }` nella configurazione "osDisk" Se si desidera che i dischi del sistema operativo premium. Solo le VM con una "s" maiuscola o minuscola nell'unità SKU possono usare dischi Premium.
 
 ```diff
 @@ -183,7 +158,6 @@
@@ -137,7 +137,7 @@ Con le modifiche precedenti, il set di scalabilità usa dischi gestiti per il di
 ]
 ```
 
-Se si specificano `n` dischi in questa matrice, ogni VM nel set di scalabilità ottiene `n` dischi dati. Si noti tuttavia che questi dischi dati sono dispositivi RAW. Non sono formattati. È responsabilità del cliente collegare, partizionare e formattare i dischi prima di usarli. Volendo, è possibile specificare `"managedDisk": { "storageAccountType": "Premium_LRS" }` in ogni oggetto disco dati per specificare che deve essere un disco dati Premium. Solo le VM con una "s" maiuscola o minuscola nell'unità SKU possono usare dischi Premium.
+Se si specificano `n` dischi in questa matrice, ogni VM nel set di scalabilità ottiene `n` dischi dati. Si noti tuttavia che questi dischi dati sono dispositivi RAW. Non sono formattati. Spetta al cliente di collegare, partizionare e formattare i dischi prima di usarli. Facoltativamente, è anche possibile specificare `"managedDisk": { "storageAccountType": "Premium_LRS" }` in ogni oggetto disco dati per specificare che deve essere un disco dati premium. Solo le VM con una "s" maiuscola o minuscola nell'unità SKU possono usare dischi Premium.
 
 Per altre informazioni sull'uso dei dischi dati con i set di scalabilità, vedere [questo articolo](./virtual-machine-scale-sets-attached-disks.md).
 

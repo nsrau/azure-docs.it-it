@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: ef559fbbd3e8448d64167552cacee04790418343
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-powershell"></a>Individuare il tipo di hop successivo tramite la funzionalità Hop successivo di Network Watcher di Azure usando PowerShell
 
 > [!div class="op_single_selector"]
-> - [Portale di Azure](network-watcher-check-next-hop-portal.md)
+> - [Azure portal](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
 > - [Interfaccia della riga di comando 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 > - [Interfaccia della riga di comando 2.0](network-watcher-check-next-hop-cli.md)
@@ -39,7 +39,7 @@ Questo scenario presuppone il completamento dei passaggi descritti in [Creare un
 
 ## <a name="scenario"></a>Scenario
 
-Lo scenario illustrato in questo articolo usa la funzionalità Hop successivo di Network Watcher che rileva il tipo di hop successivo e l'indirizzo IP di una risorsa. Per altre informazioni sulla funzionalità di individuazione dell'hop successivo, consultare la [panoramica sulla funzionalità Hop successivo](network-watcher-next-hop-overview.md).
+Lo scenario illustrato in questo articolo usa la funzionalità Hop successivo di Network Watcher che rileva il tipo di hop successivo e l'indirizzo IP di una risorsa. Per altre informazioni sulla funzionalità di individuazione dell'hop successivo, consultare la [panoramica su Hop successivo](network-watcher-next-hop-overview.md).
 
 ## <a name="retrieve-network-watcher"></a>Recuperare Network Watcher
 
@@ -97,7 +97,7 @@ L'elenco seguente mostra i valori NextHopType attualmente disponibili:
 * VnetLocal
 * HyperNetGateway
 * VnetPeering
-* None
+* Nessuna
 
 ## <a name="next-steps"></a>Passaggi successivi
 

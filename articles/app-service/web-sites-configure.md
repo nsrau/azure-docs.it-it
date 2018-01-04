@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: fd1a8cf442ea0688e027f8f8028ee8b4e149d8d2
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
-ms.translationtype: HT
+ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurazione delle app Web in Servizio app di Azure
+
 Questo argomento descrive come configurare un'app Web usando il [portale di Azure].
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
@@ -45,6 +46,8 @@ Per motivi tecnici, l'abilitazione di Java per le proprie app disabilita le opzi
 
 <a name="platform"></a>
 **Piattaforma**. Scegliere se eseguire l'app Web in un ambiente a 32 bit o a 64 bit. L'ambiente a 64 bit richiede la modalità Basic o Standard. Le modalità Gratuito e Condiviso vengono eseguite sempre in un ambiente a 32 bit.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 **Web Socket**. Impostare **ATTIVATO** per abilitare il protocollo WebSocket, ad esempio se l'app Web usa [ASP.NET SignalR] o [socket.io](https://socket.io/).
 
@@ -116,11 +119,11 @@ Per visualizzare i file di log, è necessario creare le credenziali FTP, come de
 1. Nel pannello dell'app Web, fare clic su **Tutte le impostazioni**.
 2. Fare clic su **Credenziali distribuzione**.
 3. Immettere un nome utente e una password.
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**.
 
 ![Reimpostare le credenziali di distribuzione][configure03]
 
-Il nome utente completo FTP è "app\nomeutente", dove *app* è il nome dell'app Web. Il nome utente è elencato nel pannello dell'app Web in **Elementi essenziali**.  
+Il nome utente completo FTP è "app\nomeutente", dove *app* è il nome dell'app Web. Il nome utente è elencato nel pannello dell'app Web in **Elementi essenziali**.
 
 ![Credenziali di distribuzione FTP][configure02]
 

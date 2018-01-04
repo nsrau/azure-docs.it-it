@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: abbfb5ac-7687-4153-b263-8090102dae37
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 4a04f5b2b5ccb33dddefc063a89118d87a11ebf5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 40e7d3dd5c54daa1cb4812978e8bd38f77e2db08
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciforma"></a>Esercitazione: Integrazione di Azure Active Directory con Sciforma
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con Sciforma, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di Sciforma abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
@@ -47,7 +47,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Sciforma dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -63,11 +63,11 @@ Per configurare l'integrazione di Sciforma in Azure AD, è necessario aggiungere
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 4. Nella casella di ricerca digitare **Sciforma**.
 
@@ -86,7 +86,7 @@ Per stabilire la relazione di collegamento, in Sciforma assegnare il valore del 
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Sciforma, è necessario completare le procedure di base seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente di test di Sciforma](#creating-a-sciforma-test-user)**: per avere una controparte di Britta Simon in Sciforma collegata alla rappresentazione dell'utente in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -100,32 +100,32 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **Sciforma** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_samlbase.png)
 
 3. Nella sezione **URL e dominio Sciforma** seguire questa procedura:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.sciforma.net/sciforma/main.html`.
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.sciforma.net/sciforma/main.html`
 
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<subdomain>.sciforma.net/sciforma/saml`
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di Sciforma](http://www.sciforma.com/company/contact_us). 
+    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di Sciforma](http://www.sciforma.com/company/contact_us). 
  
 
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_certificate.png) 
 
 5. Fare clic sul pulsante **Salva** .
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-sciforma-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-sciforma-tutorial/tutorial_general_400.png)
 
 6. Per configurare l'accesso Single Sign-On sul lato **Sciforma**, è necessario inviare il file **XML metadati** scaricato al [team di supporto di Sciforma](http://www.sciforma.com/company/contact_us).
 
@@ -184,7 +184,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco delle applicazioni selezionare **Sciforma**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-sciforma-tutorial/tutorial_sciforma_app.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -202,7 +202,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
     
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 
-Per testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
+Se si desidera testare le impostazioni di Single Sign-On, aprire il pannello di accesso. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

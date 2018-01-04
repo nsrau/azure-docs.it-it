@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: 58ccdba6f01cfb7de72f28f185102bf7f618eab4
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: 72694743a9e1f520211d133dcc0d7f473c087f38
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Procedura: Eseguire il monitoraggio delle app nel servizio app di Azure
 Il [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) offre una funzionalità di monitoraggio incorporata nel [portale di Azure](https://portal.azure.com).
@@ -29,6 +29,8 @@ Il portale di Azure consente, ad esempio, di esaminare **quote** e **metriche** 
 ## <a name="understanding-quotas-and-metrics"></a>Informazioni su quote e metriche
 ### <a name="quotas"></a>Quote
 Le applicazioni ospitate nel servizio app di Azure sono soggette a determinati *limiti* in merito alle risorse che possono usare. I limiti sono definiti dal **piano di servizio app** associato all'app.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Se l'applicazione è ospitata in un piano **gratuito** o **condiviso**, i limiti sulle risorse che l'app può usare sono definiti dalle **quote**.
 
@@ -62,7 +64,7 @@ Se viene superata la quota relativa al **file system**, tutte le operazioni di s
 
 È possibile aumentare o rimuovere le quote dall'app aggiornando il piano di servizio app.
 
-### <a name="metrics"></a>Metrica
+### <a name="metrics"></a>Metriche
 **Metrica** forniscono informazioni sull'app o sul comportamento del piano di servizio app.
 
 Per un' **applicazione**, le metriche disponibili sono:
@@ -152,7 +154,7 @@ Le metriche per un'app o per un piano di servizio app possono essere collegate a
 Le app del servizio app ospitate nei piani di servizio app Basic, Standard e Premium supportano il **ridimensionamento automatico**. Il ridimensionamento automatico consente di configurare le regole che monitorano le metriche del piano di servizio app. Le regole possono aumentare o diminuire il numero di istanze per concedere risorse aggiuntive in base alla esigenze. Le regole consentono anche di risparmiare quando l'applicazione ha un provisioning eccessivo. Per altre informazioni sul ridimensionamento automatico, vedere [How to Scale](../monitoring-and-diagnostics/insights-how-to-scale.md) (Come ridimensionare) e [Best practices for Azure Monitor autoscaling](../monitoring-and-diagnostics/insights-autoscale-best-practices.md) (Procedure consigliate per il ridimensionamento automatico in Monitoraggio di Azure)
 
 > [!NOTE]
-> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 

@@ -4,7 +4,7 @@ description: Discutere concetti di base e avanzati sulla migrazione degli utenti
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,21 +14,21 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/04/2017
 ms.author: yoelh
-ms.openlocfilehash: f98f1826b492b8596f352b403b3b12775814c399
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 25023359e3f1eeb241f6f0e70bcb179aa32974af
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: migrazione degli utenti
 Quando si esegue la migrazione del provider di identità ad Azure Active Directory B2C (Azure AD B2C) potrebbe essere necessario eseguire anche la migrazione dell'account utente. Questo articolo spiega come eseguire la migrazione degli account utente esistenti da qualsiasi provider di identità ad Azure AD B2C. Questo articolo non fornisce informazioni prescrittive, ma descrive piuttosto due dei diversi approcci possibili. Lo sviluppatore è responsabile dell'idoneità di ogni approccio.
 
 ## <a name="user-migration-flows"></a>Flussi di migrazione degli utenti
-Azure AD B2C consente di eseguire la migrazione degli utenti usando l'[API Graph](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Il processo di migrazione degli utenti rientra in due flussi:
+Azure AD B2C consente di eseguire la migrazione degli utenti usando l'[API Graph](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Il processo di migrazione degli utenti rientra in due flussi:
 
 * **Pre-migrazione**: questo flusso si applica quando si ha accesso alle credenziali di un utente (nome utente e password) o se le credenziali sono crittografate ma è possibile decrittografarle. Il processo di pre-migrazione include la lettura degli utenti dal vecchio provider di identità e la creazione di nuovi account nella directory di Azure AD B2C.
 
-* **Pre-migrazione e reimpostazione della password**: questo flusso si applica quando la password di un utente non è accessibile, ad esempio:
+* **Pre-migrazione e reimpostazione della password**: questo flusso si applica quando la password di un utente non è accessibile, Ad esempio: 
     * La password è archiviata in formato HASH.
     * La password è archiviata in un provider di identità a cui non è possibile accedere. Il vecchio provider di identità convalida le credenziali dell'utente chiamando un servizio Web.
 
@@ -67,7 +67,7 @@ Per prima cosa registrare l'applicazione di migrazione in Azure AD. Creare quind
     * Per **Nome** usare **B2CUserMigration** o qualsiasi altro nome.
     * Per **Tipo di applicazione** usare **App Web/API**.
     * Per **URL di accesso** usare **https://localhost** (non pertinente per questa applicazione).
-    * Selezionare **Crea**.
+    * Selezionare **Create**.
 
 7. Dopo aver creato l'applicazione, nell'elenco **Applicazioni** selezionare quella appena creata, **B2CUserMigration**.
 
@@ -100,7 +100,7 @@ Le autorizzazioni di lettura e scrittura dei dati della directory *non* includon
 > È necessario usare un account di amministratore tenant B2C che sia *locale* in relazione al tenant B2C. La sintassi del nome dell'account è *admin@contosob2c.onmicrosoft.com*.
 
 >[!NOTE]
-> Lo script di PowerShell seguente richiede [Azure Active Directory PowerShell versione 2](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+> Lo script di PowerShell seguente richiede [Azure Active Directory PowerShell versione 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
 
 In questo script di PowerShell eseguire le operazioni seguenti:
 1. Connettersi al servizio online. A tale scopo, eseguire il cmdlet `Connect-AzureAD` al prompt dei comandi di Windows PowerShell e immettere le credenziali. 
@@ -250,7 +250,7 @@ Per ottenere il collegamento ai criteri di reimpostazione della password, seguir
 > Per controllare e modificare lo stato di migrazione degli utenti è necessario usare criteri personalizzati. Per altre informazioni, vedere [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md).
 >
 
-Quando gli utenti provano a eseguire l'accesso senza prima reimpostare la password, i criteri dovrebbero restituire un messaggio di errore descrittivo, ad esempio: 
+Quando gli utenti provano a eseguire l'accesso senza prima reimpostare la password, i criteri dovrebbero restituire un messaggio di errore descrittivo, Ad esempio:  
 >*La password è scaduta. Per reimpostarla, selezionare il collegamento Reimposta password.* 
 
 Questo passaggio facoltativo richiede l'uso di criteri personalizzati in Azure AD B2C, come descritto nell'articolo [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md).
@@ -278,7 +278,7 @@ Per monitorare il cambio della password, usare una tabella di Azure. L'esecuzion
     ```
 
 ### <a name="step-42-deploy-your-web-application-to-azure-app-service"></a>Passaggio 4.2: Distribuire l'applicazione Web nel Servizio app di Azure
-Pubblicare il servizio API nel Servizio app di Azure. Per altre informazioni, vedere [Distribuire l'app nel Servizio app di Azure](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy).
+Pubblicare il servizio API nel Servizio app di Azure. Per altre informazioni, vedere [Distribuire l'app nel Servizio app di Azure](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy).
 
 ### <a name="step-43-add-a-technical-profile-and-technical-profile-validation-to-your-policy"></a>Passaggio 4.3: Aggiungere un profilo tecnico e la relativa convalida ai criteri 
 1. Aprire il file dei criteri di estensione *TrustFrameworkExtensions.xml* nella directory di lavoro. 
@@ -384,11 +384,11 @@ Dopo aver definito il profilo tecnico per l'API RESTful, indicare ai criteri di 
 
 6. Controllare l'output dell'API RESTful.
 
-Per altre informazioni, vedere [Log di streaming e console](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-streaming-logs-and-console).
+Per altre informazioni, vedere [Log di streaming e console](https://docs.microsoft.com/azure/app-service-web/web-sites-streaming-logs-and-console).
 
 > [!IMPORTANT]
 > Usare i log di diagnostica solo in fase di sviluppo e test. L'output dell'API RESTful può contenere informazioni riservate che non devono essere esposte in produzione.
 >
 
 ## <a name="optional-download-the-complete-policy-files"></a>(Facoltativo) Scaricare i file dei criteri completi
-Dopo aver completato la procedura dettagliata [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md), è consigliabile usare file di criteri personalizzati per definire scenari specifici. Per riferimento, sono disponibili [file di criteri di esempio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-user-migration). 
+Dopo aver completato la procedura [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md), è consigliabile usare file di criteri personalizzati per definire scenari specifici. Per riferimento, sono disponibili [file di criteri di esempio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-user-migration). 

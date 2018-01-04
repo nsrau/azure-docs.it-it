@@ -45,13 +45,13 @@ Per creare e gestire macchine virtuali (VM) in modo coerente e scalabile, è in 
 
 Cloud-init funziona anche fra distribuzioni. Ad esempio, non si usa **apt-get install** o **yum install** per installare un pacchetto. In alternativa, è possibile definire un elenco di pacchetti da installare. Cloud-init userà automaticamente lo strumento di gestione del pacchetto nativo per la distribuzione selezionata.
 
- Microsoft sta collaborando attivamente con i partner di distribuzione Linux approvati per offrire immagini abilitate per cloud-init in Azure Marketplace. Queste immagini permetteranno il funzionamento uniforme di distribuzioni e configurazioni di cloud-init con macchine virtuali e set di scalabilità di macchine virtuali. La tabella seguente contiene le attuali immagini abilitate per cloud-init disponibili nella piattaforma Azure:
+ Microsoft sta collaborando attivamente con i partner di distribuzione Linux approvati per offrire immagini abilitate per cloud-init in Azure Marketplace. Queste immagini rendono le distribuzioni cloud init e le configurazioni funzionano perfettamente con le macchine virtuali e i set di scalabilità di macchine virtuali. La tabella seguente contiene le attuali immagini abilitate per cloud-init disponibili nella piattaforma Azure:
 
-| Autore | Offerta | SKU | Versione | Pronta per cloud-init
+| Editore | Offerta | SKU | Version | Pronta per cloud-init
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |16.04-LTS |più recenti |sì | 
-|Canonical |UbuntuServer |14.04.5-LTS |più recenti |sì |
-|CoreOS |CoreOS |Stabile |più recenti |sì |
+|Canonical |UbuntuServer |16.04-LTS |più recenti |Sì | 
+|Canonical |UbuntuServer |14.04.5-LTS |più recenti |Sì |
+|CoreOS |CoreOS |Stabile |più recenti |Sì |
 |OpenLogic |CentOS |7-CI |più recenti |preview |
 |RedHat |RHEL |7-RAW-CI |più recenti |preview |
 

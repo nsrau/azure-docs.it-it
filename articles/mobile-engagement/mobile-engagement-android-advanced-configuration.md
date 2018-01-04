@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: 0301f71c76872714aa1bf727a6c21dd7a63db036
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="advanced-configuration-for-azure-mobile-engagement-android-sdk"></a>Configurazione avanzata di Android SDK per Azure Mobile Engagement
 > [!div class="op_single_selector"]
@@ -44,15 +44,15 @@ Il codice di autorizzazione deve essere simile al seguente. L'autorizzazione app
 
 | Autorizzazione | Quando si usa |
 | --- | --- |
-| INTERNET |Obbligatorio. Per report di base |
-| ACCESS_NETWORK_STATE |Obbligatorio. Per report di base |
-| RECEIVE_BOOT_COMPLETED |Obbligatorio. Per visualizzare il centro notifiche dopo il riavvio del dispositivo |
+| INTERNET |Richiesto. Per report di base |
+| ACCESS_NETWORK_STATE |Richiesto. Per report di base |
+| RECEIVE_BOOT_COMPLETED |Richiesto. Per visualizzare il centro notifiche dopo il riavvio del dispositivo |
 | WAKE_LOCK |Consigliato. Abilita la raccolta dei dati quando si usa il WiFi o quando lo schermo è spento |
-| VIBRATE |Facoltativo. Abilita la vibrazione alla ricezione delle notifiche |
-| DOWNLOAD_WITHOUT_NOTIFICATION |Facoltativo. Abilita la notifica generale di Android |
-| WRITE_EXTERNAL_STORAGE |Facoltativo. Abilita la notifica generale di Android |
-| ACCESS_COARSE_LOCATION |Facoltativo. Abilita la segnalazione della posizione in tempo reale |
-| ACCESS_FINE_LOCATION |Facoltativo. Abilita la segnalazione della posizione basata su GPS |
+| VIBRATE |facoltativo. Abilita la vibrazione alla ricezione delle notifiche |
+| DOWNLOAD_WITHOUT_NOTIFICATION |facoltativo. Abilita la notifica generale di Android |
+| WRITE_EXTERNAL_STORAGE |facoltativo. Abilita la notifica generale di Android |
+| ACCESS_COARSE_LOCATION |facoltativo. Abilita la segnalazione della posizione in tempo reale |
+| ACCESS_FINE_LOCATION |facoltativo. Abilita la segnalazione della posizione basata su GPS |
 
 A partire da Android M, [alcune autorizzazioni vengono gestite in fase di esecuzione](mobile-engagement-android-location-reporting.md#android-m-permissions).
 

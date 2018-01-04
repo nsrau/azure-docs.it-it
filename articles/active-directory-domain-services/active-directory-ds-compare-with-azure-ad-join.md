@@ -4,7 +4,7 @@ description: Scelta tra l'aggiunta ad Azure AD e Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 8f34688c53dc909b0ec97df34bbfc7a24209a314
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: fb28c7a66d26119444dd720c2e134f2818d46cfc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Scegliere tra l'aggiunta ad Azure Active Directory e Azure Active Directory Domain Services
 Questo articolo descrive le differenze tra l'aggiunta ad Azure Active Directory (AD) e Azure AD Domain Services e facilita la scelta in base ai casi d'uso.
@@ -56,8 +56,8 @@ In un computer aggiunto al dominio, l'autenticazione utente avviene tramite il p
 |:---| --- | --- |
 | Dispositivo controllato da | Azure AD | Dominio gestito di Azure AD Domain Services |
 | Rappresentazione nella directory | Oggetti dispositivo nella directory di Azure AD. | Oggetti computer nel dominio gestito di AAD-DS. |
-| Autenticazione | Protocolli basati su OAuth/OpenID Connect | Protocolli Kerberos e NTLM |
-| gestione | Software di gestione di dispositivi mobili (MDM), ad esempio Intune | Criteri di gruppo |
+| Authentication | Protocolli basati su OAuth/OpenID Connect | Protocolli Kerberos e NTLM |
+| Gestione | Software di gestione di dispositivi mobili (MDM), ad esempio Intune | Criteri di gruppo |
 | Rete | Funziona attraverso Internet | Richiede che i computer si trovino nella stessa rete virtuale del dominio gestito.|
 | Ideale per... | Dispositivi mobili o desktop degli utenti finali | Macchine virtuali server distribuite in Azure |
 

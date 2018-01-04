@@ -12,11 +12,11 @@ ms.prod:
 ms.service: microsoft-keyvault
 ms.technology: 
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: f67f81aeee0775ea8d90e4459f2c46266a774786
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: HT
+ms.openlocfilehash: bff4b15ca2f1c985c4b4e27d159adaa5fd039553
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticazione da servizio a servizio ad Azure Key Vault usando .NET
 
@@ -28,7 +28,7 @@ L'utilizzo delle credenziali per lo sviluppatore durante lo sviluppo locale è p
 
 La raccolta `Microsoft.Azure.Services.AppAuthentication` gestisce l'autenticazione automaticamente, consentendo quindi di concentrarsi sulla soluzione, anziché sulle credenziali.
 
-La raccolta `Microsoft.Azure.Services.AppAuthentication` supporta lo sviluppo locale con Microsoft Visual Studio, l'interfaccia della riga di comando di Azure o l'autenticazione integrata di Azure AD. Quando la distribuzione viene eseguita nei Servizi app di Azure o in una macchina virtuale (VM) di Azure, la raccolta usa automaticamente l'[identità del servizio gestito](/azure/active-directory/msi-overview) (MSI). Non sono richieste modifiche di codice o di configurazione. La raccolta supporta anche l'uso diretto delle [credenziali client](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal) di Azure AD quando l'identità del servizio gestito non è disponibile o non è possibile determinare il contesto di protezione dello sviluppatore durante lo sviluppo locale.
+La raccolta `Microsoft.Azure.Services.AppAuthentication` supporta lo sviluppo locale con Microsoft Visual Studio, l'interfaccia della riga di comando di Azure o l'autenticazione integrata di Azure AD. Quando la distribuzione viene eseguita nei Servizi app di Azure o in una macchina virtuale (VM) di Azure, la raccolta usa automaticamente l'[identità del servizio gestito](/azure/active-directory/msi-overview) (MSI). Non sono richieste modifiche di codice o di configurazione. La raccolta supporta anche l'uso diretto delle [credenziali client](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) di Azure AD quando l'identità del servizio gestito non è disponibile o non è possibile determinare il contesto di protezione dello sviluppatore durante lo sviluppo locale.
 
 <a name="asal"></a>
 ## <a name="using-the-library"></a>Utilizzo della raccolta
@@ -57,7 +57,7 @@ Per le applicazioni .NET, il modo più semplice per usare l'Identità del serviz
 
 La classe `AzureServiceTokenProvider` memorizza nella cache il token e lo recupera da Azure AD appena prima della scadenza. Di conseguenza non è necessario controllare la scadenza prima di chiamare il metodo `GetAccessTokenAsync`. Per usare il token, è sufficiente chiamare il metodo. 
 
-Il metodo `GetAccessTokenAsync` richiede un identificatore di risorsa. Per altre informazioni, vedere [Quali servizi di Azure supportano l'Identità del servizio gestito?](https://docs.microsoft.com/en-us/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity)
+Il metodo `GetAccessTokenAsync` richiede un identificatore di risorsa. Per altre informazioni, vedere [Quali servizi di Azure supportano l'Identità del servizio gestito?](https://docs.microsoft.com/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity)
 
 
 <a name="samples"></a>

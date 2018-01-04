@@ -4,7 +4,7 @@ description: Risoluzione dei problemi per cui un oggetto non esegue la sincroniz
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 491a920ceeaac62dd37b1def3f02234056aebfb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 585b49addee7fe8ded2a047939f4b5412ba4163b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Risoluzione dei problemi relativi a un oggetto che non esegue la sincronizzazione in Azure AD
 
@@ -40,7 +40,7 @@ Nella metà superiore sono mostrate tutte le esecuzioni in ordine cronologico. P
 
 La colonna **Status** (Stato) visualizza le informazioni più importanti e segnala il problema più grave di un'esecuzione. Ecco un breve riepilogo degli stati disponibili, ordinati in base alla priorità con cui vanno analizzati (dove * indica diverse stringhe di errore possibili).
 
-| Status | Commento |
+| Status | Comment |
 | --- | --- |
 | stopped-* |Impossibile completare l'esecuzione. Ad esempio se il sistema remoto è inattivo e non può essere contattato. |
 | stopped-error-limit |Sono presenti più di 5.000 errori. L'esecuzione è stata arrestata automaticamente a causa dell'elevato numero di errori. |
@@ -85,7 +85,7 @@ Quando si apre un oggetto cs, nella parte superiore sono presenti diverse schede
 ![Oggetto CS](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/csobject.png)    
 La colonna **Valore precedente** mostra ciò che è attualmente memorizzato in Connect, mentre **Nuovo valore** ciò che è stato ricevuto dal sistema di origine e che non è stato ancora applicato. Se si verifica un errore sull'oggetto, le modifiche non vengono elaborate.
 
-**Errore**  
+**Error (Errore) (Error (Errore)e)**  
 ![Oggetto CS](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cssyncerror.png)  
 La scheda **Errore di sincronizzazione** è visibile solo se si è verificato un problema con l'oggetto. Per altre informazioni, vedere l'articolo su come [risolvere gli errori di sincronizzazione](#troubleshoot-errors-in-operations-tab).
 

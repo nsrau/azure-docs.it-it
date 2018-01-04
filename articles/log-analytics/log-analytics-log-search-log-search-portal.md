@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: bwren
-ms.openlocfilehash: 6fc556ceb34cde26d5f3789a2397cdaa34b0b84d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Creare ricerche log in Azure Log Analytics tramite il portale per la ricerca log
 
@@ -34,7 +34,7 @@ Per creare ricerche nel portale Advanced Analytics anziché nel portale per la r
 In questa esercitazione si presuppone che sia già disponibile un'area di lavoro di Log Analytics con almeno un'origine connessa che genera dati analizzabili tramite le query.  
 
 - Se l'area di lavoro non è disponibile, è possibile crearne una gratuitamente seguendo la procedura in [Introduzione a un'area di lavoro di Log Analytics](log-analytics-get-started.md).
-- Connettere almeno un [agente Windows](log-analytics-windows-agents.md) o un [agente Linux](log-analytics-linux-agents.md) all'area di lavoro.  
+- Connettere almeno un [agente Windows](log-analytics-windows-agent.md) o un [agente Linux](log-analytics-linux-agents.md) all'area di lavoro.  
 
 ## <a name="open-the-log-search-portal"></a>Aprire il portale per la ricerca log
 Per iniziare, aprire il portale per la ricerca log.  È possibile accedervi dal portale di Azure o dal portale di OMS.

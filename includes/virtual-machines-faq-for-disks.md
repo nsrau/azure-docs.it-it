@@ -34,11 +34,11 @@ Sì. Sì, è possibile esportare i dischi gestiti tramite il portale di Azure, P
 
 **È possibile usare un file di disco rigido virtuale in un account di archiviazione di Azure per creare un disco gestito con una sottoscrizione diversa?**
 
-No.
+di serie
 
 **È possibile usare un file di disco rigido virtuale in un account di archiviazione di Azure per creare un disco gestito in un'area geografica diversa?**
 
-No.
+di serie
 
 **Ci sono limitazioni di scalabilità per i clienti che usano dischi gestiti?**
 
@@ -46,11 +46,11 @@ Managed Disks elimina i limiti legati agli account di archiviazione. Tuttavia, i
 
 **È possibile fare uno snapshot incrementale di un disco gestito?**
 
-No. La funzionalità snapshot corrente crea una copia completa di un disco gestito. Tuttavia è previsto un supporto futuro per gli snapshot incrementali.
+di serie La funzionalità snapshot corrente crea una copia completa di un disco gestito. Tuttavia è previsto un supporto futuro per gli snapshot incrementali.
 
 **Le macchine virtuali in un set di disponibilità possono essere composte da una combinazione di dischi gestiti e non gestiti?**
 
-No. No, i dischi nelle macchine virtuali in un set di disponibilità devono essere o tutti gestiti o tutti non gestiti. Quando si crea un set di disponibilità, è possibile scegliere il tipo di dischi da usare.
+di serie No, i dischi nelle macchine virtuali in un set di disponibilità devono essere o tutti gestiti o tutti non gestiti. Quando si crea un set di disponibilità, è possibile scegliere il tipo di dischi da usare.
 
 **Managed Disks è l'opzione predefinita nel portale di Azure?**
 
@@ -99,11 +99,11 @@ Attualmente Azure Managed Disks supporta solo dischi gestiti per l'archiviazione
 
 **È possibile ridurre/ridimensionare i dischi gestiti?**
 
-No. Questa funzionalità non è attualmente supportata. 
+di serie Questa funzionalità non è attualmente supportata. 
 
 **È possibile modificare la proprietà del nome del computer quando si usa un disco del sistema operativo specializzato (non preparato con Utilità preparazione sistema o generalizzato) per il provisioning di una VM?**
 
-No. Non è possibile aggiornare la proprietà del nome del computer. La nuova VM eredita la proprietà dalla VM padre usata per creare il disco del sistema operativo. 
+di serie Non è possibile aggiornare la proprietà del nome del computer. La nuova VM eredita la proprietà dalla VM padre usata per creare il disco del sistema operativo. 
 
 **Dove si possono trovare modelli di Azure Resource Manager di esempio per creare macchine virtuali con dischi gestiti?**
 * [Elenco di modelli che usano Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
@@ -125,11 +125,11 @@ Non sono necessarie modifiche.
 
 **È supportata la migrazione automatica di un set di scalabilità di macchine virtuali di Microsoft Azure (VMSS) da dischi non gestiti a Managed Disks?**
 
-No. È possibile creare un nuovo set di scalabilità di macchine virtuali di Microsoft Azure con Managed Disks usando l'immagine dal vecchio set di scalabilità con dischi non gestiti. 
+di serie È possibile creare un nuovo set di scalabilità di macchine virtuali di Microsoft Azure con Managed Disks usando l'immagine dal vecchio set di scalabilità con dischi non gestiti. 
 
 **È possibile creare un disco gestito da uno snapshot di BLOB di pagine eseguito prima della migrazione a Managed Disks?**
 
-No. È possibile esportare uno snapshot di BLOB di pagine come BLOB di pagine e quindi creare un disco gestito dal BLOB di pagine esportato. 
+di serie È possibile esportare uno snapshot di BLOB di pagine come BLOB di pagine e quindi creare un disco gestito dal BLOB di pagine esportato. 
 
 **È possibile eseguire il failover su macchine virtuali locali protette da Azure Site Recovery in una macchina virtuale con Managed Disks?**
 
@@ -137,7 +137,7 @@ Sì, è possibile scegliere di eseguire il failover su una macchina virtuale con
 
 **La migrazione su macchine virtuali di Azure protette da Azure Site Recovery (ASR) tramite la replica da Azure ad Azure ha qualche ripercussione?**
 
-Sì. La protezione tramite Azure Site Recovery (ASR) da Azure ad Azure non è supportata per le macchine virtuali con Managed Disks. Sarà supportata alla fine del 2018. 
+Sì. La protezione tramite Azure Site Recovery (ASR) da Azure ad Azure non è supportata per le macchine virtuali con Managed Disks. Saranno devono essere supportati da Q1 CY2018 fine. 
 
 **È possibile eseguire la migrazione di macchine virtuali con dischi non gestiti ubicati in account di archiviazione che sono o sono stati crittografati in precedenza in VM con dischi gestiti?**
 
@@ -155,11 +155,11 @@ Le chiavi di crittografia sono gestite da Microsoft.
 
 **È possibile disabilitare la crittografia del servizio di archiviazione per i dischi gestiti?**
 
-No.
+di serie
 
 **La crittografia del servizio di archiviazione è disponibile solo in aree specifiche?**
 
-No. È disponibile in tutte le aree in cui è disponibile Managed Disks. Managed Disks è disponibile in tutte le aree pubbliche e in Germania.
+di serie È disponibile in tutte le aree in cui è disponibile Managed Disks. Managed Disks è disponibile in tutte le aree pubbliche e in Germania.
 
 **Come si può determinare se un disco gestito è crittografato?**
 
@@ -182,7 +182,7 @@ Sì
 
 **Un disco rigido virtuale esportato da un disco gestito o uno snapshot verrà crittografato?**
 
-No. Se però si esporta un disco rigido virtuale da un disco gestito o uno snapshot crittografato a un account di archiviazione crittografato, verrà crittografato. 
+di serie Se però si esporta un disco rigido virtuale da un disco gestito o uno snapshot crittografato a un account di archiviazione crittografato, verrà crittografato. 
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>Dischi Premium, gestiti e non gestiti
 
@@ -192,7 +192,7 @@ Sì.
 
 **È possibile collegare dischi sia Premium che Standard a una serie di dimensioni che non supporta Archiviazione Premium, come le serie D, Dv2, G o F?**
 
-No. È possibile collegare solo dischi dati Standard alle macchine virtuali che non usano una serie di dimensioni con supporto di Archiviazione Premium.
+di serie È possibile collegare solo dischi dati Standard alle macchine virtuali che non usano una serie di dimensioni con supporto di Archiviazione Premium.
 
 **Se si crea un disco dati Premium da un disco rigido virtuale esistente da 80 GB, qual è il costo?**
 
@@ -238,7 +238,7 @@ Il supporto per l'interfaccia della riga di comando di Azure v2 e Azure Storage 
 
 **Le dimensioni del disco P4 e P6 sono supportate per i dischi gestiti o i BLOB di pagine?**
 
-No. Le dimensioni del disco P4 (32 GB) e P6 (64 GB) sono supportate solo per i dischi gestiti. Il supporto per dischi non gestiti e BLOB di pagine sarà disponibile a breve.
+di serie Le dimensioni del disco P4 (32 GB) e P6 (64 GB) sono supportate solo per i dischi gestiti. Il supporto per dischi non gestiti e BLOB di pagine sarà disponibile a breve.
 
 **Come viene fatturato un disco gestito Premium di dimensioni inferiori a 64 GB creato prima dell'abilitazione dei dischi più piccoli (intorno al 15 giugno 2017)?**
 

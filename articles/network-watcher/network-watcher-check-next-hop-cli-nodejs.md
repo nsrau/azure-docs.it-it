@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: e849f7952962d177f40ce99307ef1c305e089827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-10"></a>Individuare il tipo di hop successivo tramite la funzionalità Hop successivo di Azure Network Watcher usando l'interfaccia della riga di comando di Azure 1.0
 
 > [!div class="op_single_selector"]
-> - [Portale di Azure](network-watcher-check-next-hop-portal.md)
+> - [Azure portal](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
 > - [Interfaccia della riga di comando 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 > - [Interfaccia della riga di comando 2.0](network-watcher-check-next-hop-cli.md)
@@ -74,7 +74,7 @@ L'elenco seguente mostra i valori NextHopType attualmente disponibili:
 * VnetLocal
 * HyperNetGateway
 * VnetPeering
-* None
+* Nessuna
 
 ## <a name="next-steps"></a>Passaggi successivi
 

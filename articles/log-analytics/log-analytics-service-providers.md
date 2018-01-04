@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-ms.openlocfilehash: 1a8bc500c837d60b4106f37f1803415a12b62a88
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 3910038e788352df45ab00c0f697d9a5426b3498
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Funzionalità di Log Analytics per i provider di servizi
 Log Analytics aiuta i provider dei servizi gestiti (MSP), le aziende di grandi dimensioni, i fornitori di software indipendenti (ISV) e i provider di servizi di hosting a gestire e monitorare i server nell'infrastruttura cloud o locale del cliente. 
@@ -26,7 +26,7 @@ Log Analytics aiuta i provider dei servizi gestiti (MSP), le aziende di grandi d
 Le aziende di grandi dimensioni hanno molti punti in comune con i provider di servizi, soprattutto quando c'è un team IT centralizzato che si occupa della gestione dell'IT per molte business unit diverse tra loro. Per semplicità, in questo documento si usa il termine *provider di servizi* ma la stessa funzionalità è disponibile anche per le aziende e gli altri clienti.
 
 ## <a name="cloud-solution-provider"></a>Provider di soluzioni cloud
-Per i partner e i provider di servizi che fanno parte del programma [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview), Log Analytics è uno dei servizi di Azure disponibili in una [sottoscrizione di Azure CSP](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/overview/azure-csp-overview). 
+Per i partner e i provider di servizi che fanno parte del programma [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview), Log Analytics è uno dei servizi di Azure disponibili in una [sottoscrizione di Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
 Per Log Analytics, le seguenti funzionalità sono abilitate nelle sottoscrizioni *Provider di soluzioni cloud*.
 
@@ -39,7 +39,7 @@ In qualità di *Provider di soluzioni cloud* è possibile:
 
 Per accedere alla sottoscrizione del tenant è necessario specificare l'identificatore del tenant. L'identificatore del tenant corrisponde spesso all'ultima parte dell'indirizzo di posta elettronica con cui si esegue l'accesso.
 
-* Nel portale di OMS, aggiungere `?tenant=contoso.com` nell'URL per il portale. Ad esempio, `mms.microsoft.com/?tenant=contoso.com`
+* Nel portale di OMS, aggiungere `?tenant=contoso.com` nell'URL per il portale. Ad esempio: `mms.microsoft.com/?tenant=contoso.com`
 * In PowerShell, usare il parametro `-Tenant contoso.com` quando si usa il cmdlet `Add-AzureRmAccount`
 * L'identificatore del tenant viene aggiunto automaticamente quando si usa il collegamento `OMS portal` dal portale di Azure per aprire e accedere al portale di OMS per l'area di lavoro selezionata
 
@@ -77,7 +77,7 @@ Per ottenere visualizzazioni personalizzate dei dati, usare la funzionalità [da
 
 Per i report a livello esecutivo che riepilogano i dati nelle aree di lavoro è possibile usare l'integrazione tra Log Analytics e [PowerBI](log-analytics-powerbi.md). Se si richiede l'integrazione con un altro sistema di reporting, è possibile usare l'API di ricerca (tramite PowerShell o [REST](log-analytics-log-search-api.md)) per eseguire le query ed esportare i risultati della ricerca.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * Automatizzare la creazione e la configurazione delle aree di lavoro usando i [modelli di Resource Manager](log-analytics-template-workspace-configuration.md)
 * Automatizzare la creazione delle aree di lavoro usando [PowerShell](log-analytics-powershell-workspace-configuration.md) 
 * Usare la funzione [Avvisi](log-analytics-alerts.md) per l'integrazione con i sistemi esistenti

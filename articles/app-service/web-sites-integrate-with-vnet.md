@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: 72ff0c13319218f8ef91aff9208772fcb0fd9459
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app in una rete virtuale di Azure
 Questo documento descrive la funzionalità di integrazione del servizio app di Azure in una rete virtuale, specificando come configurarla con le app del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Se non si ha familiarità con le reti virtuali di Azure, si tratta di una funzionalità che consente di posizionare molte delle risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure][VNETOverview]. 
@@ -39,7 +39,7 @@ La funzionalità Integrazione rete virtuale:
 * richiede un piano tariffario Standard, Premium o Isolated 
 * funziona con reti virtuali classiche o di Resource Manager 
 * supporta TCP e UDP
-* funziona con le app Web, le app per dispositivi mobili e le app per le API
+* funzionamento del servizio Web, con dispositivi mobili, App per le API e App (funzione)
 * consente a un'app di connettersi a 1 sola rete virtuale alla volta
 * consente di integrare fino a cinque reti virtuali in un piano di servizio app 
 * consente l'uso della stessa rete virtuale da parte di più app in un piano di servizio app
@@ -93,7 +93,7 @@ Se la rete virtuale non ha un gateway e non è da punto a sito, è necessario es
 ![][8]
 
 ##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Abilitare la connessione da punto a sito in una rete virtuale di Resource Manager
-Per configurare una connessione da punto a sito in una rete virtuale di Resource Manager con un gateway, è possibile usare PowerShell come descritto in [Configurare una connessione da punto a sito a una rete virtuale con PowerShell][V2VNETP2S] o usare il portale di Azure come descritto in [Configurare una connessione da punto a sito a una rete virtuale usando il portale di Azure][V2VNETPortal]. L'interfaccia utente per eseguire questa funzionalità non è ancora disponibile. Tenere presente che la configurazione da punto a sito non richiede la creazione di certificati, poiché viene configurata automaticamente quando si connette l'app Web alla rete virtuale. 
+Per configurare una connessione da punto a sito in una rete virtuale di Resource Manager con un gateway, è possibile usare PowerShell come descritto in [Configurare una connessione da punto a sito a una rete virtuale con PowerShell][V2VNETP2S] o usare il portale di Azure come descritto in [Configurare una connessione da punto a sito a una rete virtuale usando il portale di Azure][V2VNETPortal]. L'interfaccia utente per eseguire questa funzionalità non è ancora disponibile. Si noti che non è necessario creare i certificati per la configurazione del sito del punto. poiché viene configurata automaticamente quando si connette l'app Web alla rete virtuale. 
 
 ### <a name="creating-a-pre-configured-vnet"></a>Creazione di una rete virtuale preconfigurata
 Se si vuole creare una nuova rete virtuale configurata con un gateway e una connessione da punto a sito, è possibile usare l'interfaccia utente di rete del servizio app, ma solo per una rete virtuale di Resource Manager. Se si vuole creare una rete virtuale classica con un gateway e una connessione da punto a sito, l'operazione deve essere eseguita manualmente tramite l'interfaccia utente di rete. 
@@ -196,7 +196,7 @@ A causa della modalità di gestione delle VPN da punto a sito, è sempre previst
 
 L'ultimo elemento è il costo dei gateway di rete virtuale. Se il gateway non è necessario per altri motivi, ad esempio per le reti VPN da sito a sito, viene addebitato il costo dei gateway per il supporto della funzionalità Integrazione rete virtuale. Per informazioni su questi costi, vedere i [prezzi di Gateway VPN][VNETPricing]. 
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 La funzionalità è semplice da configurare, ma possono comunque verificarsi problemi durante l'uso. In caso di problemi di accesso all'endpoint desiderato, sono disponibili varie utilità che permettono di testare la connettività dalla console dell'app. Le console disponibili sono due: la console Kudu e la console raggiungibile nel portale di Azure. Per accedere alla console Kudu dalla propria app, selezionare Strumenti -> Kudu. Questa operazione equivale a visitare [nomesito].scm.azurewebsites.net. Dopo l'apertura, passare alla scheda della console di debug. Per accedere alla console ospitata nel portale di Azure dalla propria app, selezionare Strumenti -> Console. 
 
 #### <a name="tools"></a>Strumenti
@@ -258,6 +258,10 @@ A questo punto, se la macchina virtuale ospitata nella rete virtuale può raggiu
 * i firewall locali bloccano il traffico proveniente dall'intervallo di IP da punto a sito
 * nella rete virtuale è presente una route definita dall'utente (UDR) che impedisce al traffico da punto a sito di raggiungere la rete locale
 
+## <a name="powershell-automation"></a>Automazione di PowerShell
+
+Servizio App è possibile integrare con una rete virtuale di Azure tramite PowerShell. Per uno script ready to run, vedere [Connetti un'app in Azure App Service a una rete virtuale di Azure](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
+
 ## <a name="hybrid-connections-and-app-service-environments"></a>Connessioni ibride e ambienti del servizio App
 Sono disponibili tre funzioni che consentono l'accesso alle risorse ospitate su reti virtuali. Sono:
 
@@ -269,7 +273,7 @@ Per le connessioni ibride è necessario installare nella rete un agente di inolt
 
 La funzionalità Ambiente del servizio app consente di eseguire un'istanza dei Siti Web di Microsoft Azure nella propria rete virtuale. In questo modo le app possono accedere alle risorse nella rete virtuale senza eseguire altri passaggi. Tra i vantaggi dell'ambiente del servizio app c'è la possibilità di usare ruoli di lavoro basati su Dv2 con fino a 14 GB di RAM. Un altro vantaggio è la possibilità di ridimensionare il sistema in base alle esigenze. A differenza degli ambienti multi-tenant, in cui la pagina ASP è limitata a 20 istanze, in un ambiente del servizio app è possibile scalare fino a 100 istanze ASP. Uno dei vantaggi dell'ambiente del servizio app rispetto all'integrazione di reti virtuali è che il primo è compatibile con una VPN ExpressRoute. 
 
-Nonostante ci sia una parziale sovrapposizione, nessuna di queste funzionalità può sostituire le altre. In base all'uso che se ne intende fare è possibile stabilire quali funzionalità usare. ad esempio:
+Nonostante ci sia una parziale sovrapposizione, nessuna di queste funzionalità può sostituire le altre. In base all'uso che se ne intende fare è possibile stabilire quali funzionalità usare. Ad esempio: 
 
 * Uno sviluppatore che voglia semplicemente eseguire un sito in Azure e consentire l'accesso al database nella workstation locale, può usare Connessioni ibride. 
 * Una grande organizzazione che voglia inserire un gran numero di proprietà Web nel cloud pubblico e gestirle nella propria rete, può usare Ambiente del servizio app. 

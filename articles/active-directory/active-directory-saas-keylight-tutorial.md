@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 234a32f1-9f56-4650-9e31-7b38ad734b1a
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: e64a966f24411818abc4cc4ab29a428b5577d012
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 74d9d80a1ce35f1766261038a985cc6f0cc39fd3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Esercitazione: Integrazione di Azure Active Directory con LockPath Keylight
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con LockPath Keylight, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di LockPath Keylight abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
@@ -47,7 +47,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di LockPath Keylight dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -63,11 +63,11 @@ Per configurare l'integrazione di LockPath Keylight in Azure AD, è necessario a
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 4. Nella casella di ricerca digitare **LockPath Keylight**.
 
@@ -86,7 +86,7 @@ Per stabilire la relazione di collegamento, in LockPath Keylight assegnare il va
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con LockPath Keylight, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di LockPath Keylight](#creating-a-lockpath-keylight-test-user)**: per avere una controparte di Britta Simon in LockPath Keylight collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -100,36 +100,36 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure nel portale 
 
 1. Nella pagina di integrazione dell'applicazione **LockPath Keylight** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_samlbase.png)
 
 3. Nella sezione **URL e dominio LockPath Keylight** seguire questa procedura:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<company name>.keylightgrc.com/`.
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<company name>.keylightgrc.com/`
 
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<company name>.keylightgrc.com`
 
     c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<company name>.keylightgrc.com/Login.aspx`
     
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di LockPath Keylight](https://www.lockpath.com/contact/). 
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di LockPath Keylight](https://www.lockpath.com/contact/). 
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (base)** e quindi salvare il file del certificato nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_certificate.png) 
 
 5. Fare clic sul pulsante **Salva** .
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-keylight-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-keylight-tutorial/tutorial_general_400.png)
     
 6. Nella sezione **Configurazione di LockPath Keylight** fare clic su **Configura LockPath Keylight** per visualizzare la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML e l'URL di disconnessione** dalla sezione **Riferimento rapido**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_configure.png) 
 
 7. Per abilitare l'accesso Single Sign-On in LockPath Keylight, seguire questa procedura:
    
@@ -137,19 +137,19 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure nel portale 
     
     b. Nel menu in alto fare clic su **Person** (Persona) e selezionare **Keylight Setup** (Configurazione Keylight).
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-keylight-tutorial/401.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-keylight-tutorial/401.png) 
 
     c. Nella visualizzazione albero a sinistra fare clic su **SAML**.
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-keylight-tutorial/402.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-keylight-tutorial/402.png) 
 
     d. Nella finestra di dialogo **SAML Settings** (Impostazioni SAML) fare clic su **Edit** (Modifica).
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-keylight-tutorial/404.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-keylight-tutorial/404.png) 
 
 8. Nella pagina della finestra di dialogo **Edit SAML Settings (Modifica impostazioni SAML)** seguire questa procedura:
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-keylight-tutorial/405.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-keylight-tutorial/405.png) 
    
     a. Impostare **SAML authentication** (Autenticazione SAML) su **Active** (Attiva).
 
@@ -177,7 +177,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure nel portale 
     
     m. Nella casella di testo **Last name attribute** (Attributo cognome) digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
     
-    n. Fare clic su **Salva**.
+    n. Fare clic su **Save**.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -236,7 +236,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco di applicazioni selezionare **LockPath Keylight**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_app.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

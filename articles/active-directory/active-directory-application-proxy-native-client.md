@@ -4,7 +4,7 @@ description: Illustra come abilitare la comunicazione tra le app client native e
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: f0cae145-e346-4126-948f-3f699747b96e
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/31/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e1f992aede3af99fa7c2ffa661bccbcac9f52ba9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: de49a8343a3db6c8b890050e7791f77105a09a3a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Come abilitare le app client native per l'interazione con le applicazioni proxy
 
@@ -45,7 +45,7 @@ Configurare l'applicazione nativa come indicato di seguito:
 4. Specificare un nome, selezionare **Nativa** come tipo di applicazione e immettere l'URI di reindirizzamento per l'applicazione. 
 
    ![Creare una nuova registrazione di app](./media/active-directory-application-proxy-native-client/create.png)
-5. Selezionare **Crea**.
+5. Selezionare **Create**.
 
 Per informazioni più dettagliate sulla creazione di una nuova registrazione di app, vedere [Integrazione di applicazioni con Azure Active Directory](.//develop/active-directory-integrating-applications.md).
 

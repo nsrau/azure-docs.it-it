@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 11/02/2017
 ms.author: cephalin;wesmc
 ms.custom: mvc
-ms.openlocfilehash: 8e7afd89def170ce756aae9e76daf91d78cc20e0
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a95a8435e4ecef201ad0f6d9ecda68e94f06ea80
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>Eseguire un'immagine Docker Hub personalizzata in App Web di Azure per contenitori
 
@@ -38,7 +38,7 @@ Il servizio app fornisce stack di applicazioni predefiniti in Linux con il suppo
 
 ## <a name="create-a-web-app-for-container"></a>Creare un'app Web per contenitori
 
-Creare un'[app Web](../app-service-web-overview.md) nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp#create). Non dimenticare di sostituire `<app name>` con un nome univoco dell'app.
+Creare un'[app Web](../app-service-web-overview.md) nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Non dimenticare di sostituire `<app name>` con un nome univoco dell'app.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name nginx
@@ -73,7 +73,7 @@ http://<app_name>.azurewebsites.net
 
 ![App di esempio in esecuzione in Azure](media/quickstart-custom-docker-image/hello-world-in-browser.png)
 
-**Congratulazioni.** È stata distribuita un'immagine Docker in App Web per contenitori.
+**Congratulazioni** È stata distribuita un'immagine Docker in App Web per contenitori.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

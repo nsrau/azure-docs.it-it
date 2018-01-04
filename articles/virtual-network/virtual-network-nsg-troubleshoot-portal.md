@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: f01d3b43a7953697a6b03e176dace33448d95cd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 92816a5b1a74be5b64d974ad9ade47374db5db10
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Risolvere i problemi relativi ai gruppi di sicurezza di rete tramite il portale di Azure
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Completare i passaggi seguenti per risolvere i problemi dei gruppi di sicurezza 
 
 È possibile visualizzare l'elenco completo delle regole di sicurezza effettive in un'interfaccia di rete dalla VM stessa. È anche possibile aggiungere, modificare ed eliminare le regole dei gruppi di sicurezza di rete per subnet e interfacce di rete usando il pannello delle regole effettive, se si hanno le autorizzazioni per eseguire queste operazioni.
 
-1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
+1. Account di accesso per il portale di Azure all'indirizzo https://portal.azure.com con un account di Azure. L'account deve essere assegnato il *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* operazione per l'interfaccia di rete. Per informazioni su come assegnare operazioni agli account, vedere [creare ruoli personalizzati per gestire il controllo di accesso](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Fare clic su **Altri servizi** e quindi su **Macchine virtuali** nell'elenco visualizzato.
 3. Selezionare una VM in cui risolvere i problemi nell'elenco visualizzato. Verrà visualizzato un pannello della VM contenente opzioni.
 4. Fare clic su **Diagnostica e risoluzione dei problemi** e quindi selezionare un problema comune. Per questo esempio si seleziona **Non è possibile connettersi alla macchina virtuale Windows** . 

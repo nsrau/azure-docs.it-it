@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 12/13/2017
 ms.author: mbullwin
-ms.openlocfilehash: 79ead157dc7509f035c491f9a4c4290eb4d70334
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 384f875702f2dee3bf0e806675a7df9f190d93bd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Indirizzi IP usati da Application Insights e Log Analytics
 Il servizio [Azure Application Insights](app-insights-overview.md) usa diversi indirizzi IP. Potrebbe essere necessario conoscere questi indirizzi se l'app che si sta monitorando è ospitata dietro un firewall.
@@ -48,7 +48,7 @@ Configurazione di Status Monitor: necessaria solo quando si apportano modifiche.
 | Configurazione |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | Configurazione |`auth.gfx.ms` | |`443` |
 | Configurazione |`login.live.com` | |`443` |
-| Installare |`packages.nuget.org` | |`443` |
+| Installazione |`packages.nuget.org` | |`443` |
 
 ## <a name="hockeyapp"></a>HockeyApp
 | Scopo | URL | IP | Porte |
@@ -76,6 +76,10 @@ CH : Zurich
 94.245.66.44
 94.245.66.45
 94.245.66.48
+52.136.140.221
+52.136.140.222
+52.136.140.223
+52.136.140.226
 FR : Paris
 94.245.72.44
 94.245.72.45
@@ -83,6 +87,10 @@ FR : Paris
 94.245.72.49
 94.245.72.52
 94.245.72.53
+52.143.140.242 
+52.143.140.246
+52.143.140.247
+52.143.140.249
 HK : Hong Kong
 13.75.121.122
 23.99.115.153
@@ -231,7 +239,7 @@ Nota: il dominio *.applicationinsights.io è di proprietà del team Application 
 
 | Scopo | URI | IP | Porte |
 | --- | --- | --- | --- |
-| di Microsoft Azure | portal.loganalytics.io | dinamico | 80,443 |
+| Portale | portal.loganalytics.io | dinamico | 80,443 |
 | RETE CDN | applicationanalytics.azureedge.net | dinamico | 80,443 |
 
 Nota: il dominio *.loganalytics.io è di proprietà del team di Log Analytics.
@@ -255,7 +263,7 @@ Nota: il dominio *.loganalytics.io è di proprietà del team di Log Analytics.
 | Scopo | URI | IP | Porte |
 | --- | --- | --- | --- |
 | Agente | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | dinamico | 443
-| di Microsoft Azure | gateway.azureserviceprofiler.net | dinamico | 443
+| Portale | gateway.azureserviceprofiler.net | dinamico | 443
 | Archiviazione | *.core.windows.net | dinamico | 443
 
 ## <a name="snapshot-debugger"></a>Debugger di snapshot
@@ -263,5 +271,5 @@ Nota: il dominio *.loganalytics.io è di proprietà del team di Log Analytics.
 | Scopo | URI | IP | Porte |
 | --- | --- | --- | --- |
 | Agente | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | dinamico | 443
-| di Microsoft Azure | ppe.gateway.azureserviceprofiler.net | dinamico | 443
+| Portale | ppe.gateway.azureserviceprofiler.net | dinamico | 443
 | Archiviazione | *.core.windows.net | dinamico | 443

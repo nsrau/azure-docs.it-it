@@ -4,7 +4,7 @@ description: Informazioni sull'installazione e la configurazione di Desktop remo
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: d8d6130a270285c84c1dd057a3512cdeb39287f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cdd8c5e932815c5741b1091a743d235de882c5b1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installare e configurare Desktop remoto per connettersi a una VM Linux di Azure
 Le macchine virtuali Linux (VM) di Azure in genere vengono gestite dalla riga di comando tramite una connessione secure shell (SSH). Quando si è nuovi a Linux, o per scenari di risoluzione dei problemi rapidi, l'uso di desktop remoto potrebbe risultare più facile. Questo articolo illustra come installare e configurare un ambiente desktop ([xfce](https://www.xfce.org)) e desktop remoto ([xrdp](http://www.xrdp.org)) per VM Linux usando il modello di distribuzione Resource Manager.
@@ -85,16 +85,10 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Creare una regola del gruppo di sicurezza di rete per il traffico di Desktop remoto
 Per consentire al traffico di Desktop remoto di raggiungere la VM Linux, è necessario creare una regola del gruppo di sicurezza di rete che consenta al TCP sulla porta 3389 di raggiungere la macchina virtuale. Per altre informazioni sulle regole dei gruppi di sicurezza di rete, vedere [Che cos'è un gruppo di sicurezza di rete](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). È anche possibile [usare il portale di Azure per creare una regola del gruppo di sicurezza di rete](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Nell'esempio seguente viene creata una regola del gruppo di sicurezza di rete con [az network nsg rule create](/cli/azure/network/nsg/rule#create) denominata *myNetworkSecurityGroupRule* per *consentire* il traffico sulla porta *tcp* *3389*.
+L'esempio seguente crea una regola gruppo di sicurezza di rete con [az vm aprire porte](/cli/azure/vm#open-port) sulla porta *3389*.
 
 ```azurecli
-az network nsg rule create \
-    --resource-group myResourceGroup \
-    --nsg-name myNetworkSecurityGroup \
-    --name myNetworkSecurityGroupRule \
-    --protocol tcp \
-    --priority 1010 \
-    --destination-port-range 3389
+az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 ```
 
 
@@ -108,8 +102,8 @@ Dopo l'autenticazione, l'ambiente desktop xfce verrà caricato e apparirà come 
 ![ambiente desktop xfce tramite xrdp](./media/use-remote-desktop/xfce-desktop-environment.png)
 
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
-Se non è possibile connettersi alla VM Linux usando un client di Desktop remoto, usare `netstat` nella VM Linux per verificare che la macchina virtuale stia ascoltando le connessioni RDP come indicato di seguito:
+## <a name="troubleshoot"></a>Risolvere problemi
+Se non è possibile connettersi alla VM Linux utilizzando un client Desktop remoto, utilizzare `netstat` nella VM Linux per verificare che la macchina virtuale è in ascolto per le connessioni RDP come indicato di seguito:
 
 ```bash
 sudo netstat -plnt | grep rdp
@@ -122,13 +116,13 @@ tcp     0     0      127.0.0.1:3350     0.0.0.0:*     LISTEN     53192/xrdp-sesm
 tcp     0     0      0.0.0.0:3389       0.0.0.0:*     LISTEN     53188/xrdp
 ```
 
-Se il servizio xrdp non è in ascolto, in una macchina virtuale Ubuntu riavviare il servizio come indicato di seguito:
+Se il *xrdp sesman* servizio non è in attesa, in una VM Ubuntu, riavviare il servizio, come indicato di seguito:
 
 ```bash
 sudo service xrdp restart
 ```
 
-Controllare i log in */var/log*Thug nella VM Ubuntu per indicazioni sul perché il servizio non risponde. È possibile anche monitorare il syslog durante un tentativo di connessione Desktop remoto per visualizzare eventuali errori:
+Revisione accede *var/log* nella VM Ubuntu per viene indicato perché il servizio non risponde. È possibile anche monitorare il syslog durante un tentativo di connessione Desktop remoto per visualizzare eventuali errori:
 
 ```bash
 tail -f /var/log/syslog

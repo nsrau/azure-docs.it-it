@@ -4,7 +4,7 @@ description: "Questo argomento illustra la funzionalità di aggiornamento automa
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 894e387b4b83ed859139b4aecb3d8bb5df9ab56f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 49fc908006f19135b4c4553eef97d2f396db33ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: aggiornamento automatico
 Questa funzionalità è stata introdotta nella build 1.1.105.0 rilasciata nel mese di febbraio 2016.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 La funzionalità per l' **aggiornamento automatico** semplifica al massimo la verifica dell'aggiornamento dell'installazione di Azure AD Connect. Questa funzionalità è abilitata per impostazione predefinita per le installazioni rapide e gli aggiornamenti di DirSync. Quando viene rilasciata una nuova versione, l'installazione viene aggiornata automaticamente.
 L'aggiornamento automatico è abilitato per impostazione predefinita per gli scenari seguenti:
 
@@ -47,7 +47,7 @@ L'aggiornamento automatico usa Azure AD Connect Health per l'infrastruttura di a
 
 Se l'interfaccia utente di **Synchronization Service Manager** è in esecuzione nel server, l'aggiornamento viene sospeso fino alla chiusura dell'interfaccia utente.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 Se l'installazione di Connect non viene aggiornata automaticamente, seguire questa procedura per individuare eventuali errori.
 
 In primo luogo, tenere presente che l'aggiornamento automatico non viene eseguito il primo giorno di rilascio di una nuova versione. Il tentativo di aggiornamento viene eseguito intenzionalmente con una tempistica casuale. Non allarmarsi se l'installazione non viene aggiornata immediatamente.
@@ -64,7 +64,7 @@ Verranno visualizzati i log eventi associati allo stato dell'aggiornamento autom
 
 Il codice risultato presenta un prefisso con una panoramica dello stato.
 
-| Prefisso codice risultato | Descrizione |
+| Prefisso codice risultato | DESCRIZIONE |
 | --- | --- |
 | Success |L'installazione è stata aggiornata correttamente. |
 | UpgradeAborted |Una condizione temporanea ha interrotto l'aggiornamento. Verrà ripetuto di nuovo e si prevede che in seguito riuscirà. |
@@ -72,7 +72,7 @@ Il codice risultato presenta un prefisso con una panoramica dello stato.
 
 Ecco un elenco dei messaggi più comuni. L'elenco non include tutti i messaggi, ma il messaggio dei risultati indicherà chiaramente il problema.
 
-| Messaggio dei risultati | Descrizione |
+| Messaggio dei risultati | DESCRIZIONE |
 | --- | --- |
 | **UpgradeAborted** | |
 | UpgradeAbortedCouldNotSetUpgradeMarker |Non è possibile scrivere nel Registro di sistema. |

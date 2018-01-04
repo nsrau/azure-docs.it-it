@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
-ms.author: genli;markgal;
-ms.openlocfilehash: a07fb9388f1e83bd167cf7c65cd3cd1e4f51ecd1
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
-ms.translationtype: HT
+ms.author: genli;markgal;sogup;
+ms.openlocfilehash: 2112d332faba194285ac35cf936000b399cd3e83
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Risolvere i problemi di Backup di Azure relativi all'agente e/o all'estensione
 
@@ -34,6 +34,7 @@ Dopo la registrazione e la pianificazione di una VM per il servizio Backup di Az
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 3: [l'agente installato nella VM Linux non è aggiornato (per VM Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 4: [non è possibile recuperare lo stato degli snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Causa 5: [non è possibile aggiornare o caricare l'estensione di backup](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-6-azure-classic-vms-may-require-additional-step-to-complete-registrationazure-classic-vms-may-require-additional-step-to-complete-registration"></a>Causa 6: [macchine virtuali di Azure classico possono richiedere un passaggio aggiuntivo per completare la registrazione](#azure-classic-vms-may-require-additional-step-to-complete-registration)
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Operazione di creazione snapshot non riuscita a causa dell'assenza della connettività di rete nella macchina virtuale
 Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot, che a sua volta può provocare l'errore di Backup. Seguire questa procedura per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione.
@@ -65,6 +66,7 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 3: [l'agente installato nella VM Linux non è aggiornato (per VM Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 4: [non è possibile recuperare lo stato degli snapshot o acquisire uno snapshot](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Causa 5: [non è possibile aggiornare o caricare l'estensione di backup](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-6-backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lockbackup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Causa 6: [servizio di Backup non dispone dell'autorizzazione per eliminare i vecchi punti di ripristino a causa di blocco del gruppo di risorse](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>La configurazione di disco specificata non è supportata
 
@@ -99,7 +101,7 @@ Per risolvere il problema, provare ad applicare uno dei metodi seguenti.
 1. Se sono state applicate restrizioni di rete, ad esempio un gruppo di sicurezza di rete, distribuire un server proxy HTTP per indirizzare il traffico.
 2. Per consentire l'accesso a Internet dal server proxy HTTP, aggiungere regole al gruppo di sicurezza di rete, se disponibile.
 
-Per informazioni su come configurare un proxy HTTP per i backup delle macchine virtuali, vedere [Preparare l'ambiente per il backup di macchine virtuali di Azure](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+Per informazioni su come configurare un proxy HTTP per i backup delle macchine virtuali, vedere [Preparare l'ambiente per il backup di macchine virtuali di Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 Se si usa Managed Disks, può essere necessario aprire una porta aggiuntiva (8443) nei firewall.
 
@@ -115,7 +117,7 @@ L'agente di macchine virtuali può essere danneggiato o il servizio può essere 
 6. Il servizio agente guest di Windows dovrebbe quindi essere visualizzato tra i servizi
 7. Provare a eseguire un backup su richiesta o adhoc facendo clic su "Esegui Backup" nel portale.
 
-Verificare anche che **[.NET 4.5 sia installato nel sistema](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)** nella macchina virtuale. È necessario che l'agente di macchine virtuali comunichi con il servizio
+Verificare anche che **[.NET 4.5 sia installato nel sistema](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)** nella macchina virtuale. È necessario che l'agente di macchine virtuali comunichi con il servizio
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>L'agente installato nella VM Linux non è aggiornato (per VM Linux)
 
@@ -183,4 +185,49 @@ Per disinstallare l'estensione, seguire questa procedura:
 6. Fare clic su **Disinstalla**.
 
 Questa procedura reinstalla l'estensione durante il backup successivo.
+
+### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Macchine virtuali di Azure classico possono richiedere un passaggio aggiuntivo per completare la registrazione
+L'agente di macchine virtuali di Azure classiche deve essere registrato per stabilire una connessione al servizio di backup e avvia il backup
+
+#### <a name="solution"></a>Soluzione
+
+Dopo aver installato l'agente guest della macchina virtuale, avviare PowerShell di Azure <br>
+1. Accedi all'Account di Azure usando <br>
+       `Login-AzureAsAccount`<br>
+2. Verificare se proprietà ProvisionGuestAgent della macchina virtuale è impostato su True, i comandi seguenti <br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent`<br>
+3. Se la proprietà è impostata su FALSE, di seguito sono riportati i comandi per l'impostazione su TRUE<br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent = $true`<br>
+4. Quindi eseguire il comando seguente per aggiornare la macchina virtuale <br>
+        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
+5. Tenta di avviare il backup. <br>
+
+### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Servizio di backup non dispone dell'autorizzazione per eliminare i vecchi punti di ripristino a causa di blocco del gruppo di risorse
+Questo problema è specifico di macchine virtuali gestite, in cui l'utente blocca il gruppo di risorse e il servizio di Backup non è in grado di eliminare i punti di ripristino precedenti. Per questo motivo i nuovi backup non si avviano in quanto non esiste un limite massimo 18 punti di ripristino imposto dal back-end.
+
+#### <a name="solution"></a>Soluzione
+
+Per risolvere il problema, utilizzare la procedura seguente per rimuovere l'insieme di punti di ripristino: <br>
+ 
+1. Rimuovere il gruppo di risorse di blocco in cui risiede la macchina virtuale 
+     
+2. Installare l'ARMClient utilizzando Chocolatey <br>
+   https://github.com/projectkudu/ARMClient
+     
+3. Account di accesso ARMClient <br>
+             `.\armclient.exe login`
+         
+4. Punto di ripristino Get raccolta corrispondente alla macchina virtuale <br>
+    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
+
+    Esempio: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+             
+5. Eliminare l'insieme di punti di ripristino <br>
+            `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+ 
+6. Backup pianificato successivo verrà creato automaticamente insieme di punti di ripristino e i nuovi punti di ripristino 
+ 
+7. Il problema verrà visualizzata di nuovo se si blocca il gruppo di risorse nuovamente è solo un limite di 18 punti di ripristino dopo il quale il backup ha esito negativo 
 

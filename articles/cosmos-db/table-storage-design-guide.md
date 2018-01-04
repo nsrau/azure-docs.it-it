@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: eaa9d2208406afece5c77859546e888c1e49e902
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: d93b6a25c1781c7d4f1f0534eda146963f439dd5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guida alla progettazione della tabella di archiviazione di Azure: Progettazione scalabile e Tabelle ad alte prestazioni 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -86,7 +86,7 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 </tr>
 <tr>
 <td>Marketing</td>
-<td>Department</td>
+<td>department</td>
 <td>2014-08-22T00:50:30Z</td>
 <td>
 <table>
@@ -204,12 +204,12 @@ I seguenti esempi presuppongono che nel servizio tabelle vengano archiviate enti
 
 | *Nome colonna* | *Tipo di dati* |
 | --- | --- |
-| **PartitionKey** (nome del reparto) |String |
-| **RowKey** (ID dipendente) |String |
-| **FirstName** |String |
-| **LastName** |String |
+| **PartitionKey** (nome del reparto) |string |
+| **RowKey** (ID dipendente) |string |
+| **FirstName** |string |
+| **LastName** |string |
 | **Age** |Integer |
-| **EmailAddress** |String |
+| **EmailAddress** |string |
 
 La sezione precedente [Azure Table service overview](#overview) (Panoramica del servizio tabelle di Azure) descrive alcune funzionalità chiave del servizio tabelle di Azure che influiscono direttamente sulla progettazione della query. Se ne possono ricavare le seguenti linee guida generali per la progettazione di query del servizio tabelle. Si noti che la sintassi del filtro usata negli esempi seguenti proviene dall'API REST del servizio tabelle. Per altre informazioni, vedere [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx) (Entità query).  
 
@@ -251,7 +251,7 @@ Il servizio tabelle indicizza automaticamente le entità usando i valori **Parti
 Molte progettazioni devono soddisfare alcuni requisiti per abilitare la ricerca di entità in base a più criteri, ad esempio trovare le entità dipendente in base a indirizzo di posta elettronica, ID dipendente o cognome. I modelli seguenti nella sezione [Modelli di progettazione tabelle](#table-design-patterns) soddisfano questi tipi di requisito e descrivono come ovviare al fatto che il servizio tabelle non fornisca indici secondari:  
 
 * [Modello per indice secondario intrapartizione](#intra-partition-secondary-index-pattern) - Archivia più copie di ogni entità usando valori **RowKey** diversi (nella stessa partizione) per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi.  
-* [Modello per indice secondario intrapartizione](#inter-partition-secondary-index-pattern) - Archivia più copie di ogni entità usando valori RowKey diversi in partizioni separate o in tabelle separate per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi.  
+* [Modello tra partizionare l'indice secondario](#inter-partition-secondary-index-pattern) -archiviazione di più copie di ogni entità mediante diverse **RowKey** valori partizioni in separate o in diverse tabelle per abilitare le ricerche veloci ed efficienti e ordinamento alternativo gli ordini con diversi **RowKey** valori.  
 * [Modello per entità di indice](#index-entities-pattern) - Mantiene le entità di indice per consentire ricerche efficienti che restituiscano elenchi di entità.  
 
 ### <a name="sorting-data-in-the-table-service"></a>Ordinamento dei dati nel servizio tabelle
@@ -651,7 +651,7 @@ In un database relazionale, in genere i dati vengono normalizzati per rimuovere 
 ![][16]
 
 #### <a name="solution"></a>Soluzione
-Anziché archiviare i dati in due entità separate, denormalizzare i dati e conservare una copia dei dettagli sul manager nell'entità reparto. ad esempio:  
+Anziché archiviare i dati in due entità separate, denormalizzare i dati e conservare una copia dei dettagli sul manager nell'entità reparto. Ad esempio:   
 
 ![][17]
 

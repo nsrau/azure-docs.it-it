@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 51a1b65446a1a0db93c21378f156b608a38ef817
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: ff5fcbc6df8cb07e0b98b877f20d981d6bef5117
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Controlli supportati per la preparazione dati di Azure Machine Learning - Anteprima
 Questo documento descrive il set di controlli disponibili in questa anteprima.
@@ -39,7 +39,7 @@ Questo controllo fornisce un'ampia gamma di statistiche diverse relative alla co
 
 
 ### <a name="options"></a>Opzioni 
-- Nessuno
+- Nessuna
 
 ## <a name="histogram"></a>Istogramma 
 Calcola e visualizza un istogramma di una singola colonna numerica. Il numero predefinito di bucket viene calcolato usando la regola di Scott. La regola, tuttavia, può essere sottoposta a override tramite le opzioni.

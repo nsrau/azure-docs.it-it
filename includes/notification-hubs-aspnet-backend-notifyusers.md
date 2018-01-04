@@ -148,7 +148,7 @@ In questa sezione si aggiungerà un nuovo controller al back-end WebAPI per gest
    
         using Microsoft.Azure.NotificationHubs;
 
-6. Sostituire la definizione di classe `Notifications` con il codice seguente e sostituire i due segnaposto con la stringa di connessione (con accesso completo) per l'hub di notifica e con il nome dell'hub disponibile nel [portale di Azure classico](http://manage.windowsazure.com):
+6. Sostituire il `Notifications` definizione con il seguente codice di classe e sostituire i due segnaposto con la stringa di connessione (con accesso completo) per l'hub di notifica e il nome dell'hub (disponibile all'indirizzo [portale di Azure](http://portal.azure.com)):
    
         public class Notifications
         {
@@ -359,7 +359,7 @@ L'app verrà ora distribuita in un sito Web Azure per renderla accessibile da tu
 
 3. Nella finestra **Crea servizio app** selezionare l'account Azure. Selezionare **Modifica tipo** > **App Web**. Mantenere il valore di **Nome app Web** predefinito e selezionare la **sottoscrizione**, il **gruppo di risorse** e il **piano di servizio app**. 
 
-4. Selezionare **Crea**.
+4. Selezionare **Create**.
 
 5. Prendere nota della proprietà **URL sito** nella scheda **Riepilogo**. Questo URL sarà l'*endpoint back-end* più avanti nell'esercitazione. 
 

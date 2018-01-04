@@ -4,7 +4,7 @@ description: Comprendere e risolvere gli errori di directory senza corrispondenz
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory-ds
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 12/11/2017
 ms.author: maheshu
-ms.openlocfilehash: 9c9a47e9b3050eb7f41202d6a4b9202ba0f379df
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 24e11769e9b403bc00157e3f60869effa6a9633f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Risolvere gli errori di directory senza corrispondenza per i domini gestiti esistenti di Azure AD Domain Services
-Si dispone di un dominio gestito esistente che è stato abilitato tramite il portale di Azure classico. Quando si passa al nuovo portale di Azure e si visualizza il dominio gestito, compare il messaggio di errore seguente:
+Si dispone di un dominio gestito di servizi di dominio Active Directory di Azure esistente. Quando si passa al portale di Azure e visualizza il dominio gestito, è visualizzato il messaggio di errore seguente:
 
 ![Errore della directory senza corrispondenza](.\media\getting-started\mismatched-tenant-error.png)
 
@@ -33,7 +33,7 @@ Questo errore si verifica quando il dominio gestito e la rete virtuale in cui è
 
 Il nuovo portale di Azure, e in particolare l'estensione Azure AD Domain Services, si basa su Azure Resource Manager. Nell'ambiente di Azure Resource Manager moderno, vengono applicate alcune restrizioni per offrire maggiore sicurezza e per il controllo dell'accesso basato sui ruoli sulle risorse. L'abilitazione di Azure AD Domain Services per un tenant di Azure AD è un'operazione delicata perché causa la sincronizzazione degli hash delle credenziali con il dominio gestito. Per eseguire questa operazione è necessario essere amministratore del tenant per la directory. È anche necessario disporre dei privilegi di amministratore nella rete virtuale in cui si abilita il dominio gestito. Affinché il controllo degli accesi i base al ruolo funzioni in modo coerente, il dominio gestito e la rete virtuale devono appartenere allo stesso tenant di Azure AD.
 
-In breve, non è possibile abilitare un dominio gestito per un tenant di Azure AD "contoso.com" in una rete virtuale che appartiene a una sottoscrizione di Azure di proprietà di un altro tenant di Azure AD "fabrikam.com". Il portale di Azure classico non è basato su piattaforma di Resource Manager e non impone tali restrizioni.
+In breve, non è possibile abilitare un dominio gestito per un tenant di Azure AD "contoso.com" in una rete virtuale che appartiene a una sottoscrizione di Azure di proprietà di un altro tenant di Azure AD "fabrikam.com". 
 
 **Configurazione valida**: in questo scenario di distribuzione, il dominio gestito Contoso è abilitato per il tenant di Azure AD di Contoso. Il dominio gestito viene esposto in una rete virtuale che appartiene a una sottoscrizione di Azure di proprietà del tenant di Azure AD di Contoso. Pertanto, sia il dominio gestito che la rete virtuale appartengono allo stesso tenant di Azure AD. Questa configurazione è valida e completamente supportata.
 

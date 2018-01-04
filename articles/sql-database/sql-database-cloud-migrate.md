@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 11/07/2017
 ms.author: carlrab
-ms.openlocfilehash: 4e22a512f7ee11dde14f8eac818506b59791e17f
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
-ms.translationtype: HT
+ms.openlocfilehash: 8a31ed948fe9387720db61018e0edded530cd900
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migrazione di un database SQL Server al database SQL nel cloud
 Questo articolo illustra i due metodi principali per eseguire la migrazione di un database SQL Server 2005 o versione successiva a un database SQL di Azure. Il primo metodo è più semplice, ma comporta tempi di inattività anche lunghi durante la migrazione. Il secondo metodo è più complesso, ma elimina quasi completamente i tempi di inattività durante la migrazione.
@@ -39,11 +39,11 @@ L'elenco seguente illustra un flusso di lavoro generico per la migrazione di un 
 
   ![Diagramma di migrazione di VSSSDT](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. [Valutare](https://docs.microsoft.com/en-us/sql/dma/dma-assesssqlonprem) la compatibilità del database usando la versione più recente di [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+1. [Valutare](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) la compatibilità del database usando la versione più recente di [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Preparare eventuali correzioni necessarie come script Transact-SQL.
 3. Creare una copia del database di origine coerente a livello di transazione e assicurarsi che non vengano apportate ulteriori modifiche al database di origine. In alternativa, è possibile applicare manualmente le eventuali modifiche al termine della migrazione. Per disattivare un database sono disponibili vari metodi, dalla disabilitazione della connettività client alla creazione di uno [snapshot del database](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Distribuire gli script Transact-SQL per applicare le correzioni alla copia del database.
-5. [Eseguire la migrazione](https://docs.microsoft.com/en-us/sql/dma/dma-migrateonpremsql) della copia del database in un nuovo database SQL di Microsoft Azure tramite Data Migration Assistant.
+5. [Eseguire la migrazione](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) della copia del database in un nuovo database SQL di Microsoft Azure tramite Data Migration Assistant.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Ottimizzazione delle prestazioni di trasferimento dei dati durante la migrazione 
 

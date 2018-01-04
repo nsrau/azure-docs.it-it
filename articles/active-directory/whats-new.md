@@ -4,7 +4,7 @@ description: "Informazioni sulle novità di Azure Active Directory (Azure AD), i
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 featureFlags: clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f1538e1c26cfe658c7f42ccdd57d8bf5aca0b1fb
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: 6e1cf6e2ee717ef7629e1388d7bca2090eed46fa
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
 
 
 
-> Per restare sempre aggiornati sulle novità di Azure Active Directory, sottoscrivere questo [feed](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3F%22&locale=en-us) nel lettore di feed RSS preferito.
+> Rimanere aggiornati sulle novità in Azure Active Directory tramite la sottoscrizione al nostro [ ![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
 
 
 
@@ -41,6 +41,163 @@ Il servizio Azure Active Directory viene continuamente migliorato. Questo artico
 
 Visitare regolarmente questa pagina che verrà aggiornata ogni mese.
 
+
+## <a name="december-2017"></a>2017 dicembre
+ 
+
+### <a name="terms-of-use-in-the-access-panel-for-end-users"></a>Condizioni di utilizzo nel Pannello di accesso per gli utenti finali
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Condizioni per l'utilizzo  
+**Funzionalità del prodotto:** governance/conformità
+ 
+Gli utenti finali hanno la possibilità di passare al pannello di accesso e visualizzare le condizioni di utilizzo che invece hanno accettato in precedenza.
+
+Gli utenti possono visualizzare e verificare le condizioni d'uso accettate. Questa operazione può essere eseguita con questa procedura:
+
+1. Spostarsi e Accedi al [MyApps portale](https://myapps.microsoft.com).
+
+2. Nell'angolo superiore destro fare clic sul nome e selezionare **Profilo** nel menu a discesa. 
+
+3. In Profilo fare clic su **Verificare le condizioni d'uso**. 
+
+4. Sarà quindi possibile verificare le condizioni d'uso accettate. 
+
+Per ulteriori informazioni, vedere [funzionalità di Azure Active Directory le condizioni di utilizzo (anteprima)](https://docs.microsoft.com/azure/active-directory/active-directory-tou)
+ 
+---
+ 
+
+### <a name="new-azure-ad-sign-in-experience"></a>Nuova esperienza di accesso AD Azure
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Azure AD  
+**Funzionalità del prodotto:** autenticazione utente
+ 
+Come parte del percorso per la convergenza di Azure AD e sistemi di identità account Microsoft, stato completamente riprogettato l'interfaccia utente in entrambi i sistemi in modo che abbiano un aspetto coerente. Inoltre, è stato impaginato pagina di accesso di Azure AD in modo che raccolti il nome dell'utente prima di tutto, aggiungendo le credenziali in una seconda schermata.
+
+Per ulteriori informazioni, vedere [la nuova esperienza di accedere AD Azure è ora in anteprima pubblica](https://cloudblogs.microsoft.com/enterprisemobility/2017/08/02/the-new-azure-ad-signin-experience-is-now-in-public-preview/)
+ 
+---
+ 
+
+### <a name="fewer-login-prompts-a-new-keep-me-signed-in-experience-for-azure-ad-login"></a>Un minor numero di richieste di accesso: un'esperienza nuova "Mantieni l'accesso" per account di accesso di Azure AD
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Azure AD  
+**Funzionalità del prodotto:** autenticazione utente
+ 
+È stato sostituito il **Mantieni l'accesso** casella di controllo nella pagina di accesso di Azure AD con un nuovo prompt che viene visualizzato correttamente dopo che l'utente esegue l'autenticazione. 
+
+Se un utente risponde **Sì** a questa richiesta, il servizio offre loro un token di aggiornamento permanente. Questo è lo stesso comportamento quando l'utente controlla il **Mantieni l'accesso** casella di controllo dell'esperienza precedente. Per i tenant federati, questo messaggio verrà visualizzato se l'utente viene autenticato correttamente con il servizio federato.
+
+Per ulteriori informazioni, vedere [un minor numero di richieste di accesso: la nuova esperienza "Mantieni l'accesso" per Azure AD è in anteprima](https://cloudblogs.microsoft.com/enterprisemobility/2017/09/19/fewer-login-prompts-the-new-keep-me-signed-in-experience-for-azure-ad-is-in-preview/) 
+
+---
+ 
+
+### <a name="add-configuration-to-require-the-tou-to-be-expanded-prior-to-accepting"></a>Aggiungere una configurazione per richiedere di essere espansa prima di accettare condizioni per l'utilizzo.
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Condizioni per l'utilizzo  
+**Funzionalità del prodotto:** Governance
+ 
+Ora è stata aggiunta un'opzione per gli amministratori in modo da richiedere agli utenti finali per espandere le condizioni di utilizzo prima di accettare le condizioni.
+
+Selezionare on o off per richiedere agli utenti di espandere le condizioni di utilizzo. Se questa opzione è attivata, agli utenti finali verrà richiesto di visualizzare le condizioni d'uso prima dell'accettazione.
+
+Per ulteriori informazioni, vedere [funzionalità di Azure Active Directory le condizioni di utilizzo (anteprima)](active-directory-tou.md)
+ 
+---
+ 
+
+### <a name="scoped-activation-for-eligible-role-assignments"></a>Attivazione con ambito per le assegnazioni di ruolo idonei
+
+**Tipo:** Nuova funzionalità  
+**Categoria del servizio:** Privileged Identity Management  
+**Funzionalità del prodotto:** Privileged Identity Management
+ 
+Attivazione con ambito consente di attivare le assegnazioni di ruolo di risorse di Azure idonea con meno autonomia da quelli predefiniti assegnazione originale. Ad esempio, si assegnati proprietario di una sottoscrizione nel tenant. Con l'attivazione con ambito, è possibile attivare un proprietario per un massimo di cinque le risorse contenute all'interno della sottoscrizione (pensare di gruppi di risorse, le macchine virtuali e così via....). Ambito di attivazione può ridurre la possibilità di eseguire modifiche indesiderate alle risorse di Azure critiche.
+
+Per ulteriori informazioni, vedere [che cos'è Azure AD Privileged Identity Management?](active-directory-privileged-identity-management-configure.md).
+ 
+---
+ 
+
+### <a name="new-federated-apps-in-azure-ad-app-gallery"></a>Nuove app federativa nella raccolta di app di Azure AD
+
+**Tipo:** Nuova funzionalità  
+**Categoria del servizio:** le app aziendali  
+**Funzionalità del prodotto:** 3rd integrazione entità
+ 
+Nel dicembre 2017 è stato aggiunto supporto seguente nuove app la raccolta di App con federazione:
+
+|NOME|Tipo di integrazione|DESCRIZIONE|
+|:-- |----------------|:----------|
+|StoreFront digitale EFI|SAML 2.0|[Applicazione di stampa Web 2](https://go.microsoft.com/fwlink/?linkid=861685)|
+|Vodeclic|SAML 2.0|[Usare Azure AD per gestire l'accesso utente e abilitare single sign-on con Vodeclic](https://go.microsoft.com/fwlink/?linkid=863522).  Richiede un account Vodeclic esistente.|
+|Accredible|SAML 2.0|[Creare, gestire e distribuire i certificati, le notifiche e le credenziali di blockchain](https://go.microsoft.com/fwlink/?linkid=863523)|
+|FactSet|SAML 2.0|[Single Sign-on all'applicazione FDSWeb del FactSet](https://go.microsoft.com/fwlink/?linkid=863525)|
+|Integrazione di Active Directory di Azure MobileIron|SAML 2.0|[MobileIron](https://go.microsoft.com/fwlink/?linkid=858027) importanza consiste nell'abilitare aziende moderne proteggere e gestire informazioni durante il passaggio per dispositivi mobili e nel cloud, mantenendo la privacy degli utenti finali e la relazione di trust.|
+|FUNZIONAMENTO DI IMMAGINE|SAML 2.0|Usare Azure AD per gestire l'accesso utente, il provisioning degli account utente e abilitare single sign-on con [immagine funziona](https://go.microsoft.com/fwlink/?linkid=863517). Richiede una sottoscrizione di funzionamento di immagine esistente.|
+|SAML SSO per Bitbucket dalla risoluzione GmbH|SAML 2.0|[SSO Bitbucket](https://go.microsoft.com/fwlink/?linkid=863519) autenticazione delegati ad Azure AD, gli utenti già registrati in Azure AD può accedere Bitbucket direttamente. Gli utenti possono essere creati e aggiornati in tempo reale con i dati di attributi SAML.|
+|SAML SSO per Bamboo dalla risoluzione GmbH|SAML 2.0|[SSO Bamboo](https://go.microsoft.com/fwlink/?linkid=863520) autenticazione delegati ad Azure AD, gli utenti già registrati in Azure AD può accedere Bamboo direttamente.|
+|Communifire|SAML 2.0|[Communifire](https://go.microsoft.com/fwlink/?linkid=861676) il software di intranet social moderno e completo che supporta i dipendenti e le attività aziendali.|
+|MOBI|SAML 2.0|[Centralizzare, comprendere e controllare l'ecosistema intero dispositivo](https://go.microsoft.com/fwlink/?linkid=863521).|
+|Reflektive|SAML 2.0|[Reflektive](https://go.microsoft.com/fwlink/?linkid=863518) è una piattaforma moderna per la gestione delle prestazioni, commenti e suggerimenti in tempo reale e l'impostazione di obiettivo. È consentire ai dipendenti di unità di sviluppo, in modo da essere più strategiche.|
+|CybSafe|OpenID Connect & OAuth|CybSafe è una piattaforma di riconoscimento Certificate GCHQ informatici. Usa la tecnologia avanzata e analitica dei dati per ridurre dimostrare l'aspetto di risorse umane di sicurezza informatica e rischi di protezione dati.|
+|WebHR|OpenID Connect & OAuth|Tutti gli utenti HR di social networking All-in-One Preferiti Software. Considerato attendibile da oltre 20.000 società in 197 paesi|
+ |Integrazione di Active Directory di Azure Zenegy|OpenID Connect & OAuth|Con questa App è possibile utilizzare le credenziali di Azure Active Directory della società di accedere a Zenegy.|
+|Adobe esperienza di gestione|SAML 2.0|Adobe esperienza di gestione (AEM), è una soluzione di piattaforma di gestione dei contenuti per la compilazione di siti Web, applicazioni per dispositivi mobili e form - semplificando gestire i contenuti di marketing e risorse.|
+
+ 
+---
+ 
+
+### <a name="approval-workflows-for-azure-ad-directory-roles"></a>Flussi di lavoro di approvazione per i ruoli della directory Azure AD
+
+**Tipo:** Funzionalità modificata  
+**Categoria del servizio:** Privileged Identity Management  
+**Funzionalità del prodotto:** Privileged Identity Management
+ 
+Flusso di lavoro di approvazione per i ruoli della directory Azure AD è in genere disponibile.
+
+Flusso di lavoro di approvazione, gli amministratori di ruolo con privilegi possono richiedere i membri del ruolo idonei richiedono l'attivazione di ruolo prima di poter utilizzare il ruolo con privilegi.
+Più utenti e gruppi possono essere responsabilità approvazione i membri del ruolo idonei ricevano notifiche quando l'approvazione è completata e il relativo ruolo è attivo
+
+---
+ 
+
+### <a name="pass-through-authentication---skype-for-business-support"></a>Autenticazione pass-through - Skype per il supporto di Business
+
+**Tipo:** Funzionalità modificata  
+**Categoria del servizio:** autenticazioni (account di accesso)  
+**Funzionalità del prodotto:** autenticazione utente
+
+
+Autenticazione pass-through ora supporta l'accesso degli utenti a Skype per le applicazioni client di Business che supportano l'autenticazione moderna, incluse le topologie in linea & ibrida. 
+
+Per ulteriori informazioni, vedere [Skype per le topologie di Business è supportato con l'autenticazione moderna](https://technet.microsoft.com/library/mt803262.aspx).
+ 
+---
+ 
+
+### <a name="updates-to-azure-active-directory-privileged-identity-management-pim-for-azure-rbac-preview"></a>Aggiornamenti per Azure Active Directory Privileged Identity Management (PIM) per RBAC Azure (anteprima)
+
+**Tipo:** Funzionalità modificata  
+**Categoria di servizio:** PIM  
+**Funzionalità del prodotto:** Privileged Identity Management
+ 
+Con il nostro pubblico Anteprima aggiornamento di Azure Active Directory con privilegi identità Management (PIM) per Azure RBAC, ora è possibile:
+
+Utilizzare solo sufficientemente amministrazione richiedono l'approvazione per attivare i ruoli di risorsa pianificare l'attivazione di un futura di un ruolo che richiede l'approvazione per AAD sia e i ruoli di Azure RBAC
+
+ 
+Per ulteriori informazioni, vedere [PIM per risorse di Azure (anteprima)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac)
+
+ 
+---
+ 
 ## <a name="november-2017"></a>Novembre 2017
  
 ### <a name="retiring-acs"></a>Ritiro di ACS
@@ -513,6 +670,6 @@ Dal 25 settembre 2017 è disponibile un pacchetto hotfix rollup (build 4.4.1642.
 - È un aggiornamento cumulativo che sostituisce tutti gli aggiornamenti di MIM 2016 SP1 fino alla build 4.4.1459.0 per Microsoft Identity Manager 2016. 
 - Richiede **Microsoft Identity Manager 2016 build 4.4.1302.0**. 
 
-Per altre informazioni, vedere [Pacchetto hotfix rollup (build 4.4.1642.0) disponibile per Microsoft Identity Manager 2016 SP1](https://support.microsoft.com/en-us/help/4021562). 
+Per altre informazioni, vedere [Pacchetto hotfix rollup (build 4.4.1642.0) disponibile per Microsoft Identity Manager 2016 SP1](https://support.microsoft.com/help/4021562). 
 
 ---

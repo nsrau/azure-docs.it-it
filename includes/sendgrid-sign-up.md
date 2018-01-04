@@ -1,7 +1,7 @@
 I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratuiti ogni mese. Questi 25.000 messaggi gratuiti mensili offrono l'accesso a funzionalità avanzate di creazione di report e analisi e a [tutte le API][all APIs] (Web, SMTP, Event, Parse e altre). Per informazioni sui servizi aggiuntivi offerti da SendGrid, vedere la pagina delle [soluzioni di SendGrid][SendGrid Solutions].
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Per iscriversi a un account SendGrid
-1. Accedere al [portale di gestione di Azure][Azure Management Portal].
+1. Accedere al [Portale di Azure][Azure portal].
 2. Fare clic su **Nuovo** dal menu a sinistra.
 
     ![command-bar-new][command-bar-new]
@@ -33,7 +33,7 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 
     Per modificare il piano di sottoscrizione o visualizzare le impostazioni di contatto di SendGrid, fare clic sul nome del servizio SendGrid per aprire il dashboard del Marketplace di SendGrid.
 
-    ![Impostazioni][settings]
+    ![Scheda Impostazioni][settings]
 
     Per inviare un'email tramite SendGrid, è necessario specificare la chiave API.
 
@@ -82,7 +82,7 @@ Per gestire le impostazioni di recapito della posta, fare clic sul **pulsante Ge
 <!--Links-->
 
 [SendGrid Solutions]: https://sendgrid.com/solutions
-[Azure Management Portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [SendGrid Getting Started]: http://sendgrid.com/docs
 [SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [all APIs]: https://sendgrid.com/docs/API_Reference/index.html

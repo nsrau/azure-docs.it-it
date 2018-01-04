@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 8a3caaff-dd8d-4afd-badf-a0fd60db3d2c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: cab1ce3694372c137667e0179caf8d3523147f7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6f8a7b7fd155a6ad0df7cb1f9026b4acca2401cb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Esercitazione: Integrazione di Azure Active Directory con iQualify LMS
 
@@ -28,7 +28,7 @@ L'integrazione di iQualify LMS con Azure AD offre i vantaggi seguenti:
 
 - È possibile controllare in Azure AD chi può accedere a iQualify LMS.
 - È possibile abilitare gli utenti per l'accesso automatico a iQualify LMS (Single Sign-On) con gli account Azure AD personali.
-- È possibile gestire gli account da una posizione centrale: il portale di Azure.
+- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -36,7 +36,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con iQualify LMS, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di iQualify LMS abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
@@ -48,7 +48,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di iQualify LMS dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -98,7 +98,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **iQualify LMS** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Collegamento per la configurazione dell'accesso Single Sign-On][4]
+    ![Collegamento Configura accesso Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
@@ -131,11 +131,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | Ambiente di test: `https://<yourorg>.iqualify.io/login` |
      
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di iQualify LMS](https://www.iqualify.com). 
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di iQualify LMS](https://www.iqualify.com). 
 
 5. L'applicazione iQualify LMS prevede che le asserzioni SAML (Security Assertion Markup Language) vengano visualizzate in un formato specifico. Configurare le attestazioni e gestire i valori degli attributi nella sezione **Attributi utente** della pagina di integrazione dell'applicazione iQualify, come illustrato nello screenshot seguente:
     
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-iqualify-tutorial/atb.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-iqualify-tutorial/atb.png)
 
 6. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On**, per ogni riga illustrata nella tabella seguente, seguire questa procedura:
     
@@ -148,9 +148,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Fare clic su **Aggiungi attributo** per aprire la finestra di dialogo **Aggiungi attributo**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-iqualify-tutorial/atb2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-iqualify-tutorial/atb2.png)
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-iqualify-tutorial/atb3.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-iqualify-tutorial/atb3.png)
     
     b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
     
@@ -169,7 +169,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 8. Fare clic sul pulsante **Salva** .
 
-    ![Pulsante Salva di Configura accesso Single Sign-On](./media/active-directory-saas-iqualify-tutorial/tutorial_general_400.png)
+    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-iqualify-tutorial/tutorial_general_400.png)
     
 9. Nella sezione **Configurazione di iQualify LMS** fare clic su **Configura iQualify LMS** per aprire la finestra **Configura accesso**. Copiare i valori **Sign-Out URL (URL di disconnessione) e SAML Single Sign-On Service URL (URL servizio Single Sign-On SAML)** dalla sezione **Quick Reference** (Riferimento rapido).
 

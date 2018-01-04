@@ -4,7 +4,7 @@ description: Informazioni su come visualizzare o cercare i gruppi in Azure Activ
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 72686ee9-9f91-4fcc-86da-b990a1b6d4f2
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 32e34ce0d4d6c12f25fcd4ff2de10809ca7ac361
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1aaebb66287edc375909f7367648da6cf5f4cc40
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="view-or-search-for-your-user-groups-in-azure-active-directory"></a>Visualizzare o cercare i gruppi di utenti in Azure Active Directory
 Questo articolo descrive come visualizzare tutti i gruppi in Azure Active Directory (Azure AD). Una delle funzionalità di gestione degli utenti di Azure AD è che è possibile usare gruppi per eseguire attività di gestione, ad esempio l'assegnazione di licenze o di autorizzazioni per un numero di utenti contemporaneamente.

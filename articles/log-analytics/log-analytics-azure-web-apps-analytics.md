@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: banders
-ms.openlocfilehash: 9ef26d4b6bfd92925a70b7bbdf8979e287c73445
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d910339cc35e09705e543706b40dfe8e0ea9dd42
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Visualizzare i dati di analisi per le metriche di tutte le risorse app Web di Azure
 
@@ -37,12 +37,12 @@ La soluzione consente di visualizzare:
 
 A differenza della maggior parte delle altre soluzioni di Log Analytics, i dati per App Web di Azure non vengono raccolti dagli agenti. Tutti i dati usati dalla soluzione provengono direttamente da Azure.
 
-| Origine connessa | Supportato | Descrizione |
+| Origine connessa | Supportato | DESCRIZIONE |
 | --- | --- | --- |
-| [Agenti di Windows](log-analytics-windows-agents.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
-| [Agenti Linux](log-analytics-linux-agents.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
-| [Gruppo di gestione SCOM](log-analytics-om-agents.md) | No | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
-| [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No | La soluzione non raccoglie le informazioni da Archiviazione di Azure. |
+| [Agenti di Windows](log-analytics-windows-agent.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
+| [Agenti Linux](log-analytics-linux-agents.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
+| [Gruppo di gestione SCOM](log-analytics-om-agents.md) | No  | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
+| [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No  | La soluzione non raccoglie le informazioni da Archiviazione di Azure. |
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -62,7 +62,7 @@ La soluzione Analisi app Web di Azure raccoglie due set di metriche da Azure:
   - Tempo medio di risposta
   - Byte ricevuti/inviati
   - Tempo CPU
-  - Richieste
+  - Requests
   - Working set della memoria
   - Httpxxx
 - Metriche del piano di servizio app
@@ -92,7 +92,7 @@ Fare clic sul riquadro **Analisi app Web di Azure** per aprire il dashboard di *
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-| Colonna | Descrizione |
+| Colonna | DESCRIZIONE |
 | --- | --- |
 | App Web di Azure |   |
 | Tendenze richieste app Web | Mostra un grafico a linee relativo alla tendenza delle richieste delle app Web per l'intervallo di date selezionato e un elenco delle prime dieci richieste Web. Fare clic sul grafico a linee per eseguire una ricerca log per <code>Type=AzureMetrics ResourceId=*"/MICROSOFT.WEB/SITES/"* (MetricName=Requests OR MetricName=Http*) &#124; measure avg(Average) by MetricName interval 1HOUR</code> <br>Fare clic su una voce di richiesta Web per eseguire una ricerca log per la tendenza delle metriche per la richiesta Web. |

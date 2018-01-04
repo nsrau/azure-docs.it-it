@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 64c7ee45-ee8a-42f7-bf04-fd0e00833ea9
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 7b0639c6515298731f88346c2e4ca82664653a2b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5cc3a184c278371ad90db8a512bb34a4cb2b4b49
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-inkling"></a>Esercitazione: Integrazione di Azure Active Directory con Inkling
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con Inkling sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di Inkling abilitata per l'accesso Single Sign-On
 
 
@@ -50,7 +50,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Inkling dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -67,11 +67,11 @@ Per configurare l'integrazione di Inkling in Azure AD è necessario aggiungere I
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 3. Fare clic sul pulsante **Aggiungi** nella parte superiore della finestra di dialogo.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 4. Nella casella di ricerca digitare **Inkling**.
 
@@ -91,7 +91,7 @@ La relazione di collegamento viene stabilita assegnando il valore di **nome uten
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Inkling è necessario completare le operazioni seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente di test di Inkling](#creating-an-inkling-test-user)**: per avere una controparte di Britta Simon in Inkling collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -105,15 +105,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **Inkling** del portale di gestione di Azure fare clic su **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** in **Modalità** selezionare **Accesso basato su SAML** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-inkling-tutorial/tutorial_general_300.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-inkling-tutorial/tutorial_general_300.png)
     
 3. Nella sezione **URL e dominio Inkling** seguire questa procedura:
     
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-inkling-tutorial/tutorial_inkling_01.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-inkling-tutorial/tutorial_inkling_01.png)
 
     a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://api.inkling.com/saml/v2/metadata/<user-id>`
 
@@ -124,23 +124,23 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **Crea nuovo certificato**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-inkling-tutorial/tutorial_general_400.png)    
+    ![Configure Single Sign-On](./media/active-directory-saas-inkling-tutorial/tutorial_general_400.png)    
 
 5. Nella finestra di dialogo **Crea nuovo certificato** fare clic sull'icona del calendario e selezionare una **data di scadenza**. Fare quindi clic sul pulsante **Salva**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-inkling-tutorial/tutorial_general_500.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-inkling-tutorial/tutorial_general_500.png)
 
 6. Nella sezione **Certificato di firma SAML** selezionare **Make new certificate active** (Rendi attivo il nuovo certificato) e fare clic sul pulsante **Salva**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-inkling-tutorial/tutorial_inkling_02.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-inkling-tutorial/tutorial_inkling_02.png)
 
 7. Nella finestra popup **Rollover certificate** (Certificato di rollover) fare clic su **OK**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-inkling-tutorial/tutorial_general_600.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-inkling-tutorial/tutorial_general_600.png)
 
 8. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-inkling-tutorial/tutorial_inkling_03.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-inkling-tutorial/tutorial_inkling_03.png) 
 
 9. Per ottenere la configurazione dell'accesso Single Sign-On per l'applicazione contattare il [team di supporto di Inkling](mailto:press@inkling.com) e fornire i **metadati** scaricati. 
 
@@ -174,7 +174,7 @@ Questa sezione descrive come creare un utente test chiamato Britta Simon nel por
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Fare clic su **Create**(Crea). 
+    d. Fare clic su **Crea**. 
 
 
 
@@ -197,7 +197,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco di applicazioni selezionare **Inkling**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-inkling-tutorial/tutorial_inkling_50.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-inkling-tutorial/tutorial_inkling_50.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

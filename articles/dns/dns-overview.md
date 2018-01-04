@@ -4,7 +4,7 @@ description: Panoramica del servizio di hosting DNS in Microsoft Azure. Ospitare
 services: dns
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 68747a0d-b358-4b8e-b5e2-e2570745ec3f
 ms.service: dns
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/19/2017
+ms.date: 12/18/2017
 ms.author: kumud
-ms.openlocfilehash: 890c00f3349abd52294e92d27f1b42ab38fe287a
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: f255fd9621ff90bfbb3ad193faa64495acf7ecd7
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="azure-dns-overview"></a>Panoramica di DNS di Azure
 
@@ -40,7 +40,7 @@ DNS di Azure attualmente non supporta l'acquisto dei nomi di dominio. Se si vogl
 
 La fatturazione di DNS di Azure è basata sul numero di zone DNS ospitate in Azure e sul numero di query DNS. Per altre informazioni sui prezzi visitare [Prezzi di DNS di Azure](https://azure.microsoft.com/pricing/details/dns/).
 
-## <a name="faq"></a>domande frequenti
+## <a name="faq"></a>Domande frequenti
 
 Per domande frequenti sul servizio DNS di Azure, vedere [Domande frequenti su DNS di Azure](dns-faq.md).
 

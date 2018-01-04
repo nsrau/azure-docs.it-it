@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 221bd7662eb4974395c7f970961d5bfb556417f4
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: ffcf0766b89cdab7c79c28dad6bf4c80275e33fc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati in Archiviazione di Azure
 Questo articolo fornisce istruzioni dettagliate sull'uso del servizio Importazione/Esportazione di Azure per trasferire in modo sicuro grandi quantità di dati in Archiviazione di Azure e in File di Azure tramite la spedizione delle unità disco a un data center di Azure. È anche possibile usare questo servizio per trasferire i dati da Archiviazione di Azure a unità disco rigido per la spedizione al sito locale. È possibile importare i dati da un'unica unità disco SATA interna ad Archiviazione BLOB di Azure o a File di Azure. 
@@ -92,7 +92,7 @@ Per usare il servizio Importazione/Esportazione di Azure, sono necessari una sot
 ### <a name="data-types"></a>Tipi di dati
 È possibile usare il servizio Importazione/Esportazione di Azure per copiare dati in BLOB in **blocchi**, in BLOB di **pagine** o in **file**. Al contrario, usando questo servizio è possibile esportare solo BLOB in **blocchi**, BLOB di **pagine** o BLOB di **aggiunta** da Archiviazione di Azure. Il servizio supporta solo l'importazione di dati di File di Azure in Archiviazione di Azure. L'esportazione di dati di File di Azure non è attualmente supportato.
 
-### <a name="job"></a>Job
+### <a name="job"></a>Processo
 Per avviare la procedura di importazione o di esportazione, creare innanzitutto un processo, che potrà essere un processo di importazione o un processo di esportazione:
 
 * Creare un processo di importazione quando si desidera trasferire i dati locali nell'account di archiviazione di Azure.
@@ -147,7 +147,7 @@ Il servizio Importazione/Esportazione di Azure supporta la copia dei dati da e v
 
 Località di spedizione supportate:
 
-* Stati Uniti Orientali
+* Stati Uniti orientali
 * Stati Uniti occidentali
 * Stati Uniti orientali 2
 * Stati Uniti occidentali 2
@@ -177,6 +177,8 @@ Località di spedizione supportate:
 * Cina orientale
 * Cina settentrionale
 * Regno Unito meridionale
+* Germania centrale
+* Germania nord-orientale
 
 ### <a name="shipping"></a>Spedizione
 **Spedizione di unità al data center:**
@@ -246,7 +248,7 @@ In generale, un processo di esortazione prevede i passaggi seguenti:
 
 Verrà visualizzato uno degli stati del processo seguenti, in base al punto in cui si trova l'unità nel processo.
 
-| Stato processo | Descrizione |
+| Stato processo | DESCRIZIONE |
 |:--- |:--- |
 | Creating | Dopo aver creato un processo, lo stato è impostato su Creazione. Mentre il processo si trova nello stato Creazione, il servizio Importazione/Esportazione presuppone che le unità non siano state spedite al data center. Un processo può rimanere nello stato Creazione fino a due settimane; al termine di questo periodo viene automaticamente eliminato dal servizio. |
 | Spedizione | Dopo aver spedito il pacchetto, è consigliabile aggiornare le informazioni di tracciabilità nel portale di Azure.  Il processo passerà allo stato "Spedizione". Il processo rimarrà in tale stato per un massimo di due settimane. 
@@ -259,7 +261,7 @@ Verrà visualizzato uno degli stati del processo seguenti, in base al punto in c
 La tabella di seguito descrive il ciclo di vita di una singola unità attraverso un processo di importazione o esportazione. Lo stato attuale di ogni unità in un processo è ora visibile dal portale di Azure.
 La tabella seguente descrive ogni stato in cui può trovarsi un'unità in un processo.
 
-| Stato dell'unità | Descrizione |
+| Stato dell'unità | DESCRIZIONE |
 |:--- |:--- |
 | Specificata | Per un processo di importazione, quando il processo viene creato dal portale di Azure, lo stato iniziale di un'unità è Specificata. Per un processo di esportazione, lo stato iniziale dell'unità è Ricevuta perché non è stata specificata un'unità in fase di creazione del processo. |
 | Ricevuto | Le unità passano allo stato Ricevuta quando l'operatore del servizio Importazione/Esportazione elabora le unità ricevute dallo spedizioniere per un processo di importazione. Per un processo di esportazione, lo stato iniziale dell'unità è Ricevuta. |
@@ -273,9 +275,9 @@ Questa immagine dal portale di Azure consente di visualizzare lo stato dell'unit
 
 ![Visualizza stato dell'unità](./media/storage-import-export-service/drivestate.png)
 
-La tabella seguente descrive gli stati di errore delle unità e le azioni intraprese per ogni stato.
+La tabella seguente descrive gli stati di errore delle unità e le azioni intraprese corrispondenti.
 
-| Stato dell'unità | Evento | Risoluzione/Passaggio successivo |
+| Stato dell'unità | Event | Risoluzione/Passaggio successivo |
 |:--- |:--- |:--- |
 | MaiRicevuta | Un'unità contrassegnata come MaiRicevuta (perché non è stata ricevuta come parte della spedizione del processo) viene ricevuta con un'altra spedizione. | Il team operativo sposterà l'unità nello stato Ricevuta. |
 | N/D | Un'unità che non fa parte di alcun processo arriva al data center come parte di un altro processo. | L'unità verrà contrassegnata come unità aggiuntiva e verrà restituita al cliente una volta completato il processo associato al pacchetto originale. |
@@ -410,7 +412,7 @@ Per preparare le unità per un processo di esportazione si consiglia di eseguire
    
    La tabella seguente mostra alcuni esempi di percorsi BLOB validi:
    
-   | Selettore | Percorso BLOB | Descrizione |
+   | Selettore | Percorso BLOB | DESCRIZIONE |
    | --- | --- | --- |
    | Starts With |/ |Esporta tutti i BLOB nell'account di archiviazione |
    | Starts With |/$root/ |Esporta tutti i BLOB nel contenitore radice |
@@ -485,15 +487,15 @@ Microsoft offre informazioni e assistenza nel caso in cui la capacità venga dis
 
 **Il servizio formatta le unità prima di restituirle?**
 
-No. Tutte le unità vengono crittografate con BitLocker.
+di serie Tutte le unità vengono crittografate con BitLocker.
 
 **È possibile acquistare da Microsoft unità per i processi di importazione/esportazione?**
 
-No. Sarà necessario spedire le unità per i processi sia di importazione che di esportazione.
+di serie Sarà necessario spedire le unità per i processi sia di importazione che di esportazione.
 
 * * Come è possibile accedere ai dati importati da questo servizio? * *
 
-Si può accedere ai dati nell'account di archiviazione di Azure tramite il portale di Azure o usando uno strumento indipendente denominato Storage Explorer. https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer 
+Si può accedere ai dati nell'account di archiviazione di Azure tramite il portale di Azure o usando uno strumento indipendente denominato Storage Explorer. https://docs.microsoft.com/Azure/VS-Azure-Tools-Storage-Manage-with-Storage-Explorer 
 
 **Al termine del processo di importazione, come si presenteranno i dati nell'account di archiviazione? Verrà mantenuta la gerarchia delle directory?**
 
@@ -504,7 +506,7 @@ Quando si prepara un disco rigido per un processo di importazione, la destinazio
 Quando si prepara l'unità, è possibile specificare se i file di destinazione devono essere sovrascritti o ignorati usando il campo denominato Disposition:<rename|no-overwrite|overwrite> nel file CSV del set di dati. Per impostazione predefinita, il servizio rinomina i nuovi file anziché sovrascrivere i BLOB o i file esistenti.
 
 **Lo strumento WAImportExport è compatibile con i sistemi operativi a 32 bit?**
-No. Lo strumento WAImportExport è compatibile solo con i sistemi operativo Windows a 64 bit. Per un elenco completo delle versioni del sistema operativo supportate, vedere la sezione Sistema operativo in [Prerequisiti](#pre-requisites) .
+di serie Lo strumento WAImportExport è compatibile solo con i sistemi operativo Windows a 64 bit. Per un elenco completo delle versioni del sistema operativo supportate, vedere la sezione Sistema operativo in [Prerequisiti](#pre-requisites) .
 
 **È consigliabile includere qualcos'altro oltre all'unità disco rigido nel pacco?**
 

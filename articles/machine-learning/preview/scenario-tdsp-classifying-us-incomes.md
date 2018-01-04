@@ -7,6 +7,7 @@ author: bradsev
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
-ms.openlocfilehash: 3e92687657b4e80e75fd869da454970622f7178c
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
-ms.translationtype: HT
+ms.openlocfilehash: dc6279a1bac230146f4f0cebf2fbdbb6333cb7a1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Classificazione dei redditi con un progetto di Team Data Science Process (TDSP)
 
@@ -61,7 +62,7 @@ Per salvare e sottoporre al controllo delle versioni il progetto e il suo conten
 
 ### <a name="informational-about-azure-machine-learning"></a>Informazioni su Azure Machine Learning
 * [FAQ - How to get started](frequently-asked-questions.md) (Domande frequenti - Come iniziare)
-* [Panoramica](overview-what-is-azure-ml.md)
+* [Overview](overview-what-is-azure-ml.md)
 * [Installazione](quickstart-installation.md)
 * [Execution](experimentation-service-configuration.md) (Esecuzione)
 * [Uso di TDSP](https://aka.ms/how-to-use-tdsp-in-aml)
@@ -171,7 +172,7 @@ In questo esempio è stato mostrato come usare la struttura e i modelli di TDSP 
 
 Questa funzionalità di Azure Machine Learning può semplificare la standardizzazione e la collaborazione all'interno dei team di data science.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Per iniziare, vedere i riferimenti seguenti:
 

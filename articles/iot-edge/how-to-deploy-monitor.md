@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: cc7d1e290465d9254cbd7fe9e8ba71cc740b0368
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala - Anteprima
 
@@ -40,7 +40,7 @@ Per altre informazioni sui dispositivi gemelli e i tag, vedere [Comprendere e us
 
 ## <a name="create-a-deployment"></a>Creare una distribuzione
 
-1. Accedere al [portale di Azure][lnk-portal] e passare all'hub IoT. 
+1. Nel [portale di Azure][lnk-portal], visitare l'hub IoT. 
 1. Selezionare **IoT Edge (preview)** (IoT Edge - anteprima).
 1. Selezionare **Add IoT Edge device** (Aggiungi il dispositivo di IoT Edge).
 
@@ -61,26 +61,25 @@ Se si crea una distribuzione senza moduli, tutti i moduli esistenti vengono rimo
 >[!NOTE]
 >Azure Machine Learning e Funzioni di Azure non supportano ancora la distribuzione automatica dei servizi di Azure. Usare la distribuzione di moduli personalizzati per aggiungere manualmente questi servizi alla distribuzione. 
 
-Per aggiungere un modulo da un servizio di Azure, seguire questa procedura:
-1. Selezionare **Add Azure service IoT Edge module** (Aggiungi modulo IoT Edge per servizio di Azure).
+Per aggiungere un modulo da Analitica di flusso di Azure, seguire questi passaggi:
+1. Selezionare **modulo Importa Azure flusso Analitica IoT Edge**.
 1. Usare i menu a discesa per selezionare le istanze del servizio Azure che si vuole distribuire.
-1. Selezionare **Save** (Salva) per aggiungere i moduli alla distribuzione. 
+1. Selezionare **Save** (Salva) per aggiungere il modulo alla distribuzione. 
 
 Per aggiungere codice personalizzato come modulo o aggiungere manualmente un modulo per un servizio di Azure, seguire questa procedura:
-1. Selezionare **Add custom IoT Edge module** (Aggiungi modulo IoT Edge personalizzato).
+1. Selezionare **Add IoT Edge module** (Aggiungi il modulo di IoT Edge).
 1. Assegnare un nome al modulo in **Name** (Nome).
-1. Nel campo **Image** (Immagine) immettere l'immagine del contenitore Docker per questo modulo: `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
-1. Usare i menu a discesa in **OS** (Sistema operativo) e **Architecture** (Architettura) per identificare le proprietà del contenitore Docker che rappresenta questo modulo. 
-1. Specificare le eventuali **Create options** (Opzioni di creazione) da passare al contenitore. Per altre informazioni, vedere [docker create][lnk-docker-create].
+1. Per il **URI immagine** immettere l'immagine contenitore Docker per il modulo. 
+1. Specificare qualsiasi **opzioni di creazione del contenitore** che deve essere passato al contenitore. Per altre informazioni, vedere [docker create][lnk-docker-create].
 1. Usare il menu a discesa per selezionare **Restart policy** (Criteri di riavvio). È possibile scegliere tra le opzioni seguenti: 
    * **Always** (Sempre): il modulo viene sempre riavviato se viene arrestato per qualsiasi motivo.
    * **Never** (Mai): il modulo non viene mai riavviato se viene arrestato per qualsiasi motivo.
    * **On-failed** (In caso di errore): il modulo viene riavviato in caso di arresto anomalo, ma non se viene chiuso normalmente. 
    * **On-unhealthy** (Se non integro): il modulo viene riavviato in caso di arresto anomalo o se restituisce uno stato non integro. Ogni modulo deve implementare la funzione di stato di integrità. 
-1. Usare il menu a discesa per selezionare lo stato di avvio per il modulo in **Status** (Stato). È possibile scegliere tra le opzioni seguenti:
+1. Utilizzare il menu a discesa per selezionare il **stato desiderato** per il modulo. È possibile scegliere tra le opzioni seguenti:
    * **Running** (In esecuzione): questa è l'opzione predefinita. Il modulo verrà avviato immediatamente dopo la distribuzione.
    * **Stopped** (Arrestato): dopo la distribuzione, il modulo resta inattivo fino a quando non viene chiamato per l'avvio dall'utente o da un altro modulo.
-1. Selezionare **Edit module twin** (Modifica gemello modulo) per aggiungere tag o proprietà al modulo. 
+1. Selezionare **abilitare** se si desidera aggiungere la coppia di modulo qualsiasi tag o proprietà desiderate. 
 1. Selezionare **Save** (Salva) per aggiungere il modulo alla distribuzione. 
 
 Dopo aver configurato tutti i moduli per una distribuzione, selezionare **Avanti** per procedere al passaggio tre.
@@ -96,7 +95,7 @@ Usare la proprietà tags dai dispositivi per selezionare i dispositivi specifici
 Dato che più distribuzioni potrebbero avere come destinazione lo stesso dispositivo, è necessario assegnare a ogni distribuzione un numero di priorità. In caso di conflitto, prevale la distribuzione con la priorità più alta. Se due distribuzioni hanno lo stesso numero di priorità, prevale quella creata più di recente. 
 
 1. Immettere un numero intero positivo in **Priority** (Priorità) per la distribuzione.
-1. Specificare una condizione in **Target condition** (Condizione di destinazione) per determinare i dispositivi di destinazione di questa distribuzione. La condizione è basata sui tag del dispositivo gemello e deve corrispondere al formato di espressione. ad esempio `tags.environment='test'`. 
+1. Specificare una condizione in **Target condition** (Condizione di destinazione) per determinare i dispositivi di destinazione di questa distribuzione. La condizione è basata sui tag del dispositivo gemello e deve corrispondere al formato di espressione. Ad esempio, `tags.environment='test'`. 
 1. Selezionare **Avanti** per procedere al passaggio finale.
 
 ### <a name="step-5-review-template"></a>Passaggio 5: Rivedere il modello
@@ -147,7 +146,7 @@ Per modificare una distribuzione, seguire questa procedura:
 
 1. Selezionare la distribuzione che si vuole modificare. 
 1. Apportare modifiche nei campi seguenti: 
-   * Target Condition (Condizione di destinazione) 
+   * Condizione di destinazione 
    * Etichette 
    * Priorità 
 1. Selezionare **Salva**.
@@ -172,7 +171,7 @@ Quando si elimina una distribuzione, tutti i dispositivi ricevono la distribuzio
 Altre informazioni sulla [distribuzione di moduli nei dispositivi perimetrali][lnk-deployments].
 
 <!-- Images -->
-[1]: ./media/how-to-deploy-monitor/view-deployments.png
+[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
 
 <!-- Links -->
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md

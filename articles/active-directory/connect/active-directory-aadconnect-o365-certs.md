@@ -1,10 +1,10 @@
 ---
-title: Rinnovo del certificato per gli utenti di Office 365 e Azure AD. | Microsoft Docs
+title: Rinnovo del certificato per gli utenti di Office 365 e Azure AD. | Documentazione Microsoft
 description: In questo articolo viene illustrato agli utenti di Office 365 come risolvere i problemi con i messaggi e-mail contenenti la notifica sul rinnovo di un certificato.
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 543b7dc1-ccc9-407f-85a1-a9944c0ba1be
 ms.service: active-directory
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: billmath
-ms.openlocfilehash: 675f5b31eb60a75e060a397f01777e427c068c64
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: a0e3b65c108f8d839b8107e98a5cd59df78e1ab0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Rinnovare i certificati di federazione per Office 365 e Azure Active Directory
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Perché una federazione tra Azure Active Directory (Azure AD) e Active Directory Federation Services (AD FS) riesca, è necessario che i certificati usati da AD FS per la firma dei token di sicurezza in Azure AD corrispondano alle informazioni configurate in Azure AD. Eventuali informazioni non corrispondenti possono comportare l'interruzione del trust. Azure AD assicura che queste informazioni rimangano sincronizzate durante la distribuzione di AD FS e Proxy applicazione Web (per l'accesso Extranet).
 
 Questo articolo fornisce informazioni aggiuntive per gestire i certificati per la firma di token e mantenerli sincronizzati con Azure AD nei casi seguenti:
@@ -90,8 +90,8 @@ Nell'output di Get-MsolFederationProperty o Get-AdfsCertificate verificare la da
 | AutoCertificateRollover | Certificati sincronizzati con Azure AD | I metadati della federazione sono accessibili pubblicamente | Validità | Azione |
 |:---:|:---:|:---:|:---:|:---:|
 | Sì |Sì |Sì |- |Non è richiesta alcuna azione. Vedere [Rinnovare automaticamente il certificato per la firma di token](#autorenew). |
-| Sì |No |- |Meno di 15 giorni |Rinnovare immediatamente. Vedere [Rinnovare manualmente il certificato per la firma di token](#manualrenew). |
-| No |- |- |Meno di 30 giorni |Rinnovare immediatamente. Vedere [Rinnovare manualmente il certificato per la firma di token](#manualrenew). |
+| Sì |No  |- |Meno di 15 giorni |Rinnovare immediatamente. Vedere [Rinnovare manualmente il certificato per la firma di token](#manualrenew). |
+| No  |- |- |Meno di 30 giorni |Rinnovare immediatamente. Vedere [Rinnovare manualmente il certificato per la firma di token](#manualrenew). |
 
 \[-] Non è rilevante
 

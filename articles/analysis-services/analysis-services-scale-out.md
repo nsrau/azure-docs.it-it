@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: owend
-ms.openlocfilehash: a97f9648efef7f07659110d720c200dcd0a241a9
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: HT
+ms.openlocfilehash: 14bdbf3dd6d940cc3f4b665658f0c789916a2597
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
 
@@ -79,9 +79,9 @@ Usare l'operazione **sync**.
 `GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
 ### <a name="powershell"></a>PowerShell
-Per eseguire la sincronizzazione da PowerShell, [eseguire l'aggiornamento alla versione più recente](https://github.com/Azure/azure-powershell/releases) 5.01 o successiva del modulo AzureRM. Usare [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+Per eseguire la sincronizzazione da PowerShell, [eseguire l'aggiornamento alla versione più recente](https://github.com/Azure/azure-powershell/releases) 5.01 o successiva del modulo AzureRM. Usare [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
-## <a name="connections"></a>Connessioni
+## <a name="connections"></a>connessioni
 
 Nella pagina Panoramica del server sono presenti due nomi di server. Se il ridimensionamento orizzontale non è stato ancora configurato per un server, entrambi i nomi di server funzionano allo stesso modo. Dopo che per un server è stato configurato il ridimensionamento orizzontale, è necessario specificare il nome del server appropriato a seconda del tipo di connessione. 
 

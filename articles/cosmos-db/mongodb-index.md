@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 8feabb464c87032db40a66a67f471d0f41cd98eb
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
-ms.translationtype: HT
+ms.openlocfilehash: 63cfa92feb08f32081fe02d4202fa6256c7b99dc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Azure Cosmos DB: documentazione dell'API MongoDB
 
 Questo articolo contiene i collegamenti a tutto il contenuto di Azure Cosmos DB specifico dell'API MongoDB.
 
-Questi articoli non si applicano all'API DocumentDB, all'API Graph o all'API di tabella. 
+Questi articoli non si applicano all'API di SQL, API Graph o API di tabella. 
 
 ## <a name="introduction-and-concepts"></a>Introduzione e concetti
 
@@ -31,16 +31,18 @@ I seguenti sono argomenti e risorse indispensabili per apprendere le nozioni di 
 
 - [Introduzione all'API MongoDB](mongodb-introduction.md)
 - [Connettersi all'account MongoDB](connect-mongodb-account.md)
+- [Supporto per la sintassi e le funzionalità di MongoDB](mongodb-feature-support.md)
 
 ## <a name="quickstarts"></a>Guide introduttive
 
 Gli argomenti delle guide introduttive sono il modo più rapido per creare un'applicazione funzionante con Azure Cosmos DB. In ogni guida introduttiva viene illustrato come usare il portale di Azure basato sull'interfaccia utente e il linguaggio di codifica preferito per creare soluzioni di database con Azure Cosmos DB. Per ogni guida introduttiva sono disponibili app Web clonabili dall'area GitHub. 
 
 
-- [MongoDB + Express + AngularJS + Node.js + app Web](create-mongodb-nodejs.md)
+- [Node.js Express AngularJS + App Web](create-mongodb-nodejs.md)
 - [.NET + portale di Azure + app Web](create-mongodb-dotnet.md)
 - [Java + portale di Azure + app Web](create-mongodb-java.md)
 - [Go + portale di Azure + Go](create-mongodb-golang.md)
+- [Python + pallone portale di Azure](create-mongodb-flask.md)
 
 ## <a name="tutorials"></a>Esercitazioni
 
@@ -48,7 +50,7 @@ Queste esercitazioni sono più approfondite delle guide introduttive. Nelle eser
 
 ### <a name="create-a-console-app"></a>Creare un'app console
 
-- [Node.js](mongodb-samples.md) 
+- [Node.JS](mongodb-samples.md) 
 - [.NET](tutorial-develop-mongodb.md)
 
 ### <a name="create-a-web-app"></a>Creare un'app Web

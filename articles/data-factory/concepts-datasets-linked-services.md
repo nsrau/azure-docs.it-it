@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: 
 ms.date: 09/05/2017
 ms.author: shlo
-ms.openlocfilehash: a13e19c7e1a22581b14d1a96e20b8a649c303fc3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: e8572af6187a889067341bbebb254d701b39395a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Set di dati e servizi collegati in Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,6 +43,56 @@ Di seguito è riportato uno scenario di esempio. Per copiare i dati da un'archiv
 Nel diagramma seguente viene illustrata la relazione tra pipeline, attività, set di dati e il servizio collegato in Data Factory:
 
 ![Relazione tra pipeline, attività, set di dati, i servizi collegati](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
+
+## <a name="linked-service-json"></a>Servizio collegato JSON
+Viene definito un servizio collegato in Data Factory in formato JSON come segue:
+
+```json
+{
+    "name": "<Name of the linked service>",
+    "properties": {
+        "type": "<Type of the linked service>",
+        "typeProperties": {
+              "<data store or compute-specific type properties>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+La tabella seguente descrive le proprietà nel codice JSON precedente:
+
+Proprietà | DESCRIZIONE | Obbligatoria |
+-------- | ----------- | -------- |
+name | Nome del servizio collegato. Vedere [Azure Data Factory - Regole di denominazione](naming-rules.md). |  Sì |
+type | Tipo di servizio collegato. Ad esempio: AzureStorage (archivio dati) o AzureBatch (calcolo). Vedere la descrizione per typeProperties. | Sì |
+typeProperties | Le proprietà del tipo sono diverse per ogni archivio dati o di calcolo. <br/><br/> Per i dati supportati archiviare tipi e le relative proprietà di tipo, vedere il [tipo dataset](#dataset-type) tabella in questo articolo. Passare all'articolo di connettore di archivio dati per informazioni sulle proprietà del tipo specifica a un archivio dati. <br/><br/> Per i tipi di calcolo supportati e le relative proprietà di tipo, vedere [servizi collegati di calcolo](compute-linked-services.md). | Sì |
+connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile utilizzare il Runtime di integrazione di Azure o il Runtime di integrazione di Self-Hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No 
+
+## <a name="linked-service-example"></a>Esempio di servizio collegato
+Il seguente servizio collegato è un servizio collegato di archiviazione di Azure. Si noti che il tipo è impostato su sottoscrizione di Azure. Le proprietà del tipo per il servizio collegato di archiviazione di Azure includono una stringa di connessione. Il servizio Data Factory utilizza la stringa di connessione per connettersi all'archivio dati in fase di esecuzione. 
+
+```json
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 ## <a name="dataset-json"></a>Set di dati JSON
 Un set di dati in Data Factory viene definito in formato JSON come segue:
@@ -72,12 +122,12 @@ Un set di dati in Data Factory viene definito in formato JSON come segue:
 ```
 La tabella seguente descrive le proprietà nel codice JSON precedente:
 
-Proprietà | Descrizione | Obbligatorio | Default
--------- | ----------- | -------- | -------
-name | Nome del set di dati. | Vedere [Azure Data Factory - Regole di denominazione](naming-rules.md). | Sì | ND
-type | Tipo del set di dati. | Specificare uno dei tipi supportati da Data Factory, ad esempio AzureBlob o AzureSqlTable. <br/><br/>Per informazioni dettagliate, vedere [Tipi di set di dati](#dataset-types). | Sì | ND
-structure | Schema del set di dati. | Per informazioni dettagliate, vedere [Struttura del set di dati](#dataset-structure). | No | ND
-typeProperties | Le proprietà del tipo sono diverse per ogni tipo, ad esempio: BLOB di Azure, tabella SQL di Azure. Per informazioni dettagliate sui tipi supportati e le relative proprietà, vedere la sezione [Tipo di set di dati](#dataset-type). | Sì | ND
+Proprietà | DESCRIZIONE | Obbligatoria |
+-------- | ----------- | -------- |
+name | Nome del set di dati. Vedere [Azure Data Factory - Regole di denominazione](naming-rules.md). |  Sì |
+type | Tipo del set di dati. Specificare uno dei tipi supportati da Data Factory, ad esempio AzureBlob o AzureSqlTable. <br/><br/>Per informazioni dettagliate, vedere [Tipi di set di dati](#dataset-types). | Sì |
+structure | Schema del set di dati. Per informazioni dettagliate, vedere [Struttura del set di dati](#dataset-structure). | No  |
+typeProperties | Le proprietà del tipo sono diverse per ogni tipo, ad esempio: BLOB di Azure, tabella SQL di Azure. Per informazioni dettagliate sui tipi supportati e le relative proprietà, vedere la sezione [Tipo di set di dati](#dataset-type). | Sì |
 
 ## <a name="dataset-example"></a>Esempio di set di dati
 Nell'esempio seguente il set di dati rappresenta la tabella MyTable in un database SQL.
@@ -104,28 +154,6 @@ Tenere presente quanto segue:
 - type è impostato su AzureSqlTable.
 - La proprietà del tipo tableName, specifica del tipo AzureSqlTable, è impostata su MyTable.
 - linkedServiceName fa riferimento a un servizio collegato di tipo AzureSqlDatabase, che è definito nel frammento di codice JSON successivo.
-
-## <a name="linked-service-example"></a>Esempio di servizio collegato
-AzureSqlLinkedService è definito come segue:
-
-```json
-{
-    "name": "AzureSqlLinkedService",
-    "properties": {
-        "type": "AzureSqlDatabase",
-        "description": "",
-        "typeProperties": {
-            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
-        }
-    }
-}
-```
-Nel frammento di codice JSON precedente:
-
-- **type** è impostato su AzureSqlDatabase.
-- La proprietà del tipo **connectionString** specifica le informazioni per la connessione a un database SQL.
-
-Come si può notare, il servizio collegato definisce la modalità di connessione a un database SQL. Il set di dati indica quale tabella viene usata come input e output per l'attività in una pipeline.
 
 ## <a name="dataset-type"></a>Tipo di set di dati
 Esistono molti tipi diversi di set di dati, a seconda dell'archivio dati usato. Vedere la tabella seguente per un elenco di archivi dati supportati da Data Factory. Fare clic su un archivio dati per informazioni su come creare un servizio collegato e un set di dati per tale archivio dati.
@@ -168,12 +196,12 @@ La sezione **structure** è facoltativa. Definisce lo schema del set di dati pre
 
 Ogni colonna della struttura contiene le proprietà seguenti:
 
-Proprietà | Descrizione | Obbligatorio
+Proprietà | DESCRIZIONE | Obbligatoria
 -------- | ----------- | --------
 name | Nome della colonna. | Sì
-type | Tipo di dati della colonna. | No
-culture | Cultura basata su .NET da usare quando il tipo è un tipo .NET: `Datetime` o `Datetimeoffset`. Il valore predefinito è `en-us`. | No
-format | Stringa di formato da usare quando il tipo è un tipo .NET: `Datetime` o `Datetimeoffset`. | No
+type | Tipo di dati della colonna. | No 
+culture | Cultura basata su .NET da usare quando il tipo è un tipo .NET: `Datetime` o `Datetimeoffset`. Il valore predefinito è `en-us`. | No 
+format | Stringa di formato da usare quando il tipo è un tipo .NET: `Datetime` o `Datetimeoffset`. | No 
 
 Attenersi alle linee guida seguenti per decidere quando includere le informazioni sulla struttura e quali elementi inserire nella sezione **structure** .
 

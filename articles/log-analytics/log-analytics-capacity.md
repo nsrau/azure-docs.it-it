@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.openlocfilehash: 5ca005127721092b8efcf0ac83cc967ab15fe72d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 031a538c7e3a7dd381fa9bd996d8a027f761a50a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Pianificare la capacità delle macchine virtuali Hyper-V con la soluzione Capacity and Performance (anteprima)
 
@@ -43,12 +43,12 @@ La soluzione:
 
 La tabella seguente descrive le origini connesse che sono supportate da questa soluzione.
 
-| Origine connessa | Supporto | Descrizione |
+| Origine connessa | Supporto | DESCRIZIONE |
 |---|---|---|
-| [Agenti Windows](log-analytics-windows-agents.md) | Sì | La soluzione raccoglie informazioni su capacità e prestazioni dagli agenti Windows. |
-| [Agenti Linux](log-analytics-linux-agents.md) | No    | La soluzione non raccoglie informazioni su capacità e prestazioni dagli agenti Linux diretti.|
+| [Agenti Windows](log-analytics-windows-agent.md) | Sì | La soluzione raccoglie informazioni su capacità e prestazioni dagli agenti Windows. |
+| [Agenti Linux](log-analytics-linux-agents.md) | No     | La soluzione non raccoglie informazioni su capacità e prestazioni dagli agenti Linux diretti.|
 | [Gruppo di gestione SCOM](log-analytics-om-agents.md) | Sì |La soluzione raccoglie dati su capacità e prestazioni dagli agenti in un gruppo di gestione SCOM connesso. Non è necessaria una connessione diretta dall'agente SCOM a OMS. I dati vengono inoltrati dal gruppo di gestione al repository OMS.|
-| [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No | Archiviazione di Azure non include dati di capacità e prestazioni.|
+| [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No  | Archiviazione di Azure non include dati di capacità e prestazioni.|
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -120,7 +120,7 @@ In sintesi, la soluzione raccogli i dati su capacità e prestazioni da svariate 
 
 La tabella seguente presenta ricerche log di esempio per i dati su capacità e prestazioni raccolti e calcolati da questa soluzione.
 
-| Query | Descrizione |
+| Query | DESCRIZIONE |
 |---|---|
 | Tutte le configurazioni di memoria degli host | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="Host Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
 | Tutte le configurazioni di memoria delle macchine virtuali | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="VM Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
@@ -131,9 +131,9 @@ La tabella seguente presenta ricerche log di esempio per i dati su capacità e p
 | Scomposizione totale latenza tra tutti i CSV | <code> Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read Latency" OR CounterName="CSV Write Latency") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
 
 >[!NOTE]
-> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), le query precedenti verranno sostituite da quelle seguenti.
+> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), le query precedenti verranno sostituite dalle seguenti.
 
-> | Query | Descrizione |
+> | Query | DESCRIZIONE |
 |:--- |:--- |
 | Tutte le configurazioni di memoria degli host | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "Host Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |
 | Tutte le configurazioni di memoria delle macchine virtuali | Perf &#124; where ObjectName == "Capacity and Performance" and CounterName == "VM Assigned Memory MB" &#124; summarize MB = avg(CounterValue) by InstanceName |

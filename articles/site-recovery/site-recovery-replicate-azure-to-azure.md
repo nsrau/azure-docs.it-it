@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/08/2017
 ms.author: asgang
-ms.openlocfilehash: dc7dff33aa2c3e844c6a91024fcfc98148416f7e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 209ec47388ee7291f8107df022e0c2bb202ba6b5
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Eseguire la replica di macchine virtuali di Azure in un'altra area di Azure
 
@@ -76,19 +76,19 @@ Nella sezione Impostazioni è possibile configurare le proprietà del sito di de
     > [!TIP]
     > È consigliabile usare lo stesso percorso di destinazione dell'insieme di credenziali dei servizi di ripristino.
 
-2. **Gruppo di risorse di destinazione:** è il gruppo di risorse a cui tutte le macchine virtuali replicate appartengono. Per impostazione predefinita, Azure Site Recovery crea un nuovo gruppo di risorse nell'area di destinazione il cui nome presenta il suffisso "asr". Nel caso in cui il gruppo di risorse creato da Azure Site Recovery esista già, verrà riutilizzato. È anche possibile scegliere di personalizzarlo, come illustrato nella sezione seguente.    
-3. **Rete virtuale di destinazione:** per impostazione predefinita, Azure Site Recovery creerà una nuova rete virtuale nell'area di destinazione con un nome con suffisso "asr". Questa rete verrà mappata alla rete di origine e verrà usata per la protezione futura.
+2. **Il gruppo di risorse di destinazione:** è il gruppo di risorse a cui tutte le macchine virtuali replicate appartengono. Per impostazione predefinita Azure Site Recovery crea un nuovo gruppo di risorse nell'area di destinazione con il nome con il suffisso "asr". Nel caso in cui il gruppo di risorse creato da Azure Site Recovery esista già, verrà riutilizzato. È anche possibile scegliere di personalizzarlo, come illustrato nella sezione seguente.    
+3. **Rete virtuale di destinazione:** per impostazione predefinita, Azure Site Recovery crea una nuova rete virtuale nell'area di destinazione con il nome con il suffisso "asr". Questa rete verrà mappata alla rete di origine e verrà usata per la protezione futura.
 
     > [!NOTE]
     > [Controllare i dettagli sulla rete](site-recovery-network-mapping-azure-to-azure.md) per ottenere altre informazioni sul mapping di rete.
 
-4. **Account di archiviazione di destinazione:** per impostazione predefinita, Azure Site Recovery creerà un nuovo account di archiviazione di destinazione, che rispecchia la configurazione delle risorse di archiviazione della macchina virtuale di origine. Nel caso in cui l'account di archiviazione creato da Azure Site Recovery esista già, verrà riutilizzato.
+4. **Gli account di archiviazione di destinazione:** per impostazione predefinita, Azure Site Recovery crea un nuovo account di archiviazione di destinazione che rispecchia la configurazione di archiviazione macchina virtuale di origine. Nel caso in cui l'account di archiviazione creato da Azure Site Recovery esista già, verrà riutilizzato.
 
 5. **Account di archiviazione della cache:** Azure Site Recovery necessita di un account di archiviazione aggiuntivo, definito account di archiviazione della cache, nell'area di origine. Tutte le modifiche apportate nelle VM di origine vengono registrate e inviate all'account di archiviazione della cache prima della replica nella posizione di destinazione.
 
-6. **Set di disponibilità:** per impostazione predefinita, Azure Site Recovery creerà un nuovo set di disponibilità nell'area di destinazione, con un nome con suffisso "asr". Nel caso in cui il set di disponibilità creato da Azure Site Recovery esista già, verrà riutilizzato.
+6. **Set di disponibilità:** per impostazione predefinita, Azure Site Recovery crea un nuovo set di disponibilità nell'area di destinazione con nome con il suffisso "asr". Nel caso in cui il set di disponibilità creato da Azure Site Recovery è già presente, viene riutilizzato.
 
-7.  **Criteri di replica:** definisce le impostazioni per la cronologia della conservazione del punto di ripristino e per la frequenza snapshot coerenti con l'app. Per impostazione predefinita, Azure Site Recovery creerà un nuovo criterio di replica con impostazioni predefinite di "24 ore" per la conservazione del punto di ripristino e di "60 minuti" per la frequenza snapshot coerente con l'app.
+7.  **Criteri di replica:** definisce le impostazioni per la cronologia della conservazione del punto di ripristino e per la frequenza snapshot coerenti con l'app. Per impostazione predefinita, Azure Site Recovery crea un nuovo criterio di replica con le impostazioni predefinite di ' 24 ore per la conservazione del punto di ripristino e ' 60 minuti per la frequenza snapshot coerente con l'app.
 
     ![Abilitare la replica](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
@@ -102,14 +102,14 @@ Se si vogliono modificare i valori predefiniti usati da Azure Site Recovery, è 
 
 3. **Target Virtual Network (Rete virtuale di destinazione):** è possibile trovare l'elenco di tutte le reti virtuali nel percorso di destinazione.
 
-4. **Set di disponibilità:** è possibile aggiungere impostazioni dei set di disponibilità solo alle macchine virtuali che appartengono a un set di disponibilità nell'area di origine.
+4. **Set di disponibilità:** è possibile aggiungere solo le impostazioni di set di disponibilità per le macchine virtuali che fanno parte di disponibilità nell'area di origine.
 
 5. **Target Storage accounts (Account di archiviazione di destinazione):**
 
 ![Abilitare la replica](./media/site-recovery-replicate-azure-to-azure/customize.PNG) Fare clic su **Create target resources** (Crea risorse di destinazione) e quindi su Abilita replica.
 
 
-Dopo avere completato la protezione delle macchine virtuali, è possibile controllare lo stato dell'integrità delle VM in **Elementi replicati**.
+Una volta macchine virtuali sono protetti, è possibile controllare lo stato di integrità di macchine virtuali in **gli elementi replicati**
 
 >[!NOTE]
 >Durante la replica iniziale è possibile che sia necessario attendere qualche minuto per l'aggiornamento dello stato e per la visualizzazione dell'avanzamento. È possibile fare clic sul pulsante Aggiorna nella parte superiore del pannello per visualizzare lo stato più aggiornato.

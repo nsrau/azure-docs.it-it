@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: shlo
-ms.openlocfilehash: e3ddbb88453b3f5d5f8b4566cf91aadbefd8163f
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
-ms.translationtype: HT
+ms.openlocfilehash: 76070b5a9944b4cbb47ad337ba9a4e6171bf12a3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Monitorare visivamente le data factory di Azure
 Azure Data Factory è un servizio di integrazione di dati basato sul cloud che consente di creare flussi di lavoro basati sui dati nel cloud per orchestrare e automatizzare lo spostamento e la trasformazione dei dati stessi. Usando Azure Data Factory è possibile creare e pianificare flussi di lavoro (denominati pipeline) basati sui dati che possono inserire dati da archivi diversi, elaborarli e trasformarli tramite servizi di calcolo come Hadoop di Azure HDInsight, Spark, Azure Data Lake Analytics e Azure Machine Learning e pubblicare l'output in archivi come Azure SQL Data Warehouse per l'uso da parte di applicazioni di business intelligence (BI).
@@ -46,9 +46,9 @@ Vista elenco che illustra ogni esecuzione di pipeline per la data factory versio
 | Inizio esecuzione | Data e ora di inizio dell'esecuzione della pipeline (GG/MM/AAAA, HH:MM:SS) |
 | Duration | Durata dell'esecuzione (HH:MM:SS) |
 | Attivato da | Trigger manuale o pianificato |
-| Stato | Non riuscito, riuscito, in corso |
+| Status | Non riuscito, riuscito, in corso |
 | Parametri | Parametri di esecuzione della pipeline (nome, coppie di valori) |
-| Errore | Eventuale errore di esecuzione della pipeline |
+| Tipi di errore | Eventuale errore di esecuzione della pipeline |
 | ID esecuzione | ID dell'esecuzione della pipeline |
 
 ![Monitorare le esecuzioni di pipeline](media/monitor-visually/pipeline-runs.png)
@@ -62,10 +62,10 @@ Visualizzazione elenco che illustra le esecuzioni di attività corrispondenti a 
 | Tipo di attività | Tipo di attività, ad esempio Copy, HDInsightSpark, HDInsightHive e così via |
 | Inizio esecuzione | Data e ora di inizio dell'esecuzione dell'attività (GG/MM/AAAA, HH:MM:SS) |
 | Duration | Durata dell'esecuzione (HH:MM:SS) |
-| Stato | Non riuscito, riuscito, in corso |
+| Status | Non riuscito, riuscito, in corso |
 | Input | Matrice JSON con la descrizione degli input dell'attività |
 | Output | Matrice JSON con la descrizione degli output dell'attività |
-| Errore | Eventuale errore di esecuzione dell'attività |
+| Tipi di errore | Eventuale errore di esecuzione dell'attività |
 
 ![Monitorare le esecuzioni delle attività](media/monitor-visually/activity-runs.png)
 
@@ -114,4 +114,4 @@ Fare clic sull'icona 'Commenti e suggerimenti' per offrire un parere sulle diver
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere l'articolo [Monitorare e gestire pipeline a livello di codice](https://docs.microsoft.com/en-us/azure/data-factory/monitor-programmatically) per informazioni sul monitoraggio e sulla gestione delle pipeline.
+Vedere l'articolo [Monitorare e gestire pipeline a livello di codice](https://docs.microsoft.com/azure/data-factory/monitor-programmatically) per informazioni sul monitoraggio e sulla gestione delle pipeline.

@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 12/07/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 4034fd0aa64627c107a43208dcca766f7f44d5d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5512be8ce5b9cf28bceb3468ec6032c0778156f4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtri e manifesti dinamici
-A partire dalla versione 2.11, Servizi multimediali consente di definire filtri per i propri asset. I filtri sono costituiti da regole lato server che consentono ai clienti di eseguire operazioni particolari, come riprodurre solo una sezione di un video (anziché il video intero) oppure specificare solo un sottoinsieme di rendering audio e video, in modo che possa essere gestito dal dispositivo del cliente (anziché tutti i rendering associati all'asset). Il filtro degli asset viene archiviato attraverso **manifesti dinamici**creati su richiesta del cliente per trasmettere un video in streaming in base ai filtri specificati.
+A partire dalla versione 2.17, servizi multimediali consente di definire i filtri per le risorse. I filtri sono costituiti da regole lato server che consentono ai clienti di eseguire operazioni particolari, come riprodurre solo una sezione di un video (anziché il video intero) oppure specificare solo un sottoinsieme di rendering audio e video, in modo che possa essere gestito dal dispositivo del cliente (anziché tutti i rendering associati all'asset). Il filtro degli asset viene archiviato attraverso **manifesti dinamici**creati su richiesta del cliente per trasmettere un video in streaming in base ai filtri specificati.
 
 Questo argomento illustra alcuni scenari comuni in cui l'uso dei filtri può essere particolarmente vantaggioso e contiene collegamenti ad altri argomenti che illustrano come creare filtri a livello di codice. È attualmente possibile creare filtri solo con le API REST.
 
@@ -67,14 +67,14 @@ Di seguito è riportato un esempio di file manifesto:
     </SmoothStreamingMedia>
 
 ### <a name="dynamic-manifests"></a>Manifesti dinamici
-Esistono [scenari](media-services-dynamic-manifest-overview.md#scenarios) in cui il client deve poter disporre di una flessibilità maggiore rispetto a quanto descritto nel file manifesto predefinito dell'asset. Ad esempio:
+Esistono [scenari](media-services-dynamic-manifest-overview.md#scenarios) in cui il client deve poter disporre di una flessibilità maggiore rispetto a quanto descritto nel file manifesto predefinito dell'asset. Ad esempio: 
 
 * Per il dispositivo: distribuire solo i rendering specificati e/o le tracce di lingua specificate, se supportate dal dispositivo usato per la riproduzione dei contenuti ("filtro di rendering"). 
 * Ridurre il manifesto in modo da mostrare solo una sottoclip di un evento live ("filtro di sottoclip").
 * Tagliare l'inizio di un video ("trimming di un video").
 * Regolare la finestra di presentazione (DVR) in modo da ottenere una lunghezza limitata della finestra nel lettore ("regolazione finestra presentazione").
 
-Per ottenere questa flessibilità, Servizi multimediali offre **manifesti dinamici** basati su [filtri](media-services-dynamic-manifest-overview.md#filters)predefiniti.  Dopo aver definito i filtri, è possibile usarli per trasmettere solo un determinato rendering o specifici sottoclip di un video. I filtri desiderati dovranno essere specificati nell'URL di streaming. È possibile applicare filtri ai protocolli di streaming a bitrate adattivo supportati dalla funzione di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH e Smooth Streaming. ad esempio:
+Per ottenere questa flessibilità, Servizi multimediali offre **manifesti dinamici** basati su [filtri](media-services-dynamic-manifest-overview.md#filters)predefiniti.  Dopo aver definito i filtri, è possibile usarli per trasmettere solo un determinato rendering o specifici sottoclip di un video. I filtri desiderati dovranno essere specificati nell'URL di streaming. È possibile applicare filtri ai protocolli di streaming a bitrate adattivo supportati dalla funzione di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH e Smooth Streaming. Ad esempio: 
 
 URL MPEG DASH con filtro
 
@@ -124,12 +124,12 @@ Gli asset possono includere più lingue audio, ad esempio inglese, spagnolo, fra
 ![Filtro delle tracce di lingua][language_filter]
 
 ## <a name="trimming-start-of-an-asset"></a>Trimming della parte iniziale di un asset
-Nella maggior parte degli eventi in live streaming, gli operatori eseguono alcuni test prima dell'evento effettivo. Prima dell'inizio dell'evento, ad esempio, possono includere uno slate di questo tipo: "Il programma sta per iniziare". Se il programma prevede l'archiviazione, vengono archiviati e inclusi nella presentazione anche i dati del test e dello slate. Queste informazioni, tuttavia, non risultano visibili ai client. Con il manifesto dinamico, è possibile creare un filtro di ora di inizio e rimuovere dal manifesto tutti i dati non desiderati.
+Nella maggior parte degli eventi in live streaming, gli operatori eseguono alcuni test prima dell'evento effettivo. Prima dell'inizio dell'evento, ad esempio, possono includere uno slate di questo tipo: "Il programma sta per iniziare". Se il programma è l'archiviazione, i test e i dati dello slate sono inoltre archiviati e incluse nella presentazione. Queste informazioni, tuttavia, non risultano visibili ai client. Con il manifesto dinamico, è possibile creare un filtro di ora di inizio e rimuovere dal manifesto tutti i dati non desiderati.
 
 ![Trimming della parte iniziale][trim_filter]
 
-## <a name="creating-sub-clips-views-from-a-live-archive"></a>Creazione di sottoclip (visualizzazioni) da un archivio live
-Molti eventi live hanno una durata molto lunga ed è possibile quindi che un archivio live includa più eventi. Al termine dell'evento live, ad esempio, gli emittenti possono decidere di suddividere l'archivio live in sequenze logiche di avvio e arresto del programma. Possono quindi pubblicare separatamente questi programmi virtuali, senza dover post-elaborare l'archivio live e creare asset distinti (che non trarrebbero vantaggio dei frammenti presenti nella cache in caso di reti CDN). Esempi di programmi virtuali (sottoclip) possono essere, ad esempio, i tempi di una partita di calcio o di basket, gli inning del baseball o eventi individuali di un pomeriggio di programma olimpico.
+## <a name="creating-subclips-views-from-a-live-archive"></a>Creazione di secondarie (visualizzazioni) da un archivio in tempo reale
+Molti eventi live hanno una durata molto lunga ed è possibile quindi che un archivio live includa più eventi. Al termine dell'evento in tempo reale, emittenti consigliabile suddividere l'archivio in tempo reale nella logica di programma e le sequenze di arresto. Successivamente, pubblicare separatamente, tali programmi virtuali senza registra l'elaborazione dell'archivio in tempo reale e non la creazione di asset separati (che non intervengano il vantaggio dei frammenti memorizzati nella cache esistenti CDN). Esempi di tali programmi virtuale sono i trimestri di football o gioco basket, punti di baseball professionale o singoli eventi di qualsiasi programma sportive.
 
 Con il manifesto dinamico, è possibile creare filtri basati sulle ore di inizio/fine e creare visualizzazioni virtuali all'inizio dell'archivio live. 
 
@@ -140,24 +140,24 @@ Asset filtrato:
 ![Sci][skiing]
 
 ## <a name="adjusting-presentation-window-dvr"></a>Regolazione della finestra di presentazione (DVR)
-Attualmente, Servizi multimediali di Azure offre un archivio circolare la cui durata può essere configurata tra 5 minuti e 25 ore. Usando i filtri del file manifesto, è possibile creare una finestra DVR in sequenza all'inizio dell'archivio, senza dover eliminare alcun contenuto. Sono molti i casi in cui per un emittente può essere utile creare una finestra DVR limitata, in grado di spostarsi con il margine live, e al tempo stesso mantenere una finestra di archiviazione più grande. Un emittente, ad esempio, può decidere di usare i dati esterni alla finestra DVR per evidenziare clip oppure fornire finestre DVR diverse per dispositivi diversi. La maggior parte dei dispositivi mobili, inoltre, non è in grado di gestire finestre DVR di grandi dimensioni (è possibile usufruire di una finestra DVR di due minuti per i dispositivi mobile e di un'ora per i client desktop).
+Attualmente, Servizi multimediali di Azure offre un archivio circolare la cui durata può essere configurata tra 5 minuti e 25 ore. Usando i filtri del file manifesto, è possibile creare una finestra DVR in sequenza all'inizio dell'archivio, senza dover eliminare alcun contenuto. Esistono molti scenari in cui emittenti forniscono una finestra DVR limitata per spostare il bordo in tempo reale e contemporaneamente mantenere una finestra di archiviazione più grande. Un emittente, ad esempio, può decidere di usare i dati esterni alla finestra DVR per evidenziare clip oppure fornire finestre DVR diverse per dispositivi diversi. Ad esempio, la maggior parte dei dispositivi mobili non gestire grandi windows DVR (si può avere una finestra DVR 2 minuti per i dispositivi mobili e un'ora per i client desktop).
 
 ![Finestra DVR][dvr_filter]
 
 ## <a name="adjusting-livebackoff-live-position"></a>Regolazione LiveBackoff (posizione live)
-È possibile usare i filtri del file manifesto anche per rimuovere alcuni secondi dal margine live di un programma live. In questo modo, gli emittenti possono guardare la presentazione nel punto di pubblicazione di anteprima e creare punti di inserimento di annunci prima che i destinatari ricevano il flusso (in genere ritardato di 30 secondi). Gli emittenti possono quindi inserire questi annunci nel proprio Framework Client in tempo per poter ricevere ed elaborare le informazioni prima dell'opportunità di annuncio.
+È possibile usare i filtri del file manifesto anche per rimuovere alcuni secondi dal margine live di un programma live. Applicazione di filtri consente alle emittenti di guardare la presentazione nel punto di pubblicazione di anteprima e creare punti di inserimento dell'annuncio prima i visualizzatori di ricevano il flusso (backup-off da 30 secondi). Gli emittenti possono quindi inserire questi annunci nel proprio Framework Client in tempo per poter ricevere ed elaborare le informazioni prima dell'opportunità di annuncio.
 
-Oltre a fornire il supporto per gli annunci pubblicitari, LiveBackoff consente anche di regolare la posizione di download live del client in modo che, nel momento in cui i client deviano e raggiungono il margine live, possono comunque ottenere dal server i frammenti desiderati, anziché gli errori HTTP 404 o 412.
+Oltre al supporto di annuncio, è possibile utilizzare l'impostazione LiveBackoff per regolare la posizione di visualizzatori, in modo che quando i client dello sfasamento e raggiunge il bordo in tempo reale possono comunque ottenere frammenti dal server anziché un HTTP 404 o errore 412.
 
 ![livebackoff_filter][livebackoff_filter]
 
 ## <a name="combining-multiple-rules-in-a-single-filter"></a>Combinazione di più regole in un unico filtro
-È possibile combinare più regole di filtro in un unico filtro. Ad esempio, è possibile definire una regola di intervallo per rimuovere lo slate da un archivio live e applicare un filtro alle velocità in bit disponibili. In caso di più regole di filtro, il risultato finale è la composizione (solo intersezione) di queste regole.
+È possibile combinare più regole di filtro in un unico filtro. Ad esempio, è possibile definire una regola di intervallo"" per rimuovere Slate da un archivio in tempo reale ed escludere anche a velocità in bit disponibili. Quando si applicano più regole di filtro, il risultato finale è l'intersezione di tutte le regole.
 
 ![multiple-rules][multiple-rules]
 
 ## <a name="create-filters-programmatically"></a>Creare filtri a livello di codice
-L'argomento seguente descrive le entità di Servizi multimediali correlate ai filtri. Illustra anche la procedura per creare filtri a livello di codice.  
+L'articolo seguente descrive le entità di servizi multimediali che sono correlate ai filtri. L'articolo viene inoltre illustrato come creare a livello di programmazione i filtri.  
 
 [Creare filtri con le API REST](media-services-rest-dynamic-manifest.md).
 
@@ -166,17 +166,17 @@ L'argomento seguente descrive le entità di Servizi multimediali correlate ai fi
 
 Lo scenario seguente illustra il motivo per cui è possibile combinare filtri:
 
-1. È necessario filtrare le qualità video per dispositivi mobili, come ad esempio  Android o iPad (per limitare le qualità video). Per rimuovere le qualità indesiderate, creare un filtro globale adatto per i profili del dispositivo. Come indicato in precedenza, i filtri globali possono essere utilizzati per tutte le attività con lo stesso account di servizi multimediali senza altre associazioni. 
+1. È necessario filtrare le qualità video per dispositivi mobili, come ad esempio  Android o iPad (per limitare le qualità video). Per rimuovere le qualità indesiderate, creare un filtro globale adatto per i profili di dispositivo. Come accennato in precedenza in questo articolo, è possono utilizzare filtri globali per tutte le attività con lo stesso account di servizi multimediali senza ulteriore associazione. 
 2. Inoltre si desidera tagliare l'ora di inizio e fine di un asset. A tale scopo, è necessario creare un filtro locale, impostare l'ora di inizio e fine. 
-3. Si desidera combinare entrambi questi filtri (senza combinazione sarebbe necessario aggiungere il filtro qualità al filtro di taglio, il che rende difficile l'utilizzo del filtro).
+3. Si desidera combinare entrambi questi filtri (senza combinazione, è necessario aggiungere il filtro di qualità per il filtro di taglio che rende più difficile l'utilizzo del filtro).
 
 Per combinare i filtri, è necessario impostare i nomi dei filtri per il manifesto/playlist URL delimitati dal punto e virgola. Si supponga di disporre di un filtro denominato *MyMobileDevice* che filtra le qualità e di un altro filtro denominato *MyStartTime* per impostare una specifica ora di inizio. È possibile combinarli nel seguente modo:
 
     http://teststreaming.streaming.mediaservices.windows.net/3d56a4d-b71d-489b-854f-1d67c0596966/64ff1f89-b430-43f8-87dd-56c87b7bd9e2.ism/Manifest(filter=MyMobileDevice;MyStartTime)
 
-È possibile combinare fino a 3 filtri. 
+È possibile combinare fino a tre filtri. 
 
-Per altre informazioni, vedere [questo blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) .
+Per altre informazioni, vedere [questo](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
 
 ## <a name="know-issues-and-limitations"></a>Problemi noti e limitazioni
 * Il manifesto dinamico opera nei limiti dell'intervallo GOP (fotogrammi chiave) e, pertanto, il trimming eredita la precisione del GOP. 

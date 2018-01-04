@@ -5,7 +5,7 @@ keywords: "macchina virtuale linux,set di scalabilità macchine virtuali"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: madhana
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: c27c6a59-a0ab-4117-a01b-42b049464ca1
@@ -16,21 +16,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 0b05359938f4da544c4cb2a6fe60cfaf228478e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: efb9f7f7daa5dbb8cd3120b21ef812106fdc7fb9
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerazioni sulla progettazione per i set di scalabilità
-Questo argomento descrive una serie di considerazioni di progettazione per i set di scalabilità di macchine virtuali. Per sapere che cosa sono i set di scalabilità di macchine virtuali, vedere [Panoramica dei set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md).
+In questo articolo vengono illustrate considerazioni di progettazione per il set di scalabilità di macchine virtuali. Per sapere che cosa sono i set di scalabilità di macchine virtuali, vedere [Panoramica dei set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md).
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>Quando usare i set di scalabilità invece delle macchine virtuali?
-I set di scalabilità sono in genere utili per distribuire un'infrastruttura a disponibilità elevata che include un set di computer con una configurazione simile. Tuttavia, alcune funzionalità sono disponibili soltanto nei set di scalabilità, mentre altre sono disponibili solo nelle macchine virtuali. Per prendere una decisione consapevole su quando usare ogni tecnologia, è consigliabile esaminare prima alcune delle funzionalità di uso comune disponibili nei set di scalabilità ma non nelle macchine virtuali:
+I set di scalabilità sono in genere utili per distribuire un'infrastruttura a disponibilità elevata che include un set di computer con una configurazione simile. Tuttavia, alcune funzionalità sono disponibili soltanto nei set di scalabilità, mentre altre sono disponibili solo nelle macchine virtuali. Per prendere una decisione consapevole su quando usare ogni tecnologia, è necessario innanzitutto esaminare alcune delle funzionalità di uso comune che sono disponibili in set di scalabilità ma non le macchine virtuali:
 
 ### <a name="scale-set-specific-features"></a>Funzionalità specifiche dei set di scalabilità
 
-- Dopo aver specificato la configurazione di un set di scalabilità, è possibile aggiornare semplicemente la proprietà "capacity" per distribuire in parallelo altre macchine virtuali. Si tratta di una procedura molto più semplice rispetto alla scrittura di uno script per orchestrare la distribuzione in parallelo di molte macchine virtuali singole.
+- Dopo aver specificato che la scala di imposta la configurazione, è possibile aggiornare la proprietà "capacity" per distribuire più macchine virtuali in parallelo. Si tratta di una procedura molto più semplice rispetto alla scrittura di uno script per orchestrare la distribuzione in parallelo di molte macchine virtuali singole.
 - È possibile [usare il ridimensionamento automatico di Azure per la scalabilità automatica di un set di scalabilità](./virtual-machine-scale-sets-autoscale-overview.md) ma non di singole macchine virtuali.
 - È possibile [ricreare l'immagine delle macchine virtuali del set di scalabilità](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm) ma [non delle singole macchine virtuali](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 - È possibile [eseguire il provisioning eccessivo](./virtual-machine-scale-sets-design-overview.md) delle macchine virtuali del set di scalabilità per una maggiore affidabilità e tempi di distribuzione più rapidi. Ciò non è possibile con le singole macchine virtuali, a meno che non si scriva un apposito codice personalizzato.
@@ -38,14 +38,14 @@ I set di scalabilità sono in genere utili per distribuire un'infrastruttura a d
 
 ### <a name="vm-specific-features"></a>Funzionalità specifiche delle macchine virtuali
 
-D'altra parte, alcune funzionalità sono disponibili solo nelle macchine virtuali (almeno per il momento):
+Alcune funzionalità sono attualmente disponibili solo nelle macchine virtuali:
 
 - È possibile collegare dischi dati a singole macchine virtuali specifiche, mentre in un set di scalabilità i dischi dati collegati vengono configurati per tutte le macchine virtuali.
 - È possibile collegare dischi dati non vuoti alle singole macchine virtuali, ma non alle macchine virtuali in un set di scalabilità.
 - È possibile acquisire uno snapshot di una singola macchina virtuale, ma non di una macchina virtuale in un set di scalabilità.
 - È possibile acquisire un'immagine da una singola macchina virtuale, ma non da una macchina virtuale in un set di scalabilità.
 - È possibile eseguire la migrazione di una singola macchina virtuale da dischi nativi a dischi gestiti, ma la stessa operazione non può essere eseguita per le macchine virtuali in un set di scalabilità.
-- È possibile assegnare indirizzi IP pubblici IPv6 alle schede di interfaccia di rete di singole macchine virtuali, ma la stessa operazione non può essere eseguita per le macchine virtuali in un set di scalabilità. Si noti che è possibile assegnare indirizzi IP pubblici IPv6 ai servizi di bilanciamento del carico che si trovano davanti a singole macchine virtuali o a quelle di un set di scalabilità.
+- È possibile assegnare indirizzi IP pubblici IPv6 alle schede di interfaccia di rete di singole macchine virtuali, ma la stessa operazione non può essere eseguita per le macchine virtuali in un set di scalabilità. È possibile assegnare indirizzi IP pubblici IPv6 per davanti a entrambe le macchine virtuali singoli servizi di bilanciamento del carico o set di scalabilità di macchine virtuali.
 
 ## <a name="storage"></a>Archiviazione
 

@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 3dfc5809344af920540a88e097ce399cce653363
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: 2e6d965d9177a61f974b319a1bd2155c9132533f
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Eseguire il monitoraggio avanzato tramite la soluzione di monitoraggio remoto
 
@@ -90,9 +90,6 @@ La mappa mette in evidenza i dispositivi selezionati con il filtro corrente con 
 È possibile usare il filtro **System alarms** (Allarmi sistema) per modificare l'intervallo di tempo per gli allarmi recenti. Per impostazione predefinita, il pannello mostra gli allarmi per l'ultima ora:
 
 ![Filtrare gli allarmi in base all'ora](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
-
-> [!NOTE]
-> Scorrere verso destra per visualizzare il filtro per l'intervallo di tempo.
 
 ## <a name="view-the-system-kpis"></a>Visualizzare gli indicatori KPI di sistema
 

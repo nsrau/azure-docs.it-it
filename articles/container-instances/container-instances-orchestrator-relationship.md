@@ -1,25 +1,25 @@
 ---
-title: Istanze di contenitore di Azure e orchestrazione dei contenitori
-description: Informazioni sull'interazione tra Istanze di contenitore di Azure e gli agenti di orchestrazione dei contenitori
+title: Istanze di contenitore di Azure e orchestrazione contenitore
+description: Comprendere come Azure contenitore istanze interagiscono con orchestrators contenitore.
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: a51e746c501cca0521972b09d145439348d1d22d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 8ad3886742449c32c94e425e975ff9105ebcfbd8
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Istanze di contenitore di Azure e agenti di orchestrazione dei contenitori
 
 Grazie alle dimensioni ridotte e all'orientamento alle applicazioni, i contenitori sono particolarmente adatti per ambienti di recapito flessibili e architetture basate su microservizi. L'attività di automazione e gestione di un numero elevato di contenitori e della loro interazione è nota come *orchestrazione*. Gli agenti di orchestrazione più diffusi includono Kubernetes, DC/OS e Docker Swarm, tutti disponibili nel [servizio contenitore di Azure](https://docs.microsoft.com/azure/container-service/).
 
-Istanze di contenitore di Azure offre alcune delle funzionalità di pianificazione di base delle piattaforme di orchestrazione, ma non copre i servizi di valore più elevato che tali piattaforme forniscono a complemento. Questo articolo descrive l'ambito di gestione di Istanze di contenitore di Azure e l'interazione con gli agenti di orchestrazione completi dei contenitori.
+Istanze di contenitore di Azure offre alcune delle funzionalità di pianificazione di base delle piattaforme di orchestrazione, ma non copre i servizi di valore più alto che forniscono tali piattaforme e possono infatti essere complementare con essi. Questo articolo descrive l'ambito di gestione di Istanze di contenitore di Azure e l'interazione con gli agenti di orchestrazione completi dei contenitori.
 
 ## <a name="traditional-orchestration"></a>Orchestrazione tradizionale
 
@@ -40,8 +40,6 @@ Istanze di contenitore di Azure consente un approccio a più livelli all'orchest
 
 Poiché l'intera infrastruttura sottostante per Istanze di contenitore è gestita da Azure, una piattaforma dell'agente di orchestrazione non ha bisogno di cercare un computer host appropriato in cui eseguire un singolo contenitore. L'elasticità del cloud garantisce che ci sia sempre un computer host a disposizione. L'agente di orchestrazione può invece concentrarsi sulle attività che semplificano lo sviluppo di architetture multi-contenitore, tra cui il ridimensionamento e gli aggiornamenti coordinati.
 
-
-
 ## <a name="potential-scenarios"></a>Potenziali scenari
 
 Anche se l'integrazione degli agenti di orchestrazione con Istanze di contenitore di Azure è ancora agli inizi, si prevede che possano emergere alcuni ambienti diversi:
@@ -50,9 +48,9 @@ Anche se l'integrazione degli agenti di orchestrazione con Istanze di contenitor
 
 Dato l'avvio rapido e la fatturazione al secondo, un ambiente basato esclusivamente su Istanze di contenitore di Azure rappresenta il modo più veloce per iniziare e gestire carichi di lavoro estremamente variabili.
 
-### <a name="combination-of-container-instances-and-containers-in-virtual-machines"></a>Combinazione di Istanze di contenitore e contenitori in macchine virtuali
+### <a name="combination-of-container-instances-and-containers-in-virtual-machines"></a>Combinazione di istanze di contenitori e i contenitori di macchine virtuali
 
-Per i carichi di lavoro stabili e a esecuzione prolungata, l'orchestrazione di contenitori in un cluster di macchine virtuali dedicate è in genere più economica rispetto all'esecuzione degli stessi contenitori con Istanze di contenitore. Istanze di contenitore offre tuttavia un'ottima soluzione per la rapida espansione e contrazione della capacità complessiva, per gestire i picchi di utilizzo di breve durata o imprevisti. Invece di aumentare il numero di macchine virtuali nel cluster e quindi distribuire altri contenitori in tali macchine, l'agente di orchestrazione può semplicemente pianificare i contenitori aggiuntivi usando Istanze di contenitore ed eliminarli quando non sono più necessari.
+Per i carichi di lavoro stabili e a esecuzione prolungata, l'orchestrazione di contenitori in un cluster di macchine virtuali dedicate è in genere più economica rispetto all'esecuzione degli stessi contenitori con Istanze di contenitore. Istanze di contenitore offre tuttavia un'ottima soluzione per la rapida espansione e contrazione della capacità complessiva, per gestire i picchi di utilizzo di breve durata o imprevisti. Invece di scalabilità orizzontale il numero di macchine virtuali del cluster, quindi la distribuzione di altri contenitori in tali computer, l'agente di orchestrazione può semplicemente pianificare i contenitori aggiuntivi utilizzando istanze di contenitori ed eliminarli quando non sono più necessario.
 
 ## <a name="sample-implementation-azure-container-instances-connector-for-kubernetes"></a>Implementazione di esempio: connettore di Istanze di contenitore di Azure per Kubernetes
 

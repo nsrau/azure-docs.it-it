@@ -3,7 +3,7 @@ title: " Risolvere gli avvisi delle VM di Azure con runbook di automazione | Doc
 description: Questo articolo illustra come integrare gli avvisi delle macchine virtuali di Azure con i runbook di Automazione di Azure e risolvere automaticamente problemi.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 1f7baa7f-7283-4a4f-9385-3f5cd1062c7f
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: csand;magoedte
-ms.openlocfilehash: 18cccc88ab74235722e2f4886671fc483ab67da8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ef18a2de8ce62de945c49b91dc74aca7d7f408b0
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario---remediate-azure-vm-alerts"></a>Scenario di Automazione di Azure: risolvere gli avvisi delle macchine virtuali di Azure
 In Automazione di Azure e Macchine virtuali di Azure è stata rilasciata una nuova funzionalità che consente di configurare avvisi delle macchine virtuali (VM) per l'esecuzione di runbook di automazione. Questa nuova funzionalità consente di eseguire automaticamente correzioni standard in risposta ad avvisi della VM, ad esempio per riavviarla o arrestarla.
@@ -170,10 +170,10 @@ if ($WebhookData)
 }
 ```
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Quando si configura un avviso in una VM di Azure, è possibile configurare facilmente un runbook di automazione per eseguire automaticamente un'azione di correzione quando viene attivato l'avviso. Per questa versione è possibile scegliere un runbook per riavviare, arrestare o eliminare una macchina virtuale, a seconda dello scenario avviso. Questo è solo l'inizio dell'abilitazione di scenari in cui si controllano le azioni, come notifica, risoluzione dei problemi e correzione, che vengono eseguite automaticamente quando viene attivato un avviso.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * Per iniziare a usare runbook grafici, vedere [Il primo runbook grafico](automation-first-runbook-graphical.md)
 * Per iniziare a usare i runbook del flusso di lavoro PowerShell, vedere [Il primo runbook PowerShell](automation-first-runbook-textual.md)
 * Per altre informazioni sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/07/2017
 ms.author: robb
-ms.openlocfilehash: 001dc1fa2a0fd7e132101944a87be3f8552d8738
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c463479b7eaee5a0548c8891dd3a20ef070dd39b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-service-health"></a>Integrità dei servizi di Azure
 Integrità dei servizi di Azure offre informazioni tempestive e personalizzate quando nei servizi di Azure si verificano problemi che influiscono sui servizi.  Consente inoltre di preparare una manutenzione pianificata per il futuro.
@@ -57,5 +57,4 @@ Filtrare Integrità dei servizi in modo da visualizzare le sottoscrizioni, le ar
 ## <a name="configure-service-health-alerts"></a>Configurare gli avvisi di Integrità dei servizi
 Integrità dei servizi di Azure si integra con Monitoraggio di Azure per l'invio di avvisi via posta elettronica, messaggi di testo e notifiche webhook in caso di impatto sulle risorse aziendali cruciali. Impostare un avviso di log attività per l'evento di Integrità dei servizi appropriato. Indirizzare tale avviso alle persone appropriate nell'organizzazione usando i gruppi di azioni. Per altre informazioni, vedere [Configurare gli avvisi per Integrità dei servizi](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)
 
-# <a name="next-steps"></a>Passaggi successivi
-Impostare gli avvisi per ricevere notifiche sui problemi di integrità. Per altre informazioni, vedere [Configurare gli avvisi per Integrità dei servizi](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+ 

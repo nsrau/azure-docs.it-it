@@ -1,6 +1,6 @@
 ---
-title: "Notifiche sull'integrità del servizio | Microsoft Docs"
-description: "Le notifiche sull'integrità del servizio consentono di visualizzare i messaggi sull'integrità del servizio pubblicati da Microsoft Azure."
+title: "Quali sono le notifiche di integrità servizio di Azure? | Microsoft Docs"
+description: "Le notifiche di integrità del servizio consentono di visualizzare i messaggi di integrità servizio pubblicati da Microsoft Azure."
 author: anirudhcavale
 manager: orenr
 editor: 
@@ -14,69 +14,67 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: efdd42d244710b27fc33154b708cfbe40312e3b0
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: 198aa74622c0f938aabe6540e2321e16aa9beb21
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="service-health-notifications"></a>Notifiche sull'integrità del servizio
-## <a name="overview"></a>Panoramica
+# <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visualizza le notifiche di integrità del servizio tramite il portale di Azure
 
-Questo articolo descrive come visualizzare le notifiche sull'integrità del servizio usando il portale di Azure.
+Le notifiche di integrità del servizio sono pubblicate da Azure e contengono informazioni sulle risorse nella sottoscrizione. Queste notifiche sono una sottoclasse dell'attività del log eventi e sono disponibili anche nel log attività. Le notifiche di integrità del servizio possono essere informativi o utilizzabili, a seconda della classe.
 
-Le notifiche sull'integrità del servizio consentono di visualizzare i messaggi sull'integrità del servizio pubblicati dal team di Azure che possono interessare le risorse della sottoscrizione. Queste notifiche sono una sottoclasse di eventi del log attività e sono disponibili anche nel log attività. Le notifiche sull'integrità del servizio possono essere informative o operative a seconda della classe.
+Esistono varie classi di notifiche del servizio integrità:  
 
-Sono disponibili sei classi di notifiche sull'integrità del servizio:  
-
-- **Azione richiesta:** è possibile che Azure rilevi un evento insolito nell'account. Potrebbe essere necessario l'intervento dell'utente per risolvere il problema. Azure invierà una notifica con informazioni dettagliate sulle azioni da eseguire o con i dati necessari per contattare il supporto tecnico o l'assistenza di Azure.  
-- **Recupero assistito:** si è verificato un evento e i tecnici confermano gli effetti dell'evento ancora presenti. I tecnici di Azure hanno la necessità di collaborare con l'utente per ripristinare integralmente i servizi.  
-- **Evento imprevisto:** un evento del servizio ha effetto su una o più risorse della sottoscrizione.  
-- **Manutenzione:** notifica che segnala all'utente un'atività di manutenzione pianificata che potrebbe avere effetto su una o più risorse della sottoscrizione.  
-- **Informazioni:** saltuariamente Azure invia delle notifiche che segnalano all'utente possibili ottimizzazioni che possono migliorare l'uso delle risorse.  
-- **Sicurezza:** informazioni urgenti relative alla sicurezza delle soluzioni in esecuzione in Azure.
+- **Azione necessaria:** possibile riscontrare qualcosa di sospetto Azure vengano eseguiti nel proprio account e collaborare con l'utente per risolvere questo problema. Azure invia una notifica, ovvero che riporta in dettaglio le azioni da eseguire o su come contattare un tecnico Azure o il supporto.  
+- **Recupero assistito:** si è verificato un evento e tecnici di avere verificato che si verificano ancora impatto. I tecnici di Azure hanno la necessità di collaborare con l'utente per ripristinare integralmente i servizi.  
+- **Evento imprevisto:** un evento che influisce su servizio attualmente influire su uno o più delle risorse nella sottoscrizione.  
+- **Manutenzione:** un'attività di manutenzione pianificata che potrebbe compromettere uno o più delle risorse nella sottoscrizione.  
+- **Informazioni:** potenziali ottimizzazioni che potrebbero facilitare migliorare l'utilizzo delle risorse. 
+- **Sicurezza:** urgenti sicurezza informazioni relative a soluzioni eseguite in Azure.
 
 Ogni notifica sull'integrità del servizio contiene informazioni dettagliate sull'ambito e sull'effetto sulle risorse. I dettagli includono:
 
-Nome proprietà | Descrizione
+Nome proprietà | DESCRIZIONE
 -------- | -----------
-channels | Uno dei valori seguenti: "Admin" o "Operation"
-correlationId | In genere un GUID in formato stringa. Gli eventi che appartengono alla stessa azione in genere condividono lo stesso correlationId.
-eventDataId | Identificatore univoco di un evento
-eventName | Titolo dell'evento
-necessario | Livello dell'evento. Uno dei valori seguenti: "Critical", "Error", "Warning", "Informational" e "Verbose"
-resourceProviderName | Nome del provider di risorse della risorsa interessata.
-resourceType| Tipo della risorsa interessata
-subStatus | In genere si tratta del codice di stato HTTP della chiamata REST corrispondente, ma può includere altre stringhe che descrivono uno stato secondario, come i valori comuni seguenti: OK (codice di stato HTTP: 200), Created (codice di stato HTTP: 201), Accepted (codice di stato HTTP: 202), No Content (codice di stato HTTP: 204), Bad Request (codice di stato HTTP: 400), Not Found (codice di stato HTTP: 404), Conflict (codice di stato HTTP: 409), Internal Server Error (codice di stato HTTP: 500), Service Unavailable (codice di stato HTTP: 503), Gateway Timeout (codice di stato HTTP: 504).
-eventTimestamp | Timestamp del momento in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta corrispondente all'evento.
-submissionTimestamp |   Timestamp del momento in cui l'evento è diventato disponibile per l'esecuzione di query.
-subscriptionId | La sottoscrizione di Azure in cui è stato registrato l'evento
-status | Stringa che descrive lo stato dell'operazione. Alcuni dei valori comuni sono: Started, In Progress, Succeeded, Failed, Active, Resolved.
+channels | Uno dei seguenti valori: **Admin** o **operazione**.
+correlationId | In genere un GUID in formato stringa. Gli eventi appartenenti alla stessa azione, in genere condividono lo stesso correlationId.
+eventDataId | Identificatore univoco di un evento.
+eventName | Il titolo di un evento.
+level | Il livello di un evento. Uno dei seguenti valori: **critico**, **errore**, **avviso**, **informativo**, o **Verbose** .
+resourceProviderName | Il nome del provider di risorse per la risorsa interessata.
+resourceType| Tipo della risorsa interessata.
+subStatus | In genere il codice di stato HTTP della parte RESTANTE corrispondente chiamata, ma può includere anche altre stringhe che descrive uno stato secondario. Ad esempio: OK (codice di stato HTTP: 200), creato (codice di stato HTTP: 201), accettato (codice di stato HTTP: 202), non il contenuto (codice di stato HTTP: 204), richiesta non valida (codice di stato HTTP: 400), non trovata (codice di stato HTTP: 404), dei conflitti (codice di stato HTTP: 409), interno del Server Errore (codice di stato HTTP: 500), Service non disponibile (codice di stato HTTP: 503) e di Timeout del Gateway (codice di stato HTTP: 504).
+eventTimestamp | Timestamp dell'evento è stato generato dal servizio di Azure l'elaborazione della richiesta corrispondente all'evento.
+submissionTimestamp | Timestamp del momento in cui l'evento è diventato disponibile per l'esecuzione di query.
+subscriptionId | Sottoscrizione di Azure in cui è stato registrato l'evento.
+status | Stringa che descrive lo stato dell'operazione. Alcuni valori comuni sono: **Started**, **In corso**, **Succeeded**, **Failed**, **Active**, e **Risolto**.
 operationName | Nome dell'operazione.
-category | "ServiceHealth"
-resourceId | ID risorsa della risorsa interessata.
+category | Questa proprietà è sempre **ServiceHealth**.
+ResourceId | L'ID risorsa della risorsa interessata.
 Properties.title | Titolo della comunicazione localizzato. L'inglese è la lingua predefinita.
 Properties.communication | Dettagli localizzati della comunicazione con markup HTML. L'inglese è la lingua predefinita.
-Properties.incidentType | Valori possibili: AssistedRecovery, ActionRequired, Information, Incident, Maintenance, Security
-Properties.trackingId | Identifica l'evento imprevisto a cui è associato l'evento. Usare questa proprietà per correlare gli eventi relativi a un evento imprevisto.
-Properties.impactedServices | BLOB JSON preceduto da un carattere di escape che descrive i servizi e le aree su cui ha effetto l'evento imprevisto. Un elenco di servizi, ognuno dei quali ha un nome di servizio e un elenco delle aree interessate, ognuna con un nome di area.
-Properties.defaultLanguageTitle | La comunicazione in inglese
-Properties.defaultLanguageContent | La comunicazione in inglese con markup HTML o come testo normale
-Properties.stage | I valori possibili di AssistedRecovery, ActionRequired, Information, Incident, Security sono Active e Resolved. Per la manutenzione i valori possibili sono: Active, Planned, InProgress, Canceled, Rescheduled, Resolved, Complete
-Properties.communicationId | La comunicazione a cui è associato l'evento.
+Properties.incidentType | Uno dei seguenti valori: **AssistedRecovery**, **ActionRequired**, **informazioni**, **incidente**,  **Manutenzione**, o **sicurezza**.
+Properties.trackingId | L'evento imprevisto a cui è associato questo evento. Usare questa proprietà per correlare gli eventi relativi a un evento imprevisto.
+Properties.impactedServices | Un escape blob JSON che descrive i servizi e le aree interessate dall'evento imprevisto. La proprietà include un elenco di servizi, ognuno dei quali ha un **ServiceName**e un elenco di aree interessati, ognuno dei quali ha un **RegionName**.
+Properties.defaultLanguageTitle | La comunicazione in inglese.
+Properties.defaultLanguageContent | La comunicazione in inglese come markup HTML o testo normale.
+Properties.stage | I valori possibili per **AssistedRecovery**, **ActionRequired**, **informazioni**, **incidente**, e **sicurezza**  sono **Active** o **risolto**. Per **manutenzione**, sono: **Active**, **pianificato**, **InProgress**, **Canceled**, **Ripianificata**, **risolto**, o **completo**.
+Properties.communicationId | La comunicazione a cui è associato questo evento.
 
 
-## <a name="viewing-your-service-health-notifications-in-the-azure-portal"></a>Visualizzazione delle notifiche sull'integrità del servizio nel portale di Azure
-1.  Nel [portale](https://portal.azure.com) passare al servizio **Monitoraggio**
+## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Visualizzare le notifiche di integrità del servizio nel portale di Azure
+1.  Nel [portale di Azure](https://portal.azure.com) selezionare **Monitoraggio**.
 
-    ![Monitorare](./media/monitoring-service-notifications/home-monitor.png)
-2.  Fare clic sull'opzione **Monitoraggio** per aprire il relativo riquadro. Monitoraggio di Azure riunisce tutte le impostazioni e i dati di monitoraggio in un'unica vista consolidata. Per prima cosa si apre la sezione **Log di attività**.
+    ![Menu del portale di schermata di Azure, con monitoraggio selezionato](./media/monitoring-service-notifications/home-monitor.png)
 
-3.  Fare clic sulla sezione **Avvisi**
+    Monitoraggio di Azure riunisce tutte le impostazioni e i dati di monitoraggio in un'unica vista consolidata. Per prima cosa si apre la sezione **Log di attività**.
 
-    ![Monitorare](./media/monitoring-service-notifications/service-health-summary.png)
-4. Fare clic su **+ Aggiungi AVVISO del log attività** per configurare le notifiche per assicurarsi di ricevere le future notifiche del servizio. Per altre informazioni sulla configurazione degli avvisi per le notifiche del servizio, [vedere la pagina relativa agli avvisi del log attività e alle notifiche sul servizio](monitoring-activity-log-alerts-on-service-notifications.md).
+3.  Selezionare **Avvisi**.
 
-## <a name="next-steps"></a>Passaggi successivi:
-Ricevere [notifiche di avviso per ogni notifica sull'integrità del servizio](monitoring-activity-log-alerts-on-service-notifications.md)  
-Altre informazioni sugli [avvisi del log attività](monitoring-activity-log-alerts.md)
+    ![Log di schermata di monitorare l'attività, con gli avvisi selezionati](./media/monitoring-service-notifications/service-health-summary.png)
+4. Selezionare **+ Aggiungi avviso di log attività**e impostare un avviso per garantire che si riceve una notifica per le notifiche future del servizio. Per ulteriori informazioni, vedere [creare attività avvisi di log per le notifiche di servizio](monitoring-activity-log-alerts-on-service-notifications.md).
+
+## <a name="next-steps"></a>Passaggi successivi
+Ricezione [ogni volta che una notifica di integrità del servizio di notifiche di avviso](monitoring-activity-log-alerts-on-service-notifications.md) viene registrata.  
+Altre informazioni sugli [avvisi del log attività](monitoring-activity-log-alerts.md).

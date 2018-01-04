@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 5b4d88cb9c9662fe45de8c11534232a2905cf5a4
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 02a027845e56407bc8cc95f54a46d9534cb6de92
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Come creare un filtro facet in Ricerca di Azure 
 
@@ -33,7 +33,7 @@ L'esplorazione in base a facet è usata per i filtri autoindirizzati nei risulta
 
 I facet sono dinamici e vengono restituiti in seguito a una query. Le risposte alla ricerca includono le categorie di facet usate per esplorare i risultati. Se non si ha familiarità con i facet, l'esempio seguente illustra una struttura di esplorazione in base a facet.
 
-  ![](./media/search-filters/facet-nav.png)
+  ![](./media/search-filters-facets/facet-nav.png)
 
 Per altre informazioni sull'esplorazione in base a facet: Vedere [Come implementare l'esplorazione in base a facet in Ricerca di Azure](search-faceted-navigation.md).
 
@@ -48,7 +48,7 @@ Qualsiasi [tipo di campo](https://docs.microsoft.com/rest/api/searchservice/supp
 + Edm.String
 + Edm.DateTimeOffset
 + Edm.Boolean
-+ Edm.Collections (vedere [Come fornire i facet per tipi di dati complessi](#facet-complex-fields), più avanti in questo articolo).
++ Edm.Collections
 + Tipi di campi numerici: Edm.Int32, Edm.Int64, Edm.Double
 
 Non è possibile usare Edm.GeographyPoint nell'esplorazione in base a facet. Il costrutto dei facet è composto da testo leggibile o numeri. Di conseguenza, i facet non sono supportati nelle coordinate di area geografica. È necessario un campo città o regione per esplorare una posizione in base a facet.
@@ -127,7 +127,7 @@ Uno dei problemi dell'esplorazione in base a facet in Ricerca di Azure è che i 
 
 Sebbene sia un caso d'uso comune, non è un servizio che la struttura di esplorazione in base a facet fornisce in modo predefinito. Gli sviluppatori che intendono usare i facet statici aggirandone i limiti eseguono due query filtrate: una limitata ai risultati, l'altra usata per creare un elenco statico di facet per l'esplorazione.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 + [Filtri in Ricerca di Azure](search-filters.md)
 + [Creare un indice: API REST](https://docs.microsoft.com/rest/api/searchservice/create-index)

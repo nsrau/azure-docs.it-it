@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 2e155231e430a8333095fdcd92a727a17c6d1e8c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 2ea1c217031761e93d393aefa07eedd03f88d9b0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure (anteprima)
 Archiviazione di Azure offre un modello di sicurezza a più livelli che consente di proteggere gli account di archiviazione per un set specifico di reti autorizzate.  Quando si configurano le regole di rete, solo le applicazioni delle reti consentite possono accedere a un account di archiviazione.  Quando le applicazioni eseguono chiamate da una rete autorizzata devono comunque avere l'autorizzazione necessaria (una chiave di accesso o un token di firma di accesso condiviso validi) per accedere all'account di archiviazione.
@@ -293,13 +293,12 @@ Quando è abilitata l'eccezione "Servizi Microsoft attendibili" i servizi seguen
 
 |Service|Nome provider di risorse|Scopo|
 |:------|:---------------------|:------|
-|Azure DevTest Labs|Microsoft.DevTestLab|Creazione di immagini personalizzate e installazione di artefatti.  [Altre informazioni](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-overview)|
-|Griglia di eventi di Azure|Microsoft.EventGrid|Abilitare la pubblicazione di eventi di Archiviazione BLOB.  [Altre informazioni](https://docs.microsoft.com/en-us/azure/event-grid/overview)|
-|Hub eventi di Azure|Microsoft.EventHub|Archiviare dati con Acquisizione di Hub eventi.  [Altre informazioni](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview).|
-|HDInsight di Azure|Microsoft.HDInsight|Provisioning e installazione di cluster.  [Altre informazioni](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage)|
-|Rete di Azure|Microsoft.Networking|Archiviare e analizzare i log di traffico di rete.  [Altre informazioni](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-overview)|
-|Azure SQL Data Warehouse|Microsoft.Sql|Importare ed esportare dati.  [Altre informazioni](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage)|
-|Backup di Azure|Microsoft.RecoveryServices|Backup e ripristino di dischi non gestiti.  [Altre informazioni](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup)|
+|Azure DevTest Labs|Microsoft.DevTestLab|Creazione di immagini personalizzate e installazione di artefatti.  [Altre informazioni](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
+|Griglia di eventi di Azure|Microsoft.EventGrid|Abilitare la pubblicazione di eventi di Archiviazione BLOB.  [Altre informazioni](https://docs.microsoft.com/azure/event-grid/overview).|
+|Hub eventi di Azure|Microsoft.EventHub|Archiviare dati con Acquisizione di Hub eventi.  [Altre informazioni](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
+|HDInsight di Azure|Microsoft.HDInsight|Provisioning e installazione di cluster.  [Altre informazioni](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
+|Rete di Azure|Microsoft.Networking|Archiviare e analizzare i log di traffico di rete.  [Altre informazioni](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
+|Backup di Azure|Microsoft.RecoveryServices|Backup e ripristino di dischi non gestiti.  [Altre informazioni](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>Accesso ai dati di Analisi archiviazione

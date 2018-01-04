@@ -4,7 +4,7 @@ description: In questo articolo viene spiegato come configurare un'applicazione 
 services: active-directory-b2c
 documentationcenter: android
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: 
 ms.assetid: 1c75f17f-5ec5-493a-b906-f543b3b1ea66
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: parakhj
-ms.openlocfilehash: 7202be4e0e9b8b28b5ec1443d6d248c1738da6fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9d2df39118741d4254f7b7fe4c419a00ceb4ba8e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: richiesta di token di accesso
 
@@ -55,7 +55,7 @@ Gli ambiti, analoghi alle autorizzazioni, sono necessari quando l'app chiama un'
 1. Nel menu **Applicazioni** di Azure AD B2C aprire l'applicazione API Web ("API Contoso").
 1. Fare clic su **Ambiti pubblicati**. È possibile definire qui le autorizzazioni (ambiti) che possono essere concesse ad altre applicazioni.
 1. Configurare i campi **Valore ambito** nel modo necessario, ad esempio "read". Per impostazione predefinita, verrà definito l'ambito "user_impersonation", che può essere ignorato se lo si desidera. Immettere una descrizione dell'ambito nella colonna **Nome ambito**.
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 > [!IMPORTANT]
 > **Nome ambito** è la descrizione di **Valore ambito**. Quando si usa l'ambito, assicurarsi di usare **Valore ambito**.
@@ -85,7 +85,7 @@ Quando si richiede un token di accesso, l'applicazione client deve specificare l
 https://login.microsoftonline.com/<tenantName>.onmicrosoft.com/oauth2/v2.0/authorize?p=<yourPolicyId>&client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
-Per acquisire più autorizzazioni nella stessa richiesta, è possibile aggiungere più voci nell'unico parametro **scope**, separato da spazi. Ad esempio:
+Per acquisire più autorizzazioni nella stessa richiesta, è possibile aggiungere più voci nell'unico parametro **scope**, separato da spazi. Ad esempio: 
 
 URL decodificato:
 
@@ -117,7 +117,7 @@ Se il parametro `response_type` in una richiesta `/authorize` include `token`, i
 
 In un **access\_token** creato correttamente (da un endpoint `/authorize` o `/token`), saranno presenti le attestazioni seguenti:
 
-| Nome | Attestazione | Descrizione |
+| NOME | Attestazione | DESCRIZIONE |
 | --- | --- | --- |
 |Audience |`aud` |L'**ID applicazione** della singola risorsa per cui il token concede l'accesso. |
 |Scope |`scp` |Le autorizzazioni concesse alla risorsa. Le autorizzazioni multiple concesse saranno separate da spazi. |

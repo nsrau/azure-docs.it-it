@@ -4,7 +4,7 @@ description: "La Collaborazione B2B di Azure Active Directory supporta l'autenti
 services: active-directory
 documentationcenter: 
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 09/11/2017
 ms.author: sasubram
-ms.openlocfilehash: d3917754069ad961ffd9233d852aab6fa172eaef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2f2cfc351d372d665aac054d52d6e1520e1ffe48
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Accesso condizionale per gli utenti di Collaborazione B2B
 
@@ -49,7 +49,7 @@ Guardare l'animazione seguente per visualizzare l'esperienza di riscatto:
 ### <a name="mfa-reset-for-b2b-collaboration-users"></a>Reimpostazione dell'autenticazione a più fattori per gli utenti di Collaborazione B2B
 L'amministratore attualmente può richiedere agli utenti di Collaborazione B2B di ripetere l'identificazione solo usando i cmdlet di PowerShell seguenti:
 
-1. Connettersi ad Azure AD
+1. Connessione ad Azure AD
 
   ```
   $cred = Get-Credential
@@ -60,7 +60,7 @@ L'amministratore attualmente può richiedere agli utenti di Collaborazione B2B d
   ```
   Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
   ```
-  Di seguito è fornito un esempio:
+  Di seguito è fornito un esempio: 
 
   ```
   Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: performance
-ms.date: 10/31/2016
-ms.author: joeyong;barbkess
-ms.openlocfilehash: 7ce6c2cdf1e28852da536414533ccdcdaeb437e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.date: 12/14/2017
+ms.author: joeyong;barbkess;kevin
+ms.openlocfilehash: 56bae284bb83b1ff18bf2caf644e6dd071b8eb69
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitoraggio del carico di lavoro mediante DMV
 In questo articolo viene descritto come utilizzare le viste a gestione dinamica (DMV) per monitorare il carico di lavoro ed esaminare l'esecuzione delle query SQL Data Warehouse di Azure.
@@ -174,7 +174,7 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Se la query è attivamente in attesa di risorse da un'altra query, lo stato sarà **AcquireResources**.  Se la query dispone di tutte le risorse necessarie, lo stato sarà **Granted**.
 
 ## <a name="monitor-tempdb"></a>Monitorare tempdb
-Un uso intensivo di tempdb può essere la causa principale del rallentamento delle prestazioni e dei problemi di memoria insufficiente. In primo luogo verificare se sono presenti rowgroup di qualità insufficiente o asimmetria dei dati e adottare le misure appropriate. Se durante l'esecuzione di query tempdb raggiunge i limiti previsti, prendere in considerazione il ridimensionamento del data warehouse. Di seguito viene descritto come identificare l'uso di tempdb per ogni query in ogni nodo. 
+Un uso intensivo di tempdb può essere la causa principale del rallentamento delle prestazioni e dei problemi di memoria insufficiente. Se durante l'esecuzione di query tempdb raggiunge i limiti previsti, prendere in considerazione il ridimensionamento del data warehouse. Di seguito viene descritto come identificare l'uso di tempdb per ogni query in ogni nodo. 
 
 Creare la vista seguente per associare l'ID nodo appropriato per sys.dm_pdw_sql_requests. In questo modo sarà possibile sfruttare altre DMV pass-through e unire le tabelle con sys.dm_pdw_sql_requests.
 
@@ -233,7 +233,7 @@ ORDER BY sr.request_id;
 ```
 ## <a name="monitor-memory"></a>Monitorare la memoria
 
-La memoria può essere la causa principale del rallentamento delle prestazioni e dei problemi di memoria insufficiente. In primo luogo verificare se sono presenti rowgroup di qualità insufficiente o asimmetria dei dati e adottare le misure appropriate. Se durante l'esecuzione di query l'uso di memoria di SQL Server raggiunge i limiti previsti, prendere in considerazione il ridimensionamento del data warehouse.
+La memoria può essere la causa principale del rallentamento delle prestazioni e dei problemi di memoria insufficiente. Se durante l'esecuzione di query l'uso di memoria di SQL Server raggiunge i limiti previsti, prendere in considerazione il ridimensionamento del data warehouse.
 
 La query seguente restituisce l'uso di memoria di SQL Server e l'eventuale uso elevato in ogni nodo:   
 ```sql
@@ -258,7 +258,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-size"></a>Monitorare le dimensioni del log delle transazioni
-La query seguente restituisce le dimensioni del log delle transazioni per ogni distribuzione. Verificare se sono presenti rowgroup di qualità insufficiente o asimmetria dei dati e adottare le misure appropriate. Se uno dei file di log sta per raggiungere i 160 GB, considerare l'espansione dell'istanza del programma o la limitazione delle dimensioni delle transazioni. 
+La query seguente restituisce le dimensioni del log delle transazioni per ogni distribuzione. Se uno dei file di log sta per raggiungere i 160 GB, considerare l'espansione dell'istanza del programma o la limitazione delle dimensioni delle transazioni. 
 ```sql
 -- Transaction log size
 SELECT

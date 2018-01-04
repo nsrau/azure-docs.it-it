@@ -17,10 +17,10 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 81602766848a91331c8d811ea1c8ec3ffae44b96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>Creare una rete virtuale usando un modello di Azure Resource Manager
 
@@ -31,7 +31,7 @@ Azure offre due modelli di distribuzione, ovvero Azure Resource Manager e la dis
 Questo articolo illustra come creare una rete virtuale tramite il modello di distribuzione Resource Manager usando un modello di Azure Resource Manager. È anche possibile creare una rete virtuale tramite Resource Manager usando altri strumenti oppure tramite il modello di distribuzione classica selezionando un'opzione diversa dall'elenco seguente:
 
 > [!div class="op_single_selector"]
-- [Portale](virtual-networks-create-vnet-arm-pportal.md)
+- [di Microsoft Azure](virtual-networks-create-vnet-arm-pportal.md)
 - [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 - [CLI](virtual-networks-create-vnet-arm-cli.md)
 - [Modello](virtual-networks-create-vnet-arm-template-click.md)
@@ -54,7 +54,7 @@ Se si sta distribuendo semplicemente il modello di Gestione risorse di Azure dir
 4. Se si ha familiarità con i modelli, procedere al passaggio 7.
 5. Aprire il file appena salvato e visualizzare il contenuto in **parameters** nella riga 5. I parametri del modello ARM costituiscono un segnaposto per i valori che possono essere compilati durante la distribuzione.
    
-   | Parametro | Descrizione |
+   | Parametro | DESCRIZIONE |
    | --- | --- |
    | **Località** |Area di Azure in cui verrà creata la rete virtuale |
    | **vnetName** |Nome per la nuova rete virtuale |
@@ -118,7 +118,7 @@ Per distribuire il modello scaricato tramite PowerShell, seguire questa procedur
     New-AzureRmResourceGroup -Name TestRG -Location centralus
     ```
 
-    Il comando crea un gruppo di risorse denominato *TestRG* nell'area di Azure *Stati Uniti centrali*. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+    Il comando crea un gruppo di risorse denominato *TestRG* nell'area di Azure *Stati Uniti centrali*. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](../azure-resource-manager/resource-group-overview.md).
 
     Output previsto:
 
@@ -222,7 +222,7 @@ Per distribuire il modello scaricato tramite PowerShell, seguire questa procedur
 
 5. Fare clic su **Gruppo di risorse** e selezionare un gruppo di risorse a cui aggiungere la rete virtuale oppure fare clic su **Crea nuovo** per aggiungere la rete virtuale a un nuovo gruppo di risorse. La figura seguente mostra le impostazioni del gruppo di risorse per un nuovo gruppo di risorse denominato **TestRG**:
 
-    ![Resource group](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
+    ![Gruppo di risorse](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
 
 6. Se necessario, modificare le impostazioni relative a **Sottoscrizione** e **Località** per la rete virtuale.
 7. Se non si vuole visualizzare la rete virtuale come riquadro nella **Schermata iniziale**, disabilitare **Aggiungi alla Schermata iniziale**.

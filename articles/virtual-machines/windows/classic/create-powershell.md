@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
 ms.openlocfilehash: af672a873b33cbd0b6151fd564e84c96f0b6e1e3
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-windows-virtual-machine-with-powershell-and-the-classic-deployment-model"></a>Creare macchine virtuali Windows con il modello di distribuzione classica e PowerShell
 > [!div class="op_single_selector"]
@@ -64,7 +64,7 @@ Il passaggio successivo prevede la determinazione del valore ImageFamily o Label
 Di seguito sono riportati alcuni esempi di valori ImageFamily per i computer basati su Windows:
 
 * Windows Server 2012 R2 Datacenter
-* Windows Server 2008 R2 SP1,
+* Windows Server 2008 R2 SP1
 * Windows Server 2016 Technical Preview 4
 * SQL Server 2012 SP1 Enterprise in Windows Server 2012
 
@@ -82,7 +82,7 @@ Se si trova l'immagine corretta con questo comando, aprire una nuova istanza del
     $label="<Label value>"
     $image = Get-AzureVMImage | where { $_.Label -eq $label } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
-## <a name="step-4-build-your-command-set"></a>Passaggio 4: compilare il set di comandi
+## <a name="step-4-build-your-command-set"></a>Passaggio 4: Compilare il set di comandi
 Compilare il resto del set di comandi copiando il seguente set appropriato di blocchi nel nuovo file di testo o in ISE, quindi compilare i valori delle variabili rimuovendo i caratteri < e >. Vedere i due [esempi](#examples) alla fine di questo articolo per avere un'idea del risultato finale.
 
 Avviare il set di comandi scegliendo uno dei due seguenti blocchi di comandi (obbligatorio).

@@ -4,22 +4,22 @@ description: Criteri di conservazione dei dati di report in Azure Active Directo
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 12/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 933d251903f4ca74902e984e7a1581a75345ee7f
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
+ms.openlocfilehash: 61d3e8fbe26ab24ba0b551e52be0769228f09a11
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Criteri di conservazione dei report di Azure Active Directory
 
@@ -32,7 +32,7 @@ Questo argomento offre le risposte alle domande più comuni sulla conservazione 
 
 | Edizione di Azure AD | Avvio della raccolta |
 | :--              | :--   |
-| Azure AD P1 Premium <br /> Azure AD P2 Premium | Quando ci si iscrive a una sottoscrizione |
+| Azure AD Premium P1 <br /> Azure AD P2 Premium | Quando ci si iscrive a una sottoscrizione |
 | Azure AD Free | La prima volta che si apre il [pannello Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o si usano le [API di creazione report](https://aka.ms/aadreports)  |
 
 ---
@@ -40,8 +40,8 @@ Questo argomento offre le risposte alle domande più comuni sulla conservazione 
 
 **R:**
 
-- **Immediatamente**: se si usano già i report nel portale di Azure classico
-- **Entro 2 ore**: se non si è attivata la creazione di report nel portale di Azure classico
+- **Immediatamente** : se sta già utilizzando i report nel portale di Azure
+- **Entro 2 ore** : se è stato attivato reporting nel portale di Azure
 
 ---
 **D: Come è possibile avviare la raccolta dei segnali di sicurezza?**  
@@ -56,11 +56,11 @@ Questo argomento offre le risposte alle domande più comuni sulla conservazione 
 
 **Report attività**    
 
-| Report                 | Azure AD Free | Azure AD P1 Premium | Azure AD P2 Premium |
+| Report                 | Azure AD Free | Azure AD P1 Premium | Azure AD Premium P2 |
 | :--                    | :--           | :--                 | :--                 |
 | Directory Audit (Controllo directory)        | 7 giorni        | 30 giorni             | 30 giorni             |
 | Attività di accesso       | N/D           | 30 giorni             | 30 giorni             |
-| Uso di Azure MFA        | 90 giorni       | 90 giorni             | 90 giorni             |
+| Uso di Azure MFA        | 30 giorni       | 30 giorni             | 30 giorni             |
 
 **Segnali di sicurezza**
 

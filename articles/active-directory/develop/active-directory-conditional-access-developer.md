@@ -4,7 +4,7 @@ description: Scenari e linee guida per gli sviluppatori per l'accesso condiziona
 services: active-directory
 keywords: 
 author: danieldobalian
-manager: mbaldwin
+manager: mtillman
 editor: PatAltimore
 ms.author: dadobali
 ms.date: 07/19/2017
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: eddc1988e094a50ba7e41331a576846aa26f77a4
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: c3b691022b02aa2f3836c4e3a96dd5db7affad76
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Linee guida per gli sviluppatori per l'accesso condizionale di Azure Active Directory
 
@@ -110,7 +110,7 @@ La richiesta di attestazioni si trova all'interno dell'intestazione ```WWW-Authe
 
 L'intestazione ```WWW-Authenticate``` presenta una struttura univoca e non è semplice da analizzare per estrarre i valori.  Di seguito è riportato un metodo rapido.
 
-    ```C#
+```C#
         /// <summary>
         /// This method extracts the claims value from the 403 error response from MS Graph. 
         /// </summary>
@@ -138,7 +138,7 @@ L'intestazione ```WWW-Authenticate``` presenta una struttura univoca e non è se
             }
             return null; 
         }
-    ```
+```
 
 Per esempi di codice che illustrano come gestire la richiesta di autenticazione claims, vedere l'[esempio di codice on-behalf-of](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca) per ADAL .NET.
 
@@ -216,7 +216,7 @@ L'app deve intercettare l'errore `error=interaction_required`.  L'applicazione p
 Per provare questo scenario, vedere l'[esempio di codice on-behalf-of JS SPA](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca).  Questo esempio di codice usa i criteri di accesso condizionale e l'API Web registrata in precedenza con JS SPA per illustrare questo scenario. Mostra come gestire correttamente la richiesta di attestazioni e ottenere un token di accesso che può essere usato per l'API Web. In alternativa, vedere l'[esempio di codice Angular.js](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) generale, per informazioni su Angular SPA
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 * Per altre informazioni sulle funzionalità, vedere [Accesso condizionale in Azure AD](../active-directory-conditional-access-azure-portal.md).
 * Per altri esempi di codice di Azure AD, vedere il [repository GitHub di esempi di codice](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 

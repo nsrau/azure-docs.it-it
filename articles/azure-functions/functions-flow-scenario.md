@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/14/2017
 ms.author: mblythe
 ms.custom: 
-ms.openlocfilehash: 120f5d69441c5e01ffafbdb8dccb179bf00bdb0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Chiamare una funzione da Microsoft Flow
 
@@ -51,7 +51,7 @@ Iniziare creando un elenco da usare come origine dati per il flusso. L'elenco è
 | Colonna dell'elenco     | Tipo di dati           | Note                                    |
 |-----------------|---------------------|------------------------------------------|
 | **Titolo**           | Riga di testo singola | Nome della turbina                      |
-| **LastServiceDate** | Date                |                                          |
+| **LastServiceDate** | Data                |                                          |
 | **MaxOutput**       | Number              | Output della turbina, in kWh            |
 | **ServiceRequired** | Sì/No              |                                          |
 | **EstimatedEffort** | Number              | Tempo stimato per la riparazione, espresso in ore |
@@ -133,7 +133,7 @@ Prima di tutto creare un flusso da zero, senza un modello, e aggiungere un *trig
 
 4. Fare clic su **Nuovo passaggio**, quindi su **Aggiungi una condizione**.
 
-    ![Add a condition](media/functions-flow-scenario/add-condition.png)
+    ![Aggiungere una condizione](media/functions-flow-scenario/add-condition.png)
 
     Microsoft Flow aggiunge due rami al flusso: **If yes** (Se sì) e **If no** (Se no). Aggiungere passaggi a uno o a entrambi i rami dopo aver definito la condizione per cui si desidera trovare una corrispondenza.
 
@@ -179,7 +179,7 @@ Aggiungere ora il connettore personalizzato che chiama la funzione in Azure. Agg
 
 4. Nella parte inferiore del ramo **If yes** (Se sì) fare clic su **Altro**, quindi **Aggiungi una condizione**.
 
-    ![Add a condition](media/functions-flow-scenario/condition2-add.png)
+    ![Aggiungere una condizione](media/functions-flow-scenario/condition2-add.png)
 
 5. Nella scheda **Condition 2** (Condizione 2) fare clic nella prima casella, quindi selezionare **Messaggio** dalla finestra di dialogo **Contenuto dinamico**.
 

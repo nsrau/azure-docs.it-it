@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: d0ed9a7fbb202b2008fee7f810ae0102b6f51c3d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: ea3764299d07f548abbc2857a3adbfb4dc50dec8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="deploy-the-remote-monitoring-preconfigured-solution-using-the-cli"></a>Distribuire la soluzione preconfigurata di monitoraggio remoto usando l'interfaccia della riga di comando
 
@@ -52,7 +52,7 @@ Seguire le istruzioni visualizzate sullo schermo per completare il processo di a
 
 Quando si distribuisce la soluzione preconfigurata, sono disponibili diverse opzioni per la configurazione del processo di distribuzione:
 
-| Opzione | Valori | Descrizione |
+| Opzione | Valori | DESCRIZIONE |
 | ------ | ------ | ----------- |
 | SKU    | `basic`, `standard` | Una distribuzione _di base_ è destinata agli ambienti di test e demo e distribuisce tutti i microservizi in un'unica macchina virtuale. Una distribuzione _standard_ è destinata agli ambienti di produzione e distribuisce i microservizi in più macchine virtuali. |
 | Runtime | `dotnet`, `java` | Seleziona l'implementazione del linguaggio dei microservizi. |
@@ -96,7 +96,7 @@ Per altre informazioni sull'interfaccia della riga di comando, vedere [How to us
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Configurare la soluzione preconfigurata

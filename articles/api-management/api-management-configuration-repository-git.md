@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 87fb2b49ef6680d3d7a46f378aedf99936fb580c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 0abf2635e08bfc3113e9dec1947b9bb162cd3952
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Come salvare e configurare la configurazione del servizio Gestione API tramite Git
 > 
@@ -157,14 +157,14 @@ git push
 ## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Per distribuire le modifiche alla configurazione del servizio all'istanza del servizio Gestione API
 Dopo il commit e il push delle modifiche locali nel repository del server, è possibile distribuire le modifiche all'istanza del servizio Gestione API.
 
-![Distribuisci][api-management-configuration-deploy]
+![Distribuire][api-management-configuration-deploy]
 
-Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere la [pagina relativa alla distribuzione delle modifiche al database di configurazione tramite l'API REST](https://docs.microsoft.com/en-us/rest/api/apimanagement/tenantconfiguration).
+Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere la [pagina relativa alla distribuzione delle modifiche al database di configurazione tramite l'API REST](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Informazioni di riferimento sulla struttura di file e cartelle del repository Git locale
 I file e cartelle nel repository Git locale contengono le informazioni di configurazione dell'istanza del servizio.
 
-| Item | Descrizione |
+| Elemento | DESCRIZIONE |
 | --- | --- |
 | Cartella api-management radice |Contiene la configurazione di livello superiore per l'istanza del servizio |
 | Cartella apis |Contiene la configurazione per le API nell'istanza del servizio |
@@ -190,7 +190,7 @@ Questi file possono essere creati, eliminati, modificati e gestiti nel file syst
 > 
 > * Utenti
 > * Sottoscrizioni
-> * Proprietà
+> * Properties
 > * Entità del portale per sviluppatori diverse dagli stili
 > 
 > 
@@ -284,7 +284,7 @@ Per informazioni su altri metodi di gestione dell'istanza del servizio, vedere:
   * [Informazioni di riferimento sui cmdlet di PowerShell per la distribuzione dei servizi](https://msdn.microsoft.com/library/azure/mt619282.aspx)
   * [Informazioni di riferimento sui cmdlet di PowerShell per la gestione dei servizi](https://msdn.microsoft.com/library/azure/mt613507.aspx)
 * Gestire l'istanza del servizio nel portale di pubblicazione
-  * [Gestire la prima API](import-and-publish.md)
+  * [Gestire la prima API in Gestione API di Azure](import-and-publish.md)
 * Gestire l'istanza del servizio tramite l'API REST
   * [Informazioni di riferimento sull'API REST di Gestione API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

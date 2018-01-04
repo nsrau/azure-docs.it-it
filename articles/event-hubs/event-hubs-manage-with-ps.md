@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 2b49c01153b1104612e6ebf9c88566fc40d1f635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: de86b8241166d4e0bd03beb22550464457e3db5e
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>Usare PowerShell per gestire le risorse Hub eventi
 
@@ -34,7 +34,7 @@ Prima di iniziare, è necessario disporre di quanto segue:
 * Un computer con Azure PowerShell. Per le istruzioni vedere [Get started with Azure PowerShell cmdlets](/powershell/azure/get-started-azureps) (Introduzione ai cmdlet di Azure PowerShell).
 * Conoscenza generale degli script di PowerShell, dei pacchetti NuGet e di .NET Framework.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Attività iniziali
 
 Il primo passaggio consiste nell'usare PowerShell per accedere all'account Azure e alla sottoscrizione di Azure. Seguire le istruzioni in [Get started with Azure PowerShell cmdlets](/powershell/azure/get-started-azureps) (Introduzione ai cmdlet di Azure PowerShell) per accedere al proprio account Azure, quindi recuperare e accedere alle risorse nella sottoscrizione di Azure.
 
@@ -103,7 +103,7 @@ else
 
 ### <a name="create-a-consumer-group"></a>Creare un gruppo di consumer
 
-Per creare un gruppo di consumer in un hub eventi, eseguire il controllo dello spazio dei nomi e dell'hub eventi usando gli script della sezione precedente. Usare quindi il cmdlet [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) per creare il gruppo di consumer all'interno dell'hub eventi. ad esempio:
+Per creare un gruppo di consumer in un hub eventi, eseguire il controllo dello spazio dei nomi e dell'hub eventi usando gli script della sezione precedente. Usare quindi il cmdlet [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) per creare il gruppo di consumer all'interno dell'hub eventi. Ad esempio: 
 
 ```powershell
 # Check if consumer group already exists

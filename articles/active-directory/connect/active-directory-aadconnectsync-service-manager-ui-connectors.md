@@ -4,7 +4,7 @@ description: Comprendere la scheda Connettori in Synchronization Service Manager
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c0fae4b1755ca95466eeffb5ce61c1c7855d7381
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 12c78b1baf1f2117b6c960784c133268fec4b2bb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Uso dei connettori con Sync Service Manager di Azure AD Connect
 
@@ -28,10 +28,10 @@ ms.lasthandoff: 10/11/2017
 La scheda Connettori consente di gestire tutti i sistemi a cui il motore di sincronizzazione è connesso.
 
 ## <a name="connector-actions"></a>Azioni del connettore
-| Azione | Commento |
+| Azione | Comment |
 | --- | --- |
 | Create |Non usare. Per la connessione ad altre foreste AD, usare l'installazione guidata. |
-| Proprietà |Si usa per i filtri di unità organizzativa e dominio. |
+| Properties |Si usa per i filtri di unità organizzativa e dominio. |
 | [Eliminazione](#delete) |Si usa per eliminare i dati nello spazio connettore o per eliminare la connessione a una foresta. |
 | [Configura profili di esecuzione](#configure-run-profiles) |Fatta eccezione per i filtri di dominio, qui non è richiesta alcuna configurazione. Questa azione consente di visualizzare i profili di esecuzione già configurati. |
 | Esegui |Si usa per avviare l'esecuzione occasionale di un profilo. |
@@ -42,7 +42,7 @@ La scheda Connettori consente di gestire tutti i sistemi a cui il motore di sinc
 | Aggiorna schema |Aggiorna lo schema memorizzato nella cache. È preferibile usare l'opzione nell'installazione guidata perché aggiorna anche le regole di sincronizzazione. |
 | [Spazio connettore di ricerca](#search-connector-space) |Consente di trovare oggetti e [seguire un oggetto e i relativi dati attraverso il sistema](#follow-an-object-and-its-data-through-the-system). |
 
-### <a name="delete"></a>Eliminazione
+### <a name="delete"></a>Delete
 L'azione di eliminazione viene usata per due scopi diversi.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)
 

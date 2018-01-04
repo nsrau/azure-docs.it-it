@@ -4,7 +4,7 @@ description: "Usare Twitter come provider di identità con il protocollo OAuth1"
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 10/23/2017
 ms.author: yoelh
-ms.openlocfilehash: f3a7936a468df7b0a2713f1f30c5b91e74d1d917
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: 629e0bbaa7c62ef5d381085588c6a99c203c41cb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: aggiungere Twitter come provider di identità OAuth1 tramite criteri personalizzati
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -74,7 +74,7 @@ La federazione con account Twitter richiede un segreto utente per consentire all
 
 7. Per **Uso chiave** usare **Crittografia**.
 
-8. Selezionare **Crea**.
+8. Selezionare **Create**.
 
 9. Verificare di avere creato la chiave `B2C_1A_TwitterSecret`.
 
@@ -179,7 +179,7 @@ Ora che il pulsante è presente, è necessario collegarlo a un'azione. In questo
     >* Verificare che l'ID `TechnicalProfileReferenceId` sia impostato sul profilo tecnico creato in precedenza (Twitter-OAUTH1).
 
 ## <a name="step-5-upload-the-policy-to-your-tenant"></a>Passaggio 5: Caricare i criteri nel tenant
-1. Nel [portale di Azure](https://portal.azure.com) passare al [contesto del tenant di Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e quindi selezionare **Azure AD B2C**.
+1. Nel [portale di Azure](https://portal.azure.com) passare al [contesto del tenant Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e quindi selezionare **Azure AD B2C**.
 
 2. Fare clic su **Framework dell'esperienza di gestione delle identità**.
 
@@ -198,7 +198,7 @@ Ora che il pulsante è presente, è necessario collegarlo a un'azione. In questo
     >[!NOTE]
     >Il comando Esegui adesso richiede che nel tenant sia preregistrata almeno un'applicazione. Per informazioni su come registrare le applicazioni, vedere l'articolo di [introduzione](active-directory-b2c-get-started.md) ad Azure AD B2C o l'articolo relativo alla [registrazione delle applicazioni](active-directory-b2c-app-registration.md).
 
-2. Aprire **B2C_1A_signup_signin**, i criteri personalizzati della relying party caricati in precedenza, quindi selezionare **Esegui adesso**.  
+2. Aprire **B2C_1A_signup_signin**, i criteri personalizzati della relying party caricati in precedenza e quindi selezionare **Esegui adesso**.  
     Ora dovrebbe essere possibile accedere usando l'account Twitter.
 
 ## <a name="step-7-optional-register-the-twitter-account-claims-provider-to-the-profile-edit-user-journey"></a>Passaggio 7 (facoltativo): Registrare il provider di attestazioni dell'account Twitter nel percorso utente ProfileEdit

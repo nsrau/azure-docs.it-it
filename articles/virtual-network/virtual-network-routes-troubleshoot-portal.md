@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: f76693dfcaf5076372e4c4d5f28678c05eff85ed
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: d9b951ad4c54a3714ba7e857d5198c351215cbac
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Risolvere i problemi relativi alle route con il portale di Azure
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Sebbene in questo esempio si usino solo le route di sistema, è possibile attene
 ### <a name="view-effective-routes-for-a-virtual-machine"></a>Visualizzare le route valide per una macchina virtuale
 Per visualizzare le route di aggregazione applicate a una VM, completare i passaggi seguenti:
 
-1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
+1. Accedere al portale di Azure all'indirizzo https://portal.azure.com. L'account deve essere assegnato il *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* operazione per l'interfaccia di rete. Per informazioni su come assegnare operazioni agli account, vedere [creare ruoli personalizzati per gestire il controllo di accesso](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Fare clic su **Altri servizi** e quindi su **Macchine virtuali** nell'elenco visualizzato.
 3. Selezionare una VM in cui risolvere i problemi nell'elenco visualizzato. Verrà visualizzato un pannello della VM contenente opzioni.
 4. Fare clic su **Diagnostica e risoluzione dei problemi** e quindi selezionare un problema comune. Per questo esempio si seleziona **Non è possibile connettersi alla macchina virtuale Windows** .

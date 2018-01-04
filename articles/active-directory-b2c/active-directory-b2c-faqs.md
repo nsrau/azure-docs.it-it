@@ -1,12 +1,11 @@
 ---
-title: 'Domande frequenti: Azure AD B2C | Microsoft Docs'
-description: Domande frequenti su Azure Active Directory B2C
+title: 'Domande frequenti: Azure Active Directory B2C'
+description: Domande frequenti (FAQ) Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: 
-author: saeeda
-manager: krassk
-editor: bryanla
-ms.assetid: ed33c2ca-76d0-442a-abb1-8b7b7bb92d6a
+author: PatAltimore
+manager: mtillman
+editor: saeeda
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 397c0c610c05e65d06a6319672446a6e4c9c445a
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 81da88c895bdd3407d8ddd51124afc405b774cb9
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: domande frequenti 
 Questa pagina include le risposte alle domande frequenti relative ad Azure Active Directory (Azure AD) B2C. Controllarla costantemente per eventuali aggiornamenti.
@@ -37,7 +36,7 @@ In un tenant di Azure AD B2C, la maggior parte delle app richiede l'accesso dell
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Quali provider di identità di social networking sono attualmente supportati? Per quali provider è previsto il supporto in futuro?
 Attualmente sono supportati Facebook, Google +, LinkedIn, Amazon, Twitter (anteprima), WeChat (anteprima), Weibo (anteprima) e QQ (anteprima). Verrà aggiunto il supporto per altri provider di identità di social networking noti, in base alle esigenze dei clienti.
 
-In Azure AD B2C è stato aggiunto anche il supporto per i [criteri personalizzati](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom).  I [criteri personalizzati](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom) consentono agli sviluppatori di creare criteri con qualsiasi provider di identità che supporta [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) o SAML. 
+In Azure AD B2C è stato aggiunto anche il supporto per i [criteri personalizzati](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom).  I [criteri personalizzati](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom) consentono agli sviluppatori di creare criteri con qualsiasi provider di identità che supporta [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) o SAML. 
 
 Per un'introduzione ai criteri personalizzati, vedere lo [starter pack sui criteri personalizzati](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
@@ -64,9 +63,9 @@ Prima di aprire "Azure AD B2C" nel menu sul lato sinistro del portale di Azure, 
 
     ![Screenshot di un messaggio di posta elettronica di verifica personalizzato](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
-La firma della posta elettronica contiene il nome del tenant B2C fornito al momento della creazione del tenant B2C. È possibile modificare il nome seguendo queste istruzioni:
+La firma del messaggio di posta elettronica contiene il nome del tenant Azure Active Directory B2C fornito al momento della creazione del tenant di Azure Active Directory B2C. È possibile modificare il nome seguendo queste istruzioni:
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore della sottoscrizione.
+1. Accedi al [portale di Azure](https://portal.azure.com/) come amministratore globale.
 1. Aprire il pannello **Azure Active Directory**.
 1. Fare clic sulla scheda **Proprietà**.
 1. Modificare il valore del campo **Nome**.
@@ -87,7 +86,7 @@ No, Azure AD Connect non è progettato per funzionare con Azure AD B2C. È consi
 No. Per motivi di sicurezza, le pagine di Azure AD B2C non possono essere aperte in un iFrame.  Il servizio comunica con il browser per impedire iFrames.  L'uso di iFrames per le esperienze di gestione delle identità è sconsigliato dalla community della sicurezza in generale e dalla specifica OAUTH2 a causa del rischio di clickjacking.
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Azure AD B2C è compatibile con i sistemi CRM come Microsoft Dynamics?
-È disponibile l'integrazione con il portale di Microsoft Dynamics 365.  Vedere l'articolo relativo alla [configurazione del portale di Dynamics 365 per usare Azure AD B2C per l'autenticazione](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/portals/azure-ad-b2c).
+È disponibile l'integrazione con il portale di Microsoft Dynamics 365.  Vedere l'articolo relativo alla [configurazione del portale di Dynamics 365 per usare Azure AD B2C per l'autenticazione](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Azure AD B2C è compatibile con SharePoint 2016 locale o versione precedente?
 Azure AD B2C non è concepito per lo scenario di condivisione esterna con i partner di SharePoint. A questo scopo, vedere invece il blog su [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx).
@@ -103,7 +102,7 @@ No, Azure AD B2C non supporta lo stesso set di report di Azure AD Premium. Esist
 * I **report sull'uso** sono disponibili solo tramite l'[API Usage Reporting](active-directory-b2c-reference-usage-reporting-api.md), ma non tramite il portale di Azure. Questi report includono il numero di utenti, il numero di accessi e il volume di autenticazioni a più fattori. 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>È possibile localizzare l'interfaccia utente delle pagine servite da Azure AD B2C? Quali lingue sono supportate?
-È possibile usarlo.  Altre informazioni sulla [personalizzazione della lingua](active-directory-b2c-reference-language-customization.md) che è in anteprima pubblica.  Offriamo traduzioni per 36 lingue ed è possibile eseguire l'override di qualsiasi stringa in base alle esigenze.
+Sì.  Altre informazioni sulla [personalizzazione della lingua](active-directory-b2c-reference-language-customization.md) che è in anteprima pubblica.  Offriamo traduzioni per 36 lingue ed è possibile eseguire l'override di qualsiasi stringa in base alle esigenze.
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-loginmicrosoftonlinecom-to-logincontosocom"></a>È possibile usare l'URL personale nelle pagine di iscrizione e accesso servite da Azure AD B2C? È ad esempio possibile sostituire l'URL login.microsoftonline.com con login.contoso.com?
 No, per il momento. Questa funzionalità verrà implementata in futuro. La verifica del dominio nella scheda **Domini** nel portale di Azure classico non raggiungere questo obiettivo.
@@ -113,15 +112,15 @@ Attenersi a questa procedura per eliminare il tenant di Azure AD B2C:
 
 1. Seguire questa procedura per [passare alle impostazioni di Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) nel portale di Azure.
 1. Passare ad **Applicazioni**, **Provider di identità** e **Tutti i criteri** ed eliminare tutte le voci rispettivamente visualizzate.
-1. Accedere ora al [portale di Azure classico](https://manage.windowsazure.com/) come amministratore della sottoscrizione. Usare lo stesso account aziendale o dell'istituto d'istruzione o lo stesso account Microsoft usato per l'iscrizione ad Azure.
-1. Passare all'estensione di Active Directory a sinistra e fare clic sul nome del tenant B2C.
-1. Fare clic sulla scheda **Utenti** .
-1. Selezionare un utente alla volta, escludendo l'amministratore della sottoscrizione con il quale si è connessi attualmente. Fare clic su **Elimina** nella parte inferiore della pagina, quindi su **SÌ** quando richiesto.
-1. Fare clic sulla scheda **Applicazioni** .
-1. Selezionare **Applications my company owns** (Applicazioni di proprietà dell'azienda) nel campo a discesa **Mostra** e fare clic sul segno di spunta.
-1. Un'applicazione denominata **b2c-extensions-app**. Fare clic su **Elimina** nella parte inferiore della pagina, quindi su **SÌ** quando richiesto.
-1. Passare di nuovo all'estensione di Active Directory e selezionare il tenant di B2C.
-1. Nella parte inferiore della pagina fare clic su **Elimina** . Seguire le istruzioni sullo schermo per completare il processo.
+1. Ora Accedi al [portale di Azure](https://portal.azure.com/) come amministratore della sottoscrizione. Usare lo stesso account aziendale o dell'istituto d'istruzione o lo stesso account Microsoft usato per l'iscrizione ad Azure.
+1. Opzione per il tenant di Azure Active Directory B2C si desidera eliminare.
+2. Passare al menu di Active Directory a sinistra.
+3. Selezionare **Utenti e gruppi**.
+4. Selezionare un utente alla volta, escludendo l'amministratore della sottoscrizione con il quale si è connessi attualmente. Fare clic su **Elimina** nella parte inferiore della pagina, quindi su **SÌ** quando richiesto.
+5. Fare clic su di **registrazioni di App**.
+6. Selezionare l'applicazione denominata **b2c-estensioni-app**. Fare clic su **eliminare** e fare clic su **Sì** quando richiesto.
+7. Selezionare **Panoramica**.
+8. Fare clic su **Elimina directory**. Seguire le istruzioni sullo schermo per completare il processo.
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>È possibile ottenere Azure AD B2C come parte di Enterprise Mobility Suite?
 No, Azure AD B2C è un servizio di Azure con pagamento in base al consumo e non fa parte di Enterprise Mobility Suite.

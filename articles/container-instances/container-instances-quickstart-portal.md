@@ -6,20 +6,20 @@ author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 09/25/2017
+ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 7007fa8989f6d87028906918dbbc9c2998cd3bf4
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 823d06d8524a937a8d2098262cf97f868672f4d0
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Creare il primo contenitore in Istanze di contenitore di Azure
 
 Istanze di contenitore di Azure semplifica la creazione e la gestione dei contenitori in Azure. In questo avvio rapido si crea un contenitore in Azure e lo si espone a Internet con un indirizzo IP pubblico. Questa operazione viene eseguita nel portale di Azure. Bastano pochi clic per visualizzare quanto segue nel browser:
 
-![App distribuita usando Istanze di contenitore di Azure visualizzata nel browser][aci-app-browser]
+![App distribuita usando Istanze di contenitore di Azure visualizzata nel browser][aci-portal-07]
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
@@ -59,7 +59,7 @@ Selezionare il gruppo di contenitori **mycontainer myc1** per visualizzarne le p
 
 Quando il contenitore passa allo stato **In esecuzione**, passare all'indirizzo IP annotato nel passaggio precedente per visualizzare l'applicazione ospitata nel nuovo contenitore.
 
-![App distribuita usando Istanze di contenitore di Azure visualizzata nel browser][aci-app-browser]
+![App distribuita usando Istanze di contenitore di Azure visualizzata nel browser][aci-portal-07]
 
 <!-- IMAGES -->
 [aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
@@ -68,7 +68,7 @@ Quando il contenitore passa allo stato **In esecuzione**, passare all'indirizzo 
 [aci-portal-04]: ./media/container-instances-quickstart-portal/qs-portal-04.png
 [aci-portal-05]: ./media/container-instances-quickstart-portal/qs-portal-05.png
 [aci-portal-06]: ./media/container-instances-quickstart-portal/qs-portal-06.png
-[aci-app-browser]: ./media/container-instances-quickstart-portal/qs-portal-07.png
+[aci-portal-07]: ./media/container-instances-quickstart-portal/qs-portal-07.png
 [aci-portal-08]: ./media/container-instances-quickstart-portal/qs-portal-08.png
 
 ## <a name="next-steps"></a>Passaggi successivi

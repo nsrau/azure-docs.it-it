@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configurare Monitoraggio prestazioni rete per ExpressRoute (anteprima)
 
@@ -44,7 +44,7 @@ Monitoraggio prestazioni rete (NPM) è una soluzione di monitoraggio di rete bas
 È possibile monitorare i circuiti di ExpressRoute in qualsiasi parte del mondo tramite un'area di lavoro ospitata in una delle seguenti aree:
 
 * Europa occidentale 
-* Stati Uniti Orientali 
+* Stati Uniti orientali 
 * Asia sudorientale 
 
 ## <a name="workflow"></a>Flusso di lavoro
@@ -129,7 +129,7 @@ Si consiglia di installare almeno due agenti su ogni lato della connessione Expr
 
 ### <a name="proxy"></a>2.3: Configurare le impostazioni proxy (facoltativo)
 
-Se si usa un proxy Web per accedere a Internet, eseguire la procedura seguente per configurare le impostazioni proxy per Microsoft Monitoring Agent. Eseguire questa procedura per ogni server. Se è necessario configurare molti server, può risultare più semplice usare uno script per automatizzare il processo. In questo caso, vedere [Per configurare le impostazioni proxy per Microsoft Monitoring Agent tramite uno script](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
+Se si usa un proxy Web per accedere a Internet, eseguire la procedura seguente per configurare le impostazioni proxy per Microsoft Monitoring Agent. Eseguire questa procedura per ogni server. Se è necessario configurare molti server, può risultare più semplice usare uno script per automatizzare il processo. In questo caso, vedere [Per configurare le impostazioni proxy per Microsoft Monitoring Agent tramite uno script](../log-analytics/log-analytics-windows-agent.md).
 
 Per configurare le impostazioni proxy per Microsoft Monitoring Agent tramite il Pannello di controllo:
 
@@ -214,7 +214,7 @@ Dopo aver completato le sezioni precedenti e aver verificato che è avvenuto l'i
 
 La pagina NPM contiene una pagina per ExpressRoute che mostra una panoramica dell'integrità dei circuiti e dei peering ExpressRoute.
 
-  ![Dashboard](.\media\how-to-npm\dashboard.png)
+  ![dashboard](.\media\how-to-npm\dashboard.png)
 
 ### <a name="circuits"></a>Elenco dei circuiti
 

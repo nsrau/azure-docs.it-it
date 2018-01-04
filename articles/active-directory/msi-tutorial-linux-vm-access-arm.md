@@ -4,7 +4,7 @@ description: "Esercitazione che illustra come usare un'Identità del servizio ge
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: bryanla
-ms.openlocfilehash: cf69470beb8e466ba0b9807d8bff5813a88b7c41
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 391b9297ee9cf30cded0f5cb6e91d728d196d6b5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Usare un'identità del servizio gestito per una macchina virtuale Linux per accedere ad Azure Resource Manager
 
@@ -58,7 +58,7 @@ Per questa esercitazione si creerà una nuova macchina virtuale Linux, ma è anc
 
 Un'Identità del servizio gestito per una macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. A livello sottostante, quando si abilita Identità del servizio gestito, si eseguono due operazioni, ovvero si installa l'estensione di Identità del servizio gestito nella macchina virtuale e si abilita la funzionalità per tale macchina.  
 
-1. Selezionare la **macchina virtuale** in cui si vuole abilitare Identità del servizio gestito.
+1. Selezionare la **macchina virtuale** in cui si vuole abilitare identità del servizio gestito.
 2. Nella barra di spostamento a sinistra fare clic su **Configurazione**.
 3. Viene visualizzato **Managed Service Identity** (identità del servizio gestito). Per registrare e abilitare identità del servizio gestita, scegliere **Sì**. Se si vuole disabilitare questa funzionalità, scegliere No.
 4. Assicurarsi di fare clic su **Salva** per salvare la configurazione.

@@ -10,15 +10,15 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/10/2017
-ms.openlocfilehash: ad6469fcf86aeb7a0076ab5909fbe593596df695
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: HT
+ms.date: 12/13/2017
+ms.openlocfilehash: 9eebe8352d6a447df520c194b9906df8c2c9a83f
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migrare SQL Server locale al database SQL di Azure con Azure PowerShell
-In questo articolo si esegue la migrazione del database **Adventureworks2012** ripristinato a un'istanza locale di SQL Server 2016 o versione successiva verso un database SQL di Azure tramite Microsoft Azure PowerShell.  È possibile migrare i database da un'istanza di SQL Server locale al database SQL di Azure tramite il modulo `AzureRM.DataMigration` in Microsoft Azure PowerShell.
+In questo articolo si esegue la migrazione del database **Adventureworks2012** ripristinato a un'istanza locale di SQL Server 2016 o versione successiva verso un database SQL di Azure tramite Microsoft Azure PowerShell. È possibile migrare i database da un'istanza di SQL Server locale al database SQL di Azure tramite il modulo `AzureRM.DataMigration` in Microsoft Azure PowerShell.
 
 In questo articolo viene spiegato come:
 > [!div class="checklist"]
@@ -26,7 +26,6 @@ In questo articolo viene spiegato come:
 > * Creare un'istanza del Servizio Migrazione del database di Azure.
 > * Creare un progetto di migrazione in un'istanza del Servizio Migrazione del database di Azure.
 > * Eseguire la migrazione.
-
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questi passaggi è necessario disporre di:
@@ -36,15 +35,15 @@ Per completare questi passaggi è necessario disporre di:
 - Per configurare [Windows Firewall per l'accesso al motore di database](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Un'istanza del database SQL di Azure. È possibile creare un'istanza del database SQL di Azure seguendo le istruzioni riportate nell'articolo [Creare un database SQL di Azure nel portale di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) versione 3.3 o successiva.
-- Servizio Migrazione del database di Azure richiede una rete virtuale creata usando il modello di distribuzione Azure Resource Manager, che fornisce la connettività da sito a sito ai server di origine locali usando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [ VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Servizio Migrazione del database di Azure richiede una rete virtuale creata usando il modello di distribuzione Azure Resource Manager, che offre la connettività da sito a sito ai server di origine locali usando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - Valutazione completa della migrazione del database e dello schema locale mediante Data Migration Assistant, come descritto nell'articolo [Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) (Eseguire la valutazione di una migrazione di SQL Server)
-- Scaricare e installare il modulo AzureRM.DataMigration da PowerShell Gallery usando il [cmdlet di PowerShell Install-Module](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)
-- Le credenziali utilizzate per connettersi all'istanza di origine di SQL Server devono avere le autorizzazioni [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
-- Le credenziali utilizzate per connettersi all'istanza del database SQL di Azure di destinazione devono avere l'autorizzazione CONTROL DATABASE nei database SQL di Azure di destinazione.
+- Scaricare e installare il modulo AzureRM.DataMigration dalla tramite PowerShell Gallery bu [cmdlet di PowerShell Install-Module](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)
+- Le credenziali utilizzate per connettersi all'istanza di SQL Server di origine devono avere il [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) autorizzazione.
+- Le credenziali utilizzate per connettersi all'istanza di database SQL di Azure di destinazione è necessario disporre dell'autorizzazione CONTROL DATABASE nel database di Database SQL di Azure di destinazione.
+- Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Accedere alla sottoscrizione di Microsoft Azure
 Seguire le istruzioni riportate nell'articolo [Accedere ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.4.1) per accedere alla sottoscrizione di Azure tramite PowerShell.
-
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Creare un gruppo di risorse per poter creare una macchina virtuale.
@@ -56,7 +55,6 @@ L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nell'a
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
-
 ## <a name="create-an-azure-database-migration-service-instance"></a>Creare un'istanza del Servizio Migrazione del database di Azure 
 È possibile creare una nuova istanza del Servizio Migrazione del database di Azure tramite il cmdlet `New-AzureRmDataMigrationService`. Questo cmdlet si aspetta i parametri obbligatori seguenti:
 - *Nome del gruppo di risorse di Azure*. È possibile usare il comando [New AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.4.1) per creare il gruppo di risorse di Azure come mostrato in precedenza e fornire il suo nome come parametro.
@@ -86,7 +84,7 @@ Dopo aver creato un'istanza del Servizio Migrazione del database di Azure, crear
 - *AuthType*. Il tipo di autenticazione per la connessione, che può essere SqlAuthentication o WindowsAuthentication.
 - Il parametro *TrustServerCertificate* imposta un valore che indica se il canale è crittografato, bypassando l'analisi della catena di certificati per convalidare l'attendibilità. Il valore può essere "true" o "false".
 
-Nell'esempio seguente viene creato l'oggetto informazioni di connessione per un SQL Server di origine denominato MySQLSourceServer mediante l'autenticazione SQL 
+Nell'esempio seguente viene creato l'oggetto di informazioni di connessione per SQL Server denominato MySQLSourceServer utilizzando l'autenticazione sql di origine 
 
 ```powershell
 $sourceConnInfo = New-AzureRmDmsConnInfo -ServerType SQL `
@@ -130,12 +128,10 @@ $project = New-AzureRmDataMigrationProject -ResourceGroupName myResourceGroup `
 ```
 
 ## <a name="create-and-start-a-migration-task"></a>Creare e avviare un'attività di migrazione
-
 Infine creare e avviare l'attività di migrazione del database di Azure. L'attività di migrazione del database di Azure richiede informazioni sulle credenziali di connessione sia per l'origine che per la destinazione e l'elenco delle tabelle di database da migrare, oltre alle informazioni già fornite con il progetto creato come prerequisito. 
 
 ### <a name="create-credential-parameters-for-source-and-target"></a>Creare i parametri delle credenziali per l'origine e la destinazione
-
-Le credenziali di sicurezza della connessione possono essere create come oggetto [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0). 
+Le credenziali di sicurezza di connessione possono essere create come un [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) oggetto. 
 
 L'esempio seguente illustra la creazione di oggetti *PSCredential* per le connessioni sia di origine che di destinazione fornendo le password come variabili stringa *$sourcePassword* e *$ targetPassword*. 
 
@@ -200,11 +196,11 @@ $migTask = New-AzureRmDataMigrationTask -TaskType MigrateSqlServerSqlDb `
 È possibile monitorare l'attività di migrazione in esecuzione eseguendo query sulla proprietà di stato dell'attività, come illustrato nell'esempio seguente:
 
 ```powershell
-if (($task.Properties.State -eq "Running") -or ($task.Properties.State -eq "Queued"))
+if (($mytask.ProjectTask.Properties.State -eq "Running") -or ($mytask.ProjectTask.Properties.State -eq "Queued"))
 {
   write-host "migration task running"
 }
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Controllare le indicazioni di migrazione nella [Microsoft Database Migration Guide](https://datamigration.microsoft.com/) (Guida di Microsoft alla migrazione di database)
+- Controllare le indicazioni di migrazione in Microsoft [Guida alla migrazione di Database](https://datamigration.microsoft.com/).

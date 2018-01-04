@@ -10,11 +10,11 @@ ms.service: mysql
 ms.topic: tutorial
 ms.date: 11/03/2017
 ms.custom: mvc
-ms.openlocfilehash: a7f38484e000b05a57cad9bc95abb255414d0162
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: HT
+ms.openlocfilehash: 9e3b498aa28a1075c8ed65ea698df955824b9893
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Progettare il primo database di Azure per il database MySQL
 Il database di Azure per MySQL è un servizio gestito che consente di eseguire, gestire e scalare dei database MySQL a disponibilità elevata nel cloud. Tramite il portale di Azure, è possibile gestire facilmente il server e progettare un database.
@@ -33,8 +33,8 @@ In questa esercitazione si userà il portale di Azure per imparare a:
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 Aprire il Web browser preferito e visitare il [portale di Microsoft Azure](https://portal.azure.com/). Immettere le credenziali per accedere al portale. La visualizzazione predefinita è il dashboard del servizio.
 
-## <a name="create-an-azure-database-for-mysql-server"></a>Creare un database di Azure per il server MySQL
-Verrà creato un database di Azure per MySQL con un set definito di [risorse di calcolo e di archiviazione](./concepts-compute-unit-and-storage.md). Il server viene creato all'interno di un [gruppo di risorse di Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+## <a name="create-an-azure-database-for-mysql-server"></a>Creare un'istanza di Database di Azure per il server MySQL
+Verrà creato un database di Azure per MySQL con un set definito di [risorse di calcolo e di archiviazione](./concepts-compute-unit-and-storage.md). Il server viene creato all'interno di un [gruppo di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 1. Passare a **database** > **Database di Azure per MySQL**. Se non si trova MySQL Server nella categoria **Database**, fare clic su **Visualizza tutto** per mostrare tutti i servizi di database disponibili. È possibile anche digitare **Database di Azure per MySQL** nella casella di ricerca per trovare rapidamente il servizio.
 ![2-1 Passare a MySQL](./media/tutorial-design-database-using-portal/2_1-Navigate-to-MySQL.png)
@@ -48,10 +48,10 @@ Nel nostro esempio compilare il modulo Database di Azure per MySQL con le inform
 | *Server name* (Nome server) | myserver4demo  | Il nome del server deve essere univoco a livello globale. |
 | *Sottoscrizione* | mysubscription | Selezionare la sottoscrizione dall'elenco a discesa. |
 | *Gruppo di risorse* | myresourcegroup | Creare un gruppo di risorse o usarne uno esistente. |
-| *Nome di accesso amministratore server* | myadmin | Configurare il nome dell'account amministratore. |
+| *Accesso amministratore server* | myadmin | Configurare il nome dell'account amministratore. |
 | *Password* |  | Impostare una password complessa per l'account amministratore. |
 | *Conferma password* |  | Confermare la password dell'account amministratore. |
-| *Posizione* |  | Selezionare un'area disponibile. |
+| *Località* |  | Selezionare un'area disponibile. |
 | *Versione* | 5.7 | Scegliere la versione più recente. |
 | *Configura prestazioni* | Base con 50 unità di calcolo, 50 GB  | Scegliere **Piano tariffario**, **Unità di calcolo**, **Archiviazione (GB)** e quindi fare clic su **OK**. |
 | *Aggiungi al dashboard* | Controllo | È consigliabile selezionare questa casella per trovare facilmente il server in un secondo momento. |
@@ -110,7 +110,7 @@ CREATE TABLE inventory (
 ```
 
 ## <a name="load-data-into-the-tables"></a>Caricare i dati nelle tabelle
-Dopo aver creato la tabella, inserirvi alcuni dati. Nella finestra del prompt dei comandi aperta, eseguire la query seguente per inserire alcune righe di dati.
+Dopo aver creato una tabella, inserire alcuni dati. Nella finestra del prompt dei comandi aperta, eseguire la query seguente per inserire alcune righe di dati.
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);

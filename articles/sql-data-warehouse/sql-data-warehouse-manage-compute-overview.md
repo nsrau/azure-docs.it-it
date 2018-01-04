@@ -16,10 +16,10 @@ ms.custom: manage
 ms.date: 3/23/2017
 ms.author: elbutter
 ms.openlocfilehash: 0d0d3b94fb50155ce0579d32e8ff78a47b9e3589
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Gestire la potenza di calcolo in Azure SQL Data Warehouse (Panoramica)
 > [!div class="op_single_selector"]
@@ -131,7 +131,7 @@ Raccomandazioni sul momento più indicato per il ridimensionamento delle DWU:
 
 <a name="pause-compute-bk"></a>
 
-## <a name="pause-compute"></a>Sospendere il calcolo
+## <a name="pause-compute"></a>Sospendere le risorse di calcolo
 [!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
 Per sospendere un database, usare uno di questi metodi singoli.

@@ -5,7 +5,7 @@ keywords: connessione SSH rifiutata,errore SSH,SSH Azure,connessione SSH non riu
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
@@ -13,14 +13,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: support-article
-ms.date: 07/06/2017
+ms.topic: article
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 9ccdb3fbca21264065eeb1c4e46314c62af4c2e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 82b2bcf5b05288888714339af15ff2796d9660bd
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Procedura dettagliata di risoluzione dei problemi di connessione SSH a una macchina virtuale Linux in Azure
 Se il client SSH non riesce a raggiungere il servizio SSH nella VM, i motivi possono essere molti. Se è stata eseguita la [procedura generica di risoluzione dei problemi SSH](troubleshoot-ssh-connection.md), per risolvere il problema di connessione è necessario ricorrere una procedura dettagliata. Questo articolo descrive i passaggi dettagliati per individuare e risolvere gli eventuali errori della connessione SSH.
@@ -39,14 +39,14 @@ I passaggi seguenti sono utili per isolare l'origine dell'errore e individuare l
 
 2. Selezionare **Impostazioni** per esaminare gli endpoint, gli indirizzi IP, i gruppi di sicurezza di rete e altre impostazioni.
 
-   La macchina virtuale deve disporre di un endpoint definito per il traffico SSH che è possibile visualizzare in **Endpoint** o in **[Gruppo di sicurezza di rete](../../virtual-network/virtual-networks-nsg.md)**. Gli endpoint nelle VM create tramite Resource Manager vengono archiviati in un gruppo di sicurezza di rete. Verificare anche che al gruppo di sicurezza di rete siano state applicate le regole e che nella subnet sia fatto riferimento ad esse.
+   La macchina virtuale deve disporre di un endpoint definito per il traffico SSH che è possibile visualizzare in **Endpoint** o in **[Gruppo di sicurezza di rete](../../virtual-network/virtual-networks-nsg.md)**. Gli endpoint nelle VM create tramite Resource Manager vengono archiviati in un gruppo di sicurezza di rete. Verificare che le regole sono state applicate al gruppo di sicurezza di rete e vengono fatto riferimento nella subnet.
 
-Per verificare la connettività di rete, controllare gli endpoint configurati e determinare se è possibile raggiungere la macchina virtuale tramite un altro protocollo, ad esempio HTTP o un altro servizio.
+Per verificare la connettività di rete, controllare gli endpoint configurati e se è possibile connettersi alla macchina virtuale tramite un altro protocollo, ad esempio HTTP o un altro servizio.
 
 Dopo questi passaggi, tentare nuovamente la connessione SSH.
 
 ## <a name="find-the-source-of-the-issue"></a>Individuare l'origine del problema
-L'impossibilità per il client SSH nel computer in uso di raggiungere il servizio SSH nella macchina virtuale di Azure può essere dovuta problemi o errori di configurazione nelle origini seguenti:
+Il client SSH nel computer in uso potrebbe non riuscire a connettersi al servizio SSH nella macchina virtuale di Azure a causa di problemi o errori di configurazione nelle aree seguenti:
 
 * [Computer client SSH](#source-1-ssh-client-computer)
 * [Dispositivo periferico dell'organizzazione](#source-2-organization-edge-device)
@@ -76,11 +76,11 @@ Se si usa l'autenticazione del certificato, verificare la presenza delle seguent
 * Chmod 644 ~/.ssh/known_hosts (contiene gli host con i quali è stabilita una connessione SSH)
 
 ## <a name="source-2-organization-edge-device"></a>Origine 2: dispositivo periferico dell'organizzazione
-Per escludere il dispositivo periferico dell'organizzazione come origine dell'errore, verificare che un computer connesso direttamente a Internet sia in grado di stabilire connessioni SSH alla macchina virtuale di Azure. Se si accede alla VM tramite una connessione Azure ExpressRoute o VPN da sito a sito, passare al paragrafo [Origine 4: gruppi di sicurezza di rete](#nsg).
+Per eliminare il dispositivo perimetrale dell'organizzazione come origine dell'errore, verificare che un computer connesso direttamente a Internet è possibile rendere le connessioni SSH per la macchina virtuale di Azure. Se si accede alla VM tramite una connessione Azure ExpressRoute o VPN da sito a sito, passare al paragrafo [Origine 4: gruppi di sicurezza di rete](#nsg).
 
 ![Diagramma che evidenzia il dispositivo periferico dell'organizzazione](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
-Se non si dispone di un computer connesso direttamente a Internet, creare e usare una nuova VM di Azure nel relativo gruppo di risorse o servizio cloud. Per altre informazioni, vedere [Creare una macchina virtuale che esegue Linux in Azure](quick-create-cli.md). Dopo aver completato i test, eliminare il gruppo di risorse o la VM e il servizio cloud.
+Se non si dispone di un computer che è direttamente connesso a Internet, creare una nuova macchina virtuale di Azure nel proprio gruppo di risorse o servizio cloud e utilizzare tale nuova macchina virtuale. Per altre informazioni, vedere [Creare una macchina virtuale che esegue Linux in Azure](quick-create-cli.md). Dopo aver completato i test, eliminare il gruppo di risorse o la VM e il servizio cloud.
 
 Se è possibile creare una connessione SSH con un computer connesso direttamente a Internet, controllare se nel dispositivo periferico dell'organizzazione si verificano le condizioni seguenti:
 
@@ -94,7 +94,7 @@ Rivolgersi all'amministratore di rete per correggere le impostazioni dei disposi
 > [!NOTE]
 > Questa origine si applica solo alle VM create con il modello di distribuzione classica. Per le VM create con Resource Manager, passare a [Origine 4: gruppi di sicurezza di rete](#nsg).
 
-Per escludere l'endpoint di servizio cloud e l'elenco di controllo di accesso (ACL) come possibile origine dell'errore, verificare che un'altra macchina virtuale di Azure che si trova nella stessa rete virtuale sia in grado di stabilire connessioni SSH alla macchina virtuale di Azure.
+Per eliminare l'endpoint del servizio cloud e l'ACL come origine dell'errore, verificare che un'altra macchina virtuale di Azure nella stessa rete virtuale è possibile connettersi tramite SSH.
 
 ![Diagramma che evidenzia l'endpoint del servizio cloud e l'elenco di controllo di accesso](./media/detailed-troubleshoot-ssh-connection/ssh-tshoot4.png)
 
@@ -113,7 +113,7 @@ Per escludere l'endpoint come origine del problema, rimuovere l'endpoint corrent
 I gruppi di sicurezza di rete consentono di avere un controllo più granulare del traffico in entrata e in uscita consentito. È possibile creare regole che si estendono alle subnet e ai servizi cloud in una rete virtuale di Azure. Controllare le regole del gruppo di sicurezza di rete per garantire che sia consentito il traffico SSH da Internet.
 Per altre informazioni, vedere [Informazioni sui gruppi di sicurezza di rete](../../virtual-network/virtual-networks-nsg.md).
 
-È anche possibile usare la funzione di verifica IP per convalidare la configurazione del gruppo di sicurezza di rete. Per altre informazioni, vedere [Panoramica del monitoraggio della rete in Azure](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+È anche possibile usare la funzione di verifica IP per convalidare la configurazione del gruppo di sicurezza di rete. Per altre informazioni, vedere [Panoramica del monitoraggio della rete in Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="source-5-linux-based-azure-virtual-machine"></a>Origine 5: macchina virtuale di Azure basata su Linux
 L'ultima origine di possibili problemi corrisponde alla stessa macchina virtuale di Azure.

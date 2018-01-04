@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: davidmu
-ms.openlocfilehash: f2797864d7f0bda35d4d84ee78b157879451f889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f0b085ebf922cd5b14acd91bf86b9262a6921e9e
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-application-gateway-by-using-path-based-routing"></a>Creare un gateway applicazione con il routing basato sul percorso
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](application-gateway-create-url-route-portal.md)
+> * [Azure portal](application-gateway-create-url-route-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-create-url-route-arm-ps.md)
 > * [Interfaccia della riga di comando di Azure 2.0](application-gateway-create-url-route-cli.md)
 
@@ -55,7 +55,7 @@ Le richieste per http://contoso.com/image* vengono instradate al pool di server 
 
 ## <a name="create-an-application-gateway"></a>Creare un gateway applicazione
 
-La differenza tra l'uso del portale di Azure classico e di Azure Resource Manager risiede nell'ordine in cui vengono creati il gateway applicazione e gli elementi da configurare.
+La differenza tra il modello di distribuzione classica e Gestione risorse di Azure è l'ordine in cui è stato creato il gateway applicazione e gli elementi che devono essere configurate.
 
 Con Resource Manager, tutti gli elementi che costituiscono un gateway applicazione vengono configurati singolarmente e quindi combinati per creare la risorsa del gateway applicazione.
 
@@ -90,7 +90,7 @@ Get-AzureRmSubscription
 
 ### <a name="step-3"></a>Passaggio 3
 
-Scegliere le sottoscrizioni ad Azure da usare. <BR>
+Scegliere quali sottoscrizioni Azure usare. <BR>
 
 ```powershell
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"

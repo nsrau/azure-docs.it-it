@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bafbd43d65a0f46f87a13cea4a2a6299d3bf43ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0d3811a9d59e388a1ceaacdefebc17afeda5b07d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Esportare i certificati dell'emulatore di Azure Cosmos DB per l'uso con Java, Python e Node.js
 
@@ -87,11 +87,11 @@ Dopo l'installazione del certificato SSL "CosmosDBEmulatorCertificate", l'applic
 
 ## <a name="how-to-use-the-certificate-in-python"></a>Come usare il certificato in Python
 
-Per impostazione predefinita, [Python SDK (2.0.0 o versione successiva)](documentdb-sdk-python.md) per l'API di DocumentDB non prova a usare il certificato SSL quando si connette all'emulatore locale. Se tuttavia si vuole usare la convalida SSL, è possibile seguire gli esempi della documentazione sui [wrapper per socket di Python](https://docs.python.org/2/library/ssl.html).
+Per impostazione predefinita il [SDK(version 2.0.0 or higher) Python](sql-api-sdk-python.md) per l'API di SQL non tenta di utilizzare il certificato SSL per la connessione all'emulatore locale. Se tuttavia si vuole usare la convalida SSL, è possibile seguire gli esempi della documentazione sui [wrapper per socket di Python](https://docs.python.org/2/library/ssl.html).
 
 ## <a name="how-to-use-the-certificate-in-nodejs"></a>Come usare il certificato in Node.js
 
-Per impostazione predefinita, [Node.js SDK (1.10.1 o versione successiva)](documentdb-sdk-node.md) per l'API di DocumentDB non prova a usare il certificato SSL quando si connette all'emulatore locale. Se tuttavia si vuole usare la convalida SSL, è possibile seguire gli esempi nella [documentazione di Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+Per impostazione predefinita il [Node.js SDK(version 1.10.1 or higher)](sql-api-sdk-node.md) per l'API di SQL non tenta di utilizzare il certificato SSL per la connessione all'emulatore locale. Se tuttavia si vuole usare la convalida SSL, è possibile seguire gli esempi nella [documentazione di Node.js](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

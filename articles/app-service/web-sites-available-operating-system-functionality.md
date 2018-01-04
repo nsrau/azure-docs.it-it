@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: 18ff5c81d0aa5e8a28ed8a11dad19811d2fa1d2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a5f022eca8f901388c9cf003f3320db1b9c49e6a
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funzionalità del sistema operativo in Servizio app di Azure
 Questo articolo descrive le funzionalità di base del sistema operativo disponibili in tutte le app in esecuzione in [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Queste funzionalità includono l'accesso a file, rete e registro, nonché log ed eventi di diagnostica. 
@@ -27,6 +27,8 @@ Questo articolo descrive le funzionalità di base del sistema operativo disponib
 
 ## <a name="app-service-plan-tiers"></a>Livelli del piano del servizio app di Azure
 Il servizio app esegue app di clienti in un ambiente host multi-tenant. Le app distribuite nei livelli **Gratuito** e **Condiviso** vengono eseguite in processi di lavoro su macchine virtuali condivise, mentre le app distribuite nei livelli **Standard** e **Premium** vengono eseguite su macchine virtuali dedicate in modo specifico per le app associate a un singolo cliente.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Poiché il servizio app supporta una perfetta scalabilità tra i diversi livelli, la configurazione della sicurezza applicata per le app del servizio app è la stessa. Questo garantisce un comportamento sempre coerente delle app, senza eventi imprevisti, quando il piano del servizio app passa da un livello all'altro.
 
@@ -115,7 +117,7 @@ L'accesso in scrittura al registro è bloccato, incluso l'accesso a qualsiasi ch
 [App Web Sandbox di Azure](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox): informazioni aggiornate sull'ambiente di esecuzione del servizio App. Questa pagina è gestita direttamente dal team di sviluppo del servizio App.
 
 > [!NOTE]
-> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare il servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://azure.microsoft.com/try/app-service/), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 

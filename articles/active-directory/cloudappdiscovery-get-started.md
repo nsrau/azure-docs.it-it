@@ -5,7 +5,7 @@ services: active-directory
 keywords: cloud app discovery, gestione delle applicazioni
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 tags: ignite
 ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: 92cafe24fc3a038f2acd68ec21ec845316ef46de
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
-ms.translationtype: HT
+ms.openlocfilehash: 4a0cb1b7793c846f98ae4e89b99b4bda984cd5e4
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Configurare Cloud App Discovery in Azure AD
 
@@ -79,6 +79,7 @@ Per generare correttamente un report di Cloud App Discovery, i log sul traffico 
 * Barracuda - Firewall di app Web (W3C)
 * Blue Coat Proxy SG - Log di accesso (W3C)
 * Punto di controllo
+* FirePOWER ASA Cisco
 * Firewall Cisco ASA (per i firewall Cisco ASA, impostare il livello di informazioni su 6)
 * Cisco IronPort WSA
 * Cisco ScanSafe
@@ -108,24 +109,24 @@ Se il log non è supportato, selezionare **Altro** come **Origine dati** e speci
 
 | Origine dati         | URL dell'app di destinazione | Indirizzo IP dell'app di destinazione | Username | Indirizzo IP di origine | Traffico totale | Byte caricati |
 |-----------------------------------------|----------------|---------------|----------|-----------|---------------|----------------|
-| Barracuda                               | **Sì**        | **Sì**       | **Sì**  | **Sì**   | No            | No             |
-| Blue Coat                               | **Sì**        | No            | **Sì**  | **Sì**   | **Sì**       | **Sì**        |
-| Checkpoint                              | No             | **Sì**       | No       | **Sì**   | No            | No             |
-| Cisco ASA                               | No             | **Sì**       | No       | **Sì**   | **Sì**       | No             |
-| Cisco FWSM                              | No             | **Sì**       | No       | **Sì**   | **Sì**       | No             |
+| Barracuda                               | **Sì**        | **Sì**       | **Sì**  | **Sì**   | No             | No              |
+| Blue Coat                               | **Sì**        | No             | **Sì**  | **Sì**   | **Sì**       | **Sì**        |
+| Checkpoint                              | No              | **Sì**       | No        | **Sì**   | No             | No              |
+| Cisco ASA                               | No              | **Sì**       | No        | **Sì**   | **Sì**       | No              |
+| Cisco FWSM                              | No              | **Sì**       | No        | **Sì**   | **Sì**       | No              |
 | Cisco IronPort WSA                      | **Sì**        | **Sì**       | **Sì**  | **Sì**   | **Sì**       | **Sì**        |
-| Cisco Meraki                            | **Sì**        | **Sì**       | No       | **Sì**   | No            | No             |
+| Cisco Meraki                            | **Sì**        | **Sì**       | No        | **Sì**   | No             | No              |
 | Clavister NGFW (syslog)                 | **Sì**        | **Sì**       | **Sì**  | **Sì**   | **Sì**       | **Sì**        |
-| Dell SonicWALL                          | **Sì**        | **Sì**       | No       | **Sì**   | **Sì**       | **Sì**        |
-| FortiGate                               | No             | **Sì**       | No       | **Sì**   | **Sì**       | **Sì**        |
-| Juniper SRX                             | No             | **Sì**       | No       | **Sì**   | **Sì**       | **Sì**        |
-| Juniper SSG                             | No             | **Sì**       | No       | **Sì**   | **Sì**       | **Sì**        |
-| McAfee SWG                              | **Sì**        | No            | No       | **Sì**   | **Sì**       | **Sì**        |
-| Microsoft Forefront Threat Management Gateway                                  | **Sì**        | No            | **Sì**  | **Sì**   | **Sì**       | **Sì**        |
+| Dell SonicWALL                          | **Sì**        | **Sì**       | No        | **Sì**   | **Sì**       | **Sì**        |
+| FortiGate                               | No              | **Sì**       | No        | **Sì**   | **Sì**       | **Sì**        |
+| Juniper SRX                             | No              | **Sì**       | No        | **Sì**   | **Sì**       | **Sì**        |
+| Juniper SSG                             | No              | **Sì**       | No        | **Sì**   | **Sì**       | **Sì**        |
+| McAfee SWG                              | **Sì**        | No             | No        | **Sì**   | **Sì**       | **Sì**        |
+| Microsoft Forefront Threat Management Gateway                                  | **Sì**        | No             | **Sì**  | **Sì**   | **Sì**       | **Sì**        |
 | Palo Alto Networks                      | **Sì**        | **Sì**       | **Sì**  | **Sì**   | **Sì**       | **Sì**        |
-| Sophos                                  | **Sì**        | **Sì**       | **Sì**  | **Sì**   | **Sì**       | No             |
-| SQUID (comune)                          | **Sì**        | No            | **Sì**  | **Sì**   | No            | **Sì**        |
-| SQUID (nativo)                          | **Sì**        | No            | **Sì**  | **Sì**   | No            | **Sì**        |
+| Sophos                                  | **Sì**        | **Sì**       | **Sì**  | **Sì**   | **Sì**       | No              |
+| SQUID (comune)                          | **Sì**        | No             | **Sì**  | **Sì**   | No             | **Sì**        |
+| SQUID (nativo)                          | **Sì**        | No             | **Sì**  | **Sì**   | No             | **Sì**        |
 | Websense - Report di analisi (CSV)   | **Sì**        | **Sì**       | **Sì**  | **Sì**   | **Sì**       | **Sì**        |
 | Websense - Log attività Internet (CEF)  | **Sì**        | **Sì**       | **Sì**  | **Sì**   | **Sì**       | **Sì**        |
 | Zscaler                                 | **Sì**        | **Sì**       | **Sì**  | **Sì**   | **Sì**       | **Sì**        |

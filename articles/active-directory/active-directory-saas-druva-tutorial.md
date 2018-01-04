@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: ab92b600-1fea-4905-b1c7-ef8e4d8c495c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 52212c44c925598b2c19df1b20eb4e8123f974ba
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: 5be9f384d9e8c0871d26ccb5d35a49e9387ad753
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>Esercitazione: Integrazione di Azure Active Directory con Druva
 
@@ -28,7 +28,7 @@ L'integrazione di Druva con Azure AD offre i vantaggi seguenti:
 
 - È possibile controllare in Azure AD chi può accedere a Druva.
 - È possibile abilitare gli utenti per l'accesso automatico a Druva (Single Sign-On) con i propri account Azure AD.
-- È possibile gestire gli account da una posizione centrale: il portale di Azure.
+- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -36,7 +36,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con Druva, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di Druva abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
@@ -48,7 +48,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Druva dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -98,7 +98,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **Druva** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Collegamento per la configurazione dell'accesso Single Sign-On][4]
+    ![Collegamento Configura accesso Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
@@ -106,13 +106,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 3. Nella sezione **URL e dominio Druva**, se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_druva_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_druva_url.png)
 
     Nella casella di testo **Identificatore** digitare il valore di stringa `druva-cloud`.
     
 4. Selezionare **Mostra impostazioni URL avanzate** se si desidera configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_druva_url1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_druva_url1.png)
     
     Nella casella di testo **URL accesso** digitare l'URL: `https://cloud.druva.com/home`
 
@@ -122,7 +122,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 6. L'applicazione Druva prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli **attributi del token SAML**. 
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_druva_attribute.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_druva_attribute.png)
 
 7. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come indicato nell'immagine precedente ed eseguire i passaggi descritti di seguito:
 
@@ -132,9 +132,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     a. Fare clic su **Aggiungi attributo** per aprire la finestra di dialogo **Aggiungi attributo**.
     
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_attribute_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_attribute_04.png)
     
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_attribute_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_attribute_05.png)
     
     b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
 
@@ -144,11 +144,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 8. Fare clic sul pulsante **Salva** .
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_general_400.png)
 
 9. Nella sezione **Configurazione di Druva** fare clic su **Configura Druva** per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML e l'URL di disconnessione** dalla sezione **Riferimento rapido**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_druva_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/tutorial_druva_configure.png) 
 
 10. In un'altra finestra del Web browser accedere al sito aziendale di Druva come amministratore.
 
@@ -158,7 +158,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 12. Nella finestra di dialogo Single Sign-On Settings seguire questa procedura:
 
-    ![Impostazioni di Single Sign-On](./media/active-directory-saas-druva-tutorial/ic795092.png "Impostazioni di Single Sign-On")
+    ![Single Sign-On Settings](./media/active-directory-saas-druva-tutorial/ic795092.png "Single Sign-On Settings")
     
     a. Nella casella di testo **ID Provider Login URL** incollare il valore di **URL servizio Single Sign-On** copiato dal portale di Azure.
         

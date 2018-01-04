@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 0823cc54731ac1cd7f39de256a899696683375a8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: f5ffbb6c2d699da143e12c51c38cba602f5a8526
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Configurare Mapping dei servizi in Operations Management Suite
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che offrono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
@@ -26,21 +26,21 @@ Mapping dei servizi individua automaticamente i componenti delle applicazioni ne
 Questo articolo descrive in dettaglio come configurare l'elenco dei servizi e il caricamento degli agenti. Per informazioni sull'uso di Mapping dei servizi, vedere [Configurare la soluzione di elenco dei servizi in Operations Management Suite (OMS)](operations-management-suite-service-map.md).
 
 ## <a name="dependency-agent-downloads"></a>Download di Dependency Agent
-| File | OS | Versione | SHA-256 |
+| File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.2.1 | CBF050BFEA78B56A138CB1313DE0E75ABC30187C1B96EF9B4CBDEDD9EDFF6A17 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.2.1 | F4560E951F6C57A7466C82052BAFBF9515DC80DDA794ED8FB4DB02CEBA743277 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.3.0 | 1F5261CAAF6C8DF4E03E4927DA918B3461B40B41C6BF5845803878D7CF975693 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.3.0 | 7BADFF2411899114F0214766160E4E871A2462DC137141CEEDEFAF528F428ADD  |
 
 
 ## <a name="connected-sources"></a>Origini connesse
 Elenco dei servizi ottiene i dati da Microsoft Dependency Agent, che dipende dall'agente OMS per le connessioni a Operations Management Suite. È quindi necessario che OMS Agent venga installato e configurato nel server prima di Microsoft Dependency Agent. La tabella seguente descrive le origini connesse che sono supportate dalla soluzione di Mapping dei servizi.
 
-| Origine connessa | Supportato | Descrizione |
+| Origine connessa | Supportato | DESCRIZIONE |
 |:--|:--|:--|
-| Agenti di Windows | Sì | L'elenco dei servizi analizza e raccoglie i dati dai computer agente Windows. <br><br>Oltre a [OMS Agent](../log-analytics/log-analytics-windows-agents.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](#supported-operating-systems). |
+| Agenti di Windows | Sì | L'elenco dei servizi analizza e raccoglie i dati dai computer agente Windows. <br><br>Oltre a [OMS Agent](../log-analytics/log-analytics-windows-agent.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](#supported-operating-systems). |
 | Agenti Linux | Sì | L'elenco dei servizi analizza e raccoglie i dati dai computer agente Linux. <br><br>Oltre a [OMS Agent](../log-analytics/log-analytics-linux-agents.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](#supported-operating-systems). |
 | Gruppo di gestione di System Center Operations Manager | Sì | Mapping dei servizi analizza e raccoglie i dati dagli agenti Windows e Linux in un [gruppo di gestione System Center Operations Manager](../log-analytics/log-analytics-om-agents.md) connesso. <br><br>È necessaria una connessione diretta dal computer agente System Center Operations Manager a Operations Management Suite. I dati vengono inoltrati dal gruppo di gestione al repository Operations Management Suite.|
-| Account di archiviazione di Azure | No | Mapping dei servizi raccoglie i dati dai computer agente, pertanto non presenta dati che possano essere raccolti dall'Archiviazione di Azure. |
+| Account di archiviazione di Azure | No  | Mapping dei servizi raccoglie i dati dai computer agente, pertanto non presenta dati che possano essere raccolti dall'Archiviazione di Azure. |
 
 Mapping dei servizi supporta solo piattaforme a 64 bit.
 
@@ -74,7 +74,7 @@ Dependency Agent viene installato nei computer Windows con InstallDependencyAgen
 
 Per installare Dependency Agent in ogni computer Windows, seguire questa procedura:
 
-1.  Installare l'agente OMS seguendo le istruzioni in [Connettere computer Windows al servizio Log Analytics in Azure](../log-analytics/log-analytics-windows-agents.md).
+1.  Installare l'agente OMS seguendo le istruzioni in [Connettere computer Windows al servizio Log Analytics in Azure](../log-analytics/log-analytics-windows-agent.md).
 2.  Scaricare l'agente Windows ed eseguirlo usando il comando seguente: <br>`InstallDependencyAgent-Windows.exe`
 3.  Seguire la procedura guidata per installare l'agente.
 4.  Se l'agente di dipendenza non si avvia, controllare i registri per vedere le informazioni dettagliate sull'errore. Per gli agenti Windows, la directory di log è %Programfiles%\Microsoft Dependency Agent\logs. 
@@ -84,7 +84,7 @@ Usare le opzioni della tabella seguente per eseguire l'installazione dalla riga 
 
     InstallDependencyAgent-Windows.exe /?
 
-| Flag | Descrizione |
+| Flag | DESCRIZIONE |
 |:--|:--|
 | /? | Ottenere un elenco delle opzioni della riga di comando. |
 | /S | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
@@ -106,7 +106,7 @@ Per vedere un elenco dei flag di installazione eseguire il programma di installa
 
     InstallDependencyAgent-Linux64.bin -help
 
-| Flag | Descrizione |
+| Flag | DESCRIZIONE |
 |:--|:--|
 | -help | Ottenere un elenco delle opzioni della riga di comando. |
 | -s | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
@@ -237,7 +237,7 @@ Ubuntu:
 ```
 sudo dpkg --purge dependency-agent
 ```
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 Se si verificano problemi di installazione o esecuzione di Mapping dei servizi, questa sezione può essere d'aiuto. Se si non riesce a risolvere il problema, contattare il supporto tecnico Microsoft.
 
 ### <a name="dependency-agent-installation-problems"></a>Problemi di installazione di Dependency Agent
@@ -254,7 +254,7 @@ Potrebbe essere utile per l'utente installare personalmente prima [la versione p
 
 La tabella seguente elenca i codici e le risoluzioni consigliate.
 
-| Codice | Descrizione | Risoluzione |
+| Codice | DESCRIZIONE | Risoluzione |
 |:--|:--|:--|
 | 0x17 | Il programma di installazione della libreria richiede un aggiornamento di Windows che non è stato installato. | Cercare nel log del programma di installazione della libreria più recente.<br><br>Se il riferimento a "Windows8.1-KB2999226-x64.msu" è seguito da una riga "Errore 0x80240017: impossibile eseguire il pacchetto MSU", significa che non si dispone dei prerequisiti necessari per installare KB2999226. Seguire le istruzioni riportate nella sezione relativa ai prerequisiti in [Universal C Runtime in Windows](https://support.microsoft.com/kb/2999226). Potrebbe essere necessario eseguire Windows Update e riavviare più volte per installare i prerequisiti.<br><br>Eseguire nuovamente il programma di installazione di Microsoft Dependency Agent. |
 
@@ -262,8 +262,8 @@ La tabella seguente elenca i codici e le risoluzioni consigliate.
 #### <a name="server-doesnt-appear-in-service-map"></a>Il server non viene visualizzato in Mapping dei servizi
 Se l'installazione di Dependency Agent è stata completata correttamente, ma nella soluzione Elenco dei servizi non viene visualizzato il server:
 * Dependency Agent è stato installato correttamente? È possibile verificarlo controllando se il servizio è installato ed è in esecuzione.<br><br>
-**Windows**: cercare il servizio denominato "Microsoft Dependency Agent".<br>
-**Linux**: cercare il processo in esecuzione "microsoft-dependency-agent".
+**Windows**: cercare il servizio denominato "Microsoft Dependency agente".<br>
+**Linux**: cercare la processo in esecuzione "microsoft dependency agent."
 
 * L'utente dispone del [piano tariffario gratuito di Log Analytics/Operations Management Suite](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? Il piano gratuito consente di avere fino a cinque server univoci dell'Elenco dei servizi. Tutti i server successivi non verranno visualizzati nell'Elenco dei servizi, anche se i primi cinque non inviano più dati.
 
@@ -298,7 +298,7 @@ Le sezioni seguenti elencano i sistemi operativi supportati per l'agente di dipe
 - Windows Server 2016
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2 SP1,
+- Windows Server 2008 R2 SP1
 
 ### <a name="windows-desktop"></a>Desktop di Windows
 - Windows 10
@@ -350,8 +350,8 @@ Le sezioni seguenti elencano i sistemi operativi supportati per l'agente di dipe
 
 | Versione del sistema operativo | Versione del kernel |
 |:--|:--|
-| 16.04 | 4.4.0-98 |
-| 14.04 | 3.13.0-135<br>4.4.0-98 |
+| 16.04 | 4.4.0-103<br>4.11.0-1016 |
+| 14.04 | 3.13.0-137<br>4.4.0-103 |
 
 ### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux con Unbreakable Enterprise Kernel
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
@@ -367,8 +367,6 @@ Le sezioni seguenti elencano i sistemi operativi supportati per l'agente di dipe
 
 | Versione del sistema operativo | Versione del kernel
 |:--|:--|
-| 5.8 | Oracle 2.6.32-300 (UEK R1) |
-| 5.9 | Oracle 2.6.39-300 (UEK R2) |
 | 5.10 | Oracle 2.6.39-400 (UEK R2) |
 | 5.11 | Oracle 2.6.39-400 (UEK R2) |
 
@@ -377,16 +375,10 @@ Le sezioni seguenti elencano i sistemi operativi supportati per l'agente di dipe
 #### <a name="suse-linux-11"></a>SUSE Linux 11
 | Versione del sistema operativo | Versione del kernel
 |:--|:--|
-| 11 | 2.6.27 |
-| 11 SP1 | 2.6.32 |
-| 11 SP2 | 3.0.13 |
-| 11 SP3 | 3.0.76 |
-| 11 SP4 | 3.0.101 |
+| 11 SP2 | 3.0.101-0.7 |
+| 11 SP3 | 3.0.101-0.47 |
+| 11 SP4 | 3.0.101-65 |
 
-#### <a name="suse-linux-10"></a>SUSE Linux 10
-| Versione del sistema operativo | Versione del kernel
-|:--|:--|
-| 10 SP4 | 2.6.16.60 |
 
 ## <a name="diagnostic-and-usage-data"></a>Dati di diagnostica e di utilizzo
 Microsoft raccoglie automaticamente i dati di utilizzo e prestazioni tramite l'uso del servizio Mapping dei servizi da parte dell'utente. Microsoft usa questi dati per offrire e migliorare la qualità, la sicurezza e l'integrità del servizio Mapping dei servizi. I dati includono informazioni sulla configurazione del software, ad esempio sistema operativo e versione. Includono anche l'indirizzo IP, il nome DNS e il nome della workstation per offrire funzionalità di risoluzione dei problemi accurate ed efficienti. Non vengono raccolti nomi, indirizzi o altre informazioni di contatto.

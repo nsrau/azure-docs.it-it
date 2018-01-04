@@ -5,7 +5,7 @@ services: active-directory
 keywords: enterprise state roaming, cloud windows
 documentationcenter: 
 author: tanning
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 5082ed8d2f41e72fa979b978e2ac0b0840fdcdac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 21d21c945b622c1695d8856c4baff02c098218cf
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Riferimento alle impostazioni di roaming di Windows 10
 Di seguito è riportato un elenco completo di tutte le impostazioni di cui verrà effettuato il roaming o il backup in Windows 10. 
@@ -29,10 +29,10 @@ La tabella seguente contiene un riepilogo dei dispositivi e dei tipi di account 
 
 | Tipo di account e operazione | Desktop | Mobile |
 | --- | --- | --- |
-| Azure Active Directory: sincronizzazione |Sì |No |
-| Azure Active Directory: backup e ripristino |No |No |
+| Azure Active Directory: sincronizzazione |Sì |No  |
+| Azure Active Directory: backup e ripristino |No  |No  |
 | Account Microsoft: sincronizzazione |Sì |Sì |
-| Account Microsoft: backup e ripristino |No |Sì |
+| Account Microsoft: backup e ripristino |No  |Sì |
 
 ## <a name="what-is-backup"></a>Cosa si intende per backup
 Le impostazioni di Windows vengono in genere sincronizzate per impostazione predefinita. Di alcune impostazioni, come ad esempio l'elenco delle applicazioni installate in un dispositivo, viene tuttavia eseguito solo il backup. Al momento il backup è disponibile solo per i dispositivi mobili e non è fruibile dagli utenti del servizio Enterprise State Roaming. Il backup usa un account Microsoft e archivia i dati delle impostazioni e delle applicazioni in OneDrive. Se un utente disabilita la sincronizzazione nel dispositivo usando l'app Impostazioni, i dati dell'applicazione che normalmente vengono sincronizzati diventano solo di backup. L'accesso ai dati di backup è possibile solo con l'operazione di ripristino durante la prima esecuzione di un nuovo dispositivo. I backup possono essere disattivati con le impostazioni del dispositivo e possono essere gestiti ed eliminati tramite l'account OneDrive dell'utente.
@@ -59,7 +59,7 @@ Nella tabella seguente, la voce Altre nella colonna Gruppo di impostazioni fa ri
 La voce Interne nella colonna Gruppo di impostazioni fa riferimento alle impostazioni e alle app che possono essere disabilitate soltanto tramite la sincronizzazione dall'interno dell'app stessa o disabilitando la sincronizzazione per l'intero dispositivo con la gestione dei dispositivi mobili (software MDM) o le impostazioni dei Criteri di gruppo.
 Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non appartengono a un gruppo.
 
-| Impostazioni | Desktop | Mobile | Gruppo |
+| Impostazioni | Desktop | Mobile | Group |
 | --- | --- | --- | --- |
 | **Account**: immagine dell'account |sync |X |Tema |
 | **Account**: altre impostazioni account |X |X | |
@@ -69,18 +69,18 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Bluetooth**: tutte le impostazioni Bluetooth |X |X | |
 | **Prompt dei comandi**: impostazioni dei valori predefiniti del prompt dei comandi |sync |X | |
 | **Credenziali**: Casella di sicurezza delle credenziali |sync |sync |password |
-| **Data, ora e opzioni internazionali**: ora automatica (sincronizzazione con l'ora Internet) |sync |sync |Lingua |
-| **Data, ora e opzioni internazionali**: formato a 24 ore |sync |X |Lingua |
-| **Data, ora e opzioni internazionali**: data e ora |sync |X |Lingua |
-| **Data, ora e opzioni internazionali**: fuso orario | |X |Lingua |
-| **Data, ora e opzioni internazionali**: ora legale |sync |X |Lingua |
-| **Data, ora e opzioni internazionali**: paese/area geografica |sync |X |Lingua |
-| **Data, ora e opzioni internazionali**: primo giorno della settimana |sync |X |Lingua |
-| **Data, ora e opzioni internazionali**: formato regionale (impostazioni locali) |sync |X |Lingua |
-| **Data, ora e opzioni internazionali**: data breve |sync |X |Lingua |
-| **Data, ora e opzioni internazionali**: data estesa |sync |X |Lingua |
+| **Data, ora e opzioni internazionali**: ora automatica (sincronizzazione con l'ora Internet) |sync |sync |Linguaggio |
+| **Data, ora e opzioni internazionali**: formato a 24 ore |sync |X |Linguaggio |
+| **Data, ora e opzioni internazionali**: data e ora |sync |X |Linguaggio |
+| **Data, ora e opzioni internazionali**: fuso orario | |X |Linguaggio |
+| **Data, ora e opzioni internazionali**: ora legale |sync |X |Linguaggio |
+| **Data, ora e opzioni internazionali**: paese/area geografica |sync |X |Linguaggio |
+| **Data, ora e opzioni internazionali**: primo giorno della settimana |sync |X |Linguaggio |
+| **Data, ora e opzioni internazionali**: formato regionale (impostazioni locali) |sync |X |Linguaggio |
+| **Data, ora e opzioni internazionali**: data breve |sync |X |Linguaggio |
+| **Data, ora e opzioni internazionali**: data estesa |sync |X |Linguaggio |
 | **Data, ora e opzioni internazionali**: ora breve |sync |X |Lingua |
-| **Data, ora e opzioni internazionali**: ora estesa |sync |X |Lingua |
+| **Data, ora e opzioni internazionali**: ora estesa |sync |X |Linguaggio |
 | **Personalizzazione del desktop**: tema del desktop (sfondo, colore di sistema, segnali acustici sistema predefiniti, screen saver) |sync |X |Tema |
 | **Personalizzazione del desktop**: sfondo presentazione |sync |X |Tema |
 | **Personalizzazione del desktop**: impostazioni della barra delle applicazioni (posizione, Nascondi automaticamente e così via) |sync |X |Tema |
@@ -115,27 +115,27 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Tastiera**: Attiva Tasti permanenti (disabilitati per impostazione predefinita) |sync |X |Accessibilità |
 | **Tastiera**: Attiva Filtro tasti (disabilitato per impostazione predefinita) |sync |X |Accessibilità |
 | **Tastiera**: Attiva Segnali acustici (disabilitati per impostazione predefinita) |sync |X |Accessibilità |
-| **Internet Explorer**: cinese (QWERTY), abilitazione dell'apprendimento automatico della lingua del dominio |sync |X |Lingua |
-| **Lingua**: cinese (QWERTY), abilitazione della classificazione dinamica dei candidati |sync |X |Lingua |
-| **Lingua**: cinese (QWERTY), set di caratteri cinese semplificato |sync |X |Lingua |
-| **Lingua**: cinese (QWERTY), set di caratteri cinese tradizionale |sync |X |Lingua |
-| **Lingua**: cinese (QWERTY), Pinyin fuzzy |sync |backup |Lingua |
-| **Lingua**: cinese (QWERTY), coppie fuzzy |sync |backup |Lingua |
-| **Lingua**: cinese (QWERTY), Pinyin completo |sync |X |Lingua |
-| **Lingua**: cinese (QWERTY), Pinyin doppio |sync |X |Lingua |
-| **Lingua**: cinese (QWERTY), correzione automatica lettura |sync |X |Lingua |
-| **Lingua**: cinese (QWERTY), cambio tastiera C/E, MAIUSC |sync |X |Lingua |
-| **Lingua**: cinese (QWERTY), cambio tastiera C/E, CTRL |sync |X |Lingua |
-| **Lingua**: cinese (WUBI), Modalità di input a singolo carattere |sync |X |Lingua |
+| **Internet Explorer**: cinese (QWERTY), abilitazione dell'apprendimento automatico della lingua del dominio |sync |X |Linguaggio |
+| **Lingua**: cinese (QWERTY), abilitazione della classificazione dinamica dei candidati |sync |X |Linguaggio |
+| **Lingua**: cinese (QWERTY), set di caratteri cinese semplificato |sync |X |Linguaggio |
+| **Lingua**: cinese (QWERTY), set di caratteri cinese tradizionale |sync |X |Linguaggio |
+| **Lingua**: cinese (QWERTY), Pinyin fuzzy |sync |backup |Linguaggio |
+| **Lingua**: cinese (QWERTY), coppie fuzzy |sync |backup |Linguaggio |
+| **Lingua**: cinese (QWERTY), Pinyin completo |sync |X |Linguaggio |
+| **Lingua**: cinese (QWERTY), Pinyin doppio |sync |X |Linguaggio |
+| **Lingua**: cinese (QWERTY), correzione automatica lettura |sync |X |Linguaggio |
+| **Lingua**: cinese (QWERTY), cambio tastiera C/E, MAIUSC |sync |X |Linguaggio |
+| **Lingua**: cinese (QWERTY), cambio tastiera C/E, CTRL |sync |X |Linguaggio |
+| **Lingua**: cinese (WUBI), Modalità di input a singolo carattere |sync |X |Linguaggio |
 | **Lingua**: cinese (WUBI), Mostra il codice rimanente dei candidati |sync |X |Lingua |
-| **Lingua**: cinese (WUBI), Emetti un segnale acustico se la codifica 4 non è valida |sync |X |Lingua |
-| **Lingua**: Bopomofo cinese tradizionale, incluso CJK estensione A |sync |X |Lingua |
-| **Lingua**: IME giapponese, digitazione predittiva e parole personalizzate |sync |sync |Lingua |
-| **Lingua**: IME coreano |X |X |Lingua |
-| **Lingua**: riconoscimento della grafia |X |X |Lingua |
-| **Lingua**: profilo lingua |sync |backup |Lingua |
-| **Lingua**: controllo ortografico, correzione automatica ed evidenziazione degli errori di ortografia |sync |backup |Lingua |
-| **Lingua**: elenco delle tastiere |sync |backup |Lingua |
+| **Lingua**: cinese (WUBI), Emetti un segnale acustico se la codifica 4 non è valida |sync |X |Linguaggio |
+| **Lingua**: Bopomofo cinese tradizionale, incluso CJK estensione A |sync |X |Linguaggio |
+| **Lingua**: IME giapponese, digitazione predittiva e parole personalizzate |sync |sync |Linguaggio |
+| **Lingua**: IME coreano |X |X |Linguaggio |
+| **Lingua**: riconoscimento della grafia |X |X |Linguaggio |
+| **Lingua**: profilo lingua |sync |backup |Linguaggio |
+| **Lingua**: controllo ortografico, correzione automatica ed evidenziazione degli errori di ortografia |sync |backup |Linguaggio |
+| **Lingua**: elenco delle tastiere |sync |backup |Linguaggio |
 | **Schermata di blocco**: tutte le impostazioni della schermata di blocco |X |X | |
 | **Lente di ingrandimento**: abilitazione/disabilitazione (master) |X |X |Accessibilità |
 | **Lente di ingrandimento**: Attiva inversione colori (disattivata per impostazione predefinita) |sync |X |Accessibilità |
@@ -158,16 +158,16 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Accessibilità**: Rimuovi immagini di sfondo (disabilitata per impostazione predefinita) |sync |X |Accessibilità |
 | **Alimentazione e sospensione**: tutte le impostazioni |X |X | |
 | **Personalizzazione della schermata Start**: colore principale (solo telefono) |X |sync |Tema |
-| **Digitazione**: dizionario per il controllo ortografico |sync |backup |Lingua |
-| **Digitazione**: Correggi automaticamente errori di ortografia |sync |backup |Lingua |
-| **Digitazione**: Evidenzia errori di ortografia |sync |backup |Lingua |
-| **Digitazione**: Mostra suggerimenti di testo durante la digitazione |sync |backup |Lingua |
-| **Digitazione**: Aggiungi uno spazio quando scelgo un suggerimento di testo |sync |backup |Lingua |
-| **Digitazione**: Aggiungi un punto dopo un doppio tocco sulla BARRA SPAZIATRICE |sync |backup |Lingua |
-| **Digitazione**: Applica maiuscola a inizio di frase |sync |backup |Lingua |
-| **Digitazione**: Usa tutte maiuscole dopo doppio tocco del tasto MAIUSC |sync |backup |Lingua |
-| **Digitazione**: Riproduci suoni tasti durante la digitazione |sync |backup |Lingua |
-| **Digitazione**: dati di personalizzazione per la tastiera virtuale |sync |backup |Lingua |
+| **Digitazione**: dizionario per il controllo ortografico |sync |backup |Linguaggio |
+| **Digitazione**: Correggi automaticamente errori di ortografia |sync |backup |Linguaggio |
+| **Digitazione**: Evidenzia errori di ortografia |sync |backup |Linguaggio |
+| **Digitazione**: Mostra suggerimenti di testo durante la digitazione |sync |backup |Linguaggio |
+| **Digitazione**: Aggiungi uno spazio quando scelgo un suggerimento di testo |sync |backup |Linguaggio |
+| **Digitazione**: Aggiungi un punto dopo un doppio tocco sulla BARRA SPAZIATRICE |sync |backup |Linguaggio |
+| **Digitazione**: Applica maiuscola a inizio di frase |sync |backup |Linguaggio |
+| **Digitazione**: Usa tutte maiuscole dopo doppio tocco del tasto MAIUSC |sync |backup |Linguaggio |
+| **Digitazione**: Riproduci suoni tasti durante la digitazione |sync |backup |Linguaggio |
+| **Digitazione**: dati di personalizzazione per la tastiera virtuale |sync |backup |Linguaggio |
 | **Wi-Fi**: profili Wi-Fi (solo WPA) |sync |sync |Password |
 
 ###### <a name="footnote-1"></a>Nota 1

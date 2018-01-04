@@ -4,7 +4,7 @@ description: "Esercitazione che illustra come usare un'identità del servizio ge
 services: active-directory
 documentationcenter: 
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: e637870ec830895a2baa545c46e39fb3494b956b
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: ad9b92f11571b013f371eb36c0676afb3e9e5213
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Usare un'identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Data Lake Store
 
@@ -205,7 +205,7 @@ In questa esercitazione si esegue l'autenticazione all'API REST del file system 
 
 Usando altre API del file system di Data Lake Store, è possibile accodare ai file, scaricare i file ed eseguire altre operazioni.
 
-Congratulazioni.  È stata eseguita l'autenticazione al file system di Data Lake Store usando un'identità del servizio gestito della VM.
+Congratulazioni!  È stata eseguita l'autenticazione al file system di Data Lake Store usando un'identità del servizio gestito della VM.
 
 ## <a name="related-content"></a>Contenuti correlati
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8e58a2290e5034ef393f65cbcddb86e18cf4a6ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 20760650b093216a2929de580f5971c45e0534a8
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Eseguire il backup di macchine virtuali Windows in Azure
 
@@ -78,7 +78,7 @@ Questo esempio spiega come ripristinare il file di immagine usato nella pagina W
     ![Pagina Web IIS predefinita](./media/tutorial-backup-vms/iis-broken.png)
 
 5. Nel computer locale aprire una nuova scheda e passare al [portale di Azure](https://portal.azure.com).
-6. Nel menu a sinistra selezionare **Macchine virtuali** e selezionare la macchina virtuale dall'elenco.
+6. Nel menu a sinistra, selezionare **macchine virtuali** e selezionare la macchina virtuale dall'elenco.
 8. Nel pannello della macchina virtuale, nella sezione **Impostazioni** fare clic su **Backup**. Verrà visualizzato il pannello **Backup**. 
 9. Dal menu nella parte superiore del pannello scegliere **Ripristino file**. Verrà aperto il pannello **Ripristino file**.
 10. In **Passaggio 1: Selezionare il punto di recupero** selezionare un punto di recupero dall'elenco a discesa.
@@ -94,7 +94,7 @@ Questo esempio spiega come ripristinare il file di immagine usato nella pagina W
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Creare un backup di una macchina virtuale

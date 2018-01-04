@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 6d517c5e302ac36e5bba2053998c75f8f4d42683
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b0ea48aea2e13027c5af273a416489e48987b44a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Esercitazione: Integrazione di Azure Active Directory con SAP Business Object Cloud
 
@@ -36,7 +36,7 @@ Per altre informazioni sull'integrazione di app SaaS (Software as a Service) con
 
 Per configurare l'integrazione di Azure AD con SAP Business Object Cloud, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di SAP Business Object Cloud, con l'accesso Single Sign-On attivato
 
 > [!NOTE]
@@ -50,7 +50,7 @@ Raccomandazioni per il test dei passaggi di questa esercitazione:
 ## <a name="scenario-description"></a>Descrizione dello scenario
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. 
 
-Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiungere SAP Business Object Cloud dalla raccolta.
 2. Configurare e testare l'accesso Single Sign-On di Azure AD.
@@ -199,7 +199,7 @@ Per creare un utente di test in Azure AD:
 
     3. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    4. Selezionare **Crea**.
+    4. Selezionare **Create**.
 
         ![Finestra di dialogo Utente](./media/active-directory-saas-sapboc-tutorial/create_aaduser_04.png) 
 
@@ -252,7 +252,7 @@ Per assegnare Britta Simon a SAP Business Object Cloud:
 
 2. Nell'elenco delle applicazioni selezionare **SAP Business Object Cloud**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_app.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

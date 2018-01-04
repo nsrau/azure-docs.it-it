@@ -15,11 +15,11 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 1180001c9fe74aab6b51c5b5969b80a8c7e1302f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 4a913e188dd40b0306be375b016b9e8a3739ed72
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introduzione al cloud computing e a Microsoft Azure
 
@@ -98,9 +98,9 @@ Servizi per l'archiviazione e la gestione dei dati:
 
 -   Archiviazione di Azure (comprende i servizi BLOB, Code, Tabella e File di Azure)
 
--   Database SQL di Azure
+-   database SQL di Azure
 
--   Azure DocumentDB
+-   Azure Cosmos DB
 
 -   Microsoft Azure StorSimple
 
@@ -141,7 +141,7 @@ Per la documentazione dettagliata sui servizi di Azure, vedere la [documentazion
 ### <a name="datacenters-and-regions"></a>Centri dati e aree
 
 
-Azure è una piattaforma cloud globale disponibile a livello generale in molte aree del mondo. Quando si esegue il provisioning di un servizio, di un'applicazione o di una macchina virtuale in Azure, viene chiesto di selezionare un'area. L'area selezionata rappresenta un centro dati speciﬁco in cui viene eseguita l'applicazione. Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
+Azure è una piattaforma cloud globale disponibile a livello generale in molte aree del mondo. Quando si esegue il provisioning di un servizio, di un'applicazione o di una macchina virtuale in Azure, viene chiesto di selezionare un'area. L'area selezionata rappresenta un Data Center speciﬁc in cui viene eseguita l'applicazione. Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
 
 Uno dei vantaggi dell'uso di Azure è la possibilità di distribuire le applicazioni in più centri dati in tutto il mondo. La scelta dell'area può influire sulle prestazioni dell'applicazione. La scelta ottimale corrisponde all'area più vicina alla maggior parte dei clienti, per ridurre la latenza nelle richieste di rete. È anche possibile selezionare un'area in base ai requisiti legali per la distribuzione dell'app in determinati paesi.
 
@@ -341,7 +341,7 @@ Poiché le macchine virtuali di Azure consentono il controllo completo della con
 
 È possibile distribuire macchine virtuali di Azure attraverso il Portale di Azure o tramite automazione con il modulo Azure PowerShell o l'interfaccia della riga di comando multipiattaforma.
 
-**Portale**
+**di Microsoft Azure**
 
 Per la distribuzione di una macchina virtuale tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile selezionare molte immagini di sistemi operativi diversi con configurazioni diverse. Tutti i requisiti di archiviazione e di rete vengono configurati durante la distribuzione. Per altre informazioni, vedere "Creare una macchina virtuale nel Portale di Azure" per [Windows](../../virtual-machines/windows/quick-create-portal.md) e [Linux](../../virtual-machines/linux/quick-create-portal.md).
 
@@ -424,7 +424,7 @@ Per altre informazioni, vedere [Introduzione all'archiviazione code di Azure](..
 
 Per la distribuzione di un account di archiviazione sono disponibili diverse opzioni.
 
-**Portale**
+**di Microsoft Azure**
 
 Per la distribuzione di un account di archiviazione tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile distribuire un nuovo account di archiviazione in un gruppo di risorse nuovo o esistente. Dopo aver creato l'account di archiviazione, è possibile creare un contenitore BLOB o una condivisione file tramite il portale. È possibile creare entità di archiviazione di tabelle e code a livello di codice. Per altre informazioni, vedere [Creare un account di archiviazione](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
 
@@ -489,7 +489,7 @@ Poiché la rete virtuale di Azure è connessa alla rete locale, le reti virtuali
 
 Per la distribuzione di una rete virtuale sono disponibili diverse opzioni.
 
-**Portale**
+**di Microsoft Azure**
 
 Per la distribuzione di una rete virtuale di Azure tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile distribuire una nuova rete virtuale in un gruppo di risorse nuovo o esistente. Quando si crea una nuova macchina virtuale dal portale, è possibile selezionare una rete virtuale esistente o crearne una nuova. Per altre informazioni, vedere [Creare una rete virtuale tramite il portale di Azure](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md) .
 

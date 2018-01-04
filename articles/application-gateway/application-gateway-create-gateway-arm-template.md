@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
 ms.openlocfilehash: 0aa16e9d7472d2d8c3c251e60a506a7f4223ac1d
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Creare un gateway applicazione usando il modello di Gestione risorse di Azure
 
@@ -59,7 +59,7 @@ In questo scenario si apprenderà come:
 1. Aprire il file salvato e visualizzare il contenuto in **parameters** nella riga
 1. La sezione parameters del modello di Gestione risorse di Azure è un segnaposto per i valori che possono essere inseriti durante la distribuzione.
 
-  | Parametro | Descrizione |
+  | Parametro | DESCRIZIONE |
   | --- | --- |
   | **subnetPrefix** |Blocco CIDR della subnet del gateway applicazione. |
   | **applicationGatewaySize** | Dimensione del gateway applicazione.  WAF consente solo gateway di medie e grandi dimensioni. |
@@ -140,7 +140,7 @@ Se è la prima volta che si usa Azure PowerShell, vedere [Come installare e conf
 
     Verrà richiesto di eseguire l'autenticazione con le proprie credenziali.
 
-1. Scegliere le sottoscrizioni ad Azure da usare.
+1. Scegliere quali sottoscrizioni Azure usare.
 
     ```powershell
     Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
@@ -171,7 +171,7 @@ Per distribuire il modello di Azure Resource Manager scaricato usando l'interfac
     az group create --location westus --name appgatewayRG
     ```
     
-    **-n (o --nome)**. Nome del nuovo gruppo di risorse. Per questo scenario, *appgatewayRG*.
+    **-n (o --name)**. Nome del nuovo gruppo di risorse. Per questo scenario, *appgatewayRG*.
     
     **-l (o --location)**. Area di Azure in cui viene creato il nuovo gruppo di risorse. Per questo scenario, *westus*.
 
@@ -189,7 +189,7 @@ Il pulsante per la distribuzione offre un altro modo per usare i modelli di Gest
 
 1. Fare clic su **Distribuzione in Azure**.
 
-    ![Distribuzione in Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
+    ![Distribuisci in Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
     
 1. Inserire i parametri per il modello di distribuzione nel portale e fare clic su **OK**.
 

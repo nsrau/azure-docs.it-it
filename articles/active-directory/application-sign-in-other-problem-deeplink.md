@@ -4,7 +4,7 @@ description: Come risolvere i problemi di accesso a un'applicazione da un URL co
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 798015ab68afc65378cffc75afec9c7f91fc1926
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b70290a78255905a92e2bb5432369c499fca3f3b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Problemi di accesso a un'applicazione usando un collegamento diretto
 
@@ -27,7 +27,7 @@ Queste applicazioni sono configurate per conto dell'utente nel portale di Azure 
 
 I collegamenti diretti o gli URL di accesso utente sono collegamenti che gli utenti potrebbero utilizzare per accedere alle applicazioni con SSO basato su password direttamente dalla barra degli indirizzi del browser. Usando questo collegamento gli utenti accedono automaticamente all'applicazione senza dover passare prima per il pannello di accesso. Questo è lo stesso collegamento usato dagli utenti per accedere a queste applicazioni dall'applicazione di avvio di Office 365.
 
-## <a name="general-issues-to-check-first"></a>Problemi generali da verificare per primi
+## <a name="general-issues-to-check-first"></a>Problemi generali da verificare prima
 
 -   Assicurarsi di usare un **browser** che soddisfi i requisiti minimi per il pannello di accesso.
 
@@ -63,7 +63,7 @@ Per verificare se si dispone del collegamento diretto corretto, seguire questa p
 
 5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'**elenco di tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
 6.  Aprire il [**Portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
@@ -75,7 +75,7 @@ Per verificare se si dispone del collegamento diretto corretto, seguire questa p
 
 10. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'**elenco di tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
 11. Selezionare l'applicazione di cui si desidera verificare il .collegamento diretto.
 
@@ -105,7 +105,7 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
 
 -   [Estensione Pannello di accesso per Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Come configurare un accesso Single Sign-On basato su password per un'applicazione della raccolta di Azure AD
+## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Come configurare l'accesso Single Sign-On basato su password per un'applicazione della raccolta di Azure AD
 
 Per configurare un'applicazione della raccolta di Azure AD è necessario:
 
@@ -141,7 +141,7 @@ Dopo un breve periodo di tempo sarà possibile visualizzare il pannello di confi
 
 Per configurare un accesso Single Sign-On per un'applicazione, seguire i passaggi seguenti:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1.  Aprire il [**Portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
@@ -195,7 +195,7 @@ Dopo un breve periodo di tempo, sarà possibile visualizzare il pannello di conf
 
 Per configurare un accesso Single Sign-On per un'applicazione, seguire i passaggi seguenti:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1.  Aprire il [**Portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
@@ -259,7 +259,7 @@ Dopo un breve periodo di tempo, gli utenti selezionati saranno in grado di avvia
 
 ## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Se questi passaggi di risoluzione dei problemi non risolvono il problema 
 
-Aprire un ticket di supporto con le informazioni seguenti, se disponibili:
+aprire un ticket di supporto con le informazioni seguenti, se disponibili:
 
 -   ID errore di correlazione
 

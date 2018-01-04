@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 36ebffb41211e443cc1619df46f50247945cc57c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
-ms.translationtype: HT
+ms.openlocfilehash: 363a7e8a5b5be2175cb2f6d3539878673a2b469a
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="review-usage-and-costs"></a>Esaminare l'utilizzo e i costi
 
@@ -29,7 +29,7 @@ Gestione dei costi di Azure di Cloudyn visualizza l'utilizzo e i costi consenten
 
 ## <a name="open-the-cloudyn-portal"></a>Aprire il portale Cloudyn
 
-È possibile esaminare tutte le informazioni sull'utilizzo e sui costi nel portale Cloudyn. Aprire il portale Cloudyn dal portale di Azure o passare a https://app.cloudyn.com e accedere.
+È possibile esaminare tutte le informazioni sull'utilizzo e sui costi nel portale Cloudyn. Aprire il portale Cloudyn dal portale di Azure o passare a https://azure.cloudyn.com e accedere.
 
 ## <a name="track-usage-and-cost-trends"></a>Tenere traccia delle tendenze di utilizzo e dei costi
 
@@ -90,7 +90,7 @@ Usare la scheda **Scheduling** (Pianificazione) per inviare a se stessi un messa
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Tenere traccia delle tendenze di utilizzo e dei costi

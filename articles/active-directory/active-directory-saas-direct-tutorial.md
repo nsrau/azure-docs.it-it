@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 7c2cd1f0-d14c-42f0-94a8-9b800008b285
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 84582492592613320bd3ec2bdffe08519852d7c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0409ef01630f97d772b08f72006cc1e06e8dae24
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-direct"></a>Esercitazione: Integrazione di Azure Active Directory con Direct
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con Direct sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di Direct abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
@@ -47,7 +47,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Direct dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -63,11 +63,11 @@ Per configurare l'integrazione di Direct in Azure AD è necessario aggiungere Di
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 4. Nella casella di ricerca digitare **Direct**.
 
@@ -86,7 +86,7 @@ Per stabilire la relazione di collegamento, in Direct assegnare il valore di **n
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Direct è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di Direct](#creating-a-direct-test-user)**: per avere una controparte di Britta Simon in Direct collegata alla rappresentazione dell'utente in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -100,31 +100,31 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel nuovo
 
 1. Nella pagina di integrazione dell'applicazione **Direct** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-direct-tutorial/tutorial_direct_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-direct-tutorial/tutorial_direct_samlbase.png)
 
 3. Nella sezione **URL e dominio Direct** per configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-direct-tutorial/tutorial_direct_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-direct-tutorial/tutorial_direct_url.png)
 
     Nella casella di testo **Identificatore** digitare l'URL: `https://direct4b.com/`
 
 4. Selezionare **Mostra impostazioni URL avanzate**, se si desidera configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-direct-tutorial/tutorial_direct_url1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-direct-tutorial/tutorial_direct_url1.png)
 
      Nella casella di testo **URL accesso** digitare l'URL: `https://direct4b.com/sso` 
     
 5. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-direct-tutorial/tutorial_direct_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-direct-tutorial/tutorial_direct_certificate.png) 
 
 6. Fare clic sul pulsante **Salva** .
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-direct-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-direct-tutorial/tutorial_general_400.png)
 
 7. Per configurare l'accesso Single Sign-On sul lato **Direct** è necessario inviare il file **XML metadati** scaricato al [team di supporto di Direct](https://direct4b.com/ja/support.html#inquiry). 
 
@@ -181,7 +181,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco delle applicazioni selezionare **Direct**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-direct-tutorial/tutorial_direct_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-direct-tutorial/tutorial_direct_app.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

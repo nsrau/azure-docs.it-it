@@ -99,7 +99,7 @@ Se non è possibile accedere all'applicazione, verificare le seguenti impostazio
   
   * Verificare che la configurazione della regola NAT in ingresso consenta il traffico in ingresso, in particolare il protocollo (TCP o UDP) e i numeri di porta pubblica e privata.
   * Verificare che i gruppi di sicurezza di rete consentano il traffico della richiesta in ingresso e della risposta in uscita.
-  * Per ulteriori informazioni, vedere [Che cos'è un gruppo di sicurezza di rete](../articles/virtual-network/virtual-networks-nsg.md)
+  * Per altre informazioni, vedere [Che cos'è un gruppo di sicurezza di rete](../articles/virtual-network/virtual-networks-nsg.md)
 
 Se la macchina virtuale o un endpoint è un membro di un set con carico bilanciato:
 
@@ -115,7 +115,7 @@ Se è possibile accedere all'applicazione, verificare che il dispositivo perifer
 
 ## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Passaggio 4 Se non è possibile accedere all'applicazione, usare la verifica IP per controllare le impostazioni. 
 
-Per altre informazioni, vedere [Panoramica del monitoraggio della rete in Azure](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+Per altre informazioni, vedere [Panoramica del monitoraggio della rete in Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)

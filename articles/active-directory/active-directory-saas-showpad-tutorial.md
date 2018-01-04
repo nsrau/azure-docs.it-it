@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 48b6bee0-dbc5-4863-964d-75b25e517741
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: c8b39c9215675d8073f896f934339e7cd55334cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3fa246fe3e6264189e6b727b970708f26a787020
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-showpad"></a>Esercitazione: Integrazione di Azure Active Directory con Showpad
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con Showpad, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione Showpad abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
@@ -47,7 +47,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Showpad dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -64,11 +64,11 @@ Per configurare l'integrazione di Showpad in Azure AD, è necessario aggiungere 
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 4. Nella casella di ricerca digitare **Showpad**.
 
@@ -88,7 +88,7 @@ Per stabilire la relazione di collegamento, in Showpad assegnare il valore di **
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Showpad, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente di test di Showpad](#creating-a-showpad-test-user)**: per avere una controparte di Britta Simon in Showpad collegata alla rappresentazione dell'utente in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -102,17 +102,17 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **Showpad** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_samlbase.png)
 
 3. Nella sezione **URL e dominio Showpad** seguire questa procedura:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<comapany-name>.showpad.biz/login`.
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<comapany-name>.showpad.biz/login`
 
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<company-name>.showpad.biz`
 
@@ -123,11 +123,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_certificate.png) 
 
 5. Fare clic sul pulsante **Salva** .
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-showpad-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-showpad-tutorial/tutorial_general_400.png)
 
 6. Accedere al tenant di Showpad come amministratore.
 
@@ -210,7 +210,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco di applicazioni selezionare **Showpad**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_app.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

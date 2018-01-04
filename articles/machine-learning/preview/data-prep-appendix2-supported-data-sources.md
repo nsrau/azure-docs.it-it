@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 458338cd23c704c40c512dd96b22a4790f27d017
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 32707a8089abef6caebedea168f5891161b1b480
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Origini dati supportate disponibili per la preparazione dei dati di Microsoft Azure Machine Learning 
 Questo articolo illustra le origini dati attualmente supportate nella preparazione dei dati di Microsoft Azure Machine Learning.
@@ -59,7 +59,7 @@ Legge un file con valori delimitati da virgole dalla risorsa di archiviazione.
 
 #### <a name="options"></a>Opzioni
 - Separatore
-- Commento
+- Comment
 - Headers
 - Separatore decimale
 - Codifica file
@@ -69,7 +69,7 @@ Legge un file con valori delimitati da virgole dalla risorsa di archiviazione.
 Legge un file con valori delimitati da tabulazioni dalla risorsa di archiviazione.
 
 #### <a name="options"></a>Opzioni
-- Commento
+- Comment
 - Headers
 - Codifica file
 - Righe da ignorare
@@ -86,7 +86,7 @@ Legge un file Excel, un foglio alla volta, specificando il nome o il numero del 
 Legge un file JSON dalla risorsa di archiviazione. Si noti che il file è "flat" in lettura.
 
 #### <a name="options"></a>Opzioni
-- Nessuno
+- Nessuna
 
 ### <a name="parquet"></a>Parquet
 Legge un set di dati Parquet, un singolo file o una cartella.

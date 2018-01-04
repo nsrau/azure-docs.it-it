@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d8688ab2daefd400e9c0948853459dd238fa0d43
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: e9e0106c66002ba5b0851833d582d5d5409a18a5
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Informazioni sulle distribuzioni IoT Edge per singoli dispositivi o su vasta scala - Anteprima
 
@@ -48,8 +48,8 @@ Una distribuzione assegna immagini di moduli IoT Edge per l'esecuzione come ista
 Un manifesto di distribuzione è un documento JSON che descrive i moduli da configurare nei dispositivi IoT Edge di destinazione e contiene i metadati di configurazione per tutti i moduli, inclusi i moduli di sistema richiesti, in particolare l'agente IoT Edge e l'hub IoT Edge.  
 
 I metadati di configurazione per ogni modulo includono: 
-* Versione 
-* Tipo 
+* Version 
+* type 
 * Stato (ad esempio, in esecuzione o arrestato) 
 * Criteri di riavvio 
 * Repository di immagini e contenitori 
@@ -57,7 +57,23 @@ I metadati di configurazione per ogni modulo includono:
 
 ### <a name="target-condition"></a>Condizione di destinazione
 
-Le condizioni di destinazione specificano se un dispositivo IoT Edge rientra nell'ambito di una distribuzione. Le condizioni di destinazione sono basate su tag di dispositivo gemello. 
+La condizione di destinazione viene valutata in modo continuo per includere eventuali nuovi dispositivi che soddisfano i requisiti o rimuovere i dispositivi che non è più eseguire l'operazione tramite la durata della distribuzione. Se il servizio rileva qualsiasi modifica condizione di destinazione viene riattivata la distribuzione. Ad esempio, si dispone di una distribuzione A cui ha un tags.environment di condizione di destinazione = 'op'. Quando avviano la distribuzione, sono disponibili 10 dispositivi di produzione. I moduli installati correttamente in questi 10 dispositivi. Lo stato dell'agente IoT bordo viene visualizzato come dispositivi totali 10, 10 correttamente le risposte, 0 risposte con esito negativo e 0 risposte in sospeso. Ora si aggiungono 5 più dispositivi con tags.environment = 'op'. Il servizio rileva la modifica e lo stato dell'agente Edge IoT diventa 15 dispositivi totali, 10 correttamente le risposte, le risposte di errore 0 e 5 risposte in sospeso quando tenta di distribuire i cinque nuovi dispositivi.
+
+Utilizzare qualsiasi condizione booleana su tag di gemelli di dispositivo o deviceId per selezionare i dispositivi di destinazione. Se si desidera utilizzare una condizione con tag, è necessario aggiungere "tags" sezione :{} doppi il dispositivo con lo stesso livello di proprietà. [Altre informazioni sui tag in un doppio dispositivo](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins)
+
+Esempi di condizione di destinazione:
+* deviceId = 'linuxprod1'
+* Tags.Environment = 'op'
+* Tags.Environment = prod AND tags.location = 'westus'
+* Tags.Environment = tags.location OR ' op' = 'westus'
+* Tags.Operator = 'John' AND tags.environment = prod deviceId non = 'linuxprod1'
+
+Ecco alcuni vincola quando si crea una condizione di destinazione:
+
+* In un doppio dispositivo, è possibile compilare solo una condizione di destinazione utilizzando tag o deviceId.
+* Le virgolette doppie non sono consentite in qualsiasi parte della condizione di destinazione. Utilizzare le virgolette singole.
+* Le virgolette singole rappresentano i valori della condizione di destinazione. Pertanto, è necessario eseguire l'escape la virgoletta singola con un'altra virgoletta singola se fa parte del nome del dispositivo. Ad esempio, la condizione di destinazione per: operator'sDevice dovrà essere scritto come deviceId =' operatore ' sDevice'.
+* Numeri, lettere e i seguenti caratteri sono consentiti nella destinazione condizione values:-:.+%_#*? (),=@;$
 
 ### <a name="priority"></a>Priorità
 

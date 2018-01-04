@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure MFA, integrazione VPN, Azure Active Directory, estensione di Server dei criteri di rete
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: c058f1e747849cde0f15a039779665c8718da947
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 1879fc3d45e1a79fe5edd1ae1cf0d7060fd327ae
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrare l'infrastruttura VPN con Azure MFA usando l'estensione Server dei criteri di rete per Azure
 
@@ -342,7 +342,7 @@ In questa sezione si abilitano gli account Azure AD per MFA. Per abilitare gli u
  
 8. Nella scheda **Utenti** selezionare gli utenti che si desidera abilitare per l'autenticazione a più fattori e quindi fare clic su **Abilita**.
 
-    ![Proprietà](./media/nps-extension-vpn/image27.png)
+    ![Properties](./media/nps-extension-vpn/image27.png)
  
 9. Quando richiesto, selezionare **Abilita Multi-Factor Auth**.
 

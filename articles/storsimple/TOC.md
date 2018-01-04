@@ -4,8 +4,8 @@
 ### [In cosa consiste la soluzione?](storsimple-ova-overview.md)
 ### [Disponibilità in base all'area geografica](storsimple-regions.md)
 
-## Introduzione
-### Pianificare
+## Attività iniziali
+### Pianificazione
 #### [Esaminare i requisiti](storsimple-ova-system-requirements.md)
 #### [Conoscere i limiti](storsimple-ova-limits.md)
 #### [Esaminare le procedure consigliate](storsimple-ova-best-practices.md)
@@ -38,7 +38,6 @@
 #### [Gestire i record di controllo di accesso](storsimple-virtual-array-manage-acrs.md)
 #### [Gestire i processi](storsimple-virtual-array-manage-jobs.md)
 #### [Modificare la password del dispositivo](storsimple-virtual-array-change-device-admin-password.md)
-#### [Configurare MPIO in un host Windows Server](storsimple-virtual-array-configure-mpio-windows-server.md)
 #### [Monitorare con gli avvisi](storsimple-virtual-array-manage-alerts.md)
 #### [Diagnosi e risoluzione dei problemi](storsimple-virtual-array-diagnose-problems.md)
 #### [Registrare una richiesta di supporto](storsimple-virtual-array-log-support-ticket.md)
@@ -63,22 +62,22 @@
 ### [Disponibilità in base all'area geografica](storsimple-regions.md)
 ### [Domande frequenti: spostamento nel portale di Azure](storsimple-8000-move-azure-portal-faq.md)
 
-## Introduzione
+## Attività iniziali
 
-### Pianificare
+### Pianificazione
 #### [Esaminare i requisiti](storsimple-8000-system-requirements.md)
 #### [Esaminare le specifiche tecniche](storsimple-8000-technical-specifications-and-compliance.md)
 #### [Conoscere i limiti](storsimple-8000-limits.md)
 #### [Procedure consigliate](https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68)
 
 
-### Installare
+### Installa
 #### [Controllare la sicurezza](storsimple-8000-safety.md)
 #### [Disimballare, installare in rack e collegare un dispositivo 8100](storsimple-8100-hardware-installation.md)
 #### [Disimballare, installare in rack e collegare un dispositivo 8600](storsimple-8600-hardware-installation.md)
 #### [Hardware supportato per interfacce di rete 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
-### Distribuisci
+### Distribuire
 #### [Servizio Gestione dispositivi StorSimple](storsimple-8000-manage-service.md)
 #### [Dispositivo fisico in Azure](storsimple-8000-deployment-walkthrough-u2.md)
 #### [Dispositivo fisico nel portale per enti pubblici](storsimple-8000-deployment-walkthrough-gov-u2.md)
@@ -88,7 +87,7 @@
 
 ## Procedure
 
-### Gestire
+### Gestisci
 
 #### [Uso del servizio StorSimple Manager](storsimple-8000-manager-service-administration.md)
 ##### [Eseguire il ripristino da un backup](storsimple-8000-restore-from-backup-set-u2.md)
@@ -136,7 +135,7 @@
 ##### [Gestire i volumi con StorSimple Snapshot Manager](storsimple-snapshot-manager-manage-volumes.md)
 ##### [Usare azioni di MMC in StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
 
-### Automazione
+### Automatizzare
 
 #### [Uso degli script di esempio di Azure PowerShell](storsimple-8000-automation-azurerm-scripts.md)
 #### [Uso dei runbook di automazione di Azure](storsimple-8000-automation-azurerm-runbook.md)
@@ -160,7 +159,7 @@
 #### [Uso dei LED di monitoraggio](storsimple-monitoring-indicators.md)
 
 
-### Risolvere i problemi
+### Risolvere problemi
 #### [Problemi di distribuzione](storsimple-8000-troubleshoot-deployment.md)
 #### [Uso dello strumento di diagnostica](storsimple-8000-diagnostics.md)
 #### [Problemi operativi](storsimple-troubleshoot-operational-device.md)
@@ -179,7 +178,7 @@
 #### [Da dispositivi serie 5000/7000](storsimple-8000-migrate-from-5000-7000.md)
 #### [Da altri dispositivi di archiviazione](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
-### Aggiornare
+### Aggiornamento
 #### [Installare l'aggiornamento 5: versione corrente](storsimple-8000-install-update-5.md)
 #### [Installare l'aggiornamento 4](storsimple-8000-install-update-4.md)
 
@@ -208,7 +207,7 @@
 ## Panoramica
 ### [In cosa consiste la soluzione?](storsimple-data-manager-overview.md)
 
-## Introduzione
+## Attività iniziali
 ### [Uso di StorSimple Data Manager](storsimple-data-manager-ui.md)
 
 ## Procedure
@@ -221,7 +220,7 @@
 ## Panoramica
 ### [In cosa consiste la soluzione?](storsimple-partner-csp-overview.md)
 
-## Introduzione
+## Attività iniziali
 ### [Distribuire un array virtuale per CSP](storsimple-partner-csp-deploy.md)
 
 ## Note sulla versione

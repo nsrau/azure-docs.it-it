@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 0aad9910-0bc1-4394-9f73-267cf39973ab
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: jeedes
-ms.openlocfilehash: fe8775bd39173b2adf1f82d32f5e851ef1c19931
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5608df300ad3b5d3fd42bd904a52d43d115ebf53
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Esercitazione: Integrazione di Azure Active Directory con Help Scout
 
@@ -28,7 +28,7 @@ L'integrazione di Help Scout con Azure AD offre i vantaggi seguenti:
 
 - È possibile controllare in Azure AD chi può accedere a Help Scout.
 - È possibile abilitare gli utenti per l'accesso automatico a Help Scout (Single Sign-On) con i propri account Azure AD.
-- È possibile gestire gli account da una posizione centrale: il portale di Azure.
+- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -36,7 +36,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con Help Scout, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di Help Scout abilitata per l'accesso Single Sign-On.
 
 A questo scopo, è consigliabile seguire le indicazioni seguenti:
@@ -45,7 +45,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Help Scout dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -95,7 +95,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **Help Scout** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Collegamento per la configurazione dell'accesso Single Sign-On][4]
+    ![Collegamento Configura accesso Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
@@ -124,26 +124,26 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 6. Fare clic sul pulsante **Salva** .
 
-    ![Pulsante Salva di Configura accesso Single Sign-On](./media/active-directory-saas-helpscout-tutorial/tutorial_general_400.png)
+    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-helpscout-tutorial/tutorial_general_400.png)
 
 
 7. Nella sezione **Configurazione di Help Scout** fare clic su **Configura Help Scout** per aprire la finestra **Configura accesso**. Copiare **l'URL del servizio Single Sign-On SAML** dalla **sezione Riferimento rapido**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-helpscout-tutorial/config.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/config.png) 
 
 8. In un'altra finestra del Web browser accedere al sito aziendale di Help Scout come amministratore.
 
 9. Dopo aver eseguito l'accesso, fare clic su **"Manage"** (Gestisci) dal menu principale e quindi selezionare **"Company"** (Azienda) nel menu a discesa.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings1.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings1.png) 
  
 10. Selezionare **"Authentication"** (Autenticazione) dal menu a sinistra. 
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings2.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings2.png) 
 
 11. Nella sezione relativa alle impostazioni SAML, seguire questa procedura:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings3.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings3.png) 
  
     a. Copiare il valore **Post-back URL (Assertion Consumer Service URL)** (URL postback - URL del servizio consumer di asserzione) e incollare il valore nella casella **URL di risposta** nel portale di Azure, nella sezione Guida Scout **Dominio e URL**.
     
@@ -151,7 +151,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 12. Attiva **Abilita SAML** ed esegui la procedura seguente:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings4.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-helpscout-tutorial/settings4.png) 
  
     a. Nella casella di testo **URL di Single Sign-On** incollare il valore di **URL del servizio di Single Sign-On**, che è stato copiato dal portale di Azure.
     
@@ -161,7 +161,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     d. Infine, è possibile attivare o disattivare **Force SAML Sign-on** (Forza accesso SAML) se si desidera che gli utenti accedano a Guida Scout solo tramite questo metodo. Se si desidera lasciare l'opzione per poter accedere con le proprie credenziali di Scout Guida, è possibile lasciarla disattivata. Anche se questa opzione è abilitata, il proprietario dell'account sarà sempre in grado di accedere a Scout Guida con la password dell'account.
 
-    e. Fare clic su **Salva**.
+    e. Fare clic su **Save**.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).

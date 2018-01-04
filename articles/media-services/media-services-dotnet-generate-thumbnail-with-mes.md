@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7b8732a06e54f7828418cba0c0d172e34f1f4ef7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f7a8b60e26b42668e505b3d466bfc447d0cfb48b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Come generare anteprime utilizzando Media Encoder Standard con .NET
 
-È possibile usare Media Encoder Standard per generare una o più anteprime dal video di input in un formato file di immagine a scelta tra [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) e [BMP](https://en.wikipedia.org/wiki/BMP_file_format). È possibile inviare attività che producono solo immagini oppure combinare la generazione di anteprime con la codifica. Questo argomento offre alcuni set di impostazioni di anteprima XML e JSON di esempio per questi scenari. Nella sezione finale dell'argomento è disponibile un [codice di esempio](#code_sample) che illustra come usare Media Services .NET SDK per eseguire l'attività di codifica.
+È possibile usare Media Encoder Standard per generare una o più anteprime dal video di input in un formato file di immagine a scelta tra [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) e [BMP](https://en.wikipedia.org/wiki/BMP_file_format). È possibile inviare attività che producono solo immagini oppure combinare la generazione di anteprime con la codifica. Questo articolo fornisce alcuni esempio XML e JSON anteprima predefiniti per tali scenari. Alla fine dell'articolo, è un [codice di esempio](#code_sample) che viene illustrato come utilizzare Media Services .NET SDK per eseguire l'attività di codifica.
 
 Per altre informazioni sugli elementi usati nei set di impostazioni di esempio, è necessario rivedere l'argomento [Schema di Media Encoder Standard](media-services-mes-schema.md).
 
@@ -30,7 +30,7 @@ Assicurarsi di esaminare la sezione [Considerazioni](media-services-dotnet-gener
     
 ## <a name="example-of-a-single-png-file-preset"></a>Esempio di set di impostazioni per un singolo file PNG
 
-È possibile usare il set di impostazioni JSON e XML seguente per produrre un singolo file PNG di output dai primi secondi del video di input, in cui il codificatore tenta in tutti i modi di trovare un frame "interessante". Osservare come le dimensioni dell'immagine di output siano state impostate su 100% in modo che corrispondano alle dimensioni del video di input. Si noti anche che è necessario che l'impostazione "Format" in "Outputs" corrisponda all'uso di "PngLayers" nella sezione "Codec". 
+È possibile usare il set di impostazioni JSON e XML seguente per produrre un singolo file PNG di output dai primi secondi del video di input, in cui il codificatore tenta in tutti i modi di trovare un frame "interessante". Si noti che le dimensioni dell'immagine di output sono state impostate su 100%, vale a dire che queste corrispondono alle dimensioni del video di input. Si noti anche che è necessario che l'impostazione "Format" in "Outputs" corrisponda all'uso di "PngLayers" nella sezione "Codec". 
 
 ### <a name="json-preset"></a>Set di impostazioni JSON
 
@@ -138,7 +138,7 @@ Il set di impostazioni JSON e XML consente di produrre un set di 10 immagini in 
 
 ## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>Esempio di set di impostazioni per un'immagine in corrispondenza di un timestamp specifico
 
-Il set di impostazioni JSON e XML seguente consente di produrre una singola immagine JPEG ogni 30 secondi di riproduzione del video di input. Questo set di impostazioni prevede che il video di input abbia una durata maggiore di 30 secondi. In caso contrario, il processo non riesce.
+Il set di impostazioni JSON e XML seguente consente di produrre una singola immagine JPEG in corrispondenza del segno di 30 secondi di video di input. Questa impostazione predefinita prevede che il video di input da più di 30 secondi di durata (in caso contrario il processo ha esito negativo).
 
 ### <a name="json-preset"></a>Set di impostazioni JSON
 
@@ -194,7 +194,7 @@ Il set di impostazioni JSON e XML seguente consente di produrre una singola imma
     
 ## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>Esempio di set di impostazioni per anteprime con risoluzioni diverse
 
-È possibile usare il set di impostazioni seguente per generare anteprime con risoluzioni diverse in un'unica attività. Nell'esempio, in corrispondenza delle posizioni 5%, 15%, …, 95% della sequenza temporale di input, il codificatore genera due immagini, una con risoluzione video di input al 100% e l'altra al 50%.
+È possibile usare il set di impostazioni seguente per generare anteprime con risoluzioni diverse in un'unica attività. Nell'esempio, % 5 posizioni, 15%,..., 95% della sequenza temporale input, il codificatore genera due immagini: una al 100% della risoluzione video input e l'altro 50%.
 
 Si noti l'uso della macro {Resolution} in FileName, che indica al codificatore di usare la larghezza e l'altezza specificate nella sezioneEncoding del set di impostazioni durante la generazione del nome file delle immagini di output. In questo modo, è possibile distinguere facilmente tra le diverse immagini
 
@@ -267,7 +267,7 @@ Si noti l'uso della macro {Resolution} in FileName, che indica al codificatore d
 Mentre tutti gli esempi precedenti hanno descritto come inviare un'attività di codifica che produce solo immagini, è anche possibile combinare la codifica audio/video con la generazione di anteprime. Il set di impostazioni JSON e XML seguenti indica a **Media Encoder Standard** di generare un'anteprima durante la codifica.
 
 ### <a id="json"></a>Set di impostazioni JSON
-Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) argomento.
+Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) articolo.
 
     {
       "Version": 1.0,
@@ -330,7 +330,7 @@ Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/librar
     }
 
 ### <a id="xml"></a>Set di impostazioni XML
-Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) argomento.
+Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) articolo.
     
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -394,40 +394,49 @@ Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguen
         string configuration = File.ReadAllText(fileName);  
 * Aggiungere una singola attività di codifica al processo. 
 * Specificare l’asset di input da codificare.
-* Creare un asset di output che conterrà l'asset codificato.
+* Creare un asset di output che contenga l'asset codificato.
 * Aggiungere un gestore eventi per controllare l'avanzamento del processo.
 * Inviare il processo.
 
-Vedere l'argomento [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md) per istruzioni su come configurare l'ambiente di sviluppo.
+Vedere il [lo sviluppo di servizi multimediali con .NET](media-services-dotnet-how-to-use.md) articolo per informazioni su come configurare l'ambiente di sviluppo.
 
-        using System;
-        using System.Configuration;
-        using System.IO;
-        using System.Linq;
-        using Microsoft.WindowsAzure.MediaServices.Client;
-        using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-        namespace EncodeAndGenerateThumbnails
-        {
-        class Program
-        {
-            // Read values from the App.config file.
-            private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
-            private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+namespace EncodeAndGenerateThumbnails
+{
+    class Program
+    {
+        // Read values from the App.config file.
+        private static readonly string _AADTenantDomain =
+        ConfigurationManager.AppSettings["AMSAADTenantDomain"];
+        private static readonly string _RESTAPIEndpoint =
+        ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+        ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+        ConfigurationManager.AppSettings["AMSClientSecret"];
 
-            private static CloudMediaContext _context = null;
+        private static CloudMediaContext _context = null;
 
-            private static readonly string _mediaFiles =
-            Path.GetFullPath(@"../..\Media");
+        private static readonly string _mediaFiles =
+        Path.GetFullPath(@"../..\Media");
 
-            private static readonly string _singleMP4File =
+        private static readonly string _singleMP4File =
             Path.Combine(_mediaFiles, @"BigBuckBunny.mp4");
 
-            static void Main(string[] args)
-            {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+        static void Main(string[] args)
+        {
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -439,10 +448,10 @@ Vedere l'argomento [Sviluppo di applicazioni di Servizi multimediali con .NET](m
             EncodeToAdaptiveBitrateMP4Set(asset);
 
             Console.ReadLine();
-            }
+        }
 
-            static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
-            {
+        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
+        {
             // Declare a new job.
             IJob job = _context.Jobs.Create("Media Encoder Standard Thumbnail Job");
             // Get a media processor reference, and pass to it the name of the 
@@ -454,9 +463,9 @@ Vedere l'argomento [Sviluppo di applicazioni di Servizi multimediali con .NET](m
 
             // Create a task
             ITask task = job.Tasks.AddNew("Media Encoder Standard Thumbnail task",
-                processor,
-                configuration,
-                TaskOptions.None);
+                    processor,
+                    configuration,
+                    TaskOptions.None);
 
             // Specify the input asset to be encoded.
             task.InputAssets.Add(asset);
@@ -464,47 +473,47 @@ Vedere l'argomento [Sviluppo di applicazioni di Servizi multimediali con .NET](m
             // This output is specified as AssetCreationOptions.None, which 
             // means the output asset is not encrypted. 
             task.OutputAssets.AddNew("Output asset",
-                AssetCreationOptions.None);
+                    AssetCreationOptions.None);
 
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
             job.Submit();
             job.GetExecutionProgressTask(CancellationToken.None).Wait();
 
             return job.OutputMediaAssets[0];
-            }
+        }
 
-            private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
-            {
+        private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
+        {
             Console.WriteLine("Job state changed event:");
             Console.WriteLine("  Previous state: " + e.PreviousState);
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
                 case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
                 case JobState.Canceling:
                 case JobState.Queued:
                 case JobState.Scheduled:
                 case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
+                    Console.WriteLine("Please wait...\n");
+                    break;
                 case JobState.Canceled:
                 case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
+                    // Display or log error details as needed.
+                    break;
                 default:
-                break;
+                    break;
             }
-            }
+        }
 
-            private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-            {
+        private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+        {
             var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
@@ -512,9 +521,10 @@ Vedere l'argomento [Sviluppo di applicazioni di Servizi multimediali con .NET](m
                 throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
-            }
         }
-
+    }
+}
+```
 
 ## <a name="considerations"></a>Considerazioni
 Si applicano le considerazioni seguenti:
@@ -523,14 +533,14 @@ Si applicano le considerazioni seguenti:
 * Gli elementi Jpg/Png/BmpImage hanno gli attributi inizio, passaggio e intervallo della stringa, che possono essere interpretati come:
   
   * Se sono numeri interi non negativi, numero di frame, ad esempio "Start": "120",
-  * Relativi alla durata di origine se espressi con il suffisso %, ad esempio. "Start": "15%", OPPURE
-  * Timestamp se espresso come HH:MM:SS (formato). ed esempio "Start" : "00:01:00"
+  * Relativi alla durata di origine se espressi con il suffisso %, ad esempio "Start": "15%", OR
+  * Timestamp se espresso come HH:MM:SS (formato). Ad esempio "Start": "00: 01:00"
     
     È possibile combinare e associare le notazioni a piacimento.
     
     Inoltre, Inizio supporta anche una Macro speciale: {Best}, che tenta di determinare il primo fotogramma "interessante" della NOTA contenuto: (Passaggio e Intervallo vengono ignorati quando Inizio è impostato su {Best})
   * Impostazioni predefinite: Start: {Best}
-* Il formato di output deve essere specificato in modo esplicito per ogni formato immagine: Jpg/Png/BmpFormat. Quando è presente, MES collegherà JpgVideo a JpgFormat e così via. OutputFormat presenta una nuova Macro specifica di codec di immagine : {Index}, che deve essere presente (una volta e una sola volta) per i formati immagine.
+* Il formato di output deve essere specificato in modo esplicito per ogni formato immagine: Jpg/Png/BmpFormat. Quando è presente, MES collega JpgVideo a JpgFormat e così via. OutputFormat presenta una nuova Macro specifica di codec di immagine : {Index}, che deve essere presente (una volta e una sola volta) per i formati immagine.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

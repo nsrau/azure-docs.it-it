@@ -1,24 +1,16 @@
 ---
-title: Esaminare l'architettura per la replica Hyper-V in un sito secondario con Azure Site Recovery | Microsoft Docs
+title: Replica Hyper-V all'architettura di sito secondario in Azure Site Recovery | Documenti Microsoft
 description: Questo articolo offre una panoramica dell'architettura per la replica di macchine virtuali Hyper-V locali in un sito System Center VMM secondario con Azure Site Recovery.
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 26475782-a21a-408a-b089-35382d7e010e
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: a7a493097a4eaacc2c8d8449906b4a57eb411827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3380d189518f811ca6cf628608a253e5d93b2730
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>Replica Hyper-V in un sito secondario
 
@@ -31,7 +23,7 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 
 **Componente** | **Requisito** | **Dettagli**
 --- | --- | ---
-**Azzurro** | Sottoscrizione di Azure | Creare un insieme di credenziali di Servizi di ripristino nella sottoscrizione di Azure per orchestrare e gestire la replica tra i percorsi VMM.
+**Azure** | Sottoscrizione di Azure | Creare un insieme di credenziali di Servizi di ripristino nella sottoscrizione di Azure per orchestrare e gestire la replica tra i percorsi VMM.
 **Server VMM** | È necessario avere a disposizione un percorso VMM primario e uno secondario. | È consigliabile distribuire un server VMM in un sito primario e uno nel sito secondario.
 **Server Hyper-V** |  Uno o più server host Hyper-V nei cloud VMM primario e secondario. | I dati vengono replicati tra il server host Hyper-V primario e secondario su LAN o VPN usando l'autenticazione Kerberos o del certificato.  
 **VM Hyper-V** | Nel server host Hyper-V. | Il server host di origine deve avere almeno una VM che si vuole replicare.
@@ -51,20 +43,18 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 
 ## <a name="failover-and-failback-process"></a>Processo di failover e failback
 
-1. È possibile eseguire il failover di un solo computer o creare piani di ripristino per orchestrare il failover di più computer.
-2. È possibile eseguire un failover pianificato o non pianificato tra siti locali. Se si esegue un failover pianificato, le macchine virtuali di origine vengono arrestate per assicurare che non si verifichino perdite di dati.
+- È possibile eseguire il failover di un solo computer o creare piani di ripristino per orchestrare il failover di più computer.
+- È possibile eseguire un failover pianificato o non pianificato tra siti locali. Se si esegue un failover pianificato, le macchine virtuali di origine vengono arrestate per assicurare che non si verifichino perdite di dati.
     - Se è stato eseguito un failover non pianificato in un sito secondario, dopo il failover le macchine nella posizione secondaria non sono protette.
     - Se è stato eseguito un failover pianificato, dopo il failover i computer della posizione secondaria sono protetti.
-3. Dopo aver attivato il failover iniziale, è necessario eseguirne il commit per iniziare ad accedere al carico di lavoro dalla macchina virtuale di replica.
-
-Quando il sito primario è di nuovo disponibile, è possibile eseguire il failback.
-
-1. Avviare la replica inversa, per avviare la replica dal sito secondario a quello primario. La replica inversa porta le macchine virtuali in uno stato protetto, ma per il datacenter secondario resta la posizione attiva.
-2. Per rendere di nuovo il sito primario la posizione attiva, occorre avviare un failover pianificato da sito secondario a primario, seguito da un'altra replica inversa.
+- Dopo aver attivato il failover iniziale, è necessario eseguirne il commit per iniziare ad accedere al carico di lavoro dalla macchina virtuale di replica.
+- Quando il sito primario è di nuovo disponibile, è possibile eseguire il failback.
+    - Avviare la replica inversa, per avviare la replica dal sito secondario a quello primario. La replica inversa porta le macchine virtuali in uno stato protetto, ma per il datacenter secondario resta la posizione attiva.
+    - Per rendere di nuovo il sito primario la posizione attiva, occorre avviare un failover pianificato da sito secondario a primario, seguito da un'altra replica inversa.
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare la matrice di supporto Seguire l'esercitazione per abilitare la replica Hyper-V tra cloud VMM.
-Eseguire un failover e un failback.
+
+Seguire [questa esercitazione](tutorial-vmm-to-vmm.md) per abilitare la replica Hyper-V tra cloud VMM.

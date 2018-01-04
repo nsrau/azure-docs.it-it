@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
 ms.openlocfilehash: da5bddba3a1fad74b2ee08fd2f34d1b01c7345c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Connettere reti virtuali da diversi modelli di distribuzione usando PowerShell
 
@@ -183,7 +183,7 @@ Per creare un gateway VPN per la rete virtuale di Resource Manager, seguire le i
 2. Creare un gateway di rete locale. In una rete virtuale il gateway di rete locale in genere fa riferimento al percorso locale. In questo caso, il gateway di rete locale fa riferimento alla rete virtuale classica. Assegnargli un nome che Azure possa usare come riferimento e specificare il prefisso dello spazio indirizzi. Azure usa il prefisso di indirizzo IP che viene specificato per identificare il traffico da inviare al percorso locale. Se si desidera modificare le informazioni prima di creare il gateway, è possibile modificare i valori ed eseguire nuovamente l'esempio.
    
    **-Name** è il nome da assegnare per fare riferimento al gateway di rete locale.<br>
-   **-AddressPrefix** è lo spazio degli indirizzi per una rete virtuale classica.<br>
+   **AddressPrefix -** è lo spazio degli indirizzi per una rete virtuale classica.<br>
    **-GatewayIpAddress** è l'indirizzo IP pubblico del gateway della rete virtuale classica. Assicurarsi di modificare l'esempio seguente in modo da riflettere l'indirizzo IP corretto.<br>
 
   ```powershell
@@ -205,7 +205,7 @@ Per creare un gateway VPN per la rete virtuale di Resource Manager, seguire le i
 5. Recuperare la subnet usata per il gateway tramite il comando seguente. In questo passaggio, è anche possibile impostare una variabile da usare nel passaggio successivo.
    
    **-Name** è il nome della rete virtuale di Resource Manager.<br>
-   **-ResourceGroupName** è il gruppo di risorse a cui la rete virtuale è associata. Per poter funzionare correttamente, la subnet del gateway deve esistere già per questa rete virtuale e deve essere denominata *GatewaySubnet* .<br>
+   **-ResourceGroupName** è il gruppo di risorse a cui è associata la rete virtuale. Per poter funzionare correttamente, la subnet del gateway deve esistere già per questa rete virtuale e deve essere denominata *GatewaySubnet* .<br>
 
   ```powershell
   $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet `

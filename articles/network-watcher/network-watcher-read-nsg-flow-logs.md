@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: 1eea88827733e44bd0ebd88ab5179f4d3a7b6b04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: daf4e70767d59a602d7ff1a2099af904b314c5f9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="read-nsg-flow-logs"></a>Leggere i log dei flussi del gruppo di sicurezza di rete
 
@@ -35,7 +35,7 @@ Prima di iniziare, è necessario abilitare la registrazione dei flussi dei grupp
 
 ## <a name="retrieve-the-block-list"></a>Recuperare l'elenco di blocco
 
-Il comando PowerShell seguente imposta le variabili necessarie per eseguire una query al BLOB del log del flussi del gruppo di sicurezza di rete ed elenca i blocchi all'interno del BLOB in blocchi [CloudBlockBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3). Aggiornare lo script in modo che contenga i valori validi per l'ambiente.
+Il comando PowerShell seguente imposta le variabili necessarie per eseguire una query al BLOB del log del flussi del gruppo di sicurezza di rete ed elenca i blocchi all'interno del BLOB in blocchi [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3). Aggiornare lo script in modo che contenga i valori validi per l'ambiente.
 
 ```powershell
 # The SubscriptionID to use

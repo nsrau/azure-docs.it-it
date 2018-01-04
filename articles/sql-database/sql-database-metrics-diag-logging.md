@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 9f201454d58dbc646923d0155ff41761d593ab7e
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 2e377ef96f6c2b5866ad258a88d6403fd0bb1e41
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica 
 Il database SQL di Azure può generare metriche e log di diagnostica per facilitare il monitoraggio. È possibile configurare il database SQL per archiviare l'utilizzo delle risorse, ruoli di lavoro, sessioni e connettività in una delle risorse di Azure seguenti:
@@ -28,7 +28,7 @@ Il database SQL di Azure può generare metriche e log di diagnostica per facilit
 * **Hub eventi di Azure**: usata per l'integrazione dei dati di telemetria di database SQL con soluzioni di monitoraggio personalizzate o pipeline attive.
 * **Log Analytics di Azure**: usata per una soluzione di monitoraggio già pronta con funzionalità di reporting, avviso e mitigazione.
 
-    ![Architettura](./media/sql-database-metrics-diag-logging/architecture.png)
+    ![Architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## <a name="enable-logging"></a>Abilitazione della registrazione
 
@@ -271,12 +271,12 @@ Informazioni su come [scaricare le metriche e i log di diagnostica da Archiviazi
 
 ### <a name="query-store-runtime-statistics"></a>Statistiche di runtime di Query Store
 
-|Proprietà|Descrizione|
+|Proprietà|DESCRIZIONE|
 |---|---|
 |TenantId|ID tenant.|
 |SourceSystem|Always: Azure|
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log.|
-|Tipo|Always: AzureDiagnostics|
+|type|Always: AzureDiagnostics|
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL|
 |Categoria|Nome della categoria. Always: QueryStoreRuntimeStatistics|
 |OperationName|Nome dell'operazione. Always: QueryStoreRuntimeStatisticsEvent|
@@ -318,16 +318,16 @@ Informazioni su come [scaricare le metriche e i log di diagnostica da Archiviazi
 |query_id_d|ID della query in Query Store.|
 |plan_id_d|ID del piano in Query Store.|
 
-Altre informazioni sui [dati delle statistiche di runtime di Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
+Altre informazioni sui [dati delle statistiche di runtime di Query Store](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
 
 ### <a name="query-store-wait-statistics"></a>Statistiche relative alle attese di Query Store
 
-|Proprietà|Descrizione|
+|Proprietà|DESCRIZIONE|
 |---|---|
 |TenantId|ID tenant.|
 |SourceSystem|Always: Azure|
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log.|
-|Tipo|Always: AzureDiagnostics|
+|type|Always: AzureDiagnostics|
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL|
 |Categoria|Nome della categoria. Always: QueryStoreWaitStatistics|
 |OperationName|Nome dell'operazione. Always: QueryStoreWaitStatisticsEvent|
@@ -356,16 +356,16 @@ Altre informazioni sui [dati delle statistiche di runtime di Query Store](https:
 |query_id_d|ID della query in Query Store.|
 |plan_id_d|ID del piano in Query Store.|
 
-Altre informazioni sui [dati delle statistiche di attesa di Query Store](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
+Altre informazioni sui [dati delle statistiche di attesa di Query Store](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
 ### <a name="errors-dataset"></a>Set di dati di errori
 
-|Proprietà|Descrizione|
+|Proprietà|DESCRIZIONE|
 |---|---|
 |TenantId|ID tenant.|
 |SourceSystem|Always: Azure|
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log.|
-|Tipo|Always: AzureDiagnostics|
+|type|Always: AzureDiagnostics|
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL|
 |Categoria|Nome della categoria. Always: Errors|
 |OperationName|Nome dell'operazione. Always: ErrorEvent|
@@ -380,7 +380,7 @@ Altre informazioni sui [dati delle statistiche di attesa di Query Store](https:/
 |Message|Messaggio di errore in testo normale.|
 |user_defined_b|È il bit di errore definito dall'utente.|
 |error_number_d|Codice di errore.|
-|Severity|Gravità dell'errore.|
+|Gravità|Gravità dell'errore.|
 |state_d|Stato dell'errore.|
 |query_hash_s|Hash di query della query non riuscita, se disponibile.|
 |query_plan_hash_s|Hash del piano di query della query non riuscita, se disponibile.|
@@ -389,12 +389,12 @@ Altre informazioni sui [messaggi di errore di SQL Server](https://msdn.microsoft
 
 ### <a name="database-wait-statistics-dataset"></a>Set di dati delle statistiche di attesa del database
 
-|Proprietà|Descrizione|
+|Proprietà|DESCRIZIONE|
 |---|---|
 |TenantId|ID tenant.|
 |SourceSystem|Always: Azure|
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log.|
-|Tipo|Always: AzureDiagnostics|
+|type|Always: AzureDiagnostics|
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL|
 |Categoria|Nome della categoria. Always: DatabaseWaitStatistics|
 |OperationName|Nome dell'operazione. Always: DatabaseWaitStatisticsEvent|
@@ -414,16 +414,16 @@ Altre informazioni sui [messaggi di errore di SQL Server](https://msdn.microsoft
 |delta_wait_time_ms_d|Tempo di attesa totale nel periodo.|
 |delta_waiting_tasks_count_d|Numero di attività in attesa.|
 
-Altre informazioni sulle [statistiche di attesa del database](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
+Altre informazioni sulle [statistiche di attesa del database](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
 ### <a name="time-outs-dataset"></a>Set di dati dei timeout
 
-|Proprietà|Descrizione|
+|Proprietà|DESCRIZIONE|
 |---|---|
 |TenantId|ID tenant.|
 |SourceSystem|Always: Azure|
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log.|
-|Tipo|Always: AzureDiagnostics|
+|type|Always: AzureDiagnostics|
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL|
 |Categoria|Nome della categoria. Always: Timeouts|
 |OperationName|Nome dell'operazione. Always: TimeoutEvent|
@@ -441,12 +441,12 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 
 ### <a name="blockings-dataset"></a>Set di dati dei blocchi
 
-|Proprietà|Descrizione|
+|Proprietà|DESCRIZIONE|
 |---|---|
 |TenantId|ID tenant.|
 |SourceSystem|Always: Azure|
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log.|
-|Tipo|Always: AzureDiagnostics|
+|type|Always: AzureDiagnostics|
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL|
 |Categoria|Nome della categoria. Always: Blocks|
 |OperationName|Nome dell'operazione. Always: BlockEvent|

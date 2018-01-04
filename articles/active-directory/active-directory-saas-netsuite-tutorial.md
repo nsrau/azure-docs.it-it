@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: dafa0864-aef2-4f5e-9eac-770504688ef4
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: jeedes
-ms.openlocfilehash: f2184f426c0e60ea2b6ce029b80d3d63821794d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 23e39f20f5b3faa4f6cfba57508d1649e2bbdaa3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Esercitazione: Integrazione di Azure Active Directory con NetSuite
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con Netsuite, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di Netsuite abilitata per il Single Sign-On
 
 > [!NOTE]
@@ -47,7 +47,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Netsuite dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -63,11 +63,11 @@ Per configurare l'integrazione di Netsuite in Azure AD, è necessario aggiungere
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 4. Nella casella di ricerca digitare **Netsuite**.
 
@@ -86,7 +86,7 @@ La relazione di collegamento viene stabilita assegnando il valore di **nome uten
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Netsuite, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di Netsuite](#creating-a-netsuite-test-user)**: per avere una controparte di Britta Simon in Netsuite collegata alla relativa rappresentazione in Azure AD dell'utente.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -100,15 +100,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **Netsuite** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_samlbase.png)
 
 3. Nella sezione **URL e dominio Netsuite** seguire questa procedura:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_url.png)
 
     Nella casella di testo **URL di risposta** digitare un URL usando il modello seguente: `https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
@@ -117,51 +117,51 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
 4. Nella sezione **Certificato di firma SAML** fare clic su **XML metadati** e quindi salvare il file XML nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_certificate.png) 
 
 5. Fare clic sul pulsante **Salva** .
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-netsuite-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-netsuite-tutorial/tutorial_general_400.png)
 
 6. Nella sezione **Configurazione di Netsuite** fare clic su **Configura Netsuite** per visualizzare la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML** dalla **sezione Riferimento rapido.**
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_configure.png) 
 
 7. Aprire una nuova scheda nel browser e accedere al sito della società Netsuite come amministratore.
 
 8. Sulla barra degli strumenti nella parte superiore della pagina fare clic su **Setup** (Configurazione) e quindi su **Setup Manager** (Configura gestore).
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
 
 9. Dall'elenco **Setup Tasks** (Configura attività) selezionare **Integration** (Integrazione).
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-integration.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-integration.png)
 
 10. Nella sezione **Manage Authentication** (Gestione autenticazione) fare clic su **SAML Single Sign-on** (Single Sign-on di SAML).
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-saml.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-saml.png)
 
 11. Nella pagina **SAML Setup** eseguire i passaggi seguenti:
    
     a. Copiare il valore **SAML Single Sign-On Service URL** (URL servizio Single Sign-On SAML) dalla sezione di **Quick Reference** (Riferimento rapido) di **Configure sign-on** (Configura accesso) e incollarlo nel campo **Identity Provider Login Page** (Pagina di accesso provider di identità) in Netsuite.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-netsuite-tutorial/ns-saml-setup.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-netsuite-tutorial/ns-saml-setup.png)
   
     b. In NetSuite selezionare **Primary Authentication Method** (Metodo di autenticazione primario).
 
     c. Per il campo con etichetta **SAMLV2 Identity Provider Metadata** (Metadati provider identità SAMLV2) selezionare **Upload IDP Metadata File** (Carica file di metadati IDP). Fare quindi clic su **Browse** (Sfoglia) per caricare il file di metadati scaricato dal portale di Azure.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-netsuite-tutorial/ns-sso-setup.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-netsuite-tutorial/ns-sso-setup.png)
 
     d. Fare clic su **Submit**.
 
 12. In Azure AD fare clic sulla casella di controllo **Visualizza e modifica tutti gli altri attributi utente** e aggiungere l'attributo.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-attributes.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-attributes.png)
 
 13. Nel campo **Nome attributo** immettere `account`. Nel campo **Valore attributo** immettere l'ID dell'account NetSuite. Questo valore è costante e cambia con l'account. Per istruzioni su come individuare l'ID dell'account, vedere di seguito:
 
-      ![Configura accesso Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-add-attribute.png)
+      ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-add-attribute.png)
 
     a. In Netsuite fare clic su **Setup** (Configurazione) nel menu di spostamento superiore.
 
@@ -169,51 +169,51 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     c. Copiare l'ID dell'account NetSuite e incollarlo nel campo **Valore attributo** in Azure AD.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-account-id.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-account-id.png)
 
 14. Per consentire l'accesso Single Sign-On a NetSuite, è prima di tutto necessario che agli utenti vengano assegnate le autorizzazioni appropriate in NetSuite. Per assegnare le autorizzazioni, seguire le istruzioni seguenti.
 
     a. Scegliere **Setup** (Configurazione) dal menu di navigazione principale, quindi fare clic su **Setup Manager** (Configura gestore).
       
-      ![Configura accesso Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
+      ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
 
     b. Scegliere **Users/Roles** (Utenti/Ruoli) dal menu di navigazione a sinistra, quindi fare clic su **Manage Roles** (Gestisci ruoli).
       
-      ![Configura accesso Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-manage-roles.png)
+      ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-manage-roles.png)
 
     c. Fare clic su **New Role**.
 
     d. Digitare un nome per il nuovo ruolo in **Name** e selezionare la casella di controllo **Single Sign-On Only** (Solo Single Sign-On).
       
-      ![Configura accesso Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-new-role.png)
+      ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-new-role.png)
 
-    e. Fare clic su **Salva**.
+    e. Fare clic su **Save**.
 
     f. Scegliere **Permissions**dal menu disponibile nella parte superiore. Fare quindi clic su **Setup**.
       
-       ![Configura accesso Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-sso.png)
+       ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-sso.png)
 
     g. Selezionare **Set Up SAM Single Sign-on** (Configura Single Sign-on SAM), quindi fare clic su **Aggiungi**.
 
-    h. Fare clic su **Salva**.
+    h. Fare clic su **Save**.
 
     i. Scegliere **Setup** (Configurazione) dal menu di navigazione principale, quindi fare clic su **Setup Manager** (Configura gestore).
       
-       ![Configura accesso Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
+       ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-setup.png)
 
     j. Scegliere **Users/Roles** (Utenti/Ruoli) dal menu di navigazione a sinistra, quindi fare clic su **Manage Users** (Gestisci utenti).
       
-       ![Configura accesso Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-manage-users.png)
+       ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-manage-users.png)
 
     k. Selezionare un utente di test. Fare quindi clic su **Edit**.
       
-       ![Configura accesso Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-edit-user.png)
+       ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-edit-user.png)
 
     l. Nella finestra di dialogo Roles selezionare il ruolo creato e quindi fare clic su **Add**.
       
-       ![Configura accesso Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-add-role.png)
+       ![Configure Single Sign-On](./media/active-directory-saas-Netsuite-tutorial/ns-add-role.png)
 
-    m. Fare clic su **Salva**.
+    m. Fare clic su **Save**.
     
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -270,7 +270,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco di applicazioni selezionare **Netsuite**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-netsuite-tutorial/tutorial_netsuite_app.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

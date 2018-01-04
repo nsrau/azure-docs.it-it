@@ -4,7 +4,7 @@ description: Informazioni sui problemi comuni che si possono incontrare durante 
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 9c76b6f3495e2dd759a156fcef97b57aece8d632
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 265d58ce4098ea924318dfe2959397d60a0721d6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problema nella configurazione dell'accesso Single Sign-On basato su password per un'applicazione non inclusa nella raccolta
 
@@ -43,7 +43,7 @@ Come regola generale, **se non funziona l'acquisizione automatica dei campi di a
 
 Per configurare l'**accesso Single Sign-On basato su password** per un'applicazione usando l'**acquisizione automatica dei campi di accesso**, seguire questa procedura:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1.  Aprire il [**Portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
@@ -73,7 +73,7 @@ Per acquisire manualmente i campi di accesso, è necessario prima di tutto avere
 
 Per configurare l'**accesso Single Sign-On basato su password** per un'applicazione usando l'**acquisizione manuale dei campi di accesso**, seguire questa procedura:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1.  Aprire il [**Portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
@@ -103,7 +103,7 @@ Per configurare l'**accesso Single Sign-On basato su password** per un'applicazi
 
 14. Fare clic su **OK**.
 
-15. Fare clic su **Salva**.
+15. Fare clic su **Save**.
 
 16. Seguire le istruzioni visualizzate per usare il pannello di accesso.
 
@@ -173,7 +173,7 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
 
 1.  Fare clic sull'icona **Notifiche** (la campanella) nella parte superiore destra del portale di Azure
 
-2.  Selezionare una notifica in uno stato di **Errore** (quelle con accanto un (!) di colore rosso).
+2.  Selezionare una notifica con stato **Errore** contrassegnata con un punto esclamativo (!) rosso.
 
   >!NOTA] Non è possibile fare clic sulle notifiche in uno stato di **Operazione completata** o **In corso**.
   >

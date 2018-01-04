@@ -5,7 +5,7 @@ keywords: AD FS, ADFS, gestione di AD FS, AAD Connect, Connect, accesso, persona
 services: active-directory
 documentationcenter: 
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: c9ff22c7b4793112da5211162ed9cd58ac86d238
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: e024dd13c6bf25697dbea67ae240a100c27454b8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gestire e personalizzare Active Directory Federation Services con Azure AD Connect
 In questo articolo viene descritto come gestire e personalizzare Active Directory Federation Services (ADFS) tramite Azure Active Directory (Azure AD) Connect. Si includono inoltre altre attività comuni di AD FS che potrebbero essere necessarie per eseguire una configurazione completa di una farm di AD FS.
@@ -94,7 +94,7 @@ La configurazione dell’ID di accesso alternativo per AD FS consiste in due pas
 
 2. Nella pagina **Connessione ad Azure AD** specificare le credenziali di amministratore globale per Azure AD e fare clic su **Avanti**.
 
-   ![Connettersi ad Azure AD](media/active-directory-aadconnect-federation-management/AddNewADFSServer2.PNG)
+   ![Connessione ad Azure AD](media/active-directory-aadconnect-federation-management/AddNewADFSServer2.PNG)
 
 3. Specificare le credenziali di amministratore di dominio.
 
@@ -127,7 +127,7 @@ La configurazione dell’ID di accesso alternativo per AD FS consiste in due pas
 
 2. Specificare le credenziali di amministratore globale di Azure.
 
-   ![Connettersi ad Azure AD](media/active-directory-aadconnect-federation-management/wapserver2.PNG)
+   ![Connessione ad Azure AD](media/active-directory-aadconnect-federation-management/wapserver2.PNG)
 
 3. Nella pagina **Specificare il certificato SSL** indicare la password per il file PFX specificato durante la configurazione della farm AD FS con Azure AD Connect.
    ![Password certificato](media/active-directory-aadconnect-federation-management/WapServer3.PNG)

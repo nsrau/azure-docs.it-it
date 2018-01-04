@@ -141,7 +141,7 @@
       href: partition-data.md
     - name: Chiavi univoche
       href: unique-keys.md
-    - name: Coerenza
+    - name: Consistency
       href: consistency-levels.md
     - name: Velocità effettiva
       href: request-units.md
@@ -168,7 +168,7 @@
           href: social-media-apps.md
 - name: Guide pratiche
   items:
-    - name: Sviluppare
+    - name: Sviluppo
       items:
         - name: API SQL
           href: sql-api-index.md
@@ -187,8 +187,10 @@
               href: programming.md
             - name: Test delle prestazioni
               href: performance-testing.md
-            - name: Suggerimenti per incrementare le prestazioni
+            - name: Suggerimenti sulle prestazioni per .NET
               href: performance-tips.md
+            - name: Suggerimenti sulle prestazioni Java
+              href: performance-tips-java.md
             - name: Configurazione a più master
               href: multi-region-writers.md
             - name: DateTime
@@ -288,7 +290,7 @@
                   href: table-storage-design-guide.md
                 - name: API REST dell'archivio tabelle
                   href: /rest/api/storageservices/Table-Service-Concepts
-                - name: Sviluppare
+                - name: Sviluppo
                   items:
                     - name: .NET
                       href: table-storage-how-to-use-dotnet.md
@@ -338,7 +340,7 @@
           href: logging.md
         - name: Gestire chiavi e coerenza
           href: manage-account.md
-        - name: Azure Storage Explorer
+        - name: Esplora archivi Azure
           href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
         - name: Sicurezza
           items:

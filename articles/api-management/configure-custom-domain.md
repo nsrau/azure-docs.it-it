@@ -9,18 +9,17 @@ editor:
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: a7abba87035016eee05b4ab663404f10127bba1a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cf8a3eb502a808945e97822e10e44d38137d1161
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurare un nome di dominio personalizzato 
 
 Quando si crea un'istanza di Gestione API (APIM), Azure la assegna a un sottodominio di azure-api.net (ad esempio `apim-service-name.azure-api.net`). È tuttavia possibile esporre gli endpoint dell'APIM usando il proprio nome di dominio, ad esempio **contoso.com**. Questa esercitazione illustra come eseguire il mapping di un nome DNS personalizzato esistente agli endpoint esposti da un'istanza di Gestione API di Azure.
-
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -50,13 +49,15 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 3. Selezionare l'endpoint che si vuole aggiornare. 
 4. Nella finestra di destra fare clic su **Personalizzato**.
 
-    + In **Nome di dominio personalizzato** specificare il nome che si vuole usare. ad esempio `api.contoso.com`. <br/>Sono supportati anche i nomi di dominio con caratteri jolly (ad esempio *.dominio.com).
+    + In **Nome di dominio personalizzato** specificare il nome che si vuole usare. Ad esempio, `api.contoso.com`. <br/>Sono supportati anche i nomi di dominio con caratteri jolly (ad esempio *.dominio.com).
     + In **Certificato** specificare un file .PFX valido che si vuole caricare. 
     + Se il certificato ha una password, immetterla nel campo **Password**.
 1. Fare clic su Applica.
 
     >[!NOTE]
     >Il processo di assegnazione del certificato potrebbe richiedere circa 15 minuti.
+
+[!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 084c6bf3855bdc757c3f2926b35eaf7bba0ef389
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: b01aa01df198ce75b2f8b66d28a2db68b1c30b87
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-azure-container-service-aks"></a>Monitoraggio di Servizio contenitore di Azure (AKS)
 
 Il monitoraggio del cluster e dei contenitori Kubernetes è critico, soprattutto quando si gestisce un cluster di produzione su larga scala con più app.
 
-In questa esercitazione si configura il monitoraggio del cluster AKS usando la [soluzione contenitori per Log Analytics](../log-analytics/log-analytics-containers.md).
+In questa esercitazione, aver configurato il monitoraggio dell'utilizzo di cluster del AKS il [soluzione contenitori per Log Analitica][log-analytics-containers].
 
 Questa esercitazione, parte sette di otto, illustra le attività seguenti:
 
@@ -32,7 +32,7 @@ Questa esercitazione, parte sette di otto, illustra le attività seguenti:
 
 Nelle esercitazioni precedenti è stato creato un pacchetto di un'applicazione in immagini del contenitore, caricate poi nel Registro contenitori di Azure, ed è stato creato un cluster Kubernetes.
 
-Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, tornare a [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md) (Esercitazione 1: Creare immagini del contenitore).
+Se si è già questi passaggi e si desidera seguire la procedura, tornare alla [esercitazione 1: creare le immagini contenitore][aks-tutorial-prepare-app].
 
 ## <a name="configure-the-monitoring-solution"></a>Configurare la soluzione di monitoraggio
 
@@ -58,7 +58,7 @@ Per recuperare questi valori, selezionare **Area di lavoro OMS** nel menu a sini
 
 ## <a name="configure-monitoring-agents"></a>Configurare gli agenti di monitoraggio
 
-Per configurare gli agenti di monitoraggio del contenitore in un cluster Kubernetes, è possibile usare il file manifesto Kubernetes seguente. Questo crea un [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) di Kubernetes, che esegue un singolo pod in ogni nodo del cluster.
+Per configurare gli agenti di monitoraggio del contenitore in un cluster Kubernetes, è possibile usare il file manifesto Kubernetes seguente. Crea un Kubernetes [DaemonSet][kubernetes-daemonset], che viene eseguita un singolo pod in ogni nodo del cluster.
 
 Salvare il testo seguente in un file denominato `oms-daemonset.yaml` e sostituire i valori segnaposto `WSID` e `KEY` con l'ID e la chiave dell'area di lavoro di Log Analytics.
 
@@ -98,6 +98,8 @@ spec:
           name: container-hostname
         - mountPath: /var/log
           name: host-log
+        - mountPath: /var/lib/docker/containers/
+          name: container-log
        livenessProbe:
         exec:
          command:
@@ -124,6 +126,9 @@ spec:
     - name: host-log
       hostPath:
        path: /var/log
+    - name: container-log
+      hostPath:
+       path: /var/lib/docker/containers/
 ```
 
 Creare il DaemonSet con il comando seguente:
@@ -151,9 +156,9 @@ Con gli agenti in esecuzione, OMS richiede diversi minuti per inserire ed elabor
 
 Nel portale di Azure selezionare l'area di lavoro Log Analytics che è stata aggiunta al dashboard del portale. Fare clic sul riquadro **Soluzione Monitoraggio contenitori**. Qui è possibile trovare informazioni sul cluster e i contenitori AKS dal cluster.
 
-![Dashboard](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
+![dashboard](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
-Vedere la [Documentazione su Log Analytics](../log-analytics/index.yml) per istruzioni dettagliate sulla creazione di query e sull'analisi dei dati di monitoraggio.
+Vedere il [documentazione di Azure Log Analitica] [ log-analytics-docs] per istruzioni dettagliate sulla query e analisi dei dati di monitoraggio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -167,4 +172,14 @@ In questa esercitazione è stato monitorato il cluster di Kubernetes con OMS. Le
 Passare all'esercitazione successiva per apprendere come aggiornare Kubernetes a una nuova versione.
 
 > [!div class="nextstepaction"]
-> [Aggiornare Kubernetes](./tutorial-kubernetes-upgrade-cluster.md)
+> [Aggiornamento Kubernetes][aks-tutorial-upgrade]
+
+<!-- LINKS - external -->
+[kubernetes-daemonset]: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
+
+<!-- LINKS - internal -->
+[aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
+[log-analytics-containers]: ../log-analytics/log-analytics-containers.md
+[log-analytics-docs]: ../log-analytics/index.yml

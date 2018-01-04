@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: ed2a17fd735c1b0e67cbf5d08450d36620d4c857
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ccad7e41921c2fecbac113f3b950f654c62b1c8e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guida tecnica per il modello di soluzione di Cortana Intelligence per la previsione della domanda nel settore energetico
 ## <a name="overview"></a>**Panoramica**
@@ -46,7 +46,7 @@ L'applicazione di generazione eventi popola l'Hub eventi di Azure solo quando è
 Il servizio [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) è il destinatario dell'input fornito dall'origine dati sintetica descritta in precedenza.
 
 ## <a name="data-preparation-and-analysis"></a>**Preparazione e analisi dei dati**
-### <a name="azure-stream-analytics"></a>Azure Stream Analytics
+### <a name="azure-stream-analytics"></a>Analisi di flusso di Azure
 Il servizio [Analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) consente di analizzare quasi in tempo reale il flusso di input dal servizio [Hub eventi di Azure](#azure-event-hub), pubblicare i risultati in un dashboard di [Power BI](https://powerbi.microsoft.com) e archiviare tutti gli eventi in ingresso non elaborati nel servizio [Archiviazione di Azure](https://azure.microsoft.com/services/storage/), per l'elaborazione successiva da parte del servizio [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
 ### <a name="hdinsight-custom-aggregation"></a>Aggregazione personalizzata di HDInsight
@@ -82,7 +82,7 @@ Per il modello di soluzione per la previsione della domanda nel settore energeti
 
 Per trovare la query di [Analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) :
 
-* Accedere al [portale di Azure](https://manage.windowsazure.com/).
+* Accedere al [portale di Azure](https://portal.azure.com/).
 * Trovare i processi di Analisi di flusso ![](media/cortana-analytics-technical-guide-demand-forecast/icon-stream-analytics.png) generati con la distribuzione della soluzione. Uno è per il push dei dati nell'archiviazione BLOB (ad esempio mytest1streaming432822asablob) e l'altro per il push dei dati in Power BI (ad esempio mytest1streaming432822asapbi).
 * Selezionare:
 

@@ -4,7 +4,7 @@ description: Questo articolo descrive come configurare il connettore Lotus Domin
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/119/2017
 ms.author: barclayn
-ms.openlocfilehash: 15155fd9e1ab2dd6d58bcaf85a465c0585d3bc41
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
-ms.translationtype: HT
+ms.openlocfilehash: 80151134821c6106382c58bf0ec68ea0f6d4646a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Documentazione tecnica sul connettore Lotus Domino
 Questo articolo descrive il connettore Lotus Domino ed è applicabile ai prodotti seguenti:
@@ -39,7 +39,7 @@ A livello generale, le funzionalità seguenti sono supportate dalla versione cor
 | Origine dati connessa |Server:  <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Client:<li>Lotus Domino 8.5.x</li><li>Lotus Notes 9.x</li> |
 | Scenari |<li>Gestione del ciclo di vita degli oggetti</li><li>Gestione di gruppi</li><li>Gestione delle password</li> |
 | Operazioni |<li>Importazione completa e delta</li><li>Esportazione</li><li>Impostare e modificare la password in Password HTTP</li> |
-| Schema |<li>Persona (utente mobile, contatto (persone senza certificato))</li><li>Gruppo</li><li>Risorsa (risorsa, stanza, riunione online)</li><li>Mail-In Database</li><li>Individuazione dinamica degli attributi per gli oggetti supportati</li><li>Supporta fino a 250 file di certificazione personalizzati con un'organizzazione e unità organizzative (OU)</li> |
+| SCHEMA |<li>Persona (utente mobile, contatto (persone senza certificato))</li><li>Group</li><li>Risorsa (risorsa, stanza, riunione online)</li><li>Mail-In Database</li><li>Individuazione dinamica degli attributi per gli oggetti supportati</li><li>Supporta fino a 250 file di certificazione personalizzati con un'organizzazione e unità organizzative (OU)</li> |
 
 Il connettore Lotus Domino usa il client Lotus Notes per comunicare con il server Lotus Domino. A causa di questa dipendenza, è necessario installare un client Lotus Notes supportato nel server di sincronizzazione. La comunicazione tra il client e il server viene implementata tramite l'interfaccia di Lotus Notes .NET Interop (Interop.domino.dll). Questa interfaccia facilita la comunicazione tra la piattaforma Microsoft.NET e il client Lotus Notes e supporta l'accesso a documenti e viste di Lotus Domino. Per l'importazione differenziale è anche possibile usare l'interfaccia nativa C++, a seconda del metodo di importazione differenziale selezionato.
 
@@ -69,19 +69,19 @@ Le operazioni vengono trasferite alla directory Domino direttamente o tramite il
 
 **Rubrica primaria**
 
-| Oggetto | Create | Aggiornamento | Elimina |
+| Oggetto | Create | Aggiornamento | Delete |
 | --- | --- | --- | --- |
 | Person |AdminP |Diretto |AdminP |
-| Gruppo |AdminP |Diretto |AdminP |
+| Group |AdminP |Diretto |AdminP |
 | MailInDB |Diretto |Diretto |Diretto |
 | Risorsa |AdminP |Diretto |AdminP |
 
 **Rubrica secondaria**
 
-| Oggetto | Create | Aggiornamento | Elimina |
+| Oggetto | Create | Aggiornamento | Delete |
 | --- | --- | --- | --- |
 | Person |N/D |Diretto |Diretto |
-| Gruppo |Diretto |Diretto |Diretto |
+| Group |Diretto |Diretto |Diretto |
 | MailInDB |Diretto |Diretto |Diretto |
 | Risorsa |N/D |N/D |N/D |
 
@@ -128,7 +128,7 @@ Il file USerID fornito è archiviato nel database di configurazione del servizio
 
 Per **Delta Import** sono disponibili queste opzioni:
 
-* **None**. Il connettore non esegue importazioni differenziali.
+* **Nessuno**. Il connettore non esegue importazioni differenziali.
 * **Add/Update**. Il connettore esegue l'importazione differenziale, l'aggiunta e l'aggiornamento delle operazioni. Per l'eliminazione è necessaria un'operazione **Full Import** (Importazione completa). Questa operazione usa .Net interop.
 * **Add/Update/Delete**. Il connettore esegue l'importazione differenziale, l'aggiunta, l'aggiornamento e l'eliminazione delle operazioni. Questa operazione usa le interfacce C++ native.
 
@@ -155,7 +155,7 @@ A partire dall'aggiornamento di marzo 2017, la schermata dei parametri globali i
 #### <a name="import-settings-method"></a>Impostazioni di importazione, metodo
 Per **Perform Full Import By** sono disponibili le opzioni seguenti:
 
-* Search
+* Ricerca
 * View (Recommended)
 
 **Search** (Ricerca) usa l'indicizzazione in Domino, ma è normale che gli indici non siano aggiornati in tempo reale e i dati restituiti dal server non siano sempre corretti. Per un sistema con molte modifiche, questa opzione in genere non funziona bene e fornisce false eliminazioni in alcune situazioni. **Search** è tuttavia più veloce di **View**.
@@ -165,7 +165,7 @@ Per **Perform Full Import By** sono disponibili le opzioni seguenti:
 #### <a name="creation-of-virtual-contact-objects"></a>Creazione di oggetti Virtual Contact
 L'impostazione **Enable creation of \_Contact object** include le opzioni seguenti:
 
-* None
+* Nessuna
 * Non-Reference Values
 * Reference and Non-Reference Values
 
@@ -231,7 +231,7 @@ Se un nuovo assistente di nome **David Alexander** viene assegnato a questo ogge
 **Importazioneazione**  
 (Importa) L'opzione relativa all'operazione di importazione supporta due modalità:
 
-* Default
+* Predefinito
 * Multivalued to Single Value
 
 **Default** (Predefinito): quando si seleziona l'opzione predefinita, vengono importati tutti i valori di tutti gli attributi.
@@ -371,7 +371,7 @@ Quando si effettua il provisioning degli oggetti Person nella directory di Lotus
 
 La tabella seguente include l'elenco di queste proprietà con la relativa descrizione.
 
-| Proprietà | Description |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | \_MMS_AltFullName |Nome completo alternativo dell'utente. |
 | \_MMS_AltFullNameLanguage |Lingua da usare per specificare il nome alternativo dell'utente. |
@@ -412,11 +412,11 @@ Questa sezione elenca gli attributi obbligatori per ogni oggetto supportato per 
 
 | Tipo di oggetto | Attributi obbligatori |
 | --- | --- |
-| Gruppo |<li>ListName</li> |
+| Group |<li>ListName</li> |
 | Main-In Database |<li>FullName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 | Person |<li>LastName</li><li>MailFile</li><li>ShortName</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li><li>\_MMS_UseAdminP</li> |
 | Contact (Person senza file di certificazione) |<li>\_MMS_IDRegType</li> |
-| Risorsa |<li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Sito</li><li>displayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
+| Risorsa |<li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Sito</li><li>DisplayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 
 ## <a name="common-issues-and-questions"></a>Domande e problemi comuni
 ### <a name="schema-detection-does-not-work"></a>Il rilevamento dello schema non funziona
@@ -492,5 +492,5 @@ Esistono diverse modalità in Domino per estendere lo schema in modo che venga v
 7. Dopo aver aggiunto gli attributi obbligatori a ExtensibleObjectClass, fare clic su **Save & Close** (Salva e chiudi).
 8. Viene creata una ExtensibleObjectClass per la rispettiva classe di oggetti predefinita con attributi estesi.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 * Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).

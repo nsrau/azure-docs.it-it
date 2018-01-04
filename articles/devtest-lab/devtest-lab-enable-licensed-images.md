@@ -3,7 +3,7 @@ title: Abilitare un'immagine concessa in licenza nel lab in Azure DevTest Labs |
 description: Informazioni su come abilitare un'immagine concessa in licenza in Azure DevTest Labs usando il portale di Azure
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 221390d2-8d3b-4e1f-b454-43d33f8072b7
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
-ms.author: tarcher
-ms.openlocfilehash: a74eff05285602574e45703dbe5b6caf074adecd
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: 3c969495454db2cd301fc985e512531ef0d4b103
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Abilitare un'immagine concessa in licenza nel lab in Azure DevTest Labs
 
@@ -83,4 +83,4 @@ Per assicurarsi che un'immagine concessa in licenza sia disponibile per gli uten
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Aggiungere una macchina virtuale al lab](./devtest-lab-add-vm-with-artifacts.md)
+- [Aggiungere una macchina virtuale all'ambiente lab](devtest-lab-add-vm.md)

@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 4ea9f47c-25ca-42b0-a878-9e7aa6f34973
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: bae5f05a161b2730bf662bcb47f20ab3e1799951
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5eabff9399f35328feb973ad4a0abbf793fe7458
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>Esercitazione: Integrazione di Azure Active Directory con Cloud Management Portal for Microsoft Azure
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con Cloud Management Portal for Microsoft Azure, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione abilitata di Cloud Management Portal per Microsoft Azure Single Sign-On
 
 > [!NOTE]
@@ -47,7 +47,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Cloud Management Portal for Microsoft Azure dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -63,11 +63,11 @@ Per configurare l'integrazione di Cloud Management Portal for Microsoft Azure co
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 4. Nella casella di ricerca digitare **Cloud Management Portal for Microsoft Azure**.
 
@@ -86,7 +86,7 @@ Per stabilire la relazione di collegamento, in Cloud Management Portal for Micro
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Cloud Management Portal for Microsoft Azure, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di Cloud Management Portal for Microsoft Azure](#creating-a-cloud-management-portal-for-microsoft-azure-test-user)**: per avere una controparte di Britta Simon in Cloud Management Portal for Microsoft Azure collegata alla rappresentazione dell'utente in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -100,15 +100,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **Cloud Management Portal for Microsoft Azure** del portale di gestione di Azure fare clic su **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_samlbase.png)
 
 3. Nella sezione **URL e dominio Cloud Management Portal for Microsoft Azure** seguire questa procedura:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_url.png)
 
     a. Nella casella di testo **URL di accesso** digitare un URL usando i criteri seguenti: 
     
@@ -137,17 +137,17 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_certificate.png) 
 
 5. Fare clic sul pulsante **Salva** .
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-newsignature-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-newsignature-tutorial/tutorial_general_400.png)
 
 6. Nella sezione **Configurazione di Cloud Management Portal for Microsoft Azure** fare clic su **Configura Cloud Management Portal for Microsoft Azure** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_configure.png) 
 
-7. Per configurare l'accesso Single Sign-On sul lato **Cloud Management Portal for Microsoft Azure** è necessario inviare il file **Certificato** scaricato e i valori **Sign-Out URL** (URL di disconnessione), **SAML Single Sign-On Service URL** (URL servizio Single Sign-On SAML) e **SAML Entity ID** (ID entità SAML) al [team di supporto di Cloud Management Portal for Microsoft Azure](mailto:jczernuszka@newsignature.com). L'applicazione viene configurata in modo che la connessione SAML SSO sia impostata correttamente su entrambi i lati.
+7. Per configurare l'accesso Single Sign-On sul lato **Cloud Management Portal for Microsoft Azure** è necessario inviare il file **Certificato** scaricato e i valori **Sign-Out URL** (URL di disconnessione), **SAML Single Sign-On Service URL** (URL servizio Single Sign-On SAML) e **SAML Entity ID** (ID entità SAML) al [team di supporto di Cloud Management Portal for Microsoft Azure](mailto:jczernuszka@newsignature.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -202,7 +202,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco delle applicazioni selezionare **Cloud Management Portal for Microsoft Azure**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-newsignature-tutorial/tutorial_newsignature_app.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

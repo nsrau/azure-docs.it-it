@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 39dea03ef9f42a3ff06dadd94c8d70541cbdc06c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: 0d99df534da4575f3c34ec6b3475cdd1bdc3308a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Individuare, identificare e classificare i dati personali in Microsoft Azure
 
@@ -183,9 +183,9 @@ Per informazioni integrative utili per configurare questa funzionalità, visitar
 
 Per iniziare con le nozioni base, visitare l'esercitazione [Azure Cosmos DB: Procedura per l'esecuzione di query con SQL](../cosmos-db/tutorial-query-documentdb.md). Questa esercitazione include un documento di esempio e due query SQL di esempio con relativi risultati.
 
-Per altre informazioni dettagliate sulla creazione di query SQL, visitare [Query SQL per l'API DocumentDB di Azure Cosmos DB](../cosmos-db/documentdb-sql-query.md).
+Per altre informazioni dettagliate sulla creazione di query SQL, visitare [Query SQL per l'API DocumentDB di Azure Cosmos DB](../cosmos-db/sql-api-sql-query.md).
 
-Se si ha familiarità con Azure Cosmos DB e si vuole imparare a creare un database, aggiungere una raccolta, aggiungere i dati, visitare l'esercitazione di avvio rapido [Azure Cosmos DB: Creare un'app Web per le API DocumentDB con .NET e il portale di Azure](../cosmos-db/create-documentdb-dotnet.md). Se si vuole eseguire questa operazione in un linguaggio diverso da .NET, come Java o Python, selezionare solo il linguaggio preferito quando si raggiunge il sito.
+Se si ha familiarità con Azure Cosmos DB e si desidera imparare a creare un database, aggiungere una raccolta e si aggiungono dati, visitare il [DB Cosmos Azure: creare un'app web API SQL](../cosmos-db/create-sql-api-dotnet.md) esercitazione di avvio rapido. Se si vuole eseguire questa operazione in un linguaggio diverso da .NET, come Java o Python, selezionare solo il linguaggio preferito quando si raggiunge il sito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

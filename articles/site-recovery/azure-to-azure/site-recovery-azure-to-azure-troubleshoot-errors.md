@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 726c12d3c91a6e4fdc77397a736aaa161f0e830c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 02d68d091cbbe02e1b5b628924ded1c2155f7119
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Risolvere i problemi di replica delle VM da Azure ad Azure
 
@@ -131,6 +131,20 @@ Se la VM di Azure non è disponibile per la selezione quando si abilita la repli
 
 È possibile usare lo [script per la rimozione della configurazione non aggiornata di Azure Site Recovery](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) e rimuovere la configurazione dalla VM di Azure. Dopo la rimozione della configurazione non aggiornata, la VM dovrebbe essere visibile per l'abilitazione della replica.
 
+## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>Stato di provisioning della macchina virtuale non è valido (codice di errore 150019)
+
+Per abilitare la replica della macchina virtuale, lo stato di provisioning deve essere **Succeeded**. Per verificare lo stato della macchina virtuale, la procedura seguente.
+
+1.  Selezionare il **Esplora inventario risorse** da **tutti i servizi** nel portale di Azure.
+2.  Espandere il **sottoscrizioni** elenco e selezionare la sottoscrizione.
+3.  Espandere il **ResourceGroups** elenco e selezionare il gruppo di risorse della macchina virtuale.
+4.  Espandere il **risorse** elenco e selezionare la macchina virtuale
+5.  Controllare il **provisioningState** campo nella Vista istanza sul lato destro.
+
+### <a name="fix-the-problem"></a>Risolvere il problema
+
+- Se **provisioningState** è **Failed**, contattare il supporto tecnico con i dettagli per risolvere i problemi.
+- Se **provisioningState** è **aggiornamento**, un'altra estensione può essere distribuita. Verificare se sono presenti operazioni in corso nella macchina virtuale, attenderne il completamento e riprovare il ripristino del sito non riuscito **abilitare la replica** processo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Replicare le macchine virtuali di Azure](azure-to-azure-quickstart.md)

@@ -3,7 +3,7 @@ title: Usare tag in formato JSON per pianificare lo stato delle VM di Azure | Do
 description: Questo articolo illustra come usare stringhe JSON nei tag per automatizzare la pianificazione di arresto e avvio delle macchine virtuali.
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 6afed5d2-e939-4749-8b2c-9312b4c16fb2
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: magoedte;paulomarquesc
-ms.openlocfilehash: cae4020741003be54b133efa121b3c09b859a176
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9855921f4a3aa9cda8497b400d50a186d7162dc3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Scenario di Automazione di Azure: uso di tag in formato JSON per creare una pianificazione per l'avvio e l'arresto di una macchina virtuale di Azure
 Spesso i clienti vogliono pianificare l'avvio e l'arresto delle macchine virtuali per ridurre i costi della sottoscrizione o supportare i requisiti aziendali e tecnici.
 
 Lo scenario seguente consente di configurare l'avvio e l'arresto automatizzati delle macchine virtuali usando un tag denominato Schedule a livello di gruppo di risorse o di macchina virtuale in Azure. Questa pianificazione può essere configurata da domenica a sabato con un orario di avvio e un orario di arresto.
 
-Sono disponibili opzioni predefinite. Sono state illustrate le seguenti operazioni:
+Sono disponibili opzioni predefinite. incluse le seguenti:
 
 * [Set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) con impostazioni di ridimensionamento automatico che consentono di aumentare o ridurre il numero di istanze.
 * [DevTest Labs](../devtest-lab/devtest-lab-overview.md) , un servizio con funzionalità predefinite per la pianificazione di operazioni di avvio e arresto.
@@ -45,7 +45,7 @@ Questi runbook eseguono l'autenticazione con l'[account RunAs di Azure](automati
 ## <a name="download-the-runbooks-for-the-scenario"></a>Scaricare i runbook per lo scenario
 Questo scenario è costituito da quattro runbook del flusso di lavoro PowerShell scaricabili dalla [Raccolta TechNet](https://gallery.technet.microsoft.com/Azure-Automation-Runbooks-84f0efc7) o dal repository [GitHub](https://github.com/paulomarquesdacosta/azure-automation-scheduled-shutdown-and-startup) per questo progetto.
 
-| Runbook | Descrizione |
+| Runbook | DESCRIZIONE |
 | --- | --- |
 | Test-ResourceSchedule |Controlla la pianificazione di ogni macchina virtuale ed esegue l'arresto o l'avvio delle macchine virtuali in base alla pianificazione. |
 | Add-ResourceSchedule |Aggiunge il tag Schedule a una macchina virtuale o a un gruppo di risorse. |
@@ -138,7 +138,7 @@ Seguire questa procedura per aggiungere un tag a una macchina virtuale o a un gr
 
    ![Opzione per i tag delle VM](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-tag-option.png)
 
-3. I tag vengono definiti in base a una coppia chiave/valore. Digitare **Pianificazione** nel campo **Chiave** e quindi incollare la stringa JSON nel campo **Valore**. Fare clic su **Salva**. Il nuovo tag verrà visualizzato nell'elenco dei tag per la risorsa.
+3. I tag vengono definiti in base a una coppia chiave/valore. Digitare **Pianificazione** nel campo **Chiave** e quindi incollare la stringa JSON nel campo **Valore**. Fare clic su **Save**. Il nuovo tag verrà visualizzato nell'elenco dei tag per la risorsa.
 
    ![Tag di pianificazione delle VM](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-schedule-tag.png)
 

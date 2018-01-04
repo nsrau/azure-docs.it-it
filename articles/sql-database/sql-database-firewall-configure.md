@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: e18645667cfb126ae2f2f9c8074fdcff5a6ade1b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 1988bc7ab5b498db32d7bb40623f1194d7290b94
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Regole firewall a livello di server e di database per il database SQL di Azure 
 
@@ -45,6 +45,10 @@ I tentativi di connessione da Internet e Azure devono prima superare il firewall
 * **Regole del firewall a livello di database:**. Queste regole consentono ai client di accedere a determinati database (sicuri) nello stesso server logico. È possibile creare queste regole per ogni database (incluso il database **master**) ed esse vengono archiviate nei singoli database. Le regole del firewall a livello di database per i database utente e master possono essere create e gestite solo usando le istruzioni Transact-SQL e solo dopo aver configurato il primo firewall a livello di server. Se nella regola del firewall a livello di database si specifica un intervallo di indirizzi IP che non rientra nell'intervallo specificato nella regola del firewall a livello di server, solo i client che dispongono di indirizzi IP compresi nell'intervallo a livello di database possono accedere al database. Per un database è possibile avere un massimo di 128 regole del firewall a livello di database. Per altre informazioni su come configurare le regole del firewall a livello di database, vedere l'esempio presente in questo articolo e vedere [sp_set_database_firewall_rule (Database SQL di Azure)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 **Indicazione:** è consigliabile usare le regole del firewall a livello di database quando è possibile, allo scopo di migliorare la sicurezza e la portabilità del database. Usare le regole del firewall a livello di server per gli amministratori e quando sono disponibili molti database che presentano gli stessi requisiti di accesso e non si vuole dedicare tempo alla configurazione di ogni singolo database.
+
+> [!Important]
+> Database SQL di Azure supporta un massimo di 128 regole firewall.
+>
 
 > [!Note]
 > Per informazioni sui database portabili per la continuità aziendale, vedere nel contesto della continuità aziendale, vedere i [requisiti di autenticazione per il ripristino di emergenza](sql-database-geo-replication-security-config.md).
@@ -109,7 +113,7 @@ Si apre la pagina di panoramica per il server che visualizza il nome completo de
 2. Fare clic su **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP del computer attualmente in uso e quindi fare clic su **Salva**. Una regola del firewall a livello di server viene creata per l'indirizzo IP corrente.
 
 ## <a name="manage-firewall-rules-using-transact-sql"></a>Gestire le regole del firewall con Transact-SQL
-| Vista del catalogo o una Stored Procedure | Level | Descrizione |
+| Vista del catalogo o una Stored Procedure | Level | DESCRIZIONE |
 | --- | --- | --- |
 | [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Server |Visualizza le regole del firewall a livello di server correnti |
 | [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Server |Crea o aggiorna regole del firewall a livello di server |
@@ -139,7 +143,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 ```   
 
 ## <a name="manage-firewall-rules-using-azure-powershell"></a>Gestire le regole del firewall con Azure PowerShell
-| Cmdlet | Level | Descrizione |
+| Cmdlet | Level | DESCRIZIONE |
 | --- | --- | --- |
 | [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |Server |Restituisce le regole del firewall a livello di server correnti |
 | [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |Server |Crea una nuova regola del firewall a livello di server |
@@ -160,7 +164,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 >
 
 ## <a name="manage-firewall-rules-using-azure-cli"></a>Gestire le regole del firewall con l'interfaccia della riga di comando di Azure
-| Cmdlet | Level | Descrizione |
+| Cmdlet | Level | DESCRIZIONE |
 | --- | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Server|Crea una regola del firewall del server|
 |[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Server|Elenca le regole del firewall in un server|
@@ -180,7 +184,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 >
 
 ## <a name="manage-firewall-rules-using-rest-api"></a>Gestire le regole del firewall con l'API REST
-| API | Level | Descrizione |
+| API | Level | DESCRIZIONE |
 | --- | --- | --- |
 | [Elencare le regole del firewall](https://docs.microsoft.com/rest/api/sql/FirewallRules/ListByServer) |Server |Visualizza le regole del firewall a livello di server correnti |
 | [Creare o aggiornare la regola del firewall](https://docs.microsoft.com/rest/api/sql/FirewallRules/CreateOrUpdate) |Server |Crea o aggiorna regole del firewall a livello di server |

@@ -7,6 +7,7 @@ author: anta
 manager: ireiter
 editor: anta
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: bd0ddfcffdb6f946f9a3786f3d0add1740be861b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 17903df93e11b8d1a5b9c6fbe5fd8e53302f45f4
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="energy-demand-time-series-forecasting"></a>Previsione in serie temporale della domanda di energia
 
@@ -56,13 +57,11 @@ Questo scenario presenta in modo dettagliato la creazione di una soluzione di ap
 - Un [account di Azure](https://azure.microsoft.com/free/) (sono disponibili versioni di valutazione gratuite).
 - Una copia di [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) installata seguendo la [guida introduttiva all'installazione](./quickstart-installation.md) per installare il programma e creare un'area di lavoro.
 - Questo esempio presuppone l'esecuzione di Azure Machine Learning Workbench su Windows 10 con il [motore Docker](https://www.docker.com/) installato in locale. Se si usa macOS, le istruzioni sono in gran parte uguali.
-- Operazionalizzazione di Azure Machine Learning installato con un ambiente di distribuzione locale configurato e un account di gestione del modello creato seguendo questa [guida](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/getting-started.md).
+- Operazionalizzazione di Azure Machine Learning installato con un ambiente di distribuzione locale configurato e un account di gestione del modello creato seguendo questa [guida](./model-management-configuration.md).
 - Per questo esempio è necessario aggiornare l'installazione di Pandas alla versione 0.20.3 o successiva e installare matplotlib. Scegliere *Open Command Prompt* (Apri prompt dei comandi) dal menu *File* in Workbench ed eseguire i comandi seguenti per installare queste dipendenze:
 
     ```
-    conda install "pandas>=0.20.3"
-
-    conda install matplotlib
+    conda install "pandas>=0.21.1"
     ```
     
 ## <a name="create-a-new-workbench-project"></a>Creare un nuovo progetto Workbench
@@ -77,7 +76,7 @@ Creare un nuovo progetto usando questo esempio come modello:
 
 ## <a name="data-description"></a>Descrizione dei dati
 
-Sono presenti due set di dati: `nyc_demand.csv` e `nyc_weather.csv`:
+Due set di dati vengono forniti in questo esempio e vengono scaricati utilizzando il `1-data-preparation.ipynb` notebook: `nyc_demand.csv` e `nyc_weather.csv`.
 
 **nyc_demand.csv** contiene i valori relativi alla domanda di energia ora per ora nella città di New York per gli anni 2012-2017. I dati hanno la semplice struttura seguente:
 

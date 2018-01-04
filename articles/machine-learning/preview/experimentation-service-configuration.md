@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Configurazione del servizio Sperimentazione di Azure Machine Learning
 
@@ -221,7 +221,8 @@ _**Panoramica dell'esecuzione della macchina virtuale remota per uno script di P
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Esecuzione di uno script in un cluster HDInsight
 HDInsight è una piattaforma comune per l'analisi dei big data che supporta Apache Spark. Workbench consente la sperimentazione sui Big Data tramite cluster HDInsight Spark. 
 
->![NOTA] Il cluster HDInsight deve usare BLOB di Azure come risorsa di archiviazione primaria. L'archiviazione in Azure Data Lake non è ancora supportata.
+>[!NOTE]
+>Il cluster HDInsight è necessario usare Blob di Azure come archiviazione primaria. L'archiviazione in Azure Data Lake non è ancora supportata.
 
 È possibile creare una destinazione del calcolo ed eseguire la configurazione per un cluster di HDInsight Spark usando il comando seguente:
 
@@ -269,7 +270,8 @@ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP
 ```
 - Accodare la chiave pubblica generata da Workbench al file ~/.ssh/authorized_keys sulla destinazione di calcolo associata. 
 
-[!IMPORTANT] È necessario effettuare l'accesso alla destinazione di calcolo usando lo stesso nome utente usato per creare la destinazione di calcolo. 
+>[!IMPORTANT]
+>È necessario effettuare l'accesso alla destinazione di calcolo usando lo stesso nome utente usato per creare la destinazione di calcolo. 
 
 - È ora possibile preparare e usare la destinazione di calcolo tramite l'autenticazione basata su chiavi SSH.
 

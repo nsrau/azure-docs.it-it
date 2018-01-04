@@ -3,7 +3,7 @@ title: Integrazione del controllo del codice sorgente di Automazione di Azure co
 description: Descrive nei dettagli come configurare l'integrazione con GitHub Enterprise per il controllo del codice sorgente dei runbook di Automazione.
 services: automation
 documentationCenter: 
-authors: eslesar
+authors: georgewallace
 manager: jwhit
 editor: 
 ms.assetid: e01d817c-7d38-421c-adf5-647a4b526eb4
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: magoedte
-ms.openlocfilehash: 2b3ca90382a1c4fb6446799ad539ab8ee603aefc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cf72c6d05e2872bea84b8a7218bd318d5b8c9694
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-github-enterprise"></a>Scenario di Automazione di Azure - Integrazione del controllo del codice sorgente di Automazione con GitHub Enterprise
 
@@ -35,14 +35,14 @@ Questo scenario è costituito da due runbook di PowerShell che è possibile impo
 
 ### <a name="runbooks"></a>Runbook
 
-Runbook | Descrizione| 
+Runbook | DESCRIZIONE| 
 --------|------------|
 Export-RunAsCertificateToHybridWorker | Runbook esporta un certificato RunAs da un account di Automazione in un ruolo di lavoro ibrido, in modo che i runbook nel ruolo di lavoro possano eseguire l'autenticazione con Azure per importare i runbook nell'account di Automazione.| 
 Sync-LocalGitFolderToAutomationAccount | Runbook sincronizza la cartella Git locale nel computer ibrido e quindi importa i file runbook (con estensione ps1) nell'account di Automazione.|
 
 ### <a name="credentials"></a>Credenziali
 
-Credenziali | Descrizione|
+Credenziali | DESCRIZIONE|
 -----------|------------|
 GitHRWCredential | Asset credenziali che viene creato per contenere il nome utente e la password per un utente dotato delle autorizzazioni per il ruolo di lavoro ibrido.|
 

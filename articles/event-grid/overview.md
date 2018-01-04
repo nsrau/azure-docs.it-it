@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 12/14/2017
 ms.author: babanisa
-ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: e6665b3b0c6e92ed462f18dbd41d62ccd9304928
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Introduzione a Griglia di eventi di Azure
 
@@ -20,21 +20,30 @@ Griglia di eventi di Azure consente di compilare facilmente applicazioni con arc
 
 È possibile usare i filtri per instradare eventi specifici a endpoint diversi, trasmetterli a più endpoint e verificare che gli eventi vengano recapitati in modo affidabile. Griglia di eventi offre anche il supporto predefinito per eventi personalizzati e di terze parti.
 
-Per la versione di anteprima, la griglia di eventi supporta le località **westus2** e **westcentralus**. Verranno aggiunte altre aree.
+Griglia di eventi supporta attualmente le aree seguenti:
 
-Questo articolo offre una panoramica di Griglia di eventi di Azure. Per iniziare a usare Griglia di eventi, vedere [Create and route custom events with Azure Event Grid](custom-event-quickstart.md) (Creare e instradare eventi personalizzati con Griglia di eventi di Azure).
+* Stati Uniti centrali
+*   Stati Uniti orientali
+*   Stati Uniti orientali 2
+*   Stati Uniti centro-occidentali
+*   Stati Uniti occidentali
+*   Stati Uniti occidentali 2
+
+Verranno aggiunte altre aree.
+
+Questo articolo offre una panoramica di Griglia di eventi di Azure. Per iniziare a usare Griglia di eventi, vedere [Create and route custom events with Azure Event Grid](custom-event-quickstart.md) (Creare e instradare eventi personalizzati con Griglia di eventi di Azure). La figura seguente mostra la modalità di connessione griglia eventi gestori e i server di pubblicazione, ma non fornisce un elenco completo delle opzioni supportate.
 
 ![Modello funzionale di Griglia di eventi](./media/overview/event-grid-functional-model.png)
 
-## <a name="event-publishers"></a>Publisher di eventi
+## <a name="event-publishers"></a>Autori di eventi
 
 Attualmente i servizi di Azure seguenti hanno il supporto predefinito degli autori per Griglia di eventi:
 
-* Gruppi di risorse (operazioni di gestione)
 * Sottoscrizioni di Azure (operazioni di gestione)
-* Hub eventi
-* Archiviazione BLOB
 * Argomenti personalizzati
+* Hub eventi
+* Gruppi di risorse (operazioni di gestione)
+* Archiviazione BLOB
 
 Quest'anno verranno aggiunti altri servizi di Azure.
 
@@ -42,11 +51,12 @@ Quest'anno verranno aggiunti altri servizi di Azure.
 
 Attualmente i servizi di Azure seguenti hanno il supporto predefinito dei gestori per Griglia di eventi: 
 
-* Funzioni di Azure
-* App per la logica
 * Automazione di Azure
-* Webhook
+* Funzioni di Azure
+* Hub eventi
+* App per la logica
 * Microsoft Flow
+* Webhook
 
 Quest'anno verranno aggiunti altri servizi di Azure.
 

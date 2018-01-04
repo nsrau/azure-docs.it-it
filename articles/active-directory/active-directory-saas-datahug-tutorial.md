@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 5c0dc1ea-7ff4-4554-b60b-0f2fa9f5abaa
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: jeedes
-ms.openlocfilehash: ec431dd5ccfa53e4b975e46da247704dd1e15c2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e032aee88a430fe8ac5fa37229f1eee6fc04f710
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Esercitazione: Integrazione di Azure Active Directory con Datahug
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure Active Directory,
 
 Per configurare l'integrazione di Azure AD con Datahug, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di Datahug abilitata per l'accesso Single Sign-On.
 
 > [!NOTE]
@@ -47,7 +47,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Datahug dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -63,11 +63,11 @@ Per configurare l'integrazione di Datahug in Azure AD, è necessario aggiungere 
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 4. Nella casella di ricerca digitare **Datahug**.
 
@@ -86,7 +86,7 @@ La relazione di collegamento viene stabilita assegnando al valore di **nome uten
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Datahug, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di Datahug](#creating-a-datahug-test-user)**: per avere una controparte di Britta Simon in Datahug collegata alla relativa rappresentazione in Azure AD dell'utente.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -100,15 +100,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **Datahug** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_samlbase.png)
 
 3. Nella sezione **URL e dominio Datahug**, se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_ur1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_ur1.png)
 
     a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://apps.datahug.com/identity/<uniqueID>`
 
@@ -116,7 +116,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 4. Selezionare **Mostra impostazioni URL avanzate** se si desidera configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_url2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_url2.png)
 
     Nella casella di testo **URL di accesso** digitare l'URL come: `https://apps.datahug.com/`
      
@@ -125,11 +125,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 5. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_certificate.png) 
 
 6.  Selezionare **Mostra impostazioni avanzate per la firma di certificati** ed eseguire la procedura seguente:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_cert.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_cert.png)
 
     a. In **Opzione di firma**, selezionare **Firma asserzione SAML**.
     
@@ -137,11 +137,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
 7. Fare clic sul pulsante **Salva** .
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_general_400.png)
     
 8. Nella sezione **Configurazione di Datahug** fare clic su **Configura Datahug** per aprire la finestra **Configura accesso**. Copiare l'**ID di entità SAML** e **l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_configure.png) 
 
 9. Per configurare l'accesso Single Sign-On sul lato **Datahug**, è necessario inviare il **file XML dei metadati**, l'**ID entità SAML** e l'**URL del servizio Single Sign-On SAML** al [supporto Datahug](http://datahug.com/about/contact-us/). L'applicazione verrà configurata in modo che la connessione SAML SSO sia impostata correttamente su entrambi i lati.
 
@@ -219,7 +219,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco delle applicazioni selezionare **Datahug**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-datahug-tutorial/tutorial_datahug_app.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

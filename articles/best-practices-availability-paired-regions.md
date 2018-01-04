@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 12/11/2017
 ms.author: raynew
-ms.openlocfilehash: 4a846cc3e2f06199bdef9e597198f309801d5c75
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
-ms.translationtype: HT
+ms.openlocfilehash: 394f353837433e241e4da6f4accdb5eaa24bae46
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure
 
@@ -39,6 +39,7 @@ Figura 1: Diagramma di una coppia di aree di Azure
 | Canada |Canada centrale |Canada orientale |
 | Cina |Cina settentrionale |Cina orientale|
 | India |India centrale |India meridionale |
+| India |India occidentale (1) |India meridionale |
 | Giappone |Giappone orientale |Giappone occidentale |
 | Corea |Corea centrale |Corea meridionale |
 | America del Nord |Stati Uniti centro-settentrionali |Stati Uniti centro-meridionali |
@@ -47,9 +48,9 @@ Figura 1: Diagramma di una coppia di aree di Azure
 | America del Nord |Stati Uniti occidentali 2 |Stati Uniti centro-occidentali |
 | Europa |Europa settentrionale |Europa occidentale |
 | Giappone |Giappone orientale |Giappone occidentale |
-| Brasile |Brasile meridionale (1) |Stati Uniti centro-meridionali |
-| Governo degli Stati Uniti |Governo degli Stati Uniti - Iowa (2) |US Gov Virginia |
-| Governo degli Stati Uniti |Governo degli Stati Uniti - Virginia (3) |Governo degli Stati Uniti - Texas |
+| Brasile |Brasile meridionale, (2) |Stati Uniti centro-meridionali |
+| Governo degli Stati Uniti |Stati Uniti Gov Iowa (3) |US Gov Virginia |
+| Governo degli Stati Uniti |Stati Uniti Gov Virginia (4) |Governo degli Stati Uniti - Texas |
 | Governo degli Stati Uniti |Governo degli Stati Uniti - Arizona |Governo degli Stati Uniti - Texas |
 | Dipartimento della difesa degli Stati Uniti |Dipartimento della difesa Stati Uniti orientali |Dipartimento della difesa Stati Uniti centrali |
 | Regno Unito |Regno Unito occidentale |Regno Unito meridionale |
@@ -57,11 +58,10 @@ Figura 1: Diagramma di una coppia di aree di Azure
 
 Tabella 1 - Mapping di coppie di aree di Azure
 
-> (1) L'area Brasile meridionale è unica, perché è abbinata a un'area esterna alla propria area geografica. L'area secondaria del Brasile meridionale sono gli Stati Uniti centro-meridionali, ma l'area secondaria degli Stati Uniti centro-meridionali non è il Brasile meridionale.
->
-> (2) L'area secondaria per Governo degli Stati Uniti - Iowa è Governo degli Stati Uniti - Virginia, ma l'area secondaria per Governo degli Stati Uniti - Virginia non è Governo degli Stati Uniti - Iowa.
-> 
-> (3) L'area secondaria per Governo degli Stati Uniti - Virginia è Governo degli Stati Uniti - Texas, ma l'area secondaria per Governo degli Stati Uniti - Texas non è Governo degli Stati Uniti - Virginia.
+- > (1) India occidentale è diversa perché è associato a un'altra area in una sola direzione. Area secondaria dell'India occidentale è India meridionale, ma area secondaria del Sud India è India centrale.
+- > (2) Brasile meridionale è univoco perché viene abbinato con un'area di fuori di un proprio geography. L'area secondaria del Brasile meridionale sono gli Stati Uniti centro-meridionali, ma l'area secondaria degli Stati Uniti centro-meridionali non è il Brasile meridionale.
+- > (3) area secondaria del Iowa Gov degli Stati Uniti è US Gov Virginia, ma area secondaria di Virginia ci Gov non ci Gov Iowa.
+- > (4) area secondaria di Virginia Gov degli Stati Uniti è US Gov Texas, ma area secondaria degli Texas ci Gov non ci Gov Virginia.
 
 
 È consigliabile replicare i carichi di lavoro tra le coppie di aree per sfruttare i vantaggi dei criteri di isolamento e disponibilità di Azure. Ad esempio, gli aggiornamenti di sistema di Azure pianificati vengono distribuiti in sequenza (non contemporaneamente) tra le aree abbinate. Ciò significa che anche nel raro caso di un aggiornamento non corretto, non saranno interessate contemporaneamente entrambe le aree. Inoltre, nell'improbabile caso di un'interruzione su vasta scala, viene data priorità al ripristino di almeno un'area di ogni coppia.
@@ -94,7 +94,7 @@ Come indicato nella figura 2.
 **Replica fornita dalla piattaforma**: alcuni servizi, ad esempio l'archiviazione con ridondanza geografica, offrono la replica automatica nell'area abbinata.
 
 ![Ripristino](./media/best-practices-availability-paired-regions/7Orange.png)
-**Ordine di ripristino dell'area**: nel caso di un'interruzione su vasta scala, viene definita la priorità di ripristino di un'area per ogni coppia. Per le applicazioni distribuite in aree abbinate viene garantito che una delle aree sarà ripristinata con priorità. Se un'applicazione viene distribuita in aree non abbinate, il ripristino potrebbe essere ritardato: nel peggiore dei casi le aree scelte potrebbero essere le ultime due a essere ripristinate.
+**Ordine di ripristino dell'area**: nel caso di un'interruzione su vasta scala, viene definita la priorità di ripristino di un'area per ogni coppia. Per le applicazioni distribuite in aree abbinate viene garantito che una delle aree sarà ripristinata con priorità. Se un'applicazione viene distribuita tra le aree che non sono abbinate, ripristino potrebbe subire un ritardo: nel peggiore dei casi che le aree scelte potrebbero essere gli ultimi due da recuperare.
 
 ![Aggiornamenti](./media/best-practices-availability-paired-regions/8Orange.png)
 **Aggiornamenti sequenziali**: gli aggiornamenti di sistema di Azure pianificati vengono implementati nelle aree abbinate in modo sequenziale (non contemporaneamente) per ridurre al minimo i tempi di inattività, l'effetto dei bug e gli errori logici nel raro caso di un aggiornamento non valido.

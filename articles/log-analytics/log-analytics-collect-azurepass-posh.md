@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 7bae18e151fbdccf95f3fe5f569041d6dd9c42eb
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
-ms.translationtype: HT
+ms.openlocfilehash: 83491c4902dabc6bab1e222551298cfaffbaecf4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Configurare la raccolta di metriche delle risorse PaaS di Azure con Log Analytics
 
@@ -37,7 +37,7 @@ Prima di procedere, verificare che nel computer siano installati i moduli di Azu
 >[!NOTE]
 >È consigliabile che i moduli di Azure Resource Manager siano tutti della stessa versione, in modo da garantire la compatibilità quando si eseguiranno i comandi di Azure Resource Manager da PowerShell.
 >
-Per installare la versione più recente dei moduli di Azure Resource Manager nel computer in uso, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
+Per installare la versione più recente dei moduli di Azure Resource Manager nel computer in uso, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
 
 ## <a name="enable-azure-diagnostics"></a>Abilitare Diagnostica di Azure  
 Per configurare Diagnostica di Azure per risorse PaaS, è necessario eseguire lo script **Enable-AzureRMDiagnostics.ps1**, disponibile in [PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52/DisplayScript).  Lo script supporta gli scenari seguenti:
@@ -79,7 +79,7 @@ Verrà chiesto di fornire le stesse informazioni specificate durante l'esecuzion
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 
+* Altre informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 
 
 * Usare i [Campi personalizzati](log-analytics-custom-fields.md) per analizzare i record degli eventi nei singoli campi.
 

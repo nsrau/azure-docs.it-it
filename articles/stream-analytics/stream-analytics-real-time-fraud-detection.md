@@ -26,11 +26,11 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
     >[!NOTE]
     >Windows potrebbe bloccare il file con estensione zip scaricato. Se non è possibile decomprimerlo, fare clic con il pulsante destro del mouse sul file e scegliere **Proprietà**. Se viene visualizzato il messaggio "Il file proviene da un altro computer. Per facilitare la protezione del computer, potrebbe essere bloccato", selezionare l'opzione **Sblocca** e quindi scegliere **Applica**.
 
-Per esaminare i risultati del processo di Analisi di flusso, è anche necessario uno strumento per la visualizzazione del contenuto di un contenitore di Archiviazione BLOB di Azure. Se si usa Visual Studio, è possibile usare [Strumenti di Microsoft Azure per Visual Studio](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) o [Visual Studio Cloud Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-resources-managing-with-cloud-explorer). In alternativa, è possibile installare strumenti autonomi come [Azure Storage Explorer](http://storageexplorer.com/) o [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). 
+Per esaminare i risultati del processo di Analisi di flusso, è anche necessario uno strumento per la visualizzazione del contenuto di un contenitore di Archiviazione BLOB di Azure. Se si usa Visual Studio, è possibile usare [Strumenti di Microsoft Azure per Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) o [Visual Studio Cloud Explorer](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer). In alternativa, è possibile installare strumenti autonomi come [Azure Storage Explorer](http://storageexplorer.com/) o [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). 
 
 ## <a name="create-an-azure-event-hubs-to-ingest-events"></a>Creare hub eventi di Azure per inserire eventi
 
-Per analizzare un flusso di dati, *inserirlo* in Azure. Un modo comune per inserire i dati consiste nell'usare gli [hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md), che consentono di inserire milioni di eventi al secondo e quindi elaborare e archiviare le relative informazioni. Per questa esercitazione si creerà un hub eventi e quindi l'app generatore degli eventi di chiamata invierà i dati a tale hub. Per altre informazioni sugli hub eventi, vedere la [documentazione del bus di servizio di Azure](https://docs.microsoft.com/en-us/azure/service-bus/).
+Per analizzare un flusso di dati, *inserirlo* in Azure. Un modo comune per inserire i dati consiste nell'usare gli [hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md), che consentono di inserire milioni di eventi al secondo e quindi elaborare e archiviare le relative informazioni. Per questa esercitazione si creerà un hub eventi e quindi l'app generatore degli eventi di chiamata invierà i dati a tale hub. Per altre informazioni sugli hub eventi, vedere la [documentazione del bus di servizio di Azure](https://docs.microsoft.com/azure/service-bus/).
 
 >[!NOTE]
 >Per una versione più dettagliata di questa procedura, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il Portale di Azure](../event-hubs/event-hubs-create.md). 
@@ -183,7 +183,7 @@ Una query semplice potrebbe solamente leggere tutti i dati in ingresso. Tuttavia
 
 Le query qui create visualizzeranno semplicemente i dati trasformati. In una sezione successiva si configureranno un sink di output e una query che scrive in tale sink i dati trasformati.
 
-Per altre informazioni sul linguaggio, vedere le [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/dn834998.aspx).
+Per altre informazioni sul linguaggio, vedere le [Informazioni di riferimento sul linguaggio di query di analisi dei flussi di Azure](https://msdn.microsoft.com/library/dn834998.aspx).
 
 ### <a name="get-sample-data-for-testing-queries"></a>Ottenere dati di esempio per testare le query
 
@@ -300,7 +300,7 @@ Quando si usa un join con i dati di streaming, il join deve garantire alcuni lim
 
     ![Output del processo di Analisi di flusso per il self-join con 6 record generati](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-self-join.png)
 
-3. Fare clic su **Salva**. In questo modo la query di self-join viene salvata nell'ambito del processo di Analisi di flusso. I dati di esempio non vengono salvati.
+3. Fare clic su **Save**. In questo modo la query di self-join viene salvata nell'ambito del processo di Analisi di flusso. I dati di esempio non vengono salvati.
 
     ![Salvare il processo di Analisi di flusso](./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png)
 
@@ -395,5 +395,5 @@ Per altre informazioni generiche su Analisi di flusso, vedere questi articoli:
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

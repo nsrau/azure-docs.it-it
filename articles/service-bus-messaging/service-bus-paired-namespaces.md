@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: bdd4c7948608c03447d1e040a746ed0eb7b0771b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f16c65286b0aa079889c9d53e98bf54e3d57c95f
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Dettagli di implementazione e implicazioni in termini di costi relativi allo spazio dei nomi associato
+
 Il metodo [PairNamespaceAsync][PairNamespaceAsync], mediante un'istanza di [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions], esegue attività visibili per conto dell'utente. Poiché l'uso di questa funzionalità comporta considerazioni in termini di costi, è utile comprendere le attività eseguite in modo da prevederne il comportamento. L'API attiva automaticamente il comportamento seguente per conto dell'utente:
 
 * Creazione di code di backlog.
@@ -53,7 +54,7 @@ Nelle sezioni successive di questo argomento verranno illustrati i dettagli spec
 ## <a name="creation-of-backlog-queues"></a>Creazione di code di backlog
 L'oggetto [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] passato al metodo [PairNamespaceAsync][PairNamespaceAsync] indica il numero di code di backlog da usare. Ogni coda di backlog viene quindi creata con le proprietà seguenti impostate in modo esplicito. Tutti gli altri valori vengono impostati in base all'oggetto [QueueDescription predefinito][QueueDescription]:
 
-| Path | [spazio dei nomi primario]/x-servicebus-transfer/[indice] dove [indice] è un valore espresso in [0, BacklogQueueCount] |
+| path | [spazio dei nomi primario]/x-servicebus-transfer/[indice] dove [indice] è un valore espresso in [0, BacklogQueueCount] |
 | --- | --- |
 | MaxSizeInMegabytes |5120 |
 | MaxDeliveryCount |int.MaxValue |

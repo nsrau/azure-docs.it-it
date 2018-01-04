@@ -19,7 +19,7 @@ Il dispositivo di esempio inoltre:
 * Risponde alle azioni attivate dalla pagina **Dispositivi** della soluzione.
 * Risponde alle modifiche di configurazione inviate dalla pagina **Dispositivi** della soluzione.
 
-Per completare l'esercitazione, è necessario un account Azure attivo. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
+Per completare l'esercitazione, è necessario un account Azure attivo. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -54,7 +54,7 @@ Per individuare le credenziali che il dispositivo deve usare per la connessione 
 
 1. Individuare il gruppo di risorse che contiene i servizi di Azure usati dalla soluzione per il monitoraggio remoto. Il nome del gruppo di risorse coincide con quello della soluzione per il monitoraggio remoto della quale si è effettuato il provisioning.
 
-1. Passare all'hub IoT in questo gruppo di risorse. Scegliere quindi **Esplora dispositivi**:
+1. Passare all'hub IoT in questo gruppo di risorse. Scegliere quindi **dispositivi IoT**:
 
     ![Esplora dispositivi](media/iot-suite-selector-connecting/deviceexplorer.png)
 

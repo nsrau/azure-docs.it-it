@@ -17,10 +17,10 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 659a791124eab002290ac0b7f0898cf1c06c2951
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Creare una rete virtuale usando l'interfaccia della riga di comando di Azure
 
@@ -31,7 +31,7 @@ Azure offre due modelli di distribuzione, ovvero Azure Resource Manager e la dis
 È anche possibile creare una rete virtuale tramite Resource Manager usando altri strumenti oppure tramite il modello di distribuzione classica selezionando un'opzione diversa dall'elenco seguente:
 
 > [!div class="op_single_selector"]
-> * [Portale](virtual-networks-create-vnet-arm-pportal.md)
+> * [di Microsoft Azure](virtual-networks-create-vnet-arm-pportal.md)
 > * [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 > * [CLI](virtual-networks-create-vnet-arm-cli.md)
 > * [Modello](virtual-networks-create-vnet-arm-template-click.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: mazha
-ms.openlocfilehash: 04c9ad5e58af073204eb6a16df96f0517a0ee668
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
-ms.translationtype: HT
+ms.openlocfilehash: 9ffd05a0eb4d976dc40a1c5d45fd22ebf9bd4db1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings"></a>Controllare il comportamento di memorizzazione nella cache della rete per la distribuzione di contenuti di Azure con stringhe di query
 > [!div class="op_single_selector"]
@@ -43,13 +43,13 @@ Sono disponibili tre modalità di stringa di query:
    
    ![Endpoint del profilo di rete CDN](./media/cdn-query-string/cdn-endpoints.png)
    
-2. In Impostazioni fare clic su **Cache**.
+2. Nel riquadro a sinistra in impostazioni, fare clic su **la memorizzazione nella cache regole**.
    
-    ![Pulsante Cache del profilo della rete CDN](./media/cdn-query-string/cdn-cache-btn.png)
+    ![Pulsante regole di memorizzazione nella cache della rete CDN](./media/cdn-query-string/cdn-caching-rules-btn.png)
    
 3. Nell'elenco **Comportamento di memorizzazione nella cache della stringa di query** selezionare una modalità per la stringa di query e quindi fare clic su **Salva**.
    
-  <!--- Replace screen shot after general caching goes live ![CDN query string caching options](./media/cdn-query-string/cdn-query-string.png) --->
+   ![Opzioni della memorizzazione nella cache della stringa di query della rete CDN](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
 > Le modifiche delle impostazioni di memorizzazione nella cache delle stringhe non sono immediatamente visibili perché la propagazione della registrazione nella rete CDN richiede tempo. La propagazione dei profili della **rete CDN di Azure fornita da Akamai** di solito dura meno di un minuto. Per i profili della **rete CDN di Azure fornita da Verizon**, la propagazione viene in genere completata entro 90 minuti, ma in alcuni casi può richiedere più tempo.

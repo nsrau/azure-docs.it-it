@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 2efffd14c748a070fff59bcf9dd21c02eb9f6dcd
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: c7f4bf0fed35ffb2c03e8b983260c6093032fe79
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>Configurare il servizio Sperimentazione di Azure Machine Learning
 
 ## <a name="overview"></a>Panoramica
-L'account, l'area di lavoro e il progetto del servizio Sperimentazione di Azure Machine Learning sono risorse di Azure e possono pertanto essere distribuiti tramite i modelli di Resource Manager. I modelli di Resource Manager sono file JSON che definiscono le risorse che è necessario distribuire per la soluzione. Per comprendere i concetti associati alla distribuzione e alla gestione delle soluzioni di Azure, vedere [Panoramica di Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+L'account, l'area di lavoro e il progetto del servizio Sperimentazione di Azure Machine Learning sono risorse di Azure e possono pertanto essere distribuiti tramite i modelli di Resource Manager. I modelli di Resource Manager sono file JSON che definiscono le risorse che è necessario distribuire per la soluzione. Per comprendere i concetti associati alla distribuzione e alla gestione delle soluzioni di Azure, vedere [Panoramica di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="deploy-a-template"></a>Distribuire un modello
 Per la distribuzione di un modello è necessario eseguire solo pochi passaggi nell'interfaccia della riga di comando di Azure o nel portale di Azure.
@@ -137,7 +137,7 @@ Creare un file con il contenuto riportato di seguito e salvarlo come <parameters
 È possibile modificare i valori di tre parametri. 
 * AccountName: il nome dell'account di sperimentazione.
 * Location: una delle aree di Azure supportate.
-* StorageAccountSKU: Azure ML supporta solo l'archiviazione standard e non la premium. Per altre informazioni sull'archiviazione, vedere [Introduzione ad Archiviazione](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction). 
+* StorageAccountSKU: Azure ML supporta solo l'archiviazione standard e non la premium. Per altre informazioni sull'archiviazione, vedere [Introduzione ad Archiviazione](https://docs.microsoft.com/azure/storage/common/storage-introduction). 
 
 ```json
 {

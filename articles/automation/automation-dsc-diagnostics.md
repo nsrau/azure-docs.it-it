@@ -3,7 +3,7 @@ title: Inoltrare i dati dei report di Automation DSC per Azure a Log Analytics d
 description: "Questo articolo illustra come inviare i dati di report di configurazione dello stato desiderato (DSC, Desired State Configuration) a Log Analytics di Microsoft Operations Management Suite per fornire informazioni e funzionalità di gestione aggiuntive."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.service: automation
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
-ms.author: eslesar
-ms.openlocfilehash: 316031c5297a0201c8db4a9e177298c78962c673
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: gwallace
+ms.openlocfilehash: 5de22072a436e7a2dbaa7d413595c048f730189b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Inoltrare i dati dei report di Automation DSC per Azure a Log Analytics di OMS
 
@@ -43,7 +43,7 @@ Per iniziare a inviare i report di Automation DSC a Log Analytics, sono necessar
 
 Per iniziare a importare i dati da Automation DSC per Azure in Log Analytics, seguire questa procedura:
 
-1. Accedere all'account Azure in PowerShell. Vedere [Log in with Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-4.0.0) (Accedere con Azure PowerShell)
+1. Accedere all'account Azure in PowerShell. Vedere [Log in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0) (Accedere con Azure PowerShell)
 1. Ottenere il valore _ResourceId_ dell'account di Automazione eseguendo questo comando di PowerShell. Se sono presenti più account di Automazione, scegliere il valore _ResourceID_ per l'account da configurare.
 
   ```powershell
@@ -121,7 +121,7 @@ La diagnostica di Automazione di Azure crea due categorie di record in Log Analy
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | TimeGenerated |Data e ora dell'esecuzione del controllo della conformità. |
 | OperationName |DscNodeStatusData |
@@ -152,7 +152,7 @@ La diagnostica di Automazione di Azure crea due categorie di record in Log Analy
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | TimeGenerated |Data e ora dell'esecuzione del controllo della conformità. |
 | OperationName |DscResourceStatusData|
@@ -181,7 +181,7 @@ La diagnostica di Automazione di Azure crea due categorie di record in Log Analy
 | ResourceType | AUTOMATIONACCOUNTS |
 | CorrelationId |GUID che rappresenta l'ID di correlazione del report di conformità. |
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 L'invio dei dati di Automation DSC a Log Analytics consente di ottenere informazioni dettagliate migliori sullo stato dei nodi di Automation DSC tramite queste operazioni:
 

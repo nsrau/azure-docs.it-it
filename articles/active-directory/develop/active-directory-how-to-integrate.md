@@ -4,7 +4,7 @@ description: Guida ai vantaggi e alle risorse per l'integrazione con Azure Activ
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: d13bba54-96bd-4b81-bee9-c8025ffa1648
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: e2a83e8dcd054576b4a99533cdfbb9f5605cd6f9
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: bd9f984a625ae951a16eb729c0a4565eea05e46b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integrazione con Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -37,7 +37,7 @@ Per eseguire l'integrazione con Azure AD, sono disponibili diversi modi.  Fare r
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>Esplorare la directory per cercare utenti, gestire il provisioning degli utenti e controllare l'accesso all'applicazione
 **Esplorare la directory per cercare gli utenti.**  L'API Graph consente agli utenti di cercare altri utenti all'interno dell'organizzazione per invitarli o concedere loro l'accesso alle applicazioni in modo da non dover digitare gli indirizzi di posta elettronica.  Gli utenti possono esplorare la directory tramite un'interfaccia simile a una rubrica e possono visualizzare anche i dettagli della gerarchia all'interno dell'organizzazione.  Altre informazioni sull'[API Graph](active-directory-graph-api.md).
 
-**Riutilizzare i gruppi e le liste di distribuzione di Active Directory che il cliente gestisce già.**  In Azure AD sono già presenti i gruppi che il cliente usa per la distribuzione della posta elettronica e per la gestione degli accessi.  L'API Graph consente di riutilizzare questi gruppi per evitare che il cliente debba creare e gestire un set di gruppi separato nell'applicazione.  Le informazioni sui gruppi possono anche essere inviate all'applicazione nei token di accesso.  Altre informazioni sull'[API Graph](active-directory-graph-api.md).
+**Riutilizzare i gruppi e le liste di distribuzione di Active Directory che il cliente gestisce già.**  In Azure AD sono già presenti i gruppi che il cliente usa per la distribuzione della posta elettronica e per la gestione degli accessi.  L'API Graph consente di riutilizzare questi gruppi per evitare che il cliente debba creare e gestire un set di gruppi separato nell'applicazione.  Le informazioni sui gruppi possono anche essere inviate all'applicazione nei token di accesso.  Altre informazioni sull' [API Graph](active-directory-graph-api.md).
 
 **Usare Azure AD per controllare gli utenti che hanno accesso all'applicazione.**  Gli amministratori e i proprietari di applicazioni in Azure AD possono assegnare l'accesso alle applicazioni a utenti e gruppi specifici.  L'API Graph consente di leggere l'elenco e usarlo per controllare il provisioning e il deprovisioning delle risorse e gli accessi all'interno dell'applicazione.
 
@@ -77,7 +77,7 @@ L'integrazione con Azure AD non richiede di scrivere codice aggiuntivo.
 ### <a name="worldwide-presence-and-high-availability"></a>Presenza a livello globale e disponibilità elevata
 **Azure AD è distribuito nei data center di tutto il mondo ed è gestito e monitorato 24 ore al giorno.**  Azure AD è il sistema di gestione delle identità per Microsoft Azure e Office 365 ed è distribuito in 28 data center nel mondo.  I dati della directory vengono replicati in almeno tre data center.  I servizi di bilanciamento del carico globali garantiscono che l'utente acceda alla copia di Azure AD che contiene i dati dell'utente più vicina e reindirizza automaticamente le richieste ad altri data center nel caso in cui vengono rilevati problemi.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 [Introduzione alla scrittura di codice](active-directory-developers-guide.md#get-started).
 
 [Accesso degli utenti tramite Azure AD](active-directory-authentication-scenarios.md)

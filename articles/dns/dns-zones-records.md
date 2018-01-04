@@ -3,8 +3,8 @@ title: Panoramica delle zone e dei record DNS - DNS di Azure | Documentazione Mi
 description: Panoramica del supporto per l'hosting di zone e record DNS in DNS di Microsoft Azure.
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: carmonm
+author: KumudD
+manager: jeconnoc
 editor: 
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
 ms.service: dns
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
-ms.author: jonatul
-ms.openlocfilehash: 00f6309114039db23a1d22f1eb70076b842dadca
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: HT
+ms.date: 12/18/2017
+ms.author: kumud
+ms.openlocfilehash: 0a0808d3963cc037aaf113c67fd01679ee8c1d40
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Panoramica delle zone e dei record DNS
 
@@ -116,7 +116,7 @@ I tag sono un elenco di coppie nome-valore usate da Azure Resource Manager per e
 
 DNS di Azure supporta l'uso di tag di Azure Resource Manager in risorse di zona DNS.  Non supporta i tag nei set di record DNS, anche se in alternativa sono supportati i "metadati", come illustrato di seguito.
 
-### <a name="metadata"></a>Metadati
+### <a name="metadata"></a>Metadata
 
 In alternativa ai tag dei set di record, DNS di Azure supporta l'annotazione dei set di report tramite "metadati".  Analogamente ai tag, i metadati permettono di associare coppie nome-valore a ogni set di record.  Questo approccio può essere utile, ad esempio, per registrare lo scopo di ogni set di record.  Diversamente dai tag, i metadati non possono essere usati per fornire una visualizzazione filtrata della fattura di Azure e non possono essere specificati in criteri di Azure Resource Manager.
 
@@ -132,7 +132,7 @@ A livello dell'API REST di DNS di Azure, gli ETag vengono specificati usando le 
 
 | Intestazione | Comportamento |
 | --- | --- |
-| None |PUT riesce sempre (nessun controllo di Etag) |
+| Nessuna |PUT riesce sempre (nessun controllo di Etag) |
 | If-Match <etag> |PUT riesce solo se la risorsa esiste e l'Etag corrisponde |
 | If-match * |PUT riesce solo se la risorsa esiste |
 | If-none-match * |PUT riesce solo se la risorsa non esiste |

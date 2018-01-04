@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/31/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 2bb8370d23d9450fb8154f21c27817666fd7852c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: 31e41f9befd9319115e5d147b473756486100c6e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-at-rest-with-encryption"></a>Tecnologie di crittografia di Azure: proteggere i dati personali inattivi con la crittografia
 
@@ -55,9 +55,9 @@ Come parte di una strategia di sicurezza con difesa avanzata a più livelli, l'o
 
 I servizi di Azure offrono più strumenti e tecnologie per semplificare la protezione dei dati personali inattivi tramite la crittografia.
 
-### <a name="azure-key-vault"></a>Insieme di credenziali chiave Azure
+### <a name="azure-key-vault"></a>Azure Key Vault
 
-[Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) offre archiviazione sicura per le chiavi usate per crittografare dati inattivi nei servizi di Azure ed è la soluzione di gestione e archiviazione delle chiavi consigliata. La gestione delle chiavi di crittografia è essenziale per proteggere i dati archiviati.
+[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) offre archiviazione sicura per le chiavi usate per crittografare dati inattivi nei servizi di Azure ed è la soluzione di gestione e archiviazione delle chiavi consigliata. La gestione delle chiavi di crittografia è essenziale per proteggere i dati archiviati.
 
 #### <a name="how-do-i-use-azure-key-vault-to-protect-keys-that-encrypt-personal-data"></a>Come si usa Azure Key Vault per proteggere le chiavi che crittografano i dati personali?
 
@@ -79,13 +79,13 @@ Azure Key Vault può fornire una chiave protetta tramite software oppure è poss
 
 È infine possibile generare una chiave nel modulo HSM locale e trasferirla nei moduli HSM nel servizio Azure Key Vault, senza che la chiave oltrepassi i confini del modulo HSM.
 
-Per istruzioni dettagliate sull'uso di Azure Key Vault, seguire i passaggi inclusi in [Introduzione ad Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-get-started)
+Per istruzioni dettagliate sull'uso di Azure Key Vault, seguire i passaggi inclusi in [Introduzione ad Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)
 
-Per un elenco dei cmdlet di PowerShell usati con Azure Key Vault, vedere [AzureRM.KeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
+Per un elenco dei cmdlet di PowerShell usati con Azure Key Vault, vedere [AzureRM.KeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
 
 ### <a name="azure-disk-encryption-for-windows"></a>Crittografia dischi di Azure per Windows
 
-[Crittografia dischi di Azure per macchine virtuali IaaS Windows e Linux](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) protegge i dati personali inattivi nelle macchine virtuali di Azure e si integra con Azure Key Vault. Crittografia dischi di Azure usa [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) in Windows e [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) in Linux per crittografare i dischi del sistema operativo e dei dati. Crittografia dischi di Azure è supportata in Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 e nei client Windows 8 e Windows 10.
+[Crittografia dischi di Azure per macchine virtuali IaaS Windows e Linux](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) protegge i dati personali inattivi nelle macchine virtuali di Azure e si integra con Azure Key Vault. Crittografia dischi di Azure usa [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) in Windows e [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) in Linux per crittografare i dischi del sistema operativo e dei dati. Crittografia dischi di Azure è supportata in Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 e nei client Windows 8 e Windows 10.
 
 #### <a name="how-do-i-use-azure-disk-encryption-to-protect-personal-data"></a>Come si usa Crittografia dischi di Azure per proteggere i dati personali?
 
@@ -103,11 +103,11 @@ Quando si configura l'insieme di credenziali delle chiavi per supportare Crittog
 
 ![](media/protect-personal-data-at-rest/create-key.png)
 
-Le istruzioni dettagliate per esperienze utente e scenari di distribuzione specifici sono disponibili in [Crittografia dischi di Azure per le macchine virtuali IaaS Windows e Linux](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).
+Le istruzioni dettagliate per esperienze utente e scenari di distribuzione specifici sono disponibili in [Crittografia dischi di Azure per le macchine virtuali IaaS Windows e Linux](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).
 
 ### <a name="azure-storage-service-encryption"></a>Crittografia del servizio di archiviazione di Azure
 
-[Crittografia del servizio di archiviazione di Azure per dati inattivi](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) consente di proteggere e salvaguardare i dati, in modo da soddisfare i criteri di sicurezza e conformità dell'organizzazione. Archiviazione di Azure crittografa automaticamente i dati usando crittografia AES a 256 bit prima della persistenza nella risorsa di archiviazione e li decrittografa prima del recupero. Questo servizio è disponibile per BLOB di Azure e File di Azure.
+[Crittografia del servizio di archiviazione di Azure per dati inattivi](https://docs.microsoft.com/azure/storage/storage-service-encryption) consente di proteggere e salvaguardare i dati, in modo da soddisfare i criteri di sicurezza e conformità dell'organizzazione. Archiviazione di Azure crittografa automaticamente i dati usando crittografia AES a 256 bit prima della persistenza nella risorsa di archiviazione e li decrittografa prima del recupero. Questo servizio è disponibile per BLOB di Azure e File di Azure.
 
 #### <a name="how-do-i-use-storage-service-encryption-to-protect-personal-data"></a>Come si usa Crittografia del servizio di archiviazione per proteggere i dati personali?
 
@@ -129,13 +129,13 @@ I nuovi dati verranno crittografati. I dati presenti nei file esistenti in quest
 
 Dopo aver abilitato la crittografia, copiare i dati nell'account di archiviazione usando uno dei metodi seguenti:
 
-1. Copiare i BLOB o i file con l'[utilità della riga di comando AzCopy](https://docs.microsoft.com/en-us/azure/storage/storage-use-azcopy).
+1. Copiare i BLOB o i file con l'[utilità della riga di comando AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy).
 
-2. [Montare una condivisione di file con SMB](https://docs.microsoft.com/en-us/azure/storage/storage-file-how-to-use-files-windows), per poter usare un'utilità come Robocopy per copiare i file.
+2. [Montare una condivisione di file con SMB](https://docs.microsoft.com/azure/storage/storage-file-how-to-use-files-windows), per poter usare un'utilità come Robocopy per copiare i file.
 
-3. Copiare dati di BLOB o file da e verso l'archiviazione BLOB o tra account di archiviazione usando [librerie client di archiviazione come .NET](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-blobs).
+3. Copiare dati di BLOB o file da e verso l'archiviazione BLOB o tra account di archiviazione usando [librerie client di archiviazione come .NET](https://docs.microsoft.com/azure/storage/storage-dotnet-how-to-use-blobs).
 
-4.  Usare uno [strumento di esplorazione di archiviazione](https://docs.microsoft.com/en-us/azure/storage/storage-explorers) per caricare BLOB nell'account di archiviazione con la crittografia abilitata.
+4.  Usare uno [strumento di esplorazione di archiviazione](https://docs.microsoft.com/azure/storage/storage-explorers) per caricare BLOB nell'account di archiviazione con la crittografia abilitata.
 
 ### <a name="transparent-data-encryption"></a>Transparent Data Encryption
 
@@ -159,9 +159,9 @@ Transparent Data Encryption (TDE) è una funzionalità inclusa in SQL Azure che 
 
 ![Abilitazione della crittografia dei dati](media/protect-personal-data-at-rest/turn-data-encryption-on.png)
 
-Le istruzioni su come abilitare TDE e le informazioni sulla decrittografia di database protetti con TDE sono disponibili nell'articolo [Transparent Data Encryption con il database SQL di Azure ](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database).
+Le istruzioni su come abilitare TDE e le informazioni sulla decrittografia di database protetti con TDE sono disponibili nell'articolo [Transparent Data Encryption con il database SQL di Azure ](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database).
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 La società può realizzare il proprio obiettivo di crittografare i dati personali archiviati nel cloud di Azure. A questo scopo, può usare Crittografia dischi di Azure per proteggere interi volumi. Possono essere inclusi i file del sistema operativo e i file di dati che contengono informazioni personali e altri dati sensibili. È possibile usare Crittografia del servizio di archiviazione di Azure per proteggere dati personali archiviati in BLOB e file. Per i dati archiviati in database SQL di Azure, Transparent Data Encryption offre protezione dall'esposizione non autorizzata delle informazioni personali.
 
@@ -169,10 +169,10 @@ Per proteggere le chiavi usate per crittografare dati in Azure, la società può
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Guida alla risoluzione dei problemi di Crittografia dischi di Azure](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-tsg)
+- [Guida alla risoluzione dei problemi di Crittografia dischi di Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg)
 
-- [Crittografare una macchina virtuale di Azure](https://docs.microsoft.com/en-us/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
+- [Crittografare una macchina virtuale di Azure](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption?toc=%2fazure%2fsecurity%2ftoc.json)
 
-- [Crittografia dei dati in Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-encryption)
+- [Crittografia dei dati in Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption)
 
-- [Crittografia di dati inattivi del database in Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest)
+- [Crittografia di dati inattivi del database in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest)

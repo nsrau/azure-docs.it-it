@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 11/29/2017
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: 161d9fda75caa7836e012e6e1ff79df576281137
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 0bd4f390e4507fccd1ca564c48c0f321412e229d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Compilare un'app Web Python Docker e PostgreSQL in Azure
 
@@ -121,7 +121,7 @@ In questo passaggio si crea un database PostgreSQL in Azure. Quando viene distri
 
 ### <a name="log-in-to-azure"></a>Accedere ad Azure
 
-Verrà ora usata l'interfaccia della riga di comando di Azure 2.0 per creare le risorse necessarie per ospitare l'applicazione Python in app Web per contenitori.  Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/#az_login) e seguire le istruzioni visualizzate.
+Verrà ora usata l'interfaccia della riga di comando di Azure 2.0 per creare le risorse necessarie per ospitare l'applicazione Python in app Web per contenitori.  Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/?view=azure-cli-latest#az_login) e seguire le istruzioni visualizzate.
 
 ```azurecli
 az login
@@ -129,7 +129,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un [gruppo di risorse](../../azure-resource-manager/resource-group-overview.md) con il comando [az group create](/cli/azure/group#az_group_create).
+Creare un [gruppo di risorse](../../azure-resource-manager/resource-group-overview.md) con il comando [az group create](/cli/azure/group?view=azure-cli-latest#az_group_create).
 
 [!INCLUDE [Resource group intro](../../../includes/resource-group.md)]
 
@@ -139,11 +139,11 @@ L'esempio seguente crea un gruppo di risorse nell'area Stati Uniti occidentali:
 az group create --name myResourceGroup --location "West US"
 ```
 
-Usare il comando dell'interfaccia della riga di comando di Azure [az appservice list-locations](/cli/azure/appservice#az_appservice_list_locations) per visualizzare un elenco dei percorsi disponibili.
+Usare il comando dell'interfaccia della riga di comando di Azure [az appservice list-locations](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) per visualizzare un elenco dei percorsi disponibili.
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Creare un database di Azure per il server PostgreSQL
 
-Creare un server PostgreSQL con il comando [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create).
+Creare un server PostgreSQL con il comando [az postgres server create](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create).
 
 Nel comando seguente sostituire con un nome di server univoco il segnaposto *\<postgresql_name>* e con un nome utente il segnaposto *\<admin_username>*. Poiché il nome del server viene usato come parte dell'endpoint di PostgreSQL (`https://<postgresql_name>.postgres.database.azure.com`), è necessario che il nome sia univoco in tutti i server di Azure. Il nome utente viene usato per l'account dell'utente amministratore del database iniziale. Viene richiesto di scegliere una password per questo utente.
 
@@ -364,7 +364,7 @@ In questo passaggio, si distribuisce l'applicazione Python Flask basata sul cont
 
 ### <a name="create-an-app-service-plan"></a>Creare un piano di servizio app
 
-Creare un piano di servizio app con il comando [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create).
+Creare un piano di servizio app con il comando [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create).
 
 [!INCLUDE [app-service-plan](../../../includes/app-service-plan-linux.md)]
 
@@ -414,7 +414,7 @@ Al termine della creazione del piano di servizio app, l'interfaccia della riga d
 
 ### <a name="create-a-web-app"></a>Creare un'app Web
 
-Creare un'app Web nel piano di servizio app *myAppServicePlan* con il comando [az webapp create](/cli/azure/webapp#az_webapp_create).
+Creare un'app Web nel piano di servizio app *myAppServicePlan* con il comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create).
 
 L'app Web fornisce uno spazio host per distribuire il codice e un URL in cui visualizzare l'applicazione distribuita. Usarlo per creare l'app Web.
 
@@ -445,7 +445,7 @@ Al termine della creazione dell'app Web, l'interfaccia della riga di comando di 
 
 In precedenza in questa esercitazione sono state definite variabili di ambiente per la connessione al database PostgreSQL.
 
-Nel servizio app le variabili di ambiente vengono impostate come _impostazioni dell'app_ usando il comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set).
+Nel servizio app le variabili di ambiente vengono impostate come _impostazioni dell'app_ usando il comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set).
 
 L'esempio seguente specifica i dettagli di connessione del database come impostazioni dell'app. Viene usata anche la variabile *PORT* per eseguire il mapping della porta 5000 dal contenitore Docker per ricevere il traffico HTTP nella porta 80.
 
@@ -481,7 +481,7 @@ Vengono visualizzati gli utenti guest registrati in precedenza salvati nel datab
 
 ![Applicazione Python Flask basata sul contenitore Docker in esecuzione in locale](./media/tutorial-docker-python-postgresql-app/docker-app-deployed.png)
 
-**Congratulazioni.** L'app Python Flask basata sul contenitore Docker è in esecuzione nel Servizio app di Azure.
+**Congratulazioni** L'app Python Flask basata sul contenitore Docker è in esecuzione nel Servizio app di Azure.
 
 ## <a name="update-data-model-and-redeploy"></a>Aggiornare il modello di dati e ridistribuire
 

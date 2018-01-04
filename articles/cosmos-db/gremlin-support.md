@@ -3,7 +3,7 @@ title: Supporto Gremlin di Azure Cosmos DB | Documentazione Microsoft
 description: "Informazioni sul linguaggio Gremlin di Apache TinkerPop e su funzionalità e passaggi disponibili in Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 tags: 
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 11/15/2017
-ms.author: denlee
-ms.openlocfilehash: 746cf8f88f84c81ff76340f2cfbfa11609c6483a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.date: 01/02/2018
+ms.author: lbosq
+ms.openlocfilehash: 59d926f54c8dfc2991929f2eb42b20056e3a09c3
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Supporto Gremlin Graph di Azure Cosmos DB
 Azure Cosmos DB supporta il linguaggio di attraversamento di grafi [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) di [Apache Tinkerpop](http://tinkerpop.apache.org), ovvero un'API Graph per la creazione di entità di grafi e l'esecuzione di operazioni di query sui grafi. È possibile usare il linguaggio Gremlin per creare le entità dei grafi (vertici e archi), modificare proprietà all'interno di tali entità, eseguire query e attraversamenti ed eliminare entità. 
 
 Azure Cosmos DB offre funzionalità di livello aziendale per database a grafi. Questo include distribuzione globale, scalabilità indipendente di archiviazione e velocità effettiva, latenze stimabili in pochissimi millisecondi, indicizzazione automatica, contratti di servizio e disponibilità di lettura per gli account database che si estendono sue due o più aree Azure. Poiché Azure Cosmos DB supporta TinkerPop/Gremlin, è possibile eseguire facilmente la migrazione di applicazioni scritte usando un altro database a grafi senza dover apportare modifiche al codice. In più, grazie al supporto Gremlin, Azure Cosmos DB si integra facilmente con framework di analisi abilitati per TinkerPop come [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
-Questo articolo illustra una procedura dettagliata di Gremlin ed enumera le funzionalità e gli step di Gremlin supportati nella versione di anteprima del supporto API Graph.
+In questo articolo è fornire un'esercitazione rapida di Gremlin ed enumerare Gremlin funzionalità e operazioni supportate dall'API Graph.
 
 ## <a name="gremlin-by-example"></a>Esempio di Gremlin
 Verrà ora usato un grafo di esempio per comprendere come le query possono essere espresse in Gremlin. La figura seguente illustra un'applicazione aziendale che gestisce i dati su utenti, interessi e dispositivi sotto forma di grafo.  
@@ -80,7 +80,7 @@ La tabella seguente elenca le funzionalità di TinkerPop implementate da Azure C
 
 | Categoria | Implementazione di Azure Cosmos DB |  Note | 
 | --- | --- | --- |
-| Funzionalità del grafo | Offre persistenza e accesso simultaneo in anteprima. Progettata per supportare le transazioni | Metodi di calcolo possono essere implementati tramite il connettore Spark. |
+| Funzionalità del grafo | Fornisce la persistenza e ConcurrentAccess. Progettata per supportare le transazioni | Metodi di calcolo possono essere implementati tramite il connettore Spark. |
 | Funzionalità della variabile | Supporta Boolean, Integer, Byte, Double, Float, Integer, Long, String | Supporta i tipi primitivi, è compatibile con i tipi complessi tramite modello di dati |
 | Funzionalità del vertice | Supporta RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Supporta la creazione, la modifica e l'eliminazione di vertici |
 | Funzionalità della proprietà del vertice | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Supporta la creazione, la modifica e l'eliminazione di proprietà di vertici |
@@ -132,7 +132,7 @@ Ad esempio, il frammento di codice seguente mostra una rappresentazione GraphSON
 
 Le proprietà usate da GraphSON per i vertici sono le seguenti:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | id | ID del vertice. Deve essere univoco (in combinazione con il valore di _partition se applicabile) |
 | label | Etichetta del vertice. Questo è facoltativo e viene usato per descrivere il tipo di entità. |
@@ -143,7 +143,7 @@ Le proprietà usate da GraphSON per i vertici sono le seguenti:
 
 E l'arco contiene le informazioni seguenti per spostarsi in altre parti del grafo.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | id | ID dell'arco. Deve essere univoco (in combinazione con il valore di _partition se applicabile) |
 | label | Etichetta dell'arco. Questa proprietà è facoltativa e viene usata per descrivere il tipo di relazione. |
@@ -152,7 +152,7 @@ E l'arco contiene le informazioni seguenti per spostarsi in altre parti del graf
 
 Ogni proprietà può archiviare più valori all'interno di una matrice. 
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | value | Valore della proprietà
 
@@ -165,7 +165,7 @@ Le operazioni Gremlin funzionano senza problemi su dati a grafo che si estendono
 ## <a name="gremlin-steps"></a>Step di Gremlin
 Verranno ora esaminati gli step di Gremlin supportati da Azure Cosmos DB. Per informazioni complete su Gremlin, vedere [TinkerPop reference](http://tinkerpop.apache.org/docs/current/reference) (Riferimento a TinkerPop).
 
-| step | Descrizione | Documentazione TinkerPop 3.2 | Note |
+| step | DESCRIZIONE | Documentazione TinkerPop 3.2 | Note |
 | --- | --- | --- | --- |
 | `addE` | Aggiunge un arco tra due vertici | [addE step](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
 | `addV` | Aggiunge un vertice al grafo | [addV step](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
@@ -204,6 +204,6 @@ Verranno ora esaminati gli step di Gremlin supportati da Azure Cosmos DB. Per in
 
 Il motore ottimizzato per la scrittura di Azure Cosmos DB supporta l'indicizzazione automatica di tutte le proprietà all'interno di vertici e archi per impostazione predefinita. Pertanto, query con filtri, query di intervallo, ordinamento o aggregazioni in qualsiasi proprietà vengono elaborati dall'indice e serviti in modo efficiente. Per altre informazioni sul funzionamento dell'indicizzazione in Azure Cosmos DB, vedere il documento sull'[indicizzazione senza schema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * Iniziare a creare un'applicazione Graph [tramite SDK](create-graph-dotnet.md) 
 * Altre informazioni sul [supporto Graph di Azure Cosmos DB](graph-introduction.md)

@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 0c91c320edb82ddfdc21372a168a2dc50449ce90
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: 66c2f1c5e8ba26d5c50cf60b7f448406814408b0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Domande sul servizio Backup di Azure
-Questo articolo contiene risposte a domande comuni che consentiranno di comprendere rapidamente i componenti del servizio Backup di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. Per porre domande su Backup di Azure, fare clic su **Commenti** a destra. I commenti vengono visualizzati alla fine di questo articolo. Per inserire commenti, è necessario un account Livefyre. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+In questo articolo le risposte alle domande frequenti sui componenti di Azure Backup. Alcune risposte includono collegamenti ad articoli con informazioni complete. Per porre domande su Backup di Azure, fare clic su **Commenti** a destra. I commenti vengono visualizzati alla fine di questo articolo. Per inserire commenti, è necessario un account Livefyre. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 Per analizzare rapidamente le sezioni di questo articolo, usare i collegamenti riportati a destra sotto **In questo articolo**.
 
@@ -30,7 +30,7 @@ Per analizzare rapidamente le sezioni di questo articolo, usare i collegamenti r
 ## <a name="recovery-services-vault"></a>Insieme di credenziali dei servizi di ripristino
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>Esistono limiti al numero degli insiemi di credenziali che è possibile creare in ogni sottoscrizione di Azure? <br/>
-Sì. A partire da settembre 2016 è possibile creare 25 insiemi di credenziali di backup o dei servizi di ripristino per ogni sottoscrizione. Si possono creare fino a 25 insiemi di credenziali dei servizi di ripristino per area di Backup di Azure supportata per ogni sottoscrizione. Se sono necessari più insiemi di credenziali, creare una sottoscrizione aggiuntiva.
+Sì. A partire da settembre 2016, è possibile creare 25 insiemi di credenziali di servizi di ripristino per ogni sottoscrizione. Si possono creare fino a 25 insiemi di credenziali dei servizi di ripristino per area di Backup di Azure supportata per ogni sottoscrizione. Se sono necessari più insiemi di credenziali, creare una sottoscrizione aggiuntiva.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Esistono limiti al numero di server/computer che possono essere registrati in ogni insieme di credenziali? <br/>
 Sì, è possibile registrare fino a 50 computer per ogni insieme di credenziali. Per le macchine virtuali IaaS di Azure, il limite è di 200 macchine virtuali per ogni insieme di credenziali. Se è necessario registrare più computer, creare un altro insieme di credenziali.
@@ -39,21 +39,13 @@ Sì, è possibile registrare fino a 50 computer per ogni insieme di credenziali.
 Tutti i server che vengono registrati nello stesso insieme di credenziali possono ripristinare i dati dei quali è stato eseguito il backup da altri server *che usano la stessa passphrase*. Se sono presenti server i cui dati di backup devono essere isolati dagli altri server dell'organizzazione, usare una passphrase designata per tali server. Ad esempio, per i server del reparto risorse umane può essere usata una passphrase, per quelli dell'ufficio contabilità un'altra e per quelli di archiviazione un'altra ancora.
 
 ### <a name="can-i-migrate-my-backup-data-or-vault-between-subscriptions-br"></a>È possibile eseguire la migrazione dei dati o dell'insieme di credenziali per il backup tra sottoscrizioni? <br/>
-No. L'insieme di credenziali viene creato a livello di sottoscrizione e non può essere riassegnato a un'altra sottoscrizione.
+di serie L'insieme di credenziali viene creato a livello di sottoscrizione e non può essere riassegnato a un'altra sottoscrizione.
 
-### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-classic-mode-still-supported-br"></a>Gli insiemi di credenziali di Servizi di ripristino sono basati su Resource Manager. Gli insiemi di credenziali di Backup (modalità classica) sono ancora supportati? <br/>
-Tutti gli insiemi di credenziali di backup esistenti nel [portale classico](https://manage.windowsazure.com) continuano a essere supportati. Non è più possibile, tuttavia, usare il portale classico per distribuire nuovi insiemi di credenziali di backup. È consigliabile usare insiemi di credenziali dei servizi di ripristino per tutte le distribuzioni, perché i miglioramenti futuri si applicheranno solo a tali insiemi di credenziali. Se si tenta di creare un archivio di credenziali di backup nel portale classico, si verrà reindirizzati al [portale di Azure](https://portal.azure.com).
+### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Gli insiemi di credenziali di Servizi di ripristino sono basati su Resource Manager. Gli insiemi di credenziali di Backup sono supportati comunque? <br/>
+Insiemi di credenziali di backup sono stati convertiti in insiemi di credenziali di servizi di ripristino. Se l'insieme di credenziali di Backup non convertire in un insieme di credenziali di servizi di ripristino, l'insieme di credenziali di Backup è stato convertito in un insieme di credenziali di servizi di ripristino per l'utente. 
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>È possibile eseguire la migrazione di un insieme di credenziali per il backup in un insieme di credenziali di Servizi di ripristino? <br/>
-Sì, è ora possibile aggiornare l'insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino. Per altre informazioni, vedere l'articolo [Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino](backup-azure-upgrade-backup-to-recovery-services.md).
-
-### <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>È stato eseguito il backup di VM della versione classica in un insieme di credenziali di backup. È possibile eseguire la migrazione delle macchine virtuali dalla modalità classica alla modalità di Resource Manager e proteggerli in un insieme di credenziali dei Servizi di ripristino?
-I punti di ripristino delle macchine virtuali classiche in un insieme di credenziali per il backup non eseguono automaticamente la migrazione a un insieme di credenziali dei Servizi di ripristino quando si sposta la macchina virtuale dalla modalità classica alla modalità di Resource Manager. Seguire questa procedura per trasferire i backup di macchine virtuali:
-
-1. Nell'insieme di credenziali di backup passare alla scheda **Elementi protetti** e selezionare la VM. Fare clic su [Arresta protezione](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines). Lasciare *deselezionata* l'opzione **Elimina i dati di backup associati**.
-2. Eliminare l'estensione di backup/snapshot dalla VM.
-3. Eseguire la migrazione della macchina virtuale dalla modalità classica alla modalità Resource Manager. Assicurarsi di eseguire la migrazione alla modalità Resource Manager anche delle informazioni di rete e archiviazione corrispondenti alla macchina virtuale.
-4. Creare un insieme di credenziali dei Servizi di ripristino e configurare il backup della macchina virtuale migrata usando l'azione **Backup** nella parte superiore del dashboard dell'insieme di credenziali. Per informazioni dettagliate sul backup di una macchina virtuale in un insieme di credenziali dei Servizi di ripristino, vedere l'articolo [Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino](backup-azure-vms-first-look-arm.md).
+Tutti gli archivi di Backup sono stati convertiti in insiemi di credenziali di servizi di ripristino. Se l'insieme di credenziali di Backup non convertire in un insieme di credenziali di servizi di ripristino, l'insieme di credenziali di Backup è stato convertito in un insieme di credenziali di servizi di ripristino per l'utente.
 
 ## <a name="azure-backup-agent"></a>Agente di Backup di Azure
 Per un elenco dettagliato delle domande, vedere le [domande frequenti sul backup di file-cartelle di Azure](backup-azure-file-folder-backup-faq.md)
@@ -73,7 +65,7 @@ Sì. È possibile usare il server di Backup di Azure per eseguire il backup di V
 Sì.
 
 ### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>È possibile registrare un server Data Protection Manager in più insiemi di credenziali? <br/>
-No. Un server di Backup di Microsoft Azure o un server Data Protection Manager può essere registrato in un solo insieme di credenziali.
+di serie Un server di Backup di Microsoft Azure o un server Data Protection Manager può essere registrato in un solo insieme di credenziali.
 
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported-br"></a>Quale versione di System Center Data Protection Manager è supportata? <br/>
 È consigliabile installare l'agente di Backup di Azure [più recente](http://aka.ms/azurebackup_agent) nell'ultimo aggiornamento cumulativo di System Center Data Protection Manager (DPM). Ad agosto 2016, il più recente è l'aggiornamento cumulativo 11.
@@ -84,7 +76,7 @@ Per usare Azure Backup con System Center Data Protection Manager (DPM), installa
 
 ## <a name="how-azure-backup-works"></a>Funzionamento di Backup di Azure
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Se si annulla un processo di backup una volta avviato, i dati di backup trasferiti vengono eliminati? <br/>
-No. Tutti i dati trasferiti nell'insieme di credenziali prima dell'annullamento del processo di backup rimangono nell'insieme di credenziali. Backup di Azure usa un meccanismo di checkpoint per aggiungere occasionalmente checkpoint ai dati di backup durante il backup. Dato che sono presenti checkpoint nei dati di backup, il processo di backup successivo può convalidare l'integrità dei file. Il processo di backup successivo sarà incrementale nei backup di dati eseguiti in precedenza. I backup incrementali trasferiscono solo dati nuovi o modificati, il che equivale a un migliore utilizzo della larghezza di banda.
+di serie Tutti i dati trasferiti nell'insieme di credenziali prima dell'annullamento del processo di backup rimangono nell'insieme di credenziali. Backup di Azure usa un meccanismo di checkpoint per aggiungere occasionalmente checkpoint ai dati di backup durante il backup. Dato che sono presenti checkpoint nei dati di backup, il processo di backup successivo può convalidare l'integrità dei file. Il processo di backup successivo sarà incrementale nei backup di dati eseguiti in precedenza. I backup incrementali trasferiscono solo dati nuovi o modificati, il che equivale a un migliore utilizzo della larghezza di banda.
 
 Se si annulla un processo di backup per una macchina virtuale di Azure, tutti i dati trasferiti vengono ignorati. Il processo di backup successivo trasferisce i dati incrementali dall'ultimo processo di backup riuscito.
 
@@ -92,7 +84,7 @@ Se si annulla un processo di backup per una macchina virtuale di Azure, tutti i 
 Sì. È possibile eseguire processi di backup in Windows Server o nelle workstation Windows fino a tre volte al giorno. È possibile eseguire processi di backup in System Center DPM fino a due volte al giorno. È possibile eseguire un processo di backup per le VM IaaS una volta al giorno. È possibile usare i criteri di pianificazione per Windows Server o la workstation Windows per specificare pianificazioni giornaliere o settimanali. Con System Center DPM, è possibile specificare pianificazioni giornaliere, settimanali, mensili e annuali.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Perché le dimensioni dei dati trasferiti nell'insieme di credenziali dei servizi di ripristino sono inferiori a quelle dei dati sottoposti a backup?<br/>
- Tutti i dati di cui viene eseguito il backup dall'agente di Backup di Azure, da SCDPM o dal server di Backup di Azure vengono compressi e crittografati prima di essere trasferiti. Una volta applicate la compressione e la crittografia, i dati nell'insieme di credenziali per il backup sono ridotti del 30-40%.
+ Tutti i dati di cui viene eseguito il backup dall'agente di Backup di Azure, da SCDPM o dal server di Backup di Azure vengono compressi e crittografati prima di essere trasferiti. Una volta applicata la compressione e crittografia, i dati nell'insieme di credenziali di servizi di ripristino sono inferiore al 30-40%.
 
 ## <a name="what-can-i-back-up"></a>Backup consentiti
 ### <a name="which-operating-systems-do-azure-backup-support-br"></a>Quali sistemi operativi sono supportati da Backup di Azure? <br/>
@@ -111,7 +103,7 @@ Backup di Azure supporta i sistemi operativi elencati di seguito per il backup d
 | Windows Storage Server 2012 R2 e versioni più recenti di SP |64 bit |Standard, Workgroup |
 | Windows Storage Server 2012 e versioni più recenti di SP |64 bit |Standard, Workgroup |
 | Windows Server 2012 R2 e più recenti SPs |64 bit |Essential |
-| Windows Server 2008 R2 SP1, |64 bit |Standard, Enterprise, Datacenter, Foundation |
+| Windows Server 2008 R2 SP1 |64 bit |Standard, Enterprise, Datacenter, Foundation |
 
 **Per il backup di VM di Azure**
 
@@ -150,7 +142,7 @@ No, sia DPM che Windows Server/client prevedono criteri di conservazione giornal
 Sì, la struttura di memorizzazione del Backup di Azure consente di disporre della massima flessibilità nella definizione dei criteri di conservazione in base alle esigenze.
 
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>È possibile "pianificare un backup" alle 18.00 e specificare criteri di conservazione con un orario diverso?<br/>
-No. I criteri di conservazione possono essere applicati solo ai punti di backup. Nell'immagine seguente viene specificato il criterio di conservazione per i backup eseguiti a mezzanotte e alle 18. <br/>
+di serie I criteri di conservazione possono essere applicati solo ai punti di backup. Nell'immagine seguente viene specificato il criterio di conservazione per i backup eseguiti a mezzanotte e alle 18. <br/>
 
 ![Pianificare backup e conservazione](./media/backup-azure-backup-faq/Schedule.png)
 <br/>
@@ -168,7 +160,7 @@ Per ogni istanza protetta, è possibile creare fino a 9999 punti di ripristino. 
 Non esistono limiti al numero di ripristini da Backup di Azure.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure-br"></a>Quando si ripristinano i dati, vengono addebitati costi per il traffico in uscita da Azure? <br/>
-No. I ripristini sono gratuiti e non viene addebitato alcun costo per il traffico in uscita.
+di serie I ripristini sono gratuiti e non viene addebitato alcun costo per il traffico in uscita.
 
 ## <a name="azure-backup-encryption"></a>Crittografia in Backup di Azure
 ### <a name="is-the-data-sent-to-azure-encrypted-br"></a>I dati inviati in Azure sono crittografati? <br/>

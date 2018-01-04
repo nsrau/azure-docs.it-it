@@ -8,7 +8,9 @@
 ## Integrare
 ### [App Web](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Servizi cloud](cdn-cloud-service-with-cdn.md)
-### [Archiviazione](cdn-create-a-storage-account-with-cdn.md)
+### Archiviazione
+#### [Integrare un account di archiviazione](cdn-create-a-storage-account-with-cdn.md)
+#### [Supporto per l'archiviazione della firma di accesso condiviso](cdn-sas-storage-support.md)
 ### [Condivisione di risorse tra le origini](cdn-cors.md)
 ### [Aggiungere un dominio personalizzato all'endpoint della rete CDN](cdn-map-content-to-custom-domain.md)
 ### [Configurare HTTPS in un dominio personalizzato](cdn-custom-ssl.md)
@@ -50,7 +52,7 @@
 ##### [Visualizzare statistiche in tempo reale](cdn-real-time-stats.md)
 ##### [Analizzare le prestazioni del nodo perimetrale](cdn-edge-performance.md)
 
-## Sviluppare
+## Sviluppo
 ### [.NET](cdn-app-dev-net.md)
 ### [Node.js](cdn-app-dev-node.md)
 

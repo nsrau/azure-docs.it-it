@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 44aa167375355433851453010cebe5b49ef56ebd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8d709936bfba5c89091d7f26449d165bddb930de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Ridimensionamento del cluster per gestire la velocità effettiva del servizio Web
 
@@ -55,7 +55,7 @@ Il comando seguente consente di impostare il numero di nodi agente nel cluster:
 az acs scale -g <resource group> -n <cluster name> --new-agent-count <new scale>
 ```
 
-Questa operazione richiederà qualche minuto. Per altre informazioni sul ridimensionamento del numero di nodi nel cluster, vedere [Ridimensionare i nodi agente in un cluster del servizio contenitore](https://docs.microsoft.com/en-us/azure/container-service/container-service-scale).
+Questa operazione richiederà qualche minuto. Per altre informazioni sul ridimensionamento del numero di nodi nel cluster, vedere [Ridimensionare i nodi agente in un cluster del servizio contenitore](https://docs.microsoft.com/azure/container-service/container-service-scale).
 
 ### <a name="scaling-the-number-of-kubernetes-pod-replicas-in-a-cluster"></a>Ridimensionamento del numero di repliche di pod Kubernetes in un cluster
  
@@ -83,7 +83,7 @@ az ml service update realtime -i <service id> --autoscale-enabled true --autosca
 Impostando `autoscale-min-replicas` su 5, ad esempio, verranno create cinque repliche. Per ottenere un numero ottimale per il servizio Web, impostare il numero su un valore come 10 e monitorare il numero di messaggi di errore 503. Modificare quindi il numero di conseguenza.
 
 
-| Nome parametro | Tipo | Descrizione |
+| Nome parametro | type | DESCRIZIONE |
 |--------------------|--------------------|--------------------|
 | `autoscale-enabled` | boolean | Specifica se il ridimensionamento automatico è abilitato. Predefinito: true |
 | `autoscale-min-replicas` | numero intero | Specifica il numero minimo di pod. Deve essere uguale o maggiore di 0. Predefinito: 1 |

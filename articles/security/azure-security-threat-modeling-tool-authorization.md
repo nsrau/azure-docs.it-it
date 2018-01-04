@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 312a66544a5e64daa86b4902b57d4050f1f66af5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9fc92916b4164990059010645daa29e72b7143cb
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-authorization--mitigations"></a>Infrastruttura di sicurezza: autorizzazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 | **Database** | <ul><li>[Assicurarsi che vengano usati account con privilegi minimi per connettersi al server di database](#privileged-server)</li><li>[Implementare la Sicurezza a livello di riga per impedire ai tenant di accedere ai dati degli altri tenant](#rls-tenants)</li><li>[Il ruolo sysadmin deve avere solo utenti necessari validi](#sysadmin-users)</li></ul> |
 | **Gateway IoT cloud** | <ul><li>[Connettersi al gateway nel cloud usando token con privilegi minimi](#cloud-least-privileged)</li></ul> |
 | **Hub eventi di Azure** | <ul><li>[Usare una chiave di firma di accesso condiviso per autorizzazioni di solo invio per la generazione di token di dispositivo](#sendonly-sas)</li><li>[Non usare token di accesso che consentono l'accesso diretto all'hub eventi](#access-tokens-hub)</li><li>[Connettersi all'hub eventi tramite chiavi di firma di accesso condiviso aventi solo le autorizzazioni minime necessarie](#sas-minimum-permissions)</li></ul> |
-| **Azure Document DB** | <ul><li>[Usare i token delle risorse per la connessione a DocumentDB, quando possibile](#resource-docdb)</li></ul> |
+| **Azure Document DB** | <ul><li>[Usare i token delle risorse per la connessione ad Azure Cosmos DB, quando possibile](#resource-docdb)</li></ul> |
 | **Limite di trust di Azure** | <ul><li>[Abilitare la gestione degli accessi con granularità fine per la sottoscrizione di Azure usando il controllo degli accessi in base al ruolo](#grained-rbac)</li></ul> |
 | **Limite di trust di Service Fabric** | <ul><li>[Limitare l'accesso del client alle operazioni di cluster con il controllo degli accessi in base al ruolo](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Eseguire la modellazione di sicurezza e usare la sicurezza a livello di campo quando richiesto](#modeling-field)</li></ul> |
@@ -64,7 +64,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="deployed-privileges"></a>Verificare che le applicazioni distribuite vengano eseguite con privilegi minimi
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust dei computer | 
 | **Fase SDL**               | Distribuzione |  
@@ -75,7 +75,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="sequential-logic"></a>Applicare l'ordine dei passaggi in sequenza durante l'elaborazione di flussi di logica di business
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -86,7 +86,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="rate-enumeration"></a>Implementare un meccanismo di limitazione della frequenza per impedire l'enumerazione
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -108,7 +108,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="logic-request-parameters"></a>Le decisioni riguardanti la logica di business e l'autorizzazione di accesso alle risorse non devono basarsi sui parametri di richiesta in ingresso
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -149,7 +149,7 @@ Ora un utente malintenzionato non può manomettere e modificare il funzionamento
 
 ## <a id="rls-tenants"></a>Implementare la sicurezza a livello di riga per impedire ai tenant di accedere ai dati degli altri tenant
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -173,7 +173,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="cloud-least-privileged"></a>Connettersi al gateway nel cloud usando token con privilegi minimi
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway IoT cloud | 
 | **Fase SDL**               | Distribuzione |  
@@ -184,7 +184,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="sendonly-sas"></a>Usare una chiave di firma di accesso condiviso per autorizzazioni di solo invio per la generazione di token di dispositivo
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub eventi di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -224,11 +224,11 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passaggi** | un token di una risorsa è associato a una risorsa autorizzazione di DocumentDB e acquisisce la relazione tra l'utente di un database e l'autorizzazione dell'utente per una risorsa applicazione di DocumentDB specifica (ad esempio, raccolta, documento). Usare sempre un token delle risorse per accedere a DocumentDB se il client non è attendibile con la gestione delle chiavi master o di sola lettura, ad esempio un'applicazione per l'utente finale come un client desktop o per dispositivi mobili. Usare la chiave master o le chiavi di sola lettura di applicazioni back-end che possano archiviare queste chiavi in modo sicuro.|
+| **Passaggi** | Un token della risorsa è associato a una risorsa di autorizzazione di Azure Cosmos DB e acquisisce la relazione tra l'utente di un database e l'autorizzazione di cui dispone l'utente per una risorsa di applicazione Azure Cosmos DB specifica (ad esempio, collection, documento). Usare sempre un token di risorsa per accedere al database di Cosmos Azure se il client non può essere considerato attendibile con la gestione delle chiavi master o di sola lettura, ad esempio un'applicazione utente finale, ad esempio un client mobile o desktop. Utilizzare la chiave Master o le chiavi di sola lettura da applicazioni back-end che consente di archiviare queste chiavi in modo sicuro.|
 
 ## <a id="grained-rbac"></a>Abilitare la gestione degli accessi con granularità fine per la sottoscrizione di Azure usando il controllo degli accessi in base al ruolo
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -272,7 +272,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="permission-entities"></a>Concedere l'autorizzazione con granularità fine in un intervallo di entità nell'archiviazione tabelle di Azure
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Archiviazione di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -305,7 +305,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="weak-class-wcf"></a>Riferimento debole alla classe in WCF
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  
@@ -342,7 +342,7 @@ L'elemento `<behaviorExtensions/>` del file di configurazione WCF seguente indic
 
 ## <a id="wcf-authz"></a>WCF: implementare il controllo di autorizzazione
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  
@@ -390,7 +390,7 @@ return result;
 
 ## <a id="authz-aspnet"></a>Implementare il meccanismo di autorizzazione appropriato nell'API Web ASP.NET
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase SDL**               | Compilare |  

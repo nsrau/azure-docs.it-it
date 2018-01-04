@@ -3,7 +3,7 @@ title: Introduzione ad Azure Active Directory | Microsoft Docs
 description: "Ottenere licenze, aggiungere il nome di dominio, creare una pagina di accesso personalizzata e aggiungere la funzionalità di reimpostazione password self-service in Azure Active Directory"
 keywords: 
 author: curtand
-manager: michael.tillman
+manager: mtillman
 ms.author: curtand
 ms.reviewer: jsnow
 ms.date: 11/14/2017
@@ -15,11 +15,11 @@ ms.technology:
 ms.assetid: 
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: dd745869494a1ed740a0a05a5508363334aa7360
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: eb428b6ce8af85f06506fb9edc2696477d87c70e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-azure-ad"></a>Introduzione ad Azure AD
 La gestione delle identità moderna richiede un'affidabilità scalabile e coerente per garantire la disponibilità di applicazioni e servizi solo agli utenti autenticati. Per supportare adeguatamete le esigenze di gestione delle identità degli utenti, il reparto IT ha bisogno di un modo per fornire l'accesso alle app pubbliche software as a service (SaaS), un modo per ospitare una linea interna di app aziendali e anche modi per migliorare lo sviluppo e l'utilizzo delle app localmente. Tutti questi requisiti evidenziano la necessità di una soluzione di gestione delle identità basata su cloud.      

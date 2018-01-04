@@ -4,7 +4,7 @@ description: Informazioni sulla sincronizzazione in un dominio gestito di Azure 
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory-ds
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: 0c9a9a56e1489ee91fcc332beeef36cdc9c93dc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 5c324ea5e268d97134202eff6e96764bedc6ca75
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Sincronizzazione in un dominio gestito di Azure Active Directory Domain Services
 Il diagramma seguente illustra il funzionamento della sincronizzazione nei domini gestiti di Azure Active Directory Domain Services.
@@ -58,7 +58,7 @@ Gli oggetti o attributi indicati di seguito non vengono sincronizzati nel tenant
 ## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>Sincronizzazione di attributi specifici nel dominio gestito
 La tabella seguente riporta alcuni attributi comuni e il modo in cui vengono sincronizzati nel dominio gestito.
 
-| Attributo nel dominio gestito | Origine | Note |
+| Attributo nel dominio gestito | Sorgente | Note |
 |:--- |:--- |:--- |
 | UPN |Attributo UPN dell'utente nel tenant di Azure AD |L'attributo UPN del tenant di Azure AD viene sincronizzato così com'è nel dominio gestito. Il modo più affidabile per accedere al dominio gestito è quindi l'uso dell'UPN. |
 | SAMAccountName |Attributo mailNickname dell'utente nel tenant di Azure AD o generato automaticamente |L'attributo SAMAccountName è originato dall'attributo mailNickname nel tenant di Azure AD. Se più account utente hanno lo stesso attributo mailNickname, l'attributo SAMAccountName viene generato automaticamente. Se l'attributo mailNickname o il prefisso UPN dell'utente ha una lunghezza superiore a 20 caratteri, l'attributo SAMAccountName viene generato automaticamente per soddisfare il limite di 20 caratteri relativo agli attributi SAMAccountName. |

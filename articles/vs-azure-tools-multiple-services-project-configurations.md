@@ -1,5 +1,5 @@
 ---
-title: "Configurazione del progetto Azure tramite più configurazioni del servizio | Microsoft Docs"
+title: "Configurazione del progetto Azure tramite più configurazioni del servizio | Documentazione Microsoft"
 description: Informazioni su come configurare un progetto di servizio cloud di Azure modificando i file ServiceDefinition.csdef, ServiceConfiguration.Local.cscfg e ServiceConfiguration.Cloud.cscfg.
 services: visual-studio-online
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2017
 ms.author: kraigb
-ms.openlocfilehash: a6f9b300cd832c5f9615f70ee297e3c5ad728e44
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: 8125ef36f730b745d63c39493f48d14a5a33d76c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>Configurazione del progetto Azure di Visual Studio per l'uso di più configurazioni del servizio
 
@@ -77,7 +77,7 @@ Per le stringhe di connessione nuove o esistenti, selezionare **...** * a destra
 
 1. In **Connetti con** scegliere l'opzione **Sottoscrizione** per selezionare un account di archiviazione da una sottoscrizione. Visual Studio otterrà quindi le credenziali dell'account di archiviazione automaticamente dal file `.publishsettings`.
 1. Se si seleziona **Credenziali immesse manualmente**, è possibile specificare il nome e la chiave dell'account direttamente, usando le informazioni presenti nel portale di Azure. Per copiare la chiave dell'account: a. Selezionare l'account di archiviazione nel portale di Azure e fare clic su **Gestisci chiavi**.
-    2. Nella pagina **Gestisci chiavi di accesso** selezionare il testo della chiave di accesso primaria e premere CTRL+C per copiarlo.
+    2. Per copiare la chiave dell'account, passare all'account di archiviazione nel portale di Azure, seleziona **Impostazioni > chiavi di accesso**, quindi usare il pulsante Copia per copiare la chiave di accesso primaria negli Appunti.
 1. Selezionare una delle opzioni di connessione. In **Specifica endpoint personalizzati** viene chiesto di specificare gli URL di BLOB, tabelle e code. Gli endpoint personalizzati consentono di usare i [domini personalizzati](storage/blobs/storage-custom-domain-name.md) e controllare l'accesso in maniera più precisa. Vedere [Configurare le stringhe di connessione di archiviazione di Azure](./storage/common/storage-configure-connection-string.md).
 1. Fare clic su **OK**, quindi selezionare **File > Salva** per aggiornare la configurazione con la nuova stringa di connessione.
 

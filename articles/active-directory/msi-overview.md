@@ -4,7 +4,7 @@ description: "Panoramica dell'Identità del servizio gestito per le risorse di A
 services: active-directory
 documentationcenter: 
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/31/2017
-ms.author: skwan
-ms.openlocfilehash: 5444e9d54bd9a2f7250ce590c3b6ced6b8b7bc51
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: HT
+ms.date: 12/19/2017
+ms.author: bryanla
+ms.openlocfilehash: a2a42f13c81a6f6bb34a8e6aafabf380f3d220e1
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/22/2017
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Identità del servizio gestito per le risorse di Azure
 
@@ -72,22 +72,25 @@ I servizi di Azure che supportano l'Identità del servizio gestito possono usare
 
 I servizi di Azure seguenti supportano Identità del servizio gestito.
 
-| Service | Stato | Date | Configurare | Acquisizione di un token |
+| Service | Status | Data | Configurare | Acquisizione di un token |
 | ------- | ------ | ---- | --------- | ----------- |
-| Macchine virtuali di Azure | Preview | Settembre 2017 | [Portale di Azure](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[Interfaccia della riga di comando di Azure](msi-qs-configure-cli-windows-vm.md)<br>[Modelli di Gestione risorse di Azure](msi-qs-configure-template-windows-vm.md) | [REST](msi-how-to-use-vm-msi-token.md#get-a-token-using-http)<br>[.NET](msi-how-to-use-vm-msi-token.md#get-a-token-using-c)<br>[Bash/Curl](msi-how-to-use-vm-msi-token.md#get-a-token-using-curl)<br>[Go](msi-how-to-use-vm-msi-token.md#get-a-token-using-go)<br>[PowerShell](msi-how-to-use-vm-msi-token.md#get-a-token-using-azure-powershell) |
-| Servizio app di Azure | Preview | Settembre 2017 | [Portale di Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Modello di Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Funzioni di Azure | Preview | Settembre 2017 | [Portale di Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Modello di Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
+| Macchine virtuali di Azure | Preview | Settembre 2017 | [Azure portal](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[Interfaccia della riga di comando di Azure](msi-qs-configure-cli-windows-vm.md)<br>[Modelli di Gestione risorse di Azure](msi-qs-configure-template-windows-vm.md) | [REST](msi-how-to-use-vm-msi-token.md#get-a-token-using-http)<br>[.NET](msi-how-to-use-vm-msi-token.md#get-a-token-using-c)<br>[Bash/Curl](msi-how-to-use-vm-msi-token.md#get-a-token-using-curl)<br>[Go](msi-how-to-use-vm-msi-token.md#get-a-token-using-go)<br>[PowerShell](msi-how-to-use-vm-msi-token.md#get-a-token-using-azure-powershell) |
+| Servizio app di Azure | Preview | Settembre 2017 | [Azure portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Modello di Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
+| Funzioni di Azure | Preview | Settembre 2017 | [Azure portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Modello di Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
+| Azure Data Factory V2 | Preview | Novembre 2017 | [Azure portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
 
 ### <a name="azure-services-that-support-azure-ad-authentication"></a>Servizi di Azure che supportano l'autenticazione di Azure AD
 
 I servizi seguenti supportano l'autenticazione di Azure AD e sono stati testati con i servizi client che usano l'Identità del servizio gestito.
 
-| Service | ID risorsa | Stato | Date | Assegnare l'accesso |
+| Service | ID risorsa | Status | Data | Assegnare l'accesso |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Gestione risorse di Azure | https://management.azure.com/ | Disponibile | Settembre 2017 | [Portale di Azure](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Interfaccia della riga di comando di Azure](msi-howto-assign-access-CLI.md) |
-| Insieme di credenziali chiave Azure | https://vault.azure.net/ | Disponibile | Settembre 2017 | |
+| Gestione risorse di Azure | https://management.azure.com/ | Disponibile | Settembre 2017 | [Azure portal](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Interfaccia della riga di comando di Azure](msi-howto-assign-access-CLI.md) |
+| Azure Key Vault | https://vault.azure.net/ | Disponibile | Settembre 2017 | |
 | Azure Data Lake | https://datalake.azure.net/ | Disponibile | Settembre 2017 | |
 | SQL di Azure | https://database.windows.net/ | Disponibile | Ottobre 2017 | |
+| Hub eventi di Azure | https://eventhubs.Azure.NET/ | Disponibile | 2017 dicembre | |
+| Bus di servizio di Azure | https://ServiceBus.Azure.NET/ | Disponibile | 2017 dicembre | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>Quanto costa Identità del servizio gestito?
 

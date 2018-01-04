@@ -1,24 +1,16 @@
 ---
 title: Eseguire la migrazione di computer dopo la valutazione con Azure Migrate | Microsoft Docs
 description: Descrive come ottenere indicazioni per la migrazione di computer dopo aver eseguito una valutazione con il servizio Azure Migrate.
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 809c6e85-0928-45e2-a7c7-6824d860e134
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 083e614628645d2eb94b7d84f4127b690865d770
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: e6e32e9bd2384987a1d0315bfbef913c46fc5dbb
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="migrate-machines-after-assessment"></a>Eseguire la migrazione dei computer dopo la valutazione
 
@@ -31,16 +23,16 @@ Questo articolo descrive come ottenere suggerimenti su uno strumento di migrazio
 
 Per ottenere suggerimenti relativi agli strumenti di migrazione, è necessario eseguire un'individuazione completa nell'ambiente locale. L'individuazione completa viene eseguita tramite l'installazione di agenti nei computer locali.  
 
-1. Creare un progetto Azure Migrate, individuare i computer locali e creare una valutazione della migrazione. [Altre informazioni](tutorial-assessment-vmware.md)
+1. Creare un progetto Azure Migrate, individuare i computer locali e creare una valutazione della migrazione. [Altre informazioni](tutorial-assessment-vmware.md).
 2. Scaricare e installare gli agenti di Azure Migrate in ogni computer locale per cui si vuole visualizzare un metodo di migrazione consigliato. [Seguire questa procedura](how-to-create-group-machine-dependencies.md#prepare-machines-for-dependency-mapping) per installare gli agenti.
 2. Identificare i computer locali adatti per la migrazione in modalità lift-and-shift. Si tratta delle macchine virtuali che non richiedono alcuna modifica alle app che le eseguono e di cui è possibile eseguire la migrazione così come sono.
-3. Per la migrazione in modalità lift-and-shift, è consigliabile usare Azure Site Recovery. [Altre informazioni](../site-recovery/tutorial-migrate-on-premises-to-azure.md) In alternativa, è possibile usare strumenti di terze parti che supportano la migrazione in Azure.
+3. Per la migrazione in modalità lift-and-shift, è consigliabile usare Azure Site Recovery. [Altre informazioni](../site-recovery/tutorial-migrate-on-premises-to-azure.md). In alternativa, è possibile usare strumenti di terze parti che supportano la migrazione in Azure.
 4. Se sono presenti computer locali che non sono adatti per una migrazione in modalità lift-and-shift, ovvero se si vuole eseguire la migrazione di un'app specifica invece che di un'intera macchina virtuale, è possibile usare altri strumenti di migrazione. Ad esempio, è consigliabile usare il [servizio Migrazione del database di Azure](https://azure.microsoft.com/campaigns/database-migration/) se si vuole eseguire la migrazione di database locali come SQL Server, MySQL, o Oracle in Azure.
 
 
 ## <a name="review-suggested-migration-methods"></a>Esaminare i metodi di migrazione suggeriti
 
-1. Prima di poter ottenere un metodo di migrazione suggerito, è necessario creare un progetto Azure Migrate, individuare i computer locali ed eseguire una valutazione della migrazione. [Altre informazioni](tutorial-assessment-vmware.md)
+1. Prima di poter ottenere un metodo di migrazione suggerito, è necessario creare un progetto Azure Migrate, individuare i computer locali ed eseguire una valutazione della migrazione. [Altre informazioni](tutorial-assessment-vmware.md).
 2. Dopo aver creato la valutazione, visualizzarla nel progetto > **Panoramica** > **Dashboard**. Fare clic su **Idoneità per Azure**
 
     ![Idoneità per Azure](./media/tutorial-assessment-vmware/assessment-report.png)  

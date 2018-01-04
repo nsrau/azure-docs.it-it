@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2017
 ms.author: xshi
-ms.openlocfilehash: 6a9d5e029e48c1bb62ad4731c7413f023b97c8c9
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 7d3f610674d9491f7689cc911ba21de0b6b615d7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>Connettere DevKit di IoT AZ3166 all'hub IoT di Azure nel cloud
 
@@ -186,7 +186,7 @@ Il file con estensione zip che viene scaricato contiene tutti gli strumenti e i 
 Il file con estensione zip contiene gli strumenti e i pacchetti seguenti. Se si dispone già di alcuni componenti installati, lo script li rileverà e li ignorerà.
 
 * Node.js e Yarn: runtime per lo script di configurazione e le attività automatizzate.
-* [Interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest#a-namemacosinstall-on-macos): esperienza della riga di comando multipiattaforma per la gestione delle risorse di Azure.
+* [Interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest#a-namemacosinstall-on-macos): esperienza della riga di comando multipiattaforma per la gestione delle risorse di Azure.
 * [Visual Studio Code](https://code.visualstudio.com/) (VS Code): editor di codice semplice per lo sviluppo del DevKit.
 * [Estensione di Visual Studio Code per Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino): estensione che abilita lo sviluppo di Arduino in Visual Studio Code.
 * [IDE Arduino](https://www.arduino.cc/en/Main/Software): strumento su cui si basa l'estensione per Arduino.

@@ -3,7 +3,7 @@ title: Aggiornare i moduli di Azure in Automazione di Azure | Microsoft Docs
 description: "L'articolo descrive in che modo è ora possibile aggiornare i moduli di Azure PowerShell comuni disponibili per impostazione predefinita in Automazione di Azure."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 6bd259f3da1005228b8137415c30660221507909
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f5e7c66cfd26bd6927d48ffd8bc0f82e9a3e2d13
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Come aggiornare i moduli di Azure PowerShell in Automazione di Azure
 
@@ -28,11 +28,11 @@ Poiché i moduli vengono aggiornati regolarmente dal gruppo di prodotto, possono
 
 ## <a name="updating-azure-modules"></a>Aggiornamento dei moduli di Azure
 
-1. Nel pannello Moduli dell'account di Automazione è presente un'opzione denominata **Update Azure Modules** (Aggiorna i moduli di Azure).  Tale opzione è sempre abilitata.<br><br> ![Opzione di aggiornamento dei moduli di Azure nel pannello Moduli](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
+1. Nella pagina dell'account di automazione moduli, è disponibile un'opzione denominata **i moduli di Azure Update**. Tale opzione è sempre abilitata.<br><br> ![Opzione di moduli di Azure nella pagina di moduli di aggiornamento](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
-2. Fare clic su **Update Azure Modules** (Aggiorna i moduli di Azure), quindi viene visualizzata una notifica di conferma dell'intenzione di continuare.<br><br> ![Notifica di aggiornamento dei moduli di Azure](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
+2. Fare clic su **i moduli di Azure Update** e viene visualizzata una notifica di conferma in cui viene chiesto se si desidera continuare.<br><br> ![Notifica di aggiornamento dei moduli di Azure](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
-3. Fare clic su **Sì** per avviare il processo di aggiornamento del modulo.  Il processo richiede circa 15-20 minuti per aggiornare i seguenti moduli:
+3. Fare clic su **Sì** e inizia il processo di aggiornamento del modulo. Il processo richiede circa 15-20 minuti per aggiornare i seguenti moduli:
 
   * Azure
   * Azure.Storage
@@ -43,12 +43,12 @@ Poiché i moduli vengono aggiornati regolarmente dal gruppo di prodotto, possono
   * AzureRm.Sql
   * AzureRm.Storage
 
-    Se i moduli sono già aggiornati, il processo verrà completato in pochi secondi.  Al termine del processo di aggiornamento si riceverà una notifica.<br><br> ![Stato di aggiornamento dei moduli di Azure](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
+    Se i moduli sono già aggiornati, il processo viene completato in pochi secondi. Al termine del processo di aggiornamento, si riceverà la notifica.<br><br> ![Stato di aggiornamento dei moduli di Azure](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
 > [!NOTE]
-> Quando viene eseguito un nuovo processo pianificato, Automazione di Azure utilizzerà i moduli più recenti nell'account di automazione.    
+> Quando viene eseguito un nuovo processo pianificato, Automazione di Azure usa i moduli più recenti nell'account di automazione.    
 
-Se si usano i cmdlet di questi moduli di Azure PowerShell nei runbook per gestire le risorse di Azure, si potrebbe voler eseguire il processo di aggiornamento all'incirca ogni mese per assicurarsi di disporre dei moduli più recenti.
+Se si usano i cmdlet da questi moduli di Azure PowerShell dei runbook per gestire le risorse di Azure, si desidera eseguire il processo di aggiornamento di ogni mese o così per garantire la presenza di moduli più recenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

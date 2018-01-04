@@ -6,6 +6,7 @@ documentationcenter:
 author: mezmicrosoft
 editor: mezmicrosoft
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
-ms.manager: tihazen
-ms.openlocfilehash: 8edc21fb8f42ee5897c4e938045cc1f42aedb3ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+manager: tihazen
+ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Associazione di domande e risposte con Azure Machine Learning Workbench
 È difficile rispondere a domande aperte e spesso a questo scopo è necessario l'intervento di esperti in materia. Per ridurre l'esigenza di ricorrere a esperti in materia interni, le società spesso creano elenchi di domande frequenti come strumento per offrire assistenza agli utenti. Questo esempio mostra diversi metodi di apprendimento automatico efficaci per associare query aperte a coppie di domande frequenti e risposte preesistenti. Questo esempio mostra un semplice processo di sviluppo per creare la soluzione con Azure Machine Learning Workbench. 
@@ -79,18 +80,18 @@ La combinazione di questi tre set di dati crea coppie di domande e risposte in c
 
 Lo schema dei dati e i collegamenti per il download diretto dei tre set di dati sono indicati nella tabella seguente:
 
-| Set di dati | Campo | Tipo | Descrizione
+| Set di dati | Campo | type | DESCRIZIONE
 | ----------|------------|------------|--------
-| [questions](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | ID | String | ID domanda univoco (chiave primaria)
-|  | AnswerId | String | ID risposta univoco per ogni domanda
-|  | Text0 | String | Dati di testo non elaborati che includono il titolo e il corpo della domanda
+| [questions](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | ID | string | ID domanda univoco (chiave primaria)
+|  | AnswerId | string | ID risposta univoco per ogni domanda
+|  | Text0 | string | Dati di testo non elaborati che includono il titolo e il corpo della domanda
 |  | CreationDate | Timestamp | Timestamp del momento in cui è stata posta la domanda
-| [dupes](https://bostondata.blob.core.windows.net/stackoverflow/dup-q.tsv.gz) | ID | String | ID duplicazione univoco (chiave primaria)
-|  | AnswerId | String | ID risposta associato alla duplicazione
-|  | Text0 | String | Dati di testo non elaborati che includono il titolo e il corpo del duplicato
+| [dupes](https://bostondata.blob.core.windows.net/stackoverflow/dup-q.tsv.gz) | ID | string | ID duplicazione univoco (chiave primaria)
+|  | AnswerId | string | ID risposta associato alla duplicazione
+|  | Text0 | string | Dati di testo non elaborati che includono il titolo e il corpo del duplicato
 |  | CreationDate | Timestamp | Timestamp del momento in cui è stata posta la domanda duplicata
-| [answers](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | ID | String | ID risposta univoco (chiave primaria)
-|  | text0 | String | Dati di testo non elaborati della risposta
+| [answers](https://bostondata.blob.core.windows.net/stackoverflow/ans.tsv.gz)  | ID | string | ID risposta univoco (chiave primaria)
+|  | text0 | string | Dati di testo non elaborati della risposta
 
 
 ## <a name="scenario-structure"></a>Struttura dello scenario
@@ -99,7 +100,7 @@ L'esempio di associazione di domande e risposte viene presentato tramite tre tip
 
 I file in questo esempio sono organizzati come indicato di seguito.
 
-| File Name | Tipo | Descrizione
+| File Name | type | DESCRIZIONE
 | ----------|------------|--------
 | `Image` | Cartella | Cartella usata per salvare le immagini per il file README
 | `notebooks` | Cartella | Cartella dei notebook di Jupyter

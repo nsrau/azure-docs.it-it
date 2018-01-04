@@ -16,17 +16,17 @@ ms.workload:
 ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 7e1a17517890f8ed738b6afdcbe073a2bf1ebc6f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 53987e5863d9fc11b4fa377295d198293819269c
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmosdb-develop-with-the-cassandra-api-in-java"></a>Azure Cosmos DB: sviluppare con l'API Cassandra in Java
 
-Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave/valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
+Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
-Questa esercitazione illustra come creare un account Azure Cosmos DB usando il portale di Azure e come creare una Tabella Cassandra (documentdb-partition-data.md#partition-keys) usando l'[API Cassandra](cassandra-introduction.md). Definendo una chiave primaria quando si crea una Tabella, l'applicazione viene preparata a una facile scalabilità in linea con la crescita dei dati. 
+Questa esercitazione viene illustrato come creare un account di Azure Cosmos DB tramite il portale di Azure e quindi creare un Cassandra Table(sql-api-partition-data.md#partition-keys) utilizzando il [Cassandra API](cassandra-introduction.md). Definendo una chiave primaria quando si crea una Tabella, l'applicazione viene preparata a una facile scalabilità in linea con la crescita dei dati. 
 
 Questa esercitazione illustra le attività seguenti usando l'API Cassandra:
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 511076935d06ed0908341044e37069e74530be49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dbdf263d9d7fdfbe4fbc47db9ba9f30637e8c3ad
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>Integrare un account di archiviazione di Azure con la rete CDN di Azure
 È possibile abilitare la rete CDN per memorizzare nella cache i contenuti delle risorse di archiviazione di Azure. Questa rete offre agli sviluppatori una soluzione globale per il recapito di contenuto con esigenze di larghezza di banda elevata, tramite la memorizzazione nella cache di oggetti BLOB e contenuto statico di istanze di calcolo in nodi fisici negli Stati Uniti, in Europa, Asia, Australia e Sud America.
@@ -82,7 +82,7 @@ Grazie all'integrazione più recente, è ora possibile abilitare la rete CDN per
     ![nuovo endpoint di archiviazione rete CDN][cdn-storage-new-endpoint]
 
 > [!NOTE]
-> È anche possibile andare all'estensione Rete CDN di Azure per abilitare CDN.[Esercitazione](#Tutorial-cdn-create-profile).
+> È anche possibile passare all'estensione di rete CDN di Azure per abilitare la rete CDN. [Esercitazione](#Tutorial-cdn-create-profile).
 > 
 > 
 

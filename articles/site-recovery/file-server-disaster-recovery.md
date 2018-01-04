@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 8c9d8dadcd6181d9894ab6ee7110841afdec5708
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: ac734ffc6cb57188b7b0959cbe7655949b2853de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Proteggere un file server usando Azure Site Recovery 
 
@@ -55,7 +55,7 @@ Il diagramma seguente offre una rappresentazione grafica per facilitare la scelt
 
 ### <a name="factors-to-consider-while-making-decision-of-disaster-recovery-to-azure"></a>Fattori da considerare per la decisione di un ripristino di emergenza in Azure
 
-|Ambiente  |Raccomandazione  |Elementi da considerare |
+|Environment  |Raccomandazione  |Elementi da considerare: |
 |---------|---------|---------|
 |Ambiente di file server con/senza replica DFS|   [Usare Azure Site Recovery per la replica](#replicate-an-onpremises-file-servers-using-azure-site-recovery)   |    Azure Site Recovery non supporta il cluster di dischi condivisi, il dispositivo NAS. Se nell'ambiente è presente una di queste configurazioni, usare uno degli altri approcci in base alle esigenze. <br> Azure Site Recovery non supporta il protocollo SMB 3.0, il che significa che solo quando le modifiche apportate ai file vengono aggiornate nella posizione originale del file, la macchina virtuale replicata incorporerà le modifiche.
 |Ambiente di file server con replica DFS     |  [Estendere la replica DFS a una macchina virtuale IaaS di Azure:](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |     La replica DFS funziona correttamente in ambienti di larghezza di banda estremamente ridotta, ma questo approccio richiede la presenza di una macchina virtuale di Azure sempre in esecuzione. Il costo della macchina virtuale deve essere tenuto in considerazione nella pianificazione.         |
@@ -145,7 +145,7 @@ L'approccio consigliato per l'integrazione di Sincronizzazione file di Azure è 
 
 I passaggi di seguito descrivono in dettaglio l'utilizzo del servizio Sincronizzazione file di Azure:
 
-1. [Creare un account di archiviazione in Microsoft Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se si è scelto Archiviazione con ridondanza geografica e accesso in lettura (consigliato) per gli account di archiviazione, si ha l'accesso in lettura ai dati dall'area secondaria in caso di emergenza. Per altre informazioni, consultare le [strategie di ripristino di emergenza della condivisione file di Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+1. [Creare un account di archiviazione in Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se si è scelto Archiviazione con ridondanza geografica e accesso in lettura (consigliato) per gli account di archiviazione, si ha l'accesso in lettura ai dati dall'area secondaria in caso di emergenza. Per altre informazioni, consultare le [strategie di ripristino di emergenza della condivisione file di Azure](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 2. [Creare una condivisione file](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Distribuire Sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) nel file server locale.
 4. Creare un gruppo di sincronizzazione: gli endpoint all'interno di un gruppo di sincronizzazione vengono mantenuti sincronizzati tra loro. Un gruppo di sincronizzazione deve contenere almeno un endpoint cloud, che rappresenta una condivisione file di Azure, e un endpoint server, che rappresenta un percorso in Windows Server locale.

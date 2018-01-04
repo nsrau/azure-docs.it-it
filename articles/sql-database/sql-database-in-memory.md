@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: f136faf3df761b048c88e72f564f81fd32e630ab
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 23b313a473b93ba0eab7fc4cf97a5d26bfa31505
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Ottimizzare le prestazioni tramite le tecnologie in memoria nel database SQL
 
@@ -75,16 +75,14 @@ Video di approfondimento sulle tecnologie:
 
 ### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>Limite su dimensioni dei dati e archiviazione per OLTP in memoria
 
-OLTP in memoria include tabelle con ottimizzazione per la memoria, che vengono usate per archiviare i dati utente. Queste tabelle devono rientrare nella memoria. Poiché la memoria è gestita direttamente nel servizio del database SQL, esiste il concetto di quota per i dati utente. Questo concetto è definito *archiviazione di OLTP in memoria*.
+OLTP in memoria include tabelle ottimizzate per la memoria che vengono usate per archiviare i dati utente. Queste tabelle devono rientrare nella memoria. Poiché la memoria è gestita direttamente nel servizio del database SQL, esiste il concetto di quota per i dati utente. Questo concetto è definito *archiviazione di OLTP in memoria*.
 
-Ogni piano tariffario relativo a database autonomi e pool elastici supportati include una certa quantità di spazio di archiviazione OLTP in memoria. Al momento della redazione di questo articolo, è disponibile un gigabyte di spazio di archiviazione per ogni 125 unità di transazione di database (DTU) o unità di transazione di database elastico (eDTU).
-
-L'articolo sui [Livelli di servizio del database SQL](sql-database-service-tiers.md) contiene l'elenco ufficiale dello spazio di archiviazione OLTP in memoria disponibile per ogni piano tariffario di database autonomi e pool elastici supportati.
+Ogni piano tariffario relativo a database autonomi e pool elastici supportati include una certa quantità di spazio di archiviazione OLTP in memoria. Al momento della redazione di questo articolo, è disponibile un gigabyte di spazio di archiviazione per ogni 125 unità di transazione di database (DTU) o unità di transazione di database elastico (eDTU). Per ulteriori informazioni, vedere [i limiti delle risorse](sql-database-resource-limits.md).
 
 Gli elementi seguenti rientrano nel limite di archiviazione di OLTP in memoria:
 
-- Righe di dati utente attive nelle tabelle con ottimizzazione per la memoria e variabili di tabella. Si noti che le versioni precedenti della riga non vengono conteggiate nel limite.
-- Indici nelle tabelle con ottimizzazione per la memoria.
+- Righe di dati utente attive nelle tabelle ottimizzate per la memoria e variabili di tabella. Si noti che le versioni precedenti della riga non vengono conteggiate nel limite.
+- Indici nelle tabelle ottimizzate per la memoria.
 - Costi operativi delle operazioni ALTER TABLE.
 
 Se si raggiunge il limite, si riceve un errore di superamento della quota e non sarà più possibile inserire o aggiornare dati. Per risolvere il problema, eliminare i dati o aumentare il piano tariffario del database o del pool.
@@ -126,7 +124,7 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 Se la query restituisce **1**, OLTP in memoria è supportato nel database.
 
-Prima di eseguire il downgrade del database al livello Standard o Basic, rimuovere tutti i tipi di tabella e le tabelle con ottimizzazione per la memoria, nonché tutti i moduli T-SQL compilati in modo nativo. Le query seguenti identificano tutti gli oggetti che devono essere rimossi prima eseguire il downgrade di un database al piano Standard o Basic:
+Prima di eseguire il downgrade del database al livello Standard o Basic, rimuovere tutti i tipi di tabella e le tabelle ottimizzate per la memoria, nonché tutti i moduli T-SQL compilati in modo nativo. Le query seguenti identificano tutti gli oggetti che devono essere rimossi prima eseguire il downgrade di un database al piano Standard o Basic:
 
 ```
 SELECT * FROM sys.tables WHERE is_memory_optimized=1
@@ -134,7 +132,7 @@ SELECT * FROM sys.table_types WHERE is_memory_optimized=1
 SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 ```
 
-*Downgrade a un livello Premium inferiore*: i dati nelle tabelle con ottimizzazione per la memoria devono essere contenuti nell'archiviazione OLTP in memoria associata al piano tariffario del database o disponibile nel pool elastico. Se si tenta di eseguire il downgrade del piano tariffario o di spostare il database in un pool che non dispone di sufficiente spazio di archiviazione OLTP in memoria, l'operazione avrà esito negativo.
+*Downgrade a un livello Premium inferiore*: i dati nelle tabelle ottimizzate per la memoria devono essere contenuti nell'archiviazione OLTP in memoria associata al piano tariffario del database o disponibile nel pool elastico. Se si tenta di eseguire il downgrade del piano tariffario o di spostare il database in un pool che non dispone di sufficiente spazio di archiviazione OLTP in memoria, l'operazione avrà esito negativo.
 
 ### <a name="columnstore-indexes"></a>Indici Columnstore
 
@@ -166,7 +164,7 @@ Per una dimostrazione più semplice e visivamente più interessante sulle presta
 
 3. Copiare lo [script Transact-SQL OLTP in memoria](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) negli Appunti. Lo script T-SQL crea gli oggetti in memoria necessari nel database AdventureWorksLT di esempio creato nel passaggio 1.
 
-4. Incollare lo script T-SQL in SSMS.exe, quindi eseguirlo. La clausola `MEMORY_OPTIMIZED = ON` è fondamentale nelle istruzioni CREATE TABLE, ad esempio:
+4. Incollare lo script T-SQL in SSMS.exe, quindi eseguirlo. La clausola `MEMORY_OPTIMIZED = ON` è fondamentale nelle istruzioni CREATE TABLE, Ad esempio: 
 
 
 ```
@@ -191,9 +189,9 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 Se il risultato è **0**, le funzionalità in memoria non sono supportate, mentre **1** indica che sono supportate. Per diagnosticare il problema, verificare che il livello di servizio del database sia Premium.
 
 
-#### <a name="about-the-created-memory-optimized-items"></a>Informazioni sugli elementi creati con ottimizzazione per la memoria
+#### <a name="about-the-created-memory-optimized-items"></a>Informazioni sugli elementi ottimizzati per la memoria creati
 
-**Tabelle**: l'esempio contiene le tabelle con ottimizzazione per la memoria seguenti.
+**Tabelle**: l'esempio contiene le tabelle ottimizzate per la memoria seguenti:
 
 - SalesLT.Product_inmem
 - SalesLT.SalesOrderHeader_inmem
@@ -202,7 +200,7 @@ Se il risultato è **0**, le funzionalità in memoria non sono supportate, mentr
 - Demo.DemoSalesOrderDetailSeed
 
 
-È possibile esaminare le tabelle con ottimizzazione per la memoria tramite **Esplora oggetti** in SSMS. Fare doppio clic su **Tabelle** > **Filtro** > **Impostazioni filtro** > **Con ottimizzazione per la memoria**. Il valore è uguale a 1.
+È possibile esaminare le tabelle ottimizzate per la memoria tramite **Esplora oggetti** in SSMS. Fare doppio clic su **Tabelle** > **Filtro** > **Impostazioni filtro** > **Con ottimizzazione per la memoria**. Il valore è uguale a 1.
 
 
 In alternativa, è possibile eseguire una query delle viste del catalogo, ad esempio:
@@ -229,7 +227,7 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 ### <a name="run-the-sample-oltp-workload"></a>Eseguire il carico di lavoro OLTP di esempio
 
-L'unica differenza tra le due *stored procedure* seguenti è che la prima usa versioni con ottimizzazione per la memoria delle tabelle, mentre la seconda usa tabelle basate su disco tradizionali:
+L'unica differenza tra le due *stored procedure* seguenti è che la prima usa versioni delle tabelle ottimizzate per la memoria, mentre la seconda usa tabelle basate su disco tradizionali:
 
 - SalesLT**.**usp_InsertSalesOrder**_inmem**
 - SalesLT**.**usp_InsertSalesOrder**_ondisk**
@@ -253,7 +251,7 @@ Quando si esegue ostress.exe, è consigliabile passare valori di parametri speci
 Questa sezione illustra lo script T-SQL incorporato nella riga di comando ostress.exe. Lo script usa gli elementi creati dallo script T-SQL installato in precedenza.
 
 
-Lo script riportato di seguito inserisce un ordine di vendita di esempio con cinque voci nelle *tabelle*con ottimizzazione per la memoria seguenti:
+Lo script riportato di seguito inserisce un ordine di vendita di esempio con cinque voci nelle *tabelle* ottimizzate per la memoria seguenti:
 
 - SalesLT.SalesOrderHeader_inmem
 - SalesLT.SalesOrderDetail_inmem
@@ -528,7 +526,7 @@ In un database con piano tariffario P2 è possibile raggiungere circa 9X il guad
 
 #### <a name="tools"></a>Strumenti
 
-- [Portale di Azure](https://portal.azure.com/)
+- [Azure portal](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

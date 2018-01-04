@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: b3dca9e75df2d057d7ee1b314faac490e5f10a08
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 57044afe946e21d4b3cfa991772e780e59a1710e
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Analisi della varianza del cliente tramite Azure Machine Learning
 ## <a name="overview"></a>Panoramica
-Questo argomento illustra un'implementazione di riferimento di un progetto di analisi della varianza del cliente compilata tramite Azure Machine Learning. L'articolo illustra i modelli generici associati per la risoluzione olistica dei problemi di varianza del cliente industriale. Viene, inoltre, misurata l'accuratezza dei modelli compilati utilizzando Machine Learning e vengono poi valutate le direzioni per uno sviluppo ulteriore.  
+Questo argomento illustra un'implementazione di riferimento di un progetto di analisi della varianza del cliente compilata tramite Azure Machine Learning. L'articolo illustra i modelli generici associati per la risoluzione olistica dei problemi di varianza del cliente industriale. È inoltre misurare l'accuratezza di modelli compilati utilizzando Machine Learning e valutare le direzioni per uno sviluppo ulteriore.  
 
 ### <a name="acknowledgements"></a>Riconoscimenti
 Questo esperimento è stato sviluppato e testato da Serge Berger, Principal Data Scientist presso Microsoft e Roger Barga, in precedenza Product Manager per Microsoft Azure Machine Learning. Il team di documentazione di Azure esprime riconoscenza e ringrazia gli esperti per aver condiviso le proprie competenze in questo white paper.
@@ -37,14 +37,14 @@ Questo esperimento è stato sviluppato e testato da Serge Berger, Principal Data
 ## <a name="the-problem-of-customer-churn"></a>Il problema della varianza del cliente
 Le aziende del mercato consumer, come tutte quelle dei settori commerciali, devono fare i conti con la varianza. In certi casi una varianza eccessiva può arrivare a influenzare i criteri decisionali. La soluzione tradizionale consiste nel prevedere i fattori con elevata propensione alla varianza e soddisfare le relative esigenze tramite un servizio di concierge, campagne di marketing o tramite l'applicazione di dispense speciali. Questi approcci possono variare da settore a settore e persino da un determinato gruppo di clienti a un altro all'interno di un settore (ad esempio quello delle telecomunicazioni).
 
-Il fattore comune è che le aziende hanno necessità di ridurre al minimo questi sforzi speciali rivolti alla fidelizzazione. Pertanto, una metodologia consisterebbe nell'assegnazione di un punteggio a ogni cliente con probabilità di varianza per poi gestire i primi N classificati. I clienti principali potrebbero essere anche i più redditizi. Ad esempio, in scenari più sofisticati viene impiegata una funzione di redditività durante la selezione dei candidati per una dispensa speciale. Tuttavia, queste considerazioni rappresentano solo una parte della strategia olistica alla base della gestione della varianza. Le aziende devono inoltre tenere in considerazione il rischio (e la tolleranza al rischio associata), il livello e i costi dell'intervento e una segmentazione dei clienti plausibile.  
+Il fattore comune è che le aziende hanno necessità di ridurre al minimo questi sforzi speciali rivolti alla fidelizzazione. Pertanto, una metodologia consisterebbe nell'assegnazione di un punteggio a ogni cliente con probabilità di varianza per poi gestire i primi N classificati. I migliori clienti potrebbero essere quelli più produttivi. In scenari più sofisticati, ad esempio, una funzione dei profitti è impiegata durante la selezione di candidati per dispensa speciale. Tuttavia, queste considerazioni sono solo una parte della strategia completa per la gestione di varianza. Le aziende devono inoltre tenere in considerazione il rischio (e la tolleranza al rischio associata), il livello e i costi dell'intervento e una segmentazione dei clienti plausibile.  
 
 ## <a name="industry-outlook-and-approaches"></a>Prospettive e approcci di settore
 La gestione sofisticata della varianza è un indicatore di maturità di un settore. L'esempio classico è dato dal settore delle telecomunicazioni, nel quale gli abbonati sono soliti passare frequentemente da un provider a un altro. Questa varianza volontaria rappresenta un motivo principale di preoccupazione. I provider, inoltre, hanno accumulato notevoli conoscenze riguardo agli *elementi che inducono varianza*ovvero i fattori che spingono i clienti a cambiare.
 
-La scelta dell'apparecchio o del dispositivo, ad esempio, è un fattore di varianza ben noto nel settore della telefonia mobile. Come risultato, un criterio diffuso è la sovvenzione promozionale di una parte del costo di un telefono per i nuovi abbonati e l'addebito del prezzo intero per i clienti esistenti o per un cambio di modello. Storicamente, tale criterio ha portato i clienti a passare da un provider all'altro per ottenere un nuovo sconto, il che, a sua volta, ha indotto i provider a raffinare le proprie strategie.
+La scelta dell'apparecchio o del dispositivo, ad esempio, è un fattore di varianza ben noto nel settore della telefonia mobile. Di conseguenza, criteri comuni sono subsidize il prezzo di un ricevitore nuove sottoscrizioni e ricaricare un prezzo completo per i clienti esistenti per un aggiornamento. In passato, questo criterio ha portato ai clienti di salto da un provider a un altro per ottenere un nuovo sconto. Questa operazione, a sua volta, è richiesto ai provider di ottimizzare le strategie.
 
-L'elevata volatilità nelle offerte legate ai dispositivi è un fattore in grado di invalidare velocemente i modelli di varianza che si basano sui modelli di dispositivo attuali. In aggiunta, i telefoni mobili non sono solo dispositivi per le telecomunicazioni. Rappresentano anche una realtà legata alla moda (si consideri ad esempio l'iPhone) e tali indicatori sociali restano esclusi dall'ambito dei normali set di dati riferibili alle telecomunicazioni.
+Alta volatilità nelle offerte di ricevitore è un fattore che invalida rapidamente modelli di varianza basati su modelli palmari correnti. Inoltre, telefoni cellulari non sono solo periferiche di telecomunicazione, sono anche istruzioni modo (potrebbe essere preferibile iPhone). Queste variabili predittive di social networking esulano dall'ambito telecomunicazioni regolare dei set di dati.
 
 Il risultato netto per l'uso dei modelli è l'impossibilità di implementare un criterio efficace solamente eliminando i motivi noti per la varianza. Infatti, una strategia di modellazione continua, che include modelli classici che quantificano le variabili di categoria (ad esempio alberi decisionali) è **obbligatoria**.
 
@@ -208,19 +208,9 @@ Un'altra funzionalità interessante di apprendimento automatico presente in Azur
 Si prevede di continuare a trattare questo argomento in futuro, specialmente per quanto riguarda l'analisi dei Big Data.
   
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 In questo documento viene descritto un approccio intelligente alla gestione di un problema comune, vale a dire la varianza dei clienti, usando un framework generico. Viene considerato un prototipo per la valutazione dei modelli ed è implementato utilizzando Azure Machine Learning. Infine, sono state valutate l'accuratezza e le prestazioni della soluzione prototipo rispetto ad algoritmi paragonabili in SAS.  
 
-**Per altre informazioni:**  
-
-Il documento è stato di aiuto? Gradiremmo ricevere commenti e suggerimenti. Indicare, su una scala da 1 (scadente) a 5 (eccellente) come si classificherebbe questo articolo e indicare perché si è assegnato tale punteggio. ad esempio:  
-
-* Si sta assegnando un punteggio alto perché l'articolo contiene degli ottimi esempi, schermate eccellenti, il linguaggio è chiaro o per un altro motivo?
-* Si sta assegnando un punteggio basso perché gli esempi sono scarsi, le schermate poco chiare o il linguaggio è incomprensibile?  
-
-Questi commenti e suggerimenti aiuteranno Microsoft a migliorare la qualità dei white paper prodotti.   
-
-[Invia commenti e suggerimenti](mailto:sqlfback@microsoft.com).
  
 
 ## <a name="references"></a>Riferimenti

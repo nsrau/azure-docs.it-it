@@ -14,18 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: saysa
-ms.openlocfilehash: 89b356c3959b7cb63a746805d60535e07f0d6898
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 80c52cfeab007030203b6af4bb220f1a847e9426
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Usare Jenkins per compilare e distribuire le applicazioni Linux
 Jenkins è uno strumento diffuso per l'integrazione e la distribuzione continue delle app. Ecco come compilare e distribuire l'applicazione di Azure Service Fabric usando Jenkins.
 
 ## <a name="general-prerequisites"></a>Prerequisiti generali
 - È necessario che Git sia installato in locale. È possibile installare la versione di Git appropriata dalla [pagina di download di Git](https://git-scm.com/downloads), in base al sistema operativo specifico. Se non si ha familiarità con Git, per altre informazioni, vedere la [documentazione di Git](https://git-scm.com/docs).
-- È necessario avere a disposizione il plug-in Jenkins per Service Fabric. È possibile scaricarlo dalla pagina di [download di Service Fabric](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). Se si usa il browser Edge, rinominare l'estensione del file scaricato da .zip a .hpi.
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Configurare Jenkins all'interno di un cluster di Service Fabric
 
@@ -96,7 +95,7 @@ vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
     > Lo scaricamento dell'immagine di Jenkins nel cluster potrebbe richiedere alcuni minuti.
     >
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 1. Nel browser passare a ``http://PublicIPorFQDN:8081``. Fornisce il percorso della password amministratore iniziale necessaria per eseguire l'accesso. 
 2. Esaminare Service Fabric Explorer per determinare su quale nodo è in esecuzione il contenitore di Jenkins. Eseguire l'accesso SSH (Secure Shell) a questo nodo.
 ```sh
@@ -128,9 +127,9 @@ ssh user@PublicIPorFQDN -p [port]
 
 A questo punto, quando si esegue ``docker info`` nel terminale, l'output indica che il servizio Docker è in esecuzione.
 
-### <a name="steps"></a>Passi
-  1. Effettuare il pull dell'immagine del contenitore di Jenkins per Service Fabric: ``docker pull rapatchi/jenkins:v9``
-  2. Eseguire l'immagine del contenitore: ``docker run -itd -p 8080:8080 rapatchi/jenkins:v9``
+### <a name="steps"></a>Passaggi
+  1. Effettuare il pull dell'immagine contenitore servizio Fabric Jenkins: ``docker pull rapatchi/jenkins:v10``. Questa immagine viene fornito con plug-in servizi dell'infrastruttura Jenkins pre-installato.
+  2. Eseguire l'immagine del contenitore: ``docker run -itd -p 8080:8080 rapatchi/jenkins:v10``
   3. Ottenere l'ID istanza dell'immagine del contenitore. È possibile elencare tutti i contenitori Docker con il comando ``docker ps –a``
   4. Accedere al portale di Jenkins seguendo questa procedura:
 
@@ -151,11 +150,6 @@ A questo punto, quando si esegue ``docker info`` nel terminale, l'output indica 
 
 Assicurarsi che il cluster o il computer in cui è ospitata l'immagine del contenitore Jenkins abbia un indirizzo IP pubblico. Ciò consente all'istanza di Jenkins di ricevere notifiche da GitHub.
 
-## <a name="install-the-service-fabric-jenkins-plug-in-from-the-portal"></a>Installare il plug-in Jenkins per Service Fabric dal portale
-
-1. Passare a ``http://PublicIPorFQDN:8081``.
-2. Dal dashboard di Jenkins selezionare **Manage Jenkins** (Gestione Jenkins) > **Manage Plugins** (Gestione plug-in) > **Advanced** (Avanzate).
-In questa schermata è possibile caricare un plug-in. Selezionare l'opzione **Choose file** (Scegli file) e quindi selezionare il file **serviceFabric.hpi** scaricato nella sezione dei prerequisiti oppure scaricabile [qui](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). Dopo aver selezionato l'opzione **Upload** (Carica), Jenkins installa automaticamente il plug-in. Se richiesto, consentire il riavvio.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Creare e configurare un processo Jenkins
 

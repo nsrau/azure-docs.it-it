@@ -9,22 +9,22 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 12/11/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 461feb952f7e2eddba9c7218b3463868e8cb7965
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: HT
+ms.openlocfilehash: 5810ff908d48fc4ff742d734e7c2457fdfe8cb03
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurare il ripristino di emergenza in Azure per le macchine virtuali VMware locali
 
-In questa esercitazione viene illustrato come configurare il ripristino di emergenza in Azure per le macchine virtuali VMware locali che eseguono Windows. In questa esercitazione si apprenderà come:
+In questa esercitazione viene illustrato come configurare il ripristino di emergenza in Azure per le macchine virtuali VMware in locale che esegue Windows. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare un insieme di credenziali di Servizi di ripristino per Site Recovery
-> * Configurare gli ambienti di replica di origine e di destinazione
+> * Specificare l'origine della replica e destinazione.
+> * Configurare l'ambiente di replica di origine, inclusi i componenti, il ripristino del sito locale e l'ambiente di replica di destinazione.
 > * Creare un criterio di replica
 > * Abilitare la replica per una macchina virtuale
 
@@ -35,37 +35,28 @@ Questa è la terza esercitazione di una serie. In questa esercitazione si presup
 
 Prima di iniziare, è utile [esaminare l'architettura](concepts-vmware-to-azure-architecture.md) per uno scenario di ripristino di emergenza.
 
-## <a name="configure-vmware-account-permissions"></a>Configurare le autorizzazioni dell'account VMware
 
-1. Creare un ruolo a livello di vCenter. Assegnare al ruolo il nome **Azure_Site_Recovery**.
-2. Assegnare le autorizzazioni seguenti al ruolo **Azure_Site_Recovery**.
+## <a name="select-a-replication-goal"></a>Selezionare un obiettivo di replica
 
-   **Task** | **Ruolo/Autorizzazioni** | **Dettagli**
-   --- | --- | ---
-   **Individuazione di macchine virtuali** | Data Center object (Oggetto data center)–> Propagate to Child Object (Propaga a oggetto figlio), role=Read-only (ruolo=Sola lettura) | Almeno un utente di sola lettura.<br/><br/> L'utente viene assegnato a livello di data center e ha accesso a tutti gli oggetti nel data center.<br/><br/> Per limitare l'accesso, assegnare il ruolo **No access** (Nessun accesso) con **Propagate to child object** (Propaga a oggetto figlio) agli oggetti figlio (host vSphere, archivi dati, VM e reti).
-   **Replica completa, failover, failback** |  Data Center object (Oggetto data center) –> Propagate to Child Object (Propaga a oggetto figlio), role=Azure_Site_Recovery (ruolo=Azure_Site_Recovery)<br/><br/> Datastore (Archivio dati) -> Allocate space (Alloca spazio), Browse datastore (Sfoglia archivio dati), Low level file operations (Operazioni file di livello basso), Remove file (Rimuovi file), Update virtual machine files (Aggiorna file macchina virtuale)<br/><br/> Network (Rete) -> Network assign (Assegnazione rete)<br/><br/> Risorsa -> Assegnare VM al pool di risorse, migrare la VM spenta, migrare la VM accesa<br/><br/> Tasks (Attività) -> Create task (Crea attività), Update task (Aggiorna attività)<br/><br/> Virtual machine (Macchina virtuale) -> Configuration (Configurazione)<br/><br/> Virtual machine (Macchina virtuale) -> Interact (Interagisci) -> Answer question (Rispondi alla domanda), Device connection (Connessione dispositivo), Configure CD media (Configura supporto CD), Configure floppy media (Configura supporto floppy), Power off (Spegni), Power on (Accendi), VMware tools install (Installazione strumenti VMware)<br/><br/> Virtual machine (Macchina virtuale) -> Inventory (Inventario) -> Create (Crea), Register (Registra), Unregister (Annulla registrazione)<br/><br/> Virtual machine (Macchina virtuale) -> Provisioning -> Allow virtual machine download (Consenti download macchina virtuale), Allow virtual machine files upload (Consenti upload file macchina virtuale)<br/><br/> Macchina virtuale -> Snapshots -> Remove snapshots | L'utente viene assegnato a livello di data center e ha accesso a tutti gli oggetti nel data center.<br/><br/> Per limitare l'accesso, assegnare il ruolo **No access** (Nessun accesso) con **Propagate to child object** (Propaga a oggetto figlio) agli oggetti figlio (host vSphere, archivi dati, VM e reti).
-
-3. Creare un utente nel server vCenter o nell'host vSphere. Assegnare il ruolo all'utente.
-
-## <a name="specify-what-you-want-to-replicate"></a>Specificare gli elementi da replicare
-
-Il servizio Mobility deve essere installato in ogni VM da replicare. Site Recovery installa il servizio automaticamente quando si abilita la replica per la macchina virtuale. Per l'installazione automatica è necessario preparare un account che Site Recovery userà per accedere alla macchina virtuale.
-
-È possibile usare un account di dominio o locale. Per le macchine virtuali Linux l'account deve essere un account radice nel server Linux di origine. Per le macchine virtuali Windows, se non si usa un account di dominio, disabilitare il Controllo dell'accesso utente remoto nel computer locale:
-
-  - Nel Registro di sistema in **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** aggiungere la voce DWORD **LocalAccountTokenFilterPolicy** e impostare il valore su 1.
+1. In **insiemi di credenziali di servizi di ripristino**, fare clic sul nome dell'insieme di credenziali, **ContosoVMVault**.
+2. In **Introduzione**, fare clic su Site Recovery. Quindi fare clic su **preparare l'infrastruttura**.
+3. In **obiettivi della protezione dati** > **dove sono i computer che si trovano**selezionare **locale**.
+4. In * * in cui si desidera replicare le macchine, selezionare **in Azure**.
+5. In **sono computer virtualizzati**selezionare **Sì, con VMware vSphere Hypervisor**. Fare quindi clic su **OK**.
 
 ## <a name="set-up-the-source-environment"></a>Configurare l'ambiente di origine
 
-Per configurare l'ambiente di origine è necessario scaricare l'installazione unificata di Site Recovery, impostare il server di configurazione, registrarlo nell'insieme di credenziali e individuare le macchine virtuali.
+Per configurare l'ambiente di origine, aver scaricato il file di installazione unificata di Site Recovery. Eseguire il programma di installazione per installare i componenti di ripristino del sito locale, registrare i server VMware nell'insieme di credenziali e individuare le macchine virtuali locali.
 
-Il server di configurazione è una singola macchina virtuale VMware locale che ospita tutti i componenti di Site Recovery. Questa macchina virtuale esegue il server di configurazione, il server di elaborazione e il server di destinazione master.
+### <a name="verify-on-premises-site-recovery-requirements"></a>Verificare i requisiti di ripristino del sito locale
+
+Una macchina virtuale di VMware locale singolo e a disponibilità elevata, è necessario per i componenti di Site Recovery di host locale. Componenti includono il server di configurazione, un server di elaborazione e un server di destinazione master.
 
 - Il server di configurazione coordina le comunicazioni tra i componenti locali e Azure e gestisce la replica dei dati.
-- Il server di elaborazione funge da gateway di replica. Riceve i dati di replica, li ottimizza attraverso la memorizzazione nella cache, la compressione e la crittografia e li invia all'archiviazione di Azure. Il server di elaborazione installa anche il servizio Mobility nelle macchine virtuali da replicare ed esegue l'individuazione automatica delle macchine virtuali nei server VMware locali.
+- Il server di elaborazione funge da gateway di replica. Riceve i dati di replica, li ottimizza attraverso la memorizzazione nella cache, la compressione e la crittografia e li invia all'archiviazione di Azure. Il server di elaborazione viene installato anche il servizio Mobility nelle macchine virtuali da replicare, ed esegue l'individuazione automatica delle macchine virtuali VMware in locale.
 - Il server di destinazione master gestisce i dati di replica durante il failback da Azure.
 
-La macchina virtuale del server di configurazione deve essere una macchina virtuale VMware a disponibilità elevata che soddisfa i requisiti seguenti:
+La macchina virtuale deve soddisfare i requisiti seguenti.
 
 | **Requisito** | **Dettagli** |
 |-----------------|-------------|
@@ -82,30 +73,25 @@ La macchina virtuale del server di configurazione deve essere una macchina virtu
 | Tipo di indirizzo IP | statico |
 | Porte | 443 (orchestrazione del canale di controllo)<br/>9443 (trasporto dei dati)|
 
-Nella macchina virtuale del server di configurazione verificare che il clock di sistema sia sincronizzato con un server di riferimento ora.
-L'orario deve essere sincronizzato entro i 15 minuti. Se la differenza di orario è maggiore di 15 minuti, il programma di installazione non riesce.
+Eseguire anche queste operazioni: 
+- Verificare che l'orologio di sistema nella macchina virtuale sia sincronizzato con un Server. L'orario deve essere sincronizzato entro i 15 minuti. L'installazione non riesce se è maggiore.
+l'installazione non riesce.
+- Assicurarsi che il server di configurazione macchina virtuale può accedere a questi URL:
 
-Verificare che il server di configurazione sia in grado di accedere a questi URL:
-
-   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-    - Se sono presenti regole del firewall basate sull'indirizzo IP, verificare che consentano la comunicazione con Azure.
-
-- Consentire gli [intervalli IP del data center di Azure ](https://www.microsoft.com/download/confirmation.aspx?id=41653) e la porta HTTPS (443).
+- Assicurarsi che le regole firewall basate sull'indirizzo IP consentano la comunicazione in Azure.
+    - Consenti il [intervalli IP Data Center di Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653), la porta 443 (HTTPS) e porta 9443 (la replica dei dati).
     - Consentire gli intervalli di indirizzi IP per l'area di Azure della sottoscrizione e per gli Stati Uniti occidentali (usati per il controllo di accesso e la gestione delle identità).
 
-Tutte le regole del firewall basate sull'indirizzo IP devono consentire la comunicazione con gli [intervalli IP del data center di Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e le porte 443 (HTTPS) e 9443 (replica dei dati). Assicurarsi di consentire gli intervalli di indirizzi IP per l'area di Azure della sottoscrizione e per gli Stati Uniti occidentali (usati per il controllo di accesso e la gestione delle identità).
 
-### <a name="download-the-site-recovery-unified-setup"></a>Scaricare l'Installazione unificata di Site Recovery
+### <a name="download-the-site-recovery-unified-setup-file"></a>Scaricare il file di installazione unificata di Site Recovery
 
-1. Aprire il [portale di Azure](https://portal.azure.com) e fare clic su **Tutte le risorse**.
-2. Fare clic sull'insieme di credenziali di Servizi di ripristino denominato **ContosoVMVault**.
-3. Fare clic su **Site Recovery** > **Preparare l'infrastruttura** > **Obiettivo di protezione**.
-4. Selezionare **Locale** per indicare dove si trovano i computer, **In Azure** per indicare in quale destinazione si vuole eseguire la replica dei computer e **Sì con VMware vSphere Hypervisor**. Fare quindi clic su **OK**.
-5. Nel riquadro Prepara origine fare clic su **+Server di configurazione**.
-6. In **Aggiungi server** verificare che **Tipo di server** contenga **Server di configurazione**.
-7. Scaricare il file di installazione per l'Installazione unificata di Azure Site Recovery.
-8. Scaricare la chiave di registrazione dell'insieme di credenziali, che sarà necessaria quando si esegue l'Installazione unificata. La chiave è valida per cinque giorni dal momento in cui viene generata.
+1. Nell'insieme di credenziali > **preparare l'infrastruttura**, fare clic su **origine**.
+1. In **origine Prepare**, fare clic su **+ server di configurazione**.
+2. In **Aggiungi server** verificare che **Tipo di server** contenga **Server di configurazione**.
+3. Scaricare il file di installazione per l'Installazione unificata di Azure Site Recovery.
+4. Scaricare la chiave di registrazione dell'insieme di credenziali, che sarà necessaria quando si esegue l'Installazione unificata. La chiave è valida per cinque giorni dal momento in cui viene generata.
 
    ![Impostare l'origine](./media/tutorial-vmware-to-azure/source-settings.png)
 
@@ -140,15 +126,17 @@ Tutte le regole del firewall basate sull'indirizzo IP devono consentire la comun
 
 11. Esaminare le informazioni nella pagina **Riepilogo** e fare clic su **Installa**. Il programma di installazione installa il server di configurazione e registra il servizio Azure Site Recovery.
 
-    ![Riepilogo](./media/tutorial-vmware-to-azure/combined-wiz10.png)
+    ![Summary](./media/tutorial-vmware-to-azure/combined-wiz10.png)
 
     Al termine dell'installazione verrà generata una passphrase. Sarà necessaria quando si abilita la replica, è quindi consigliabile copiarla e conservarla in un luogo sicuro. Il server viene visualizzato nel riquadro **Impostazioni** > **Server** nell'insieme di credenziali.
 
 ### <a name="configure-automatic-discovery"></a>Configurare l'individuazione automatica
 
-Per individuare le macchine virtuali, il server di configurazione deve connettersi ai server VMware locali. Ai fini di questa esercitazione, aggiungere il server vCenter o gli host vSphere usando un account con privilegi di amministratore nel server.
+Per individuare le macchine virtuali, il server di configurazione deve connettersi ai server VMware locali. Ai fini di questa esercitazione, aggiungere il server vCenter o gli host vSphere usando un account con privilegi di amministratore nel server. È stato creato questo account nel [esercitazione precedente](tutorial-prepare-on-premises-vmware.md). 
 
-1. Nel server di configurazione avviare **CSPSConfigtool.exe**. È disponibile come collegamento sul desktop e nella cartella *percorso di installazione*\home\svsystems\bin.
+Per aggiungere l'account:
+
+1. Nel server di configurazione macchina virtuale, avviare **CSPSConfigtool.exe**. È disponibile come collegamento sul desktop e nella cartella *percorso di installazione*\home\svsystems\bin.
 
 2. Fare clic su **Gestisci account** > **Aggiungi account**.
 
@@ -158,12 +146,12 @@ Per individuare le macchine virtuali, il server di configurazione deve connetter
 
    ![Dettagli](./media/tutorial-vmware-to-azure/credentials2.png)
 
-Per aggiungere un server:
+Per aggiungere il server VMware:
 
 1. Aprire il [portale di Azure](https://portal.azure.com) e fare clic su **Tutte le risorse**.
 2. Fare clic sull'insieme di credenziali di Servizi di ripristino denominato **ContosoVMVault**.
 3. Fare clic su **Site Recovery** > **Preparare l'infrastruttura** > **Origine**
-4. Selezionare **+ vCenter** per connettersi a un server vCenter o a un host vSphere ESXi.
+4. Selezionare **+ vCenter**, per connettersi a un host ESXi vCenter server o vSphere.
 5. In **Aggiungi vCenter** specificare un nome descrittivo per il server. Quindi specificare l'indirizzo IP o il nome di dominio completo.
 6. Mantenere l'impostazione della porta 443, a meno che i server VMware non ascoltino le richieste su una porta diversa.
 7. Selezionare l'account da usare per la connessione al server. Fare clic su **OK**.
@@ -193,7 +181,7 @@ Selezionare e verificare le risorse di destinazione.
 6. In **Conservazione del punto di ripristino** usare il valore predefinito di 24 ore per la durata del periodo di conservazione per ogni punto di ripristino. Per questa esercitazione, selezionare 72 ore. Le VM replicate possono essere ripristinate in qualsiasi punto all'interno di un intervallo.
 7. In **Frequenza snapshot coerenti con l'app** usare il valore predefinito di 60 minuti per la frequenza con cui vengono creati snapshot coerenti con l'applicazione. Fare clic su **OK** per creare i criteri.
 
-   ![Criteri](./media/tutorial-vmware-to-azure/replication-policy.png)
+   ![Criterio](./media/tutorial-vmware-to-azure/replication-policy.png)
 
 I criteri vengono automaticamente associati al server di configurazione. Per impostazione predefinita vengono creati automaticamente criteri corrispondenti per il failback. Se, ad esempio, il criterio di replica è **rep-policy**, il criterio di failback sarà **rep-policy-failback**. Questi criteri non vengono usati fino a quando non si avvia un failback da Azure.
 

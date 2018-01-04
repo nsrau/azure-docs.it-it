@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/15/2017
 ms.author: jingwang
-ms.openlocfilehash: a2f370998ea219f9d36a6cda26405b6023666f92
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 7786fc785afa745da28b1da644ec58568d0cf424
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -39,7 +39,7 @@ L'attività di copia viene eseguita in un [runtime di integrazione](concepts-int
 * Quando si copiano i dati tra archivi di dati accessibili pubblicamente, l'attività di copia può essere migliorata con il **runtime di integrazione di Azure** che è sicuro, affidabile, scalabile e [disponibile a livello globale](concepts-integration-runtime.md#integration-runtime-location).
 * Quando si copiano i dati da/a archivi di dati in locale o in una rete con il controllo di accesso (ad esempio, rete virtuale di Azure), è necessario configurare un **runtime di integrazione self-hosted** per migliorare la copia dei dati.
 
-Il runtime di integrazione deve essere associato a ogni archivio di dati di origine e sink. Informazioni su come l'attività di copia [determina quale runtime di integrazione usare](concepts-integration-runtime.md#determining-which-ir-to-use).
+Runtime di integrazione deve essere associata a ogni archivio dati di origine e sink. Informazioni su come l'attività di copia [determina quale runtime di integrazione usare](concepts-integration-runtime.md#determining-which-ir-to-use).
 
 L'attività di copia viene sottoposta alle fasi seguenti per copiare i dati dall'origine al sink. Il servizio su cui si basa l'attività di copia:
 
@@ -130,7 +130,7 @@ Nel modello seguente di un'attività di copia è incluso l'elenco completo delle
 
 ### <a name="syntax-details"></a>Dettagli sintassi
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type di un'attività di copia deve essere impostata su: **Copy** | Sì |
 | inputs | Specificare il set di dati creato che fa riferimento ai dati di origine. L'attività di copia supporta un singolo input. | Sì |
@@ -138,17 +138,17 @@ Nel modello seguente di un'attività di copia è incluso l'elenco completo delle
 | typeProperties | Un gruppo di proprietà per configurare l'attività di copia. | Sì |
 | una sezione source | Specificare il tipo di origine della copia e le proprietà corrispondenti per recuperare i dati.<br/><br/>Vedere la sezione "Proprietà dell'attività di copia" nell'articolo sul connettore elencato in [Archivi dati e formati supportati](#supported-data-stores-and-formats). | Sì |
 | sink | Specificare il tipo di sink della copia e le proprietà corrispondenti per scrivere i dati.<br/><br/>Vedere la sezione "Proprietà dell'attività di copia" nell'articolo sul connettore elencato in [Archivi dati e formati supportati](#supported-data-stores-and-formats). | Sì |
-| translator | Specificare il mapping esplicito di colonne da origine a sink. Si applica quando il comportamento di copia predefinito non soddisfa le esigenze.<br/><br/>Vedere [Mapping dello schema e dei tipi di dati](copy-activity-schema-and-type-mapping.md). | No |
-| cloudDataMovementUnits | Specificare l'efficacia del [runtime di integrazione di Azure](concepts-integration-runtime.md) per migliorare la copia dei dati.<br/><br/>Vedere [Unità di spostamento dati cloud](copy-activity-performance.md). | No |
-| parallelCopies | Specificare il parallelismo che l'attività di copia deve usare durante la lettura dei dati dall'origine e la scrittura dei dati nel sink.<br/><br/>Vedere [Copia parallela](copy-activity-performance.md#parallel-copy). | No |
-| enableStaging<br/>stagingSettings | Scegliere di eseguire lo staging dei dati provvisori in un archivio BLOB anziché copiarli direttamente dall'origine al sink.<br/><br/>Informazioni sugli scenari e sui dettagli di configurazione in [Copia di staging](copy-activity-performance.md#staged-copy). | No |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Scegliere come gestire le righe incompatibili durante la copia di dati dall'origine al sink.<br/><br/>Vedere [Tolleranza di errore](copy-activity-fault-tolerance.md). | No |
+| translator | Specificare il mapping esplicito di colonne da origine a sink. Si applica quando il comportamento di copia predefinito non soddisfa le esigenze.<br/><br/>Vedere [Mapping dello schema e dei tipi di dati](copy-activity-schema-and-type-mapping.md). | No  |
+| cloudDataMovementUnits | Specificare l'efficacia del [runtime di integrazione di Azure](concepts-integration-runtime.md) per migliorare la copia dei dati.<br/><br/>Vedere [Unità di spostamento dati cloud](copy-activity-performance.md). | No  |
+| parallelCopies | Specificare il parallelismo che l'attività di copia deve usare durante la lettura dei dati dall'origine e la scrittura dei dati nel sink.<br/><br/>Vedere [Copia parallela](copy-activity-performance.md#parallel-copy). | No  |
+| enableStaging<br/>stagingSettings | Scegliere di eseguire lo staging dei dati provvisori in un archivio BLOB anziché copiarli direttamente dall'origine al sink.<br/><br/>Informazioni sugli scenari e sui dettagli di configurazione in [Copia di staging](copy-activity-performance.md#staged-copy). | No  |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Scegliere come gestire le righe incompatibili durante la copia di dati dall'origine al sink.<br/><br/>Vedere [Tolleranza di errore](copy-activity-fault-tolerance.md). | No  |
 
 ## <a name="monitoring"></a>Monitoraggio
 
 I dettagli dell'esecuzione dell'attività di copia e le caratteristiche relative alle prestazioni vengono restituiti nella sezione relativa all'output del risultato dell'esecuzione dell'attività di copia. Di seguito è riportato un elenco completo. Informazioni su come monitorare l'esecuzione dell'attività nella [sezione sull'avvio rapido del monitoraggio](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run). È possibile confrontare le prestazioni e la configurazione dello scenario personalizzato con le [informazioni di riferimento sulle prestazioni](copy-activity-performance.md#performance-reference) dell'attività di copia ottenute dai test interni.
 
-| Nome proprietà  | Descrizione | Unità |
+| Nome proprietà  | DESCRIZIONE | Unità |
 |:--- |:--- |:--- |
 | dataRead | Dimensioni dei dati letti nell'origine | Valore Int64 in byte |
 | dataWritten | Dimensioni dei dati scritti nel sink | Valore Int64 in byte |
@@ -156,9 +156,9 @@ I dettagli dell'esecuzione dell'attività di copia e le caratteristiche relative
 | rowsSkipped | Numero di righe incompatibili ignorate. È possibile abilitare la funzionalità impostando il valore "enableSkipIncompatibleRow" su True. | Valore Int64 (senza unità) |
 | throughput | Velocità di trasferimento dei dati | Numero a virgola mobile in KB/s |
 | copyDuration | Durata della copia | Valore Int32 in secondi |
-| sqlDwPolyBase | Se PolyBase viene usato per copiare i dati in SQL Data Warehouse. | Boolean |
-| redshiftUnload | Se UNLOAD viene usato per copiare i dati da Redshift. | Boolean |
-| hdfsDistcp | Se DistCp viene usato per copiare i dati da HDFS. | Boolean |
+| sqlDwPolyBase | Se PolyBase viene usato per copiare i dati in SQL Data Warehouse. | boolean |
+| redshiftUnload | Se UNLOAD viene usato per copiare i dati da Redshift. | boolean |
+| hdfsDistcp | Se DistCp viene usato per copiare i dati da HDFS. | boolean |
 | effectiveIntegrationRuntime | Mostra gli Integration Runtime usati per migliorare l'esecuzione dell'attività, nel formato `<IR name> (<region if it's Azure IR>)`. | Testo (stringa) |
 | usedCloudDataMovementUnits | Il numero effettivo di unità di spostamento dati cloud durante la copia. | Valore Int32 |
 | redirectRowPath | Percorso del log delle righe incompatibili ignorate nel contenitore di archiviazione BLOB configurato in "redirectIncompatibleRowSettings". Vedere l'esempio seguente. | Testo (stringa) |
@@ -192,6 +192,12 @@ Per impostazione predefinita, l'attività di copia interrompe la copia dei dati 
 ## <a name="performance-and-tuning"></a>Prestazioni e ottimizzazione
 
 Vedere l'articolo [Guida alle prestazioni delle attività di copia e all'ottimizzazione](copy-activity-performance.md), che descrive i fattori chiave che influiscono sulle prestazioni di spostamento dei dati (attività di copia) in Data Factory di Azure. Vengono anche elencate le prestazioni osservate durante il test interni e vengono descritti i modi per ottimizzare le prestazioni dell'attività di copia.
+
+## <a name="incremental-copy"></a>Copia incrementale 
+Data Factory, versione 2 supporta scenari per la copia in modo incrementale i dati delta da un archivio dati di origine a un archivio dati di destinazione. Vedere [esercitazione: copiare i dati in modo incrementale](tutorial-incremental-copy-overview.md). 
+
+## <a name="read-and-write-partitioned-data"></a>Leggere e scrivere dati partizionati
+Nella versione 1, Azure Data Factory supportava la lettura o la scrittura di dati partizionati usando le variabili di sistema SliceStart/SliceEnd/WindowStart/WindowEnd. Nella versione 2, è possibile ottenere questo comportamento usando un parametro della pipeline e l'ora di inizio/ora prevista per il trigger come valore per il parametro. Per ulteriori informazioni, vedere [come leggere o scrivere dati partizionati](how-to-read-write-partitioned-data.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere le guide rapide, le esercitazioni e gli esempi seguenti:

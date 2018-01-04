@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8b0f3941526214455992ba2f0f6299df24323c9c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori
 
@@ -30,7 +30,7 @@ Oltre ai database SQL di Azure, Ricerca di Azure offre indicizzatori per [Azure 
 
 ## <a name="indexers-and-data-sources"></a>Indicizzatori e origini dati
 
-Un'**origine dati** specifica i dati da indicizzare, le credenziali necessarie per accedere ai dati e i criteri che consentono di identificare in modo efficace le modifiche apportate ai dati, ovvero righe nuove, modificate o eliminate. È definita come risorsa indipendente affinché possa essere usata da più indicizzatori.
+Un'**origine dati** specifica i dati da indicizzare, le credenziali necessarie per accedere ai dati e i criteri che consentono di identificare in modo efficace le modifiche apportate ai dati, ovvero righe nuove, modificate o eliminate. L'origine dati è definita come risorsa indipendente affinché possa essere usata da più indicizzatori.
 
 Un **indicizzatore** è una risorsa che connette una singola origine dati agli indici di ricerca di destinazione. Un indicizzatore viene usato nei modi seguenti:
 
@@ -44,7 +44,7 @@ Un singolo indicizzatore può usare solo una tabella o una vista, ma è possibil
 
 * Importazione guidata dati nel [portale di Azure](https://portal.azure.com)
 * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) Ricerca di Azure
-* [API REST](https://docs.microsoft.com/en-us/rest/api/searchservice/indexer-operations) Ricerca di Azure
+* [API REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) Ricerca di Azure
 
 In questo articolo si userà l'API REST per creare gli **indicizzatori** e le **origini dati**.
 
@@ -194,7 +194,7 @@ Se il database SQL supporta il [rilevamento delle modifiche](https://docs.micros
 + Nel database [abilitare il rilevamento della modifica](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) per la tabella. 
 + Nessuna chiave primaria composta, ovvero una chiave primaria che contiene più di una colonna, nella tabella.  
 
-#### <a name="usage"></a>Utilizzo
+#### <a name="usage"></a>Uso
 
 Per utilizzare questo criterio, creare o aggiornare l'origine dati nel modo indicato di seguito:
 
@@ -226,7 +226,7 @@ Questi criteri di rilevamento delle modifiche si basano su una colonna di "livel
 > [!IMPORTANT] 
 > È consigliabile usare il tipo di dati [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) per la colonna di livello più alto. Se viene usato un qualsiasi altro tipo di dati, il rilevamento delle modifiche potrebbe non garantire l'acquisizione di tutte le modifiche in presenza di transazioni in esecuzione contemporaneamente a una query dell'indicizzatore. Quando si usa **rowversion** in una configurazione con le repliche di sola lettura, è necessario puntare l'indicizzatore alla replica primaria. Per scenari di sincronizzazione dei dati, è possibile usare solo una replica primaria.
 
-#### <a name="usage"></a>Utilizzo
+#### <a name="usage"></a>Uso
 
 Per usare questo criterio di limite massimo, creare o aggiornare l'origine dati nel modo seguente:
 
@@ -302,7 +302,7 @@ L'indicizzatore SQL espone diverse impostazioni di configurazione:
 
 | Impostazione | Tipo di dati | Scopo | Valore predefinito |
 | --- | --- | --- | --- |
-| queryTimeout |string |Imposta il timeout per l'esecuzione di una query SQL |5 minuti ("00:05:00") |
+| queryTimeout |stringa |Imposta il timeout per l'esecuzione di una query SQL |5 minuti ("00:05:00") |
 | disableOrderByHighWaterMarkColumn |bool |Fa in modo che la query SQL usata dai criteri di limite massimo ometta la clausola ORDER BY. Vedere [Criteri di limite massimo](#HighWaterMarkPolicy) |false |
 
 Queste impostazioni vengono usate nell'oggetto `parameters.configuration` nella definizione dell'indicizzatore. Ad esempio, per impostare il timeout della query su 10 minuti, creare o aggiornare l'indicizzatore con la seguente configurazione:
@@ -325,7 +325,7 @@ Non direttamente. La connessione diretta non è consigliata né supportata, in q
 
 **D: Posso usare l'indicizzatore di Azure SQL con database diversi da SQL Server in esecuzione in IaaS in Azure?**
 
-No. Questo scenario non è supportato, in quanto non è stato eseguito il test dell'indicizzatore con database diversi da SQL Server.  
+di serie Questo scenario non è supportato, in quanto non è stato eseguito il test dell'indicizzatore con database diversi da SQL Server.  
 
 **D: Posso creare più indicizzatori in esecuzione in una pianificazione?**
 

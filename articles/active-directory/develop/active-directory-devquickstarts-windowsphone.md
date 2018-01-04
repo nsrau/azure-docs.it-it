@@ -4,7 +4,7 @@ description: Come compilare un'applicazione di Windows Phone che si integra con 
 services: active-directory
 documentationcenter: windows
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 66f5ac20-5e1f-4b9d-bb99-9b3305e26416
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 03c4b6d225dce99d79ef6c1ba2af43af8dea3eae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 87cf0464a515c8616363d13a16844220acaa51f3
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-a-windows-phone-app"></a>Integrare Azure AD con un'app di Windows Phone
+# <a name="azure-ad-windows-phone-getting-started"></a>Di Windows Phone AD Azure Guida introduttiva
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -72,7 +72,7 @@ Ora che si dispone di un'applicazione in Azure AD, è possibile installare ADAL 
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 
-* Nel progetto DirectorySearcher aprire `MainPage.xaml.cs`.  Sostituire i valori dell'area `Config Values` in modo che corrispondano ai valori inseriti nel portale di Azure.  Il codice farà riferimento a questi valori ogni volta che userà ADAL.
+* Nel progetto DirectorySearcher aprire `MainPage.xaml.cs`.  Sostituire i valori di `Config Values` area per riflettere i valori immessi nel portale di Azure.  Il codice farà riferimento a questi valori ogni volta che userà ADAL.
   * `tenant` è il dominio del tenant di Azure AD, ad esempio, contoso.onmicrosoft.com.
   * `clientId` è l'ID client dell'applicazione copiato dal portale.
 * Ora è necessario individuare l'URI di callback per l'app di Windows Phone.  Impostare un punto di interruzione in questa riga del metodo `MainPage` :
@@ -156,7 +156,7 @@ private async void QueryGraph(AuthenticationResult result)
     ...
 }
 ```
-* È possibile usare l'oggetto `AuthenticationResult` anche per visualizzare informazioni sull'utente nell'app. Nel metodo `QueryGraph(...)` usare il risultato per visualizzare l'ID dell'utente nella pagina:
+* È possibile usare l'oggetto `AuthenticationResult` anche per visualizzare informazioni sull'utente nell'app. Nel `QueryGraph(...)` metodo, utilizzare il risultato per visualizzare l'ID dell'utente nella pagina:
 
 ```C#
 // Update the Page UI to represent the signed in user
@@ -174,7 +174,7 @@ private void SignOut()
 }
 ```
 
-Congratulazioni. È stata compilata un'app di Windows Phone in grado di autenticare gli utenti, di chiamare in modo sicuro le API Web usando OAuth 2.0 e di ottenere informazioni di base sull'utente.  Se non si è ancora popolato il tenant con alcuni utenti, ora è possibile farlo.  Eseguire l'app DirectorySearcher e accedere con uno di tali utenti.  Cercare altri utenti in base al relativo UPN.  Chiudere l'app e rieseguirla.  Si noti che la sessione dell'utente non è stata modificata.  Disconnettersi e accedere nuovamente come un altro utente.
+Congratulazioni! È stata compilata un'app di Windows Phone in grado di autenticare gli utenti, di chiamare in modo sicuro le API Web usando OAuth 2.0 e di ottenere informazioni di base sull'utente.  Se non si è ancora popolato il tenant con alcuni utenti, ora è possibile farlo.  Eseguire l'app DirectorySearcher e accedere con uno di tali utenti.  Cercare altri utenti in base al relativo UPN.  Chiudere l'app e rieseguirla.  Si noti che la sessione dell'utente non è stata modificata.  Disconnettersi e accedere nuovamente come un altro utente.
 
 ADAL consente di incorporare facilmente nell'applicazione tutte queste funzionalità comuni relative alle identità.  Esegue automaticamente le attività più complesse: gestione della cache, supporto del protocollo OAuth, presentazione all'utente di un'interfaccia utente di accesso, aggiornamento dei token scaduti e altro.  Tutto ciò che occorre conoscere è una sola chiamata all'API, `authContext.AcquireToken*(…)`.
 

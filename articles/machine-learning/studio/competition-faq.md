@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 12/18/2017
 ms.author: haining;garye
-ms.openlocfilehash: 809df66042f6c765ed56836db40f72a5cd8ca7f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 848d0a0882d538cadadf3172a20e628799488042
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Domande frequenti sui concorsi Microsoft Cortana Intelligence
 **Informazioni sui concorsi Cortana Intelligence**
@@ -53,7 +53,7 @@ I partecipanti al concorso usano Azure Machine Learning Studio, un servizio basa
 
 **La competizione è riservata ai data scientist?**
 
-No. Sono invitati a partecipare gli appassionati di analisi scientifica dei dati, gli aspiranti data scientist e chiunque sia interessato alla materia. Sono stati preparati documenti di supporto per consentire a chiunque di partecipare. I destinatari sono:
+di serie Sono invitati a partecipare gli appassionati di analisi scientifica dei dati, gli aspiranti data scientist e chiunque sia interessato alla materia. Sono stati preparati documenti di supporto per consentire a chiunque di partecipare. I destinatari sono:
 
 * **Sviluppatori di dati**, **data scientist** e **professionisti di analisi** e **business intelligence**: sono responsabili della produzione di dati e contenuti di analisi utilizzati da altri utenti
 * **Amministratori dei dati**: hanno informazioni relative ai dati, al significato dei dati, al metodo d'uso e allo scopo
@@ -104,7 +104,7 @@ Per lo spareggio viene presa in considerazione l'ora di invio. I contributi invi
 
 **È possibile partecipare usando l'area di lavoro guest?**
 
-No. Per partecipare, è necessario usare un'area di lavoro standard o gratuita. In un'area di lavoro guest si può aprire l'esperimento iniziale del concorso, ma non sarà possibile creare un contributo valido per l'invio da tale area di lavoro. 
+di serie Per partecipare, è necessario usare un'area di lavoro standard o gratuita. In un'area di lavoro guest si può aprire l'esperimento iniziale del concorso, ma non sarà possibile creare un contributo valido per l'invio da tale area di lavoro. 
 
 **È possibile partecipare usando un'area di lavoro in qualsiasi area di Azure?**
 

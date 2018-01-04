@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: davidmu
 ms.openlocfilehash: bfc06c1b44974fd17a3794654503d21d6407a917
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-by-using-the-portal"></a>Creare un gateway applicazione con un web application firewall tramite il portale
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](application-gateway-web-application-firewall-portal.md)
+> * [Azure portal](application-gateway-web-application-firewall-portal.md)
 > * [PowerShell](application-gateway-web-application-firewall-powershell.md)
 > * [Interfaccia della riga di comando di Azure](application-gateway-web-application-firewall-cli.md)
 
@@ -60,7 +60,7 @@ Questo esempio aggiorna un gateway applicazione esistente per supportare un WAF 
    | **Impostazione** | **Valore** | **Dettagli**
    |---|---|---|
    |**Eseguire l'aggiornamento al livello WAF**| Selezionato | Questa opzione imposta il livello del gateway applicazione al livello WAF.|
-   |**Stato del firewall**| Enabled | Questa impostazione abilita il firewall su WAF.|
+   |**Stato del firewall**| Attivato | Questa impostazione abilita il firewall su WAF.|
    |**Modalità firewall** | Prevenzione | Questa impostazione riguarda la modalità di gestione del traffico dannoso da parte del WAF. La modalità **Rilevamento** consente solo di registrare gli eventi. La modalità **Prevenzione** registra gli eventi e blocca il traffico dannoso.|
    |**Set di regole**|3.0|Questa impostazione determina il [set di regole di base](application-gateway-web-application-firewall-overview.md#core-rule-sets) usato per proteggere i membri del pool back-end.|
    |**Configurare regole disabilitate**|Variabile|Per impedire possibili falsi positivi, è possibile usare questa impostazione per disabilitare alcune [regole e gruppi di regole](application-gateway-crs-rulegroups-rules.md).|
@@ -131,7 +131,7 @@ Questo scenario illustrerà come:
 
    |**Impostazione** | **Valore** | **Dettagli** |
    |---|---|---|
-   |**Stato del firewall**| Enabled| Questa impostazione attiva o disattiva il WAF.|
+   |**Stato del firewall**| Attivato| Questa impostazione attiva o disattiva il WAF.|
    |**Modalità firewall** | Prevenzione| Questa impostazione determina le azioni che il WAF adotta contro il traffico dannoso. La modalità **Rilevamento** consente solo di registrare il traffico. La modalità **Prevenzione** registra e arresta il traffico con una risposta di mancata autorizzazione 403.|
 
 

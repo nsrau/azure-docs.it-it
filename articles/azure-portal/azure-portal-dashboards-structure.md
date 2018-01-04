@@ -6,25 +6,25 @@ documentationcenter:
 author: adamab
 manager: timlt
 editor: tysonn
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 694b5bd1ddfbaa4c973e9f55bce1c94ffd89c3dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f71ff9383f20a1a75fd2c1cf4dc3aaf049d970cf
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Struttura dei dashboard di Azure
 Questo documento descrive dettagliatamente la struttura di un dashboard di Azure usando il dashboard seguente come esempio:
 
 ![Dashboard di esempio](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Poiché i [dashboard di Azure condivisi sono risorse](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), questo dashboard può essere rappresentato come JSON.  Il codice JSON seguente rappresenta il dashboard visualizzato sopra.
+Poiché i [dashboard di Azure condivisi sono risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), questo dashboard può essere rappresentato come JSON.  Il codice JSON seguente rappresenta il dashboard visualizzato sopra.
 
 ```json
 
@@ -294,7 +294,7 @@ Scomponendo le sezioni rilevanti del codice JSON,  le proprietà di primo livell
 
 ### <a name="the-id-property"></a>Proprietà id
 
-ID risorsa di Azure, soggetto alle [convenzioni di denominazione delle risorse di Azure](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). Quando il portale crea un dashboard, in genere sceglie un ID sotto forma di GUID, ma è possibile scegliere qualsiasi nome valido quando si usa la creazione a livello di codice. 
+ID risorsa di Azure, soggetto alle [convenzioni di denominazione delle risorse di Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Quando il portale crea un dashboard, in genere sceglie un ID sotto forma di GUID, ma è possibile scegliere qualsiasi nome valido quando si usa la creazione a livello di codice. 
 
 ### <a name="the-name-property"></a>Proprietà name
 Il nome è il segmento dell'ID risorsa che non include le informazioni su sottoscrizione, tipo di risorsa o gruppo di risorse. Essenzialmente, si tratta dell'ultimo segmento dell'ID risorsa.
@@ -303,7 +303,7 @@ Il nome è il segmento dell'ID risorsa che non include le informazioni su sottos
 Tutti i dashboard sono di tipo __Microsoft.Portal/dashboards__.
 
 ### <a name="the-location-property"></a>Proprietà location
-Diversamente da altre risorse, i dashboard non devono essere un componente di runtime.  Per i dashboard, la posizione indica l'area geografica principale in cui è archiviata la rappresentazione JSON del dashboard. Il valore deve essere uno dei codici località che può essere recuperato con l'[API apposita nella risorsa delle sottoscrizioni](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions).
+Diversamente da altre risorse, i dashboard non devono essere un componente di runtime.  Per i dashboard, la posizione indica l'area geografica principale in cui è archiviata la rappresentazione JSON del dashboard. Il valore deve essere uno dei codici località che può essere recuperato con l'[API apposita nella risorsa delle sottoscrizioni](https://docs.microsoft.com/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>Proprietà tags
 I tag sono una caratteristica comune delle risorse di Azure e permettono di organizzare la risorsa in base a coppie arbitrarie di nome-valore. Per i dashboard, è disponibile un tag speciale chiamato __hidden-title__. Se il dashboard contiene questa proprietà, la proprietà viene usata come nome visualizzato per il dashboard nel portale. Gli ID risorsa di Azure non possono essere rinominati, mentre i tag sì. Questo tag permette di includere un nome visualizzato modificabile per il dashboard.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: abnarain
-ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: 2c7df5c0a976aae8e3e0b99b083bbde942493bfa
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Come creare e configurare il runtime di integrazione self-hosted
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le funzionalità di integrazione di dati in diversi ambienti di rete. Per informazioni dettagliate sul runtime di integrazione, vedere [Integration Runtime Overview](concepts-integration-runtime.md) (Panoramica del runtime di integrazione).
@@ -110,7 +110,20 @@ Un runtime di integrazione self-hosted può essere associato a più computer loc
 È possibile associare più nodi semplicemente installando il software del runtime di integrazione self-hosted dall'[Area download](https://www.microsoft.com/download/details.aspx?id=39717) e registrandolo con una delle due chiavi di autenticazione ottenute dal cmdlet New-AzureRmDataFactoryV2IntegrationRuntimeKey, come descritto nell'[esercitazione](tutorial-hybrid-copy-powershell.md)
 
 > [!NOTE]
-> Non è necessario creare un nuovo runtime di integrazione self-hosted per associare ogni nodo.
+> Non è necessario creare un nuovo runtime di integrazione self-hosted per associare ogni nodo. È possibile installare il runtime di integrazione indipendente in un altro computer e registrarlo con la stessa chiave di autenticazione. 
+
+> [!NOTE]
+> Prima di aggiungere un altro nodo per **disponibilità elevata e scalabilità**, verificare **'Accesso remoto alla rete intranet'** opzione è **abilitato** nel nodo 1 (Microsoft Runtime di integrazione di Configuration Manager -> Impostazioni -> remoto accesso alla rete intranet). 
+
+### <a name="tlsssl-certificate-requirements"></a>Requisiti del certificato TLS/SSL
+Ecco i requisiti per il certificato TLS/SSL usato per proteggere le comunicazioni tra i nodi di Integration Runtime:
+
+- Deve essere un certificato X509 v3 pubblicamente attendibile. È consigliabile usare certificati rilasciati da un'autorità di certificazione (CA) pubblica (terza parte).
+- Ogni nodo di runtime di integrazione deve considerare attendibile questo certificato.
+- I certificati con caratteri jolly sono supportati. Se il nome FQDN è **node1.domain.contoso.com**, è possibile usare ***.domain.contoso.com** come nome del soggetto del certificato.
+- I certificati SAN non sono consigliati poiché verrà usato solo l'ultimo elemento dei nomi alternativi dei soggetti, mentre tutti gli altri verranno ignorati a causa della limitazione attuale. ad esempio se si dispone di un certificato SAN i cui nomi alternativi dei soggetti sono **node1.domain.contoso.com** e **node2.domain.contoso.com**, è possibile usare solo questo certificato nel computer il cui nome di dominio completo è **node2.domain.contoso.com**.
+- Deve supportare tutte le dimensioni chiave supportate da Windows Server 2012 R2 per i certificati SSL.
+- Non sono supportati i certificati che usano chiavi CNG. Non sono supportati i certificati che usano chiavi CNG.
 
 ## <a name="system-tray-icons-notifications"></a>Notifiche/icone nell'area di notifica
 Spostando il cursore sul messaggio di notifica o sull'icona nell'area di notifica, è possibile trovare i dettagli relativi allo stato del runtime di integrazione self-hosted.
@@ -124,7 +137,7 @@ Spostando il cursore sul messaggio di notifica o sull'icona nell'area di notific
 
 A livello di **firewall aziendale** è necessario configurare le porte in uscita e i domini seguenti:
 
-Nomi di dominio | Porte | Descrizione
+Nomi di dominio | Porte | DESCRIZIONE
 ------------ | ----- | ------------
 *.servicebus.windows.net | 443, 80 | Utilizzato per la comunicazione con il backend Data Movement Service
 *.core.windows.net | 443 | Utilizzato per la copia di staging mediante il BLOB di Azure (se configurata)
@@ -225,14 +238,20 @@ Se si verificano errori simili ai seguenti, potrebbero essere dovuti a una confi
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
-### <a name="open-port-8060-for-credential-encryption"></a>Aprire la porta 8060 per la crittografia delle credenziali
-L'applicazione **Impostazione credenziali** (attualmente non supportata) usa la porta in ingresso 8060 per inoltrare le credenziali al runtime di integrazione self-hosted quando si configura un servizio collegato locale nel portale di Azure. Durante la configurazione del runtime di integrazione self-hosted, per impostazione predefinita, l'installazione del runtime di integrazione self-hosted lo apre nel computer del runtime di integrazione self-hosted.
+### <a name="enable-remote-access-from-intranet"></a>Abilitare l'accesso remoto dalla rete Intranet  
+In caso se si utilizza **PowerShell** o **applicazione Gestione credenziali** per crittografare le credenziali da un altro computer (in rete) diverso da in cui il runtime di integrazione self-hosted è installato, quindi richiede il **'Accesso remoto dalla rete Intranet'** è abilitato. Se si esegue il **PowerShell** o **applicazione Gestione credenziali** per crittografare credenziali nello stesso computer in cui il runtime di integrazione self-hosted è installato, quindi **' accesso remoto dalla rete Intranet'** potrebbe non essere abilitato.
 
-Se si usa un firewall di terze parti, è possibile aprire manualmente la porta 8050. In caso di problemi del firewall durante la configurazione del runtime di integrazione self-hosted, è possibile provare a usare il comando seguente per installare il runtime di integrazione self-hosted senza configurare il firewall.
+Accesso remoto dalla rete Intranet deve essere **abilitato** prima di aggiungere un altro nodo per **disponibilità elevata e scalabilità**.  
+
+Durante l'installazione di runtime di integrazione self-hosted (a partire 3.3.xxxx.x v), per impostazione predefinita, l'installazione di runtime di integrazione self-hosted disabilita il **'Accesso remoto dalla rete Intranet'** nel computer di runtime di integrazione self-hosted.
+
+Se si utilizza un firewall di terze parti, è possibile aprire manualmente la porta 8060 (o la porta configurato dall'utente). In caso di problemi del firewall durante la configurazione del runtime di integrazione self-hosted, è possibile provare a usare il comando seguente per installare il runtime di integrazione self-hosted senza configurare il firewall.
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
+> [!NOTE]
+> **Applicazione di gestione credenziali** non è ancora disponibile per la crittografia delle credenziali in ADFv2. In un secondo momento, sarà necessario aggiungere questo supporto.  
 
 Se si sceglie di non aprire la porta 8060 nel computer del runtime di integrazione self-hosted, usare meccanismi diversi dall'uso dell'applicazione **Impostazione credenziali** per configurare le credenziali dell'archivio dati. È ad esempio possibile usare il cmdlet di PowerShell New-AzureRmDataFactoryV2LinkedServiceEncryptCredential. Per informazioni su come impostare le credenziali dell'archivio dati, vedere la sezione sull'impostazione delle credenziali e della sicurezza.
 

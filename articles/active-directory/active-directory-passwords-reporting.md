@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8599b843bb1d5692c15f9344d0c46940b7cd5a81
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
-ms.translationtype: HT
+ms.openlocfilehash: a6edc777b7b6ec3cfeacc8c548bb3c6ad306303c
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opzioni di creazione di rapporti per la gestione delle password di Azure AD
 
@@ -64,6 +64,12 @@ Nel portale di Azure è disponibile un modo migliore per visualizzare la reimpos
 
 L'API di creazione di report ed eventi di Azure AD supporta il recupero di tutte le informazioni incluse nei report di reimpostazione delle password e di registrazione per la reimpostazione delle password. Tramite questa API è possibile scaricare eventi singoli di reimpostazione della password e di registrazione per la reimpostazione della password per l'integrazione con la tecnologia di creazione di report in uso.
 
+> [!IMPORTANT]
+> Attualmente, l'API di creazione di report ed eventi di Azure AD recupera fino a *75.000 eventi singoli* del tipo [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) e [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent). L'API comprende gli ultimi 30 giorni.
+> 
+> Se è necessario recuperare o archiviare dati oltre questo intervallo, è consigliabile salvarli in modo permanente in un database esterno e usare l'API per eseguire una query sui delta risultanti. È consigliabile iniziare a recuperare i dati quando nell'organizzazione si inizia a usare la funzionalità di reimpostazione delle password self-service. Rendere questi dati persistenti esternamente e quindi continuare a monitorarne i delta.
+>
+
 ### <a name="how-to-get-started-with-the-reporting-api"></a>Come iniziare a usare l'API di creazione report
 
 Per accedere a questi dati, è necessario scrivere una piccola applicazione o uno script per recuperarli dal server. Per altre informazioni, vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
@@ -72,12 +78,6 @@ Dopo aver creato uno script di lavoro, è opportuno esaminare gli eventi di regi
 
 * [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): elenca le colonne disponibili per gli eventi di reimpostazione delle password.
 * [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): elenca le colonne disponibili per gli eventi di registrazione per la reimpostazione delle password.
-
-### <a name="reporting-api-data-retrieval-limitations"></a>Segnalazione dei limiti di recupero dati API
-
-Attualmente, l'API di creazione di report ed eventi di Azure AD recupera fino a *75.000 eventi singoli* del tipo [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) e [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent). L'API copre gli *ultimi 30 giorni*.
-
-Se è necessario recuperare o archiviare dati oltre questo intervallo, è consigliabile salvarli in modo permanente in un database esterno e usare l'API per eseguire una query sui delta risultanti. È consigliabile iniziare a recuperare i dati quando nell'organizzazione si inizia a usare la funzionalità di reimpostazione delle password self-service. Rendere questi dati persistenti esternamente e quindi continuare a monitorarne i delta.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrizione delle colonne dei report nel portale di Azure
 

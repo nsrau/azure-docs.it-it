@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
-ms.openlocfilehash: 14161a0747add43a99e301eacf700ab79c77c767
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a5f07d02bfe4032d77a17e5972b88f6530125f28
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Come inviare messaggi di posta elettronica usando SendGrid con Azure
 ## <a name="overview"></a>Panoramica
@@ -108,7 +108,7 @@ Per inviare email, è necessario specificare la chiave API di SendGrid. Per info
     var apiKey = System.Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
     var client = new SendGridClient(apiKey);
 
-Gli esempi seguenti mostrano come inviare un messaggio con l'API Web.
+Nell'esempio seguente viene illustrato come inviare un messaggio di posta elettronica utilizzando l'API Web SendGrid con un'applicazione console.
 
     using System;
     using System.Threading.Tasks;
@@ -140,7 +140,83 @@ Gli esempi seguenti mostrano come inviare un messaggio con l'API Web.
             }
         }
     }
+    
+## <a name="how-to-send-email-from-asp-net-core-api-using-mailhelper-class"></a>Procedura: inviare posta elettronica dall'API di componenti di base ASP .NET utilizzando la classe MailHelper
 
+L'esempio seguente può essere utilizzato per inviare un messaggio singolo a più persone dall'API di ASP .NET Core utilizzando il `MailHelper` classe di `SendGrid.Helpers.Mail` dello spazio dei nomi. Per questo esempio viene usato ASP .NET Core 1.0. 
+
+In questo esempio, la chiave API è stata archiviata nel `appsettings.json` file potrà essere sostituito dal portale di Azure, come illustrato negli esempi precedenti.
+
+Il contenuto di `appsettings.json` file dovrebbe essere simile a:
+
+    {
+       "Logging": {
+       "IncludeScopes": false,
+       "LogLevel": {
+       "Default": "Debug",
+       "System": "Information",
+       "Microsoft": "Information"
+         }
+       },
+     "SENDGRID_API_KEY": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    }
+
+In primo luogo, è necessario aggiungere il codice in riportato di seguito il `Startup.cs` file del progetto di API di .NET Core. Questa operazione è necessaria in modo che sia possibile accedere il `SENDGRID_API_KEY` dal `appsettings.json` file mediante l'inserimento di dipendenze nel controller API. Il `IConfiguration` interfaccia può essere inserita nel costruttore del controller dopo averlo aggiunto nel `ConfigureServices` metodo seguente. Il contenuto di `Startup.cs` file avrà un aspetto simile al seguente dopo aver aggiunto il codice necessario:
+
+        public IConfigurationRoot Configuration { get; }
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+            // Add mvc here
+            services.AddMvc();
+            services.AddSingleton<IConfiguration>(Configuration);
+        }
+
+Nel controller, dopo l'inserimento di `IConfiguration` interfaccia, è possibile utilizzare il `CreateSingleEmailToMultipleRecipients` metodo del `MailHelper` classe per inviare un messaggio di posta elettronica singolo a più destinatari. Il metodo accetta un parametro booleano aggiuntivo denominato `showAllRecipients`. Questo parametro può essere usata per controllare se i destinatari di posta elettronica saranno in grado di visualizzare i rispettivi posta elettronica nella sezione dell'intestazione di messaggio di posta elettronica a. Il codice di esempio per il controller deve essere simile al seguente 
+
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using SendGrid;
+    using SendGrid.Helpers.Mail;
+    using Microsoft.Extensions.Configuration;
+
+    namespace SendgridMailApp.Controllers
+    {
+        [Route("api/[controller]")]
+        public class NotificationController : Controller
+        {
+           private readonly IConfiguration _configuration;
+
+           public NotificationController(IConfiguration configuration)
+           {
+             _configuration = configuration;
+           }      
+        
+           [Route("SendNotification")]
+           public async Task PostMessage()
+           {
+              var apiKey = _configuration.GetSection("SENDGRID_API_KEY").Value;
+              var client = new SendGridClient(apiKey);
+              var from = new EmailAddress("test1@example.com", "Example User 1");
+              List<EmailAddress> tos = new List<EmailAddress>
+              {
+                  new EmailAddress("test2@example.com", "Example User 2"),
+                  new EmailAddress("test3@example.com", "Example User 3"),
+                  new EmailAddress("test4@example.com","Example User 4")
+              };
+            
+              var subject = "Hello world email from Sendgrid ";
+              var htmlContent = "<strong>Hello world with HTML content</strong>";
+              var displayRecipients = false; // set this to true if you want recipients to see each others mail id 
+              var msg = MailHelper.CreateSingleEmailToMultipleRecipients(from, tos, subject, "", htmlContent, false);
+              var response = await client.SendEmailAsync(msg);
+          }
+       }
+    }
+    
 ## <a name="how-to-add-an-attachment"></a>Procedura: Aggiungere un allegato
 Per aggiungere allegati a un messaggio, chiamare il metodo **AddAttachment** e specificare almeno il nome del file e il contenuto con codifica Base64 da allegare. È possibile includere più allegati chiamando questo metodo una volta per ogni file che si desidera allegare o usando il metodo **AddAttachments**. Nell'esempio seguente viene illustrata l'aggiunta di un allegato a un messaggio:
 

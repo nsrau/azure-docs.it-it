@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 4a27ae1402717c91029eda9d635db124f8bb6b8d
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-by-using-the-azure-portal"></a>Creare cluster HDInsight con Data Lake Store tramite il portale di Azure
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Informazioni su come usare il portale di Azure per creare un cluster HDInsight c
 Prima di iniziare l'esercitazione, verificare di aver soddisfatto i requisiti seguenti:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un account di Archivio Data Lake di Azure**. Seguire le istruzioni fornite in [Introduzione all'uso di Azure Data Lake Store tramite il portale di Azure](data-lake-store-get-started-portal.md). È anche necessario creare una cartella radice nell'account.  In questa esercitazione viene usata una cartella radice denominata __/clusters__.
+* **Un account Azure Data Lake Store**. Seguire le istruzioni fornite in [Introduzione all'uso di Azure Data Lake Store tramite il portale di Azure](data-lake-store-get-started-portal.md). È anche necessario creare una cartella radice nell'account.  In questa esercitazione viene usata una cartella radice denominata __/clusters__.
 * **Un'entità servizio di Azure Active Directory**. Questa esercitazione fornisce tutte le istruzioni utili su come creare un'entità servizio in Azure Active Directory (Azure AD). Tuttavia, per creare un'entità servizio è necessario essere un amministratore di Azure AD. Se si è un amministratore, è possibile ignorare questo prerequisito e procedere con l'esercitazione.
 
     >[!NOTE]
@@ -170,7 +170,7 @@ Al termine della configurazione del cluster, nel pannello del cluster verificare
     ![Aggiungere l'entità servizio al cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "Aggiungere l'entità servizio al cluster HDInsight")
 
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 Dopo aver configurato il cluster con Data Lake Store come risorsa di archiviazione, fare riferimento a questi esempi su come usare il cluster HDInsight per analizzare i dati archiviati in Data Lake Store.
 
@@ -205,7 +205,7 @@ Per informazioni su come copiare dati dall'archiviazione BLOB a Data Lake Store,
 ### <a name="use-data-lake-store-in-a-storm-topology"></a>Usare Data Lake Store in una topologia Storm
 È possibile usare Data Lake Store per scrivere dati da una topologia Storm. Per istruzioni su come ottenere questo scenario, vedere [Usare Azure Data Lake Store con Apache Storm in HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Usare Data Lake Store con cluster Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [PowerShell: Creare un cluster HDInsight per usare Data Lake Store](data-lake-store-hdinsight-hadoop-use-powershell.md)
 

@@ -4,7 +4,7 @@ description: Elenco di tutte le guide e di tutti gli articoli di riferimento nel
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 307e6ddc9b3d5a85a25b185144a548e0101a9877
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b6190f64633034bb5fc28a1caf7ffa6c09215ef1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Articoli nella Guida per gli sviluppatori di Azure AD
 Di seguito viene indicato un elenco di tutti gli argomenti trattati nella Guida per gli sviluppatori di Azure Active Directory.
@@ -44,7 +44,7 @@ Questi articoli descrivono i concetti e le funzionalità specifici di Azure Acti
 | [Servizi connessi di Visual Studio](vs-active-directory-dotnet-getting-started.md)                                               | Come usare l'integrazione di Azure AD con progetti MVC in Visual Studio |
 | [AD FS in Windows Server](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | Come eseguire l'integrazione con Active Directory in locale con AD FS |
 
-## <a name="reference"></a>Riferimento
+## <a name="reference"></a>Riferimenti
 Questi articoli contengono riferimenti di base per API REST e di librerie di autenticazione, protocolli, errori, esempi di codice ed endpoint.
 
 |                                                                                     | |

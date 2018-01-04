@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 5686d8bd3f9817be2308583afe778e0615154580
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
-ms.translationtype: HT
+ms.openlocfilehash: 6ae05dc8faf950f584806d9b4a3e7e1466ded652
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Gestire il set di scalabilità di una macchina virtuale con l'interfaccia della riga di comando di Azure 2.0
 Nel ciclo di vita del set di scalabilità di una macchina virtuale potrebbe essere necessario eseguire una o più attività di gestione. Si potrebbe anche voler creare script per automatizzare le attività di ciclo di vita. Questo articolo descrive alcuni dei comandi comuni dell'interfaccia della riga di comando di Azure 2.0 che consentono di eseguire queste attività.
 
-Per completare queste attività di gestione è necessaria la versione più recente dell'interfaccia della riga di comando di Azure 2.0. Per informazioni su come installare e usare la versione più recente, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). Se è necessario creare un set di scalabilità di una macchina virtuale, è possibile [creare un set di scalabilità nel portale di Azure](virtual-machine-scale-sets-portal-create.md).
+Per completare queste attività di gestione è necessaria la versione più recente dell'interfaccia della riga di comando di Azure 2.0. Per informazioni su come installare e usare la versione più recente, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). Se è necessario creare un set di scalabilità di una macchina virtuale, è possibile [creare un set di scalabilità nel portale di Azure](virtual-machine-scale-sets-create-portal.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Visualizzare informazioni su un set di scalabilità
@@ -127,7 +127,7 @@ az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-id
 
 
 ## <a name="remove-vms-from-a-scale-set"></a>Rimuovere le macchine virtuali da un set di scalabilità
-Per rimuovere una o più macchine virtuali in un set di scalabilità, usare [az vmss delete-instances](/cli/azure/vmss#delete-instances). Il parametro `--instance-ids`` consente di specificare una o più macchine virtuali da rimuovere. Se si specifica * per l'ID istanza, vengono rimosse tutte le macchine virtuali del set di scalabilità. Per rimuovere più macchine virtuali, separare gli ID istanza con uno spazio.
+Per rimuovere una o più macchine virtuali in un set di scalabilità, usare [az vmss delete-instances](/cli/azure/vmss#delete-instances). Il parametro `--instance-ids` consente di specificare una o più VM da rimuovere. Se si specifica * per l'ID istanza, vengono rimosse tutte le macchine virtuali del set di scalabilità. Per rimuovere più macchine virtuali, separare gli ID istanza con uno spazio.
 
 L'esempio seguente rimuove l'istanza *0* nel set di scalabilità denominato *myScaleSet* e nel gruppo di risorse *myResourceGroup*. Specificare i valori personalizzati nel modo seguente:
 

@@ -17,10 +17,10 @@ ms.custom: security
 ms.date: 03/21/2017
 ms.author: rortloff;barbkess
 ms.openlocfilehash: 92f48027051bc4aff4d6b8d66fdd6de81bba3657
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="authentication-to-azure-sql-data-warehouse"></a>Autenticazione in Azure SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Per connettersi a SQL Data Warehouse è necessario fornire le informazioni segue
 
 * Nome del server completo
 * Specificare l'autenticazione di SQL
-* Nome utente
+* Username
 * Password
 * Database predefinito (facoltativo)
 

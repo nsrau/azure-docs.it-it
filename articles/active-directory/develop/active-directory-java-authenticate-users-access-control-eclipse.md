@@ -4,7 +4,7 @@ description: Informazioni su come sviluppare e usare Controllo di accesso con Ja
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: mtillman
 editor: 
 ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: 698403d181e1fee09bb4692290c92203ded97ba4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b555ef40fae8156d2957643697d6450ef22b215a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Come autenticare gli utenti Web con il Servizio di controllo di accesso di Azure usando Eclipse
 In questa guida verrà descritto come usare il Servizio di controllo di accesso di Azure (ACS) nel plug-nel Toolkit di Azure per Eclipse. Per altre informazioni su ACS, vedere la sezione [Passaggi successivi](#next_steps) .
@@ -121,7 +121,7 @@ In questa attività, ACS verrà configurato affinché riconosca l'applicazione W
    4. In **Return URL** digitare l'URL a cui ACS restituisce il token di sicurezza. Per questa attività, digitare **http://localhost:8080/MyACSHelloWorld/index.jsp**
       ![URL restituito dell'applicazione relying party nell'emulatore di calcolo][relying_party_return_url_emulator]
    5. Accettare i valori predefiniti nei campi rimanenti.
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**.
 
 L'applicazione Web Java è configurata correttamente quando viene eseguita nell'emulatore di calcolo di Azure (all'indirizzo http://localhost:8080/) e costituisce un'applicazione relying party nello spazio dei nomi ACS. Il passaggio successivo prevede la creazione di regole usate da ACS per elaborare attestazioni per l'applicazione relying party.
 
@@ -163,7 +163,7 @@ Nella pagina **Login Page Integration: Azure Web App** (Integrazione pagine di a
    
     ![Creazione di un progetto Hello World a titolo di esempio per ACS][create_acs_hello_world]
    
-    Fare clic su **Finish**.
+    Fare clic su **Fine**.
 2. Nella visualizzazione Project Explorer di Eclipse espandere **MyACSHelloWorld**. Fare clic con il pulsante destro del mouse su **WebContent**, scegliere **New** e quindi fare clic su **JSP File**.
 3. Nella finestra di dialogo **New JSP File** (Nuovo file JSP) assegnare al file il nome **index.jsp**. Mantenere il nome MyACSHelloWorld/WebContent per la cartella padre, come illustrato di seguito:
    
@@ -194,7 +194,7 @@ Nella pagina **Login Page Integration: Azure Web App** (Integrazione pagine di a
 10. Per la distribuzione nell'emulatore di calcolo, le impostazioni di **Azure ACS Filter** avranno un aspetto simile a quanto illustrato di seguito.
     
     ![Impostazioni del filtro ACS di Azure per una distribuzione nell'emulatore di calcolo.][add_acs_filter_lib_emulator]
-11. Fare clic su **Finish**.
+11. Fare clic su **Fine**.
 12. Fare clic su **Yes** nella finestra di dialogo che conferma la creazione di un file web.xml.
 13. Fare clic su **OK** per chiudere la finestra di dialogo **Java Build Path** (Percorso compilazione Java).
 
@@ -202,13 +202,13 @@ Nella pagina **Login Page Integration: Azure Web App** (Integrazione pagine di a
 1. In Project Explorer di Eclipse fare clic con il pulsante destro del mouse su **MyACSHelloWorld**, scegliere **Azure** e quindi fare clic su **Package for Azure** (Pacchetto per Azure).
 2. In **Project name** (Nome progetto) digitare **MyAzureACSProject** e fare clic su **Next** (Avanti).
 3. Selezionare un JDK e un server applicazioni. Questi passaggi vengono descritti in dettaglio nell'esercitazione [Creazione di un'applicazione Hello World per Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) .
-4. Fare clic su **Finish**.
+4. Fare clic su **Fine**.
 5. Fare clic sul pulsante **Run in Azure Emulator** .
 6. Dopo l'avvio dell'applicazione Web Java nell'emulatore di calcolo, chiudere tutte le istanze del browser (per evitare che sessioni correnti del browser interferiscano con il test di accesso di ACS.
 7. Eseguire l'applicazione aprendo nel browser <http://localhost:8080/MyACSHelloWorld/> o <https://localhost:8080/MyACSHelloWorld/>, se è stata selezionata l'opzione **Require HTTPS connections** (Richiedi connessioni HTTPS). Verrà richiesto di immettere un account di accesso Windows Live ID, quindi si verrà reindirizzati all'URL restituito specificato per l'applicazione relying party.
 8. Terminata la visualizzazione dell'applicazione, fare clic sul pulsante **Reset Azure Emulator** .
 
-## <a name="deploy-to-azure"></a>Distribuzione in Azure
+## <a name="deploy-to-azure"></a>Distribuisci in Azure
 Per la distribuzione in Azure è necessario modificare l'area di autenticazione dell'applicazione relying party e dell'URL restituito per lo spazio dei nomi ACS.
 
 1. Nella pagina **Edit Relying Party Application** (Modifica applicazione relying party) del portale di gestione di Azure modificare **Realm** (Area autenticazione) per far sì che corrisponda all'URL del sito distribuito. Sostituire **example** con il nome DNS specificato per la distribuzione.

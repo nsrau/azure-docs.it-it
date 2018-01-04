@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 956f44068db8fe9c8c7a839a0ce80c19e2b2f11c
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: HT
+ms.openlocfilehash: 58c8ba2682cc9cc8f2089d2a70cc95a03079832e
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="manage-azure-disks-with-powershell"></a>Gestire i dischi di Azure con PowerShell
 
@@ -47,7 +47,7 @@ Quando viene creata una macchina virtuale di Azure, due dischi vengono automatic
 
 ### <a name="temporary-disk-sizes"></a>Dimensioni del disco temporaneo
 
-| Tipo | Dimensioni macchina virtuale | Dimensioni massime del disco temporaneo (GB) |
+| type | Dimensioni macchina virtuale | Dimensioni massime del disco temporaneo (GB) |
 |----|----|----|
 | [Utilizzo generico](sizes-general.md) | Serie A e D | 800 |
 | [Ottimizzate per il calcolo](sizes-compute.md) | Serie F | 800 |
@@ -62,7 +62,7 @@ Quando viene creata una macchina virtuale di Azure, due dischi vengono automatic
 
 ### <a name="max-data-disks-per-vm"></a>Numero massimo di dischi di dati per macchina virtuale
 
-| Tipo | Dimensioni macchina virtuale | Numero massimo di dischi di dati per macchina virtuale |
+| type | Dimensioni macchina virtuale | Numero massimo di dischi di dati per macchina virtuale |
 |----|----|----|
 | [Utilizzo generico](sizes-general.md) | Serie A e D | 32 |
 | [Ottimizzate per il calcolo](sizes-compute.md) | Serie F | 32 |
@@ -81,7 +81,7 @@ Archiviazione Standard è supportata da unità disco rigido e offre un'archiviaz
 
 ### <a name="premium-disk"></a>Disco premium
 
-I dischi premium sono supportati da un disco a bassa latenza e ad alte prestazioni basato su SSD. Ideale per le macchine virtuali che eseguono il carico di lavoro della produzione. L'archiviazione premium supporta le macchine virtuali serie DS, DSv2, GS e FS. I dischi premium sono di cinque tipi, P10, P20, P30, P40 e P50. Le dimensioni del disco determinano il tipo di disco. Quando si effettua la selezione, il valore delle dimensioni di un disco viene arrotondato per eccesso al tipo successivo. Ad esempio, se la dimensione è inferiore a 128 GB il tipo di disco sarà P10, se è tra 129 e 512 GB sarà P20, P30 per 1 TB, P40 per 2 TB e P50 per 4 TB. 
+I dischi premium sono supportati da un disco a bassa latenza e ad alte prestazioni basato su SSD. Ideale per le macchine virtuali che eseguono il carico di lavoro della produzione. L'archiviazione premium supporta le macchine virtuali serie DS, DSv2, GS e FS. I dischi Premium sono disponibili in cinque tipi (P10 P20, P30, P40, P50), le dimensioni del disco determinano il tipo di disco. Quando si effettua la selezione, il valore delle dimensioni di un disco viene arrotondato per eccesso al tipo successivo. Ad esempio, se la dimensione è inferiore a 128 GB il tipo di disco sarà P10, se è tra 129 e 512 GB sarà P20, P30 per 1 TB, P40 per 2 TB e P50 per 4 TB. 
 
 ### <a name="premium-disk-performance"></a>Prestazioni disco premium
 
@@ -95,7 +95,7 @@ Sebbene la tabella sopra riportata identifichi il numero massimo di operazioni d
 
 ## <a name="create-and-attach-disks"></a>Creare e collegare dischi
 
-Per completare l'esempio contenuto in questa esercitazione è necessario disporre di una macchina virtuale esistente. Se necessario, questo [script di esempio](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) può crearne una appositamente. Quando si esegue l'esercitazione, sostituire i nomi del gruppo di risorse e delle macchine virtuali dove necessario.
+Per completare l'esempio contenuto in questa esercitazione è necessario disporre di una macchina virtuale esistente. Se necessario, questo [script di esempio](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) può crearne una appositamente. Quando si esegue l'esercitazione, sostituire i nomi del gruppo di risorse e delle VM dove necessario.
 
 Creare la configurazione iniziale con [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig). L'esempio seguente configura un disco delle dimensioni di 128 GB.
 

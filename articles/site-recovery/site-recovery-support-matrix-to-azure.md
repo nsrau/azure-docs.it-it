@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 0302b4f8f4171d288a7e7c62de036c6f1cec8212
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 1c65c32457c2311304abf07983f698289f67bbc2
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matrice di supporto di Azure Site Recovery per la replica da locale ad Azure
 
@@ -35,7 +35,7 @@ In questo articolo vengono riepilogati le configurazioni e i componenti supporta
 --- | --- | ---
 **Portale di Azure** | Macchine virtuali VMware locali in Archiviazione di Azure, con Azure Resource Manager o archiviazione e reti classiche.<br/><br/> Failover in VM classiche o basate su Resource Manager. | VM Hyper-V locali in Archiviazione di Azure, con Resource Manager o archiviazione e reti classiche.<br/><br/> Failover in VM classiche o basate su Resource Manager.
 **Portale classico** | Solo modalità manutenzione. Non è possibile creare nuovi insiemi di credenziali. | Solo modalità manutenzione.
-**PowerShell** | Attualmente non è supportata. | Supportato
+**PowerShell** | Supportato | Supportato
 
 
 ## <a name="support-for-datacenter-management-servers"></a>Supporto per server di gestione dei data center
@@ -120,17 +120,17 @@ Le tabelle seguenti offrono un riepilogo delle configurazioni di rete supportate
 Gruppo NIC | Sì<br/><br/>Non supportato quando i computer fisici vengono replicati| Sì
 VLAN | Sì | Sì
 IPv4 | Sì | Sì
-IPv6 | No | No
+IPv6 | No  | No 
 
 ### <a name="guest-vm-network-configuration"></a>Configurazione di rete per VM guest
 
 **Configurazione** | **Server fisico/VMware** | **Hyper-V (con/senza Virtual Machine Manager)**
 --- | --- | ---
-Gruppo NIC | No | No
+Gruppo NIC | No  | No 
 IPv4 | Sì | Sì
-IPv6 | No | No
+IPv6 | No  | No 
 IP statico (Windows) | Sì | Sì
-IP statico (Linux) | Sì <br/><br/>Macchine virtuali è configurato per l'utilizzo di DHCP in failback  | No
+IP statico (Linux) | Sì <br/><br/>Macchine virtuali è configurato per l'utilizzo di DHCP in failback  | No 
 Più NIC | Sì | Sì
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Configurazione di rete per VM di Azure sottoposte a failover
@@ -140,12 +140,12 @@ Più NIC | Sì | Sì
 Express Route | Sì | Sì
 ILB | Sì | Sì
 ELB | Sì | Sì
-Gestione traffico | Sì | Sì
+servizio Gestione traffico | Sì | Sì
 Più NIC | Sì | Sì
 IP riservato | Sì | Sì
 IPv4 | Sì | Sì
 Conservazione IP origine | Sì | Sì
-Endpoint servizio di rete virtuale (i firewall di Archiviazione di Azure e le reti virtuali) | No | No
+Endpoint servizio di rete virtuale (i firewall di Archiviazione di Azure e le reti virtuali) | No  | No 
 
 
 ## <a name="support-for-storage"></a>Supporto per archiviazione
@@ -167,18 +167,18 @@ Percorsi multipli (MPIO)<br></br>Testata con: DSM Microsoft, EMC PowerPath 5.7 S
 VMDK | Sì | N/D
 VHD/VHDX | N/D | Sì
 VM di seconda generazione | N/D | Sì
-EFI/UEFI| No | Sì
-Disco cluster condiviso | No | No
-Disco crittografato | No | No
-NFS | No | N/D
-SMB 3.0 | No | No
+EFI/UEFI| No  | Sì
+Disco cluster condiviso | No  | No 
+Disco crittografato | No  | No 
+NFS | No  | N/D
+SMB 3.0 | No  | No 
 RDM | Sì<br/><br/> N/D per server fisici | N/D
 Disco superiore a 1 TB | Sì<br/><br/>Fino a 4095 GB | Sì<br/><br/>Fino a 4095 GB
 Disco con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 4 KB | Sì | Non supportato per VM di generazione 1<br/><br/>Non supportato per VM di generazione 2
 Disco con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 byte | Sì |  Sì
 Volume con disco con striping superiore a 1 TB<br/><br/> Gestione volumi logici (LVM) | Sì | Sì
-Spazi di archiviazione | No | Sì
-Aggiunta/rimozione a caldo disco | No | No
+Spazi di archiviazione | No  | Sì
+Aggiunta/rimozione a caldo disco | No  | No 
 Esclusione disco | Sì | Sì
 Percorsi multipli (MPIO) | N/D | Sì
 
@@ -187,13 +187,14 @@ Percorsi multipli (MPIO) | N/D | Sì
 Archiviazione con ridondanza locale | Sì | Sì
 Archiviazione con ridondanza geografica | Sì | Sì
 RA-GRS | Sì | Sì
-Archiviazione ad accesso sporadico | No | No
-Archiviazione ad accesso frequente| No | No
-BLOB in blocchi | No | No
+Archiviazione ad accesso sporadico | No  | No 
+Archiviazione ad accesso frequente| No  | No 
+BLOB in blocchi | No  | No 
 Crittografia dei dati inattivi (SSE)| Sì | Sì
 Archiviazione Premium | Sì | Sì
-Servizio di importazione/esportazione | No | No
-Endpoint servizio di rete virtuale rete, ovvero firewall e reti virtuali di Archiviazione di Azure, configurati in un account di archiviazione di destinazione o in un account di archiviazione della cache usato per l'archiviazione dei dati di replica | No | No
+Servizio di importazione/esportazione | No  | No 
+Endpoint servizio di rete virtuale rete, ovvero firewall e reti virtuali di Archiviazione di Azure, configurati in un account di archiviazione di destinazione o in un account di archiviazione della cache usato per l'archiviazione dei dati di replica | No  | No 
+Account di archiviazione generico V2 (livello sia attivo e raffreddamento) | No  | No 
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Supporto per configurazione di calcolo di Azure
@@ -228,8 +229,8 @@ Dischi gestiti | Sì | Sì<br/><br/>Il failback in locale da macchina virtuale A
 
 **Azione** | **Server fisico/VMware** | **Hyper-V (senza Virtual Machine Manager)** | **Hyper-V (con Virtual Machine Manager)**
 --- | --- | --- | ---
-Spostamento insieme di credenziali tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | No | No | No
-Spostamento di risorse di archiviazione, rete e VM di Azure tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | No | No | No
+Spostamento insieme di credenziali tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | No  | No  | No 
+Spostamento di risorse di archiviazione, rete e VM di Azure tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | No  | No  | No 
 
 
 ## <a name="support-for-provider-and-agent"></a>Supporto per provider e agente

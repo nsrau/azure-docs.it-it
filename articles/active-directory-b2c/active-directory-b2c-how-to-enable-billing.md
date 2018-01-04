@@ -4,7 +4,7 @@ description: Guida dettagliata all'abilitazione della fatturazione per tenant Az
 services: active-directory-b2c
 documentationcenter: dev-center-name
 author: parakhj
-manager: krassk
+manager: mtillman
 ms.service: active-directory-b2c
 ms.devlang: na
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2017
 ms.author: parja
-ms.openlocfilehash: 35fab74abf2c2ba27a8bf99eb93eb53f39b26227
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 063c00fe47be25b9359e80d71abfaf453c7a7074
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Collegamento di una sottoscrizione di Azure a un tenant di Azure AD B2C
 
@@ -58,7 +58,7 @@ Nella schermata di creazione delle risorse selezionare **Collega un tenant Azure
 
 ## <a name="create-an-azure-ad-b2c-resource-within-the-azure-subscription"></a>Creare una risorsa di Azure AD B2C nella sottoscrizione di Azure
 
-Nella finestra di dialogo di creazione delle risorse selezionare un tenant di Azure AD B2C nell'elenco a discesa. Verranno visualizzati tutti i tenant di cui si è l'amministratore globale e quelli che non sono già collegati a una sottoscrizione.
+Nella finestra di creazione della risorsa, selezionare un tenant di Azure Active Directory B2C nell'elenco a discesa. Verranno visualizzati tutti i tenant di cui si è l'amministratore globale e quelli che non sono già collegati a una sottoscrizione.
 
 Il nome della risorsa di Azure AD B2C sarà preselezionato in modo da corrispondere al nome di dominio del tenant di Azure AD B2C.
 
@@ -68,9 +68,9 @@ Selezionare un gruppo di risorse e la località del gruppo di risorse. La selezi
 
 ![Creare una risorsa B2C](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
-## <a name="manage-your-azure-ad-b2c-tenent-resources"></a>Gestire le risorse del tenant di Azure AD B2C
+## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Gestire le risorse del tenant di Azure Active Directory B2C
 
-Dopo aver creato una risorsa di Azure AD B2C nella sottoscrizione di Azure, verrà visualizzata una nuova risorsa di tipo "Tenant B2C" aggiunta insieme alle altre risorse di Azure.
+Una volta all'interno della sottoscrizione di Azure viene creata correttamente una risorsa di Azure Active Directory B2C, verrà visualizzata una nuova risorsa di tipo "B2C tenant" aggiunti insieme ad altre risorse di Azure.
 
 È possibile usare questa risorsa per:
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-ms.openlocfilehash: 5e5c11251cd316e8161dbe362b300be76927ac01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Usare PowerShell per creare una macchina virtuale di Azure con un server di report in modalità nativa
 > [!IMPORTANT] 
@@ -35,7 +35,7 @@ Questo argomento descrive e illustra la distribuzione e la configurazione di un 
 ## <a name="prerequisites-and-assumptions"></a>Prerequisiti e presupposti
 * **Sottoscrizione di Azure**: verificare il numero di core disponibili nella sottoscrizione di Azure. Se si crea la dimensione di macchina virtuale consigliata **A3**, sono necessari **4** core disponibili. Se si usa la dimensione di macchina virtuale **A2**, sono necessari **2** core disponibili.
   
-  * Per verificare il limite di core della sottoscrizione, nel portale di Azure classico fare clic su IMPOSTAZIONI nel riquadro a sinistra e quindi su UTILIZZO nel menu in alto.
+  * Per verificare il limite di core della sottoscrizione nel portale di Azure, fare clic su impostazioni nel riquadro sinistro e quindi fare clic su utilizzo nel menu superiore.
   * Per aumentare la quota di core, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/options/). Per informazioni sulle dimensioni delle macchine virtuali, vedere [Dimensioni delle macchine virtuali per Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * **Scripting di Windows PowerShell**: l'argomento presuppone una conoscenza di base di Windows PowerShell. Per altre informazioni sull'uso di Windows PowerShell, vedere gli argomenti seguenti:
   
@@ -43,7 +43,7 @@ Questo argomento descrive e illustra la distribuzione e la configurazione di un 
   * [Introduzione a Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx)
 
 ## <a name="step-1-provision-an-azure-virtual-machine"></a>Passaggio 1: Eseguire il provisioning di una macchina virtuale di Azure
-1. Passare al portale di Azure classico.
+1. Accedere al portale di Azure.
 2. Fare clic su **Macchine virtuali** nel riquadro sinistro.
    
     ![macchine virtuali di microsoft azure](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
@@ -117,7 +117,7 @@ Un certificato autofirmato viene creato nella macchina virtuale quando viene ese
 
 1. Per rendere attendibile l'autorità di certificazione radice del certificato nella macchina virtuale locale, aggiungere il certificato alle **Autorità di certificazione radice attendibili**. Di seguito è riportato un riepilogo dei passaggi necessari. Per informazioni dettagliate su come rendere attendibile l'autorità di certificazione, vedere l'articolo relativo all' [installazione di un certificato del server](https://technet.microsoft.com/library/cc740068).
    
-   1. Nel portale di Azure classico selezionare la macchina virtuale e fare clic su Connetti. A seconda della configurazione del browser, potrebbe essere richiesto di salvare un file con estensione rdp per la connessione alla macchina virtuale.
+   1. Dal portale di Azure, selezionare la macchina virtuale e fare clic su Connetti. A seconda della configurazione del browser, potrebbe essere richiesto di salvare un file con estensione rdp per la connessione alla macchina virtuale.
       
        ![connettersi alla macchina virtuale di azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Usare il nome della macchina virtuale, il nome utente e la password configurati durante la creazione della macchina virtuale. 
       
@@ -153,7 +153,7 @@ Per istruzioni più dettagliate, vedere la sezione [Connettersi alla macchina vi
 ### <a name="use-script-to-configure-the-report-server-and-http"></a>Usare lo script per configurare il server di report e HTTP
 Per usare lo script di Windows PowerShell per configurare il server di report, completare i passaggi seguenti. La configurazione include HTTP e non HTTPS.
 
-1. Nel portale di Azure classico selezionare la macchina virtuale e fare clic su Connetti. A seconda della configurazione del browser, potrebbe essere richiesto di salvare un file con estensione rdp per la connessione alla macchina virtuale.
+1. Dal portale di Azure, selezionare la macchina virtuale e fare clic su Connetti. A seconda della configurazione del browser, potrebbe essere richiesto di salvare un file con estensione rdp per la connessione alla macchina virtuale.
    
     ![connettersi alla macchina virtuale di azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Usare il nome della macchina virtuale, il nome utente e la password configurati durante la creazione della macchina virtuale. 
    
@@ -287,7 +287,7 @@ Per usare lo script di Windows PowerShell per configurare il server di report, c
 ### <a name="use-script-to-configure-the-report-server-and-https"></a>Usare lo script per configurare il server di report e HTTPS
 Per usare Windows PowerShell per configurare il server di report, completare i passaggi seguenti. La configurazione include HTTPS e non HTTP.
 
-1. Nel portale di Azure classico selezionare la macchina virtuale e fare clic su Connetti. A seconda della configurazione del browser, potrebbe essere richiesto di salvare un file con estensione rdp per la connessione alla macchina virtuale.
+1. Dal portale di Azure, selezionare la macchina virtuale e fare clic su Connetti. A seconda della configurazione del browser, potrebbe essere richiesto di salvare un file con estensione rdp per la connessione alla macchina virtuale.
    
     ![connettersi alla macchina virtuale di azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif) Usare il nome della macchina virtuale, il nome utente e la password configurati durante la creazione della macchina virtuale. 
    
@@ -465,7 +465,7 @@ Per usare Windows PowerShell per configurare il server di report, completare i p
      
        L'output sarà simile al seguente: Se lo script restituisce una riga vuota, la macchina virtuale non dispone, ad esempio, di un certificato configurato. Per informazioni, vedere la sezione [Per usare il certificato autofirmato delle macchine virtuali](#to-use-the-virtual-machines-self-signed-certificate).
      
-     OPPURE
+     Oppure
    * Eseguire mmc.exe nella macchina virtuale e quindi aggiungere lo snap-in **Certificati** .
    * Nel nodo **Autorità di certificazione radice attendibili** fare doppio clic sul nome del certificato. Se si usa il certificato autofirmato della macchina virtuale, il nome del certificato è costituito dal nome DNS della macchina virtuale e termina con **cloudapp.net**.
    * Fare clic sulla scheda **Dettagli** .
@@ -495,10 +495,10 @@ Il risultato include quanto segue:
 ### <a name="use-configuration-manager-to-configure-the-report-server"></a>Usare Gestione configurazione per configurare il server di report
 Se non si desidera eseguire lo script di PowerShell per configurare il server di report, seguire i passaggi descritti in questa sezione per usare Gestione configurazione di Reporting Services in modalità nativa per configurare il server di report.
 
-1. Nel portale di Azure classico selezionare la macchina virtuale e fare clic su Connetti. Usare il nome utente e la password configurati durante la creazione della macchina virtuale.
+1. Dal portale di Azure, selezionare la macchina virtuale e fare clic su Connetti. Usare il nome utente e la password configurati durante la creazione della macchina virtuale.
    
     ![connettersi alla macchina virtuale di azure](./media/virtual-machines-windows-classic-ps-sql-report/IC650112.gif)
-2. Eseguire Windows Update e installare gli aggiornamenti nella macchina virtuale. Se è necessario un riavvio della macchina virtuale, riavviare la macchina virtuale e riconnettersi alla macchina virtuale dal portale di Azure classico.
+2. Eseguire Windows Update e installare gli aggiornamenti nella macchina virtuale. Se è necessario un riavvio della macchina virtuale, riavviare la macchina virtuale e riconnettersi alla macchina virtuale dal portale di Azure.
 3. Dal menu Start della macchina virtuale digitare **Reporting Services** e aprire **Gestione configurazione Reporting Services**.
 4. Lasciare i valori predefiniti per il **nome server** e l'**istanza del server di report**. Fare clic su **Connetti**.
 5. Nel riquadro a sinistra fare clic su **URL servizio Web**.
@@ -563,7 +563,7 @@ Per verificare che la funzionalità di base del server di report funzioni, aprir
         https://ssrsnativecloud.cloudapp.net/ReportServer
 
 ## <a name="create-users-and-assign-roles"></a>Creare utenti e assegnare ruoli
-Dopo aver configurato e verificato il server di report, un'attività amministrativa comune consiste nel creare uno o più utenti e assegnare agli utenti i ruoli di Reporting Services. Per altre informazioni, vedere quanto segue:
+Dopo aver configurato e verificato il server di report, un'attività amministrativa comune consiste nel creare uno o più utenti e assegnare agli utenti i ruoli di Reporting Services. Per altre informazioni, vedere gli argomenti seguenti: 
 
 * [Creare un account utente locale](https://technet.microsoft.com/library/cc770642.aspx)
 * [Concedere l'accesso utente a un server di report (Gestione report)](https://msdn.microsoft.com/library/ms156034.aspx)
@@ -581,7 +581,7 @@ Nella tabella seguente vengono riepilogate alcune delle opzioni disponibili per 
      Per altre informazioni, vedere [Installazione, disinstallazione e supporto di Generatore report](https://technet.microsoft.com/library/dd207038.aspx).
 * **SQL Server Data Tools - Macchina virtuale**: se la macchina virtuale è stata creata con SQL Server 2012, SQL Server Data Tools è installato nella macchina virtuale e può essere usato per creare **progetti server di report** e report nella macchina virtuale. SQL Server Data Tools è in grado di pubblicare i report nel server di report sulla macchina virtuale.
   
-    Se la macchina virtuale è stata creata con SQL server 2014, è possibile installare SQL Server Data Tools - Business Intelligence per Visual Studio. Per altre informazioni, vedere quanto segue:
+    Se la macchina virtuale è stata creata con SQL server 2014, è possibile installare SQL Server Data Tools - Business Intelligence per Visual Studio. Per altre informazioni, vedere gli argomenti seguenti: 
   
   * [Microsoft SQL Server Data Tools - Business Intelligence per Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313)
   * [Microsoft SQL Server Data Tools - Business Intelligence per Visual Studio 2012](https://www.microsoft.com/download/details.aspx?id=36843)
@@ -593,7 +593,7 @@ Nella tabella seguente vengono riepilogate alcune delle opzioni disponibili per 
 
 ## <a name="minimize-cost-if-you-are-not-using-the-vm"></a>Ridurre i costi se non si usa la macchina virtuale
 > [!NOTE]
-> Per ridurre i costi delle macchine virtuali di Azure quando non sono in uso, spegnere la macchina virtuale dal portale di Azure classico. Se per spegnere la macchina virtuale si usano le opzioni di risparmio energia di Windows, i costi associati alla macchina virtuale verranno addebitati comunque. Per ridurre i costi, è necessario spegnere la macchina virtuale nel portale di Azure classico. Se la macchina virtuale non è più necessaria, eliminarla insieme ai file con estensione vhd associati per evitare l'addebito dei costi di archiviazione. Per altre informazioni, vedere la sezione Domande frequenti in [Prezzi di Macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/).
+> Per ridurre i costi per le macchine virtuali di Azure quando non è in uso, arrestare la macchina virtuale dal portale di Azure. Se per spegnere la macchina virtuale si usano le opzioni di risparmio energia di Windows, i costi associati alla macchina virtuale verranno addebitati comunque. Per ridurre i costi, è necessario arrestare la macchina virtuale nel portale di Azure. Se la macchina virtuale non è più necessaria, eliminarla insieme ai file con estensione vhd associati per evitare l'addebito dei costi di archiviazione. Per altre informazioni, vedere la sezione Domande frequenti in [Prezzi di Macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 ## <a name="more-information"></a>Altre informazioni
 ### <a name="resources"></a>Risorse

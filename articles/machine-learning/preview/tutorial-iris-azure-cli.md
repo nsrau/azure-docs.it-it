@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 8ffa1c6dd4794cbea6b2c1904e08557ba2a68ba2
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
-ms.translationtype: HT
+ms.openlocfilehash: 21fb0bca08bca0fe6384bbc9ba2511f7d8b746cf
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Esercitazione: Classificazione di Iris tramite l'interfaccia della riga di comando
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata end-to-end con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
@@ -37,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
   >[!NOTE]
   >È sufficiente installare Azure Machine Learning Workbench in locale. È sufficiente seguire la procedura nella sezione sull'installazione di Azure Machine Learning Workbench, poiché la procedura per la creazione dell'account e di un nuovo progetto verrà eseguita dalla riga di comando in questo articolo.
  
-## <a name="getting-started"></a>introduttiva
+## <a name="getting-started"></a>Introduzione
 L'interfaccia della riga di comando di Azure Machine Learning consente di eseguire tutte le attività necessarie per un flusso di lavoro di data science end-to-end. È possibile accedere agli strumenti di interfaccia della riga di comando nei modi seguenti:
 
 ### <a name="option-1-launch-azure-ml-cli-from-azure-ml-workbench-log-in-dialog-box"></a>Opzione 1. Avviare l'interfaccia della riga di comando di Azure ML dalla finestra di dialogo di accesso di Azure Machine Learning Workbench
@@ -265,7 +265,7 @@ A tale scopo, è sufficiente eliminare il gruppo di risorse che contiene tutte l
 az group delete --name <resource group name>
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Questa esercitazione illustra come usare le funzionalità di anteprima di Azure Machine Learning per eseguire queste operazioni: 
 > [!div class="checklist"]
 > * Configurare un account di Sperimentazione e creare un'area di lavoro

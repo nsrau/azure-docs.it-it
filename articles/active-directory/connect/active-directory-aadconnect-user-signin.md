@@ -4,7 +4,7 @@ description: Accesso utente Azure Connect AD per le impostazioni personalizzate.
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 1d580ae43925bfb2cbe0fd9461cfb7e207fa56ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opzioni di accesso utente di Azure AD Connect
 Azure Active Directory (Azure AD) Connect consente agli utenti di accedere alle risorse cloud e locali usando le stesse password. Questo articolo descrive i concetti chiave di ciascun modello di identità per facilitare la scelta dell'identità da usare per l'accesso ad Azure AD.
@@ -28,6 +28,10 @@ Se si è già acquisita familiarità con il modello di identità di Azure AD e s
 * [Sincronizzazione dell'hash delle password](#password-synchronization) con [accesso Single Sign-On facile](active-directory-aadconnect-sso.md)
 * [Autenticazione pass-through](active-directory-aadconnect-pass-through-authentication.md) con [accesso Single Sign-On facile](active-directory-aadconnect-sso.md)
 * [SSO federato (con Active Directory Federation Services, AD FS)](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+
+> [!NOTE] 
+> È importante ricordare che per configurare la federazione per Azure AD, si stabilisce trust tra il tenant di Azure AD e i domini federati. Con questo dominio federato trust gli utenti avranno accesso alle risorse di cloud di Azure Active Directory nel tenant.  
+>
 
 ## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>Scelta di un metodo di accesso utente per l'organizzazione
 Per la maggior parte delle organizzazioni che vogliono semplicemente abilitare l'accesso utente a Office 365, alle applicazioni SaaS e ad altre risorse basate su Azure AD, è consigliabile l'opzione di sincronizzazione dell'hash delle password predefinita. Alcune organizzazioni, tuttavia, potrebbero non essere in grado di usare questa opzione per vari motivi. Queste organizzazioni possono scegliere un'opzione di accesso federato come AD FS oppure l'autenticazione pass-through. Usare la tabella seguente per determinare la scelta ideale.
@@ -109,7 +113,7 @@ L'esperienza di accesso ad Azure AD dipende dalla possibilità per Azure AD di a
 Azure AD Connect elenca i suffissi UPN definiti per i domini e tenta di associarli a un dominio personalizzato in Azure AD. A quel punto, offre assistenza per eseguire gli interventi appropriati.
 Nella pagina di accesso di Azure AD sono riportati i suffissi UPN definiti per l'istanza locale di Active Directory ed è visualizzato lo stato corrispondente per ogni suffisso. I valori dello stato possono essere i seguenti:
 
-| Stato | Descrizione | Azione necessaria |
+| Stato | DESCRIZIONE | Azione necessaria |
 |:--- |:--- |:--- |
 | Verified |Azure AD Connect ha rilevato un dominio verificato in Azure AD. Tutti gli utenti di questo dominio possono accedere usando le credenziali locali. |Non è richiesto alcun intervento. |
 | Non verificato |Azure AD Connect ha rilevato un dominio corrispondente in Azure AD ma tale dominio non è verificato. Se il dominio non è verificato, dopo la sincronizzazione il suffisso UPN degli utenti di questo dominio verrà modificato nel prefisso predefinito .onmicrosoft.com. | [Verificare il dominio personalizzato in Azure AD.](../add-custom-domain.md#verify-the-custom-domain-name-in-azure-ad) |
@@ -161,11 +165,11 @@ Se si seleziona l'opzione di accesso utente come **Federazione con AD FS**, è n
 
 Nella pagina successiva viene richiesto di inserire le credenziali per Azure AD.
 
-![Connettersi ad Azure AD](./media/active-directory-aadconnect-user-signin/changeusersignin2.png)
+![Connessione ad Azure AD](./media/active-directory-aadconnect-user-signin/changeusersignin2.png)
 
 Nella pagina **Accesso utente** selezionare il tipo di accesso utente desiderato.
 
-![Connettersi ad Azure AD](./media/active-directory-aadconnect-user-signin/changeusersignin2a.png)
+![Connessione ad Azure AD](./media/active-directory-aadconnect-user-signin/changeusersignin2a.png)
 
 > [!NOTE]
 > Se si passa solo temporaneamente alla sincronizzazione dell'hash delle password, selezionare l'opzione **Non convertire gli account utente**. Se l'opzione non viene selezionata, ogni utente verrà convertito in federato, operazione che potrà richiedere diverse ore.

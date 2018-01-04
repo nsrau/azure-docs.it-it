@@ -1,10 +1,10 @@
 ---
-title: Nascondere un'applicazione di terze parti dall'esperienza utente in Azure Active Directory | Microsoft Docs
-description: Come nascondere un'applicazione di terze parti dall'esperienza utente in Azure Active Directory
+title: Nascondere un'applicazione mediante l'esperienza dell'utente in Azure Active Directory | Documenti Microsoft
+description: Come nascondere un'applicazione mediante l'esperienza dell'utente in Azure Active Directory
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,18 +15,18 @@ ms.date: 10/11/2017
 ms.author: billmath
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 976cbb1341493186b9996d250ebca8f2f3688fdf
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 667fdd45bc9eb1f01ce3883006bb29274478cb83
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="hide-a-third-party-application-from-users-experience-in-azure-active-directory"></a>Nascondere un'applicazione di terze parti dall'esperienza utente in Azure Active Directory
+# <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Nascondere un'applicazione mediante l'esperienza dell'utente in Azure Active Directory
 
-Se non si vuole visualizzare un'applicazione di terze parti (un'app pubblicata da editori diversi da Microsoft) nei pannelli di accesso o nelle icone di avvio di Office 365 degli utenti, è disponibile un'opzione per nascondere il riquadro dell'app. Nascondendo l'app, gli utenti mantengono le autorizzazioni per l'app ma non la potranno vedere nelle icone di avvio delle app. È necessario disporre delle autorizzazioni appropriate per gestire l'app aziendale ed essere amministratore globale della directory.
+Se si dispone di un'applicazione che non si desidera visualizzare su pannelli di accesso degli utenti o avvio di Office 365, è disponibile un'opzione per nascondere il riquadro dell'app. Questa opzione è disponibile solo per applicazioni di terze parti (app non pubblicate da Microsoft). Nascondendo l'app, gli utenti mantengono le autorizzazioni per l'app ma non la potranno vedere nelle icone di avvio delle app. È necessario disporre delle autorizzazioni appropriate per gestire l'app aziendale ed essere amministratore globale della directory. 
 
-## <a name="hiding-a-third-party-app-from-a-users-experience"></a>Nascondere un'app di terze parti da un'esperienza utente
-Seguire questa procedura per nascondere un'app di terze parti dal pannello di accesso e dalle icone di avvio delle app di Office 365 di un utente
+## <a name="hiding-an-application-from-users-end-user-experiences"></a>Nascondere un'applicazione da un'esperienza utente finale dell'utente
+Attenersi alla seguente procedura per nascondere un'applicazione dal Pannello di accesso dell'utente e di avvio di app di Office 365
 
 ### <a name="how-do-i-hide-a-third-party-app-from-users-access-panel-and-o365-app-launchers"></a>Qual è la procedura per nascondere un'app di terze parti dal pannello di accesso o dalle icone di avvio delle app di Office 365 di un utente?
 

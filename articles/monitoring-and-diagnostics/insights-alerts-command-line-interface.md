@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
 ms.openlocfilehash: 92246a8da73a244a1c9a924bed55711d71a20fd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Creare avvisi sulle metriche in Monitoraggio di Azure per i servizi di Azure - Interfaccia della riga di comando multipiattaforma
 > [!div class="op_single_selector"]
-> * [Portale](insights-alerts-portal.md)
+> * [di Microsoft Azure](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
 > * [CLI](insights-alerts-command-line-interface.md)
 >
@@ -50,12 +50,12 @@ Questo articolo descrive come impostare gli avvisi sulle metriche di Azure trami
 
 È possibile configurare e ottenere informazioni sulle regole degli avvisi sulle metriche tramite
 
-* [Portale di Azure](insights-alerts-portal.md)
+* [Azure portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
 * [interfaccia della riga di comando](insights-alerts-command-line-interface.md)
 * [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-È possibile ricevere assistenza per i comandi digitando un comando e inserendo -help al termine. Ad esempio:
+È possibile ricevere assistenza per i comandi digitando un comando e inserendo -help al termine. Ad esempio: 
 
     ```console
     azure insights alerts -help

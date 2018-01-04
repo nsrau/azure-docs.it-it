@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 4395bd95-05de-4deb-87a5-dc3bc8ac4d95
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: 9dc12bc2e313bcb2000724d035156c5054d14e1c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2a0e1df5244ef977bdcccc5bcfea615a05efa3bd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Esercitazione: Integrazione di Azure Active Directory con GitHub
 
@@ -36,7 +36,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con GitHub, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di GitHub abilitata per l'accesso Single Sign-On
 
 
@@ -51,7 +51,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di GitHub dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -68,11 +68,11 @@ Per configurare l'integrazione di GitHub in Azure AD, è necessario aggiungere G
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 3. Fare clic sul pulsante **Aggiungi** nella parte superiore della finestra di dialogo.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 4. Nella casella di ricerca digitare **GitHub.com**.
 
@@ -92,7 +92,7 @@ La relazione di collegamento viene stabilita assegnando il valore di **nome uten
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con GitHub, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di GitHub](#creating-a-GitHub-test-user)**: per avere una controparte di Britta Simon in GitHub collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -106,52 +106,52 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **GitHub** del portale di gestione di Azure fare clic su **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** in **Modalità** selezionare **Accesso basato su SAML** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_01.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_01.png)
 
 3. Nella sezione **URL e dominio GitHub** seguire questa procedura:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_saml011.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_saml011.png)
 
     a. Nella casella di testo **URL di accesso** digitare il valore come: `https://github.com/orgs/<entity-id>/sso`
 
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://github.com/orgs/<entity-id>`
 
     > [!NOTE] 
-    > Si noti che questi non sono i valori reali. È necessario aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. In questo caso è consigliabile usare in Identificatore il valore univoco della stringa. Passare alla sezione Admin di GitHub per recuperare questi valori. 
+    > Si noti che questi non sono i valori reali. È necessario aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. In questo caso, è consigliabile di usare il valore univoco della stringa nell'identificatore. Passare alla sezione Admin di GitHub per recuperare questi valori. 
 
 4. Nella sezione **User Attributes** (Attributi utente) selezionare **User Identifier** (Identificatore utente) come user.mail.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_attribute_new01.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_attribute_new01.png)
     
 5. Nella sezione **Certificato di firma SAML** fare clic su **Crea nuovo certificato**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_03.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_03.png)
 
 6. Nella finestra di dialogo **Crea nuovo certificato** fare clic sull'icona del calendario e selezionare una **data di scadenza**. Fare quindi clic sul pulsante **Salva**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_general_300.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_general_300.png)
 
 7. Nella sezione **Certificato di firma SAML** selezionare **Make new certificate active** (Rendi attivo il nuovo certificato) e fare clic sul pulsante **Salva**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_04.png)
 
 8. Nella finestra popup **Rollover certificate** (Certificato di rollover) fare clic su **OK**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_general_400.png)
 
 9. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_05.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_05.png) 
 
 10. Nella sezione **GitHub Configuration** (Configurazione GitHub) fare clic su **Configure GitHub** (Configura GitHub) per aprire la finestra **Configura accesso**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_06.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_06.png) 
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_07.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_07.png)
 
 11. In un'altra finestra del Web browser accedere al sito aziendale di GitHub come amministratore.
 
@@ -256,7 +256,7 @@ In questa sezione Britta Simon viene abilitata per l'uso di Single Sign-On di Az
 
 2. Nell'elenco di applicazioni selezionare **GitHub.com**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_search_result021.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-github-tutorial/tutorial_github_search_result021.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

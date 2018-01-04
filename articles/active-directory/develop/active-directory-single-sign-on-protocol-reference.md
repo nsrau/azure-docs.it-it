@@ -4,7 +4,7 @@ description: Questo articolo illustra il protocollo SAML per Single Sign-On in A
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: f41402fc2cb282975b93071d998365fdb0a21941
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 096a250685bf023f789f98e16d2bea13bf448e3b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocollo SAML per Single Sign-On
 Questo articolo illustra le richieste di autenticazione SAML 2.0 e le risposte supportate da Azure Active Directory (Azure AD) per Single Sign-On.
@@ -42,14 +42,14 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 ```
 
 
-| Parametro |  | Descrizione |
+| Parametro |  | DESCRIZIONE |
 | --- | --- | --- |
 | ID |Obbligatoria |Azure AD usa questo attributo per popolare l'attributo `InResponseTo` della risposta restituita. L'ID non deve iniziare con un numero, quindi una strategia comune consiste nell'anteporre una stringa come "id" alla rappresentazione di stringa di un GUID. Ad esempio, `id6c1c178c166d486687be4aaf5e482730` è un ID valido. |
-| Versione |Obbligatoria |Deve essere **2.0**. |
+| Version |Obbligatoria |Deve essere **2.0**. |
 | IssueInstant |Obbligatoria |Stringa DateTime con un valore UTC e [formato round trip ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD prevede un valore DateTime di questo tipo, ma non valuta o usa il valore. |
-| AssertionConsumerServiceUrl |Facoltativa |Se specificato deve corrispondere al valore `RedirectUri` del servizio cloud in Azure AD. |
+| AssertionConsumerServiceUrl |Facoltativo |Se specificato deve corrispondere al valore `RedirectUri` del servizio cloud in Azure AD. |
 | ForceAuthn |Facoltativa | Si tratta di un valore booleano. Se è true, significa che l'utente dovrà ripetere l'autenticazione, anche se ha una sessione valida con Azure AD. |
-| IsPassive |Facoltativa |È un valore booleano che specifica se Azure AD deve autenticare l'utente in modalità invisibile, senza interazione dell'utente, usando il cookie di sessione, se è disponibile. In questo caso Azure AD tenterà di autenticare l'utente usando il cookie di sessione. |
+| IsPassive |Facoltativo |È un valore booleano che specifica se Azure AD deve autenticare l'utente in modalità invisibile, senza interazione dell'utente, usando il cookie di sessione, se è disponibile. In questo caso Azure AD tenterà di autenticare l'utente usando il cookie di sessione. |
 
 Tutti gli altri attributi `AuthnRequest` , ad esempio Consent, Destination, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex e ProviderName, vengono **ignorati**.
 
@@ -96,7 +96,7 @@ Non includere un elemento `Signature` negli elementi `AuthnRequest` perché Azur
 ### <a name="subject"></a>Oggetto
 Azure AD ignora l'elemento `Subject` degli elementi `AuthnRequest`.
 
-## <a name="response"></a>Response
+## <a name="response"></a>Risposta
 Quando viene completato un accesso richiesto, Azure AD invia una risposta al servizio cloud. Un esempio di risposta a un tentativo di accesso riuscito è simile al seguente:
 
 ```
@@ -142,7 +142,7 @@ Quando viene completato un accesso richiesto, Azure AD invia una risposta al ser
 </samlp:Response>
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 L'elemento `Response` include il risultato della richiesta di autorizzazione. Azure AD imposta i valori `ID`, `Version` e `IssueInstant` nell'elemento `Response`. Imposta anche gli attributi seguenti:
 
 * `Destination`: quando l'accesso viene completato correttamente, questo attributo viene impostato sul `RedirectUri` del provider di servizi (servizio cloud).
@@ -157,7 +157,7 @@ Una risposta di esempio con elemento Issuer può avere un aspetto simile al segu
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-### <a name="status"></a>Stato
+### <a name="status"></a>Status
 L'elemento `Status` indica l'esito positivo o negativo dell'accesso. Include l'elemento `StatusCode` che contiene un codice o un set di codici annidati che rappresentano lo stato della richiesta. Include anche l'elemento `StatusMessage` che contiene i messaggi di errore personalizzati generati durante il processo di accesso.
 
 <!-- TODO: Add a authentication protocol error reference -->
@@ -228,7 +228,7 @@ Gli attributi `NotBefore` e `NotOnOrAfter` specificano l'intervallo durante il q
 * Il valore dell'attributo `NotBefore` è uguale o leggermente successivo (meno di un secondo) al valore dell'attributo `IssueInstant` dell'elemento `Assertion`. Azure AD non tiene conto dell'eventuale differenza di orario con il servizio cloud (provider di servizi) e non aggiunge alcun buffer a questo orario.
 * Il valore dell'attributo `NotOnOrAfter` è successivo di 70 minuti al valore dell'attributo `NotBefore`.
 
-#### <a name="audience"></a>Destinatari
+#### <a name="audience"></a>Audience
 Contiene un URI che identifica un gruppo di destinatari. Azure AD imposta il valore di questo elemento sul valore dell'elemento `Issuer` della `AuthnRequest` che ha avviato l'accesso. Per valutare il valore di `Audience`, usare il valore di `App ID URI` specificato durante la registrazione dell'applicazione.
 
 ```

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7dcfea240a8dbb416226e76f8941cfe8147e2b39
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 9f6cf019d681ce6e844481ca58de1ff472b3d32c
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: domande frequenti
 
@@ -163,7 +163,7 @@ Le ultime otto cifre dell'indirizzo Web del client vengono sempre impostate su 0
 
 È possibile:
 
-* Usare due valori iKey separati, ovvero due risorse separate di Application Insights, per i dati del client e del server. oppure
+* Usare due valori iKey separati, ovvero due risorse separate di Application Insights, per i dati del client e del server. Oppure
 * Scrivere un proxy che viene eseguito nel server in modo che il client Web invii i dati tramite tale proxy.
 
 ## <a name="post"></a>Come visualizzare dati POST in Ricerca diagnostica?
@@ -242,7 +242,7 @@ Ciò non dipende da dove è ospitata la risorsa di Application Insights. Dipende
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>È possibile inviare dati di telemetria al portale di Application Insights?
 
-È consigliabile usare gli SDK di Microsoft e usare l'API SDK (app-insights-api-custom-events-metrics.md). Sono disponibili varianti dell'SDK per diverse [piattaforme](app-insights-platforms.md). Gli SDK gestiscono bufferring, compressione, limitazione, tentativi e così via. Tuttavia, lo [schema di inserimento](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) e il [protocollo di endpoint](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) sono pubblici.
+È consigliabile usare il SDK e di usare il [API SDK](app-insights-api-custom-events-metrics.md). Sono disponibili varianti dell'SDK per diverse [piattaforme](app-insights-platforms.md). Gli SDK gestiscono bufferring, compressione, limitazione, tentativi e così via. Tuttavia, lo [schema di inserimento](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) e il [protocollo di endpoint](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) sono pubblici.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>È possibile monitorare un server Web Intranet?
 

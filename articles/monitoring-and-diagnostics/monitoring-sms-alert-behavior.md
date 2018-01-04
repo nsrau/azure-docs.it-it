@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.openlocfilehash: 3e4eca174209eeb9cbce1d45111d1e5cc30af8b0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 012f001356463a8a7d9b95f186111959627f2c28
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportamento degli avvisi SMS nei gruppi di azione
 ## <a name="overview"></a>Panoramica ##
@@ -37,15 +37,15 @@ Un ricevitore di SMS, configurato come parte di un gruppo di azioni, riceverà u
 - Titolo dell'avviso
 
 ### <a name="unsubscribing-from-sms-alerts-for-one-action-group"></a>Annullamento della sottoscrizione agli avvisi SMS per un gruppo di azioni
-Un utente può annullare la sottoscrizione agli SMS per gli avvisi di un solo gruppo di azioni rispondendo al codice breve 20873 con le parole chiave: "DISABLE &lt;nome breve del gruppo di azioni&gt;".
+Un utente può annullare la sottoscrizione di SMS per gli avvisi per gruppo di un'azione rispondendo al codice breve 29873 con le parole chiave: "DISABILITARE &lt;Shortname del gruppo di azioni&gt;".
 
-Esempio: Un utente che vuole annullare la sottoscrizione agli avvisi di un gruppo di azioni con nome breve "Azure" invia un SMS al codice breve 20873 con il testo "DISABLE Azure"
+Esempio: Un utente che desidera annullare la sottoscrizione di avvisi per un gruppo di azioni con shortname "Azure", viene inviato un SMS al codice breve 29873 che afferma "DISABILITARE Azure"
 
 ### <a name="unsubscribing-from-sms-alerts-for-all-action-groups"></a>Annullamento della sottoscrizione agli avvisi SMS per tutti i gruppi di azioni
-Un utente può annullare la sottoscrizione a tutti gli avvisi SMS per tutti i gruppi di azioni rispondendo al codice breve 20873 con la parola chiave seguente:
+Un utente può annullare la sottoscrizione a tutti gli avvisi SMS per tutti i gruppi di azioni rispondendo al codice breve 29873 con una delle parole chiave seguenti:
 * STOP
 
-Esempio: Un utente che desidera annullare la sottoscrizione a tutti gli avvisi SMS per tutti i gruppi di azioni, potrebbe inviare un SMS non 20873 con il testo "STOP"
+Esempio: Un utente che desidera annullare la sottoscrizione a tutti gli avvisi SMS per tutti i gruppi di azioni, viene inviato un SMS al codice breve 29873 che afferma "STOP"
 
 >[!NOTE]
 >Se un utente ha annullato la sottoscrizione agli avvisi SMS e viene in seguito aggiunto a un nuovo gruppo di azioni, l'utente riceve gli avvisi SMS del nuovo gruppo di azioni mantenendo l'annullamento della sottoscrizione a tutti i gruppi di azioni precedenti.
@@ -53,24 +53,24 @@ Esempio: Un utente che desidera annullare la sottoscrizione a tutti gli avvisi S
 >
 
 ### <a name="resubscribing-to-sms-alerts-for-one-action-group"></a>Riesecuzione della sottoscrizione agli avvisi SMS per un gruppo di azioni
-Un utente può rieseguire la sottoscrizione agli SMS per gli avvisi di un solo gruppo di azioni rispondendo al codice breve 20873 con le parole chiave: "ENABLE &lt;nome breve del gruppo di azioni&gt;".
+Un utente può rinnovare la partecipazione al SMS per gli avvisi per gruppo di un'azione in risposta al codice breve 29873 con le parole chiave: "abilitare &lt;Shortname del gruppo di azioni&gt;".
 
-Esempio: Un utente che vuole rieseguire la sottoscrizione agli avvisi di un gruppo di azioni con nome breve "Azure" invia un SMS al codice breve 20873 con il testo "ENABLE Azure"
+Esempio: Un utente che desidera ripetuta agli avvisi per un gruppo di azioni con shortname "Azure", viene inviato un SMS al codice breve 29873 che afferma "Abilitare Azure"
 
 ### <a name="resubscribing-to-sms-alerts-for-all-action-groups"></a>Riesecuzione della sottoscrizione agli avvisi SMS per tutti i gruppi di azioni
-Un utente può rieseguire la sottoscrizione a tutti gli avvisi SMS per tutti i gruppi di azioni rispondendo al codice breve 20873 con la parola chiave seguente:
+Un utente può ripetuta per tutti i SMS per gli avvisi per tutti i gruppi di azioni rispondendo al codice breve 29873 con una delle parole chiave seguenti:
 
 * START
 
-Esempio: Un utente che vuole annullare la sottoscrizione a tutti gli avvisi SMS per tutti i gruppi di azioni invia un SMS al codice breve 20873 con il testo "START"
+Esempio: Un utente che desidera annullare la sottoscrizione a tutti gli avvisi SMS per tutti i gruppi di azioni, viene inviato un SMS al codice breve 29873 che afferma "START"
 
 ### <a name="requesting-help-via-sms"></a>Richiesta di assistenza tramite SMS
-Un utente può richiedere altre informazioni sul messaggio SMS ricevuto rispondendo al codice breve 20873 con la parola chiave seguente:
+Un utente può chiedere per ulteriori informazioni su SMS, avere ricevuto in risposta al codice breve 29873 con una delle parole chiave seguenti:
 * HELP
 
 Verrà inviata una risposta all'utente con un collegamento a questo articolo.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Ottenere una [panoramica degli avvisi del log attività](monitoring-overview-alerts.md) e informazioni sulla ricezione degli avvisi  
 Altre informazioni sulla [limitazione della frequenza degli SMS](monitoring-alerts-rate-limiting.md)  
 Altre informazioni sui [gruppi di azioni](monitoring-action-groups.md)

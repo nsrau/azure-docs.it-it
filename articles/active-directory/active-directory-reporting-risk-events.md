@@ -4,21 +4,21 @@ description: Questo argomento presenta una panoramica dettagliata degli eventi d
 services: active-directory
 keywords: "Azure Active Directory Identity Protection, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ff0bcf9bdf9eaf1b4f0084acf9e5ee6ccfeba19
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: a48fc35574b13133ad28c5b58f4288ff390674cc
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventi di rischio di Azure Active Directory
 
@@ -31,9 +31,13 @@ Azure Active Directory rileva attualmente sei tipi di eventi di rischio:
 - [Trasferimento impossibile a posizioni atipiche](#impossible-travel-to-atypical-locations) 
 - [Accessi da dispositivi infetti](#sign-ins-from-infected-devices) 
 - [Accessi da indirizzi IP con attività sospette](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-- [Accessi da posizioni non note](#sign-in-from-unfamiliar-locations) (esclusivamente per le edizioni di **Azure Active Directory Premium P2**)
+- [Accessi da posizioni non note](#sign-in-from-unfamiliar-locations) 
+
 
 ![Evento di rischio](./media/active-directory-reporting-risk-events/91.png)
+
+Le informazioni che viene visualizzato per un evento di rischio rilevati sono associata alla sottoscrizione di Azure AD. Se si dispone di un'edizione di Azure AD Premium P1 (inclusa in EMS E3 offerta), i rilevamenti non previste dalla licenza vengono segnalati come **Accedi con maggiori rischi rilevato**. In altre parole, viene visualizzato un evento di rischio Accedi con maggiori rischi rilevato per rilevamenti esclusivi ai sottoscrittori di Azure AD Identity Protection.
+
 
 In questo argomento viene fatta una panoramica dettagliata della definizione di eventi di rischio e di come è possibile usarli per proteggere le identità di Azure AD.
 
@@ -137,7 +141,7 @@ Il livello di rischio per questo tipo di evento di rischio è **Medio** perché 
 Il trasferimento impossibile indica in genere che un pirata informatico è riuscito a ottenere l'accesso. Possono, tuttavia, verificarsi falsi positivi quando un utente è in viaggio e usa un nuovo dispositivo o una VPN che non viene in genere usata da altri utenti nell'organizzazione. Un'altra origine di falsi positivi è costituita dalle applicazioni che passano in modo errato gli indirizzi IP di server come indirizzi IP di client. Questo può dare l'impressione che gli accessi si verifichino dal data center in cui è ospitato il back-end dell'applicazione. Spesso si tratta di data center Microsoft e gli accessi possono risultare eseguiti da indirizzi IP di proprietà di Microsoft. A causa di questi falsi positivi, il livello di rischio per questo evento di rischio è **Medio**.
 
 > [!TIP]
-> È possibile ridurre la quantità di falsi positivi segnalati per questo tipo di evento di rischio configurando le [località denominate](active-directory-named-locations.md). 
+> È possibile ridurre la quantità di segnalati falsi positivi per questo tipo di evento di rischio configurando [posizioni denominate](active-directory-named-locations.md). 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Accessi da posizioni non note
 

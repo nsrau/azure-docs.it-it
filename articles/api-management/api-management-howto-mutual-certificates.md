@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: c8573c73b0a6dc1b2644f78276d2f3e4fd442cea
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 885315b9f610d5f1703acd0f292f7b3347462b34
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure
 Gestione API offre la possibilità di proteggere l'accesso al servizio back-end di un'API usando i certificati client. Questa guida illustra come gestire i certificati nel portale di pubblicazione delle API e come configurare un'API per l'uso di un certificato per accedere al servizio back-end.
 
 Per informazioni sulla gestione dei certificati con l'API REST di Gestione API, vedere [Azure API Management REST API Certificate entity][Azure API Management REST API Certificate entity] (Entità certificato dell'API REST di Gestione API di Azure).
 
-## <a name="prerequisites"> </a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 In questa guida viene illustrato come configurare un'istanza del servizio di Gestione API per l'uso dell'autenticazione con certificati client per accedere al servizio back-end di un'API. Prima di seguire i passaggi indicati in questo argomento è necessario aver configurato il servizio back-end per l'autenticazione del certificato client ([per la configurazione dell'autenticazione del certificato client nei siti Web di Azure, vedere questo articolo ][to configure certificate authentication in Azure WebSites refer to this article]) e avere l'accesso al certificato e alla relativa password per il caricamento nel portale di pubblicazione di Gestione API.
 
 ## <a name="step1"></a>Caricare un certificato client
@@ -42,7 +42,7 @@ Fare clic su **Sicurezza** dal menu **Gestione API** a sinistra, quindi sceglier
 
 Per caricare un nuovo certificato, fare clic su **Carica certificato**.
 
-![Carica certificato][api-management-upload-certificate]
+![Caricamento del certificato][api-management-upload-certificate]
 
 Passare al certificato e immettere la relativa password.
 
@@ -108,7 +108,7 @@ Fare clic su **Salva** per salvare la modifica di configurazione nell'API.
 
 ## <a name="self-signed-certificates"></a>Certificati autofirmati
 
-Se si usano i certificati autofirmati, è necessario disabilitare la convalida della catena di certificati affinché la Gestione API possa comunicare con il sistema back-end, altrimenti verrà restituito un codice di errore 500. Per la configurazione, usare i cmdlet PowerShell [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (per il nuovo back-end) o [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (per il back-end esistente) e impostare il parametro `-SkipCertificateChainValidation` su `True`.
+Se si usano i certificati autofirmati, è necessario disabilitare la convalida della catena di certificati affinché la Gestione API possa comunicare con il sistema back-end, altrimenti verrà restituito un codice di errore 500. Per la configurazione, usare i cmdlet PowerShell [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (per il nuovo back-end) o [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (per il back-end esistente) e impostare il parametro `-SkipCertificateChainValidation` su `True`.
 
 ```
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

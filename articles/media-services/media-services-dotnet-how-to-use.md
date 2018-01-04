@@ -12,25 +12,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: f5dd263a2e925989069c3b0257cfafa4c43e6157
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: 19760b743e7cdcba3e30503090b61243911441ee
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="media-services-development-with-net"></a>Sviluppo di applicazioni di Servizi multimediali con .NET
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
-Questo argomento illustra come iniziare a sviluppare applicazioni di Servizi multimediali con .NET.
+In questo articolo viene illustrato come iniziare a sviluppare applicazioni di servizi multimediali usando .NET.
 
 La libreria di **Azure Media Services .NET SDK** consente di programmare per Servizi multimediali usando .NET. Per facilitare ancora di più lo sviluppo con .NET, è disponibile la libreria di **Media Services .NET SDK Extensions**, contenente un set di funzioni di supporto e metodi di estensione che semplificano il codice .NET. Entrambe le librerie sono disponibili tramite **NuGet** e **GitHub**.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Un account di Servizi multimediali ottenuto con una sottoscrizione di Azure nuova o esistente. Vedere l'argomento [Come creare un account di Servizi multimediali](media-services-portal-create-account.md).
+* Un account di Servizi multimediali ottenuto con una sottoscrizione di Azure nuova o esistente. Vedere l'articolo [come creare un Account di servizi multimediali](media-services-portal-create-account.md).
 * Sistemi operativi: Windows 10, Windows 7, Windows 2008 R2 o Windows 8.
-* .NET Framework 4.5
+* .NET framework 4.5 o versione successiva.
 * Visual Studio.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
@@ -60,28 +60,21 @@ In alternativa, è possibile ottenere i bit più recenti di Media Services .NET 
    
     2. Viene visualizzata la finestra di dialogo Gestione riferimenti.
     3. Negli assembly .NET Framework individuare e selezionare l'assembly System.Configuration e scegliere **OK**.
-6. Aprire il file App.config e aggiungere una sezione **appSettings** al file.     
-   
-    Impostare i valori necessari per connettersi all'API di Servizi multimediali. Per altre informazioni, vedere [Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+6. Aprire il file App.config e aggiungere una sezione **appSettings** al file. Impostare i valori necessari per connettersi all'API di Servizi multimediali. Per altre informazioni, vedere [Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
-    Se si usa l'[autenticazione utente](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication), il file di configurazione avrà probabilmente i valori per il dominio tenant di Azure AD e l'endpoint dell'API di REST AMS.
-    
-    >[!Note]
-    >La maggior parte dei codici di esempio di Servizi multimediali di Azure usa un tipo di utente (interattivo) di autenticazione per la connessione all'API di AMS. Questo metodo di autenticazione funzionerà in modo efficace per le app native di gestione o monitoraggio: app per dispositivi mobili, app di Windows e app console.
-    
-    >[!Important]
-    > Il metodo di autenticazione **Interattivo** non è adatto per il tipo applicazioni come API delle applicazioni, servizi Web e server. Per questi tipi di applicazioni, usare il metodo di autenticazione **Entità servizio**. Per altre informazioni, vedere [Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
+Impostare i valori che sono necessarie per connettersi utilizzando il **dell'entità servizio** metodo di autenticazione.  
 
         <configuration>
         ...
             <appSettings>
-              <add key="AADTenantDomain" value="YourAADTenantDomain" />
-              <add key="MediaServiceRESTAPIEndpoint" value="YourRESTAPIEndpoint" />
+                <add key="AMSAADTenantDomain" value="tenant"/>
+                <add key="AMSRESTAPIEndpoint" value="endpoint"/>
+                <add key="AMSClientId" value="id"/>
+                <add key="AMSClientSecret" value="secret"/>
             </appSettings>
-
         </configuration>
-
-7. Sovrascrivere le istruzioni **using** esistenti all'inizio del file Program.cs con il codice seguente.
+7. Aggiungere il **Configuration** riferimento al progetto.
+7. Sovrascrivere esistente **utilizzando** istruzioni all'inizio del file Program.cs con il codice seguente:
            
         using System;
         using System.Configuration;
@@ -100,17 +93,26 @@ Di seguito è riportato un semplice esempio che consente di eseguire la connessi
     class Program
     {
         // Read values from the App.config file.
+
         private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
     
         private static CloudMediaContext _context = null;
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials = 
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-    
+
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
     
             // List all available Media Processors

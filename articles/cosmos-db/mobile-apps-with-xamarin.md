@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 5ab36a16ca87ae7a3e7b26571fc6aadd108841c9
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 34952fb1cbe5577fa00ed7799d51ba46e7173d7e
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Creare applicazioni per dispositivi mobili con Xamarin e Azure Cosmos DB
-Molte app per dispositivi mobili devono archiviare i dati nel cloud e Azure Cosmos DB è appunto un database su cloud per le app per dispositivi mobili. Include tutto ciò di cui uno sviluppatore per dispositivi mobili ha bisogno. È un database completamente gestito come un servizio che offre scalabilità su richiesta. È capace di inserire i dati all'applicazione in modo trasparente, ovunque si trovino gli utenti, in tutto il mondo. Usando [Azure Cosmos DB .NET Core SDK](documentdb-sdk-dotnet-core.md) è possibile abilitare le app Xamarin per dispositivi mobili a interagire direttamente con Azure Cosmos DB, senza un livello intermedio.
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
+Molte app per dispositivi mobili devono archiviare i dati nel cloud e Azure Cosmos DB è appunto un database su cloud per le app per dispositivi mobili. Include tutto ciò di cui uno sviluppatore per dispositivi mobili ha bisogno. È un database completamente gestito come un servizio che offre scalabilità su richiesta. È capace di inserire i dati all'applicazione in modo trasparente, ovunque si trovino gli utenti, in tutto il mondo. Usando [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md) è possibile abilitare le app Xamarin per dispositivi mobili a interagire direttamente con Azure Cosmos DB, senza un livello intermedio.
 
 Questo articolo contiene un'esercitazione per la creazione di app per dispositivi mobili con Xamarin e Azure Cosmos DB. È possibile trovare il codice sorgente completo per l'esercitazione in [Xamarin e Azure Cosmos DB su Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin), incluse le modalità per gestire utenti e autorizzazioni.
 
@@ -30,7 +33,7 @@ Azure Cosmos DB offre le seguenti funzionalità principali per gli sviluppatori 
 
 ![Capacità di Azure Cosmos DB per le app per dispositivi mobili](media/mobile-apps-with-xamarin/documentdb-for-mobile.png)
 
-* Query avanzate su dati senza schema. Azure Cosmos DB archivia i dati come documenti JSON senza schema in insiemi eterogenei. Offre [query avanzate e veloci](documentdb-sql-query.md) senza la necessità di occuparsi di indici o schemi.
+* Query avanzate su dati senza schema. Azure Cosmos DB archivia i dati come documenti JSON senza schema in insiemi eterogenei. Offre [query avanzate e veloci](sql-api-sql-query.md) senza la necessità di occuparsi di indici o schemi.
 * Alta velocità effettiva. Bastano pochi millisecondi per leggere e scrivere documenti con Azure Cosmos DB. Gli sviluppatori possono specificare la velocità effettiva di cui hanno bisogno e Azure Cosmos DB la rispetta con un contratto di servizio con disponibilità del 99,99% per tutti gli account in una singola area e tutti gli account in più aree con coerenza media e con disponibilità in lettura del 99,999% per tutti gli account di database in più aree.
 * Scalabilità senza limiti. Gli insiemi di Azure Cosmos DB [crescono al crescere dell'app](partition-data.md). È possibile iniziare con dati di piccole dimensioni e velocità effettiva di centinaia di richieste al secondo. Le raccolte possono aumentare fino a petabyte di dati e velocità effettiva di grandi dimensioni con centinaia di milioni di richieste al secondo.
 * Distribuzione a livello globale. Gli utenti dell'app per dispositivi mobili viaggiano spesso in tutto il mondo. Azure Cosmos DB è un [database distribuito a livello globale](distribute-data-globally.md). Fare clic sulla mappa per rendere i dati accessibili agli utenti.
@@ -46,7 +49,7 @@ Iniziare a usare Azure Cosmos DB è molto semplice. Aprire il portale di Azure p
 
 ![Avvio rapido di Azure Cosmos DB per le app per dispositivi mobili](media/mobile-apps-with-xamarin/cosmos-db-quickstart.png)
 
-Oppure, se si dispone di un'app Xamarin esistente, è possibile aggiungere il [pacchetto Azure Cosmos DB NuGet](documentdb-sdk-dotnet-core.md). Azure Cosmos DB supporta le librerie condivise Xamarin.IOS, Xamarin.Android e Xamarin Forms.
+Oppure, se si dispone di un'app Xamarin esistente, è possibile aggiungere il [pacchetto Azure Cosmos DB NuGet](sql-api-sdk-dotnet-core.md). Azure Cosmos DB supporta le librerie condivise Xamarin.IOS, Xamarin.Android e Xamarin Forms.
 
 ### <a name="work-with-data"></a>Usare i dati
 I record di dati vengono archiviati in Azure Cosmos DB come documenti JSON senza schema in insiemi eterogenei. È possibile archiviare documenti con strutture diverse nello stesso insieme:
@@ -67,7 +70,7 @@ Nei progetti Xamarin è possibile usare Language Integrated Query su dati senza 
         Items.AddRange(await query.ExecuteNextAsync<TodoItem>());
     }
 ```
-### <a name="add-users"></a>Aggiungi utenti
+### <a name="add-users"></a>Aggiungere utenti
 Come molti esempi introduttivi, l'esempio di Azure Cosmos DB che è stato scaricato si autentica al servizio usando la chiave master specificata nel codice dell'app. Questa operazione predefinita non è una buona pratica per un'app che si vuole eseguire da qualsiasi posizione che non sia l'emulatore locale. Se un utente non autorizzato ottiene la chiave master, tutti i dati nell'intero account Azure Cosmos DB potrebbero essere compromessi. Si desidera invece che l'app abbia accesso solo ai record per l'utente connesso. Azure Cosmos DB consente agli sviluppatori di concedere all'applicazione l'autorizzazione in lettura o in lettura/scrittura a un insieme, un set di documenti raggruppati in base a una chiave di partizione o a un documento specifico. 
 
 Seguire questa procedura per modificare l'app dell'elenco attività e trasformarla in un'app di elenco attività multiutente: 
@@ -100,9 +103,9 @@ A questo punto La soluzione è stata completata e si dispone di un'app per dispo
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Visualizzare il codice sorgente per [Xamarin e Azure Cosmos DB su Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
-* Scaricare [Azure Cosmos DB .NET Core SDK](documentdb-sdk-dotnet-core.md).
-* Trovare altri esempi di codice per [applicazioni .NET](documentdb-dotnet-samples.md).
-* Informazioni sulle [funzionalità di query avanzate di Azure Cosmos DB](documentdb-sql-query.md).
+* Scaricare [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md).
+* Trovare altri esempi di codice per [applicazioni .NET](sql-api-dotnet-samples.md).
+* Informazioni sulle [funzionalità di query avanzate di Azure Cosmos DB](sql-api-sql-query.md).
 * Informazioni sul [supporto geospaziale in Azure Cosmos DB](geospatial.md).
 
 

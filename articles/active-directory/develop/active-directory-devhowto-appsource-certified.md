@@ -1,10 +1,10 @@
 ---
-title: Come ottenere la certificazione AppSource per Azure Active Directory | Microsoft Docs
+title: Come ottenere la certificazione AppSource per Azure Active Directory | Documentazione Microsoft
 description: Leggere i dettagli su come ottenere la certificazione AppSource per Azure Active Directory.
 services: active-directory
 documentationcenter: 
 author: andretms
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 08/03/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: ca5105ff8ec45e703a3fb8e0cbb8666eb0b2c38e
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
-ms.translationtype: HT
+ms.openlocfilehash: 5601ad80e271364fec519cf34bcdc2f650f3bb92
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Come ottenere la certificazione AppSource per Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) è la posizione in cui gli utenti aziendali possono trovare, provare e gestire applicazioni SaaS line-of-business (soluzioni SaaS autonome e componenti aggiuntivi per prodotti Microsoft SaaS esistenti).
@@ -100,7 +100,7 @@ L'*esperienza di valutazione gestita dal partner* può essere usata quando è ne
 ### <a name="more-information"></a>Altre informazioni
 Per altre informazioni sull'esperienza di valutazione di AppSource, vedere [questo video](https://aka.ms/trialexperienceforwebapps). 
  
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 - Per altre informazioni sulla creazione di applicazioni che supportano gli accessi di Azure Active Directory, vedere [Scenari di autenticazione per Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios) 
 

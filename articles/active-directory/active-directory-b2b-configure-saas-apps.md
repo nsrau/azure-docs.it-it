@@ -4,7 +4,7 @@ description: Codici ed esempi di PowerShell per Collaborazione B2B in Azure Acti
 services: active-directory
 documentationcenter: 
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 149a493f7b369415f0a2726dd6a576f0195c13d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dc0bb3950f30b2ea676de406538e3a463ad21429
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurare app SaaS per Collaborazione B2B
 
@@ -110,7 +110,7 @@ Vedere gli articoli seguenti su Collaborazione B2B di Azure AD:
 * [Delegare gli inviti a Collaborazione B2B](active-directory-b2b-delegate-invitations.md)
 * [Gruppi dinamici e Collaborazione B2B](active-directory-b2b-dynamic-groups.md)
 * [Codici ed esempi di PowerShell per Collaborazione B2B](active-directory-b2b-code-samples.md)
-* [Token utente per Collaborazione B2B](active-directory-b2b-user-token.md)
+* [Token utente in Collaborazione B2B](active-directory-b2b-user-token.md)
 * [Mapping delle attestazioni utente per Collaborazione B2B](active-directory-b2b-claims-mapping.md)
 * [Condivisione esterna di Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitazioni correnti di Collaborazione B2B](active-directory-b2b-current-limitations.md)

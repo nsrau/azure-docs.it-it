@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 10ce74097388a0283797e4692126c5039e8d4dd0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cc4c643b8d0e8de1b5c38ca7bb1b0193d6b0f05b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestazioni e scalabilità in Funzioni permanenti (Funzioni di Azure)
 
@@ -32,11 +32,11 @@ La tabella di cronologia è una tabella di Archiviazione di Azure che contiene g
 
 ## <a name="internal-queue-triggers"></a>Trigger di code interne
 
-Le funzioni di orchestrazione e le funzioni di attività vengono attivate da code interne nell'account di archiviazione predefinito dell'app per le funzioni. In Funzioni permanenti esistono due tipi di code: la **coda di controllo** e la **coda di elementi di lavoro**.
+Le funzioni di orchestrazione e le funzioni di attività vengono attivate da code interne nell'account di archiviazione predefinito dell'app per le funzioni. Esistono due tipi di code nelle funzioni durevole: il **coda controllo** e **coda degli elementi di lavoro**.
 
-### <a name="the-work-item-queue"></a>La coda di elementi di lavoro
+### <a name="the-work-item-queue"></a>La coda degli elementi di lavoro
 
-Esiste una coda di elementi di lavoro per ogni hub attività in Funzioni permanenti. È una coda di base che funziona in modo analogo a qualsiasi altra coda `queueTrigger` in Funzioni di Azure. Viene usata per attivare le *funzioni di attività* senza stato. Quando viene eseguita la scalabilità orizzontale di un'applicazione di Funzioni permanenti in più macchine virtuali, tutte queste macchine virtuali competono per acquisire lavoro dalla coda di elementi di lavoro.
+È una coda di elementi di lavoro per ogni hub attività nelle funzioni durevole. È una coda di base che funziona in modo analogo a qualsiasi altra coda `queueTrigger` in Funzioni di Azure. Viene usata per attivare le *funzioni di attività* senza stato. Quando viene eseguita la scalabilità orizzontale di un'applicazione di Funzioni permanenti in più macchine virtuali, tutte queste macchine virtuali competono per acquisire lavoro dalla coda di elementi di lavoro.
 
 ### <a name="control-queues"></a>Code di controllo
 
@@ -54,18 +54,18 @@ Il diagramma seguente illustra l'interazione tra l'host di Funzioni di Azure e l
 
 ![Diagramma di scalabilità](media/durable-functions-perf-and-scale/scale-diagram.png)
 
-Come si può notare, tutte le macchine virtuali possono competere per i messaggi nella coda di elementi di lavoro. Tuttavia, solo tre macchine virtuali possono acquisire i messaggi dalle code di controllo e ogni macchina virtuale blocca una singola coda di controllo.
+Come si può notare, tutte le macchine virtuali possono competere per i messaggi nella coda degli elementi di lavoro. Tuttavia, solo tre macchine virtuali possono acquisire i messaggi dalle code di controllo e ogni macchina virtuale blocca una singola coda di controllo.
 
 Le istanze di orchestrazione vengono distribuite tra più istanze delle code di controllo tramite l'esecuzione di una funzione hash interna rispetto all'ID istanza di orchestrazione. Gli ID istanza vengono generati automaticamente e in modo casuale per impostazione predefinita garantendo che le istanze vengano bilanciate tra tutte le code di controllo disponibili. Il numero predefinito corrente di partizioni di code di controllo supportate è **4**.
 
 > [!NOTE]
-> Non è attualmente possibile configurare il numero di partizioni in Funzioni di Azure. [L'attività per supportare questa opzione di configurazione è corso di rilevamento](https://github.com/Azure/azure-functions-durable-extension/issues/73).
+> Non è attualmente possibile configurare il numero di partizioni di controllo della coda in funzioni di Azure. [L'attività per supportare questa opzione di configurazione è corso di rilevamento](https://github.com/Azure/azure-functions-durable-extension/issues/73).
 
 In generale, le funzioni di orchestrazione sono progettate per essere semplici e non richiedono elevata potenza di calcolo. Per questo motivo non è necessario creare un numero elevato di partizioni delle code di controllo per ottenere una velocità effettiva ottimale. La maggior parte del lavoro intenso viene invece eseguito nelle funzioni di attività senza stato, che possono essere scalate orizzontalmente all'infinito.
 
 ## <a name="auto-scale"></a>Scalabilità automatica
 
-Come con tutte le Funzioni di Azure in esecuzione nel piano a consumo, le Funzioni permanenti supportano la scalabilità automatica tramite il [controller di scalabilità di Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling). Il controller di scalabilità monitora la lunghezza della coda di elementi di lavoro e di ogni coda di controllo, aggiungendo e rimuovendo le risorse di macchina virtuale di conseguenza. Se le lunghezze delle code di controllo aumentano nel tempo, il controller di scalabilità continuerà ad aggiungere istanze fino a raggiungere il numero di partizioni di code di controllo. Se le lunghezze delle code di elementi di lavoro aumentano nel tempo, il controller di scalabilità continuerà ad aggiungere risorse di macchine virtuali a seconda del carico, indipendentemente dal numero di partizioni di code di controllo.
+Come con tutte le funzioni di Azure in esecuzione nel piano di utilizzo, durevole funzioni supportano la scalabilità automatica tramite la [Azure funzioni scala controller](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling). Il Controller di scala monitora la lunghezza della coda di elementi di lavoro e ognuna delle code di controllo, aggiungendo o rimuovendo istanze di macchina virtuale di conseguenza. Se la lunghezza delle code di controllo aumenta nel tempo, il controller di scala verrà continuare ad aggiungere istanze di macchine Virtuali finché raggiunge il numero di partizione di controllo della coda. Se lunghezza della coda di elementi di lavoro aumenta nel tempo, il controller di scala continuerà aggiungere istanze di macchine Virtuali finché non può far corrispondere il carico, indipendentemente dal numero di partizione coda controllo.
 
 ## <a name="thread-usage"></a>Utilizzo di thread
 

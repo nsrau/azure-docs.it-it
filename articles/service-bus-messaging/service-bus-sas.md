@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: a2760072acb7c62204759f3ec0d3cb9899460f2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cdbac0fd18ad440ece35881cbe165c3c7eff8914
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-authentication-with-shared-access-signatures"></a>Autenticazione del bus di servizio con firme di accesso condiviso
 
@@ -49,7 +49,7 @@ Le autorizzazioni disponibili per un criterio sono in gran parte autoesplicative
 
 * Invio
 * Attesa
-* Gestire
+* Gestisci
 
 Dopo aver creato il criterio, gli vengono assegnate una *chiave primaria* e una *chiave secondaria*. Si tratta di chiavi di crittografia complesse. Queste chiavi non possono essere perse perché sono sempre disponibili nel [portale di Azure][Azure portal]. È possibile utilizzare una delle chiavi generate ed è possibile rigenerarle in qualsiasi momento. Tuttavia, se si rigenera o si modifica la chiave primaria nel criterio, le firme di accesso condiviso create da tale chiave verranno invalidate.
 
@@ -66,7 +66,7 @@ In questa figura le regole di autorizzazione *manageRuleNS*, *sendRuleNS* e *lis
 
 I parametri principali di [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) sono i seguenti:
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- |
 | *KeyName* |Stringa che descrive la regola di autorizzazione. |
 | *PrimaryKey* |Chiave primaria a 256 bit con codifica Base 64 per la firma e la convalida del token di firma di accesso condiviso. |
@@ -128,7 +128,7 @@ L'endpoint per l'accesso alle regole di autorizzazione per l'accesso condiviso i
 https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/
 ```
 
-Per creare un oggetto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in uno spazio dei nomi del bus di servizio, eseguire un'operazione POST in questo endpoint con le informazioni sulle regole serializzate come JSON o XML. Ad esempio:
+Per creare un oggetto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in uno spazio dei nomi del bus di servizio, eseguire un'operazione POST in questo endpoint con le informazioni sulle regole serializzate come JSON o XML. Ad esempio: 
 
 ```csharp
 // Base address for accessing authorization rules on a namespace
@@ -317,17 +317,17 @@ La tabella seguente illustra i diritti di accesso necessari per l'esecuzione di 
 | Operazione | Attestazione necessaria | Ambito attestazione |
 | --- | --- | --- |
 | **Spazio dei nomi** | | |
-| Configurare le regole di autorizzazione relative a uno spazio dei nomi |Manage |Qualsiasi indirizzo dello spazio dei nomi |
+| Configurare le regole di autorizzazione relative a uno spazio dei nomi |Gestisci |Qualsiasi indirizzo dello spazio dei nomi |
 | **Registro di sistema del servizio** | | |
-| Enumerare i criteri privati |Manage |Qualsiasi indirizzo dello spazio dei nomi |
+| Enumerare i criteri privati |Gestisci |Qualsiasi indirizzo dello spazio dei nomi |
 | Iniziare l'attesa su uno spazio dei nomi del servizio |Attesa |Qualsiasi indirizzo dello spazio dei nomi |
 | Inviare messaggi a un listener in uno spazio dei nomi |Invio |Qualsiasi indirizzo dello spazio dei nomi |
 | **Coda** | | |
-| Creare una coda |Manage |Qualsiasi indirizzo dello spazio dei nomi |
-| Eliminare una coda |Manage |Qualsiasi indirizzo valido della coda |
-| Enumerare le code |Manage |/$Resources/Queues |
-| Ottenere la descrizione di una coda |Gestire |Qualsiasi indirizzo valido della coda |
-| Configurare le regole di autorizzazione per una coda |Manage |Qualsiasi indirizzo valido della coda |
+| Creare una coda |Gestisci |Qualsiasi indirizzo dello spazio dei nomi |
+| Eliminare una coda |Gestisci |Qualsiasi indirizzo valido della coda |
+| Enumerare le code |Gestisci |/$Resources/Queues |
+| Ottenere la descrizione di una coda |Gestisci |Qualsiasi indirizzo valido della coda |
+| Configurare le regole di autorizzazione per una coda |Gestisci |Qualsiasi indirizzo valido della coda |
 | Effettuare un invio alla coda |Invio |Qualsiasi indirizzo valido della coda |
 | Ricevere messaggi da una coda |Attesa |Qualsiasi indirizzo valido della coda |
 | Abbandonare o completare messaggi dopo la ricezione del messaggio in modalità PeekLock (blocco di visualizzazione) |Attesa |Qualsiasi indirizzo valido della coda |
@@ -336,25 +336,25 @@ La tabella seguente illustra i diritti di accesso necessari per l'esecuzione di 
 | Ottenere lo stato associato a una sessione della coda dei messaggi |Attesa |Qualsiasi indirizzo valido della coda |
 | Impostare lo stato associato a una sessione della coda dei messaggi |Attesa |Qualsiasi indirizzo valido della coda |
 | **Argomento** | | |
-| Creare un argomento |Manage |Qualsiasi indirizzo dello spazio dei nomi |
-| Eliminare un argomento |Manage |Qualsiasi indirizzo valido dell'argomento |
-| Enumerare gli argomenti |Manage |/$Resources/Topics |
-| Ottenere la descrizione di un argomento |Gestire |Qualsiasi indirizzo valido dell'argomento |
-| Configurare le regole di autorizzazione per un argomento |Manage |Qualsiasi indirizzo valido dell'argomento |
+| Creare un argomento |Gestisci |Qualsiasi indirizzo dello spazio dei nomi |
+| Eliminare un argomento |Gestisci |Qualsiasi indirizzo valido dell'argomento |
+| Enumerare gli argomenti |Gestisci |/$Resources/Topics |
+| Ottenere la descrizione di un argomento |Gestisci |Qualsiasi indirizzo valido dell'argomento |
+| Configurare le regole di autorizzazione per un argomento |Gestisci |Qualsiasi indirizzo valido dell'argomento |
 | Effettuare un invio all'argomento |Invio |Qualsiasi indirizzo valido dell'argomento |
 | **Sottoscrizione** | | |
-| Creare una sottoscrizione |Manage |Qualsiasi indirizzo dello spazio dei nomi |
-| Eliminare una sottoscrizione |Manage |../myTopic/Subscriptions/mySubscription |
-| Enumerare le sottoscrizioni |Manage |../myTopic/Subscriptions |
-| Ottenere la descrizione di una sottoscrizione |Gestire |../myTopic/Subscriptions/mySubscription |
+| Creare una sottoscrizione |Gestisci |Qualsiasi indirizzo dello spazio dei nomi |
+| Eliminare una sottoscrizione |Gestisci |../myTopic/Subscriptions/mySubscription |
+| Enumerare le sottoscrizioni |Gestisci |../myTopic/Subscriptions |
+| Ottenere la descrizione di una sottoscrizione |Gestisci |../myTopic/Subscriptions/mySubscription |
 | Abbandonare o completare messaggi dopo la ricezione del messaggio in modalità PeekLock (blocco di visualizzazione) |Attesa |../myTopic/Subscriptions/mySubscription |
 | Rinviare un messaggio per il successivo recupero |Attesa |../myTopic/Subscriptions/mySubscription |
 | Spostare un messaggio nella coda dei messaggi non recapitabili |Attesa |../myTopic/Subscriptions/mySubscription |
 | Ottenere lo stato associato a una sessione dell'argomento |Attesa |../myTopic/Subscriptions/mySubscription |
 | Impostare lo stato associato a una sessione dell'argomento |Attesa |../myTopic/Subscriptions/mySubscription |
 | **Regole** | | |
-| Creare una regola |Manage |../myTopic/Subscriptions/mySubscription |
-| Eliminare una regola |Manage |../myTopic/Subscriptions/mySubscription |
+| Creare una regola |Gestisci |../myTopic/Subscriptions/mySubscription |
+| Eliminare una regola |Gestisci |../myTopic/Subscriptions/mySubscription |
 | Enumerare le regole |Manage o Listen |../myTopic/Subscriptions/mySubscription/Rules 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -4,7 +4,7 @@ description: Un argomento sui criteri personalizzati di Azure Active Directory B
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 1ff398a4-2079-4615-94f1-57de22c0aad6
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: 25dada7bc04449c6e527b94d97780d9aef1c33a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6c59075bb1eacb05599b23be3d8731fa40eabf98
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: criteri personalizzati
 
@@ -92,7 +92,7 @@ Un criterio personalizzato è rappresentato come uno o più file in formato XML 
 
 | Tipo di file di criteri | Nome del file di esempio | Uso consigliato | Eredito da |
 |---------------------|--------------------|-----------------|---------------|
-| BASE |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Include lo schema di attestazioni core, le trasformazioni delle attestazioni, i provider delle attestazioni e i percorsi utente è configurati da Microsoft<br><br>Apportare modifiche minime al file | Nessuno |
+| BASE |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Include lo schema di attestazioni core, le trasformazioni delle attestazioni, i provider delle attestazioni e i percorsi utente è configurati da Microsoft<br><br>Apportare modifiche minime al file | Nessuna |
 | Estensione (RXT) | TrustFrameworkExtensions.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_EXT.xml | Consolidare le modifiche al file di BASE qui<br><br>Provider di attestazioni modificati<br><br>Percorsi utente modificati<br><br>Definizioni dello schema personalizzato | File di BASE |
 | Relying Party (RP) | B2C_1A_sign_up_sign_in.xml| Modificare la forma del token e le impostazioni della sessione qui| File Extensions(Ext) |
 

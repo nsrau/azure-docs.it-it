@@ -11,31 +11,97 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 12/12/2017
 ms.author: spelluru
-ms.openlocfilehash: d498705ef7f714b4f15b8d2722053bf3081b5045
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: f287b0287ad85ffe1654e0d574cd44aa4dd81a0f
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Attività Lookup in Azure Data Factory
 L'attività Lookup può essere usata per la lettura o la ricerca di un record/nome di tabella/valore da qualsiasi origine esterna. Questo output può essere referenziato ulteriormente dalle attività successive. 
-
-Per l'attività Lookup sono attualmente supportate le origini dati seguenti:
-- File JSON nel BLOB di Azure
-- File JSON locale
-- Database SQL di Azure (dati JSON convertiti da query)
-- Archiviazione tabelle di Azure (dati JSON convertiti da query)
 
 L'attività Lookup risulta utile quando si vuole recuperare in modo dinamico un elenco di file/record/tabelle da un file di configurazione o un'origine dati. L'output dall'attività può essere usato anche da altre attività per eseguire l'elaborazione specifica solo di tali elementi.
 
 > [!NOTE]
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione su Data Factory versione 1](v1/data-factory-introduction.md).
 
+## <a name="supported-capabilities"></a>Funzionalità supportate
+
+Per l'attività Lookup sono attualmente supportate le origini dati seguenti:
+- File JSON nel BLOB di Azure
+- File JSON nel File System
+- Database SQL di Azure (dati JSON convertiti da query)
+- Azure SQL Data Warehouse (dati JSON convertiti da query)
+- SQL Server (dati JSON convertiti da query)
+- Archiviazione tabelle di Azure (dati JSON convertiti da query)
+
+## <a name="syntax"></a>Sintassi
+
+```json
+{
+    "name": "LookupActivity",
+    "type": "Lookup",
+    "typeProperties": {
+        "source": {
+            "type": "<source type>"
+            <additional source specific properties (optional)>
+        },
+        "dataset": { 
+            "referenceName": "<source dataset name>",
+            "type": "DatasetReference"
+        },
+        "firstRowOnly": false
+    }
+}
+```
+
+## <a name="type-properties"></a>Proprietà del tipo
+NOME | DESCRIZIONE | type | Obbligatoria
+---- | ----------- | ---- | --------
+dataset | L'attributo del set di dati consiste nel fornire il riferimento al set di dati per la ricerca. I tipi di set di dati attualmente supportati sono:<ul><li>`AzureBlobDataset`per [archiviazione Blob di Azure](connector-azure-blob-storage.md#dataset-properties) come origine</li><li>`FileShareDataset`per [File System](connector-file-system.md#dataset-properties) come origine</li><li>`AzureSqlTableDataset`per [Database SQL di Azure](connector-azure-sql-database.md#dataset-properties) o [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) come origine</li><li>`SqlServerTable`per [SQL Server](connector-sql-server.md#dataset-properties) come origine</li><li>`AzureTableDataset`per [archiviazione tabelle di Azure](connector-azure-table-storage.md#dataset-properties) come origine</li> | coppia chiave/valore | Sì
+una sezione source | Proprietà di origine specifici di DataSet, come copia origine dell'attività. Visualizzare i dettagli della sezione "Copiare le proprietà dell'attività" in ogni articolo connettore corrispondente. | Coppia chiave/valore | Sì
+firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | boolean | di serie Il valore predefinito è `ture`.
+
+## <a name="use-lookup-activity-result-in-subsequent-activity"></a>Utilizzare i risultati di ricerca attività nell'attività successiva
+
+Cui viene restituito il risultato di ricerca di `output` sezione il risultato di esecuzione dell'attività.
+
+**Quando `firstRowOnly` è impostato su `true` (impostazione predefinita)**, il formato di output è il seguente. Il risultato di ricerca in fisse `firstRow` chiave. Per utilizzare il risultato nell'attività successiva, utilizzare il modello di `@{activity('MyLookupActivity').output.firstRow.TableName}`.
+
+```json
+{
+    "firstRow":
+    {
+        "Id": "1",
+        "TableName" : "Table1"
+    }
+}
+```
+
+**Quando `firstRowOnly` è impostato su `false`** , il formato di output è il seguente. Oggetto `count` campo indica il numero di record restituito, e sono valori dettagliati in fisse `value` matrice. In tal caso, l'attività di ricerca è generalmente seguito da un [attività Foreach](control-flow-for-each-activity.md), è possibile passare il `value` matrice in cui l'attività ForEach `items` campo usando il modello di `@activity('MyLookupActivity').output.value`. Per accedere agli elementi nel `value`, utilizzare la seguente sintassi: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Di seguito è riportato un esempio:`@{activity('lookupActivity').output.value[0].tablename}`
+
+```json
+{
+    "count": "2",
+    "value": [
+        {
+            "Id": "1",
+            "TableName" : "Table1"
+        },
+        {
+            "Id": "2",
+            "TableName" : "Table2"
+        }
+    ]
+} 
+```
 
 ## <a name="example"></a>Esempio
-In questo esempio, l'attività Copy copia i dati da una tabella SQL del database SQL di Azure in Archiviazione BLOB di Azure. Il nome della tabella SQL viene archiviato in un file JSON in Archiviazione BLOB. L'attività Lookup cerca il nome della tabella in fase di esecuzione. Questo approccio consente di modificare JSON dinamicamente senza ridistribuire le pipeline o i set di dati. 
+In questo esempio, l'attività di copia copia dati da una tabella SQL nel database SQL di Azure in archiviazione Blob di Azure. Il nome della tabella SQL viene archiviato in un file JSON in Archiviazione BLOB. L'attività di ricerca ricerca il nome della tabella in fase di esecuzione. Questo approccio consente di modificare JSON dinamicamente senza ridistribuire le pipeline o i set di dati. 
+
+In questo esempio viene prima riga solo la ricerca. Per cercare tutte le righe e catena con attività ForEach, vedere [esercitazione - copia di dati in blocco](tutorial-bulk-copy.md) esempio.
 
 ### <a name="pipeline"></a>Pipeline
 Questa pipeline contiene due attività: **Lookup** e **Copy**. 
@@ -68,7 +134,7 @@ Questa pipeline contiene due attività: **Lookup** e **Copy**.
                 "typeProperties": {
                     "source": { 
                         "type": "SqlSource", 
-                        "sqlReaderQuery": "select * from @{activity('LookupActivity').output.tableName}" 
+                        "sqlReaderQuery": "select * from @{activity('LookupActivity').output.firstRow.tableName}" 
                     },
                     "sink": { 
                         "type": "BlobSink" 
@@ -131,7 +197,7 @@ Il set di dati di origine usa l'output dell'attività Lookup, ovvero il nome del
     "properties": {
         "type": "AzureSqlTable",
         "typeProperties":{
-            "tableName": "@{activity('LookupActivity').output.tableName}"
+            "tableName": "@{activity('LookupActivity').output.firstRow.tableName}"
         },
         "linkedServiceName": {
             "referenceName": "AzureSqlLinkedService",
@@ -215,6 +281,7 @@ Il database SQL di Azure contiene i dati da copiare in Archiviazione BLOB.
   "tableName": "Table2",
 }
 ```
+
 #### <a name="array-of-objects"></a>Matrice di oggetti
 
 ```json
@@ -229,15 +296,6 @@ Il database SQL di Azure contiene i dati da copiare in Archiviazione BLOB.
     }
 ]
 ```
-
-
-
-## <a name="type-properties"></a>Proprietà del tipo
-Nome | Descrizione | Tipo | Obbligatorio
----- | ----------- | ---- | --------
-attività | L'attributo del set di dati consiste nel fornire il riferimento al set di dati per la ricerca. I tipi di set di dati attualmente supportati sono:<ul><li>FileShareDataset</li><li>AzureBlobDataset</li><li>AzureSqlTableDataset</li><li>AzureTableDataset</li> | coppia chiave/valore | Sì
-una sezione source | Proprietà di origine specifiche del set di dati, come per l'origine dell'attività Copy | Coppia chiave/valore | No
-firstRowOnly | Restituisce la prima riga o tutte le righe. | boolean | No
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere altre attività del flusso di controllo supportate da Data Factory: 

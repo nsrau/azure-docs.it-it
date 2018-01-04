@@ -4,7 +4,7 @@ description: Tipi di token e attestazioni generati dall'endpoint di Azure AD 2.0
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ec25d4375647a2c8983d7573b9912e544fc3e7b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 01994e067bd7ce0343f12ec3334a91bd062251a8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Informazioni di riferimento sui token di Azure Active Directory 2.0
 L'endpoint di Azure Active Directory (Azure AD) 2.0 genera tipi diversi di token di sicurezza in ogni [flusso di autenticazione](active-directory-v2-flows.md). Questo articolo di riferimento descrive il formato, le caratteristiche di sicurezza e i contenuti di ogni tipo di token.
@@ -54,7 +54,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 >
 
 #### <a name="claims-in-id-tokens"></a>Attestazioni nei token ID
-| Nome | Attestazione | Valore di esempio | Descrizione |
+| NOME | Attestazione | Valore di esempio | DESCRIZIONE |
 | --- | --- | --- | --- |
 | audience |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |Identifica il destinatario del token. Nei token ID il destinatario è l'ID applicazione dell'app, assegnato a quest'ultima nel portale di registrazione delle applicazioni di Microsoft. L'app deve convalidare questo valore e rifiutare il token, se il valore non corrisponde. |
 | autorità di certificazione |`iss` |`https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` |Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token e il tenant di Azure AD in cui l'utente è stato autenticato. L'app deve convalidare l'attestazione Autorità di certificazione per assicurarsi che il token sia stato fornito dall'endpoint 2.0. Deve usare la parte GUID dell'attestazione per limitare il set di tenant che può accedere all'app. Il GUID che indica che l'utente è un utente consumer di un account Microsoft è `9188040d-6c67-4c5b-b112-36a304b66dad`. |
@@ -99,7 +99,7 @@ Microsoft fornisce esempi di codice e librerie che illustrano come gestire in mo
 ### <a name="validate-the-signature"></a>convalidare la firma
 Un token JWT contiene tre segmenti separati dal carattere `.` . Il primo segmento è noto come *intestazione*, il secondo come *corpo* e il terzo come *firma*. Il segmento della firma può essere usato per convalidare l'autenticità del token ID perché venga considerato attendibile dall'app.
 
-I token ID vengono firmati usando algoritmi di crittografia asimmetrica standard del settore, come RSA 256. L'intestazione del token ID contiene informazioni sulla chiave e sul metodo di crittografia usati per firmare il token, ad esempio:
+I token ID vengono firmati usando algoritmi di crittografia asimmetrica standard del settore, come RSA 256. L'intestazione del token ID contiene informazioni sulla chiave e sul metodo di crittografia usati per firmare il token, Ad esempio: 
 
 ```
 {
@@ -143,7 +143,7 @@ Per informazioni dettagliate sui valori previsti per tali attestazioni, vedere l
 ## <a name="token-lifetimes"></a>Durata dei token
 Le indicazioni sulla durata dei token fornite di seguito sono solo a scopo informativo e possono risultare utili per lo sviluppo e il debug delle app. Le app non devono essere scritte in base a una durata specifica prevista come costante. La durata del token può cambiare in qualsiasi momento.
 
-| Token | Durata | Descrizione |
+| token | Durata | DESCRIZIONE |
 | --- | --- | --- |
 | Token ID (account aziendale o dell'istituto di istruzione) |1 ora |I token ID hanno in genere una validità di un'ora. L'app Web può usare questa durata per la gestione di una sessione con l'utente (scelta consigliata) oppure è possibile scegliere una durata di sessione completamente diversa. Per ottenere un nuovo token ID, l'app deve eseguire una nuova richiesta di accesso all'endpoint di autorizzazione 2.0. Se l'utente ha una sessione del browser valida con l'endpoint 2.0, può non essere necessario immettere nuovamente le credenziali. |
 | Token ID (account personale) |24 ore |I token ID per gli account personali hanno in genere una validità di 24 ore. L'app Web può usare questa durata per la gestione di una sessione con l'utente (scelta consigliata) oppure è possibile scegliere una durata di sessione completamente diversa. Per ottenere un nuovo token ID, l'app deve eseguire una nuova richiesta di accesso all'endpoint di autorizzazione 2.0. Se l'utente ha una sessione del browser valida con l'endpoint 2.0, può non essere necessario immettere nuovamente le credenziali. |

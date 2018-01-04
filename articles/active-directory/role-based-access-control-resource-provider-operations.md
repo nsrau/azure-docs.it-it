@@ -4,7 +4,7 @@ description: Fornisce informazioni dettagliate sulle operazioni disponibili nei 
 services: active-directory
 documentationcenter: 
 author: jboeshart
-manager: 
+manager: mtillman
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -12,19 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 9fe7a5f254d8b384cae10ecd34e0bdafa433ff13
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.openlocfilehash: 27880402d377701448d095a1295ece875729cd67
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni di provider di risorse con Azure Resource Manager
 
-Questo documento elenca le operazioni disponibili per ciascun provider di risorse Microsoft Azure Resource Manager. Tali operazioni possono essere utilizzate nei ruoli personalizzati per fornire autorizzazioni RBAC (controllo degli accessi in base al ruolo) granulari alle risorse di Azure. L’elenco qui fornito non è da ritenersi completo e le operazioni potrebbero essere aggiunte o rimosse man mano che il provider viene aggiornato. Le stringhe di operazione seguono il formato di `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Per un elenco completo e aggiornato delle operazioni dei provider di risorse di Azure utilizzare `Get-AzureRmProviderOperation` (in PowerShell) o `azure provider operations show` (in Azure CLI).
+Questo documento elenca le operazioni disponibili per ciascun provider di risorse Microsoft Azure Resource Manager. Tali operazioni possono essere utilizzate nei ruoli personalizzati per fornire autorizzazioni RBAC (controllo degli accessi in base al ruolo) granulari alle risorse di Azure. L’elenco qui fornito non è da ritenersi completo e le operazioni potrebbero essere aggiunte o rimosse man mano che il provider viene aggiornato. Le stringhe di operazione seguono il formato di `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. 
+
+> [!NOTE]
+> Per un elenco completo e corrente utilizzare `Get-AzureRmProviderOperation` (in PowerShell) o `az provider operation list` (in Azure CLI v2) per le operazioni di elenco di provider di risorse di Azure.
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/configuration/action|Aggiorna la configurazione tenant.|
 |/services/action|Aggiorna un'istanza del servizio nel tenant.|
@@ -42,7 +45,7 @@ Questo documento elenca le operazioni disponibili per ciascun provider di risors
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/generateRecommendations/action|Genera suggerimenti.|
 |/suppressions/action|Crea/aggiorna eliminazioni.|
@@ -54,7 +57,7 @@ Questo documento elenca le operazioni disponibili per ciascun provider di risors
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/servers/read|Recupera le informazioni dell’Analysis Server specificato.|
 |/servers/write|Crea o aggiorna l’Analysis Server specificato.|
@@ -65,7 +68,7 @@ Questo documento elenca le operazioni disponibili per ciascun provider di risors
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/checkNameAvailability/action|Verifica che il nome del servizio sia disponibile.|
 |/register/action|Registra la sottoscrizione per il provider di risorse Microsoft.ApiManagement.|
@@ -170,7 +173,7 @@ Questo documento elenca le operazioni disponibili per ciascun provider di risors
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/elevateAccess/action|Concede al chiamante l'accesso di tipo Amministratore Accesso utenti a livello dell'ambito del tenant|
 |/classicAdministrators/read|Esegue la lettura degli amministratori per la sottoscrizione.|
@@ -196,7 +199,7 @@ Questo documento elenca le operazioni disponibili per ciascun provider di risors
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/automationAccounts/read|Ottiene un account di automazione di Azure|
 |/automationAccounts/write|Crea o aggiorna un account di automazione di Azure|
@@ -266,7 +269,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/register/action|Registra la sottoscrizione per il provider di risorse Batch e consente la creazione di account Batch|
 |/batchAccounts/write|Crea un nuovo account Batch o aggiorna un account Batch esistente|
@@ -286,13 +289,13 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/invoices/read|Elenca le fatture disponibili|
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/mapApis/Read|Operazione di lettura|
 |/mapApis/Write|Operazione di scrittura|
@@ -304,7 +307,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/checknameavailability/action|Verifica se un nome è disponibile per essere assegnato a nuova cache Redis|
 |/register/action|Registra il provider di risorse 'Microsoft.Cache' con una sottoscrizione|
@@ -333,7 +336,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/provisionGlobalAppServicePrincipalInUserTenant/Action|Esegue il provisioning dell'entità servizio per l'entità app del servizio|
 |/validateCertificateRegistrationInformation/Action|Convalida l'oggetto acquisto di certificato senza inviarlo|
@@ -355,7 +358,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/register/action|Consente di eseguire la registrazione per Calcolo classico|
 |/checkDomainNameAvailability/action|Controlla la disponibilità di un nome di dominio specifico.|
@@ -437,7 +440,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/register/action|Esegue la registrazione per Rete classica|
 |/gatewaySupportedDevices/read|Recupera l'elenco dei dispositivi supportati.|
@@ -494,7 +497,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/register/action|Consente di eseguire la registrazione per Archiviazione (versione classica)|
 |/checkStorageAccountAvailability/action|Verifica la disponibilità di un account di archiviazione.|
@@ -526,7 +529,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/accounts/read|Legge gli account delle API.|
 |/accounts/write|Scrive gli account delle API.|
@@ -539,14 +542,14 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/RateCard/read|Restituisce dati dell'offerta, metadati delle risorse o del contatore e tariffe per una determinata sottoscrizione.|
 |/UsageAggregates/read|Recupera il consumo di Microsoft Azure da una sottoscrizione. Il risultato contiene dati di utilizzo delle aggregazioni, informazioni correlate a sottoscrizioni e risorse in un intervallo di tempo specifico.|
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/register/action|Registra la sottoscrizione con il provider di risorse Microsoft.Compute|
 |/restorePointCollections/read|Ottiene le proprietà di un insieme di punti di ripristino|
@@ -612,7 +615,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/register/action|Registra la sottoscrizione per il provider di risorse registro contenitori e consente la creazione di registri contenitori.|
 |/checknameavailability/read|Controlla che il nome del registro sia valido e che non sia in uso.|
@@ -624,7 +627,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/containerServices/subscriptions/read|Ottiene i servizi contenitore specificati in base alla sottoscrizione|
 |/containerServices/resourceGroups/read|Ottiene i servizi contenitore specificati in base al gruppo di risorse|
@@ -634,7 +637,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/updateCommunicationPreference/action|Aggiorna le preferenze di comunicazione|
 |/listCommunicationPreference/action|Elenca le preferenze di comunicazione|
@@ -648,7 +651,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/hubs/read|Esegue la lettura di qualsiasi hub di Azure Customer Insights|
 |/hubs/write|Crea o aggiorna qualsiasi hub di Azure Customer Insights|
@@ -684,7 +687,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/checkNameAvailability/action|Controlla la disponibilità del nome di catalogo per il tenant.|
 |/catalogs/read|Ottiene le proprietà del catalogo o dei cataloghi nella sottoscrizione o nel gruppo di risorse.|
@@ -693,7 +696,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/datafactories/read|Esegue la lettura del data factory.|
 |/datafactories/write|Crea o aggiorna il data factory|
@@ -713,7 +716,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/accounts/read|Ottiene informazioni sull'account DataLakeAnalytics.|
 |/accounts/write|Crea o aggiorna l'account DataLakeAnalytics.|
@@ -732,7 +735,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/accounts/read|Ottiene informazioni su un account DataLakeStore esistente.|
 |/accounts/write|Crea un nuovo account DataLakeStore o aggiorna un account DataLakeStore esistente.|
@@ -746,7 +749,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/register/action|Registra la sottoscrizione per il provider di risorse del servizio IotHub e consente la creazione di risorse IotHub|
 |/checkNameAvailability/Action|Controlla se il nome IotHub è disponibile|
@@ -775,7 +778,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/Subscription/register/action|Registra la sottoscrizione|
 |/labs/delete|Elimina lab.|
@@ -857,7 +860,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/databaseAccountNames/read|Controlla la disponibilità del nome.|
 |/databaseAccounts/read|Esegue la lettura di un account di database.|
@@ -881,7 +884,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/generateSsoRequest/Action|Genera una richiesta per l'accesso al centro di controllo del dominio.|
 |/validateDomainRegistrationInformation/Action|Convalida l'oggetto acquisto di dominio senza inviarlo|
@@ -895,7 +898,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/lcsprojects/read|Visualizza i progetti dei servizi del ciclo di vita Microsoft Dynamics che appartengono a un utente|
 |/lcsprojects/write|Crea e aggiorna i progetti dei servizi del ciclo di vita Microsoft Dynamics che appartengono all'utente. Solo le proprietà nome e descrizione possono essere aggiornate. La sottoscrizione e il percorso associati al progetto non possono essere aggiornati dopo la creazione|
@@ -907,7 +910,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/checkNameAvailability/action|Verifica la disponibilità dello spazio dei nomi nella sottoscrizione specificata.|
 |/register/action|Registra la sottoscrizione per il provider di risorse hub eventi e abilita la creazione di risorse hub eventi|
@@ -937,7 +940,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftfeatures"></a>Microsoft.Features
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/providers/features/read|Ottiene la funzionalità di una sottoscrizione in un provider di risorse specificato.|
 |/providers/features/register/action|Registra la funzionalità per una sottoscrizione in un provider di risorse specificato.|
@@ -945,7 +948,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/clusters/write|Crea o aggiorna un cluster HDInsight|
 |/clusters/read|Ottiene informazioni sul cluster HDInsight|
@@ -959,7 +962,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/register/action|Registra la sottoscrizione per il provider di risorse importazione/esportazione e consente la creazione di processi di importazione/esportazione.|
 |/jobs/write|Crea un processo con i parametri specificati o aggiorna le proprietà o i tag per il processo specificato.|
@@ -970,7 +973,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftinsights"></a>Microsoft.Insights
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/Register/Action|Registra il provider Microsoft Insights|
 |/AlertRules/Write|Scrittura in una configurazione di regola di avviso|
@@ -1004,7 +1007,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/register/action|Registra una sottoscrizione|
 |/checkNameAvailability/read|Controlla che il nome dell'insieme di credenziali delle chiavi sia valido e che non sia in uso|
@@ -1022,7 +1025,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/workflows/read|Esegue la lettura del flusso di lavoro.|
 |/workflows/write|Crea un flusso di lavoro o ne aggiorna uno esistente.|
@@ -1055,7 +1058,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/register/action|Registra la sottoscrizione per il provider di risorse del servizio Web di Machine Learning e consente la creazione di servizi Web.|
 |/webServices/action|Creare proprietà del servizio Web regionali per le aree supportate|
@@ -1076,7 +1079,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/agreements/offers/plans/read|Restituisce un contratto per uno specifico elemento del marketplace.|
 |/agreements/offers/plans/sign/action|Firma un contratto per uno specifico elemento del marketplace.|
@@ -1084,7 +1087,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/mediaservices/read||
 |/mediaservices/write||
@@ -1095,7 +1098,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/register/action|Registra la sottoscrizione.|
 |/unregister/action|Annulla la registrazione della sottoscrizione.|
@@ -1103,7 +1106,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 |/dnszones/read|Ottiene la zona DNS in formato Json. Le proprietà di zona includono tag, etag, numberOfRecordSets e maxNumberOfRecordSets. Si tenga presente che questo comando non recupera il set di record contenuti all'interno della zona.|
 |/dnszones/write|Crea o aggiorna una zona DNS in un gruppo di risorse.  Consente di aggiornare i tag in una risorsa di zona DNS. Si tenga presente che questo comando non può essere utilizzato per creare o aggiornare i set di record all'interno della zona.|
 |/dnszones/delete|Elimina la zona DNS in formato Json. Le proprietà di zona includono tag, etag, numberOfRecordSets e maxNumberOfRecordSets.|
-|/dnszones/MX/read|Ottiene il set di record di tipo "MX" in formato JSON. Il set di record contiene un elenco di record, nonché la durata (TTL), tag ed etag.|
+|/dnszones/MX/read|Ottiene il set di record di tipo "MX" in formato JSON. Il set di record contiene un elenco di record, oltre a TTL, tag ed etag.|
 |/dnszones/MX/write|Crea o aggiorna un set di record di tipo "MX" all'interno di una zona DNS. I record specificati andranno a sostituire quelli attualmente esistenti nel set di record.|
 |/dnszones/MX/delete|Rimuove il set di record di un determinato nome e tipo "MX" da una zona DNS.|
 |/dnszones/NS/read|Ottiene i set di record DNS di tipo NS.|
@@ -1117,13 +1120,13 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 |/dnszones/CNAME/delete|Rimuove il set di record di un determinato nome e tipo "CNAME" da una zona DNS.|
 |/dnszones/SOA/read|Ottiene i set di record DNS di tipo SOA.|
 |/dnszones/SOA/write|Crea o aggiorna i set di record DNS di tipo SOA.|
-|/dnszones/SRV/read|Ottiene il set di record di tipo "SRV" in formato JSON. Il set di record contiene un elenco di record, nonché la durata (TTL), tag ed etag.|
+|/dnszones/SRV/read|Ottiene il set di record di tipo "SRV" in formato JSON. Il set di record contiene un elenco di record, oltre a TTL, tag ed etag.|
 |/dnszones/SRV/write|Crea o aggiorna il set di record di tipo SRV.|
 |/dnszones/SRV/delete|Rimuove il set di record di un determinato nome e tipo "SRV" da una zona DNS.|
-|/dnszones/PTR/read|Ottiene il set di record di tipo "PTR" in formato JSON. Il set di record contiene un elenco di record, nonché la durata (TTL), tag ed etag.|
+|/dnszones/PTR/read|Ottiene il set di record di tipo "PTR" in formato JSON. Il set di record contiene un elenco di record, oltre a TTL, tag ed etag.|
 |/dnszones/PTR/write|Crea o aggiorna un set di record di tipo "PTR" all'interno di una zona DNS. I record specificati andranno a sostituire quelli attualmente esistenti nel set di record.|
 |/dnszones/PTR/delete|Rimuove il set di record di un determinato nome e tipo "PTR" da una zona DNS.|
-|/dnszones/A/read|Ottiene il set di record di tipo "A" in formato JSON. Il set di record contiene un elenco di record, nonché la durata (TTL), tag ed etag.|
+|/dnszones/A/read|Ottiene il set di record di tipo "A" in formato JSON. Il set di record contiene un elenco di record, oltre a TTL, tag ed etag.|
 |/dnszones/A/write|Crea o aggiorna un set di record di tipo "A" all'interno di una zona DNS. I record specificati andranno a sostituire quelli attualmente esistenti nel set di record.|
 |/dnszones/A/delete|Rimuove il set di record di un determinato nome e tipo "A" da una zona DNS.|
 |/dnszones/TXT/read|Ottiene il set di record di tipo ‘TXT’, in formato JSON. Il set di record contiene un elenco di record, oltre a TTL, tag ed etag.|
@@ -1258,7 +1261,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/register/action|Registra la sottoscrizione per il provider di risorse hub di notifica e abilita la creazione di spazi dei nomi e hub di notifica|
 |/CheckNamespaceAvailability/action|Verifica se il nome di risorsa di uno spazio dei nomi specificato è disponibile o meno all'interno del servizio Hub di notifica.|
@@ -1287,7 +1290,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/register/action|Registra una sottoscrizione a un provider di risorse.|
 |/linkTargets/read|Elenca gli account esistenti non associati a una sottoscrizione di Azure. Per collegare questa sottoscrizione di Azure a un’area di lavoro, utilizzare un ID cliente restituito da questa operazione nella proprietà ID cliente dell’operazione Crea area di lavoro.|
@@ -1319,7 +1322,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/register/action|Registra una sottoscrizione a un provider di risorse.|
 |/solutions/write|Crea una nuova soluzione OMS|
@@ -1328,7 +1331,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/Vaults/backupJobsExport/action|Esporta processi|
 |/Vaults/write|L'operazione Crea insieme di credenziali crea una risorsa di Azure di tipo 'vault'|
@@ -1455,13 +1458,13 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/checkNamespaceAvailability/action|Verifica la disponibilità dello spazio dei nomi nella sottoscrizione specificata.|
 |/register/action|Registra la sottoscrizione per il provider di risorse inoltro e abilita la creazione di risorse inoltro|
 |/namespaces/write|Crea una risorsa spazio dei nomi e ne aggiorna le proprietà. Le proprietà che si possono aggiornare sono quelle relative ai tag e allo stato dello spazio dei nomi.|
 |/namespaces/read|Ottiene l'elenco delle descrizioni delle risorse spazio dei nomi|
-|/namespaces/Delete|Elimina la risorsa spazio dei nomi|
+|/namespaces/Delete|Elimina una risorsa spazio dei nomi|
 |/namespaces/authorizationRules/write|Crea regole di autorizzazione a livello dello spazio dei nomi e ne aggiorna le proprietà. È possibile aggiornare la chiave primaria, la chiave secondaria e i diritti di accesso delle regole di autorizzazione.|
 |/namespaces/authorizationRules/delete|Elimina regola di autorizzazione dello spazio dei nomi. Non è possibile eliminare la regola di autorizzazione dello spazio dei nomi predefinita. |
 |/namespaces/authorizationRules/listkeys/action|Ottiene la stringa di connessione per lo spazio dei nomi|
@@ -1480,14 +1483,14 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/AvailabilityStatuses/read|Ottiene gli stati di disponibilità per tutte le risorse nell'ambito specificato|
 |/AvailabilityStatuses/current/read|Ottiene lo stato di disponibilità per la risorsa specificata|
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/checkResourceName/action|Verifica la validità del nome della risorsa.|
 |/providers/read|Ottiene l'elenco dei provider.|
@@ -1526,7 +1529,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/jobcollections/read|Ottiene la raccolta processi|
 |/jobcollections/write|Crea o aggiorna la raccolta processi.|
@@ -1542,7 +1545,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/register/action|Registra la sottoscrizione per il provider di risorse di ricerca e consente la creazione di servizi di ricerca.|
 |/checkNameAvailability/action|Controlla la disponibilità del nome del servizio.|
@@ -1559,7 +1562,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/jitNetworkAccessPolicies/read|Ottiene i criteri di accesso alla rete JIT|
 |/jitNetworkAccessPolicies/write|Crea un nuovo criterio di accesso alla rete JIT o ne aggiorna uno esistente|
@@ -1582,7 +1585,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/subscriptions/write|Crea o aggiorna una sottoscrizione|
 |/gateways/write|Crea o aggiorna un gateway|
@@ -1599,14 +1602,14 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/checkNameAvailability/action|Verifica la disponibilità dello spazio dei nomi nella sottoscrizione specificata.|
 |/register/action|Registra la sottoscrizione per il provider di risorse bus di servizio e consente la creazione di risorse bus di servizio|
 |/namespaces/write|Crea una risorsa spazio dei nomi e ne aggiorna le proprietà. Le proprietà che si possono aggiornare sono quelle relative ai tag e allo stato dello spazio dei nomi.|
 |/namespaces/read|Ottiene l'elenco delle descrizioni delle risorse spazio dei nomi|
 |/namespaces/Delete|Elimina una risorsa spazio dei nomi|
-|/namespaces/metricDefinitions/read|Ottiene l'elenco di descrizioni delle risorse metrica dello spazio dei nomi|
+|/namespaces/metricDefinitions/read|Ottiene l'elenco di descrizioni delle risorse di metrica dello spazio dei nomi|
 |/namespaces/authorizationRules/write|Crea regole di autorizzazione a livello dello spazio dei nomi e ne aggiorna le proprietà. È possibile aggiornare la chiave primaria, la chiave secondaria e i diritti di accesso delle regole di autorizzazione.|
 |/namespaces/authorizationRules/read|Ottiene l'elenco di descrizioni delle regole di autorizzazione degli spazi dei nomi.|
 |/namespaces/authorizationRules/delete|Elimina regola di autorizzazione dello spazio dei nomi. Non è possibile eliminare la regola di autorizzazione dello spazio dei nomi predefinita. |
@@ -1640,7 +1643,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/servers/read|Restituisce un elenco di server in un gruppo di risorse per una sottoscrizione|
 |/servers/write|Crea un nuovo server o modifica le proprietà di un server esistente in un gruppo di risorse per una sottoscrizione|
@@ -1755,7 +1758,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/register/action|Registra la sottoscrizione per il provider di risorse di archiviazione e consente la creazione di account di archiviazione.|
 |/checknameavailability/read|Controlla che il nome dell’account sia valido e non in uso.|
@@ -1774,7 +1777,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/managers/clearAlerts/action|Cancella tutti gli avvisi associati a Gestione dispositivi.|
 |/managers/getActivationKey/action|Ottiene la chiave di attivazione per Gestione dispositivi.|
@@ -1826,7 +1829,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 |/managers/devices/publicEncryptionKey/action|Elenca le chiavi di crittografia pubbliche di Gestione dispositivi|
 |/managers/devices/hardwareComponentGroups/<br>read|Elenca i gruppi di componenti hardware|
 |/managers/devices/hardwareComponentGroups/<br>changeControllerPowerState/action|Modifica lo stato di alimentazione del controller dei gruppi di componenti hardware|
-|/managers/devices/metrics/read|Elenca o ottiene la metrica|
+|/managers/devices/metrics/read|Elenca o ottiene le metriche|
 |/managers/devices/chapSettings/write|Crea o aggiorna le impostazioni CHAP|
 |/managers/devices/chapSettings/read|Elenca o ottiene le impostazioni CHAP|
 |/managers/devices/chapSettings/delete|Elimina le impostazioni CHAP|
@@ -1890,11 +1893,11 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 |/managers/devices/fileservers/write|Crea o aggiorna i file server|
 |/managers/devices/fileservers/delete|Elimina i file server|
 |/managers/devices/fileservers/backup/action|Esegue il backup di un file server.|
-|/managers/devices/fileservers/metrics/read|Elenca o ottiene la metrica|
+|/managers/devices/fileservers/metrics/read|Elenca o ottiene le metriche|
 |/managers/devices/fileservers/shares/write|Crea o aggiorna le condivisioni|
 |/managers/devices/fileservers/shares/read|Elenca o ottiene le condivisioni|
 |/managers/devices/fileservers/shares/delete|Elimina le condivisioni|
-|/managers/devices/fileservers/shares/metrics/read|Elenca o ottiene la metrica|
+|/managers/devices/fileservers/shares/metrics/read|Elenca o ottiene le metriche|
 |/managers/devices/fileservers/shares/metricsDefinitions/read|Elenca o ottiene le definizioni di metrica|
 |/managers/devices/fileservers/metricsDefinitions/read|Elenca o ottiene le definizioni di metrica|
 |/managers/devices/timeSettings/read|Elenca o ottiene le impostazioni ora|
@@ -1906,7 +1909,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/streamingjobs/Start/action|Avvia un processo di Analisi di flusso|
 |/streamingjobs/Stop/action|Arresta un processo di Analisi di flusso|
@@ -1929,7 +1932,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftsupport"></a>Microsoft.Support
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/register/action|Esegue la registrazione al provider di risorse di supporto|
 |/supportTickets/read|Ottiene i dettagli del ticket di supporto (inclusi stato, gravità, dettagli di contatto e comunicazioni) oppure ottiene l'elenco dei ticket di supporto dalle diverse sottoscrizioni.|
@@ -1937,7 +1940,7 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 |---|---|
 |/unregister/action|Annulla la registrazione del provider di risorse Microsoft.Web per la sottoscrizione.|
 |/validate/action|Convalida il provider di risorse Microsoft.Web per la sottoscrizione.|
@@ -2194,7 +2197,6 @@ Questo provider non è un provider ARM completo e non fornisce operazioni ARM.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni su come [creare un ruolo personalizzato](role-based-access-control-custom-roles.md).
-
 - [Ruoli RBAC incorporati](role-based-access-built-in-roles.md).
-
 - Informazioni sulla gestione delle assegnazioni di accesso [per utente](role-based-access-control-manage-assignments.md) o [per risorsa](role-based-access-control-configure.md) 
+- Informazioni su come [visualizzare i log di attività per controllare le azioni sulle risorse](~/articles/azure-resource-manager/resource-group-audit.md)

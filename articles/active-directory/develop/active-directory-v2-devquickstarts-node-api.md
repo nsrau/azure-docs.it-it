@@ -4,7 +4,7 @@ description: Informazioni su come creare un'API Web Node.js che accetta token si
 services: active-directory
 documentationcenter: nodejs
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 0b572fc1-2aaf-4cb6-82de-63010fb1941d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/13/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 94e945a52b9df7c495de1611baa08083357670c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f07e421feedf3c82da7be16434891cdbe6069038
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-a-web-api-by-using-nodejs"></a>Proteggere un'API Web usando node.js
 > [!NOTE]
@@ -31,7 +31,7 @@ Quando si usa l'endpoint di Azure Active Directory (Azure AD) v 2.0, è possibil
 
 *Passport* è il middleware di autenticazione per Node.js. Passport, flessibile e modulare, può essere rilasciato in modo non invadente in qualsiasi applicazione Web basata su Express o Restify. In Passport una gamma completa di strategie supporta l'autenticazione usando un nome utente e password, Facebook, Twitter o altre opzioni. È stata sviluppata una strategia per Azure AD. Questo articolo illustra come installare il modulo e quindi aggiungere il plug-in `passport-azure-ad` di Azure AD.
 
-## <a name="download"></a>Scaricare
+## <a name="download"></a>Download
 Il codice per questa esercitazione è salvato [su GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs). Per seguire l'esercitazione, è possibile [scaricare la struttura dell'app come file con estensione zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/skeleton.zip) o clonare la struttura:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
@@ -97,7 +97,7 @@ Si usa Resitfy per compilare l'API REST. Restify è un framework applicazioni di
     └── bunyan@0.22.0(mv@0.0.5)
     ```
 
-#### <a name="did-you-get-an-error"></a>È stato visualizzato un errore?
+#### <a name="did-you-get-an-error"></a>È STATO VISUALIZZATO UN ERRORE?
 In alcuni sistemi operativi, quando si usa il comando `npm`, è possibile che venga visualizzato questo messaggio: `Error: EPERM, chmod '/usr/local/bin/..'`. Il messaggio di errore è seguito da una richiesta in cui è indicato di provare a eseguire l'account come amministratore. In tal caso, usare il comando `sudo` per eseguire `npm` a un livello di privilegi più elevato.
 
 #### <a name="did-you-get-an-error-related-to-dtrace"></a>È stato visualizzato un errore relativo a DTrace?

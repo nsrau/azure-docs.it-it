@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ef68f64437935f08f76c29ecf15d574279cca7f1
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
-ms.translationtype: HT
+ms.openlocfilehash: d6c679518bfc712e6a08ffae722b0cc5d2b038aa
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>Creare un'app Web di database SQL e .NET Core in Servizio app di Azure in Linux
 
@@ -93,7 +93,7 @@ Come database SQL questa esercitazione usa [Database SQL di Azure](/azure/sql-da
 
 ### <a name="create-a-sql-database-logical-server"></a>Creare un server logico per il database SQL
 
-In Cloud Shell creare un server logico di database SQL con il comando [az sql server create](/cli/azure/sql/server#create).
+In Cloud Shell creare un server logico di database SQL con il comando [az sql server create](/cli/azure/sql/server?view=azure-cli-latest#az_sql_server_create).
 
 Sostituire il segnaposto *\<server_name>* con un nome di database SQL univoco. Poiché questo nome è incluso nell'endpoint del database SQL, `<server_name>.database.windows.net`, è necessario che sia univoco in tutti i server logici in Azure. Il nome deve contenere solo lettere minuscole, numeri e il carattere (-) e deve avere una lunghezza compresa tra 3 e 50 caratteri. Sostituire anche *\<db_username>* e *\<db_password>* con un nome utente e una password di propria scelta. 
 
@@ -124,7 +124,7 @@ Al termine della creazione del server logico di database SQL, l'interfaccia dell
 
 ### <a name="configure-a-server-firewall-rule"></a>Configurare una regola del firewall del server
 
-Creare una [regola del firewall del server del database SQL di Azure](../../sql-database/sql-database-firewall-configure.md) con il comando [az sql server firewall create](/cli/azure/sql/server#create). Quando sia l'IP iniziale che l'IP finale sono impostati su 0.0.0.0, il firewall viene aperto solo per le altre risorse di Azure. 
+Creare una [regola del firewall del server del database SQL di Azure](../../sql-database/sql-database-firewall-configure.md) con il comando [az sql server firewall create](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az_sql_server_firewall_rule_create). Quando sia l'IP iniziale che l'IP finale sono impostati su 0.0.0.0, il firewall viene aperto solo per le altre risorse di Azure. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -132,7 +132,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>Creare un database
 
-Creare nel server un database con [livello di prestazioni S0](../../sql-database/sql-database-service-tiers.md) con il comando [az sql db create](/cli/azure/sql/db#create).
+Creare nel server un database con [livello di prestazioni S0](../../sql-database/sql-database-service-tiers.md) con il comando [az sql db create](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -166,7 +166,7 @@ In questo passaggio si distribuisce l'applicazione .NET Core connessa al databas
 
 ### <a name="configure-an-environment-variable"></a>Configurare una variabile di ambiente
 
-Per impostare le stringhe di connessione per l'app Azure, usare il comando [az webapp config appsettings update](/cli/azure/webapp/config/appsettings#update) in Cloud Shell. Nel comando seguente sostituire *\<app name>* e il parametro *\<connection_string>* con la stringa di connessione creata prima.
+Per impostare le stringhe di connessione per l'app di Azure, utilizzare il [az webapp configurazione appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) comando nella Shell di Cloud. Nel comando seguente sostituire *\<app name>* e il parametro *\<connection_string>* con la stringa di connessione creata prima.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
@@ -252,7 +252,7 @@ Aggiungere alcune attività.
 
 ![App in esecuzione nel servizio app in Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-**Congratulazioni.** Si sta eseguendo un'app .NET Core basata sui dati nel servizio app in Linux.
+**Congratulazioni** Si sta eseguendo un'app .NET Core basata sui dati nel servizio app in Linux.
 
 ## <a name="update-locally-and-redeploy"></a>Eseguire l'aggiornamento e la ridistribuzione in locale
 

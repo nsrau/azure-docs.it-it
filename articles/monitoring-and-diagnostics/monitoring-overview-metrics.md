@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: eb519aab87c13e8836bf1d41992812762f0cd737
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 32ca0ce5148ae2641500c98cb04b0d7db1987960
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Panoramica delle metriche in Microsoft Azure
 In questo articolo sono descritte le metriche disponibili in Microsoft Azure, i loro vantaggi e come iniziare a usarle.  
@@ -89,11 +89,11 @@ Monitoraggio di Azure ha anche una nuova esperienza di creazione di grafici per 
 ## <a name="access-metrics-via-the-rest-api"></a>Accedere alle metriche mediante l'API REST
 È possibile accedere alle metriche di Azure tramite le API del Monitoraggio di Azure. Sono due le API che consentono di rilevare le metriche e accedervi:
 
-* Usare l'[API REST relativa alle definizione delle metriche di Monitoraggio di Azure](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) per accedere all'elenco di metriche, ed eventuali dimensioni, disponibili per un servizio.
-* Usare l'[API REST delle metriche di Monitoraggio di Azure](https://docs.microsoft.com/en-us/rest/api/monitor/metrics) per segmentare, filtrare e accedere ai dati delle metriche effettive.
+* Usare l'[API REST relativa alle definizione delle metriche di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) per accedere all'elenco di metriche, ed eventuali dimensioni, disponibili per un servizio.
+* Usare l'[API REST delle metriche di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/metrics) per segmentare, filtrare e accedere ai dati delle metriche effettive.
 
 > [!NOTE]
-> Questo articolo è dedicato alle metriche accessibili tramite la [nuova API per le metriche](https://docs.microsoft.com/en-us/rest/api/monitor/) per le risorse di Azure. La versione della nuova API per le definizioni delle metriche e l'API per le metriche è 2017-05-01-preview. È possibile accedere alle metriche e alle definizioni delle metriche legacy con la versione API 2014-04-01.
+> Questo articolo è dedicato alle metriche accessibili tramite la [nuova API per le metriche](https://docs.microsoft.com/rest/api/monitor/) per le risorse di Azure. La versione della nuova API per le definizioni delle metriche e l'API per le metriche è 2017-05-01-preview. È possibile accedere alle metriche e alle definizioni delle metriche legacy con la versione API 2014-04-01.
 >
 >
 

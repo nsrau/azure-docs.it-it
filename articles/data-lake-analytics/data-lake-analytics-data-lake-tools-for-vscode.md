@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: jejiang
-ms.openlocfilehash: 60307b8b16718fdc947bde7616532fa6a0920cf0
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
-ms.translationtype: HT
+ms.openlocfilehash: c70cfc309fe60f0641c89b4a341e3364af74771a
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Usare gli Strumenti Azure Data Lake per Visual Studio Code
 
@@ -30,7 +30,7 @@ Informazioni su Strumenti Azure Data Lake per Visual Studio Code (VS Code) per c
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Strumenti Azure Data Lake per Visual Studio Code supportano Windows, Linux e MacOS.  
+Azure Data Lake Tools per VSCode supporta Windows, Linux e MacOS.  
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 
@@ -116,8 +116,18 @@ Dopo aver inviato un processo U-SQL, i log di invio vengono visualizzati nella f
 
 Per abilitare l'output dei dettagli del processo: impostare **jobInformationOutputPath** nel file **vs code for the u-sql_settings.json**.
  
+**Ignora set Git**
+
+1. Premere CTRL+MAIUSC+P per aprire il riquadro comandi. 
+2. Immettere **ADL: Git Set ignorare**.
+
+    - Se non si ha un **con estensione gitignore** file nella cartella di lavoro di VSCode, un file denominato **.gitIgnor** viene creato nella cartella. Quattro elementi (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **cache**, **obj**) vengono aggiunti nel file per impostazione predefinita. Se necessario, è possibile effettuare ulteriori aggiornamenti.
+    - Se si dispone già di un **con estensione gitignore** file nella cartella di lavoro di VSCode, lo strumento aggiunge quattro elementi (**usqlCodeBehindReference**, **usqlCodeBehindGenerated**, **cache**, **obj**) nei **con estensione gitignore** file se i quattro elementi non inclusi nel file.
+
+  ![File di configurazione degli strumenti di Data Lake per Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-gitignore.png)
+
 ## <a name="use-python-r-and-csharp-code-behind-file"></a>Usare il file code-behind Python, R e CSharp
-Strumenti Azure Data Lake supporta diversi tipi di codice personalizzato. Per istruzioni, vedere [Eseguire lo sviluppo U-SQL con Python, R e CSharp per Azure Data Lake Analytics in VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
+Strumento di Azure Data Lake supporta più codici personalizzati, vedere le istruzioni [sviluppare U-SQL con Python, R e CSharp per Azure Data Lake Analitica in VSCode](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md).
 
 ## <a name="use-assemblies"></a>Usare gli assembly
 
@@ -149,7 +159,7 @@ Un altro modo pratico per attivare il comando **ADL: Register Assembly** (ADL: R
 ![Code-behind di Strumenti Data Lake per Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-register-assembly-advance.png)
 >[!NOTE]
 >- Dipendenze dell'assembly: Strumenti Azure Data Lake rileva automaticamente se la DLL include dipendenze. Le dipendenze vengono visualizzate nel file JSON dopo che sono state rilevate. 
->- Risorse: è possibile caricare le risorse DLL (ad esempio i file con estensione txt, png e csv) come parte della registrazione dell'assembly. 
+>- Risorse: È possibile caricare le risorse DLL (ad esempio, txt, PNG e CSV) come parte della registrazione dell'assembly. 
 
 Un altro modo pratico per attivare il comando **ADL: Register Assembly through Configuration** (ADL: Registra assembly da configurazione) consiste nel fare clic con il pulsante destro del mouse sul file .dll in Esplora file. 
 
@@ -193,17 +203,19 @@ Prima di compilare ed eseguire gli script U-SQL in Data Lake Analytics, è neces
 **Connettersi ad Azure**
 
 1.  Premere CTRL+MAIUSC+P per aprire il riquadro comandi. 
-2.  Immettere **ADL: Login** (ADL: Accedi). Le informazioni di accesso sono presenti nel riquadro **Output**.
+2.  Immettere **ADL: Login** (ADL: Accedi). Le informazioni di accesso viene visualizzata nell'area superiore.
 
     ![Riquadro comandi di Strumenti Data Lake per Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
     ![Informazioni di accesso di Strumenti Data Lake per Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-login-info.png)
-3. Tenendo premuto CTRL fare clic sull'URL di accesso: https://aka.ms/devicelogin per aprire la pagina Web di accesso. Immettere il codice **G567LX42V** nella casella di testo e quindi selezionare **Continua**.
+3.  Fare clic su **copiare & aprire** per aprire la pagina Web di accesso con URL: https://aka.ms/devicelogin. Incollare il codice **G567LX42V** nella casella di testo e quindi selezionare **continua**.
 
    ![Codice di accesso da incollare di Strumenti Data Lake per Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )   
 4.  Seguire le istruzioni per accedere dalla pagina Web. Quando si è connessi viene visualizzato il nome di account di Azure sulla barra di stato nell'angolo inferiore sinistro della finestra **VS Code**. 
 
     > [!NOTE] 
-    > Se l'account ha due fattori abilitati, è consigliabile usare l'autenticazione telefonica anziché un PIN.
+    >- Data Lake strumento firma automaticamente nel tempo successivo, se si accede prima, ma non è stato effettuato ancora.
+    >- Se l'account ha due fattori abilitati, è consigliabile usare l'autenticazione telefonica anziché un PIN.
+
 
 Per disconnettersi immettere il comando **ADL: Logout** (ADL: Disconnetti).
 
@@ -324,15 +336,38 @@ Lo stato viene visualizzato nella parte inferiore della barra di stato al termin
    ![Verifica dello stato di archiviazione in Strumenti Data Lake per Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-status.png)
 
 ## <a name="vscode-explorer-integration-with-azure-data-lake"></a>Integrazione di VSCode Explorer con Azure Data Lake
-1. Dopo l'accesso, tutti gli account di Azure sono elencati nel riquadro sinistro di **Data Lake Explorer**. Espandere un database per visualizzare **Schemi**, **Tabelle**, **Assembly** e così via nel nodo.
+
+**Integrazione di Azure** 
+
+- Prima di account di accesso di Azure, è possibile espandere sempre **LAKE Esplora**, quindi fare clic su **Accedi a Azur** all'account di accesso in Azure. Dopo l'accesso, si noterà tutte le sottoscrizioni dell'account di Azure sono elencate nel riquadro sinistro del **LAKE Esplora**. 
+
+   ![Data Lake Explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
 
    ![Data Lake Explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-2. È possibile eseguire il comando **Registra assembly** facendo clic con il pulsante destro del mouse sul nodo **Assembly**.
+**Spostamento dei metadati ADLA** 
+
+- Espandere la sottoscrizione di Azure, è possibile passare il database U-SQL, visualizzazione di **schemi**, **credenziali**, **assembly**, **tabella**, **Indice**e così via, sotto il nodo database U-SQL.
+
+**Gestione delle entità di metadati ADLA**
+
+- Espandere **U-SQL database**, è possibile creare un nuovo database, schema, tabella, i tipi di tabella, indice, le statistiche facendo clic con il **Script per creare** menu di scelta rapida del nodo corrispondente. Nella pagina di script aperto, modificare lo script in base alle esigenze, quindi inviare il processo facendo clic sul menu di scelta rapida **ADL: processo di invio**. Dopo aver completato la creazione, fare clic su menu di scelta rapida **aggiornamento** per visualizzare il nuovo elemento creato. È anche possibile eliminare l'elemento facendo clic sul menu di scelta rapida **eliminare**.
+
+   ![Esplora Lake Crea nuovo elemento menu](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create.png)
+
+   ![Esplora Lake Crea nuovo elemento script](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-explorer-script-create-snippet.png)
+
+**Registrazione dell'Assembly ADLA**
+
+ - È possibile **registrare assembly** nel corrispondente database facendo clic su di **assembly** nodo.
 
     ![Data Lake Explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer-register-assembly.png)
 
-3. Passare a **Account di archiviazione**. È possibile caricare o scaricare file facendo clic con il pulsante destro del mouse sulla cartella o sul file. Nel menu di scelta rapida sono disponibili anche i comandi **Anteprima**, **Scarica**, **Copia percorso relativo** e **Copia percorso completo** per un file.
+**Integrazione di ADLS** 
+
+ - Passare a **Account di archiviazione**, è possibile **anteprima**, **scaricare**, **eliminare**, **Copia percorso relativo**, **Copia percorso completo** dal menu di scelta rapida del nodo di file. È possibile **aggiornamento**, **caricare**, **cartella caricare**, **eliminare** facendo clic con il menu di scelta rapida del nodo di cartella.
+
+   ![Data Lake Explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
    ![Data Lake Explorer](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
 
@@ -344,7 +379,7 @@ Lo stato viene visualizzato nella parte inferiore della barra di stato al termin
 Strumenti Data Lake apre il percorso di archiviazione nel portale di Azure. È possibile trovare il percorso e visualizzare in anteprima il file dal Web.
 
 ## <a name="local-run-and-local-debug-for-windows-users"></a>Esecuzione e debug locale per utenti Windows
-L'esecuzione locale di U-SQL verifica i dati locali e convalida lo script localmente prima che il codice venga pubblicato in Data Lake Analytics. La funzionalità di debug locale consente di completare le seguenti operazioni prima che il codice venga inviato a Data Lake Analytics: 
+Esecuzione locale U-SQL verifica i dati locali e di convalidare lo script in locale prima che il codice viene pubblicato in Data Lake Analitica. La funzionalità di debug locale consente di completare le seguenti operazioni prima che il codice venga inviato a Data Lake Analytics: 
 - Eseguire il debug del code-behind di C#. 
 - Eseguire il codice passo per passo. 
 - Convalidare lo script in locale.

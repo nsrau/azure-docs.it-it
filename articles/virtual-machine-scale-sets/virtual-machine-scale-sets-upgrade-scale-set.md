@@ -3,8 +3,8 @@ title: "Aggiornare un set di scalabilità di macchine virtuali di Azure | Micros
 description: "Aggiornare un set di scalabilità di macchine virtuali di Azure"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: guybo
-ms.openlocfilehash: c7093e221ff8fe69ded1cfbce4f3ddeb1a195666
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: gunegatybo
+ms.openlocfilehash: fbdc9d40173a40f35eee60cadfdd258293509d53
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Aggiornare un set di scalabilità di macchine virtuali
 Questo articolo descrive come eseguire un aggiornamento del sistema operativo a un set di scalabilità di macchine virtuali di Azure senza tempi di inattività. In questo contesto, un aggiornamento del sistema operativo riguarda la modifica della versione/SKU del sistema operativo oppure la modifica dell'URI di un'immagine personalizzata. L'aggiornamento senza tempi di inattività implica l'aggiornamento di una macchina virtuale alla volta o in gruppi, ad esempio un dominio di errore alla volta, anziché contemporaneamente. In questo modo, è possibile mantenere in esecuzione tutte le macchine virtuali non in fase di aggiornamento.
@@ -31,7 +31,7 @@ Per evitare ambiguità, si distinguono quattro tipi di aggiornamento del sistema
 * Modifica del riferimento all'immagine di un set di scalabilità creato con i dischi gestiti di Azure.
 * L'applicazione di patch del sistema operativo da una macchina virtuale (esempi di questo tipo includono l'installazione di una patch di sicurezza e l'esecuzione di Windows Update). Questo scenario è supportato ma non è trattato in questo articolo.
 
-I set di scalabilità delle macchine virtuali che vengono distribuiti come parte di un cluster di [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) non sono trattati qui. Per altre informazioni sulle patch di Service Fabric vedere [Applicare patch al sistema operativo Windows nel cluster di Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-patch-orchestration-application).
+I set di scalabilità delle macchine virtuali che vengono distribuiti come parte di un cluster di [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) non sono trattati qui. Per ulteriori informazioni sulle patch di Service Fabric, vedere [Patch del sistema operativo del cluster di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application)
 
 La sequenza di base per la modifica della versione/SKU del sistema operativo di un'immagine della piattaforma o dell'URI di un'immagine personalizzata è simile alla seguente:
 
@@ -64,14 +64,14 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 Update-AzureRmVmssInstance -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $instanceId
 ```
 
-Nel caso di un aggiornamento dell'URI per un'immagine personalizzata anziché della modifica di una versione di immagine della piattaforma, sostituire la riga "set the new version" con un comando che aggiornerà l'URI dell'immagine di origine. Ad esempio, se il set di scalabilità è stato creato senza usare i dischi gestiti di Azure, l'aggiornamento sarebbe simile al seguente:
+Se si sta aggiornando l'URI per un'immagine personalizzata anziché la modifica di una versione dell'immagine della piattaforma, sostituire la riga "impostare la nuova versione" con un comando che aggiorna l'URI dell'immagine di origine. Ad esempio, se il set di scalabilità è stato creato senza usare i dischi gestiti di Azure, l'aggiornamento sarebbe simile al seguente:
 
 ```powershell
 # set the new version in the model data
 $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 ```
 
-Se un set di scalabilità basato sull'immagine è stato creato usando i dischi gestiti di Azure, il riferimento all'immagine verrà aggiornato. ad esempio:
+Se è stato creato un set di scalabilità basata su immagini personalizzate utilizzando i dischi gestiti di Azure, verrà aggiornato il riferimento all'immagine. Ad esempio: 
 
 ```powershell
 # set the new version in the model data

@@ -4,7 +4,7 @@ description: Questo argomento descrive l'architettura del servizio di sincronizz
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 51082ad453d53f56f30f814b78578801c00f4827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cc6c772f8f5cc86f8b975ac7835ffff85ef3435c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Servizio di sincronizzazione Azure AD Connect: informazioni sull'architettura
 Questo argomento illustra l'architettura di base per il servizio di sincronizzazione Azure AD Connect. Sotto diversi aspetti è simile ai predecessori MIIS 2003, ILM 2007 e FIM 2010. Il servizio di sincronizzazione Azure AD Connect è l'evoluzione di queste tecnologie. Se si ha familiarità con qualcuna delle tecnologie precedenti, anche il contenuto di questo argomento risulterà familiare. Se invece non si ha esperienza con la sincronizzazione, è consigliabile leggere questo argomento. Non è tuttavia indispensabile conoscere in dettaglio questo argomento per apportare personalizzazioni al servizio di sincronizzazione Azure AD Connect (chiamato qui motore di sincronizzazione).
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 Il motore di sincronizzazione crea una visualizzazione integrata degli oggetti archiviati in più origini dati connesse e gestisce le informazioni sull'identità presenti in tali origini dati. Questa visualizzazione integrata viene determinata dalle informazioni sull'identità recuperate da origini dati connesse e da un set di regole che determinano come elaborare le informazioni.
 
 ### <a name="connected-data-sources-and-connectors"></a>Origini dati connesse e connettori
@@ -142,9 +142,9 @@ Un oggetto di importazione viene creato come oggetto separato. Un oggetto di esp
 ## <a name="sync-engine-identity-management-process"></a>Processo di gestione delle identità del motore di sincronizzazione
 Il processo di gestione delle identità controlla come vengono aggiornate le informazioni sull'identità tra origini dati connesse diverse. La gestione delle identità viene eseguita in tre processi:
 
-* Importazione
+* Importa
 * Sincronizzazione
-* Esporta
+* Esportazione
 
 Durante il processo di importazione, il motore di sincronizzazione valuta le informazioni sull'identità in ingresso da un'origine dati connessa. Quando vengono rilevate modifiche, crea nuovi oggetti di staging o aggiorna quelli esistenti nello spazio connettore per la sincronizzazione.
 

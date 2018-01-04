@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: a02f5e827345a1d28f01d691e1b6fbccfc03ae8a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6febd3f12248a96f54415a91fcf0513ef7412e78
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="derive-column-by-example-transformation"></a>Trasformazione Deriva colonna dall'esempio
 
@@ -286,7 +286,7 @@ Numero di esempi necessari per questo caso: 1
 
 Queste parti della data sono state estratte tramite trasformazioni diverse dall'esempio sullo stesso set di dati. Le stringhe in grassetto rappresentano gli esempi inseriti per la relativa trasformazione.
 
-|DateTime|Giorno della settimana|Date|Mese|Year|Hour|Minuto|Second|
+|Datetime|Giorno della settimana|Data|Mese|Year|Hour|Minuto|Second|
 |-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
 |31-gen-2031 05:54:18|**Ven**|**31**|**gen**|**2031**|**5**|**54**|**18**|
 |17-gen-1990 13:32:01|Mer|17|gen|1990|13|32|01|
@@ -313,7 +313,7 @@ Queste parti della data sono state estratte tramite trasformazioni diverse dall'
 
 Le formattazioni della data sono state eseguite tramite trasformazioni diverse dall'esempio sullo stesso set di dati. Le stringhe in grassetto rappresentano gli esempi inseriti per la relativa trasformazione.
 
-|DateTime|Formato1|Formato2|Formato3|Formato4|Formato5|
+|Datetime|Formato1|Formato2|Formato3|Formato4|Formato5|
 |-----:|-----:|-----:|-----:|-----:|-----:|
 |31-gen-2031 05:54:18|**31/1/2031**|**Venerdì, 31 gennaio 2031**|**31012031 5:54**|**31/1/2031 5:54**|**Q1 2031**|
 |17-gen-1990 13:32:01|17/1/1990|Mercoledì, 17 gennaio 1990|17011990 13:32|17/1/1990 13:32|Q1 1990|
@@ -341,7 +341,7 @@ Le formattazioni della data sono state eseguite tramite trasformazioni diverse d
 
 Il mapping di un periodo di tempo è stato eseguito tramite trasformazioni diverse dall'esempio sullo stesso set di dati. Le stringhe in grassetto rappresentano gli esempi inseriti per la relativa trasformazione.
 
-|DateTime|Periodo (secondi)|Periodo (minuti)|Periodo (due ore)|Periodo (30 minuti)|
+|Datetime|Periodo (secondi)|Periodo (minuti)|Periodo (due ore)|Periodo (30 minuti)|
 |-----:|-----:|-----:|-----:|-----:|
 |31-gen-2031 05:54:18|**0-20**|**45-60**|**5:00-7:00**|**5:30-6:00**|
 |17-gen-1990 13:32:01|**0-20**|30-45|13:00-15:00|13:30-14:00|
@@ -385,5 +385,5 @@ Il mapping di un periodo di tempo è stato eseguito tramite trasformazioni diver
 ### <a name="conditional-transformations"></a>Trasformazioni condizionali
 In alcuni casi, è impossibile trovare una trasformazione che soddisfi gli esempi specificati. In questi casi, la trasformazione per derivare una colonna dall'esempio tenta di raggruppare gli input in base a un modello e di apprendere trasformazioni diverse per ogni gruppo. Questa operazione si chiama **trasformazione condizionale**. La **trasformazione condizionale** viene tentata solo per le trasformazioni con una sola colonna di input. 
 
-### <a name="reference"></a>riferimento
+### <a name="reference"></a>Riferimenti
 Altre informazioni sulla tecnologia di trasformazione della stringa dall'esempio sono reperibili in [questa pubblicazione](https://www.microsoft.com/en-us/research/publication/automating-string-processing-spreadsheets-using-input-output-examples/).

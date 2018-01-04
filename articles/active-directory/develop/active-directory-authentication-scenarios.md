@@ -4,7 +4,7 @@ description: "Panoramica dei cinque più comuni scenari di autenticazione per Az
 services: active-directory
 documentationcenter: dev-center-name
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.openlocfilehash: 2f9410bdaa037f1839cf7c12c3532b51be669ed5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 32077c1e9415dd8be7064a2377ee806ae21d1390
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Scenari di autenticazione per Azure AD
 Azure Active Directory (AD) semplifica l'autenticazione per gli sviluppatori fornendo le identità come servizio, con il supporto per protocolli standard del settore come OAuth 2.0 e OpenID Connect, nonché librerie open source per diverse piattaforme che permettono di iniziare rapidamente a creare codice. Questo documento include informazioni utili per comprendere i diversi scenari supportati da Azure AD, oltre a illustrare come iniziare. Il documento è suddiviso nelle sezioni seguenti:
@@ -67,10 +67,10 @@ Dopo avere delineato i concetti di base, è possibile passare alle sezioni segue
 ## <a name="claims-in-azure-ad-security-tokens"></a>Attestazioni nei token di sicurezza di Azure AD
 I token di sicurezza emessi da Azure AD contengono attestazioni o asserzioni di informazioni sull'oggetto autenticato. L'applicazione può usare tali attestazioni per varie attività. Ad esempio, possono essere usate per convalidare il token, identificare il tenant di directory dell'oggetto, visualizzare informazioni relative all'utente, determinare l'autorizzazione dell'oggetto e così via. Le attestazioni presenti in un determinato token di sicurezza dipendono dal tipo di token, dal tipo di credenziali usate per autenticare l'utente e dalla configurazione dell'applicazione. La tabella seguente fornisce una breve descrizione dei tipi di attestazione generati da Azure AD. Per altre informazioni, fare riferimento a [Token e tipi di attestazioni supportati](active-directory-token-and-claims.md).
 
-| Attestazione | Descrizione |
+| Attestazione | DESCRIZIONE |
 | --- | --- |
 | ID applicazione |Identifica l'applicazione che usa il token. |
-| Destinatari |Identifica la risorsa di destinazione del token. |
+| Audience |Identifica la risorsa di destinazione del token. |
 | Riferimento alla classe contesto di autenticazione applicazione |Indica la modalità di autenticazione del client (client pubblico e client riservato). |
 | Istante di autenticazione |Registra la data e l'ora in cui è avvenuta l'autenticazione. |
 | Metodo di autenticazione |Indica la modalità di autenticazione dell'oggetto del token (password, certificato e così via). |
@@ -80,7 +80,7 @@ I token di sicurezza emessi da Azure AD contengono attestazioni o asserzioni di 
 | Issued At |Registra l'ora in cui il token è stato emesso. Spesso usata per l'aggiornamento del token. |
 | Issuer |Identifica il servizio token di sicurezza che ha emesso il token, nonché il tenant di Azure AD. |
 | Cognome |Fornisce il cognome dell'utente come è impostato in Azure AD. |
-| Nome |Fornisce un valore leggibile che identifica l'oggetto del token. |
+| NOME |Fornisce un valore leggibile che identifica l'oggetto del token. |
 | ID oggetto |Contiene un identificatore univoco e non modificabile dell'oggetto in Azure AD. |
 | Ruoli |Contiene i nomi descrittivi dei ruoli applicazione di Azure AD concessi all'utente. |
 | Scope |Indica le autorizzazioni concesse all'applicazione client. |
@@ -88,7 +88,7 @@ I token di sicurezza emessi da Azure AD contengono attestazioni o asserzioni di 
 | ID tenant |Contiene un identificatore univoco e non modificabile del tenant di directory che ha emesso il token. |
 | Durata del token |Definisce l'intervallo di tempo entro il quale un token è valido. |
 | Nome dell'entità utente |Contiene il nome dell'entità utente dell'oggetto. |
-| Versione |Contiene il numero di versione del token. |
+| Version |Contiene il numero di versione del token. |
 
 ## <a name="basics-of-registering-an-application-in-azure-ad"></a>Nozioni di base sulla registrazione di un'applicazione in Azure AD 
 Le applicazioni che usano l'outsourcing per l'autenticazione ad Azure AD devono essere registrate in una directory. Questo passaggio include la comunicazione ad Azure AD delle informazioni sull'applicazione, compresi l'URL in cui si trova, l'URL per l'invio delle risposte dopo l'autenticazione, l'URI per identificare l'applicazione e così via. Queste informazioni sono necessarie per alcune ragioni fondamentali:

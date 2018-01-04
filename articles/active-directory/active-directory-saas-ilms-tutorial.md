@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: d6e11639-6cea-48c9-b008-246cf686e726
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 22c72020200138e78835ed7dd2661f18b824c785
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2764a109e92d3eabf2b7064ce7cd2e428256c8b8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ilms"></a>Esercitazione: Integrazione di Azure Active Directory con iLMS
 
@@ -27,7 +27,7 @@ L'integrazione di iLMS con Azure AD offre i vantaggi seguenti:
 
 - È possibile controllare in Azure AD chi può accedere a iLMS
 - È possibile abilitare gli utenti per l'accesso automatico a iLMS (Single Sign-On) con i propri account Azure AD
-- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure
+- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con iLMS sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di iLMS abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
@@ -47,7 +47,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di iLMS dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -63,11 +63,11 @@ Per configurare l'integrazione di iLMS in Azure AD, è necessario aggiungere iLM
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 3. Per aggiungere una nuova applicazione, fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 4. Nella casella di ricerca digitare **iLMS**.
 
@@ -86,7 +86,7 @@ La relazione di collegamento viene stabilita assegnando il valore di **nome uten
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con iLMS, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente di test di iLMS](#creating-an-ilms-test-user)** : per avere una controparte di Britta Simon in iLMS collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -100,15 +100,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **iLMS** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_samlbase.png)
 
 3. Nella sezione **URL e dominio iLMS** se si vuole configurare l'applicazione in modalità avviata da **IDP**, seguire questa procedura:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_url.png)
 
     a. Nella casella di testo **Identificatore** incollare il valore **Identificatore** copiato dalla sezione **Provider di servizi** delle impostazioni SAML nel portale di amministrazione iLMS.
 
@@ -119,13 +119,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 4. Selezionare **Mostra impostazioni URL avanzate**, se si desidera configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_url1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_url1.png)
 
     Nella casella di testo **URL di accesso** incollare il valore **Endpoint (URL)** copiato dalla sezione **Provider di servizi** delle impostazioni SAML nel portale di amministrazione come `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`     
 
 5. Per abilitare il provisioning JIT, l'applicazione iLMS si aspetta che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione. La schermata seguente illustra un esempio relativo a questa operazione.
     
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-ilms-tutorial/4.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-ilms-tutorial/4.png)
     
     Creare gli attributi **Department (Reparto), Region (Area)** e **Division** (Divisione) e aggiungere il nome di questi attributi in iLMS. Tutti gli attributi indicati sopra sono obbligatori.  
 
@@ -142,9 +142,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Fare clic su **Aggiungi attributo** per aprire la finestra di dialogo **Aggiungi attributo**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_04.png)
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_05.png)
     
     b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
     
@@ -154,39 +154,39 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 7. Nella sezione **Certificato di firma SAML** fare clic su **XML metadati** e quindi salvare il file XML nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_certificate.png) 
 
 8. Fare clic sul pulsante **Salva** .
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-iLMS-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-iLMS-tutorial/tutorial_general_400.png)
 
 9. In un'altra finestra del Web browser accedere al **portale di amministrazione di iLMS** come amministratore.
 
 10. Fare clic su **SSO:SAML** nella scheda **Impostazioni** per aprire le impostazioni di SAML ed eseguire la procedura seguente:
     
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-ilms-tutorial/1.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-ilms-tutorial/1.png) 
 
     a. Espandere la sezione **Provider di servizi** e copiare l'**Identificatore** e il valore **Endpoint (URL)**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-ilms-tutorial/2.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-ilms-tutorial/2.png) 
 
     b. Nella sezione **Provider di identità** fare clic su **Import metadata** (Importa metadati).
     
     c. Selezionare il file **Metadati** scaricato dal portale di Azure dalla sezione **Certificato di firma SAML**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_ssoconfig1.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_ssoconfig1.png) 
 
     d. Se si desidera abilitare il provisioning JIT per creare gli account iLMS per utenti non riconosciuti, seguire questa procedura:
         
        - Selezionare **Create Un-recognized User Account** (Crea account utente non riconosciuto).
        
-       ![Configura accesso Single Sign-On](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_ssoconfig2.png)
+       ![Configure Single Sign-On](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_ssoconfig2.png)
 
        -  Eseguire il mapping degli attributi in Azure AD con gli attributi in iLMS. Nella colonna dell'attributo specificare il nome degli attributi o il valore predefinito.
 
     e. Passare alla scheda **Business Rules** (Regole Business) ed eseguire la procedura seguente: 
         
-       ![Configura accesso Single Sign-On](./media/active-directory-saas-ilms-tutorial/5.png)
+       ![Configure Single Sign-On](./media/active-directory-saas-ilms-tutorial/5.png)
 
        - Selezionare **Create Un-recognized Regions, Divisions and Departments** (Crea aree, divisioni e reparti non riconosciuti) per creare aree, divisioni e reparti che non esistono già al momento del Single Sign-on.
         
@@ -198,7 +198,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 11. Fare clic sul pulsante **Save** (Salva) per salvare le impostazioni.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-ilms-tutorial/save.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-ilms-tutorial/save.png)
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -262,7 +262,7 @@ Se è necessario creare manualmente un utente, seguire la seguente procedura:
 
     f. Dall'elenco a discesa **Department** (Reparto), selezionare il valore per il reparto.
 
-    g. Fare clic su **Salva**.
+    g. Fare clic su **Save**.
 
     > [!NOTE] 
     > È possibile inviare all'utente un messaggio di registrazione selezionando la casella di controllo **Send Registration Mail** (Invia email di registrazione).
@@ -281,7 +281,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco delle applicazioni selezionare **iLMS**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_app.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

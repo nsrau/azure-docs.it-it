@@ -4,7 +4,7 @@ description: "Informazioni su come eseguire la scalabilità automatica usando me
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: na
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: negat
-ms.openlocfilehash: 98635ea6695fdb1e55456b5b6a293a3b4ad9d839
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8e822d83dd3bafabfea60ad50224c87df226bdc6
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Eseguire la scalabilità automatica usando metriche guest in un modello di set di scalabilità Linux
 
 In Azure esistono due tipi di metriche raccolte da macchine virtuali e set di scalabilità: alcune provengono dalla macchina virtuale host e altre dalla macchina virtuale guest. In generale, se si usano CPU, disco e metriche di rete standard, le metriche host sono probabilmente ottimali. Se tuttavia è necessaria una scelta di metriche più ampia, le metriche guest rappresentano probabilmente una soluzione migliore. Ecco le differenze tra i due tipi di metriche:
 
-Le metriche host sono più semplici e più affidabili. Non richiedono passaggi di configurazione aggiuntivi perché vengono raccolte direttamente dalla macchina virtuale host, mentre le metriche guest richiedono l'installazione dell'[estensione Diagnostica di Azure per Windows](../virtual-machines/windows/extensions-diagnostics-template.md) o dell'[estensione Diagnostica di Azure per Linux](../virtual-machines/linux/diagnostic-extension.md) nella macchina virtuale guest. È preferibile usare metriche guest anziché metriche host perché le metriche guest offrono una selezione più ampia di metriche. Le metriche relative al consumo di memoria, disponibili solo tramite metriche guest, ne sono un esempio. Le metriche host supportate sono elencate [qui](../monitoring-and-diagnostics/monitoring-supported-metrics.md), mentre le metriche guest usate comunemente sono elencate [qui](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Questo articolo illustra come modificare il [modello di set di scalabilità a validità minima](./virtual-machine-scale-sets-mvss-start.md) per usare le regole di scalabilità automatica in base alle metriche guest per i set di scalabilità Linux.
+Le metriche host sono più semplici e più affidabili. Non richiedono configurazione aggiuntiva perché vengono raccolti dall'host macchina virtuale, mentre le metriche di guest è necessario installare il [estensione di diagnostica Windows Azure](../virtual-machines/windows/extensions-diagnostics-template.md) o [estensione diagnostica per Linux Azure](../virtual-machines/linux/diagnostic-extension.md)nella macchina virtuale guest. È preferibile usare metriche guest anziché metriche host perché le metriche guest offrono una selezione più ampia di metriche. Le metriche relative al consumo di memoria, disponibili solo tramite metriche guest, ne sono un esempio. Le metriche host supportate sono elencate [qui](../monitoring-and-diagnostics/monitoring-supported-metrics.md), mentre le metriche guest usate comunemente sono elencate [qui](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Questo articolo illustra come modificare il [modello di set di scalabilità a validità minima](./virtual-machine-scale-sets-mvss-start.md) per usare le regole di scalabilità automatica in base alle metriche guest per i set di scalabilità Linux.
 
 ## <a name="change-the-template-definition"></a>Modificare la definizione del modello
 
-Il modello di set di scalabilità a validità minima è disponibile [qui](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), mentre il modello per la distribuzione del set di scalabilità Linux con scalabilità automatica basata su guest è disponibile [qui](https://raw.githubusercontent.com/gatneil/mvss/guest-based-autoscale-linux/azuredeploy.json). Viene ora esaminato il diff usato per creare questo modello, `git diff minimum-viable-scale-set existing-vnet`, passo per passo:
+Può essere visualizzato il modello di set di scala valida minima [qui](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), e il modello per la distribuzione di Linux scala impostata con scalabilità automatica basata su guest può essere visto [qui](https://raw.githubusercontent.com/gatneil/mvss/guest-based-autoscale-linux/azuredeploy.json). Viene ora esaminato il diff usato per creare questo modello, `git diff minimum-viable-scale-set existing-vnet`, passo per passo:
 
-Per prima cosa, si aggiungono i parametri per `storageAccountName` e `storageAccountSasToken`. L'agente di diagnostica archivierà i dati di metrica in una [tabella](../cosmos-db/table-storage-how-to-use-dotnet.md) in questo account di archiviazione. A partire dalla versione 3.0 dell'agente di diagnostica Linux, non è più supportato l'uso di una chiave di accesso di archiviazione. È necessario usare invece un [token di firma di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+In primo luogo, aggiungere parametri per `storageAccountName` e `storageAccountSasToken`. L'agente di diagnostica vengono archiviati dati di metrica in un [tabella](../cosmos-db/table-storage-how-to-use-dotnet.md) in questo account di archiviazione. A partire dalla versione 3.0 dell'agente di diagnostica Linux, non è più supportato l'uso di una chiave di accesso di archiviazione. Utilizzare invece un [Token SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ```diff
      },
@@ -47,7 +47,7 @@ Per prima cosa, si aggiungono i parametri per `storageAccountName` e `storageAcc
    },
 ```
 
-Successivamente, verrà modificato il set di scalabilità `extensionProfile` in modo da includere l'estensione di diagnostica. In questa configurazione viene specificato l'ID risorsa del set di scalabilità da cui vengono raccolte le metriche, nonché l'account di archiviazione e il token di firma di accesso condiviso da usare per archiviare le metriche. È possibile specificare anche la frequenza con cui vengono aggregate le metriche (in questo caso, ogni minuto) e le metriche di cui tenere traccia (in questo caso, la percentuale di memoria usata). Per informazioni più dettagliate su questa configurazione e sulle metriche diverse dalla percentuale di memoria usata, vedere [questa documentazione](../virtual-machines/linux/diagnostic-extension.md).
+Successivamente, modificare il set di scalabilità `extensionProfile` per includere l'estensione di diagnostica. In questa configurazione, specificare l'ID risorsa della scala impostata per raccogliere le metriche, nonché l'account di archiviazione e token di firma di accesso condiviso da utilizzare per archiviare le metriche. Specificare la frequenza con cui le metriche vengono aggregate (in questo caso, ogni minuto) e le metriche per tenere traccia (in questo case percentuale utilizzata memoria). Per informazioni più dettagliate su questa configurazione e sulle metriche diverse dalla percentuale di memoria usata, vedere [questa documentazione](../virtual-machines/linux/diagnostic-extension.md).
 
 ```diff
                  }
@@ -110,7 +110,7 @@ Successivamente, verrà modificato il set di scalabilità `extensionProfile` in 
        }
 ```
 
-Viene aggiunta infine una risorsa `autoscaleSettings` per configurare la scalabilità automatica in base a queste metriche. Questa risorsa include una clausola `dependsOn` che fa riferimento al set di scalabilità per verificarne l'esistenza prima di tentare l'applicazione della scalabilità automatica. Se si sceglie una metrica diversa su cui basare la scalabilità automatica, si dovrebbe usare il valore `counterSpecifier` della configurazione di estensione della diagnostica come valore `metricName` nella configurazione di scalabilità automatica. Per altre informazioni sulla configurazione della scalabilità automatica, vedere [Procedure consigliate per la scalabilità automatica](..//monitoring-and-diagnostics/insights-autoscale-best-practices.md) e la [documentazione di riferimento sulle API REST di monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931928.aspx).
+Aggiungere infine un `autoscaleSettings` risorse per configurare la scalabilità automatica in base a queste metriche. Questa risorsa include una clausola `dependsOn` che fa riferimento al set di scalabilità per verificarne l'esistenza prima di tentare l'applicazione della scalabilità automatica. Se si sceglie una metrica di scalabilità automatica, è necessario utilizzare il `counterSpecifier` dalla configurazione dell'estensione di diagnostica come il `metricName` nella configurazione di scalabilità automatica. Per altre informazioni sulla configurazione della scalabilità automatica, vedere [Procedure consigliate per la scalabilità automatica](..//monitoring-and-diagnostics/insights-autoscale-best-practices.md) e la [documentazione di riferimento sulle API REST di monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931928.aspx).
 
 ```diff
 +    },

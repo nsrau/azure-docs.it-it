@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/31/2017
+ms.date: 12/08/2017
 ms.author: sujayt
-ms.openlocfilehash: 7dae1d903b6cbb6a74f89443ec9601c6b4b9d078
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 08352e35daa85a6496adc57eed5f12621a6b300c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matrice di supporto di Azure Site Recovery per la replica da Azure ad Azure
 
@@ -37,21 +37,21 @@ Questo articolo riepiloga le configurazioni e i componenti supportati per Azure 
 **Portale classico** | Non supportate
 **PowerShell** | Attualmente non supportato
 **API REST** | Attualmente non supportato
-**CLI** | Attualmente non supportato
+**Interfaccia della riga di comando** | Attualmente non supportato
 
 
 ## <a name="resource-move-support"></a>Supporto spostamento risorse
 
-**Tipo spostamento risorse** | **Supportato / Non supportato** | **Osservazioni**  
+**Tipo spostamento risorse** | **Supportato / Non supportato** | **Osservazioni:**  
 --- | --- | ---
 **Spostamento insieme di credenziali tra gruppi di risorse** | Non supportate |È possibile spostare l'insieme di credenziali di servizi di ripristino tra gruppi di risorse.
-**Spostamento servizi di calcolo, archiviazione e rete tra gruppi di risorse** | Non supportate |Se si sposta una macchina virtuale (o i componenti associati come archiviazione e rete) dopo aver abilitato la replica, è necessario disabilitarla e riabilitarla per la macchina virtuale.
+**Spostano i gruppi di risorse di calcolo, archiviazione e rete** | Non supportate |Se si sposta una macchina virtuale (o i componenti associati come archiviazione e rete) dopo aver abilitato la replica, è necessario disabilitarla e riabilitarla per la macchina virtuale.
 
 
 
 ## <a name="support-for-deployment-models"></a>Supporto per modelli di distribuzione
 
-**Modello di distribuzione** | **Supportato / Non supportato** | **Osservazioni**  
+**Modello di distribuzione** | **Supportato / Non supportato** | **Osservazioni:**  
 --- | --- | ---
 **Classico** | Supportato | È possibile eseguire la replica di una macchina virtuale classica e ripristinarla solo come macchina virtuale classica. Non è possibile ripristinarla come macchina virtuale di Resource Manager. Non è possibile distribuire una macchina virtuale classica senza una rete virtuale e direttamente in un'area di Azure.
 **Gestione risorse** | Supportato |
@@ -90,11 +90,11 @@ Il supporto è applicabile a qualsiasi carico di lavoro in esecuzione nel sistem
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
 
-(L'aggiornamento dei computer di replica da SLES 11 SP3 a SLES 11 SP4 non è supportato. Se un computer replicato è stato aggiornato da 11SP3 SLES a SLES 11 SP4, è necessario disabilitare la replica e proteggere di nuovo il computer dopo l'aggiornamento.)
+(L'aggiornamento dei computer di replica da SLES 11 SP3 a SLES 11 SP4 non è supportato. Se un computer replicato è stato aggiornato da 11SP3 SLES per SLES 11 SP4, è necessario disabilitare la replica e di proteggere la macchina registrare nuovamente l'aggiornamento.)
 
 >[!NOTE]
 >
-> Per i server Ubuntu che usano l'accesso e l'autenticazione basati su password e che usano il pacchetto cloud-init per configurare le macchine virtuali nel cloud, è possibile che l'accesso basato su password venga disabilitato in caso di failover, a seconda della configurazione di cloudinit. L'accesso basato su password può essere riabilitato nella macchina virtuale reimpostando la password dal menu Impostazioni (nella sezione SUPPORTO + RISOLUZIONE DEI PROBLEMI) di tale macchina virtuale con failover nel portale di Azure.
+> Ubuntu server utilizzando l'autenticazione basata su password e account di accesso e utilizzando il pacchetto cloud init per configurare le macchine virtuali, cloud abbia accesso basato su password disabilitata durante il failover (a seconda della configurazione di cloudinit.) Account di accesso basato su password può essere riabilitata nella macchina virtuale per la reimpostazione della password dal menu Impostazioni (sotto il supporto + TROUBLESHOOTING sezione) di tale sulla macchina virtuale nel portale di Azure.
 
 ### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versioni del kernel Ubuntu supportate per macchine virtuali di Azure
 
@@ -110,7 +110,7 @@ Il supporto è applicabile a qualsiasi carico di lavoro in esecuzione nel sistem
 
 * File system: ext3, ext4, ReiserFS (solo Suse Linux Enterprise Server), XFS
 * Gestore volumi: LVM2
-* Software con percorsi multipli: mapper dispositivi
+* Software per percorsi multipli: Mapper di dispositivo
 
 ## <a name="region-support"></a>Supporto di area
 
@@ -122,15 +122,18 @@ America | Canada orientale, Canada centrale, Stati Uniti centro-meridionali, Sta
 Europa | Regno Unito occidentale, Regno Unito meridionale, Europa settentrionale, Europa occidentale
 Asia | India meridionale, India centrale, Asia sud-orientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale
 Australia   | Australia orientale, Australia sudorientale
+Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
+Germania | Germania centrale, Germania nord-orientale
+Cina | Cina orientale, Cina settentrionale
 
 >[!NOTE]
 >
-> Per il Brasile meridionale, è possibile eseguire la replica e il failover solo in una delle aree di Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2 e Stati Uniti centro-settentrionali e failback.
+> Per area Brasile meridionale, è possibile solo la replica e il failover a un centro-meridionali, centrale Stati Uniti occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2 e aree North Central US e il failback.
 
 
 ## <a name="support-for-compute-configuration"></a>Supporto per la configurazione del servizio di calcolo
 
-**Configurazione** | **Supportato/Non supportato** | **Osservazioni**
+**Configurazione** | **Supportato/Non supportato** | **Osservazioni:**
 --- | --- | ---
 Dimensione | Macchine virtuali di Azure di qualsiasi dimensione con almeno 2 core CPU e 1 GB di RAM | Vedere [Dimensioni delle macchine virtuali di Azure](../virtual-machines/windows/sizes.md)
 Set di disponibilità | Supportato | Se si usa l'opzione predefinita durante il passaggio 'Abilita replica' sul portale, il set di disponibilità viene creato automaticamente in base alla configurazione dell'area di origine. È possibile modificare la disponibilità di destinazione impostata in 'Elemento replicato > Impostazioni > Calcolo e rete > Set di disponibilità' in qualsiasi momento.
@@ -143,7 +146,7 @@ Macchine virtuali migrate tramite Site Recovery | Supportato | Se si tratta di u
 
 ## <a name="support-for-storage-configuration"></a>Supporto per la configurazione dell'archiviazione
 
-**Configurazione** | **Supportato/Non supportato** | **Osservazioni**
+**Configurazione** | **Supportato/Non supportato** | **Osservazioni:**
 --- | --- | ---
 Dimensioni massime del disco del sistema operativo | 2048 GB | Vedere [Dischi usati dalle VM.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Dimensioni massime del disco dati | 4095 GB | Vedere [Dischi usati dalle VM.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
@@ -164,13 +167,14 @@ Archiviazione con ridondanza geografica | Supportato |
 RA-GRS | Supportato |
 ZRS | Non supportate |  
 Archiviazione ad accesso frequente e sporadico | Non supportate | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
-Endpoint servizio di rete virtuale (i firewall di Archiviazione di Azure e le reti virtuali)  | No | L'accesso alle reti virtuali di Azure specifiche negli account di archiviazione della cache usati per archiviare i dati replicati non è supportato. 
+Endpoint servizio di rete virtuale (i firewall di Archiviazione di Azure e le reti virtuali)  | No  | L'accesso alle reti virtuali di Azure specifiche negli account di archiviazione della cache usati per archiviare i dati replicati non è supportato. 
+Account di archiviazione generico V2 (livello sia attivo e raffreddamento) | No  | Aumento dei costi di transazione sostanzialmente rispetto a scopo generale V1 gli account di archiviazione
 
 >[!IMPORTANT]
 > Per evitare problemi di prestazioni, assicurarsi di osservare gli obiettivi di scalabilità e prestazioni per il disco della macchina virtuale per le macchine virtuali [Linux](../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../virtual-machines/windows/disk-scalability-targets.md). Se si seguono le impostazioni predefinite, Site Recovery crea gli account di archiviazione e i dischi necessari in base alla configurazione di origine. Se si personalizzano e si selezionano impostazioni specifiche, assicurarsi di rispettare gli obiettivi di scalabilità e prestazioni per i dischi delle macchine virtuali.
 
 ## <a name="support-for-network-configuration"></a>Supporto per la configurazione di rete
-**Configurazione** | **Supportato/Non supportato** | **Osservazioni**
+**Configurazione** | **Supportato/Non supportato** | **Osservazioni:**
 --- | --- | ---
 Interfaccia di rete (NIC) | Fino al numero massimo di schede di rete supportato da dimensioni specifiche delle macchine virtuali di Azure | Le schede di rete vengono create quando viene creata la macchina virtuale nell'ambito dell'operazione di failover o del failover di test. Il numero di schede di rete sulla macchina virtuale di failover dipende dal numero di schede di rete di cui dispone la macchina virtuale quando viene abilitata la replica. Eventuali aggiunte o rimozioni di schede di rete dopo aver abilitato la replica non influiscono sul numero di schede di rete sulla macchina virtuale di failover.
 Servizio di bilanciamento del carico Internet | Supportato | È necessario associare il servizio di bilanciamento del carico preconfigurato tramite uno script di automazione di Azure in un piano di ripristino.

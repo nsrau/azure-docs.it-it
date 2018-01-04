@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88f7e5b2144daee7bf1c8e7312ba98e6fa967899
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1fc210ac5e28efe10be27f8b5a752788d3d5a5a3
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Creare gruppi di sicurezza di rete mediante il modello di Azure Resource Manager
 
@@ -40,7 +40,7 @@ Questo articolo illustra il modello di distribuzione Gestione risorse. È anche 
 La sezione seguente illustra la definizione di gruppo di sicurezza di rete front-end in base allo scenario precedente.
 
 ```json
-"apiVersion": "2015-06-15",
+"apiVersion": "2017-03-01",
 "type": "Microsoft.Network/networkSecurityGroups",
 "name": "[parameters('frontEndNSGName')]",
 "location": "[resourceGroup().location]",
@@ -185,7 +185,7 @@ Per distribuire il modello ARM tramite l'interfaccia della riga di comando di Az
         data:    
         info:    group create command OK
    
-   * **-n (o --nome)**. Nome del gruppo di risorse da creare.
+   * **-n (o --name)**. Nome del gruppo di risorse da creare.
    * **-l (o --location)**. L'area di Azure in cui verrà creato il gruppo di risorse.
    * **-f (o --template-file)**. Percorso del file di modello ARM.
    * **-e (o --parameters-file)**. Percorso del file di parametri ARM.

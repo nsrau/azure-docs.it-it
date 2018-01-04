@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/27/2017
+ms.date: 12/20/2017
 ms.author: pullabhk;markgal
-ms.openlocfilehash: 46cc2737c23b02c6542320e355607f83042bd058
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f2750b652b7de3c7a41ac5712071999c97d435db
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -70,40 +70,7 @@ Per ripristinare file o cartelle dal punto di ripristino, passare alla macchina 
 
    Per Linux, lo script richiede i componenti "open-iscsi" e "lshw" per la connessione al punto di ripristino. Se i componenti non sono presenti nel computer in cui viene eseguito, lo script chiede l'autorizzazione per installarli. Acconsentire all'installazione dei componenti necessari.  
          
-   È possibile eseguire lo script in qualsiasi computer con lo stesso sistema operativo (o compatibile) della macchina virtuale sottoposta a backup. Vedere la [tabella di sistemi operativi compatibili](backup-azure-restore-files-from-vm.md#compatible-os) per informazioni in proposito. Se la macchina virtuale di Azure protetta usa Spazi di archiviazione Windows (per VM Windows di Azure) o array RAID/LVM (per VM Linux), non è possibile eseguire il file eseguibile o lo script nella stessa macchina virtuale. Eseguire invece il file eseguibile o lo script in qualsiasi altro computer con un sistema operativo compatibile.
-
-### <a name="compatible-os"></a>Sistema operativo compatibile
-
-#### <a name="for-windows"></a>Per Windows
-
-La tabella seguente illustra la compatibilità tra i sistemi operativi del server e del computer. Quando si esegue il ripristino di file, non è possibile ripristinare i file in una versione precedente o successiva del sistema operativo. Ad esempio, non è possibile ripristinare un file da una VM Windows Server 2016 a un computer Windows Server 2012 o Windows 8. È possibile ripristinare i file da una VM allo stesso sistema operativo server o al sistema operativo client compatibile.   
-
-|Sistema operativo del server | Sistema operativo compatibile del client  |
-| --------------- | ---- |
-| Windows Server 2016    | Windows 10 |
-| Windows Server 2012 R2 | Windows 8.1 |
-| Windows Server 2012    | Windows 8  |
-| Windows Server 2008 R2 | Windows 7   |
-
-#### <a name="for-linux"></a>Per Linux
-
-In Linux, il sistema operativo del computer usato per ripristinare i file deve supportare il file system della macchina virtuale protetta. Quando si seleziona un computer per l'esecuzione dello script, assicurarsi che abbia un sistema operativo compatibile e che usi una delle versioni indicate nella tabella seguente:
-
-|Sistema operativo Linux | Versioni  |
-| --------------- | ---- |
-| Ubuntu | 12.04 e versioni successive |
-| CentOS | 6.5 e versioni successive  |
-| RHEL | 6.7 e versioni successive |
-| Debian | 7 e versioni successive |
-| Oracle Linux | 6.4 e versioni successive |
-
-Per l'esecuzione e la connessione sicura al punto di ripristino, lo script richiede anche componenti bash e Python.
-
-|Componente | Versione  |
-| --------------- | ---- |
-| bash | 4 e versioni successive |
-| python | 2.6.6 e versioni successive  |
-
+   È possibile eseguire lo script in qualsiasi computer con lo stesso sistema operativo (o compatibile) della macchina virtuale sottoposta a backup. Vedere la [tabella di sistemi operativi compatibili](backup-azure-restore-files-from-vm.md#system-requirements) per informazioni in proposito. Se la macchina virtuale Azure Usa spazi di archiviazione di Windows (per le macchine virtuali di Windows Azure) o matrici LVM/RAID (per le macchine virtuali Linux), è possibile eseguire il file eseguibile o lo script nella stessa macchina virtuale. Eseguire invece il file eseguibile o lo script in qualsiasi altro computer con un sistema operativo compatibile.
 
 ### <a name="identifying-volumes"></a>Identificazione dei volumi
 
@@ -193,7 +160,42 @@ $ mount [RAID Disk Path] [/mountpath]
 
 Se nel disco RAID è configurata un'altra LVM, seguire la procedura precedente per le partizioni LVM usando però il nome del volume invece del nome del disco RAID.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="system-requirements"></a>Requisiti di sistema
+
+### <a name="for-windows"></a>Per Windows
+
+La tabella seguente illustra la compatibilità tra i sistemi operativi del server e del computer. Quando si esegue il ripristino di file, non è possibile ripristinare i file in una versione precedente o successiva del sistema operativo. Ad esempio, è possibile ripristinare un file da una macchina virtuale di Windows Server 2016 a computer Windows 8 o Windows Server 2012. È possibile ripristinare i file da una VM allo stesso sistema operativo server o al sistema operativo client compatibile.   
+
+|Sistema operativo del server | Sistema operativo compatibile del client  |
+| --------------- | ---- |
+| Windows Server 2016    | Windows 10 |
+| Windows Server 2012 R2 | Windows 8.1 |
+| Windows Server 2012    | Windows 8  |
+| Windows Server 2008 R2 | Windows 7   |
+
+### <a name="for-linux"></a>Per Linux
+
+In Linux, il sistema operativo del computer usato per ripristinare i file deve supportare il file system della macchina virtuale protetta. Quando si seleziona un computer per l'esecuzione dello script, assicurarsi che abbia un sistema operativo compatibile e che usi una delle versioni indicate nella tabella seguente:
+
+|Sistema operativo Linux | Versioni  |
+| --------------- | ---- |
+| Ubuntu | 12.04 e versioni successive |
+| CentOS | 6.5 e versioni successive  |
+| RHEL | 6.7 e versioni successive |
+| Debian | 7 e versioni successive |
+| Oracle Linux | 6.4 e versioni successive |
+| SLES | 12 e versioni successive |
+| openSUSE | 42.2 e versioni successive |
+
+Per l'esecuzione e la connessione sicura al punto di ripristino, lo script richiede anche componenti bash e Python.
+
+|Componente | Version  |
+| --------------- | ---- |
+| bash | 4 e versioni successive |
+| python | 2.6.6 e versioni successive  |
+| TLS | 1.2 devono essere supportati.  |
+
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se si verificano problemi durante il ripristino di file dalle macchine virtuali, controllare la tabella seguente per informazioni aggiuntive.
 

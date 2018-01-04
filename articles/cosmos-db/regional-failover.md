@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 93a9bf568b1047e1af4e7825c3ca99bf11945560
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: 3a8b32440ce3ec6cd2da7aaccf218a94e0ee3e77
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Failover a livello di area automatici per la continuità aziendale in Azure Cosmos DB
 Azure Cosmos DB semplifica la distribuzione globale dei dati, offrendo [account di database con più aree](distribute-data-globally.md) e completamente gestiti, che forniscono compromessi espliciti tra coerenza, disponibilità e prestazioni, il tutto con le relative garanzie. Gli account Cosmos DB offrono disponibilità elevata, latenze di pochi millisecondi, più [livelli di coerenza ben definiti](consistency-levels.md), failover a livello di area trasparente con API multihosting e la possibilità di ridimensionare in modo flessibile la velocità effettiva e le risorse di archiviazione in tutto il mondo. 
@@ -46,7 +46,7 @@ Il frammento seguente mostra come inizializzare un'applicazione in più aree. In
 * Configurato con `West US` come la prima area preferita per letture a bassa latenza
 * Configurato con `North Europe` come la seconda area preferita (per disponibilità elevata in caso di errori a livello di area)
 
-Nell'API di DocumentDB questa configurazione è simile al frammento seguente:
+Nell'API di SQL, questa configurazione è simile nel frammento seguente:
 
 ```cs
 ConnectionPolicy usConnectionPolicy = new ConnectionPolicy 
@@ -141,6 +141,6 @@ In questo articolo è stato illustrato come funzionano i failover manuali e auto
 ## <a id="NextSteps"></a>Passaggi successivi
 * Informazioni su come Cosmos DB supporta la [distribuzione globale](distribute-data-globally.md)
 * Informazioni sulla [coerenza globale con Azure Cosmos DB](consistency-levels.md)
-* Sviluppare in più aree usando l'[API DocumentDB](../cosmos-db/tutorial-global-distribution-documentdb.md) di Azure Cosmos DB
-* Altre informazioni su come compilare [architetture di scrittura in più aree](multi-region-writers.md) con Azure DocumentDB
+* Sviluppo con più aree tramite Azure Cosmos DB [API SQL](tutorial-global-distribution-sql-api.md)
+* Informazioni su come creare [architetture multiarea writer](multi-region-writers.md) con Azure Cosmos DB
 

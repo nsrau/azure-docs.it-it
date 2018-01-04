@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: 8ca4c7fb1ccfe1eb026de80e519894c0ff23028a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Uso del supporto del feed delle modifiche in Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Il **supporto del feed di modifiche** in Azure Cosmos DB consente di creare solu
 ![Uso del feed delle modifiche di Azure Cosmos DB per agevolare le analisi in tempo reale e gli scenari di calcolo guidati dagli eventi](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Il supporto del feed di modifiche viene fornito per tutti i modelli di dati e contenitori in Azure Cosmos DB. Il feed di modifiche tuttavia viene letto usando il client DocumentDB e serializza gli elementi in formato JSON. A causa della formattazione JSON, nei client MongoDB i documenti in formato JSON non corrisponderanno al feed di modifiche in formato JSON. 
+> Il supporto del feed di modifiche viene fornito per tutti i modelli di dati e contenitori in Azure Cosmos DB. Tuttavia, il feed di modifica viene letto utilizzando il client SQL e serializza gli elementi in formato JSON. A causa della formattazione JSON, nei client MongoDB i documenti in formato JSON non corrisponderanno al feed di modifiche in formato JSON. 
 
 ## <a name="how-does-change-feed-work"></a>Funzionamento del feed di modifiche
 
@@ -90,11 +90,11 @@ I trigger possono essere creati nel portale di Funzioni di Azure, nel portale di
 <a id="rest-apis"></a>
 ## <a name="using-the-sdk"></a>Uso dell'SDK
 
-[SDK di DocumentDB](documentdb-sdk-dotnet.md) per Azure Cosmos DB offre tutta la potenza necessaria per leggere e gestire un feed di modifiche, con tutte le responsabilità che ne derivano. Se è necessario gestire checkpoint e numeri di sequenza di documenti e avere un controllo granulare sulle chiavi di partizione, usare l'SDK può essere l'approccio ideale.
+Il [SQL SDK](sql-api-sdk-dotnet.md) per Azure Cosmos DB offre tutte le potenzialità di leggere e gestire una modifica del feed. con tutte le responsabilità che ne derivano. Se è necessario gestire checkpoint e numeri di sequenza di documenti e avere un controllo granulare sulle chiavi di partizione, usare l'SDK può essere l'approccio ideale.
 
-Questa sezione illustra come usare l'SDK di DocumentDB per lavorare con un feed di modifiche.
+In questa sezione illustra in dettaglio come usare il SDK di SQL per lavorare con una modifica del feed.
 
-1. Iniziare leggendo le risorse seguenti da appconfig. Le istruzioni per recuperare l'endpoint e la chiave di autorizzazione sono disponibili in [Aggiornare la stringa di connessione](create-documentdb-dotnet.md#update-your-connection-string).
+1. Iniziare leggendo le risorse seguenti da appconfig. Le istruzioni per recuperare l'endpoint e la chiave di autorizzazione sono disponibili in [Aggiornare la stringa di connessione](create-sql-api-dotnet.md#update-your-connection-string).
 
     ``` csharp
     DocumentClient client;
@@ -166,7 +166,7 @@ La matrice di checkpoint quindi conserva solo l'ultimo numero di sequenza per og
 <a id="change-feed-processor"></a>
 ## <a name="using-the-change-feed-processor-library"></a>Uso della libreria del processore dei feed delle modifiche 
 
-La [libreria del processore dei feed delle modifiche di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) consente di distribuire facilmente l'elaborazione degli eventi in più consumer. Questa libreria semplifica la lettura delle modifiche nelle partizioni e in più thread che operano in parallelo.
+La [libreria del processore dei feed delle modifiche di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) consente di distribuire facilmente l'elaborazione degli eventi in più consumer. Questa libreria semplifica la lettura delle modifiche nelle partizioni e in più thread che operano in parallelo.
 
 Il vantaggio principale della libreria del processore dei feed delle modifiche è che non è necessario gestire ogni partizione e token di continuazione né eseguire il poll manuale di ogni raccolta.
 
@@ -276,11 +276,11 @@ Per altre informazioni sull'uso di Azure Cosmos DB con Funzioni di Azure, vedere
 
 Per altre informazioni sull'uso della libreria del processore dei feed delle modifiche, usare le risorse seguenti:
 
-* [Pagina delle informazioni](documentdb-sdk-dotnet-changefeed.md) 
+* [Pagina delle informazioni](sql-api-sdk-dotnet-changefeed.md) 
 * [Pacchetto NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
 * [Codice di esempio che illustra i passaggi precedenti da 1 a 6](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [Altri esempi in GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 Per altre informazioni sull'uso del feed di modifiche tramite l'SDK, usare le risorse seguenti:
 
-* [Pagina delle informazioni sull'SDK](documentdb-sdk-dotnet.md)
+* [Pagina delle informazioni sull'SDK](sql-api-sdk-dotnet.md)

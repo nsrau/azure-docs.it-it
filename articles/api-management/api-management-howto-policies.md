@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 315e4bd7372416800373f98ecb5d8b1eb440e134
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 8576d590568a24df4c3320ec283edba7a28ab032
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="policies-in-azure-api-management"></a>Criteri in Gestione API di Azure
 
@@ -72,9 +72,9 @@ Per un elenco completo di istruzioni dei criteri e delle relative impostazioni, 
 
 Per altri esempi di codice, vedere [Esempi di criteri](policy-samples.md).
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
-### <a name="appliy-policies-specified-at-different-scopes"></a>Applicare i criteri specificati in ambiti diversi
+### <a name="apply-policies-specified-at-different-scopes"></a>Applicare i criteri specificati in ambiti diversi
 
 Se ci sono un criterio a livello globale e un criterio configurato per un'API, quando questa particolare API viene usata, vengono applicati entrambi i criteri. Gestione API consente l'ordinamento deterministico delle istruzioni combinate per i criteri attraverso l'elemento di base. 
 
@@ -123,8 +123,8 @@ Per limitare le richieste in ingresso e accettare solo quelle da un indirizzo IP
 
 Per altre informazioni sull'uso di questi criteri, vedere:
 
-+ [API Transform](transform-api.md)
-+ [Informazioni di riferimento per i criteri](api-management-policy-reference.md) per un elenco completo di istruzioni dei criteri e delle relative impostazioni
++ [Trasformare le API](transform-api.md)
++ [Informazioni di riferimento sui criteri](api-management-policy-reference.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
 + [Esempi di criteri](policy-samples.md)   
 
 [Policy Reference]: api-management-policy-reference.md

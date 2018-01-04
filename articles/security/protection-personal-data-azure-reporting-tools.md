@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.openlocfilehash: 0ec9ceb63c3e1872e9815a7895b624276fc46123
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7ce6297d7d6b61ac95df58db3fa1a2a0a123a64e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Documentare la protezione dei dati personali con gli strumenti di creazione di report di Azure
 
@@ -90,7 +90,7 @@ Per altre informazioni su come connettersi alla creazione di report di Azure Dir
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) può [raccogliere dati da Monitoraggio di Azure](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage) per metterli in relazione con altri dati e offrire un'analisi ulteriore. Monitoraggio di Azure raccoglie e analizza i dati di monitoraggio per l'ambiente di Azure. 
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/) può [raccogliere dati da Monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) per metterli in relazione con altri dati e offrire un'analisi ulteriore. Monitoraggio di Azure raccoglie e analizza i dati di monitoraggio per l'ambiente di Azure. 
 
 Gli strumenti di analisi in Log Analytics, come le ricerche nei log, le visualizzazioni e le soluzioni, vengono applicati a tutti i dati raccolti per offrire un'analisi centralizzata dell'intero ambiente. Log Analytics permette di aggregare e analizzare log di IIS, registri eventi di Windows e SysLog, consentendo così di rilevare potenziali violazioni della sicurezza dei dati personali che potrebbero esporre tali dati a utenti non autorizzati.
 

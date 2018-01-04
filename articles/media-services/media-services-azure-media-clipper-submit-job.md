@@ -2,18 +2,18 @@
 title: Inviare processi di ritaglio di Azure Media Clipper | Microsoft Docs
 description: Passaggi per inviare processi di ritaglio da Azure Media Clipper
 services: media-services
-keywords: clip;clip secondarie;codifica;file multimediali
+keywords: clip;clip secondaria;codifica;multimediale
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: d29889a4c972638f5d127e9c518aa85fbc19d861
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 8372c405087c0dc7a000a65265bb99c395c3a8d6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Inviare processi di ritaglio da Azure Media Clipper
 Per gestire l'invio di processi di ritaglio, Azure Media Clipper richiede l'implementazione di un metodo **submitSubclipCallback**. Questa funzione è necessaria per implementare un'operazione POST HTTP per l'output di Clipper in un servizio Web. Nel servizio Web sarà possibile inviare il processo di codifica. L'output di Clipper è un set di impostazioni di codifica di Media Encoder Standard per i processi con rendering o il payload dell'API REST per chiamate di filtri manifesto dinamico. Questo modello pass-through è necessario perché le credenziali dell'account Servizi multimediali non sono sicure nel browser del client.
@@ -151,7 +151,7 @@ Il contratto di output del processo per il ritaglio con rendering è un oggetto 
 }
 ```
 
-Per eseguire il processo di codifica, inviare il processo di codifica Media Encoder Standard col il set di impostazioni associato. Vedere questo articolo per informazioni dettagliate sull'invio di processi di codifica tramite [.NET SDK](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) o [API REST](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-encode-asset).
+Per eseguire il processo di codifica, inviare il processo di codifica Media Encoder Standard col il set di impostazioni associato. Vedere questo articolo per informazioni dettagliate sull'invio di processi di codifica tramite [.NET SDK](https://docs.microsoft.com/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) o [API REST](https://docs.microsoft.com/azure/media-services/media-services-rest-encode-asset).
 
 ## <a name="quickly-creating-video-clips-without-encoding"></a>Creazione rapida di clip video senza codifica
 In alternativa alla creazione di un processo di codifica è possibile usare Azure Media Clipper per creare i filtri manifesto dinamico. I filtri non richiedono la codifica e possono essere creati rapidamente in quanto non viene creato un nuovo asset. Il contratto di output per un ritaglio con filtro è un oggetto JSON con le proprietà seguenti:
@@ -227,4 +227,4 @@ In alternativa alla creazione di un processo di codifica è possibile usare Azur
 }
 ```
 
-Per inviare la chiamata REST per creare un filtro manifesto dinamico, inviare il payload del filtro associato tramite [API REST](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-dynamic-manifest).
+Per inviare la chiamata REST per creare un filtro manifesto dinamico, inviare il payload del filtro associato tramite [API REST](https://docs.microsoft.com/azure/media-services/media-services-rest-dynamic-manifest).

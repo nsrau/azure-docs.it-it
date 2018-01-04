@@ -4,7 +4,7 @@ description: Informazioni su come creare e gestire i criteri personalizzati di A
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: d7f4143f-cd7c-4939-91a8-231a4104dc2c
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 06/11/2017
 ms.author: parakhj
-ms.openlocfilehash: 269cbd80fb6e861fa8588025eec70b6c6e2890d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 16f7c5708b479f18de17a612a733a2be6e97ad01
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C: eseguire l'accesso con account Salesforce tramite SAML
 
@@ -32,7 +32,7 @@ Questo articolo illustra come usare i [criteri personalizzati](active-directory-
 
 Assicurarsi di avere completato tutti i passaggi di [introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md) in Azure Active Directory B2C (Azure AD B2C),
 
-inclusi i seguenti:
+incluse le seguenti:
 
 * Creare un tenant di Azure AD B2C
 * Creare un'applicazione Azure AD B2C
@@ -59,7 +59,7 @@ Per agevolare la comunicazione tra Azure AD B2C e Salesforce, è necessario otte
 1. [Eseguire l'accesso a Salesforce](https://login.salesforce.com/). 
 2. In **Settings** (Impostazioni) nel menu di sinistra espandere **Identity** (Identità) e quindi fare clic su **Identity Provider** (Provider di identità).
 3. Fare clic su **Enable Identity Provider** (Abilita provider di identità).
-4. In **Select the certificate** (Selezionare il certificato) selezionare il certificato che si desidera venga usato da Salesforce per comunicare con Azure AD B2C. È possibile usare il certificato predefinito. Fare clic su **Salva**. 
+4. In **Select the certificate** (Selezionare il certificato) selezionare il certificato che si desidera venga usato da Salesforce per comunicare con Azure AD B2C. È possibile usare il certificato predefinito. Fare clic su **Save**. 
 
 ### <a name="create-a-connected-app-in-salesforce"></a>Creare un'app connessa in Salesforce
 

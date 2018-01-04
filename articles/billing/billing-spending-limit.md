@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 9313f3bd09b24db8e33b1f89eb5aebea871605b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d222300a591bcba556be5813ada2de555d25a1f0
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Comprendere il limite di spesa di Azure e la relativa rimozione
 
@@ -48,8 +48,10 @@ Per rimuovere il limite di spesa, seguire questi passaggi:
 
 1. Accedere al [Centro account](https://account.windowsazure.com/Subscriptions).
 1. Selezionare una sottoscrizione.
-1. Se la sottoscrizione è stata disabilitata a causa del raggiungimento del limite di spesa, fare clic sulla notifica che indica che la sottoscrizione ha raggiunto il limite di spesa ed è stata disabilitata per impedire costi aggiuntivi. In caso contrario, fai clic su **Rimuovere il limite di spesa** nell'area **STATO SOTTOSCRIZIONE**.
+. Se la sottoscrizione è stata disabilitata a causa del raggiungimento del limite di spesa, fare clic sulla notifica che indica che la sottoscrizione ha raggiunto il limite di spesa ed è stata disabilitata per impedire costi aggiuntivi. In caso contrario, fai clic su **Rimuovere il limite di spesa** nell'area **STATO SOTTOSCRIZIONE**.
 1. Seleziona l'opzione appropriata.
+
+![Selezionare un'opzione per la rimozione di limite di spesa](./media/billing-spending-limit/remove-spending-limit.PNG)
 
 |Opzione|Effetto|
 |-------|-----|
@@ -80,8 +82,10 @@ Al momento non è possibile impostare limiti di spesa personalizzati. È tuttavi
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>Il limite di spesa impedisce qualsiasi addebito da parte di Azure?
 
-Alcuni [servizi Microsoft e di terze parti](billing-understand-your-azure-marketplace-charges.md) possono comportare l'addebito di costi in base al metodo di pagamento in uso anche se è impostato un limite di spesa. Questo succede, ad esempio, per le licenze di Visual Studio, Azure Active Directory Premium, i piani di supporto e la maggior parte dei servizi di terze parti venduti in [Azure Marketplace](https://azure.microsoft.com/marketplace/).
+[Alcuni servizi esterni pubblicati in Azure Marketplace](billing-understand-your-azure-marketplace-charges.md) non può essere utilizzato con i crediti della sottoscrizione e possono incorrere in addebiti separati anche quando è impostato il limite di spesa. Sono esempi di licenze di Visual Studio, Azure Active Directory premium, piani di supporto e la maggior parte delle terze marchio servizi. Quando si esegue il provisioning di un nuovo servizio esterno, viene visualizzato un avviso per informare che i servizi vengono fatturati separatamente:
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
+![Avviso di acquisto di Marketplace](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
+
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

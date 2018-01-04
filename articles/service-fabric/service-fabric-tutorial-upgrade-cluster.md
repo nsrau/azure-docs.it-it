@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
-ms.openlocfilehash: 5057a741a60bf9632f15dbc47236791e06f5bf6b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.custom: mvc
+ms.openlocfilehash: faf134bc0952da913e90a93bc872a53f5f2369ff
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>Aggiornare il runtime di un cluster di Service Fabric
 
@@ -191,7 +192,7 @@ sfctl cluster upgrade-status
 ```
 
 ## <a name="conclusion"></a>Conclusioni
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Ottenere la versione del runtime del cluster

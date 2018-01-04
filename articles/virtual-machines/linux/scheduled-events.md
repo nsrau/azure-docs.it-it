@@ -1,6 +1,6 @@
 ---
 title: Eventi pianificati per macchine virtuali Linux in Azure | Microsoft Docs
-description: Eventi pianificati usando il servizio metadati di Azure per le macchine virtuali Linux.
+description: Pianificare gli eventi utilizzando i metadati di servizio per le macchine virtuali Linux.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: 
 author: zivraf
@@ -15,103 +15,105 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 763e690cac06fc321f7d1f873da7405c44c02b80
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: 7be60bfebee80e92c69f87432124ff9b667ab4f1
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
-# <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Servizio metadati di Azure: eventi pianificati (anteprima) per VM Linux
+# <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Azure Metadata Service: Gli eventi pianificati (anteprima) per le macchine virtuali Linux
 
 > [!NOTE] 
 > Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le condizioni d'uso. Per altre informazioni, vedere [Condizioni Supplementari di Microsoft Azure le Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
-Gli eventi pianificati sono un servizio metadati di Azure che concede all'applicazione il tempo di prepararsi alla manutenzione delle macchine virtuali. Il servizio offre informazioni sugli eventi di manutenzione imminenti (ad esempio il riavvio), in modo che l'applicazione possa prepararsi a questi e limitare le interruzioni. Il servizio è disponibile per tutti i tipi di macchine virtuali di Azure, incluse le infrastrutture PaaS e IaaS, sia Windows che Linux. 
+Gli eventi pianificati è un servizio secondario nel servizio di metadati di Azure che fornisce il tempo applicazione per preparare per la manutenzione delle macchine virtuali (VM). Fornisce informazioni sugli eventi di manutenzione programmata (ad esempio, riavviare il computer) in modo che l'applicazione può preparare la transizione e limitare l'interruzione. È disponibile per tutti i tipi di macchine virtuali di Azure, tra cui PaaS e IaaS su Windows e Linux. 
 
 Per informazioni su Eventi pianificati in Windows, vedere [Eventi pianificati per macchine virtuali Windows](../windows/scheduled-events.md).
 
-## <a name="why-scheduled-events"></a>Perché usare gli eventi pianificati
+## <a name="why-use-scheduled-events"></a>Perché utilizzare agli eventi pianificati?
 
-Per molte applicazioni è un vantaggio avere tempo per prepararsi alla manutenzione delle macchine virtuali. Questo tempo può essere impiegato in attività specifiche dell'applicazione per ottenere un miglioramento della disponibilità, dell'affidabilità e della gestibilità, ad esempio: 
+Molte applicazioni possono trarre vantaggio dal tempo di preparazione per la manutenzione di macchina virtuale. L'ora può essere utilizzato per eseguire attività specifiche dell'applicazione che consentono di migliorare la disponibilità, affidabilità e gestibilità, tra cui: 
 
-- Checkpoint e ripristino
-- Esaurimento delle connessioni
-- Failover della replica primaria 
-- Rimozione dal pool di bilanciamento del carico
-- Registrazione eventi
-- Arresto normale 
+- Checkpoint e il ripristino.
+- Svuotamento di connessione.
+- Failover della replica primaria.
+- Rimozione da un pool di bilanciamento del carico.
+- Registrazione degli eventi.
+- Arresto normale.
 
-Tramite gli eventi pianificati l'applicazione è in grado di sapere quando verrà eseguita la manutenzione e di attivare attività specifiche per limitarne l'impatto.  
+Con agli eventi pianificati, è possibile individuare l'applicazione quando manutenzione verrà e generano attività per limitare l'impatto.  
 
 Gli eventi pianificati informano sugli eventi nei casi d'uso seguenti:
-- Manutenzione avviata dalla piattaforma (ad esempio l'aggiornamento del sistema operativo host)
-- Manutenzione avviata dall'utente (ad esempio il riavvio o la ridistribuzione di una macchina virtuale eseguita dall'utente)
+
+- Manutenzione avviata alla piattaforma (ad esempio, un aggiornamento del sistema operativo host)
+- Manutenzione avviata dall'utente (ad esempio, un utente riavvia o ridistribuisce una macchina virtuale)
 
 ## <a name="the-basics"></a>Nozioni di base  
 
-Il Servizio metadati di Azure presenta informazioni sulle macchine virtuali in esecuzione usando un endpoint REST accessibile dall'interno della macchina virtuale. Le informazioni sono disponibili tramite un indirizzo IP non instradabile, in modo da non essere esposte al di fuori della macchina virtuale.
+  Metadata Service espone informazioni sulle macchine virtuali in esecuzione con un endpoint REST che sarà accessibile dall'interno della macchina virtuale. Le informazioni sono disponibili tramite un indirizzo IP nonroutable in modo che non è esposta all'esterno della macchina virtuale.
 
 ### <a name="scope"></a>Scope
 Gli eventi pianificati vengono recapitati a:
-- Tutte le macchine virtuali in un servizio cloud
-- Tutte le macchine virtuali in un set di disponibilità
-- Tutte le macchine virtuali in un gruppo di posizionamento di un set di scalabilità. 
 
-Pertanto, è consigliabile controllare il campo `Resources` nell'evento per individuare le macchine virtuali che ne saranno interessate.
+- Tutte le macchine virtuali in un servizio cloud.
+- Tutte le macchine virtuali in un set di disponibilità.
+- Tutte le macchine virtuali in una scala di impostare il gruppo di posizionamento. 
 
-### <a name="discovering-the-endpoint"></a>Individuazione dell'endpoint
-Per le macchine virtuali abilitate per le reti virtuali, l'endpoint completo per la versione più recente di eventi pianificati è: 
+Di conseguenza, controllare il `Resources` campo nell'evento per identificare le macchine virtuali sono interessate.
+
+### <a name="discover-the-endpoint"></a>Individuare l'endpoint
+Per le macchine virtuali che sono abilitate per le reti virtuali, l'endpoint completo per la versione più recente di agli eventi pianificati è: 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
 
-Nel caso in cui venga creata una macchina virtuale in una rete virtuale, il servizio di metadati è disponibile all'indirizzo IP statico non instradabile, `169.254.169.254`.
-Se la macchina virtuale non viene creata all'interno di una rete virtuale, caso predefinito per i servizi cloud e le macchine virtuali classiche, è necessaria logica aggiuntiva per individuare l'indirizzo IP da usare. Fare riferimento a questo esempio per informazioni su come [individuare l'endpoint dell'host](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
+Nel caso in cui viene creata una macchina virtuale in una rete virtuale, è disponibile da un indirizzo IP statico nonroutable, Metadata Service `169.254.169.254`.
+Se la macchina virtuale non è stata creata in una rete virtuale, ai casi predefiniti per i servizi cloud e le macchine virtuali classiche, sarà necessaria logica aggiuntiva per individuare l'indirizzo IP da utilizzare. Per informazioni su come [individuare l'endpoint dell'host](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), vedere questo esempio.
 
 ### <a name="versioning"></a>Controllo delle versioni 
-Il servizio eventi pianificati è un servizio con versione. Le versioni sono obbligatorie e la versione corrente è `2017-08-01`.
+Il servizio agli eventi pianificati è con controllo delle versioni. Le versioni sono obbligatorie, e la versione corrente è `2017-08-01`.
 
-| Versione | Note sulla versione | 
+| Version | Note sulla versione | 
 | - | - | 
-| 2017-08-01 | <li> È stato rimosso il carattere di sottolineatura all'inizio dei nomi delle risorse per le macchine virtuali IaaS<br><li>Requisito dell'intestazione dei metadati applicato per tutte le richieste | 
+| 2017-08-01 | <li> È stato rimosso il carattere di sottolineatura all'inizio dei nomi delle risorse per le macchine virtuali IaaS<br><li>Requisito di intestazione dei metadati applicato per tutte le richieste | 
 | 2017-03-01 | <li>Versione di anteprima pubblica
 
 
 > [!NOTE] 
-> Le versioni precedenti di anteprima di eventi pianificati {ultima} sono supportate come versione dell'API. Questo formato non è più supportato e verrà rimosso in futuro.
+> Versioni precedenti di anteprima di eventi pianificati supportati {più recente} come la versione dell'api. Questo formato non è più supportato e verrà rimosso in futuro.
 
-### <a name="using-headers"></a>Uso delle intestazioni
-Quando si eseguono query sul Servizio metadati, è necessario specificare l'intestazione `Metadata:true` per garantire che la richiesta non sia stata reindirizzata accidentalmente. L'intestazione `Metadata:true` è obbligatoria per tutte le richieste di eventi pianificati. Se non si include l'intestazione nella richiesta, il servizio metadati restituisce una risposta Richiesta non valida.
+### <a name="use-headers"></a>Utilizzare le intestazioni
+Quando si eseguono query Metadata Service, è necessario specificare l'intestazione `Metadata:true` affinché involontariamente non è stata reindirizzata la richiesta. L'intestazione `Metadata:true` è obbligatoria per tutte le richieste di eventi pianificati. Errore di includere l'intestazione nella richiesta di risultati in una risposta "Richiesta non valida" Metadata Service.
 
-### <a name="enabling-scheduled-events"></a>Attivazione degli eventi pianificati
-La prima volta che si emette una richiesta per gli eventi pianificati, Azure abilita in modo implicito la funzionalità nella macchina virtuale. Di conseguenza la prima chiamata potrebbe ricevere una risposta con un ritardo massimo di due minuti.
+### <a name="enable-scheduled-events"></a>Abilitare gli eventi pianificati
+La prima volta che si effettua una richiesta per gli eventi pianificati, in modo implicito e consente la funzionalità di una macchina virtuale. Di conseguenza, attende una risposta ritardata nella prima chiamata di fino a due minuti.
 
 > [!NOTE]
-> Gli eventi pianificati vengono disabilitati automaticamente per il servizio se quest'ultimo non chiama l'endpoint per 1 giorno. Dopo che gli eventi pianificati sono stati disabilitati per il servizio, non verranno creati eventi per la manutenzione avviata dall'utente.
+> Gli eventi pianificati viene disabilitata automaticamente per il servizio se il servizio non chiama l'endpoint per un giorno. Dopo aver disabilitato agli eventi pianificati per il servizio, gli eventi non vengono creati per la manutenzione avviata dall'utente.
 
 ### <a name="user-initiated-maintenance"></a>Manutenzione avviata dall'utente
-La manutenzione delle macchine virtuali avviata dall'utente tramite il portale, l'API o l'interfaccia della riga di comando di Azure oppure tramite PowerShell restituisce un evento pianificato. In questo modo è possibile testare la logica di preparazione della manutenzione dell'applicazione e permettere all'applicazione di prepararsi per la manutenzione avviata dall'utente.
+Manutenzione di macchina virtuale avviata dall'utente tramite il portale di Azure, API, CLI o PowerShell genera un evento pianificato. È quindi possibile testare la logica di preparazione di manutenzione dell'applicazione e l'applicazione è possibile preparare per la manutenzione avviata dall'utente.
 
-Il riavvio di una macchina virtuale pianifica un evento di tipo `Reboot`. La ridistribuzione di una macchina virtuale pianifica un evento di tipo `Redeploy`.
-
-> [!NOTE] 
-> Attualmente è possibile pianificare un massimo di 100 operazioni di manutenzione avviate dall'utente.
+Se si riavvia una macchina virtuale, un evento con il tipo `Reboot` è pianificata. Se si ridistribuisce una macchina virtuale, un evento con il tipo `Redeploy` è pianificata.
 
 > [!NOTE] 
-> Attualmente la manutenzione avviata dall'utente che dà luogo a eventi pianificati non è configurabile. Questa funzionalità è pianificata per una versione successiva.
+> Attualmente, un massimo di 100 operazioni di manutenzione avviata dall'utente può essere pianificato contemporaneamente.
 
-## <a name="using-the-api"></a>Uso dell'API
+> [!NOTE] 
+> Attualmente, manutenzione avviata dall'utente che restituisce gli eventi pianificati non è configurabile. Questa funzionalità è pianificata per una versione successiva.
+
+## <a name="use-the-api"></a>Usare l'API
 
 ### <a name="query-for-events"></a>Query per gli eventi
-È possibile eseguire query per gli eventi pianificati semplicemente eseguendo la chiamata seguente:
+È possibile eseguire una query per gli eventi pianificati, eseguendo la chiamata seguente:
 
 #### <a name="bash"></a>Bash
 ```
 curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
-Una risposta contiene una serie di eventi pianificati. Una serie vuota indica che al momento non sono presenti eventi pianificati.
-Nel caso in cui siano presenti eventi pianificati, la risposta contiene una serie di eventi: 
+Una risposta contiene una serie di eventi pianificati. Matrice vuota significa che attualmente gli eventi non pianificati.
+Nel caso in cui sono presenti eventi pianificati, la risposta contiene una matrice di eventi. 
 ```
 {
     "DocumentIncarnation": {IncarnationID},
@@ -129,29 +131,29 @@ Nel caso in cui siano presenti eventi pianificati, la risposta contiene una seri
 ```
 
 ### <a name="event-properties"></a>Proprietà degli eventi
-|Proprietà  |  Descrizione |
+|Proprietà  |  DESCRIZIONE |
 | - | - |
 | EventId | Identificatore globalmente univoco per l'evento. <br><br> Esempio: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impatto che l'evento causa. <br><br> Valori: <br><ul><li> `Freeze`: è pianificata una sospensione della macchina virtuale per alcuni secondi. La CPU viene sospesa, ma la memoria, i file aperti o le connessioni di rete non subiranno conseguenze. <li>`Reboot`: è pianificato un riavvio della macchina virtuale. La memoria non permanente andrà persa. <li>`Redeploy`: è pianificato uno spostamento della macchina virtuale in un altro nodo. I dischi temporanei andranno persi. |
-| ResourceType | Tipo di risorsa su cui l'evento influisce. <br><br> Valori: <ul><li>`VirtualMachine`|
-| Risorse| Elenco delle risorse su cui l'evento influisce. Contiene sicuramente i computer per al massimo un [Dominio di aggiornamento](manage-availability.md), ma non può contenere tutti i computer nel dominio di aggiornamento. <br><br> Esempio: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| Event Status | Stato dell'evento. <br><br> Valori: <ul><li>`Scheduled`: l'avvio dell'evento è pianificato in seguito al tempo specificato nella proprietà `NotBefore`.<li>`Started`: l'evento si è avviato.</ul> Non viene indicato `Completed` o uno stato simile; l'evento non verrà più restituito al suo completamento.
-| NotBefore| Tempo dopo il quale l'evento può essere avviato. <br><br> Esempio: <br><ul><li> 2016-09-19T18:29:47Z  |
+| EventType | Impatto che l'evento causa. <br><br> Valori: <br><ul><li> `Freeze`: La macchina virtuale è pianificata per mettere in pausa per pochi secondi. La CPU è sospesa, ma non è presente alcun effetto sulla memoria, i file aperti o connessioni di rete. <li>`Reboot`: La macchina virtuale è pianificata per il riavvio. (Memoria non persistente viene persa). <li>`Redeploy`: La macchina virtuale è pianificata per spostare in un altro nodo. (Dischi temporanei andranno persi). |
+| ResourceType | Tipo di risorsa che influisce su questo evento. <br><br> Valori: <ul><li>`VirtualMachine`|
+| Risorse| Elenco delle risorse, influisce su questo evento. L'elenco è garantito per contenere le macchine da al massimo un [dominio di aggiornamento](manage-availability.md), ma potrebbe non contenere tutti i computer il UD. <br><br> Esempio: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| EventStatus | Stato dell'evento. <br><br> Valori: <ul><li>`Scheduled`: l'avvio dell'evento è pianificato in seguito al tempo specificato nella proprietà `NotBefore`.<li>`Started`: l'evento si è avviato.</ul> Non `Completed` o simile stato mai disponibile. L'evento non viene restituito al termine dell'evento.
+| NotBefore| Tempo trascorso il quale è possibile avviare questo evento. <br><br> Esempio: <br><ul><li> 2016-09-19T18:29:47Z  |
 
 ### <a name="event-scheduling"></a>Pianificazione degli eventi
-Ogni evento è pianificato con un ritardo minimo che dipende dal tipo di evento. Questo tempo si riflette in una proprietà `NotBefore` dell'evento. 
+Ogni evento è pianificata una quantità minima di tempo in futuro in base al tipo di evento. Questo tempo si riflette in una proprietà `NotBefore` dell'evento. 
 
-|EventType  | Minimum Notice |
+|EventType  | Si noti minimo |
 | - | - |
 | Freeze| 15 minuti |
 | Reboot | 15 minuti |
 | Ripetere la distribuzione | 10 minuti |
 
-### <a name="starting-an-event"></a>Avvio di un evento 
+### <a name="start-an-event"></a>Un evento di avvio 
 
-Dopo aver appreso informazioni su un evento imminente e aver completato la logica per l'arresto normale, è possibile approvare l'evento in sospeso facendo una chiamata `POST` al servizio metadati con `EventId`. Ciò indica ad Azure che si può ridurre il tempo di notifica minimo, quando possibile. 
+Dopo aver conoscenza di un evento futuro e completare la logica per l'arresto normale, è possibile approvare l'evento in sospeso eseguendo una `POST` chiamare a Metadata Service con `EventId`. Questa chiamata indica a Azure che consente di ridurre la notifica minima di tempo (sempre). 
 
-Di seguito è riportato il codice json previsto nel corpo della richiesta `POST`. La richiesta deve contenere un elenco di `StartRequests`. Ogni `StartRequest` contiene l'`EventId` per l'evento che si vuole accelerare:
+In cui è previsto il seguente esempio JSON di `POST` corpo della richiesta. La richiesta deve contenere un elenco di `StartRequests`. Ogni `StartRequest` contiene `EventId` per l'evento che si desidera accelerare:
 ```
 {
     "StartRequests" : [
@@ -162,17 +164,17 @@ Di seguito è riportato il codice json previsto nel corpo della richiesta `POST`
 }
 ```
 
-#### <a name="bash-sample"></a>Esempio Bash
+#### <a name="bash-sample"></a>Esempio di barra rovesciata
 ```
 curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 > [!NOTE] 
-> Il riconoscimento di un evento consente all'evento di procedere per tutti gli elementi `Resources` nell'evento, non solo per la macchina virtuale che riconosce l'evento. Pertanto è possibile scegliere un coordinatore che si occupi del riconoscimento, che potrebbe essere semplicemente il primo nel campo `Resources`.
+> Consente di riconoscimento di un evento dell'evento di procedere per tutti i `Resources` nel caso in cui, non solo la macchina virtuale che riconosce l'evento. Pertanto, è possibile scegliere di scegliere se un carattere di riempimento per coordinare il riconoscimento, che potrebbe essere semplice come la prima macchina nel `Resources` campo.
 
 ## <a name="python-sample"></a>Esempio Python 
 
-L'esempio seguente esegue query sul servizio metadati per gli eventi pianificati e quindi approva gli eventi in sospeso.
+L'esempio seguente esegue una query Metadata Service per gli eventi pianificati e approva ogni evento in sospeso:
 
 ```python
 #!/usr/bin/python
@@ -215,6 +217,6 @@ if __name__ == '__main__':
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi 
-- Esaminare gli esempi di codice di eventi pianificati nel [repository di Github per gli eventi pianificati di Azure per i metadati delle istanze](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
+- Esaminare gli esempi di codice agli eventi pianificati nel [repository Github per gli eventi pianificati di Azure istanza metadati](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
 - Altre informazioni sulle API disponibili nel [servizio metadati dell'istanza](instance-metadata-service.md).
 - Informazioni sulla [manutenzione pianificata per le macchine virtuali Linux in Azure](planned-maintenance.md).

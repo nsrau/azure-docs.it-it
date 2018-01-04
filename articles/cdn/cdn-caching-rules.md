@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8f89ef5a1763d5fc4ad09a9aeae89ccf683138c7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 2a94ba5cb9f026f66bc1f3b379f00b291a2299c9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-caching-rules"></a>Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con regole
 
@@ -40,13 +40,19 @@ Per informazioni sul comportamento predefinito e sulle intestazioni delle dirett
 Come impostare regole di memorizzazione nella cache della rete CDN:
 
 1. Aprire il portale di Azure, selezionare un profilo della rete CDN e selezionare un endpoint.
-2. Nel riquadro sinistro, in Impostazioni, fare clic su **Cache**.
-3. Creare una regola di memorizzazione nella cache globale come segue:
+2. Nel riquadro a sinistra in impostazioni, fare clic su **la memorizzazione nella cache regole**.
+
+   ![Pulsante regole di memorizzazione nella cache della rete CDN](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
+
+1. Creare una regola di memorizzazione nella cache globale come segue:
    1. In **Regole di memorizzazione nella cache globali** impostare **Comportamento di memorizzazione nella cache della stringa di query** su **Ignora stringhe di query**.
    2. Impostare **Comportamento di memorizzazione nella cache** su **Imposta se mancante**.
+       
    3. Per **Durata scadenza cache** immettere 10 nel campo **Giorni**.
 
        La regola di memorizzazione nella cache globale influisce su tutte le richieste all'endpoint. Questa regola rispetta le intestazioni delle direttive della cache di origine, se presenti (`Cache-Control` o `Expires`); in caso contrario, se non sono specificate, imposta la cache su 10 giorni. 
+
+     ![Regole di memorizzazione nella cache globali](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
 4. Creare una regola di memorizzazione nella cache personalizzata come segue:
     1. In **Regole di memorizzazione nella cache personalizzate** impostare **Condizione di corrispondenza** su **Percorso** e **Valori di corrispondenza** su `/images/*.jpg`.
@@ -54,12 +60,12 @@ Come impostare regole di memorizzazione nella cache della rete CDN:
        
        Questa regola di memorizzazione nella cache personalizzata imposta una durata della cache di 30 giorni in qualsiasi file di immagine `.jpg` nella cartella `/images` dell'endpoint. Esegue l'override di qualsiasi intestazione HTTP `Cache-Control` o `Expires` inviata dal server di origine.
 
-  ![Finestra di dialogo Regole di memorizzazione nella cache](./media/cdn-caching-rules/cdn-caching-rules-dialog.png)
+    ![Regole di memorizzazione nella cache personalizzate](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 
 > [!NOTE] 
 > I file memorizzati nella cache prima della modifica di una regola mantengono l'impostazione di durata della cache di origine. Per reimpostare le durate della cache, è necessario [ripulire il file](cdn-purge-endpoint.md). Per gli endpoint della **rete CDN di Azure di Verizon** l'attuazione delle regole di memorizzazione nella cache può richiedere fino a 90 minuti.
 
-## <a name="reference"></a>riferimento
+## <a name="reference"></a>Riferimenti
 
 ### <a name="caching-behavior-settings"></a>Impostazioni del comportamento di memorizzazione nella cache
 Per le regole di memorizzazione nella cache globali e personalizzate, è possibile specificare le impostazioni di **Comportamento di memorizzazione nella cache** seguenti:

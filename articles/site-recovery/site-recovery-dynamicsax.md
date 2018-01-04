@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 12/11/2017
 ms.author: asgang
-ms.openlocfilehash: aa8a79cd152a532ef8989e61c2ec9609b826634b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: 8ffc4a5a573b1c5951fab98fb766aed36f626fe4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Eseguire la replica di un'applicazione Dynamics AX multilivello usando Azure Site Recovery
 
@@ -31,7 +31,6 @@ Dynamics AX non include attualmente funzionalità di ripristino di emergenza pre
 
 Questo articolo spiega come creare una soluzione di ripristino di emergenza per l'applicazione Dynamics AX usando [Azure Site Recovery](site-recovery-overview.md). Vengono anche descritti i failover di test pianificati/non pianificati tramite un piano di ripristino con un solo clic, le configurazioni supportate e i prerequisiti.
 
-La soluzione di ripristino di emergenza basata su Azure Site Recovery è completamente testata, certificata e consigliata da Dynamics AX.
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -187,7 +186,7 @@ Per altre informazioni relative a SQL Server durante il failback, vedere come [e
 
 Per altre informazioni sull'esecuzione di un failback, vedere [Eseguire il failback di una macchina virtuale VMware da Azure al sito locale](site-recovery-failback-azure-to-vmware.md).
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Con Azure Site Recovery è possibile creare un piano di ripristino di emergenza completamente automatico per l'applicazione Dynamics AX. In caso di interruzione del servizio è possibile avviare il failover in pochi secondi da qualsiasi luogo per ripristinare l'operatività dell'applicazione in pochi minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi

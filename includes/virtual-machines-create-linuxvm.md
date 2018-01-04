@@ -1,5 +1,5 @@
 
-1. Accedere alla sottoscrizione di Azure seguendo i passaggi elencati in [Connettersi ad Azure dall'interfaccia della riga di comando di Azure 1.0](../articles/xplat-cli-connect.md).
+1. Accedere alla sottoscrizione di Azure seguendo i passaggi elencati in [Connettersi ad Azure dall'interfaccia della riga di comando di Azure 1.0](/cli/azure/authenticate-azure-cli).
 
 2. Assicurarsi che sia attiva la modalità di distribuzione classica nel modo seguente:
 

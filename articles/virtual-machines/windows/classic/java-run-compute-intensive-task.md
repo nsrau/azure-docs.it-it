@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: a71efa7ff052c7c69de2b9aba3c1ed9328538e3f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: 76997f2e31f3edd6260b2ae19631236bc1c0c1b6
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Come eseguire un'attività a elevato utilizzo di calcolo in Java in una macchina virtuale
 > [!IMPORTANT] 
@@ -51,7 +51,7 @@ Di seguito è riportato un esempio dell'applicazione Java che monitora l'attivit
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## <a name="to-create-a-virtual-machine"></a>Per creare una macchina virtuale
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
+1. Accedere al [Portale di Azure](https://portal.azure.com).
 2. Fare clic su **Nuovo**, **Calcolo**, **Macchina virtuale** e quindi su **Da raccolta**.
 3. Nella finestra di dialogo **Virtual machine image select** (Seleziona immagine macchina virtuale) selezionare **JDK 7 Windows Server 2012** (JDK 7 Windows Server 2012).
    Si noti che è disponibile anche **JDK 6 Windows Server 2012** nel caso in cui siano presenti applicazioni non ancora predisposte per l'esecuzione in JDK 7.
@@ -74,10 +74,10 @@ Di seguito è riportato un esempio dell'applicazione Java che monitora l'attivit
    2. Fare clic su **Complete**.
 
 ## <a name="to-remotely-log-in-to-your-virtual-machine"></a>Per accedere in remoto alla macchina virtuale
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic su **Virtual machines**.
 3. Fare clic sul nome della macchina virtuale a cui si desidera accedere.
-4. Fare clic su **Connect**.
+4. Fare clic su **Connetti**.
 5. Rispondere ai prompt visualizzati per connettersi alla macchina virtuale. Quando vengono richiesti il nome e la password dell'amministratore, usare i valori specificati durante la creazione della macchina virtuale.
 
 Si noti che la funzionalità di bus di servizio di Azure richiede l'installazione del certificato Baltimore CyberTrust Root come parte del proprio archivio **cacerts** dell'ambiente JRE. Questo certificato è incluso automaticamente nell'ambiente Java Runtime Environment (JRE) usato in questa esercitazione. Se questo certificato non è disponibile nell'archivio **cacerts** dell'ambiente JRE, vedere [Aggiunta di un certificato all'archivio certificati CA Java][add_ca_cert] per altre informazioni su come aggiungerlo e informazioni sulla visualizzazione dei certificati nell'archivio cacerts.
@@ -87,15 +87,15 @@ Per iniziare a utilizzare le code del bus di servizio in Azure, è innanzitutto 
 
 Per creare uno spazio dei nomi del servizio:
 
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
-2. Nel riquadro di spostamento in basso a sinistra nel portale di Azure classico fare clic su **Bus di servizio, controllo di accesso e caching**.
-3. Nel riquadro in alto a sinistra nel portale di Azure classico fare clic sul nodo **Bus di servizio** e quindi sul pulsante **Nuovo**.  
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Nel riquadro di navigazione a sinistra del portale di Azure, fare clic su **Service Bus, Access Control e la memorizzazione nella cache**.
+3. Nel riquadro superiore sinistro del portale di Azure, fare clic sul **Bus di servizio** nodo e quindi scegliere il **New** pulsante.  
    ![Schermata nodo bus di servizio][svc_bus_node]
 4. Nella finestra di dialogo **Crea un nuovo spazio dei nomi servizio** immettere uno spazio dei nomi servizio in **Spazio dei nomi** e quindi, per assicurarsi che sia univoco, fare clic sul pulsante **Verifica disponibilità**.  
    ![Schermata Create a New Namespace][create_namespace]
 5. Dopo avere verificato che lo spazio dei nomi è disponibile, scegliere il paese o l'area in cui dovrà essere ospitato e fare clic sul pulsante **Create Namespace** .  
    
-   Lo spazio dei nomi creato verrà quindi visualizzato nel portale di Azure classico e sarà necessario attendere qualche istante affinché venga attivato. Prima di continuare, attendere che lo stato sia **Active** .
+   Lo spazio dei nomi creato verrà visualizzato nel portale di Azure e richiede molto tempo per l'attivazione. Prima di continuare, attendere che lo stato sia **Active** .
 
 ## <a name="obtain-the-default-management-credentials-for-the-namespace"></a>Recuperare le credenziali di gestione predefinite per lo spazio dei nomi
 Per poter eseguire le operazioni di gestione, ad esempio creare una coda, nel nuovo spazio dei nomi, è necessario ottenere le credenziali di gestione per lo spazio dei nomi.

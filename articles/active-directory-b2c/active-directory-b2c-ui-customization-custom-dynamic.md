@@ -4,7 +4,7 @@ description: "Supportare più esperienze di personalizzazione con contenuto HTML
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-ms.openlocfilehash: fffb6c82b2e04976c420fba07bbcf967ffd25929
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 342e82071778156477d216c9b624a938c48cb37f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Configurare l'interfaccia utente con contenuto dinamico usando criteri personalizzati
 I criteri personalizzati di Azure Active Directory B2C (Azure AD B2C) consentono di inviare un parametro in una stringa di query. Passando il parametro all'endpoint HTML, è possibile modificare dinamicamente il contenuto della pagina. È ad esempio possibile modificare l'immagine di sfondo della pagina di accesso o di iscrizione ad Azure AD B2C in base a un parametro passato dall'applicazione Web o per dispositivi mobili. 
@@ -39,7 +39,7 @@ Nei criteri personalizzati una definizione del contenuto indica l'URI della pagi
 
 La sezione `ContentDefinitions` contiene una serie di elementi XML `ContentDefinition`. L'attributo ID dell'elemento `ContentDefinition` specifica il tipo di pagina correlato alla definizione del contenuto. Ciò significa che l'elemento definisce il contesto che verrà applicato da un modello HTML5/CSS personalizzato. La tabella seguente descrive il set di ID di definizioni del contenuto, riconosciuti dal motore IEF (Identity Experience Framework, Framework dell'esperienza di gestione delle identità) e i tipi di pagina correlati.
 
-| ID definizione del contenuto | Modello HTML5 predefinito| Descrizione | 
+| ID definizione del contenuto | Modello HTML5 predefinito| DESCRIZIONE | 
 |-----------------------|--------|-------------|
 | *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Pagina di errore**. Questa pagina viene visualizzata quando viene rilevata un'eccezione o un errore. |
 | *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Pagina di selezione del provider di identità**. Questa pagina elenca i provider di identità tra cui gli utenti possono scegliere durante la procedura di accesso. Si tratta in genere di provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook e Google+, o account locali. |
@@ -143,7 +143,7 @@ Individuare l'elemento `<img>` contenente il valore `ID` *background_background_
 
 2. Eseguire il debug dell'app Web e verificare che la pagina _unified_ sia accessibile (ad esempio, `http://localhost:<Port number>/Home/unified`).
 
-### <a name="step-25-publish-to-azure"></a>Passaggio 2.5: Pubblicare in Azure
+### <a name="step-25-publish-to-azure"></a>Passaggio 2.5 Pubblicare in Azure
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **Contoso.AADB2C.UI** e quindi scegliere **Pubblica**.
 
     ![Pubblicare in Servizio app di Microsoft Azure](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish1.png)
@@ -152,10 +152,10 @@ Individuare l'elemento `<img>` contenente il valore `ID` *background_background_
 
     ![Creare un nuovo Servizio app di Microsoft Azure](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish2.png)
 
-    Verrà visualizzata la finestra **Crea servizio app**. Qui è possibile iniziare a creare tutte le risorse di Azure necessarie per eseguire l'app Web ASP.NET in Azure.
+    Verrà visualizzata la finestra **Crea servizio app**, Qui è possibile iniziare a creare tutte le risorse di Azure necessarie per eseguire l'app Web ASP.NET in Azure.
 
     > [!NOTE]
-    > Per altre informazioni sulla pubblicazione, vedere [Creare un'app Web ASP.NET in Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    > Per altre informazioni sulla pubblicazione, vedere [Creare un'app Web ASP.NET in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. Nella casella **Nome app Web** digitare un nome univoco per l'app. I caratteri validi sono a-z, A-Z, 0-9 e il trattino (-). L'URL dell'app Web è `http://<app_name>.azurewebsites.NET`, dove `<app_name>` è il nome dell'app Web. È possibile accettare il nome generato automaticamente, che è univoco.
 
@@ -216,7 +216,7 @@ Per configurare `ContentDefinition`, eseguire questa procedura:
     ![Definizione del contenuto](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>Passaggio 6: Caricare i criteri nel tenant
-1. Nel [portale di Azure](https://portal.azure.com) passare al [contesto del tenant di Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e quindi selezionare **Azure AD B2C**.
+1. Nel [portale di Azure](https://portal.azure.com) passare al [contesto del tenant Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e quindi selezionare **Azure AD B2C**.
 
 2. Fare clic su **Framework dell'esperienza di gestione delle identità**.
 
@@ -234,7 +234,7 @@ Per configurare `ContentDefinition`, eseguire questa procedura:
     >[!NOTE]
     >Il comando Esegui adesso richiede che nel tenant sia preregistrata almeno un'applicazione. Per informazioni su come registrare le applicazioni, vedere l'articolo di [introduzione](active-directory-b2c-get-started.md) ad Azure AD B2C o l'articolo relativo alla [registrazione delle applicazioni](active-directory-b2c-app-registration.md).
 
-2. Aprire **B2C_1A_signup_signin**, i criteri personalizzati della relying party caricati in precedenza, quindi selezionare **Esegui adesso**.  
+2. Aprire **B2C_1A_signup_signin**, i criteri personalizzati della relying party caricati in precedenza e quindi selezionare **Esegui adesso**.  
     Dovrebbe essere possibile vedere il codice HTML5 personalizzato con lo sfondo creato in precedenza.
 
     ![Criteri di iscrizione o di accesso](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-demo1.png)
@@ -341,7 +341,7 @@ Se si seleziona il collegamento **Iscriviti ora** nella pagina di accesso, il br
 
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(Facoltativo) Scaricare il codice e i file dei criteri completi
 * Dopo aver completato la procedura [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md), è consigliabile usare file di criteri personalizzati per definire scenari specifici. Per riferimento, sono disponibili [file di criteri di esempio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization).
-* È possibile scaricare il codice completo dalla [soluzione di Visual Studio di esempio di riferimento](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization).
+* È possibile scaricare il codice completo da [Sample Visual Studio solution for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization) (Soluzione di Visual Studio di esempio per riferimento).
 
 
 

@@ -4,8 +4,8 @@ description: Informazioni sulla configurazione di una connessione dati ad Analis
 keywords: flusso di dati, connessione dati, flusso di eventi
 services: stream-analytics
 documentationcenter: 
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/05/2017
-ms.author: samacha
-ms.openlocfilehash: 652137cf7a41f8d90a56aebe9f82fd37d5e4683d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.date: 12/11/2017
+ms.author: sngun
+ms.openlocfilehash: e8b55269e861dc010c911491d52973b674dd50ca
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Connessione dati: informazioni sugli input del flusso di dati dagli eventi ad Analisi di flusso
 La connessione dati a un processo di Analisi di flusso è un flusso di eventi da un'origine dati, definito *input* del processo. Analisi di flusso si integra perfettamente con le origini del flusso dei dati di Azure, come [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/), [Hub IoT di Azure](https://azure.microsoft.com/services/iot-hub/) e [Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/). Queste origini di input possono appartenere alla stessa sottoscrizione di Azure del processo di analisi o a un'altra sottoscrizione.
@@ -37,9 +37,9 @@ Per informazioni su come creare input dei dati di riferimento, vedere [Uso dei d
 
 ## <a name="compression"></a>Compressione
 
-Analisi di flusso di Azure supporta la compressione in tutte le origini di input del flusso di dati (Hub eventi, hub IoT e archiviazione BLOB). Questa funzionalità aggiunge una nuova opzione nell'elenco a discesa del pannello **Nuovo input** del portale di Azure consentendo di scegliere facoltativamente di comprimere i flussi di dati. I tipi di compressione attualmente supportati sono None, GZip e Deflate. 
+Analisi di flusso di Azure supporta la compressione in tutte le origini di input del flusso di dati (Hub eventi, hub IoT e archiviazione BLOB). Questa funzionalità aggiunge una nuova opzione nell'elenco a discesa del pannello **Nuovo input** del portale di Azure consentendo di scegliere facoltativamente di comprimere i flussi di dati. Attualmente supportati sono tipi riferimento - nessuno, GZip e la compressione Deflate. Supporto per la compressione non è disponibile per i dati di riferimento.
 
-La compressione non è supportata in parallelo con la serializzazione Avro e non è applicabile ai dati di riferimento. 
+Non è necessario specificare il tipo di compressione con la serializzazione Avro. Se i dati di input Avro sono compresso, viene gestita in modo trasparente. 
 
 ## <a name="create-data-stream-input-from-event-hubs"></a>Creare un input del flusso dei dati dagli hub eventi
 
@@ -53,7 +53,7 @@ Il timestamp predefinito degli eventi provenienti dagli hub eventi in Analisi di
 ### <a name="configure-an-event-hub-as-a-data-stream-input"></a>Configurare un hub eventi come input del flusso dei dati
 La tabella seguente contiene la descrizione delle proprietà disponibili nel pannello **Nuovo input** del portale di Azure quando si configura un hub eventi come input.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | **Alias di input** |Nome descrittivo che viene usato nella query del processo per fare riferimento a questo input. |
 | **Spazio dei nomi del bus di servizio** |Spazio dei nomi del bus di servizio di Azure che viene usato come contenitore per un set di entità di messaggistica. Quando si crea un nuovo hub eventi, viene creato anche uno spazio dei nomi del bus di servizio. |
@@ -66,7 +66,7 @@ La tabella seguente contiene la descrizione delle proprietà disponibili nel pan
 
 Quando i dati provengono da un hub eventi, è possibile accedere ai campi di metadati seguenti nella query di Analisi di flusso:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | **EventProcessedUtcTime** |Data e ora di elaborazione dell'evento in Analisi di flusso. |
 | **EventEnqueuedUtcTime** |Data e ora di ricezione dell'evento da parte di Hub eventi. |
@@ -102,7 +102,7 @@ Il timestamp predefinito degli eventi provenienti da un hub IoT in Analisi di fl
 ### <a name="configure-an-iot-hub-as-a-data-stream-input"></a>Configurare un hub IoT come input del flusso dei dati
 La tabella seguente contiene la descrizione delle proprietà disponibili nel pannello **Nuovo input** del portale di Azure quando si configura un hub IoT come input.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | **Alias di input** |Nome descrittivo che viene usato nella query del processo per fare riferimento a questo input.|
 | **Hub IoT** |Nome dell'hub IoT da usare come input. |
@@ -116,7 +116,7 @@ La tabella seguente contiene la descrizione delle proprietà disponibili nel pan
 
 Quando i dati provengono da un hub IoT, è possibile accedere ai campi di metadati seguenti nella query di Analisi di flusso:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | **EventProcessedUtcTime** |Data e ora di elaborazione dell'evento. |
 | **EventEnqueuedUtcTime** |Data e ora di ricezione dell'evento da parte dell'hub IoT. |
@@ -144,7 +144,7 @@ Gli input in formato CSV *richiedono* una riga di intestazione per definire i ca
 
 La tabella seguente contiene la descrizione delle proprietà disponibili nel pannello **Nuovo input** del portale di Azure quando si configura l'archiviazione BLOB come input.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | **Alias di input** | Nome descrittivo che viene usato nella query del processo per fare riferimento a questo input. |
 | **Account di archiviazione** | Nome dell'account di archiviazione in cui si trovano i file BLOB. |
@@ -154,12 +154,12 @@ La tabella seguente contiene la descrizione delle proprietà disponibili nel pan
 | **Formato data** (facoltativa) | Formato della data in base al quale vengono organizzati i file, se si usa la variabile date nel percorso. Esempio: `YYYY/MM/DD` |
 | **Formato ora** (facoltativa) |  Formato dell'ora in base al quale vengono organizzati i file, se si usa la variabile time nel percorso. L'unico valore attualmente supportato è `HH`. |
 | **Formato di serializzazione eventi** | Formato di serializzazione (JSON, CSV o Avro) per i flussi dei dati in ingresso. |
-| **Codifica** | Per CSV e JSON, l'unico formato di codifica attualmente supportato è UTF-8. |
+| **Encoding** | Per CSV e JSON, l'unico formato di codifica attualmente supportato è UTF-8. |
 | **Compressione** (facoltativo) | Il tipo di compressione (None, GZip o Deflate) del flusso dei dati in ingresso. |
 
 Quando i dati provengono da un'origine di archiviazione BLOB, è possibile accedere ai campi di metadati seguenti nella query di Analisi di flusso:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | **BlobName** |Nome del BLOB di input da cui proviene l'evento. |
 | **EventProcessedUtcTime** |Data e ora di elaborazione dell'evento in Analisi di flusso. |
@@ -184,7 +184,7 @@ Sono state apprese le opzioni di connessione dei dati in Azure per i processi di
 
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Link references-->

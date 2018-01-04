@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
 ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="resource-manager-rest-apis"></a>API REST di Resource Manager
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Ogni chiamata ad Azure Resource Manager, ogni modello sviluppato e ogni account 
 
 Questo articolo non esamina ogni API esposta in Azure, ma usa alcune operazioni come esempio per illustrare come connettersi a esse. Una volta acquisite le nozioni di base, è possibile leggere [Azure Resource Manager REST API Reference](https://docs.microsoft.com/rest/api/resources/) (Informazioni di riferimento sull'API REST di Azure Resource Manager) che contiene informazioni dettagliate su come usare le altre API.
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 L'autenticazione per Resource Manager viene gestita da Azure Active Directory (AD). Per connettersi a un'API, prima di tutto è necessario eseguire l'autenticazione con Azure AD per ricevere un token di autenticazione che è possibile passare a ogni richiesta. Poiché si descrive una chiamata reale direttamente all'API REST, si presuppone che non si desideri eseguire l'autenticazione tramite una richiesta di nome utente e password. Si suppone inoltre che l'utente non usi i meccanismi di autenticazione a due fattori. Verranno quindi create una cosiddetta applicazione Azure AD e un'entità servizio che verranno usate per l'accesso. Si ricordi tuttavia che Azure AD supporta diverse procedure di autenticazione e che tutte possono essere usate per recuperare il token di autenticazione necessario per le richieste API successive.
 Per istruzioni dettagliate, vedere [Creare un'applicazione e un'entità servizio di Azure AD](resource-group-create-service-principal-portal.md).
 
@@ -202,7 +202,7 @@ Se l'operazione riesce, si ottiene una risposta simile alla seguente:
 }
 ```
 
-È stato creato un gruppo di risorse in Azure. Congratulazioni.
+È stato creato un gruppo di risorse in Azure. Congratulazioni!
 
 ### <a name="deploy-resources-to-a-resource-group-using-a-resource-manager-template"></a>Distribuire risorse in un gruppo di risorse usando un modello di Gestione risorse
 Con Gestione risorse, è possibile distribuire le risorse usando i modelli. Un modello definisce diverse risorse e le relative dipendenze. In questa sezione si presuppone che l'utente abbia familiarità con i modelli di Gestione risorse e verrà illustrato come fare in modo che la chiamata API inizi la distribuzione. Per altre informazioni sulla creazione dei modelli, vedere [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md) (Creazione di modelli di Gestione risorse).

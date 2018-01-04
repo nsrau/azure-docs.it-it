@@ -4,7 +4,7 @@ description: "Informazioni sui tipi di applicazioni supportate che è possibile 
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: e0d41d1933531c2c633613bcbc1bbcbf075d6a69
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 57dddcc9114aeec1337b5b5ad8cfda3004fb0a76
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Come scegliere il tipo di applicazione da usare durante l'aggiunta di un'applicazione
 
@@ -29,7 +29,7 @@ Questo articolo consente di comprendere i quattro principali tipi di applicazion
 
 ## <a name="supported-application-types-in-azure-ad"></a>Tipi di applicazioni supportate in Azure AD
 
-Azure AD supporta quattro principali tipi di applicazione che è possibile aggiungere tramite la funzionalità **Aggiungi** disponibile in **Applicazioni Enterprise**. inclusi i seguenti:
+Azure AD supporta quattro principali tipi di applicazione che è possibile aggiungere tramite la funzionalità **Aggiungi** disponibile in **Applicazioni Enterprise**. incluse le seguenti:
 
 -   **Applicazioni della raccolta di Azure AD**: un'applicazione che è già stata integrata per un accesso Single Sign-On con Azure AD.
 
@@ -98,7 +98,7 @@ Le modalità **Single Sign-On** supportate per le applicazioni Azure AD sono ele
 
 ## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Modalità Single Sign-On per le applicazioni personalizzate
 
-Le applicazioni personalizzate sviluppate tramite l'esperienza [Applicazione personalizzata](#_Custom-Developed_Applications) supportano modalità Single Sign-On aggiuntive non elencate in precedenza. inclusi i seguenti:
+Le applicazioni personalizzate sviluppate tramite l'esperienza [Applicazione personalizzata](#_Custom-Developed_Applications) supportano modalità Single Sign-On aggiuntive non elencate in precedenza. incluse le seguenti:
 
 -   Accesso basato su [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)
 
@@ -114,7 +114,7 @@ Leggere [Guida per gli sviluppatori di Azure Active Directory](https://docs.micr
 
 Per impostare la modalità **Single Sign-On** di un'applicazione, seguire queste istruzioni:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1.  Aprire il [**Portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
@@ -124,7 +124,7 @@ Per impostare la modalità **Single Sign-On** di un'applicazione, seguire queste
 
 5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'**elenco di tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
 6.  Selezionare l'applicazione per cui si desidera configurare l'accesso Single Sign-on.
 
@@ -154,7 +154,7 @@ Per impostare la modalità di **provisioning** di un'applicazione, seguire quest
 
 Per impostare la modalità **Single Sign-On** di un'applicazione, seguire queste istruzioni:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1.  Aprire il [**Portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
@@ -164,7 +164,7 @@ Per impostare la modalità **Single Sign-On** di un'applicazione, seguire queste
 
 5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'**elenco di tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
 6.  Selezionare l'applicazione per cui si desidera configurare il provisioning.
 

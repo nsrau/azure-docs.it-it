@@ -1,10 +1,10 @@
 ---
-title: Introduzione alle API Web .NET per Azure AD | Microsoft Docs
+title: API Web .NET di Azure AD Azure introduzione | Documenti Microsoft
 description: Come compilare un'API Web MVC per Node.js che si integra con Azure AD per l'autenticazione e l'autorizzazione.
 services: active-directory
 documentationcenter: .net
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
 ms.service: active-directory
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: f44d75f45073a5d9aa9b1863ed227aba4efcf785
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c6c0aeba2eaa7709bbe55ecadd82a4f22d57c25e
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="help-protect-a-web-api-by-using-bearer-tokens-from-azure-ad"></a>Proteggere un'API Web usando token di connessione di Azure AD
+# <a name="azure-ad-net-web-api-getting-started"></a>API Web .NET di Azure AD Azure Guida introduttiva
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Se si compila un'applicazione che fornisce l'accesso alle risorse protette, è necessario sapere come prevenire l'accesso non protetto a tali risorse.
@@ -134,7 +134,7 @@ Prima di poter vedere To Do List Service in azione, è necessario configurare To
 1. Tornare al [portale di Azure](https://portal.azure.com).
 
 2. Creare una nuova applicazione nel tenant di Azure AD e selezionare **Applicazione client nativa** nella richiesta risultante.
-  * **Nome** descrive l'applicazione agli utenti.
+  * Il **nome** descrive l'applicazione agli utenti.
   * Immettere `http://TodoListClient/` per il valore di **URI di reindirizzamento** .
 
 3. Dopo aver completato la registrazione, Azure AD assegna all'app un ID applicazione univoco. Poiché questo valore sarà necessario nelle sezioni successive, copiarlo dalla pagina dell'applicazione.

@@ -1,6 +1,6 @@
 <!-- F-series, Fs-series* -->
 
-Le dimensioni delle macchine virtuali ottimizzate per il calcolo hanno un rapporto elevato tra CPU e memoria e sono ottimali per server Web con livelli medi di traffico, dispositivi di rete, processi batch e server applicazioni. Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, oltre che sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per ogni dimensione di questo raggruppamento.
+Le dimensioni delle macchine virtuali ottimizzate per il calcolo hanno un rapporto elevato tra CPU e memoria e sono ottimali per server Web con livelli medi di traffico, dispositivi di rete, processi batch e server applicazioni. Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, nonché sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per ogni dimensione di questo raggruppamento.
 
 La serie Fsv2 è basata sul processore Intel® Xeon® Platinum 8168, con una frequenza di core di base di 2,7 GHz e una frequenza turbo massima single-core di 3,7 GHz. Le istruzioni di Intel® AVX-512, che rappresentano una novità per i processori Intel Scalable, offriranno fino al doppio delle prestazioni per carichi di lavoro di elaborazione vettoriale nelle operazioni a virgola mobile a precisione singola e doppia. In altre parole, sono molto veloci per qualsiasi carico di lavoro di calcolo. 
 
@@ -12,7 +12,7 @@ Le VM serie F sono un'ottima scelta per i carichi di lavoro che richiedono CPU p
 
 La serie Fs offre tutti i vantaggi della serie F, oltre all'archiviazione Premium.
 
-## <a name="fsv2-series"></a>Serie Fsv2*
+## <a name="fsv2-series-sup1sup"></a>Serie di Fsv2 <sup>1</sup>
 
 ACU: 195 - 210
 
@@ -25,9 +25,10 @@ ACU: 195 - 210
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Estremamente elevate                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Estremamente elevate                                 |
 | Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Estremamente elevate                                 |
-* Le macchine virtuali Serie Fsv2 integrano la tecnologia Intel® Hyper-Threading
 
-## <a name="fs-series"></a>Serie Fs*
+<sup>1</sup>tecnologia Intel® Hyper-Threading di funzionalità della macchina virtuale Fsv2 serie
+
+## <a name="fs-series-sup1sup"></a>Serie di ADFS <sup>1</sup>
 
 ACU: 210 - 250
 
@@ -41,7 +42,7 @@ ACU: 210 - 250
 
 MBps = 10^6 byte al secondo e GiB = 1024^3 byte.
 
-*La massima velocità effettiva del disco (IOPS o MBps) possibile con una VM serie Fs può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati.  Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> la velocità effettiva massima del disco (IOPS o MBps) possibili con una serie di ADFS VM possono essere limitati dal numero, dimensione e lo striping dei dischi collegati.  Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/virtual-machines/windows/premium-storage.md).
 
 
 <br>

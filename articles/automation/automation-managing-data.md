@@ -3,7 +3,7 @@ title: Gestione dei dati di Automazione di Azure | Microsoft Docs
 description: "Questo articolo contiene più argomenti per la gestione di un ambiente di Automazione di Azure.  Include attualmente conservazione dei dati e backup del ripristino di emergenza di Automazione di Azure in Automazione di Azure."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: stevenka
 editor: tysonn
 ms.assetid: 2896f129-82e3-43ce-b9ee-a3860be0423a
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/02/201
 ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: e4a90f47167cfa2497e1ad5ae9db025d2d7d91dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 58ba74585f650c570b5962408a3935e9cd2e591c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="managing-azure-automation-data"></a>Gestione dei dati di Automazione di Azure
 Questo articolo contiene più argomenti per la gestione di un ambiente di Automazione di Azure.
@@ -71,7 +71,7 @@ Replica geografica, standard negli account di automazione di Azure, backup dei d
 
 Nella tabella seguente vengono illustrate le associazioni di aree primarie e secondarie disponibili:
 
-| Primaria | Secondaria |
+| Primaria | Secondario |
 | --- | --- |
 | Stati Uniti centro-meridionali |Stati Uniti centro-settentrionali |
 | Stati Uniti orientali 2 |Stati Uniti centrali |

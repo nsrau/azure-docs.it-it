@@ -9,27 +9,27 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7065ceaf87f0cb5ebf46c53c71c6df4b069b2deb
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 39c6de1ce2443cf027d7cde067281355ea0b7207
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-helm-with-azure-container-service-aks"></a>Usare Helm con il servizio contenitore di Azure
 
-[Helm](https://github.com/kubernetes/helm/) è uno strumento di creazione dei pacchetti open source che consente di installare e gestire il ciclo di vita delle applicazioni Kubernetes. Analogamente agli strumenti di gestione pacchetti Linux, come *APT* e *Yum*, Helm viene usato per gestire i grafici per Kubernetes, che sono pacchetti di risorse Kubernetes preconfigurate.
+[Helm] [ helm] è uno strumento di creazione di pacchetti open source che consente di installare e gestire il ciclo di vita delle applicazioni Kubernetes. Analogamente agli strumenti di gestione pacchetti Linux, come *APT* e *Yum*, Helm viene usato per gestire i grafici per Kubernetes, che sono pacchetti di risorse Kubernetes preconfigurate.
 
 Questo documento illustra la configurazione e l'uso di Helm in un cluster Kubernetes nel servizio contenitore di Azure.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-I passaggi dettagliati contenuti in questo documento presuppongono che sia stato creato un cluster del servizio contenitore di Azure e che sia stata stabilita una connessione kubectl al cluster. Se sono necessari questi elementi, vedere la [guida introduttiva al servizio contenitore di Azure](./kubernetes-walkthrough.md).
+I passaggi dettagliati contenuti in questo documento presuppongono che sia stato creato un cluster del servizio contenitore di Azure e che sia stata stabilita una connessione kubectl al cluster. Se è necessario di questi elementi, vedere il [delle Guide rapide AKS][aks-quickstart].
 
 ## <a name="install-helm-cli"></a>Installare l'interfaccia della riga di comando di Helm
 
 L'interfaccia della riga di comando di Helm è un client eseguito nel sistema di sviluppo che consente di avviare, arrestare e gestire applicazioni con grafici Helm.
 
-Se si usa Azure Cloud Shell, l'interfaccia della riga di comando di Helm è già installata. Per installare l'interfaccia della riga di comando di Helm in un computer Mac, usare `brew`. Per altre opzioni di installazione, vedere [Installing Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md) (Installazione di Helm).
+Se si usa Azure Cloud Shell, l'interfaccia della riga di comando di Helm è già installata. Per installare l'interfaccia della riga di comando di Helm in un computer Mac, usare `brew`. Per altre informazioni, vedere Opzioni [installazione Helm][helm-install-options].
 
 ```console
 brew install kubernetes-helm
@@ -50,23 +50,24 @@ Bash completion has been installed to:
 
 ## <a name="configure-helm"></a>Configurare Helm
 
-Il comando [helm init](https://docs.helm.sh/helm/#helm-init) consente di installare i componenti di Helm in un cluster Kubernetes e di effettuare le configurazioni lato client. Helm è preinstallato nei cluster del servizio contenitore di Azure ed è quindi necessaria solo la configurazione lato client. Per configurare il client Helm, eseguire questo comando:
+Il [helm init] [ helm-init] comando viene utilizzato per installare i componenti di Helm in un cluster Kubernetes e apportare le configurazioni sul lato client. Eseguire il comando seguente per installare Helm sul cluster AKS e configurare il client Helm.
 
 ```azurecli-interactive
-helm init --client-only
+helm init
 ```
 
 Output:
 
 ```
-$HELM_HOME has been configured at /Users/neilpeterson/.helm.
-Not installing Tiller due to 'client-only' flag having been set
+$HELM_HOME has been configured at /home/user/.helm.
+
+Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.
 Happy Helming!
 ```
 
 ## <a name="find-helm-charts"></a>Trovare i grafici Helm
 
-I grafici Helm vengono usati per distribuire applicazioni in un cluster Kubernetes. Per cercare i grafici Helm già creati, usare il comando [helm search](https://docs.helm.sh/helm/#helm-search).
+I grafici Helm vengono usati per distribuire applicazioni in un cluster Kubernetes. Per eseguire una ricerca per i grafici Helm creati in precedenza, utilizzare il [ricerca helm] [ helm-search] comando.
 
 ```azurecli-interactive
 helm search
@@ -94,7 +95,7 @@ stable/datadog                  0.8.0   DataDog Agent
 ...
 ```
 
-Per aggiornare l'elenco dei grafici, usare il comando [helm repo update](https://docs.helm.sh/helm/#helm-repo-update).
+Per aggiornare l'elenco dei grafici, utilizzare il [aggiornamento repository helm] [ helm-repo-update] comando.
 
 ```azurecli-interactive
 helm repo update
@@ -111,7 +112,7 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## <a name="run-helm-charts"></a>Eseguire i grafici Helm
 
-Per distribuire un controller di ingresso NGINX, usare il comando [helm install](https://docs.helm.sh/helm/#helm-install).
+Per distribuire un controller di ingresso NGINX, utilizzare il [helm installazione] [ helm-install] comando.
 
 ```azurecli-interactive
 helm install stable/nginx-ingress
@@ -142,11 +143,11 @@ tufted-ocelot-nginx-ingress-default-backend  1        1        1           1    
 ...
 ```
 
-Per altre informazioni sull'uso di un controller di ingresso NGINX con Kubernetes, vedere [NGINX Ingress Controller](https://github.com/kubernetes/ingress/tree/master/controllers/nginx) (Controller di ingresso NGINX).
+Per ulteriori informazioni sull'uso di un controller di ingresso NGINX con Kubernetes, vedere [NGINX in ingresso Controller][nginx-ingress].
 
 ## <a name="list-helm-charts"></a>Visualizzare un elenco dei grafici Helm
 
-Per visualizzare un elenco dei grafici installati nel cluster, usare il comando [helm list](https://docs.helm.sh/helm/#helm-list).
+Per visualizzare un elenco di grafici installato nel cluster, utilizzare il [elenco helm] [ helm-list] comando.
 
 ```azurecli-interactive
 helm list
@@ -164,4 +165,18 @@ bilging-ant     1           Thu Oct  5 00:11:11 2017    DEPLOYED    nginx-ingres
 Per altre informazioni sulla gestione dei grafici per Kubernetes, vedere la documentazione di Helm.
 
 > [!div class="nextstepaction"]
-> [Documentazione di Helm](https://github.com/kubernetes/helm/blob/master/docs/index.md)
+> [Documentazione Helm][helm-documentation]
+
+<!-- LINKS - external -->
+[helm]: https://github.com/kubernetes/helm/
+[helm-documentation]: https://github.com/kubernetes/helm/blob/master/docs/index.md
+[helm-init]: https://docs.helm.sh/helm/#helm-init
+[helm-install]: https://docs.helm.sh/helm/#helm-install
+[helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
+[helm-list]: https://docs.helm.sh/helm/#helm-list
+[helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
+[helm-search]: https://docs.helm.sh/helm/#helm-search
+[nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+
+<!-- LINKS - internal -->
+[aks-quickstart]: ./kubernetes-walkthrough.md

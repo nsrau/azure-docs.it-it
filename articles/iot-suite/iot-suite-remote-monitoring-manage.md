@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 84c2eaaab2dfc09c93fbfeac3fe2bfcc7066a411
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: fab3fd4163141aadc06b385f5759c19eece7fd14
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-and-configure-your-devices"></a>Gestire e configurare i dispositivi
 
@@ -40,13 +40,13 @@ Per seguire questa esercitazione, è necessaria un'istanza distribuita della sol
 
 Se la soluzione di monitoraggio remoto non è stata ancora distribuita, è necessario completare l'esercitazione [Distribuire la soluzione preconfigurata di monitoraggio remoto](iot-suite-remote-monitoring-deploy.md).
 
-## <a name="provision-a-simulated-device"></a>Effettuare il provisioning di un dispositivo simulato
+## <a name="add-a-simulated-device"></a>Aggiungere un dispositivo simulato
 
-Passare alla pagina **Devices** (Dispositivi) nella soluzione e quindi scegliere **Provision** (Provisioning). Nel pannello **Provision** (Provisioning) scegliere **Simulated** (Simulato):
+Passare il **dispositivi** pagina nella soluzione e quindi scegliere **nuovo dispositivo**. Nel **nuovo dispositivo** pannello, scegliere **simulato**:
 
 ![Effettuare il provisioning di un dispositivo simulato](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-Lasciare il numero di dispositivi di cui effettuare il provisioning impostato su **1**. Scegliere **Engine** (Motore) per **Device model** (Modello del dispositivo) e quindi scegliere **Apply** (Applica) per creare il dispositivo simulato:
+Lasciare il numero di dispositivi di cui effettuare il provisioning impostato su **1**. Scegliere **motore difettoso** come il **modello di dispositivo**, quindi scegliere **applica** per creare il dispositivo simulato:
 
 ![Effettuare il provisioning di un dispositivo motore simulato](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
@@ -68,7 +68,7 @@ Per visualizzare i dati di diagnostica dettagliati, scorrere fino a **Diagnostic
 
 ## <a name="act-on-a-device"></a>Eseguire operazioni su un dispositivo
 
-Per eseguire operazioni su un dispositivo, selezionarlo nell'elenco dei dispositivi e quindi scegliere **Schedule** (Pianifica). Il modello di dispositivo **Engine** (Motore) specifica quattro metodi che un dispositivo deve supportare:
+Per eseguire uno o più dispositivi, selezionarli nell'elenco dei dispositivi e quindi scegliere **pianificazione**. Il modello di dispositivo **Engine** (Motore) specifica quattro metodi che un dispositivo deve supportare:
 
 ![Metodi per il motore](media/iot-suite-remote-monitoring-manage/devicesmethods.png)
 
@@ -76,7 +76,7 @@ Scegliere **Restart** (Riavvia), impostare il nome del processo su **RestartEngi
 
 ![Pianificare il metodo di riavvio](media/iot-suite-remote-monitoring-manage/devicesrestartengine.png)
 
-Per tenere traccia dello stato del processo nella pagina **Maintenance** (Manutenzione), scegliere **System Status** (Stato sistema):
+Per tenere traccia dello stato del processo sul **manutenzione** pagina, scegliere **processi**:
 
 ![Monitorare il processo pianificato](media/iot-suite-remote-monitoring-manage/maintenancerestart.png)
 
@@ -96,7 +96,7 @@ Per apportare una modifica, aggiungere un nome per il processo, aggiornare i val
 
 ![Aggiornare un valore di proprietà del dispositivo](media/iot-suite-remote-monitoring-manage/devicesreconfigurephysical.png)
 
-Per tenere traccia dello stato del processo nella pagina **Maintenance** (Manutenzione), scegliere **System Status** (Stato sistema).
+Per tenere traccia dello stato del processo sul **manutenzione** pagina, scegliere **processi**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 4d77390e-898c-4258-a562-a1181dfe2880
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 0d3f17b86caaf781ab8825b047853f2949828e9e
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
-ms.translationtype: HT
+ms.openlocfilehash: ade4076917988c5747a0d10a99578b49c917e1db
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Esercitazione: Integrazione di Azure Active Directory con IMPAC Risk Manager
 
@@ -28,7 +28,7 @@ L'integrazione di IMPAC Risk Manager con Azure AD offre i vantaggi seguenti:
 
 - È possibile controllare in Azure AD chi può accedere a IMPAC Risk Manager.
 - È possibile abilitare gli utenti per l'accesso automatico a IMPAC Risk Manager (Single Sign-On) con gli account Azure AD personali.
-- È possibile gestire gli account da una posizione centrale: il portale di Azure.
+- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -36,7 +36,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con IMPAC Risk Manager, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di IMPAC Risk Manager abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
@@ -48,7 +48,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di IMPAC Risk Manager dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -98,7 +98,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **IMPAC Risk Manager** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Collegamento per la configurazione dell'accesso Single Sign-On][4]
+    ![Collegamento Configura accesso Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
@@ -111,7 +111,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     a. Nella casella di testo **Identificatore** digitare un valore fornito da IMPAC.
 
     b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente:
-    | Ambiente | Modello URL |
+    | Environment | Modello URL |
     | ---------------|--------------- |    
     | Per la produzione |`https://www.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
     | Per la gestione temporanea e il training  |`https://staging.riskmanager.co.nz/DotNet/SSOv2/AssertionConsumerService.aspx?client=<ClientSuffix>`|
@@ -124,7 +124,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di IMPAC Risk Manager](./media/active-directory-saas-impacriskmanager-tutorial/tutorial_impacriskmanager_url1_new.png)
 
     Nella casella di testo **URL di accesso** digitare un URL usando il criterio seguente:
-    | Ambiente | Modello URL |
+    | Environment | Modello URL |
     | ---------------|--------------- |    
     | Per la produzione |`https://www.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
     | Per la gestione temporanea e il training  |`https://staging.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
@@ -133,7 +133,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | Per il test |`https://test.riskmanager.co.nz/SSOv2/<ClientSuffix>`|
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di IMPAC Risk Manager](mailto:rmsupport@Impac.co.nz).
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di IMPAC Risk Manager](mailto:rmsupport@Impac.co.nz).
 
 5. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
@@ -141,11 +141,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 6. Fare clic sul pulsante **Salva** .
 
-    ![Pulsante Salva di Configura accesso Single Sign-On](./media/active-directory-saas-impacriskmanager-tutorial/tutorial_general_400.png)
+    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-impacriskmanager-tutorial/tutorial_general_400.png)
     
 7. Nella sezione **Configurazione di IMPAC Risk Manager** fare clic su **Configura IMPAC Risk Manager** per aprire la finestra **Configura accesso**. Copiare l'**URL del servizio Single Sign-On SAML, l'ID di entità SAML** e l'**URL di disconnessione** dalla sezione **Riferimento rapido**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-impacriskmanager-tutorial/tutorial_impacriskmanager_configure.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-impacriskmanager-tutorial/tutorial_impacriskmanager_configure.png)
 
 8. Per configurare l'accesso Single Sign-On sul lato **IMPAC Risk Manager**, è necessario inviare il file di **Certificato (Base64)** scaricato, l'**URL di disconnessione, l'ID entità SAML** e l'**URL del servizio Single Sign-On SAML** al [team di supporto di IMPAC Risk Manager](mailto:rmsupport@Impac.co.nz). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 

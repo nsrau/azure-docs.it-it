@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
-ms.openlocfilehash: ef49a6c176017d05a4048145c62fcf8692ffc23b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 0a3558973014e47d470ef89d5d0f7c9ac15cb4d9
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>Introduzione alla sicurezza Hadoop con i cluster HDInsight aggiunti al dominio
 
@@ -32,6 +32,8 @@ Fino a questo momento, Azure HDInsight ha supportato solo un unico amministrator
 > [!IMPORTANT]
 > Oozie non è abilitato su HDInsight appartenente al dominio.
 
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
+
 ## <a name="benefits"></a>Vantaggi
 La protezione aziendale si basa su quattro importanti pilastri: protezione perimetrale, autenticazione, autorizzazione e crittografia.
 
@@ -40,10 +42,10 @@ La protezione aziendale si basa su quattro importanti pilastri: protezione perim
 ### <a name="perimeter-security"></a>Protezione perimetrale
 La protezione perimetrale in HDInsight si raggiunge con l'uso di reti virtuali e servizio gateway. Oggi, un amministratore aziendale può creare un cluster HDInsight all'interno di una rete virtuale e usare gruppi di sicurezza di rete (regole del firewall in entrata o in uscita) per limitare l'accesso alla rete virtuale. Solo gli indirizzi IP definiti nelle regole del firewall in entrata potranno comunicare con il cluster HDInsight, fornendo in tal modo la protezione perimetrale. Un altro livello di protezione perimetrale viene garantito grazie al servizio gateway. Il gateway è il servizio che funge da prima linea di difesa per qualsiasi richiesta in entrata al cluster HDInsight. Accetta la richiesta, poi la verifica e solo a questo punto consente alla richiesta di passare agli altri nodi nel cluster, offrendo protezione perimetrale ad altri nodi di nomi e dati nel cluster.
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 Un amministratore può creare un cluster HDInsight aggiunto al dominio in una [rete virtuale](https://azure.microsoft.com/services/virtual-network/). I nodi del cluster HDInsight verranno aggiunti al dominio gestito dall'azienda. Questo è possibile grazie all'uso dei [servizi di dominio di Azure Active Directory](../../active-directory-domain-services/active-directory-ds-overview.md). Tutti i nodi del cluster sono aggiunti a un dominio gestito dall'azienda. Con questa configurazione, i dipendenti dell'azienda possono accedere ai nodi del cluster usando le credenziali del dominio. Inoltre, usano le credenziali del dominio per l'autenticazione con altri endpoint approvati, come Hue, viste di Ambari, ODBC, JDBC, PowerShell e API REST per interagire con il cluster. L'amministratore ha il pieno controllo sulla limitazione del numero di utenti che interagiscono con il cluster tramite questi endpoint.
 
-### <a name="authorization"></a>Autorizzazione
+### <a name="authorization"></a>Authorization
 Una procedura consigliata seguita dalla maggior parte delle aziende è limitare l'accesso a tutte le risorse aziendali da parte dei dipendenti. In modo analogo, con questa versione l'amministratore può definire i criteri di controllo degli accessi basato sui ruoli per le risorse del cluster. Ad esempio, l'amministratore può configurare [Apache Ranger](http://hortonworks.com/apache/ranger/) per impostare criteri di controllo degli accessi per Hive. Questa funzionalità garantisce che i dipendenti saranno in grado di accedere solo ai dati di cui hanno bisogno per svolgere il loro lavoro in modo corretto. L'accesso SSH al cluster è limitato solo all'amministratore.
 
 ### <a name="auditing"></a>Controllo

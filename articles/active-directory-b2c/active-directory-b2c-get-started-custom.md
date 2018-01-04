@@ -4,7 +4,7 @@ description: Come iniziare a usare i criteri personalizzati di Azure Active Dire
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
-manager: krassk
+manager: mtillman
 editor: rojasja
 ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.openlocfilehash: 4f14dbf4b66f10290cd4f98d56a005f97cc6a207
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 826211dca59128a8b87ace44348dd5e2764bc0c3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: introduzione ai criteri personalizzati
 
@@ -45,7 +45,7 @@ Prima di procedere, assicurarsi di disporre di un tenant di Azure AD B2C, che è
     d. For **Tipo di chiave** usare **RSA**.<br>
     e. Per **Date** usare le impostazioni predefinite. <br>
     f. Per **Uso chiave** usare **Firma**.<br>
-    g. Selezionare **Crea**.<br>
+    g. Selezionare **Create**.<br>
 4. Se non esiste, creare B2C_1A_TokenEncryptionKeyContainer:<br>
  a. Selezionare **Aggiungi**.<br>
  b. Selezionare **Genera**.<br>
@@ -54,7 +54,7 @@ Prima di procedere, assicurarsi di disporre di un tenant di Azure AD B2C, che è
  d. For **Tipo di chiave** usare **RSA**.<br>
  e. Per **Date** usare le impostazioni predefinite.<br>
  f. Per **Uso chiave** usare **Crittografia**.<br>
- g. Selezionare **Crea**.<br>
+ g. Selezionare **Create**.<br>
 5. Creare B2C_1A_FacebookSecret. <br>
 Se si ha già un segreto dell'applicazione Facebook, aggiungerlo come chiave dei criteri nel tenant. In caso contrario, è necessario creare la chiave con un valore segnaposto affinché i criteri superino la convalida.<br>
  a. Selezionare **Aggiungi**.<br>
@@ -81,7 +81,7 @@ Azure AD B2C richiede di registrare due applicazioni aggiuntive che vengono usat
    * Per **Nome** usare `IdentityExperienceFramework`.
    * Per **Tipo di applicazione** usare **App Web/API**.
    * Per **URL di accesso** usare `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, dove `yourtenant` è il nome del dominio del tenant di Azure AD B2C.
-5. Selezionare **Crea**.
+5. Selezionare **Create**.
 6. Dopo avere completato la creazione, selezionare l'applicazione appena creata **IdentityExperienceFramework**.<br>
    * Selezionare **Proprietà**.<br>
    * Copiare l'ID dell'applicazione e salvarlo per un uso successivo.
@@ -93,7 +93,7 @@ Azure AD B2C richiede di registrare due applicazioni aggiuntive che vengono usat
    * Per **Nome** usare `ProxyIdentityExperienceFramework`.
    * Per **Tipo di applicazione** usare **Nativo**.
    * Per **URI di reindirizzamento** usare `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, dove `yourtenant` è il tenant di Azure AD B2C.
-1. Selezionare **Crea**.
+1. Selezionare **Create**.
 1. Dopo avere completato la creazione, selezionare l'applicazione **ProxyIdentityExperienceFramework**.<br>
    * Selezionare **Proprietà**. <br>
    * Copiare l'ID dell'applicazione e salvarlo per un uso successivo.
@@ -122,7 +122,7 @@ Ogni pacchetto Starter contiene:
 >[!NOTE]
 >Se l'editor XML supporta la convalida, convalidare i file rispetto allo schema XML TrustFrameworkPolicy_0.3.0.0.xsd che si trova nella directory radice del pacchetto Starter. La convalida dello schema XML identifica gli errori prima del caricamento.
 
- Di seguito sono riportati i requisiti iniziali:
+ Ecco come procedere:
 
 1. Scaricare active-directory-b2c-custom-policy-starterpack da GitHub. [Scaricare il file con estensione zip](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) o eseguire
 
@@ -154,7 +154,7 @@ Ogni pacchetto Starter contiene:
 Aggiungere gli ID applicazione al file di estensione (`TrustFrameworkExtensions.xml`):
 
 1. Nel file di estensione (TrustFrameworkExtensions.xml) trovare l'elemento `<TechnicalProfile Id="login-NonInteractive">`.
-2. Sostituire entrambe le istanze di `IdentityExperienceFrameworkAppId` con l'ID dell'applicazione del framework dell'esperienza di gestione delle identità creata in precedenza. Di seguito è fornito un esempio:
+2. Sostituire entrambe le istanze di `IdentityExperienceFrameworkAppId` con l'ID dell'applicazione del framework dell'esperienza di gestione delle identità creata in precedenza. Di seguito è fornito un esempio: 
 
    ```xml
    <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>

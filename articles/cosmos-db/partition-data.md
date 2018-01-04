@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/02/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7f5e2939ed09c0fbb4eb81f066075553376ff57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 86bc61ffcefd12289168d35b2773d61fac4c3652
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partizionamento e ridimensionamento in Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Per il partizionamento, ogni elemento deve avere una chiave di partizione e una 
 
 * Si esegue il provisioning di un contenitore Azure Cosmos DB con velocità effettiva di `T` richieste/s.
 * In background Azure Cosmos DB effettua il provisioning delle partizioni necessarie per gestire `T` richieste/s. Se `T` è maggiore della velocità effettiva massima per partizione `t`, Azure Cosmos DB effettua il provisioning di `N` = `T/t` partizioni.
-* Azure Cosmos DB alloca lo spazio degli hash delle chiavi di partizione in modo uniforme tra le `N` partizioni. Ogni partizione fisica ospita quindi 1-N valori di chiave di partizione (partizioni logiche).
+* Azure Cosmos DB alloca lo spazio degli hash delle chiavi di partizione in modo uniforme tra le `N` partizioni. Pertanto, ogni host di partizione (partizione fisica) `1/N` (partizioni logiche) di valori di chiave di partizione.
 * Quando una partizione fisica `p` raggiunge il limite di archiviazione, Azure Cosmos DB suddivide `p` in due nuove partizioni, `p1` e `p2`. Distribuisce i valori corrispondenti a circa la metà delle chiavi a ogni partizione. Questa operazione di suddivisione è invisibile all'applicazione.
 * Analogamente, quando si esegue il provisioning di una velocità effettiva superiore a `t*N`, Azure Cosmos DB suddivide una o più partizioni per supportare la velocità effettiva maggiore.
 
@@ -60,7 +60,7 @@ Azure Cosmos DB usa il partizionamento basato su hash. Quando si scrive un eleme
 > È consigliabile avere una chiave di partizione con molti valori distinti (centinaia di migliaia come minimo).
 >
 
-I contenitori di Azure Cosmos DB possono essere creati come *fissi* o *illimitati*. I contenitori a dimensione fissa hanno un limite massimo di 10 GB e velocità effettiva di 10.000 UR/s. Alcune API consentono di omettere la chiave di partizione per i contenitori a dimensione fissa. Per creare un contenitore illimitato, è necessario specificare una velocità effettiva minima di 2.500 UR/s.
+I contenitori di Azure Cosmos DB possono essere creati come *fissi* o *illimitati*. I contenitori a dimensione fissa hanno un limite massimo di 10 GB e velocità effettiva di 10.000 UR/s. Per creare un contenitore come illimitato, è necessario specificare una velocità effettiva minima di 1.000 UR/sec ed è necessario specificare una chiave di partizione.
 
 È consigliabile controllare la modalità di distribuzione dei dati nelle partizioni. Per eseguire il controllo nel portale, accedere al proprio account Azure Cosmos DB e fare clic su **Metrics** (Metriche) nella sezione **Monitoring** (Monitoraggio) e quindi nel riquadro destro fare clic sulla scheda **storage** (Archiviazione) per visualizzare come sono partizionati i dati nelle diverse partizioni fisiche.
 
@@ -127,25 +127,18 @@ Risultati:
 
 ### <a name="table-api"></a>API di tabella
 
-Con l'API di tabella si specifica la velocità effettiva per le tabelle nella configurazione appSettings dell'applicazione.
-
-```xml
-<configuration>
-    <appSettings>
-      <!--Table creation options -->
-      <add key="TableThroughput" value="700"/>
-    </appSettings>
-</configuration>
-```
-
-Si crea quindi una tabella usando l'SDK di archiviazione tabelle di Azure. La chiave di partizione viene creata implicitamente come valore `PartitionKey`. 
+Per creare una tabella utilizzando l'API di tabelle di Azure Cosmos DB, utilizzare il metodo CreateIfNotExists. 
 
 ```csharp
 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
 CloudTable table = tableClient.GetTableReference("people");
-table.CreateIfNotExists();
+table.CreateIfNotExists(throughput: 800);
 ```
+
+Velocità effettiva è impostata come un argomento di CreateIfNotExists.
+
+La chiave di partizione viene creata implicitamente come valore `PartitionKey`. 
 
 È possibile recuperare una singola entità tramite il frammento seguente:
 

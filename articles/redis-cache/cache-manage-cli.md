@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: sdanie
-ms.openlocfilehash: ba078a870a3998568170cc197bd6698b97b7fadb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d3a425251035e09bb3163fbb052669d0a874806f
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Come creare e gestire Cache Redis di Azure tramite l'interfaccia della riga di comando di Azure (Azure CLI)
 > [!div class="op_single_selector"]
@@ -39,13 +39,13 @@ Per creare e gestire le istanze di Cache Redis di Azure utilizzando CLI di Azure
 
 * È necessario disporre di un account Azure. Se non è disponibile, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi istanti.
 * [Installare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md)
-* Connettere l'installazione dell’interfaccia della riga di comando di Azure con un account Azure personale o con un account di lavoro o scolastico di Azure, e accedere dall’interfaccia della riga di comando di Azure utilizzando il comando `azure login` . Per comprendere le differenze e scegliere, vedere [Connettersi a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure (Azure CLI)](../xplat-cli-connect.md).
+* Connettere l'installazione dell’interfaccia della riga di comando di Azure con un account Azure personale o con un account di lavoro o scolastico di Azure, e accedere dall’interfaccia della riga di comando di Azure utilizzando il comando `azure login` . Per comprendere le differenze e scegliere, vedere [Connettersi a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure (Azure CLI)](/cli/azure/authenticate-azure-cli).
 * Prima di eseguire uno dei seguenti comandi, passare l’interfaccia della riga di comando di Azure in modalità di Gestione delle risorse eseguendo il comando `azure config mode arm` . Per altre informazioni, vedere l'articolo su come [usare l'interfaccia della riga di comando di Azure per gestire risorse e gruppi di risorse di Azure](../xplat-cli-azure-resource-manager.md).
 
 ## <a name="redis-cache-properties"></a>Proprietà di Cache Redis
 Le seguenti proprietà vengono utilizzate durante la creazione e l’aggiornamento delle istanze di Cache Redis.
 
-| Proprietà | Switch | Descrizione |
+| Proprietà | Switch | DESCRIZIONE |
 | --- | --- | --- |
 | name |-n, --name |Nome della Cache Redis. |
 | gruppo di risorse |-g, --resource-group |Nome del gruppo di risorse. |
@@ -61,7 +61,7 @@ Le seguenti proprietà vengono utilizzate durante la creazione e l’aggiornamen
 | StaticIP |-p, --static-ip <static-ip> |Quando si ospita la cache in una rete virtuale, specifica l'indirizzo IP univoco nella subnet per la cache. Se non specificato, ne verrà scelto uno dalla subnet. |
 | Subnet |t, --subnet <subnet> |Quando si ospita la cache in una rete virtuale, specifica il nome della subnet in cui distribuire la cache. |
 | VirtualNetwork |-v, --virtual-network <virtual-network> |Quando si ospita la cache in una rete virtuale, specifica l'ID risorsa esatto ARM della rete virtuale in cui distribuire la cache Redis. Formato di esempio: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
-| Subscription |-s, --subscription |L'identificatore della sottoscrizione. |
+| Sottoscrizione |-s, --subscription |L'identificatore della sottoscrizione. |
 
 ## <a name="see-all-redis-cache-commands"></a>Vedere tutti i comandi di Cache Redis
 Per visualizzare tutti i comandi di Cache Redis e i relativi parametri, utilizzare il comando `azure rediscache -h` .

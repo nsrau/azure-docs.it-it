@@ -16,10 +16,10 @@ ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
 ms.openlocfilehash: e8a8a84153a950f2d1bc002b34c83dc5ed8a5eb8
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="data-warehouse-migration-utility-preview"></a>Utilità di migrazione per data warehouse (anteprima)
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ L'utilità di migrazione per data warehouse è uno strumento progettato per eseg
 
 Oltre alla migrazione dello schema e dei dati, lo strumento consente di generare report di compatibilità che riepilogano le incompatibilità riscontrate tra le istanze di destinazione e di origine che possono impedire la corretta migrazione.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Attività iniziali
 Come prerequisito per l'installazione, è necessario installare l'utilità della riga di comando bcp per l'esecuzione degli script di migrazione e Office per la visualizzazione del report di compatibilità. Dopo aver fatto clic sull'eseguibile scaricato, sarà necessario accettare le condizioni di licenza standard prima di procedere all'installazione dello strumento.
 
 Per eseguire l'utilità di migrazione sarà necessario disporre di una delle seguenti autorizzazioni nel database di cui si sta tentando di eseguire la migrazione: CREA DATABASE, MODIFICA QUALSIASI DATABASE o VISUALIZZAZIONE QUALSIASI DEFINIZIONE.

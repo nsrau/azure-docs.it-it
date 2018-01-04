@@ -1,6 +1,6 @@
 ---
-title: Creare uno spazio dei nomi del bus di servizio di Azure tramite un modello di Resource Manager | Documentazione Microsoft
-description: Usare il modello di Azure Resource Manager per creare uno spazio dei nomi del bus di servizio
+title: Creare spazio dei nomi messaggistica del Bus di servizio utilizzando il modello di gestione risorse di Azure | Documenti Microsoft
+description: Utilizzare il modello di gestione risorse di Azure per creare uno spazio dei nomi di messaggistica del Bus di servizio
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/07/2017
+ms.date: 12/21/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: c8a42638c79a8a53f80102fc344eccb521e4c1c5
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: f184cc9418e4af95423c0ede65bca312dfca7393
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi del bus di servizio tramite il modello di Azure Resource Manager
 
@@ -41,6 +41,7 @@ Per il modello completo, vedere il [modello dello spazio dei nomi del bus di ser
 > 
 
 ## <a name="what-will-you-deploy"></a>Distribuzione
+
 Questo modello consente di distribuire uno spazio dei nomi del bus di servizio con uno SKU [Standard o Premium](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
@@ -48,11 +49,13 @@ Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 [![Distribuire in Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametri
+
 Gestione risorse di Azure permette di definire i parametri per i valori da specificare durante la distribuzione del modello. Il modello include una sezione denominata `Parameters` che contiene tutti i valori dei parametri. È necessario definire un parametro per i valori che variano in base al progetto distribuito o all'ambiente in cui viene distribuito il progetto. Non definire i parametri per i valori che rimangono invariati. Ogni valore di parametro nel modello viene usato per definire le risorse distribuite.
 
 Questo modello definisce i parametri seguenti:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
+
 Nome dello spazio dei nomi del bus di servizio da creare.
 
 ```json
@@ -65,6 +68,7 @@ Nome dello spazio dei nomi del bus di servizio da creare.
 ```
 
 ### <a name="servicebussku"></a>serviceBusSKU
+
 Nome dello [SKU](https://azure.microsoft.com/pricing/details/service-bus/) del bus di servizio da creare.
 
 ```json
@@ -86,6 +90,7 @@ Il modello definisce i valori consentiti per questo parametro (Standard o Premiu
 Per altre informazioni sui prezzi del bus di servizio, vedere [Service Bus pricing and billing][Service Bus pricing and billing] (Prezzi e fatturazione del bus di servizio).
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
+
 Versione API del bus di servizio del modello.
 
 ```json
@@ -98,7 +103,9 @@ Versione API del bus di servizio del modello.
 ```
 
 ## <a name="resources-to-deploy"></a>Risorse da distribuire
+
 ### <a name="service-bus-namespace"></a>Spazio dei nomi del bus di servizio
+
 Crea uno spazio dei nomi del bus di servizio standard di tipo **Messaggistica**.
 
 ```json
@@ -120,15 +127,18 @@ Crea uno spazio dei nomi del bus di servizio standard di tipo **Messaggistica**.
 ```
 
 ## <a name="commands-to-run-deployment"></a>Comandi per eseguire la distribuzione
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
+
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json
 ```
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-```azurecli
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json

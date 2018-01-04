@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
 ms.openlocfilehash: 996fe0ef31a5bea9111324a661b714e77dffff64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>Controllare la connettività con Azure Network Watcher usando l'interfaccia della riga di comando di Azure 2.0
 
@@ -80,7 +80,7 @@ Questo esempio controlla la connettività a una macchina virtuale di destinazion
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-resource Database0 --dest-port 80
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 
 La risposta seguente è relativa all'esempio precedente.  In questa risposta `ConnectionStatus` è **Unreachable**. Si noti che tutti i probe inviati presentano un errore. Si è verificato un problema di connettività nell'appliance virtuale a causa di un valore `NetworkSecurityRule` configurato dall'utente per bloccare il traffico in ingresso sulla porta 80, denominato **UserRule_Port80**. Queste informazioni possono essere usate per analizzare i problemi di connessione.
 
@@ -161,7 +161,7 @@ L'esempio verifica la connettività tra una macchina virtuale e un endpoint remo
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address 13.107.21.200 --dest-port 80
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 
 Nell'esempio seguente `connectionStatus` è **Unreachable**. I dettagli relativi a `hops` sotto `issues` indicano che il traffico è stato bloccato a causa di un valore `UserDefinedRoute`.
 
@@ -219,7 +219,7 @@ L'esempio seguente controlla la connettività a un sito Web.
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address http://bing.com --dest-port 80
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 
 Nella risposta seguente il valore indicato per `connectionStatus` è **Reachable**. In caso di esito positivo della connessione vengono forniti i valori della latenza.
 
@@ -265,7 +265,7 @@ L'esempio seguente controlla la connettività da una macchina virtuale a un acco
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://contosoexamplesa.blob.core.windows.net/
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 
 Il codice JSON seguente è la risposta di esempio generata dall'esecuzione del cmdlet precedente. Poiché il controllo ha esito positivo, il valore indicato per la proprietà `connectionStatus` è **Reachable**.  Vengono forniti i dettagli sul numero di hop necessari per raggiungere il BLOB di archiviazione e la latenza.
 

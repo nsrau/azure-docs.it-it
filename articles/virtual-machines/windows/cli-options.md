@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
-ms.openlocfilehash: 0ac4aa10db43fb84119ab97cf78b2d5592cfd277
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 11d30931bd549f7e877264b4a33f8e06c6b1c802
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="using-the-azure-cli-on-windows"></a>Uso dell'interfaccia della riga di comando di Azure su Windows
 
 L'interfaccia della riga di comando di Azure (CLI) fornisce una riga di comando e l'ambiente di scripting per la creazione e la gestione delle risorse di Azure. L'interfaccia della riga di comando di Azure è disponibile per i sistemi operativi macOS, Linux e Windows. In questi sistemi operativi i comandi dell'interfaccia della riga di comando sono identici. Tuttavia, la sintassi di scripting specifica del sistema operativo può differire.
 
-Questo documento descrive le modalità di installazione ed esecuzione dell'interfaccia della riga di comando di Azure in Windows, nonché le considerazioni sulla sintassi specifica del sistema operativo. Per la documentazione dettagliata sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure]( https://docs.microsoft.com/en-us/cli/azure/overview).
+Questo documento descrive le modalità di installazione ed esecuzione dell'interfaccia della riga di comando di Azure in Windows, nonché le considerazioni sulla sintassi specifica del sistema operativo. Per la documentazione dettagliata sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure]( https://docs.microsoft.com/cli/azure/overview).
 
 ## <a name="windows-subsystem-for-linux"></a>Sottosistema di Windows per Linux
 
@@ -36,13 +36,13 @@ Per usare l'interfaccia della riga di comando di Azure in WSL, completare le ope
 |Attività | Istruzioni |
 |---|---|
 | Abilitare WLS | [Documentazione sull'installazione di WSL](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
-| Installare l'interfaccia della riga di comando di Azure |[Installare l'interfaccia della riga di comando su WSL/Ubuntu 14.04](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2#ubuntu)|
+| Installare l'interfaccia della riga di comando di Azure |[Installare l'interfaccia della riga di comando su WSL/Ubuntu 14.04](https://docs.microsoft.com/cli/azure/install-az-cli2#ubuntu)|
 
 ## <a name="powershell"></a>PowerShell
 
 L'interfaccia della riga di comando di Azure può essere eseguita in modo nativo in Windows. In questa configurazione, il pacchetto dell'interfaccia della riga di comando di Azure è installato nel sistema operativo Windows e i comandi possono essere eseguiti da PowerShell. In questa configurazione, gli script e i comandi dell'interfaccia della riga di comando di Azure sono eseguibili in qualsiasi versione di Windows supportata. È tuttavia necessaria la sintassi di scripting specifica della piattaforma. Per questo motivo, gli script non devono necessariamente essere condivisi tra macOS, Linux e Windows senza modifiche.
 
-Per usare l'interfaccia della riga di comando di Azure in Windows, installare il pacchetto tramite le istruzioni contenute in [Install the CLI on Windows](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2#windows) (Installare l'interfaccia della riga di comando su Windows).
+Per usare l'interfaccia della riga di comando di Azure in Windows, installare il pacchetto tramite le istruzioni contenute in [Install the CLI on Windows](https://docs.microsoft.com/cli/azure/install-az-cli2#windows) (Installare l'interfaccia della riga di comando su Windows).
 
 ## <a name="docker-image"></a>Immagine Docker
 
@@ -56,7 +56,7 @@ docker run -it azuresdk/azure-cli-python:latest bash
 
 Al termine, verrà avviata una sessione Bash precaricata con gli strumenti dell'interfaccia della riga di comando di Azure.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 [Esempio di interfaccia della riga di comando per macchine virtuali di Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

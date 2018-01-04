@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: f8e3af4e183952aaac5a8320966aab035b90a1a7
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: 1dacbbef915580b0095ef588f3dafad35daf1bde
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modalità di rete del contenitore di Service Fabric
 
@@ -179,7 +179,7 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
    |Impostazione |Valore | |
    | --- | --- | --- |
    |Priorità |2000 | |
-   |Nome |Custom_Dns  | |
+   |NOME |Custom_Dns  | |
    |Sorgente |VirtualNetwork | |
    |Destination | VirtualNetwork | |
    |Service | DNS (UDP/53) | |
@@ -223,6 +223,6 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Informazioni sul modello applicativo di Service Fabric](service-fabric-application-model.md)
-* [Informazioni sulle risorse del manifesto del servizio di Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Informazioni sulle risorse del manifesto del servizio di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Distribuire un contenitore Windows in Service Fabric su Windows Server 2016](service-fabric-get-started-containers.md)
 * [Distribuire un contenitore Docker in Service Fabric su Linux](service-fabric-get-started-containers-linux.md)

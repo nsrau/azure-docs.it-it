@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9f90bc80c146c6c2da04aacbc110f7d389c0baa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Visualizzare i log attività per controllare le azioni sulle risorse
 Con i log attività è possibile determinare:
@@ -38,10 +38,10 @@ Con i log attività è possibile determinare:
    
     ![Selezionare i log di attività](./media/resource-group-audit/select-monitor.png)
 
-   In alternativa, per filtrare automaticamente il log attività per una determinata risorsa o uno specifico gruppo di risorse, selezionare **Log attività** nel pannello di tale risorsa. Si noti che il log attività viene automaticamente filtrato in base alla risorsa selezionata.
+   In alternativa, per filtrare automaticamente il registro attività per una determinata risorsa o un gruppo di risorse, selezionare **log attività**. Si noti che il log attività viene automaticamente filtrato in base alla risorsa selezionata.
    
     ![filtrare in base alla risorsa](./media/resource-group-audit/filtered-by-resource.png)
-2. Nel pannello **Log attività** viene visualizzato un riepilogo delle operazioni recenti.
+2. Nel **Log attività**, viene visualizzato un riepilogo delle operazioni recenti.
    
     ![visualizzare le azioni](./media/resource-group-audit/audit-summary.png)
 3. Per limitare il numero di operazioni visualizzate, selezionare condizioni diverse. Ad esempio, l'immagine seguente mostra i campi **Intervallo di tempo** ed **Evento avviato da** modificati per poter visualizzare le azioni eseguite da un determinato utente o applicazione il mese scorso. Selezionare **Applica** per visualizzare i risultati della query.
@@ -147,4 +147,5 @@ Le operazioni REST per l'uso del log attività fanno parte delle [Informazioni d
 * Per informazioni su come impostare i criteri di sicurezza, vedere [Controllo degli accessi in base al ruolo in Azure](../active-directory/role-based-access-control-configure.md).
 * Per informazioni sui comandi per visualizzare le operazioni di distribuzione, vedere [Visualizzare le operazioni di distribuzione](resource-manager-deployment-operations.md).
 * Per informazioni su come impedire operazioni di eliminazione su una risorsa per tutti gli utenti, vedere [Bloccare le risorse con Azure Resource Manager](resource-group-lock-resources.md).
+* Per visualizzare l'elenco di operazioni disponibili per ogni provider di gestione risorse di Microsoft Azure, vedere [operazioni di Provider di risorse di gestione risorse di Azure](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)
 

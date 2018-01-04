@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2017
+ms.date: 12/20/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 27056d5be99a6d2737e5583b0cda6f2e24895901
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Creare e gestire i criteri per applicare la conformità
 
@@ -73,12 +73,12 @@ Dopo aver assegnato la definizione dei criteri, viene creato un nuovo criterio p
    - Il nome della definizione del criterio: *Require VM SKUs smaller than the G series* (Richiedere SKU di VM inferiori rispetto alla serie G).
    - La descrizione della finalità della definizione del criterio: questa definizione di criterio fa sì che tutte le macchine virtuali create in questo ambito abbiamo SKU inferiori rispetto alla serie G per ridurre i costi.
    - La sottoscrizione che contiene la definizione del criterio. In questo caso la definizione del criterio viene inserita in **Advisor Analytics Capacity Dev**, ma le opzioni disponibili sono diverse.
-   - Scrivere il codice json con:
+   - Copiare il codice json seguente e quindi aggiornarla alle proprie esigenze con:
       - Parametri dei criteri.
       - Le regole/condizioni del criterio, in questo caso: dimensione dello SKU della VM uguale alla serie G.
       - L'effetto del criterio, in questo caso: **Nega**.
 
-    Di seguito viene mostrato l'aspetto del codice json:
+    Ecco l'aspetto json. Incollare il codice rivisto nel portale di Azure.
 
     ```json
 {
@@ -348,7 +348,7 @@ Una definizione di iniziativa consente di raggruppare più definizioni di criter
 
    Dopo aver selezionato le definizioni dei criteri nell'elenco, queste verranno visualizzate in **Policies and parameters** (Criteri e parametri), come illustrato in precedenza.
 
-5. Selezionare **Crea**.
+5. Selezionare **Create**.
 
 ### <a name="assign-an-initiative-definition"></a>Assegnare una definizione di iniziativa
 

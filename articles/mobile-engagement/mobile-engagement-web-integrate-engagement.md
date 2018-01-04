@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/29/2016
 ms.author: piyushjo
 ms.openlocfilehash: 7d8eaa180e277741a583522ee62d68f5247b92bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="integrate-azure-mobile-engagement-in-a-web-application"></a>Integrare Azure Mobile Engagement in un'applicazione Web
 > [!div class="op_single_selector"]
@@ -107,7 +107,7 @@ Una sessione di Mobile Engagement è suddivisa in una sequenza di attività iden
 
 In un sito Web classico è consigliabile dichiarare un'attività diversa in ogni pagina del sito. Per una sito o un'applicazione Web in cui la pagina corrente non cambia mai, si desidera monitorare le attività su scala ridotta, ad esempio all'interno della pagina.
 
-In entrambi i casi, per avviare o modificare l'attività utente corrente, chiamare la funzione `engagement.agent.startActivity` . ad esempio:
+In entrambi i casi, per avviare o modificare l'attività utente corrente, chiamare la funzione `engagement.agent.startActivity` . Ad esempio: 
 
     <body onload="yourOnload()">
 

@@ -4,7 +4,7 @@ description: Informazioni sulla gestione delle sessioni SSO tramite criteri pers
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 809f6000-2e52-43e4-995d-089d85747e1f
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: parja
-ms.openlocfilehash: ff767993eaf0305168176d0ad6e15c068b8c85eb
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: 676b277ae3fbf4554838eee70c5d3e2d8e12c33d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>Azure AD B2C: gestione della sessione Single Sign-On (SSO)
 
@@ -96,7 +96,7 @@ Questo provider viene usato per gestire le sessioni SAML di Azure AD B2C tra le 
 
 Il profilo tecnico presenta due elementi di metadati:
 
-| Elemento | Default Value | Valori possibili | Descrizione
+| Elemento | Default Value | Valori possibili | DESCRIZIONE
 | --- | --- | --- | --- |
 | IncludeSessionIndex | true | true/false | Indica al provider che l'indice della sessione deve essere archiviato. |
 | RegisterServiceProviders | true | true/false | Indica che il provider deve registrare tutti i provider di servizi SAML a cui sia stata rilasciata un'asserzione. |

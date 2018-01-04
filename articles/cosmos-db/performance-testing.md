@@ -15,13 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: d52df1d1f9a29a6fc2a7a3a5e7a6d9fdeaa865e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f72a75f2750d4838566815bece5c2221359ece29
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Test delle prestazioni e della scalabilità con Azure Cosmos DB
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+
 Il test delle prestazioni e della scalabilità è un passaggio chiave nello sviluppo di un'applicazione. Per molte applicazioni, il livello di database ha un impatto significativo sulla scalabilità e sulle prestazioni complessive. È pertanto considerato un componente fondamentale nel test delle prestazioni. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) è studiato appositamente per offrire scalabilità elastica e prestazioni prevedibili. Queste funzionalità lo rendono ideale per le applicazioni che richiedono un livello di database ad alte prestazioni. 
 
 Questo articolo è un riferimento per gli sviluppatori che implementano i gruppi di test delle prestazioni per i carichi di lavoro di Azure Cosmos DB. Può essere usato anche per valutare Azure Cosmos DB in scenari con applicazioni ad alte prestazioni. Approfondisce soprattutto i test isolati delle prestazioni del database, ma include anche le procedure consigliate per le applicazioni di produzione.
@@ -54,7 +57,7 @@ Il modo più rapido per iniziare è compilare ed eseguire l'esempio .NET, come d
 
 **Passaggio 3** : compilare ed eseguire l'app console dalla riga di comando. Verrà visualizzato un output simile al seguente:
 
-    C:\Users\documentdb\Desktop\Benchmark>DocumentDBBenchmark.exe
+    C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
     ---------------------------------------------------------------------
     Endpoint: https://arramacquerymetrics.documents.azure.com:443/

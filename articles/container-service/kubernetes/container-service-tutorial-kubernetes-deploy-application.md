@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 397bb22918d5b181692a42d0f4c2d87be086c534
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: c763d6867deb76f5b9d197c7062ee07d7ed6d865
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="run-applications-in-kubernetes"></a>Eseguire applicazioni in Kubernetes
 
@@ -85,7 +85,7 @@ service "azure-vote-front" created
 
 Viene creato un [servizio di Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) che espone l'applicazione a Internet. Il processo potrebbe richiedere alcuni minuti. 
 
-Per monitorare lo stato, usare il comando [kubectl get service](https://review.docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-walkthrough?branch=pr-en-us-17681) con l'argomento `--watch`.
+Per monitorare lo stato, usare il comando [kubectl get service](https://review.docs.microsoft.com/azure/container-service/container-service-kubernetes-walkthrough?branch=pr-en-us-17681) con l'argomento `--watch`.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 7922a9561369acf3c4299e1cadc0dc9f8f8eadb1
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: 41b7ecf0d0c71b5c225454cc77ce87d5736c2165
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale di Windows
 > [!IMPORTANT]
@@ -30,7 +30,7 @@ Questo articolo illustra come installare e configurare Trend Micro Deep Security
 
 Il client viene installato come estensione di sicurezza usando l'agente di macchine virtuali. In una nuova macchina virtuale è necessario installare Deep Security Agent, in quanto l'agente di macchine virtuali viene creato automaticamente tramite il portale di Azure.
 
-Una macchina virtuale esistente creata tramite il portale classico, l'interfaccia della riga di comando di Azure o PowerShell potrebbe non disporre di un agente di macchine virtuali. In una macchina virtuale esistente priva dell'agente di macchine virtuali, è necessario prima di tutto scaricare l'agente e installarlo. In questo articolo vengono descritte entrambe le situazioni.
+Una macchina virtuale esistente creata tramite il portale di Azure, l'interfaccia CLI di Azure o PowerShell potrebbe non disporre di un agente di macchine Virtuali. In una macchina virtuale esistente priva dell'agente di macchine virtuali, è necessario prima di tutto scaricare l'agente e installarlo. In questo articolo vengono descritte entrambe le situazioni.
 
 Se si dispone di una sottoscrizione Trend Micro per una soluzione locale, è possibile usarla per proteggere le macchine virtuali di Azure. Se non si è ancora clienti, è possibile iscriversi per una sottoscrizione di valutazione. Per altre informazioni su questa soluzione, vedere il post di blog Trend Micro relativo all' [estensione dell'agente di macchine virtuali di Microsoft Azure per Deep Security](http://go.microsoft.com/fwlink/p/?LinkId=403945).
 

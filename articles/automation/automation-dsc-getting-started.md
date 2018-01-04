@@ -3,7 +3,7 @@ title: Introduzione a DSC di Automazione di Azure | Microsoft Docs
 description: "Spiegazione ed esempi delle attività più comuni in Automation DSC (Desired State Configuration) per Azure"
 services: automation
 documentationcenter: na
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: a3816593-70a3-403b-9a43-d5555fd2cee2
@@ -13,26 +13,26 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/21/2016
-ms.author: magoedte;eslesar
-ms.openlocfilehash: 8a10d961ad7c107c68b57c64ee6c88544ff8832b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: magoedte;gwallace
+ms.openlocfilehash: e8b7d0d38f59589cbe6f82798b4e725af7b20e23
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Introduzione ad Automation DSC per Azure
-Questo argomento illustra come eseguire le attività più comuni in Automation DSC (Desired State Configuration) per Azure, come la creazione, l'importazione e la compilazione di configurazioni, il caricamento di computer per la gestione e la visualizzazione di report. Per una panoramica delle caratteristiche di Automation DSC per Azure, vedere [Panoramica della piattaforma DSC di Automazione di Azure](automation-dsc-overview.md). Per la documentazione di DSC, vedere [Panoramica di Windows PowerShell DSC (Desired State Configuration)](https://msdn.microsoft.com/PowerShell/dsc/overview).
+In questo articolo viene illustrato come eseguire le attività più comuni con Azure Automation DSC Desired State Configuration (), ad esempio la creazione, l'importazione e la compilazione di configurazioni, caricamento computer da gestire e la visualizzazione dei report. Per una panoramica delle caratteristiche di Automation DSC per Azure, vedere [Panoramica della piattaforma DSC di Automazione di Azure](automation-dsc-overview.md). Per la documentazione di DSC, vedere [Panoramica di Windows PowerShell DSC (Desired State Configuration)](https://msdn.microsoft.com/PowerShell/dsc/overview).
 
-Questo argomento offre una guida dettagliata all'uso di Automation DSC per Azure. Se si preferisce un ambiente di esempio già configurato senza seguire le procedure descritte in questo argomento, è possibile usare il [modello di Azure Resource Manager](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Tale modello configura un ambiente Automation DSC per Azure completo, che include una VM di Azure gestita da Automation DSC per Azure.
+Questo articolo fornisce una Guida dettagliata all'utilizzo di Automation DSC per Azure. Se si desidera un ambiente di esempio che è già impostato senza seguire i passaggi descritti in questo articolo, è possibile utilizzare le seguenti [modello di gestione risorse](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Tale modello configura un ambiente Automation DSC per Azure completo, che include una VM di Azure gestita da Automation DSC per Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per completare gli esempi di questo argomento, è necessario quanto segue:
+Per completare gli esempi in questo articolo, siano soddisfatti i seguenti:
 
 * Un account di automazione di Azure. Per istruzioni sulla creazione di un account RunAs di Automazione di Azure, vedere [Autenticare runbook con account RunAs di Azure](automation-sec-configure-azure-runas-account.md).
 * Una VM di Azure Resource Manager (non classica) che esegue Windows Server 2008 R2 o versioni successive. Per istruzioni sulla creazione di una VM, vedere [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## <a name="creating-a-dsc-configuration"></a>Creazione di una configurazione DSC
-Verrà creata una [configurazione DSC](https://msdn.microsoft.com/powershell/dsc/configurations) semplice che assicura la presenza o l'assenza della funzionalità di Windows (IIS) **Web-Server** , a seconda di come vengono assegnati i nodi.
+Creare un semplice [configurazione DSC](https://msdn.microsoft.com/powershell/dsc/configurations) che garantisce la presenza o l'assenza del **Server Web** Windows funzionalità (IIS), a seconda della modalità di assegnazione di nodi.
 
 1. Avviare Windows PowerShell ISE (o qualsiasi editor di testo).
 2. Digitare il testo seguente:
@@ -67,7 +67,7 @@ Verrà creata una [configurazione DSC](https://msdn.microsoft.com/powershell/dsc
 Questa configurazione chiama in ogni blocco di nodi una [risorsa WindowsFeature](https://msdn.microsoft.com/powershell/dsc/windowsfeatureresource)che assicura la presenza o l'assenza della funzionalità **Web-Server** .
 
 ## <a name="importing-a-configuration-into-azure-automation"></a>Importazione di una configurazione in Automazione di Azure
-Successivamente, la configurazione verrà importata nell'account di automazione.
+Successivamente, è possibile importare la configurazione in account di automazione.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Scegliere **Tutte le risorse** dal menu Hub e quindi fare clic sul nome dell'account di Automazione.
@@ -129,7 +129,7 @@ Con il completamento di un processo di compilazione vengono create una o più co
     ![Screenshot del pannello Configurazioni del nodo DSC](./media/automation-dsc-getting-started/NodeConfigs.png)
 
 ## <a name="onboarding-an-azure-vm-for-management-with-azure-automation-dsc"></a>Caricamento di una VM di Azure per la gestione con Automation DSC per Azure
-È possibile usare Automation DSC per Azure per gestire VM di Azure (sia classiche che di Resource Manager), VM locali, computer Linux, VM di AWS e computer fisici locali. In questo argomento viene descritto soltanto il caricamento di VM di Azure Resource Manager. Per informazioni sul caricamento di altri tipi di computer, vedere [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md).
+È possibile usare Automation DSC per Azure per gestire VM di Azure (sia classiche che di Resource Manager), VM locali, computer Linux, VM di AWS e computer fisici locali. In questo articolo viene illustrato come caricare macchine virtuali di gestione risorse di Azure solo. Per informazioni sul caricamento di altri tipi di computer, vedere [Caricamento di computer per la gestione con Automation DSC per Azure](automation-dsc-onboarding.md).
 
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-dsc"></a>Per caricare una VM di Azure Resource Manager per la gestione con Automation DSC per Azure
 1. Accedere al [portale di Azure](https://portal.azure.com).
@@ -151,10 +151,10 @@ Con il completamento di un processo di compilazione vengono create una o più co
    
     ![Screenshot del pannello Registrazione](./media/automation-dsc-getting-started/RegisterVM.png)
    
-    La configurazione del nodo specificata verrà applicata alla VM agli intervalli specificati in **Frequenza modalità di configurazione** e la VM verificherà la disponibilità di aggiornamenti agli intervalli specificati in **Frequenza di aggiornamento**. Per altre informazioni sul modo in cui vengono usati questi valori, vedere [Configuring the Local Configuration Manager](https://msdn.microsoft.com/PowerShell/DSC/metaConfig)(Configurazione di Gestione configurazione locale).
+    La configurazione del nodo specificato vengono applicate alla macchina virtuale a intervalli determinati dal **frequenza della modalità di configurazione**, e verifica la disponibilità di aggiornamenti per la configurazione del nodo a intervalli determinati dalla macchina virtuale di **Aggiorna Frequenza**. Per altre informazioni sul modo in cui vengono usati questi valori, vedere [Configuring the Local Configuration Manager](https://msdn.microsoft.com/PowerShell/DSC/metaConfig)(Configurazione di Gestione configurazione locale).
 9. Nel pannello **Aggiungi macchine virtuali di Azure** fare clic su **Crea**.
 
-Azure avvierà il processo di caricamento della VM. Al termine, la VM verrà visualizzata nel pannello **Nodi DSC** dell'account di Automazione.
+Azure avvia il processo di caricamento della macchina virtuale. Quando è completa, la macchina virtuale viene visualizzato nella **i nodi DSC** pannello nell'account di automazione.
 
 ## <a name="viewing-the-list-of-dsc-nodes"></a>Visualizzazione dell'elenco dei nodi DSC
 L'elenco di tutti i computer caricati per la gestione nell'account di Automazione può essere visualizzato nel pannello **Nodi DSC** .

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: 08e4e22ae7e5d6f6efad458b4240a6d57090e865
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: c6b89cb473f6b7a14bd9de88dfb72a2a42d915f5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Panoramica di Azure Load Balancer Standard (anteprima)
 
@@ -68,7 +68,7 @@ I set di disponibilità non sono più un requisito. È possibile scegliere di us
 
 Load Balancer Standard offre nuove funzionalità di diagnostica multidimensionale per configurazioni di Load Balancer pubbliche e interne. La nuova metrica è disponibile con Monitoraggio di Azure (anteprima) e usa tutte le funzionalità correlate, inclusa la capacità di integrazione con vari consumer downstream.
 
-| Metrica | Descrizione |
+| Metrica | DESCRIZIONE |
 | --- | --- |
 | Disponibilità IP virtuale | Load Balancer Standard esercita continuamente il percorso dati dall'interno di un'area al front-end di Load Balancer e infine allo stack SDN che supporta la macchina virtuale. Finché sono presenti istanze integre, la misurazione segue lo stesso percorso del traffico con bilanciamento del carico dell'applicazione. Viene anche convalidato il percorso dati usato dai clienti. La misurazione è invisibile all'applicazione e non interferisce con altre operazioni.|
 | Disponibilità DIP | Load Balancer Standard usa un servizio di probe dell'integrità distribuito che monitora l'integrità dell'endpoint dell'applicazione in base alle impostazioni di configurazione. Questa metrica offre una visualizzazione filtrata, aggregata o per endpoint di ogni singolo endpoint dell'istanza nel pool di Load Balancer.  In questo modo è possibile visualizzare l'integrità dell'applicazione rilevata da Load Balancer, in base alla configurazione del probe di integrità.
@@ -335,7 +335,7 @@ Load Balancer Standard è attualmente disponibile nelle aree seguenti:
 
 ## <a name="sku-service-limits-and-abilities"></a>Limiti e capacità del servizio degli SKU
 
-I [limiti di servizio relativi alla rete](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#networking-limits) di Azure si applicano in base alla singola area e sottoscrizione. 
+I [limiti di servizio relativi alla rete](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits) di Azure si applicano in base alla singola area e sottoscrizione. 
 
 Nella tabella seguente vengono confrontati i limiti e le funzionalità degli SKU di Load Balancer Basic e Standard:
 
@@ -351,7 +351,7 @@ Nella tabella seguente vengono confrontati i limiti e le funzionalità degli SKU
 |Scenari di zone di disponibilità | Solo di zona | Di zona, con ridondanza della zona, bilanciamento del carico tra zone |
 | Algoritmo SNAT in uscita | Su richiesta | Preallocato |
 | Selezione front-end SNAT in uscita | Non configurabile, più candidati | Configurazione facoltativa per ridurre i candidati |
-| Gruppo di sicurezza di rete | Facoltativo nella scheda di interfaccia di rete/subnet | Obbligatorio |
+| Gruppo di sicurezza di rete | Facoltativo nella scheda di interfaccia di rete/subnet | Obbligatoria |
 
 Nella tabella seguente vengono confrontati i limiti e le funzionalità degli SKU di IP pubblico Basic e Standard:
 
@@ -361,7 +361,7 @@ Nella tabella seguente vengono confrontati i limiti e le funzionalità degli SKU
 | Mobilità IP veloce | Non supportate | Disponibile |
 | Disponibilità IP virtuale | Non supportate | Disponibile |
 | Counters | Non supportate | Disponibile |
-| Gruppo di sicurezza di rete | Facoltativo nella scheda di interfaccia di rete | Obbligatorio |
+| Gruppo di sicurezza di rete | Facoltativo nella scheda di interfaccia di rete | Obbligatoria |
 
 
 ## <a name="preview-sign-up"></a>Iscrizione all'anteprima

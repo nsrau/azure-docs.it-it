@@ -1,37 +1,36 @@
 ---
-title: "Trovare i report attività nel portale di Azure | Microsoft Docs"
-description: "Informazioni su come trovare i report attività di Azure Active Directory nel portale di Azure."
+title: "Trovare il report attività utente di Azure Active Directory nel portale di Azure | Documenti Microsoft"
+description: "Informazioni in cui il report attività utente Azure Active Directory nel portale di Azure."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: femila
+author: curtand
+manager: mtillman
 editor: 
 ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/21/2017
-ms.author: dhanyahk;markvi
+ms.date: 12/06/2017
+ms.author: curtand
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6f1485ad57eb28841ef5fe585e8cf1b8eb29e4a7
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: 23c186e268e9a43982ec6c34d350900793fad8de
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trovare i report attività nel portale di Azure
 
-Se è in corso la migrazione dal portale di Azure classico al portale di Azure, l'aspetto dei log attività di Azure Active Directory (Azure AD) cambierà. In un recente [post del blog](https://blogs.technet.microsoft.com/enterprisemobility/2016/11/08/azuread-weve-just-turned-on-detailed-auditing-and-sign-in-logs-in-the-new-azure-portal/) viene illustrato come visualizzare i log attività nel contesto della risorsa su cui si sta lavorando nel portale di Azure. Questo articolo descrive come trovare nel portale di Azure i report usati nel portale di Azure classico.
+In questo articolo si descrivono come individuare i report di attività utente di Azure Active Directory nel portale di Azure.
 
 ## <a name="whats-new"></a>Novità
 
-I report nel portale di Azure classico sono suddivisi in categorie:
-
-1.  Report sulla sicurezza
-2.  Report sull’attività
-3.  Report app integrate
+I report nel portale classico di Azure sono stati suddivisi in categorie:
+* Report sulla sicurezza
+* Report sull’attività
+* Report app integrate
 
 ### <a name="activity-and-integrated-app-reports"></a>Report attività e app integrate
 
@@ -43,14 +42,14 @@ Per accedere a questa visualizzazione, nel pannello **Azure Active Directory**, 
 
 In questa visualizzazione sono consolidati i report seguenti:
 
--   Report di controllo
--   Attività di reimpostazione password
--   Attività di registrazione reimpostazione password
--   Attività dei gruppi self-service
--   Modifiche del nome del gruppo di Office 365
--   Attività di provisioning dell'account
--   Stato rollover della password
--   Errori di provisioning dell'account
+* Report di controllo
+* Attività di reimpostazione password
+* Attività di registrazione reimpostazione password
+* Attività dei gruppi self-service
+* Modifiche del nome del gruppo di Office 365
+* Attività di provisioning dell'account
+* Stato rollover della password
+* Errori di provisioning dell'account
 
 
 Il report Utilizzo delle applicazioni è stato migliorato e incluso nella visualizzazione **Accessi**. Per accedere a questa visualizzazione, nel pannello **Azure Active Directory**, in **ATTIVITÀ** selezionare **Accessi**.

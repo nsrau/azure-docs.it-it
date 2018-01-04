@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5a7a58d4c402bcaf639bd255bb7c8b111694e548
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 16cc0c5e38eb273fc2504a39497d00c76d666316
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Gestire i dischi di Azure con l'interfaccia della riga di comando di Azure
 
@@ -38,7 +38,7 @@ Le macchine virtuali di Azure usano dischi per archiviare sistema operativo, app
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, in questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="default-azure-disks"></a>Dischi di Azure predefiniti
 
@@ -50,7 +50,7 @@ Quando viene creata una macchina virtuale di Azure, due dischi vengono automatic
 
 ### <a name="temporary-disk-sizes"></a>Dimensioni del disco temporaneo
 
-| Tipo | Dimensioni macchina virtuale | Dimensioni massime del disco temporaneo (GB) |
+| type | Dimensioni macchina virtuale | Dimensioni massime del disco temporaneo (GB) |
 |----|----|----|
 | [Utilizzo generico](sizes-general.md) | Serie A e D | 800 |
 | [Ottimizzate per il calcolo](sizes-compute.md) | Serie F | 800 |
@@ -65,7 +65,7 @@ Quando viene creata una macchina virtuale di Azure, due dischi vengono automatic
 
 ### <a name="max-data-disks-per-vm"></a>Numero massimo di dischi di dati per macchina virtuale
 
-| Tipo | Dimensioni macchina virtuale | Numero massimo di dischi di dati per macchina virtuale |
+| type | Dimensioni macchina virtuale | Numero massimo di dischi di dati per macchina virtuale |
 |----|----|----|
 | [Utilizzo generico](sizes-general.md) | Serie A e D | 32 |
 | [Ottimizzate per il calcolo](sizes-compute.md) | Serie F | 32 |
@@ -225,7 +225,7 @@ Dopo aver completato l'operazione di ridimensionamento, avviare la macchina virt
 az vm start --resource-group myResourceGroupDisk --name myVM
 ```
 
-Se è stato ridimensionato il disco del sistema operativo, la partizione di espande automaticamente. Se è stato ridimensionato un disco dati, tutte le partizioni correnti devono essere estese al sistema operativo delle macchine virtuali.
+Se è stato ridimensionato il disco del sistema operativo, la partizione viene automaticamente espanso. Se è stato ridimensionato un disco dati, tutte le partizioni correnti devono essere estese al sistema operativo delle macchine virtuali.
 
 ## <a name="snapshot-azure-disks"></a>Snapshot di dischi di Azure
 
@@ -233,7 +233,7 @@ Quando si crea uno snapshot del disco, viene creata una copia temporizzata di so
 
 ### <a name="create-snapshot"></a>Creare uno snapshot
 
-Prima di creare uno snapshot del disco della macchina virtuale, è necessario conoscere l'ID o il nome del disco. Usare il comando [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#az_vm_show) per ottenere l'ID del disco. In questo esempio l'ID del disco viene archiviato in una variabile in modo da poter essere usato in un passaggio successivo.
+Prima di creare uno snapshot del disco della macchina virtuale, è necessario conoscere l'ID o il nome del disco. Usare il comando [az vm show](https://docs.microsoft.com/cli/azure/vm#az_vm_show) per ottenere l'ID del disco. In questo esempio l'ID del disco viene archiviato in una variabile in modo da poter essere usato in un passaggio successivo.
 
 ```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)

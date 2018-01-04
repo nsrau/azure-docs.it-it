@@ -4,7 +4,7 @@ description: In questo argomento vengono illustrati i passaggi per la correzione
 services: active-directory
 documentationcenter: 
 author: cychua
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 2a5418ff61e07793fceca5a8207c1c5aa18847b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fa824448288059aaad164035743982a2c9f20b9c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronizzazione di Azure AD Connect: gestione degli errori LargeObject causati dall'attributo userCertificate
 
@@ -101,7 +101,7 @@ Una regola di sincronizzazione esistente dovrebbe essere abilitata e configurata
 7. Nella schermata di modifica, selezionare la scheda **Scoping filter** (Filtro ambito).
 8. Annotare la configurazione del filtro ambito. Se si usa la regola di sincronizzazione predefinita, devono essere presenti esattamente **un gruppo di filtri ambito contenente due clausole**, tra cui:
 
-    | Attributo | operatore | Valore |
+    | Attributo | Operatore | Valore |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Utente |
     | cloudMastered | NOTEQUAL | True  |
@@ -113,8 +113,8 @@ La nuova regola di sincronizzazione deve avere lo stesso **filtro ambito** e la 
 
     | Attributo | Valore | Dettagli |
     | --- | --- | --- |
-    | Nome | *Specificare un nome* | Ad esempio *"Per AAD: esegue l'override personalizzato per userCertificate"* |
-    | Descrizione | *Inserire una descrizione* | Ad esempio *"Se l'attributo userCertificate contiene più di 15 valori, esportare NULL".* |
+    | NOME | *Specificare un nome* | Ad esempio *"Per AAD: esegue l'override personalizzato per userCertificate"* |
+    | DESCRIZIONE | *Inserire una descrizione* | Ad esempio *"Se l'attributo userCertificate contiene più di 15 valori, esportare NULL".* |
     | Connected System | *Selezionare il connettore di Azure AD* |
     | Connected System Object Type | **user** | |
     | Metaverse Object Type | **person** | |

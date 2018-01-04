@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 920155b2e70409fe1c7c3569326cc5a1fa01b222
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 143cbfa66436796e1b61b100def030dde43faac9
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Come usare Cronologia di esecuzione e le metriche del modello in Azure Machine Learning Workbench
 
@@ -32,7 +32,7 @@ Per proseguire con questa guida è necessario:
 ## <a name="azure-ml-logging-api-overview"></a>Cenni preliminari sull'API di registrazione di Azure Machine Learning
 L'[API di registrazione di Azure Machine Learning](reference-logging-api.md) è disponibile tramite il modulo **azureml.logging** di Python (installato con Azure Machine Learning Workbench.) Dopo aver importato il modulo, è possibile usare il metodo **get_azureml_logger** per creare un'istanza dell'oggetto **logger**.
 È quindi possibile usare il metodo **log** del logger per archiviare le coppie chiave/valore generate tramite gli script Python.
-Al momento sono supportate le metriche del modello del logger di tipo scalare, dizionario, elenco e frame di dati, come illustrato.
+Attualmente, le metriche di modello di registrazione dello scalare e i tipi di elenco sono supportati come illustrato.
 
 ```Python
 # create a logger instance in already set up environment 
@@ -111,7 +111,7 @@ Ciò agevola l'impiego ottimale delle risorse senza dover eseguire in sequenza o
 ## <a name="view-results-in-run-history"></a>Visualizzare i risultati nella cronologia di esecuzione
 Lo stato di avanzamento e risultati delle esecuzioni registrate possono essere analizzati nella **Cronologia di esecuzione** di Azure Machine Learning.
 **Cronologia di esecuzione** fornisce tre viste distinte:
-- Dashboard
+- dashboard
 - Dettagli
 - Confronto
 
@@ -230,7 +230,7 @@ $ az ml history list -o table
 ```
 L'**interfaccia della riga di comando** rappresenta un metodo alternativo per sfruttare tutte potenzialità di Azure Machine Learning Workbench.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Queste funzionalità sono disponibili per semplificare gli esperimenti di data science.
 Ci auguriamo che possano essere utili. Tutti i commenti e suggerimenti saranno apprezzati.
 Si tratta solo dell'implementazione iniziale e sono già previsti molti miglioramenti,

@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 1a5922506a0db4277b205ba3390c9c30034c177d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 964475ba8b42ac41707fa78468bfe551677c595f
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Eccezioni della messaggistica di Hub eventi
-Questo articolo elenca alcune eccezioni generate dall'API di messaggistica del bus di servizio di Azure, che include Hub eventi. Il documento è soggetto a modifica ed è quindi opportuno controllare periodicamente la presenza di aggiornamenti.
+
+In questo articolo sono elencate alcune delle eccezioni generate dalla libreria dell'API messaggistica Azure Service Bus, che includono le API di hub di eventi. Il documento è soggetto a modifica ed è quindi opportuno controllare periodicamente la presenza di aggiornamenti.
 
 ## <a name="exception-categories"></a>Categorie di eccezioni
+
 Le API di Hub eventi generano eccezioni che possono essere raggruppate nelle categorie seguenti e a ognuna delle quali è associata un'azione che è possibile eseguire per tentare di risolverla.
 
 1. Errore nella codifica dell'utente: [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). Azione generale: provare a correggere il codice prima di continuare.
@@ -78,13 +80,13 @@ Per questo errore, esistono due cause comuni: una configurazione errata o un err
 
 Questo errore può verificarsi per uno dei due motivi:
 
-1. Il carico non viene distribuito uniformemente su tutte le partizioni nell'Hub eventi e una partizione raggiunge il limite dell'unità di velocità effettiva locale.
+1. Il carico non viene distribuito uniformemente tra tutte le partizioni nell'hub di eventi e una partizione raggiunge il limite di unità di velocità effettiva locale.
     
     Risoluzione: rivedere la strategia di distribuzione della partizione o provare con [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_).
 
-2. Lo spazio dei nomi di Hub eventi non dispone di unità di velocità effettiva sufficienti (per conferma, è possibile controllare il pannello **Metrica** nel pannello dello spazio dei nomi di Hub eventi nel [Portale di Azure](https://portal.azure.com)). Si noti che il portale mostra le informazioni aggregate (1 minuto), ma viene misurata la velocità effettiva in tempo reale, quindi si tratta solo di una stima.
+2. Lo spazio dei nomi dell'hub eventi non dispone di unità di velocità effettiva sufficiente (è possibile controllare il **metriche** nell'evento schermata finestra dello spazio dei nomi degli hub di [portale di Azure](https://portal.azure.com) per confermare). Si noti che il portale mostra le informazioni aggregate (1 minuto), ma viene misurata la velocità effettiva in tempo reale, quindi si tratta solo di una stima.
 
-    Risoluzione: aumentare le unità di velocità effettiva nello spazio dei nomi. È possibile farlo nel portale, nel pannello **Scalabilità** del pannello di spazio dei nomi di Hub eventi.
+    Risoluzione: aumentare le unità di velocità effettiva nello spazio dei nomi. È possibile farlo nel portale, nel **scala** finestra dello schermo di spazio dei nomi di hub eventi.
 
 ### <a name="error-code-50001"></a>Codice errore 50001
 

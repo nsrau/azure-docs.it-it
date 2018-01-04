@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 445ec8c7eeb8dd715d3778b44372d16666da7fb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-the-portal"></a>Individuare il tipo di hop successivo tramite la funzionalità Hop successivo di Network Watcher di Azure mediante il portale di Azure
 
 > [!div class="op_single_selector"]
-> - [Portale di Azure](network-watcher-check-next-hop-portal.md)
+> - [Azure portal](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
 > - [Interfaccia della riga di comando 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 > - [Interfaccia della riga di comando 2.0](network-watcher-check-next-hop-cli.md)
@@ -37,7 +37,7 @@ Questo scenario presuppone il completamento dei passaggi descritti in [Creare un
 
 ## <a name="scenario"></a>Scenario
 
-Lo scenario illustrato in questo articolo usa la funzionalità Hop successivo per rilevare il tipo di hop successivo e l'indirizzo IP per una risorsa. Per altre informazioni sulla funzionalità di individuazione dell'hop successivo, consultare la [panoramica sulla funzionalità Hop successivo](network-watcher-next-hop-overview.md).
+Lo scenario illustrato in questo articolo usa la funzionalità Hop successivo per rilevare il tipo di hop successivo e l'indirizzo IP per una risorsa. Per altre informazioni sulla funzionalità di individuazione dell'hop successivo, consultare la [panoramica su Hop successivo](network-watcher-next-hop-overview.md).
 
 In questo scenario si apprenderà come:
 
@@ -70,7 +70,7 @@ Al termine dell'attività vengono forniti i risultati. Vengono visualizzati l'in
 * VnetLocal
 * HyperNetGateway
 * VnetPeering
-* None
+* Nessuna
 
 Se è stata usata una route personalizzata per indirizzare il traffico, insieme ai risultati viene visualizzata la route definita dall'utente (UDR).
 

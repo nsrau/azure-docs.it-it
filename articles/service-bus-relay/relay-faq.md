@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: e8c146f4b6d02449be6ad9e991e52db8dfd58e04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 89042badbfefc69582e7979a8379260a7b08d7da
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-relay-faqs"></a>Domande frequenti sul servizio di inoltro di Azure
 
@@ -32,7 +32,7 @@ Il [servizio di inoltro di Azure](relay-what-is-it.md) facilita le applicazioni 
 Uno [spazio dei nomi](relay-create-namespace-portal.md) è un contenitore di ambiti che è possibile usare per gestire le risorse di inoltro nell'applicazione. È necessario creare uno spazio dei nomi per usare l'inoltro. Questo è uno dei primi passaggi nella guida introduttiva.
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>Quali novità interessano il servizio di inoltro del bus di servizio?
-Il servizio in precedenza chiamato inoltro del bus di servizio ora si chiama inoltro WCF. È possibile continuare a usarlo come un tempo. La funzionalità Connessioni ibride è una versione aggiornata di un servizio trasferito da Servizi BizTalk di Azure. Verrà fornito ancora il supporto per l'inoltro WCF e per Connessioni ibride.
+Il servizio di inoltro del Bus di servizio denominato in precedenza viene ora chiamato [inoltro WCF](relay-wcf-dotnet-get-started.md). È possibile continuare a usarlo come un tempo. La funzionalità Connessioni ibride è una versione aggiornata di un servizio trasferito da Servizi BizTalk di Azure. Verrà fornito ancora il supporto per l'inoltro WCF e per Connessioni ibride.
 
 ## <a name="pricing"></a>Prezzi
 Questa sezione contiene le risposte ad alcune domande frequenti sulla struttura dei prezzi del servizio di inoltro. Per informazioni generali sui prezzi di Azure, vedere [Domande frequenti sul supporto di Azure](http://go.microsoft.com/fwlink/?LinkID=185083). Per informazioni complete sui prezzi del servizio di inoltro, vedere la pagina contenente i [dettagli dei prezzi del bus di servizio][Pricing overview].
@@ -76,7 +76,7 @@ L'invio di un messaggio a un inoltro del bus di servizio viene considerato come 
 Gli inoltri aperti con il binding WCF **netTCPRelay** considerano i messaggi non come singoli messaggi, ma come flusso di dati che attraversa il sistema. Quando si usa questo binding, solo il mittente e il listener hanno visibilità sulla struttura dei singoli messaggi inviati/ricevuti. Per gli inoltri che usano il binding **netTCPRelay**, tutti i dati vengono considerati come flusso per il calcolo dei messaggi fatturabili. In questo caso, il bus di servizio calcola la quantità totale di dati inviati o ricevuti mediante ciascun inoltro ogni 5 minuti. Quindi divide la quantità totale di dati per 64 KB per determinare il numero di messaggi fatturabili per questo inoltro durante questo periodo di tempo.
 
 ## <a name="quotas"></a>Quote
-| Nome della quota | Scope | Tipo | Comportamento in caso di superamento | Valore |
+| Nome della quota | Scope | type | Comportamento in caso di superamento | Valore |
 | --- | --- | --- | --- | --- |
 | Listener simultanei per un inoltro |Entità |statico |Le richieste successive di connessioni aggiuntive vengono rifiutate e il codice chiamante riceverà un'eccezione. |25 |
 | Listener di inoltro simultanei |A livello di sistema |statico |Le richieste successive di connessioni aggiuntive vengono rifiutate e il codice chiamante riceverà un'eccezione. |2.000 |
@@ -120,7 +120,7 @@ $res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Mic
 Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-suggested-actions-you-can-take"></a>Quali sono alcune eccezioni generate dalle API del servizio di inoltro di Azure e le azioni consigliate?
 Per una descrizione di eccezioni comuni e delle azioni consigliate, vedere [Eccezioni di inoltro][Relay exceptions].
 

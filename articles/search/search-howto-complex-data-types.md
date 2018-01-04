@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: d576fd7bb267ae7a100589413185b595e3b2be42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d7a7400fe7470439dfa957f1ddb463e0a7f1a271
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Come modellare tipi di dati complessi in Ricerca di Azure
 I set di dati esterni usati per popolare un indice di Ricerca di Azure includono talvolta sottostrutture gerarchiche o annidate che non vengono suddivise con precisione in un set di righe tabulare. Gli esempi di strutture di questo tipo possono includere più ubicazioni e numeri di telefono per un singolo cliente, più colori e dimensioni per un singolo SKU, più autori di un singolo libro e così via. In termini di modellazione, queste strutture possono essere definite, ad esempio, *tipi di dati complessi*, *tipi di dati composti*, *tipi di dati compositi* o *tipi di dati aggregati*.
@@ -66,7 +66,7 @@ I dati in questione si trovano in genere come set di documenti JSON o XML oppure
 Mentre per i campi denominati "id", "name" e "company" è possibile eseguire facilmente il mapping uno-a-uno come campi in un indice di Ricerca di Azure, il campo "locations" contiene una matrice di ubicazioni che include sia un set di ID ubicazione sia le descrizioni delle ubicazioni. Dato che Ricerca di Azure non ha un tipo di dati che supporta questa caratteristica, è necessario modellare i dati in modo diverso in Ricerca di Azure. 
 
 > [!NOTE]
-> Questa tecnica è descritta anche da Kirk Evans nel post di blog [Indexing DocumentDB with Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/) (Indicizzazione di DocumentDB con Ricerca di Azure), che illustra una tecnica per rendere flat i dati e ottenere così un campo denominato `locationsID` e un campo `locationsDescription` che sono entrambi [raccolte](https://msdn.microsoft.com/library/azure/dn798938.aspx), ovvero una matrice di stringhe.   
+> Questa tecnica è descritto da Kirk Evans in un post di blog [indicizzazione Azure Cosmos DB con ricerca di Azure](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), che illustra una tecnica denominata "rendere bidimensionali i dati", che è un campo denominato `locationsID` e `locationsDescription` che sono entrambi [raccolte](https://msdn.microsoft.com/library/azure/dn798938.aspx) (o una matrice di stringhe).   
 > 
 > 
 
@@ -102,7 +102,7 @@ Supponendo che l'indice sia stato creato e che i dati siano stati caricati, è o
 * Ottenere il conteggio del numero di persone che lavorano in "Home Office".  
 * In relazione alle persone che lavorano in "Home Office", visualizzare gli altri uffici in cui lavorano con un conteggio delle persone in ogni ubicazione.  
 
-Questa tecnica si rivela inadeguata quando è necessario eseguire una ricerca che combina sia l'ID che la descrizione dell'ubicazione, ad esempio:
+Questa tecnica si rivela inadeguata quando è necessario eseguire una ricerca che combina sia l'ID che la descrizione dell'ubicazione, Ad esempio: 
 
 * Trovare tutte le persone con "Home Office" E con ID ubicazione 4.  
 
@@ -117,7 +117,7 @@ Come si ricorderà, il contenuto originale si presentava come segue:
 
 Ora che i dati sono stati separati in campi distinti, tuttavia, non è possibile sapere se il valore "Home Office" per Jen Campbell è correlato a `locationsID 3` o `locationsID 4`.  
 
-Per gestire questo caso, definire un altro campo dell'indice che combina tutti i dati in una singola raccolta.  In questo esempio, il campo verrà denominato `locationsCombined` e il contenuto verrà separato con `||`. È tuttavia possibile scegliere qualsiasi separatore che si ritiene possa essere una serie di caratteri univoca per il contenuto specifico. ad esempio: 
+Per gestire questo caso, definire un altro campo dell'indice che combina tutti i dati in una singola raccolta.  In questo esempio, il campo verrà denominato `locationsCombined` e il contenuto verrà separato con `||`. È tuttavia possibile scegliere qualsiasi separatore che si ritiene possa essere una serie di caratteri univoca per il contenuto specifico. Ad esempio:  
 
 ![Dati di esempio, 2 righe con separatore](./media/search-howto-complex-data-types/sample-data-2.png)
 
@@ -127,7 +127,7 @@ Usando il campo `locationsCombined` , è ora possibile supportare query aggiunti
 * Cercare le persone che lavorano in "Home Office" con ID ubicazione "4". 
 
 ## <a name="limitations"></a>Limitazioni
-Questa tecnica è utile per diversi scenari, ma non è applicabile in tutti i casi.  Ad esempio:
+Questa tecnica è utile per diversi scenari, ma non è applicabile in tutti i casi.  Ad esempio: 
 
 1. Se il tipo di dati complesso non include un set statico di campi e non è stato possibile eseguire il mapping di tutti i tipi possibili a un singolo campo. 
 2. L'aggiornamento degli oggetti annidati richiede operazioni aggiuntive per determinare esattamente gli elementi da aggiornare nell'indice di Ricerca di Azure.

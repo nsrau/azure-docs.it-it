@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Scalare il conteggio delle istanze manualmente o automaticamente
 Nel [portale di Azure](https://portal.azure.com/)è possibile impostare manualmente il conteggio delle istanze del servizio oppure impostare i parametri per la scalabilità automatica in base alla domanda. Questa impostazione è definita in genere *aumento* o *riduzione del numero di istanze*.
@@ -26,11 +26,6 @@ Nel [portale di Azure](https://portal.azure.com/)è possibile impostare manualme
 Prima di scalare in base al conteggio delle istanze, occorre tenere presente che la scalabilità è influenzata dal **piano tariffario** oltre che dal conteggio delle istanze. A seconda del piano tariffario possono variare il numero di memorie centrali e la memoria e quindi si avranno prestazioni migliori per lo stesso numero di istanze (ovvero *aumento* o *riduzione del numero di istanze*). Questo articolo descrive in particolare la *riduzione* e l'*aumento del numero di istanze*.
 
 È possibile eseguire il ridimensionamento nel portale e anche usare l'[API REST](https://msdn.microsoft.com/library/azure/dn931953.aspx) o [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) per regolare la scalabilità manualmente o automaticamente.
-
-> [!NOTE]
-> Questo articolo descrive come creare un'impostazione di scalabilità automatica nel portale all'indirizzo [http://portal.azure.com](http://portal.azure.com). Le impostazioni di scalabilità automatica create in questo portale non possono essere modificate nel portale classico ([http://manage.windowsazure.com](http://manage.windowsazure.com)).
-> 
-> 
 
 ## <a name="scaling-manually"></a>Scalabilità manuale
 1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Sfoglia** e quindi passare alla risorsa cui applicare la scalabilità, ad esempio **piano di servizio app**.

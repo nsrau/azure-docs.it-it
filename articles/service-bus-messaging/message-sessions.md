@@ -11,51 +11,51 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 01/02/2018
 ms.author: sethm
-ms.openlocfilehash: c6441d2119518e89a869ee52e5f0b80450ae2bbe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 16f641c7b6fdd1d6730d2ae229c93ce4a33b9492
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="message-sessions--first-in-first-out-fifo"></a>Sessioni di messaggi/First In, First Out (FIFO) 
+# <a name="message-sessions-first-in-first-out-fifo"></a>Le sessioni del messaggio: first, innanzitutto-out (FIFO) 
 
-Le sessioni del bus di servizio consentono la gestione congiunta e ordinata di sequenze non vincolate di messaggi correlati. Per realizzare una garanzia FIFO nel bus di servizio, è necessario usare le sessioni. Il bus di servizio non prescrive la natura della relazione tra i messaggi e non definisce nemmeno un modello specifico per determinare dove inizia o finisce una sequenza di messaggi.
+Le sessioni di Microsoft Azure Service Bus consentono una gestione congiunta e ordinata di sequenze unbounded di messaggi correlati. Per ottenere una garanzia FIFO nel Bus di servizio, utilizzare le sessioni. Il bus di servizio non prescrive la natura della relazione tra i messaggi e non definisce nemmeno un modello specifico per determinare dove inizia o finisce una sequenza di messaggi.
 
-Qualsiasi mittente può creare una sessione quando invia i messaggi in un argomento o una coda impostando la proprietà del broker [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) su un identificatore definito dall'applicazione univoco per la sessione. A livello di protocollo AMQP 1.0, questo valore è mappato alla proprietà *group-id*.
+Qualsiasi mittente può creare una sessione quando inviare i messaggi in un argomento o coda impostando il [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) proprietà da un identificatore definito dall'applicazione che è univoco per la sessione. A livello di protocollo AMQP 1.0, questo valore è mappato alla proprietà *group-id*.
 
 Nelle code o nelle sottoscrizioni in grado di riconoscere le sessioni, le sessioni vengono create quando c'è almeno un messaggio con la proprietà [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) della sessione. Una volta creata una sessione, non c'è un'API o un tempo definito per la scadenza o la rimozione della sessione. In teoria, è possibile ricevere un messaggio per una sessione oggi e il messaggio successivo tra un anno e, se la proprietà **SessionId** corrisponde, la sessione dal punto di vista del bus di servizio è la stessa.
 
-In genere, tuttavia, un'applicazione riconosce chiaramente dove inizia e dove finisce un set di messaggi correlati, ma il bus di servizio non imposta alcuna regola specifica.
+In genere, tuttavia, un'applicazione include una chiara nozione di in un set di messaggi correlati inizia e termina. Bus di servizio non vengono impostate le regole specifiche.
 
-Per delineare una sequenza per il trasferimento di un file è ad esempio possibile impostare la proprietà **Label** per il primo messaggio su **start**, per i messaggi intermedi su **content** e per l'ultimo messaggio su **end**. La posizione relativa dei messaggi di contenuto può essere calcolata come differenza tra il valore *SequenceNumber* del messaggio corrente e il valore **SequenceNumber** del messaggio contrassegnato come *start*.
+Per delineare una sequenza per il trasferimento di un file è ad esempio possibile impostare la proprietà **Label** per il primo messaggio su **start**, per i messaggi intermedi su **content** e per l'ultimo messaggio su **end**. È possibile calcolare la posizione relativa dei messaggi del contenuto del messaggio corrente *SequenceNumber* delta dal **avviare** messaggio *SequenceNumber*.
 
 La funzionalità di sessione nel bus di servizio consente un'operazione di ricezione specifica, sotto forma di [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession), nelle API Java e C#. Per abilitare la funzionalità, impostare la proprietà [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) nella coda o nella sottoscrizione tramite Azure Resource Manager oppure impostare il flag nel portale. Questa operazione è necessaria prima di cercare di usare le operazioni API correlate.
 
-Nel portale il flag viene impostato con la casella di controllo seguente:
+Nel portale, impostare il flag con la casella di controllo seguente:
 
 ![][2]
 
-Le API per le sessioni sono presenti nei client di accodamento e di sottoscrizione. Ci sono un modello imperativo in cui è possibile controllare quando vengono ricevuti i messaggi e le sessioni e un modello basato su gestore, simile a *OnMessage*, che nasconde la complessità di gestione del ciclo di ricezione.
+Le API per le sessioni sono presenti nei client di accodamento e di sottoscrizione. Non vi è un modello imperativo che controlla quando vengono ricevuti i messaggi e sessioni e un modello basato su gestore, simile a *OnMessage*, che nasconde la complessità di gestione di ricezione ciclo.
 
 ## <a name="session-features"></a>Funzionalità delle sessioni
 
-Le sessioni forniscono il demultiplexing simultaneo dei flussi di messaggi con interfoliazione, conservando e garantendo il recapito ordinato.
+Le sessioni forniscono simultanee esegue il demultiplexing dei flussi di messaggi con interleave conservando e garantendo il recapito ordinato.
 
 ![][1]
 
-Viene creato un ricevitore [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) dal client che accetta una sessione. Il client chiama in modo imperativo [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) o [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) in C#. Nel modello di callback reattivo, viene registrato un gestore di sessione, come illustrato più avanti.
+Viene creato un ricevitore [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) dal client che accetta una sessione. Il client chiama [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) o [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) in c#. Nel modello di callback reattivo, viene registrato un gestore di sessione, come illustrato più avanti.
 
-Quando l'oggetto [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) viene accettato e mentre viene gestito da un client, il client mantiene un blocco esclusivo su tutti i messaggi con tale [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid?view=azureservicebus-4.1.1#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) presenti nella coda o nella sottoscrizione, nonché su tutti i messaggi con tale **SessionId** che arrivano mentre la sessione è ancora attiva.
+Quando il [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) oggetto viene accettato e mentre è mantenuto attivo da un client, che il client mantiene un blocco esclusivo su tutti i messaggi con tale sessione [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) presenti nella coda o sottoscrizione, e anche in tutti i messaggi con quella **SessionId** che arrivano ancora durante la sessione viene mantenuta.
 
-Il blocco viene rilasciato quando viene chiamato **Close** o **CloseAsync** oppure quando scade, nei casi in cui l'applicazione non è in grado di eseguire questa operazione. Il blocco della sessione deve essere considerato come un blocco esclusivo su un file, vale a dire che l'applicazione deve chiudere la sessione non appena non è più necessaria e/o quando non sono previsti altri messaggi.
+Il blocco viene rilasciato quando **chiudere** o **CloseAsync** vengono chiamati, o quando la scadenza del blocco in casi in cui l'applicazione è in grado di eseguire l'operazione di chiusura. Il blocco della sessione deve essere considerato come un blocco esclusivo su un file, vale a dire che l'applicazione deve chiudere la sessione non appena non è più necessaria e/o quando non sono previsti altri messaggi.
 
 Quando più ricevitori simultanei eseguono il pull dalla coda, i messaggi che appartengono a una sessione specifica vengono inviati al ricevitore specifico che attualmente ha bloccato la sessione. Con questa operazione, viene eseguito il demultiplexing di un flusso di messaggi con interfoliazione che si trova in una coda o una sottoscrizione in ricevitori diversi, che possono trovarsi anche in computer client diversi, perché la gestione del blocco avviene sul lato del servizio, all'interno del bus di servizio.
 
 Una coda rimane tuttavia una coda, ovvero non c'è un accesso casuale. Se più ricevitori simultanei sono in attesa di accettare sessioni specifiche oppure in attesa di messaggi da sessioni specifiche e c'è un messaggio nella parte superiore di una coda che appartiene a una sessione non ancora reclamata da alcun ricevitore, le consegne rimangono in attesa fino a quando un ricevitore di sessione non reclama tale sessione.
 
-La figura precedente mostra tre ricevitori di sessioni simultanei, che devono tutti accettare attivamente i messaggi dalla coda affinché ogni ricevitore possa avanzare. La sessione precedente, con *SessionId*=4, non ha alcun client proprietario attivo e quindi non verrà recapitato alcun messaggio in alcuna posizione fino a quando tale messaggio non viene acquisito da un ricevitore di sessione proprietario appena creato.
+La figura precedente mostra tre ricevitori di sessioni simultanei, che devono tutti accettare attivamente i messaggi dalla coda affinché ogni ricevitore possa avanzare. La sessione precedente con `SessionId` = 4 non ha client attive, proprietario, il che significa che non messaggi vengano recapitati a chiunque fino a quando il messaggio è stato eseguito da un oggetto appena creato, proprietario ricevitore di sessione.
 
 Sebbene possa sembrare un comportamento vincolante, un singolo processo del ricevitore può gestire facilmente molte sessioni simultanee, in particolare quando sono scritte in codice rigorosamente asincrono. La gestione di alcune dozzine di sessioni simultanee è completamente automatica con il modello di callback.
 
@@ -79,7 +79,7 @@ Lo stato della sessione conservato in una coda o in una sottoscrizione viene con
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esempio completo](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/BasicSessionSendReceiveUsingQueueClient) di invio e ricezione di messaggi basati su sessione dalle code del bus di servizio con la libreria .NET Standard.
+- [Esempio completo](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) di invio e ricezione di messaggi basati su sessione dalle code del bus di servizio con la libreria .NET Standard.
 - [Esempio](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) che usa il client .NET Framework per gestire i messaggi in grado di riconoscere le sessioni. 
 
 Per altre informazioni sulla messaggistica del bus di servizio, vedere gli argomenti seguenti:

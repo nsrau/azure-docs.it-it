@@ -9,15 +9,15 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: aa457c97292fc9f97d3bc4769ca45d55dd5829a6
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: 5fd9a1890c1940cdd4e79cc32e0b3984edd043e8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="upgrade-kubernetes-in-azure-container-service-aks"></a>Aggiornare Kubernetes nel servizio contenitore di Azure
 
-È possibile aggiornare un cluster del servizio contenitore di Azure usando l'interfaccia della riga di comando di Azure. Durante il processo di aggiornamento, i nodi Kubernetes verranno accuratamente [contrassegnati come non pianificabili e svuotati](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) per ridurre al minimo le interruzioni nelle applicazioni in esecuzione.
+È possibile aggiornare un cluster del servizio contenitore di Azure usando l'interfaccia della riga di comando di Azure. Durante il processo di aggiornamento, i nodi Kubernetes sono attentamente [cordoned e svuotate] [ kubernetes-drain] per ridurre al minimo le interruzioni di eseguire applicazioni.
 
 In questa esercitazione, l'ottava parte di otto, viene aggiornato un cluster Kubernetes. Le attività da completare comprendono:
 
@@ -30,7 +30,7 @@ In questa esercitazione, l'ottava parte di otto, viene aggiornato un cluster Kub
 
 Nelle esercitazioni precedenti è stato creato un pacchetto di un'applicazione in un'immagine del contenitore, caricata poi nel Registro contenitori di Azure, ed è stato creato un cluster Kubernetes. L'applicazione è stata quindi eseguita nel cluster Kubernetes.
 
-Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, tornare a [Tutorial 1 – Create container images](./tutorial-kubernetes-prepare-app.md) (Esercitazione 1: Creare immagini del contenitore).
+Se si è già questi passaggi e si desidera seguire la procedura, tornare al [esercitazione 1: creare le immagini contenitore][aks-tutorial-prepare-app].
 
 
 ## <a name="get-cluster-versions"></a>Ottenere le versioni del cluster
@@ -141,4 +141,11 @@ In questa esercitazione è stato aggiornato Kubernetes in un cluster del servizi
 Seguire questo collegamento per altre informazioni sul servizio contenitore di Azure.
 
 > [!div class="nextstepaction"]
-> [Panoramica del servizio contenitore di Azure](./intro-kubernetes.md)
+> [Panoramica AKS][aks-intro]
+
+<!-- LINKS - external -->
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+<!-- LINKS - internal -->
+[aks-intro]: ./intro-kubernetes.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

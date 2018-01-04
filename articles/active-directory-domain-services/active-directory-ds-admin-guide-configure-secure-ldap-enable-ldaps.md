@@ -4,7 +4,7 @@ description: Configurare l'accesso LDAP sicuro (LDAPS) per un dominio gestito di
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 12/15/2017
 ms.author: maheshu
-ms.openlocfilehash: d2ef65bb4dc8e12a18265ae8264def2bb32e191f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurare l'accesso LDAP sicuro (LDAPS) per un dominio gestito di Azure AD Domain Services
 
@@ -110,13 +110,14 @@ La tabella seguente illustra un esempio di gruppo di sicurezza di rete che è po
 <br>
 
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 Nel caso di problemi di connessione al dominio gestito tramite il protocollo LDAP sicuro, seguire questa procedura di risoluzione dei problemi:
 * Verificare che la catena di autorità di certificazione del certificato LDAP sicuro sia considerata attendibile nel client. È possibile scegliere di aggiungere l'autorità di certificazione radice nell'archivio certificati radice attendibili nel client per stabilire la relazione di attendibilità.
 * Verificare che il certificato LDAP sicuro non sia stato emesso da un'autorità di certificazione intermedia, che, per impostazione predefinita, non viene considerata attendibile in un computer Windows aggiornato.
 * Verificare che il client LDAP (ad esempio ldp.exe) si connetta all'endpoint LDAP sicuro usando un nome DNS, non l'indirizzo IP.
 * Verificare che il nome DNS a cui si connette il client LDAP venga risolto nell'indirizzo IP pubblico per il protocollo LDAP sicuro nel dominio gestito.
 * Verificare che il certificato LDAP sicuro per il dominio gestito contenga il nome DNS nell'attributo soggetto o nell'attributo nomi alternativi del soggetto.
+* Se ci si connette tramite LDAP sicuro tramite internet, verificare che le impostazioni di gruppo per la rete virtuale consentono il traffico alla porta 636 da internet.
 
 Se i problemi di connessione al dominio gestito con il protocollo LDAP sicuro persistono, [contattare il team di prodotto](active-directory-ds-contact-us.md) per assistenza. Includere le informazioni seguenti per agevolare la diagnostica del problema:
 * Schermata di ldp.exe che effettua la connessione con esito negativo.

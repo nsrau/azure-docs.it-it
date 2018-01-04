@@ -17,22 +17,22 @@ ms.workload: na
 ms.date: 08/30/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3975d65fca54f9c1b58175f5f48f91a7cb67987
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7b9642eec0fd0f1e547f34de1077e551fbb61593
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Aggiornare la versione di valutazione gratuita o la sottoscrizione di Azure per Microsoft Imagine alla sottoscrizione con pagamento in base al consumo
 
 Aggiornare la [versione di valutazione gratuita](https://azure.microsoft.com/free/) o la sottoscrizione [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) alla sottoscrizione [con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) nel Centro account di Azure.
 
-1. Accedere al [portale degli account di Azure](https://account.windowsazure.com/subscriptions).
-1. Nella sezione relativa allo stato della sottoscrizione, selezionare il banner **Aggiorna ora**.
+1. Accedere al [Centro account di Azure](https://account.windowsazure.com/subscriptions).
+2. Nella sezione relativa allo stato della sottoscrizione, selezionare il banner **Aggiorna ora**.
    
     ![Schermata che mostra il punto in cui fare clic per eseguire l'aggiornamento dalla versione di valutazione gratuita a quella a pagamento a consumo](./media/billing-upgrade-azure-subscription/billpage.png)
-1. Confermare l'aggiornamento.
+3. Confermare l'aggiornamento.
    
     ![Schermata che mostra gli elementi da selezionare per confermare che si desidera aggiornare la sottoscrizione](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
-L'aggiornamento non comporta alcuna spesa, ma viene addebitato solo il costo per i servizi usati. Dopo aver confermato l'aggiornamento, è possibile mantenere il credito della versione di valutazione fino alla fine del periodo di valutazione.
+ Quando esegue l'aggiornamento da una sottoscrizione di valutazione gratuita, mantenere il credito rimanente per completi 30 giorni dopo la creazione della sottoscrizione. È inoltre necessario avere accesso a servizi per 12 mesi.

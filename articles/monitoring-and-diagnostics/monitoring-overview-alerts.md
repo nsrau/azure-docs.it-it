@@ -15,14 +15,15 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afa863e2a900d4f823b77453d92f034db7d5a93f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c1f0182f27cfb8441a09abd2031b365a4ab4315a
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="what-are-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi in Microsoft Azure?
 Questo articolo descrive le varie origini di avvisi in Microsoft Azure, lo scopo di tali avvisi, i vantaggi che offrono e un'introduzione sul loro utilizzo. L'articolo è incentrato in particolare su Monitoraggio di Azure, ma include indicazioni anche relative ad altri servizi. Gli avvisi rappresentano un metodo per eseguire il monitoraggio in Azure: è possibile configurare condizioni relative ai dati e ricevere una notifica qualora tali condizioni corrispondano ai dati di monitoraggio più recenti.
+
 
 ## <a name="taxonomy-of-azure-alerts"></a>Tassonomia degli avvisi di Azure
 Azure usa i termini seguenti per descrivere gli avvisi e le relative funzioni:
@@ -32,10 +33,15 @@ Azure usa i termini seguenti per descrivere gli avvisi e le relative funzioni:
 * **Notifica**: l'azione eseguita quando un avviso diventa attivo.
 * **Azione**: una chiamata specifica inviata a un ricevitore di una notifica (ad esempio, l'invio di un messaggio di posta elettronica a un indirizzo o la pubblicazione in un URL del webhook). Le notifiche possono in genere attivare più azioni.
 
+    > [!NOTE]
+    > Come parte dell'evoluzione degli avvisi in Azure, è disponibile in anteprima una nuova esperienza unificata. La nuova esperienza di avvisi (anteprima) usa una classificazione diversa. Altre informazioni, vedere [avvisi (anteprima)](monitoring-overview-unified-alerts.md). 
+    >
+
 ## <a name="alerts-in-different-azure-services"></a>Avvisi in diversi servizi di Azure
 Gli avvisi sono disponibili in vari servizi di monitoraggio di Azure. Per informazioni su come e quando usare questi servizi, [vedere questo articolo](./monitoring-overview.md). Ecco un riepilogo dei tipi di avviso disponibili in Azure:
 
-| Service | Tipo di avviso | Servizi supportati | Descrizione |
+
+| Service | Tipo di avviso | Servizi supportati | DESCRIZIONE |
 |---|---|---|---|
 | Monitoraggio di Azure | [Avvisi delle metriche](./insights-alerts-portal.md) | [Metriche supportate con Monitoraggio di Azure](./monitoring-supported-metrics.md) | Ricevere una notifica quando una metrica a livello di piattaforma soddisfa una condizione specifica (ad esempio, la % della CPU in una macchina virtuale è superiore a 90 negli ultimi 5 minuti). |
 |Monitoraggio di Azure | [Avvisi metrica quasi in tempo reale (anteprima)](./monitoring-near-real-time-metric-alerts.md)| [Risorse supportate da Monitoraggio di Azure](./monitoring-near-real-time-metric-alerts.md#what-resources-can-i-create-near-real-time-metric-alerts-for) | Ricevere una notifica più velocemente rispetto agli avvisi metrica quando una o più metriche a livello di piattaforma soddisfano le condizioni specificate, ad esempio se la percentuale di CPU su una macchina virtuale è maggiore del 90% e la rete in ingresso è maggiore di 500 MB per gli ultimi 5 minuti. |
@@ -50,10 +56,10 @@ Esistono tre tipi di avvisi al di fuori dei dati disponibili in Monitoraggio di 
 * **Avvisi metrica**: questo avviso si attiva quando il valore di una specifica metrica supera una soglia assegnata. L'avviso genera una notifica quando viene "attivato" (quando la soglia viene superata e viene soddisfatta la condizione di avviso) e quando viene "risolto" (quando il valore rientra nella soglia e la condizione non viene più soddisfatta). Per un elenco in continua crescita delle metriche disponibili supportate dal monitoraggio di Azure, vedere [l'elenco delle metriche supportate in Monitoraggio di Azure](monitoring-supported-metrics.md).
 * **Avvisi metrica quasi in tempo reale (anteprima)**: questi avvisi sono simili agli avvisi metrica ma sono diversi in alcuni aspetti. In primo luogo, come suggerisce il nome, questi avvisi possono essere attivati quasi in tempo reale (più velocemente di 1 minuto). Supportano inoltre il monitoraggio di più metriche (attualmente due).  L'avviso genera una notifica quando viene "attivato" (quando la soglia per ogni metrica viene superata allo stesso tempo e la condizione di avviso viene soddisfatta) e quando viene "risolto" (quando almeno una metrica rientra nella soglia e la condizione non viene più soddisfatta).
 
-> [!NOTE]
-> Gli avvisi metrica quasi in tempo reale sono attualmente disponibili in anteprima pubblica. L'esperienza utente e la funzionalità sono soggette a modifiche.
->
->
+    > [!NOTE]
+    > Gli avvisi metrica quasi in tempo reale sono attualmente disponibili in anteprima pubblica. L'esperienza utente e la funzionalità sono soggette a modifiche.
+    >
+    >
 
 * **Avvisi del log attività**: un avviso di log in streaming si attiva quando viene generato un evento di log attività che corrisponde ai criteri di filtro assegnati. Questi avvisi hanno un solo stato, vale a dire "Attivato", perché il motore degli avvisi applica semplicemente i criteri di filtro a qualsiasi nuovo evento. Questi avvisi possono essere usati per notificare quando si verifica un nuovo evento imprevisto relativo all'integrità del servizio o quando un utente o un'applicazione esegue un'operazione nella sottoscrizione, ad esempio "Elimina macchina virtuale".
 
@@ -91,3 +97,4 @@ Ottenere informazioni sulle regole degli avvisi e sulla relativa configurazione 
 * Altre informazioni sugli [avvisi metrica quasi in tempo reale](monitoring-near-real-time-metric-alerts.md)
 * Altre informazioni sulle [notifiche del servizio](monitoring-service-notifications.md)
 * Altre informazioni sui [gruppi di azione](monitoring-action-groups.md)
+* Configurare [avvisi tramite avvisi (anteprima)](monitor-alerts-unified-usage.md)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: 94a4d5331aa2ed42a81e2e0bf890408f2db98fa7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: 98f046a943c1fe33b421b3ab6830d78e6c4304a0
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="split-merge-security-configuration"></a>Configurazione della sicurezza del servizio di divisione e unione
 Per usare il servizio di "split and merge", è necessario configurare correttamente le impostazioni sulla sicurezza. Il servizio rientra nella funzionalità Scalabilità elastica di database SQL di Microsoft Azur. Per altre informazioni, vedere [Esercitazione relativa allo strumento divisione-unione del database elastico](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -390,7 +390,7 @@ A tale scopo, seguire questa procedura:
 3. Selezionare **Certificati**.
 4. Fare clic su **Aggiungi**.
 5. Scegliere il percorso dell'archivio certificati.
-6. Fare clic su **Finish**.
+6. Fare clic su **Fine**.
 7. Fare clic su **OK**.
 8. Espandere **Certificati**.
 9. Espandere il nodo dell'archivio certificati.
@@ -410,7 +410,7 @@ In **Esportazione guidata certificati**:
 8. Fare clic su **Avanti**.
 9. Digitare o cercare un nome file in cui archiviare il certificato (usare un'estensione PFX).
 10. Fare clic su **Avanti**.
-11. Fare clic su **Finish**.
+11. Fare clic su **Fine**.
 12. Fare clic su **OK**.
 
 ## <a name="import-certificate"></a>Importare il certificato

@@ -1,6 +1,6 @@
 ---
-title: Operazioni di SAP HANA in Azure | Microsoft Docs
-description: Operazioni di SAP HANA in macchine virtuali native di Azure
+title: Operazioni di SAP HANA in Azure | Documenti Microsoft
+description: Guida per i sistemi SAP HANA che vengono distribuite macchine virtuali di Azure.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: 
 author: juergent
@@ -16,132 +16,140 @@ ms.workload: infrastructure
 ms.date: 11/17/2017
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0328bdc40429e1e82a76f290f5bde39089db0a9d
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: 1d6991d40b9bb8543898bbbdc9d7c905dfe11536
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>Guida operativa a SAP HANA in Azure
-Questa guida contiene le indicazioni per eseguire sistemi SAP HANA distribuiti in macchine virtuali di Azure. Questo documento non deve sostituire la documentazione standard di SAP. Le guide e le note SAP sono disponibili agli indirizzi seguenti:
+Questo documento fornisce istruzioni per SAP HANA sistemi operativi che vengono distribuiti in Azure native macchine virtuali (VM). Questo documento non è destinato a sostituire la documentazione SAP standard, che include il contenuto seguente:
 
-- [SAP Administration Guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/330e5550b09d4f0f8b6cceb14a64cd22.html) (Guida all'amministrazione di SAP)
-- [SAP Installation Guides](https://service.sap.com/instguides) (Guide all'installazione di SAP)
-- [SAP Notes](https://sservice.sap.com/notes) (Note SAP)
+- [Guida all'amministrazione di SAP](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/330e5550b09d4f0f8b6cceb14a64cd22.html)
+- [Guide all'installazione di SAP](https://service.sap.com/instguides)
+- [Note su SAP](https://sservice.sap.com/notes)
 
-Come prerequisito, è necessaria una conoscenza di base dei diversi componenti di Azure seguenti:
+## <a name="prerequisites"></a>Prerequisiti
+Per usare questa Guida, è necessario conoscenza di base dei componenti di Azure seguenti:
 
 - [Macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
-- [Rete e reti virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+- [Rete di Azure e le reti virtuali](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Archiviazione di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
-La documentazione aggiuntiva su SAP NetWeaver e altri componenti SAP in Azure è disponibile nella sezione [SAP in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) della [documentazione di Azure](https://docs.microsoft.com/azure/).
+Per ulteriori informazioni su SAP NetWeaver e altri componenti SAP in Azure, vedere il [SAP in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) sezione la [documentazione di Azure](https://docs.microsoft.com/azure/).
 
 ## <a name="basic-setup-considerations"></a>Considerazioni di base sulla configurazione
-### <a name="connecting-into-azure"></a>Connessione in Azure
-Come descritto in [Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver][planning-guide], esistono due metodi di base per connettersi in Macchine virtuali di Azure. 
+Nelle sezioni seguenti vengono descritte considerazioni sulla configurazione di base per la distribuzione di sistemi SAP HANA in macchine virtuali di Azure.
 
-- Connessione tramite Internet ed endpoint pubblici in una macchina virtuale jumpbox o esecuzione di SAP HANA sulla macchina virtuale
-- Connessione tramite una [rete VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) o Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/)
+### <a name="connect-into-azure-virtual-machines"></a>Collegare macchine virtuali di Azure
+Come descritto nel [macchine virtuali di Azure Guida alla pianificazione](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide), sono disponibili due metodi di base per la connessione in macchine virtuali di Azure:
 
-Per gli scenari di produzione o per gli scenari con ambienti non di produzione integrati in scenari di produzione insieme a software SAP, è necessaria connettività da sito a sito tramite una rete VPN o ExpressRoute, come mostrato in questa immagine:
+- Connettersi tramite internet e gli endpoint pubblici in una macchina virtuale passare o nella macchina virtuale che esegue SAP HANA.
+- Connettersi tramite un [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) o Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+
+Connettività da sito a sito tramite VPN o ExpressRoute è necessaria per scenari di produzione. Questo tipo di connessione è necessario anche per gli scenari non di produzione che feed in scenari di produzione in cui viene usato il software SAP. L'immagine seguente mostra un esempio di connettività cross-site:
 
 ![Connettività intersito](media/virtual-machines-shared-sap-planning-guide/300-vpn-s2s.png)
 
 
-### <a name="choice-of-azure-vm-types"></a>Scelta dei tipi di macchina virtuale di Azure
-I tipi di macchina virtuale di Azure che è possibile usare per scenari di produzione possono essere esaminati [qui](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). Per gli scenari non di produzione, è possibile scegliere tra una gamma più ampia di macchine virtuali native di Azure. Tuttavia, è consigliabile limitarsi ai tipi di macchina virtuale indicati nella [nota SAP n. 1928533](https://launchpad.support.sap.com/#/notes/1928533). La distribuzione di queste macchine virtuali in Azure può essere eseguita tramite:
+### <a name="choose-azure-vm-types"></a>Scegliere i tipi di macchine Virtuali di Azure
+I tipi di macchina virtuale di Azure che possono essere utilizzati per gli scenari di produzione sono elencati nel [documentazione SAP per IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). Per gli scenari non di produzione, è disponibile un'ampia gamma di tipi nativi di macchina virtuale di Azure.
 
-- Portale di Azure
-- Cmdlet di Azure PowerShell
-- Interfaccia della riga di comando di Azure
+>[!NOTE]
+>Per gli scenari non di produzione, utilizzare i tipi VM elencati nel [nota SAP &#1928533;](https://launchpad.support.sap.com/#/notes/1928533).
 
-È anche possibile distribuire una piattaforma SAP HANA installata completa nei servizi di macchine virtuali di Azure tramite la [piattaforma SAP Cloud](https://cal.sap.com/), come descritto [qui](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h).
+Distribuire le macchine virtuali in Azure utilizzando:
 
-### <a name="choice-of-azure-storage"></a>Scelta dell'archiviazione di Azure
-Azure offre due tipi principali di archiviazione adatti per le macchine virtuali di Azure che eseguono SAP HANA
+- Il portale di Azure.
+- Cmdlet di Azure PowerShell.
+- L'interfaccia CLI di Azure.
+
+È anche possibile distribuire una piattaforma completa di SAP HANA installata in servizi della macchina virtuale di Azure tramite il [piattaforma Cloud SAP](https://cal.sap.com/). Viene descritto il processo di installazione [BW/4HANA in Azure o distribuire SAP S/4HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h).
+
+### <a name="choose-azure-storage-type"></a>Scegliere il tipo di archiviazione di Azure
+Azure offre due tipi di archiviazione che sono adatti per le macchine virtuali di Azure che eseguono SAP HANA:
 
 - [Archiviazione Standard di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
 - [Archiviazione Premium di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
 
-Azure offre due metodi di distribuzione per VHD su Archiviazione Standard e Premium di Azure. Se lo scenario complessivo lo permette, è consigliabile sfruttare distribuzioni di [Dischi gestiti di Azure](https://azure.microsoft.com/services/managed-disks/).
+Azure offre due metodi di distribuzione per VHD su Archiviazione Standard e Premium di Azure. Consente lo scenario complessivo, sfruttare i vantaggi di [disco gestito di Azure](https://azure.microsoft.com/services/managed-disks/) le distribuzioni.
 
-Per informazioni precise sui tipi di archiviazione e sui contratti di servizio per ogni tipo di archiviazione, vedere [questa documentazione](https://azure.microsoft.com/pricing/details/managed-disks/)
+Per un elenco di tipi di archiviazione e i relativi contratti di servizio, esaminare il [documentazione di Azure per i dischi gestiti](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-È consigliabile usare Dischi Premium di Azure per volumi /hana/data e /hana/log. Sono supportati la compilazione di un volume LVM RAID in più dischi di Archiviazione Premium e l'uso di questi volumi RAID come volumi /hana/data e /hana/log.
+I dischi Premium di Azure è consigliato per i volumi /hana/data e /hana/log. È possibile compilare un RAID LVM su più dischi di archiviazione Premium e utilizzare i volumi RAID come /hana/data e /hana/log.
 
-Una possibile configurazione per diversi tipi di macchina virtuale comuni usati fino a ora dai clienti per l'hosting di SAP HANA su macchine virtuali di Azure può includere gli elementi seguenti:
+Nella tabella seguente viene illustrata una configurazione di tipi di macchine Virtuali che utilizzano in genere i clienti a host SAP HANA in macchine virtuali di Azure:
 
-| SKU di VM | RAM | /hana/data and /hana/log<br /> con striping con LVM o MDADM | /hana/shared | volume /root | /usr/sap | hana/backup |
-| --- | --- | --- | --- | --- | --- | -- |
-| E16v3 | 128 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S10 |
-| E32v3 | 256 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
-| E64v3 | 443 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| GS5 | 448 GB | 2 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
-| M64s | 1 TB | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
-| M64ms | 1,7 TB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
-| M128s | 2 TB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
-| M128ms | 3,8 TB | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 5 x S30 |
+| SKU di VM | RAM | Max. / O DI MACCHINA VIRTUALE<br /> Velocità effettiva | /hana/data and /hana/log<br /> con striping con LVM o MDADM | /hana/shared | volume /root | /usr/sap | hana/backup |
+| --- | --- | --- | --- | --- | --- | --- | -- |
+| E16v3 | 128 GiB | 384 MB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
+| E32v3 | 256 giB | 768 MB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
+| E64v3 | 443 giB | 1200 GB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| GS5 | 448 giB | 2000 GB | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| M64s | 1000 giB | 1000 GB | 2 x P30 | 1 x S30 | 1 x S6 | 1 x S6 |2 x S30 |
+| M64ms | 1750 giB | 1000 GB | 3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 3 x S30 |
+| M128s | GiB 2000 | 2000 GB |3 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S40 |
+| M128ms | 3800 giB | 2000 GB | 5 x P30 | 1 x S30 | 1 x S6 | 1 x S6 | 2 x S50 |
 
 
-### <a name="azure-networking"></a>Rete di Azure
-Presupponendo connettività da sito a sito tramite VPN o ExpressRoute in Azure, sarà necessaria almeno una [rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) connessa tramite un gateway virtuale alla VPN o al circuito ExpressRoute. Il gateway virtuale si trova in una subnet nella rete virtuale di Azure. Per installare HANA, è necessario creare altre due subnet nella rete virtuale. Una subnet ospiterà le macchine virtuali che eseguono le istanze di SAP HANA, l'altra subnet eseguirà le eventuali macchine virtuali jumpbox o di gestione che possono ospitare SAP HANA Studio o altro software di gestione.
-Quando si installano le macchine virtuali che devono eseguire HANA, queste devono avere:
+> [!NOTE]
+> I dischi consigliati per i tipi di macchina virtuale più piccola con dimensione x P20 3 volumi riguardanti le indicazioni di spazio in base al [white paper di archiviazione di SAP TDI](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). Tuttavia, la scelta come visualizzato nella tabella è stata effettuata per fornire una velocità effettiva del disco sufficienti per SAP HANA. Se è necessario minore velocità effettiva dei / o, è possibile modificare la scelta di dischi di archiviazione Premium per /hana/data e /hana/log. Stesso vale per il ridimensionamento del volume /hana/backup, che è stato ridimensionato per mantenere i backup che rappresentano due volte il volume di memoria. Se è necessario meno spazio, è possibile modificare. Tenere inoltre la velocità effettiva dei / o VM globale presente durante il ridimensionamento o decidere per una macchina virtuale. Complessivo della velocità effettiva di macchina virtuale è documentata nell'articolo [dimensioni delle macchine virtuali di ottimizzazione per la memoria](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)  
 
-- Due schede di interfaccia di rete virtuali installate, di cui una si connette alla subnet di gestione e l'altra viene usata per la connessione dall'istanza locale o da altre reti all'istanza di SAP HANA nella macchina virtuale di Azure.
-- Indirizzi IP privati statici distribuiti per entrambe le schede di interfaccia di rete virtuali
+> [!NOTE]
+> Se si desidera trarre vantaggio da [macchina virtuale di Azure singolo contratto di servizio VM](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) è necessario modificare tutti i dischi rigidi virtuali che sono elencati come archiviazione Standard (Sxx) in archiviazione Premium (Pxx). 
 
-Una panoramica delle diverse possibilità di assegnazione degli indirizzi IP è disponibile [qui](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
 
-Il routing del traffico direttamente all'istanza di SAP HANA o al jumpbox viene gestito da [gruppi di sicurezza di rete di Azure](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg) associati alla subnet HANA e alla subnet di gestione.
+### <a name="set-up-azure-virtual-networks"></a>Impostare le reti virtuali di Azure
+Quando si dispone di connettività site-to-site in Azure tramite VPN o ExpressRoute, è necessario avere almeno un [rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) collegato tramite un Gateway virtuale al circuito ExpressRoute o VPN. Il Gateway virtuale si trova in una subnet nella rete virtuale di Azure. Per installare SAP HANA, si crea due altre subnet all'interno della rete virtuale. Una subnet ospita le macchine virtuali per eseguire le istanze di SAP HANA. Le altre subnet esegue Jumpbox o macchine virtuali di gestione per ospitare SAP HANA Studio o altri software di gestione.
 
-Nel complesso, lo schema di distribuzione approssimativo sarà simile al seguente:
+Quando si installano le macchine virtuali per l'esecuzione di SAP HANA, le macchine virtuali devono:
+
+- Due schede di rete virtuale installati: una scheda di rete per la connessione alla subnet di gestione e una scheda di rete per la connessione dalla rete locale o altre reti, l'istanza di SAP HANA nella macchina virtuale di Azure.
+- Privato indirizzi IP statici che vengono distribuiti per entrambe le schede di rete virtuale.
+
+Per una panoramica dei diversi metodi per l'assegnazione di indirizzi IP, vedere [l'indirizzo IP di tipi e i metodi di allocazione in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
+
+[Azure rete sicurezza gruppi](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) vengono utilizzati per indirizzare il traffico indirizzato per l'istanza di SAP HANA o il Jumpbox. Il NSGs vengono associate a subnet SAP HANA e la subnet di gestione.
+
+La figura seguente mostra una panoramica di uno schema di distribuzione approssimativa per SAP HANA:
 
 ![Schema di distribuzione approssimativo per SAP HANA](media/hana-vm-operations/hana-simple-networking.PNG)
 
 
-Se è stato distribuito SAP HANA in Azure senza connettività da sito a sito (VPN o ExpressRoute in Azure), l'accesso all'istanza di SAP HANA viene eseguito tramite un indirizzo IP pubblico assegnato alla macchina virtuale di Azure che esegue la macchina virtuale jumpbox. Nel caso più semplice, è possibile usare anche i servizi DNS integrati di Azure per la risoluzione dei nomi host. In particolare quando si usano indirizzi IP pubblici, è consigliabile usare gruppi di sicurezza di rete di Azure per limitare le porte aperte o gli intervalli di indirizzi IP consentiti per la connessione nelle subnet di Azure che eseguono asset con indirizzi IP pubblici. Lo schema di una distribuzione di questo tipo può essere simile al seguente:
+Per distribuire SAP HANA in Azure senza una connessione site-to-site, accedere all'istanza SAP HANA, anche se un indirizzo IP pubblico. L'indirizzo IP deve essere assegnato alla macchina virtuale di Azure che esegue la VM Jumpbox. In questo scenario di base, la distribuzione si basa su Azure servizi DNS predefiniti per risolvere i nomi host. In una distribuzione più complessa in cui vengono utilizzati indirizzi IP pubblici, servizi di Azure per DNS predefiniti sono particolarmente importanti. Utilizzare Azure NSGs per limitare le porte aperte e intervalli di indirizzi IP che è possano collegare le subnet di Azure con le risorse che dispongono degli indirizzi IP pubblici. Di seguito viene illustrato uno schema approssimativo per la distribuzione di SAP HANA senza una connessione site-to-site:
   
-![Schema di distribuzione approssimativo per SAP HANA senza connessione da sito a sito](media/hana-vm-operations/hana-simple-networking2.PNG)
+![Schema di distribuzione approssimativa per SAP HANA senza una connessione site-to-site](media/hana-vm-operations/hana-simple-networking2.PNG)
  
 
 
-## <a name="operations"></a>Operazioni
-### <a name="backup-and-restore-operations-on-azure-vms"></a>Operazioni di backup e ripristino nelle macchine virtuali di Azure
-Le opzioni disponibili per il backup e il ripristino di SAP HANA sono descritte in questi documenti:
+## <a name="operations-for-deploying-sap-hana-on-azure-vms"></a>Operazioni per la distribuzione di SAP HANA in macchine virtuali di Azure
+Nelle sezioni seguenti vengono descritte alcune delle operazioni correlate alla distribuzione di sistemi SAP HANA in macchine virtuali di Azure.
+
+### <a name="back-up-and-restore-operations-on-azure-vms"></a>Eseguire il backup e ripristinare le operazioni nelle macchine virtuali di Azure
+I documenti seguenti descrivono come eseguire il backup e ripristinare la distribuzione di SAP HANA:
 
 - [Panoramica del backup di SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
-- [Backup a livello di file di SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
-- [Backup degli snapshot di archiviazione di SAP HANA](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
+- [Backup di file a livello di SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
+- [Benchmark di SAP HANA archiviazione dello snapshot](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
 
 
-
-### <a name="start-and-restart-of-vms-containing-sap-hana"></a>Avviare e riavviare le macchine virtuali che contengono SAP HANA
-Uno dei punti di forza del cloud pubblico di Azure è il fatto che vengono addebitati solo i minuti di calcolo effettivamente spesi. Questo significa che se si arresta una macchina virtuale che esegue SAP HANA, durante questo intervallo di tempo verranno fatturati solo i costi per l'archiviazione. Quando si avvia di nuovo la macchina virtuale con SAP HANA, la macchina virtuale viene avviata di nuovo con gli stessi indirizzi IP (se la distribuzione è stata eseguita con indirizzi IP statici). 
-
-
-### <a name="saprouter-enabling-sap-remote-support"></a>SAPRouter per abilitare il supporto remoto SAP
-Se è presente una connessione da sito a sito tra le posizioni locali e Azure e si eseguono già componenti SAP, è molto probabile che SAProuter sia già in esecuzione. In questo caso, non è necessario eseguire altre operazioni con le istanze di SAP HANA distribuite in Azure, ad eccezione del mantenimento degli indirizzi IP privato e statico della macchina virtuale che ospita HANA nella configurazione di SAPRouter e l'adattamento dell'NSG della subnet che ospita la macchina virtuale HANA (traffico attraverso la porta TCP/IP 3299 consentito).
-
-Se si distribuisce SAP HANA e ci si connette ad Azure tramite Internet e SAPRouter non è installato nella rete virtuale che esegue una macchina virtuale con SAP HANA, è consigliabile installare SAPRouter in una macchina virtuale separata nella subnet di gestione, come mostrato qui:
+### <a name="start-and-restart-vms-that-contain-sap-hana"></a>Avviare e riavviare le macchine virtuali che contengono SAP HANA
+Una funzionalità principali di cloud pubblico di Azure è che vengono addebitati solo i minuti di elaborazione. Ad esempio, quando si arresta una macchina virtuale che esegue SAP HANA, sta fatturato solo per i costi di archiviazione durante tale periodo. Quando si specificano gli indirizzi IP statici per le macchine virtuali nella distribuzione iniziale, è disponibile un'altra funzionalità. Quando si riavvia una macchina virtuale con SAP HANA, viene riavviata la macchina virtuale con indirizzo IP precedente. 
 
 
-![Schema di distribuzione approssimativo per SAP HANA senza connessione da sito a sito e SAPRouter](media/hana-vm-operations/hana-simple-networking3.PNG)
+### <a name="use-saprouter-for-sap-remote-support"></a>Utilizzare SAProuter per il supporto remoto SAP
+Se si dispone di una connessione da sito a sito tra i percorsi locali e Azure, e si eseguono i componenti SAP, quindi SAProuter probabilmente già in esecuzione. In questo caso, completare i seguenti elementi per supporto remoto:
 
-È consigliabile installare SAPRouter in una macchina virtuale separata e non nella macchina virtuale jumpbox. La macchina virtuale separata deve avere un indirizzo IP statico. Per connettere SAPRouter all'istanza di SAPRouter ospitata da SAP (controparte dell'istanza di SAPRouter installata nella macchina virtuale), è necessario contattare SAP per ottenere un indirizzo IP, necessario per configurare l'istanza di SAPRouter. L'unica porta necessaria è la porta TCP 3299.
-Per altre informazioni su come configurare e gestire connessioni di supporto remoto tramite SAPRouter, vedere questa [risorsa SAP](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
+- Gestire l'indirizzo IP statico e privato della macchina virtuale che ospita SAP HANA nella configurazione SAProuter.
+- Configurare il gruppo della subnet che ospita la VM HANA per consentire il traffico attraverso la porta TCP/IP 3299.
 
-### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>Disponibilità elevata con SAP HANA in macchine virtuali native di Azure
-Tramite l'esecuzione di SUSE Linux 12 SP1 e versioni più recenti, è possibile definire un cluster Pacemaker con dispositivi STONITH per impostare una configurazione SAP HANA che usi la replica sincrona con la replica di sistema e il failover automatico HANA. La procedura di configurazione viene descritta nell'articolo [Disponibilità elevata di SAP HANA in Macchine virtuali di Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+Se ci si connette a Azure tramite internet e non si dispone di un router SAP per la macchina virtuale con SAP HANA, è necessario installare il componente. Installare SAProuter in una macchina virtuale separata della subnet di gestione. Di seguito viene illustrato uno schema approssimativo per la distribuzione di SAP HANA senza una connessione site-to-site e con SAProuter:
 
- 
+![Sgrossare dello schema di distribuzione per SAP HANA senza una connessione site-to-site e SAProuter](media/hana-vm-operations/hana-simple-networking3.PNG)
 
+Assicurarsi di installare SAProuter in una macchina virtuale separata e non in VM Jumpbox. La macchina virtuale separata deve avere un indirizzo IP statico. Per connettere il SAProuter SAProuter ospitato da SAP, contattare SAP per un indirizzo IP. (SAProuter ospitato da SAP è l'equivalente dell'istanza SAProuter installato nella macchina virtuale). Usare l'indirizzo IP da SAP per configurare l'istanza SAProuter. Nelle impostazioni di configurazione, la porta solo necessaria è la porta TCP 3299.
 
+Per ulteriori informazioni su come impostare e gestire le connessioni di assistenza remota tramite SAProuter, vedere il [documentazione SAP](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
 
-
-
-
-
-
-
-
+### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>Disponibilità elevata con SAP HANA in macchine virtuali di Azure native
+Se si esegue SUSE Linux 12 SP1 o versione successiva, è possibile stabilire un cluster Pacemaker con dispositivi STONITH. È possibile utilizzare i dispositivi per impostare una configurazione di SAP HANA che utilizza la replica sincrona con replica DFS HANA e il failover automatico. Per ulteriori informazioni sulla procedura di installazione, vedere [la disponibilità elevata di SAP HANA su macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability).

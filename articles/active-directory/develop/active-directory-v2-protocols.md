@@ -4,7 +4,7 @@ description: Guida ai protocolli supportati dall'endpoint v 2.0 di Azure AD.
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 3750f975600575349e5ea9de249cf4521636fd2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ce9a7cb14b933da23873d69e1f14a744d012a858
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>Protocolli v2.0 - OAuth 2.0 e OpenID Connect
 L'endpoint v2.0 può usare Azure AD per il servizio IaaS (identity-as-a-service) con protocolli standard del settore, OpenID Connect e OAuth 2.0.  Anche se il servizio è conforme agli standard, possono esistere sottili differenze tra le implementazioni di questi protocolli.  Le informazioni in questo argomento sono utili se si sceglie di scrivere codice inviando e gestendo direttamente le richieste HTTP o di usare una libreria open source di terze parti anziché usare una delle librerie open source di Microsoft.
@@ -59,7 +59,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 Dove `{tenant}` può assumere uno dei quattro diversi valori:
 
-| Valore | Descrizione |
+| Valore | DESCRIZIONE |
 | --- | --- |
 | `common` |Consente agli utenti con account Microsoft e account aziendali o dell'istituto d'istruzione di Azure Active Directory di accedere all'applicazione. |
 | `organizations` |Consente solo agli utenti con account aziendali o dell'istituto d'istruzione di Azure Active Directory di accedere all'applicazione. |

@@ -5,20 +5,20 @@ services: active-directory
 keywords: Autenticazione pass-through di Azure AD Connect, installare Active Directory, componenti necessari per Azure AD, SSO, Single Sign-On
 documentationcenter: 
 author: swkrish
-manager: femila
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: billmath
-ms.openlocfilehash: a7edfd1939ad45dd3309fe5eaee2afa36086e9eb
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: 98de47eab2636277acfd6393a7574ae18487bc6a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticazione pass-through di Azure Active Directory - Limitazioni correnti
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 12/06/2017
 Sono completamente supportati gli scenari seguenti:
 
 - Accessi utente a tutte le applicazioni basate su Web browser
-- Accessi utente ad applicazioni client di Office 365 che supportano l'[autenticazione moderna](https://aka.ms/modernauthga)
-- Office 2016 e Office 2013 _con_ autenticazione moderna
+- L'accesso degli utenti alle applicazioni di Office che supportano [l'autenticazione moderna](https://aka.ms/modernauthga): Office 2016 e Office 2013 _con_ l'autenticazione moderna
+- Accesso degli utenti a Skype for Business, tale supporto l'autenticazione moderna, incluse le topologie in linea & ibrida. Altre informazioni sulle topologie supportate [qui](https://technet.microsoft.com/library/mt803262.aspx).
 - Aggiunte al dominio Azure AD per dispositivi Windows 10
 - Supporto di Exchange ActiveSync
 
@@ -40,11 +40,11 @@ Sono completamente supportati gli scenari seguenti:
 _Non_ sono supportati gli scenari seguenti:
 
 - Accessi utente ad applicazioni client legacy di Office: Office 2010 e Office 2013 _senza_ autenticazione moderna. Le organizzazioni sono incoraggiate a passare all'autenticazione moderna, se possibile. L'autenticazione moderna consente il supporto dell'autenticazione pass-through. Consente anche di proteggere gli account utente tramite funzionalità di [accesso condizionale](../active-directory-conditional-access-azure-portal.md), ad esempio Azure Multi-Factor Authentication.
-- Accessi utente ad applicazioni client Skype for Business, incluso Skype for Business 2016.
+- L'accesso degli utenti a Skype per le applicazioni client di Business _senza_ l'autenticazione moderna.
 - Accessi utente a PowerShell versione 1.0. È consigliabile usare PowerShell versione 2.0.
-- Azure Active Directory Domain Services.
 - Password di app per Multi-Factor Authentication.
 - Rilevamento di utenti con [credenziali perse](../active-directory-reporting-risk-events.md#leaked-credentials).
+- Servizi di dominio Active Directory di Azure deve sincronizzazione dell'Hash Password per attivare il tenant. Di conseguenza i tenant che utilizzano l'autenticazione pass-through _solo_ non funzionano per gli scenari che richiedono servizi di dominio Active Directory di Azure.
 
 >[!IMPORTANT]
 >Come soluzione alternativa _solo_ per gli scenari non supportati, abilitare la sincronizzazione dell'hash delle password nella pagina [Funzionalità facoltative](active-directory-aadconnect-get-started-custom.md#optional-features) della procedura guidata di Azure AD Connect.

@@ -1,24 +1,16 @@
 ---
 title: Personalizzare le impostazioni di valutazione di Azure Migrate | Microsoft Docs
 description: Descrive come configurare ed eseguire una valutazione per la migrazione di macchine virtuali VMware in Azure usando Azure Migration Planner
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: a068b9c7-5f87-4fe1-90b9-3be48d91aa3f
-ms.service: migrate
-ms.devlang: na
+ms.service: azure-migrate
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/21/2017
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 20aeb2073ad307952f92c8377bc9d78169f1756c
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: ce47790f6214864afdba33eb5cbe3a9e49b81cd5
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="customize-an-assessment"></a>Personalizzare una valutazione
 
@@ -41,7 +33,7 @@ ms.lasthandoff: 11/29/2017
     **Offerta** | [Offerte di Azure](https://azure.microsoft.com/support/legal/offer-details/) applicabili. | L'opzione predefinita è [Pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/).
     **Valuta** | Valuta di fatturazione. | La valuta predefinita è il dollaro statunitense.
     **Sconto (%)** | Qualsiasi sconto specifico della sottoscrizione ricevuto oltre a qualsiasi offerta. | L'impostazione predefinita è 0%.
-    **Vantaggio Azure Hybrid Use** | Indica se è stata effettuata la registrazione per il [vantaggio Azure Hybrid Use](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Se il valore è impostato su Sì, alle macchine virtuali Windows si applicano i prezzi di Azure per sistemi non Windows. | Il valore predefinito è Sì.
+    **Vantaggio Azure Hybrid Use** | Indica se è stata effettuata la registrazione per il [vantaggio Azure Hybrid Use](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Se il valore è impostato su Sì, alle macchine virtuali Windows si applicano i prezzi di Azure per sistemi non Windows. | Il valore predefinito è Yes.
 
 3. Fare clic su **Salva** per aggiornare la valutazione.
 

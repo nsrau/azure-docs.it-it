@@ -4,7 +4,7 @@ description: "Informazioni su come configurare l'accesso Single Sign-On tra Azur
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 052db91d-ccff-4098-8ae3-2f76eca90539
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 52518cd76738f93162b3c1c8b76abff95f34fc2f
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
-ms.translationtype: HT
+ms.openlocfilehash: 0214fcbdde886bd14d84917e496568027d417096
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>Esercitazione: integrazione di Azure Active Directory con Bpm’online
 
@@ -28,7 +28,7 @@ L'integrazione di Bpm’online con Azure AD offre i vantaggi seguenti:
 
 - È possibile controllare in Azure AD chi può accedere a Bpm’online.
 - È possibile abilitare gli utenti per l'accesso automatico a Bpm’online, ovvero per il Single Sign-On con i propri account Azure AD.
-- È possibile gestire gli account da una posizione centrale: il portale di Azure.
+- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -36,7 +36,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con Bpm’online, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di Bpm’online abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
@@ -48,7 +48,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Bpm’online dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -98,7 +98,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **Bpm’online** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Collegamento per la configurazione dell'accesso Single Sign-On][4]
+    ![Collegamento Configura accesso Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
@@ -116,34 +116,34 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Informazioni per l'accesso Single Sign-On su URL e dominio di Bpm’online](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_url1.png)
 
-    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<client site name>.bpmonline.com/`.
+    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<client site name>.bpmonline.com/`
      
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Bpm’online](mailto:support@bpmonline.com). 
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Bpm’online](mailto:support@bpmonline.com). 
 
 5. Per generare l'URL dei **metadati**, seguire questa procedura:
 
     a. Fare clic su **Registrazioni per l'app**.
     
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_appregistrations.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_appregistrations.png)
    
     b. Fare clic su **Endpoint** per aprire la finestra di dialogo **Endpoint**.  
     
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_endpointicon.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_endpointicon.png)
 
     c. Fare clic sul pulsante Copia per copiare l'URL del **DOCUMENTO METADATI FEDERAZIONE** e incollarlo nel Blocco note.
     
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_endpoint.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_endpoint.png)
      
     d. Passare ora alla pagina delle proprietà di **Bpm’online**, copiare l'**ID applicazione** usando il pulsante **Copia** e incollarlo nel Blocco note.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_appid.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_appid.png)
 
      e. Generare l'**URL dei metadati** usando il modello seguente: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 
 
 6. Fare clic sul pulsante **Salva** .
 
-    ![Pulsante Salva di Configura accesso Single Sign-On](./media/active-directory-saas-bpmonline-tutorial/tutorial_general_400.png)
+    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-bpmonline-tutorial/tutorial_general_400.png)
     
 8. Per configurare l'accesso Single Sign-On sul lato **Bpm’online**, è necessario inviare l'**URL dei metadati** al [team di supporto di Bpm’online](mailto:support@bpmonline.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 

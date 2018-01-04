@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 12/11/2017
 ms.author: byvinyal
-ms.openlocfilehash: dc506ce0872721a6da1c440eead107396c249f5f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: 1ae97b47d306640f09a535975b8e4461f51dea9e
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azure, che vengono definiti anche quote. Al momento nel documento non vengono trattati tutti i servizi di Azure. Nel corso del tempo l'elenco verrà ampliato e aggiornato in modo da coprire un maggior numero di servizi della piattaforma.
@@ -29,7 +29,7 @@ Vedere [Prezzi di Azure](https://azure.microsoft.com/pricing/) per altre informa
 > [!NOTE]
 > Per aumentare il limite o la quota oltre il valore **Limite predefinito**, è possibile [aprire una richiesta di assistenza clienti online senza alcun addebito](azure-supportability/resource-manager-core-quotas-request.md). I limiti non possono essere aumentati oltre il valore **Limite massimo** definito nelle tabelle seguenti. Se non è presente nessuna colonna **Limite massimo**, per la risorsa specificata non sono disponibili limiti regolabili.
 >
-> Le sottoscrizioni per le versioni di valutazione gratuite non sono idonee ad aumenti di limite o di quota. Se è disponibile una versione di valutazione gratuita, è possibile eseguire l'aggiornamento a una sottoscrizione con [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) . Per altre informazioni, vedere [Aggiornare la versione di valutazione gratuita di Azure all'offerta con pagamento in base al consumo](billing/billing-upgrade-azure-subscription.md).
+> [Sottoscrizioni della versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) non sono idonei per l'aumento di quota o limite. Se dispone di un [sottoscrizione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), è possibile eseguire l'aggiornamento a un [consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) sottoscrizione. Per ulteriori informazioni, vedere [aggiornare Azure versione di valutazione gratuita in base al consumo](billing/billing-upgrade-azure-subscription.md) e [domande frequenti sull'abbonamento di valutazione gratuita](https://azure.microsoft.com/free/free-account-faq).
 >
 
 ## <a name="limits-and-the-azure-resource-manager"></a>Limiti e Azure Resource Manager
@@ -74,7 +74,7 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Servizi multimediali](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Servizi mobili](#mobile-services-limits)
-* [Monitorare](#monitor-limits)
+* [Monitoraggio](#monitor-limits)
 * [Autenticazione a più fattori](#multi-factor-authentication)
 * [Rete](#networking-limits)
 * [Network Watcher](#network-watcher-limits)
@@ -85,6 +85,7 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Bus di servizio](#service-bus-limits)
 * [Site Recovery](#site-recovery-limits)
 * [Database SQL](#sql-database-limits)
+* [SQL Data Warehouse](#sql-data-warehouse-limits)
 * [Archiviazione](#storage-limits)
 * [Sistema StorSimple](#storsimple-system-limits)
 * [Analisi dei flussi](#stream-analytics-limits)
@@ -300,7 +301,7 @@ Per informazioni più dettagliati sui limiti, ad esempio dimensioni dei document
 ### <a name="key-vault-limits"></a>Limiti relativi all'insieme di credenziali delle chiavi
 [!INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
 
-### <a name="multi-factor-authentication"></a>Autenticazione a più fattori
+### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 [!INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
 ### <a name="automation-limits"></a>Limiti di automazione
@@ -309,7 +310,10 @@ Per informazioni più dettagliati sui limiti, ad esempio dimensioni dei document
 ### <a name="sql-database-limits"></a>Limiti relativi a database SQL
 Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql-database/sql-database-resource-limits.md).
 
-## <a name="see-also"></a>Vedere anche
+### <a name="sql-data-warehouse-limits"></a>Limiti di SQL Data Warehouse
+Per i limiti di SQL Data Warehouse, vedere [i limiti delle risorse di SQL Data Warehouse](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+
+## <a name="see-also"></a>Vedere anche 
 [Informazioni sui limiti di Azure e su come aumentarli](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
 [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

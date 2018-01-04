@@ -138,7 +138,7 @@ Usare la procedura seguente per abilitare i backup delle VM tramite il [portale 
 
 4.  Assicurarsi che l'agente di Backup sia installato nella VM. Se la macchina virtuale è stata creata tramite un'immagine della raccolta di Azure, l'agente di backup è già installato. In caso contrario, ovvero se si usa un'immagine personalizzata, seguire le istruzioni per [installare l'agente di macchine virtuali nella macchina virtuale](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
 
-5.  Assicurarsi che la VM consenta la connettività di rete per permettere il funzionamento del servizio Backup. Seguire le istruzioni per la [connettività di rete](../articles/backup/backup-azure-arm-vms-prepare.md#network-connectivity).
+5.  Assicurarsi che la VM consenta la connettività di rete per permettere il funzionamento del servizio Backup. Seguire le istruzioni per la [connettività di rete](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 6.  Al termine della procedura precedente, il backup viene eseguito a intervalli regolari, come specificato nei criteri di backup. Se necessario, è possibile attivare manualmente il primo backup dal dashboard dell'insieme di credenziali nel portale di Azure.
 
@@ -211,7 +211,7 @@ Per copiare in modo efficiente gli snapshot incrementali per il ripristino di em
 
 ### <a name="recovery-from-snapshots"></a>Ripristino da snapshot
 
-Per recuperare uno snapshot, copiarlo per creare un nuovo BLOB. Se si copia lo snapshot dall'account primario, è possibile copiare lo snapshot nel BLOB di base dello snapshot. Questo processo consente di ripristinare il disco allo snapshot. Questa operazione è nota come innalzamento di livello dello snapshot. Se si copia il backup dello snapshot da un account secondario, nel caso di un account di archiviazione con ridondanza geografica e accesso in lettura, è necessario copiarlo in un account primario. È possibile copiare uno snapshot [usando PowerShell](../articles/storage/common/storage-powershell-guide-full.md) oppure con l'utilità AzCopy. Per altre informazioni, vedere [Trasferire dati con AzCopy in Windows](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy).
+Per recuperare uno snapshot, copiarlo per creare un nuovo BLOB. Se si copia lo snapshot dall'account primario, è possibile copiare lo snapshot nel BLOB di base dello snapshot. Questo processo consente di ripristinare il disco allo snapshot. Questa operazione è nota come innalzamento di livello dello snapshot. Se si copia il backup dello snapshot da un account secondario, nel caso di un account di archiviazione con ridondanza geografica e accesso in lettura, è necessario copiarlo in un account primario. È possibile copiare uno snapshot [usando PowerShell](../articles/storage/common/storage-powershell-guide-full.md) oppure con l'utilità AzCopy. Per altre informazioni, vedere [Trasferire dati con AzCopy in Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
 
 Per le VM con più dischi, è necessario copiare tutti gli snapshot che fanno parte dello stesso punto di ripristino coordinato. Dopo la copia degli snapshot in BLOB di dischi rigidi virtuali scrivibili, è possibile usare i BLOB per ricreare la VM usando il modello per la macchina virtuale.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: eaee4e1ed213d0834d959d862feffd4bca57cd9f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: 8d82ffa84c3d75ec3acd102a2de2bdce3718a995
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete in Azure con Network Watcher e Graylog
 
@@ -152,8 +152,8 @@ La sezione filtro rende quindi flat tutti i file di log di flusso in modo che og
 
 La sezione di output inoltra infine ogni evento Logstash al server Graylog. Modificare il file di configurazione Logstash in base alle esigenze specifiche.
 
-    > [!NOTE]
-    > The previous config file assumes that the Graylog server has been configured on the local host loopback IP address 127.0.0.1. If not, be sure to change the host parameter in the output section to the correct IP address.
+   > [!NOTE]
+   > Il file di configurazione precedente presuppone che il server Graylog sia stato configurato per l'indirizzo IP di loopback dell'host locale 127.0.0.1. In caso contrario, sarà necessario modificare il parametro host nella sezione di output per l'indirizzo IP corretto.
 
 Per altre istruzioni sull'installazione di Logstash, vedere la [documentazione](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html) di Logtash.
 
@@ -177,7 +177,7 @@ Dopo aver stabilito una connessione con i log di flusso tramite Logstash e confi
 2.  Per spostarsi sulla pagina di configurazione, selezionare il menu a discesa **System** (Sistema) nella barra di spostamento superiore a destra e quindi fare clic su **Inputs** (Input).
     In alternativa, accedere all'URL `http://<graylog-server-ip>:9000/system/inputs`
 
-    ![introduttiva](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
+    ![Introduzione](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
 3.  Per avviare il nuovo input, selezionare *GELF UDP* nel menu a discesa **Select input** (Seleziona input) e quindi compilare il modulo. GELF è l'acronimo di Graylog Extended Log Format. Il formato GELF viene sviluppato da Graylog. Per altre informazioni sui vantaggi relativi, vedere la [documentazione](http://docs.graylog.org/en/2.2/pages/gelf.html) di Graylog.
 

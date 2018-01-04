@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: aab8bd2f-f9dd-42da-a18e-d707865687d7
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: f7ba8d4895474de0da0e04da5f31959963ae65ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0548b93ce95979f6a675805bf6bdcac55e2d1f72
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workfront"></a>Esercitazione: Integrazione di Azure Active Directory con Workfront
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con Workfront, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di Workfront abilitata per l'accesso Single Sign-On.
 
 > [!NOTE]
@@ -47,7 +47,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Workfront dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -63,11 +63,11 @@ Per configurare l'integrazione di Workfront in Azure AD, è necessario aggiunger
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 4. Nella casella di ricerca digitare **Workfront**.
 
@@ -86,7 +86,7 @@ Per stabilire la relazione di collegamento, in Workfront assegnare il valore di 
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Workfront, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente di test di Workfront](#creating-a-workfront-test-user)**: per avere una controparte di Britta Simon in Workfront collegata alla rappresentazione dell'utente in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -100,17 +100,17 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **Workfront** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-workfront-tutorial/tutorial_workfront_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-workfront-tutorial/tutorial_workfront_samlbase.png)
 
 3. Nella sezione **URL e dominio Workfront** seguire questa procedura:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-workfront-tutorial/tutorial_workfront_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-workfront-tutorial/tutorial_workfront_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname>.attask-ondemand.com`.
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname>.attask-ondemand.com`
 
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<companyname>.attasksandbox.com/SAML2`
 
@@ -119,15 +119,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-workfront-tutorial/tutorial_workfront_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-workfront-tutorial/tutorial_workfront_certificate.png) 
 
 5. Fare clic sul pulsante **Salva** .
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-workfront-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-workfront-tutorial/tutorial_general_400.png)
 
-6. Nella sezione **Configurazione di Workfront** fare clic su **Configura Workfront** per aprire la finestra **Configura accesso**. Copiare **l'URL di disconnessione e l'URL servizio Single Sign-On SAML** dalla **sezione di riferimento rapido**.
+6. Nella sezione **Configurazione di Workfront** fare clic su **Configura Workfront** per aprire la finestra **Configura accesso**. Copiare i valori **Sign-Out URL (URL di disconnessione) e SAML Single Sign-On Service URL (URL servizio Single Sign-On SAML)** dalla sezione **Quick Reference** (Riferimento rapido).
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-workfront-tutorial/tutorial_workfront_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-workfront-tutorial/tutorial_workfront_configure.png) 
 
 7. Accedere al sito aziendale di Workfront come amministratore.
 
@@ -135,7 +135,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 9. Nella finestra di dialogo **Single Sign-On** seguire questa procedura
     
-    ![Configura accesso Single Sign-On][23]
+    ![Configure Single Sign-On][23]
    
     a. Per **Type** selezionare**SAML 2.0**.
    
@@ -218,7 +218,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 2. Nell'elenco delle applicazioni selezionare **Workfront**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-workfront-tutorial/tutorial_workfront_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-workfront-tutorial/tutorial_workfront_app.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

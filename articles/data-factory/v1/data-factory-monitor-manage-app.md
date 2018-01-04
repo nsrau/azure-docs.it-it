@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: 65b5389837dc1d1693b1c4326b98264c8d75fd06
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione
 > [!div class="op_single_selector"]
@@ -81,7 +81,7 @@ In Esplora inventario risorse è possibile visualizzare tutte le risorse della d
 
 Per informazioni dettagliate sulle finestre attività, vedere l'articolo [Pianificazione ed esecuzione](data-factory-scheduling-and-execution.md).
 
-### <a name="diagram-view"></a>Visualizzazione diagramma
+### <a name="diagram-view"></a>Vista Diagramma
 La visualizzazione diagramma di una data factory offre un'unica console da cui monitorare e gestire la data factory e i relativi asset. Quando si seleziona un'entità di Data Factory, (un set di dati o una pipeline) nella visualizzazione diagramma:
 
 * L'entità di Data Factory viene selezionata nella visualizzazione albero.
@@ -161,7 +161,7 @@ Di seguito sono riportati gli stati possibili per le finestre attività:
 
 <table>
 <tr>
-    <th align="left">Stato</th><th align="left">Stato secondario</th><th align="left">Descrizione</th>
+    <th align="left">Status</th><th align="left">Stato secondario</th><th align="left">DESCRIZIONE</th>
 </tr>
 <tr>
     <td rowspan="8">Waiting</td><td>ScheduleTime</td><td>Non è ancora il momento di eseguire la finestra attività.</td>
@@ -212,7 +212,7 @@ Di seguito sono riportati gli stati possibili per le finestre attività:
 <td>Skipped</td><td>-</td><td>La finestra attività non è stata elaborata.</td>
 </tr>
 <tr>
-<td>None</td><td>-</td><td>Una finestra attività esistente che in precedenza aveva un altro stato e che ora è stata reimpostata.</td>
+<td>Nessuna</td><td>-</td><td>Una finestra attività esistente che in precedenza aveva un altro stato e che ora è stata reimpostata.</td>
 </tr>
 </table>
 
@@ -322,13 +322,13 @@ Nell'elenco degli avvisi, usare i pulsanti associati a un avviso per modificare,
 ### <a name="eventstatussubstatus"></a>Evento, stato e stato secondario
 La tabella seguente fornisce l'elenco di eventi, stati e stati secondari disponibili.
 
-| Nome evento | Stato | Stato secondario |
+| Nome evento | Status | Stato secondario |
 | --- | --- | --- |
 | Esecuzione attività avviata |Started |Avvio in corso |
-| Esecuzione attività terminata |Operazione completata |Operazione completata |
-| Esecuzione attività terminata |Non riuscito |Allocazione risorse non riuscita<br/><br/>Esecuzione non riuscita<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abbandonato |
+| Esecuzione attività terminata |Succeeded |Succeeded |
+| Esecuzione attività terminata |Operazione non riuscita |Allocazione risorse non riuscita<br/><br/>Esecuzione non riuscita<br/><br/>Timed Out<br/><br/>Failed Validation<br/><br/>Abbandonato |
 | Creazione cluster HDI su richiesta avviata |Started |-|
-| Creazione cluster HDI su richiesta completata |Operazione completata |-|
+| Creazione cluster HDI su richiesta completata |Succeeded |-|
 | Cluster HDI su richiesta eliminato |Succeeded |-|
 
 ### <a name="to-edit-delete-or-disable-an-alert"></a>Modificare, eliminare o disabilitare un avviso

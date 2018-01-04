@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 11/23/2017
 ms.author: anoopkv
 ms.openlocfilehash: 035336efa6be0d00c41baba168eaffd80939cc82
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-a-process-server-running-in-azure-resource-manager"></a>Gestire un server di elaborazione in esecuzione in Azure (Resource Manager)
 > [!div class="op_single_selector"]
@@ -46,9 +46,9 @@ Durante il failback è consigliabile distribuire un server di elaborazione in Az
 |**Nome campo**|**Valore**|
 |-|-|
 |Scegliere la posizione in cui distribuire il server di elaborazione|Selezionare il valore **Distribuire un server di elaborazione di failback in Azure** |
-|Subscription|Selezionare la sottoscrizione di Azure in cui è stato eseguito il failover delle macchine virtuali|
+|Sottoscrizione|Selezionare la sottoscrizione di Azure in cui è stato eseguito il failover delle macchine virtuali|
 |Gruppo di risorse|È possibile creare un gruppo di risorse per distribuire il server di elaborazione o scegliere di distribuire il server di elaborazione in un gruppo di risorse esistente|
-|Percorso|Selezionare il data center di Azure in cui è stato eseguito il failover delle macchine virtuali|
+|Località|Selezionare il data center di Azure in cui è stato eseguito il failover delle macchine virtuali|
 |Azure Network|Selezionare la rete virtuale di Azure in cui è stato eseguito il failover delle macchine virtuali. Se è stato eseguito il failover delle macchine virtuali in più reti virtuali di Azure, è necessario distribuire un server di elaborazione per ogni rete virtuale|
 
 4. Compilare le altre proprietà per il server di elaborazione

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-ms.openlocfilehash: be178a59f7c3558cc0fef89e5529893f160c649b
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
-ms.translationtype: HT
+ms.openlocfilehash: 8b39da7b96002e14c7d9a567ddc4f1dbc9d45c60
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>Usare set con bilanciamento del carico per creare un cluster MySQL su Linux
 > [!IMPORTANT]
@@ -52,7 +52,7 @@ Sono necessarie le risorse e funzionalità seguenti:
   * Corosync e Pacemaker
 
 ### <a name="affinity-group"></a>Gruppo di affinità
-Creare un gruppo di affinità per la soluzione accedendo al portale di Azure classico, selezionando **Impostazioni** e creando un gruppo di affinità. Le risorse allocate create in seguito verranno assegnate a questo gruppo di affinità.
+Creare un gruppo di affinità per la soluzione effettuando l'accesso al portale di Azure selezionando **impostazioni**e la creazione di un gruppo di affinità. Le risorse allocate create in seguito verranno assegnate a questo gruppo di affinità.
 
 ### <a name="networks"></a>Reti
 Vengono create una nuova rete e una subnet all'interno della rete. Questo esempio usa una rete 10.10.10.0/24 contenente una sola subnet /24.

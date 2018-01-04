@@ -4,7 +4,7 @@ description: Come compilare un'applicazione Angular JS a singola pagina che si i
 services: active-directory
 documentationcenter: 
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 4153910bc03f112f84c26cda6f9c78f11028b934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d46f04a3e9fdb1beaf11c769ecdd7b807c5f817f
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="help-secure-angularjs-single-page-apps-by-using-azure-ad"></a>Proteggere le app AngularJS a singola pagina con Azure AD
+# <a name="azure-ad-angularjs-getting-started"></a>Guida introduttiva Azure AngularJS di Active Directory
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
@@ -58,7 +58,7 @@ Per consentire all'app di autenticare gli utenti e ottenere i token, è innanzit
   1. Fare clic sull'applicazione e scegliere **Manifesto** per aprire l'editor manifesto incorporato.
   2. Individuare la proprietà `oauth2AllowImplicitFlow`. Impostare il relativo valore su `true`.
   3. Fare clic su **Salva** per salvare il manifesto.
-8. Concedere le autorizzazioni nel tenant per l'applicazione. Andare in **Impostazioni** > **Proprietà** > **Autorizzazioni necessarie** e fare clic sul pulsante **Concedi autorizzazioni** nella barra superiore. Fare clic su **Yes** per confermare.
+8. Concedere le autorizzazioni nel tenant per l'applicazione. Andare in **Impostazioni** > **Proprietà** > **Autorizzazioni necessarie** e fare clic sul pulsante **Concedi autorizzazioni** nella barra superiore. Fare clic su **Sì** per confermare.
 
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Passaggio 2: Installare ADAL e configurare l'app a singola pagina
 Ora che si dispone di un'applicazione in Azure AD, è possibile installare adal.js e scrivere il codice relativo all'identità.
@@ -117,7 +117,7 @@ Adal.js si integra con i provider di route e HTTP AngularJS e permette di proteg
     ...
     ```
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 A questo punto è disponibile un'app a singola pagina sicura, in grado di concedere l'accesso agli utenti e rilasciare richieste protette di token di connessione all'API back-end. Quando un utente fa clic sul collegamento **TodoList**, se necessario viene reindirizzato automaticamente da adal.js ad Azure AD per l'accesso. Inoltre, adal.js collegherà automaticamente un token di accesso a tutte le richieste Ajax inviate al back-end dell'app.  
 
 I passaggi illustrati sopra sono i requisiti minimi necessari per compilare un'app a singola pagina con adal.js. Tuttavia sono disponibili altre funzionalità utili nelle app a singola pagina:

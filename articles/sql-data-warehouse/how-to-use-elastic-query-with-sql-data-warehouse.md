@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 09/18/2017
 ms.author: elbutter
-ms.openlocfilehash: 295cc59fdb23105534b4e7431902eaa720643330
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4c351d88b31adfa3443dd2231f67bb442f2b8fe0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>Come usare una query elastica con SQL Data Warehouse
 
@@ -78,7 +78,7 @@ Per altre informazioni sulla query elastica con il database SQL, vedere [Panoram
 
 ### <a name="elastic-querying"></a>Esecuzione di query elastiche
 
-- La tabella esterna e la tabella memorizzata nella cache internamente sono presenti come oggetti diversi con l'istanza di database SQL. Prendere in considerazione la creazione di una visualizzazione sulla parte memorizzata nella cache della tabella e la tabella esterna, in modo da unire entrambe le tabelle e applicare filtri nel punto di limite di ogni tabella.
+- In molti casi, uno può essere gestire un tipo di tabella estesa, dove è una parte della tabella all'interno del Database SQL come dati memorizzati nella cache per le prestazioni con il resto dei dati archiviati in SQL Data Warehouse. È necessario disporre di due oggetti nel Database SQL: una tabella esterna nel Database di SQL che fa riferimento a tabella di base in SQL Data Warehouse e la parte "memorizzato nella cache" della tabella all'interno del Database SQL. Prendere in considerazione la creazione di una vista nella parte superiore della parte memorizzati nella cache della tabella e la tabella esterna quale unioni sia le tabelle e applicazione di filtri per separano i dati materializzati all'interno del Database SQL e SQL Data Warehouse dati esposti tramite le tabelle esterne.
 
   Si supponga di voler mantenere l'anno più recente di dati in un'istanza di database SQL. Sono disponibili due tabelle: **ext.Orders**, che fa riferimento alle tabelle degli ordini del data warehouse, e **dbo.Orders**, che rappresenta i dati corrispondenti agli anni più recenti nell'istanza di database SQL. Invece di chiedere agli utenti di scegliere se eseguire query su una tabella o un'altra, creare una visualizzazione sulla parte superiore di entrambe le tabelle nel punto di partizione dell'anno più recente.
 
@@ -133,15 +133,19 @@ Per altre informazioni sulla query elastica con il database SQL, vedere [Panoram
 
 
 
-## <a name="faq"></a>domande frequenti
+## <a name="faq"></a>Domande frequenti
 
-D: È possibile usare i database all'interno di un pool di database elastico con una query elastica?
+D: è possibile usare i database all'interno di un Pool elastico con Query elastico?
 
-A: Sì. I database SQL all'interno di un pool elastico possono usare una query elastica. 
+A: Sì. I database di SQL all'interno di un Pool elastico è possibile utilizzare Query elastico. 
 
-D: Il numero di database che è possibile usare per la query elastica è limitato?
+D: è presente un limite per il numero di database che è possibile usare per la Query elastico?
 
-R: I server logici sono soggetti a limiti di DTU per impedire ai clienti di spendere accidentalmente più del dovuto. Se si abilitano diversi database per la query elastica insieme a un'istanza di SQL Data Warehouse, si potrebbe raggiungere il limite in modo imprevisto. In questo caso, inviare una richiesta per aumentare il limite di DTU per il server logico. È possibile aumentare la quota [creando un ticket di supporto](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) e selezionando *Quota* come tipo di richiesta
+R: non sussiste alcun limite sul numero di database può essere utilizzato per Query elastico. Tuttavia, ogni Query elastico (query che accedono a SQL Data Warehouse) verrà considerato come uno dei limiti di concorrenza normale.
+
+D: esistono limiti DTU riguardanti Query elastico?
+
+R: DTU limiti non sono imposte uno diverso in Query elastico. Il criterio standard è tale che i server logici prevede limiti DTU per evitare che i clienti overspending accidentale. Se si abilitano diversi database per la query elastica insieme a un'istanza di SQL Data Warehouse, si potrebbe raggiungere il limite in modo imprevisto. In questo caso, inviare una richiesta per aumentare il limite di DTU per il server logico. È possibile aumentare la quota [creando un ticket di supporto](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) e selezionando *Quota* come tipo di richiesta
 
 D: È possibile usare la sicurezza a livello di riga/Dynamic Data Masking con una query elastica?
 

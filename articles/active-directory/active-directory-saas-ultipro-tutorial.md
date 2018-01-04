@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: afc0f2b9-2eac-47ec-af04-65ed0fb0ca5a
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: ab60bda1be7101d5bd0c51f5499a820db40375bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: efca3e4c1a3edefc626cd664b21d31eeaf4be230
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>Esercitazione: Integrazione di Azure Active Directory con UltiPro
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con UltiPro, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di UltiPro abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
@@ -47,7 +47,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di UltiPro dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -63,11 +63,11 @@ Per configurare l'integrazione di UltiPro in Azure AD, è necessario aggiungere 
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 4. Nella casella di ricerca digitare **UltiPro**.
 
@@ -86,7 +86,7 @@ Per stabilire la relazione di collegamento, in UltiPro assegnare il valore di **
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con UltiPro, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test UltiPro](#creating-a-ultipro-test-user)**: per avere una controparte di Britta Simon in UltiPro collegata alla relativa rappresentazione in Azure AD dell'utente.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -100,15 +100,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **UltiPro** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_samlbase.png)
 
 3. Nella sezione **URL e dominio UltiPro** seguire questa procedura:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_url.png)
 
     a. Nella casella di testo **URL di accesso** digitare un URL usando il criterio seguente:
     | |
@@ -117,7 +117,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | `https://<companyname>.ultiproworkplace.com?cpi=AZUREADISSSUERURL`|
     | ` https://<companyname>.ultipro.ca`|
     
-    b. Nella casella di testo **Identificatore** digitare l'URL adottando il criterio seguente:
+    b. Nella casella di testo **Identificatore** digitare un URL usando il criterio seguente:
     | |
     |--|
     | `https://<companyname>.ultipro.com/adfs/services/trust`|
@@ -132,19 +132,19 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | `https://<companyname>.ultipro.ca/<instancename>`|
     
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di UltiPro](https://www.ultimatesoftware.com/ContactUs). 
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di UltiPro](https://www.ultimatesoftware.com/ContactUs). 
 
 5. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_certificate.png) 
 
 6. Fare clic sul pulsante **Salva** .
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_general_400.png)
     
 7. Nella sezione **Configurazione di UltiPro** fare clic su **Configura UltiPro** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_configure.png) 
 
 8. Per configurare l'accesso Single Sign-On sul lato **UltiPro**, è necessario inviare il file di **Certificato (Base64) scaricato, l'URL di disconnessione, l'ID entità SAML e l'URL del servizio Single Sign-On SAML** al [team di supporto di UltiPro](https://www.ultimatesoftware.com/ContactUs).
 
@@ -201,7 +201,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco di applicazioni selezionare **UltiPro**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_app.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

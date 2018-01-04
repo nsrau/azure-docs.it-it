@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 941791ba398a3abbaa5137c36391fd23789cd3b1
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
-ms.translationtype: HT
+ms.openlocfilehash: fab9f4ab1f0e974da68e1e9f36bc10687ea0b631
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Creare e gestire una macchina virtuale Windows che ha più schede di interfaccia di rete
 Alle macchine virtuali (VM) in Azure possono essere collegate più schede di interfaccia di rete virtuale. Uno scenario comune è quello di avere subnet diverse per la connettività front-end e back-end oppure una rete dedicata a una soluzione di monitoraggio o backup. Questo articolo illustra come creare una macchina virtuale a cui sono collegate più schede di interfaccia di rete e come aggiungere o rimuovere le schede di interfaccia di rete da una VM esistente. Le differenti [dimensioni della macchina virtuale](sizes.md) supportano un numero variabile di schede di rete, pertanto scegliere le dimensioni della macchina virtuale di conseguenza.
@@ -232,6 +232,60 @@ Per altre informazioni, vedere [Creazione di più istanze con *copy*](../../reso
 ```
 
 È possibile consultare un esempio completo di [creazione di più schede di interfaccia di rete tramite i modelli di Resource Manager](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+
+## <a name="configure-guest-os-for-multiple-nics"></a>Configurare il sistema operativo guest per più schede di rete
+
+Azure assegna un gateway predefinito alla prima interfaccia di rete (primaria) associata alla macchina virtuale. Azure non assegna un gateway predefinito ad altre interfacce di rete (secondarie) associate a una macchina virtuale. Di conseguenza, per impostazione predefinita, non è possibile comunicare con risorse esterne alla subnet in cui si trova un'interfaccia di rete secondaria. Le interfacce di rete secondarie possono tuttavia comunicare con risorse esterne alla subnet, ma i passaggi per abilitare la comunicazione variano a seconda del sistema operativo.
+
+1. Da un prompt dei comandi di Windows, eseguire il `route print` comando, che restituisce l'output simile al seguente output per una macchina virtuale con due interfacce di rete connesse:
+
+    ```
+    ===========================================================================
+    Interface List
+    3...00 0d 3a 10 92 ce ......Microsoft Hyper-V Network Adapter #3
+    7...00 0d 3a 10 9b 2a ......Microsoft Hyper-V Network Adapter #4
+    ===========================================================================
+    ```
+ 
+    In questo esempio la **Scheda di rete Hyper-V Microsoft 4** (interfaccia 7) è l'interfaccia di rete secondaria senza un gateway predefinito assegnato.
+
+2. Da un prompt dei comandi, eseguire il comando `ipconfig` per individuare l'indirizzo IP assegnato all'interfaccia di rete secondaria. In questo esempio 192.168.2.4 è assegnato all'interfaccia 7. Per l'interfaccia di rete secondaria non viene restituito alcun indirizzo di gateway predefinito.
+
+3. Per instradare tutto il traffico destinato agli indirizzi esterni alla subnet dell'interfaccia di rete secondaria al gateway per la subnet, eseguire il comando seguente:
+
+    ```
+    route add -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5015 IF 7
+    ```
+
+    L'indirizzo del gateway per la subnet è il primo indirizzo IP (che termina con .1) dell'intervallo di indirizzi definito per la subnet. Se non si vuole instradare tutto il traffico all'esterno della subnet, è possibile aggiungere singole route a destinazioni specifiche. Ad esempio, per instradare solo il traffico dall'interfaccia di rete secondaria alla rete 192.168.3.0, immettere il comando:
+
+      ```
+      route add -p 192.168.3.0 MASK 255.255.255.0 192.168.2.1 METRIC 5015 IF 7
+      ```
+  
+4. Ad esempio, per verificare che sia attiva la comunicazione con una risorsa nella rete 192.168.3.0, immettere il comando seguente per eseguire il ping di 192.168.3.4 usando l'interfaccia 7 (192.168.2.4):
+
+    ```
+    ping 192.168.3.4 -S 192.168.2.4
+    ```
+
+    Potrebbe essere necessario aprire il protocollo ICMP attraverso il firewall di Windows del dispositivo di cui viene eseguito il ping con il comando seguente:
+  
+      ```
+      netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+      ```
+  
+5. Per verificare che la route aggiunta sia inclusa nella tabella di route, immettere il comando `route print` che restituisce un output simile al testo seguente:
+
+    ```
+    ===========================================================================
+    Active Routes:
+    Network Destination        Netmask          Gateway       Interface  Metric
+              0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4     15
+              0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
+    ```
+
+    La route specificata con *192.168.1.1* in **Gateway** è la route predefinita per l'interfaccia di rete primaria. La route con *192.168.2.1* in **Gateway** è la route aggiunta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere [Dimensioni per le macchine virtuali Windows](sizes.md) se si deve creare una VM con più schede di interfacce di rete. Prestare attenzione al numero massimo di schede di interfaccia di rete supportato per ogni dimensione della macchina virtuale. 

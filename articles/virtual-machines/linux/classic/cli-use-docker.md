@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-ms.openlocfilehash: a542332c921862241f1f000e6a8f0a0ae0e8a934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b276911ecbbf161cb6068c1af7a035850035b98d
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>Uso dell’estensione della VM Docker dall’interfaccia della riga di comando di Azure (Azure CLI)
 > [!IMPORTANT] 
@@ -45,7 +45,7 @@ Per installare e configurare l’interfaccia della riga di comando di Azure, ved
 > 
 
 ### <a name="connect-the-azure-cli-to-to-your-azure-account"></a>Connettere l'interfaccia della riga di comando di Azure al proprio account Azure
-Prima di poter usare l'interfaccia della riga di comando di Azure è necessario associare alla stessa le credenziali del proprio account Azure sulla propria piattaforma. La sezione [Come connettersi alla sottoscrizione di Azure](../../../xplat-cli-connect.md) spiega come scaricare e importare il file **.publishsettings** o associare l'interfaccia della riga di comando di Azure a un ID organizzazione.
+Prima di poter usare l'interfaccia della riga di comando di Azure è necessario associare alla stessa le credenziali del proprio account Azure sulla propria piattaforma. La sezione [Come connettersi alla sottoscrizione di Azure](/cli/azure/authenticate-azure-cli) spiega come scaricare e importare il file **.publishsettings** o associare l'interfaccia della riga di comando di Azure a un ID organizzazione.
 
 > [!NOTE]
 > Ci sono alcune differenze di comportamento quando si usa l'uno o l'altro metodo di autenticazione, perciò assicurarsi di leggere il documento sopra riportato per comprendere le diverse funzionalità.

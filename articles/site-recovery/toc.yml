@@ -1,5 +1,9 @@
 - name: Documentazione di Site Recovery
   href: index.yml
+- name: Migrazione di computer locali e macchine virtuali di Azure
+  href: migrate/tutorial-migrate-on-premises-to-azure.md
+- name: Ripristino di emergenza da Azure ad Azure
+  href: azure-to-azure/azure-to-azure-quickstart.md
 - name: Panoramica
   items:
     - name: Che cos'è Site Recovery?
@@ -55,6 +59,8 @@
       href: site-recovery-support-matrix-azure-to-azure.md
     - name: Matrice di supporto da locale ad Azure
       href: site-recovery-support-matrix-to-azure.md
+    - name: Matrice di supporto da Hyper-V ad Azure
+      href: support-matrix-hyper-v-to-azure.md
     - name: Matrice di supporto da locale a sito secondario
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Ripristino di emergenza per i carichi di lavoro
@@ -63,7 +69,7 @@
       href: site-recovery-migrate-to-azure.md
     - name: Permessi degli accessi in base al ruolo
       href: site-recovery-role-based-linked-access-control.md
-    - name: domande frequenti
+    - name: Domande frequenti
       href: site-recovery-faq.md
 - name: Guide pratiche
   items:
@@ -83,8 +89,12 @@
           href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
     - name: Ripristino di emergenza
       items:
+        - name: Preparare Hyper-V per la replica in Azure
+          href: tutorial-prepare-on-premises-hyper-v.md
         - name: Da VM Hyper-V ad Azure
           href: tutorial-hyper-v-to-azure.md
+        - name: Macchine virtuali Hyper-V nei cloud VMM in Azure
+          href: tutorial-hyper-v-vmm-to-azure.md
         - name: Da server fisici ad Azure
           href: tutorial-physical-to-azure.md
         - name: Da VM Hyper-V a un sito secondario
@@ -195,7 +205,7 @@
               href: site-recovery-replicate-azure-to-azure.md
             - name: Abilitare la replica da VMware ad Azure
               href: site-recovery-replicate-vmware-to-azure.md
-    - name: Automazione
+    - name: Automatizzare
       items:
         - name: Replicare le macchine virtuali VMware locali in Azure con PowerShell
           href: site-recovery-vmware-to-azure-powershell.md
@@ -251,7 +261,7 @@
           href: site-recovery-manage-registration-and-protection.md
         - name: Eliminare un insieme di credenziali
           href: delete-vault.md
-    - name: Risoluzione dei problemi
+    - name: Risolvere problemi
       items:
         - name: Problemi di replica da Azure ad Azure
           href: site-recovery-azure-to-azure-troubleshoot-errors.md

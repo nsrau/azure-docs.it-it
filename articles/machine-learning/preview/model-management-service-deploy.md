@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: 0d59dccec4532ff0903972f2b15ed9dd8429a2ed
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
-ms.translationtype: HT
+ms.date: 01/03/2018
+ms.openlocfilehash: 965e33f3c7d050dca8f6c4e92d75cb7c7a8fa60d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Distribuzione di un modello di Machine Learning come un servizio Web
 
@@ -30,7 +30,7 @@ Usando le interfacce della riga di comando è possibile distribuire servizi Web 
 Di seguito sono indicati i passaggi di distribuzione:
 1. Usare il modello di Machine Learning salvato e sottoposto a training
 2. Creare uno schema per i dati di input e di output del servizio Web
-3. Creare un'immagine del contenitore basata su Docker
+3. Creare un'immagine contenitore basato su Docker
 4. Creare e distribuire il servizio Web
 
 ### <a name="1-save-your-model"></a>1. Salvare il modello
@@ -43,6 +43,7 @@ import pickle
 from sklearn import datasets
 iris = datasets.load_iris()
 X, y = iris.data, iris.target
+clf = linear_model.LogisticRegression()
 clf.fit(X, y)  
 saved_model = pickle.dumps(clf)
 ```
@@ -86,9 +87,9 @@ Il file deve includere due funzioni: init e esecuzione.
 
 Aggiungere il codice seguente all'inizio del file score.py per abilitare la funzionalità di raccolta dati che consente di raccogliere dati di input e di stima del modello
 
-    ```
-    from azureml.datacollector import ModelDataCollector
-    ```
+```python
+from azureml.datacollector import ModelDataCollector
+```
 
 Vedere la sezione [raccolta dei dati del modello](how-to-use-model-data-collection.md) per altre informazioni su come usare questa funzionalità.
 

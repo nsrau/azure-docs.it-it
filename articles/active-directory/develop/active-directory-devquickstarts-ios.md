@@ -1,10 +1,10 @@
 ---
-title: Integrare Azure AD in un'app iOS | Microsoft Docs
+title: Azure iOS AD introduzione | Documenti Microsoft
 description: Informazioni su come compilare un'applicazione iOS che si integra con Azure AD per l'accesso e chiama le API protette di Azure AD usando OAuth.
 services: active-directory
 documentationcenter: ios
 author: brandwe
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 57f465df99ac234466459b8031f61805d8334b59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 36c6f6d2449d1e137f85e0f657f0399f9df8ee55
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
-# <a name="integrate-azure-ad-into-an-ios-app"></a>Integrare Azure AD in un'app iOS
+# <a name="azure-ad-ios-getting-started"></a>Guida introduttiva Azure iOS di Active Directory
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> È consigliabile provare l'anteprima del nuovo [portale per sviluppatori](https://identity.microsoft.com/Docs/iOS) che consente di imparare a usare Azure Active Directory in pochi minuti.  Il portale per sviluppatori guida l'utente nel processo di registrazione di un'app e di integrazione di Azure AD nel codice.  Al termine si ottiene un'applicazione semplice in grado di autenticare gli utenti nel tenant e un back-end che può accettare i token ed eseguire la convalida. 
-> 
-> 
 
 Azure Active Directory (Azure AD) include Active Directory Authentication Library, o ADAL, per i client iOS che devono accedere a risorse protette. ADAL semplifica il processo usato dall'applicazione per ottenere i token di accesso. Per far capire quanto sia semplice, in questo articolo verrà compilata un'applicazione Objective C per eseguire alcuni operazioni che:
 
@@ -59,7 +54,7 @@ Il formato iOS per l'URI di reindirizzamento è il seguente:
 ```
 
 * **app-scheme**: è registrato nel progetto XCode ed è il modo in cui altre applicazioni possono eseguire la chiamata. È possibile trovarlo in Info.plist -> URL types -> URL Identifier. È consigliabile crearne uno se non sono stati configurati uno o più URI.
-* **bundle-id** : è il Bundle Identifier presente in "identity" nelle impostazioni del progetto in XCode.
+* **id bundle** -si tratta dell'identificatore di aggregazione disponibili nella sezione "identity" le impostazioni del progetto XCode.
 
 Per un esempio di questo codice di QuickStart: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
@@ -69,7 +64,7 @@ Per impostare l'app perché ottenga i token, è prima necessario registrarla nel
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra superiore fare clic sull'account. Nell'elenco **Directory** scegliere il tenant di Active Directory in cui si vuole registrare l'applicazione.
 3. Fare clic su **More Services** (Altri servizi) nel riquadro di spostamento a sinistra e quindi selezionare **Azure Active Directory**.
-4. Fare clic su **Registrazioni per l'app**, quindi selezionare **Aggiungi**.
+4. Fare clic su **Registrazioni per l'app** e scegliere **Aggiungi**.
 5. Seguire le istruzioni e creare una nuova **Applicazione client nativa**.
   * Il **nome** dell'applicazione descrive l'applicazione agli utenti finali.
   * L'**URI di reindirizzamento** è una combinazione dello schema e della stringa che Azure AD usa per restituire le risposte dei token.  Immettere un valore specifico per l'applicazione in base alle informazioni sull'URI di reindirizzamento sopra riportate.
@@ -231,14 +226,14 @@ Il principio alla base di ADAL è che l'app, ogni volta che ha bisogno di un tok
 >
 
 ## <a name="5-build-and-run-the-application"></a>5. Compilare ed eseguire l'applicazione
-Congratulazioni. Si dispone ora di un'applicazione iOS funzionante in grado di autenticare gli utenti, chiamare in modo sicuro le API Web usando OAuth 2.0 e ottenere informazioni di base sull'utente.  Se non si è ancora popolato il tenant con alcuni utenti, ora è possibile farlo.  Avviare l'applicazione QuickStart e accedere come uno di questi utenti.  Cercare altri utenti in base al relativo UPN.  Chiudere l'app e avviarla nuovamente.  Si noti che la sessione dell'utente non è stata modificata.
+Congratulazioni! Si dispone ora di un'applicazione iOS funzionante in grado di autenticare gli utenti, chiamare in modo sicuro le API Web usando OAuth 2.0 e ottenere informazioni di base sull'utente.  Se non si è ancora popolato il tenant con alcuni utenti, ora è possibile farlo.  Avviare l'applicazione QuickStart e accedere come uno di questi utenti.  Cercare altri utenti in base al relativo UPN.  Chiudere l'app e avviarla nuovamente.  Si noti che la sessione dell'utente non è stata modificata.
 
 ADAL consente di incorporare facilmente nell'applicazione tutte queste funzionalità comuni relative alle identità.  Esegue automaticamente le attività più complesse, ovvero gestione della cache, supporto del protocollo OAuth, visualizzazione all'utente di un'interfaccia utente di accesso e aggiornamento dei token scaduti.  Tutto ciò che occorre conoscere è una sola chiamata all'API, `getToken`.
 
 L'esempio completato (senza i valori di configurazione) è disponibile in [GitHub](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip) per riferimento.  
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ora è possibile passare ad altri scenari.  È possibile consultare:
+Ora è possibile passare ad altri scenari.  È possibile:
 
 * [Proteggere un'API Web Node.js con Azure AD](active-directory-devquickstarts-webapi-nodejs.md)
 * Ottenere informazioni su [Come abilitare l'accesso Single Sign-On tra app in iOS usando ADAL](active-directory-sso-ios.md)  

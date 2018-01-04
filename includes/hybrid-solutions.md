@@ -23,7 +23,7 @@ Le applicazioni Windows possono usare questi oggetti tramite Windows Communicati
 
 È importante comprendere che, sebbene il bus di servizio stesso sia in esecuzione nel cloud, ovvero nei data center di Microsoft Azure, le applicazioni che lo usano possono essere eseguite ovunque. È possibile usare il bus di servizio per connettere applicazioni in esecuzione in Azure o all'interno del proprio data center. È inoltre possibile usarlo per connettere un'applicazione in esecuzione in Azure o in un'altra piattaforma cloud a un'applicazione locale o a tablet e telefoni. È altresì possibile connettere elettrodomestici, sensori e altri dispositivi a un'applicazione centrale o gli uni agli altri. Il bus di servizio è un meccanismo di comunicazione generico nel cloud accessibile praticamente ovunque. Il modo in cui lo si usa dipende dalle operazioni che le applicazioni devono eseguire.
 
-## <a name="queues"></a>Code
+## <a name="queues"></a>Queues
 Si supponga di dover connettere due applicazioni usando una coda del bus di servizio. [figura 2](#Fig2) è illustrato questo scenario.
 
 <a name="Fig2"></a>![Diagramma delle code del bus di servizio][queues]
@@ -83,7 +83,7 @@ Gli inoltri rappresentano la soluzione ottimale nei casi in cui è necessaria la
 ## <a name="event-hubs"></a>Hub eventi
 Hub eventi è un sistema di inserimento a scalabilità elevata, in grado di elaborare milioni di eventi al secondo, che permette all'applicazione di elaborare e analizzare le elevate quantità di dati prodotti dalle applicazioni e dai dispositivi connessi. È possibile ad esempio usare un hub eventi per raccogliere dati sulle prestazioni del motore in tempo reale da un parco di automobili. Dopo la raccolta nell'hub eventi, i dati possono essere trasformati e archiviati tramite qualsiasi provider di analisi in tempo reale o qualsiasi cluster di archiviazione. Per altre informazioni sugli hub eventi, vedere [Panoramica di Hub eventi][Event Hubs overview].
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 La connessione tra applicazioni è sempre stata parte integrante dello sviluppo di soluzioni complete e il numero di scenari che richiedono una comunicazione diretta tra servizi e applicazioni è in costante aumento, di pari passo con il numero di applicazioni e dispositivi connessi a Internet. Il bus di servizio include tecnologie basate sul cloud, tramite code, argomenti, inoltri e hub eventi, che consentono di rendere questa funzionalità essenziale più semplice da implementare e disponibile a livello più ampio.
 
 [svc-bus]: ./media/hybrid-solutions/SvcBus_01_architecture.png

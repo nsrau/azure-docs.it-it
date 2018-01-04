@@ -46,6 +46,8 @@
           href: storage-create-geo-redundant-storage.md
         - name: Simulare un errore con l'archiviazione con ridondanza geografica e accesso in lettura
           href: storage-simulate-failure-ragrs-account-app.md
+    - name: Eseguire la migrazione dei dati locali nel cloud con AzCopy
+      href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Cercare dati non strutturati nell'archiviazione cloud
       href: storage-unstructured-search.md
     - name: Ottimizzare le prestazioni e la scalabilità dell'applicazione di archiviazione
@@ -142,7 +144,7 @@
   items:
     - name: Creare un account di archiviazione
       href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Sviluppare
+    - name: Sviluppo
       items:
         - name: .NET
           href: storage-dotnet-how-to-use-blobs.md
@@ -184,7 +186,7 @@
           href: ../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Automazione di Azure
           href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Crittografia lato client
+    - name: crittografia lato client
       items:
         - name: .NET
           href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -355,7 +357,7 @@
       href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
     - name: Video
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
-    - name: Azure Storage Explorer
+    - name: Esplora archivi Azure
       items:
         - name: Storage Explorer
           href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

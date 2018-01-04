@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fa8f51d621bc262ec72ef03929689c4af3c339a6
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="view-azure-activity-logs"></a>Visualizzare i log attività di Azure
 
@@ -50,12 +50,12 @@ Per gli utenti che rientrano nel piano tariffario gratuito, i log attività non 
 
 A differenza della maggior parte delle soluzioni di Log Analytics, i dati per i log attività non vengono raccolti dagli agenti. Tutti i dati usati dalla soluzione provengono direttamente da Azure.
 
-| Origine connessa | Supportato | Descrizione |
+| Origine connessa | Supportato | DESCRIZIONE |
 | --- | --- | --- |
-| [Agenti di Windows](log-analytics-windows-agents.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
-| [Agenti Linux](log-analytics-linux-agents.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
-| [Gruppo di gestione SCOM](log-analytics-om-agents.md) | No | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
-| [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No | La soluzione non raccoglie le informazioni dall'Archiviazione di Azure. |
+| [Agenti di Windows](log-analytics-windows-agent.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
+| [Agenti Linux](log-analytics-linux-agents.md) | No  | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
+| [Gruppo di gestione SCOM](log-analytics-om-agents.md) | No  | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
+| [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No  | La soluzione non raccoglie le informazioni dall'Archiviazione di Azure. |
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -88,7 +88,7 @@ Fare clic sul riquadro **Log attività di Azure** per aprire il dashboard **Log 
 
 Il log attività viene visualizzato solo *dopo* aver configurato i log attività per passare alla soluzione, così da non visualizzare i dati prima di allora.
 
-| Pannello | Descrizione |
+| Pannello | DESCRIZIONE |
 | --- | --- |
 | Voci del Log attività di Azure | Mostra un grafico a barre dei principali totali di record di voci del log attività di Azure per l'intervallo di date selezionato e un elenco dei primi 10 chiamanti attività. Fare clic sul grafico a barre per eseguire una ricerca di log per <code>Type=AzureActivity</code>. Fare clic su un elemento chiamante per eseguire una ricerca di log che restituisce tutte le voci di log attività per tale elemento. |
 | Log attività per stato | Mostra un grafico ad anello relativo allo stato del log attività di Azure per l'intervallo di date selezionato. Mostra anche un elenco dei primi dieci record di stato. Fare clic sul grafico per eseguire una ricerca di log per <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Fare clic su un elemento di stato per eseguire una ricerca di log che restituisce tutte le voci di log attività per il record di stato. |

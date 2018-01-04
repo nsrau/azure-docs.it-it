@@ -6,13 +6,13 @@ keywords: Non aggiungere o modificare parole chiave senza consultare il proprio 
 author: philmea
 ms.author: philmea
 ms.date: 11/29/2017
-ms.topic: how-to
+ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Come trovare un indirizzo usando il servizio di ricerca di Servizi Location Based di Azure (anteprima)
 Il servizio di ricerca è un set RESTful di API progettato per gli sviluppatori che consente di cercare indirizzi, località, punti di interesse, elenchi di aziende e altre informazioni geografiche. Il servizio di ricerca assegna una coppia latitudine/longitudine a un indirizzo, una strada secondaria, una caratteristica geografica o un punto di interesse specifico. I valori di latitudine e longitudine restituiti dalle API del servizio di ricerca possono essere usati come parametri in altre istanze di Servizi Location Based di Azure come le API di itinerario e flusso di traffico.
@@ -44,7 +44,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
     | URL richiesta | https://atlas.microsoft.com/search/fuzzy/json? |
     | Authorization | No Auth (Senza autenticazione) |
 
-    L'attributo **json** nel percorso URL determina il formato della risposta. In questo articolo viene usato json per motivi di semplicità d'uso e leggibilità. I formati di risposta disponibili sono inclusi nella definizione **Get Search Fuzzy** (Richiesta GET per la ricerca fuzzy) in [Location Based Services Functional API reference] (Informazioni di riferimento sull'API funzionale di Servizi Location Based) (https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchfuzzy).
+    L'attributo **json** nel percorso URL determina il formato della risposta. In questo articolo viene usato json per motivi di semplicità d'uso e leggibilità. È possibile trovare i formati di risposta disponibile nel **ottenere ricerca Fuzzy** definizione di [riferimento all'API funzionale di percorso basato su servizi] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
 
 3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare come parametri di query o percorso nell'URL della richiesta:
 
@@ -156,7 +156,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
     |-----|------------|
     | number | true |
 
-    Se con la richiesta viene inviato il parametro di query [number](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la risposta può includere il lato della via (sinistro/destro) e anche una posizione di variazione per il numero.
+    Se con la richiesta viene inviato il parametro di query [number](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la risposta può includere il lato della via (sinistro/destro) e anche una posizione di variazione per il numero.
     
 5. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
@@ -164,7 +164,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
     |-----|------------|
     | spatialKeys | true |
 
-    Quando è impostato il parametro di query [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la risposta contiene informazioni proprietarie relative alla chiave geospaziale per la località specificata.
+    Quando è impostato il parametro di query [spatialKeys](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la risposta contiene informazioni proprietarie relative alla chiave geospaziale per la località specificata.
 
 6. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
@@ -172,7 +172,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
     |-----|------------|
     | returnSpeedLimit | true |
     
-    Quando è impostato il parametro di query [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la risposta restituisce il limite di velocità pubblicato.
+    Quando è impostato il parametro di query [returnSpeedLimit](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la risposta restituisce il limite di velocità pubblicato.
 
 7. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
@@ -180,7 +180,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
     |-----|------------|
     | returnRoadUse | true |
 
-    Quando è impostato il parametro di query [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la risposta restituisce la matrice degli usi stradali per codifiche geografiche inverse a livello di via.
+    Quando è impostato il parametro di query [returnRoadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la risposta restituisce la matrice degli usi stradali per codifiche geografiche inverse a livello di via.
 
 8. Aggiungere la coppia chiave/valore seguente alla sezione **Parametri** e fare clic su **Invia**:
 
@@ -188,7 +188,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
     |-----|------------|
     | roadUse | true |
 
-    È possibile limitare la query di codifica geografica inversa a un tipo specifico di uso stradale usando il parametro di query [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters).
+    È possibile limitare la query di codifica geografica inversa a un tipo specifico di uso stradale usando il parametro di query [roadUse](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters).
     
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>Cercare una strada secondaria usando la ricerca di strade secondarie inversa
 
@@ -215,4 +215,4 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
 4. Fare clic su **Send** (Invia) e quindi esaminare il corpo della risposta. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Esplorare la documentazione delle API del [servizio di ricerca di Servizi Location Based di Azure](https://docs.microsoft.com/en-us/rest/api/location-based-services/search) 
+- Esplorare la documentazione delle API del [servizio di ricerca di Servizi Location Based di Azure](https://docs.microsoft.com/rest/api/location-based-services/search) 

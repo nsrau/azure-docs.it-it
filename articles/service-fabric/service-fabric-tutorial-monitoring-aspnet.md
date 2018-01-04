@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 68788efffd27edf2813cf455490b651c2c7106a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ce854a3dc41dec69c3f8de245a03d55a2354335f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Monitorare e diagnosticare un'applicazione ASP.NET Core in Service Fabric
 Questa è la quarta di una serie di esercitazioni. Analizza i passaggi per configurare il monitoraggio e la diagnostica per un'applicazione ASP.NET Core in esecuzione in un cluster di Service Fabric con Application Insights. Verranno raccolti i dati di telemetria dall'applicazione sviluppata nella prima parte dell'esercitazione, [Creare un'applicazione di Service Fabric .NET](service-fabric-tutorial-create-dotnet-app.md). 
@@ -225,7 +225,7 @@ Dopo aver apportato queste modifiche, **Avviare** l'applicazione in modo che com
 ![eventi personalizzati](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 > [!div class="checklist"]
 > * Configurare Application Insights per l'applicazione in uso
 > * Raccogliere i dati di telemetria di risposta per tenere traccia delle comunicazioni basate su HTTP tra i servizi
@@ -235,4 +235,4 @@ In questa esercitazione si è appreso come:
 Ora che è stata completata la configurazione del monitoraggio e della diagnostica per l'applicazione ASP.NET, procedere come segue:
 - [Monitoraggio e diagnostica in Azure Service Fabric](service-fabric-diagnostics-overview.md)
 - [Analisi di eventi di Azure Service Fabric con Azure Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-- Per altre informazioni su Application Insights, vedere [Documentazione di Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/)
+- Per altre informazioni su Application Insights, vedere [Documentazione di Application Insights](https://docs.microsoft.com/azure/application-insights/)

@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 87187076-7b50-4247-814f-f217b052703f
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 26a8bb17dad5a01b401ce7f9b484f09822825cbf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 57bb448f1bb858d15a7ecaad5a9ba797f5d7d85e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Esercitazione: Integrazione di Azure Active Directory con RFPIO
 
@@ -63,11 +63,11 @@ Per configurare l'integrazione di RFPIO in Azure AD, è necessario aggiungere RF
 
 2. Selezionare **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 3. Per aggiungere una nuova applicazione selezionare il pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 4. Nella casella di ricerca digitare **RFPIO**.
 
@@ -100,19 +100,19 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **RFPIO** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_samlbase.png)
 
 3. Nella sezione **URL e dominio RFPIO**, se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url.png)
 
     a. Nella casella di testo **Identificatore** digitare l'URL: `https://www.rfpio.com`
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url1.png)
 
     b. Selezionare **Mostra impostazioni URL avanzate**
 
@@ -120,39 +120,39 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 4. Selezionare **Mostra impostazioni URL avanzate** se si desidera configurare l'applicazione in modalità avviata da **SP**: 
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url2.png)
 
     Nella casella di testo **URL di accesso** digitare l'URL: `https://www.app.rfpio.com`
 
 5. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_certificate.png) 
 
 6. Fare clic sul pulsante **Salva** .
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_general_400.png)
 
 7. In un'altra finestra del Web browser accedere al sito Web **RFPIO** come amministratore.
 
 8. Fare clic sull'elenco a discesa a sinistra nella parte inferiore.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app1.png)
 
 9. Fare clic su di **Impostazioni organizzazione**. 
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app2.png)
 
 10. Fare clic sulla sezione relativa a **FUNZIONALITÀ E INTEGRAZIONE**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app4.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app4.png)
 
 11. In **SAML Configurazione SSO** fare clic su **Modifica**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app3.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app3.png)
 
 12. In questa sezione eseguire le seguenti operazioni:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app5.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app5.png)
     
     a. Copiare il contenuto del **file XML di metadati scaricato** e incollarlo nella casella della **configurazione identità**.
 
@@ -211,23 +211,23 @@ Nel caso di RFPIO, il provisioning è un'attività manuale.
 
 2. Fare clic sull'elenco a discesa a sinistra nella parte inferiore.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app1.png)
 
 3. Fare clic su di **Impostazioni organizzazione**. 
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app2.png)
 
 4. Fare clic su **MEMBRI DEL TEAM**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app6.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app6.png)
 
 5. Fare clic su **AGGIUNGI MEMBRI**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app7.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app7.png)
 
 6. Nella sezione **Aggiungere nuovi membri**. eseguire le seguenti operazioni:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app8.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/app8.png)
 
     a. Immettere l'**indirizzo di posta elettronica** nella casella che richiede **un indirizzo di posta elettronica per riga**.
 
@@ -252,7 +252,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco delle applicazioni selezionare **RFPIO**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_app.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: 407a9a3be4ae8a9b00a953914e6b4414d8dac8b6
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
-ms.translationtype: HT
+ms.openlocfilehash: c5e85ac6eec1b8b0a5a78f552b190ce3f3c55c38
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registrazione diagnostica di Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Usare questa esercitazione per un'introduzione alla registrazione di Azure Cosmo
 
 ## <a name="what-is-logged"></a>Che cosa viene registrato?
 
-* Vengono registrate tutte le richieste API REST DocumentDB (SQL) autenticate, incluse le richieste non riuscite a causa di autorizzazioni di accesso, errori di sistema o richieste non valide. Il supporto per le API MongoDB, Graph e di tabella non è attualmente disponibile.
+* Vengono registrate tutte le richieste autenticate API SQL REST, che include le richieste non riuscite a causa di autorizzazioni di accesso, gli errori di sistema o richieste non valide. Il supporto per le API MongoDB, Graph e di tabella non è attualmente disponibile.
 * Operazioni nel database stesso, incluse le operazioni CRUD su tutti i documenti, i contenitori e i database.
 * Operazioni sulle chiavi di account, che includono la creazione, la modifica o l'eliminazione di queste chiavi.
 * Richieste non autenticate che generano una risposta 401. Ad esempio, richieste che non hanno un token di connessione, hanno un formato non valido, sono scadute o hanno un token non valido.
@@ -38,7 +38,7 @@ Usare questa esercitazione per un'introduzione alla registrazione di Azure Cosmo
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare l'esercitazione, sono necessarie le risorse seguenti:
 
-* Un account, un database e un contenitore Azure Cosmos DB esistente. Per istruzioni sulla creazione di queste risorse, vedere [Create a database account using the Azure portal](create-documentdb-dotnet.md#create-a-database-account) (Creare un account di database tramite il portale di Azure), [Esempi dell'interfaccia della riga di comando](cli-samples.md) o [Esempi di PowerShell](powershell-samples.md).
+* Un account, un database e un contenitore Azure Cosmos DB esistente. Per istruzioni sulla creazione di queste risorse, vedere [Create a database account using the Azure portal](create-sql-api-dotnet.md#create-a-database-account) (Creare un account di database tramite il portale di Azure), [Esempi dell'interfaccia della riga di comando](cli-samples.md) o [Esempi di PowerShell](powershell-samples.md).
 
 <a id="#turn-on"></a>
 ## <a name="turn-on-logging-in-the-azure-portal"></a>Abilitare la registrazione nel portale di Azure
@@ -54,13 +54,13 @@ Per completare l'esercitazione, sono necessarie le risorse seguenti:
     * **Archivia in un account di archiviazione**. Per usare questa opzione, è necessario un account di archiviazione esistente a cui connettersi. Per creare un nuovo account di archiviazione nel portale, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md) e seguire le istruzioni per creare un account Resource Manager di uso generico. Tornare quindi a questa pagina del portale per selezionare l'account di archiviazione. Potrebbero essere necessari alcuni minuti per visualizzare gli account di archiviazione appena creati nel menu a discesa.
     * **Streaming in un hub eventi**. Per usare questa opzione, sono necessari uno spazio dei nomi esistente e un hub eventi a cui connettersi. Per creare uno spazio dei nomi dell'hub eventi, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il Portale di Azure](../event-hubs/event-hubs-create.md). Tornare a questa pagina del portale per selezionare lo spazio dei nomi dell'hub eventi e il nome dei criteri.
     * **Invia a Log Analytics**.     Per usare questa opzione, usare un'area di lavoro esistente o creare una nuova area di lavoro di Log Analytics seguendo la procedura per [creare una nuova area di lavoro](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) nel portale. Per altre informazioni sulla visualizzazione dei log in Log Analytics, vedere [Visualizzare i log in Log Analytics](#view-in-loganalytics).
-    * **Registra DataPlaneRequests**. Selezionare questa opzione per registrare i dati di diagnostica per gli account DocumentDB, Graph e API di tabella. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
+    * **Registra DataPlaneRequests**. Selezionare questa opzione per registrare i dati diagnostici relativi account SQL, grafico e tabella API. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
     * **Registra MongoRequests**. Selezionare questa opzione per registrare i dati di diagnostica per gli account per gli account API MongoDB. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
-    * **Metric Requests** (Richieste Metriche). Selezionare questa opzione per archiviare i dati dettagliati in [Metriche di Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftdocumentdbdatabaseaccounts-cosmosdb). Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
+    * **Metric Requests** (Richieste Metriche). Selezionare questa opzione per archiviare i dati dettagliati in [Metriche di Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
 
-3. Fare clic su **Salva**.
+3. Fare clic su **Save**.
 
-    Se si riceve il messaggio di errore "Non è stato possibile aggiornare la diagnostica per \<nome area di lavoro>. La sottoscrizione \<id sottoscrizione> non è registrata per l'uso di microsoft.insights." seguire le istruzioni in [Risolvere i problemi relativi a Diagnostica di Azure](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage) per registrare l'account, quindi ripetere questa procedura.
+    Se si riceve il messaggio di errore "Non è stato possibile aggiornare la diagnostica per \<nome area di lavoro>. La sottoscrizione \<id sottoscrizione> non è registrata per l'uso di microsoft.insights." seguire le istruzioni in [Risolvere i problemi relativi a Diagnostica di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) per registrare l'account, quindi ripetere questa procedura.
 
     Se in seguito si vuole modificare la modalità di salvataggio dei log di diagnostica, è possibile tornare in qualsiasi momento in questa pagina per modificare le impostazioni di tali log per l'account.
 
@@ -239,7 +239,7 @@ I valori di data e ora sono nel formato UTC.
 
 Poiché si può usare lo stesso account di archiviazione per raccogliere i log per più risorse, l'ID della risorsa completo nel nome del BLOB è molto utile per accedere solo ai BLOB necessari o per scaricarli. Prima di procedere, si vedrà però come scaricare tutti i BLOB.
 
-Creare prima di tutto una cartella per scaricare i BLOB. Ad esempio:
+Creare prima di tutto una cartella per scaricare i BLOB. Ad esempio: 
 
 ```powershell
 New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
@@ -261,7 +261,7 @@ $blobs | Get-AzureStorageBlobContent `
 
 Quando si esegue questo secondo comando, il delimitatore **/** nei nomi dei BLOB crea una struttura di cartelle completa nella cartella di destinazione. Questa struttura verrà usata per scaricare e archiviare i BLOB come file.
 
-Per scaricare BLOB in modo selettivo, usare caratteri jolly. ad esempio:
+Per scaricare BLOB in modo selettivo, usare caratteri jolly. Ad esempio: 
 
 * Se sono disponibili più database e si vogliono scaricare i log per un solo database, denominato CONTOSOCOSMOSDB3, usare:
 
@@ -406,10 +406,10 @@ I dati di diagnostica archiviati in Archiviazione di Azure e in Log Analytics us
 
 La tabella seguente descrive il contenuto di ogni voce di log.
 
-| Proprietà o campo di Archiviazione di Azure | Proprietà di Log Analytics | Descrizione |
+| Proprietà o campo di Archiviazione di Azure | Proprietà di Log Analytics | DESCRIZIONE |
 | --- | --- | --- |
 | time | TimeGenerated | Data e ora (UTC) in cui si è verificata l'operazione. |
-| resourceId | Risorsa | Account Azure Cosmos DB per cui vengono abilitati i log.|
+| ResourceId | Risorsa | Account Azure Cosmos DB per cui vengono abilitati i log.|
 | category | Categoria | Per i log di Azure Cosmos DB, DataPlaneRequests è l'unico valore disponibile. |
 | operationName | OperationName | Nome dell'operazione. Questo valore può essere una delle operazioni seguenti: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed o Upsert.   |
 | properties | n/d | Il contenuto di questo campo è descritto nelle righe seguenti. |

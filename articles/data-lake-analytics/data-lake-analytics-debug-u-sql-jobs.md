@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 8b16fda041663160c62710cabbe0cd2bd4a83d1e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Eseguire il debug del codice C# definito dall'utente per i processi U-SQL non riusciti
 
-U-SQL fornisce un modello di estendibilità che usa C#. Negli script U-SQL è possibile chiamare facilmente le funzioni C# ed eseguire funzioni di analisi non supportate dal linguaggio dichiarativo simile a SQL. Per altre informazioni sull'estendibilità di U-SQL, vedere [Guida alla programmabilità di U-SQL](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
+U-SQL fornisce un modello di estendibilità che usa C#. Negli script U-SQL è possibile chiamare facilmente le funzioni C# ed eseguire funzioni di analisi non supportate dal linguaggio dichiarativo simile a SQL. Per altre informazioni sull'estendibilità di U-SQL, vedere [Guida alla programmabilità di U-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
 In pratica, qualsiasi codice può richiedere il debug, ma è difficile eseguire il debug di un processo distribuito con il codice personalizzato nel cloud con file di log limitati. [Strumenti Azure Data Lake per Visual Studio](http://aka.ms/adltoolsvs) include una funzionalità denominata **debug del vertice con errore**, che consente di eseguire più facilmente il debug degli errori che si verificano nel codice personalizzato. Quando il processo U-SQL non riesce, il servizio mantiene lo stato di errore e lo strumento consente di scaricare l'ambiente dell'errore cloud nel computer locale per il debug. Il download locale acquisisce tutto l'ambiente cloud, inclusi eventuali dati di input e il codice utente.
 

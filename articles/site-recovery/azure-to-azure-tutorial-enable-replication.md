@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.date: 12/08/2017
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2608e0e0c87df1e7c6d034cf0977ed0e16b128cf
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 3db1ead1f1a8b83cc47f53b915ed54bb78db7ab3
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurare il ripristino di emergenza per macchine virtuali di Azure in un'area di Azure secondaria (anteprima)
 
@@ -129,10 +129,10 @@ Site Recovery recupera un elenco delle macchine virtuali associate alla sottoscr
 
 Site Recovery crea le impostazioni predefinite e i criteri di replica per l'area di destinazione. È possibile modificare le impostazioni in base ai requisiti personali.
 
-1. Fare clic su **Impostazioni** per visualizzare le impostazioni di destinazione.
-2. Per eseguire l'override delle impostazioni di destinazione predefinite, fare clic su **Personalizza**. 
+1. Fare clic su **impostazioni** per visualizzare le impostazioni di replica e di destinazione.
+2. Per ignorare le impostazioni di destinazione predefinito, fare clic su **Personalizza** accanto a **gruppo di risorse, rete, archiviazione e i set di disponibilità**.
 
-![Configurare le impostazioni](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+  ![Configurare le impostazioni](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
 - **Percorso di destinazione**: area di destinazione usata per il ripristino di emergenza. È consigliabile che il percorso di destinazione corrisponda al percorso dell'insieme di credenziali di Site Recovery.
@@ -148,23 +148,35 @@ Site Recovery crea le impostazioni predefinite e i criteri di replica per l'area
 
 - **Set di disponibilità di destinazione**: per impostazione predefinita, Site Recovery crea un nuovo set di disponibilità nell'area di destinazione con il suffisso "asr". I set di disponibilità possono essere aggiunti solo se le VM fanno parte di un set nell'area di origine.
 
+Per ignorare le impostazioni dei criteri di replica, fare clic su **Personalizza** accanto a **criteri di replica**.  
+
 - **Nome del criterio di replica**: nome del criterio.
 
 - **Conservazione del punto di ripristino**: per impostazione predefinita, Site Recovery conserva i punti di ripristino per 24 ore. È possibile configurare un valore compreso tra 1 e 72 ore.
 
 - **Frequenza snapshot coerenti con l'app**: per impostazione predefinita, Site Recovery accetta uno snapshot coerente con l'app ogni 4 ore. È possibile configurare un valore compreso tra 1 e 12 ore. Uno snapshot coerente con l'app è uno snapshot temporizzato dei dati dell'applicazione all'interno della macchina virtuale. Il servizio Copia Shadow del volume assicura che lo stato dell'app nella macchina virtuale sia coerente quando viene creato lo snapshot.
 
+- **Gruppo di replica**: se l'applicazione richiede la coerenza tra più macchine tra le macchine virtuali, è possibile creare un gruppo di replica per le macchine virtuali. Per impostazione predefinita, le macchine virtuali selezionate non fanno parte di un gruppo di replica.
+
+  Fare clic su **Personalizza** accanto a **criteri di replica** e quindi selezionare **Sì** per coerenza tra più macchine rendere le macchine virtuali fanno parte di un gruppo di replica. È possibile creare un nuovo gruppo di replica o utilizzare un gruppo di replica esistente. Selezionare le macchine virtuali da parte del gruppo di replica e fare clic su **OK**.
+
+> [!IMPORTANT]
+  Tutte le macchine in un gruppo di replica verranno aver condiviso i punti di ripristino dell'arresto anomalo coerenti e coerenti con l'app quando è stato eseguito il failover. L'abilitazione della coerenza tra più macchine può influire sulle prestazioni del carico di lavoro e deve essere utilizzata solo se sono in esecuzione macchine stesso carico di lavoro ed è necessaria la coerenza tra più computer.
+
+> [!IMPORTANT]
+  Se si abilita la coerenza tra più macchine virtuali, i computer inclusi nel gruppo di replica comunicano tra loro sulla porta 20004. Verificare che non sia presente alcun dispositivo firewall blocca la comunicazione tra le macchine virtuali tramite la porta 20004 interna. Se si desidera far parte di un gruppo di replica delle macchine virtuali Linux, verificare che il traffico in uscita sulla porta 20004 viene aperta manualmente in base alle indicazioni della versione di Linux specifica.
+
 ### <a name="track-replication-status"></a>Tenere traccia dello stato della replica
 
 1. In **Impostazioni** fare clic su **Aggiorna** per ottenere lo stato più recente.
 
-2. È possibile tenere traccia dello stato del processo **Abilita protezione** in **Impostazioni** > **Processi** > **Processi di Site Recovery**.
+2. È possibile monitorare lo stato di avanzamento del **abilitare la protezione** processo **impostazioni** > **processi** > **iprocessidiripristinodelsito**.
 
 3. In **Impostazioni** > **Elementi replicati** è possibile visualizzare lo stato delle VM e lo stato della replica iniziale. Fare clic sulla VM per visualizzare nel dettaglio le rispettive impostazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato configurato il ripristino di emergenza per una macchina virtuale di Azure. Il passaggio successivo consiste nel testare la configurazione.
+In questa esercitazione, il ripristino di emergenza è configurato per una macchina virtuale di Azure. Il passaggio successivo consiste nel testare la configurazione.
 
 > [!div class="nextstepaction"]
 > [Eseguire un'analisi del ripristino di emergenza](azure-to-azure-tutorial-dr-drill.md)

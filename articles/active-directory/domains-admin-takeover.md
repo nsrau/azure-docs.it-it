@@ -4,7 +4,7 @@ description: "Come acquisire la proprietà di un nome di dominio DNS in una dire
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: ee100fa86d78840a3b6a6bbf9453954c054931c2
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: f18e5883fca9291eb1447c1eebfe0883936fe84f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory
 Questo articolo illustra due modi per acquisire la proprietà di un nome di dominio DNS in una directory non gestita in Azure Active Directory (Azure AD). Quando un utente self-service si iscrive a un servizio cloud che usa Azure AD, viene aggiunto a una directory di Azure AD non gestita basata sul dominio di posta elettronica. Per altre informazioni sull'iscrizione self-service o "virale" a un servizio, vedere [Informazioni sull'iscrizione self-service per Azure Active Directory]().
@@ -110,7 +110,7 @@ L'acquisizione esterna della proprietà da parte dell'amministratore non è supp
 È possibile visualizzare questi cmdlet usati in [Esempio di PowerShell](#powershell-example).
 
 
-Cmdlet | Utilizzo 
+Cmdlet | Uso 
 ------- | -------
 `connect-msolservice` | Quando richiesto, accedere al tenant gestito.
 `get-msoldomain` | Mostra i nomi di dominio associati al tenant corrente.
@@ -143,7 +143,7 @@ Cmdlet | Utilizzo
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
   ````
 
-4. Copiare il valore (la richiesta di verifica) restituita da questo comando. ad esempio:
+4. Copiare il valore (la richiesta di verifica) restituita da questo comando. Ad esempio: 
   ````
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
   ````
@@ -154,7 +154,7 @@ Cmdlet | Utilizzo
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
   ````
   
-  ad esempio:
+  Ad esempio: 
   
   ````
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com

@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: c3546eab-96b5-489b-a309-b895eb428053
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
-ms.openlocfilehash: 7e1dad18ff0ae9a9102b789b2cb32e7b96ed3d38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b744b8e197c918e7fe3a0e6e7eeab6a70cc6e34a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Esercitazione: Integrazione di Azure Active Directory con ServiceChannel
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con ServiceChannel, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di ServiceChannel abilitata per l'accesso Single Sign-On.
 
 > [!NOTE]
@@ -47,7 +47,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non è disponibile un ambiente di prova di Azure AD, è possibile ottenere una versione di prova di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di ServiceChannel dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -63,11 +63,11 @@ Per configurare l'integrazione di ServiceChannel in Azure AD, è necessario aggi
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 3. Fare clic sul pulsante **Aggiungi** nella parte superiore della finestra di dialogo.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 4. Nella casella di ricerca digitare **ServiceChannel**.
 
@@ -86,7 +86,7 @@ La relazione di collegamento viene stabilita assegnando al valore di **nome uten
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con ServiceChannel, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di ServiceChannel](#creating-a-servicechannel-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -100,28 +100,28 @@ In questa sezione si abilita l'accesso Single Sign-On di Azure AD nel portale di
 
 1. Nella pagina di integrazione dell'applicazione **ServiceChannel** del portale di gestione di Azure fare clic su **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** in **Modalità** selezionare **Accesso basato su SAML** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_01.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_01.png)
 
 3. Nella sezione **URL e dominio ServiceChannel** seguire questa procedura:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_urls.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_urls.png)
 
     a. Nella casella di testo **Identificatore** digitare il valore `http://adfs.<domain>.com/adfs/service/trust`
 
     b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<customer domain>.servicechannel.com/saml/acs`
 
     > [!NOTE] 
-    > Si noti che questi non sono i valori reali. È necessario aggiornare questi valori con l'identificatore e l'URL di risposta effettivi. In questo caso è consigliabile usare in Identificatore il valore univoco della stringa. Per ottenere questi valori, contattare il [team di supporto di ServiceChannel](https://servicechannel.zendesk.com/hc/en-us).
+    > Si noti che questi non sono i valori reali. È necessario aggiornare questi valori con l'identificatore e l'URL di risposta effettivi. In questo caso, è consigliabile di usare il valore univoco della stringa nell'identificatore. Per ottenere questi valori, contattare il [team di supporto di ServiceChannel](https://servicechannel.zendesk.com/hc/en-us).
 
 4. L'applicazione ServiceChannel prevede le asserzioni SAML in un formato specifico. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra un esempio relativo a questa operazione. **NameIdentifier (User Identifier)** è l'unica attestazione obbligatoria e il valore predefinito è **user.userprincipalname** ma ServiceChannel prevede che questo valore sia mappato con **user.mail**. Se si intende abilitare il provisioning di utenti JIT, è necessario aggiungere le attestazioni seguenti come illustrato di seguito. È necessario eseguire il mapping dell'attestazione **Ruolo** a **user.assignedroles** che contiene il ruolo dell'utente.  
 
     Per altre istruzioni sulle attestazioni, fare riferimento alla guida di ServiceChannel [qui](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example).
     
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_attribute.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_attribute.png)
 
     > [!NOTE] 
     > Fare clic [qui](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) per sapere come configurare **Ruolo** in Azure AD.
@@ -134,9 +134,9 @@ In questa sezione si abilita l'accesso Single Sign-On di Azure AD nel portale di
 
     a. Fare clic su **Aggiungi attributo** per aprire la finestra di dialogo **Aggiungi attributo**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_04.png)
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_05.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_05.png)
     
     b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
     
@@ -146,11 +146,11 @@ In questa sezione si abilita l'accesso Single Sign-On di Azure AD nel portale di
     
 6. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_05.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_05.png) 
 
-7. Fare clic su **Salva**.
+7. Fare clic su **Save**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial_general_400.png)
 
 8. Nella sezione **Configurazione di ServiceChannel** fare clic su **Configura ServiceChannel** per aprire la finestra **Configura accesso**. Prendere nota dell'**ID identità SAML** nella sezione **Riferimento rapido**.
 
@@ -205,7 +205,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 2. Nell'elenco di applicazioni selezionare **ServiceChannel**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_app01.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_app01.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

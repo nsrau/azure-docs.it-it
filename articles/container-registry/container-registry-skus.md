@@ -1,100 +1,106 @@
 ---
 title: SKU del Registro contenitori di Azure
-description: Confronto tra i diversi livelli di servizio disponibili nel Registro contenitori di Azure
+description: Confrontare i diversi livelli di servizio disponibili nel Registro di sistema contenitore di Azure.
 services: container-registry
-author: stevelas
+author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/16/2017
-ms.author: stevelas
-ms.openlocfilehash: cf7724dd9e3e870cfd7ec0b5d2e4ea1d0694e9de
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.date: 12/20/2017
+ms.author: marsma
+ms.openlocfilehash: 15179fa3e3567f92a5eae69ba9a684addc3138dd
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-container-registry-skus"></a>SKU del Registro contenitori di Azure
 
-Il Registro contenitori di Azure è disponibile su più livelli di servizio, noti come SKU. Gli SKU offrono prezzi prevedibili e diverse opzioni per la modalità d'uso del registro docker privato in Azure. La scelta di uno SKU di livello superiore offre maggiori prestazioni e una migliore scalabilità. Tuttavia, tutti gli SKU offrono le stesse funzionalità programmatiche, consentendo a uno sviluppatore di iniziare da un livello base e di passare al livello standard e premium man mano che aumenta l'uso del registro.
+Il Registro contenitori di Azure è disponibile su più livelli di servizio, noti come SKU. Queste SKU forniscono prezzi stimabile e diverse opzioni per l'allineamento per i modelli di utilizzo e capacità privato Docker del Registro di sistema in Azure.
 
-## <a name="basic"></a>Basic
-Un punto di ingresso di ottimizzazione dei costi per gli sviluppatori che iniziano a usare Registro contenitori di Azure. I registri Basic dispongono delle stesse funzionalità programmatiche del livello Standard e Premium, ovvero l'integrazione dell'autenticazione, l'eliminazione di immagini e gli hook Web di Azure Active Directory, tuttavia ci sono limiti di dimensioni e uso.
+| SKU | Gestito | DESCRIZIONE |
+| --- | :-------: | ----------- |
+| **Basic** | Sì | Un punto di ingresso di ottimizzazione dei costi per gli sviluppatori che iniziano a usare Registro contenitori di Azure. I registri Basic dispongono delle stesse funzionalità programmatiche del livello Standard e Premium, ovvero l'integrazione dell'autenticazione, l'eliminazione di immagini e gli hook Web di Azure Active Directory, tuttavia ci sono limiti di dimensioni e uso. |
+| **Standard** | Sì | I registri standard offrono le stesse funzionalità del livello base, con limiti di archiviazione e velocità effettiva di immagine aumentati. I registri Standard devono soddisfare le esigenze della maggior parte degli scenari di produzione. |
+| **Premium** | Sì | I registri premium offrono limiti più elevati sui vincoli quali l'archiviazione e le operazioni simultanee, l'abilitazione di scenari con volumi elevati. Oltre alle capacità di velocità effettiva superiore immagine, Premium aggiunge funzionalità come [-replica geografica] [ container-registry-geo-replication] per la gestione di un singolo registro di sistema in più aree, mantenere un registro di sistema di rete e di chiusura a ogni distribuzione. |
+| Classico | No  | Lo SKU del registro classico ha abilitato la versione iniziale del servizio Registro contenitori di Azure in Azure. I registri classici sono supportati da un account di archiviazione creato da Azure nella sottoscrizione, che limita la capacità di Registro contenitori di Azure di offrire funzionalità di livello superiore, ad esempio velocità effettiva e replica geografica aumentate. A causa delle capacità limitate, si pensa in futuro di rimuovere lo SKU classico. |
 
-## <a name="standard"></a>Standard
-I registri standard offrono le stesse funzionalità del livello base, con limiti di archiviazione e velocità effettiva di immagine aumentati. I registri Standard devono soddisfare le esigenze della maggior parte degli scenari di produzione.
-
-## <a name="premium"></a>Premium
-I registri premium offrono limiti più elevati sui vincoli quali l'archiviazione e le operazioni simultanee, l'abilitazione di scenari con volumi elevati. Oltre alle maggiore velocità effettiva per le immagini, il livello premium aggiunge funzionalità come la [replica geografica](container-registry-geo-replication.md) per la gestione di un solo registro in più aree, mantenendo un registro in una posizione di rete vicina a ogni distribuzione.
-
-## <a name="classic"></a>Classico
-Lo SKU del registro classico ha abilitato la versione iniziale del servizio Registro contenitori di Azure in Azure. I registri classici sono supportati da un account di archiviazione creato da Azure nella sottoscrizione, che limita la capacità di Registro contenitori di Azure di offrire funzionalità di livello superiore, ad esempio velocità effettiva e replica geografica aumentate. A causa delle capacità limitate, si pensa in futuro di rimuovere lo SKU classico.
+Scelta di che uno SKU di livello superiore fornisce ulteriori scalabilità e prestazioni, tuttavia, tutti gli SKU gestiti forniscono le stesse funzionalità a livello di codice. Con più livelli di servizio, è possibile iniziare con Basic, quindi convertire man mano che aumenta l'utilizzo del Registro di sistema Standard e Premium.
 
 > [!NOTE]
-> Poiché lo SKU del registro classico verrà eliminato, è consigliabile usare i livelli di base, standard o premium per tutti i nuovi registri. Per informazioni sulla conversione del registro classico esistente, vedere [Cambiare SKU](#changing-skus).
+> Poiché lo SKU del registro classico verrà eliminato, è consigliabile usare i livelli di base, standard o premium per tutti i nuovi registri. Per informazioni sulla conversione del Registro di sistema classico esistente, vedere [l'aggiornamento di un registro di sistema classico][container-registry-upgrade].
 >
 
-## <a name="registry-sku-feature-matrix"></a>Matrice di funzionalità SKU del registro
+## <a name="managed-vs-unmanaged"></a>Gestite e non gestito
+
+Basic, Standard e Premium SKU sono noti come *gestiti* i registri e i registri classica come *non gestito*. La differenza principale tra i due è una modalità di archiviazione delle immagini contenitore.
+
+### <a name="managed-basic-standard-premium"></a>Gestito (Basic, Standard e Premium)
+
+Registri di sistema gestiti viene eseguiti da un account di archiviazione di Azure gestito da Azure. Vale a dire l'account di archiviazione che archivia le immagini non vengono visualizzati nella sottoscrizione di Azure. Esistono diversi vantaggi derivanti dall'uso di uno del Registro di sistema gestito SKU, illustrate informazioni dettagliate sulla [l'aggiornamento di un registro di sistema classico][container-registry-upgrade]. Questo articolo illustra gli SKU gestito del Registro di sistema e le relative funzionalità.
+
+### <a name="unmanaged-classic"></a>Non gestito (versione classica)
+
+I registri classici sono "non gestiti" nel senso che l'account di archiviazione che esegue il backup del Registro di sistema una classica si trova all'interno di *il* sottoscrizione di Azure. Di conseguenza, si è responsabili della gestione dell'account di archiviazione in cui sono archiviate le immagini contenitore. Con i registri non gestiti, è possibile passare da SKU in base alle esigenze (diverso da [aggiornamento] [ container-registry-upgrade] un registro di sistema gestito), e diverse funzionalità di registri gestiti non sono disponibili (ad esempio, l'eliminazione di immagini contenitore, [-replica geografica] [ container-registry-geo-replication] e [webhook][container-registry-webhook]).
+
+Per ulteriori informazioni sull'aggiornamento di un registro di sistema classica a uno dei SKU gestiti, vedere [l'aggiornamento di un registro di sistema classico][container-registry-upgrade].
+
+## <a name="sku-feature-matrix"></a>Matrice di funzionalità SKU
 
 La tabella seguente illustra le funzionalità e i limiti dei livelli di servizio Base, Standard e Premium.
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
-## <a name="manage-registry-size"></a>Gestire le dimensioni del registro
-I vincoli di archiviazione di ogni SKU hanno lo scopo di allinearsi con uno scenario tipico: di base per iniziare, standard per la maggior parte delle app di produzione e premium per le prestazioni con iperscalabilità e la [replica geografica](container-registry-geo-replication.md). Per tutta la durata del registro, è necessario gestirne le dimensioni eliminando periodicamente il contenuto non usato.
-
-I dati sull'uso attuale del registro sono contenuti nel registro contenitore **Panoramica** nel portale di Azure:
-
-![Informazioni sull'uso del registro nel portale di Azure](media/container-registry-skus/registry-overview-quotas.png)
-
-Eliminando i repository nel portale di Azure, è possibile gestire le dimensioni del registro.
-
-In **SERVIZI** selezionare **Repository**, quindi fare clic con il pulsante destro del mouse sul repository che si desidera eliminare e selezionare **Elimina**.
-
-![Eliminare un repository nel portale di Azure](media/container-registry-skus/delete-repository-portal.png)
-
 ## <a name="changing-skus"></a>Cambiare SKU
 
-È possibile cambiare lo SKU del registro nel portale di Azure.
+È possibile modificare lo SKU del Registro di sistema con l'interfaccia CLI di Azure o nel portale di Azure. È possibile spostare liberamente tra SKU gestito, purché lo SKU si passa a con la capacità di archiviazione massimo richiesto. Se si passa a uno dei SKU gestito dalla versione classica, è possibile riportare classica, è una conversione unidirezionale.
 
-Nella **Panoramica** del registro nel portale di Azure selezionare **Aggiorna**, quindi scegliere un nuovo **SKU** dall'elenco SKU a discesa.
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-![Aggiornare lo SKU del registro contenitori nel portale di Azure](media/container-registry-skus/update-registry-sku.png)
+Per spostarsi tra gli SKU di CLI di Azure, utilizzare il [aggiornamento acr az] [ az-acr-update] comando. Ad esempio, per passare alla versione Premium:
+
+```azurecli
+az acr update --name myregistry --sku Premium
+```
+
+### <a name="azure-portal"></a>Portale di Azure
+
+Nel Registro di sistema contenitore **Panoramica** nel portale di Azure, selezionare **aggiornamento**, quindi selezionare un nuovo **SKU** dall'elenco a discesa SKU.
+
+![Aggiornare lo SKU del registro contenitori nel portale di Azure][update-registry-sku]
+
+Se si dispone di un registro di sistema classica, è possibile selezionare uno SKU gestito all'interno del portale di Azure. In alternativa, è innanzitutto necessario [aggiornamento] [ container-registry-upgrade] un registro di sistema gestito (vedere [modifica dalla versione classica](#changing-from-classic)).
 
 ## <a name="changing-from-classic"></a>Cambiare il registro classico
-Quando si passa da un registro classico a uno di base, standard o premium, Azure copia le immagini del contenitore esistente dall'account di archiviazione associato nella sottoscrizione in un account di archiviazione gestito da Azure. Questo processo potrebbe richiedere un po' di tempo.
 
-Durante la conversione, `docker pull` continua a funzionare, ma `docker push` viene bloccato fino al completamento della conversione.
+Ci sono altre considerazioni per prendere in considerazione durante la migrazione di un registro di sistema classico non gestito a uno dei gestito Basic, Standard o Premium SKU. Se il Registro di sistema classica contiene un numero elevato di immagini e molti gigabyte di spazio, il processo di migrazione può richiedere alcuni minuti. Inoltre, `docker push` operazioni sono disabilitate fino al completamento della migrazione.
 
-Dopo aver completato l'operazione, l'account di archiviazione della sottoscrizione non viene più usato dal Registro contenitori di Azure.
-
-### <a name="why-change-from-classic-to-basic-standard-or-premium"></a>Perché passare dal registro classico a quello di base, standard o premium?
-
-A causa delle funzionalità limitate dei registri classici, è consigliabile passare dai registri classici ai livelli Base, Standard o Premium. Questi SKU di livello superiore integrano in modo più specifico il registro nelle funzionalità di Azure. Alcune di queste funzionalità includono:
-
-* l'integrazione di Azure Active Directory per la singola autenticazione (vedere [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login))
-* il supporto per l'eliminazione di immagini e tag
-* [Replica geografica](container-registry-geo-replication.md)
-* [Webhook](container-registry-webhook.md)
-
-Ma soprattutto, un registro classico dipende dall'account di archiviazione per cui Azure esegue il provisioning automatico nella sottoscrizione di Azure al momento della creazione del registro. Gli SKU di base, standard e premium invece sfruttano l'*archivio gestito*. Questo vuol dire che Azure gestisce in modo trasparente l'archiviazione delle immagini per l'utente: nella propria sottoscrizione non viene creato un account di archiviazione diverso.
-
-Alcuni dei vantaggi dell'archiviazione gestita offerti dai registri di base, standard e premium:
-
-* Le immagini di contenitori sono [crittografati a riposo](../storage/common/storage-service-encryption.md).
-* Le immagini vengono archiviate usando l'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md#geo-redundant-storage), garantendo un backup delle immagini con la replica su più aree.
-* Possibilità di [cambiare SKU](#changing-skus), consentendo una maggiore velocità effettiva, quando si sceglie uno SKU di livello superiore. Con ogni SKU, il Registro contenitori di Azure può soddisfare i requisiti di velocità effettiva man mano che aumentano le esigenze. L'implementazione sottostante delle modalità in cui il Registro contenitori di Azure raggiunge la velocità effettiva desiderata viene espresso come *finalità*, selezionando SKU superiori, senza dover gestire i dettagli dell'implementazione.
+Per informazioni dettagliate sull'aggiornamento del Registro di sistema classica per uno dei SKU gestiti, vedere [l'aggiornamento di un registro di sistema contenitore classica][container-registry-upgrade].
 
 ## <a name="pricing"></a>Prezzi
 
-Per informazioni sui prezzi di ogni SKU del Registro contenitori di Azure, vedere [Prezzi di Registro di sistema del contenitore](https://azure.microsoft.com/pricing/details/container-registry/).
+Per informazioni su ciascuno dei SKU Azure contenitore del Registro di sistema sui prezzi, vedere [prezzi contenitore del Registro di sistema][container-registry-pricing].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 **Guida del Registro contenitori di Azure**
 
-Visitare la [Guida del Registro contenitori di Azure](https://aka.ms/acr/roadmap) su GitHub per maggiori informazioni sulle funzionalità future del servizio.
+Visitare il [ACR Roadmap] [ acr-roadmap] su GitHub per trovare informazioni sulle funzionalità future del servizio.
 
 **UserVoice del Registro contenitori di Azure**
 
-Inviare e votare i nuovi suggerimenti sulle funzionalità in [UserVoice del Registro contenitori di Azure](https://feedback.azure.com/forums/903958-azure-container-registry).
+Inviare e votare nuovi suggerimenti sulle funzionalità in [ACR UserVoice][container-registry-uservoice].
+
+<!-- IMAGES -->
+[update-registry-sku]: ./media/container-registry-skus/update-registry-sku.png
+
+<!-- LINKS - External -->
+[acr-roadmap]: https://aka.ms/acr/roadmap
+[container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry/
+[container-registry-uservoice]: https://feedback.azure.com/forums/903958-azure-container-registry
+
+<!-- LINKS - Internal -->
+[az-acr-update]: /cli/azure/acr#az_acr_update
+[container-registry-geo-replication]: container-registry-geo-replication.md
+[container-registry-upgrade]: container-registry-upgrade.md
+[container-registry-webhook]: container-registry-webhook.md

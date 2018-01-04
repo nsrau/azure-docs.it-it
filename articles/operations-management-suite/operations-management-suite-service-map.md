@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: c07290a5003189b0b773bd9b9c995400b424c7f4
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
-ms.translationtype: HT
+ms.openlocfilehash: 9de193c95fe881c03cdbd2105b93ee487a2455e0
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Usare la soluzione Mapping dei servizi in Operations Management Suite
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Il Mapping dei servizi consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Il Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
@@ -49,7 +49,7 @@ Gli agenti di Mapping dei servizi raccolgono informazioni su tutti i processi co
 
 ![Panoramica di Mapping dei servizi](media/oms-service-map/service-map-overview.png)
 
-È possibile espandere i computer nella mappa per visualizzare i processi in esecuzione con connessioni di rete attive nell'intervallo di tempo selezionato. Quando si espande un computer remoto con un agente di Mapping dei servizi per visualizzare i dettagli dei processi, vengono visualizzati solo i processi che comunicano con il computer. Il numero di computer front-end senza agenti che si connettono al computer critico è indicato a sinistra dei processi a cui si connettono. Se il computer principale è in fase di connessione a computer back-end senza un agente, il server back-end è incluso in un gruppo di porte server con altre connessioni allo stesso numero di porta.
+Computer possono essere espanso nella mappa per mostrare l'esecuzione di elaborare gruppi e i processi con connessioni di rete attive durante l'intervallo di tempo selezionato. Quando si espande un computer remoto con un agente di Mapping dei servizi per visualizzare i dettagli dei processi, vengono visualizzati solo i processi che comunicano con il computer. Il numero di computer front-end senza agenti che si connettono al computer critico è indicato a sinistra dei processi a cui si connettono. Se il computer principale è in fase di connessione a computer back-end senza un agente, il server back-end è incluso in un gruppo di porte server con altre connessioni allo stesso numero di porta.
 
 Per impostazione predefinita, Mapping dei servizi mostra le informazioni sulle dipendenze per gli ultimi 30 minuti. Usando i controlli temporali in alto a sinistra, è possibile cercare nelle mappe intervalli di tempo cronologici della durata massima di un'ora per visualizzare l'aspetto delle dipendenze nel passato, ad esempio durante un evento imprevisto o prima di una modifica. I dati di Mapping dei servizi vengono archiviati per 30 giorni nelle aree di lavoro a pagamento e per 7 giorni nelle aree di lavoro gratuite.
 
@@ -59,6 +59,9 @@ Nella parte inferiore di ogni server nella mappa potrebbe essere presente un ele
 In base alla gravità della notifica di stato, i bordi del nodo del computer possono essere colorati di rosso (critico), giallo (avviso) o blu (informativi). Il colore rappresenta lo stato di gravità di una notifica di stato. Un bordo grigio indica un nodo senza indicatori di stato.
 
 ![Notifiche di stato](media/oms-service-map/status-badges.png)
+
+## <a name="process-groups"></a>Gruppi di processo
+Gruppi di processo combinano i processi che sono associati a un prodotto o servizio comune in un gruppo di processi.  Quando si espande un nodo del computer verrà visualizzati i processi di autonomo insieme ai gruppi di processo.  Se tutte le connessioni in ingresso e in uscita a un processo all'interno di un gruppo di processi non è riuscita quindi la connessione viene visualizzato come non riuscita per il gruppo dell'intero processo.
 
 ## <a name="machine-groups"></a>Gruppi di computer
 I gruppi di computer consentono di visualizzare le mappe incentrate su un insieme di server, non su un solo server in modo da visualizzare tutti i membri di un cluster di server o dell'applicazione a più livelli in una mappa.
@@ -121,7 +124,7 @@ Fare clic sui puntini di sospensione accanto al nome del gruppo nell'elenco del 
 ## <a name="role-icons"></a>Icone di ruolo
 Alcuni processi svolgono ruoli particolari nei computer: server Web, server applicazioni, database e così via. Mapping dei servizi annota le caselle relative a processi e computer con icone di ruolo, per consentire di identificare rapidamente il ruolo di un processo o un server.
 
-| Icona del ruolo | Descrizione |
+| Icona del ruolo | DESCRIZIONE |
 |:--|:--|
 | ![Server Web](media/oms-service-map/role-web-server.png) | Server Web |
 | ![Server app](media/oms-service-map/role-application-server.png) | Server applicazioni |
@@ -277,9 +280,9 @@ Poiché possono essere presenti vari record per un determinato processo o comput
 ### <a name="servicemapcomputercl-records"></a>Record ServiceMapComputer_CL
 I record che contengono il tipo *ServiceMapComputer_CL* includono dati di inventario relativi ai server con agenti del modello dei servizi. Questi record includono le proprietà elencate nella tabella seguente:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--|:--|
-| Tipo | *ServiceMapComputer_CL* |
+| type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Identificatore univoco per il computer nell'area di lavoro |
 | ResourceName_s | Identificatore univoco per il computer nell'area di lavoro |
@@ -304,9 +307,9 @@ I record che contengono il tipo *ServiceMapComputer_CL* includono dati di invent
 ### <a name="servicemapprocesscl-type-records"></a>Record con tipo ServiceMapProcess_CL
 I record con tipo *ServiceMapProcess_CL* includono dati di inventario relativi ai processi con connessione TCP eseguiti sui server con agenti del modello dei servizi. Questi record includono le proprietà elencate nella tabella seguente:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--|:--|
-| Tipo | *ServiceMapProcess_CL* |
+| type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Identificatore univoco per il processo nell'area di lavoro |
 | ResourceName_s | Identificatore univoco per il processo nel computer in cui è in esecuzione|
@@ -374,7 +377,7 @@ Per altre informazioni sulla raccolta e sull'uso dei dati , vedere l'[Informativ
 Altre informazioni sulle [ricerche nei log](../log-analytics/log-analytics-log-searches.md) in Log Analytics per recuperare i dati raccolti da Mapping dei servizi.
 
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 Vedere la [sezione Risoluzione dei problemi del documento relativo alla configurazione di Mapping dei servizi](operations-management-suite-service-map-configure.md#troubleshooting).
 
 

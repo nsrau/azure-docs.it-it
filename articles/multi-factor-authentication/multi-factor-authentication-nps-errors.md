@@ -4,7 +4,7 @@ description: Informazioni su come risolvere i problemi con l'estensione NPS per 
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 07/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 5f27bac7f2de0411dacd5b981a09a93c80084af9
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 7960a398ac25ad0192300632dd6d5add94fd4a7c
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Risolvere i messaggi di errore dall'estensione NPS per Multi-Factor Authentication di Azure
 
@@ -106,9 +106,10 @@ Se gli utenti hanno [Problemi con la verifica in due passaggi](./end-user/multi-
 
 Se è necessario avere un maggiore supporto, contattare un tecnico del supporto tramite il [supporto del server Multi-Factor Authentication di Azure](https://support.microsoft.com/oas/default.aspx?prid=14947). Quando si contatta Microsoft, è utile includere il maggior numero possibile di informazioni relative al problema. Le informazioni da dare includono la pagina in cui viene visualizzato l'errore, il codice dell'errore specifico, l'ID della sessione specifico, l'ID dell'utente che visualizza l'errore e i registri debug.
 
-Per raccogliere i registri debug per la diagnostica di supporto, attenersi alla procedura seguente: 
+Per raccogliere i registri di debug per la diagnostica di supporto, attenersi alla procedura seguente nel server dei criteri di rete:
 
-1. Aprire un prompt dei comandi di amministratore ed eseguire questi comandi:
+1. Aprire l'Editor del Registro di sistema e passare a set HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa **VERBOSE_LOG** a **TRUE**
+2. Aprire un prompt dei comandi di amministratore ed eseguire questi comandi:
 
    ```
    Mkdir c:\NPS
@@ -118,9 +119,9 @@ Per raccogliere i registri debug per la diagnostica di supporto, attenersi alla 
    logman update trace "NPSExtension" -p {EC2E6D3A-C958-4C76-8EA4-0262520886FF} 0xffffffffffffffff 0xff -ets
    ```
 
-2. Riprodurre il problema
+3. Riprodurre il problema
 
-3. Arrestare la traccia con i comandi seguenti:
+4. Arrestare la traccia con i comandi seguenti:
 
    ```
    logman stop "NPSExtension" -ets
@@ -131,6 +132,7 @@ Per raccogliere i registri debug per la diagnostica di supporto, attenersi alla 
    Start .
    ```
 
-4. Comprimere il contenuto della cartella C:\NPS e allegare il file compresso al caso di supporto.
+5. Aprire l'Editor del Registro di sistema e passare a set HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa **VERBOSE_LOG** a **FALSE**
+6. Comprimere il contenuto della cartella C:\NPS e allegare il file compresso al caso di supporto.
 
 

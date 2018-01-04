@@ -7,7 +7,7 @@
     - name: Componenti Hadoop in HDInsight
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: Introduzione
+- name: Attività iniziali
   items:
     - name: Iniziare a usare Hadoop
       href: apache-hadoop-linux-tutorial-get-started.md
@@ -40,7 +40,7 @@
               href: apache-hadoop-use-hive-beeline.md
             - name: Uso di cURL
               href: apache-hadoop-use-hive-curl.md
-            - name: Uso di Azure PowerShell
+            - name: Usare Azure PowerShell
               href: apache-hadoop-use-hive-powershell.md
             - name: Usare .NET SDK
               href: apache-hadoop-use-hive-dotnet-sdk.md
@@ -59,7 +59,7 @@
               href: apache-hadoop-use-mapreduce-ssh.md
             - name: Uso di cURL
               href: apache-hadoop-use-mapreduce-curl.md
-            - name: Uso di Azure PowerShell
+            - name: Usare Azure PowerShell
               href: apache-hadoop-use-mapreduce-powershell.md
             - name: Usare Desktop remoto
               href: apache-hadoop-use-mapreduce-remote-desktop.md
@@ -72,7 +72,7 @@
           items:
             - name: Usare SSH e Pig
               href: apache-hadoop-use-pig-ssh.md
-            - name: Uso di Azure PowerShell
+            - name: Usare Azure PowerShell
               href: apache-hadoop-use-pig-powershell.md
             - name: Usare .NET SDK
               href: apache-hadoop-use-pig-dotnet-sdk.md
@@ -84,7 +84,7 @@
           href: apache-hadoop-use-pig-datafu-udf.md
         - name: Inviare processi di Hadoop
           href: submit-apache-hadoop-jobs-programmatically.md
-    - name: Sviluppare
+    - name: Sviluppo
       items:
         - name: 'Sviluppare programmi MapReduce di flusso in C#'
           href: apache-hadoop-dotnet-csharp-mapreduce-streaming.md
@@ -121,6 +121,9 @@
       items:
         - name: Eseguire l'analisi con Power Query
           href: apache-hadoop-connect-excel-power-query.md
+        - name: Connettere Power BI a Interactive Query
+          href: ../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
+          maintainContext: true
         - name: Connettere Power BI a Hadoop
           href: apache-hadoop-connect-hive-power-bi.md
         - name: Connettere Excel a Hadoop
@@ -207,7 +210,7 @@
           href: ../hdinsight-hadoop-provision-linux-clusters.md
           maintainContext: true
           items:
-            - name: Uso di Azure PowerShell
+            - name: Usare Azure PowerShell
               href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
               maintainContext: true
             - name: Usare cURL e l'API REST di Azure
@@ -235,7 +238,7 @@
             - name: Usare .NET SDK
               href: ../hdinsight-administer-use-dotnet-sdk.md
               maintainContext: true
-            - name: Uso di Azure PowerShell
+            - name: Usare Azure PowerShell
               href: ../hdinsight-administer-use-powershell.md
               maintainContext: true
             - name: Utilizzare l’interfaccia della riga di comando di Azure
@@ -289,7 +292,7 @@
         - name: Applicazione di patch del sistema operativo per il cluster HDInsight
           href: ../hdinsight-os-patching.md
           maintainContext: true
-    - name: Risoluzione dei problemi
+    - name: Risolvere problemi
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:

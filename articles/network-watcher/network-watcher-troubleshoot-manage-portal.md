@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
 ms.openlocfilehash: c3fa22bd599026b0838b134e26062d9837df703e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Risolvere i problemi relativi al gateway di rete virtuale e alle connessioni di Azure tramite PowerShell in Network Watcher di Azure
 
 > [!div class="op_single_selector"]
-> - [Portale](network-watcher-troubleshoot-manage-portal.md)
+> - [di Microsoft Azure](network-watcher-troubleshoot-manage-portal.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 > - [Interfaccia della riga di comando 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 > - [Interfaccia della riga di comando 2.0](network-watcher-troubleshoot-manage-cli.md)
@@ -60,11 +60,11 @@ Al termine, la colonna dello stato passa a **Integro** o **Danneggiato**.
 
 Nella sezione **Dettagli** della finestra la scheda **Stato** mostra lo stato della risoluzione dei problemi più recente eseguita sulla risorsa selezionata. I risultati della diagnostica più recente sono mostrati xx minuti dopo l'ultima esecuzione.
 
-|Proprietà  |Descrizione  |
+|Proprietà  |DESCRIZIONE  |
 |---------|---------|
 |Risorsa     | Collegamento alla risorsa.        |
 |Percorso di archiviazione     |  Percorso all'account di archiviazione e al contenitore che contengono i registri, se generati durante l'esecuzione. Questa impostazione non viene mantenuta alla chiusura del portale.        |
-|Riepilogo     | Riepilogo dell'integrità delle risorse.        |
+|Summary     | Riepilogo dell'integrità delle risorse.        |
 |Dettagli     | Informazioni dettagliate sull'integrità delle risorse.        |
 |Ultima esecuzione     | Ora dell'ultima esecuzione della risoluzione dei problemi.        |
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 85d6ec20fb0447165c672ba267569994e3a96e45
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: bc5b97192e0d4ad896d6d74a8745a3866d053a25
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Domande sul servizio Backup delle macchine virtuali di Azure
 Questo articolo contiene risposte a domande comuni che consentiranno di comprendere rapidamente i componenti del servizio Backup delle macchine virtuali di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -29,7 +29,7 @@ Questo articolo contiene risposte a domande comuni che consentiranno di comprend
 Gli insiemi di credenziali di Servizi di ripristino supportano entrambi modelli.  È possibile eseguire il backup di una macchina virtuale creata nel portale classico o di una macchina virtuale di Resource Manager creata nel portale di Azure nell'insieme di credenziali di Servizi di ripristino.
 
 ### <a name="what-configurations-are-not-supported-by-azure-vm-backup"></a>Quali configurazioni non sono supportate dal servizio di backup delle macchine virtuali di Azure?
-Vedere i [sistemi operativi supportati](backup-azure-arm-vms-prepare.md#supported-operating-system-for-backup) e le [limitazioni del backup di macchine virtuali](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
+Vedere i [sistemi operativi supportati](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) e le [limitazioni del backup di macchine virtuali](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
 
 ### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>Perché non è possibile visualizzare la macchina virtuale nella configurazione guidata del backup?
 Nella configurazione guidata del backup, Backup di Azure elenca soltanto le macchine virtuali che:
@@ -38,7 +38,7 @@ Nella configurazione guidata del backup, Backup di Azure elenca soltanto le macc
 
 ## <a name="backup"></a>Backup
 ### <a name="will-on-demand-backup-job-follow-same-retention-schedule-as-scheduled-backups"></a>Il processo di backup su richiesta seguirà la stessa pianificazione di conservazione dei backup pianificati?
-No. È necessario specificare l'intervallo di conservazione per un processo di backup su richiesta. Per impostazione predefinita, i backup attivati dal portale vengono conservati per 30 giorni. 
+di serie È necessario specificare l'intervallo di conservazione per un processo di backup su richiesta. Per impostazione predefinita, i backup attivati dal portale vengono conservati per 30 giorni. 
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Di recente è stata abilitata la Crittografia dischi di Azure in alcune macchine virtuali. I backup continueranno a funzionare?
 È necessario concedere le autorizzazioni per permettere al servizio Backup di Azure di accedere a Key Vault. Per concedere tali autorizzazioni in PowerShell, è possibile seguire la procedura descritta nella sezione relativa all'*abilitazione del backup* nella documentazione di [PowerShell](backup-azure-vms-automation.md).
@@ -52,7 +52,7 @@ Sì. Anche quando un computer è stato arrestato i backup vengono eseguiti e il 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>È possibile annullare un processo di backup in corso?
 Sì. È possibile annullare il processo di backup se è in fase di "Creazione dello snapshot". **Se è in corso il trasferimento di dati dallo snapshot non è possibile annullare un processo**. 
 
-## <a name="restore"></a>Ripristino
+## <a name="restore"></a>Restore
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Come scegliere tra il ripristino dei dischi e il ripristino completo della macchina virtuale?
 Il ripristino completo di una macchina virtuale di Azure è fondamentalmente un'opzione di creazione rapida. Il ripristino della macchina virtuale modifica i nomi di dischi, contenitori usati dai dischi, indirizzi IP pubblici e i nomi delle interfacce di rete. Tale modifica è necessaria per mantenere l'univocità delle risorse create durante la creazione della macchina virtuale. La macchina virtuale non viene tuttavia aggiunta al set di disponibilità. 
 

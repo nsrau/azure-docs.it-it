@@ -4,7 +4,7 @@ description: Offre le informazioni di base necessarie per integrare un server Sh
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 09/06/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 2b4ad3e7bda1346e606b2c185c204154b8f19f87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: edc5602586ae2397bc039f252be09df969b06925
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Abilitare l'accesso remoto a SharePoint con il proxy di applicazione di Azure AD
 
@@ -113,7 +113,7 @@ HTTP/sharepoint.demo.o365identity.us demo
 
 Potrebbe essere necessario anche impostare nomi SPN per siti specifici sul server. Per altre informazioni, vedere [Configurare l'autenticazione Kerberos](https://technet.microsoft.com/library/cc263449(v=office.12).aspx). Leggere con attenzione la sezione "Creare nomi delle entità servizio per applicazioni Web mediante l'autenticazione Kerberos".
 
-Il modo più semplice per impostare nomi SPN è quello di seguire i formati dei nomi SPN già presenti per altri siti. Copiare i nomi SPN per la registrazione con l'account del servizio. A tale scopo, seguire questa procedura:
+Il modo più semplice per impostare nomi SPN è quello di seguire i formati dei nomi SPN già presenti per altri siti. Copiare i nomi SPN per la registrazione con l'account del servizio. A tale scopo, effettuare l'operazione seguente:
 
 1. Passare al sito con il nome SPN da un altro computer.
  Quando si esegue questa operazione, il gruppo di ticket Kerberos pertinente viene memorizzato nella cache del computer. Questi ticket contengono il nome SPN del sito di destinazione a cui si è passati.

@@ -4,7 +4,7 @@ description: "Informazioni sulle modalità di gestione dell'accesso alle risorse
 services: active-directory
 documentationcenter: 
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.assetid: f66abf54-3809-436c-92b6-018e1179780e
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/05/2017
 ms.author: skwan
-ms.openlocfilehash: e42bbed0a9e37a6632b2a71d2b3546fcbc38cdc7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: eee4353c183aeec19f72f8e1dec6c20b6c5bb226
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-access-to-azure-resources-with-azure-active-directory"></a>Gestire l'accesso alle risorse di Azure con Azure Active Directory
 

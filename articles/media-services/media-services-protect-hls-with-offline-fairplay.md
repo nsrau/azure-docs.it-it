@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: bf5828ecd6b6bd2e862c4d7709014ecac47c6be0
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: b68ceac2056f0a9a7a9c4df7984789858c77a626
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="offline-fairplay-streaming"></a>FairPlay Streaming offline
 Servizi multimediali di Microsoft Azure include un set di [servizi di protezione dei contenuti](https://azure.microsoft.com/services/media-services/content-protection/) ben progettati, che riguardano:
@@ -180,7 +180,7 @@ In Servizi multimediali di Azure sono stati configurati tre test di esempio che 
 Questi esempi sono disponibili in nel [sito di demo](http://aka.ms/poc#22), con il certificato dell'applicazione corrispondente ospitato in un'app Web di Azure.
 Abbiamo notato che, con l'esempio v3 o v4 di FPS Server SDK, se una playlist master contiene audio alternativo, durante la modalità offline riproduce solo l'audio. È pertanto necessario rimuovere la traccia audio alternativa. In altre parole, tra i tre esempi precedenti, (2) e (3) funzionano in modalità online e offline. L'esempio (1) riprodurrà invece solo l'audio durante la modalità offline, mentre lo streaming online funzionerà perfettamente.
 
-## <a name="faq"></a>domande frequenti
+## <a name="faq"></a>Domande frequenti
 Altre domande frequenti sulla risoluzione dei problemi:
 - **Perché viene riprodotto solo l'audio senza il video durante la modalità offline?** Questo comportamento sembra essere predefinito nell'app di esempio. Se è presente una traccia audio alternativa (come nel caso di HLS), durante la modalità offline verrà riprodotta in iOS 10 e iOS 11 per impostazione predefinita. Per compensare questo comportamento per la modalità offline di FPS, è necessario rimuovere la traccia audio alternativa dal flusso. A tale scopo, sul lato Servizi multimediali di Azure è sufficiente aggiungere il filtro di manifesto dinamico "audio-only=false". In altre parole, un URL HLS terminerebbe con .ism/manifest(format=m3u8-aapl,audio-only=false). 
 - **Perché, anche dopo aver aggiunto audio-only=false, viene ancora riprodotto solo l'audio senza video?** A seconda della progettazione della chiave di cache della rete CDN, il contenuto potrebbe essere memorizzato nella cache. È necessario ripulire la cache.
@@ -189,7 +189,7 @@ Altre domande frequenti sulla risoluzione dei problemi:
 - **Che cosa rappresenta l'ultimo parametro nell'API seguente per la modalità offline di FPS?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
-La documentazione per questa API è disponibile [qui](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). Il parametro rappresenta la durata del periodo di noleggio offline con l'ora specificata come unità.
+La documentazione per questa API è disponibile [qui](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). Il parametro rappresenta la durata del periodo di noleggio offline con l'ora specificata come unità.
 - **Qual è la struttura del file scaricato/offline nei dispositivi iOS?** La struttura del file scaricato in un dispositivo iOS è simile a quanto riportato di seguito (screenshot). La cartella `_keys` archivia le licenze FPS scaricate, un file di archivio per ogni host del servizio licenze. La cartella `.movpkg` archivia il contenuto audio e video. La prima cartella con il nome che termina con un trattino seguito da un valore numerico include il contenuto video. Il valore numerico è il valore "PeakBandwidth" del rendering del video. La seconda cartella con il nome che termina con un trattino seguito da 0 include contenuto audio. La terza cartella denominata "Data" contiene la playlist master del contenuto FPS. Boot.xml include una descrizione completa del contenuto della cartella `.movpkg` (vedere di seguito un file boot.xml di esempio).
 
 ![Struttura del file dell'app di esempio iOS di FairPlay offline](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)
@@ -223,7 +223,7 @@ Un file boot.xml di esempio:
 </HLSMoviePackage>
 ```
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 In questo documento sono stati illustrati i passaggi dettagliati e le informazioni per implementare la modalità offline di FPS, tra cui:
 1. Configurazione della protezione del contenuto di Servizi multimediali Azure tramite l'API AMS .NET. Questa procedura configura la crittografia dinamica di FairPlay e la distribuzione di licenze FairPlay in Servizi multimediali di Azure.
 2. Lettore iOS basato sull'esempio di Apple FPS Server SDK. Configura un lettore iOS in grado di riprodurre contenuto FPS in modalità di streaming online o in modalità offline.

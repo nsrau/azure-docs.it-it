@@ -4,7 +4,7 @@ description: Proteggere gli scambi di attestazioni dell'API REST personalizzati 
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,18 +14,18 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 641e0cc691eae77ef0480e5743d85e020cd8d354
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: d65d94bb5c807abfd6cbb1fae786a02f179e93d6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Proteggere i servizi RESTful tramite l'autenticazione di base HTTP
 In un [articolo correlato relativo ad Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md) è stato creato un servizio RESTful (API Web) integrato nei percorsi utente di Azure Active Directory B2C (Azure AD B2C) senza autenticazione. 
 
 Questo articolo illustra come aggiungere l'autenticazione di base HTTP al servizio RESTful in modo che solo gli utenti verificati, tra cui B2C, possano accedere all'API. Con l'autenticazione di base HTTP è necessario impostare le credenziali dell'utente (ID e segreto dell'app) nei criteri personalizzati. 
 
-Per altre informazioni, vedere [Basic authentication in ASP.NET web API](https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/basic-authentication) (Autenticazione di base nell'API Web ASP.NET).
+Per altre informazioni, vedere [Basic authentication in ASP.NET web API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication) (Autenticazione di base nell'API Web ASP.NET).
 
 ## <a name="prerequisites"></a>Prerequisiti
 Completare i passaggi nell'articolo [Integrare scambi di attestazioni API REST nei percorsi utente di Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md).
@@ -223,7 +223,7 @@ Per pubblicare il progetto, in Esplora soluzioni fare clic con il pulsante destr
 Dopo aver protetto il servizio RESTful con ID client (nomeutente) e segreto client, è necessario archiviare le credenziali nel tenant di Azure AD B2C. I criteri personalizzati forniscono le credenziali quando richiamano i servizi RESTful. 
 
 ### <a name="step-31-add-a-restful-services-client-id"></a>Passaggio 3.1: Aggiungere un ID client dei servizi RESTful
-1. Nel tenant di Azure AD B2C selezionare **B2C Settings** (Impostazioni B2C) > **Framework dell'esperienza di gestione delle identità**.
+1. Nel tenant di Azure AD B2C selezionare **Impostazioni di Azure AD B2C** > **Framework dell'esperienza di gestione delle identità**.
 
 
 2. Selezionare **Chiavi dei criteri** per visualizzare le chiavi disponibili nel tenant.
@@ -239,12 +239,12 @@ Dopo aver protetto il servizio RESTful con ID client (nomeutente) e segreto clie
 
 7. In **Uso chiave** selezionare **Secreto**.
 
-8. Selezionare **Crea**.
+8. Selezionare **Create**.
 
-9. Confermare di avere creato la chiave `B2C_1A_B2cRestClientId`.
+9. Verificare di avere creato la chiave `B2C_1A_B2cRestClientId`.
 
 ### <a name="step-32-add-a-restful-services-client-secret"></a>Passaggio 3.2: Aggiungere un segreto client dei servizi RESTful
-1. Nel tenant di Azure AD B2C selezionare **B2C Settings** (Impostazioni B2C) > **Framework dell'esperienza di gestione delle identità**.
+1. Nel tenant di Azure AD B2C selezionare **Impostazioni di Azure AD B2C** > **Framework dell'esperienza di gestione delle identità**.
 
 2. Selezionare **Chiavi dei criteri** per visualizzare le chiavi disponibili nel tenant.
 
@@ -259,9 +259,9 @@ Dopo aver protetto il servizio RESTful con ID client (nomeutente) e segreto clie
 
 7. In **Uso chiave** selezionare **Secreto**.
 
-8. Selezionare **Crea**.
+8. Selezionare **Create**.
 
-9. Confermare di avere creato la chiave `B2C_1A_B2cRestClientSecret`.
+9. Verificare di avere creato la chiave `B2C_1A_B2cRestClientSecret`.
 
 ## <a name="step-4-change-the-technical-profile-to-support-basic-authentication-in-your-extension-policy"></a>Passaggio 4: Modificare il profilo tecnico per supportare l'autenticazione di base nei criteri di estensione
 1. Aprire il file dei criteri di estensione (TrustFrameworkExtensions.xml) nella directory di lavoro.
@@ -307,7 +307,7 @@ Dopo aver protetto il servizio RESTful con ID client (nomeutente) e segreto clie
     >[!NOTE]
     >Il comando Esegui adesso richiede che nel tenant sia preregistrata almeno un'applicazione. Per informazioni su come registrare le applicazioni, vedere l'articolo di [introduzione](active-directory-b2c-get-started.md) ad Azure AD B2C o l'articolo relativo alla [registrazione delle applicazioni](active-directory-b2c-app-registration.md).
 
-2. Aprire **B2C_1A_signup_signin**, i criteri personalizzati dalla relying party caricati in precedenza e quindi selezionare **Esegui adesso**.
+2. Aprire **B2C_1A_signup_signin**, i criteri personalizzati della relying party caricati in precedenza e quindi selezionare **Esegui adesso**.
 
 3. Testare il processo digitando **Test** nella casella **Nome**.  
     Azure AD B2C visualizza un messaggio di errore nella parte superiore della finestra.
@@ -339,7 +339,7 @@ Dopo aver protetto il servizio RESTful con ID client (nomeutente) e segreto clie
     ```
 
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(Facoltativo) Scaricare i file e il codice dei criteri completi
-* Dopo aver completato la procedura [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md) è consigliabile usare file di criteri personalizzati per definire scenari specifici. Per riferimento, sono disponibili [file di criteri di esempio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-basic).
+* Dopo aver completato la procedura [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md), è consigliabile usare file di criteri personalizzati per definire scenari specifici. Per riferimento, sono disponibili [file di criteri di esempio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-basic).
 * È possibile scaricare il codice completo da [Sample Visual Studio solution for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API) (Soluzione di Visual Studio di esempio per riferimento).
 
 ## <a name="next-steps"></a>Passaggi successivi

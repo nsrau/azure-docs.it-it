@@ -4,7 +4,7 @@ description: Descrive come aggiungere il profilo utente, inclusa l'immagine del 
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: aa38ab92-a867-45d7-9dc1-7f1c628f7ed3
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: a8f298228f21ac498b69e59d553b5b885d28a95a
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: HT
+ms.openlocfilehash: 6f1085a8b434aca18499e17ba1c1d086edfc302e
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory"></a>Aggiungere o modificare informazioni sul profilo per un utente in Azure Active Directory
 Questo articolo descrive come aggiungere informazioni sul profilo utente, ad esempio un'immagine o i dati sull'autenticazione di telefono e posta elettronica in Azure Active Directory (Azure AD). Per informazioni sull'aggiunta di nuovi utenti nell'organizzazione, vedere [Aggiungere nuovi utenti ad Azure Active Directory](active-directory-users-create-azure-portal.md).
@@ -42,5 +42,4 @@ Questo articolo descrive come aggiungere informazioni sul profilo utente, ad ese
 * [Aggiungere o modificare utenti in Azure Active Directory](active-directory-users-create-azure-portal.md)
 * [Reimpostare la password per un utente in Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
 * [Assegnare un utente ai ruoli di amministratore in Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
-* [Aggiungere o modificare informazioni sul profilo per un utente in Azure Active Directory](active-directory-users-work-info-azure-portal.md)
 * [Eliminare un utente da una directory in Azure Active Directory](active-directory-users-delete-user-azure-portal.md)

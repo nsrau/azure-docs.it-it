@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
-ms.openlocfilehash: a5c1822b7304c0360da866ddb504483f5a53432f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: f5d6bb066f9cee0d072ddb3129867cefefe3e66f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>Come usare l'estensione della VM Docker con il portale di Azure classico
+# <a name="using-the-docker-vm-extension-with-the-azure-portal"></a>Utilizzando l'estensione della macchina virtuale Docker con il portale di Azure
 > [!IMPORTANT] 
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/08/2017
 [Docker](https://www.docker.com/) è uno dei più popolari approcci alla virtualizzazione che usa [contenitori Linux](http://en.wikipedia.org/wiki/LXC) invece di macchine virtuali allo scopo di isolare i dati ed eseguire i calcoli su risorse condivise. È possibile usare l'estensione della VM Docker per l' [Agente Linux di Azure] per creare una macchina virtuale Docker che ospiti un numero qualsiasi di contenitori per le applicazioni in Azure.
 
 > [!NOTE]
-> Questo argomento descrive come creare una macchina virtuale Docker dal portale di Azure. Per scoprire come creare una macchina virtuale Docker nella riga di comando, vedere [Come usare l'estensione della VM Docker dall'interfaccia della riga di comando di Azure]. Per assistere a una discussione di alto livello sui contenitori e i relativi vantaggi, guardare questa [sessione con lavagna condivisa relativa a Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+> Questo argomento descrive come creare una macchina virtuale Docker dal portale di Azure. Per scoprire come creare una macchina virtuale Docker nella riga di comando, vedere [Uso dell'estensione della VM Docker dall'interfaccia multipiattaforma di Azure (xplat-cli)]. Per assistere a una discussione di alto livello sui contenitori e i relativi vantaggi, guardare questa [sessione con lavagna condivisa relativa a Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 > 
 > 
 
@@ -130,7 +130,7 @@ Dopo avere completato i passaggi sopra elencati, si sarà ottenuto un host Docke
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passaggi successivi
-È ora possibile passare alla [guida dell'utente di Docker] e usare la VM Docker. Per automatizzare la creazione di host Docker in macchine virtuali di Azure tramite l'interfaccia della riga di comando, vedere [Come usare l'estensione della VM Docker dall'interfaccia della riga di comando di Azure]
+È ora possibile passare alla [guida dell'utente di Docker] e usare la VM Docker. Per automatizzare la creazione di host Docker in macchine virtuali di Azure tramite l'interfaccia della riga di comando, vedere [Uso dell'estensione della VM Docker dall'interfaccia multipiattaforma di Azure (xplat-cli)]
 
 <!--Anchors-->
 [Create a new VM from the Image Gallery]:#createvm
@@ -153,7 +153,7 @@ Dopo avere completato i passaggi sopra elencati, si sarà ottenuto un host Docke
 
 
 <!--Link references-->
-[Come usare l'estensione della VM Docker dall'interfaccia della riga di comando di Azure]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
+[Uso dell'estensione della VM Docker dall'interfaccia multipiattaforma di Azure (xplat-cli)]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
 [Agente Linux di Azure]:../agent-user-guide.md
 [Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md
 

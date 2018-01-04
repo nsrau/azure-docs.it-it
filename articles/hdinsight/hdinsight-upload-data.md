@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: 9cdf41bd5c15abca3570a08584dc0958497848a7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: cfe1b6bee9bc1f093b239f8f4acc523e47ad5d1a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Caricare dati per processi Hadoop in HDInsight
 
@@ -166,7 +166,7 @@ Dopo essersi connessi, è possibile usare la sintassi seguente per caricare un f
 hadoop -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
-Ad esempio, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
+Ad esempio: `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Poiché il file system predefinito per HDInsight si trova in Archiviazione di Microsoft Azure, /example/datadavinci.txt si trova effettivamente in Archiviazione di Microsoft Azure. È inoltre possibile fare riferimento al file come segue:
 
@@ -246,7 +246,7 @@ Per altre informazioni, vedere [Usare Sqoop con HDInsight][hdinsight-use-sqoop].
 
 Per altre informazioni sull'installazione di SDK di Azure, vedere [Download di Azure](https://azure.microsoft.com/downloads/)
 
-### <a name="troubleshooting"></a>Risoluzione dei problemi
+### <a name="troubleshooting"></a>risoluzione dei problemi
 #### <a id="storageexception"></a>Eccezione di archiviazione per la scrittura nel BLOB
 **Sintomi**: quando si usa il comando `hadoop` o `hdfs dfs` per scrivere file di dimensioni pari o superiori a ~12 GB in un cluster HBase, è possibile che si verifichi l'errore seguente:
 

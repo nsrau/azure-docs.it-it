@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: a6799629-7546-43f8-a966-956db32864b1
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 3cddd5b9508159089bf344dbb3882d462799747c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e1381f2273ee961a4b72dede8cf8e017814ba909
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Esercitazione: Integrazione di Azure Active Directory con FirmPlay - Employee Advocacy for Recruiting
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con FirmPlay - Employee Advocacy for Recruiting, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di FirmPlay - Employee Advocacy for Recruiting abilitata per l'accesso Single-Sign On
 
 
@@ -50,7 +50,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di FirmPlay - Employee Advocacy for Recruiting dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -67,11 +67,11 @@ Per configurare l'integrazione di FirmPlay - Employee Advocacy for Recruiting in
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 3. Fare clic sul pulsante **Aggiungi** nella parte superiore della finestra di dialogo.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 4. Nella casella di ricerca digitare **FirmPlay - Employee Advocacy for Recruiting**.
 
@@ -91,7 +91,7 @@ La relazione di collegamento viene stabilita assegnando il valore di **nome uten
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con FirmPlay - Employee Advocacy for Recruiting, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente di test di FirmPlay - Employee Advocacy for Recruiting](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)**: per avere una controparte di Britta Simon in FirmPlay - Employee Advocacy for Recruiting collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -105,44 +105,44 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **FirmPlay - Employee Advocacy for Recruiting** del portale di gestione di Azure fare clic su **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** in **Modalità** selezionare **Accesso basato su SAML** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_01.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_01.png)
 
 3. Nella casella di testo **URL di accesso** della sezione **URL e dominio di FirmPlay - Employee Advocacy for Recruiting** digitare un URL usando il modello seguente: `https://<your-subdomain>.firmplay.com/`
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_02.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_02.png)
 
     > [!NOTE] 
     > Si noti che questo non è il valore reale. È necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questo valore, contattare il [team di supporto di FirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com). 
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **Crea nuovo certificato**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_03.png)   
+    ![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_03.png)   
 
 5. Nella finestra di dialogo **Crea nuovo certificato** fare clic sull'icona del calendario e selezionare una **data di scadenza**. Fare quindi clic sul pulsante **Salva**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_general_300.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_general_300.png)
 
 6. Nella sezione **Certificato di firma SAML** selezionare **Make new certificate active** (Rendi attivo il nuovo certificato) e fare clic sul pulsante **Salva**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_04.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_04.png)
 
 7. Nella finestra popup **Rollover certificate** (Certificato di rollover) fare clic su **OK**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_general_400.png)
 
 8. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer. 
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_05.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_05.png) 
 
 9. Nella sezione **Configurazione di FirmPlay - Employee Advocacy for Recruiting** fare clic su **Configura FirmPlay - Employee Advocacy for Recruiting** per aprire la finestra di dialogo **Configura accesso**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_06.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_06.png) 
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_07.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_07.png)
 
 10. Per configurare l'accesso SSO per l'applicazione, contattare il [team di supporto di FirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com) e fornire gli elementi seguenti: 
 
@@ -207,7 +207,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 2. Nell'elenco delle applicazioni selezionare **FirmPlay - Employee Advocacy for Recruiting**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_50.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_50.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

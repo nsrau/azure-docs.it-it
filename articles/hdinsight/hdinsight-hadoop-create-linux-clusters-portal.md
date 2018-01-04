@@ -16,25 +16,25 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: d7148d34978a2da53cc5a51460e0b33c38760e33
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: HT
+ms.openlocfilehash: 309f997174211e1a1a2d0eeea2b9b445c8b37e4d
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Creare cluster basati su Linux in HDInsight tramite il portale di Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Il portale di Azure è uno strumento di gestione basato sul Web per servizi e risorse ospitati nel cloud di Microsoft Azure. In questo articolo si apprenderà come creare cluster HDInsight basati su Linux tramite il portale.
+Il portale di Azure è uno strumento di gestione basato sul Web per servizi e risorse ospitati nel cloud di Microsoft Azure. In questo articolo si imparare a creare il cluster HDInsight basati su Linux tramite il portale.
 
 ## <a name="prerequisites"></a>Prerequisiti
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Un Web browser moderno**. Il portale di Azure usa HTML5 e Javascript e potrebbe non funzionare correttamente nei Web browser meno recenti.
 
 ## <a name="create-clusters"></a>Creare i cluster
-Il portale di Azure espone la maggior parte delle proprietà del cluster. Con il modello di Azure Resource Manager è possibile nascondere molti dettagli. Per altre informazioni, vedere [Creare cluster Hadoop basati su Linux in HDInsight tramite modelli di Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+Il portale di Azure espone la maggior parte delle proprietà del cluster. Utilizzando il modello di gestione risorse di Azure, è possibile nascondere tutti i dettagli. Per altre informazioni, vedere [Creare cluster Hadoop basati su Linux in HDInsight tramite modelli di Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
@@ -50,43 +50,40 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con il
 
     * Inserire il **Nome cluster**: il nome deve essere univoco a livello globale.
 
-    * Nell'elenco a discesa **Sottoscrizione** selezionare la sottoscrizione di Azure che verrà usata per il cluster.
+    * Dal **sottoscrizione** elenco a discesa, selezionare la sottoscrizione di Azure che viene utilizzata per il cluster.
 
-    * Fare clic su **Tipo di cluster**, quindi scegliere:
-   
-        * **Tipo di cluster**: in caso di dubbi su questa opzione, scegliere **Hadoop**. È il tipo di cluster più diffuso.
+    * Fare clic su **Cluster tipo**e quindi selezionare il tipo di cluster (Hadoop, Spark e così via) si desidera creare. Per **del sistema operativo**, fare clic su **Linux** e quindi selezionare una versione. Utilizzare la versione predefinita se non si conosce quale scegliere. Per altre informazioni, vedere [Versioni del cluster HDInsight](hdinsight-component-versioning.md).
+
+        Per i tipi di cluster Hadoop Spark e Query interattivo, è anche possibile scegliere di installare il **pacchetto di sicurezza Enterprise**. Pacchetto di protezione aziendale consente la funzionalità di sicurezza, ad esempio l'integrazione di Azure Active Directory e Apache cane per i cluster. Per ulteriori informazioni, vedere [pacchetto di sicurezza dell'organizzazione in Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
+
+        ![Abilitare il pacchetto di sicurezza Enterprise](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-enable-enterprise-security-package.png "abilitare il pacchetto di sicurezza dell'organizzazione")
      
-            > [!IMPORTANT]
-            > Sono disponibili molti tipi di cluster HDInsight, che corrispondono al carico di lavoro o alla tecnologia per cui è ottimizzato il cluster. Non è disponibile alcun metodo supportato per creare un cluster che combini più tipi, ad esempio Storm e HBase in un cluster. 
-            > 
-            > 
+        > [!IMPORTANT]
+        > Sono disponibili molti tipi di cluster HDInsight, che corrispondono al carico di lavoro o alla tecnologia per cui è ottimizzato il cluster. Non è disponibile alcun metodo supportato per creare un cluster che combini più tipi, ad esempio Storm e HBase in un cluster. 
+        > 
+        > 
         
-        * **Sistema operativo**: selezionare **Linux**.
-        
-        * **Versione**: utilizzare la versione predefinita, in caso di dubbi. Per altre informazioni, vedere [Versioni del cluster HDInsight](hdinsight-component-versioning.md).
-        * **Livello del cluster**: HDInsight di Azure fornisce offerte cloud per i Big Data in due categorie: livello Standard e livello Premium. Per ulteriori informazioni, vedere [Livelli di cluster](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers).
-
     * Per **Nome utente dell'account di accesso del cluster** e **Password dell'account di accesso del cluster** immettere il nome utente e la password dell'utente amministratore.
 
     * Immettere un **Nome utente SSH** e se si desidera che la password SSH sia uguale alla password dell'amministratore specificata in precedenza, selezionare la casella di controllo **Usa la stessa password dell'account di accesso del cluster**. In caso contrario, inserire una **PASSWORD** o una **CHIAVE PUBBLICA** da usare per autenticare l'utente SSH. Si consiglia di utilizzare una chiave pubblica. Fare clic su **Seleziona** nella parte inferiore per salvare la configurazione delle credenziali.
    
-        Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+    Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
     * Per **Gruppo di risorse**, specificare se si desidera creare un nuovo gruppo di risorse o usarne uno esistente.
 
-    * Specificare un **percorso** per il data center in cui verrà creato il cluster.
+    * Specificare un data center **percorso** in cui la creazione del cluster.
 
     * Fare clic su **Avanti**.
 
-4. Nel pannello **Archiviazione** specificare se si desidera impostare Archiviazione di Azure (WASB) o Data Lake Store come risorsa di archiviazione predefinita. Per altre informazioni, vedere la tabella di seguito.
+4. Per **archiviazione**, specificare se si desidera archiviazione di Azure (WASB) o archivio Data Lake come lo spazio di archiviazione predefinito. Per altre informazioni, vedere la tabella di seguito.
 
     ![Creazione di un nuovo cluster nel portale di Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "Creazione di un nuovo cluster nel portale di Azure")
 
-    | Archiviazione                                      | Descrizione |
+    | Archiviazione                                      | DESCRIZIONE |
     |----------------------------------------------|-------------|
-    | **BLOB del servizio di archiviazione di Azure come risorsa di archiviazione predefinita**   | <ul><li>Per **Tipo di archiviazione primario** selezionare **Archiviazione di Azure**. Successivamente, per **Metodo di selezione**, è possibile scegliere **Sottoscrizioni personali** se si desidera specificare un account di archiviazione che fa parte della sottoscrizione Azure e quindi selezionare l'account di archiviazione. In caso contrario, fare clic su **Chiave di accesso** e fornire le informazioni relative all'account di archiviazione che si desidera scegliere all'esterno della sottoscrizione Azure.</li><li>Per **Contenitore predefinito**, è possibile scegliere di usare il nome del contenitore predefinito suggerito dal portale oppure specificarne uno personale.</li><li>Se si usa WASB come risorsa di archiviazione predefinita, è possibile (facoltativamente) fare clic su **Account archiviazione aggiuntivi** per specificare gli account di archiviazione aggiuntivi da associare al cluster. Nel pannello **Chiavi di archiviazione di Azure** fare clic su **Aggiungi una chiave di archiviazione**. Sarà quindi possibile fornire un account di archiviazione da sottoscrizioni Azure o da altre sottoscrizioni (fornendo la chiave di accesso all'account di archiviazione).</li><li>Se si usa WASB come risorsa di archiviazione predefinita, è possibile (facoltativamente) fare clic su **Accesso a Data Lake Store** per specificare Azure Data Lake Store come risorsa di archiviazione aggiuntiva. Per altre informazioni, vedere [Creare un cluster HDInsight con Data Lake Store tramite il Portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).</li></ul> |
-    | **Azure Data Lake Store come risorsa di archiviazione predefinita** | Per **Tipo di archiviazione primario** selezionare **Data Lake Store** e quindi fare riferimento all'articolo [Creare un cluster HDInsight con Data Lake Store tramite il Portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) per le istruzioni. |
-    | **Metastore esterni**                      | È possibile, facoltativamente, specificare un database SQL per salvare i metadati Hive e Oozie associati al cluster. Per **Seleziona un database SQL per Hive**, selezionare un database SQL e quindi specificare il nome utente e la password per il database stesso. Ripetere questi passaggi per i metadati Oozie.<br><br>Alcune considerazioni durante l'utilizzo del database SQL di Azure per metastore. <ul><li>Il database SQL di Azure usato per il metastore deve consentire la connettività ad altri servizi di Azure, incluso Azure HDInsight. Sul lato destro del dashboard del database SQL di Azure fare clic sul nome del server, cioè il server in cui è in esecuzione l'istanza di database SQL. Nella visualizzazione server fare clic su **Configura**, quindi per **Servizi di Microsoft Azure** fare clic su **Sì** e infine su **Salva**.</li><li>Quando si crea un metastore personalizzato, non utilizzare un nome di database che contiene trattini o segni meno, poiché il processo di creazione del cluster non andrebbe a buon fine.</li></ul>                                                                                                                                                                       |
+    | **BLOB del servizio di archiviazione di Azure come risorsa di archiviazione predefinita**   | <ul><li>Per **Tipo di archiviazione primario** selezionare **Archiviazione di Azure**. Successivamente, per **Metodo di selezione**, è possibile scegliere **Sottoscrizioni personali** se si desidera specificare un account di archiviazione che fa parte della sottoscrizione Azure e quindi selezionare l'account di archiviazione. In caso contrario, fare clic su **Chiave di accesso** e fornire le informazioni relative all'account di archiviazione che si desidera scegliere all'esterno della sottoscrizione Azure.</li><li>Per **Contenitore predefinito**, è possibile scegliere di usare il nome del contenitore predefinito suggerito dal portale oppure specificarne uno personale.</li><li>Se si usa WASB come risorsa di archiviazione predefinita, è possibile (facoltativamente) fare clic su **Account archiviazione aggiuntivi** per specificare gli account di archiviazione aggiuntivi da associare al cluster. Per **chiavi di archiviazione di Azure**, fare clic su **aggiungere una chiave di archiviazione**, e quindi è possibile fornire un account di archiviazione dalle sottoscrizioni di Azure o da altre sottoscrizioni (fornendo la chiave di accesso di account di archiviazione).</li><li>Se si usa WASB come risorsa di archiviazione predefinita, è possibile (facoltativamente) fare clic su **Accesso a Data Lake Store** per specificare Azure Data Lake Store come risorsa di archiviazione aggiuntiva. Per altre informazioni, vedere [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).</li></ul> |
+    | **Azure Data Lake Store come risorsa di archiviazione predefinita** | Per **tipo di archiviazione primario**selezionare **archivio Data Lake** e quindi fare riferimento all'articolo [creare un cluster HDInsight con archivio Data Lake tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) per le istruzioni. |
+    | **Metastore esterni**                      | È possibile, facoltativamente, specificare un database SQL per salvare i metadati Hive e Oozie associati al cluster. Per **Seleziona un database SQL per Hive**, selezionare un database SQL e quindi specificare il nome utente e la password per il database stesso. Ripetere questi passaggi per i metadati Oozie.<br><br>Alcune considerazioni durante l'utilizzo del database SQL di Azure per metastore. <ul><li>Il database SQL di Azure usato per il metastore deve consentire la connettività ad altri servizi di Azure, incluso Azure HDInsight. Sul lato destro del dashboard del database SQL di Azure fare clic sul nome del server, cioè il server in cui è in esecuzione l'istanza di database SQL. Nella visualizzazione server fare clic su **Configura**, quindi per **Servizi di Microsoft Azure** fare clic su **Sì** e infine su **Salva**.</li><li>Quando si crea un metastore personalizzato, non utilizzare un nome di database che contiene trattini o segni meno, poiché il processo di creazione del cluster non andrebbe a buon fine.</li></ul> |
 
     Fare clic su **Avanti**. 
 
@@ -96,12 +93,12 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con il
 5. Se lo si desidera, fare clic su **Applicazioni** per installare le applicazioni che funzionano con i cluster HDInsight. Queste applicazioni possono essere sviluppate da Microsoft, da fornitori di software indipendenti (ISV) o dall'utente. Per altre informazioni, vedere [Installare applicazioni HDInsight](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 
 
-6. Fare clic su **Dimensione del cluster** per visualizzare informazioni sui nodi che verranno creati per questo cluster. Impostare il numero di nodi del ruolo di lavoro necessari per il cluster. Verrà visualizzato il costo stimato del cluster all'interno del pannello.
+6. Fare clic su **dimensioni del Cluster** per visualizzare informazioni sui nodi che vengono utilizzati per questo cluster. Impostare il numero di nodi del ruolo di lavoro necessari per il cluster. Viene inoltre visualizzato il costo stimato di esecuzione del cluster.
    
-    ![Pannello Piani tariffari per il nodo](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-nodes.png "Specificare il numero di nodi del cluster")
+    ![I livelli di prezzo nodo](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-nodes.png "specificare numero di nodi del cluster")
    
    > [!IMPORTANT]
-   > Se si prevedono più di 32 nodi di lavoro, al momento della creazione del cluster o con il ridimensionamento del cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14GB di RAM.
+   > Se si prevede più di 32 nodi di lavoro, al momento della creazione del cluster o ridimensionando il cluster dopo la creazione, è necessario selezionare una dimensione del nodo head con almeno 8 core e 14 GB di RAM.
    > 
    > Per altre informazioni sulle dimensioni di nodo e i costi associati, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
    > 
@@ -111,28 +108,28 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con il
 
 7. Fare clic su **Impostazioni avanzate** per configurare altre impostazioni facoltative, ad esempio l'utilizzo di **Azioni Script** per personalizzare un cluster per installare i componenti personalizzati o per la partecipazione a una **Rete virtuale**. Per altre informazioni, vedere la tabella di seguito.
 
-    ![Pannello Piani tariffari per il nodo](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-advanced.png "Specificare il numero di nodi del cluster")
+    ![I livelli di prezzo nodo](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-advanced.png "specificare numero di nodi del cluster")
 
-    | Opzione | Descrizione |
+    | Opzione | DESCRIZIONE |
     |--------|-------------|
     | **Azioni Script** | Se si desidera usare uno script personalizzato per personalizzare un cluster durante la creazione. Per altre informazioni sulle azioni di script, vedere [Personalizzare i cluster HDInsight mediante le azioni script](hdinsight-hadoop-customize-cluster-linux.md). |
     | **Rete virtuale** | Selezionare una rete virtuale di Azure e la subnet, se si desidera posizionare il cluster in una rete virtuale. Per informazioni sull'uso di HDInsight con una rete virtuale, inclusi i requisiti di configurazione specifici per la rete virtuale, vedere [Estendere le funzionalità di HDInsight usando Rete virtuale di Azure](hdinsight-extend-hadoop-virtual-network.md). |
 
     Fare clic su **Avanti**.
 
-8. Nel pannello **Riepilogo** verificare le informazioni immesse in precedenza e quindi fare clic su **Crea**.
+8. Per **riepilogo**, verificare le informazioni immesse in precedenza e quindi fare clic su **crea**.
 
-    ![Pannello Piani tariffari per il nodo](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-summary.png "Specificare il numero di nodi del cluster")
+    ![I livelli di prezzo nodo](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-summary.png "specificare numero di nodi del cluster")
     
     > [!NOTE]
-    > La creazione del cluster richiederà del tempo, in genere circa 15 minuti. Usare il riquadro sulla schermata iniziale, o la voce **Notifiche** a sinistra della pagina per controllare il processo di provisioning.
+    > La creazione del cluster richiede tempo, in genere circa 15 minuti. Usare il riquadro sulla schermata iniziale, o la voce **Notifiche** a sinistra della pagina per controllare il processo di provisioning.
     > 
     > 
-12. Al termine della procedura di creazione, fare clic sul riquadro per il cluster dalla Schermata iniziale per avviare il pannello del cluster. Nel pannello relativo al cluster sono disponibili le informazioni indicate di seguito.
+12. Una volta completato il processo di creazione, fare clic sul riquadro per il cluster dalla schermata iniziale. La finestra di cluster fornisce le informazioni seguenti.
     
-    ![Pannello Cluster](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-completed.png "Proprietà del cluster")
+    ![Interfaccia cluster](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-completed.png "le proprietà del Cluster")
     
-    Usare le informazioni seguenti per comprendere le icone nella parte superiore di questo pannello.
+    Usare le operazioni seguenti per comprendere le icone nella parte superiore.
     
     * Il pannello **Panoramica** fornisce tutte le informazioni essenziali sul cluster, ad esempio nome, gruppo di risorse a cui appartiene, percorso, sistema operativo, URL per il dashboard del cluster e così via.
     * **Dashboard** permette di passare al portale di Ambari associato al cluster.
@@ -145,10 +142,10 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con il
 * Vedere [Personalizzare cluster HDInsight tramite Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 * Vedere [Personalizzare cluster HDInsight usando l'azione script](hdinsight-hadoop-customize-cluster-linux.md).
 
-## <a name="delete-the-cluster"></a>Eliminazione del cluster
+## <a name="delete-the-cluster"></a>Eliminare il cluster
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisiti dei controlli di accesso](hdinsight-administer-use-portal-linux.md#create-clusters).
 

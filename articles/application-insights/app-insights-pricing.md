@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
-ms.translationtype: HT
+ms.openlocfilehash: 95c5195ac2ea832586211cce37eb2094e06eaf03
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gestire volumi di dati e prezzi in Application Insights
 
@@ -90,7 +90,7 @@ Come [annunciato di recente](https://blogs.technet.microsoft.com/msoms/2017/05/1
  
 ## <a name="review-pricing-plans-and-estimate-costs"></a>Esaminare i piani tariffari e stimare i costi
 
-Application Insights semplifica la comprensione dei piani tariffari disponibili e dei possibili costi associati in base a modelli di utilizzo recente. Iniziare aprendo il pannello **Funzionalità + prezzi** nella risorsa di Application Insights del portale di Azure:
+Application Insights rende più facile da comprendere i piano tariffari piani disponibili e quali i costi sono probabilmente essere basati su modelli di utilizzo recenti. Iniziare aprendo il pannello **Funzionalità + prezzi** nella risorsa di Application Insights del portale di Azure:
 
 ![Scegliere Prezzi.](./media/app-insights-pricing/01-pricing.png)
 
@@ -134,15 +134,15 @@ Ecco alcune operazioni da eseguire per ridurre il volume di dati:
 
 ## <a name="managing-the-maximum-daily-data-volume"></a>Gestione del volume di dati massimo giornaliero
 
-È possibile usare il limite di utilizzo di volume giornaliero per limitare i dati raccolti, ma se il limite viene raggiunto, si verificherà una perdita di tutti i dati di telemetria inviati dall'applicazione per il resto del giorno. **Non è consigliabile** che l'applicazione raggiunga il limite giornaliero, in quanto una volta raggiunto non si riuscirà più a rilevare l'integrità e le prestazioni dell'applicazione in uso. 
+È possibile utilizzare il limite giornaliero di volume per limitare i dati raccolti, ma se viene soddisfatta la terminazione, si verificherà una perdita di tutti i dati di telemetria inviati dall'applicazione per il resto del giorno. **Non è consigliabile** che l'applicazione raggiunga il limite giornaliero, in quanto una volta raggiunto non si riuscirà più a rilevare l'integrità e le prestazioni dell'applicazione in uso. 
 
-Usare invece il [campionamento](app-insights-sampling.md) per ottimizzare il volume di dati al livello desiderato e usare il limite giornaliero solo come ultima opzione, nel caso in cui l'applicazione inizia a inviare volumi di dati di telemetria più elevati in modo imprevisto. 
+Utilizzare invece [campionamento](app-insights-sampling.md) per ottimizzare il volume di dati a livello di desideri e utilizzare il limite giornaliero solo come "strettamente", nel caso in cui l'applicazione inizia a inviare quantità volumi più elevati di dati di telemetria in modo imprevisto. 
 
-Per modificare il limite giornaliero, nella sezione di configurazione della risorsa di Application Insights fare clic su **Gestione del volume dati** e quindi su **Limite di utilizzo giornaliero**.
+Per modificare il limite giornaliero, nella sezione di configurazione della risorsa di Application Insights, fare clic su **gestione di volumi di dati** quindi **limite giornaliero**.
 
 ![Regolazione del limite di uso del volume di dati di telemetria giornalieri](./media/app-insights-pricing/daily-cap.png) 
 
-## <a name="sampling"></a>Campionamento
+## <a name="sampling"></a>campionamento
 [Sampling](app-insights-sampling.md) consente di ridurre la frequenza con cui i dati di telemetria vengono inviati all'app, pur mantenendo la possibilità di trovare gli eventi correlati durante le ricerche di diagnostica e il conteggio corretto degli eventi. 
 
 Il campionamento consente di ridurre in modo efficace i costi e di non superare la quota mensile. L'algoritmo di campionamento conserva gli elementi correlati ai dati di telemetria, in modo che, quando si usa la ricerca, ad esempio, è possibile trovare la richiesta correlata a una particolare eccezione. L'algoritmo mantiene inoltre i conteggi corretti e consente di visualizzare in Esplora metriche i valori corretti della frequenza delle richieste, della frequenza delle eccezioni e di altri contatori.

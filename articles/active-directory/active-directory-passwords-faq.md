@@ -5,7 +5,7 @@ services: active-directory
 keywords: gestione delle password in Active Directory, gestione delle password, reimpostazione della password self-service di Azure AD
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6497421b1c51e361d6881332a19c19c7d47c8e29
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 4216c417d137c00587bf65b39410eca6f4cef8bc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Domande frequenti sulla gestione delle password
 
@@ -41,6 +41,11 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
 * **D: Gli utenti possono registrare i propri dati per la reimpostazione della password?**
 
   > **R:** Sì. Se la reimpostazione della password è abilitata, gli utenti con licenza possono accedere al portale di registrazione per la reimpostazione della password (http://aka.ms/ssprsetup) per registrare le proprie informazioni di autenticazione. La registrazione può essere eseguita anche tramite il pannello di accesso (http://myapps.microsoft.com). Per la registrazione tramite il pannello di accesso, gli utenti devono selezionare la propria immagine del profilo, quindi **Profilo** e infine l'opzione **Registrazione per reimpostazione password**.
+  >
+  >
+* **Q: se abilita la password reimpostata per un gruppo e quindi decidere se abilitare la funzionalità per tutti gli utenti sono my utenti necessario ripetere la registrazione?**
+
+  > **R:** No. Gli utenti che popolate con dati di autenticazione non è necessario registrare nuovamente.
   >
   >
 * **D: è possibile definire i dati di reimpostazione della password per conto degli utenti?**
@@ -240,7 +245,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
   >
 
-## <a name="password-writeback"></a>Writeback delle password
+## <a name="password-writeback"></a>writeback delle password
 
 * **D: Come funziona il writeback delle password in background?**
 

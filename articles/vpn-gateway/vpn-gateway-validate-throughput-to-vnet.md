@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 3a1a6e2acd2ff40c2b35a6099f8a9fc7eb104bbc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e7e3c641791e7c72f5c2d6f8ecf674d1d7ee7ffa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Come convalidare la velocità effettiva della VPN verso una rete virtuale
 
@@ -53,7 +53,7 @@ Il diagramma seguente mostra la connettività logica di una rete locale a una re
 4.  Determinare la larghezza di banda del provider di servizi Internet (ISP).
 5.  Eseguire il calcolo di velocità effettiva prevista - larghezza di banda minima di (macchina virtuale, gateway, ISP) * 0,8.
 
-Se la velocità effettiva calcolata non soddisfa i requisiti di velocità effettiva di base dell'applicazione, è necessario aumentare la larghezza di banda della risorsa identificata come collo di bottiglia. Per ridimensionare un gateway VPN di Azure, vedere [Changing a gateway SKU](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku) (Modifica SKU del gateway). Per ridimensionare una macchina virtuale, vedere [Ridimensionare una VM ](../virtual-machines/virtual-machines-windows-resize-vm.md). Se non si dispone della larghezza di banda Internet prevista, è consigliabile anche contattare il provider di servizi Internet.
+Se la velocità effettiva calcolata non soddisfa i requisiti di velocità effettiva di base dell'applicazione, è necessario aumentare la larghezza di banda della risorsa identificata come collo di bottiglia. Per ridimensionare un gateway VPN di Azure, vedere [Changing a gateway SKU](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku) (Modifica SKU del gateway). Per ridimensionare una macchina virtuale, vedere [Ridimensionare una VM ](../virtual-machines/virtual-machines-windows-resize-vm.md). Se non si dispone della larghezza di banda Internet prevista, è consigliabile anche contattare il provider di servizi Internet.
 
 ## <a name="validate-network-throughput-by-using-performance-tools"></a>Convalidare la velocità effettiva della rete mediante gli strumenti di prestazioni
 
@@ -122,7 +122,7 @@ Eseguire il download di [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-
 È possibile che la copia dei file venga eseguita lentamente quando si usa Esplora risorse o il trascinamento della selezione tramite una sessione RDP. Questo problema è in genere dovuto a uno o a entrambi i fattori seguenti:
 
 - Le applicazioni di copia dei file, ad esempio Esplora risorse e RDP, non usano più thread durante la copia dei file. Per prestazioni ottimali, usare un'applicazione per la copia dei file multithread, ad esempio [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx), per copiare i file a 16 o 32 thread. Per modificare il numero di thread per la copia dei file in Richcopy, fare clic su **Azione** > **Opzioni copia** > **Copia dei file**.<br><br>
-![Problemi di esecuzione lenta della copia dei file](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
+![Problemi di copia dei file lento](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 - Velocità di lettura/scrittura disco macchina virtuale insufficiente. Per altre informazioni, vedere [Risoluzione dei problemi di Archiviazione di Azure](../storage/common/storage-e2e-troubleshooting.md).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Interfaccia con connessione rivolta all'esterno del dispositivo locale
@@ -132,7 +132,7 @@ Se l'indirizzo IP per Internet del dispositivo VPN locale è incluso nella defin
 Usare tracert per tenere traccia del dispositivo perimetrale di Microsoft Azure per determinare se sono presenti eventuali ritardi con oltre 100 ms tra hop.
 
 Dalla rete locale eseguire *tracert* all'indirizzo VIP del gateway o della macchina virtuale di Azure. Quando viene restituito solo un asterisco (*), vuol dire che è stato raggiunto il dispositivo periferico di Azure. Quando vengono restituiti nomi DNS che includono "MSN", vuol dire che è stata raggiunta la backbone di Microsoft.<br><br>
-![Controllo della latenza](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
+![Verifica la latenza](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per maggiori informazioni o assistenza, consultare i collegamenti seguenti:

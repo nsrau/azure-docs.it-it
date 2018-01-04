@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 69c6efc3-54c7-49ec-b827-33177c09aa13
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/2/2017
 ms.author: jeedes
-ms.openlocfilehash: 5f7019d1fddcea186713a5985d7e4b66cd1628e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f05c43e2d8f6e777ae128e90040d8d5c270c212b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Esercitazione: Integrazione di Azure Active Directory con Compliance ELF
 
@@ -28,7 +28,7 @@ L'integrazione di Compliance ELF con Azure AD offre i vantaggi seguenti:
 
 - È possibile controllare in Azure AD chi può accedere a Compliance ELF.
 - È possibile abilitare gli utenti per l'accesso automatico a Compliance ELF (Single Sign-On) con i propri account Azure AD.
-- È possibile gestire gli account da una posizione centrale: il portale di Azure.
+- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -36,7 +36,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con Compliance ELF, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Una sottoscrizione abilitata per l'accesso Single Sign-On con Compliance ELF
 
 > [!NOTE]
@@ -48,7 +48,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Compliance ELF dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -98,7 +98,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **Compliance ELF** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Collegamento per la configurazione dell'accesso Single Sign-On][4]
+    ![Collegamento Configura accesso Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
@@ -114,7 +114,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Accesso Single Sign-On di URL e dominio Compliance ELF](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_url1.png)
 
-    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.complianceelf.com`.
+    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.complianceelf.com`
     
     > [!NOTE] 
     > Poiché non è reale, è necessario aggiornarlo con l'URL di accesso effettivo. Per ottenere il valore contattare il [team di supporto clienti di Compliance ELF](mailto:support@complianceelf.com).
@@ -127,19 +127,19 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Fare clic su **Registrazioni per l'app**.
     
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appregistrations.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appregistrations.png)
    
     b. Fare clic su **Endpoint** per aprire la finestra di dialogo **Endpoint**.  
     
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpointicon.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpointicon.png)
 
     c. Fare clic sul pulsante Copia per copiare l'URL del **DOCUMENTO METADATI FEDERAZIONE** e incollarlo nel Blocco note.
     
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpoint.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_endpoint.png)
      
     d. Passare ora alla pagina delle proprietà di **Compliance ELF**, copiare l'**ID applicazione** usando il pulsante **Copia** e incollarlo nel Blocco note.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appid.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-complianceelf-tutorial/tutorial_complianceelf_appid.png)
 
     e. Generare l'**URL dei metadati** usando il modello seguente: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 

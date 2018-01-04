@@ -4,7 +4,7 @@ description: "Questo argomento descrive i ruoli predefiniti per il controllo deg
 services: active-directory
 documentationcenter: 
 author: andredm7
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a5de00793621cfdecea887c53a22d482a25d1b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3e7c563547f04a16a1059ed709d9ded25d60792f
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure
 Il controllo degli accessi in base al ruolo di Azure presenta i seguenti ruoli predefiniti che possono essere assegnati a utenti, gruppi e servizi. Non è possibile modificare le definizioni dei ruoli predefiniti. Si possono tuttavia creare [ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md) per soddisfare le esigenze specifiche dell'organizzazione.
@@ -28,7 +28,7 @@ Il controllo degli accessi in base al ruolo di Azure presenta i seguenti ruoli p
 ## <a name="roles-in-azure"></a>Ruoli in Azure
 La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic sul nome del ruolo per visualizzare un elenco dettagliato delle proprietà **actions** e **notactions** per il ruolo. La proprietà **actions** specifica le azioni consentite sulle risorse di Azure. Nelle stringhe delle azioni è possibile utilizzare caratteri jolly. La proprietà **notactions** specifica le azioni non consentite.
 
-L'azione definisce quale tipo di operazioni è possibile eseguire su un tipo di risorsa specifico. Ad esempio:
+L'azione definisce quale tipo di operazioni è possibile eseguire su un tipo di risorsa specifico. Ad esempio: 
 - **Write** (Scrittura) consente di eseguire le operazioni PUT, POST, PATCH e DELETE.
 - **Read** (Lettura) consente di eseguire operazioni GET.
 
@@ -38,7 +38,7 @@ Questo articolo tratta solo i ruoli diversi che esistono oggi. Quando si assegna
 > Le definizioni dei ruoli di Azure sono in continua evoluzione. Questo articolo viene aggiornato il più possibile, ma le definizioni dei ruoli più recenti sono sempre disponibili in Azure PowerShell. Usare il cmdlet [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) per elencare tutti i ruoli correnti. È possibile esaminare un ruolo specifico usando `(get-azurermroledefinition "<role name>").actions` o `(get-azurermroledefinition "<role name>").notactions` in base alle esigenze. Usare [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) per elencare le operazioni di provider di risorse di Azure specifici.
 
 
-| Nome del ruolo | Descrizione |
+| Nome del ruolo | DESCRIZIONE |
 | --- | --- |
 | [Collaboratore servizio Gestione API](#api-management-service-contributor) |È in grado di gestire i servizi Gestione API e le API |
 | [Ruolo operatore del servizio Gestione API](#api-management-service-operator-role) | È in grado di gestire i servizi Gestione API ma non le API stesse |
@@ -55,7 +55,7 @@ Questo articolo tratta solo i ruoli diversi che esistono oggi. Quando si assegna
 | [Collaboratore Data Factory](#data-factory-contributor) |Può creare e gestire data factory e le relative risorse figlio. |
 | [Utente DevTest Labs](#devtest-labs-user) |Può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestare macchine virtuali |
 | [Collaboratore zona DNS](#dns-zone-contributor) |È in grado di gestire zone e record DNS |
-| [Collaboratore per l'account Azure Cosmos DB](#documentdb-account-contributor) |È in grado di gestire account Azure Cosmos DB |
+| [Collaboratore account DocumentDB](#documentdb-account-contributor) |È in grado di gestire account Azure Cosmos DB |
 | [Collaboratore account Intelligent Systems](#intelligent-systems-account-contributor) |È in grado di gestire account Intelligent Systems |
 | Collaboratore alle app per la logica | Può gestire tutti gli aspetti di un'app per la logica, ma non crearne una nuova. |
 | Operatore delle app per la logica |Può avviare e arrestare i flussi di lavoro definiti all'interno di un'app per la logica. |
@@ -371,13 +371,13 @@ Può visualizzare tutti gli elementi e connettere, avviare, riavviare e arrestar
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leggere gruppi di risorse |
 | Microsoft.Support/\* |Creare e gestire ticket di supporto |
 
-### <a name="azure-cosmos-db-account-contributor"></a>Collaboratore per l'account Azure Cosmos DB
-È in grado di gestire account Azure Cosmos DB
+### <a name="documentdb-account-contributor"></a>Collaboratore account DocumentDB
+Può gestire gli account di Azure Cosmos DB. Azure DB Cosmos è noto in precedenza come DocumentDB.
 
 | **Actions** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Leggere i ruoli e le assegnazioni di ruoli |
-| Microsoft.DocumentDb/databaseAccounts/* |Creare e gestire account DocumentDB |
+| Microsoft.DocumentDb/databaseAccounts/* |Creare e gestire gli account di Azure Cosmos DB |
 | Microsoft.Insights/alertRules/* |Creare e gestire regole di avviso |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* |Creare e gestire distribuzioni di gruppi di risorse |
@@ -460,7 +460,7 @@ Può gestire account e applicazioni di New Relic Application Performance Managem
 | --- | --- |
 | * |È in grado di creare e gestire ogni tipo di risorsa |
 
-### <a name="reader"></a>Lettore
+### <a name="reader"></a>Reader
 È in grado di visualizzare tutti gli elementi, ma non può apportare modifiche
 
 | **Actions** |  |
@@ -703,7 +703,7 @@ Può gestire server e database SQL, ma non i criteri di protezione correlati
 
 | **Actions** |  |
 | --- | --- |
-| Microsoft.Authorization/*/read |Autorizzazione Lettura |
+| Microsoft.Authorization/*/read |Leggere i ruoli e le assegnazioni di ruoli |
 | Microsoft.Insights/alertRules/* |Creare e gestire le regole di avviso di Insight |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Leggere l'integrità delle risorse |
 | Microsoft.Resources/deployments/* |Creare e gestire distribuzioni di gruppi di risorse |
@@ -867,7 +867,7 @@ Consente di gestire l'accesso degli utenti alle risorse di Azure
 | Microsoft.Web/serverFarms/read |Leggere server farm |
 | Microsoft.Web/sites/* |Creare e gestire siti Web. Per creare un sito sono anche necessarie le autorizzazione di scrittura associate al piano di servizio app |
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Controllo degli accessi in base al ruolo](role-based-access-control-configure.md): introduzione al controllo degli accessi in base al ruolo nel portale di Azure.
 * [Ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure](role-based-access-control-custom-roles.md): informazioni su come creare ruoli personalizzati per esigenze di accesso specifiche.
 * [Creare un report della cronologia delle modifiche relative all'accesso](role-based-access-control-access-change-history-report.md): tenere traccia delle modifiche nelle assegnazioni dei ruoli nel controllo degli accessi in base al ruolo.

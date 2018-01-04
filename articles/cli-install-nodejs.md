@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: rasquill
-ms.openlocfilehash: 0dc9d95729f28dd0846178e24a25425170c893df
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
-ms.translationtype: HT
+ms.openlocfilehash: 67aa5bb122b277e998119506bb2a574d6b4fde5e
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="install-the-azure-cli-10"></a>Installare l'interfaccia della riga di comando 1.0 di Azure
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Installare rapidamente l'interfaccia della riga di comando 1.0 di Azure per usar
 
 Per altre opzioni e informazioni, vedere il repository dei progetti in [GitHub](https://github.com/azure/azure-xplat-cli).
 
-Dopo l'installazione dell'interfaccia della riga di comando 1.0 di Azure, [connetterla alla sottoscrizione di Azure](xplat-cli-connect.md) ed eseguire i comandi **azure** dall'interfaccia della riga di comando (Bash, terminale, prompt dei comandi e così via) per usare le risorse di Azure.
+Dopo l'installazione dell'interfaccia della riga di comando 1.0 di Azure, [connetterla alla sottoscrizione di Azure](/cli/azure/authenticate-azure-cli) ed eseguire i comandi **azure** dall'interfaccia della riga di comando (Bash, terminale, prompt dei comandi e così via) per usare le risorse di Azure.
 
 ## <a name="option-1-install-an-npm-package"></a>Opzione 1: Installare un pacchetto npm
 Per installare l'interfaccia della riga di comando da un pacchetto npm, verificare che siano state caricate e installate le [versioni più recenti di Node.js e npm](https://nodejs.org/en/download/package-manager/). Eseguire quindi il comando **npm install** per installare il pacchetto dell'interfaccia della riga di comando di Azure:
@@ -99,7 +99,7 @@ Per visualizzare la versione dell'interfaccia della riga di comando 1.0 di Azure
 azure --version
 ```
 
-È ora possibile iniziare la distribuzione. Per accedere a tutti i comandi dell'interfaccia della riga di comando per usare le proprie risorse, [connettersi alla sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](xplat-cli-connect.md).
+È ora possibile iniziare la distribuzione. Per accedere a tutti i comandi dell'interfaccia della riga di comando per usare le proprie risorse, [connettersi alla sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
 
 > [!NOTE]
 > Quando si usa per la prima volta l'interfaccia della riga di comando di Azure, viene visualizzato un messaggio che chiede se consentire a Microsoft di raccogliere informazioni sull'utilizzo. La partecipazione è facoltativa. Se si sceglie di partecipare, è possibile interrompere in qualsiasi momento eseguendo `azure telemetry --disable`. Per abilitare la partecipazione in qualsiasi momento, eseguire `azure telemetry --enable`.
@@ -129,7 +129,7 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Connettersi a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](xplat-cli-connect.md) per creare e gestire le risorse di Azure.
+* [Connettersi a una sottoscrizione di Azure dall'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli) per creare e gestire le risorse di Azure.
 * Per altre informazioni sull'interfaccia della riga di comando di Azure, il download del codice sorgente, la segnalazione dei problemi o la collaborazione al progetto, visitare il [repository GitHub per tale interfaccia](https://github.com/azure/azure-xplat-cli).
 * In caso di domande sull'uso di Azure o dell'interfaccia della riga di comando di Azure, visitare i [forum di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting).
 

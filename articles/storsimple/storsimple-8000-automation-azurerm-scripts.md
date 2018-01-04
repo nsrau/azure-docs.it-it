@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 4bb6becd0b664b9287a1973d5221cff46dca57da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f4456200d6f497a87424f12a23034dbff00c75aa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Usare gli script basati su Azure Resource Manager SDK per gestire i dispositivi StorSimple
 
@@ -32,7 +32,7 @@ Gli script di esempio seguenti sono disponibili per l'automazione di diversi pro
 
 #### <a name="table-of-azure-resource-manager-sdk-based-sample-scripts"></a>Tabella degli script di esempio basati su Azure Resource Manager SDK
 
-| Script di Azure Resource Manager                    | Descrizione                                                                                                                                                                                                       |
+| Script di Azure Resource Manager                    | DESCRIZIONE                                                                                                                                                                                                       |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Authorize-ServiceEncryptionRollover.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Authorize-ServiceEncryptionRollover.ps1)          | Questo script consente di autorizzare il dispositivo StorSimple a modificare la chiave di crittografia dei dati del servizio.                                                                                                           |
 | [Create-StorSimpleCloudAppliance.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Create-StorSimpleCloudAppliance.ps1)              | Questo script crea un'appliance cloud StorSimple 8010 o 8020. L'appliance cloud può essere quindi configurata e registrata con il servizio Gestore dati StorSimple.                                                       |
@@ -61,10 +61,10 @@ Questa sezione prende in considerazione uno script di esempio e analizza in dett
 Prima di iniziare, assicurarsi di disporre di:
 
 *   Azure PowerShell installato. Per installare i moduli di Azure PowerShell:
-    * In un ambiente Windows seguire i passaggi descritti in [Install and configure Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) (Installare e configurare Azure PowerShell). È possibile installare Azure PowerShell nell'host Windows Server per StorSimple, se disponibile.
-    * In un ambiente Linux o MacOS seguire i passaggi descritti in [Install and configure Azure PowerShell on MacOS or Linux](https://docs.microsoft.com/en-us/powershell/azure/install-azurermps-maclinux?view=azurermps-4.4.0) (Installare e configurare Azure PowerShell in MacOS o Linux).
+    * In un ambiente Windows seguire i passaggi descritti in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) (Installare e configurare Azure PowerShell). È possibile installare Azure PowerShell nell'host Windows Server per StorSimple, se disponibile.
+    * In un ambiente Linux o MacOS seguire i passaggi descritti in [Install and configure Azure PowerShell on MacOS or Linux](https://docs.microsoft.com/powershell/azure/install-azurermps-maclinux?view=azurermps-4.4.0) (Installare e configurare Azure PowerShell in MacOS o Linux).
 
-Per altre informazioni sull'uso di Azure PowerShell, vedere [Get started with using Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.4.0) (Iniziare a usare Azure PowerShell).
+Per altre informazioni sull'uso di Azure PowerShell, vedere [Get started with using Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.4.0) (Iniziare a usare Azure PowerShell).
 
 ### <a name="run-azure-powershell-script"></a>Eseguire lo script di Azure PowerShell
 

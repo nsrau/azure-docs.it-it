@@ -6,7 +6,7 @@ Quando un disco dati collegato a una macchina virtuale non è più necessario, �
 ## <a name="find-the-disk"></a>Trovare il disco
 Prima di poter scollegare un disco da una macchina virtuale, è necessario conoscere il numero LUN, che è un identificatore per il disco da scollegare. A tale scopo, seguire questi passaggi:
 
-1. Aprire l'interfaccia della riga di comando di Azure e [connettersi alla sottoscrizione di Azure](../articles/xplat-cli-connect.md). Assicurarsi che sia attiva la modalità Gestione servizi di Azure (`azure config mode asm`).
+1. Aprire l'interfaccia della riga di comando di Azure e [connettersi alla sottoscrizione di Azure](/cli/azure/authenticate-azure-cli). Assicurarsi che sia attiva la modalità Azure Service Management (`azure config mode asm`).
 2. Trovare i dischi collegati alla macchina virtuale. Nell'esempio seguente vengono elencati i dischi della macchina virtuale denominata `myVM`:
 
     ```azurecli

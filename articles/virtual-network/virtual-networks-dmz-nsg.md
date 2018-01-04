@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: ec29e6b250f927a3a4a94ffdf83d6c7c0e325722
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Esempio 1: Creare una rete perimetrale semplice usando gruppi di sicurezza di rete con un modello di Azure Resource Manager
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
@@ -43,7 +43,7 @@ Una sottoscrizione in questo esempio include le risorse seguenti:
 * Un gruppo di sicurezza di rete applicato a entrambe le subnet
 * Un server Windows che rappresenta un server Web applicazioni ("IIS01")
 * Due server Windows che rappresentano i server applicazioni back-end ("AppVM01", "AppVM02")
-* Un server Windows che rappresenta un server DNS ("DNS01")
+* Un server Windows che rappresenta un server DNS ("DNS01").
 * Un indirizzo IP pubblico associato al server Web applicazioni
 
 Un collegamento nella sezione Riferimenti a un modello di Azure Resource Manager compila l'ambiente descritto in questo esempio. La creazione di VM e reti virtuali, anche se eseguita dal modello di esempio, non è descritta in dettaglio in questo documento. 

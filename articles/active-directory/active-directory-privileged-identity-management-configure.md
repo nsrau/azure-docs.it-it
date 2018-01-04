@@ -4,7 +4,7 @@ description: Argomento che descrive Azure AD Privileged Identity Management e il
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/18/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: 0318f3546dbd869e8b975ebf7047f3676c227101
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c35b0c4171d411bd0c0483866f88780757cb3ee8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Che cos'è Azure AD Privileged Identity Management?
 
@@ -57,7 +57,7 @@ In passato, era possibile assegnare un utente a un ruolo di amministratore trami
 3. Selezionare **Altri servizi** e usare la casella di testo Filtro per cercare **Azure AD Privileged Identity Management**.
 4. Selezionare **Aggiungi al dashboard** e quindi fare clic su **Crea**. Verrà aperta l'applicazione Privileged Identity Management.
 
-Se si è la prima persona a usare Azure AD Privileged Identity Management nella directory e si naviga nei ruoli della directory di Azure AD, una [procedura guidata relativa alla sicurezza](active-directory-privileged-identity-management-security-wizard.md) illustra nel dettaglio l'esperienza di assegnazione iniziale. Al termine della procedura guidata si diventa automaticamente primo **amministratore della sicurezza** e **amministratore dei ruoli con privilegi** della directory.
+Se si lavora da prima di utilizzare Azure AD Privileged Identity Management nella directory e si passa a ruoli della directory Azure AD e si passa a ruoli della directory Azure AD, un [guidata impostazioni di sicurezza](active-directory-privileged-identity-management-security-wizard.md) illustra iniziale esperienza di assegnazione. Al termine della procedura guidata si diventa automaticamente primo **amministratore della sicurezza** e **amministratore dei ruoli con privilegi** della directory.
 
 Per i ruoli di Azure AD, solo un utente che appartiene al ruolo di amministratore con privilegi di ruolo può gestire le assegnazioni per altri amministratori di Azure AD PIM. È possibile [consentire ad altri utenti di gestire ruoli della directory in PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md). Gli amministratori globali, gli amministratori della sicurezza e il Ruolo con autorizzazioni di lettura per la sicurezza possono visualizzare le assegnazioni ai ruoli di Azure AD in Azure AD PIM.
 Per i ruoli di Azure RBAC, le assegnazioni per altri amministratori di Azure AD PIM possono essere gestite solo da un amministratore della sottoscrizione, da un proprietario della risorsa o da un amministratore dell'accesso dell'utente delle risorse.  Gli utenti che sono amministratori con privilegi di ruolo, gli amministratori della sicurezza o i Ruoli con autorizzazioni di lettura per la sicurezza non dispongono, per impostazione predefinita, dell'accesso per visualizzare le assegnazioni ai ruoli di Azure RBAC in Azure AD PIM.

@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: 43a2a9784668fad2aa5b1441cfd37751c0c240b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="using-the-anomalydetection-operator"></a>Uso dell'operatore ANOMALYDETECTION
 
@@ -38,12 +38,12 @@ L'operatore può anche elaborare facoltativamente gruppi di eventi separatamente
 
 ## <a name="syntax"></a>Sintassi
 
-`ANOMALYDETECTION(\<scalar_expression\>) OVER ([PARTITION BY \<partition key\>] LIMIT DURATION(\<unit\>, \<length\>) [WHEN boolean_expression])` 
+`ANOMALYDETECTION(<scalar_expression>) OVER ([PARTITION BY <partition key>] LIMIT DURATION(<unit>, <length>) [WHEN boolean_expression])` 
 
 
 ## <a name="example-usage"></a>Esempio di utilizzo
 
-`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id \> 100) FROM input`|
+`SELECT id, val, ANOMALYDETECTION(val) OVER(PARTITION BY id LIMIT DURATION(hour, 1) WHEN id > 100) FROM input`|
 
 
 ## <a name="arguments"></a>Argomenti
@@ -56,7 +56,7 @@ L'operatore può anche elaborare facoltativamente gruppi di eventi separatamente
 
 - **partition_by_clause** 
 
-  La clausola `PARTITION BY \<partition key\>` divide l'apprendimento e il training tra partizioni separate. In altri termini, si userà un modello separato per ogni valore di `\<partition key\>` e solo gli eventi con tale valore verranno usati per l'apprendimento e il training nel modello. Ad esempio,
+  La clausola `PARTITION BY <partition key>` divide l'apprendimento e il training tra partizioni separate. In altri termini, si userà un modello separato per ogni valore di `<partition key>` e solo gli eventi con tale valore verranno usati per l'apprendimento e il training nel modello. Ad esempio,
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
@@ -78,9 +78,9 @@ La funzione restituisce un record che contiene tutti i tre punteggi come output.
 - SlowPosTrendScore
 - SlowNegTrendScore
 
-Per estrarre i singoli valori dal record, usare la funzione **GetRecordPropertyValue**. ad esempio:
+Per estrarre i singoli valori dal record, usare la funzione **GetRecordPropertyValue**. Ad esempio: 
 
-`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) \> 3.25` 
+`SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
 
 Un'anomalia di un determinato tipo viene rilevata quando uno di questi punteggi di anomalia supera una soglia. La soglia può essere qualsiasi numero a virgola mobile \>= 0. La soglia è un compromesso tra sensibilità e attendibilità. Ad esempio, una soglia più bassa renderebbe il rilevamento più sensibile alle modifiche, generando più avvisi, mentre una soglia più alta potrebbe rendere il rilevamento meno sensibile e più attendibile, nascondendo tuttavia alcune anomalie. L'esatto valore di soglia da usare dipende dallo scenario. Non esiste un limite superiore, ma l'intervallo consigliato è compreso tra 3,25 e 5.
@@ -160,12 +160,12 @@ Come indicato sopra, non ignorare il passaggio `FillInMissingValuesStep` per ora
 
     WHERE
 
-        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) \>= 3.25
+        CAST(GetRecordPropertyValue(scores, 'BiLevelChangeScore') as float) >= 3.25
 
-        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) \>=
+        OR CAST(GetRecordPropertyValue(scores, 'SlowPosTrendScore') as float) >=
         3.25
 
-       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) \>=
+       OR CAST(GetRecordPropertyValue(scores, 'SlowNegTrendScore') as float) >=
        3.25
 
 ## <a name="references"></a>Riferimenti
@@ -182,6 +182,6 @@ Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](http
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi dei flussi di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

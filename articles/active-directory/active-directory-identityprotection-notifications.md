@@ -5,7 +5,7 @@ services: active-directory
 keywords: "azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 65ca79b9-4da1-4d5b-bebd-eda776cc32c7
 ms.service: active-directory
@@ -13,52 +13,71 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: abc0f3926905295a9cf239146cce7fc57da7eb29
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: bea21439afef4fda453732edffc84c62667dfe38
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notifiche di Azure Active Directory Identity Protection
+
 Azure AD Identity Protection invia due tipi di messaggi di posta elettronica di notifica automatica per la gestione del rischio utente e degli eventi di rischio:
 
-* Messaggio di posta elettronica di avviso utente compromesso
-* Messaggio di posta elettronica di riepilogo settimanale
+- Gli utenti a rischio rilevati tramite posta elettronica
+- Messaggio di posta elettronica di riepilogo settimanale
 
-## <a name="user-compromised-alert-email"></a>Messaggio di posta elettronica di avviso utente compromesso
-Quando Azure AD Identity Protection identifica un account come compromesso, viene generato un avviso di posta elettronica utente compromesso. Il messaggio include un collegamento al report relativo agli utenti contrassegnati per il rischio nel dashboard di Identity Protection. È consigliabile analizzare immediatamente le notifiche relative agli account compromessi.
+In questo articolo fornisce una panoramica di entrambe le notifiche tramite posta elettronica.
+
+
+## <a name="users-at-risk-detected-email"></a>Gli utenti a rischio rilevati tramite posta elettronica
+
+In risposta a un account rilevato a rischio, Azure AD Identity Protection genera un avviso di posta elettronica con **utenti a rischio rilevati** come oggetto. Messaggio di posta elettronica include un collegamento per il  **[utenti contrassegno i rischi](active-directory-reporting-security-user-at-risk.md)**  report. Come procedura consigliata, è necessario individuare immediatamente gli utenti a rischio.
+
+![Gli utenti a rischio rilevati tramite posta elettronica](./media/active-directory-identityprotection-notifications/01.png)
+
+
+### <a name="configuration"></a>Configurazione
+
+Come amministratore, è possibile impostare:
+
+- **Il livello di rischio che provoca la generazione di questo messaggio di posta elettronica** -per impostazione predefinita, il livello di rischio è impostato su "Alta" rischio.
+- **I destinatari di questo messaggio di posta elettronica** -per impostazione predefinita, i destinatari includono tutti gli amministratori globali. Gli amministratori globali possono anche aggiungere altri lettori di protezione amministratori globali, amministratori di sicurezza, destinatari.  
+
+
+Per aprire la finestra di dialogo correlata, fare clic su **avvisi** nel **impostazioni** sezione la **Identity Protection** pagina.
+
+![Gli utenti a rischio rilevati tramite posta elettronica](./media/active-directory-identityprotection-notifications/05.png)
+
 
 ## <a name="weekly-digest-email"></a>Messaggio di posta elettronica di riepilogo settimanale
-Il messaggio di riepilogo settimanale contiene un riepilogo dei nuovi eventi di rischio.<br>
+
+Il messaggio di riepilogo settimanale contiene un riepilogo dei nuovi eventi di rischio.  
 Sono inclusi:
 
-* Utenti a rischio.
-* Attività sospette
-* Vulnerabilità rilevate.
-* Collegamenti ai report correlati in Identity Protection.
+- Utenti a rischio.
 
-<br>
-![Correzione](./media/active-directory-identityprotection-notifications/400.png "Correzione")
-<br>
+- Attività sospette
 
-È possibile disattivare l’invio del messaggio di posta elettronica settimanale contenente il riepilogo.
-<br><br>
+- Vulnerabilità rilevate.
+
+- Collegamenti ai report correlati in Identity Protection.
+
+    ![Correzione](./media/active-directory-identityprotection-notifications/400.png "Correzione")
+
+### <a name="configuration"></a>Configurazione
+
+Come amministratore, è possibile passare l'invio di un messaggio di posta elettronica digest settimanale.
+
 ![Rischi utente](./media/active-directory-identityprotection-notifications/62.png "Rischi utente")
-<br>
 
-**Per aprire la relativa finestra di dialogo di configurazione**:
+Per aprire la finestra di dialogo correlata, fare clic su **settimanale** nel **impostazioni** sezione la **Identity Protection** pagina.
 
-1. Nel pannello **Azure AD Identity Protection** fare clic su **Impostazioni**.
-   <br><br>
-   ![Criteri di rischio utente](./media/active-directory-identityprotection-notifications/401.png "Criteri di rischio utente")
-   <br>
-2. Nella sezione **Generale** fare clic su **Notifiche**.
-   <br><br>
-   ![Criteri di rischio utente](./media/active-directory-identityprotection-notifications/405.png "Criteri di rischio utente")
-   <br>
+![Gli utenti a rischio rilevati tramite posta elettronica](./media/active-directory-identityprotection-notifications/04.png)
 
-## <a name="see-also"></a>Vedere anche
-* [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
+
+## <a name="see-also"></a>Vedere anche 
+
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)

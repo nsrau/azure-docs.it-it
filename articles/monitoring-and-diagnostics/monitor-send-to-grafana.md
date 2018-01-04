@@ -8,11 +8,11 @@ ms.author: robb
 ms.date: 11/06/2017
 ms.topic: article
 ms.service: monitoring-and-diagnostics
-ms.openlocfilehash: 709a98f8bcdb75962f8e41de348ca7a41c677610
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
-ms.translationtype: HT
+ms.openlocfilehash: c189e67c481239a8a68f2e2b30d05bb615cfa24e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorare i servizi di Azure in Grafana
 Ora è possibile monitorare i servizi e le applicazioni di Azure da [Grafana](https://grafana.com/) usando il [plug-in dell'origine dati di Monitoraggio di Azure](https://grafana.com/plugins/grafana-azure-monitor-datasource). Il plug-in raccoglie i dati sulle prestazioni dell'applicazione raccolti da Application Insights SDK, nonché i dati di infrastruttura forniti da Monitoraggio di Azure. È quindi possibile visualizzare questi dati nel dashboard di Grafana.
@@ -56,13 +56,13 @@ Una volta eseguito l'accesso, si dovrebbe vedere che il plug-di origine dati di 
 2. Scegliere un nome per l'origine dati e selezionare **Monitoraggio di Azure** come origine dati nell'elenco a discesa.
     
     
-## <a name="create-a-service-principal"></a>Creare un’entità servizio 
+## <a name="create-a-service-principal"></a>Creare un'entità servizio 
 
 Grafana usa un'entità servizio di Azure Active Directory per connettersi alle API di Monitoraggio di Azure e raccogliere i dati delle metriche. È necessario creare un'entità servizio per gestire l'accesso alle risorse di Azure.
 
 1. Per creare un'entità servizio, seguire [queste istruzioni](../azure-resource-manager/resource-group-create-service-principal-portal.md). Copiare e salvare l'ID tenant, l'ID client e un segreto client.
 
-2. Per informazioni su come assegnare il ruolo di lettore all'applicazione Azure Active Directory, vedere [Assegnare l'applicazione a un ruolo](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role).   
+2. Per informazioni su come assegnare il ruolo di lettore all'applicazione Azure Active Directory, vedere [Assegnare l'applicazione a un ruolo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role).     
 
 3. Se si usa Application Insights, è possibile anche includere l'API di Application Insights e l'ID applicazione per raccogliere le metriche basate su Application Insights. Per altre informazioni, vedere [Getting your API key and Application ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID) (Ottenere la chiave API e l'ID applicazione).
 

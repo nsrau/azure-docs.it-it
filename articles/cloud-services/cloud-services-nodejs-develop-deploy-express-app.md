@@ -1,6 +1,6 @@
 ---
-title: App Web con Express (Node.js) | Documentazione Microsoft
-description: Esercitazione basata sull'esercitazione del servizio cloud e che illustra come usare il modulo Express.
+title: Compilare e distribuire un'app Node.js Express a servizi Cloud di Azure
+description: Compilare e distribuire un'applicazione di Express.js in Node.js servizi Cloud di Azure
 services: cloud-services
 documentationcenter: nodejs
 author: craigshoemaker
@@ -14,15 +14,16 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: aa62438732db9e8df129440e6949858d9a61f65f
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
-ms.translationtype: HT
+ms.openlocfilehash: befca8d95880936e96d1b3618c172f87499627ed
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="build-a-nodejs-web-application-using-express-on-an-azure-cloud-service"></a>Creazione di un'applicazione Web Node.js utilizzando Express in un servizio cloud di Azure
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Compilare e distribuire un'applicazione web Node.js mediante Express in un Cloud di servizi di Azure
+
 Node.js include un set minimo di funzionalità nel runtime core.
-Gli sviluppatori usano spesso moduli di terze parti per fornire funzionalità aggiuntive durante lo sviluppo di un'applicazione Node.js. In questa esercitazione si creerà una nuova applicazione usando il modulo [Express][Express] che fornisce un framework MVC per la creazione di applicazioni Web Node.js.
+Gli sviluppatori usano spesso moduli di terze parti per fornire funzionalità aggiuntive durante lo sviluppo di un'applicazione Node.js. In questa esercitazione si creerà una nuova applicazione usando il [Express](https://github.com/expressjs/express) modulo, che fornisce un framework MVC per la creazione di applicazioni web Node. js.
 
 Di seguito è riportata una schermata dell'applicazione completata:
 

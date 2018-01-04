@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/04/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 794ad146ee8cb72370216677913013b6bbcb4b8f
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creare una funzione che si integra con le app per la logica di Azure
 
@@ -72,28 +72,31 @@ Le API Servizi cognitivi sono disponibili in Azure come singole risorse. Usare l
  
     ![Chiavi](media/functions-twitter-email/keys.png)
 
-## <a name="create-the-function"></a>Creare la funzione
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+
+## <a name="create-the-function-app"></a>Creare l'app (funzione)
 
 Funzioni permette di ripartire il carico di lavoro delle attività di elaborazione in un flusso di lavoro di app per la logica. Questa esercitazione fa uso di una funzione attivata tramite HTTP per elaborare i punteggi attribuiti da Servizi cognitivi ai sentiment dei tweet e restituire un valore categoria.  
 
-1. Fare clic sul pulsante **Nuovo** e selezionare **Calcolo** > **App per le funzioni**. Usare quindi le impostazioni specificate nella tabella seguente. Accettare le condizioni e quindi selezionare **Aggiungi al dashboard**.
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-    ![Creare un'app per le funzioni di Azure](media/functions-twitter-email/create_fun.png)
+## <a name="create-an-http-triggered-function"></a>Creare una funzione di attivazione HTTP  
 
-    | Impostazione      |  Valore consigliato   | Descrizione       |
-    | --- | --- | --- |
-    | **Nome** | MyFunctionApp | Scegliere un nome dell'account univoco. |
-    | **Gruppo di risorse** | myResourceGroup | Usare lo stesso gruppo di risorse per tutti i servizi in questa esercitazione.|
-    | **Piano di hosting** | Piano a consumo | Definisce il costo e le allocazioni di uso.
-    | **Posizione** | Stati Uniti occidentali | Usare la posizione più vicina. |
-    | **Archiviazione** | Creazione di un nuovo sito | Genera automaticamente un nuovo account di archiviazione.|
-    | **Piano tariffario** | F0 | Iniziare dal livello più basso. Se si esauriscono le chiamate, passare a un livello superiore.|
+1. Espandere l'app per le funzioni e fare clic sul pulsante **+** accanto a **Funzioni**. Se questa è la prima funzione nell'app per le funzioni, selezionare **Funzione personalizzata**. Verrà visualizzato il set completo di modelli di funzione.
 
-2. Selezionare l'app per le funzioni dal dashboard ed espandere la funzione, fare clic sul pulsante **+** accanto a **Funzioni**, fare clic su **Webhook e API**, **CSharp** e quindi su **Creare questa funzione**. Verrà creata una funzione tramite il modello C# HTTPTrigger. Il codice verrà visualizzato in una nuova finestra come `run.csx`
+    ![Pagina della guida introduttiva di Funzioni nel portale di Azure](media/functions-twitter-email/add-first-function.png)
 
-    ![Pannello App per le funzioni, Funzioni +](media/functions-twitter-email/add_fun.png)
+2. Nel campo di ricerca, digitare `http` e quindi scegliere **c#** per il modello di trigger HTTP. 
 
-3. Sostituire il contenuto del file `run.csx` con il codice seguente e quindi fare clic su **Salva**:
+    ![Scegliere il trigger HTTP](./media/functions-twitter-email/select-http-trigger-portal.png)
+
+3. Digitare un **nome** per la funzione, scegliere `Function` per  **[livello di autenticazione](functions-bindings-http-webhook.md#http-auth)**, quindi selezionare **crea**. 
+
+    ![Creare la funzione di attivazione HTTP](./media/functions-twitter-email/select-http-trigger-portal-2.png)
+
+    Viene creata una funzione di script c# usando il modello di HTTP Trigger. Il codice viene visualizzato in una nuova finestra come `run.csx`.
+
+4. Sostituire il contenuto del file `run.csx` con il codice seguente e quindi fare clic su **Salva**:
 
     ```csharp
     using System.Net;
@@ -162,7 +165,7 @@ Creare prima di tutto una connessione all'account Twitter. L'app per la logica e
 
     ![Impostazioni del connettore Twitter](media/functions-twitter-email/azure_tweet.png)
 
-    | Impostazione      |  Valore consigliato   | Descrizione                                        |
+    | Impostazione      |  Valore consigliato   | DESCRIZIONE                                        |
     | ----------------- | ------------ | ------------- |
     | **Testo di ricerca** | #Azure | Usare un hashtag che sia abbastanza comune per generare nuovi tweet nell'intervallo selezionato. Quando si usa un hashtag troppo comune con il livello gratuito, c'è il rischio di esaurire rapidamente la quota di transazioni nell'API Servizi cognitivi. |
     | **Frequenza** | Minuto | Unità di frequenza usata per eseguire il poll di Twitter.  |
@@ -225,13 +228,13 @@ L'ultima parte del flusso di lavoro consiste nell'attivare l'invio di un messagg
 
     ![Configurare la posta elettronica per l'azione Invia un messaggio di posta elettronica.](media/functions-twitter-email/send_email.png)
 
-    | Impostazione      |  Valore consigliato   | Descrizione  |
+    | Impostazione      |  Valore consigliato   | DESCRIZIONE  |
     | ----------------- | ------------ | ------------- |
     | **To** | Digitare l'indirizzo di posta elettronica | Indirizzo di posta elettronica che riceve la notifica. |
     | **Oggetto** | Rilevato sentiment di tweet negativo  | Riga dell'oggetto della notifica di posta elettronica.  |
     | **Corpo** | Testo tweet, Località | Fare clic sui parametri **Testo tweet** e **Località**. |
 
-5.  Fare clic su **Salva**.
+5.  Fare clic su **Save**.
 
 Ora che il flusso di lavoro è completo, è possibile abilitare l'app per la logica e provarne il funzionamento.
 
@@ -270,7 +273,7 @@ Per disabilitare l'app per la logica, fare clic su **Panoramica** e quindi scegl
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Creare una risorsa API per Servizi cognitivi.

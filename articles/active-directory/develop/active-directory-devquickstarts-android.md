@@ -1,10 +1,10 @@
 ---
 title: Introduzione ad Android per Azure AD | Microsoft Docs
-description: Come compilare un'applicazione Android che si integra con Azure AD per l'accesso e chiama le API protette di Azure AD usando OAuth.
+description: Come creare un'applicazione Android che si integra con Azure AD per l'accesso e le chiamate AD Azure protetto API tramite OAuth 2.0.
 services: active-directory
 documentationcenter: android
 author: danieldobalian
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
@@ -12,22 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 746cad19093fd2a1ad23ddd9412394f8d9da331c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 619334b3ca65654fd845a62c2fc068156d94d6fc
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-into-an-android-app"></a>Integrare Azure AD in un'app per Android
+# <a name="azure-ad-android-getting-started"></a>Azure AD Android, che guida introduttiva
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
-
-> [!TIP]
-> È consigliabile provare l'anteprima del nuovo [portale per sviluppatori](https://identity.microsoft.com/Docs/Android) che consentirà di imparare a usare Azure AD in pochi minuti. Il portale per sviluppatori guida l'utente nel processo di registrazione di un'app e di integrazione di Azure AD nel codice. Al termine si ottiene una semplice applicazione in grado di autenticare gli utenti nel tenant e un back-end che può accettare i token ed eseguire la convalida.
->
->
 
 Se si sta sviluppando un'applicazione desktop, Azure Active Directory (Azure AD) semplifica e facilita l'autenticazione degli utenti tramite gli account Active Directory locali. Consente inoltre all'applicazione di usare in modo sicuro qualsiasi API Web protetta da Azure AD, ad esempio le API di Office 365 o l'API di Azure.
 
@@ -76,7 +71,7 @@ Si presuppone che venga eseguita la registrazione dell'applicazione di esempio i
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra superiore fare clic sull'account. Nell'elenco di **Directory** scegliere il tenant di Azure AD in cui si vuole registrare l'applicazione.
 3. Fare clic su **More Services** (Altri servizi) nel riquadro sinistro, quindi selezionare **Azure Active Directory**.
-4. Fare clic su **Registrazioni per l'app**, quindi selezionare **Aggiungi**.
+4. Fare clic su **Registrazioni per l'app** e scegliere **Aggiungi**.
 5. Immettere un nome descrittivo per l'applicazione, ad esempio **TodoListClient-Android**, selezionare **Applicazione client nativa**, quindi fare clic su **Avanti**.
 6. Per l'URI di reindirizzamento, immettere `http://TodoListClient`. Fare clic su **Fine**.
 7. Nella pagina dell'applicazione trovare il valore dell'ID applicazione e copiarlo. Servirà in un secondo momento durante la configurazione dell'applicazione.

@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 07c5de0d-90aa-43b3-b24e-0cc334b2f9b0
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 87714bbcb317395563033d2f0ebc60aaa0ff0e10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fa0897c89d01a6e4ada867b6b8e47c95f2988e65
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-softeon-wms"></a>Esercitazione: Integrazione di Azure Active Directory con Softeon WMS
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con Softeon WMS, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di Softeon WMS abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
@@ -47,7 +47,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Softeon WMS dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -63,11 +63,11 @@ Per configurare l'integrazione di Softeon WMS in Azure AD, è necessario aggiung
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 4. Nella casella di ricerca digitare **Softeon WMS**.
 
@@ -86,7 +86,7 @@ Per stabilire la relazione di collegamento, in Softeon WMS assegnare il valore d
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Softeon WMS, è necessario completare le procedure di base seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente di test di Softeon WMS](#creating-a-softeon-wms-test-user)**: per avere una controparte di Britta Simon in Softeon WMS collegata alla rappresentazione dell'utente in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -100,34 +100,34 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **Softeon WMS** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-softeon-tutorial/tutorial_softeon_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-softeon-tutorial/tutorial_softeon_samlbase.png)
 
 3. Nella sezione **URL e dominio Softeon WMS** seguire questa procedura:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-softeon-tutorial/tutorial_softeon_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-softeon-tutorial/tutorial_softeon_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname>.softeon.com/<instancename>`.
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<companyname>.softeon.com/<instancename>`
 
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<companyname>.softeon.com/sp`
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Softeon WMS](mailto:contact@softeon.com). 
+    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Softeon WMS](mailto:contact@softeon.com). 
  
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-softeon-tutorial/tutorial_softeon_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-softeon-tutorial/tutorial_softeon_certificate.png) 
 
 5. Fare clic sul pulsante **Salva** .
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-softeon-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-softeon-tutorial/tutorial_general_400.png)
 
-6. Nella sezione **Configurazione di Softeon WMS** fare clic su **Configura Softeon WMS** per aprire la finestra **Configura accesso**. Copiare l'**ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla **sezione di riferimento rapido**.
+6. Nella sezione **Configurazione di Softeon WMS** fare clic su **Configura Softeon WMS** per aprire la finestra **Configura accesso**. Copiare l'**ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla **sezione di riferimento rapido.**
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-softeon-tutorial/tutorial_softeon_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-softeon-tutorial/tutorial_softeon_configure.png) 
 
 7. Per configurare l'accesso Single Sign-On sul lato **Softeon WMS**, è necessario inviare il **certificato (Base64) scaricato, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** al [team di supporto di Softeon WMS](mailto:contact@softeon.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
@@ -184,7 +184,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco delle applicazioni selezionare **Softeon WMS**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-softeon-tutorial/tutorial_softeon_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-softeon-tutorial/tutorial_softeon_app.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 91b632c0c4bab2f0ac71b662cf1b73f5d37881ff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 58f23406f20f6b0e75ec65197e4cebb6e4e788ac
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installare l'estensione Funzioni permanenti e i relativi esempi (Funzioni di Azure)
 
@@ -62,7 +62,7 @@ Visual Studio Code offre un'esperienza di sviluppo locale che copre tutte le pri
 
 * Installare la versione più recente di [Visual Studio Code](https://code.visualstudio.com/Download) 
 
-* Seguire le istruzioni in "Installare gli strumenti di base per Funzioni di Azure" in [Scrivere codici per Funzioni di Azure e testarle in locale](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local)
+* Seguire le istruzioni in "Installare gli strumenti di base per Funzioni di Azure" in [Scrivere codici per Funzioni di Azure e testarle in locale](https://docs.microsoft.com/azure/azure-functions/functions-run-local)
 
     >[!IMPORTANT]
     > Se si dispone già degli strumenti multipiattaforma di Funzioni di Azure, aggiornarli alla versione più recente disponibile.
@@ -173,7 +173,7 @@ Visual Studio Code offre un'esperienza di sviluppo locale che copre tutte le pri
         }
     ```
 
-Congratulazioni. La prima funzione permanente è attiva e in esecuzione nel portale di Azure.
+Congratulazioni! La prima funzione permanente è attiva e in esecuzione nel portale di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

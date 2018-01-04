@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 9541d5c4-4c82-4b5b-b01a-6a3f75a2b7a1
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 1d7e8fbcfc757853ab909bbb05522f3dc387715d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 774342497ad5548cb2792350905b6b9cb017be28
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>Esercitazione: Integrazione di Azure Active Directory con Namely
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con Namely, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di Namely abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
@@ -47,7 +47,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Namely dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -63,11 +63,11 @@ Per configurare l'integrazione di Namely in Azure AD, è necessario aggiungere N
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 4. Digitare **Namely**nella casella di ricerca.
 
@@ -86,7 +86,7 @@ Per stabilire la relazione di collegamento, in Namely assegnare il valore di **n
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Namely, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente di prova per Namely](#creating-a-namely-test-user)** - per avere una controparte di Britta Simon in Namely collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -100,17 +100,17 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **Namely** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_samlbase.png)
 
 3. Nella sezione **URL e dominio Namely** seguire questa procedura:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.namely.com`.
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.namely.com`
 
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<subdomain>.namely.com/saml/metadata`
 
@@ -119,33 +119,33 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_certificate.png) 
 
 5. Fare clic sul pulsante **Salva** .
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_general_400.png)
 
 6. Nella sezione **Configurazione di Namely** fare clic su **Configura Namely** per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML** dalla **sezione Riferimento rapido.**
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_configure.png) 
 
 7. In un'altra finestra del browser accedere al sito aziendale di Namely come amministratore.
 
 8. Fare clic su **Company**(Società) nella barra degli strumenti in alto.
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_06.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_06.png) 
 
 9. Fare clic sulla scheda **Impostazioni** .
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_07.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_07.png) 
 
 10. Fare clic su **SAML**.
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_08.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_08.png) 
 
 11. Nella pagina delle **impostazioni SAML** seguire questa procedura:
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_09.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_09.png)
  
     a. Fare clic su **Enable SAML**. 
 
@@ -153,7 +153,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     c. Aprire il certificato scaricato nel Blocco note, copiarne il contenuto e incollarlo nella casella di testo **Certificato del provider di identità** .
      
-    d. Fare clic su **Salva**.
+    d. Fare clic su **Save**.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
@@ -200,15 +200,15 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Namely.
 
 2. Fare clic su **People**(Persone) nella barra degli strumenti in alto.
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_10.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_10.png) 
 
 3. Fare clic sulla scheda **Directory** .
    
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_11.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_11.png) 
 
 4. Fare clic su **Add New Person**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_12.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_12.png)
 
 5. Nella finestra di dialogo **Add New Person** seguire questa procedura:
 
@@ -234,7 +234,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Selezionare **Namely**dall'elenco di applicazioni.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-namely-tutorial/tutorial_namely_app.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

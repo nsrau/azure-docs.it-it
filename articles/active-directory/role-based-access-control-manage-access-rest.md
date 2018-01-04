@@ -4,7 +4,7 @@ description: Gestione del controllo degli accessi in base al ruolo con l'API RES
 services: active-directory
 documentationcenter: na
 author: andredm7
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: andredm
-ms.openlocfilehash: a5c19fd87ce1ae3e199bf1dfc8cf82f5653baac2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9ec64dc3ce95de9c29331699ad2140e5a3c25673
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Gestione del controllo degli accessi in base al ruolo con l'API REST
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ All'interno dell'URI, apportare le sostituzioni seguenti per personalizzare la r
    * Elencare le assegnazioni di ruolo solo per l'utente, il gruppo o l'applicazione specifici: `principalId%20eq%20'{objectId of user, group, or service principal}'`  
    * Elencare le assegnazioni di ruolo per un utente specifico, incluse quelle ereditate dai gruppi | `assignedTo('{objectId of user}')`
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 Codice di stato: 200
 
 ```
@@ -98,7 +98,7 @@ All'interno dell'URI, apportare le sostituzioni seguenti per personalizzare la r
 2. Sostituire *{role-assignment-id}* con l'identificatore GUID dell'assegnazione di ruolo.
 3. Sostituire *{api-version}* con 2015-07-01.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 Codice di stato: 200
 
 ```
@@ -151,12 +151,12 @@ Per il corpo della richiesta, specificare i valori nel formato seguente:
 
 ```
 
-| Nome dell'elemento | Obbligatorio | Tipo | Descrizione |
+| Nome dell'elemento | Obbligatoria | type | DESCRIZIONE |
 | --- | --- | --- | --- |
-| roleDefinitionId |Sì |String |Identificatore del ruolo. Il formato dell'identificatore è: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
-| principalId |Sì |String |objectId dell'entità di Azure AD (utente, gruppo o entità servizio) a cui deve essere assegnato il ruolo. |
+| roleDefinitionId |Sì |string |Identificatore del ruolo. Il formato dell'identificatore è: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
+| principalId |Sì |string |objectId dell'entità di Azure AD (utente, gruppo o entità servizio) a cui deve essere assegnato il ruolo. |
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 Codice di stato: 201
 
 ```
@@ -197,7 +197,7 @@ All'interno dell'URI, apportare le sostituzioni seguenti per personalizzare la r
 2. Sostituire *{role-assignment-id}* con l'identificatore GUID dell'assegnazione di ruolo.
 3. Sostituire *{api-version}* con 2015-07-01.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 Codice di stato: 200
 
 ```
@@ -241,7 +241,7 @@ All'interno dell'URI, apportare le sostituzioni seguenti per personalizzare la r
    * Elencare i ruoli disponibili per l'assegnazione nell'ambito specificato e in tutti i relativi ambiti figlio: `atScopeAndBelow()`
    * Cercare un ruolo usando l'esatto nome visualizzato: `roleName%20eq%20'{role-display-name}'`. Usare il form con codifica URL dell'esatto nome visualizzato del ruolo. Ad esempio: `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 Codice di stato: 200
 
 ```
@@ -321,7 +321,7 @@ All'interno dell'URI, apportare le sostituzioni seguenti per personalizzare la r
 2. Sostituire *{role-definition-id}* con l'identificatore GUID della definizione di ruolo.
 3. Sostituire *{api-version}* con 2015-07-01.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 Codice di stato: 200
 
 ```
@@ -434,17 +434,17 @@ Per il corpo della richiesta, specificare i valori nel formato seguente:
 
 ```
 
-| Nome dell'elemento | Obbligatorio | Tipo | Descrizione |
+| Nome dell'elemento | Obbligatoria | type | DESCRIZIONE |
 | --- | --- | --- | --- |
-| name |Sì |String |Identificatore GUID del ruolo personalizzato. |
-| properties.roleName |Sì |String |Nome visualizzato del ruolo personalizzato. La dimensione massima è di 128 caratteri. |
-| properties.description |No |String |Descrizione del ruolo personalizzato. La dimensione massima è di 1024 caratteri. |
-| properties.type |Sì |String |Impostare su "CustomRole". |
-| properties.permissions.actions |sì |String[] |Matrice di stringhe di azione che specifica le operazioni concesse dal ruolo personalizzato. |
-| properties.permissions.notActions |No |String[] |Matrice di stringhe di azione che specifica le operazioni da escludere dalle operazioni concesse dal ruolo personalizzato. |
+| name |Sì |string |Identificatore GUID del ruolo personalizzato. |
+| properties.roleName |Sì |string |Nome visualizzato del ruolo personalizzato. La dimensione massima è di 128 caratteri. |
+| properties.description |No  |string |Descrizione del ruolo personalizzato. La dimensione massima è di 1024 caratteri. |
+| properties.type |Sì |string |Impostare su "CustomRole". |
+| properties.permissions.actions |Sì |String[] |Matrice di stringhe di azione che specifica le operazioni concesse dal ruolo personalizzato. |
+| properties.permissions.notActions |No  |String[] |Matrice di stringhe di azione che specifica le operazioni da escludere dalle operazioni concesse dal ruolo personalizzato. |
 | properties.assignableScopes |Sì |String[] |Matrice di ambiti in cui il ruolo personalizzato può essere usato. |
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 Codice di stato: 201
 
 ```
@@ -537,17 +537,17 @@ Per il corpo della richiesta, specificare i valori nel formato seguente:
 
 ```
 
-| Nome dell'elemento | Obbligatorio | Tipo | Descrizione |
+| Nome dell'elemento | Obbligatoria | type | DESCRIZIONE |
 | --- | --- | --- | --- |
-| name |Sì |String |Identificatore GUID del ruolo personalizzato. |
-| properties.roleName |Sì |String |Nome visualizzato del ruolo personalizzato aggiornato. |
-| properties.description |No |String |Descrizione del ruolo personalizzato aggiornato. |
-| properties.type |Sì |String |Impostare su "CustomRole". |
-| properties.permissions.actions |sì |String[] |Matrice di stringhe di azione che specifica le operazioni alle quali il ruolo personalizzato aggiornato concede l'accesso. |
-| properties.permissions.notActions |No |String[] |Matrice di stringhe di azione che specifica le operazioni da escludere dalle operazione alle quali il ruolo personalizzato aggiornato concede l'accesso. |
+| name |Sì |string |Identificatore GUID del ruolo personalizzato. |
+| properties.roleName |Sì |string |Nome visualizzato del ruolo personalizzato aggiornato. |
+| properties.description |No  |string |Descrizione del ruolo personalizzato aggiornato. |
+| properties.type |Sì |string |Impostare su "CustomRole". |
+| properties.permissions.actions |Sì |String[] |Matrice di stringhe di azione che specifica le operazioni alle quali il ruolo personalizzato aggiornato concede l'accesso. |
+| properties.permissions.notActions |No  |String[] |Matrice di stringhe di azione che specifica le operazioni da escludere dalle operazione alle quali il ruolo personalizzato aggiornato concede l'accesso. |
 | properties.assignableScopes |Sì |String[] |Matrice di ambiti in cui il ruolo personalizzato aggiornato può essere usato. |
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 Codice di stato: 201
 
 ```
@@ -607,7 +607,7 @@ All'interno dell'URI, apportare le sostituzioni seguenti per personalizzare la r
 2. Sostituire *{role-definition-id}* con l'identificatore GUID della definizione di ruolo del ruolo personalizzato.
 3. Sostituire *{api-version}* con 2015-07-01.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 Codice di stato: 200
 
 ```

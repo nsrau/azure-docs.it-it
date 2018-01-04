@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 61179c5bf29ed2c338b45ba909ec01237806cf26
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gestire un piano di servizio app in Azure
 
-Un [piano di servizio app](azure-web-sites-web-hosting-plans-in-depth-overview.md) fornisce le risorse che un'app del servizio app deve eseguire. Questa guida dettagliata illustra come gestire un piano di servizio app. 
+Un [piano di servizio app](azure-web-sites-web-hosting-plans-in-depth-overview.md) fornisce le risorse che un'app del servizio app deve eseguire. Questa guida dettagliata illustra come gestire un piano di servizio app.
 
 ## <a name="create-an-app-service-plan"></a>Creare un piano di servizio app
 
@@ -68,6 +68,8 @@ Selezionare **Cambia il piano di servizio app** per avviare il processo.
 > 
 
 ![Pannello di selezione Piano di servizio app.][change]
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 È previsto un piano tariffario diverso per ogni piano. Quando si sposta un sito dal livello **Gratuito** al livello **Standard**, ad esempio, tutte le app assegnate ad esso possono usare le funzionalità e le risorse del livello **Standard**. Tuttavia, spostando un'app da un piano a più livelli superiore a un piano a più livelli inferiore non si ha più accesso a determinate funzionalità. Se l'app usa una funzionalità non presente nel piano di destinazione, viene visualizzato un errore che mostra quale funzionalità in uso non è disponibile. Ad esempio, se una delle app usa i certificati SSL, si potrebbe visualizzare il messaggio di errore: `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`In questo caso è necessario aumentare il piano tariffario del piano di destinazione su **Basic** o versione successiva, oppure rimuovere tutte le connessioni SSL nell'app prima di poter spostare l'app nel piano di destinazione.
 

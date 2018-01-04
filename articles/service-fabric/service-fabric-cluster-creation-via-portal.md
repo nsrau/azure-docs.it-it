@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
-ms.openlocfilehash: 874cf647d4b708bbbc64246ac0dff133639ad86c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: be880efdcf1276252c76f27c2f2fd99edd606caa
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creare un cluster di Service Fabric in Azure tramite il portale di Azure
 > [!div class="op_single_selector"]
-> * [Gestione risorse di Azure](service-fabric-cluster-creation-via-arm.md)
+> * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 > * [Portale di Azure](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
@@ -40,7 +40,7 @@ Questo articolo contiene una guida dettagliata che illustra i passaggi per la co
 
 Un cluster protetto è un cluster che impedisce l'accesso non autorizzato alle operazioni di gestione, tra cui distribuzione, aggiornamento ed eliminazione di applicazioni, servizi e dati in esso contenuti. Un cluster non protetto è un cluster a cui tutti gli utenti possono connettersi in qualsiasi momento ed eseguire operazioni di gestione. Sebbene sia possibile creare un cluster non protetto, è **consigliabile creare un cluster protetto**. Un cluster non protetto **non può essere protetto in un secondo momento**. Sarà necessario crearne uno nuovo.
 
-I concetti sono gli stessi per la creazione di cluster protetti, sia Linux che Windows. Per altre informazioni e script helper per la creazione di cluster Linux protetti, vedere [Creare cluster protetti in Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters). I parametri ottenuti dallo script helper fornito possono essere immessi direttamente nel portale come descritto nella sezione [Creare un cluster nel portale di Azure](#create-cluster-portal).
+I concetti sono gli stessi per la creazione di cluster protetti, sia Linux che Windows. Per altri script di informazioni e supporto per la creazione di cluster Linux protette, vedere [creazione di cluster sicuri](service-fabric-cluster-creation-via-arm.md). I parametri ottenuti dallo script helper fornito possono essere immessi direttamente nel portale come descritto nella sezione [Creare un cluster nel portale di Azure](#create-cluster-portal).
 
 ## <a name="configure-key-vault"></a>Configurare l'insieme di credenziali delle chiavi 
 ### <a name="log-in-to-azure"></a>Accedere ad Azure
@@ -114,7 +114,15 @@ Creare un insieme di credenziali delle chiavi nel nuovo gruppo di risorse. L'ins
     Tags                             :
 ```
 
-Se si dispone già di un insieme di credenziali delle chiavi, è possibile abilitarlo per la distribuzione tramite l'interfaccia della riga di comando di Azure:
+Se si dispone di un insieme di credenziali di chiave esistente, è possibile abilitarla per la distribuzione tramite uno dei modi seguenti:
+
+##### <a name="azure-powershell"></a>Azure PowerShell
+
+```powershell
+PS C:\Users\vturecek> Set-AzureRmKeyVaultAccessPolicy -VaultName 'myvault' -EnabledForDeployment
+```
+
+##### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure:
 
 ```cli
 > azure login
@@ -272,7 +280,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 
 * Selezionare la casella **Configura impostazioni avanzate** per l'immissione dei certificati client per **amministratore client** e **client di sola lettura**. In questi campi, immettere l'identificazione personale del certificato client amministratore e l'identificazione personale del certificato client utente di sola lettura, se applicabile. Quando gli amministratori provano a connettersi al cluster, viene concesso l'accesso solo se hanno un certificato con identificazione personale corrispondente ai valori di identificazione personale immessi in questi campi.  
 
-#### <a name="4-summary"></a>4. Riepilogo
+#### <a name="4-summary"></a>4. Summary
 
 Per completare la creazione del cluster, fare clic su **Riepilogo** per visualizzare le configurazioni specificate oppure scaricare il modello di Azure Resource Manager usato per distribuire il cluster. Dopo che sono state specificate le impostazioni obbligatorie, il pulsante **OK** diventa di colore verde ed è possibile avviare il processo di creazione del cluster facendo clic su di esso.
 

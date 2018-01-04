@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: b9dc3f52e5fc275bc56b9964f2115833f2dde42e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitorare gli avvisi per i backup della macchina virtuale di Azure
 Gli avvisi sono risposte del servizio che informano che è stata raggiunta o superata la soglia di un evento. Sapere quando i problemi hanno inizio può essere determinante per contenere i costi aziendali. Gli avvisi in genere non seguono una pianificazione e quindi è utile sapere appena possibile quando un avviso viene generato. Quando ad esempio un processo di backup o ripristino non riesce, l'avviso verrà generato entro cinque minuti dall'errore. Nel dashboard dell'insieme di credenziali il riquadro Avvisi di backup visualizza gli eventi di livello critico e avviso. Nelle impostazioni di Avvisi di backup è possibile visualizzare tutti gli eventi. Ma cosa fare se un avviso viene generato mentre si lavora a un problema diverso? Non sapere quando l'avviso viene generato può essere un piccolo inconveniente o può compromettere i dati. Per verificare che chi di dovere sia informato dell'avviso e sappia quando viene generato, configurare il servizio per l'invio tramite posta elettronica di notifiche di avviso. Per informazioni dettagliate sulla configurazione di notifiche di posta elettronica, vedere [Configurare le notifiche](backup-azure-monitor-vms.md#configure-notifications).
@@ -71,8 +71,8 @@ Per configurare le notifiche di posta elettronica per gli avvisi
    | Livello avviso | Avvisi inviati |
    | --- | --- |
    | Critico |Errore di backup, errore di ripristino |
-   | Avviso |None |
-   | Informazioni |None |
+   | Avviso |Nessuna |
+   | Informazioni |Nessuna |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Esistono situazioni in cui il messaggio e-mail non viene inviato anche se sono configurate le notifiche?
 Esistono situazioni in cui un avviso non viene inviato anche se le notifiche sono state configurate correttamente. Le notifiche di posta elettronica non vengono inviate nei casi seguenti per ridurre la frequenza degli avvisi:
@@ -139,13 +139,13 @@ Usando il pulsante **Colonne**, è possibile visualizzare altri attributi degli 
 3. Fare clic su **Reimposta** per reimpostare l'elenco di attributi nel pannello **Eventi**. Dopo avere aggiunto o rimosso gli attributi dall'elenco, usare **Reimposta** per visualizzare il nuovo elenco di attributi degli eventi.
 4. Fare clic su **Aggiorna** per aggiornare i dati negli attributi degli eventi. La tabella seguente fornisce informazioni su ogni attributo.
 
-| Nome colonna | Descrizione |
+| Nome colonna | DESCRIZIONE |
 | --- | --- |
 | Operazione |Nome dell'operazione |
 | Level |Livello dell'operazione. I valori possono essere: Informativo, Avviso, Errore o Critico. |
-| Stato |Stato descrittivo dell'operazione. |
+| Status |Stato descrittivo dell'operazione. |
 | Risorsa |URL che identifica la risorsa, detto anche ID risorsa. |
-| Time |Ora, calcolata dall'ora corrente, in cui si è verificato l'evento. |
+| Tempo |Ora, calcolata dall'ora corrente, in cui si è verificato l'evento. |
 | Chiamante |Chi o che cosa ha chiamato o attivato l'evento. Può essere il sistema o un utente. |
 | Timestamp |Ora in cui l'elenco è stato attivato. |
 | Gruppo di risorse |Gruppo di risorse associato. |
@@ -168,11 +168,11 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 **OperationName**: OperationName presenta il formato "Microsoft.RecoveryServices/recoveryServicesVault/*NomeEvento*" dove *NomeEvento* può essere:<br/>
 
-* Register <br/>
+* Register  <br/>
 * Unregister  <br/>
 * ConfigureProtection  <br/>
 * Backup  <br/>
-* Restore  <br/>
+* Restore <br/>
 * StopProtection  <br/>
 * DeleteBackupData  <br/>
 * CreateProtectionPolicy  <br/>
@@ -213,4 +213,4 @@ I log eventi offrono un ottimo supporto per i controlli e le relazioni finali su
 
 Per una spiegazione approfondita di eventi, operazioni e log di controllo nei servizi di Azure, vedere l'articolo [Visualizzare eventi e log di controllo](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 
-Per informazioni su come ricreare una macchina virtuale da un punto di ripristino, vedere [Ripristinare macchine virtuali in Azure](backup-azure-restore-vms.md). Per informazioni sulla protezione delle macchine virtuali, vedere [Primo approccio: Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino](backup-azure-vms-first-look-arm.md). Per informazioni sulle attività di gestione per i backup di VM, vedere l'articolo [Gestire e monitorare i backup delle macchine virtuali di Azure](backup-azure-manage-vms.md).
+Per informazioni su come ricreare una macchina virtuale da un punto di ripristino, vedere [Ripristinare macchine virtuali in Azure](backup-azure-arm-restore-vms.md). Per informazioni sulla protezione delle macchine virtuali, vedere [Primo approccio: Proteggere le VM di Azure con un insieme di credenziali dei servizi di ripristino](backup-azure-vms-first-look-arm.md). Per informazioni sulle attività di gestione per i backup di VM, vedere l'articolo [Gestire e monitorare i backup delle macchine virtuali di Azure](backup-azure-manage-vms.md).

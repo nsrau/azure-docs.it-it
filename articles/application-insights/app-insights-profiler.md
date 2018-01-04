@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: e66dc2af18785c6c8e83815129c8bca5b877d25b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: f8ba1a6308dfe234fff700d363fb9252b94570e2
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profilare le app Web di Azure attive con Application Insights
 
@@ -227,6 +227,82 @@ Quando si configura il profiler, vengono eseguiti aggiornamenti nelle impostazio
 7. Nel sito Web Kudu selezionare **Site extensions** (Estensioni del sito).
 8. Installare __Application Insights__ dalla raccolta delle app Web di Azure.
 9. Riavviare l'app Web .
+
+## <a id="profileondemand"></a>Attivare manualmente profiler
+Quando è stato sviluppato il profiler è aggiunto un'interfaccia della riga di comando in modo che sia possibile testare il profiler in servizi di app. Utilizzando questo stesso utenti interfaccia inoltre possibile personalizzare la modalità di avvio il profiler. A un livello elevato il profiler utilizza sistema Kudu del servizio App per gestire l'analisi in background. Quando si installa l'estensione Application Insights, creare un processo web continuo che ospita il profiler. Si utilizzerà la stessa tecnologia, per creare un nuovo processo web che è possibile personalizzare in base alle esigenze.
+
+In questa sezione viene illustrato come:
+
+1.  Creare un processo web che consente di avviare il profiler per due minuti con la stampa di un pulsante.
+2.  Creare un processo web che è possibile pianificare il profiler per l'esecuzione.
+3.  Impostare gli argomenti per il profiler.
+
+
+### <a name="set-up"></a>Configurare
+Primo opportuno acquisire familiarità con i dashboard del processo web. In impostazioni fare clic sulla scheda processi Web.
+
+![Pannello processi Web](./media/app-insights-profiler/webjobs-blade.png)
+
+Come è possibile visualizzare che questo dashboard Mostra tutti i processi web attualmente installati nel sito. È possibile visualizzare il processo web ApplicationInsightsProfiler2 che ha il compito di profiler in esecuzione. Si tratta di dove si finirà creare i nuovi processi web per manuale e pianificato profilatura.
+
+Primo consente di ottenere i file binari è necessario.
+
+1.  Innanzitutto, andare al sito kudu. Nella fase di sviluppo scheda strumenti fare clic sulla scheda "Strumenti avanzati" con il logo Kudu. Fare clic su "Go". Verrà visualizzata in un nuovo sito e accedere automaticamente.
+2.  Successivamente è necessario scaricare i file binari del profiler. Passare a Esplora File mediante la Console di Debug -> CMD nella parte superiore della pagina.
+3.  Fare clic sul sito -> wwwroot -> App_Data -> processi -> continua. Si dovrebbe essere una cartella "ApplicationInsightsProfiler2". Fare clic sull'icona a sinistra della cartella di download. Questo verrà scaricato un file "ApplicationInsightsProfiler2.zip".
+4.  Si scaricherà tutti i file sarà necessario spostare in avanti. Consiglia di creare una directory vuota per spostare questo archivio di zip in prima di proseguire.
+
+### <a name="setting-up-the-web-job-archive"></a>L'installazione dell'archivio del processo web
+Quando si aggiunge un nuovo processo web al sito Web di azure sostanzialmente si crea un archivio zip con un run.cmd all'interno. Il run.cmd indica al sistema di processo web operazioni da eseguire quando si esegue il processo web. Sono disponibili altre opzioni che è possibile leggere la documentazione di processo web, ma ai fini di non è necessario altro.
+
+1.  Per iniziare creare una nuova cartella, denominato miei "RunProfiler2Minutes".
+2.  Copiare i file dalla cartella ApplicationInsightProfiler2 estratta nella nuova cartella.
+3.  Creare un nuovo file run.cmd. (Aperta la cartella di lavoro nel codice di Visual Studio prima di avviare per praticità)
+4.  Aggiungere il comando `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120`e salvare il file.
+a.  Il `start` comando indica al profiler di avvio.
+b.  `--engine-mode immediate`indica il profiler che si desidera avviare immediatamente la profilatura.
+c.  `--single`mezzo per eseguire e quindi arrestare automaticamente d.  `--immediate-profiling-duration 120`significa che il profiler eseguito per 120 secondi o 2 minuti.
+5.  Salvare il file.
+6.  Questa cartella di archiviazione, è possibile fare clic con il pulsante destro la cartella e scegliere Invia a -> Compressed cartella compressa. Si creerà un file con estensione zip utilizzando il nome della cartella.
+
+![avviare il comando del profiler](./media/app-insights-profiler/start-profiler-command.png)
+
+È ora disponibile un file ZIP processo web che è possibile utilizzare per configurare i processi web nel sito.
+
+### <a name="add-a-new-web-job"></a>Aggiungere un nuovo processo web
+Successivamente sarà necessario aggiungere un nuovo processo web nel sito. In questo esempio mostra come aggiungere un processo manuale web attivati. Dopo che è possibile eseguire questa operazione il processo è quasi esattamente lo stesso per pianificato. È possibile leggere informazioni sui trigger i processi pianificati nel proprio.
+
+1.  Andare nel dashboard di processi web.
+2.  Fare clic sul comando Aggiungi dalla barra degli strumenti.
+3.  Assegnare un nome di processo web si è scelto per corrispondere al nome del mio archivio per maggiore chiarezza e per aprirlo fino a diverse versioni di run.cmd.
+4.  Nel file di caricare una parte del modulo, fare clic sull'icona di file aperti e trovare il file con estensione zip apportate in precedenza.
+5.  Per il tipo, scegliere avviata.
+6.  Per i trigger scegliere manuale.
+7.  Fare clic su OK per salvare.
+
+![avviare il comando del profiler](./media/app-insights-profiler/create-webjob.png)
+
+### <a name="run-the-profiler"></a>Eseguire il profiler
+
+Dopo aver creato un nuovo processo web che è possibile attivare manualmente è possibile provare a eseguirlo.
+
+1.  Per impostazione predefinita è possibile avere solo un processo ApplicationInsightsProfiler.exe in esecuzione in un computer in qualsiasi momento. Per iniziare con assicurarsi di disabilitare il processo web continuo da questo dashboard. Fare clic sulla riga e premere "Stop". Aggiorna sulla barra degli strumenti e verificare che lo stato di conferma che il processo viene interrotto.
+2.  Fare clic sulla riga con il nuovo processo web aggiunti e premere Esegui.
+3.  Con la riga ancora selezionata fare clic sul comando registri nella barra degli strumenti, verrà visualizzato è a un dashboard di processi web per il processo web che è stato avviato. Verranno visualizzate le esecuzioni più recenti e i relativi risultati.
+4.  Fare clic sull'esecuzione di nuovi.
+5.  Se l'assenza di errori visualizzati alcuni log di diagnostica provenienti dal profiler conferma che è stato avviato il profiling di.
+
+### <a name="things-to-consider"></a>Aspetti da considerare
+
+Se questo metodo è relativamente semplice, esistono alcuni aspetti da considerare.
+
+1.  Perché non è gestita dal servizio si avranno alcuna possibilità di aggiornare i file binari dell'agente per il processo web. Non attualmente abbiamo una pagina di download stabile per i file binari è l'unico modo per ottenere la versione più recente aggiornando l'estensione e selezionandola dalla cartella continua come abbiamo fatto in precedenza.
+2.  Come si utilizzano gli argomenti della riga di comando che erano originariamente concepiti con sviluppatore usare anziché utilizzare per l'utente finale, questi argomenti modifica in futuro, pertanto solo possibile tenere presente che quando l'aggiornamento. Non deve essere gran parte di un problema in quanto è possibile aggiungere un processo web, l'esecuzione e test del corretto funzionamento. Infine, verrà creata l'interfaccia utente per eseguire questa operazione senza il processo manuale, ma è opportuno prendere in considerazione.
+3.  La funzionalità processi Web per i servizi di App è univoca in quanto durante l'esecuzione del processo web assicura che il processo presenta le stesse variabili di ambiente e le impostazioni di app che finirà con il sito web. Ciò significa che non è necessario passare la chiave di strumentazione tramite la riga di comando per il profiler, deve solo selezionare la chiave di strumentazione dall'ambiente di. Tuttavia se si desidera eseguire il profiler, nella casella di sviluppo o in un computer all'esterno di servizi App è necessario specificare una chiave di strumentazione. È possibile farlo tramite il passaggio di un argomento `--ikey <instrumentation-key>`. Si noti che questo valore deve corrispondere alla chiave di strumentazione utilizzato dall'applicazione. Nell'output del log dal profiler indicherà quali ikey introduttiva il profiler e se è stata rilevata attività da tale chiave di strumentazione durante è sottoposto a profilatura.
+4.  I processi web manualmente trigger possono essere attivati effettivamente tramite Web Hook. È possibile ottenere questo url da facendo clic sul processo web dal dashboard e visualizzare le proprietà o scegliendo proprietà nella barra degli strumenti dopo aver selezionato il processo web dalla tabella. Sono disponibili numerosi articoli disponibili online su questo, in modo non entra in dettagli su di esso, ma verrà visualizzata la possibilità di attivare il profiler tramite la pipeline CI/CD (ad esempio VSTS) o simile a Microsoft Flow (https://flow.microsoft.com/en-us/). A seconda di come decorativo che si desidera rendere il run.cmd, che può essere un run.ps1, i valori possibili sono numerose.  
+
+
+
 
 ## <a id="aspnetcore"></a>Supporto di ASP.NET Core
 

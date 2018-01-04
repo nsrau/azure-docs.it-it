@@ -16,10 +16,10 @@ ms.date: 10/15/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: ccc0755385d2f170939e5c19f32b168132b6839b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorare e gestire le pipeline di Azure Data Factory con il portale di Azure e PowerShell
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ Le sezioni dei set di dati nella data factory possono avere uno degli stati segu
 
 <table>
 <tr>
-    <th align="left">Stato</th><th align="left">Sottostato</th><th align="left">Descrizione</th>
+    <th align="left">Stato</th><th align="left">Sottostato</th><th align="left">DESCRIZIONE</th>
 </tr>
 <tr>
     <td rowspan="8">Waiting</td><td>ScheduleTime</td><td>Non è il momento di eseguire la sezione.</td>
@@ -134,10 +134,10 @@ Le sezioni dei set di dati nella data factory possono avere uno degli stati segu
 <td>Ready</td><td>-</td><td>La sezione è pronta per essere utilizzata.</td>
 </tr>
 <tr>
-<td>Skipped</td><td>None</td><td>La sezione non viene elaborata.</td>
+<td>Skipped</td><td>Nessuna</td><td>La sezione non viene elaborata.</td>
 </tr>
 <tr>
-<td>None</td><td>-</td><td>Esisteva una sezione con uno stato differente, ma è stata reimpostata.</td>
+<td>Nessuna</td><td>-</td><td>Esisteva una sezione con uno stato differente, ma è stata reimpostata.</td>
 </tr>
 </table>
 
@@ -177,7 +177,7 @@ La sezione viene avviata nello stato **In attesa** e prima dell'esecuzione è ne
 ```powershell
 Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-ad esempio:
+Ad esempio: 
 
 ```powershell
 Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -188,7 +188,7 @@ Dopo aver risolto il problema della pipeline, è possibile riprendere l'esecuzio
 ```powershell
 Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-ad esempio:
+Ad esempio: 
 
 ```powershell
 Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -220,7 +220,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
     ```powershell   
     Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   ad esempio:
+   Ad esempio: 
 
     ```powershell   
     Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
@@ -234,7 +234,7 @@ Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati gener
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    Ad esempio:
+    Ad esempio: 
 
     ```powershell   
     Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
@@ -285,7 +285,7 @@ Se non è possibile eseguire la convalida della sezione a causa di un errore rel
 
 ![Correggere gli errori e convalidare](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
-### <a name="use-azure-powershell"></a>Uso di Azure PowerShell
+### <a name="use-azure-powershell"></a>Usare Azure PowerShell
 È possibile eseguire nuovamente le operazioni non riuscite usando il cmdlet **Set-AzureRmDataFactorySliceStatus**. Per informazioni sulla sintassi e altri dettagli sul cmdlet, vedere l'argomento [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx).
 
 **Esempio:**
@@ -366,13 +366,13 @@ Questo esempio configura l'avviso per tutte le data factory nella sottoscrizione
 
 La tabella seguente contiene l'elenco delle operazioni e degli stati e stati secondari disponibili.
 
-| Nome operazione | Stato | Stato secondario |
+| Nome operazione | Status | Stato secondario |
 | --- | --- | --- |
-| RunStarted |Started |Starting |
+| RunStarted |Started |Avvio in corso |
 | RunFinished |Failed/Succeeded |Allocazione risorse non riuscita<br/><br/>Succeeded<br/><br/>FailedExecution<br/><br/>TimedOut<br/><br/><Canceled<br/><br/>FailedValidation<br/><br/>Abbandonato |
 | OnDemandClusterCreateStarted |Started | |
-| OnDemandClusterCreateSuccessful |Operazione completata | |
-| OnDemandClusterDeleted |Operazione completata | |
+| OnDemandClusterCreateSuccessful |Succeeded | |
+| OnDemandClusterDeleted |Succeeded | |
 
 Per informazioni dettagliate sugli elementi JSON usati nell'esempio, vedere [Crea regola avviso](https://msdn.microsoft.com/library/azure/dn510366.aspx).
 

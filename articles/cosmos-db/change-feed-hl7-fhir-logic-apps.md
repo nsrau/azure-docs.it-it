@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: b-hoedid
-ms.openlocfilehash: d2b50c0b6864af41fb9cfa051721c432772b228d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7a041e2121a2762af4307d7044437032cce79f05
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Segnalare ai pazienti le modifiche delle cartelle cliniche HL7 FHIR utilizzando le App per la logica e Azure Cosmos DB
 
@@ -54,7 +54,7 @@ Questa soluzione richiede tre App per la logica per soddisfare i requisiti prece
 
 ### <a name="azure-services-used-in-the-solution"></a>I servizi di Azure usati nella soluzione
 
-#### <a name="azure-cosmos-db-documentdb-api"></a>API DocumentDB di Azure Cosmos DB
+#### <a name="azure-cosmos-db-sql-api"></a>API di SQL Azure Cosmos DB
 Azure Cosmos DB è il repository per le risorse FHIR come illustrato nella figura seguente.
 
 ![Account di Azure Cosmos DB utilizzato in questa esercitazione per la soluzione HL7 FHIR del settore sanitario](./media/change-feed-hl7-fhir-logic-apps/account.png)
@@ -86,7 +86,7 @@ La figura seguente mostra la coda di pazienti. Il valore della proprietà Tag vi
 #### <a name="api-app"></a>App per le API
 Un'app per le API si connette ad Azure Cosmos DB ed esegue query per documenti FHIR nuovi o modificati in base al tipo di risorsa. Questa applicazione dispone di un controller, **FhirNotificationApi** con una unica operazione **GetNewOrModifiedFhirDocuments**, vedere l'[origine di app per le API](#api-app-source).
 
-Viene utilizzata la classe [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) dell'API DocumentDB .NET di Azure Cosmos DB. Per altre informazioni, vedere l'[articolo sul feed delle modifiche](change-feed.md). 
+Si sta usando il [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery.aspx) classe dall'API .NET di Azure Cosmos DB SQL. Per altre informazioni, vedere l'[articolo sul feed delle modifiche](change-feed.md). 
 
 ##### <a name="getnewormodifiedfhirdocuments-operation"></a>Operazione GetNewOrModifiedFhirDocuments
 
@@ -222,7 +222,7 @@ L'immagine seguente mostra tutti i servizi di Azure per questa soluzione in esec
 ![Il portale di Azure con tutti i servizi usati in questa esercitazione HL7 FHIR](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-portal.png)
 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 - Si è appreso che Azure Cosmos DB dispone di supporto nativo per le notifiche per documenti nuovi o modificati, con notevole facilità d'uso. 
 - Sfruttando le App per la logica è possibile creare flussi di lavoro senza scrivere codice.

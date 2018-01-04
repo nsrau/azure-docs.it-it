@@ -4,7 +4,7 @@ description: Informazioni su come personalizzare la data di scadenza per i certi
 services: active-directory
 documentationcenter: 
 author: jeevansd
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: f516f7f0-b25a-4901-8247-f5964666ce23
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 1283b570200f05003658824760ecbb6722f241d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2247b668584c7bb501043917f98e77c7c5cecfdc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gestione di certificati per accesso Single Sign-On federato in Azure Active Directory
 Questo articolo tratta domande comuni e informazioni relative ai certificati creati da Azure Active Directory (Azure AD) per stabilire l'accesso Single Sign-On federato (SSO) alle applicazioni SaaS. Queste applicazioni possono essere aggiunte dalla raccolta di app di Azure AD o usando il modello di applicazione non inclusa nella raccolta. Configurare l'applicazione utilizzando l'opzione di SSO federato.
@@ -50,7 +50,7 @@ Le schermate usano Salesforce per le finalità dell'esempio, ma questi passaggi 
 
     ![Genera un nuovo certificato](./media/active-directory-sso-certs/create_new_certficate.png)
 
-5. Il collegamento **Crea un nuovo certificato** apre il controllo del calendario. È possibile impostare data e ora fino a tre anni dalla data corrente. La data e l'ora selezionate e sono la data e l'ora di scadenza del nuovo certificato. Fare clic su **Salva**.
+5. Il collegamento **Crea un nuovo certificato** apre il controllo del calendario. È possibile impostare data e ora fino a tre anni dalla data corrente. La data e l'ora selezionate e sono la data e l'ora di scadenza del nuovo certificato. Fare clic su **Save**.
 
     ![Scaricare e quindi caricare il certificato](./media/active-directory-sso-certs/certifcate_date_selection.PNG)
 

@@ -4,7 +4,7 @@ description: Codici ed esempi di PowerShell per Collaborazione B2B in Azure Acti
 services: active-directory
 documentationcenter: 
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: sasubram
-ms.openlocfilehash: cae69f57627b3058bf96c3d1eea7dadc81147153
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6a75fdd6c6f8fc03945be4b7d843777286cc70a7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Codici ed esempi di PowerShell per Collaborazione B2B in Azure Active Directory
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 1. Preparare il file CSV. Creare un nuovo file CSV e denominarlo invitations.csv. In questo esempio il file viene salvato in C:\Dati e contiene le informazioni seguenti:
   
-  Nome                  |  InvitedUserEmailAddress
+  NOME                  |  InvitedUserEmailAddress
   --------------------- | --------------------------
   Invitato B2B di Gmail     | b2binvitee@gmail.com
   Invitato B2B di Outlook   | b2binvitee@outlook.com

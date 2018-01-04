@@ -17,15 +17,15 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e4c413d3cb5c242a16f3e534dafe322785a35141
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-powershell"></a>Creare una VM con un indirizzo IP pubblico statico mediante Azure PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Interfaccia della riga di comando di Azure](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Modello](virtual-network-deploy-static-pip-arm-template.md)
@@ -169,7 +169,7 @@ Ora che tutte le risorse necessarie sono presenti, è possibile creare una nuova
 
 8. Salvare il file di script.
 
-## <a name="step-4---run-the-script"></a>Passaggio 4 - eseguire lo script.
+## <a name="step-4---run-the-script"></a>Passaggio 4 - Eseguire lo script.
 Dopo aver apportato tutte le modifiche necessarie e aver compreso il funzionamento dello script illustrato sopra, eseguire lo script. 
 
 1. Dalla console di PowerShell o PowerShell ISE, eseguire lo script sopra riportato.

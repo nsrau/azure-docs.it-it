@@ -1,5 +1,5 @@
 ---
-title: Applicazione Node.js con Socket.io | Documentazione Microsoft
+title: Applicazione di Node.js tramite Socket.io - Azure
 description: Informazioni su come usare socket.io in un'applicazione node.js ospitata in Azure.
 services: cloud-services
 documentationcenter: nodejs
@@ -14,14 +14,15 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 0b4c3c540e27ba06a722cfec4f0c079f19ce7f67
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
-ms.translationtype: HT
+ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Creazione di un'applicazione di chat Node.js con Socket.IO in un servizio cloud di Azure
-Socket.IO fornisce comunicazioni in tempo reale tra il server node.js e i client. In questa esercitazione verrà illustrato l'hosting di un'applicazione di chat basata su socket.IO in Azure. Per altre informazioni su Socket.IO, vedere <http://socket.io/>.
+# <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Compilare un'applicazione di chat Node.js con Socket.IO su un servizio Cloud di Azure
+
+Socket.IO fornisce la comunicazione in tempo reale tra i client e server node.js. In questa esercitazione viene illustrato l'hosting di un socket. Applicazione di chat in Azure basata sui / o. Per ulteriori informazioni su Socket.IO, vedere [socket.io](http://socket.io).
 
 Di seguito è riportata una schermata dell'applicazione completata:
 
@@ -122,7 +123,7 @@ Dopo aver salvato le modifiche apportate al file **server.js**, eseguire la proc
 4. Dopo aver testato l'applicazione, immettere il comando seguente per interrompere l'emulatore:
    
        PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
-5. Per distribuire l'applicazione in Azure, usare il cmdlet **Publish-AzureServiceProject**. Ad esempio:
+5. Per distribuire l'applicazione in Azure, usare il cmdlet **Publish-AzureServiceProject**. Ad esempio: 
    
        PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
    

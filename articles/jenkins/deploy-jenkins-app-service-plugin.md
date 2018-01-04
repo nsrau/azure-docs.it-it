@@ -15,21 +15,21 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: e38c69ec55d894053792fbf284d07944d7f44dc0
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
-ms.translationtype: HT
+ms.openlocfilehash: 9b79e3b498e51e626e7e9a87d2bb1a66366acff5
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Eseguire la distribuzione nel Servizio app di Azure con il plug-in Jenkins 
 
 Per distribuire un'app Web Java in Azure, è possibile usare l'interfaccia della riga di comando di Azure nella [pipeline Jenkins](/azure/jenkins/execute-cli-jenkins-pipeline) oppure il [plug-in Jenkins Servizio app di Azure](https://plugins.jenkins.io/azure-app-service). Il plug-in Jenkins versione 1.0 di supporta la distribuzione continua tramite la funzionalità App Web del Servizio app di Azure tramite:
-* GIT e FTP.
+* GIT o FTP.
 * Docker per App Web in Linux.
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
-> * Configurare Jenkins per distribuire app Web tramite GIT e FTP.
+> * Configurare Jenkins per distribuire le app Web tramite Git o FTP.
 > * Configurare Jenkins per distribuire app Web per contenitori.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Creare e configurare un'istanza di Jenkins
@@ -64,7 +64,7 @@ Per la distribuzione in Azure è necessaria un'entità servizio di Azure.
 3. Per aggiungere un'entità servizio di Microsoft Azure, selezionare **Add Credentials** (Aggiungi credenziali). Immettere i valori per i campi relativi a **ID sottoscrizione**, **ID client**, **segreto client** e **endpoint di token OAuth 2.0**. Impostare il campo **ID** su **mySp**. Questo ID verrà usato nei passaggi successivi di questo articolo.
 
 
-## <a name="configure-jenkins-to-deploy-web-apps-through-git-and-ftp"></a>Configurare Jenkins per distribuire app Web tramite GIT e FTP
+## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>Configurare Jenkins per distribuire le app Web caricando file
 
 Per distribuire il progetto in App Web, è possibile caricare gli artefatti di compilazione, ad esempio un file War in Java, usando Git o FTP.
 
@@ -104,7 +104,7 @@ Prima di configurare il processo in Jenkins sono necessari un piano di servizio 
 8. Se si vuole eseguire la distribuzione in uno slot di diverso dalla produzione, è possibile anche impostare il nome dello **Slot**.
 9. Salvare e compilare il progetto. L'app web viene distribuita in Azure al termine della compilazione.
 
-### <a name="deploy-web-apps-through-ftp-by-using-jenkins-pipeline"></a>Distribuire app Web tramite FTP usando la pipeline Jenkins
+### <a name="deploy-web-apps-by-uploading-files-using-jenkins-pipeline"></a>Distribuire le app Web caricando file tramite la Pipeline di Jenkins
 
 Il plug-in Jenkins Servizio app di Azure è pronto per la pipeline. È possibile fare riferimento all'esempio seguente nel repository GitHub.
 

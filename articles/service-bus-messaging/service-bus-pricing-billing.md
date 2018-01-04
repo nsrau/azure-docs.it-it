@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 8f693bc51fc9635fae4376137e7e573bf74da7cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8ccb44b5009588c28bc79bb45e1a7640ead6c817
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-pricing-and-billing"></a>Informazioni sul prezzo e la fatturazione del Bus di servizio
-Il bus di servizio è disponibile nei livelli Standard e [Premium](service-bus-premium-messaging.md). È possibile scegliere un livello di servizio per ogni spazio dei nomi del bus di servizio creato e questa selezione del livello si applica a tutte le entità create all'interno dello spazio dei nomi.
+
+Service Bus di Azure viene offerto con Standard e [Premium](service-bus-premium-messaging.md) livelli. È possibile scegliere un livello di servizio per ogni spazio dei nomi del bus di servizio creato e questa selezione del livello si applica a tutte le entità create all'interno dello spazio dei nomi.
 
 > [!NOTE]
 > Per informazioni dettagliate sui prezzi correnti del bus di servizio, vedere la [pagina dei prezzi del bus di servizio di Azure](https://azure.microsoft.com/pricing/details/service-bus/) e [Domande frequenti sul bus di servizio](service-bus-faq.md#pricing).
@@ -42,18 +43,20 @@ Si noti che il costo di base del livello Standard viene addebitato una sola volt
 La tabella [Prezzi di Bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/) riepiloga le differenze funzionali tra i livelli Standard e Premium.
 
 ## <a name="messaging-operations"></a>Operazioni di messaggistica
-Nell'ambito del nuovo modello di determinazione prezzi, la fatturazione per code e argomenti/sottoscrizioni sta cambiando. Queste entità sono in transizione dalla fatturazione per ogni messaggio alla fatturazione per ogni operazione. Per "operazione" si intende qualsiasi chiamata API effettuata da un endpoint di servizio di una coda o di un argomento o sottoscrizione. Sono incluse operazioni di stato della sessione, di invio/ricezione e di gestione.
 
-| Tipo di operazione | Descrizione |
+Code e argomenti/sottoscrizioni vengono fatturate per "operation", non per ogni messaggio. Un'operazione fa riferimento a qualsiasi chiamata API a un endpoint del servizio code o argomenti/sottoscrizioni. Sono incluse operazioni di stato della sessione, di invio/ricezione e di gestione.
+
+| Tipo di operazione | DESCRIZIONE |
 | --- | --- |
-| gestione |Creazione, lettura, aggiornamento, eliminazione su code o argomenti/sottoscrizioni. |
-| Messaggistica |Invio e ricezione di messaggi con code o argomenti/sottoscrizioni. |
-| Stato sessione |Acquisizione o impostazione dello stato della sessione su una coda o un argomento o sottoscrizione. |
+| Gestione |Creazione, lettura, aggiornamento, eliminazione su code o argomenti/sottoscrizioni. |
+| Messaggistica |Inviare e ricevere messaggi con code o argomenti/sottoscrizioni. |
+| Stato sessione |Ottiene o imposta lo stato della sessione su una coda o argomento o sottoscrizione. |
 
 Per i dettagli sui costi, vedere i prezzi elencati nella pagina [Prezzi di Bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## <a name="brokered-connections"></a>Connessioni negoziate
-Le *connessioni negoziate* sono ideali per i modelli d'uso dei clienti che prevedono un numero elevato di mittenti/destinatari "connessi in modo permanente" a code, argomenti o sottoscrizioni. I mittenti/destinatari costantemente connessi sono quelli che si connettono tramite AMQP o HTTP con un timeout di ricezione diverso da zero, ad esempio, HTTP (tempo di polling). Non generano connessioni negoziate HTTP mittenti e destinatari con un timeout immediato.
+
+*Connessioni negoziate* adattare i modelli di utilizzo che coinvolgono un numero elevato di mittenti/destinatari "connessi in modo permanente" su code, argomenti o sottoscrizioni. I mittenti/destinatari costantemente connessi sono quelli che si connettono tramite AMQP o HTTP con un timeout di ricezione diverso da zero, ad esempio, HTTP (tempo di polling). Non generano connessioni negoziate HTTP mittenti e destinatari con un timeout immediato.
 
 Per le quote di connessione e altri limiti di servizio, vedere l'articolo sulle [quote di Bus di servizio](service-bus-quotas.md). Per altre informazioni sulle connessioni negoziate, vedere la sezione [Domande frequenti](#faq) più avanti in questo articolo.
 
@@ -75,9 +78,10 @@ Il livello Standard rimuove il limite di connessioni negoziate per spazio dei no
 
 Le connessioni negoziate non vengono addebitate nel livello Premium.
 
-## <a name="faq"></a>domande frequenti
+## <a name="faq"></a>Domande frequenti
 
 ### <a name="what-are-brokered-connections-and-how-do-i-get-charged-for-them"></a>Quali sono le connessioni negoziate e come viene effettuato l'addebito?
+
 Una connessione negoziata è definita in uno dei seguenti modi:
 
 1. Connessione AMQP da un client a un argomento/sottoscrizione o una coda del bus di servizio.
@@ -85,15 +89,17 @@ Una connessione negoziata è definita in uno dei seguenti modi:
 
 I costi del Bus di servizio per il numero massimo di connessioni simultanee negoziate che superano la quantità inclusa (1.000 nel livello Standard). I picchi vengono misurati su base oraria, ripartiti dividendo per 744 ore in un mese e sommati nel periodo di fatturazione mensile. La quantità inclusa (1.000 connessioni negoziate al mese) viene applicata alla fine del periodo di fatturazione con la somma dei picchi orari ripartiti.
 
-Ad esempio:
+Ad esempio: 
 
 1. Ognuno dei 10.000 dispositivi si connette tramite una singola connessione AMQP e riceve i comandi da un argomento del bus di servizio. I dispositivi inviano eventi di telemetria per un Hub di eventi. Se tutti i dispositivi si connettono per 12 ore al giorno, si applicano i costi di connessione seguenti (oltre a eventuali altri costi per l'argomento del bus di servizio): 10.000 connessioni * 12 ore * 31 giorni/744 = 5.000 connessioni negoziate. Dopo l'indennità mensile di 1.000 connessioni negoziate, ci sarà l'addebito per 4.000 connessioni negoziate, alla tariffa di $0,03 per ogni connessione negoziata, per un totale di $120.
 2. 10.000 dispositivi ricevono messaggi da una coda del Bus di servizio tramite HTTP, specificando un timeout diverso da zero. Se tutti i dispositivi si connettono per 12 ore al giorno, si vedranno applicati i costi di connessione seguenti (oltre a eventuali altri costi del bus di servizio): 10.000 connessioni di ricezione HTTP * 12 ore al giorno * 31 giorni/744 = 5.000 connessioni negoziate.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>I costi delle connessioni negoziate si applicano a code e argomenti/sottoscrizioni?
+
 Sì. Non sono previsti costi di connessione per l'invio di eventi tramite HTTP, indipendentemente dal numero di sistemi o dispositivi di invio. La ricezione di eventi con HTTP utilizzando un timeout maggiore di zero, talvolta denominato "polling prolungato" genera costi di connessione negoziata. Le connessioni AMQP generano costi di connessione negoziata indipendentemente dal fatto che le connessioni vengano utilizzate per inviare o ricevere. Le prime 1.000 connessioni negoziate tra tutti gli spazi dei nomi Standard in una sottoscrizione di Azure sono incluse senza alcun costo aggiuntivo (oltre ai costi di base). Poiché queste quote sono sufficienti per coprire molti scenari di messaggistica service to service, i costi della connessione negoziata sono in genere rilevanti solo se si prevede di utilizzare il polling prolungato di AMQP o HTTP con un numero elevato di client; ad esempio, per ottenere un flusso di eventi più efficiente o abilitare la comunicazione bidirezionale con molti dispositivi o istanze di applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * Per altre informazioni sui prezzi del bus di servizio, vedere la [pagina dei prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
 * Per le risposte alle domande frequenti sui prezzi e sulla fatturazione del bus di servizio, vedere [Domande frequenti sul bus di servizio](service-bus-faq.md#pricing).
 

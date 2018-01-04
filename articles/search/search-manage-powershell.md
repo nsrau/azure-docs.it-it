@@ -16,10 +16,10 @@ ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
 ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Gestire il servizio Ricerca di Azure con PowerShell
 > [!div class="op_single_selector"]
@@ -129,7 +129,7 @@ Per specificare la sottoscrizione, eseguire il comando seguente. Nell'esempio se
     # Deleting your service will delete all indexes and data in the service
     $resource | Remove-AzureRmResource
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Dopo aver creato il servizio, è possibile procedere a compilare un [indice](search-what-is-an-index.md), eseguire [query su un indice](search-query-overview.md) e infine creare e gestire la propria applicazione di ricerca che usa Ricerca di Azure.
 
 * [Creare un indice di Ricerca di Azure nel portale di Azure](search-create-index-portal.md)

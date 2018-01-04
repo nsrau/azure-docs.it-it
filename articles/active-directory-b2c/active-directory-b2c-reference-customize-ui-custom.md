@@ -1,10 +1,10 @@
 ---
 title: 'Azure Active Directory B2C: informazioni di riferimento: personalizzare l''interfaccia utente di un percorso utente con i criteri personalizzati | Microsoft Docs'
-description: Argomento sui criteri personalizzati di Azure Active Directory B2C
+description: Un argomento sui criteri personalizzati di Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
-manager: krassk
+manager: mtillman
 editor: rojasja
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
-ms.openlocfilehash: 68f40aa638a687398512278a0b77d1ba392859cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f07e05a1786f8afc1ccecf21994b1ad263ead285
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizzare l'interfaccia utente di un percorso utente con criteri personalizzati
 
@@ -87,7 +87,7 @@ Come prerequisito, è necessario creare un account di archiviazione. Per creare 
 2. Accedere con le credenziali amministrative.
 3. Fare clic su **Nuovo** > **Dati e archiviazione** > **Account di archiviazione**.  Viene aperto un pannello **Crea account di archiviazione**.
 4. In **Nome** specificare un nome per l'account di archiviazione, ad esempio *contoso369b2c*. Questo valore più avanti verrà indicato come *storageAccountName*.
-5. Impostare le selezioni appropriate per il piano tariffario, il gruppo di risorse e la sottoscrizione. Verificare che l'opzione **Aggiungi alla Schermata iniziale** sia selezionata. Fare clic su **Create**.
+5. Impostare le selezioni appropriate per il piano tariffario, il gruppo di risorse e la sottoscrizione. Verificare che l'opzione **Aggiungi alla Schermata iniziale** sia selezionata. Fare clic su **Crea**.
 6. Tornare alla schermata iniziale e fare clic sull'account di archiviazione appena creato.
 7. Nella sezione **Servizi** fare clic su **BLOB**. Viene aperto un pannello **Servizio BLOB**.
 8. Fare clic su **+ Contenitore**.
@@ -141,7 +141,7 @@ L'account di archiviazione ora includerà un contenitore BLOB denominato *b2c* n
 
 La tabella seguente descrive lo scopo delle pagine HTML5 precedenti.
 
-| Modello HTML5 | Descrizione |
+| Modello HTML5 | DESCRIZIONE |
 |----------------|-------------|
 | *phonefactor.html* | Questa pagina può essere usata come modello per una pagina di autenticazione a più fattori. |
 | *resetpassword.html* | Questa pagina può essere usata come modello per una pagina Password dimenticata. |
@@ -157,7 +157,7 @@ I modelli HTML5/CSS da usare nel percorso utente devono essere specificati in un
 
 La tabella seguente descrive il set di ID definizione del contenuto riconosciuti dal motore di esperienza di gestione delle identità di Azure AD B2C e il tipo di pagine correlate.
 
-| ID definizione del contenuto | Descrizione |
+| ID definizione del contenuto | DESCRIZIONE |
 |-----------------------|-------------|
 | *api.error* | **Pagina di errore**. Questa pagina viene visualizzata quando viene rilevata un'eccezione o un errore. |
 | *api.idpselections* | **Pagina di selezione del provider di identità**. Questa pagina contiene un elenco dei provider di identità che l'utente può scegliere durante la procedura di accesso. Sono presenti provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook e Google+, o account locali (basati su indirizzo di posta elettronica o nome utente). |

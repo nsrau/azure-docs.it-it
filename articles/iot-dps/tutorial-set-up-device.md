@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7031409aa63f5d64d5bb7a1b9dcac50a97718630
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
-ms.translationtype: HT
+ms.openlocfilehash: 835a54f147b9ea543df21e7dfeb226ac42aceda3
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configurare un dispositivo per il provisioning usando il servizio Device Provisioning in hub IoT di Azure
 
@@ -55,17 +55,17 @@ L'SDK client del servizio Device Provisioning aiuta a implementare il meccanismo
 1. Compilare l'SDK per il tipo di modulo di protezione hardware selezionato per il dispositivo interessato, digitando al prompt dei comandi uno dei comandi seguenti:
     - Per i dispositivi TPM:
         ```cmd/sh
-        cmake -Ddps_auth_type=tpm ..
+        cmake -Duse_prov_client:BOOL=ON ..
         ```
 
     - Per il simulatore TPM:
         ```cmd/sh
-        cmake -Ddps_auth_type=tpm_simulator ..
+        cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
         ```
 
     - Per i dispositivi e il simulatore X.509:
         ```cmd/sh
-        cmake -Ddps_auth_type=x509 ..
+        cmake -Duse_prov_client:BOOL=ON ..
         ```
 
 1. L'SDK include il supporto predefinito per i dispositivi che eseguono implementazioni Windows o Ubuntu per i moduli di protezione hardware TPM e X.509. Per questi moduli di protezione hardware supportati, passare alla sezione intitolata [Estrarre gli elementi di sicurezza](#extractsecurity) più avanti. 
@@ -76,27 +76,25 @@ L'SDK client del servizio Device Provisioning non offre supporto predefinito per
 
 ### <a name="develop-your-custom-repository"></a>Sviluppare il repository personalizzato
 
-1. Sviluppare un repository GitHub per accedere al modulo di protezione hardware. Questo progetto richiede che si produca una raccolta statica ad uso dell'SDK del servizio Device Provisioning.
-1. La raccolta deve implementare le funzioni definite nel file di intestazione seguente: a. Per il modulo TPM personalizzato, implementare le funzioni definite in `\azure-iot-sdk-c\dps_client\adapters\custom_hsm_tpm_impl.h`.
-    b. Per il modulo X.509 personalizzato, implementare le funzioni definite in `\azure-iot-sdk-c\dps_client\adapters\custom_hsm_x509_impl.h`. 
-1. Il repository del modulo di protezione hardware deve inoltre contenere un file `CMakeLists.txt` nella directory radice per il repository che deve essere creato.
+1. Sviluppare una libreria per accedere a modulo di protezione hardware. Questo progetto richiede che si produca una raccolta statica ad uso dell'SDK del servizio Device Provisioning.
+1. La raccolta deve implementare le funzioni definite nel file di intestazione seguente: a. Per TPM personalizzato, implementare le funzioni definite [documento personalizzato HSM](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api).
+    b. Per x. 509 personalizzato, implementare le funzioni definite [documento personalizzato HSM](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api). 
 
 ### <a name="integrate-with-the-device-provisioning-service-client"></a>Integrare con il client del servizio Device Provisioning
 
-Dopo la creazione della raccolta è possibile passare all'SDK per C IoThub e inserire il repository:
+Una volta che la libreria correttamente Compila nel proprio, è possibile spostare a IoThub C-SDK e con la libreria di collegamento:
 
 1. Specificare il repository GitHub del modulo di protezione hardware personalizzato, il percorso della raccolta e il relativo nome nel comando cmake seguente:
     ```cmd/sh
-    cmake -Ddps_auth_type=<custom_hsm> -Ddps_hsm_custom_repo=<github_repo_name> -Ddps_hsm_custom_lib=<path_and_name_of library> <PATH_TO_AZURE_IOT_SDK>
+    cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=<path_and_name_of_library> <PATH_TO_AZURE_IOT_SDK>
     ```
-   Sostituire `<custom_hsm>` nel comando con `tpm` o `x509`. Questo comando crea un indicatore per il repository del modulo di protezione hardware personalizzato all'interno della directory `cmake`. Il modulo di protezione hardware personalizzato deve ancora essere basato sui meccanismi di sicurezza TPM o X.509.
-
+   
 1. Aprire l'SDK in Visual Studio e compilarlo. 
 
-    - Il processo di compilazione clona il repository personalizzato e compila la raccolta.
+    - Il processo di compilazione compilerà la libreria SDK.
     - L'SDK tenterà di collegarsi al modulo di protezione hardware personalizzato definito nel comando cmake.
 
-1. Eseguire l'esempio `\azure-iot-sdk-c\dps_client\samples\dps_client_sample\dps_client_sample.c` per verificare se il modulo di protezione hardware è stato implementato correttamente.
+1. Eseguire l'esempio `\azure-iot-sdk-c\provisioning_client\samples\prov_dev_client_ll_sample\prov_dev_client_ll_sample.c` per verificare se il modulo di protezione hardware è stato implementato correttamente.
 
 <a id="extractsecurity"></a>
 ## <a name="extract-the-security-artifacts"></a>Estrarre gli elementi di sicurezza
@@ -116,21 +114,30 @@ Quando il dispositivo viene avviato per la prima volta, l'SDK client interagisce
 L'ultimo passaggio del processo di produzione del dispositivo consiste nello scrivere un'applicazione che usa l'SDK client del servizio Device Provisioning per registrare il dispositivo con il servizio. Questo SDK include le API seguenti da usare per le applicazioni:
 
 ```C
-typedef void(*DPS_REGISTER_DEVICE_CALLBACK)(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* user_context); // Callback to notify user of device registration results.
-DPS_CLIENT_LL_HANDLE DPS_Client_LL_Create (const char* dps_uri, const char* scope_id, DPS_TRANSPORT_PROVIDER_FUNCTION protocol, DPS_CLIENT_ON_ERROR_CALLBACK on_error_callback, void* user_ctx); // Creates the IOTHUB_DPS_LL_HANDLE to be used in subsequent calls.
-void DPS_Client_LL_Destroy(DPS_CLIENT_LL_HANDLE handle); // Frees any resources created by the IoTHub Device Provisioning Service module.
-DPS_RESULT DPS_LL_Register_Device(DPS_LL_HANDLE handle, DPS_REGISTER_DEVICE_CALLBACK register_callback, void* user_context, DPS_CLIENT_REGISTER_STATUS_CALLBACK status_cb, void* status_ctx); // Registers a device that has been previously registered with Device Provisioning Service
-void DPS_Client_LL_DoWork(DPS_LL_HANDLE handle); // Processes the communications with the Device Provisioning Service and calls any user callbacks that are required.
+// Creates a Provisioning Client for communications with the Device Provisioning Client Service
+PROV_DEVICE_LL_HANDLE Prov_Device_LL_Create(const char* uri, const char* scope_id, PROV_DEVICE_TRANSPORT_PROVIDER_FUNCTION protocol)
+
+// Disposes of resources allocated by the provisioning Client.
+void Prov_Device_LL_Destroy(PROV_DEVICE_LL_HANDLE handle)
+
+// Asynchronous call initiates the registration of a device.
+PROV_DEVICE_RESULT Prov_Device_LL_Register_Device(PROV_DEVICE_LL_HANDLE handle, PROV_DEVICE_CLIENT_REGISTER_DEVICE_CALLBACK register_callback, void* user_context, PROV_DEVICE_CLIENT_REGISTER_STATUS_CALLBACK reg_status_cb, void* status_user_ctext)
+
+// Api to be called by user when work (registering device) can be done
+void Prov_Device_LL_DoWork(PROV_DEVICE_LL_HANDLE handle)
+
+// API sets a runtime option identified by parameter optionName to a value pointed to by value
+PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const char* optionName, const void* value)
 ```
 
-Ricordarsi di inizializzare le variabili `dps_uri` e `dps_scope_id` come menzionato nella sezione [Simulate first boot sequence](./quick-create-simulated-device.md#firstbootsequence) (Simulare la prima sequenza di avvio del dispositivo) di questa guida introduttiva prima di usarle. L'API di registrazione del client Device Provisioning `DPS_Client_LL_Create` esegue la connessione al servizio Device Provisioning globale. L'*ambito ID* viene generato dal servizio e garantisce l'univocità. Non può essere modificato e viene usato per identificare in modo univoco gli ID di registrazione. Il parametro `iothub_uri` consente all'API di registrazione del client per l'hub IoT `IoTHubClient_LL_CreateFromDeviceAuth` di eseguire la connessione all'hub IoT corretto. 
+Ricordarsi di inizializzare le variabili `uri` e `id_scope` come menzionato nella sezione [Simulate first boot sequence](./quick-create-simulated-device.md#firstbootsequence) (Simulare la prima sequenza di avvio del dispositivo) di questa guida introduttiva prima di usarle. L'API di registrazione del client Device Provisioning `Prov_Device_LL_Create` esegue la connessione al servizio Device Provisioning globale. L'*ambito ID* viene generato dal servizio e garantisce l'univocità. Non può essere modificato e viene usato per identificare in modo univoco gli ID di registrazione. Il parametro `iothub_uri` consente all'API di registrazione del client per l'hub IoT `IoTHubClient_LL_CreateFromDeviceAuth` di eseguire la connessione all'hub IoT corretto. 
 
 
-Queste API aiutano il dispositivo a connettersi e a registrarsi al servizio Device Provisioning quando viene avviato, a ottenere le informazioni sull'hub IoT e a connettersi all'hub. Il file `dps_client/samples/dps_client_sample/dps_client_sample.c` mostra come usare queste API. È necessario, in generale, creare il framework seguente per la registrazione del client:
+Queste API aiutano il dispositivo a connettersi e a registrarsi al servizio Device Provisioning quando viene avviato, a ottenere le informazioni sull'hub IoT e a connettersi all'hub. Il file `provisioning_client/samples/prov_client_ll_sample/prov_client_ll_sample.c` mostra come usare queste API. È necessario, in generale, creare il framework seguente per la registrazione del client:
 
 ```C
-static const char* dps_uri = "global.azure-devices-provisioning.net";
-static const char* dps_scope_id = "[ID scope for your provisioning service]";
+static const char* global_uri = "global.azure-devices-provisioning.net";
+static const char* id_scope = "[ID scope for your provisioning service]";
 ...
 static void register_callback(DPS_RESULT register_result, const char* iothub_uri, const char* device_id, void* context)
 {
@@ -143,18 +150,23 @@ static void registation_status(DPS_REGISTRATION_STATUS reg_status, void* user_co
 }
 int main()
 {
-    ...    
-    security_device_init(); // initialize your HSM 
+    ...
+    SECURE_DEVICE_TYPE hsm_type;
+    hsm_type = SECURE_DEVICE_TYPE_TPM;
+    //hsm_type = SECURE_DEVICE_TYPE_X509;
+    prov_dev_security_init(hsm_type); // initialize your HSM 
 
-    DPS_CLIENT_LL_HANDLE handle = DPS_Client_LL_Create(dps_uri, dps_scope_id, dps_transport, on_dps_error_callback, &user_info); // Create your DPS client
+    prov_transport = Prov_Device_HTTP_Protocol;
+    
+    PROV_CLIENT_LL_HANDLE handle = Prov_Device_LL_Create(global_uri, id_scope, prov_transport); // Create your provisioning client
 
-    if (DPS_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
+    if (Prov_Client_LL_Register_Device(handle, register_callback, &user_info, register_status, &user_info) == IOTHUB_DPS_OK) {
         do {
-            // The dps_register_callback is called when registration is complete or fails
-            DPS_Client_LL_DoWork(handle);
+        // The register_callback is called when registration is complete or fails
+            Prov_Client_LL_DoWork(handle);
         } while (user_info.reg_complete == 0);
     }
-    DPS_Client_LL_Destroy(handle); // Clean up the DPS client
+    Prov_Client_LL_Destroy(handle); // Clean up the Provisioning client
     ...
     iothub_client = IoTHubClient_LL_CreateFromDeviceAuth(user_info.iothub_uri, user_info.device_id, transport); // Create your IoT hub client and connect to your hub
     ...
@@ -172,7 +184,7 @@ I servizi Device Provisioning e per l'hub IoT sono a questo punto configurati ne
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Selezionare un modulo di protezione hardware

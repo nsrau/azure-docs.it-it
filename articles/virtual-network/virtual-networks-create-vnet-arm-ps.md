@@ -17,10 +17,10 @@ ms.date: 01/03/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e7072ddf51570d46578111e2e392e3cbea53f2aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-a-virtual-network-using-powershell"></a>Creare una rete virtuale usando PowerShell
 
@@ -31,7 +31,7 @@ Azure offre due modelli di distribuzione, ovvero Azure Resource Manager e la dis
 Questo articolo illustra come creare una rete virtuale tramite il modello di distribuzione Resource Manager usando PowerShell. È anche possibile creare una rete virtuale tramite Resource Manager usando altri strumenti oppure tramite il modello di distribuzione classica selezionando un'opzione diversa dall'elenco seguente:
 
 > [!div class="op_single_selector"]
-> * [Portale](virtual-networks-create-vnet-arm-pportal.md)
+> * [di Microsoft Azure](virtual-networks-create-vnet-arm-pportal.md)
 > * [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 > * [CLI](virtual-networks-create-vnet-arm-cli.md)
 > * [Modello](virtual-networks-create-vnet-arm-template-click.md)
@@ -47,7 +47,7 @@ Per creare una rete virtuale usando PowerShell, completare i passaggi seguenti:
 
 1. Installare e configurare Azure PowerShell seguendo i passaggi descritti nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
-2. Se necessario, creare un nuovo gruppo di risorse, come mostrato di seguito. Per questo scenario, creare un gruppo di risorse denominato *TestRG*. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+2. Se necessario, creare un nuovo gruppo di risorse, come mostrato di seguito. Per questo scenario, creare un gruppo di risorse denominato *TestRG*. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Gestione risorse di Azure](../azure-resource-manager/resource-group-overview.md).
 
     ```powershell   
     New-AzureRmResourceGroup -Name TestRG -Location centralus

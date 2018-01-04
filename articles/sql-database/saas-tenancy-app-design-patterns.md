@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: 0377baaa4a0db7e3cb2041f3ca018322e379f0df
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 1b6c780000d8c5e31a78f7f83ae74c002e8f8349
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Criteri di tenancy di database delle applicazioni SaaS multi-tenant
 
@@ -165,7 +165,7 @@ Nel modello ibrido tutti i database presentano l'identificatore del tenant nello
 
 È possibile spostare in qualsiasi momento un tenant specifico nel relativo database multi-tenant.  E sempre in qualsiasi momento è possibile cambiare idea e ripristinare il tenant in un database contenente più tenant.  È anche possibile assegnare un tenant a un nuovo database a tenant singolo quando si esegue il provisioning del nuovo database.
 
-Il modello ibrido risulta particolarmente indicato se sussistono grandi differenze tra le esigenze di risorse dei gruppi identificabili di tenant.  Si supponga ad esempio che ai tenant che fanno parte di una versione di valutazione gratuita non venga garantito lo stesso livello di prestazioni elevate dei tenant che fanno parte di una sottoscrizione.  I criteri per i tenant nella fase della versione di valutazione gratuita potrebbero prevedere l'archiviazione in un database multi-tenant condiviso tra tutti i tenant della versione di valutazione gratuita.  Quando un tenant di una versione di valutazione gratuita esegue la sottoscrizione al livello di servizio di base, può essere spostato in un altro database multi-tenant che potrebbe avere un numero inferiore di tenant.  Un sottoscrittore che ha acquistato il livello di servizio premium potrebbe essere spostato nel nuovo database a tenant singolo corrispondente.
+Il modello ibrido risulta particolarmente indicato se sussistono grandi differenze tra le esigenze di risorse dei gruppi identificabili di tenant.  Si supponga ad esempio che ai tenant che fanno parte di una versione di valutazione gratuita non venga garantito lo stesso livello di prestazioni elevate dei tenant che fanno parte di una sottoscrizione.  I criteri per i tenant nella fase della versione di valutazione gratuita potrebbero prevedere l'archiviazione in un database multi-tenant condiviso tra tutti i tenant della versione di valutazione gratuita.  Quando un tenant di una versione di valutazione gratuita esegue la sottoscrizione al livello di servizio di base, può essere spostato in un altro database multi-tenant che potrebbe avere un numero inferiore di tenant.  Un sottoscrittore che paga per il livello di servizio premium può essere spostato in un proprio database single-tenant nuovo.
 
 #### <a name="pools"></a>Pool
 
@@ -177,7 +177,7 @@ La tabella seguente riepiloga le differenze tra i modelli di tenancy principali.
 
 | Misura | App autonoma | Database per tenant | Multi-tenant partizionato |
 | :---------- | :------------- | :------------------ | :------------------- |
-| Scalabilità | Media<br />1-centinaia | Molto alta<br />1-centinaia di migliaia | Senza limiti<br />1-milioni |
+| Scalabilità | Media<br />1-centinaia | Molto alta<br />1-centinaia di migliaia | Illimitato<br />1-milioni |
 | Isolamento dei tenant | Molto alto | Alto | Basso, ad eccezione di eventuali tenant singleton (soli in un database multi-tenant). |
 | Costo di database per tenant | Alto; dimensionato per i picchi. | Basso; vengono usati i pool. | Minimo, per tenant di piccole dimensioni nei database multi-tenant. |
 | Monitoraggio e gestione delle prestazioni | Solo per singolo tenant | Aggregati + per singolo tenant | Aggregati, ma per singolo tenant solo per singleton. |

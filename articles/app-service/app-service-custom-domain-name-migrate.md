@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a1fe545e4a341709232cba36c6e3cf3b4ce82e80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cd04be2046a23901471cb7bd0da9e0ed2d514d0d
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Eseguire la migrazione di un nome DNS attivo al Servizio app di Azure
 
@@ -50,11 +50,11 @@ Dopo aver eseguito la migrazione del nome DNS personalizzato dal sito precedente
 
 Per verificare la proprietà del dominio, aggiungere un record TXT. Il record TXT esegue il mapping da _awverify.&lt;subdomain>_ a _&lt;appname>.azurewebsites.net_. 
 
-Il record TXT necessario varia a seconda del record DNS di cui si vuole eseguire la migrazione. Ad esempio, vedere la tabella seguente (`@` rappresenta in genere il dominio radice):  
+Il record TXT necessario varia a seconda del record DNS di cui si vuole eseguire la migrazione. Ad esempio, vedere la tabella seguente (`@` rappresenta in genere il dominio radice):
 
 | Esempio di record DNS | Host TXT | Valore TXT |
 | - | - | - |
-| @ (radice) | _awverify_ | _&lt;appname>.azurewebsites.net_ |
+| @ (radice) | _awverify_ | _&lt;appname&gt;.azurewebsites.net_ |
 | www (sottodominio) | _awverify.www_ | _&lt;appname&gt;.azurewebsites.net_ |
 | \* (wildcard) | _awverify.\*_ | _&lt;appname&gt;.azurewebsites.net_ |
 

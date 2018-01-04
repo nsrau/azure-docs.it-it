@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: f2e7f93d2d2914399f3fc7b24a00540f1c045b58
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 0aac388f4499af018a4603bcad835ab41d6b6642
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure (anteprima)
 È possibile usare Sincronizzazione file di Azure (anteprima) per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -46,19 +46,21 @@ L'agente Sincronizzazione file di Azure è un pacchetto scaricabile che consente
     - C:\Programmi\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Endpoint server
-Un endpoint server rappresenta una posizione specifica in un server registrato, ad esempio una cartella in un volume del server o la radice del volume. Possono esistere più endpoint server nello stesso volume se i relativi spazi dei nomi non si sovrappongono, ad esempio F:\sync1 e F:\sync2. È possibile configurare criteri di suddivisione in livelli cloud singolarmente per ogni endpoint server. Se a un gruppo di sincronizzazione si aggiunge una posizione nel server con un set di file esistente come endpoint server, i file vengono uniti a tutti gli altri file già presenti in altri endpoint del gruppo di sincronizzazione.
+Un endpoint del server rappresenta una posizione specifica in un server registrato, ad esempio una cartella nel volume di un server. Più endpoint di server possono essere presenti nello stesso volume, se non si sovrappongano gli spazi dei nomi (ad esempio, `F:\sync1` e `F:\sync2`). È possibile configurare criteri di suddivisione in livelli cloud singolarmente per ogni endpoint server. Attualmente, non è possibile creare un endpoint del server per la radice di un volume (ad esempio `F:\` o `C:\myvolume`, se un volume montato come un punto di montaggio).
 
 > [!Note]  
 > Un endpoint server potrebbe trovarsi nel volume di sistema Windows. La suddivisione in livelli cloud non è supportata nel volume di sistema.
+
+Se a un gruppo di sincronizzazione si aggiunge una posizione nel server con un set di file esistente come endpoint server, i file vengono uniti a tutti gli altri file già presenti in altri endpoint del gruppo di sincronizzazione.
 
 ### <a name="cloud-endpoint"></a>Endpoint cloud
 Un endpoint cloud è una condivisione file di Azure che fa parte di un gruppo di sincronizzazione. L'intera condivisione file di Azure viene sincronizzata e una condivisione file di Azure può far parte di un solo endpoint cloud. Di conseguenza, una condivisione file di Azure può far parte di un solo gruppo di sincronizzazione. Se a un gruppo di sincronizzazione si aggiunge una condivisione file di Azure con un set di file esistente come endpoint cloud, i file esistenti vengono uniti a tutti gli altri file già presenti in altri endpoint del gruppo di sincronizzazione.
 
 > [!Important]  
-> Sincronizzazione file di Azure supporta la modifica diretta della condivisione file di Azure. Qualsiasi modifica apportata alla condivisione file di Azure, tuttavia, deve prima essere individuata dal processo di rilevamento modifiche di Sincronizzazione file di Azure, che per un endpoint cloud viene avviato una sola volta ogni 24 ore. Per altre informazioni, vedere [Domande frequenti su File di Azure](storage-files-faq.md#afs-change-detection).
+> Sincronizzazione file di Azure supporta la modifica diretta della condivisione file di Azure. Qualsiasi modifica apportata alla condivisione file di Azure, tuttavia, deve prima essere individuata dal processo di rilevamento modifiche di Sincronizzazione file di Azure, che per un endpoint cloud viene avviato una sola volta ogni 24 ore. Inoltre, le modifiche apportate a una condivisione di file di Azure tramite il protocollo REST non aggiornerà l'ora dell'ultima modifica di SMB e non verranno visualizzate come una modifica dalla sincronizzazione. Per altre informazioni, vedere [Domande frequenti su File di Azure](storage-files-faq.md#afs-change-detection).
 
 ### <a name="cloud-tiering"></a>Suddivisione in livelli nel cloud 
-La suddivisione in livelli nel cloud è una funzionalità facoltativa di Sincronizzazione file di Azure che consente di archiviare a livelli in File di Azure i file che si usano con scarsa frequenza o a cui si accede raramente. Quando un file è archiviato a livelli, il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys) sostituisce il file in locale con un puntatore, o punto di analisi. Il punto di analisi rappresenta un URL del file in File di Azure. Un file a livelli ha l'attributo "offline" impostato in NTFS, in modo che le applicazioni di terze parti possano identificare i file a livelli. Quando un utente apre un file a livelli, Sincronizzazione file di Azure richiama facilmente i dati del file da File di Azure senza che l'utente debba sapere che il file non è archiviato localmente nel sistema. Questa funzionalità è nota anche come gestione dell'archiviazione gerarchica (Hierarchical Storage Management, HSM).
+Suddivisione in livelli del cloud è una funzionalità facoltativa di sincronizzazione di File di Azure in cui raramente utilizzata o accedere al file di dimensioni maggiori di 64 KiB dimensioni possibile creare più livelli per i file di Azure. Quando un file è archiviato a livelli, il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys) sostituisce il file in locale con un puntatore, o punto di analisi. Il punto di analisi rappresenta un URL del file in File di Azure. Un file a livelli ha l'attributo "offline" impostato in NTFS, in modo che le applicazioni di terze parti possano identificare i file a livelli. Quando un utente apre un file a livelli, Sincronizzazione file di Azure richiama facilmente i dati del file da File di Azure senza che l'utente debba sapere che il file non è archiviato localmente nel sistema. Questa funzionalità è nota anche come gestione dell'archiviazione gerarchica (Hierarchical Storage Management, HSM).
 
 > [!Important]  
 > La suddivisione in livelli cloud non è supportata per gli endpoint server nei volumi di sistema Windows.
@@ -69,7 +71,7 @@ Questa sezione illustra l'interoperabilità di Sincronizzazione file di Azure co
 ### <a name="supported-versions-of-windows-server"></a>Versioni di Windows Server supportate
 Le versioni di Windows Server attualmente supportate da Sincronizzazione file di Azure sono:
 
-| Versione | SKU supportati | Opzioni di distribuzione supportate |
+| Version | SKU supportati | Opzioni di distribuzione supportate |
 |---------|----------------|------------------------------|
 | Windows Server 2016 | Datacenter e Standard | Completa (server con un'interfaccia utente) |
 | Windows Server 2012 R2 | Datacenter e Standard | Completa (server con un'interfaccia utente) |
@@ -156,6 +158,7 @@ Sincronizzazione file di Azure è disponibile in anteprima solo nelle aree segue
 
 | Region | Ubicazione del data center |
 |--------|---------------------|
+| Stati Uniti orientali | Virginia, USA |
 | Stati Uniti occidentali | California, Stati Uniti |
 | Europa occidentale | Paesi Bassi |
 | Asia sudorientale | Singapore |

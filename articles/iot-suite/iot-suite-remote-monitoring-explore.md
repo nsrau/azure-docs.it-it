@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: f4461b5c10ea4e4cce4c13cb590dd398c37cb7b6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Esplorare le funzionalità della soluzione preconfigurata di monitoraggio remoto
 
@@ -43,7 +43,7 @@ Se la soluzione di monitoraggio remoto non è stata ancora distribuita, è neces
 È possibile usare la distribuzione IoT di esempio Contoso per comprendere gli scenari di base predefiniti forniti dalla soluzione di monitoraggio remoto. Questi scenari sono basati su distribuzioni IoT reali. Molto presumibilmente, si sceglierà di personalizzare la soluzione di monitoraggio remoto in base a requisiti specifici, ma l'esempio Contoso consente di apprendere le nozioni di base.
 
 > [!NOTE]
-> Se è stata usata l'interfaccia della riga di comando per distribuire la soluzione preconfigurata, il file `deployment-{your deployment name}-output.json` contiene informazioni sulla distribuzione, tra cui l'URL per accedere all'esempio distribuito.
+> Se l'interfaccia CLI utilizzato per distribuire la soluzione preconfigurata, il file `deployment-{your deployment name}-output.json` contiene informazioni sulla distribuzione, ad esempio l'URL per accedere all'esempio distribuito.
 
 L'esempio Contoso effettua il provisioning di un set di dispositivi simulati e le regole per gestirli. Una volta compresi gli scenari di base, è possibile continuare a esplorare altre funzionalità della soluzione in [Eseguire il monitoraggio avanzato dei dispositivi tramite la soluzione di monitoraggio remoto](iot-suite-remote-monitoring-monitor.md).
 
@@ -58,7 +58,7 @@ Contoso usa diversi tipi di dispositivi avanzati. Questi dispositivi svolgono ru
 
 La tabella seguente mostra un riepilogo dei tipi di dispositivo di cui viene effettuato il provisioning:
 
-| Tipo di dispositivo        | Telemetria                                  | Proprietà                                  | Tag                    | Metodi                                                                                      |
+| Tipo di dispositivo        | Telemetria                                  | Properties                                  | Tag                    | Metodi                                                                                      |
 | ------------------ | ------------------------------------------ | ------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------- |
 | Chiller (Refrigeratore)            | Temperature (Temperatura), Humidity (Umidità), Pressure (Pressione)            | Type (Tipo), Firmware version (Versione firmware), Model (Modello)               | Location (Località), Floor (Piano), Campus (Complesso) | Reboot (Riavvia), Firmware Update (Aggiornamento firmware), Emergency Valve Release (Rilascio valvola di emergenza), Increase Pressure (Aumenta pressione)                          |
 | Prototyping device (Dispositivo di prototipazione) | Temperature (Temperatura), Pressure (Pressione), Geo-location (Posizione geografica)        | Type (Tipo), Firmware version (Versione firmware), Model (Modello)               | Location (Località), Mode (Modalità)          | Reboot (Riavvio), Firmware Update (Aggiornamento firmware), Move device (Sposta dispositivo), Stop device (Arresta dispositivo), Temperature release (Riduzione temperatura), Temperature increase (Aumento temperatura) |
@@ -73,7 +73,7 @@ La tabella seguente mostra un riepilogo dei tipi di dispositivo di cui viene eff
 
 Gli operatori Contoso conoscono le soglie che determinano se un dispositivo funziona o meno correttamente. Ad esempio, un refrigeratore non funziona correttamente se la pressione segnalata è maggiore di 250 PSI. La tabella seguente mostra le regole basate su soglie definite da Contoso per ogni tipo di dispositivo:
 
-| Nome regola | Descrizione | Soglia | Severity | Dispositivi interessati |
+| Nome regola | DESCRIZIONE | Soglia | Gravità | Dispositivi interessati |
 | --------- | ----------- | --------- | -------- | ---------------- |
 | Chiller pressure too high (Pressione refrigeratore troppo alta) | Genera un allarme se i refrigeratori raggiungono livelli di pressione superiori a quelli normali   |P > 250 psi       | Critico | Refrigeratori            |
 | Prototyping device temp too high (Temperatura dispositivo di prototipazione troppo alta)  | Genera un allarme se i dispositivi di prototipazione raggiungono livelli di temperatura superiori a quelli normali  |T > 80 &deg;F |Critico | Dispositivi di prototipazione |
@@ -101,11 +101,11 @@ L'operatore può notare nel dashboard la presenza di un allarme relativo alla pr
 
 1. Chiudere **Device detail** (Dettagli dispositivo).
 
-1. Per passare alla pagina **Maintenance** (Manutenzione), fare clic su **...** nella colonna **Explore Alarm** (Esplora allarme) vicino all'allarme nella griglia degli allarmi.
+1. Per passare al **manutenzione** pagina, scegliere **manutenzione** nel menu di navigazione.
 
 Nella pagina **Maintenance** (Manutenzione) è possibile visualizzare i dettagli della regola che ha attivato l'allarme di pressione del refrigeratore.
 
-1. È possibile esaminare il numero di volte in cui l'allarme è stato attivato, le conferme e gli allarmi aperti e chiusi:
+1. Elenco delle notifiche Mostra il numero di volte in cui che è attivato l'avviso, i riconoscimenti e allarmi aperti e chiusi:
 
     ![Pagina Maintenance (Manutenzione) che mostra l'elenco degli avvisi attivati](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
@@ -123,9 +123,9 @@ Sono stati ora identificati il problema che ha attivato l'allarme e il dispositi
 
     ![Selezionare il dispositivo e pianificare un'azione](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
-1. Per visualizzare lo stato del processo, tornare alla pagina **Maintenance** (Manutenzione) e visualizzare l'elenco di processi nella visualizzazione **System Status** (Stato sistema). È possibile notare che il processo è stato eseguito per rilasciare la pressione della valvola sul refrigeratore:
+1. Per visualizzare lo stato del processo, tornare al **manutenzione** pagina e visualizzare l'elenco dei processi nella **processi** visualizzazione. È possibile notare che il processo è stato eseguito per rilasciare la pressione della valvola sul refrigeratore:
 
-    ![Stato dei processi in System Status (Stato sistema)](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
+    ![Lo stato dei processi nella visualizzazione processi](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
 
 Infine, verificare che i valori di telemetria per il refrigeratore siano tornati normali.
 
@@ -159,7 +159,7 @@ Per eseguire le attività di gestione dei dispositivi necessarie, usare la pagin
     ![Pianificare l'aggiornamento del firmware nel dispositivo](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
     > [!NOTE]
-    > Con i dispositivi simulati è possibile usare qualsiasi URI desiderato come valore di **Firmware URI** (URI firmware). I dispositivi simulati non accedono all'URL.
+    > Con i dispositivi simulati è possibile utilizzare qualsiasi URL come si desidera che il **Firmware URI** valore. I dispositivi simulati non accedono all'URL.
 
 1. Notare quanti dispositivi sono interessati dal processo e scegliere **Apply** (Applica):
 
@@ -167,13 +167,13 @@ Per eseguire le attività di gestione dei dispositivi necessarie, usare la pagin
 
 È possibile usare la pagina **Maintenance** (Manutenzione) per monitorare il processo durante la sua esecuzione.
 
-1. Per visualizzare l'elenco dei processi, passare alla pagina **Maintenance** (Manutenzione) e fare clic su **System Status** (Stato sistema).
+1. Per visualizzare l'elenco dei processi, passare al **manutenzione** pagina e fare clic su **processi**.
 
 1. Individuare l'evento relativo al processo creato. Verificare che il processo di aggiornamento del firmware sia stato avviato correttamente.
 
-È possibile creare un filtro per verificare che la versione del firmware sia stata aggiornata correttamente.
+È possibile creare un filtro per verificare la versione del firmware aggiornata correttamente.
 
-1. Per creare un filtro, passare alla pagina **Devices** (Dispositivi) e selezionare **Manage** (Gestisci):
+1. Per creare un filtro, passare al **dispositivi** pagina e selezionare **gestire i filtri**:
 
     ![Gestire i filtri dei dispositivi](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
@@ -202,7 +202,7 @@ Per semplificare l'organizzazione e la gestione dei dispositivi per un operatore
 
     ![Selezionare i dispositivi veicolo e di prototipazione](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
-1. Scegliere **Tag** e quindi creare un nuovo tag di stringa denominato **FieldService**con valore **ConnectedVehicle**. Scegliere un nome per il processo. Fare quindi clic su **Apply**(Applica):
+1. Scegliere **Tag** e quindi creare un nuovo tag di testo denominato **FieldService** con un valore **ConnectedVehicle**. Scegliere un nome per il processo. Fare quindi clic su **Apply**(Applica):
 
     ![Aggiungere tag ai dispositivi veicolo e di prototipazione](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
@@ -210,7 +210,7 @@ Per semplificare l'organizzazione e la gestione dei dispositivi per un operatore
 
     ![Selezionare i dispositivi refrigeratore, montacarichi e motore](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. Scegliere **Tag** e quindi creare un nuovo tag denominato **FieldService**con valore **SmartBuilding**. Scegliere un nome per il processo. Fare quindi clic su **Save** (Salva):
+1. Scegliere **Tag** e quindi creare un nuovo tag di testo denominato **FieldService** con un valore **SmartBuilding**. Scegliere un nome per il processo. Fare quindi clic su **Save** (Salva):
 
     ![Aggiungere tag ai dispositivi refrigeratore, motore e montacarichi](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 

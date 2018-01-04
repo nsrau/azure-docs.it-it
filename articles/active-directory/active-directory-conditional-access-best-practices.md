@@ -5,7 +5,7 @@ services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 74b97ac263dcc45f7a8dd7461cbdb23d9fd5e6fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8c6707505a6331b53e06b1de60575dd3637ea477
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedure consigliate per l'accesso condizionale in Azure Active Directory
 
@@ -100,86 +100,18 @@ Nell'ambiente, è necessario evitare le seguenti configurazioni:
 
 ## <a name="policy-migration"></a>Migrazione dei criteri
 
-Se nel portale di Azure classico sono configurati dei criteri, è opportuno eseguirne la migrazione nel portale di Azure per i motivi seguenti:
+È consigliabile eseguire la migrazione di criteri che non è stato creato nel portale di Azure perché:
+
+- È possibile soddisfare gli scenari che non è possibile gestire prima.
+
+- Il consolidamento consente di ridurre il numero di criteri da gestire.   
+
+- È possibile gestire tutti i criteri di accesso condizionale in un'unica posizione centrale.
+
+- Portale di Azure classico verrà ritirato.   
 
 
-- Un utente per cui sono configurati criteri nel portale di Azure classico e nel portale di Azure deve soddisfare i requisiti per entrambi i criteri 
-
-- Se non si esegue la migrazione dei criteri esistenti, non si potranno implementare i criteri che concedono l'accesso
-
-
-### <a name="migration-from-the-azure-classic-portal"></a>Migrazione dal portale di Azure classico
-
-In questo scenario: 
-
-- Nel [portale di Azure classico](https://manage.windowsazure.com) sono configurati:
-
-    - SharePoint Online
-
-    ![Accesso condizionale](./media/active-directory-conditional-access-best-practices/14.png)
-
-    - Criteri di accesso condizionale basato su dispositivo
-
-    ![Accesso condizionale](./media/active-directory-conditional-access-best-practices/15.png)
-
-- Si vuole eseguire la configurazione di criteri di accesso condizionale con gestione di applicazioni mobili nel portale di Azure 
- 
-
-#### <a name="configuration"></a>Configurazione 
-
-- Esaminare i criteri di accesso condizionale basato su dispositivo
-
-- Eseguirne la migrazione nel portale di Azure 
-
-- Aggiungere criteri di accesso condizionale con gestione di applicazioni mobili
-
-
-### <a name="migrating-from-intune"></a>Migrazione da Intune 
-
-In questo scenario:
-
-- In [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ) sono configurati criteri di accesso condizionale con gestione di applicazioni mobili per Exchange Online o SharePoint Online
-
-    ![Accesso condizionale](./media/active-directory-conditional-access-best-practices/15.png)
-
-- Si vuole eseguire la migrazione in modo da usare l'accesso condizionale con gestione di applicazioni mobili nel portale di Azure
-
-
-#### <a name="configuration"></a>Configurazione 
- 
-- Esaminare i criteri di accesso condizionale basato su dispositivo
-
-- Eseguirne la migrazione nel portale di Azure 
-
-- Esaminare i criteri di accesso condizionale con gestione di applicazioni mobili configurati per Exchange Online o SharePoint Online in Intune
-
-- Aggiungere il controllo per **richiedere applicazioni approvate** oltre al controllo basato su dispositivo 
- 
-
-### <a name="migrating-from-the-azure-classic-portal-and-intune"></a>Migrazione dal portale di Azure classico e Intune
-
-In questo scenario:
-
-- Sono configurati i criteri seguenti:
-
-    - **Portale di Azure classico:** criteri di accesso condizionale basato su dispositivo 
-
-    - **Intune:** criteri di accesso condizionale con gestione di applicazioni mobili 
-    
-- Si vuole eseguire la migrazione di entrambi i criteri in modo da usare l'accesso condizionale con gestione di applicazioni mobili nel portale di Azure
-
-
-#### <a name="configuration"></a>Configurazione
-
-- Esaminare i criteri di accesso condizionale basato su dispositivo
-
-- Eseguirne la migrazione nel portale di Azure 
-
-- Esaminare i criteri di accesso condizionale con gestione di applicazioni mobili configurati per Exchange Online o SharePoint Online in Intune
-
-- Aggiungere il controllo per **richiedere applicazioni approvate** oltre a quello basato su dispositivo 
-
-
+Per ulteriori informazioni, vedere [classici criteri nel portale di Azure di eseguire la migrazione](active-directory-conditional-access-migration.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

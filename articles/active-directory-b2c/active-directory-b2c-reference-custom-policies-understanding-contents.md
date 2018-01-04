@@ -1,10 +1,10 @@
 ---
 title: 'Azure Active Directory B2C: informazioni sui criteri personalizzati dello starter pack | Microsoft Docs'
-description: Argomento sui criteri personalizzati di Azure Active Directory B2C
+description: Un argomento sui criteri personalizzati di Azure Active Directory B2C
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
-manager: krassk
+manager: mtillman
 editor: rojasja
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
-ms.openlocfilehash: 9847bcfcc139a769847678c1cca6a8b9c3a30e93
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: fccb6cfddc8629de7db0310340f07bffd1ff8a65
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Informazioni sui criteri personalizzati dello starter pack di Azure AD B2C
 
@@ -50,9 +50,9 @@ Di seguito sono elencati i tipi di attestazioni disponibili.
 
 Le attestazioni seguenti sono necessarie per il corretto funzionamento dei percorsi utente:
 
-| Tipo di attestazione | Descrizione |
+| Tipo di attestazione | DESCRIZIONE |
 |-------------|-------------|
-| *UserId* | Nome utente |
+| *UserId* | Username |
 | *signInName* | Nome di accesso |
 | *tenantId* | Identificatore (ID) tenant dell'oggetto utente in Azure AD B2C Premium |
 | *objectId* | Identificatore (ID) oggetto dell'oggetto utente in Azure AD B2C Premium |
@@ -81,7 +81,7 @@ Le attestazioni seguenti sono necessarie per il corretto funzionamento dei perco
 
 Le attestazioni seguenti sono necessarie per passare particolari parametri (inclusi alcuni parametri della stringa di query) ad altri provider di attestazioni:
 
-| Tipo di attestazione | Descrizione |
+| Tipo di attestazione | DESCRIZIONE |
 |-------------|-------------|
 | *nux* | Parametro speciale passato per autenticazione dell'account locale in login.microsoftonline.com |
 | *nca* | Parametro speciale passato per autenticazione dell'account locale in login.microsoftonline.com |
@@ -98,7 +98,7 @@ Le attestazioni seguenti sono necessarie per passare particolari parametri (incl
 
 Le seguenti sono attestazioni aggiuntive che possono essere raccolte dagli utenti, archiviate nella directory e inviate nel token. Come indicato prima, si possono aggiungere altre attestazioni a questo elenco.
 
-| Tipo di attestazione | Descrizione |
+| Tipo di attestazione | DESCRIZIONE |
 |-------------|-------------|
 | *givenName* | Nome di battesimo dell'utente (noto anche come nome) |
 | *surname* | Cognome dell'utente |
@@ -108,7 +108,7 @@ Le seguenti sono attestazioni aggiuntive che possono essere raccolte dagli utent
 
 Di seguito sono elencate le trasformazioni di attestazioni disponibili.
 
-| Trasformazione attestazione | Descrizione |
+| Trasformazione attestazione | DESCRIZIONE |
 |----------------------|-------------|
 | *CreateOtherMailsFromEmail* | |
 | *CreateRandomUPNUserName* | |
@@ -121,7 +121,7 @@ Di seguito sono elencate le trasformazioni di attestazioni disponibili.
 
 Questa sezione descrive le definizioni del contenuto già dichiarate nel criterio *B2C_1A_base*. È possibile fare riferimento a queste definizioni del contenuto, eseguirne l'override e/o estenderle, se necessario, nei propri criteri oltre che nel criterio *B2C_1A_base_extensions*.
 
-| Provider di attestazioni | Descrizione |
+| Provider di attestazioni | DESCRIZIONE |
 |-----------------|-------------|
 | *Facebook* | |
 | *Accesso all'account locale* | |
@@ -140,19 +140,19 @@ Questa sezione illustra i profili tecnici già dichiarati per ogni provider di a
 
 ### <a name="technical-profiles-for-facebook"></a>Profili tecnici per Facebook
 
-| Profilo tecnico | Descrizione |
+| Profilo tecnico | DESCRIZIONE |
 |-------------------|-------------|
 | *Facebook-OAUTH* | |
 
 ### <a name="technical-profiles-for-local-account-signin"></a>Profili tecnici per l'accesso all'account locale
 
-| Profilo tecnico | Descrizione |
+| Profilo tecnico | DESCRIZIONE |
 |-------------------|-------------|
 | *Login-NonInteractive* | |
 
 ### <a name="technical-profiles-for-phone-factor"></a>Profili tecnici per PhoneFactor
 
-| Profilo tecnico | Descrizione |
+| Profilo tecnico | DESCRIZIONE |
 |-------------------|-------------|
 | *PhoneFactor-Input* | |
 | *PhoneFactor-InputOrVerify* | |
@@ -160,7 +160,7 @@ Questa sezione illustra i profili tecnici già dichiarati per ogni provider di a
 
 ### <a name="technical-profiles-for-azure-active-directory"></a>Profili tecnici per Azure Active Directory
 
-| Profilo tecnico | Descrizione |
+| Profilo tecnico | DESCRIZIONE |
 |-------------------|-------------|
 | *AAD-Common* | Profilo tecnico incluso dagli altri profili tecnici AAD-xxx |
 | *AAD-UserWriteUsingAlternativeSecurityId* | Profilo tecnico per gli accessi basati su social network |
@@ -175,20 +175,20 @@ Questa sezione illustra i profili tecnici già dichiarati per ogni provider di a
 
 ### <a name="technical-profiles-for-self-asserted"></a>Profili tecnici per l'autocertificazione
 
-| Profilo tecnico | Descrizione |
+| Profilo tecnico | DESCRIZIONE |
 |-------------------|-------------|
 | *SelfAsserted-Social* | |
 | *SelfAsserted-ProfileUpdate* | |
 
 ### <a name="technical-profiles-for-local-account"></a>Profili tecnici per l'account locale
 
-| Profilo tecnico | Descrizione |
+| Profilo tecnico | DESCRIZIONE |
 |-------------------|-------------|
 | *LocalAccountSignUpWithLogonEmail* | |
 
 ### <a name="technical-profiles-for-session-management"></a>Profili tecnici per la gestione delle sessioni
 
-| Profilo tecnico | Descrizione |
+| Profilo tecnico | DESCRIZIONE |
 |-------------------|-------------|
 | *SM-Noop* | |
 | *SM-AAD* | |
@@ -202,7 +202,7 @@ Non sono attualmente definiti profili tecnici per il provider di attestazioni **
 
 ### <a name="technical-profiles-for-token-issuer"></a>Profili tecnici per l'autorità emittente di token
 
-| Profilo tecnico | Descrizione |
+| Profilo tecnico | DESCRIZIONE |
 |-------------------|-------------|
 | *JwtIssuer* | |
 
@@ -210,7 +210,7 @@ Non sono attualmente definiti profili tecnici per il provider di attestazioni **
 
 Questa sezione illustra i percorsi utente già dichiarati nel criterio *B2C_1A_base*. È possibile fare ulteriore riferimento a questi percorsi utente, eseguirne l'override e/o estenderli, se necessario, nei propri criteri oltre che nel criterio *B2C_1A_base_extensions*.
 
-| Percorso utente | Descrizione |
+| Percorso utente | DESCRIZIONE |
 |--------------|-------------|
 | *SignUp* | |
 | *SignIn* | |

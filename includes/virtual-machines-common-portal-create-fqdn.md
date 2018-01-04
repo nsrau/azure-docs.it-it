@@ -6,7 +6,7 @@
 2. Immettere il nome DNS e fare clic su **Salva**.
    
    ![Immettere l'etichetta del nome DNS per la risorsa IP pubblica](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
- 
+
 
 3. Per tornare al pannello di panoramica della VM, chiudere il pannello *Indirizzo IP pubblico*. Verificare che il *nome DNS* ora sia visualizzato.
    

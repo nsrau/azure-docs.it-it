@@ -4,11 +4,11 @@ hide_bc: True
 title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
 featureFlags: clicktale
-ms.openlocfilehash: 57c55fd3b7bf0152c30fb9dc1fb9348e63a89003
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 2df814a9132e13bd177e5690f97376bd793bd9b7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/02/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -569,7 +569,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/traffic-manager/">
                                                 <img src="media/index/TrafficManager.svg" alt="" />
-                                                <p>Gestione traffico</p>
+                                                <p>servizio Gestione traffico</p>
                                             </a>
                                         </li>
                                         <li>
@@ -825,7 +825,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                                <p>Archivio Data Lake</p>
                                             </a>
                                         </li>
                                         <li>
@@ -864,7 +864,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Analisi di flusso</p>
+                                                <p>Analisi dei flussi</p>
                                             </a>
                                         </li>
                                         <li>
@@ -912,7 +912,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                                <p>Archivio Data Lake</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1008,7 +1008,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Analisi di flusso</p>
+                                                <p>Analisi dei flussi</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1124,7 +1124,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/key-vault/">
                                                 <img src="media/index/KeyVault.svg" alt="" />
-                                                <p>Insieme di credenziali delle chiavi</p>
+                                                <p>Insieme di credenziali di chiave</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1611,7 +1611,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Gestione traffico</h3>
+                                                    <h3>servizio Gestione traffico</h3>
                                                     <p>Instradare il traffico in ingresso per livelli elevati di prestazioni e disponibilità</p>
                                                 </div>
                                             </div>
@@ -1787,7 +1787,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
+                                                    <h3>Archivio Data Lake</h3>
                                                     <p>Repository con iperscalabilità per i carichi di lavoro di analisi dei Big Data</p>
                                                 </div>
                                             </div>
@@ -2358,7 +2358,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Analisi di flusso</h3>
+                                                    <h3>Analisi dei flussi</h3>
                                                     <p>Elaborazione dei flussi di dati in tempo reale da milioni di dispositivi IoT</p>
                                                 </div>
                                             </div>
@@ -2510,7 +2510,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
+                                                    <h3>Archivio Data Lake</h3>
                                                     <p>Repository con iperscalabilità per i carichi di lavoro di analisi dei Big Data</p>
                                                 </div>
                                             </div>
@@ -2666,7 +2666,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3>Lingua</h3>
+                                                        <h3>Linguaggio</h3>
                                                         <ul class="noBullet">
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Controllo ortografico Bing</a>
@@ -2908,7 +2908,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Analisi di flusso</h3>
+                                                    <h3>Analisi dei flussi</h3>
                                                     <p>Elaborazione dei flussi di dati in tempo reale da milioni di dispositivi IoT</p>
                                                 </div>
                                             </div>
@@ -3260,7 +3260,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Insieme di credenziali delle chiavi</h3>
+                                                    <h3>Insieme di credenziali di chiave</h3>
                                                     <p>Informazioni su come gestire segreti e chiavi crittografiche</p>
                                                 </div>
                                             </div>
@@ -4161,6 +4161,34 @@ Interfaccia della riga di comando di Azure </h3>
                                                 </h3>
                                                 <p>
                                                     <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Download</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/en-us/media/common/i_tools.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+Strumenti SQL </h3>
+                                                <p>
+                                                    <a href="/sql/sql-operations-studio/download">SQL Operations Studio <sup>ANTEPRIMA</sup></a>
+                                                </p>
+                                                <p>
+                                                    <a href="/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a>
+                                                </p>                                            <p>
+                                                    <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SQL Server Data Tools (SSDT)</a>
+                                                </p>
+                                                <p>
+                                                    <a href="/sql/tools/overview-sql-tools">Vedere tutti gli strumenti SQL</a>
                                                 </p>
                                             </div>
                                         </div>

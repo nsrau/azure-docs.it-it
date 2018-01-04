@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2017
+ms.date: 12/14/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 67ec6489a6aeed946d41ac8b297d3d99b86e4169
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.openlocfilehash: f62e5a224c2fb33714a80bc47b98238208b787e5
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Domande frequenti su Gestione costi di Azure
 
@@ -46,6 +46,29 @@ Per poter generare la chiave API del contratto Enterprise di Azure per la config
 
 Potrebbe anche essere necessario concedere ad amministratori di reparto, proprietari di account e amministratori dell'organizzazione le autorizzazioni per _visualizzare gli addebiti_ con l'API di fatturazione.
 
+## <a name="why-dont-i-see-optimizer-recommendations"></a>Perché non vedo indicazioni di ottimizzazione?
+
+Informazioni di raccomandazione sono disponibile solo per gli account che vengono attivati. Non si vedranno le informazioni di raccomandazione **Optimizer** report categorie per gli account che sono *disattivati*, tra cui:
+
+- Gestione di ottimizzazione
+- Ottimizzazione di ridimensionamento
+- Inefficienze
+
+Se è possibile visualizzare i dati di Query Optimizer raccomandazione, molto probabilmente, è necessario account che sono disattivati. Per attivare un account, è necessario registrarlo con le credenziali di Azure.
+
+Per attivare un account:
+
+1.  Nel portale di Cloudyn, fare clic su **Impostazioni** in alto a destra e selezionare **Cloud Accounts** (Account cloud).
+2.  Nella scheda account di Microsoft Azure, cercare gli account che hanno un **disattivati** sottoscrizione.
+3.  A destra di un account disattivato, fare clic su di **modifica** simbolo simile a una matita.
+4.  Tenant di ID e l'ID di velocità viene rilevato automaticamente. Fare clic su **Avanti**.
+5.  Si viene reindirizzati al portale di Azure. Accedi al portale e autorizzare Cloudyn dell'agente di raccolta per accedere ai dati di Azure.
+6.  Successivamente, si viene reindirizzati alla pagina di gestione di account Cloudyn e la sottoscrizione viene aggiornata con **active** lo stato dell'Account. Viene illustrato un simbolo di segno di spunta verde.
+7.  Se non viene visualizzato un simbolo di segno di spunta verde per uno o più sottoscrizioni, significa che non si dispone delle autorizzazioni per creare un'applicazione lettore (il CloudynCollector) per la sottoscrizione. Un utente con autorizzazioni più elevate per la sottoscrizione deve ripetere i passaggi 3 e 4.  
+
+Dopo aver completato i passaggi precedenti, è possibile visualizzare i suggerimenti di Query Optimizer entro due giorni. Tuttavia, può richiedere fino a cinque giorni prima che i dati di ottimizzazione complete sono disponibili.
+
+
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>Come si abilitano gli utenti sospesi o bloccati?
 
 Se si riceve un avviso che richiede di consentire l'accesso a un utente, è necessario attivarne l'account.
@@ -66,10 +89,7 @@ La modifica dell'indirizzo di posta elettronica in Cloudyn rispetto all'indirizz
 
 È consigliabile creare almeno due account amministratore di Cloudyn nel caso in cui uno venga bloccato.
 
-Se non si riesce ad accedere al portale di Cloudyn, verificare di usare l'URL di Gestione costi di Azure corretto per l'accesso a Cloudyn. Usare uno degli URL seguenti:
-
-- https://azure.cloudyn.com
-- https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade
+Se non si riesce ad accedere al portale di Cloudyn, verificare di usare l'URL di Gestione costi di Azure corretto per l'accesso a Cloudyn. Utilizzare [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
 Evitare di usare l'URL diretto di Cloudyn https://app.cloudyn.com.
 
@@ -124,7 +144,7 @@ Dopo aver aggiunto l'accesso di Azure Resource Manager e aver raccolto i dati, v
 
 ## <a name="is-cost-managementcloudyn-agent-based"></a>Si basa sull'agente di Gestione costi di Azure/Cloudyn?
 
-No. Gli agenti non vengono usati. I dati di metrica della macchina virtuale di Azure per le macchine virtuali vengono raccolti dall'API di Microsoft Insights. Se si desidera raccogliere dati di metrica da macchine virtuali di Azure, queste dovranno avere abilitate le impostazioni di diagnostica.
+di serie Gli agenti non vengono usati. I dati di metrica della macchina virtuale di Azure per le macchine virtuali vengono raccolti dall'API di Microsoft Insights. Se si desidera raccogliere dati di metrica da macchine virtuali di Azure, queste dovranno avere abilitate le impostazioni di diagnostica.
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>I report di Cloudyn mostrano più di un tenant di Active Directory per ogni report?
 

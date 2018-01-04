@@ -3,7 +3,7 @@ title: Aggiungere proprietari e utenti in Azure DevTest Labs | Documentazione Mi
 description: Aggiungere proprietari e utenti in Azure DevTest Labs usando il portale di Azure o PowerShell
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 4f51d9a5-2702-45f0-a2d5-a3635b58c416
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
-ms.author: tarcher
-ms.openlocfilehash: d67fa257574d6cb4ad4b18521900374fb51da290
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: v-craic
+ms.openlocfilehash: 2921356f848739d602807236006f9867eaa2a4e4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Aggiungere proprietari e utenti in Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -39,19 +39,19 @@ La tabella seguente illustra le azioni che possono essere eseguite dagli utenti 
 | **Azioni che gli utenti in questo ruolo possono eseguire** | **Utente DevTest Labs** | **Proprietario** | **Collaboratore** |
 | --- | --- | --- | --- |
 | **Attività lab** | | | |
-| Aggiungere utenti a un lab |No |Sì |No |
-| Aggiornare le impostazioni dei costi |No |Sì |Sì |
+| Aggiungere utenti a un lab |No  |Sì |No  |
+| Aggiornare le impostazioni dei costi |No  |Sì |Sì |
 | **Attività di base delle VM** | | | |
-| Aggiungere e rimuovere immagini personalizzate |No |Sì |Sì |
+| Aggiungere e rimuovere immagini personalizzate |No  |Sì |Sì |
 | Aggiungere, aggiornare ed eliminare formule |Sì |Sì |Sì |
-| Aggiungere all'elenco elementi consentiti le immagini di Azure Marketplace |No |Sì |Sì |
+| Aggiungere all'elenco elementi consentiti le immagini di Azure Marketplace |No  |Sì |Sì |
 | **Attività della macchina virtuale** | | | |
 | Creare VM |Sì |Sì |Sì |
 | Avviare, arrestare ed eliminare VM |Solo VM create dall'utente |Sì |Sì |
-| Aggiornare i criteri delle VM |No |Sì |Sì |
+| Aggiornare i criteri delle VM |No  |Sì |Sì |
 | Aggiungere/Rimuovere dischi dati nelle VM |Solo VM create dall'utente |Sì |Sì |
 | **Attività degli elementi** | | | |
-| Aggiungere e rimuovere repository di elementi |No |Sì |Sì |
+| Aggiungere e rimuovere repository di elementi |No  |Sì |Sì |
 | Applicare elementi |Sì |Sì |Sì |
 
 > [!NOTE]

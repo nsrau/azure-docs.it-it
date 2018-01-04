@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 304db0cdcf650697f8e7d328b5f7214ab5ccef8c
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 4a917fbbc1beff9a8b16ba044052cc9864cd9728
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Panoramica delle funzionalità di Backup di Azure
 Backup di Azure è il servizio basato su Azure che consente di eseguire il backup, la protezione e il ripristino dei dati in Microsoft Cloud. Backup di Azure sostituisce la soluzione di backup locale o esterna esistente con una soluzione basata sul cloud affidabile, sicura e conveniente. Backup di Azure offre più componenti che vengono scaricati e distribuiti nel computer o server appropriato o nel cloud. Il componente o l'agente distribuito dipende da ciò che si intende proteggere. Tutti i componenti di Backup di Azure consentono di eseguire il backup dei dati in un insieme di credenziali di Servizi di ripristino, a prescindere che i dati da proteggere si trovino in locale o nel cloud. Vedere la [tabella dei componenti di Backup di Azure](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) più avanti in questo articolo per informazioni sul componente da usare per proteggere dati, applicazioni o carichi di lavoro specifici.
@@ -121,11 +121,11 @@ Le sezioni seguenti indicano tabelle che riepilogano la disponibilità o il supp
 ### <a name="storage"></a>Archiviazione
 | Funzionalità | Agente di Backup di Azure | System Center DPM | Server di backup di Azure | Backup di VM IaaS di Azure |
 | --- | --- | --- | --- | --- |
-| Insieme di credenziali dei servizi di ripristino |![Sì][green] |![Sì][green] |![Sì][green] |![sì][green] |
-| Archiviazione su disco | |![sì][green] |![sì][green] | |
+| Insieme di credenziali dei servizi di ripristino |![Sì][green] |![Sì][green] |![Sì][green] |![Sì][green] |
+| Archiviazione su disco | |![Sì][green] |![Sì][green] | |
 | Archiviazione su nastro | |![Sì][green] | | |
-| Compressione <br/>(nell'insieme di credenziali di Servizi di ripristino) |![Sì][green] |![Sì][green] |![sì][green] | |
-| Backup incrementale |![sì][green] |![Sì][green] |![Sì][green] |![sì][green] |
+| Compressione <br/>(nell'insieme di credenziali di Servizi di ripristino) |![Sì][green] |![Sì][green] |![Sì][green] | |
+| Backup incrementale |![Sì][green] |![Sì][green] |![Sì][green] |![Sì][green] |
 | Deduplicazione dei dischi | |![Parzialmente][yellow] |![Parzialmente][yellow] | | |
 
 ![chiave tabella](./media/backup-introduction-to-azure-backup/table-key.png)
@@ -207,11 +207,11 @@ Backup di Azure ha un limite di 9999 punti di ripristino, noti anche come copie 
 | Punti di ripristino massimo per ogni istanza protetta |9999|9999|9999|9999|
 | Periodo massimo di conservazione |Dipende dalla frequenza dei backup |Dipende dalla frequenza dei backup |Dipende dalla frequenza dei backup |Dipende dalla frequenza dei backup |
 | Punti di ripristino nel disco locale |Non applicabile |<li>64 per i file server<li>448 per i server applicazioni |<li>64 per i file server<li>448 per i server applicazioni |Non applicabile |
-| Punti di ripristino su nastro |Non applicabile |Senza limiti |Non applicabile |Non applicabile |
+| Punti di ripristino su nastro |Non applicabile |Illimitato |Non applicabile |Non applicabile |
 
 ## <a name="what-is-a-protected-instance"></a>Che cos'è un'istanza protetta?
 Un'istanza protetta è un riferimento generico a un computer Windows, un server (fisico o virtuale) o un database SQL che è stato configurato per eseguire il backup in Azure. Un'istanza è protetta dopo la configurazione di un criterio di backup per il computer, il server o il database e la creazione di una copia di backup dei dati. Le copie successive dei dati di backup per tale istanza protetta (denominate punti di ripristino) aumentano la quantità di spazio di archiviazione utilizzato. Per un'istanza protetta, è possibile creare fino a 9999 punti di ripristino. Se si elimina un punto di ripristino da una risorsa di archiviazione, non tiene conto dei 9999 punti di ripristino totali.
-Alcuni esempi comuni di istanze protette sono macchine virtuali, server applicazioni, database e personal computer che eseguono il sistema operativo Windows. Ad esempio:
+Alcuni esempi comuni di istanze protette sono macchine virtuali, server applicazioni, database e personal computer che eseguono il sistema operativo Windows. Ad esempio: 
 
 * Una macchina virtuale che esegue l'infrastruttura di hypervisor Hyper-V o IaaS di Azure. I sistemi operativi guest per la macchina virtuale possono essere Windows Server o Linux.
 * Un server applicazioni: il server applicazioni può essere una macchina fisica o virtuale che esegue Windows Server e i carichi di lavoro con i dati di cui è necessario eseguire il backup. I carichi di lavoro comuni sono Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server e il ruolo File server di Windows Server. Per eseguire il backup di questi carichi di lavoro è necessario System Center Data Protection Manager (DPM) o il server di Backup di Azure.
@@ -254,7 +254,7 @@ Per informazioni dettagliate sulla protezione di altri carichi di lavoro, vedere
 
 * [Eseguire il backup di Windows Server](backup-configure-vault.md)
 * [Eseguire il backup di carichi di lavoro delle applicazioni](backup-azure-microsoft-azure-backup.md)
-* [Eseguire il backup di VM IaaS di Azure](backup-azure-vms-prepare.md)
+* [Eseguire il backup di VM IaaS di Azure](backup-azure-arm-vms-prepare.md)
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

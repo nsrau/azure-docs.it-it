@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 60cc65bb94e05da1c0b7ee20930c0530f46e71ec
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 7a4d056fa71f211dea5e7be649c39034eabc9395
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="security-policies-overview"></a>Panoramica dei criteri di sicurezza
 Questo articolo offre una panoramica dei criteri di sicurezza del Centro sicurezza.
@@ -29,7 +29,7 @@ Un criterio di sicurezza definisce la configurazione specifica dei carichi di la
 I criteri del Centro sicurezza includono i componenti seguenti:
 
 - **Raccolta di dati**: determina il provisioning dell'agente e le impostazioni della [raccolta di dati](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection).
-- **Criteri di sicurezza**: determina i controlli monitorati e consigliati dal Centro sicurezza. È possibile modificare i [criteri di sicurezza](https://docs.microsoft.com/en-us/azure/security-center/security-center-policies) nel Centro sicurezza. È anche possibile usare [Criteri di Azure](security-center-azure-policy.md) (in anteprima limitata) per creare nuove definizioni, definire criteri aggiuntivi e assegnare criteri a livello di gruppi di gestione.
+- **Criteri di sicurezza**: determina i controlli monitorati e consigliati dal Centro sicurezza. È possibile modificare i [criteri di sicurezza](https://docs.microsoft.com/azure/security-center/security-center-policies) nel Centro sicurezza. È anche possibile usare [Criteri di Azure](security-center-azure-policy.md) (in anteprima limitata) per creare nuove definizioni, definire criteri aggiuntivi e assegnare criteri a livello di gruppi di gestione.
 - **Notifiche tramite posta elettronica**: determina i contatti di sicurezza e le impostazioni di [notifica tramite posta elettronica](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
 - **Piano tariffario**: definisce la selezione del livello Gratuito o Standard del [piano tariffario](https://docs.microsoft.com/azure/security-center/security-center-pricing). Il piano scelto determina le funzionalità del Centro sicurezza disponibili per le risorse nell'ambito. È possibile specificare un piano per sottoscrizioni, gruppi di risorse e aree di lavoro. 
 

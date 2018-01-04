@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 358b3701773e6cd61b4a3dfddf4bb092741ff713
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 80035b9b7127bb6cbce4a17478037cd8197077df
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
 Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto alle versioni precedenti e i problemi noti.
@@ -28,9 +28,10 @@ Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto all
 > 
 > 
 
-## <a id="issues"></a>Problemi noti correnti
-### <a id="general_issues"></a>Problemi generali di Servizi multimediali
-| Problema | Description |
+## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Problemi noti attualmente
+### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Problemi generali di servizi multimediali
+
+| Problema | DESCRIZIONE |
 | --- | --- |
 | Nell'API REST non sono fornite alcune intestazioni HTTP comuni. |Se si sviluppano applicazioni di Servizi multimediali tramite l'API REST, alcuni campi di intestazione HTTP comuni, ad esempio CLIENT-REQUEST-ID, REQUEST-ID e RETURN-CLIENT-REQUEST-ID, non sono supportati. Le intestazioni verranno aggiunte in un futuro aggiornamento. |
 | La codifica percentuale non è consentita. |Servizi multimediali usa il valore della proprietà IAssetFile.Name durante la creazione di URL per i contenuti in streaming, ad esempio http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters. Per questo motivo, la codifica percentuale non è consentita. Il valore della proprietà **Name** non può contenere i [caratteri riservati per la codifica percentuale](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) seguenti: !*'();:@&=+$,/?%#[]". Può essere presente solo un carattere '.' L'estensione del nome di file, inoltre, può essere preceduta da un solo punto (.). |
@@ -41,7 +42,7 @@ Nelle presenti note sulla versione vengono riepilogati le modifiche rispetto all
 | Gli oggetti nel modulo .NET SDK di Servizi multimediali di Azure non possono essere serializzati e di conseguenza non funzionano con Caching di Azure. |Se si prova a serializzare l'oggetto AssetCollection del modulo SDK per aggiungerlo a Caching di Azure, viene generata un'eccezione. |
 
 
-## <a id="rest_version_history"></a>Cronologia delle versioni dell'API REST
+## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Cronologia delle versioni di API REST
 Per informazioni sulla cronologia versioni dell'API REST di Servizi multimediali, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure].
 
 ## <a name="october-2017-release"></a>Versione di ottobre 2017
@@ -58,7 +59,7 @@ Per informazioni sulla cronologia versioni dell'API REST di Servizi multimediali
 2.  Se i video di origine sono codificati con il codec video H.265 (HEVC), ad esempio i video acquisiti con iOS11 o GoPro Hero 6, è ora possibile usare il codificatore Premium o Standard per codificare questi video. Per una nota importante sulle licenze del brevetto, vedere i [termini di servizio online](https://azure.microsoft.com/support/legal/).
 3.  Se il contenuto contiene tracce audio in più lingue, è possibile usare il codificatore Standard per codificare il contenuto per lo streaming purché i valori di lingua siano etichettati correttamente in base alla specifica del formato di file corrispondente, ad esempio ISO MP4. Il localizzatore di streaming risultante elencherà le lingue disponibili per l'audio.
 4.  Il codificatore Standard supporta ora due nuovi set di impostazioni solo audio, ovvero "Audio AAC" e "Audio AAC di buona qualità". Entrambi producono output AAC stereo, rispettivamente a velocità in bit di 128 kbps e 192 kbps.
-5.  Il codificatore Premium supporta ora i formati di file QuickTime/MOV come input, purché il codec video sia una delle [versioni di Apple ProRes elencate qui](https://docs.microsoft.com/en-us/azure/media-services/media-services-media-encoder-standard-formats) e che l'audio sia AAC o PCM.
+5.  Il codificatore Premium supporta ora i formati di file QuickTime/MOV come input, purché il codec video sia una delle [versioni di Apple ProRes elencate qui](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats) e che l'audio sia AAC o PCM.
 
 > [!NOTE]
 > Il codificatore Premium non supporta, ad esempio, come input il video DVC/DVCPro incapsulato in file QuickTime/MOV.  Il codificatore Standard non supporta invece questi codec video.
@@ -89,7 +90,6 @@ Ora è possibile usare Azure Media Standard per [generare automaticamente una sc
 
 Ora è possibile usare Azure Media Standard o il flusso di lavoro Premium del codificatore multimediale per [creare un'attività di codifica che genera blocchi fMP4](media-services-generate-fmp4-chunks.md). 
 
-
 ## <a name="february-2017-release"></a>Versione di febbraio 2017
 
 A partire dal 1° aprile 2017, tutti i record di processo presenti nell'account e più vecchi di 90 giorni verranno eliminati automaticamente, insieme ai record attività associati, anche se il numero totale di record è inferiore alla quota massima. Se è necessario archiviare le informazioni sul processo o sull'attività, è possibile usare il codice descritto [qui](media-services-dotnet-manage-entities.md).
@@ -104,7 +104,7 @@ A partire dalla versione 2.15 nei Servizi multimediali di Azure sono state aggiu
 
 Servizi multimediali di Azure consente ora di accedere ai dati di telemetria e delle metriche relativi ai servizi. La versione corrente di AMS consente di raccogliere i dati di telemetria relativi alle entità Channel live, StreamingEndpoint e Archive live. Per altre informazioni, vedere [questo](media-services-telemetry-overview.md) articolo.
 
-## <a id="july_changes16"></a>Versione di luglio 2016
+## <a name="a-idjulychanges16july-2016-release"></a><a id="july_changes16"/>Versione di luglio 2016
 ### <a name="updates-to-manifest-file-ism-generated-by-encoding-tasks"></a>Aggiornamenti del file manifesto (con estensione ism) generati da attività di codifica
 Quando viene inviata a Media Encoder Standard o ad Azure Media Encoder, l'attività di codifica genera un [file manifesto di streaming](media-services-deliver-content-overview.md) (con estensione .ism) nell'asset di output. Con la versione più recente del servizio è stata aggiornata la sintassi del file manifesto di streaming.
 
@@ -323,13 +323,6 @@ Media Services SDK per .NET è ora alla versione 3.0.0.7.
 ### <a id="sept_14_breaking_changes"></a>Modifiche di rilievo
 * **Origin** è stata rinominata in [StreamingEndpoint].
 * È stato modificato il comportamento predefinito quando si usa il **portale di Azure** per codificare e pubblicare file MP4.
-
-Mentre, in precedenza, quando si usava il portale di Azure classico per pubblicare un asset video costituito da un unico file MP4, veniva creato un URL della firma di accesso condiviso (che consentiva di scaricare il video da un'archiviazione BLOB), adesso quando si usa il portale di Azure classico per codificare e pubblicare un asset video costituito da un unico file MP4 viene generato un URL che punta a un endpoint di streaming di Servizi multimediali di Azure.  Questa modifica, tuttavia, non riguarda i video MP4 che vengono caricati direttamente in Servizi multimediali e pubblicati senza essere codificati da Servizi multimediali di Azure.
-
-Attualmente, per risolvere il problema sono disponibili le due opzioni seguenti.
-
-* Abilitare le unità di streaming e usare il packaging dinamico per trasmettere l'asset mp4 come presentazione Smooth Streaming.
-* Creare un URL SAS per scaricare (o riprodurre in modo progressivo) il file MP4. Per altre informazioni sulla creazione di un localizzatore SAS, vedere [Distribuzione di contenuto].
 
 ### <a id="sept_14_GA_changes"></a>Nuove funzionalità o scenari nella versione di disponibilità generale
 * **Processore multimediale di indicizzazione**. Per altre informazioni, vedere [Indicizzazione di file multimediali con Azure Media Indexer].
@@ -561,7 +554,7 @@ Le funzionalità riportate di seguito sono state introdotte nella versione dell'
 [Dettagli prezzi dei servizi multimediali]: http://azure.microsoft.com/pricing/details/media-services/
 [Metadati di input]: http://msdn.microsoft.com/library/azure/dn783120.aspx
 [Metadati di output]: http://msdn.microsoft.com/library/azure/dn783217.aspx
-[Distribuzione di contenuto]: http://msdn.microsoft.com/library/azure/hh973618.aspx
+[Delivering Content]: http://msdn.microsoft.com/library/azure/hh973618.aspx
 [Indicizzazione di file multimediali con Azure Media Indexer]: http://msdn.microsoft.com/library/azure/dn783455.aspx
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
 [Uso di Live Streaming di Servizi multimediali di Azure]: http://msdn.microsoft.com/library/azure/dn783466.aspx

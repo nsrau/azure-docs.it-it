@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: c89596a6d721c4cba899b8a6e2859ee36cba7b80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 151e7c2dc808a8fa117a0d7a1950185abe9e3152
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="model-management-setup"></a>Installazione di Gestione modelli
 
@@ -27,7 +27,7 @@ Alla fine di questo documento sarà possibile configurare l'ambiente di gestione
 
 ## <a name="what-you-need-to-get-started"></a>Elementi necessari per iniziare
 Per sfruttare al meglio questa guida, è necessario disporre dell'accesso come proprietario ad una sottoscrizione di Azure su cui è possibile distribuire i modelli.
-L'interfaccia della riga di comando preinstallata in Azure Machine Learning Workbench e in [Azure DSVMs](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) (DSVM di Azure).
+L'interfaccia della riga di comando preinstallata in Azure Machine Learning Workbench e in [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) (DSVM di Azure).
 
 ## <a name="using-the-cli"></a>Uso dell'interfaccia della riga di comando
 Per usare le interfacce della riga di comando (CLI) dal Workbench, fare clic su **File** -] **Open CommandLine Interface** (Apri interfaccia della riga di comando). 
@@ -167,5 +167,5 @@ A questo punto si è pronti per distribuire il modello salvato come un servizio 
 az ml service create realtime --model-file [model file/folder path] -f [scoring file e.g. score.py] -n [your service name] -s [schema file e.g. service_schema.json] -r [runtime for the Docker container e.g. spark-py or python] -c [conda dependencies file for additional python packages]
 ```
 
-### <a name="next-steps"></a>Passaggi successivi
+### <a name="next-steps"></a>Fasi successive
 Provare uno dei molti esempi nella Raccolta.

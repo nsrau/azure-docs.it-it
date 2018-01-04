@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 10/17/2017
+ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: 87ec0e1b6d01fc5d13e9b9f46987e416d8e1958f
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
-ms.translationtype: HT
+ms.openlocfilehash: c2d4a33cd6c4c9db608a76b24935b474b551b291
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch (anteprima)
 
@@ -44,7 +44,7 @@ Ad esempio, [ffmpeg](http://ffmpeg.org/) è una diffusa applicazione che elabora
 
 -   Un utente finale con un set di file video di cui eseguire la transcodifica deve prima di tutto creare un pool usando il modello di pool, specificando solo l'ID del pool e il numero di VM necessarie. Può quindi caricare i file di origine per la transcodifica. È quindi possibile inviare un processo usando il modello di processo, specificando solo l'ID del pool e il percorso dei file di origine caricati. Viene creato il processo di batch con un'attività per ogni file di input generato. Infine, i file di output transcodificati possono essere scaricati.
 
-## <a name="installation"></a>Installare
+## <a name="installation"></a>Installazione
 
 Il modello e le funzionalità di trasferimento di file richiedono l'installazione di un'estensione.
 
@@ -53,14 +53,14 @@ Per istruzioni su come installare l'interfaccia della riga di comando di Azure, 
 Dopo avere installato l'interfaccia della riga di comando di Azure, è possibile installare la versione più recente dell'estensione di Batch mediante il comando dell'interfaccia della riga di comando seguente:
 
 ```azurecli
-az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.0/azure_batch_cli_extensions-2.0.0-py2.py3-none-any.whl
+az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.1/azure_batch_cli_extensions-2.0.1-py2.py3-none-any.whl
 ```
 
 Per ulteriori informazioni sull'estensione del Batch, vedere [Estensioni per interfaccia della riga di comando Batch di Microsoft Azure per Windows, Mac e Linux](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux).
 
 ## <a name="templates"></a>Modelli
 
-L'interfaccia della riga di comando di Azure Batch consente la creazione di elementi, come pool, processi e attività, specificando un file JSON contenente valori e nomi di proprietà. ad esempio:
+L'interfaccia della riga di comando di Azure Batch consente la creazione di elementi, come pool, processi e attività, specificando un file JSON contenente valori e nomi di proprietà. Ad esempio: 
 
 ```azurecli
 az batch pool create –-json-file AppPool.json
@@ -253,7 +253,7 @@ az batch file download --file-group ffmpeg-output --local-path
 
 I modelli di processo e di pool consentono di specificare che i file archiviati in gruppi di file vengano copiati nei nodi del pool o dai nodi del pool a un gruppo di file. Nel modello di processo illustrato in precedenza, ad esempio, viene specificato il gruppo di file "ffmpeg-input" per la factory di attività come posizione dei file video di origine copiati nel nodo per la transcodifica. Il gruppo di file "ffmpeg-output" viene usato come posizione in cui vengono copiati i file di output transcodificati dal nodo che esegue ogni attività.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Il supporto per i modelli e il trasferimento di file è stato attualmente aggiunto solo all'interfaccia della riga di comando di Azure. L'obiettivo è quello di allargare il numero di utenti che possono usare Batch, consentendone l'utilizzo anche a ricercatori, utenti IT e così via che non hanno la necessità di sviluppare codice usando le API di Batch. Senza dover scrivere il codice, gli utenti che conoscono Azure Batch e le applicazioni che devono essere eseguite da Batch possono creare modelli per la creazione di pool e processi. Con i parametri dei modelli, gli utenti che non hanno una conoscenza approfondita di Batch e delle applicazioni possono usare i modelli.
 

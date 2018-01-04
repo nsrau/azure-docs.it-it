@@ -4,58 +4,52 @@ description: "Viene descritto come usare la funzionalità dei report di Azure Mu
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
-editor: curtand
+manager: mtillman
 ms.assetid: 3f6b33c4-04c8-47d4-aecb-aa39a61c4189
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 12/15/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: a0ac1711b6bfb8f461cd775ed1f3409925643615
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: fb83e957a206bff29132973d2dd3e9a7b5f9f060
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Report in Azure Multi-Factor Authentication
 
-Azure Multi-Factor Authentication offre diversi report che possono essere utilizzati dall'utente e dall'organizzazione. Questi rapporti sono accessibili tramite il portale di gestione Multi-Factor Authentication. La tabella seguente elenca i report disponibili:
+Azure multi-Factor Authentication fornisce diversi report che può essere utilizzato per la propria organizzazione accessibile tramite il portale di Azure. La tabella seguente elenca i report disponibili:
 
-| Report | Descrizione |
-|:--- |:--- |
-| Utilizzo |I rapporti di utilizzo consentono di visualizzare informazioni sull'uso generale, un riepilogo e dettagli sull'utente. |
-| Stato server |Questo report consente di visualizzare lo stato dei server di Multi-Factor Authentication associati all'account. |
-| Cronologia utenti bloccati |Questi report mostrano la cronologia delle richieste per bloccare o sbloccare gli utenti. |
-| Cronologia utenti bypass |Consente di visualizzare la cronologia delle richieste per disabilitare Multi-Factor Authentication per il numero di telefono dell'utente. |
-| Avviso di illecito |Consente di visualizzare una cronologia di avvisi di illecito inviati durante l'intervallo di date specificato dall'utente. |
-| Queued |Consente di elencare i report accodati da elaborare e i relativi stati. Quando il report è completo, viene fornito un collegamento per scaricare o visualizzare il report. |
+| Report | Località | DESCRIZIONE |
+|:--- |:--- |:--- |
+| Cronologia utenti bloccati | Azure AD > Server di autenticazione a più fattori > Blocca/Sblocca utenti | Mostra la cronologia delle richieste di blocco o sblocco degli utenti. |
+| Avvisi di illecito e di utilizzo | Azure AD > accessi | Vengono fornite informazioni sull'utilizzo complessivo, riepilogo utenti e i dettagli dell'utente; nonché una cronologia degli avvisi di illecito inviati durante l'intervallo di date specificato. |
+| Cronologia utenti bypass | Azure AD > Server di autenticazione a più fattori > bypass monouso | Fornisce una cronologia delle richieste di bypass di multi-Factor Authentication per un utente. |
+| Stato del server | Azure AD > Server di autenticazione a più fattori > lo stato del Server | Visualizza che lo stato dei server multi-Factor Authentication associato all'account. |
 
-## <a name="view-reports"></a>Visualizzazione dei report
+## <a name="view-reports"></a>Visualizzazione dei report 
 
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
-2. A sinistra selezionare Active Directory.
-3. Attenersi a una di queste due opzioni, a seconda che vengano usati provider di autenticazione:
-   * **Option 1**: fare clic sulla scheda dei provider Multi-Factor Authentication. Selezionare il provider di MFA e fare clic sul pulsante **Gestisci** nella parte inferiore.
-   * **Opzione 2**: selezionare la directory e passare alla scheda **Configura**. Nella sezione Multi-Factor Authentication selezionare **Gestisci impostazioni del servizio**. Nella parte inferiore della pagina delle impostazioni del servizio MFA, fare clic sul collegamento Vai al portale.
-4. Nel portale di gestione Azure Multi-Factor Authentication, selezionare il tipo di rapporto desiderato dalla sezione **Visualizza un report** nel riquadro di navigazione a sinistra.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. A sinistra, selezionare **Azure Active Directory** > **Server MFA**.
+3. Selezionare il report che si desidera visualizzare.
 
-<center>![Cloud](./media/multi-factor-authentication-manage-reports/report.png)</center>
+   <center>![Cloud](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
-## <a name="powershell-reporting"></a>Report di PowerShell
+## <a name="powershell-reporting"></a>Reporting di PowerShell
 
-Identificare gli utenti che hanno eseguito la registrazione per MFA usando il codice di PowerShell seguente.
+Identificare gli utenti che hanno registrato per l'autenticazione a più fattori di PowerShell che segue.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
 
-Identificare gli utenti che non hanno eseguito la registrazione per MFA usando il codice di PowerShell seguente.
+Identificare gli utenti che non hanno registrato per l'autenticazione a più fattori di PowerShell che segue.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
-**Risorse aggiuntive**
+## <a name="next-steps"></a>Passaggi successivi
 
 * [Per gli utenti](end-user/multi-factor-authentication-end-user.md)
-* [Azure Multi-Factor Authentication su MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
+* [Destinazione della distribuzione](multi-factor-authentication-get-started.md)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: d997c291e487e27b7e12c015e34ad839ac020151
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: 36869eb523706787257160e5859f50b24f7bf08b
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle prestazioni delle applicazioni in App Web di Azure
 
@@ -143,7 +143,7 @@ Per abilitare la traccia delle richieste non riuscite:
     ```
 13. Per scaricare le tracce di richieste non riuscite, nel [portale](https://portal.azure.com) passare al sito Web.
 15. Select **Strumenti** > **Kudu** > **Vai**.
-18. Nel menu selezionare **Debug Console (Console di debug)**  > **CMD**.
+18. Nel menu selezionare **Debug Console (Console di debug)** > **CMD**.
 19. Selezionare la cartella **LogFiles** e quindi la cartella con un nome che inizia con **W3SVC**.
 20. Per visualizzare il file XML, selezionare l'icona della matita.
 
@@ -174,7 +174,7 @@ Il problema è stato risolto in Kestrel versione 1.0.2. Questa versione è inclu
 
 Se si usa la funzionalità di cache locale del servizio app, la struttura delle cartelle LogFiles e Data per l'istanza di servizio App sono interessate. Quando si usa la cache locale, vengono create sottocartelle nelle cartelle LogFiles e Data dell'archivio. Le sottocartelle usano il modello di denominazione "identificatore univoco" + timestamp. Ogni sottocartella corrisponde a un'istanza di VM in cui l'app Web è o era in esecuzione.
 
-Per determinare se si sta usando la cache locale, verificare la scheda **Impostazioni dell'applicazione** del servizio app. Se si sta usando la cache locale, l'impostazione `WEBSITE_LOCAL_CACHE_OPTION` dell'app ha il valore `Always`. 
+Per determinare se si sta usando la cache locale, verificare la scheda **Impostazioni dell'applicazione** del servizio app. Se si sta usando la cache locale, l'impostazione `WEBSITE_LOCAL_CACHE_OPTION` dell'app ha il valore `Always`.
 
 Se non si usa la cache locale e si verifica questo problema, inviare una richiesta di supporto.
 

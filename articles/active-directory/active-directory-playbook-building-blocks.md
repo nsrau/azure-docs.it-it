@@ -5,7 +5,7 @@ services: active-directory
 keywords: azure active directory, studio, modello di verifica, PoC
 documentationcenter: 
 author: dstefanMSFT
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 7e4af248a1aafbd34a62c75e792746514456577b
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: bc0bc80b45e97efc048d9a9c26b8dd5d5f39ce8d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Playbook dei modelli di verifica di Azure Active Directory: blocchi predefiniti
 
 ## <a name="catalog-of-roles"></a>Catalogo dei ruoli
 
-| Ruolo | Descrizione | Responsabilità del modello di verifica |
+| Ruolo | DESCRIZIONE | Responsabilità del modello di verifica |
 | --- | --- | --- |
 | **Team di sviluppo e architettura identità** | Questo è in genere quello che progetta la soluzione, implementa i prototipi, indirizza le approvazioni e gestisce le consegne al team operativo | Disponibilità degli ambienti e valutazione dei diversi scenari dal punto di vista della gestibilità |
 | **Team di gestione dell'identità locale** | Gestisce le diverse origini di identità locali: foreste di Active Directory, directory LDAP, sistemi HR e provider di identità federativa. | Disponibilità dell'accesso alle risorse locali necessarie per gli scenari PoC.<br/>Deve essere coinvolto nella misura minore possibile|
@@ -60,7 +60,7 @@ Tempo di completamento approssimativo: un'ora per meno di 1.000 utenti dei model
 | Identificate le funzionalità di Azure AD Connect necessarie per il modello di verifica | [Connettere Active Directory ad Azure Active Directory - Configurare le funzionalità di sincronizzazione](./connect/active-directory-aadconnect.md#configure-sync-features) |
 | Disponibilità delle credenziali necessarie per gli ambienti locale e cloud  | [Azure AD Connect: Account e autorizzazioni](./connect/active-directory-aadconnect-accounts-permissions.md) |
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
@@ -94,7 +94,7 @@ Tempo previsto per il completamento: 15 minuti
 | Computer client per eseguire l'esperienza di accesso dell'utente finale |  |
 | Facoltativo: dispositivi mobili per convalidare l'esperienza |  |
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
@@ -119,7 +119,7 @@ Tempo previsto per il completamento: 10 minuti
 | --- | --- |
 | Tutti gli utenti dei moduli di verifica fanno parte di un gruppo di sicurezza (cloud o locale) | [Creare un gruppo e aggiungere membri in Azure Active Directory](active-directory-groups-create-azure-portal.md) |
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
@@ -142,7 +142,7 @@ Tempo previsto per il completamento: 60 minuti
 | Accesso amministrativo alla console di gestione ServiceNow | [Esercitazione: Integrazione di Azure Active Directory con ServiceNow](active-directory-saas-servicenow-tutorial.md) |
 | Definire un set di utenti a cui assegnare l'applicazione. È consigliabile un gruppo di sicurezza contenente gli utenti dei moduli di verifica. <br/>Se la creazione del gruppo non è fattibile, assegnare gli utenti direttamente all'applicazione per il modello di verifica | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
@@ -178,7 +178,7 @@ Tempo previsto per il completamento: 15 minuti
 | Definire un set di utenti a cui assegnare l'applicazione. È consigliabile un gruppo di sicurezza che contiene gli utenti. | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Accesso come amministratore locale a un computer per distribuire l'estensione Pannello di accesso per Internet Explorer, Firefox o Chrome | [Estensione Pannello di accesso per IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Estensione Pannello di accesso per Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Estensione Pannello di accesso per Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
@@ -213,7 +213,7 @@ Tempo previsto per il completamento: 30 minuti
 | Credenziali per almeno due membri del team che accedono allo stesso account. Devono fare parte di un gruppo di sicurezza. | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
 | Accesso come amministratore locale a un computer per distribuire l'estensione Pannello di accesso per Internet Explorer, Firefox o Chrome | [Estensione Pannello di accesso per IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Estensione Pannello di accesso per Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Estensione Pannello di accesso per Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
@@ -248,7 +248,7 @@ Tempo previsto per il completamento: 20 minuti
 | Se l'organizzazione usa server proxy per la connessione a Internet, vedere il post del blog relativo all'uso di server proxy locali esistenti per informazioni dettagliate sulla configurazione | [Usare server proxy locali esistenti](application-proxy-working-with-proxy-servers.md) |
 
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
@@ -279,7 +279,7 @@ Tempo previsto per il completamento: 60 minuti
 | Elenco dei carichi di lavoro usati dagli utenti e attributi associati a questi carichi di lavoro | [Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory](./connect/active-directory-aadconnectsync-attributes-synchronized.md) |
 
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
@@ -310,7 +310,7 @@ Tempo previsto per il completamento: 10 minuti
 | Identificate le credenziali per gli Information Worker che accedono all'app | [Che cos'è il pannello di accesso?](active-directory-saas-access-panel-introduction.md) |
 
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
@@ -334,7 +334,7 @@ Se per l'applicazione è abilitato il provisioning, può essere necessario atten
 | Identificate le credenziali per gli Information Worker che accedono all'app | [Che cos'è il pannello di accesso?](active-directory-saas-access-panel-introduction.md) |
 
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
@@ -358,7 +358,7 @@ Tempo previsto per il completamento: 10 minuti
 | Identificare gli utenti del modello di verifica che richiederanno l'accesso alle applicazioni, come parte del gruppo di sicurezza | Blocco predefinito: [SaaS: configurazione SSO federato](#saas-federated-sso-configuration) |
 | Applicazione di destinazione distribuita | Blocco predefinito: [SaaS: configurazione SSO federato](#saas-federated-sso-configuration) |
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
@@ -384,7 +384,7 @@ Tempo previsto per il completamento: 15 minuti
 | Identificare gli utenti del modello di verifica che useranno questa funzionalità e verificare che siano membri di un gruppo di sicurezza. Gli utenti devono essere non amministratori per presentare completamente la funzionalità | [Personalizzare: Gestione delle password di Azure Active Directory: Limitare l'accesso per la reimpostazione delle password](active-directory-passwords-writeback.md) |
 
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
@@ -414,7 +414,7 @@ Tempo previsto per il completamento: 10 minuti
 | Identificare gli utenti del modello di verifica che useranno MFA  |  |
 | Telefono con buona ricezione per la richiesta di connessione MFA  | [Informazioni su Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) |
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
@@ -446,7 +446,7 @@ Tempo previsto per il completamento: 10 minuti
 | Dispositivo nella rete interna. Indirizzo IP configurato nell'intervallo di indirizzi interni | Individuare l'indirizzo IP: https://www.bing.com/search?q=what%27s+my+ip |
 | Dispositivo nella rete esterna (può essere un telefono che usa la rete mobile del vettore) |  |
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
@@ -472,7 +472,7 @@ Tempo previsto per il completamento: 15 minuti
 | Facoltativo: verificare se gli amministratori globali hanno accesso alla posta elettronica per gestire le notifiche via posta elettronica in PIM | [Che cos'è Azure AD Privileged Identity Management?: Configurare le impostazioni di attivazione del ruolo](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)
 
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
@@ -501,7 +501,7 @@ Tempo previsto per il completamento: 20 minuti
 | Dispositivo con Tor Browser scaricato e installato | [Download di Tor Browser](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Accedere all'utente del modello di verifica per eseguire l'accesso | [Studio di Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md) |
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
@@ -528,7 +528,7 @@ Tempo previsto per il completamento: 10 minuti
 | L'utente del modello di verifica è registrato per MFA. Assicurarsi di usare un telefono con buona ricezione | Blocco predefinito: [Azure Multi-Factor Authentication con chiamate telefoniche](#azure-multi-factor-authentication-with-phone-calls) |
 
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
@@ -554,7 +554,7 @@ Tempo previsto per il completamento: 20 minuti
 | Dominio di Azure AD federato con AD FS | [Azure AD Connect e federazione](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Informazioni generali sui Servizi certificati di Active Directory](https://technet.microsoft.com/library/hh831740.aspx)|
 | Per i dispositivi iOS l'app Microsoft Authenticator deve essere installata | [Introduzione all'app Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
 
-### <a name="steps"></a>Passi
+### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |

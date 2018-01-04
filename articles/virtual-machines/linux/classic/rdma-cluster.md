@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 4b2ceb64b1737918458f6d5c692fc2bfbc0f12ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 52048fb8ccd445b93296d2686ca46785b0c3e726
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Configurazione di un cluster Linux RDMA per eseguire applicazioni MPI
 Informazioni su come configurare un cluster Linux RDMA in Azure con [Dimensioni delle VM High Performance Computing (HPC)](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per eseguire applicazioni MPI (Message Passing Interface) in parallelo. Questo articolo illustra la procedura per preparare un'immagine Linux HPC per l'esecuzione di Intel MPI in un cluster. Dopo la preparazione viene distribuito un cluster di macchine virtuali usando questa immagine e una delle dimensioni di macchina virtuale di Azure con supporto per RDMA (attualmente H16r, H16mr, A8 o A9). Usare il cluster per eseguire applicazioni MPI in grado di comunicare in modo efficiente tramite una rete a bassa latenza e velocità effettiva elevata basata sulla tecnologia di accesso diretto a memoria remota (RDMA).
@@ -47,7 +47,7 @@ I passaggi seguenti mostrano come usare l'interfaccia della riga di comando di A
 * **Sottoscrizione di Azure**: se non è disponibile una sottoscrizione, è possibile creare un [account gratuito](https://azure.microsoft.com/free/) in pochi minuti. Per cluster di maggiori dimensioni, prendere in considerazione una sottoscrizione con pagamento in base al consumo o altre opzioni di acquisto.
 * **Disponibilità delle dimensioni di macchina virtuale**: offrono supporto per RDMA le dimensioni di istanza seguenti: H16r, H16mr, A8 e A9. Per informazioni sulla disponibilità nelle aree di Azure, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/) .
 * **Quota di core**: può essere necessario aumentare la quota di core per distribuire un cluster di macchine virtuali a elevato uso di calcolo. Ad esempio, se si desidera distribuire 8 VM A9 come illustrato in questo articolo, è necessario disporre di almeno 128 core. La sottoscrizione può anche limitare il numero di core che è possibile distribuire in alcune famiglie di dimensioni di macchina virtuale, inclusa la serie H. Per richiedere un aumento della quota, è possibile [aprire una richiesta di assistenza clienti online](../../../azure-supportability/how-to-create-azure-support-request.md) senza alcun addebito.
-* **Interfaccia della riga di comando di Azure**: [installare](../../../cli-install-nodejs.md) l'interfaccia della riga di comando di Azure e [connetterla alla sottoscrizione di Azure](../../../xplat-cli-connect.md) dal computer client.
+* **Interfaccia della riga di comando di Azure**: [installare](../../../cli-install-nodejs.md) l'interfaccia della riga di comando di Azure e [connetterla alla sottoscrizione di Azure](/cli/azure/authenticate-azure-cli) dal computer client.
 
 ### <a name="provision-an-sles-12-sp1-hpc-vm"></a>Provisioning di una macchina virtuale HPC SLES 12 SP1
 Dopo l'accesso ad Azure con l'interfaccia della riga di comando di Azure, eseguire `azure config list` per verificare che l'output indichi la modalità Azure Service Management. In caso contrario, impostare la modalità eseguendo questo comando:

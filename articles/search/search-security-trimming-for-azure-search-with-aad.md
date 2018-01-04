@@ -1,6 +1,6 @@
 ---
-title: Limitazione per motivi di sicurezza in Ricerca di Azure con Azure Active Directory | Microsoft Docs
-description: Implementare la limitazione per motivi di sicurezza usando il filtro Ricerca di Azure e Azure Active Directory.
+title: "Filtri di sicurezza per la rimozione di risultati della ricerca di Azure utilizzando l'identità di Active Directory | Documenti Microsoft"
+description: "Controllo di accesso al contenuto di ricerca di Azure utilizzando i filtri di sicurezza e identità di Active Directory."
 services: search
 author: revitalbarletz
 manager: jlembicz
@@ -8,15 +8,15 @@ ms.service: search
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 8d277ff43aa0d5d14471426632b5aa369df0e316
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-in-azure-search-with-azure-active-directory"></a>Limitazione per motivi di sicurezza in Ricerca di Azure con Azure Active Directory
+# <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtri di sicurezza per ottenere i risultati di ricerca di Azure utilizzando l'identità di Active Directory
 
-Questo articolo illustra come usare Azure Active Directory (AAD) insieme a Ricerca di Azure per limitare l'accesso ai documenti in base all'appartenenza a un gruppo utenti.
+In questo articolo viene illustrato come utilizzare le identità di sicurezza di Azure Active Directory (AAD) con i filtri in ricerca di Azure per tagliare i risultati della ricerca in base all'utente di appartenenza.
 
 Questo articolo illustra le attività seguenti:
 > [!div class="checklist"]
@@ -27,7 +27,7 @@ Questo articolo illustra le attività seguenti:
 - Emettere una richiesta di ricerca con il filtro degli identificatori di gruppo
 
 >[!NOTE]
-> I frammenti di codice di esempio in questo articolo sono scritti in C#. Il codice sorgente completo è disponibile su [GitHub](http://aka.ms/search-dotnet-howto). 
+> I frammenti di codice di esempio in questo articolo sono scritti in C#. Il codice sorgente completo è disponibile [in GitHub](http://aka.ms/search-dotnet-howto). 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -185,7 +185,8 @@ La risposta include un elenco filtrato dei documenti, costituito da quelli che l
 
 In questa procedura dettagliata sono state illustrate le tecniche per l'uso degli accessi ad AAD per filtrare i documenti nei risultati di Ricerca di Azure, limitando i risultati relativi ai documenti che non corrispondono al filtro specificato nella richiesta.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
-+ [Limitazione per motivi di sicurezza con Ricerca di Azure](search-security-trimming-for-azure-search.md)
++ [Controllo di accesso basate sulle identità utilizzando i filtri di ricerca di Azure](search-security-trimming-for-azure-search.md)
 + [Filtri in Ricerca di Azure](search-filters.md)
++ [Controllo di accesso e protezione di dati nelle operazioni di ricerca di Azure](search-security-overview.md)

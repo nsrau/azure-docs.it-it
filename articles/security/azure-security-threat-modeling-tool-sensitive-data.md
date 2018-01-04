@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 21d1ba02052862e16ef27ec313d53cd0bffcc21a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 60fcb24ffe813d7fb633c5398252dc8ea7d7a19f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Infrastruttura di sicurezza: dati sensibili - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 | **Applicazione Web** | <ul><li>[Assicurarsi che i contenuti sensibili non vengano memorizzati nella cache del browser](#cache-browser)</li><li>[Crittografare le sezioni dei file di configurazione dell'app Web contenenti dati sensibili](#encrypt-data)</li><li>[Disabilitare in modo esplicito l'attributo HTML di completamento automatico in input e moduli sensibili](#autocomplete-input)</li><li>[Assicurarsi che i dati sensibili visualizzati nella schermata dell'utente vengano mascherati](#data-mask)</li></ul> | 
 | **Database** | <ul><li>[Implementare la maschera dati dinamica per limitare l'esposizione di dati sensibili a utenti senza privilegi](#dynamic-users)</li><li>[Assicurarsi che le password vengano archiviate in formato hash con valori salt](#salted-hash)</li><li>[Assicurarsi che i dati sensibili nelle colonne di database vengano crittografati](#db-encrypted)</li><li>[Assicurarsi che venga abilitata la crittografia a livello di database (TDE)](#tde-enabled)</li><li>[Assicurarsi che i backup di database vengano crittografati](#backup)</li></ul> | 
 | **API Web** | <ul><li>[Assicurarsi che i dati sensibili relativi all'API Web non vengano memorizzati nell'archivio del browser](#api-browser)</li></ul> | 
-| Azure DocumentDB | <ul><li>[Crittografare i dati sensibili archiviati in DocumentDB](#encrypt-docdb)</li></ul> | 
+| Azure DocumentDB | <ul><li>[Crittografare i dati sensibili archiviati in Azure Cosmos DB](#encrypt-docdb)</li></ul> | 
 | **Limite di trust della macchina virtuale IaaS di Azure** | <ul><li>[Usare Crittografia dischi di Azure per crittografare i dischi usati dalle macchine virtuali](#disk-vm)</li></ul> | 
 | **Limite di trust di Service Fabric** | <ul><li>[Crittografare i segreti nelle applicazioni di Service Fabric](#fabric-apps)</li></ul> | 
 | **Dynamics CRM** | <ul><li>[Eseguire la modellazione di sicurezza e usare team e unità aziendali quando richiesto](#modeling-teams)</li><li>[Ridurre al minimo l'accesso alla funzionalità di condivisione nelle entità critiche](#entities)</li><li>[Istruire gli utenti sui rischi associati alla funzionalità di condivisione di Dynamics CRM e sulle procedure di sicurezza consigliate](#good-practices)</li><li>[Includere una regola sugli standard di sviluppo che vieta la visualizzazione dei dettagli di configurazione nella gestione delle eccezioni](#exception-mgmt)</li></ul> | 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="binaries-info"></a>Assicurarsi che i file binari che contengono informazioni riservate vengano offuscati
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust dei computer | 
 | **Fase SDL**               | Distribuzione |  
@@ -123,7 +123,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="encrypt-data"></a>Crittografare le sezioni dei file di configurazione dell'app Web contenenti dati sensibili
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -134,7 +134,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="autocomplete-input"></a>Disabilitare in modo esplicito l'attributo HTML di completamento automatico in input e moduli sensibili
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -175,7 +175,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="salted-hash"></a>Assicurarsi che le password vengano archiviate in formato hash con valori salt
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -186,7 +186,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="db-encrypted"></a>Assicurarsi che i dati sensibili nelle colonne di database vengano crittografati
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -208,7 +208,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="backup"></a>Assicurarsi che i backup di database vengano crittografati
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -219,7 +219,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="api-browser"></a>Assicurarsi che i dati sensibili relativi all'API Web non vengano memorizzati nell'archivio del browser
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase SDL**               | Compilare |  
@@ -243,7 +243,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="encrypt-docdb"></a>Crittografare i dati sensibili archiviati in Cosmos DB
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure DocumentDB | 
 | **Fase SDL**               | Compilare |  
@@ -309,7 +309,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="exception-mgmt"></a>Includere una regola sugli standard di sviluppo che vieta la visualizzazione dei dettagli di configurazione nella gestione delle eccezioni
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase SDL**               | Distribuzione |  
@@ -320,7 +320,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="sse-preview"></a>Usare Crittografia del servizio di archiviazione di Azure per dati inattivi (anteprima)
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Archiviazione di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -422,7 +422,7 @@ Impostare clientCredentialType su Certificate o su Windows.
 
 ## <a id="security"></a>WCF: la modalità di sicurezza non è abilitata
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  

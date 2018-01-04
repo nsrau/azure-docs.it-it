@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 3ca1710c969b9bc5a1f56dc53f52c706e1ed07cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dc3870e81edd47a9932db86d347290451c4f1eb8
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="combine-columns-by-example-transformation"></a>Trasformazione "Combine Columns by Example" (Combina colonne in base all'esempio)
 Questa trasformazione consente all'utente di aggiungere una nuova colonna combinando i valori di più colonne. L'utente può specificare un separatore o fornire esempi di valori combinati per eseguire questa trasformazione. Quando l'utente fornisce esempi di combinazione, la trasformazione viene gestita dallo stesso motore **By-Example** usato nella trasformazione **Derive Column by Example** (Deriva colonna in base all'esempio).
@@ -36,7 +36,7 @@ La selezione di **Separator** (Separatore) in **Combine Columns by** (Combina co
 
 La selezione di **Examples** (Esempi) in **Combine Columns by** (Combina colonne in base all'esempio) consente all'utente di specificare esempi di valori combinati. Per alzare di livello una riga, ad esempio, fare doppio clic sulle righe nella griglia. Digitare l'output previsto nella casella di testo per la riga alzata di livello. Premere TAB al di fuori della casella di testo **Separator** (Separatore) per visualizzare in anteprima i risultati della griglia di dati. Premere **OK** per eseguire il commit della trasformazione. 
 
-L'utente può alternare le **modalità base** e la **modalità avanzata** facendo clic sui collegamenti nell'Editor di trasformazione.
+L'utente può passare dalla **Modalità di base** alla **Modalità avanzata** facendo clic sui collegamenti nell'editor di trasformazione.
 
 ### <a name="editing-existing-transformation"></a>Modifica della trasformazione esistente
 
@@ -62,7 +62,7 @@ In questo esempio come separatore viene usata una virgola seguita da uno spazio 
 
 Il valore in **grassetto** è stato fornito come esempio.
 
-|Date|Mese|Year|Hour|Minuto|Second|Colonna combinata|
+|Data|Mese|Year|Hour|Minuto|Second|Colonna combinata|
 |:----|:----|:----|:----|:----|:----|:----|
 |13|ott|2016|15|01|23|**13-Oct-2016 15:01:23 PDT**|
 |16|ott|2016|16|22|33|16-Oct-2016 15:01:33 PDT|

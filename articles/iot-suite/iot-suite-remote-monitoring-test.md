@@ -7,26 +7,26 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 8b84b90e72f8cac1fc1f8a90391b7a5a4f6be1f4
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: 7550748c496f4e5c671ab49f9b139d2d4926d497
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testare la soluzione con dispositivi simulati
 
-Questa esercitazione mostra come personalizzare il microservizio del simulatore di dispositivi con la soluzione preconfigurata di monitoraggio remoto. Per illustrare le funzionalità del simulatore di dispositivi, questa esercitazione usa due scenari nell'applicazione IoT Contoso.
+In questa esercitazione viene illustrato come personalizzare il microservizio simulatore di dispositivi nella soluzione preconfigurata monitoraggio remota. Per illustrare le funzionalità del simulatore di dispositivi, questa esercitazione usa due scenari nell'applicazione IoT Contoso.
 
 Nel primo scenario Contoso vuole testare un nuovo dispositivo lampadina intelligente. Per eseguire i test, si crea un nuovo dispositivo simulato con le caratteristiche seguenti:
 
 *Proprietà*
 
-| Nome                     | Valori                      |
+| NOME                     | Valori                      |
 | ------------------------ | --------------------------- |
 | Colore                    | White (Bianco), Red (Rosso), Blue (Blu)            |
 | Brightness (Luminosità)               | Da 0 a 100                    |
@@ -34,11 +34,11 @@ Nel primo scenario Contoso vuole testare un nuovo dispositivo lampadina intellig
 
 *Telemetria*
 
-La tabella seguente mostra i dati trasmessi dalla lampadina al cloud come flusso di dati:
+Nella tabella seguente mostra i dati che di lampadina segnala al cloud come un flusso di dati:
 
-| Nome   | Valori      |
+| NOME   | Valori      |
 | ------ | ----------- |
-| Stato | "on", "off" |
+| Status | "on", "off" |
 | online | true, false |
 
 > [!NOTE]
@@ -48,7 +48,7 @@ La tabella seguente mostra i dati trasmessi dalla lampadina al cloud come flusso
 
 La tabella seguente mostra le azioni supportate dal nuovo dispositivo:
 
-| Nome        |
+| NOME        |
 | ----------- |
 | Switch on (Accendi)   |
 | Switch off (Spegni)  |
@@ -57,7 +57,7 @@ La tabella seguente mostra le azioni supportate dal nuovo dispositivo:
 
 La tabella seguente mostra lo stato iniziale del dispositivo:
 
-| Nome                     | Valori |
+| NOME                     | Valori |
 | ------------------------ | -------|
 | Initial color (Colore iniziale)            | Bianco  |
 | Initial brightness (Luminosità iniziale)       | 75     |
@@ -177,7 +177,7 @@ Il file `lightbulb-01.json` definisce le caratteristiche del tipo, ad esempio i 
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      },
+      }
     }
     ```
 
@@ -273,9 +273,9 @@ Per eseguire il test e il debug delle modifiche in locale, vedere [Device simula
 
 Configurare il progetto per copiare i file del nuovo dispositivo **Lightbulb** (Lampadina) nella directory di output:
 
-* Se si usa Visual Studio, assicurarsi aggiungere i tre nuovi file lightbulb creati nella sezione precedente per il progetto **Servizi** nella soluzione. Usare quindi **Esplora soluzioni** per contrassegnarli come da copiare nella directory di output.
+* Se si utilizza Visual Studio, assicurarsi aggiungere i quattro nuovi file lampadina creato nella sezione precedente per il **servizi** progetto nella soluzione. Usare quindi **Esplora soluzioni** per contrassegnarli come da copiare nella directory di output.
 
-* Se si usa Visual Studio Code, aprire il file **Services.csproj** e aggiungere i tre nuovi file lightbulb creati nella sezione precedente. Vedere le voci del file del modello di dispositivo nel file **Services.csproj** come esempi.
+* Se si utilizza un codice di Visual Studio, aprire il **Services.csproj** file e aggiungere i quattro nuovi file lampadina creato nella sezione precedente. Vedere le voci del file del modello di dispositivo nel file **Services.csproj** come esempi.
 
 Per testare il nuovo dispositivo in una soluzione distribuita, vedere:
 

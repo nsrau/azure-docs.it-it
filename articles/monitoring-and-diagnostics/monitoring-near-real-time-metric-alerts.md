@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 12/06/2017
 ms.author: snmuvva
 ms.custom: 
-ms.openlocfilehash: aeeb6c2fb87e6c19991ef243ee7230f4e8f4e251
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cd1002929ad749ac1742e914a9f2411f09ec91d5
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="near-real-time-metric-alerts-preview"></a>Avvisi metriche near real time (anteprima)
 Monitoraggio di Azure supporta ora un nuovo tipo di avvisi delle metriche denominati Avvisi metriche near real time (anteprima). Questa funzionalità è attualmente in anteprima pubblica.
@@ -38,6 +38,7 @@ Questi avvisi sono diversi dagli avvisi delle metriche regolari per alcuni aspet
 L'elenco completo dei tipi di risorse che sono supportati dagli avvisi delle metriche near real time:
 
 * Microsoft.ApiManagement/service
+* Microsoft.Automation/automationAccounts
 * Microsoft.Batch/batchAccounts
 * Microsoft.Cache/Redis
 * Microsoft.Compute/virtualMachines
@@ -51,48 +52,31 @@ L'elenco completo dei tipi di risorse che sono supportati dagli avvisi delle met
 * Microsoft.Network/publicipaddresses
 * Microsoft.Search/searchServices
 * Microsoft.ServiceBus/namespaces
-* Microsoft.Sql/servers/elasticpools
+* Microsoft.Storage/storageAccounts
+* Microsoft.Storage/storageAccounts/services
 * Microsoft.StreamAnalytics/streamingjobs
-* Microsoft.Timeseriesinsights
 * Microsoft.CognitiveServices/accounts
+
+## <a name="near-real-time-metric-alerts-on-metrics-with-dimensions"></a>Avvisi di metrica in tempo reale vicino alle metriche con dimensioni
+Quasi in tempo reale metrica avvisi supporta gli avvisi sulle metriche delle dimensioni. Le dimensioni sono un modo per filtrare l'unità di misura per il corretto livello. Quasi in tempo reale metrica gli avvisi sulle metriche delle dimensioni sono supportati per i seguenti tipi di risorse
+
+* Microsoft.ApiManagement/service
+* Microsoft.Storage/storageAccounts (supportato solo per gli account di archiviazione nelle aree Stati Uniti)
+* Microsoft.Storage/storageAccounts/services (supportato solo per gli account di archiviazione nelle aree Stati Uniti)
 
 
 ## <a name="create-a-near-real-time-metric-alert"></a>Creare un avviso delle metriche near real time
 Attualmente gli avvisi delle metriche near real time possono essere creati solo tramite il portale di Azure. Il supporto per la configurazione degli avvisi delle metriche near real time tramite PowerShell, l'interfaccia della riga di comando (CLI) e API REST di Monitoraggio di Azure sarà presto disponibile.
 
-1. Nel [portale](https://portal.azure.com/), individuare la risorsa da monitorare e selezionarla. Questa risorsa deve essere uno dei tipi di risorse elencati nella [precedente sezione](#what-resources-can-i-create-near-real-time-metric-alerts-for). È inoltre possibile eseguire la stessa operazione per tutti i tipi di risorse supportate in modo centralizzato da Monitoraggio > Avvisi.
+L'esperienza di avviso create per l'avviso di metrica quasi in tempo reale è stato spostato nella nuova **Alerts(Preview)** esperienza. Anche se gli avvisi correnti pagina vengono visualizzati **avviso aggiungere quasi in tempo reale metrica**, si verrà reindirizzati alla nuova esperienza.
 
-2. Selezionare **Avvisi** o **Regole di avviso** nella sezione MONITORAGGIO. Il testo e l'icona possono lievemente variare per le diverse risorse.
-   ![Monitoraggio](./media/insights-alerts-portal/AlertRulesButton.png)
-
-3. Fare clic sul comando **Add near real time metrics alert (preview)** (Aggiungi avvisi delle metriche near real time (anteprima)). Se il comando è disattivato, verificare che la risorsa sia selezionata nel filtro.
-
-    ![Pulsante Add Near Real-Time Metrics Alert (Aggiungi avvisi delle metriche near real time)](./media/monitoring-near-real-time-metric-alerts/AddNRTAlertButton.png)
-
-4. Assegnare alla regola di avviso un **Nome** e scegliere una **Descrizione**, che viene visualizzata anche nella notifica inviata tramite posta elettronica.
-5. Selezionare la **Metrica** da monitorare e quindi scegliere una **Condizione**, un'**Aggregazione temporale** e un valore **Soglia** per la metrica. Facoltativamente selezionare un'altra **Metrica** da monitorare e quindi scegliere una **Condizione**, un'**Aggregazione temporale** e un valore **Soglia** per la seconda metrica. 
-
-    ![Add Near Real-Time Metrics Alert1](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert1.png) (Aggiungi avvisi delle metriche near real1) ![Add Near Real-Time Metrics Alert2](./media/monitoring-near-real-time-metric-alerts/AddNRTAlert2.png) (Aggiungi avvisi delle metriche near real2)
-6. Scegliere il **Periodo** di tempo entro il quale la regola della metrica deve essere soddisfatta prima dell'attivazione dell'avviso. Se ad esempio si usa il periodo "Negli ultimi 5 minuti" e l'avviso deve rilevare la CPU superiore all'80%, (e la rete superiore ai 500 MB) l'avviso si attiva quando la CPU resta costantemente sopra all'80% per 5 minuti. Dopo la prima attivazione, l'avviso si attiverà di nuovo quando la CPU resta al di sotto dell'80% per 5 minuti. L'avviso viene valutato in base alla **frequenza di valutazione**
-
-
-6. Scegliere la **gravità** appropriata nell'elenco a discesa.
-
-7. Specificare se si desidera usare un **gruppo di azioni** nuovo o esistente.
-
-8. Se si sceglie di creare un **nuovo** gruppo di azioni, assegnare al gruppo di azioni un nome e un nome breve, specificare le azioni (SMS, posta elettronica o Webhook) e inserire i rispettivi dettagli.
-
-
-8. Al termine fare clic su **OK** per creare l'avviso.   
-
-Dopo pochi minuti l'avviso è funzionante e si attiva come descritto in precedenza.
+È possibile creare un avviso di metriche in tempo reale quasi eseguendo la procedura descritta [qui](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
 
 ## <a name="managing-near-real-time-metric-alerts"></a>Gestione degli avvisi delle metriche near real time
-Dopo aver creato un avviso, è possibile selezionarlo e:
+Dopo aver creato un **avviso quasi in tempo reale metrica**, può essere gestita mediante i passaggi descritti [qui](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
-* Visualizzare un grafico che mostra la soglia della metrica e i valori effettivi del giorno precedente.
-* Modificarlo o eliminarlo.
-* **Disabilitarlo** o **abilitarlo** per interrompere temporaneamente o riprendere la ricezione delle notifiche relative all'avviso.
+## <a name="next-steps"></a>Passaggi successivi
 
-
-
+* [Ulteriori informazioni sulla nuova esperienza di avvisi (anteprima)](monitoring-overview-unified-alerts.md)
+* [Informazioni sugli avvisi di Log negli avvisi di Azure (anteprima)](monitor-alerts-unified-log.md)
+* [Informazioni sugli avvisi di Azure](monitoring-overview-alerts.md)

@@ -6,18 +6,18 @@ documentationcenter:
 author: adamab
 manager: timlt
 editor: tysonn
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 6c0d76207233a04bdec604d95f1779c62f6e2d8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d9acb58791cb1412d5e67479ca6490e1548be2c8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creare dashboard di Azure a livello di codice
 
@@ -27,7 +27,7 @@ Questo documento descrive in modo dettagliato il processo di creazione e pubblic
 
 ## <a name="overview"></a>Panoramica
 
-I dashboard condivisi in Azure sono [risorse](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) molto simili alle macchine virtuali e agli account di archiviazione.  Di conseguenza, possono essere gestiti a livello di codice tramite le [API REST di Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-rest-api), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/cli/azure/overview) e i [comandi di Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.2.0). Inoltre, molte funzionalità del [portale di Azure](https://portal.azure.com) sono basate su queste API per semplificare la gestione delle risorse.  
+I dashboard condivisi in Azure sono [risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) molto simili alle macchine virtuali e agli account di archiviazione.  Di conseguenza, possono essere gestiti a livello di codice tramite le [API REST di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-rest-api), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview) e i [comandi di Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0). Inoltre, molte funzionalità del [portale di Azure](https://portal.azure.com) sono basate su queste API per semplificare la gestione delle risorse.  
 
 Ognuno degli strumenti e delle API permette di creare, elencare, recuperare, modificare ed eliminare risorse in modi diversi.  Poiché i dashboard sono risorse, è possibile selezionare l'API o lo strumento preferito da usare.
 
@@ -55,7 +55,7 @@ Dopo aver configurato il dashboard in base alle preferenze, il passaggio success
 
 ![Comando Condividi](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Facendo clic sul comando Condividi, viene visualizzata una finestra di dialogo che chiede in quale sottoscrizione e gruppo di risorse eseguire la pubblicazione. Tenere presente che [è necessario avere accesso in scrittura](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) alla sottoscrizione e al gruppo di risorse scelti.
+Facendo clic sul comando Condividi, viene visualizzata una finestra di dialogo che chiede in quale sottoscrizione e gruppo di risorse eseguire la pubblicazione. Tenere presente che [è necessario avere accesso in scrittura](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) alla sottoscrizione e al gruppo di risorse scelti.
 
 ![Condivisione e accesso](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -79,11 +79,11 @@ Per creare un modello, non è necessaria una comprensione approfondita della str
 
 Per pubblicare il dashboard per qualsiasi macchina virtuale in futuro, è necessario impostare i parametri per ogni occorrenza di questa stringa all'interno del codice JSON. 
 
-Esistono due tipi di API che creano risorse in Azure. [API imperative](https://docs.microsoft.com/en-us/rest/api/resources/resources), che creano una risorsa per volta, e un sistema di [distribuzione basato su modello](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), che può orchestrare la creazione di più risorse dipendenti con un'unica chiamata API. Poiché il secondo tipo supporta in modo nativo la parametrizzazione e la creazione di modelli, è quello usato per questo esempio.
+Esistono due tipi di API che creano risorse in Azure. [API imperative](https://docs.microsoft.com/rest/api/resources/resources), che creano una risorsa per volta, e un sistema di [distribuzione basato su modello](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), che può orchestrare la creazione di più risorse dipendenti con un'unica chiamata API. Poiché il secondo tipo supporta in modo nativo la parametrizzazione e la creazione di modelli, è quello usato per questo esempio.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Creare un dashboard a livello di codice dal modello usando una distribuzione di modelli
 
-Azure offre la possibilità di orchestrare la distribuzione di più risorse. È necessario creare un modello di distribuzione che indica il set di risorse da distribuire, nonché le rispettive relazioni.  Il formato JSON di ogni risorsa è lo stesso di quando le risorse vengono create una per una. La differenza è che il [linguaggio del modello](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) aggiunge alcuni concetti come variabili, parametri, funzioni di base e altro ancora. Questa sintassi estesa è supportata solo nel contesto di una distribuzione di modelli e non funziona se usata con le API imperative descritte in precedenza.
+Azure offre la possibilità di orchestrare la distribuzione di più risorse. È necessario creare un modello di distribuzione che indica il set di risorse da distribuire, nonché le rispettive relazioni.  Il formato JSON di ogni risorsa è lo stesso di quando le risorse vengono create una per una. La differenza è che il [linguaggio del modello](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) aggiunge alcuni concetti come variabili, parametri, funzioni di base e altro ancora. Questa sintassi estesa è supportata solo nel contesto di una distribuzione di modelli e non funziona se usata con le API imperative descritte in precedenza.
 
 Se si intende seguire questo approccio, la parametrizzazione deve essere eseguita usando la sintassi dei parametri del modello.  Sostituire tutte le istanze dell'ID risorsa trovate prima, come mostrato qui.
 
@@ -119,7 +119,7 @@ Se si intende seguire questo approccio, la parametrizzazione deve essere eseguit
 
 __Il modello completo e funzionante viene mostrato alla fine di questo documento.__
 
-Dopo aver creato il modello, è possibile distribuirlo usando le [API REST](https://docs.microsoft.com/en-us/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/cli/azure/group/deployment#az_group_deployment_create) oppure la [pagina per la distribuzione di modelli del portale](https://portal.azure.com/#create/Microsoft.Template).
+Dopo aver creato il modello, è possibile distribuirlo usando le [API REST](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/group/deployment#az_group_deployment_create) oppure la [pagina per la distribuzione di modelli del portale](https://portal.azure.com/#create/Microsoft.Template).
 
 Ecco due versioni della rappresentazione JSON del dashboard di esempio. La prima è la versione esportata dal portale e già associata a una risorsa. La seconda è la versione modello che può essere associata a livello di codice a qualsiasi macchina virtuale e distribuita con Azure Resource Manager.
 

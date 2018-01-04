@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8555bd830583f51164d39ca0e7b95813b7d35965
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: e5569209d3628003b3f3e169b227e069b920c03f
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Creare una VM (classica) con più schede di interfaccia di rete usando l'interfaccia della riga di comando 1.0 di Azure
 
@@ -76,7 +76,7 @@ Le macchine virtuali di back-end dipendono dalla creazione delle risorse seguent
     numberOfVMs=2
     ```
 
-### <a name="step-2---create-necessary-resources-for-your-vms"></a>Passaggio 2 - creare le risorse necessarie per le macchine virtuali
+### <a name="step-2---create-necessary-resources-for-your-vms"></a>Passaggio 2 - Creare le risorse necessarie per le macchine virtuali
 1. Creare un nuovo servizio cloud per tutte le macchine virtuali di back-end. Si noti l'utilizzo della `$backendCSName` variabile per il nome del gruppo di risorse e `$location` per l'area di Azure.
 
     ```azurecli
@@ -191,4 +191,4 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 
 ### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>Passaggio 5 - Configurare il routing all'interno del sistema operativo della VM
 
-Azure DHCP assegna un gateway predefinito alla prima interfaccia di rete (primaria) associata alla macchina virtuale. Azure non assegna un gateway predefinito alle interfacce di rete (secondarie) associate a una macchina virtuale. Pertanto, per impostazione predefinita, non si riesce a comunicare con le risorse all'esterno della subnet in cui si trova un'interfaccia di rete secondaria. Le interfacce di rete secondarie possono tuttavia comunicare con risorse esterne alla loro subnet. Per configurare il routing per le interfacce di rete secondarie, vedere [Routing within a virtual machine operating system with multiple network interfaces](virtual-network-network-interface-vm.md#routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces) (Routing in un sistema operativo di macchina virtuale con più interfacce di rete).
+Azure DHCP assegna un gateway predefinito alla prima interfaccia di rete (primaria) associata alla macchina virtuale. Azure non assegna un gateway predefinito alle interfacce di rete (secondarie) associate a una macchina virtuale. Di conseguenza, per impostazione predefinita, non è possibile comunicare con risorse esterne alla subnet in cui si trova un'interfaccia di rete secondaria. Le interfacce di rete secondarie possono tuttavia comunicare con risorse esterne alla loro subnet. Per configurare il routing per le interfacce di rete secondarie, vedere [Routing within a virtual machine operating system with multiple network interfaces](virtual-network-network-interface-vm.md) (Routing in un sistema operativo di macchina virtuale con più interfacce di rete).

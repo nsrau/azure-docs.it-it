@@ -4,7 +4,7 @@ description: Come compilare un'applicazione Cordova che si integra con Azure AD 
 services: active-directory
 documentationcenter: 
 author: vibronet
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: b1a8d7bd-7ad6-44d5-8ccb-5255bb623345
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 11/30/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.openlocfilehash: d9f53148787729d29a0a89cce1b8b2b83ba228f8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b489add83a462d1d3902831d63be0b70e2443718
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
-# <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Integrare Azure AD con un'app Apache Cordova
+# <a name="azure-ad-cordova-getting-started"></a>Guida introduttiva Azure Cordova di Active Directory
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -56,7 +56,7 @@ Se non è disponibile un tenant di Azure AD, vedere le [istruzioni su come otten
 Se nel computer in uso non è configurato Apache Cordova, installare quanto segue:
 
 * [Git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-* [Node.JS](https://nodejs.org/download/)
+* [Node.js](https://nodejs.org/download/)
 * [Interfaccia della riga di comando di Cordova](https://cordova.apache.org/) (può essere installata facilmente tramite Gestione pacchetti NPM: `npm install -g cordova`)
 
 Le installazioni precedenti dovrebbero funzionare sia su PC che su Mac.
@@ -89,9 +89,9 @@ Azure AD rilascia token solo alle applicazioni note. Prima di poter usare Azure 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nella barra superiore fare clic sull'account. Nell'elenco di **Directory** scegliere il tenant di Azure AD in cui si vuole registrare l'applicazione.
 3. Fare clic su **More Services** (Altri servizi) nel riquadro sinistro, quindi selezionare **Azure Active Directory**.
-4. Fare clic su **Registrazioni per l'app**, quindi selezionare **Aggiungi**.
+4. Fare clic su **Registrazioni per l'app** e scegliere **Aggiungi**.
 5. Seguire le istruzioni e creare un'**Applicazione client nativa**. Benché le app Cordova siano basate su HTML, verrà creata un'applicazione client nativa. L'opzione **Applicazione client nativa** deve essere selezionata per consentire il funzionamento dell'applicazione.
-  * **Nome** descrive l'applicazione agli utenti.
+  * Il **nome** descrive l'applicazione agli utenti.
   * **URI di reindirizzamento** è l'URI usato per restituire i token all'app. Immettere **http://MyDirectorySearcherApp**.
 
 Al termine della registrazione, Azure AD assegna un ID applicazione univoco all'app. Questo valore servirà nelle sezioni successive. È possibile trovarlo nella scheda applicazione dell'app appena creata.
@@ -286,7 +286,7 @@ I passaggi concreti per l'esecuzione dell'app variano in base alla piattaforma.
     Use `cordova run --help` to see additional build and run options.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Come riferimento, l'esempio completo, senza valori di configurazione, è disponibile in [GitHub](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient).
+Come riferimento, l'esempio completo (senza i valori di configurazione) è disponibile in [GitHub](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient).
 
 A questo punto è possibile passare a scenari più avanzati e più interessanti. Vedere [Proteggere un'API Web Node.js con Azure AD](active-directory-devquickstarts-webapi-nodejs.md).
 

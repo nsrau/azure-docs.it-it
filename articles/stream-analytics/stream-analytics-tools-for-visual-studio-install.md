@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 9/19/2017
 ms.author: sujie
-ms.openlocfilehash: 80ce672ae91231e432f7ac9da49df29bb03efeca
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
-ms.translationtype: HT
+ms.openlocfilehash: 307270a25545a0388e67c37656057f81535d8d3b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="installation-instructions-for-stream-analytics-tools-for-visual-studio"></a>Istruzioni di installazione per gli strumenti di Analisi di flusso per Visual Studio
 Gli strumenti di Analisi di flusso di Azure supportano ora Visual Studio 2017, 2015 e 2013. In questo documento viene descritto come installare e disinstallare gli strumenti.
 
-Informazioni su come usare gli [strumenti di Analisi di flusso di Azure per Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Informazioni su come usare gli [strumenti di Analisi di flusso di Azure per Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
 ## <a name="install"></a>Installa
 ### <a name="visual-studio-2017"></a>Visual Studio 2017
@@ -47,7 +47,7 @@ Abilitare il carico di lavoro **Sviluppo di Azure**, come illustrato:
 
 
 
-## <a name="update"></a>Aggiornare
+## <a name="update"></a>Aggiornamento
 
 ### <a name="visual-studio-2017"></a>Visual Studio 2017
 Il promemoria della nuova versione viene visualizzato nella notifica di Visual Studio. 

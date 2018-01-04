@@ -4,7 +4,7 @@ description: Il controllo di accesso condizionale consente ad Azure Active Direc
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 2c57b394beb6382807a4c8c83de975a0ae68d726
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 28d10cd6be93226c93bda98c88cee454ec5cb2c7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definire una strategia di adozione della soluzione ibrida di gestione delle identità
 In questa attività verrà definita la strategia di adozione della soluzione ibrida di gestione delle identità in modo che soddisfi i requisiti aziendali definiti in:
@@ -178,11 +178,11 @@ Opzioni di progettazione per l'autenticazione a più fattori:
 
 | Asset da proteggere | Autenticazione a più fattori nel cloud | MFA in locale |
 | --- | --- | --- |
-| App Microsoft |sì |sì |
-| App SaaS nella Raccolta di app |sì |sì |
-| Le applicazioni IIS pubblicate tramite proxy app per Azure AD |sì |sì |
-| Applicazioni IIS non pubblicate tramite il proxy applicazione Azure AD |no |sì |
-| Accesso remoto, ad esempio VPN, Gateway Desktop remoto |no |sì |
+| App Microsoft |Sì |Sì |
+| App SaaS nella Raccolta di app |Sì |Sì |
+| Le applicazioni IIS pubblicate tramite proxy app per Azure AD |Sì |Sì |
+| Applicazioni IIS non pubblicate tramite il proxy applicazione Azure AD |no |Sì |
+| Accesso remoto, ad esempio VPN, Gateway Desktop remoto |no |Sì |
 
 Anche se è già stata scelta una soluzione per la strategia, è comunque necessario riesaminare la valutazione riportata in precedenza a seconda di dove risiedono gli utenti  ed eventualmente cambiare il tipo di soluzione.  A questo scopo, usare la tabella seguente:
 
@@ -210,6 +210,6 @@ La modalità Multi-Factor Authentication è disponibile per impostazione predefi
 ## <a name="next-steps"></a>Passaggi successivi
 [Determinare i requisiti di protezione dati](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 [Panoramica delle considerazioni di progettazione](active-directory-hybrid-identity-design-considerations-overview.md)
 

@@ -2,30 +2,23 @@
 title: Creare risorse da usare con Azure Site Recovery | Microsoft Docs
 description: Informazioni su come preparare Azure per la replica di computer locali usando il servizio Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 321e304f-b29e-49e4-aa64-453878490ea7
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 12/31/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2fa7e731a05e19697603058829f130074bb5b522
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 71d740107eb2082e3f112941e1d4abd715d25807
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparare le risorse di Azure per la replica dei computer locali
 
-Il servizio [Azure Site Recovery](site-recovery-overview.md) contribuisce a realizzare la strategia di continuità aziendale e ripristino di emergenza (BCDR) mantenendo disponibili e operative le app aziendali durante interruzioni pianificate e non pianificate. Site Recovery gestisce e controlla il ripristino di emergenza di computer locali e macchine virtuali di Azure, incluse le operazioni di replica, failover e failback.
+Il servizio [Azure Site Recovery](site-recovery-overview.md) contribuisce a realizzare la strategia di continuità aziendale e ripristino di emergenza (BCDR) mantenendo disponibili e operative le app aziendali durante interruzioni pianificate e non pianificate. Site Recovery gestisce e coordina il ripristino di emergenza di computer locali e macchine virtuali di Azure, incluse le operazioni di replica, failover e failback.
 
-Questa esercitazione descrive come preparare i componenti di Azure per replicare le macchine virtuali locali e i server fisici in Azure. In questa esercitazione si apprenderà come:
+In questa esercitazione viene illustrato come preparare i componenti di Azure quando si desidera replicare le macchine virtuali locali (Hyper-V o VMware) o i server fisici Windows/Linux in Azure. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Verificare che l'account abbia le autorizzazioni di replica
@@ -40,11 +33,11 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
 ## <a name="verify-account-permissions"></a>Verificare le autorizzazioni dell'account
 
-Se è appena stato creato l'account gratuito di Azure, si è amministratori della propria sottoscrizione. Se non si è l'amministratore della propria sottoscrizione, rivolgersi all'amministratore per l'assegnazione delle autorizzazioni necessarie. Per abilitare la replica per una nuova macchina virtuale, è necessario avere le autorizzazioni seguenti:
+Se è stato appena creato l'account gratuito di Azure, si è l'amministratore della sottoscrizione. Se non si è l'amministratore della propria sottoscrizione, rivolgersi all'amministratore per l'assegnazione delle autorizzazioni necessarie. Per abilitare la replica per una nuova macchina virtuale, è necessario avere le autorizzazioni seguenti:
 
-- Autorizzazione per la creazione di una macchina virtuale nel gruppo di risorse selezionato
-- Autorizzazione per la creazione di una macchina virtuale nella rete virtuale selezionata
-- Autorizzazione per la scrittura nell'account di archiviazione selezionato
+- Autorizzazioni per creare una macchina virtuale nel gruppo di risorse selezionato
+- Autorizzazioni per creare una macchina virtuale nella rete virtuale selezionata
+- Autorizzazione di scrittura per l'account di archiviazione selezionato
 
 Il ruolo predefinito 'Collaboratore Macchina virtuale' ha le autorizzazioni elencate. È necessario anche avere l'autorizzazione per la gestione delle operazioni di Azure Site Recovery. Il ruolo 'Collaboratore di Site Recovery' ha tutte le autorizzazioni necessarie per la gestione delle operazioni di Site Recovery in un insieme di credenziali dei servizi di ripristino.
 
@@ -53,13 +46,13 @@ Il ruolo predefinito 'Collaboratore Macchina virtuale' ha le autorizzazioni elen
 Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure. Le macchine virtuali di Azure vengono create dall'archiviazione quando si esegue il failover da locale ad Azure.
 
 1. Nel menu del [portale di Azure](https://portal.azure.com) fare clic su **Nuovo** -> **Archiviazione** -> **Account di archiviazione**.
-2. Immettere un nome per l'account di archiviazione. Per queste esercitazioni viene usato il nome **contosovmsacct1910171607**. Il nome deve essere univoco in Azure, avere una lunghezza compresa tra 3 e 24 caratteri e può contenere solo numeri e lettere minuscole.
+2. Immettere un nome per l'account di archiviazione. Per queste esercitazioni viene usato il nome **contosovmsacct1910171607**. Il nome deve essere univoco in Azure ed essere compresa tra 3 e 24 caratteri, numeri e lettere minuscole solo.
 3. Usare il modello di distribuzione di **Resource Manager**.
 4. Selezionare **Utilizzo generico** > **Standard**.
 5. Selezionare il valore predefinito **RA-GRS** per la ridondanza di archiviazione.
 6. Selezionare la sottoscrizione in cui creare il nuovo account di archiviazione.
-7. Specificare un nuovo gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Per queste esercitazioni viene usato il nome **ContosoRG**.
-8. Selezionare la posizione geografica dell'account di archiviazione. L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali dei servizi di ripristino. Per queste esercitazioni viene usata la posizione **Europa occidentale**.
+7. Specificare un nuovo gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Per queste esercitazioni, viene utilizzato il nome **ContosoRG**.
+8. Selezionare la posizione geografica dell'account di archiviazione. L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali dei servizi di ripristino. Per queste esercitazioni, viene utilizzato il **Europa occidentale** area.
 
    ![create-storageacct](media/tutorial-prepare-azure/create-storageacct.png)
 
@@ -71,7 +64,7 @@ Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure
    **Backup e ripristino**.
 2. In **Nome**specificare un nome descrittivo per identificare l'insieme di credenziali. Per questa esercitazione viene usato **ContosoVMVault**.
 3. Selezionare il gruppo di risorse esistente denominato **contosoRG**.
-4. Specificare l'area di Azure **Europa occidentale**.
+4. Specificare l'area di Azure **Europa occidentale**, che viene usata in questa serie di esercitazioni.
 5. Per accedere rapidamente all'insieme di credenziali dal dashboard, fare clic su **Aggiungi al dashboard** > **Crea**.
 
    ![Nuovo insieme di credenziali](./media/tutorial-prepare-azure/new-vault-settings.png)

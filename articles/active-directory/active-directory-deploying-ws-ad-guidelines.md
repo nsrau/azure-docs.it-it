@@ -4,7 +4,7 @@ description: Se si conosce la procedura per distribuire Servizi di dominio Activ
 services: active-directory
 documentationcenter: 
 author: femila
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: femila
-ms.openlocfilehash: 342d9e2787add3d04f1b744152e135db98848179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2c9b072551b467785dbb4aae02492ffae6cdb787
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Linee guida per la distribuzione di Active Directory di Windows Server nelle macchine virtuali di Azure
 Questo articolo descrive le differenze più importanti tra la distribuzione di Servizi di dominio Active Directory di Windows Server e Active Directory Federation Services (AD FS) in locale rispetto alla distribuzione nelle macchine virtuali di Microsoft Azure.
@@ -258,7 +258,7 @@ La sezione seguente descrive scenari di distribuzione comuni per mettere in evid
 ![Distribuzione di Servizi di dominio Active Directory solo cloud](media/active-directory-deploying-ws-ad-guidelines/ADDS_cloud.png)
 **Figura 1**
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>DESCRIZIONE
 SharePoint viene distribuito in una macchina virtuale di Azure e l'applicazione non ha dipendenze dalle risorse di rete aziendale. L'applicazione richiede Servizi di dominio Active Directory di Windows Server, ma *non* Servizi di dominio Active Directory di Windows Server aziendale. Non sono richiesti trust Kerberos né trust federativi perché il provisioning degli utenti viene effettuato automaticamente tramite l'applicazione nel dominio di Servizi di dominio Active Directory di Windows Server, ospitato anche nelle macchine virtuali di Azure nel cloud.
 
 #### <a name="scenario-considerations-and-how-technology-areas-apply-to-the-scenario"></a>Considerazioni sullo scenario e modalità di applicazione di aree tecnologiche allo scenario
@@ -278,7 +278,7 @@ SharePoint viene distribuito in una macchina virtuale di Azure e l'applicazione 
 ![Federazione con connettività cross-premise](media/active-directory-deploying-ws-ad-guidelines/Federation_xprem.png)
 **Figura 2**
 
-#### <a name="description"></a>Descrizione
+#### <a name="description"></a>DESCRIZIONE
 Un'applicazione in grado di riconoscere attestazioni distribuita correttamente in locale e usata dagli utenti aziendali deve essere accessibile direttamente da Internet. L'applicazione viene usata come front-end Web in un database SQL in cui vengono archiviati i dati. I server SQL usati dall'applicazione sono presenti anche nella rete aziendale. Per fornire l'accesso agli utenti aziendali, sono stati distribuiti in locale due servizi token di sicurezza di AD FS di Windows Server e un servizio di bilanciamento del carico. A questo punto, l'accesso all'applicazione direttamente tramite Internet deve essere garantito sia ai partner commerciali con le relative identità aziendali sia agli utenti aziendali esistenti.
 
 Per semplificare il processo e soddisfare le esigenze di configurazione e distribuzione di questo nuovo requisito, si è deciso di installare due front-end Web aggiuntivi e due server proxy AD FS di Windows Server nelle macchine virtuali di Azure. Queste quattro VM saranno tutte esposte direttamente a Internet e riceveranno la connettività alla rete locale tramite la funzionalità VPN da sito a sito della rete virtuale di Azure.
@@ -302,7 +302,7 @@ Per altre informazioni, vedere la [Guida alla distribuzione di Servizi di domini
 ![Distribuzione di Servizi di dominio Active Directory cross-premise](media/active-directory-deploying-ws-ad-guidelines/ADDS_xprem.png)
 **Figura 3**
 
-#### <a name="description"></a>Descrizione
+#### <a name="description"></a>DESCRIZIONE
 Un'applicazione compatibile con LDAP viene distribuita in una macchina virtuale di Azure. Supporta l'autenticazione integrata di Windows e usa Servizi di dominio Active Directory di Windows Server come archivio per i dati di configurazione e del profilo utente. L'obiettivo dell'applicazione consiste nello sfruttare Servizi di dominio Active Directory di Windows Server aziendale esistente e fornire l'accesso Single Sign-On. L'applicazione non è in grado di riconoscere attestazioni. Gli utenti devono anche accedere all'applicazione direttamente da Internet. Per ottimizzare le prestazioni e i costi, si è deciso di distribuire due controller di dominio aggiuntivi, che fanno parte del dominio aziendale, insieme all'applicazione in Azure.
 
 #### <a name="scenario-considerations-and-how-technology-areas-apply-to-the-scenario"></a>Considerazioni sullo scenario e modalità di applicazione di aree tecnologiche allo scenario
@@ -329,7 +329,7 @@ Ad esempio, se si distribuisce un controller di dominio di replica in una rete v
 
 | Active Directory di Windows Server in macchine virtuali di Azure | Decisioni | Fattori |
 | --- | --- | --- |
-| [Topologia di rete](#BKMK_NetworkTopology) |Si crea una rete virtuale? |<li>Requisiti per l'accesso alle risorse aziendali</li> <li>Autenticazione</li> <li>Account Management</li> |
+| [Topologia di rete](#BKMK_NetworkTopology) |Si crea una rete virtuale? |<li>Requisiti per l'accesso alle risorse aziendali</li> <li>Authentication</li> <li>Gestione account</li> |
 | [Configurazione della distribuzione di un controller di dominio](#BKMK_DeploymentConfig) |<li>Distribuire una foresta separata senza trust?</li> <li>Distribuire una nuova foresta con federazione?</li> <li>Distribuire una nuova foresta con trust tra foreste di Active Directory di Windows Server o Kerberos?</li> <li>Estendere la foresta aziendale distribuendo una controller di dominio di replica?</li> <li>Estendere la foresta aziendale distribuendo un nuovo dominio figlio o albero di dominio?</li> |<li>Sicurezza</li> <li>Conformità</li> <li>Costi</li> <li>Resilienza e tolleranza di errore</li> <li>Compatibilità tra le versioni</li> |
 | [Topologia del sito Active Directory di Windows Server](#BKMK_ADSiteTopology) |Come si configurano subnet, siti e collegamenti di sito con Rete virtuale di Microsoft Azure per ottimizzare il traffico e ridurre i costi? |<li>Definizioni di sito e subnet</li> <li>Proprietà dei collegamenti di sito e notifica delle modifiche</li> <li>Compressione della replica</li> |
 | [Indirizzamento IP e DNS](#BKMK_IPAddressDNS) |Come configurare gli indirizzi IP e risoluzione dei nomi? |<li>Usare il cmdlet Set-AzureStaticVNetIP per assegnare un indirizzo IP statico</li> <li>Installare un server DNS di Windows Server e configurare le proprietà della rete virtuale con il nome e l'indirizzo IP della VM che ospita i ruoli del server DNS e controller di dominio</li> |

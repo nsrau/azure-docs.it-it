@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/13/2017
 ms.author: bwren
-ms.openlocfilehash: ee11f64484a66fad06b6536a18f9b3e239fa40d5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.openlocfilehash: a0897113660f764cb23239b066bc93c479a9a553
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Informazioni sugli avvisi in Log Analytics
 
@@ -80,13 +80,13 @@ Ad esempio, se si vuole generare un avviso quando il processore è in esecuzione
 
     
 
-Se si vuole generare un avviso quando la media del processore è oltre il 90% per un determinato intervallo di tempo, usare una query con il [comando measure](log-analytics-search-reference.md#commands) come la seguente con la soglia per la regola di avviso **maggiore di 0**.
+Se si desidera un avviso quando il processore Media oltre il 90% per un intervallo di tempo specifico, utilizzare una query simile alla seguente con la soglia per la regola di avviso **maggiore di 0**.
 
-    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90
+    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | where CounterValue>90 | summarize avg(CounterValue) by Computer
 
     
 >[!NOTE]
-> Se l'area di lavoro non è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), le query precedenti cambiano come segue: `Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
+> Se l'area di lavoro non è ancora stato aggiornato al [Analitica Log nuovo linguaggio di query](log-analytics-log-search-upgrade.md), quindi la query precedente modificherebbe il seguente con l'utilizzo di quest'ultimo il [misurare comando](log-analytics-search-reference.md#commands):`Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
 > `Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90`
 
 
@@ -112,9 +112,9 @@ Si consideri uno scenario in cui si desidera creare un avviso se l'uso del proce
 
 **Query:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
 **Intervallo di tempo:** 30 minuti<br>
-**Frequenza di avviso:** 5 minuti<br>
-**Valore di aggregazione:** maggiore di 90<br>
-**Attiva l'avviso in base a:** violazioni totali maggiori di 5<br>
+**Avviso frequenza:** 5 minuti<br>
+**Valore di aggregazione:** superiore a 90<br>
+**Avviso di trigger in base a:** totale upera maggiore di 2<br>
 
 La query crea un valore medio per ogni computer a intervalli di 5 minuti.  Questa query verrebbe eseguita ogni 5 minuti per i dati raccolti nei 30 minuti precedenti.  Di seguito sono illustrati dati di esempio per tre computer.
 
@@ -125,9 +125,9 @@ In questo esempio, verranno creati avvisi separati per srv02 e srv03 poiché han
 ## <a name="alert-records"></a>Record di avvisi
 I record degli avvisi creati dalle regole di avviso in Log Analytics hanno un **Tipo** impostato su **Avviso** e **SourceSystem** impostato su **OMS**.  Includono le proprietà elencate nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| Tipo |*Avviso* |
+| type |*Avviso* |
 | SourceSystem |*OMS* |
 | *Object*  | [Gli avvisi di misurazione della metrica](#metric-measurement-alert-rules) avranno una proprietà per il campo di Gruppo.  Ad esempio, se la ricerca log si raggruppa sul computer, il record dell'avviso contiene un campo Computer con il nome del computer come valore.
 | AlertName |Nome dell'avviso. |

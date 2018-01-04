@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On federato 
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 1b1d00718981b2c7d11f5b88428d02e16dd0b34d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d8c22d20151fa70ba33ef017ab24c787f71fe6e0
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Come configurare l'accesso Single Sign-On federato per un'applicazione della raccolta di Azure AD
 
@@ -64,7 +64,7 @@ Dopo un breve periodo di tempo sarà possibile visualizzare il pannello di confi
 
 ## <a name="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery"></a>Configurare l'accesso Single Sign-On per un'applicazione della raccolta di Azure AD
 
-Per configurare l'accesso Single Sign-On per un'applicazione, seguire questa procedura:
+Per configurare un accesso Single Sign-On per un'applicazione, seguire i passaggi seguenti:
 
 1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
@@ -106,13 +106,13 @@ Per configurare l'accesso Single Sign-On per un'applicazione, seguire questa pro
 
 14. Fare clic su **Salva** per salvare la configurazione.
 
-15. Assegnare utenti all'applicazione.
+15. Assegnare gli utenti all'applicazione.
 
 ## <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Selezionare l'identificatore utente e aggiungere gli attributi utente da inviare all'applicazione
 
 Per selezionare l'identificatore utente o aggiungere gli attributi dell'utente, seguire questa procedura:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1.  Aprire il [**Portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
 
 2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Altri servizi** nella parte inferiore del menu di navigazione principale a sinistra.
 
@@ -141,7 +141,7 @@ Per selezionare l'identificatore utente o aggiungere gli attributi dell'utente, 
   
    1. Fare clic su **Aggiungi attributo**. Immettere il **Nome** e selezionare il **Valore** nell'elenco a discesa.
 
-   2. Fare clic su **Salva**. Il nuovo attributo verrà visualizzato nella tabella.
+   2. Fare clic su **Save**. Il nuovo attributo verrà visualizzato nella tabella.
 
 ## <a name="download-the-azure-ad-metadata-or-certificate"></a>Scaricare il certificato o i metadati di Azure AD
 

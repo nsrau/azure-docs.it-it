@@ -4,7 +4,7 @@ description: Informazioni sui criteri personalizzati di Azure Active Directory B
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 31f0dfe5-1ad0-4a25-a53b-8acc71bcea72
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: 2b91c75ec73a8b47a67241e3b69c2ed68d5f9b2a
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
-ms.translationtype: HT
+ms.openlocfilehash: f34326bcb8a7cbf5b5cf75e8f18f2843abc0b3ab
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: accedere usando account di Azure AD
 
@@ -67,7 +67,7 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
 
 ## <a name="add-the-azure-ad-key-to-azure-ad-b2c"></a>Aggiungere la chiave di Azure AD in Azure AD B2C
 
-È necessario archiviare la chiave dell'applicazione contoso.com nel tenant di Azure AD B2C. A tale scopo, seguire questa procedura:
+È necessario archiviare la chiave dell'applicazione contoso.com nel tenant di Azure AD B2C. A tale scopo, effettuare l'operazione seguente:
 1. Passare al tenant di Azure AD B2C e selezionare **B2C Settings** (Impostazioni B2C) > **Framework dell'esperienza di gestione delle identità** > **Chiavi dei criteri**.
 1. Selezionare **+Aggiungi**.
 1. Selezionare o immettere queste opzioni:
@@ -75,7 +75,7 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
    * Per **Nome** scegliere un nome che corrisponda al nome del tenant di Azure AD, ad esempio `ContosoAppSecret`.  Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
    * Incollare la chiave dell'applicazione nella casella **Segreto**.
    * Selezionare **Firma**.
-1. Selezionare **Crea**.
+1. Selezionare **Create**.
 1. Confermare di avere creato la chiave `B2C_1A_ContosoAppSecret`.
 
 
@@ -215,7 +215,7 @@ La modifica del file di estensione è completata. Salvare il file. Caricare il f
 1. Modificare l'attributo `ReferenceId` in `<DefaultUserJourney>` in modo che corrisponda all'ID del nuovo percorso utente creato, ad esempio SignUpOrSignUsingContoso.
 1. Salvare le modifiche e caricare il file.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Testare i criteri personalizzati appena caricati aprendo il relativo pannello e facendo clic su **Esegui adesso**. Per diagnosticare i problemi, leggere l'articolo relativo alla [risoluzione dei problemi](active-directory-b2c-troubleshoot-custom.md).
 

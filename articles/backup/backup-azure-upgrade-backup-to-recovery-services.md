@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/09/2017
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 4867a43aab1357cb8e01c2ddcef74cdebb41a84a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
-ms.translationtype: HT
+ms.openlocfilehash: c50095ef5aef750787ec65d64ab92b0e06e20d2c
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino
 
@@ -34,7 +34,7 @@ Quando si aggiorna un insieme di credenziali di Backup a un insieme di credenzia
 ## <a name="changes-to-your-automation-and-tool-after-upgrading"></a>Modifiche all'automazione e agli strumenti dopo l'aggiornamento
 
 Durante la preparazione dell'infrastruttura per l'aggiornamento dell'insieme di credenziali, è necessario aggiornare l'automazione esistente o gli strumenti per verificare che continuino a funzionare dopo l'aggiornamento.
-Consultare i riferimenti ai cmdlet di PowerShell per il [modello di distribuzione di Service Manager](backup-client-automation-classic.md) e il [modello di distribuzione di Resource Manager](backup-client-automation.md).
+Consultare i riferimenti di cmdlet di PowerShell per la [il modello di distribuzione di gestione risorse](backup-client-automation.md).
 
 
 ## <a name="before-you-upgrade"></a>Prima dell'aggiornamento
@@ -60,10 +60,10 @@ Usare lo script seguente per aggiornare l'insieme di credenziali. Lo script di e
 RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **-VaultName** `<vaultname>` **-Location** `<location>` **-ResourceType** `BackupVault` **-TargetResourceGroupName** `<rgname>`
 
 **SubscriptionID**: il numero ID della sottoscrizione dell'insieme di credenziali che si sta aggiornando.<br/>
-**VaultName**: il nome dell'insieme di credenziali di Backup che si sta aggiornando.<br/>
-**Location**: percorso dell'insieme di credenziali che si sta aggiornando.<br/>
-**ResourceType**: usare BackupVault.<br/>
-**TargetResourceGroupName**: poiché si sta aggiornando l'insieme di credenziali a una distribuzione basata su Resource Manager, specificare un gruppo di risorse. È possibile usare un gruppo di risorse esistente o crearne uno inserendo un nome nuovo. Se si inserisce il nome sbagliato per un gruppo di risorse, è possibile creare un nuovo gruppo di risorse. Per altre informazioni sui gruppi di risorse, leggere questa [panoramica di gruppi di risorse](../azure-resource-manager/resource-group-overview.md#resource-groups).
+**VaultName** -il nome dell'insieme di credenziali di Backup che viene aggiornato.<br/>
+**Percorso** -percorso dell'insieme di credenziali da aggiornare.<br/>
+**ResourceType** -utilizzare BackupVault.<br/>
+**TargetResourceGroupName** : poiché si sta aggiornando l'insieme di credenziali per una distribuzione basata su Gestione risorse, specificare un gruppo di risorse. È possibile usare un gruppo di risorse esistente o crearne uno inserendo un nome nuovo. Se si inserisce il nome sbagliato per un gruppo di risorse, è possibile creare un nuovo gruppo di risorse. Per altre informazioni sui gruppi di risorse, leggere questa [panoramica di gruppi di risorse](../azure-resource-manager/resource-group-overview.md#resource-groups).
 
 >[!NOTE]
 > I nomi dei gruppi di risorse hanno dei limiti. Assicurarsi di seguire le linee guida; in caso contrario, l'aggiornamento dell'insieme di credenziali potrebbe non riuscire.
@@ -117,7 +117,7 @@ Dopo avere eseguito l'aggiornamento a un insieme di credenziali di Servizi di ri
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 **Il piano di aggiornamento influenza il backup in corso?**</br>
-No. I backup in corso proseguono senza interruzioni durante e dopo l'aggiornamento.
+di serie I backup in corso proseguono senza interruzioni durante e dopo l'aggiornamento.
 
 **Se non si prevede un aggiornamento a breve, cosa succede agli insiemi di credenziali?**</br>
 Poiché tutte le nuove funzionalità sono applicabili solo agli insiemi di credenziali di Servizi di ripristino, è consigliabile eseguire l'aggiornamento degli insiemi di credenziali. Microsoft deprecherà il portale classico in futuro. A partire dall'1 settembre 2017, Microsoft inizierà a eseguire l'aggiornamento automatico degli insiemi di credenziali di Backup agli insiemi di credenziali di Servizi di ripristino. Dopo il 30 novembre 2017 non sarà più possibile creare insiemi di credenziali di backup usando PowerShell. L'insieme di credenziali può essere aggiornato automaticamente in qualsiasi momento prima di tale data. Microsoft consiglia di aggiornare l'insieme di credenziali il prima possibile.
@@ -129,7 +129,7 @@ Aggiornare gli strumenti al modello di distribuzione Resource Manager. Gli insie
 Dipende dal numero di risorse sottoposte ad aggiornamento. Per distribuzioni di piccole dimensioni, ovvero poche decine di istanze protette, l'intero aggiornamento dovrebbe richiedere meno di 20 minuti. Per distribuzioni di grandi dimensioni, dovrebbe richiedere al massimo un'ora.
 
 **È possibile eseguire il ripristino dello stato precedente dopo l'aggiornamento?**</br>
-No. Il ripristino dello stato precedente non è supportato dopo il completamento dell'aggiornamento delle risorse.
+di serie Il ripristino dello stato precedente non è supportato dopo il completamento dell'aggiornamento delle risorse.
 
 **È possibile convalidare la sottoscrizione o le risorse per verificare che siano in grado di eseguire l'aggiornamento?**</br>
 Sì. Il primo passaggio del processo di aggiornamento verifica che le risorse siano in grado di eseguire l'aggiornamento. In caso di esito negativo della convalida dei prerequisiti, si ricevono messaggi per tutti i motivi che impediscono il completamento dell'aggiornamento.
@@ -138,10 +138,10 @@ Sì. Il primo passaggio del processo di aggiornamento verifica che le risorse si
 Per eseguire l'aggiornamento dell'insieme di credenziali, è necessario essere aggiunti come coamministratori della sottoscrizione nel portale di Azure classico. Questo è un passaggio necessario anche se si è già stati elencati come proprietari nel portale di Azure. Provare ad aggiungere un co-amministratore per la sottoscrizione nel portale di Azure classico per scoprire se si è già co-amministratori per la sottoscrizione. Se non è possibile aggiungere un coamministratore, contattare un amministratore o un coamministratore del servizio, che può aggiungere l'utente come coamministratore.
 
 **È possibile aggiornare l'insieme di credenziali di Backup basato su CSP?**</br>
-No. Non è attualmente possibile aggiornare gli insiemi di credenziali di Backup basati su CSP. Il supporto per l'aggiornamento degli insiemi di credenziali di Backup basati su CSP verrà aggiunto nelle prossime versioni.
+di serie Non è attualmente possibile aggiornare gli insiemi di credenziali di Backup basati su CSP. Il supporto per l'aggiornamento degli insiemi di credenziali di Backup basati su CSP verrà aggiunto nelle prossime versioni.
 
 **È possibile visualizzare l'insieme di credenziali classico in seguito all'aggiornamento?**</br>
-No. Non è possibile visualizzare o gestire l'insieme di credenziali classico in seguito all'aggiornamento. L'utente potrà usare il nuovo portale di Azure solo per tutte le operazioni di gestione nell'insieme di credenziali.
+di serie Non è possibile visualizzare o gestire l'insieme di credenziali classico in seguito all'aggiornamento. L'utente potrà usare il nuovo portale di Azure solo per tutte le operazioni di gestione nell'insieme di credenziali.
 
 **L'aggiornamento non è riuscito, ma il computer che include l'agente che necessita dell'aggiornamento non esiste più. Quali sono le operazioni da eseguire in questo caso?**</br>
 Se è necessario usare l'archivio di backup del computer per la conservazione a lungo termine, l'utente non sarà in grado di aggiornare l'insieme di credenziali. Il supporto per l'aggiornamento di questo tipo di insieme di credenziali verrà aggiunto nelle versioni future.
@@ -158,4 +158,4 @@ In caso di errore di una parte dell'aggiornamento dell'insieme di credenziali, a
 Vedere l'articolo seguente per:</br>
 [Eseguire il backup di una macchina virtuale IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Eseguire il backup del server di Backup di Azure](backup-azure-microsoft-azure-backup.md)</br>
-[Eseguire il backup di Windows Server](backup-configure-vault.md).
+[Eseguire il backup di un Server Windows](backup-configure-vault.md).

@@ -4,7 +4,7 @@ description: "Guida ed esempi su come ottenere i report su utenti, autenticazion
 services: active-directory-b2c
 documentationcenter: dev-center-name
 author: rojasja
-manager: mbaldwin
+manager: mtillman
 ms.service: active-directory-b2c
 ms.devlang: na
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: joroja
-ms.openlocfilehash: 52180b760046d273c5a75720df0a73532d0343ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6014301a026d60775634138cbdfe56bfa625508f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Accesso ai report sull'uso in Azure AD B2C tramite l'API per la creazione di report
 

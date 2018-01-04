@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 6ee60c5f9a8049523f05a1f3afd6604768dde602
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: dba643f5c8e926bee1c5d13e71f785e5cc72a2dc
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-overview"></a>Panoramica sulla sicurezza operativa di Azure
 La sicurezza operativa di Azure include i servizi, i controlli e le funzionalità offerti ai clienti per proteggere i dati, le applicazioni e gli altri asset di Microsoft Azure. La [sicurezza operativa di Azure](https://docs.microsoft.com/azure/security/azure-operational-security) è un framework che incorpora le conoscenze acquisite tramite una varietà di funzionalità esclusive di Microsoft, tra cui Microsoft Security Development Lifecycle (SDL), il programma Microsoft Security Response Center e una profonda consapevolezza del panorama delle minacce per la sicurezza informatica.
@@ -158,5 +158,5 @@ Gli esperti di DevOps avanzati adottano alcune delle procedure seguenti. Queste 
 Per altre informazioni sulla soluzione Sicurezza e controllo di OMS, vedere gli articoli seguenti:
 
 - [Operations Management Suite | Sicurezza e Conformità](https://www.microsoft.com/cloud-platform/security-and-compliance).
-- [Monitoraggio e gestione degli avvisi di sicurezza nella soluzione Operations Management Suite per la sicurezza e il controllo](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-responding-alerts).
-- [Monitoraggio delle risorse nella soluzione Operations Management Suite per la sicurezza e il controllo](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-monitoring-resources).
+- [Monitoraggio e gestione degli avvisi di sicurezza nella soluzione Operations Management Suite per la sicurezza e il controllo](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts).
+- [Monitoraggio delle risorse nella soluzione Operations Management Suite per la sicurezza e il controllo](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources).

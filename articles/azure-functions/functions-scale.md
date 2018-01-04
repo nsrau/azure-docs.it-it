@@ -14,21 +14,21 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff3f7072792c76c5d05310451771bde61b61e009
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 83431c58fedd85e469ab1bf2903fd517e6338e15
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
 È possibile eseguire Funzioni di Azure in due modalità diverse, ovvero con piano a consumo e piano di servizio app di Azure. Il piano a consumo alloca automaticamente funzionalità di calcolo durante l'esecuzione del codice, aumenta il numero di istanze in base alla necessità per gestire il carico e quindi riduce le prestazioni quando il codice non è in esecuzione. Non è necessario pagare per le macchine virtuali inattive e non è necessario riservare in anticipo la capacità. Questo articolo è incentrato sul piano a consumo, un modello App [senza server](https://azure.microsoft.com/overview/serverless-computing/). Per informazioni dettagliate sul funzionamento del piano di servizio app, vedere [Panoramica approfondita dei piani di servizio app di Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 >[!NOTE]  
-> L'hosting in Linux è attualmente disponibile solo per un piano di servizio app.
+> [Hosting di Linux](functions-create-first-azure-function-azure-cli-linux.md) è attualmente disponibile solo in un piano di servizio App.
 
 Se non si ha ancora familiarità con Funzioni di Azure, vedere la [panoramica di Funzioni di Azure](functions-overview.md).
 
@@ -46,7 +46,7 @@ In un piano di servizio app è possibile applicare la scalabilità tra i livelli
 Quando si usa un piano a consumo, le istanze dell'host di Funzioni di Azure vengono aggiunte e rimosse in modo dinamico in base al numero di eventi in ingresso. Questo piano offre la scalabilità automatica e sono previsti costi per le risorse di calcolo solo quando le funzioni sono in esecuzione. In un piano a consumo, una funzione può essere eseguita al massimo per 10 minuti. 
 
 > [!NOTE]
-> Il timeout predefinito per le funzioni in un piano a consumo è di 5 minuti. Il valore può essere aumentato a 10 minuti per l'app per le funzioni modificando la proprietà `functionTimeout` in [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+> Il timeout predefinito per le funzioni in un piano a consumo è di 5 minuti. Il valore può essere aumentato a 10 minuti per l'App di funzione modificando la proprietà `functionTimeout` nel [host.json](functions-host-json.md#functiontimeout) file di progetto.
 
 La fatturazione si basa sul numero di esecuzioni, il tempo di esecuzione e la memoria usata. La fatturazione viene aggregata tra tutte le funzioni all'interno di un'app per le funzioni. Per altre informazioni, vedere la [pagina relativa ai prezzi per Funzioni di Azure].
 
@@ -90,7 +90,7 @@ Per altre informazioni sui tipi di account di archiviazione, vedere [Introduzion
 
 ## <a name="how-the-consumption-plan-works"></a>Funzionamento del piano a consumo
 
-Nel piano a consumo il controller di scalabilità offre la scalabilità automatica di CPU e delle risorse di memoria aggiungendo altre istanze dell'host di Funzioni di Azure, in base al numero di eventi che attivano le rispettive funzioni. Ogni istanza dell'host di Funzioni è limitata a 1,5 GB di memoria.  Un'istanza dell'host è l'app per le funzioni, vale a dire tutte le funzioni all'interno di un'app per le funzioni condividono le risorse all'interno di un'istanza e vengono ridimensionale nello stesso momento.
+Nel piano a consumo il controller di scalabilità offre la scalabilità automatica di CPU e delle risorse di memoria aggiungendo altre istanze dell'host di Funzioni di Azure, in base al numero di eventi che attivano le rispettive funzioni. Ogni istanza dell'host di Funzioni è limitata a 1,5 GB di memoria.  Un'istanza dell'host è l'App di funzione, vale a dire tutte le funzioni all'interno di una funzione di condivisione di risorse dell'app all'interno di un'istanza e scala nello stesso momento.
 
 Quando si usa un piano di hosting a consumo, i file di codice delle funzioni vengono archiviati nelle condivisioni di File di Azure nell'account di archiviazione principale della funzione. Quando si elimina l'account di archiviazione principale dell'app per le funzioni, i file di codice delle funzioni vengono eliminati e non possono essere recuperati.
 
@@ -119,7 +119,7 @@ Trigger distinti possono avere limiti di ridimensionamento diversi come illustra
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Procedure consigliate e modelli per app scalabili
 
-Esistono molti aspetti di un'app per le funzioni che hanno un impatto sull'accuratezza del ridimensionamento, ad esempio la configurazione dell'host, il footprint del runtime e l'efficienza delle risorse.  Per altre informazioni, vedere la [sezione relativa alla scalabilità nell'articolo sulle prestazioni](functions-best-practices.md#scalability-best-practices).
+Esistono molti aspetti di un'app di funzione che avrà un impatto l'accuratezza ridimensionerà, inclusi efficienza delle risorse, il footprint di runtime e configurazione dell'host.  Per altre informazioni, vedere la [sezione relativa alla scalabilità nell'articolo sulle prestazioni](functions-best-practices.md#scalability-best-practices).
 
 ### <a name="billing-model"></a>Modello di fatturazione
 

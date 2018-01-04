@@ -4,7 +4,7 @@ description: Questo articolo elenca tutte le versioni di Azure AD Connect e Azur
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
@@ -12,28 +12,95 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2017
+ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: 51cdb60d1967f2a4a4ebadbd2717fd580a79da6b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
-ms.translationtype: HT
+ms.openlocfilehash: ff43edc9799670fd90beaef1dbe4db48b2e762e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
-
-Lo scopo di questo articolo è consentire agli utenti di esaminare le versioni rilasciate e verificare l'opportunità di effettuare l'aggiornamento alla versione più recente.
+' In questo articolo è progettato per tenere traccia delle versioni che sono state rilasciate e comprendere se è necessario aggiornare la versione più recente o non.
 
 Di seguito è riportato un elenco degli argomenti correlati:
+
 
 
 Argomento |  Dettagli
 --------- | --------- |
 Passaggi da eseguire per l'aggiornamento da Azure AD Connect | Metodi per [eseguire l'aggiornamento da una versione precedente alla versione più recente](active-directory-aadconnect-upgrade-previous-version.md) di Azure AD Connect.
 Autorizzazioni necessarie | Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](./active-directory-aadconnect-accounts-permissions.md#upgrade).
-Scaricare| [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+Scaricare | [Scarica Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="116540"></a>1.1.654.0
+Stato: 12 dicembre 2017
+
+>[!NOTE]
+>Si tratta di un tipo di sicurezza correlato aggiornamento rapido per Azure AD Connect
+
+### <a name="azure-ad-connect"></a>Azure AD Connect
+Un miglioramento è stato aggiunto a Azure AD Connect versione 1.1.654.0 (e) per garantire che l'autorizzazione consigliata le modifiche descritte nella sezione [bloccare l'accesso all'account di dominio Active Directory](#lock) vengono applicate automaticamente quando Azure AD La connessione viene creato l'account di dominio Active Directory. 
+
+- Quando si configura Azure AD Connect, l'amministratore l'installazione può specificare un account di dominio Active Directory esistente, oppure consente di creare automaticamente l'account di Azure AD Connect. Le modifiche alle autorizzazioni vengono applicate automaticamente all'account di dominio Active Directory creati da Azure AD Connect durante l'installazione. Non vengono applicate a un account di dominio Active Directory esistente fornito dall'amministratore l'installazione.
+- Per i clienti che hanno aggiornato da una versione precedente di Azure AD Connect per 1.1.654.0 (o dopo aver), l'autorizzazione modifiche verranno non retroattivo applicate agli account di dominio Active Directory esistenti creati prima dell'aggiornamento. Essi vengono applicati solo ai nuovi account di dominio Active Directory creato dopo l'aggiornamento. Questo errore si verifica quando si aggiungono nuove foreste Active Directory siano sincronizzati con Azure AD.
+
+>[!NOTE]
+>Questa versione rimuove solo la vulnerabilità per le nuove installazioni di Azure AD Connect, in cui l'account del servizio viene creato dal processo di installazione. Per le installazioni esistenti o nei casi in cui immettere l'account manualmente, è necessario assicurarsi che questa vulnerabilità non esiste.
+
+#### <a name="lock"></a>Bloccare l'accesso all'account di dominio Active Directory
+Bloccare l'accesso all'account di dominio Active Directory implementando le seguenti modifiche di autorizzazione in locale Active Directory:  
+
+*   Disabilita ereditarietà sull'oggetto specificato
+*   Rimuovere tutte le voci ACE sull'oggetto specifico, ad eccezione di voci ACE specifiche su se stesso. Si desidera mantenere intatta le autorizzazioni predefinite per quanto riguarda su se stesso.
+*   Assegnare queste autorizzazioni specifiche:
+
+type     | NOME                          | Accesso               | Si applica a
+---------|-------------------------------|----------------------|--------------|
+CONSENTI    | SYSTEM                        | Controllo completo         | Questo oggetto  |
+CONSENTI    | Enterprise Admins             | Controllo completo         | Questo oggetto  |
+CONSENTI    | Domain Admins                 | Controllo completo         | Questo oggetto  |
+CONSENTI    | Administrators                | Controllo completo         | Questo oggetto  |
+CONSENTI    | Controller di dominio organizzazione | Visualizzazione contenuto        | Questo oggetto  |
+CONSENTI    | Controller di dominio organizzazione | Leggi tutte le proprietà  | Questo oggetto  |
+CONSENTI    | Controller di dominio organizzazione | Autorizzazioni di lettura     | Questo oggetto  |
+CONSENTI    | Utenti autenticati           | Visualizzazione contenuto        | Questo oggetto  |
+CONSENTI    | Utenti autenticati           | Leggi tutte le proprietà  | Questo oggetto  |
+CONSENTI    | Utenti autenticati           | Autorizzazioni di lettura     | Questo oggetto  |
+
+Per rafforzare le impostazioni per l'account di Active Directory è possibile eseguire [questo script di PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Lo script di PowerShell consentirà di assegnare le autorizzazioni indicate sopra per l'account di dominio Active Directory.
+
+#### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>Script di PowerShell per rendere più sicura di un account di servizio esistente
+
+Utilizzare lo script di PowerShell, per applicare queste impostazioni, a un account di dominio Active Directory preesistente, (comprende fornito dall'organizzazione o creato da un'installazione precedente di Azure AD Connect, scaricare lo script mediante il collegamento fornito sopra.
+
+##### <a name="usage"></a>Utilizzo:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
+```
+
+Where 
+
+**$ObjectDN** = account di Active Directory il cui autorizzazioni necessarie per impostare il livello massimo.
+
+**$Credential** = credenziali dell'amministratore che disponga dei privilegi necessari per limitare le autorizzazioni per l'account $ObjectDN. Questo è in genere l'amministratore dell'organizzazione o di dominio. Utilizzare il nome di dominio completo dell'account amministratore per evitare errori di ricerca di account. Esempio: contoso.com\admin.
+
+>[!NOTE] 
+>$credential. Nome utente deve essere nel formato FQDN\nomeutente. Esempio: contoso.com\admin 
+
+##### <a name="example"></a>Esempio:
+
+```powershell
+Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
+```
+### <a name="was-this-vulnerability-used-to-gain-unauthorized-access"></a>Questa vulnerabilità è stata utilizzata per ottenere l'accesso non autorizzato?
+
+Per verificare se questa vulnerabilità è stata utilizzata per compromettere Azure AD Connect configurazione è necessario verificare l'ultima password Reimposta data dell'account del servizio.  Se il timestamp in imprevisto, un'analisi più approfondita, tramite il registro eventi per eventi di reimpostazione della password, dovrebbe essere effettuata.
+
+Per ulteriori informazioni, vedere [Microsoft Security Advisory 4056318](https://technet.microsoft.com/library/security/4056318)
 
 ## <a name="116490"></a>1.1.649.0
 Stato: 27 ottobre 2017

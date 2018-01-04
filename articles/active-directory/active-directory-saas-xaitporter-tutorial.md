@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: d33c7cb7-0550-425b-882a-619a713a71b7
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 9734c3f91eace144993a75063334d5c6ce16eb2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2012d990f7cdcb8c12da5f16db518b261b06a5b7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Esercitazione: Integrazione di Azure Active Directory con XaitPorter
 
@@ -28,7 +28,7 @@ L'integrazione di XaitPorter con Azure AD offre i vantaggi seguenti:
 
 - È possibile controllare in Azure AD chi può accedere a XaitPorter.
 - È possibile abilitare gli utenti per l'accesso automatico a XaitPorter (Single Sign-On) con i propri account Azure AD.
-- È possibile gestire gli account da una posizione centrale: il portale di Azure.
+- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -36,7 +36,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con XaitPorter, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di XaitPorter abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
@@ -48,7 +48,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di XaitPorter dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -98,7 +98,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **XaitPorter** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Collegamento per la configurazione dell'accesso Single Sign-On][4]
+    ![Collegamento Configura accesso Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
@@ -108,7 +108,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di XaitPorter](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.xaitporter.com/saml/login`.
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.xaitporter.com/saml/login`
 
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<subdomain>.xaitporter.com`
 
@@ -123,19 +123,19 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Fare clic su **Registrazioni per l'app**.
     
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appregistrations.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appregistrations.png)
    
     b. Fare clic su **Endpoint** per aprire la finestra di dialogo **Endpoint**.  
     
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpointicon.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpointicon.png)
 
     c. Fare clic sul pulsante Copia per copiare l'URL del **DOCUMENTO METADATI FEDERAZIONE** e incollarlo nel Blocco note.
     
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpoint.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_endpoint.png)
      
     d. Passare ora alla pagina delle proprietà di **XaitPorter**, copiare l'**ID applicazione** usando il pulsante **Copia** e incollarlo nel Blocco note.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appid.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-xaitporter-tutorial/tutorial_xaitporter_appid.png)
 
     e. Generare l'**URL dei metadati** usando il modello seguente: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
@@ -145,15 +145,15 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 8. Fare clic sul riquadro **Admin**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-xaitporter-tutorial/user1.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-xaitporter-tutorial/user1.png)
 
 9. Selezionare **Manage Single Sign-On** dall'elenco a discesa **System Setup**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-xaitporter-tutorial/user2.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-xaitporter-tutorial/user2.png)
 
 10. Nella sezione **MANAGE SINGLE SIGN-ON** seguire questa procedura:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-xaitporter-tutorial/user3.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-xaitporter-tutorial/user3.png)
 
     a. Selezionare **Enable Single Sign-On Authentication**.
 

@@ -1,6 +1,6 @@
 ---
-title: Raccogliere e analizzare registri eventi di Windows in Log Analytics di OMS | Documentazione Microsoft
-description: "I registri eventi di Windows sono una delle origini dati più comuni usate da Log Analytics.  Questo articolo descrive come configurare una raccolta di log di Eventi Windows e i dettagli dei record creati nel repository OMS."
+title: Raccogliere e analizzare i registri eventi di Windows in Azure Log Analitica | Documenti Microsoft
+description: "I registri eventi di Windows sono una delle origini dati più comuni usate da Log Analytics.  In questo articolo viene descritto come configurare l'insieme dei registri eventi di Windows e i dettagli dei record che creano nell'area di lavoro Log Analitica."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 12/11/2017
 ms.author: bwren
-ms.openlocfilehash: ddead0903c7c5f29bc996e305699ced596d0a4f5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
-ms.translationtype: HT
+ms.openlocfilehash: 7a7deb4d7a287b2e9613e6035a7ffd7bb6f14f9c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Origini dei dati del registro eventi di Windows in Log Analytics
 I registri eventi di Windows rappresentano una delle più comuni [origini dati](log-analytics-data-sources.md) per raccogliere i dati tramite gli agenti di Windows, dal momento che molte applicazioni scrivono nel registro eventi di Windows.  È possibile raccogliere gli eventi dai log standard, ad esempio sistema e applicazioni, oltre a specificare qualsiasi log personalizzato creato dalle applicazioni da monitorare.
@@ -44,7 +44,7 @@ Log Analytics raccoglie ogni evento corrispondente a un livello di gravità sele
 ## <a name="windows-event-records-properties"></a>Proprietà dei record eventi di Windows
 I record eventi di Windows sono di tipo **Evento** ; nella tabella seguente vengono riportate le loro proprietà:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | Computer |Nome del computer da cui è stato raccolto l'evento. |
 | EventCategory |Categoria dell'evento. |
@@ -56,7 +56,7 @@ I record eventi di Windows sono di tipo **Evento** ; nella tabella seguente veng
 | ParameterXml |Valori dei parametri dell'evento in formato XML. |
 | ManagementGroupName |Nome del gruppo di gestione per gli agenti di System Center Operations Manager.  Per gli altri agenti, questo valore corrisponde a AOI-<workspace ID> |
 | RenderedDescription |Descrizione dell'evento con i valori dei parametri. |
-| Source |Origine dell'evento. |
+| Sorgente |Origine dell'evento. |
 | SourceSystem |Tipo di agente da cui è stato raccolto l'evento. <br> OpsManager: agente Windows, con connessione diretta o gestita da Operations Manager <br> Linux – Tutti gli agenti Linux  <br> AzureStorage: Diagnostica di Azure |
 | TimeGenerated |Data e ora in cui l'evento è stato creato in Windows. |
 | UserName |Nome utente dell'account che ha registrato l'evento. |
@@ -64,9 +64,9 @@ I record eventi di Windows sono di tipo **Evento** ; nella tabella seguente veng
 ## <a name="log-searches-with-windows-events"></a>Ricerche nei log con Eventi Windows
 La tabella seguente mostra alcuni esempi di ricerche nei log che recuperano i record di Eventi Windows.
 
-| Query | Descrizione |
+| Query | DESCRIZIONE |
 |:---|:---|
-| Evento |Tutti gli eventi di Windows. |
+| Event |Tutti gli eventi di Windows. |
 | Event &#124; where EventLevelName == "error" |Tutti gli eventi di Windows con livello di gravità dell'errore. |
 | Event &#124; summarize count() by Source |Numero di eventi di Windows per origine. |
 | Event &#124; where EventLevelName == "error" &#124; summarize count() by Source |Numero di eventi di errore di Windows per origine. |

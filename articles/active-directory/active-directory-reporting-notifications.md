@@ -4,7 +4,7 @@ description: Come utilizzare le notifiche di report di Azure Active Directory pe
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ae6d4b0e-5931-4cb3-98bf-9be91b381c92
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fa8ca5940bb437c1e5c3939262db000544b04e36
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 7aacb31f708e8c3221a5b8cf4223c65160ccb019
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Notifiche di Report di Azure Active Directory
 ## <a name="what-reports-generate-email-notifications"></a>Quali report generano notifiche tramite posta elettronica
@@ -47,5 +47,5 @@ Sì, per disattivare le notifiche correlate ad accessi anomali all'interno del p
 ## <a name="whats-next"></a>Passaggi successivi
 * Per informazioni sui report di sicurezza, controllo e attività disponibili, Vedere [Report di sicurezza, controllo e attività di Azure AD](active-directory-view-access-usage-reports.md)
 * [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md)
-* [Aggiungere informazioni personalizzate distintive dell'azienda alle pagine Accedi e Pannello di accesso](customize-branding.md)
+* [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](customize-branding.md)
 

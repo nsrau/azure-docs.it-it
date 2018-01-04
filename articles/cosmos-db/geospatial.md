@@ -1,6 +1,6 @@
 ---
 title: Uso dei dati geospaziali in Azure Cosmos DB | Microsoft Docs
-description: Informazioni su come creare, indicizzare ed eseguire query su oggetti spaziali con Azure Cosmos DB e l'API di DocumentDB.
+description: Comprendere come creare, indice ed eseguire query su oggetti spaziali con Azure Cosmos DB e l'API di SQL.
 services: cosmos-db
 documentationcenter: 
 author: arramac
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.date: 10/20/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c2213f663f539e123f70028fd70bedb1cb6511d
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
-ms.translationtype: HT
+ms.openlocfilehash: 3e778f4a9b7ec4935d53eb335462f3c414ff99cd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Uso dei dati geospaziali e dei dati località GeoJSON in Azure Cosmos DB
 Questo articolo offre un'introduzione alla funzionalità geospaziale in [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
@@ -28,16 +28,16 @@ Questo articolo offre un'introduzione alla funzionalità geospaziale in [Azure C
 * Come si eseguono query su dati geospaziali in Azure Cosmos DB in SQL e LINQ?
 * Come si abilita o disabilita l'indicizzazione spaziale in Azure Cosmos DB?
 
-Questo articolo illustra come usare i dati spaziali con l'API di DocumentDB. Consultare il [progetto GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) per esempi di codice.
+In questo articolo viene illustrato come utilizzare i dati spaziali con l'API di SQL. Vedere questo [GitHub progetto](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) per esempi di codice.
 
 ## <a name="introduction-to-spatial-data"></a>Introduzione ai dati spaziali
-I dati spaziali descrivono la posizione e la forma degli oggetti nello spazio. Nella maggior parte delle applicazioni, questi corrispondono a oggetti sulla terra, vale a dire dati geospaziali. I dati spaziali possono essere utilizzati per rappresentare la posizione di una persona, un luogo di interesse o i confini di una città o di un lago. Casi di utilizzo comuni includono spesso query di prossimità, ad esempio, "trova tutti i negozi vicino alla mia posizione attuale". 
+I dati spaziali descrivono la posizione e la forma degli oggetti nello spazio. Nella maggior parte delle applicazioni, questi corrispondono agli oggetti in dati geospaziali e terra. I dati spaziali possono essere utilizzati per rappresentare la posizione di una persona, un luogo di interesse o i confini di una città o di un lago. Casi d'uso comuni spesso comportano query di prossimità, ad esempio, "Trova tutti i negozi quasi il percorso corrente". 
 
 ### <a name="geojson"></a>GeoJSON
 Azure Cosmos DB supporta l'indicizzazione e le query dei dati di punti geospaziali rappresentati tramite la [specifica GeoJSON](https://tools.ietf.org/html/rfc7946). Le strutture di dati GeoJSON sono sempre oggetti JSON validi, quindi possono essere archiviate e sottoposte a query usando Azure Cosmos DB senza librerie o strumenti specializzati. Gli SDK di Azure Cosmos DB forniscono classi helper e metodi che semplificano il lavoro con i dati spaziali. 
 
-### <a name="points-linestrings-and-polygons"></a>Punti, oggetti linestring e poligoni
-Un **punto** indica una posizione singola nello spazio. Nei dati geospaziali, un punto rappresenta la posizione esatta, che può essere un indirizzo di un negozio, un chiosco, un'automobile o una città.  Un punto viene rappresentato in GeoJSON (e Azure Cosmos DB) tramite la sua coppia di coordinate o longitudine e latitudine. Di seguito è riportato un esempio JSON per un punto.
+### <a name="points-linestrings-and-polygons"></a>Punti di linestring e poligoni
+Un **punto** indica una posizione singola nello spazio. Nei dati geospaziali, un punto rappresenta la posizione esatta, che può essere un indirizzo di un negozio di alimentari, continua, un'automobile o una città.  Un punto viene rappresentato in GeoJSON (e Azure Cosmos DB) tramite la sua coppia di coordinate o longitudine e latitudine. Di seguito è riportato un esempio JSON per un punto.
 
 **Punti in Azure Cosmos DB**
 
@@ -49,7 +49,7 @@ Un **punto** indica una posizione singola nello spazio. Nei dati geospaziali, un
 ```
 
 > [!NOTE]
-> GeoJSON specifica la longitudine prima e la latitudine dopo. Come in altre applicazioni di mapping, longitudine e latitudine sono angoli e sono espresse in gradi. I valori della longitudine vengono misurati dal meridiano principale e sono compresi tra -180° e 180,0° gradi, mentre i valori della latitudine sono misurati dall'equatore e sono compresi tra -90,0° e 90,0°. 
+> GeoJSON specifica la longitudine prima e la latitudine dopo. Come in altre applicazioni di mapping, longitudine e latitudine sono angoli e sono espresse in gradi. I valori di longitudine vengono misurati dal primo meridiano e sono compresi tra-180 gradi e gradi 180.0 e i valori di latitudine vengono misurati dall'equatore e sono compresi tra-90.0 gradi e 90.0 gradi. 
 > 
 > Azure Cosmos DB interpreta le coordinate come rappresentate secondo il sistema di riferimento WGS-84. Per ulteriori informazioni sui sistemi di coordinate di riferimento, vedere di seguito.
 > 
@@ -61,7 +61,7 @@ I punti possono essere incorporati in un documento di Azure Cosmos DB come illus
 
 ```json
 {
-    "id":"documentdb-profile",
+    "id":"cosmosdb-profile",
     "screen_name":"@CosmosDB",
     "city":"Redmond",
     "topics":[ "global", "distributed" ],
@@ -96,10 +96,10 @@ Oltre ai punti, GeoJSON supporta oggetti linestring e poligoni. **LineStrings** 
 > 
 > 
 
-Oltre a punto, LineString e poligono, GeoJSON specifica inoltre la rappresentazione della modalità di raggruppamento di più posizioni geospaziali, nonché come associare proprietà arbitrarie alla georilevazione come **Caratteristica**. Trattandosi di oggetti JSON validi, essi possono essere archiviati ed elaborati tutti in Azure Cosmos DB. Azure Cosmos DB supporta tuttavia solo l'indicizzazione automatica dei punti.
+Oltre a punto e LineString, Polygon, GeoJSON specifica inoltre la rappresentazione per la modalità di raggruppamento più posizioni geospaziale, nonché come associare le proprietà arbitrarie geolocation come un **funzionalità**. Trattandosi di oggetti JSON validi, essi possono essere archiviati ed elaborati tutti in Azure Cosmos DB. Azure Cosmos DB supporta tuttavia solo l'indicizzazione automatica dei punti.
 
 ### <a name="coordinate-reference-systems"></a>Sistemi di riferimento delle coordinate
-Poiché la forma della terra è irregolare, le coordinate dei dati geospaziali sono rappresentate in molti sistemi di coordinate di riferimento (CRS), ognuno con la propria struttura di riferimento e le proprie unità di misura. Ad esempio, il "National Grid of Britain" è un sistema di riferimento molto accurato per il Regno Unito, ma non al suo esterno. 
+Poiché la forma della terra irregolare, le coordinate di dati geospaziali sono rappresentate in molti sistemi di coordinate di riferimento (CR), ciascuno con i relativi frame di riferimento e le unità di misura. Ad esempio, il "National Grid of Britain" è un sistema di riferimento molto accurato per il Regno Unito, ma non al suo esterno. 
 
 Il più diffuso CRS attualmente in uso è il World Geodetic System [WGS-84](http://earth-info.nga.mil/GandG/wgs84/). Dispositivi GPS e molti servizi di mapping, tra cui Google Maps e le API di Bing Maps, utilizzano WGS-84. Azure Cosmos DB supporta l'indicizzazione e l'esecuzione di query di dati geospaziali usando solo il CRS WGS-84. 
 
@@ -110,7 +110,7 @@ Quando si creano documenti che contengono valori GeoJSON, essi vengono indicizza
 
 ```json
 var userProfileDocument = {
-    "name":"documentdb",
+    "name":"cosmosdb",
     "location":{
         "type":"Point",
         "coordinates":[ -122.12, 47.66 ]
@@ -122,7 +122,7 @@ client.createDocument(`dbs/${databaseName}/colls/${collectionName}`, userProfile
 });
 ```
 
-Se si lavora con le API di DocumentDB, è possibile usare le classi `Point` e `Polygon` all'interno dello spazio dei nomi `Microsoft.Azure.Documents.Spatial` per incorporare le informazioni sulla località all'interno di oggetti dell'applicazione. Queste classi consentono di semplificare la serializzazione e la deserializzazione dei dati spaziali in GeoJSON.
+Se si lavora con le API di SQL, è possibile utilizzare il `Point` e `Polygon` classi all'interno di `Microsoft.Azure.Documents.Spatial` dello spazio dei nomi per incorporare le informazioni sul percorso all'interno di oggetti di applicazione. Queste classi consentono di semplificare la serializzazione e la deserializzazione dei dati spaziali in GeoJSON.
 
 **Creare documenti con i dati geospaziali in .NET**
 
@@ -144,7 +144,7 @@ await client.CreateDocumentAsync(
     UriFactory.CreateDocumentCollectionUri("db", "profiles"), 
     new UserProfile 
     { 
-        Name = "documentdb", 
+        Name = "cosmosdb", 
         Location = new Point (-122.12, 47.66) 
     });
 ```
@@ -155,7 +155,7 @@ Se non si dispone delle informazioni di latitudine e longitudine, ma si dispone 
 Dopo aver compreso come inserire i dati geospaziali, è ora possibile esaminare come eseguire query sui dati usando Azure Cosmos DB e LINQ.
 
 ### <a name="spatial-sql-built-in-functions"></a>Funzioni predefinite spaziali di SQL
-Azure Cosmos DB supporta le seguenti funzioni predefinite di Open Geospatial Consortium (OGC) per l'esecuzione di query geospaziali. Per altre informazioni sul set completo di funzioni predefinite del linguaggio SQL, vedere [Query di Azure Cosmos DB](documentdb-sql-query.md).
+Azure Cosmos DB supporta le seguenti funzioni predefinite di Open Geospatial Consortium (OGC) per l'esecuzione di query geospaziali. Per ulteriori informazioni sul set completo di funzioni incorporate nel linguaggio SQL, vedere [Query Azure Cosmos DB](sql-api-sql-query.md).
 
 <table>
 <tr>
@@ -198,11 +198,11 @@ Le funzioni spaziali possono essere utilizzate per eseguire query di prossimità
       "id": "WakefieldFamily"
     }]
 
-Se si include l'indicizzazione spaziale nel criterio di indicizzazione, le "query distance" verranno servite in modo efficiente tramite l'indice. Per altre informazioni sull'indicizzazione spaziale, vedere la sezione seguente. Se non si dispone di un indice spaziale per i percorsi specificati, è comunque possibile eseguire query spaziali specificando `x-ms-documentdb-query-enable-scan` intestazione della richiesta con il valore impostato su "true". In .NET, questa operazione può essere eseguita passando l’argomento facoltativo **FeedOptions** alle query con [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) impostato su true. 
+Se si include l'indicizzazione spaziale nel criterio di indicizzazione, le "query distance" verranno servite in modo efficiente tramite l'indice. Per ulteriori informazioni sugli indici spaziali, vedere la sezione seguente. Se non si dispone di un indice spaziale per i percorsi specificati, è comunque possibile eseguire query spaziali specificando `x-ms-documentdb-query-enable-scan` intestazione della richiesta con il valore impostato su "true". In .NET, questa operazione può essere eseguita passando l’argomento facoltativo **FeedOptions** alle query con [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) impostato su true. 
 
 Usare ST_WITHIN per verificare se un punto si trova all'interno di un poligono. I poligoni vengono comunemente usati per rappresentare limiti come codici postali, confini di stato o formazioni naturali. Ancora una volta, se si include l'indicizzazione spaziale nel criterio di indicizzazione, le query "within" verranno servite in modo efficiente tramite l'indice. 
 
-Gli argomenti Polygon in ST_WITHIN possono contenere solo un anello singolo, ad esempio i poligoni non devono contenere aree vuote. 
+Argomenti poligono ST_WITHIN possono contenere solo un anello singolo, vale a dire i poligoni non devono contenere fori in essi contenuti. 
 
 **Query**
 
@@ -220,11 +220,11 @@ Gli argomenti Polygon in ST_WITHIN possono contenere solo un anello singolo, ad 
     }]
 
 > [!NOTE]
-> Come per il funzionamento di tipi non corrispondenti nella query di Azure Cosmos DB, se il valore di località specificato in un argomento è non corretto o non è valido, verrà restituito **undefined** e il documento valutato verrà omesso nei risultati della query. Se la query non restituisce alcun risultato, eseguire ST_ISVALIDDETAILED per eseguire il debug del tipo spatail non valido.     
+> Simile al lavoro tipi come non corrispondenti nella query di database Cosmos di Azure, se il valore del percorso specificato nell'argomento non è corretto o non valido, quindi restituisce **definito** e il documento deve essere ignorato dai risultati della query valutato. Se la query non restituisce alcun risultato, esecuzione ST_ISVALIDDETAILED per eseguire il debug perché il tipo spaziale è valido.     
 > 
 > 
 
-Azure Cosmos DB supporta anche l'esecuzione di query inverse, ovvero è possibile indicizzare poligoni o linee in Azure Cosmos DB, quindi eseguire una query per le aree che contengono un punto specificato. Questo modello viene comunemente usato nella logistica per identificare, ad esempio, quando un furgone entra o esce da un'area designata. 
+DB Cosmos Azure supporta inoltre l'esecuzione di query inversa, ovvero, è possibile indicizzare poligoni o righe nel database di Azure Cosmos, quindi eseguire una query per le aree che contengono un punto specificato. Questo modello viene comunemente usato in logistica per identificare, ad esempio, quando un autocarro entra o esce da un'area designata. 
 
 **Query**
 
@@ -273,9 +273,9 @@ Queste funzioni possono essere usate anche per convalidare i poligoni. Ad esempi
     }]
 
 ### <a name="linq-querying-in-the-net-sdk"></a>Query di LINQ in .NET SDK
-Il .NET SDK di DocumentDB fornisce inoltre metodi stub `Distance()` e `Within()` per l'utilizzo all'interno di espressioni LINQ. Il provider LINQ di DocumentDB converte le chiamate di questi metodi nelle chiamate della funzione predefinita di SQL equivalente (ST_DISTANCE e ST_WITHIN rispettivamente). 
+il SDK .NET di SQL anche provider stub metodi `Distance()` e `Within()` per l'utilizzo all'interno di espressioni LINQ. Il provider LINQ SQL converte le chiamate ai metodi per le chiamate di funzione predefinita di SQL equivalente (ST_DISTANCE e ST_WITHIN rispettivamente). 
 
-Di seguito è riportato un esempio di query LINQ che consente di trovare tutti i documenti nella raccolta di Azure Cosmos DB il cui valore "location" è entro un raggio di 30 km dal punto specificato con LINQ.
+Di seguito è riportato un esempio di una query LINQ che trova tutti i documenti della raccolta di Azure Cosmos database il cui valore di "location" è all'interno di un raggio di 30 km dell'oggetto specificato virgola utilizzando LINQ.
 
 **Query LINQ per Distance**
 
@@ -311,9 +311,9 @@ Analogamente, di seguito è riportata una query per trovare tutti i documenti il
 Dopo aver compreso come eseguire query sui documenti con LINQ e SQL, è ora possibile esaminare come configurare Azure Cosmos DB per l'indicizzazione spaziale.
 
 ## <a name="indexing"></a>Indicizzazione
-Come illustrato nel documento [Schema Agnostic Indexing with Azure Cosmos DB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) (Indicizzazione indipendente dallo schema con Azure DocumentDB), il motore del database Azure Cosmos DB è stato progettato per essere realmente indipendente dallo schema e fornire supporto avanzato per JSON. Il motore di database ottimizzato per la scrittura di Azure Cosmos DB riconosce a livello nativo i dati spaziali (punti, poligoni e linee) rappresentati nello standard GeoJSON.
+Come illustrato nel documento [Schema Agnostic Indexing with Azure Cosmos DB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) (Indicizzazione indipendente dallo schema con Azure DocumentDB), il motore del database Azure Cosmos DB è stato progettato per essere realmente indipendente dallo schema e fornire supporto avanzato per JSON. Il motore di database con ottimizzazione per la scrittura di Azure Cosmos DB è in grado di comprendere in modo nativo rappresentati nello standard GeoJSON i dati spaziali (punti, poligoni e le righe).
 
-In breve, la geometria è proiettata dalle coordinate geodetiche su un piano 2D, quindi suddivisa progressivamente in celle utilizzando un **quadtree**. Queste celle vengono mappate in 1D in base alla posizione della cella all'interno di una **curva di riempimento dello spazio di Hilbert**, che consente di mantenere la posizione dei punti. Quando i dati località vengono indicizzati, passano attraverso un processo noto come **mosaico**, vale a dire tutte le celle che intersecano una posizione vengono identificate e archiviate come chiavi nell'indice di Azure Cosmos DB. In fase di query, anche argomenti come punti e poligoni sono tassellati per estrarre gli intervalli degli ID delle celle pertinenti e quindi usati per recuperare dati dall'indice.
+In breve, la geometria è proiettata dalle coordinate geodetiche su un piano 2D, quindi suddivisa progressivamente in celle utilizzando un **quadtree**. Queste celle vengono mappate in 1D in base alla posizione della cella all'interno di una **curva di riempimento dello spazio di Hilbert**, che consente di mantenere la posizione dei punti. Inoltre quando i dati sulla località sono indicizzati, passano attraverso un processo noto come **a mosaico**, vale a dire tutte le celle che intersecano una posizione vengono identificate e archiviate come chiavi nell'indice Azure Cosmos DB. In fase di query, anche argomenti come punti e poligoni sono tassellati per estrarre gli intervalli degli ID delle celle pertinenti e quindi usati per recuperare dati dall'indice.
 
 Se si specifica un criterio di indicizzazione che include un indice spaziale per /* (tutti i percorsi), tutti i punti trovati all'interno dell'insieme vengono indicizzati per query spaziali efficienti (ST_WITHIN e ST_DISTANCE). Gli indici spaziali non hanno un valore di precisione e utilizzano sempre un valore di precisione predefinito.
 
@@ -322,7 +322,7 @@ Se si specifica un criterio di indicizzazione che include un indice spaziale per
 > 
 > 
 
-Il seguente frammento JSON mostra un criterio di indicizzazione con indicizzazione spaziale abilitata, ossia indicizza qualsiasi punto GeoJSON trovato all'interno di documenti per le query spaziali. Se si modifica il criterio di indicizzazione tramite il portale di Azure, è possibile specificare il seguente JSON come criterio di indicizzazione per abilitare l’indicizzazione spaziale nella raccolta.
+Il frammento JSON seguente illustra un criterio di indicizzazione con indicizzazione spaziale attivato, ovvero, qualsiasi punto GeoJSON trovato all'interno dei documenti per le query spaziali di indice. Se si desidera modificare i criteri di indicizzazione tramite il portale di Azure, è possibile specificare il codice JSON seguente per criteri di indicizzazione per abilitare l'indicizzazione nella raccolta di spaziali.
 
 **JSON criterio di indicizzazione della raccolta con Spatial abilitato per punti e poligoni**
 
@@ -392,10 +392,10 @@ Di seguito viene descritto come modificare una raccolta esistente per sfruttare 
 > 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ora che si è appreso come iniziare a usare il supporto geospaziale in Azure Cosmos DB, è possibile:
+Nolearned che avete sperimentato su come iniziare con supporto geospaziali in Azure Cosmos DB, è possibile:
 
 * Iniziare a codificare con gli [esempi di codice .NET geospaziale in GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Usare le query geospaziali in [Query Playground di Azure Cosmos DB](http://www.documentdb.com/sql/demo#geospatial)
-* Altre informazioni sulle [query di Azure Cosmos DB](documentdb-sql-query.md)
+* Altre informazioni sulle [query di Azure Cosmos DB](sql-api-sql-query.md)
 * Altre informazioni sui [criteri di indicizzazione di Azure Cosmos DB](indexing-policies.md)
 

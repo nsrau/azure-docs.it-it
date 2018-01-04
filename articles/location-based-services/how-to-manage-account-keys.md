@@ -6,14 +6,14 @@ keywords: Non aggiungere o modificare parole chiave senza consultare l'esperto S
 author: philmea
 ms.author: philmea
 ms.date: 11/14/2017
-ms.topic: how-to
+ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: c7f877eebefb3ed7c8230c2436e5cb024cc99c11
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: ccdeafeaf869768f4094aaa31fe2a69d52d7cf9d
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-manage-your-azure-location-based-services-account-and-keys"></a>Come gestire l'account e le chiavi di Servizi Location Based di Azure
 

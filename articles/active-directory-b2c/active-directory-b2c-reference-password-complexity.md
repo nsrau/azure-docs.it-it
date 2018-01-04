@@ -4,7 +4,7 @@ description: "Come configurare i requisiti di complessità delle password specif
 services: active-directory-b2c
 documentationcenter: 
 author: saeedakhter-msft
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: b7103103201563c6878095cf31cfcdf2938a9c7f
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 3906c9fa1def206a8f0a7e155949097242728c2f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: Configurare i requisiti di complessità delle password
 
@@ -49,7 +49,7 @@ Di seguito sono elencati i tipi di criteri in cui è possibile configurare la co
 
 ### <a name="comparison-chart"></a>Grafico di confronto
 
-| Complessità | Descrizione |
+| Complessità | DESCRIZIONE |
 | --- | --- |
 | Semplice | Una password con un numero di caratteri compreso tra 8 e 64. |
 | Assoluta | Una password con un numero di caratteri compreso tra 8 e 64. Richiede almeno tre dei quattro tipi di carattere seguenti: lettere minuscole, lettere maiuscole, numeri e simboli. |

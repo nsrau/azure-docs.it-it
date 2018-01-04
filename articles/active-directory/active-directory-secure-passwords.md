@@ -4,7 +4,7 @@ description: Questo articolo spiega in che modo Azure AD applica le password com
 services: active-directory
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 3810c6fc3e6d6abf6e41047a303f8d0ecfe1c7ec
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 683badcfb67dd9e98058d560a6b13d1a3474d3e9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Approccio multilivello alla sicurezza delle password di Azure AD
 
 Questo articolo illustra alcune procedure consigliate che è possibile seguire come utente o amministratore per proteggere il proprio account Azure Active Directory (Azure AD) o Microsoft.
 
  > [!NOTE]
- > **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+ > **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
  >
  > Gli amministratori di Azure Active Directory possono reimpostare le password degli utenti seguendo le indicazioni fornite nell'articolo [Reimpostare la password per un utente in Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
  >

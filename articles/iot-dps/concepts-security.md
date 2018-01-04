@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 3ccbaaf55d2bdfedffcdb5ca069798328e2d75fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f004e4763106c25d94f585f644560cf3a72d3f1b
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Concetti relativi alla sicurezza del servizio Device Provisioning in hub IoT 
 
@@ -46,22 +46,51 @@ I segreti dei dispositivi possono essere archiviati anche nel software (memoria)
 
 Il concetto di TPM può fare riferimento a uno standard per archiviare in modo sicuro le chiavi usate per autenticare la piattaforma oppure all'interfaccia di I/O usata per interagire con i moduli che implementano lo standard. Il TPM può essere un componente hardware distinto o integrato e può essere basato su firmware o su software. Vedere altre informazioni su [TPM e attestazione TPM](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). Il servizio Device Provisioning supporta solo il TPM 2.0.
 
-## <a name="endorsement-key"></a>Chiave di verifica dell'autenticità
+### <a name="endorsement-key"></a>Chiave di verifica dell'autenticità
 
-La chiave di verifica dell'autenticità è una chiave asimmetrica contenuta all'interno del TPM, dove è stata inserita in fase di produzione, ed è univoca per ogni TPM. La chiave di verifica dell'autenticità non può essere modificata o rimossa. La parte privata della chiave di verifica dell'autenticità non viene mai rilasciata al di fuori del TPM, mentre la parte pubblica viene usata per riconoscere un TPM originale. Vedere altre informazioni sulla [chiave di verifica dell'autenticità](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
+La chiave di verifica dell'autenticità è una chiave asimmetrica contenuta all'interno del TPM generato internamente o inserito in fase di produzione ed è univoco per ogni TPM. La chiave di verifica dell'autenticità non può essere modificata o rimossa. La parte privata della chiave di verifica dell'autenticità non viene mai rilasciata al di fuori del TPM, mentre la parte pubblica viene usata per riconoscere un TPM originale. Vedere altre informazioni sulla [chiave di verifica dell'autenticità](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
 
-## <a name="storage-root-key"></a>Chiave radice di archiviazione
+### <a name="storage-root-key"></a>Chiave radice di archiviazione
 
 La chiave radice di archiviazione viene archiviata nel TPM e usata per proteggere le chiavi TPM create dalle applicazioni, in modo che queste chiavi non possano essere usate senza il TPM. La chiave radice di archiviazione viene generata quando si acquisisce la proprietà del TPM. Quando si cancella il TPM in modo che un altro utente possa acquisirne la proprietà, viene generata una nuova chiave radice di archiviazione. Vedere altre informazioni sulla [chiave radice di archiviazione](https://technet.microsoft.com/library/cc753560(v=ws.11).aspx).
 
-## <a name="root-certificate"></a>Certificato radice
+## <a name="x509-certificates"></a>Certificati x. 509
 
-Un certificato radice è un tipo di certificato X.509 che rappresenta un'autorità di certificazione ed è autofirmato. Costituisce la parte finale della catena di certificati.
+Uso di certificati x. 509 come un meccanismo di attestazione è un modo eccellente per scala di produzione e semplificare il provisioning di dispositivi. Certificati x. 509 in genere vengono disposte in una catena di certificati attendibili in cui ogni certificato nella catena è firmato dalla chiave privata del certificato superiore successivo e così via, che termina con un certificato radice autofirmato. In tal modo si stabilisce una catena di trust dal certificato radice generato da un'autorità di certificazione radice attendibile (CA) verso il basso attraverso ogni autorità di certificazione intermedia per il certificato finale installato in un dispositivo delegata. Per ulteriori informazioni, vedere [l'autenticazione del dispositivo mediante certificati x. 509](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview). 
 
-## <a name="intermediate-certificate"></a>Certificato intermedio
+La catena di certificati rappresenta spesso alcuni gerarchia logico o fisico associata ai dispositivi. Ad esempio, un produttore può emettere un certificato della CA radice autofirmato, usare tale certificato per generare un certificato della CA intermedio univoco per ogni factory, utilizzare il certificato di ogni factory per generare un certificato della CA intermedio univoco per ogni produzione riga dell'impianto e infine utilizzare il certificato di produzione per generare un certificato univoco del dispositivo (entità di fine) per ogni dispositivo prodotte nella riga. Per ulteriori informazioni, vedere [concetti dei certificati di autorità di certificazione x. 509 nel settore IoT](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-concept). 
 
-Un certificato intermedio è un certificato X.509 che è stato firmato dal certificato radice (o da un altro certificato con il certificato radice nella relativa catena) e che viene usato per firmare il certificato foglia.
+### <a name="root-certificate"></a>Certificato radice
 
-## <a name="leaf-certificate"></a>Certificato foglia
+Un certificato radice è un certificato x. 509 autofirmato che rappresenta un'autorità di certificazione (CA). Si tratta di corsa o ancoraggio di trust, della catena di certificati. I certificati radice possono essere autonomo emesso da un'organizzazione o acquistati da un'autorità di certificazione radice. Per ulteriori informazioni, vedere [x. 509 ottenere certificati](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). Il certificato radice può essere indicato anche come un certificato CA radice.
 
-Un certificato foglia o certificato dell'entità finale, viene usato per identificare il titolare del certificato e ha il certificato radice nella relativa catena di certificati. Il certificato foglia non viene usato per firmare altri certificati.
+### <a name="intermediate-certificate"></a>Certificato intermedio
+
+Un certificato intermedio è un certificato x. 509 che è stato firmato dal certificato radice (o da un altro certificato intermedio con il certificato radice nella catena). L'ultimo certificato intermedio in una catena viene utilizzato per firmare il certificato foglia. Un certificato intermedia può essere indicato anche come un certificato della CA intermedia.
+
+### <a name="leaf-certificate"></a>Certificato foglia
+
+Il certificato foglia o certificato finale, identifica il titolare del certificato. Contiene il certificato nella catena di certificati radice e zero o più certificati intermedi. Il certificato foglia non viene usato per firmare altri certificati. In modo univoco identifica il dispositivo al servizio di provisioning e talvolta come il certificato del dispositivo. Durante l'autenticazione, il dispositivo usa la chiave privata associata al certificato per rispondere a un modello di prova della richiesta che possiede dal servizio. Per ulteriori informazioni, vedere [autenticazione per i dispositivi firmati con i certificati di autorità di certificazione x. 509](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+
+## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Controllo dell'accesso dei dispositivi per il servizio di provisioning con certificati x. 509
+
+Il servizio di provisioning espone due tipi di voce di registrazione che è possibile utilizzare per controllare l'accesso per i dispositivi che usano il meccanismo di x. 509 attestazione:  
+
+- [Registrazione di singoli](./concepts-service.md#individual-enrollment) voci sono configurate con il certificato del dispositivo associato a un dispositivo specifico. Queste voci di controllo la registrazione per dispositivi specifici.
+- [Gruppo di registrazione](./concepts-service.md#enrollment-group) voci sono associate un intermedio specifico o un certificato CA radice. Queste voci di controllo la registrazione per tutti i dispositivi che hanno intermedia o certificato la catena di certificati radice. 
+
+Quando un dispositivo si connette al servizio di provisioning, il servizio assegna la priorità più specifiche voci di registrazione sulle voci di registrazione meno specifiche. Se esiste una singola registrazione per il dispositivo, vale a dire, il servizio di provisioning si applica tale voce. Se non è presente alcun singola registrazione per il dispositivo ed esiste un gruppo di registrazione per il primo certificato intermedio nella catena di certificati del dispositivo, il servizio si applica tale voce, e così via fino alla catena alla radice. Il servizio si applica la prima voce applicabile trovato, in modo che:
+
+- Se la prima voce di registrazione trovata è abilitata, il servizio esegue il provisioning del dispositivo.
+- Se la prima voce di registrazione trovata è disabilitata, il servizio non eseguire il provisioning del dispositivo.  
+- Se viene trovata alcuna voce di registrazione per uno dei certificati nella catena di certificati del dispositivo, il servizio non eseguire il provisioning del dispositivo. 
+
+Questo meccanismo e la struttura gerarchica di catene di certificati offre flessibilità potente di come è possibile controllare l'accesso per i singoli dispositivi anche come gruppi di dispositivi. Si supponga, ad esempio, cinque dispositivi con le catene di certificati seguenti: 
+
+- *1 dispositivo*: il certificato radice -> certificati A -> certificato del dispositivo 1
+- *Dispositivo 2*: il certificato radice -> certificati A -> certificato del dispositivo 2
+- *Dispositivo 3*: il certificato radice -> certificati A -> certificato del dispositivo 3
+- *Dispositivo 4*: il certificato radice -> B -> certificato del dispositivo 4 certificato
+- *Dispositivo 5*: il certificato radice -> B -> certificato del dispositivo 5 certificato
+
+Inizialmente, è possibile creare una voce di registrazione singolo gruppo abilitato per il certificato radice consentire l'accesso per tutti e cinque i dispositivi. Se viene compromessa certificato B in un secondo momento, è possibile creare la voce di un gruppo di registrazione disabilitata per il certificato B impedire *dispositivo 4* e *dispositivo 5* dalla registrazione. Se ancora successive *dispositivo 3* diventa compromessa, è possibile creare una voce di registrazione di singoli disabilitato per il proprio certificato. Revoca l'accesso *dispositivo 3*, ma consente ancora *1 dispositivo* e *dispositivo 2* di registrazione.

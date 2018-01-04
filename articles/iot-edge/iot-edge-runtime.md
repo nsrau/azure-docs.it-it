@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 7b37f9e103644d2492f69f4a4cc80d3fd57d4aa4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 4727560df897f6c1a0aaa6d7f5d4e1c76fc02a46
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Informazioni sul runtime di Azure IoT Edge e la relativa architettura: anteprima
 
@@ -99,7 +99,15 @@ Ogni elemento nel dizionario dei moduli contiene informazioni specifiche su un m
    * onFailure: se il modulo si blocca, l'agente di Edge lo riavvia. Se il modulo viene chiuso correttamente, l'agente di Edge non lo riavvia.
    * Non integro: se il modulo si blocca o viene considerato non integro, l'agente di Edge lo riavvia.
    * Sempre: se il modulo si blocca, viene considerato non integro o si arresta, l'agente di Edge lo riavvia. 
-   
+
+Agente IoT Edge Invia risposta runtime IoT Hub. Di seguito è riportato un elenco di possibili risposte:
+  * 200 - OK
+  * 400 - la configurazione della distribuzione è in formato non valido o non valido.
+  * 417 - il dispositivo non impostare una configurazione di distribuzione.
+  * 412 - la versione dello schema nella configurazione della distribuzione non è valida.
+  * 406 - il dispositivo perimetrale è stato offline o non invia report.
+  * 500 - Errore durante il runtime di bordo.
+
 ### <a name="security"></a>Sicurezza
 
 L'agente di IoT Edge svolge un ruolo fondamentale nella protezione di un dispositivo di IoT Edge. Ad esempio, esegue azioni come la verifica di un'immagine del modulo prima di avviarla. Queste funzionalità verranno aggiunte con disponibilità generale delle funzionalità V2. 

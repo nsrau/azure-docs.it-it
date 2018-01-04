@@ -1,6 +1,6 @@
 ---
 title: "Configurare le porte a disponibilità elevata per Azure Load Balancer| Microsoft Docs"
-description: "Informazioni su come usare le porte a disponibilità elevata per il bilanciamento del carico del traffico interno su tutte le porte"
+description: "Informazioni su come utilizzare le porte di disponibilità elevata per il traffico interno per tutte le porte di bilanciamento del carico"
 services: load-balancer
 documentationcenter: na
 author: rdhillon
@@ -15,54 +15,53 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 646ade828e96810bdc3b07d4dc5c0276a1621969
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: 36bc3d7a35f41384706cbc7101457d00848639b2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Come configurare le porte a disponibilità elevata per il servizio di bilanciamento del carico interno
+# <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configurare le porte di disponibilità elevata per un servizio di bilanciamento del carico interno
 
-Questo articolo fornisce una distribuzione di esempio delle porte a disponibilità elevata in un servizio di bilanciamento del carico interno. Per le configurazioni specifiche delle appliance virtuali di rete, vedere i siti Web dei relativi provider.
+Questo articolo fornisce un esempio di distribuzione di porte di disponibilità elevata in un bilanciamento del carico interno. Per ulteriori informazioni sulle configurazioni specifiche di dispositivi di rete virtuale (NVAs), vedere i siti Web del provider corrispondente.
 
 >[!NOTE]
-> La funzionalità Porte a disponibilità elevata è attualmente disponibile in anteprima. Durante l'anteprima, la funzionalità potrebbe non avere lo stesso livello di disponibilità e affidabilità delle funzionalità presenti nella versione con disponibilità generale. Per altre informazioni, vedere [Condizioni Supplementari di Microsoft Azure le Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> La funzionalità di porte di elevata disponibilità è attualmente in anteprima. Durante l'anteprima, la funzionalità non potrebbe essere lo stesso livello di disponibilità e affidabilità come versione di funzionalità che sono in genere la disponibilità. Per altre informazioni, vedere [Condizioni Supplementari di Microsoft Azure le Anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-La figura 1 illustra la configurazione seguente dell'esempio di distribuzione descritto in questo articolo:
-- Le appliance virtuali di rete vengono distribuite nel pool back-end di un servizio di bilanciamento del carico interno dietro la configurazione delle porte a disponibilità elevata. 
-- La route definita dall'utente applicata alla subnet della rete perimetrale instrada tutto il traffico verso le appliance virtuali di rete impostando l'hop successivo come IP virtuale del servizio di bilanciamento del carico interno. 
-- Il servizio di bilanciamento del carico interno distribuisce il traffico a una delle appliance virtuali di rete attive in base all'algoritmo di bilanciamento del carico.
-- L'appliance virtuale di rete elabora il traffico e lo inoltra alla destinazione originale nella subnet back-end.
-- Il percorso di ritorno può anche usare la stessa route se viene configurata una route definita dall'utente corrispondente nella subnet back-end. 
+La figura mostra la configurazione dell'esempio di distribuzione descritta in questo articolo seguente:
 
-![Distribuzione di esempio di porte a disponibilità elevata](./media/load-balancer-configure-ha-ports/haports.png)
+- Il NVAs vengono distribuiti nel pool back-end di un servizio di bilanciamento del carico interno dietro la configurazione di porte di disponibilità elevata. 
+- La route definite dall'utente (UDR) applicato in uso le route della subnet rete Perimetrale tutto il traffico per il NVAs effettuando l'hop successivo come interno IP virtuale del servizio di bilanciamento di carico. 
+- Servizio di bilanciamento del carico interno distribuisce il traffico su uno del NVAs attivi in base all'algoritmo di bilanciamento del carico.
+- Il NVA elabora il traffico e lo inoltra alla destinazione originale nella subnet back-end.
+- Il percorso restituito può richiedere la route stesso se è configurato un UDR corrispondente nella subnet back-end. 
 
-Figura 1: Appliance virtuali di rete distribuite dietro un servizio di bilanciamento del carico interno con porte a disponibilità elevata 
+![Esempio di distribuzione alta disponibilità porte](./media/load-balancer-configure-ha-ports/haports.png)
+
 
 ## <a name="preview-sign-up"></a>Iscrizione all'anteprima
 
-Per partecipare all'anteprima della funzionalità delle porte a disponibilità elevata nel servizio Load Balancer Standard e poter accedere tramite interfaccia della riga di comando di Azure 2.0 o PowerShell, è necessario effettuare una sottoscrizione. Registrare la sottoscrizione per [l'anteprima di Load Balancer Standard](https://aka.ms/lbpreview#preview-sign-up).
+Per partecipare all'anteprima della funzionalità di elevata disponibilità porte di bilanciamento del carico di Azure Standard, registrare la sottoscrizione per ottenere l'accesso tramite l'interfaccia CLI di Azure 2.0 o PowerShell. Registrare la sottoscrizione per [Standard anteprima di bilanciamento del carico](https://aka.ms/lbpreview#preview-sign-up).
 
 >[!NOTE]
->La registrazione delle anteprime di Load Balancer Standard potrebbe richiedere fino a un'ora.
+>Registrazione di anteprima di bilanciamento del carico Standard può richiedere fino a un'ora.
 
-## <a name="configuring-ha-ports"></a>Configurazione di porte a disponibilità elevata
+## <a name="configure-high-availability-ports"></a>Configurare le porte di disponibilità elevata
 
-La configurazione delle porte a disponibilità elevata comporta l'impostazione di un servizio di bilanciamento del carico interno, con le appliance virtuali di rete nel pool back-end, la configurazione di un probe di integrità per il servizio di bilanciamento del carico corrispondente per rilevare l'integrità delle appliance virtuali di rete e la regola del servizio di bilanciamento del carico con le porte a disponibilità elevata. La configurazione correlata al servizio di bilanciamento del carico generale viene illustrata in [Introduzione](load-balancer-get-started-ilb-arm-portal.md). Questo articolo tratta la configurazione delle porte a disponibilità elevata.
+Per configurare porte di elevata disponibilità, impostare un bilanciamento del carico interno con il NVAs nel pool di back-end. Impostare una configurazione di probe dello stato di bilanciamento del carico corrispondente per rilevare l'integrità NVA e la regola di bilanciamento del carico con porte a disponibilità elevata. Viene descritta la configurazione relativa a bilanciamento carico generale in [iniziare](load-balancer-get-started-ilb-arm-portal.md). In questo articolo evidenzia la configurazione di porte di disponibilità elevata.
 
-La configurazione comporta essenzialmente l'impostazione del valore della porta front-end e della porta back-end su **0** e del valore del protocollo su **All**. Questo articolo illustra come configurare le porte a disponibilità elevata usando il portale di Azure, PowerShell e l'interfaccia della riga di comando di Azure 2.0.
+La configurazione essenzialmente comporta l'impostazione della porta front-end e il valore della porta back-end per **0**. Impostare il valore del protocollo **tutti**. In questo articolo viene descritto come configurare le porte di elevata disponibilità tramite il portale di Azure, PowerShell e 2.0 di CLI di Azure.
 
-### <a name="configure-ha-ports-load-balancer-rule-with-the-azure-portal"></a>Configurare la regola del servizio di bilanciamento del carico per le porte a disponibilità elevata con il portale di Azure
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-the-azure-portal"></a>Configurare una regola di bilanciamento del carico di elevata disponibilità porte con il portale di Azure
 
-Per questa configurazione il portale di Azure include la casella di controllo **Porte a disponibilità elevata**. Se selezionata, la configurazione delle porte e del protocollo correlata viene automaticamente popolata. 
+Per configurare le porte di elevata disponibilità tramite il portale di Azure, selezionare il **a disponibilità elevata porte** casella di controllo. Se selezionata, la configurazione delle porte e del protocollo correlata viene automaticamente popolata. 
 
-![Configurazione delle porte a disponibilità elevata tramite il portale di Azure](./media/load-balancer-configure-ha-ports/haports-portal.png)
+![Configurazione di porte di elevata disponibilità tramite il portale di Azure](./media/load-balancer-configure-ha-ports/haports-portal.png)
 
-Figura 2: Configurazione delle porte a disponibilità elevata tramite il portale
 
-### <a name="configure-ha-ports-lb-rule-via-resource-manager-template"></a>Configurare la regola di bilanciamento del carico delle porte a disponibilità elevata tramite il modello di Resource Manager
+### <a name="configure-a-high-availability-ports-load-balancing-rule-via-the-resource-manager-template"></a>Configurare una regola di bilanciamento del carico di elevata disponibilità porte tramite il modello di gestione risorse
 
-È possibile configurare le porte a disponibilità elevata usando la versione dell'API 2017-08-01 per Microsoft.Network/loadBalancers nella risorsa di Load Balancer. Il frammento JSON seguente illustra le modifiche nella configurazione di Load Balancer per le porte a disponibilità elevata tramite l'API REST.
+È possibile configurare le porte di disponibilità elevata utilizzando la versione dell'API 2017-08-01 per Microsoft.Network/loadBalancers nella risorsa di bilanciamento del carico. Il frammento JSON seguente vengono illustrate le modifiche nella configurazione del servizio di bilanciamento del carico per le porte di disponibilità elevata tramite l'API REST:
 
 ```json
     {
@@ -93,17 +92,17 @@ Figura 2: Configurazione delle porte a disponibilità elevata tramite il portale
     }
 ```
 
-### <a name="configure-ha-ports-load-balancer-rule-with-powershell"></a>Configurare la regola del servizio di bilanciamento del carico per le porte a disponibilità elevata con PowerShell
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-powershell"></a>Configurare una regola di bilanciamento del carico di elevata disponibilità porte con PowerShell
 
-Usare il comando seguente per creare la regola del servizio di bilanciamento del carico per le porte a disponibilità elevata mentre si crea il Servizio di bilanciamento del carico interno con PowerShell:
+Utilizzare il comando seguente per creare la regola di bilanciamento del carico di elevata disponibilità porte durante la creazione di bilanciamento del carico interno con PowerShell:
 
 ```powershell
 lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
-### <a name="configure-ha-ports-load-balancer-rule-with-azure-cli-20"></a>Configurare la regola del servizio di bilanciamento del carico per le porte a disponibilità elevata con l'interfaccia della riga di comando di Azure 2.0
+### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli-20"></a>Configurare una regola di bilanciamento del carico di elevata disponibilità porte con Azure CLI 2.0
 
-Nel passaggio 4 di [Creazione di un set di bilanciamento del carico interno](load-balancer-get-started-ilb-arm-cli.md), usare il comando seguente per creare la regola del servizio di bilanciamento del carico per le porte a disponibilità elevata.
+Nel passaggio 4 della [creare un set di bilanciamento del carico interno](load-balancer-get-started-ilb-arm-cli.md), utilizzare il comando seguente per creare la regola di bilanciamento del carico di elevata disponibilità porte:
 
 ```azurecli
 azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
@@ -111,4 +110,4 @@ azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb -
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Altre informazioni sulle porte a disponibilità elevata](load-balancer-ha-ports-overview.md)
+Altre informazioni, vedere [ad alta disponibilità porte](load-balancer-ha-ports-overview.md).

@@ -4,7 +4,7 @@ description: "Strumento di supporto per la dimostrazione della funzionalità di 
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.assetid: ae935d52-3520-4a94-b66e-b35bb40e7514
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: swkrish
-ms.openlocfilehash: e0c2d827553567ddbc7d006192dc35574e66f1cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a9ccdea64213d564b271699afe28f5ae6db0a71a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: strumento di supporto per la dimostrazione della funzionalità di personalizzazione dell'interfaccia utente della pagina
 Questo articolo è complementare all' [articolo principale sulla personalizzazione dell'interfaccia utente](active-directory-b2c-reference-ui-customization.md) in Azure Active Directory (Azure AD) B2C. I passaggi seguenti descrivono come verificare la funzionalità di personalizzazione dell'interfaccia utente delle pagine usando il contenuto HTML e CSS di esempio fornito.
@@ -58,7 +58,7 @@ Se si desidera usare Archiviazione BLOB di Azure per ospitare il contenuto della
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **+ Nuovo** > **Dati e archiviazione** > **Account archiviazione**. Per creare un account di archiviazione BLOB di Azure è necessaria una sottoscrizione di Azure. È possibile registrarsi per una versione di valutazione gratuita nel [sito Web di Azure](https://azure.microsoft.com/pricing/free-trial/).
-3. Specificare un **Nome** da assegnare all'account di archiviazione (ad esempio, "contoso") e selezionare le opzioni appropriate in **Piano tariffario**, **Gruppo di risorse** e **Sottoscrizione**. Verificare che l'opzione **Aggiungi alla Schermata iniziale** sia selezionata. Fare clic su **Create**.
+3. Specificare un **Nome** da assegnare all'account di archiviazione (ad esempio, "contoso") e selezionare le opzioni appropriate in **Piano tariffario**, **Gruppo di risorse** e **Sottoscrizione**. Verificare che l'opzione **Aggiungi alla Schermata iniziale** sia selezionata. Fare clic su **Crea**.
 4. Tornare alla schermata iniziale e fare clic sull'account di archiviazione appena creato.
 5. Nella sezione **Riepilogo** fare clic su **Contenitori** e quindi su **+ Aggiungi**.
 6. Specificare un valore in **Nome** per il contenitore, ad esempio "b2c", e quindi selezionare **BLOB** come **Tipo di accesso**. Fare clic su **OK**.

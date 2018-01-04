@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: danlep
-ms.openlocfilehash: 7624a905f81024fa87f15164efc56a300843972d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 26cab5ba892d892e035bd94c52cacabd23eebd0c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Usare istanze con supporto per RDMA o abilitate per GPU in pool di Batch
 
@@ -40,7 +40,7 @@ Se è necessario un aumento della quota, è possibile aprire una [richiesta di a
 * **Disponibilità a livello di area**: le VM a elevato utilizzo di calcolo potrebbero non essere disponibili nelle aree in cui si crea l'account Batch. Per verificare la disponibilità di una dimensione, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
 
 
-## <a name="dependencies"></a>Dipendenze
+## <a name="dependencies"></a>Dependencies
 
 Le funzionalità RDMA e GPU delle dimensioni a elevato utilizzo di calcolo sono supportate solo in alcuni sistemi operativi. A seconda del sistema operativo, potrebbe essere necessario installare o configurare altri driver o altro software. Le tabelle seguenti riepilogano queste dipendenze. Vedere gli articoli correlati per informazioni dettagliate. Per le opzioni per la configurazione di pool di Batch, vedere più avanti in questo articolo.
 
@@ -50,7 +50,7 @@ Le funzionalità RDMA e GPU delle dimensioni a elevato utilizzo di calcolo sono 
 | Dimensione | Funzionalità | Sistemi operativi | Requisiti software | Impostazioni pool |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>HPC SUSE Linux Enterprise Server 12 oppure<br/>HPC basato su CentOS<br/>(Azure Marketplace) | Intel MPI 5 | Abilitare la comunicazione tra i nodi, disabilitare l'esecuzione di attività simultanee |
-| [Serie NC*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms) | GPU NVIDIA Tesla K80 | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 oppure<br/>CentOS-based 7.3<br/>(Azure Marketplace) | Driver NVIDIA CUDA Toolkit 9.0 | N/D | 
+| [Serie NC*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms) | GPU NVIDIA Tesla K80 | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 oppure<br/>CentOS-based 7.3<br/>(Azure Marketplace) | Driver NVIDIA CUDA Toolkit 9.0 | N/D | 
 | [Serie NV](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 oppure<br/>CentOS-based 7.3<br/>(Azure Marketplace) | Driver NVIDIA GRID 4.3 | N/D |
 
 *La connettività RDMA nelle macchine virtuali NC24r è supportata in Ubuntu 16.04 LTS o in HPC basato su CentOS 7.3 (da Azure Marketplace) con Intel MPI.
@@ -122,7 +122,7 @@ Per eseguire applicazioni Windows MPI in un pool di nodi A8 di Azure è necessar
 Per eseguire applicazioni CUDA in un pool di nodi NC di Linux, è necessario installare CUDA Toolkit 9.0 nei nodi. Il Toolkit installa i driver GPU NVIDIA Tesla necessari. Ecco i passaggi di esempio per distribuire un'immagine personalizzata Ubuntu 16.04 LTS con i driver GPU:
 
 1. Distribuire una macchina virtuale NC6 di Azure che esegue Ubuntu 16.04 LTS. È ad esempio possibile creare la macchina virtuale nell'area Stati Uniti centro-meridionali. Assicurarsi di creare la macchina virtuale con un disco gestito.
-2. Seguire questa procedura per connettersi alla macchina virtuale e [installare i driver CUDA](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms).
+2. Seguire questa procedura per connettersi alla macchina virtuale e [installare i driver CUDA](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-ncv2-and-nd-vms).
 3. Effettuare il deprovisioning dell'agente Linux e quindi [acquisire l'immagine della VM Linux](../virtual-machines/linux/capture-image.md).
 4. Creare un account in un'area che supporta le VM NC.
 5. Usando l'API Batch o il portale di Azure, creare un pool [usando l'immagine personalizzata](batch-custom-images.md) e con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio del pool per l'immagine:

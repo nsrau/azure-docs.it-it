@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 13e9b951c46ae1cd16c7f38d5ade8a4f8a156e63
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: eee276f2bcf6a8b7b2c79139bfeb01e1ebf761c9
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Espressioni e funzioni in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,17 +27,18 @@ ms.lasthandoff: 10/11/2017
 Questo articolo fornisce informazioni dettagliate sulle espressioni e funzioni supportate da Azure Data Factory (versione 2). 
 
 ## <a name="introduction"></a>Introduzione
-I valori JSON nella definizione possono essere letterali o espressioni che vengono valutate in fase di esecuzione. ad esempio:  
+I valori JSON nella definizione possono essere letterali o espressioni che vengono valutate in fase di esecuzione. Ad esempio:   
   
 ```json
 "name": "value"
 ```
 
- oppure  
+ (o)  
   
 ```json
-"name": "@parameters('password') "
+"name": "@pipeline().parameters.password"
 ```
+
 
 > [!NOTE]
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Funzioni e variabili in Data Factory V1](v1/data-factory-functions-variables.md).
@@ -53,20 +54,96 @@ Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e r
 |"@@"|Viene restituita una stringa da 1 carattere che contiene '@'.|  
 |" @"|Viene restituita una stringa da 2 caratteri che contiene ' @'.|  
   
- Tramite una funzionalità denominata *interpolazione delle stringhe*, è possibile inserire le espressioni anche all'interno delle stringhe in cui viene eseguito il wrapping delle espressioni in `@{ ... }`. Ad esempio: `"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName'}"`  
+ Tramite una funzionalità denominata *interpolazione delle stringhe*, è possibile inserire le espressioni anche all'interno delle stringhe in cui viene eseguito il wrapping delle espressioni in `@{ ... }`. Ad esempio: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
- Usando l'interpolazione delle stringhe, il risultato è sempre una stringa. Si supponga di aver definito `myNumber` come `42` e `myString` come ༖༗:  
+ Usando l'interpolazione delle stringhe, il risultato è sempre una stringa. Ad esempio dopo aver definito `myNumber` come `42` e `myString` come `foo`:  
   
 |Valore JSON|Risultato|  
 |----------------|------------|  
-|"@parameters('myString')"|Restituisce `foo` come stringa.|  
-|"@{parameters('myString')}"|Restituisce `foo` come stringa.|  
-|"@parameters('myNumber')"|Restituisce `42` come *numero*.|  
-|"@{parameters('myNumber')}"|Restituisce `42` come *stringa*.|  
-|"Answer is: @{parameters('myNumber')}"|Restituisce la stringa `Answer is: 42`.|  
-|"@concat('Answer is: ', string(parameters('myNumber')))"|Restituisce la stringa `Answer is: 42`.|  
-|"Answer is: @@{parameters('myNumber')}"|Restituisce la stringa `Answer is: @{parameters('myNumber')}`.|  
+|"@pipeline(). parameters.myString"| Restituisce `foo` come stringa.|  
+|"@{pipeline.parameters.myString ()}"| Restituisce `foo` come stringa.|  
+|"@pipeline(). parameters.myNumber"| Restituisce `42` come *numero*.|  
+|"@{pipeline.parameters.myNumber ()}"| Restituisce `42` come *stringa*.|  
+|"Risposta è: @{pipeline.parameters.myNumber ()}"| Restituisce la stringa `Answer is: 42`.|  
+|"@concat(' Risposta è: ', string(pipeline().parameters.myNumber))"| Restituisce la stringa `Answer is: 42`.|  
+|"Risposta è: @ @ {pipeline.parameters.myNumber ()}"| Restituisce la stringa `Answer is: @{pipeline().parameters.myNumber}`.|  
   
+### <a name="examples"></a>Esempi
+
+#### <a name="a-dataset-with-a-parameter"></a>Un set di dati con un parametro
+Nell'esempio seguente, il BlobDataset accetta un parametro denominato **percorso**. Il valore viene utilizzato per impostare un valore per il **folderPath** proprietà tramite le espressioni seguenti: `@{dataset().path}`. 
+
+```json
+{
+    "name": "BlobDataset",
+    "properties": {
+        "type": "AzureBlob",
+        "typeProperties": {
+            "folderPath": "@dataset().path"
+        },
+        "linkedServiceName": {
+            "referenceName": "AzureStorageLinkedService",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "path": {
+                "type": "String"
+            }
+        }
+    }
+}
+```
+
+#### <a name="a-pipeline-with-a-parameter"></a>Una pipeline con un parametro
+Nell'esempio seguente, la pipeline accetta **inputPath** e **outputPath** parametri. Il **percorso** per il blob con parametri i set di dati viene impostata tramite valori di questi parametri. La sintassi usata in questo esempio è: `pipeline().parameters.parametername`. 
+
+```json
+{
+    "name": "Adfv2QuickStartPipeline",
+    "properties": {
+        "activities": [
+            {
+                "name": "CopyFromBlobToBlob",
+                "type": "Copy",
+                "inputs": [
+                    {
+                        "referenceName": "BlobDataset",
+                        "parameters": {
+                            "path": "@pipeline().parameters.inputPath"
+                        },
+                        "type": "DatasetReference"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "BlobDataset",
+                        "parameters": {
+                            "path": "@pipeline().parameters.outputPath"
+                        },
+                        "type": "DatasetReference"
+                    }
+                ],
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
+                    },
+                    "sink": {
+                        "type": "BlobSink"
+                    }
+                }
+            }
+        ],
+        "parameters": {
+            "inputPath": {
+                "type": "String"
+            },
+            "outputPath": {
+                "type": "String"
+            }
+        }
+    }
+}
+```
   
 ## <a name="functions"></a>Funzioni  
  È possibile chiamare le funzioni all'interno delle espressioni. Le sezioni seguenti forniscono informazioni sulle funzioni che è possibile usare in un'espressione.  
@@ -74,12 +151,12 @@ Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e r
 ## <a name="string-functions"></a>Funzioni stringa  
  Le funzioni seguenti sono applicabili solo alle stringhe. È anche possibile usare numerose funzioni di raccolta sulle stringhe.  
   
-|Nome della funzione|Descrizione|  
+|Nome della funzione|DESCRIZIONE|  
 |-------------------|-----------------|  
-|concat|Combina un numero qualsiasi di stringhe. Se ad esempio parameter1 è `foo,` l'espressione seguente restituisce `somevalue-foo-somevalue`: `concat('somevalue-',parameters('parameter1'),'-somevalue')`<br /><br /> **Numero parametro**: 1 ... *n*<br /><br /> **Nome**: String *n*<br /><br /> **Descrizione**: obbligatoria. Stringhe da combinare in una singola stringa.|  
+|concat|Combina un numero qualsiasi di stringhe. Se ad esempio parameter1 è `foo,` l'espressione seguente restituisce `somevalue-foo-somevalue`: `concat('somevalue-',pipeline().parameters.parameter1,'-somevalue')`<br /><br /> **Numero parametro**: 1 ... *n*<br /><br /> **Nome**: String *n*<br /><br /> **Descrizione**: obbligatoria. Stringhe da combinare in una singola stringa.|  
 |substring|Restituisce un sottoinsieme di caratteri da una stringa. Ad esempio, l'espressione seguente:<br /><br /> `substring('somevalue-foo-somevalue',10,3)`<br /><br /> restituisce:<br /><br /> `foo`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: String<br /><br /> **Descrizione**: obbligatoria. Stringa da cui viene ottenuta la sottostringa.<br /><br /> **Numero di parametro**: 2<br /><br /> **Nome**: StartIndex<br /><br /> **Descrizione**: obbligatoria. Indice da cui inizia la sottostringa nel parametro 1.<br /><br /> **Numero di parametro**: 3<br /><br /> **Nome**: Length<br /><br /> **Descrizione**: obbligatoria. Lunghezza della sottostringa.|  
 |replace|Sostituisce una stringa con una stringa specifica. Ad esempio, l'espressione:<br /><br /> `replace('the old string', 'old', 'new')`<br /><br /> restituisce:<br /><br /> `the new string`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: string<br /><br /> **Descrizione**: obbligatoria.  Se il parametro 2 viene trovato nel parametro 1, è la stringa in cui viene eseguita la ricerca del parametro 2 e che viene aggiornata con il parametro 3.<br /><br /> **Numero di parametro**: 2<br /><br /> **Nome**: OldString<br /><br /> **Descrizione**: obbligatoria. Stringa da sostituire con il parametro 3 quando viene trovata una corrispondenza nel parametro 1<br /><br /> **Numero di parametro**: 3<br /><br /> **Nome**: NewString<br /><br /> **Descrizione**: obbligatoria. Stringa usata per sostituire la stringa nel parametro 2 quando viene trovata una corrispondenza nel parametro 1.|  
-|guid| Genera una stringa univoca globale (Guid). Ad esempio, potrebbe essere generato l'output seguente `c2ecc88d-88c8-4096-912c-d6f2e2b138ce`:<br /><br /> `guid()`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Format<br /><br /> **Descrizione**: facoltativa. Identificatore di formato singolo che indica [come formattare il valore di questo GUID](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). Il parametro format può essere "N", "D", "B", "P" o "X". Se il valore format non viene specificato, viene usato "D".|  
+|GUID| Genera una stringa univoca globale (Guid). Ad esempio, potrebbe essere generato l'output seguente `c2ecc88d-88c8-4096-912c-d6f2e2b138ce`:<br /><br /> `guid()`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Format<br /><br /> **Descrizione**: facoltativa. Identificatore di formato singolo che indica [come formattare il valore di questo GUID](https://msdn.microsoft.com/library/97af8hh4%28v=vs.110%29.aspx). Il parametro format può essere "N", "D", "B", "P" o "X". Se il valore format non viene specificato, viene usato "D".|  
 |toLower|Converte una stringa in lettere minuscole. Ad esempio, il codice seguente restituisce `two by two is four`: `toLower('Two by Two is Four')`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: String<br /><br /> **Descrizione**: obbligatoria. Stringa da convertire in lettere minuscole. Se un carattere nella stringa non ha un equivalente minuscolo, viene incluso senza modifiche nella stringa restituita.|  
 |toUpper|Converte una stringa in lettere maiuscole. Ad esempio, l'espressione seguente restituisce `TWO BY TWO IS FOUR`: `toUpper('Two by Two is Four')`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: String<br /><br /> **Descrizione**: obbligatoria. Stringa da convertire in lettere maiuscole. Se un carattere nella stringa non ha un equivalente maiuscolo, viene incluso senza modifiche nella stringa restituita.|  
 |indexof|Consente di trovare l'indice di un valore in una stringa senza distinzione tra maiuscole e minuscole. Ad esempio, l'espressione seguente restituisce `7`: `indexof('hello, world.', 'world')`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: String<br /><br /> **Descrizione**: obbligatoria. Stringa che potrebbe contenere il valore.<br /><br /> **Numero di parametro**: 2<br /><br /> **Nome**: String<br /><br /> **Descrizione**: obbligatoria. Valore nel cui indice si vuole eseguire la ricerca.|  
@@ -92,7 +169,7 @@ Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e r
 ## <a name="collection-functions"></a>Funzioni di raccolta  
  Queste funzioni operano sulle raccolte come le matrici, le stringhe e, in alcuni casi, i dizionari.  
   
-|Nome della funzione|Descrizione|  
+|Nome della funzione|DESCRIZIONE|  
 |-------------------|-----------------|  
 |contains|Restituisce true se un dizionario contiene una chiave, se un elenco contiene un valore o se una stringa contiene una sottostringa. Ad esempio, l'espressione seguente restituisce `true:``contains('abacaba','aca')`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: WithinCollection<br /><br /> **Descrizione**: obbligatoria. Raccolta in cui eseguire la ricerca.<br /><br /> **Numero di parametro**: 2<br /><br /> **Nome**: FindObject<br /><br /> **Descrizione**: obbligatoria. Oggetto da trovare all'interno di **WithinCollection**.|  
 |length|Restituisce il numero di elementi in una matrice o in una stringa. Ad esempio, l'espressione seguente restituisce `3`: `length('abc')`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Collection<br /><br /> **Descrizione**: obbligatoria. La raccolta di cui si vuole ottenere la lunghezza.|  
@@ -107,9 +184,9 @@ Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e r
 ## <a name="logical-functions"></a>Funzioni logiche  
  Queste funzioni sono utili all'interno delle condizioni e possono essere usate per valutare qualsiasi tipo di logica.  
   
-|Nome della funzione|Descrizione|  
+|Nome della funzione|DESCRIZIONE|  
 |-------------------|-----------------|  
-|equals|Restituisce true se due valori sono uguali. Se ad esempio parameter1 è foo, l'espressione seguente restituisce `true`: `equals(parameters('parameter1'), 'foo')`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Object 1<br /><br /> **Descrizione**: obbligatoria. Oggetto da confrontare a **Object 2**.<br /><br /> **Numero di parametro**: 2<br /><br /> **Nome**: Object 2<br /><br /> **Descrizione**: obbligatoria. Oggetto da confrontare a **Object 1**.|  
+|equals|Restituisce true se due valori sono uguali. Se ad esempio parameter1 è foo, l'espressione seguente restituisce `true`: `equals(pipeline().parameters.parameter1), 'foo')`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Object 1<br /><br /> **Descrizione**: obbligatoria. Oggetto da confrontare a **Object 2**.<br /><br /> **Numero di parametro**: 2<br /><br /> **Nome**: Object 2<br /><br /> **Descrizione**: obbligatoria. Oggetto da confrontare a **Object 1**.|  
 |less|Restituisce true se il primo argomento è inferiore al secondo. Si noti che i valori possono essere solo di tipo intero, a virgola mobile o stringa. Ad esempio, l'espressione seguente restituisce `true`: `less(10,100)`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Object 1<br /><br /> **Descrizione**: obbligatoria. Oggetto da controllare per verificare se è inferiore a **Object 2**.<br /><br /> **Numero di parametro**: 2<br /><br /> **Nome**: Object 2<br /><br /> **Descrizione**: obbligatoria. Oggetto da controllare per verificare se è superiore a **Object 1**.|  
 |lessOrEquals|Restituisce true se il primo argomento è inferiore o uguale al secondo. Si noti che i valori possono essere solo di tipo intero, a virgola mobile o stringa. Ad esempio, l'espressione seguente restituisce `true`: `lessOrEquals(10,10)`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Object 1<br /><br /> **Descrizione**: obbligatoria. Oggetto da controllare per verificare se è inferiore o uguale a **Object 2**.<br /><br /> **Numero di parametro**: 2<br /><br /> **Nome**: Object 2<br /><br /> **Descrizione**: obbligatoria. Oggetto da controllare per verificare se è superiore o uguale a **Object 1**.|  
 |greater|Restituisce true se il primo argomento è superiore al secondo. Si noti che i valori possono essere solo di tipo intero, a virgola mobile o stringa. Ad esempio, l'espressione seguente restituisce `false`: `greater(10,10)`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Object 1<br /><br /> **Descrizione**: obbligatoria. Oggetto da controllare per verificare se è superiore a **Object 2**.<br /><br /> **Numero di parametro**: 2<br /><br /> **Nome**: Object 2<br /><br /> **Descrizione**: obbligatoria. Oggetto da controllare per verificare se è inferiore a **Object 1**.|  
@@ -122,7 +199,7 @@ Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e r
 ## <a name="conversion-functions"></a>Funzioni di conversione  
  Queste funzioni vengono usate per la conversione tra ogni tipo nativo nel linguaggio:  
   
--   string  
+-   stringa  
   
 -   numero intero  
   
@@ -134,14 +211,14 @@ Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e r
   
 -   dizionari  
   
-|Nome della funzione|Descrizione|  
+|Nome della funzione|DESCRIZIONE|  
 |-------------------|-----------------|  
 |int|Converte il parametro in un valore intero. Ad esempio, l'espressione seguente restituisce 100 sotto forma di numero, invece di una stringa: `int('100')`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Value<br /><br /> **Descrizione**: obbligatoria. Valore convertito in un valore intero.|  
-|string|Converte il parametro in una stringa. Ad esempio, l'espressione seguente restituisce `'10'`: `string(10)`. È anche possibile convertire un oggetto in una stringa, ad esempio se il parametro **foo** è un oggetto con una sola proprietà `bar : baz`, l'espressione seguente restituisce `{"bar" : "baz"}`.`string(parameters('foo'))`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Value<br /><br /> **Descrizione**: obbligatoria. Valore convertito in una stringa.|  
+|stringa|Converte il parametro in una stringa. Ad esempio, l'espressione seguente restituisce `'10'`: `string(10)`. È anche possibile convertire un oggetto in una stringa, ad esempio se il parametro **foo** è un oggetto con una sola proprietà `bar : baz`, l'espressione seguente restituisce `{"bar" : "baz"}`.`string(pipeline().parameters.foo)`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Value<br /><br /> **Descrizione**: obbligatoria. Valore convertito in una stringa.|  
 |json|Converte il parametro in un valore di tipo JSON. È il contrario di string(). Ad esempio, l'espressione seguente restituisce `[1,2,3]` come matrice, anziché come stringa:<br /><br /> `parse('[1,2,3]')`<br /><br /> È analogamente possibile convertire una stringa in un oggetto. Ad esempio, `json('{"bar" : "baz"}')` restituisce:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: String<br /><br /> **Descrizione**: obbligatoria. Stringa convertita in un valore di tipo nativo.<br /><br /> La funzione JSON supporta anche l'input XML. Ad esempio, il valore del parametro di:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> viene convertito nel codice JSON seguente:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|Converte l'argomento del parametro in un numero a virgola mobile. Ad esempio, l'espressione seguente restituisce `10.333`: `float('10.333')`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Value<br /><br /> **Descrizione**: obbligatoria. Valore convertito in un numero a virgola mobile.|  
 |bool|Converte il parametro in un valore booleano. Ad esempio, l'espressione seguente restituisce `false`: `bool(0)`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Value<br /><br /> **Descrizione**: obbligatoria. Valore convertito in un valore booleano.|  
-|coalesce|Restituisce il primo oggetto non Null negli argomenti passati. Nota: una stringa vuota non è Null. Se ad esempio i parametri 1 e 2 non sono definiti, questa funzione restituisce `fallback`: `coalesce(parameters('parameter1'), parameters('parameter2') ,'fallback')`<br /><br /> **Numero parametro**: 1 ... *n*<br /><br /> **Nome**: Object*n*<br /><br /> **Descrizione**: obbligatoria. Oggetto da controllare per rilevare valori `null`.|  
+|coalesce|Restituisce il primo oggetto non Null negli argomenti passati. Nota: una stringa vuota non è Null. Se ad esempio i parametri 1 e 2 non sono definiti, questa funzione restituisce `fallback`: `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Numero parametro**: 1 ... *n*<br /><br /> **Nome**: Object*n*<br /><br /> **Descrizione**: obbligatoria. Oggetto da controllare per rilevare valori `null`.|  
 |base64|Restituisce la rappresentazione base64 della stringa di input. Ad esempio, l'espressione seguente restituisce `c29tZSBzdHJpbmc=`: `base64('some string')`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: String 1<br /><br /> **Descrizione**: obbligatoria. Stringa da codificare nella rappresentazione con codifica Base64.|  
 |base64ToBinary|Restituisce una rappresentazione binaria di una stringa con codifica Base64. Ad esempio, l'espressione seguente restituisce la rappresentazione binaria di una stringa: `base64ToBinary('c29tZSBzdHJpbmc=')`.<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: String<br /><br /> **Descrizione**: obbligatoria. Stringa con codifica Base64.|  
 |base64ToString|Restituisce una rappresentazione di stringa di una stringa con codifica Based64. Ad esempio, l'espressione seguente restituisce una stringa: `base64ToString('c29tZSBzdHJpbmc=')`.<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: String<br /><br /> **Descrizione**: obbligatoria. Stringa con codifica Base64.|  
@@ -157,14 +234,14 @@ Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e r
 |uriComponentToBinary|Restituisce una rappresentazione binaria di una stringa con codifica URI. Ad esempio, l'espressione seguente restituisce la rappresentazione binaria di `You Are:Cool/Awesome`: `uriComponentToBinary('You+Are%3ACool%2FAwesome')`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: String<br /><br />**Descrizione**: obbligatoria. Stringa con codifica URI.|  
 |uriComponentToString|Restituisce una rappresentazione di stringa di una stringa con codifica URI. Ad esempio, l'espressione seguente restituisce `You Are:Cool/Awesome`: `uriComponentToBinary('You+Are%3ACool%2FAwesome')`<br /><br /> **Numero di parametro**: 1<br /><br />**Nome**: String<br /><br />**Descrizione**: obbligatoria. Stringa con codifica URI.|  
 |xml|Restituisce una rappresentazione XML del valore. Ad esempio, l'espressione seguente restituisce un contenuto XML rappresentato da `'\<name>Alan\</name>'`: `xml('\<name>Alan\</name>')`. La funzione XML supporta anche l'input di tipo oggetto JSON. Ad esempio, il parametro `{ "abc": "xyz" }` viene convertito in contenuto XML `\<abc>xyz\</abc>`<br /><br /> **Numero di parametro**: 1<br /><br />**Nome**: Value<br /><br />**Descrizione**: obbligatoria. Valore da convertire in XML.|  
-|xpath|Restituisce una matrice di nodi XML corrispondenti all'espressione xpath di un valore restituito dall'espressione xpath.<br /><br />  **Esempio 1**<br /><br /> Si consideri che il valore del parametro ‘p1’ sia una rappresentazione di stringa di questo codice XML:<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1. Questo codice: `xpath(xml(parameters('p1'), '/lab/robot/name')`<br /><br /> restituisce<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> mentre<br /><br /> 2. Questo codice: `xpath(xml(parameters('p1'), ' sum(/lab/robot/parts)')`<br /><br /> restituisce<br /><br /> `13`<br /><br /> <br /><br /> **Esempio 2**<br /><br /> Se è disponibile il contenuto XML seguente:<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.  Questo codice: `@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> oppure<br /><br /> 2. Questo codice: `@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> Restituisce<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> e<br /><br /> 3. Questo codice: `@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> Restituisce<br /><br /> ``bar``<br /><br /> **Numero di parametro**: 1<br /><br />**Nome**: Xml<br /><br />**Descrizione**: obbligatoria. Codice XML in base al quale valutare l'espressione XPath.<br /><br /> **Numero di parametro**: 2<br /><br />**Nome**: XPath<br /><br />**Descrizione**: obbligatoria. Espressione XPath da valutare.|  
+|xpath|Restituisce una matrice di nodi XML corrispondenti all'espressione xpath di un valore restituito dall'espressione xpath.<br /><br />  **Esempio 1**<br /><br /> Si consideri che il valore del parametro ‘p1’ sia una rappresentazione di stringa di questo codice XML:<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1. Questo codice: `xpath(xml(pipeline().parameters.p1), '/lab/robot/name')`<br /><br /> restituisce<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> mentre<br /><br /> 2. Questo codice: `xpath(xml(pipeline().parameters.p1, ' sum(/lab/robot/parts)')`<br /><br /> restituisce<br /><br /> `13`<br /><br /> <br /><br /> **Esempio 2**<br /><br /> Se è disponibile il contenuto XML seguente:<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.  Questo codice: `@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> oppure<br /><br /> 2. Questo codice: `@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> Restituisce<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> e<br /><br /> 3. Questo codice: `@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> Restituisce<br /><br /> ``bar``<br /><br /> **Numero di parametro**: 1<br /><br />**Nome**: Xml<br /><br />**Descrizione**: obbligatoria. Codice XML in base al quale valutare l'espressione XPath.<br /><br /> **Numero di parametro**: 2<br /><br />**Nome**: XPath<br /><br />**Descrizione**: obbligatoria. Espressione XPath da valutare.|  
 |array|Converte il parametro in una matrice.  Ad esempio, l'espressione seguente restituisce `["abc"]`: `array('abc')`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Value<br /><br /> **Descrizione**: obbligatoria. Valore convertito in una matrice.|
 |createArray|Crea una matrice dai parametri.  Ad esempio, l'espressione seguente restituisce `["a", "c"]`: `createArray('a', 'c')`<br /><br /> **Numero di parametro**: 1 ... n<br /><br /> **Nome**: Any n<br /><br /> **Descrizione**: obbligatoria. Valori da combinare in una matrice.|
 
 ## <a name="math-functions"></a>Funzioni matematiche  
  Queste funzioni possono essere usate per qualsiasi tipo di numero, ovvero **numeri interi** e **numeri a virgola mobile**.  
   
-|Nome della funzione|Descrizione|  
+|Nome della funzione|DESCRIZIONE|  
 |-------------------|-----------------|  
 |add|Restituisce il risultato della somma dei due numeri. Ad esempio, questa funzione restituisce `20.333`: `add(10,10.333)`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Summand 1<br /><br /> **Descrizione**: obbligatoria. Numero da aggiungere a **Summand 2**.<br /><br /> **Numero di parametro**: 2<br /><br /> **Nome**: Summand 2<br /><br /> **Descrizione**: obbligatoria. Numero da aggiungere a **Summand 1**.|  
 |sub|Restituisce il risultato della differenza dei due numeri. Ad esempio, questa funzione restituisce `-0.333`:<br /><br /> `sub(10,10.333)`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Minuend<br /><br /> **Descrizione**: obbligatoria. Numero da cui viene rimosso **Subtrahend**.<br /><br /> **Numero di parametro**: 2<br /><br /> **Nome**: Subtrahend<br /><br /> **Descrizione**: obbligatoria. Numero da rimuovere da **Minuend**.|  
@@ -178,7 +255,7 @@ Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e r
   
 ## <a name="date-functions"></a>Funzioni di data  
   
-|Nome della funzione|Descrizione|  
+|Nome della funzione|DESCRIZIONE|  
 |-------------------|-----------------|  
 |utcnow|Restituisce il timestamp corrente come stringa. Ad esempio, `2015-03-15T13:27:36Z`:<br /><br /> `utcnow()`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Format<br /><br /> **Descrizione**: facoltativa. [Singolo carattere di identificatore formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) o [modello di formato personalizzato](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) che indica come formattare il valore di questo timestamp. Se il formato non viene specificato, viene usato il formato ISO 8601 ("o").|  
 |addseconds|Aggiunge un numero intero di secondi a un timestamp di stringa passato. Il numero di secondi può essere positivo o negativo. Per impostazione predefinita, il risultato è una stringa in formato ISO 8601 ("o"), a meno che non venga fornito un identificatore di formato. Ad esempio, `2015-03-15T13:27:00Z`:<br /><br /> `addseconds('2015-03-15T13:27:36Z', -36)`<br /><br /> **Numero di parametro**: 1<br /><br /> **Nome**: Timestamp<br /><br /> **Descrizione**: obbligatoria. Stringa contenente l'ora.<br /><br /> **Numero di parametro**: 2<br /><br /> **Nome**: Seconds<br /><br /> **Descrizione**: obbligatoria. Numero di secondi da aggiungere. Può essere negativo per sottrarre secondi.<br /><br /> **Numero di parametro**: 3<br /><br /> **Nome**: Format<br /><br /> **Descrizione**: facoltativa. [Singolo carattere di identificatore formato](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) o [modello di formato personalizzato](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) che indica come formattare il valore di questo timestamp. Se il formato non viene specificato, viene usato il formato ISO 8601 ("o").|  

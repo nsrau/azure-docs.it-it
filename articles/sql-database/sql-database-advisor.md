@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 9b6c60a14578842f4b3b1a9e4724eab6de3f8815
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="performance-recommendations"></a>Raccomandazioni per le prestazioni
 
@@ -57,7 +57,12 @@ Per stimare l'impatto di questa raccomandazione, viene illustrato un confronto t
 
 Dopo l'applicazione, questa raccomandazione abiliterà la parametrizzazione forzata sul database entro pochi minuti e inizierà il processo di monitoraggio che dura circa 24 ore. Trascorso questo intervallo di tempo, sarà possibile visualizzare il report di convalida che mostra l'utilizzo della CPU del database nelle 24 ore prima e dopo l'applicazione la raccomandazione. SQL Database Advisor include un meccanismo di sicurezza che ripristina automaticamente la raccomandazione applicata in caso di rilevamento di una regressione delle prestazioni.
 
-## <a name="fix-schema-issues-recommendations"></a>Raccomandazioni relative alla correzione di problemi di schema
+## <a name="fix-schema-issues-recommendations-preview"></a>Correggere indicazioni di problemi dello schema (anteprima)
+
+> [!IMPORTANT]
+> Microsoft sta provvedendo al deprecazione di "Correzione problema relativo allo schema" indicazioni. È consigliabile iniziare a utilizzare [Insights intelligente](sql-database-intelligent-insights.md) per il monitoraggio automatici dei problemi di prestazioni del database, inclusi i problemi dello schema in precedenza "Risolvere il problema di schema" indicazioni coperto.
+> 
+
 Le raccomandazioni relative alla **correzione di problemi di schema** vengono visualizzate quando il servizio del database SQL rileva un'anomalia nel numero di errori SQL correlati allo schema nel database SQL di Azure. In genere questa indicazione viene visualizzata quando il database rileva più errori correlati allo schema (nome di colonna non valido, nome di oggetto non valido e così via) nell'arco di un'ora.
 
 I "problemi di schema" rappresentano una classe di errori di sintassi in SQL Server che si verificano quando la definizione della query SQL e la definizione dello schema del database non sono allineate. Ad esempio, una delle colonne previste dalla query può essere assente nella tabella di destinazione o viceversa. 

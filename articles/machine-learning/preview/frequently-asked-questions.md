@@ -4,16 +4,17 @@ description: "Questo articolo riporta alcune domande frequenti e le corrisponden
 services: machine-learning
 author: serinakaye
 ms.author: serinak
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 33583fb3d9bca94592c05c4c39c802e673a2ea8a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
+ms.openlocfilehash: 94c6576f92b5a004e0fd509c1dc6e091c294658a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Domande frequenti su Azure Machine Learning
 
@@ -126,11 +127,11 @@ Azure Machine Learning Workbench è un'applicazione complementare progettata per
 
 **Machine Learning Workbench è un ambiente di sviluppo integrato?**
 
-No. Machine Learning Workbench è stato progettato come complemento per gli ambienti di sviluppo integrato (IDE) più diffusi, ad esempio Notebook di Jupyter, PyCharm e Visual Studio Code, ma non si tratta di un IDE completamente funzionale. È dotato di alcune funzionalità di base per l'editing di testo, ma non supporta altre funzionalità IDE quali debug, intellisense e altre comunemente usate. È consigliabile usare l'IDE preferito per lo sviluppo di codice, la modifica e il debug. 
+di serie Machine Learning Workbench è stato progettato come complemento per gli ambienti di sviluppo integrato (IDE) più diffusi, ad esempio Notebook di Jupyter, PyCharm e Visual Studio Code, ma non si tratta di un IDE completamente funzionale. È dotato di alcune funzionalità di base per l'editing di testo, ma non supporta altre funzionalità IDE quali debug, intellisense e altre comunemente usate. È consigliabile usare l'IDE preferito per lo sviluppo di codice, la modifica e il debug. 
 
 **È previsto un addebito per l'utilizzo di Azure Machine Learning Workbench?**
 
-No. Azure Machine Learning Workbench è un'applicazione gratuita. È possibile scaricarla nel numero di computer e per il numero di utenti necessario. Per usare Azure Machine Learning Workbench, è necessario disporre di un account di Sperimentazione. .  
+di serie Azure Machine Learning Workbench è un'applicazione gratuita. È possibile scaricarla nel numero di computer e per il numero di utenti necessario. Per usare Azure Machine Learning Workbench, è necessario disporre di un account di Sperimentazione. .  
 
 **Sono supportate le funzionalità dell'interfaccia della riga di comando?**
 
@@ -139,7 +140,7 @@ R: Sì. Azure Machine Learning offre un'interfaccia della riga di comando comple
 
 **È possibile usare Notebook di Jupyter con Azure Machine Learning Workbench?**
 
-È possibile usarlo. È possibile eseguire Notebook di Jupyter in Workbench come applicazione di hosting del client, nello stesso modo in cui si userebbe come client un browser. 
+Sì. È possibile eseguire Notebook di Jupyter in Workbench come applicazione di hosting del client, nello stesso modo in cui si userebbe come client un browser. 
 
 **Quali sono i kernel di Notebook di Jupyter supportati?**
 
@@ -199,7 +200,7 @@ No. Il Servizio Sperimentazione permette di eseguire tutti gli esperimenti neces
 
 **Gli addebiti sono basati sul numero di chiamate eseguite ai servizi Web?**
 
-No. I servizi Web possono essere chiamati con la frequenza necessaria, senza implicazioni a livello di fatturazione per Gestione modelli. L'utente ha il controllo completo sul ridimensionamento delle distribuzioni per soddisfare le esigenze delle proprie applicazioni.
+di serie I servizi Web possono essere chiamati con la frequenza necessaria, senza implicazioni a livello di fatturazione per Gestione modelli. L'utente ha il controllo completo sul ridimensionamento delle distribuzioni per soddisfare le esigenze delle proprie applicazioni.
 
 **Come ridimensionare il numero di unità acquistate in Gestione modelli di Azure Machine Learning?**
 
@@ -214,7 +215,7 @@ Le fatture vengono calcolate giornalmente. Per le finalità di fatturazione, un 
 - Registro di sistema del contenitore di Azure 
 - Archiviazione BLOB di Azure
 - Application Insights
-- Insieme di credenziali chiave Azure
+- Azure Key Vault
 - Visual Studio Team Services
 - Hub eventi di Azure
 - Analisi di flusso di Azure Per altri dettagli o per visualizzare un esempio di fattura, visitare la pagina relativa ai prezzi. 

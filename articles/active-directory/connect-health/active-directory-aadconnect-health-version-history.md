@@ -4,7 +4,7 @@ description: "Questo documento descrive le versioni di Azure AD Connect Health e
 services: active-directory
 documentationcenter: 
 author: karavar
-manager: samueld
+manager: mtillman
 editor: curtand
 ms.assetid: 8dd4e998-747b-4c52-b8d3-3900fe77d88f
 ms.service: active-directory
@@ -14,14 +14,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 6c990a184d44771c78330f54f518bb4c35a36a35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d89e51e61b52e7337b8faf28f42944ec29f1b94f
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: cronologia delle versioni
 Il team di Azure Active Directory aggiorna regolarmente Azure AD Connect Health con nuove funzionalità. Questo articolo elenca le versioni e le funzionalità che sono state rilasciate.
+
+## <a name="december-2017"></a>2017 dicembre
+**Aggiornamento dell'agente:**
+
+*   Agente di Azure AD Connect Health per AD DS (versione 3.0.145.0)
+  1. Miglioramenti della disponibilità dell'agente 
+  2. Aggiunti nuovi comandi sulla risoluzione dei problemi dell'agente
+  3. Correzioni di bug e miglioramenti generali
+*   Agente di Azure AD Connect Health per AD FS (versione 3.0.145.0)
+  1. Aggiunti nuovi comandi sulla risoluzione dei problemi dell'agente
+  2. Miglioramenti della disponibilità dell'agente 
+  3. Correzioni di bug e miglioramenti generali
+
+## <a name="july-2017"></a>2017 luglio
+**Aggiornamento dell'agente:**
+
+*   Agente di Azure AD Connect Health per AD DS (versione 3.0.68.0)
+  1. Correzioni di bug e miglioramenti generali
+  2. Supporto sovrani cloud
+*   Agente di Azure AD Connect Health per AD FS (versione 3.0.68.0)
+  1. Correzioni di bug e miglioramenti generali
+  2. Supporto sovrani cloud
+
+## <a name="april-2017"></a>Aprile 2017      
+**Aggiornamento dell'agente:**
+
+*   Agente di Azure AD Connect Health per AD FS (versione 3.0.12.0)
+  1. Correzioni di bug e miglioramenti generali
+*   Agente di Azure AD Connect Health per AD DS (versione 3.0.12.0)
+  1. Miglioramenti di caricare i contatori delle prestazioni
+  2. Correzioni di bug e miglioramenti generali
 
 ## <a name="october-2016"></a>Ottobre 2016
 **Aggiornamento dell'agente:**

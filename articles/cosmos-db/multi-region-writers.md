@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/23/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf1482ae7b1070023703f5dbe861d151f5d64fd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e02b286db42d8a9de8f1df8263f40c3732484038
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Architetture di database multimaster replicate a livello globale con Cosmos DB
 Cosmos DB di Azure supporta la [replica globale](distribute-data-globally.md) chiavi in mano, che consente di distribuire i dati in più aree con accesso a bassa latenza in qualsiasi punto del carico di lavoro. Questo modello viene usato in genere per carichi di lavoro di pubblicazione/consumer in cui è presente un writer in una singola area geografica e con lettori distribuiti a livello globale in altre aree (lettura). 
@@ -317,7 +317,7 @@ In questo articolo è stato illustrato come è possibile usare modelli di lettur
 
 * Altre informazioni sul modo in cui Cosmos DB supporta la [distribuzione globale](distribute-data-globally.md)
 * Altre informazioni sui [failover automatici o manuali in Azure Cosmos DB](regional-failover.md)
-* Altre informazioni sulla [coerenza globale con Cosmos DB di Azure](consistency-levels.md)
-* Sviluppare in più aree usando [Azure Cosmos DB: API di DocumentDB](tutorial-global-distribution-documentdb.md)
+* Informazioni sulla [coerenza globale con Azure Cosmos DB](consistency-levels.md)
+* Sviluppo con più aree tramite il [Azure Cosmos DB - API SQL](tutorial-global-distribution-sql-api.md)
 * Sviluppare in più aree usando [Azure Cosmos DB: API di MongoDB](tutorial-global-distribution-MongoDB.md)
 * Sviluppare in più aree usando [Azure Cosmos DB: API della tabella](tutorial-global-distribution-table.md)

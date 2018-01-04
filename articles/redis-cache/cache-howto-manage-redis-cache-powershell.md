@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: sdanie
 ms.openlocfilehash: 5b65d513d6418f13a6f3e10644c1892eecbcba1d
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Gestire Cache Redis di Azure con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -81,8 +81,8 @@ oppure
 
 Per creare una cache in Azure Government Cloud, usare una delle località seguenti.
 
-* Governo degli Stati Uniti - Virginia
-* Governo degli Stati Uniti - Iowa
+* USGov Virginia
+* USGov Iowa
 
 Per altre informazioni su Azure Government Cloud, vedere [Microsoft Azure per enti pubblici](https://azure.microsoft.com/features/gov/) e [Guida per gli sviluppatori di Microsoft Azure per enti pubblici](../azure-government-developer-guide.md).
 
@@ -122,10 +122,10 @@ Per altre informazioni su Microsoft Azure Germania, vedere [Microsoft Azure Germ
 ### <a name="properties-used-for-azure-redis-cache-powershell"></a>Proprietà usate per PowerShell nella Cache Redis di Azure 
 La tabella seguente contiene le proprietà e le descrizioni dei parametri usati durante la creazione e la gestione di istanze di Cache Redis di Azure con Azure PowerShell.
 
-| Parametro | Descrizione | Default |
+| Parametro | DESCRIZIONE | Predefinito |
 | --- | --- | --- |
-| Name |Nome della cache | |
-| Location |Percorso della cache | |
+| NOME |Nome della cache | |
+| Località |Percorso della cache | |
 | ResourceGroupName |Nome del gruppo di risorse in cui creare la cache | |
 | Dimensione |Dimensioni della cache. I valori validi sono: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
 | ShardCount |Numero di partizioni da creare quando si crea una cache Premium con clustering abilitato. I valori validi sono: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
@@ -139,7 +139,7 @@ La tabella seguente contiene le proprietà e le descrizioni dei parametri usati 
 | KeyType |Specifica la chiave di accesso da rigenerare quando si rinnovano le chiavi di accesso. Valori validi: Primario, Secondario | |
 
 ### <a name="redisconfiguration-properties"></a>Proprietà di RedisConfiguration
-| Proprietà | Descrizione | Piani tariffari |
+| Proprietà | DESCRIZIONE | Piani tariffari |
 | --- | --- | --- |
 | rdb-backup-enabled |Indica se la [persistenza dei dati Redis](cache-how-to-premium-persistence.md) è abilitata |Solo Premium |
 | rdb-storage-connection-string |Stringa di connessione dell'account di archiviazione per la [persistenza dei dati Redis](cache-how-to-premium-persistence.md) |Solo Premium |

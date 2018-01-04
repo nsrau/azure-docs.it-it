@@ -4,7 +4,7 @@ description: Informazioni sui prerequisiti di accesso all'API di creazione repor
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9fbcac4bd6240aed607c3da6c6535d207a782448
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: f1f4d79b59d44bc1c151391290e79026051fe1df
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Prerequisiti di accesso all'API di creazione report di Azure AD
 
@@ -40,7 +40,7 @@ Per preparare l'accesso all'API di creazione report, è necessario:
 2. Concedere le autorizzazioni 
 3. Ottenere le impostazioni di configurazione 
 
-Per domande, problemi o suggerimenti, [inviare un ticket di supporto](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto).
+Per domande, problemi o suggerimenti, [inviare un ticket di supporto](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
 
 ## <a name="register-an-azure-active-directory-application"></a>Registrare un'applicazione Azure Active Directory
 
@@ -185,12 +185,12 @@ Per ottenere il segreto client dell'applicazione, è necessario creare una nuova
 
     b. Per **Scadenza** selezionare **In 2 years** (In 2 anni).
 
-    c. Fare clic su **Salva**.
+    c. Fare clic su **Save**.
 
     d. Copiare il valore della chiave.
 
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * Si desidera accedere ai dati dall'API di creazione report di Azure AD mediante il codice? Vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Per altre informazioni sulla creazione di report di Azure Active Directory, vedere [Guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).  
 

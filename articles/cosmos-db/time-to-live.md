@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 9b236ab8dd80b0c34501e0d60ba74dee3043d262
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: 3737a240d92d9420bac7d42475622182fb425a2b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Impostare automaticamente come scaduti i dati nelle raccolte di Cosmos DB usando la durata (TTL)
 Le applicazioni posso produrre e archiviare grandi quantità di dati. Alcuni di questi, come i dati eventi generati da computer, i registri e le informazioni sulle sessioni utente sono utili per un periodo di tempo limitato. Quando i dati eccedono le esigenze dell'applicazione è possibile eliminarli e ridurre le risorse di archiviazione necessarie per l'applicazione.
@@ -149,10 +149,13 @@ Per disabilitare del tutto la durata (TTL) in una raccolta e impedire al process
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
+<a id="ttl-and-index-interaction"></a> 
 ## <a name="ttl-and-index-interaction"></a>Interazione di durata (TTL) e indice
-L'aggiunta o la modifica di una durata (TTL) è una modifica all'indice sottostante. Quando non c'è alcuna durata (TTL) e si specifica un valore di durata (TTL) valido, viene eseguita un'operazione di reindicizzazione. Per l'indice coerente, l'utente non vedrà alcuna modifica nello stato dell'indice. In caso di indice differito, l'indice deve prima di tutto sempre allinearsi e con la modifica della durata (TTL), l'indice viene ricreato da zero. L'impatto in quest'ultimo caso è che le query eseguite durante la ricompilazione dell'indice non restituiranno risultati completi o corretti. Non modificare la durata (TTL) per l'indice differito se è necessario un numero di dati esatto e così via, in quanto la modalità di indicizzazione stessa è differita.  In teoria bisognerebbe scegliere sempre l'indice coerente. 
+Aggiunta o la modifica dell'impostazione di durata (TTL) in una raccolta di modifica dell'indice sottostante. Quando il valore TTL viene modificato da Off a On, è ricostruire la raccolta. Quando si apportano modifiche ai criteri di indicizzazione quando la modalità di indicizzazione è coerenza, gli utenti non noterà una modifica all'indice. Quando la modalità di indicizzazione è impostata su lazy, l'indice viene sempre aggiornato e se viene modificato il valore di durata (TTL), l'indice viene ricreato da zero. Quando viene modificato il valore di durata (TTL) e la modalità di indicizzazione è impostata su lazy, le query eseguite durante la ricompilazione dell'indice non restituiscono risultati completati o non corretti.
 
-## <a name="faq"></a>domande frequenti
+Se è necessario esattamente i dati restituiti, non modificare il valore di durata (TTL) quando la modalità di indicizzazione è impostata su lazy. In teoria coerente dell'indice deve essere scelte per garantire risultati coerenti di query. 
+
+## <a name="faq"></a>Domande frequenti
 **Quanto costa la durata (TTL)?**
 
 Non sono previsti costi aggiuntivi per l'impostazione di una durata (TTL) in un documento.

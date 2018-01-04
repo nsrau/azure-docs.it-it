@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: d8a5f3c915b1e3b6e11cec9c5540fa192f5f85dd
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
-ms.translationtype: HT
+ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Checkpoint e riesecuzione in Funzioni permanenti (Funzioni di Azure)
 
@@ -63,7 +63,7 @@ Dopo aver completato l'impostazione dei checkpoint, la funzione dell'agente di o
 
 Al termine dell'operazione, la cronologia della funzione illustrata in precedenza ha un aspetto simile al seguente nell'archiviazione tabelle di Azure (abbreviata a scopo illustrativo):
 
-| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Input | Nome             | Risultato                                                    | Stato | 
+| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Input | NOME             | Risultato                                                    | Status | 
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | Null  | E1_HelloSequence |                                                           |                     | 
@@ -90,7 +90,7 @@ Di seguito vengono indicate alcune note sui valori di colonna.
     * **TaskScheduled**: funzione di attività pianificata. Il nome della funzione di attività viene acquisito nella colonna `Name`.
     * **TaskCompleted**: funzione di attività completata. Il risultato della funzione è nella colonna `Result`.
     * **TimerCreated**: timer permanente creato. La colonna `FireAt` contiene l'ora UTC pianificata per la scadenza del timer.
-    * **TimerFired**: un timer permanente scaduto.
+    * **TimerFired**: viene generato un timer durevole.
     * **EventRaised**: evento esterno inviato all'istanza di orchestrazione. La colonna `Name` acquisisce il nome dell'evento, mentre la colonna `Input` ne acquisisce il payload.
     * **OrchestratorCompleted**: funzione dell'agente di orchestrazione in attesa.
     * **ContinueAsNew**: la funzione dell'agente di orchestrazione completata e riavviata con un nuovo stato. La colonna `Result` contiene il valore che viene usato come input nell'istanza riavviata.
@@ -98,7 +98,7 @@ Di seguito vengono indicate alcune note sui valori di colonna.
 * **Timestamp**: timestamp UTC dell'evento di cronologia.
 * **Name**: nome della funzione richiamata.
 * **Input**: input in formato JSON della funzione.
-* **Output**: output della funzione, ovvero il valore restituito.
+* **Risultato**: l'output della funzione, vale a dire il relativo valore restituito.
 
 > [!WARNING]
 > Benché sia utile come strumento di debug, usare con cautela questa tabella che può cambiare con l'evoluzione dell'estensione Funzioni permanenti.

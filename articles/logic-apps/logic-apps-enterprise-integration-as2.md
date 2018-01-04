@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 91b2f16611b88aa4b9395ca301d88042065ad9dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 6a283d8772e48aa6671d88288c2083d891a220d5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Scambiare messaggi AS2 per l'integrazione aziendale con le app per la logica di Azure
 
@@ -45,7 +45,7 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
     > [!TIP]
     > Se **Altri servizi** non viene visualizzato, potrebbe essere necessario espandere il menu. Nella parte superiore del menu compresso, selezionare **Visualizza menu**.
 
-    ![Altri servizi, filtro su "integrazione", selezionare "Account di integrazione"](./media/logic-apps-enterprise-integration-agreements/overview-1.png)
+    ![Altri servizi, filtro su "integrazione", selezionare "Account di integrazione"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
 3. Nel pannello **Account di integrazione** visualizzato selezionare l'account di integrazione nel quale creare il contratto.
 Se non viene visualizzato alcun account di integrazione, [crearne prima uno](../logic-apps/logic-apps-enterprise-integration-accounts.md "Tutte le informazioni sugli account di integrazione").  
@@ -54,19 +54,19 @@ Se non viene visualizzato alcun account di integrazione, [crearne prima uno](../
 
 4. Selezionare il riquadro **Accordi**. Se non è presente il riquadro dei contratti, aggiungerlo.
 
-    ![Selezionare il riquadro "Contratti"](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+    ![Selezionare il riquadro "Contratti"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. Nel pannello Contratti visualizzato, selezionare **Aggiungi**.
 
-    ![Selezionare "Aggiungi"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
+    ![Selezionare "Aggiungi"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
 6. In **Aggiungi**, digitare un **nome** per il contratto. In **Tipo di contratto**selezionare **AS2**. Selezionare il **Partner host**, l'**Identità host**, il **Partner guest**, e l'**Identità guest** per il contratto.
 
-    ![Fornire i dettagli relativi al contratto](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
+    ![Fornire i dettagli relativi al contratto](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
 
-    | Proprietà | Descrizione |
+    | Proprietà | DESCRIZIONE |
     | --- | --- |
-    | Nome |Nome del contratto |
+    | NOME |Nome del contratto |
     | Tipo di contratto | Deve essere AS2 |
     | Host Partner (Partner host) |Un contratto prevede un partner host e un partner guest. Il partner host rappresenta l'organizzazione che configura il contratto. |
     | Host Identity (Identità host) |Un identificatore per il partner host |
@@ -82,7 +82,7 @@ Dopo aver impostato le proprietà del contratto, è possibile configurare il mod
 1.  In **Aggiungi**, selezionare **Impostazioni di ricezione**.
 Configurare queste proprietà in base al contratto con il partner con cui si scambiano i messaggi. Per le descrizioni delle proprietà, vedere la tabella in questa sezione.
 
-    ![Configurare "Impostazioni di ricezione"](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)
+    ![Configurare "Impostazioni di ricezione"](./media/logic-apps-enterprise-integration-as2/agreement-4.png)
 
 2. Facoltativamente, è possibile eseguire l'override delle proprietà dei messaggi in arrivo selezionando **Ignora proprietà del messaggio**.
 
@@ -102,7 +102,7 @@ Configurare queste proprietà in base al contratto con il partner con cui si sca
 
 Il contratto è pronto per gestire i messaggi in arrivo conformi alle impostazioni selezionate.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | Override message properties |Indica che è possibile eseguire l'override delle proprietà nei messaggi ricevuti. |
 | Il messaggio deve essere firmato |Richiede la firma digitale dei messaggi. Configurare il certificato pubblico del partner guest per la verifica della firma.  |
@@ -122,7 +122,7 @@ Il contratto è pronto per gestire i messaggi in arrivo conformi alle impostazio
 1.  In **Aggiungi**, selezionare **Impostazioni di avvio**.
 Configurare queste proprietà in base al contratto con il partner con cui si scambiano i messaggi. Per le descrizioni delle proprietà, vedere la tabella in questa sezione.
 
-    ![Impostare le proprietà "Impostazioni di invio"](./media/logic-apps-enterprise-integration-agreements/agreement-51.png)
+    ![Impostare le proprietà "Impostazioni di invio"](./media/logic-apps-enterprise-integration-as2/agreement-51.png)
 
 2. Per inviare messaggi firmati al partner, selezionare **Abilita firma del messaggio**. Per firmare i messaggi, nell'elenco **Algoritmo per il controllo di integrità delle credenziali**, selezionare l'*algoritmo per il controllo di integrità delle credenziali del certificato privato del partner host*. Dall'elenco **Certificato**, selezionare un [certificato privato del partner host](../logic-apps/logic-apps-enterprise-integration-certificates.md) esistente.
 
@@ -147,7 +147,7 @@ Dall'elenco **Certificato**, selezionare un [certificato pubblico del partner gu
 
 Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazioni selezionate.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | Enable message signing (Abilita la firma dei messaggi) |Richiede la firma di tutti i messaggi inviati dal contratto. |
 | MIC Algorithm (Algoritmo MIC) |L'algoritmo da usare per firmare i messaggi. Configura algoritmo per il controllo di integrità delle credenziali del certificato privato del partner host per la firma dei messaggi. |
@@ -172,7 +172,7 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 
 2.  È anche possibile visualizzare i contratti nella panoramica dell'account di Integrazione. Nel pannello dell'account di integrazione, selezionare **Panoramica**, quindi selezionare il riquadro **Contratti**. 
 
-    ![Scegliere il riquadro Contratti per visualizzare tutti i contratti](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
+    ![Scegliere il riquadro Contratti per visualizzare tutti i contratti](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## <a name="view-the-swagger"></a>Visualizzare il file Swagger
 Vedere i [dettagli del file Swagger](/connectors/as2/). 

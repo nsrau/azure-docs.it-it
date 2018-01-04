@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 4f6c27fb651fc13877a889c26aa47903985625a0
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
-ms.translationtype: HT
+ms.openlocfilehash: 05a50488793482ef761f34f4729c52181bc3eaf4
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Usare l'API REST di Apache Spark per inviare i processi remoti a un cluster HDInsight Spark
 
@@ -31,7 +31,7 @@ Informazioni su come usare Livy, l'API REST di Apache Spark per inviare processi
 
 **Prerequisiti:**
 
-* Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo relativo alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
 * [cURL](http://curl.haxx.se/). Questo articolo usa cURL per illustrare come effettuare chiamate API REST con un cluster HDInsight Spark.
 
@@ -173,7 +173,7 @@ Un cluster HDInsight 3.5, per impostazione predefinita, disabilita l'uso di perc
 
 Se ci si connette a un cluster HDInsight Spark all'interno di una rete virtuale di Azure, è possibile connettersi direttamente a Livy nel cluster. In tal caso, l'URL per l'endpoint di Livy è `http://<IP address of the headnode>:8998/batches`. In questo caso, **8998** è la porta su cui viene eseguito Livy sul nodo head del cluster. Per altre informazioni sull'accesso ai servizi sulle porte non pubbliche, vedere [Porte usate dai servizi Hadoop su HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Di seguito sono illustrati alcuni problemi riscontrabili durante l'uso di Livy per l'invio di processi remoti ai cluster Spark.
 

@@ -95,6 +95,8 @@
           href: howto-migrate-using-dump-and-restore.md
         - name: Importazione ed esportazione
           href: howto-migrate-using-export-and-import.md
+        - name: Migrazione con tempo di inattività minimo
+          href: howto-migrate-online.md
     - name: Configurare i parametri del server
       items:
         - name: Portale di Azure

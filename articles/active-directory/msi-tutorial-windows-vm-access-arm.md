@@ -4,7 +4,7 @@ description: "Esercitazione che illustra come usare un'Identità del servizio ge
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: bryanla
-ms.openlocfilehash: c87bbff414ba2212ebb3cab1d784d9f3ce133735
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: b5ba403c4e152770eeacb32d4a8d1980cf039396
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere a Gestione risorse
 
@@ -67,7 +67,7 @@ Un'Identità del servizio gestito per una macchina virtuale consente di ottenere
     ![Testo immagine alt](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>Concedere alla macchina virtuale l'accesso a un gruppo di risorse in Gestione risorse
-Usando Identità del servizio gestito, il codice può ottenere i token di accesso per autenticarsi nelle risorse che supportano l'autenticazione di Azure AD.  Azure Resource Manager supporta l'autenticazione di Azure AD.  In primo luogo, è necessario concedere all'identità della macchina virtuale l'accesso a una risorsa di Gestione risorse, in questo caso al gruppo di risorse che contiene la macchina virtuale.  
+Usando identità del servizio gestito, il codice può ottenere i token di accesso per autenticarsi alle risorse che supportano l'autenticazione di Azure AD.  Azure Resource Manager supporta l'autenticazione di Azure AD.  In primo luogo, è necessario concedere all'identità della macchina virtuale l'accesso a una risorsa di Gestione risorse, in questo caso al gruppo di risorse che contiene la macchina virtuale.  
 
 1.  Passare alla scheda **Gruppo di risorse**. 
 2.  Selezionare il **Gruppo di risorse** specifico creato per la **macchina virtuale Windows**. 

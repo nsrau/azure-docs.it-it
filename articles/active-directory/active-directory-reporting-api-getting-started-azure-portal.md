@@ -4,7 +4,7 @@ description: Come iniziare a usare l'API di creazione report di Azure Active Dir
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8813b911-a4ec-4234-8474-2eef9afea11e
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c94a52b8a34100f22b627e291cb0becd3501fd55
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 9c858b8f2d5a4a348bc0b4443ddbe0000a5b62f4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="getting-started-with-the-azure-active-directory-reporting-api"></a>Introduzione all'API di creazione report di Azure Active Directory
 
@@ -28,7 +28,7 @@ Azure Active Directory fornisce una serie di report. I dati di questi report pos
 Questo articolo riporta le informazioni necessarie per iniziare con le API di creazione report di Azure AD.
 Nella sezione successiva sono riportate ulteriori informazioni sull'utilizzo delle API di controllo e di accesso. 
 
-Per le domande frequenti, fare clic [qui](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-faq). In caso di problemi, [inviare un ticket di supporto](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto)
+Per le domande frequenti, fare clic [qui](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-faq). In caso di problemi, [inviare un ticket di supporto](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 
 ## <a name="learning-map"></a>Percorso di formazione
 1. **Preparazione** - Prima di poter usare gli esempi contenuti in questo argomento, è necessario completare i [prerequisiti di accesso all'API di creazione report di Azure AD](active-directory-reporting-api-prerequisites-azure-portal.md).
@@ -41,6 +41,6 @@ Per le domande frequenti, fare clic [qui](https://docs.microsoft.com/en-us/azure
    * [Utilizzo delle informazioni di riferimento sull'API di controllo](active-directory-reporting-api-audit-reference.md) 
    * [Utilizzo delle informazioni di riferimento sull'API di creazione report sull'attività di accesso](active-directory-reporting-api-sign-in-activity-reference.md)
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Se si desidera vedere tutti gli endpoint disponibili dell'API Graph di Azure AD, usare questo link: [https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta](https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta).
 

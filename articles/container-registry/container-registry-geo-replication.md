@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 10/24/2017
 ms.author: stevelas
-ms.openlocfilehash: dfab0a371ffb2d8ea52bea2cdcf3d92d6c669a9d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 92df5a37d62dc9731842a4312339aa571072a487
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replica geografica nel servizio Registro contenitori di Azure
 
@@ -94,11 +94,11 @@ Il servizio Registro contenitori di Azure inizia a sincronizzare le immagine tra
 
 ## <a name="geo-replication-pricing"></a>Prezzi della replica geografica
 
-La replica geografica è una funzionalità dello [SKU Premium](container-registry-skus.md#premium) del Registro contenitori di Azure. Quando viene eseguita la replica di un registro nelle aree desiderate, si devono sostenere i costi relativi a un registro Premium per ogni area.
+La replica geografica è una funzionalità dello [SKU Premium](container-registry-skus.md) del Registro contenitori di Azure. Quando viene eseguita la replica di un registro nelle aree desiderate, si devono sostenere i costi relativi a un registro Premium per ogni area.
 
 Nell'esempio precedente, Contoso ha unificato due registri mediante il consolidamento e ha aggiunto repliche per le aree Stati Uniti orientali, Canada centrale ed Europa occidentale. Contoso dovrà pagare quattro tariffe Premium al mese, senza costi aggiuntivi per la configurazione e la gestione. Ogni area esegue ora il pull delle relative immagini in locale, migliorando in questo modo prestazioni e affidabilità senza alcun costo aggiuntivo per il traffico in uscita dagli Stati Uniti occidentali al Canada e agli Stati Uniti orientali.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 Grazie alla replica geografica è possibile gestire data center regionali come un cloud globale. Poiché le immagini vengono usate in molti servizi di Azure, è possibile avvalersi dei vantaggi di un unico piano di gestione durante l'uso di pull di immagini più rapidi e affidabili e in posizioni di rete più vicine.
 

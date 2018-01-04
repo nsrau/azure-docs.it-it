@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: rafats
-ms.openlocfilehash: 127b42b67a3e29022ac5d9535751a1b2a3be250e
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: c530b34edf9bfa0651b7b114dcf7e8add0d906ed
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Chiavi univoche in Azure Cosmos DB
 
 Le chiavi univoche consentono agli sviluppatori di aggiungere un livello di integrità dei dati nel database. Se si definiscono criteri di chiave univoca quando si crea un contenitore, si ha la sicurezza che uno o più valori siano univoci per ogni [chiave di partizione](partition-data.md). Dopo aver creato un contenitore con criteri di chiave univoca, non è infatti possibile creare o aggiornare elementi con valori che duplicano quelli specificati dal vincolo di chiave univoca.   
 
 > [!NOTE]
-> Le chiavi univoche sono supportate dalle versioni più recenti degli SDK di Cosmos DB (SQL) per [.NET](documentdb-sdk-dotnet.md) e [.NET Core](documentdb-sdk-dotnet-core.md) e dell'[API MongoDB](mongodb-feature-support.md#unique-indexes), ma non sono attualmente supportate dalle API Graph e Table. 
+> Le chiavi univoche sono supportate con le versioni più recenti del [.NET](sql-api-sdk-dotnet.md) e [.NET Core](sql-api-sdk-dotnet-core.md) SQL SDK e [MongoDB API](mongodb-feature-support.md#unique-indexes). ma non sono attualmente supportate dalle API Graph e Table. 
 > 
 >
 
@@ -54,7 +54,7 @@ Le chiavi univoche devono essere definite al momento della creazione del conteni
 
 Non è possibile aggiornare i contenitori esistenti per l'uso di chiavi univoche.
 
-Una volta creato un contenitore con criteri di chiave univoca, è possibile modificare i criteri solo se si crea un nuovo contenitore. Se si hanno dati per i quali si desidera implementare chiavi univoche, creare il nuovo contenitore e quindi usare lo strumento di migrazione appropriato per spostare i dati nel contenitore. Per i contenitori di DocumentDB (SQL), usare l'[Utilità di migrazione dati](import-data.md). Per i contenitori di MongoDB, usare [mongoimport.exe o mongorestore.exe](mongodb-migrate.md).
+Una volta creato un contenitore con criteri di chiave univoca, è possibile modificare i criteri solo se si crea un nuovo contenitore. Se si hanno dati per i quali si desidera implementare chiavi univoche, creare il nuovo contenitore e quindi usare lo strumento di migrazione appropriato per spostare i dati nel contenitore. Per i contenitori SQL, utilizzare il [utilità di migrazione dati](import-data.md). Per i contenitori di MongoDB, usare [mongoimport.exe o mongorestore.exe](mongodb-migrate.md).
 
 In ogni chiave univoca è possibile includere un massimo di 16 valori di percorso, ad esempio /firstName, /lastName, /address/zipCode e così via. 
 
@@ -64,9 +64,9 @@ Quando sono definiti criteri di chiave univoca per il contenitore, i costi delle
 
 Le chiavi univoche di tipo sparse non sono supportate. Se per alcuni percorsi univoci non sono definiti valori, questi vengono trattati come valori null speciali, che fanno parte del vincolo di univocità.
 
-## <a name="documentdb-sql-api-sample"></a>Esempio di API di DocumentDB (SQL)
+## <a name="sql-api-sample"></a>Esempio di API SQL
 
-L'esempio di codice seguente illustra come creare un nuovo contenitore di DocumentDB (SQL) con due vincoli di chiave univoca. Il primo vincolo è quello dell'esempio precedente, composto da firstName, lastName e email. Il secondo vincolo è costituito da address/zipCode, ovvero l'indirizzo e il codice postale degli utenti. Questo esempio di codice viene seguito da un file JSON di esempio che usa i percorsi definiti in questi criteri di chiave univoca. 
+Esempio di codice seguente viene illustrato come creare un nuovo contenitore SQL con due vincoli di chiave univoca. Il primo vincolo è quello dell'esempio precedente, composto da firstName, lastName e email. Il secondo vincolo è costituito da address/zipCode, ovvero l'indirizzo e il codice postale degli utenti. Questo esempio di codice viene seguito da un file JSON di esempio che usa i percorsi definiti in questi criteri di chiave univoca. 
 
 ```csharp
 // Create a collection with two separate UniqueKeys, one compound key for /firstName, /lastName,

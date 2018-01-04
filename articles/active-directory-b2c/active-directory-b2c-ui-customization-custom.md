@@ -4,7 +4,7 @@ description: Informazioni sulla personalizzazione di un'interfaccia utente con l
 services: active-directory-b2c
 documentationcenter: 
 author: saeedakhter-msft
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: d5a3c0a323b31696d39e3d2b36317dec3a2337d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c430b488016f038ed1d7a67a8d52c057df1ea40e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: configurare la personalizzazione dell'interfaccia utente in un criterio personalizzato
 
@@ -149,7 +149,7 @@ Sotto il tag *\<TrustFrameworkPolicy\>* di primo livello dovrebbe essere present
 2. Selezionare il criterio personalizzato che è stato caricato e fare clic sul pulsante **Esegui adesso**.
 3. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica.
 
-## <a name="reference"></a>Riferimento
+## <a name="reference"></a>Riferimenti
 
 È possibile trovare modelli di esempio per la personalizzazione dell'interfaccia utente qui:
 
@@ -159,7 +159,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 
 La cartella sample_templates/wingtip contiene i file HTML seguenti:
 
-| Modello HTML5 | Descrizione |
+| Modello HTML5 | DESCRIZIONE |
 |----------------|-------------|
 | *phonefactor.html* | Usare questo file come modello per una pagina di autenticazione a più fattori. |
 | *resetpassword.html* | Usare questo file come modello per una pagina Password dimenticata. |
@@ -169,7 +169,7 @@ La cartella sample_templates/wingtip contiene i file HTML seguenti:
 
 Nella sezione [Modificare i criteri personalizzati di iscrizione o di accesso](#modify-your-sign-up-or-sign-in-custom-policy) è stata configurata la definizione del contenuto per `api.idpselections`. Il set completo di ID di definizione del contenuto riconosciuti dal framework dell'esperienza di gestione delle identità di AD B2C e le relative descrizioni sono disponibili nella tabella seguente:
 
-| ID definizione del contenuto | Descrizione | 
+| ID definizione del contenuto | DESCRIZIONE | 
 |-----------------------|-------------|
 | *api.error* | **Pagina di errore**. Questa pagina viene visualizzata quando viene rilevata un'eccezione o un errore. |
 | *api.idpselections* | **Pagina di selezione del provider di identità**. Questa pagina contiene un elenco dei provider di identità che l'utente può scegliere durante la procedura di accesso. Si tratta di provider di identità aziendali, provider di identità basati su social network, ad esempio Facebook e Google+, o account locali. |

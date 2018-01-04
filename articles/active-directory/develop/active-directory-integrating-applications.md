@@ -4,7 +4,7 @@ description: Come aggiungere, aggiornare o rimuovere un'applicazione in Azure Ac
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: mbaldwin
 ms.assetid: ae637be5-0b71-4b1e-b1fe-b83df3eb4845
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: 8a5eab88e10b330bf4da88c01d24a11e95277439
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: b4e2ff19cb14ac0abdea1d76ee965b542f6fa7ec
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrazione di applicazioni con Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -124,7 +124,7 @@ Inoltre, prima che un client possa accedere a un'API Web esposta da un'applicazi
   - Fare clic nella sezione **Chiavi** della pagina **Impostazioni**.  
   - Aggiungere una descrizione per la chiave.
   - Selezionare la durata di uno o due anni.
-  - Fare clic su **Salva**. Dopo che le modifiche apportate alla configurazione sono state salvate, il valore della chiave viene visualizzato nella colonna di destra. **Assicurarsi di copiare la chiave** per l'utilizzo nel codice dell'applicazione client, in quanto non è più accessibile dopo aver lasciato la pagina.
+  - Fare clic su **Save**. Dopo che le modifiche apportate alla configurazione sono state salvate, il valore della chiave viene visualizzato nella colonna di destra. **Assicurarsi di copiare la chiave** per l'utilizzo nel codice dell'applicazione client, in quanto non è più accessibile dopo aver lasciato la pagina.
 
   ![Aggiornare la registrazione di un'applicazione - Chiavi](./media/active-directory-integrating-applications/update-app-registration-settings-keys.png)
 

@@ -4,7 +4,7 @@ description: Azure Site Recovery coordina la replica, il failover e il ripristin
 services: site-recovery
 documentationcenter: 
 author: mayanknayar
-manager: gauravd
+manager: rochakm
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.date: 12/15/2017
 ms.author: manayar
-ms.openlocfilehash: 85baa829020529b628dfaa5578e5d76724834b33
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.openlocfilehash: bf3d557c77e3cb6ade6f1bb3773c807f9c8b43f6
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>Mapping di rete tra due aree di Azure
 
 
-Questo articolo descrive come mappare tra loro le reti virtuali di Azure di due aree di Azure. Il mapping di rete assicura che quando la macchina virtuale replicata viene creata nell'area di Azure di destinazione, verrà creata nella rete virtuale mappata alla rete virtuale della macchina virtuale di origine.  
+Questo articolo descrive come mappare tra loro le reti virtuali di Azure di due aree di Azure. Mapping di rete garantisce che, quando una macchina virtuale replicata viene creata nell'area di Azure di destinazione, viene creato nella rete virtuale che viene eseguito il mapping alla rete virtuale della macchina virtuale di origine.  
 
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di mappare le reti, assicurarsi di avere creato [reti virtuali di Azure](../virtual-network/virtual-networks-overview.md) nelle aree di Azure di origine e di destinazione.
+Prima eseguire il mapping di reti, assicurarsi di aver creato [reti virtuali di Azure](../virtual-network/virtual-networks-overview.md) sia di origine e destinazione aree di Azure.
 
 ## <a name="map-networks"></a>Mappare le reti
 
@@ -35,20 +35,21 @@ Per mappare una rete virtuale di Azure in un'area di Azure a un'altra rete virtu
 ![Mapping di rete](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
 
-Nell'esempio seguente la macchina virtuale è in esecuzione nell'area Asia orientale e viene replicata in Asia sud-orientale.
+Nell'esempio seguente, la macchina virtuale è in esecuzione nell'area Asia orientale e viene replicata in Asia sudorientale.
 
-Selezionare la rete di origine e di destinazione e quindi fare clic su OK per creare un mapping di rete da Asia orientale ad Asia sud-orientale.
+Selezionare l'origine e destinazione di rete e quindi fare clic su OK per creare un mapping di rete dell'Asia orientale Asia sudorientale.
 
 ![Mapping di rete](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 
 
-Eseguire la stessa procedura per creare un mapping di rete da Asia sud-orientale ad Asia orientale.  
+Ripetere il processo precedente per creare un mapping di rete Asia sudorientale Asia orientale.
+
 ![Mapping di rete](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
 
 ## <a name="mapping-network-when-enabling-replication"></a>Mapping di rete durante l'abilitazione della replica
 
-Se il mapping di rete non viene eseguito alla prima replica di una macchina virtuale da un'area di Azure a un'altra, è possibile scegliere la rete di destinazione come parte dello stesso processo. Site Recovery crea mapping di rete dall'area di origine all'area di destinazione e dall'area di destinazione all'area di origine in base a questa selezione.   
+Se non è stato eseguito il mapping di rete quando si replicano una macchina virtuale per la prima volta da un'area di Azure a un altro, è possibile scegliere una rete di destinazione come parte dello stesso processo. Site Recovery crea mapping di rete dall'area di origine all'area di destinazione e dall'area di destinazione all'area di origine in base a questa selezione.   
 
 ![Mapping di rete](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
 
@@ -70,14 +71,14 @@ Se il mapping di rete è già stato eseguito, non è possibile modificare la ret
 
 
 ## <a name="subnet-selection"></a>Selezione della subnet
-La subnet della macchina virtuale di destinazione viene selezionata in base al nome della subnet della macchina virtuale di destinazione. Se nella rete di destinazione è presente una subnet con nome corrispondente a quello della macchina virtuale di origine, tale subnet verrà scelta per la macchina virtuale di destinazione. Se nella rete di destinazione non è presente alcuna subnet con lo stesso nome, la prima subnet in ordine alfabetico viene scelta come subnet di destinazione. È possibile modificare questa subnet passando alle impostazioni Calcolo e rete della macchina virtuale.
+La subnet della macchina virtuale di destinazione è selezionata in base al nome della subnet della macchina virtuale di origine. Se una subnet con lo stesso nome della macchina virtuale di origine è disponibile nella rete di destinazione, tale subnet viene scelto per la macchina virtuale di destinazione. Se è presente alcuna subnet con lo stesso nome di rete di destinazione, quindi in ordine alfabetico prima subnet viene scelto come la subnet di destinazione. È possibile modificare questa subnet passando alle impostazioni Calcolo e rete della macchina virtuale.
 
 ![Modificare la subnet](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
 
 ## <a name="ip-address"></a>Indirizzo IP
 
-L'indirizzo IP per ogni interfaccia di rete della macchina virtuale di destinazione viene scelto come indicato di seguito:
+Indirizzo IP per ogni interfaccia di rete della macchina virtuale di destinazione viene scelto come indicato di seguito:
 
 ### <a name="dhcp"></a>DHCP
 Se l'interfaccia di rete della macchina virtuale di origine usa DHCP, anche l'interfaccia di rete della macchina virtuale di destinazione viene impostata come DHCP.
@@ -87,14 +88,14 @@ Se l'interfaccia di rete della macchina virtuale di origine usa un indirizzo IP 
 
 #### <a name="same-address-space"></a>Stesso spazio di indirizzi
 
-Se la subnet di origine e la subnet di destinazione hanno lo stesso spazio di indirizzi, l'indirizzo IP di destinazione viene impostato come uguale all'indirizzo IP dell'interfaccia di rete della macchina virtuale di origine. Se lo stesso indirizzo IP non è disponibile, un altro indirizzo IP disponibile viene impostato come indirizzo IP di destinazione.
+Se la subnet di origine e la subnet di destinazione hanno lo stesso spazio di indirizzo, l'indirizzo IP dell'interfaccia di rete della macchina virtuale di origine è impostato come indirizzo IP di destinazione. Se lo stesso indirizzo IP non è disponibile, quindi l'indirizzo IP disponibile successivo viene impostato come indirizzo IP di destinazione.
 
 #### <a name="different-address-space"></a>Spazio di indirizzi diverso
 
-Se la subnet di origine e la subnet di destinazione hanno spazi di indirizzi diversi, l'indirizzo IP di destinazione viene impostato su un qualsiasi indirizzo IP disponibile nella subnet di destinazione.
+Se la subnet di origine e la subnet di destinazione dispone di spazi di indirizzi diverso, quindi il successivo indirizzo IP disponibile nella subnet di destinazione viene impostato come indirizzo IP di destinazione.
 
-È possibile modificare l'indirizzo IP di destinazione in ogni interfaccia di rete passando alle impostazioni Calcolo e rete della macchina virtuale.
+È possibile modificare l'indirizzo IP di destinazione in ogni interfaccia di rete, passare alle impostazioni di calcolo e rete della macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sulle [indicazioni sulla rete per la replica di VM di Azure](site-recovery-azure-to-azure-networking-guidance.md).
+Altre informazioni sulle [indicazioni sulla rete per la replica di VM di Azure](site-recovery-azure-to-azure-networking-guidance.md).

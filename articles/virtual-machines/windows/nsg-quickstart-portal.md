@@ -4,7 +4,7 @@ description: Informazioni su come aprire una porta o creare un endpoint alla VM 
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 33bc0be0aeae6d0276fd8999b9ac0a010e3067ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 08f0af6ecdb45b263d39c3d2d6442f4ed555e3c3
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Come aprire le porte in una macchina virtuale con il portale di Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -38,7 +38,12 @@ Selezionare il nuovo gruppo di sicurezza di rete. Selezionare "Regole di sicurez
 
 ![Aggiungere una regola in entrata](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-Scegliere un **servizio** comune dal menu a discesa, ad esempio *HTTP*. È possibile anche selezionare l'opzione *Personalizzata* per indicare una porta specifica da usare. Se si desidera, modificare la priorità o il nome. La priorità determina l'ordine in cui vengono applicate le regole: più basso è il valore numerico, prima viene applicata la regola. È possibile anche selezionare **Avanzata** nella parte superiore di questa schermata per immettere ad esempio uno specifico intervallo di porte o blocco IP di origine. Quando si è pronti, selezionare **OK** per creare la regola:
+Per creare una regola che consenta il traffico:
+
+- Selezionare il **base** pulsante. Per impostazione predefinita, il **avanzate** finestra fornisce alcune opzioni di configurazione aggiuntive, ad esempio per definire un intervallo di blocco o la porta IP origine specifica.
+- Scegliere un **servizio** comune dal menu a discesa, ad esempio *HTTP*. È possibile anche selezionare l'opzione *Personalizzata* per indicare una porta specifica da usare. 
+- Se si desidera, modificare la priorità o il nome. La priorità determina l'ordine in cui vengono applicate le regole: più basso è il valore numerico, prima viene applicata la regola.
+- Quando si è pronti, selezionare **OK** per creare la regola:
 
 ![Creare una regola in entrata](./media/nsg-quickstart-portal/create-inbound-rule.png)
 

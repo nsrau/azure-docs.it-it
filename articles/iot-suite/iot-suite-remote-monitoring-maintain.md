@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 46b0269b3f5b98e1bcecdbeabd5544e97bb5c06c
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: d26275b6b03115b775990c9efb5d4706fcb829d1
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="troubleshoot-and-remediate-device-issues"></a>Risolvere e correggere i problemi dei dispositivi
 
@@ -46,11 +46,7 @@ Per esaminare in modo più approfondito il problema, scegliere l'opzione **Explo
 
 ![Esplorare l'allarme nel dashboard](media/iot-suite-remote-monitoring-maintain/dashboardexplorealarm.png)
 
-È ora possibile visualizzare un elenco di allarmi nella pagina **Maintenance** (Manutenzione):
-
-![Elenco di allarmi nella pagina relativa alla manutenzione](media/iot-suite-remote-monitoring-maintain/maintenancealarms.png)
-
-Per visualizzare i dettagli dell'allarme, scegliere l'allarme nell'elenco **Alarms** (Allarmi). La visualizzazione dettagliata mostra:
+Viene illustrata la visualizzazione dettagli dell'avviso:
 
 * Data e ora di attivazione dell'allarme
 * Informazioni sullo stato dei dispositivi associati all'allarme
@@ -70,7 +66,7 @@ Nell'elenco è possibile vedere il dispositivo **Prototype** (Prototipo) respons
 
 Per correggere il problema per il dispositivo **Prototype** (Prototipo), è necessario chiamare il metodo **DecreaseTemperature** sul dispositivo.
 
-Per eseguire operazioni su un dispositivo, selezionarlo nell'elenco dei dispositivi e quindi scegliere **Schedule** (Pianifica). Il modello di dispositivo **Engine** (Motore) specifica tre metodi che un dispositivo deve supportare:
+Per eseguire operazioni su un dispositivo, selezionarlo nell'elenco dei dispositivi e quindi scegliere **Schedule** (Pianifica). Il **prototipo** modello di dispositivo specifica i quattro metodi deve supportare un dispositivo:
 
 ![Visualizzare i metodi supportati dai dispositivi](media/iot-suite-remote-monitoring-maintain/maintenancemethods.png)
 
@@ -78,11 +74,11 @@ Scegliere **DecreaseTemperature** e impostare il nome del processo su **Decrease
 
 ![Creare il processo per ridurre la temperatura](media/iot-suite-remote-monitoring-maintain/maintenancecreatejob.png)
 
-Per tenere traccia dello stato del processo nella pagina **Maintenance** (Manutenzione), scegliere **System Status** (Stato sistema). Usare la visualizzazione **System Status** (Stato sistema) per tenere traccia di tutti i processi e le chiamate ai metodi nella soluzione:
+Per tenere traccia dello stato del processo sul **manutenzione** pagina, scegliere **processi**. Utilizzare il **processi** Visualizza per tenere traccia di tutti i processi e il metodo chiama nella soluzione:
 
 ![Monitorare il processo per ridurre la temperatura](media/iot-suite-remote-monitoring-maintain/maintenancerunningjob.png)
 
-Per visualizzare i dettagli di un una chiamata a un metodo o di un processo specifico, scegliere l'elemento nell'elenco nella visualizzazione **System Status** (Stato sistema):
+Per visualizzare i dettagli di un processo specifico o una chiamata al metodo, scegliere nell'elenco di **processi** Vista:
 
 ![Visualizza i dettagli dei processi](media/iot-suite-remote-monitoring-maintain/maintenancejobdetail.png)
 

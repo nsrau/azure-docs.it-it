@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: bfd7208af3252ab69808d09fa7434a2cea7f93a8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: db8b0cc58738308116da84f2a45d6507c87f3cde
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Procedure consigliate per la sicurezza delle VM di Azure
 
-Nella maggior parte degli scenari Infrastructure as a Service (IaaS) le [macchine virtuali (VM) di Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/) rappresentano il carico di lavoro principale per le organizzazioni che usano il cloud computing. Questo è particolarmente evidente negli [scenari ibridi](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) in cui le organizzazioni vogliono eseguire lentamente la migrazione dei carichi di lavoro nel cloud. In questi scenari seguire la [considerazioni generali sulla sicurezza per IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx) e applicare le procedure consigliate di sicurezza a tutte le VM.
+Nella maggior parte degli scenari Infrastructure as a Service (IaaS) le [macchine virtuali (VM) di Azure](https://docs.microsoft.com/azure/virtual-machines/) rappresentano il carico di lavoro principale per le organizzazioni che usano il cloud computing. Questo è particolarmente evidente negli [scenari ibridi](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) in cui le organizzazioni vogliono eseguire lentamente la migrazione dei carichi di lavoro nel cloud. In questi scenari seguire la [considerazioni generali sulla sicurezza per IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx) e applicare le procedure consigliate di sicurezza a tutte le VM.
 
 Questo articolo tratta varie procedure consigliate di sicurezza per le VM derivate da esperienze dei nostri clienti e nostre esperienze dirette con le VM stesse.
 
@@ -51,7 +51,7 @@ Il primo passo per proteggere la VM è garantire che solo gli utenti autorizzati
 
 Le VM che appartengono a un gruppo di risorse ereditano naturalmente i suoi criteri. Sebbene questo approccio alla gestione delle VM sia consigliabile, è possibile controllare l'accesso ai singoli criteri della MV usando il [controllo degli accessi in base al ruolo (RBAC)](../active-directory/role-based-access-control-configure.md).
 
-Quando si abilitano i criteri di Resource Manager e controllo degli accessi in base al ruolo per controllare l'accesso alla VM, si migliora la sicurezza complessiva della VM. Si consiglia di consolidare le VM con lo stesso ciclo di vita nello stesso gruppo di risorse. Usando i gruppi di risorse è possibile distribuire, monitorare ed eseguire il rollup dei costi di fatturazione per le risorse. Per consentire agli utenti di accedere e configurare le VM, usare un [approccio con privilegi minimi](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). E quando si assegnano privilegi agli utenti prevedere di usare i seguenti ruoli predefiniti di Azure:
+Quando si abilitano i criteri di Resource Manager e controllo degli accessi in base al ruolo per controllare l'accesso alla VM, si migliora la sicurezza complessiva della VM. Si consiglia di consolidare le VM con lo stesso ciclo di vita nello stesso gruppo di risorse. Usando i gruppi di risorse è possibile distribuire, monitorare ed eseguire il rollup dei costi di fatturazione per le risorse. Per consentire agli utenti di accedere e configurare le VM, usare un [approccio con privilegi minimi](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). E quando si assegnano privilegi agli utenti prevedere di usare i seguenti ruoli predefiniti di Azure:
 
 - [Collaboratore Macchina virtuale](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor): può gestire le VM, ma non la rete virtuale o l'account di archiviazione a cui sono connesse.
 - [Collaboratore Macchina virtuale classica](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor): può gestire le VM create usando il modello di distribuzione classico ma non la rete virtuale o l'account di archiviazione a cui le VM sono connesse.
@@ -80,7 +80,7 @@ Le organizzazioni che non applicano restrizioni di accesso alle VM connesse a In
 
 È possibile applicare Crittografia dischi per contribuire alla protezione dei dati in modo da rispettare i requisiti dell'organizzazione in merito a sicurezza e conformità. La crittografia permette anche all'organizzazione di ridurre i rischi correlati all'accesso non autorizzato ai dati. È consigliabile anche crittografare le unità prima di scrivere dati sensibili.
 
-Assicurarsi di crittografare i volumi di dati della VM per proteggerli nello stato inattivo nell'account di archiviazione di Azure. Proteggere le chiavi di crittografia e la chiave privata con [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/key-vault-whatis/).
+Assicurarsi di crittografare i volumi di dati della VM per proteggerli nello stato inattivo nell'account di archiviazione di Azure. Proteggere le chiavi di crittografia e la chiave privata con [Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-whatis/).
 
 Le organizzazioni che non applicano la crittografia dei dati sono più esposte a problemi di integrità dei dati. Gli utenti non autorizzati, ad esempio, potrebbero rubare dati negli account compromessi o ottenere l'accesso non autorizzato ai dati codificati in ClearFormat. Oltre a correre questi rischi, per la conformità alle normative di settore, le aziende devono dimostrare di operare con diligenza e di usare controlli di sicurezza appropriati per migliorare la sicurezza dei dati.
 
@@ -122,7 +122,7 @@ Le organizzazioni che non applicano condizioni di sicurezza avanzate per le prop
 
 L'uso improprio delle risorse può essere un problema quando i processi della VM utilizzano più risorse di quanto dovrebbero. I problemi di prestazioni di una VM possono causare interruzioni del servizio, il che viola il principio di disponibilità della sicurezza. Per questo motivo è fondamentale monitorare l'accesso alla VM non solo in modo reattivo (mentre un problema si sta verificando) ma anche in modo proattivo, rispetto alle prestazioni misurate durante il periodo di normale funzionamento.
 
-Analizzando [i file di log di diagnostica di Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), è possibile monitorare le risorse della VM e identificare i potenziali problemi che potrebbero compromettere le prestazioni e la disponibilità. L'estensione Diagnostica di Azure offre funzionalità di monitoraggio e diagnostica nelle VM Windows. È possibile abilitare queste funzionalità includendo l'estensione come parte del [modello di Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
+Analizzando [i file di log di diagnostica di Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), è possibile monitorare le risorse della VM e identificare i potenziali problemi che potrebbero compromettere le prestazioni e la disponibilità. L'estensione Diagnostica di Azure offre funzionalità di monitoraggio e diagnostica nelle VM Windows. È possibile abilitare queste funzionalità includendo l'estensione come parte del [modello di Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 È possibile usare [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) per ottenere visibilità sull'integrità della risorsa.
 

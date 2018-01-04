@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: nisoneji
-ms.openlocfilehash: 4ac79df703de00ac009d9845772d8be740e74f29
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cff6a7502e80eb4ff447cc99fe31b48cb660c27e
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application-using-azure-site-recovery"></a>Eseguire la replica di un'applicazione Web multilivello basata su IIS usando Azure Site Recovery
 
@@ -70,7 +70,8 @@ Ai fini di questo articolo sono state usate macchine virtuali VMware con server 
 --- | --- | ---
 **Hyper-V** | Sì | Sì
 **VMware** | Sì | Sì
-**Server fisico** | No | Sì
+**Server fisico** | No  | Sì
+**Azure**|ND|Sì
 
 ## <a name="replicate-virtual-machines"></a>Replicare le macchine virtuali
 
@@ -106,7 +107,7 @@ Se il DNS è configurato per l'aggiornamento dinamico, le macchine virtuali aggi
 #### <a name="connection-string-in-an-applications-webconfig"></a>Stringa di connessione nel file web.config di un'applicazione
 La stringa di connessione specifica il database con cui comunica il sito Web.
 
-Se la stringa di connessione contiene il nome della macchina virtuale del database, non saranno necessari altri passaggi dopo il failover e l'applicazione potrà comunicare automaticamente con il database. Se l'indirizzo IP della macchina virtuale del database viene conservato, non sarà necessario aggiornare la stringa di connessione. Se la stringa di connessione fa riferimento alla macchina virtuale del database usando un indirizzo IP, dovrà essere aggiornata dopo il failover. Ad esempio, la stringa di connessione seguente punta al database con l'indirizzo IP 127.0.1.2
+Se la stringa di connessione contiene il nome della macchina virtuale del database, non saranno necessari altri passaggi dopo il failover e l'applicazione potrà comunicare automaticamente con il database. Se l'indirizzo IP della macchina virtuale del database viene conservato, non sarà necessario aggiornare la stringa di connessione. Se la stringa di connessione fa riferimento alla macchina virtuale del database usando un indirizzo IP, dovrà essere aggiornata dopo il failover. ad esempio la stringa di connessione seguente punta al database con l'indirizzo IP 127.0.1.2
 
         <?xml version="1.0" encoding="utf-8"?>
         <configuration>

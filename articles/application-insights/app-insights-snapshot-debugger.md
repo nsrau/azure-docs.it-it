@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 68686e128d7e9528396f338b95f483adf07c3292
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 2f1f9f306d7759cbd1202c985da27a2a3b879ebd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Snapshot di debug per le eccezioni nelle app .NET
 
@@ -122,7 +122,7 @@ Sono supportati i seguenti ambienti:
    }
    ```
 
-4. Configurare l'agente di raccolta snapshot aggiungendo una sezione SnapshotCollectorConfiguration ad appsettings.json. ad esempio:
+4. Configurare l'agente di raccolta snapshot aggiungendo una sezione SnapshotCollectorConfiguration ad appsettings.json. Ad esempio: 
 
    ```json
    {
@@ -218,7 +218,7 @@ Per Calcolo di Azure e altri tipi di calcoli, verificare che i file di simboli s
 ### <a name="optimized-builds"></a>Compilazioni ottimizzate
 In alcuni casi le variabili locali non possono essere visualizzate nelle build di versione a causa delle ottimizzazioni applicate durante il processo di compilazione.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Questi suggerimenti consentono di risolvere i problemi relativi al debugger di snapshot.
 
@@ -299,6 +299,6 @@ Se ancora non vengono visualizzate eccezioni con tale ID snapshot, significa che
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Impostare punti di ancoraggio nel codice](https://docs.microsoft.com/en-us/visualstudio/debugger/debug-live-azure-applications) per ottenere gli snapshot senza attendere un'eccezione.
+* [Impostare punti di ancoraggio nel codice](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) per ottenere gli snapshot senza attendere un'eccezione.
 * L'articolo [Diagnosticare eccezioni nelle app Web](app-insights-asp-net-exceptions.md) spiega come rendere visibile un maggior numero di eccezioni in Application Insights. 
 * Il [rilevamento intelligente](app-insights-proactive-diagnostics.md) rileva automaticamente le anomalie delle prestazioni.

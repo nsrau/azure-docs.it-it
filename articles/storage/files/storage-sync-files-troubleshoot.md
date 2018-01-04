@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: f12ee39f900373fcab80e59bc20de59fa039f0ff
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 23f111bef6a68115e4474f3c13e91d69d7e89e1c
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Risolvere i problemi di Sincronizzazione File di Azure (anteprima)
 È possibile usare Sincronizzazione file di Azure (anteprima) per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -42,6 +42,9 @@ Esaminare il file installer.log per determinare la causa dell'errore di installa
 
 > [!Note]  
 > L'installazione dell'agente ha esito negativo se il computer è configurato per usare Microsoft Update e il servizio Microsoft Update non è in esecuzione.
+
+<a id="agent-installation-websitename-failure"></a>**Installazione agente non riesce con l'errore: "Configurazione guidata agente di sincronizzazione di archiviazione in modo anomalo"**  
+Questo problema può verificarsi se viene modificato il nome predefinito del sito Web IIS. Per risolvere questo problema, rinominare il sito Web predefinito IIS come "sito Web predefinito" e ripetere l'installazione. Il problema verrà risolto in un futuro aggiornamento dell'agente. 
 
 <a id="server-registration-missing"></a>**Il server non è elencato in Server registrati nel portale di Azure**  
 Se un server non è presente nell'elenco **Server registrati** per un servizio di sincronizzazione archiviazione, seguire questa procedura:
@@ -102,10 +105,11 @@ Per determinare se il ruolo dell'account utente in uso dispone delle autorizzazi
     * In **Assegnazione ruolo** devono essere impostate le autorizzazioni **Lettura** e **Scrittura**.
     * In **Definizione ruolo** devono essere impostate le autorizzazioni **Lettura** e **Scrittura**.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**L'eliminazione di un endpoint ha esito negativo e viene restituito l'errore "MgmtInternalError"**  
-Questo problema può verificarsi se l'account di condivisione file o l'account di archiviazione di Azure viene eliminato prima dell'endpoint cloud. Questo problema verrà risolto in un aggiornamento futuro. Sarà a quel punto possibile eliminare un endpoint cloud dopo aver eliminato l'account di archiviazione o di condivisione file di Azure.
+<a id="server-endpoint-createjobfailed"></a>**Creazione dell'endpoint server non riesce, con l'errore: "MgmtServerJobFailed" (codice di errore:-2134375898)**                                                                                                                           
+Questo problema si verifica se il percorso dell'endpoint server sul volume di sistema e cloud più livelli è abilitata. La suddivisione in livelli cloud non è supportata nel volume di sistema. Per creare un endpoint del server nel volume di sistema, disabilitare la suddivisione in livelli quando si crea l'endpoint del server cloud.
 
-Nel frattempo, per impedire che si verifichi questo problema, eliminare l'endpoint cloud prima dell'account di condivisione file o dell'account di archiviazione di Azure.
+<a id="server-endpoint-deletejobexpired"></a>**Eliminazione dell'endpoint del server non riesce, con l'errore: "MgmtServerJobExpired"**                
+Questo problema si verifica se il server è offline o non dispone di connettività di rete. Se il server non è più disponibile, annullare la registrazione il server del portale in cui vengono eliminati l'endpoint del server. Per eliminare l'endpoint del server, seguire i passaggi descritti in [annullare la registrazione di un server con sincronizzazione di Azure File](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 ## <a name="sync"></a>Sincronizzazione
 <a id="afs-change-detection"></a>**Se è stato creato un file direttamente nella condivisione file di Azure su SMB o nel portale, quanto tempo richiede la sincronizzazione del file nei server nel gruppo di sincronizzazione?**  
@@ -132,7 +136,7 @@ Se la sincronizzazione di file singoli ha esito negativo:
     > [!NOTE]
     > Sincronizzazione file di Azure crea periodicamente snapshot VSS per sincronizzare i file con handle aperti.
 
-## <a name="cloud-tiering"></a>Archiviazione a livelli nel cloud 
+## <a name="cloud-tiering"></a>Suddivisione in livelli nel cloud 
 Nell'archiviazione a livelli nel cloud possono prendere forma due percorsi di errore:
 
 - È possibile che i file non possano essere archiviati a livelli, ovvero che Sincronizzazione file di Azure non riesca ad archiviare a livelli i file in File di Azure.
@@ -207,7 +211,7 @@ Se il problema persiste, eseguire lo strumento AFSDiag:
 5. Riprodurre il problema. Al termine immettere **D**.
 6. Nella directory di output specificata verrà salvato un file con estensione zip contenente i registri e i file di traccia.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 - [Domande frequenti su File di Azure](storage-files-faq.md)
 - [Risolvere i problemi di File di Azure in Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Risolvere i problemi di File di Azure in Linux](storage-troubleshoot-linux-file-connection-problems.md)

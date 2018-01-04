@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a49b4c2d4ddd6d686675cee53d46cd4dd6ad3811
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
-ms.translationtype: HT
+ms.openlocfilehash: 0e7f4308290a14e592cf1739fa5b0b3360d7c68b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Gestire reti virtuali di Azure e macchine virtuali Linux con l'interfaccia della riga di comando di Azure
 
@@ -29,28 +29,28 @@ Le macchine virtuali di Azure usano la rete di Azure per la comunicazione di ret
 > [!div class="checklist"]
 > * Creare una rete virtuale e una subnet
 > * Creare un indirizzo IP pubblico
-> * Creare una VM front-end
+> * Creare una macchina virtuale front-end
 > * Proteggono il traffico di rete
-> * Creare una VM back-end
+> * Creare una macchina virtuale back-end
 
 Durante il completamento di questa esercitazione è possibile visualizzare queste risorse create:
 
 ![Rete virtuale con due subnet](./media/tutorial-virtual-network/networktutorial.png)
 
-- *myVNet*: la rete virtuale che le VM usano per comunicare tra loro e con Internet.
-- *myFrontendSubnet*: la subnet in *myVNet* utilizzata dalle risorse front-end.
-- *myPublicIPAddress*: l'indirizzo IP pubblico utilizzato per accedere a *myFrontendVM* da Internet.
-- *myFrontentNic*: l'interfaccia di rete utilizzata da *myFrontendVM* per comunicare con *myBackendVM*.
-- *myFrontendVM*: la VM utilizzata per la comunicazione tra Internet e *myBackendVM*.
+- *myVNet*: la rete virtuale usata dalle macchine virtuali per comunicare tra loro e con Internet.
+- *myFrontendSubnet*: la subnet in *myVNet* usata dalle risorse front-end.
+- *myPublicIPAddress*: l'indirizzo IP pubblico usato per accedere a *myFrontendVM* da Internet.
+- *myFrontentNic*: l'interfaccia di rete usata da *myFrontendVM* per comunicare con *myBackendVM*.
+- *myFrontendVM*: la macchina virtuale usata per la comunicazione tra Internet e *myBackendVM*.
 - *myBackendNSG*: il gruppo di sicurezza di rete che controlla la comunicazione tra *myFrontendVM* e *myBackendVM*.
-- *myBackendSubnet*: la subnet associata a *myBackendNSG* e utilizzata dalle risorse back-end.
+- *myBackendSubnet*: la subnet associata a *myBackendNSG* e usata dalle risorse back-end.
 - *myBackendNic*: l'interfaccia di rete utilizzata da *myBackendVM* per comunicare con *myFrontendVM*.
 - *myBackendVM*: la VM che usa la porta 22 e 3306 per comunicare con *myFrontendVM*.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, in questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="vm-networking-overview"></a>Panoramica della rete per le VM
 
@@ -97,7 +97,7 @@ A questo punto, è stata creata una rete che è stata segmentata in due subnet, 
 
 Un indirizzo IP pubblico consente alle risorse di Azure di essere accessibili in Internet. Il metodo di allocazione dell'indirizzo IP pubblico può essere configurato come dinamico o statico. Per impostazione predefinita, un indirizzo IP pubblico viene allocato in modo dinamico. Gli indirizzi IP dinamici vengono rilasciati quando una VM viene deallocata. Questo comportamento determina la modifica dell'indirizzo IP durante qualsiasi operazione che includa la deallocazione di una VM.
 
-Il metodo di allocazione può essere impostato come statico affinché l'indirizzo IP resti assegnato a una VM anche durante uno stato di deallocazione. Quando si usa un indirizzo IP con allocazione statica, l'indirizzo IP non può essere specificato e viene invece allocato da un pool di indirizzi disponibili.
+Il metodo di allocazione può essere impostato come statico affinché l'indirizzo IP resti assegnato a una macchina virtuale anche con lo stato deallocato. Quando si usa un indirizzo IP con allocazione statica, l'indirizzo IP non può essere specificato e viene invece allocato da un pool di indirizzi disponibili.
 
 ```azurecli-interactive
 az network public-ip create --resource-group myRGNetwork --name myPublicIPAddress
@@ -156,6 +156,8 @@ Un gruppo di sicurezza di rete (NSG) contiene un elenco di regole di sicurezza c
 Le regole dei gruppi di sicurezza di rete definiscono le porte di rete su cui il traffico viene consentito o negato. Le regole possono includere intervalli di indirizzi IP di origine e di destinazione in modo da controllare il traffico tra subnet o sistemi specifici. Le regole dei gruppi di sicurezza di rete possono includere anche una priorità, compresa tra 1 e 4096. Le regole vengono valutate in ordine di priorità. Una regola con priorità 100 viene valutata prima di una con priorità 200.
 
 Tutti i gruppi di sicurezza di rete contengono un set di regole predefinite. Le regole predefinite non possono essere eliminate, ma poiché hanno la priorità più bassa, è possibile eseguirne l'override con le regole create dall'utente.
+
+Le regole predefinite per NSGs sono:
 
 - **Rete virtuale**: il traffico che ha origine e termina in una rete virtuale è consentito sia in ingresso che in uscita.
 - **Internet**: il traffico in uscita è consentito, mentre il traffico in ingresso viene bloccato.
@@ -296,7 +298,7 @@ In questa esercitazione sono state create e protette reti di Azure in relazione 
 > [!div class="checklist"]
 > * Creare una rete virtuale e una subnet
 > * Creare un indirizzo IP pubblico
-> * Creare una VM front-end
+> * Creare una macchina virtuale front-end
 > * Proteggono il traffico di rete
 > * Creare la VM back-end
 

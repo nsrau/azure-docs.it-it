@@ -5,7 +5,7 @@ services: active-directory
 keywords: "azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 689864b15890d8bc4a8a58a37f2034c66491654a
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: f7abbab27a6794c934344c78ba1776c8dbb97088
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Esperienze di accesso con Azure AD Identity Protection
 Con Azure Active Directory Identity Protection è possibile:
@@ -104,11 +104,11 @@ Per sbloccare un utente bloccato da criteri di sicurezza per il rischio utente, 
 
 ![Correzione](./media/active-directory-identityprotection-flows/104.png "Correzione")
 
-## <a name="reset-password"></a>Reimpostazione delle password
+## <a name="reset-password"></a>Reimposta password
 Se l’accesso degli utenti compromessi è bloccato, un amministratore può generare una password temporanea per consentire l’accesso. Gli utenti dovranno modificare la password all'accesso successivo.
 
 ![Correzione](./media/active-directory-identityprotection-flows/160.png "Correzione")
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
 

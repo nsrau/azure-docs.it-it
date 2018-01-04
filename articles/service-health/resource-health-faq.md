@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/05/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 794117b6f383bdd1851681864e99b3c1ef077f86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 692d03ad80989a969a73b15bb9042a01c286d1ec
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-resource-health-faq"></a>Domande frequenti su Integrità risorse di Azure
 Risposte alle domande comuni su Integrità risorse di Azure.
@@ -74,14 +74,12 @@ Durante il controllo dell'integrità di una risorsa, immediatamente sotto lo sta
 
 ## <a name="is-resource-health-available-for-all-azure-regions"></a>Integrità risorse è disponibile in tutte le aree di Azure? 
 Integrità risorse è disponibile in tutte le aree geografiche di Azure, ad eccezione delle aree seguenti:
-- Governo degli Stati Uniti - Virginia
+- US Gov Virginia
 - Governo degli Stati Uniti - Iowa
 - Dipartimento della difesa Stati Uniti orientali
 - Dipartimento della difesa Stati Uniti centrali
 - Germania centrale
 - Germania nord-orientale
-- Cina orientale
-- Cina settentrionale
 
 ## <a name="how-is-resource-health-different-from-the-service-health-dashboard-or-the-azure-portal-service-notifications"></a>In che modo Integrità risorse differisce dal dashboard per l'integrità dei servizi o dalle notifiche sui servizi del portale di Azure?
 Le informazioni messe a disposizione da Integrità risorse sono più specifiche di quelle messe a disposizione dal dashboard per l'integrità dei servizi di Azure.
@@ -94,7 +92,7 @@ Diversamente dallo [stato di Azure](https://status.azure.com) e dalle notifiche 
 No, le informazioni di integrità sono disponibili per tutti i tipi di risorse supportati da Integrità risorse. 
 
 ## <a name="do-we-need-to-enable-resource-health-for-my-organization"></a>È necessario abilitare Integrità risorse per l'organizzazione?
-No.  Integrità risorse di Azure è accessibile dal portale di Azure e non prevede requisiti di configurazione.
+di serie  Integrità risorse di Azure è accessibile dal portale di Azure e non prevede requisiti di configurazione.
 
 ## <a name="is-resource-health-available-free-of-charge"></a>Integrità risorse è disponibile gratuitamente?
 Sì.  Integrità risorse di Azure è gratuito.

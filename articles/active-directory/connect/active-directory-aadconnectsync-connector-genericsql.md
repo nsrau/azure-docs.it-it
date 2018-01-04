@@ -3,8 +3,8 @@ title: Connettore Generic SQL | Documentazione Microsoft
 description: Questo articolo descrive come configurare il connettore Generic SQL di Microsoft.
 services: active-directory
 documentationcenter: 
-author: AndKjell
-manager: femila
+author: fimguy
+manager: bhu
 editor: 
 ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
-ms.author: billmath
-ms.openlocfilehash: 81bacc39d974dfbd1b2aa8dce9e629c508203811
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.date: 12/19/2017
+ms.author: davidste
+ms.openlocfilehash: a365219e433f4876401a9c35b8a656060508efbd
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Documentazione tecnica sul connettore Generic SQL
 Questo articolo descrive il connettore Generic SQL ed è applicabile ai prodotti seguenti:
@@ -41,7 +41,7 @@ A livello generale, le funzionalità seguenti sono supportate dalla versione cor
 | Origine dati connessa |Il connettore è supportato con tutti i driver ODBC a 64 bit. È stato testato con quanto segue:  <li>Microsoft SQL Server e QL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 e 11g</li><li>MySQL 5.x</li> |
 | Scenari |<li>Gestione del ciclo di vita degli oggetti</li><li>Gestione delle password</li> |
 | Operazioni |<li>Importazione completa e importazione ed esportazione differenziale</li><li>Per l'esportazione: Aggiungi, Elimina, Aggiorna e Sostituisci</li><li>Imposta password, Cambia password</li> |
-| Schema |<li>Individuazione dinamica di oggetti e attributi</li> |
+| SCHEMA |<li>Individuazione dinamica di oggetti e attributi</li> |
 
 ### <a name="prerequisites"></a>Prerequisiti
 Prima di usare il connettore, verificare che nel server di sincronizzazione sia disponibile quanto segue:
@@ -71,7 +71,7 @@ Il connettore usa un file DSN ODBC per la connettività. Creare il file DSN tram
 La schermata Connectivity è la prima visualizzata quando si crea un nuovo connettore Generic SQL. Prima di tutto è necessario specificare le informazioni seguenti:
 
 * Percorso del file DSN
-* Autenticazione
+* Authentication
   * User Name
   * Password
 
@@ -224,14 +224,18 @@ Questi passaggi vengono configurati nei profili di esecuzione del connettore. Qu
 Il connettore Generic SQL supporta l'importazione completa e delta usando questi metodi:
 
 * Tabella
-* View
+* Visualizza
 * Stored Procedure
 * Query SQL
 
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
 **Table/View**  
-Per importare gli attributi multivalore per un oggetto, è necessario specificare i nomi di tabella o vista delimitati da virgole in **Name of Multi-Valued table/views** e le rispettive condizioni di join in **Join condition** con la tabella padre.
+Per importare gli attributi multivalore per un oggetto, è necessario specificare il nome di tabella o vista in **viste delle tabelle/nome di multivalore** e condizioni di join rispettivi nel **condizione Join** con la tabella padre . Se sono presenti più di una tabella a più valore nell'origine dati, è possibile utilizzare l'operatore union a una visualizzazione singola.
+
+>[!IMPORTANT]
+L'agente di gestione di SQL generico può utilizzare solo una tabella multivalore. Non è inserito nel nome della tabella e viste multivalore più nomi di tabella. È la limitazione di SQL generico.
+
 
 Esempio: si vuole importare l'oggetto Employee e tutti i relativi attributi multivalore. Sono presenti due tabelle denominate Employee (tabella principale) e Department (multivalore).
 Eseguire le operazioni seguenti:
@@ -270,13 +274,13 @@ La configurazione dell'importazione differenziale richiede un numero maggiore di
 * Se si sceglie Watermark (Limite) per tenere traccia delle modifiche differenziali, è necessario fornire il nome della colonna che contiene le informazioni sull'operazione in **Water Mark Column Name**(Nome colonna limite).
 * La colonna **Change Type Attribute** è necessaria per il tipo di modifica. Questa colonna è associata a una modifica che si verifica nella tabella primaria o nella tabella multivalore per un tipo di modifica nella visualizzazione delta. Questa colonna può contenere il tipo di modifica Modify_Attribute per la modifica a livello di attributo o un tipo di modifica Add, Modify o Delete per un tipo di modifica a livello di oggetto. Se è diverso dal valore predefinito per l'aggiunta, la modifica o l'eliminazione, l'utente può definire i valori usando questa opzione.
 
-### <a name="export"></a>Esporta
+### <a name="export"></a>Esportazione
 ![runstep7](./media/active-directory-aadconnectsync-connector-genericsql/runstep7.png)
 
 Il connettore Generic SQL supporta l'esportazione tramite quattro metodi supportati, ad esempio:
 
 * Tabella
-* View
+* Visualizza
 * Stored Procedure
 * Query SQL
 
@@ -304,5 +308,5 @@ Se si sceglie l'opzione SQL query, l'esportazione richiede tre diverse query per
 * **Delete Query**(Elimina query): questa query viene eseguita se un oggetto qualsiasi perviene al connettore per l'eliminazione dalla rispettiva tabella.
 * L'attributo selezionato nello schema viene usato come valore di parametro per la query, ad esempio `Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 * Per informazioni su come abilitare la registrazione per risolvere i problemi relativi al connettore, vedere l'articolo relativo a [come abilitare la traccia ETW per i connettori](http://go.microsoft.com/fwlink/?LinkId=335731).

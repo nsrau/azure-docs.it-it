@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: cfc2fde552b029412042474e31a1b28dd80b3021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Insieme di credenziali di backup aggiornato a un insieme di credenziali di Servizi di ripristino
 In questo articolo viene fornita una panoramica delle caratteristiche dell'insieme di credenziali di Servizi di ripristino, le domande frequenti relative all'aggiornamento dell'insieme di credenziali di backup esistente all'insieme di credenziali di Servizi di ripristino e i passaggi successivi all'aggiornamento. Un insieme di credenziali di Servizi di ripristino è l'equivalente di Azure Resource Manager di un insieme di credenziali di backup che contiene i dati di backup. I dati sono in genere copie di dati o informazioni di configurazione per macchine virtuali, carichi di lavoro, server o workstation, sia locali che in Azure.
@@ -68,16 +68,16 @@ Dopo avere eseguito l'aggiornamento a un insieme di credenziali di Servizi di ri
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 **Il piano di aggiornamento influenza il backup in corso?**</br>
-No. I backup in corso proseguono senza interruzioni durante e dopo l'aggiornamento.
+di serie I backup in corso proseguono senza interruzioni durante e dopo l'aggiornamento.
 
 **Qual è l'impatto di questo aggiornamento per gli strumenti esistenti?**</br>
-È necessario aggiornare l'automazione o gli strumenti esistenti al modello di distribuzione Resource Manager per accertarsi che continuino a funzionare anche dopo l'aggiornamento. Consultare i riferimenti ai cmdlet di PowerShell per il [modello di distribuzione di Service Manager](backup-client-automation-classic.md) e il [modello di distribuzione di Resource Manager](backup-client-automation.md).
+È necessario aggiornare l'automazione o gli strumenti esistenti al modello di distribuzione Resource Manager per accertarsi che continuino a funzionare anche dopo l'aggiornamento. Consultare i riferimenti di cmdlet di PowerShell per la [il modello di distribuzione di gestione risorse](backup-client-automation.md).
 
 **È possibile eseguire il ripristino dello stato precedente dopo l'aggiornamento?**</br>
-No. Il ripristino dello stato precedente non è supportato dopo il completamento dell'aggiornamento delle risorse.
+di serie Il ripristino dello stato precedente non è supportato dopo il completamento dell'aggiornamento delle risorse.
 
 **È possibile visualizzare l'insieme di credenziali classico in seguito all'aggiornamento?**</br>
-No. Non è possibile visualizzare o gestire l'insieme di credenziali classico in seguito all'aggiornamento. L'utente potrà usare il nuovo portale di Azure solo per tutte le operazioni di gestione nell'insieme di credenziali.
+di serie Non è possibile visualizzare o gestire l'insieme di credenziali classico in seguito all'aggiornamento. L'utente potrà usare il nuovo portale di Azure solo per tutte le operazioni di gestione nell'insieme di credenziali.
 
 **Perché non è possibile visualizzare i server protetti dall'agente MARS nell'insieme di credenziali aggiornato?**</br>
 È necessario installare la versione più recente dell'agente MARS per visualizzare tutti i server protetti dall'agente stesso nell'insieme di credenziali. È possibile scaricare l'ultima versione dell'agente [qui]( http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).

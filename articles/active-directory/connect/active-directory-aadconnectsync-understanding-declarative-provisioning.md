@@ -4,7 +4,7 @@ description: Illustra il modello di configurazione del provisioning dichiarativo
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 7497ec2ca658c3790227c56ef1755d9a1cb74e0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7e299fb33bdbd514a8fbc96c6953c9a8ca70f54a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo
 Questo argomento illustra il modello di configurazione in Azure AD Connect. Il modello è denominato provisioning dichiarativo e consente di modificare una configurazione con facilità. Molte operazioni descritte in questo argomento sono avanzate e non necessarie per la maggior parte degli scenari dei clienti.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Il provisioning dichiarativo è l'elaborazione di oggetti provenienti da una directory di origine connessa e determina il modo in cui l'oggetto e gli attributi devono essere trasformati da un'origine a una destinazione. Un oggetto viene elaborato in una pipeline di sincronizzazione e la pipeline è la stessa per le regole in ingresso e in uscita. Una regola in ingresso origina da uno spazio connettore e ha come destinazione il metaverse, mentre una regola in uscita ha origine nel metaverse e ha come destinazione uno spazio connettore.
 
 ![Pipeline di sincronizzazione](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/sync1.png)  
@@ -39,9 +39,9 @@ La pipeline include diversi moduli. Ognuno di essi è responsabile di un concett
 * [Precedenza](#precedence), risolve i conflitti tra attributi
 * Destinazione, l'oggetto di destinazione
 
-## <a name="scope"></a>Ambito
+## <a name="scope"></a>Scope
 Il modulo scope valuta un oggetto e determina le regole che si trovano nell'ambito e devono essere incluse nell'elaborazione. A seconda dei valori degli attributi sull'oggetto, viene valutata la presenza di diverse regole di sincronizzazione nell'ambito. Ad esempio, un utente disabilitato senza alcuna cassetta postale di Exchange ha regole diverse rispetto a un utente abilitato che ha una cassetta postale.  
-![Ambito](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/scope1.png)  
+![Scope](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/scope1.png)  
 
 L'ambito è definito sotto forma di gruppi e clausole. Le clausole si trovano all'interno di un gruppo. Tra tutte le clausole in un gruppo viene usato un operatore logico AND. Ad esempio, (department =IT AND country = Denmark). Viene usato un operatore logico OR tra gruppi.
 
@@ -50,7 +50,7 @@ L'ambito in questa immagine deve essere letto come (department = IT AND country 
 
 Il modulo dell'ambito supporta le operazioni seguenti.
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 | --- | --- |
 | EQUAL, NOTEQUAL |Confronto di stringhe che valuta se il valore è uguale al valore dell'attributo. Per gli attributi multivalore, vedere ISIN e ISNOTIN. |
 | LESSTHAN, LESSTHAN_OR_EQUAL |Confronto di stringhe che valuta se il valore è minore del valore dell'attributo. |
@@ -117,7 +117,7 @@ Il valore letterale **AuthoritativeNull** è simile a **NULL**, con la differenz
 
 Un flusso dell'attributo può anche usare **IgnoreThisFlow**. È simile a NULL in quanto indica che non è disponibile alcun valore da fornire, con la differenza che non rimuove un valore già esistente nella destinazione. È come se il flusso dell'attributi non sia mai stato presente.
 
-Di seguito è fornito un esempio:
+Di seguito è fornito un esempio: 
 
 In *Out to AD - User Exchange hybrid* (In uscita ad AD - Utente Exchange ibrido) è possibile trovare il flusso seguente:  
 `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  

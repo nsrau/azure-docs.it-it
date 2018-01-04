@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: ba9f1b3d-a4a0-4ff7-b0e7-428e0ed92142
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 549e353bb41f1f31bc0441294d0a8066779402e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4231b5e72ea0852de344e7484bdf20997243cee6
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Esercitazione: Integrazione di Azure Active Directory con Absorb LMS
 
@@ -30,13 +30,13 @@ L'integrazione di Absorb LMS con Azure AD offre i vantaggi seguenti:
 - È possibile abilitare gli utenti per l'accesso automatico ad Absorb LMS, tramite l'accesso Single Sign-On, con i propri account di Azure AD.
 - È possibile gestire gli account da una posizione centrale, il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS, Software as a Service, con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Per altre informazioni sull'integrazione di app SaaS (Software as a Service, software come un servizio) con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Absorb LMS, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di Absorb LMS abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
@@ -48,7 +48,7 @@ A questo scopo, seguire queste indicazioni:
 - Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 * Aggiunta di Absorb LMS dalla raccolta
 * Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -92,7 +92,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Absorb LMS, seguire que
 
 1. Nella pagina di integrazione dell'applicazione **Absorb LMS** del portale di Azure selezionare **Single Sign-On**.
 
-    ![Collegamento per la configurazione dell'accesso Single Sign-On][4]
+    ![Collegamento Configura accesso Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** nella casella **Modalità** per abilitare l'accesso Single Sign-On.
  
@@ -115,7 +115,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Absorb LMS, seguire que
 
 5. Selezionare **Salva**.
 
-    ![Pulsante Salva di Configura accesso Single Sign-On](./media/active-directory-saas-absorblms-tutorial/tutorial_general_400.png)
+    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-absorblms-tutorial/tutorial_general_400.png)
     
 6. Nella sezione **Absorb LMS Configuration** (Configurazione di Absorb LMS) selezionare **Configure Absorb LMS** (Configura Absorb LMS) per aprire la finestra **Configura accesso** e copiare il valore di **Sign-Out URL** (URL di disconnessione) nella **sezione Riferimento rapido.**
 
@@ -188,7 +188,7 @@ Per creare un utente di test in Azure AD, seguire questa procedura:
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore nella casella **Password**.
 
-    d. Selezionare **Crea**.
+    d. Selezionare **Create**.
 
 ### <a name="create-an-absorb-lms-test-user"></a>Creare un utente di test di Absorb LMS
 

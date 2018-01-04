@@ -1,5 +1,5 @@
 ---
-title: Tabelle temporanee in SQL Data Warehouse | Microsoft Docs
+title: Tabelle temporanee in SQL Data Warehouse | Documentazione Microsoft
 description: Introduzione alle tabelle temporanee di SQL Data Warehouse di Azure.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -16,10 +16,10 @@ ms.custom: tables
 ms.date: 12/06/2017
 ms.author: barbkess
 ms.openlocfilehash: e3b2f9017ecea7d9f78c07476f96c3dd8d031863
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tabelle temporanee in SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Le tabelle temporanee sono utili durante l'elaborazione dati, soprattutto durant
 Questo articolo contiene le linee guida fondamentali per l'uso delle tabelle temporanee ed evidenzia i principi delle tabelle temporanee a livello di sessione. Usando le informazioni in questo articolo è possibile modularizzare il codice, aumentando le possibilità di riutilizzo e la facilità di manutenzione del codice.
 
 ## <a name="create-a-temporary-table"></a>Creazione di una tabella temporanea
-Le tabelle temporanee vengono create aggiungendo un prefisso al nome di una tabella con `#`.  ad esempio:
+Le tabelle temporanee vengono create aggiungendo un prefisso al nome di una tabella con `#`.  Ad esempio: 
 
 ```sql
 CREATE TABLE #stats_ddl

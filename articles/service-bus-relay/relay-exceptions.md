@@ -1,6 +1,6 @@
 ---
 title: Eccezioni del servizio di inoltro di Azure e relativa risoluzione | Microsoft Docs
-description: Ottenere un elenco di eccezioni del servizio di inoltro di Azure e le azioni consigliate per la risoluzione.
+description: Elenco di eccezioni di inoltro di Azure e ad azioni consigliate da eseguire per risolverli.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 83ff97b59e428e7b617a7f5d1011ca5ddf3060b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1dbe73dac0d09db96ab902909125869959963e6f
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="azure-relay-exceptions"></a>Eccezioni del servizio di inoltro di Azure
 
@@ -65,7 +65,7 @@ Per l'inoltro, questa eccezione esegue il wrapping di [System.ServiceModel.Quota
 ## <a name="timeoutexception"></a>TimeoutException
 Un'eccezione di tipo [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) indica che un'operazione avviata dall'utente richiede più tempo rispetto al timeout dell'operazione. 
 
-Controllare il valore della proprietà [ServicePointManager. DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit). Il raggiungimento di questo limite può causare una [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
+Controllare il valore della proprietà [ServicePointManager. DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit). Raggiunto questo limite può provocare un [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
 
 Per l'inoltro è possibile ricevere eccezioni di timeout alla prima apertura di una connessione di inoltro del mittente. Questa eccezione può essere dovuta a due cause comuni:
 

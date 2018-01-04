@@ -4,7 +4,7 @@ description: Questo articolo illustra come usare il portale di Azure per registr
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 7dc7b89f-653f-405a-b5f4-2c1288720c15
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.openlocfilehash: 2f2817688beb2028fd0bba8522827d87a0097f21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Registrare l'applicazione nel tenant di Azure Active Directory
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
   * La pagina **Proprietà** consente di modificare le informazioni generali per l'applicazione, inclusi il nome dell'applicazione, l'URL di accesso e l'URL di disconnessione.
   * La pagina **URL di risposta** consente di aggiungere un URL di risposta, a cui Azure AD invia le risposte dei token.
   * La pagina **Proprietari** consente di aggiungere proprietari dell'applicazione.
-  * La pagina **Autorizzazioni** consente di configurare le autorizzazioni per l'app. Per accedere all'API Graph Microsoft, ad esempio, fare clic su **Aggiungi**, selezionare **Microsoft Graph** nel selettore di API e quindi scegliere l'autorizzazione necessaria, ad esempio **Lettura dati directory**.
+  * Il **delle autorizzazioni necessarie** pagina consente di configurare le autorizzazioni per l'app. Per accedere all'API Graph Microsoft, ad esempio, fare clic su **Aggiungi**, selezionare **Microsoft Graph** nel selettore di API e quindi scegliere l'autorizzazione necessaria, ad esempio **Lettura dati directory**.
   * La pagina **Chiavi** consente di aggiungere segreti dell'applicazione. Il segreto verrà visualizzato solo immediatamente dopo la creazione, quindi assicurarsi di copiarlo per un uso futuro.
 
 ## <a name="use-the-inline-manifest-editor"></a>Usare l'editor manifesto incorporato
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/11/2017
 4. Fare clic su **Manifesto** nella pagina dell'applicazione per aprire l'editor manifesto incorporato.
 5. È possibile modificare direttamente il manifesto e salvarlo al termine delle modifiche. In alternativa è possibile scaricare il manifesto per aprirlo nell'editor preferito e caricare il manifesto aggiornato.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 1. Per procedure dettagliate relative all'autenticazione delle applicazioni tramite Azure AD, vedere le [Guide introduttive](active-directory-developers-guide.md).
 2. Per un elenco completo di esempi di codice, vedere [GitHub](https://github.com/azure-samples).

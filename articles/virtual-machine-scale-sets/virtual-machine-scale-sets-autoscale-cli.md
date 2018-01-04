@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 6e8fadd54a78d432ed802f4c4880c2f77bb28c37
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
-ms.translationtype: HT
+ms.openlocfilehash: 8552f6b2723fef2c61d49a34d2d60c2a6c209a32
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Scalare automaticamente un set di scalabilità di una macchina virtuale con l'interfaccia della riga di comando di Azure 2.0
 Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app.
@@ -28,7 +28,7 @@ Questo articolo illustra come creare regole di scalabilità automatica con l'int
 
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per creare regole di scalabilità automatica, è necessario un set di scalabilità di macchina virtuale esistente. È possibile creare un set di scalabilità con il [portale di Azure](virtual-machine-scale-sets-portal-create.md), l'[interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli) o [Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell).
+Per creare regole di scalabilità automatica, è necessario un set di scalabilità di macchina virtuale esistente. È possibile creare un set di scalabilità con il [portale di Azure](virtual-machine-scale-sets-create-portal.md), l'[interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-create-cli.md) o [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md).
 
 Per rendere più semplice la creazione delle regole di scalabilità automatica, definire alcune variabili per il set di scalabilità. L'esempio seguente definisce le variabili per il set di scalabilità denominato *myScaleSet* nel gruppo di risorse denominato *myResourceGroup* nell'area *Stati Uniti orientali*. Ottenere l'ID della propria sottoscrizione con [az account show](/cli/azure/account#az_account_show). Se si hanno più sottoscrizioni associate all'account, viene restituita solo la prima sottoscrizione. Modificare i nomi e l'ID sottoscrizione nel modo seguente:
 

@@ -3,7 +3,7 @@ title: "Aggiornamenti automatici del sistema operativo con i set di scalabilità
 description: "Informazioni su come aggiornare automaticamente il sistema operativo nelle istanze di macchina virtuale in un set di scalabilità"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
+author: gatneil
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
-ms.author: guybo
-ms.openlocfilehash: 32358b23bb0a0a878e986150dd992513579d61c4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.date: 12/07/2017
+ms.author: negat
+ms.openlocfilehash: 60468860a8fe7d10bf0f25b92f4313aaa2614db3
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Aggiornamenti automatici del sistema operativo per un set di scalabilità di macchine virtuali di Azure
 
@@ -39,10 +39,10 @@ L'aggiornamento automatico del sistema operativo presenta le caratteristiche seg
 ## <a name="preview-notes"></a>Note sull'anteprima 
 Nella versione di anteprima si applicano le limitazioni e restrizioni seguenti:
 
-- Gli aggiornamenti automatici del sistema operativo supportano solo [tre SKU del sistema operativo](#supported-os-images). Non sono previsti contratti di servizio o garanzie. È consigliabile non usare gli aggiornamenti automatici sui carichi di lavoro critici di produzione durante l'anteprima.
+- Automatica sistema operativo viene aggiornato solo il supporto [quattro SKU del sistema operativo](#supported-os-images). Non sono previsti contratti di servizio o garanzie. È consigliabile non usare gli aggiornamenti automatici sui carichi di lavoro critici di produzione durante l'anteprima.
 - Il supporto per i set di scalabilità dei cluster di Service Fabric sarà presto disponibile.
 - Crittografia dischi di Azure (attualmente in versione di anteprima) attualmente **non** è supportato con l'aggiornamento automatico del sistema operativo dei set di scalabilità di macchine virtuali.
-- L'esperienza del portale sarà presto disponibile.
+- Un'esperienza del portale sarà presto disponibile.
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>Eseguire la registrazione per usare l'aggiornamento automatico del sistema operativo
@@ -76,11 +76,13 @@ Attualmente sono supportate solo alcune immagini della piattaforma del sistema o
 
 Attualmente sono supportati i seguenti SKU (ne verranno aggiunti altri a breve):
     
-| Autore               | Offerta         |  Sku               | Versione  |
+| Editore               | Offerta         |  Sku               | Version  |
 |-------------------------|---------------|--------------------|----------|
+| Canonical               | UbuntuServer  | 16.04-LTS          | più recenti   |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | più recenti   |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    | più recenti   |
-| Canonical               | UbuntuServer  | 16.04-LTS          | più recenti   |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk | più recenti   |
+
 
 
 ## <a name="application-health"></a>Integrità dell'applicazione
@@ -90,6 +92,15 @@ Un set di scalabilità può facoltativamente essere configurato con probe di int
 
 Se il set di scalabilità è configurato per l'uso di più gruppi di posizionamento, è necessario usare probe con un [servizio di bilanciamento del carico standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
+### <a name="important-keep-credentials-up-to-date"></a>Importante: Mantenere le credenziali aggiornate
+Se il set di scalabilità utilizza le credenziali per accedere alle risorse esterne, ad esempio se è configurata un'estensione della macchina virtuale che utilizza un token di firma di accesso condiviso per l'account di archiviazione, è necessario assicurarsi che le credenziali vengono aggiornate. Se le credenziali, inclusi i certificati e i token scaduti, l'aggiornamento avrà esito negativo e il primo batch di macchine virtuali verrà lasciato in uno stato di errore.
+
+Le procedure consigliate per ripristinare le macchine virtuali e abilitare di nuovo l'aggiornamento automatico del sistema operativo se si verifica un errore di autenticazione della risorsa sono:
+
+* Rigenerare il token (o qualsiasi altra credenziale) passata l'estensione.
+* Verificare che le credenziali utilizzate all'interno della macchina virtuale per comunicare con le entità esterne siano aggiornata.
+* Aggiornare le estensioni del modello di set di scalabilità con eventuali nuovi token.
+* Distribuire il set di scalabilità aggiornato che aggiornerà tutte le istanze di macchina virtuale, inclusi quelli non riusciti. 
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>Configurazione di un probe di bilanciamento del carico personalizzato come probe di integrità dell'applicazione in un set di scalabilità
 Come procedura consigliata, creare un probe di bilanciamento del carico in modo esplicito per l'integrità del set di scalabilità. Può essere usato lo stesso endpoint per un probe HTTP o TCP esistente, ma un probe di integrità può richiedere un comportamento diverso da un probe di bilanciamento del carico tradizionale. Ad esempio, un probe di bilanciamento del carico tradizionale può restituire uno stato non integro se il carico sull'istanza è troppo elevato, mentre questo potrebbe non essere appropriato per determinare l'integrità dell'istanza durante un aggiornamento automatico del sistema operativo. Configurare il probe con un tasso di probing elevato, inferiore a due minuti.

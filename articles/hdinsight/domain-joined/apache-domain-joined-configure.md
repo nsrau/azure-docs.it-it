@@ -13,244 +13,153 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 12/15/2017
 ms.author: saurinsh
-ms.openlocfilehash: 649d138a85ca47440e43c00637ee92b86f4eb03e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: 0a9ed1cad8b8d4c566a0da16ac78d096efe187a5
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/19/2017
 ---
-# <a name="configure-domain-joined-hdinsight-clusters"></a>Configurare i cluster HDInsight aggiunti al dominio
+# <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>Configurare l'ambiente sandbox dominio HDInsight
 
-In questo articolo viene descritto come configurare un cluster Azure HDInsight con Azure Active Directory (Azure AD) e [Apache Ranger](http://hortonworks.com/apache/ranger/) per sfruttare criteri avanzati di autenticazione e controllo degli accessi in base al ruolo.  HDInsight aggiunto al dominio può essere configurato solo nei cluster basati su Linux. Per altre informazioni, consultare [Introduce Domain-joined HDInsight clusters](apache-domain-joined-introduction.md) (Introduzione ai cluster HDInsight aggiunti al dominio).
+Informazioni su come configurare un cluster Azure HDInsight con la versione autonoma di Active Directory e [cane Apache](http://hortonworks.com/apache/ranger/) per sfruttare i criteri di controllo degli accessi di autenticazione avanzata e un accesso basato sui ruoli. Per altre informazioni, consultare [Introduce Domain-joined HDInsight clusters](apache-domain-joined-introduction.md) (Introduzione ai cluster HDInsight aggiunti al dominio).
+
+Senza dominio aggiunti a un cluster HDInsight, ogni cluster può avere solo un account utente Hadoop HTTP e un account utente SSH.  È possibile ottenere l'autenticazione a più utenti utilizzando:
+
+-   Un computer autonomo Active Directory in esecuzione in Azure IaaS
+-   Azure Active Directory
+-   Active Directory in esecuzione in ambiente locale del cliente.
+
+L'utilizzo di un autonomo Active Directory in esecuzione in Azure IaaS viene trattato in questo articolo. È l'architettura più semplice di che un cliente può seguire per ottenere il supporto di più utenti in HDInsight. 
 
 > [!IMPORTANT]
-> Oozie non è abilitato su HDInsight aggiunto al dominio.
+> Oozie non è abilitato su HDInsight appartenente al dominio.
 
-Questo articolo è la prima esercitazione di una serie:
+## <a name="prerequisite"></a>Prerequisito
+* Sottoscrizione di Azure
 
-* Creare un cluster HDInsight connesso ad Azure AD (tramite la funzionalità Azure Directory Domain Services) con Apache Ranger abilitato.
-* Creare e applicare criteri Hive tramite Apache Ranger e consentire agli utenti (ad esempio, i ricercatori) di connettersi a Hive usando strumenti basati su ODBC, come Excel, Tableau e così via. Microsoft sta lavorando per aggiungere presto altri carichi di lavoro, ad esempio HBase e Storm, a HDInsight aggiunto al dominio.
+## <a name="create-an-active-directory"></a>Creare un ambiente Active Directory
 
-I nomi dei servizi di Azure devono essere globalmente univoci. In questa esercitazione vengono usati i nomi seguenti. Contoso è un nome fittizio. Sostituire *contoso* con un nome diverso quando si svolge l'esercitazione. 
+Modello di gestione risorse di Azure rende più semplice creare risorse di Azure. In questa sezione, utilizzare un [modello di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/active-directory-new-domain-ha-2-dc/) per creare una nuova foresta e del dominio con due macchine virtuali. Due macchine virtuali fungere da controller di dominio primario e un controller di dominio di backup.
 
-**Nomi:**
+**Per creare un dominio con due controller di dominio**
 
-| Proprietà | Valore |
-| --- | --- |
-| Directory di Azure AD |contosoaaddirectory |
-| Nome di dominio di Azure AD |contoso (contoso.onmicrosoft.com) |
-| Rete virtuale di HDInsight |contosohdivnet |
-| Gruppo di risorse della rete virtuale di HDInsight |contosohdirg |
-| Cluster HDInsight |contosohdicluster |
+1. Fare clic sull'immagine seguente per aprire il modello nel portale di Azure.
 
-In questa esercitazione sono illustrati i passaggi per configurare un cluster HDInsight aggiunto al dominio. In ogni sezione sono riportati i link ad altri articoli con maggiori informazioni.
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="./media/apache-domain-joined-configure/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-## <a name="prerequisite"></a>Prerequisiti:
-* Acquisire familiarità con [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) e con la struttura dei [prezzi](https://azure.microsoft.com/pricing/details/active-directory-ds/).
-* Assicurarsi che la sottoscrizione sia consentita per questa anteprima pubblica. Per farlo, è possibile inviare un messaggio di posta elettronica a hdipreview@microsoft.com con l'ID sottoscrizione.
-* Un certificato SSL firmato da un'autorità di firma o un certificato autofirmato per il dominio. Il certificato è richiesto per la configurazione dell'accesso LDAP sicuro.
+    Il modello è simile a:
 
-## <a name="procedures"></a>Procedures
-1. Creare una rete virtuale di HDInsight in modalità Azure Resource Manager.
-2. Creare e configurare Azure AD e Azure AD DS.
-3. Creare un cluster HDInsight
+    ![Aggiunto a un dominio di HDInsight creare macchine virtuali del dominio dell'insieme di strutture](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-arm-template.png)
 
-> [!NOTE]
-> In questa esercitazione si presuppone che non sia disponibile un account Azure. Se si dispone di un account, è possibile ignorare questo passaggio.
-> 
-> 
+2. Immettere i valori seguenti:
 
-## <a name="create-a-resource-manager-vnet-for-hdinsight-cluster"></a>Creare una rete virtuale di Resource Manager per un cluster HDInsight
-In questa sezione si creerà una rete virtuale di Azure Resource Manager che verrà usata per il cluster HDInsight. Per altre informazioni sulla creazione di una rete virtuale di Azure usando altri metodi, vedere [Creare una rete virtuale](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+    - **Sottoscrizione**: selezionare una sottoscrizione di Azure.
+    - **Nome del gruppo di risorse**: digitare il nome di un gruppo di risorse.  Un gruppo di risorse viene utilizzato per gestire le risorse di Azure che sono correlate a un progetto.
+    - **Percorso**: selezionare una località di Azure è vicino a è.
+    - **Nome utente amministratore**: questo è il nome utente amministratore di dominio. Questo utente non è l'account utente HTTP del cluster HDInsight. Questo è l'account utilizzato nel corso dell'esercitazione.
+    - **Password amministratore**: immettere la password per l'amministratore di dominio.
+    - **Nome di dominio**: il nome di dominio deve essere un nome in due parti. Ad esempio: contoso.com, o contoso. Local o hdinsight.test.
+    - **Prefisso DNS**: digitare un prefisso DNS
+    - **La porta RDP PDC**: (per questa esercitazione, usare il valore predefinito)
+    - **Integrazione applicativa dei dati la porta RDP**: (per questa esercitazione, usare il valore predefinito)
+    - **posizione degli elementi**: (per questa esercitazione, usare il valore predefinito)
+    - **token di firma di accesso condiviso percorso elementi**: (lasciare vuoto per questa esercitazione.)
 
-Dopo aver creato la rete virtuale, si configurerà Active Directory Domain Services per l'uso di questa rete virtuale.
+Impiegato circa 20 minuti per creare le risorse.
 
-**Per creare una rete virtuale di Resource Manager**
+## <a name="setup-ldaps"></a>Programma di installazione LDAPS
+
+Lightweight Directory Access Protocol (LDAP) viene utilizzato per leggere e scrivere in Active Directory.
+
+**Per connettersi al controller di dominio primario tramite desktop remoto**
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Fare clic su **Nuovo**, quindi su **Rete** e infine su **Rete virtuale**. 
-3. In **Selezionare un modello di distribuzione** scegliere **Resource Manager** e quindi fare clic su **Crea**.
-4. Digitare o selezionare i valori seguenti:
-   
-   * **Nome**: contosohdivnet
-   * **Spazio indirizzi**: 10.0.0.0/16.
-   * **Nome subnet**: Subnet1
-   * **Subnet address range**: 10.0.0.0/24
-   * **Sottoscrizione**: (selezionare una sottoscrizione di Azure.)
-   * **Gruppo di risorse**: contosohdirg
-   * **Percorso**: selezionare lo stesso percorso delle macchine virtuali di Azure Active Directory. Ad esempio, contosoaadvnet.
-5. Fare clic su **Crea**.
+2. Aprire il gruppo di risorse e quindi aprire la macchina virtuale di dominio primario (PDC) controller. Il nome PDC predefinito è adPDC. 
+3. Fare clic su **Connetti** per connettersi al controller di dominio primario tramite desktop remoto.
 
-**Per configurare DNS per la rete virtuale di Resource Manager**
+    ![Aggiunto a un dominio di HDInsight connessione desktop remoto PDC](./media/apache-domain-joined-configure/hdinsight-domain-joined-remote-desktop-pdc.png)
 
-1. Nel [portale di Azure](https://portal.azure.com) fare clic su **More services** >  (Altri servizi) **Reti virtuali**. Assicurarsi di non fare clic su **Reti virtuali (classico)**.
-2. Fare clic su **contosohdivnet**.
-3. Fare clic su **Server DNS** nel lato sinistro del nuovo pannello.
-4. Fare clic su **Personalizzato** e immettere i valori seguenti:
-   
-   * 10.0.0.4
-   * 10.0.0.5     
-     
-5. Fare clic su **Salva**.
 
-## <a name="create-and-configure-azure-ad-ds-for-your-azure-ad"></a>Creare e configurare Azure AD DS per Azure AD
-In questa sezione si svolgeranno le seguenti operazioni:
+**Per aggiungere i servizi certificati di Active Directory**
 
-1. Creare Azure AD.
-2. Creare utenti di Azure AD. Questi utenti sono gli utenti del dominio. Il primo utente viene usato per configurare il cluster HDInsight con Azure AD.  Gli altri due utenti sono facoltativi per questa esercitazione. Verranno usati in [Configure Hive policies for Domain-joined HDInsight clusters](apache-domain-joined-run-hive.md) (Configurare criteri Hive per cluster HDInsight aggiunti al dominio) quando si creano criteri Apache Ranger.
-3. Creare il gruppo di amministratori di AAD DC e aggiungere l'utente di Azure AD al gruppo. Questo utente viene usato per creare l'unità organizzativa.
-4. Abilitare Azure AD Domain Services (Azure AD DS) per Azure AD.
-5. Configurare LDAPS per Azure AD. Lightweight Directory Access Protocol (LDAP) viene usato per leggere e scrivere in Azure AD.
+4. Aprire **Server Manager** se non è aperto.
+5. Fare clic su **Gestisci**, quindi fare clic su **Aggiungi ruoli e funzionalità**.
 
-Se si preferisce usare un Azure AD esistente, è possibile ignorare i passaggi 1 e 2.
+    ![Aggiunto a un dominio di HDInsight Aggiungi ruoli e funzionalità](./media/apache-domain-joined-configure/hdinsight-domain-joined-add-roles.png)
+5. Da "Prima di iniziare", fare clic su **Avanti**.
+6. Selezionare **Installazione basata su ruoli o basata su funzionalità**, quindi fare clic su **Avanti**.
+7. Selezionare il PDC e quindi fare clic su **Avanti**.  Il nome PDC predefinito è adPDC.
+8. Selezionare **Servizi certificati Active Directory**.
+9. Fare clic su **Aggiungi funzionalità** dalla finestra di dialogo popup.
+10. Seguire la procedura guidata, usare le impostazioni predefinite per il resto della procedura.
+11. Fare clic su **Chiudi** per chiudere la procedura guidata.
 
-**Per creare Azure AD**
+**Per configurare il certificato di Active Directory**
 
-1. Nel [portale di Azure classico](https://manage.windowsazure.com) fare clic su **Nuovo** > **Servizi app** > **Active Directory** > **Directory** > **Creazione personalizzata**. 
-2. Immettere o selezionare i valori seguenti:
-   
-   * **Nome**: contosoaaddirectory
-   * **Nome di dominio**: contoso.  Il nome deve essere univoco a livello globale.
-   * **Paese o area geografica**: selezionare il paese o l'area.
-3. Fare clic su **Complete**.
+1. In Server Manager fare clic sull'icona di notifica gialla e quindi fare clic su **servizi configurare Active Directory certificati**.
 
-**Creare un utente di Azure AD**
+    ![Aggiunto a un dominio di HDInsight consente di configurare il certificato di Active Directory](./media/apache-domain-joined-configure/hdinsight-domain-joined-configure-ad-certificate.png)
 
-1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** > **contosoaaddirectory** > **Utenti e gruppi**. 
-2. Fare clic su **Tutti gli utenti** nel menu.
-3. Fare clic su **Nuovo utente**.
-4. Immettere un valore nei campi **Nome** e **Nome utente** e quindi fare clic su **Avanti**. 
-5. Configurare il profilo utente. In **Ruolo** selezionare **Amministratore globale**, quindi **Avanti**.  Il ruolo di amministratore globale serve per creare unità organizzative.
-6. Creare una copia della password temporanea.
-7. Fare clic su **Crea**. Più avanti in questa esercitazione si userà questo utente amministratore globale per creare il cluster HDInsight.
+2. Fare clic su * * selezionare servizi di ruolo a sinistra, **autorità di certificazione**, quindi fare clic su **Avanti**.
+3. Seguire la procedura guidata, usare le impostazioni predefinite per il resto della procedura (fare clic su **configura** l'ultimo passaggio).
+4. Fare clic su **Chiudi** per chiudere la procedura guidata.
 
-Seguire la stessa procedura per creare altri due utenti con **ruolo utente** hiveuser1 e hiveuser2. Questi utenti verranno usati in [Configure Hive policies for Domain-joined HDInsight clusters](apache-domain-joined-run-hive.md) (Configurare criteri Hive per cluster HDInsight aggiunti al dominio).
+## <a name="optional-create-ad-users-and-groups"></a>(Facoltativo) Creare gruppi di utenti e Active Directory
 
-**Per creare il gruppo di amministratori di AAD DC e aggiungere un utente di Azure AD**
+**Per creare utenti e gruppi in Active Directory**
+1. Connettersi al controller di dominio primario tramite desktop remoto
+1. Aprire **utenti e computer Active Directory**.
+2. Nel riquadro a sinistra, selezionare il nome di dominio.
+3. Fare clic su di **creare un nuovo utente nel contenitore corrente** icona nel menu in alto.
 
-1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure Active Directory** > **contosoaaddirectory** > **Utenti e gruppi**. 
-2. Fare clic su **Tutti i gruppi** nel menu in alto.
-3. Fare clic su **Nuovo gruppo**.
-4. Immettere o selezionare i valori seguenti:
-   
-   * **Nome**: AAD DC Administrators.  Non modificare il nome del gruppo.
-   * **Tipo di appartenenza**: assegnato.
-5. Fare clic su **Seleziona**.
-6. Fare clic su **Membri**.
-7. Selezionare il primo utente creato nel passaggio precedente e fare clic su **Seleziona**.
-8. Ripetere gli stessi passaggi per creare un altro gruppo di nome **HiveUsers** e aggiungere i due utenti di Hive al gruppo.
+    ![Gli utenti di creare aggiunti a un dominio di HDInsight](./media/apache-domain-joined-configure/hdinsight-domain-joined-create-ad-user.png)
+4. Seguire le istruzioni per creare alcuni utenti. Ad esempio, hiveuser1 e hiveuser2.
+5. Fare clic su di **creare un nuovo gruppo nel contenitore corrente** icona nel menu in alto.
+6. Seguire le istruzioni per creare un gruppo denominato **HDInsightUsers**.  Questo gruppo viene usato quando si crea un cluster HDInsight più avanti in questa esercitazione.
 
-Per altre informazioni vedere [Servizi di dominio Azure AD (anteprima) - Creare il gruppo "AAD DC Administrators"](../../active-directory-domain-services/active-directory-ds-getting-started.md).
+> [!IMPORTANT]
+> Prima di creare un cluster di HDInsight appartenenti a un dominio, è necessario riavviare la macchina virtuale PDC.
 
-**Per abilitare Azure AD DS per Azure AD**
+## <a name="create-an-hdinsight-cluster-in-the-vnet"></a>Creare un cluster HDInsight nella rete virtuale
 
-1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Crea una risorsa** > **Sicurezza e identità** > **Azure AD Domain Services** > **Aggiungi**. 
-2. Immettere o selezionare i valori seguenti:
-   * **Nome directory**: contosoaaddirectory
-   * **Nome di dominio DNS**: mostra il nome DNS predefinito della directory di Azure. Ad esempio, contoso.onmicrosoft.com.
-   * **Località**: selezionare un'area.
-   * **Rete**: selezionare la rete virtuale e la subnet create in precedenza. Ad esempio, **contosohdivnet**.
-3. Fare clic su **OK** nella pagina di riepilogo. Sotto le notifiche verrà visualizzato il messaggio **Distribuzione in corso**.
-4. Attendere che non sia più visualizzato **Distribuzione in corso** e che compaiano dati nel campo **Indirizzo IP**. Verranno inseriti due indirizzi IP. Si tratta degli indirizzi IP dei controller di dominio di cui Domain Services ha effettuato il provisioning. Ogni indirizzo IP sarà visibile dopo che sarà stato effettuato il provisioning del controller di dominio corrispondente e quando questo sarà pronto. Annotare i due indirizzi IP. saranno necessarie più avanti.
+In questa sezione, utilizzare il portale di Azure per aggiungere un cluster HDInsight alla rete virtuale creata utilizzando il modello di gestione risorse in precedenza nell'esercitazione. In questo articolo descrive solo le informazioni specifiche per la configurazione di cluster appartenenti a un dominio.  Per informazioni generali, vedere [basati su Linux creare cluster HDInsight tramite il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).  
 
-Per altre informazioni vedere [Abilitare Azure Active Directory Domain Services tramite il portale di Azure](../../active-directory-domain-services/active-directory-ds-getting-started.md).
-
-**Per sincronizzare la password**
-
-Se si usa il proprio dominio, è necessario sincronizzare la password. Vedere [Abilitare la sincronizzazione password in Azure AD Domain Services per una directory di Azure AD solo cloud](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
-
-**Per configurare LDAPS per Azure AD**
-
-1. Ottenere un certificato SSL firmato da un'autorità di firma per il dominio.
-2. Nel [portale di Azure](https://portal.azure.com) fare clic su **Azure AD Domain Services** > **contoso.onmicrosoft.com**. 
-3. Abilitare **LDAP sicuro**.
-6. Seguire le istruzioni per specificare il file del certificato e la password.  
-7. Attendere che compaiano dati nel campo **Certificato LDAP sicuro**. Questa operazione può richiedere 10 minuti o più.
-
-> [!NOTE]
-> Se sono in corso alcune attività in background in Azure AD DS, potrebbe essere visualizzato un errore durante il caricamento del certificato <i>There is an operation being performed for this tenant. Please try again later</i> (È in corso un'operazione per questo tenant. Riprovare più tardi).  Nel caso in cui si verificasse questo errore, riprovare più tardi. Il provisioning del secondo indirizzo IP del controller di dominio potrebbe richiedere fino a 3 ore.
-> 
-> 
-
-Per altre informazioni, vedere [Configurare l'accesso LDAP sicuro (LDAPS) per un dominio gestito di Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
-
-## <a name="create-hdinsight-cluster"></a>Creare un cluster HDInsight
-In questa sezione viene creato un cluster Hadoop basato su Linux in HDInsight usando il portale di Azure o il [modello di Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md). Per altri metodi di creazione di cluster e per informazioni sulle impostazioni, vedere l'articolo sulla [creazione di cluster HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Per altre informazioni sull'uso di un modello di Resource Manager per creare cluster Hadoop in HDInsight, vedere [Creare cluster Hadoop in HDInsight tramite modelli di Resource Manager](../hdinsight-hadoop-create-windows-clusters-arm-templates.md)
-
-**Per creare un cluster HDInsight aggiunto al dominio usando il portale di Azure**
+**Per creare un cluster di HDInsight appartenenti a un dominio**
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Fare clic su **Nuovo**, **Intelligence e analisi**, quindi su **HDInsight**.
-3. Nel pannello **Nuovo cluster HDInsight** immettere o selezionare i valori seguenti:
-   
-   * **Nome cluster**: immettere un nuovo nome per il cluster HDInsight aggiunto al dominio.
-   * **Sottoscrizione**: selezionare la sottoscrizione di Azure usata per creare il cluster.
-   * **Configurazione cluster**:
-     
-     * **Tipo di cluster**: Hadoop. HDInsight aggiunto al dominio è attualmente supportato solo nei cluster Hadoop, Spark e Interactive Query.
-     * **Sistema operativo**: Linux.  HDInsight aggiunto al dominio è supportato solo nei cluster HDInsight basati su Linux.
-     * **Versione**: HDI 3.6. HDInsight aggiunto al dominio è supportato solo nei cluster HDInsight versione 3.6.
-     * **Tipo di cluster**: PREMIUM
-       
-       Fare clic su **Seleziona** per salvare le modifiche.
-   * **Credenziali**: configurare le credenziali sia per l'utente del cluster che per l'utente SSH.
-   * **Origine dati**: creare un nuovo account di archiviazione oppure usarne uno esistente come account di archiviazione predefinito per il cluster HDInsight. La posizione deve essere la stessa delle due reti virtuali.  La posizione corrisponde anche a quella del cluster HDInsight.
-   * **Prezzi**: selezionare il numero di nodi del ruolo di lavoro del cluster.
-   * **Configurazioni avanzate**: 
-     
-     * **Aggiunta al dominio e rete virtuale/subnet**: 
-       
-       * **Impostazioni dominio**: 
-         
-         * **Nome dominio**: contoso.onmicrosoft.com
-         * **Domain user name** (Nome utente dominio): immettere il nome dell'utente del dominio. Questo dominio deve disporre i seguenti privilegi: aggiunta di computer al dominio e inserimento nell'unità organizzativa specificata durante la creazione del cluster; creazione di entità di servizio nell'unità organizzativa configurata in precedenza; creazione di voci di DNS inverso. Questo utente del dominio diventerà l'amministratore di HDInsight aggiunto al dominio.
-         * **Password del dominio**: immettere la password del dominio.
-         * **Unità organizzativa**: immettere il nome distinto dell'unità organizzativa che si desidera usare con il cluster HDInsight. Ad esempio: OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com. Se questa unità organizzativa non esiste, il cluster HDInsight tenterà di creare questa unità operativa. Assicurarsi che l'unità Organizzativa sia già presente o che l'account di dominio disponga delle autorizzazioni per crearne uno nuovo. Se si usa l'account di dominio che fa parte degli amministratori AADDC, si disporrà delle autorizzazioni necessarie per creare l'unità organizzativa.
-         * **URL LDAPS**: ldaps://contoso.onmicrosoft.com:636
-         * **Access user group** (Gruppo di utenti con accesso): specificare il gruppo di protezione di cui si desidera sincronizzare gli utenti con il cluster. Ad esempio, HiveUsers.
-           
-           Fare clic su **Seleziona** per salvare le modifiche.
-           
-           ![Configurazione dell'impostazione del dominio nel portale HDInsight aggiunto al dominio](./media/apache-domain-joined-configure/hdinsight-domain-joined-portal-domain-setting.png)
-       * **Rete virtuale**: contosohdivnet
-       * **Subnet**: Subnet1
-         
-         Fare clic su **Seleziona** per salvare le modifiche.        
-         Fare clic su **Seleziona** per salvare le modifiche.
-   * **Gruppo di risorse**: selezionare il gruppo di risorse usato per la rete virtuale HDInsight (contosohdirg).
-4. Fare clic su **Crea**.  
+2. Aprire il gruppo di risorse che è stato creato utilizzando il modello di gestione risorse in precedenza nell'esercitazione.
+3. Aggiungere un cluster HDInsight al gruppo di risorse.
+4. Selezionare **personalizzato** opzione:
 
-Un'altra opzione per creare un cluster HDInsight aggiunto al dominio consiste nell'usare il modello di Azure Resource Manager. Per capire come, leggere la procedura seguente:
+    ![Opzione create HDInsight aggiunti a un dominio personalizzato](./media/apache-domain-joined-configure/hdinsight-domain-joined-portal-custom-configuration-option.png)
 
-**Per creare un cluster HDInsight aggiunto al dominio usando un modello di Resource Manager**
+    Sono presenti sei sezioni usando l'opzione di configurazione personalizzato: nozioni di base, archiviazione, applicazione, dimensioni del Cluster, le impostazioni avanzate e riepilogo.
+5. Nel **nozioni di base** sezione:
 
-1. Fare clic sull'immagine seguente per aprire un modello di Resource Manager nel portale di Azure. Il modello di Resource Manager è disponibile in un contenitore BLOB pubblico. 
-   
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="./media/apache-domain-joined-configure/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. Nel pannello **Parametri** inserire i valori seguenti:
-   
-   * **Sottoscrizione**: (selezionare una sottoscrizione di Azure).
-   * **Gruppo di risorse**: fare clic su **Usa esistenti** e specificare lo stesso gruppo di risorse usate fino a questo momento.  Ad esempio, contosohdirg. 
-   * **Posizione**: specificare la posizione del gruppo di risorse.
-   * **Nome cluster**: immettere un nome per il cluster Hadoop che verrà creato. Ad esempio, contosohdicluster.
-   * **Tipo di cluster**: selezionare un tipo di cluster.  Il valore predefinito è **hadoop**.
-   * **Posizione**: selezionare una posizione per il cluster.  L'account di archiviazione predefinito usa la stessa posizione.
-   * **Cluster Worker Node count** (Numero nodi ruolo di lavoro cluster): selezionare il numero di nodi del ruolo di lavoro.
-   * **Cluster login name and password**: il nome dell'account di accesso predefinito è **admin**.
-   * **SSH username and password**: il nome utente predefinito è **sshuser**.  È possibile rinominarlo. 
-   * **ID rete virtuale**: /subscriptions/&lt;SubscriptionID&gt;/resourceGroups/&lt;ResourceGroupName&gt;/providers/Microsoft.Network/virtualNetworks/&lt;VNetName&gt;
-   * **Subnet rete virtuale**: /subscriptions/&lt;SubscriptionID&gt;/resourceGroups/&lt;ResourceGroupName&gt;/providers/Microsoft.Network/virtualNetworks/&lt;VNetName&gt;/subnets/Subnet1
-   * **Nome dominio**: contoso.onmicrosoft.com
-   * **Organization Unit DN** (DN unità organizzativa): OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com
-   * **Gruppo di utenti cluster DNs**: [\"UtentiHive\"]
-   * **URL LDAP**: ["ldaps://contoso.onmicrosoft.com:636"]
-   * **DomainAdminUserName** (Nome utente amministratore dominio): (immettere il nome dell'utente amministratore del dominio)
-   * **DomainAdminPassword** (Password amministratore dominio): (immettere la password dell'utente amministratore del dominio)
-   * **Accetto le condizioni riportate sopra**: (selezionare)
-   * **Aggiungi al dashboard**: (selezionare)
-3. Fare clic su **Acquista**. Verrà visualizzato un nuovo riquadro con nome **Distribuzione dell'entità Distribuzione modello in corso**. La creazione di un cluster richiede circa 20 minuti. Dopo aver creato il cluster, è possibile fare clic sul pannello del cluster nel portale per aprirlo.
+    - Tipo di cluster: selezionare **pacchetto di sicurezza Enterprise**. Attualmente il pacchetto di protezione aziendale può essere abilitato solo per i seguenti tipi di cluster: Hadoop, Query interattive e Spark.
+
+        ![Pacchetto di sicurezza enterprise aggiunti a un dominio di HDInsight](./media/apache-domain-joined-configure/hdinsight-creation-enterprise-security-package.png)
+    - Nome utente account di accesso del cluster: questo è l'utente di Hadoop HTTP. Questo account è diverso dall'account di amministratore di dominio.
+    - Gruppo di risorse: selezionare il gruppo di risorse creati in precedenza con il modello di gestione risorse.
+    - Percorso: Il percorso deve essere uguale a quello utilizzato quando si crea la rete virtuale e i controller di dominio utilizzando il modello di gestione risorse.
+
+6. Nel **impostazioni avanzate** sezione:
+
+    - Impostazioni di dominio:
+
+        ![HDInsight dominio dominio impostazioni avanzate](./media/apache-domain-joined-configure/hdinsight-domain-joined-portal-advanced-domain-settings.png)
+        
+        - Nome di dominio: immettere il nome di dominio è stato utilizzato in [creare un ambiente Active Directory](#create-an-active-directory).
+        - Nome utente di dominio: immettere il nome utente amministratore di Active Directory è stato utilizzato in [creare un ambiente Active Directory](#create-an-active-directory).
+        - Unità organizzativa: Vedere la schermata per un esempio.
+        - URL LDAPS: Vedere la schermata per un esempio
+        - Il gruppo di utenti di accesso: immettere il nome del gruppo utente creato nel [Create AD utenti e gruppi](#optionally-createad-users-and-groups)
+    - Rete virtuale: selezionare la rete virtuale è stato creato in [creare un ambiente Active Directory](#create-an-active-directory). Il nome predefinito utilizzato nel modello è **adVNET**.
+    - Subnet: È il nome predefinito utilizzato nel modello **adSubnet**.
+
+
 
 Al termine dell'esercitazione, è consigliabile eliminare il cluster. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non viene usato. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, economicamente ha senso eliminare i cluster quando non vengono usati. Per istruzioni sull'eliminazione di un cluster, vedere [Gestire cluster Hadoop in HDInsight tramite il portale di Azure](../hdinsight-administer-use-management-portal.md#delete-clusters).
 

@@ -1,31 +1,33 @@
 ---
 title: Risolvere problemi relativi ad Azure Migrate | Microsoft Docs
 description: Questo articolo offre una panoramica dei problemi noti relativi al servizio Azure Migrate e alcuni suggerimenti per la risoluzione degli errori comuni.
-services: migrate
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 40faffa3f-1f44-4a72-94bc-457222ed7ac8
-ms.service: migrate
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/22/2017
+ms.service: azure-migrate
+ms.topic: troubleshooting
+ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 8c7c79a23ee09a7de35252d7819d1f0e5b1d98c5
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: 1fcc9e12e63eda73d53ae2085bc2a64d31ea2067
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="troubleshoot-azure-migrate"></a>Risolvere i problemi relativi ad Azure Migrate
 
 ## <a name="troubleshoot-common-errors"></a>Risoluzione dei problemi comuni
 
-[Azure Migrate](migrate-overview.md) esegue la valutazione dei carichi di lavoro locali per la migrazione in Azure. Attenersi a questo articolo per risolvere i problemi che possono verificarsi durante la distribuzione e l'utilizzo di Azure Migrate.
+[Azure Migrate](migrate-overview.md) valuta i carichi di lavoro locali per la migrazione ad Azure. Attenersi a questo articolo per risolvere i problemi che possono verificarsi durante la distribuzione e l'utilizzo di Azure Migrate.
 
+
+**Agente di raccolta non è in grado di connettersi a internet**
+
+Ciò può verificarsi quando il computer in uso è dietro un proxy. Assicurarsi di fornire le credenziali di autorizzazione, se è necessario uno il proxy.
+Se si utilizza qualsiasi proxy firewall basato su URL per controllare la connettività in uscita, assicurarsi che all'elenco elementi consentiti queste richieste di URL:
+
+**URL** | **Scopo**  
+--- | ---
+*. portal.azure.com | Necessario per verificare la connettività al servizio di Azure e convalidare la sincronizzazione dell'ora problemi.
+*. oneget.org | Richiesto per il download di powershell in base vCenter PowerCLI modulo.
 
 **L'agente di raccolta non riesce a connettersi al progetto usando l'ID progetto e la chiave copiata dal portale.**
 

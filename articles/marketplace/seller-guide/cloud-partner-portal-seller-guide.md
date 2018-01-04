@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: divacc@microsoft.com
-ms.openlocfilehash: 0985c7da429202cc6003df73c6ca17714b5a1287
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 9a9e9b3116c0d787162284197c8dbbd77374cff3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-marketplace-seller-guide"></a>Guida per i venditori di Azure Marketplace
 
 Benvenuti alla Guida per i venditori di Azure Marketplace. Questa guida è destinata agli utenti aziendali e ai responsabili di prodotto presso i fornitori di software indipendenti (ISV) che desiderano vendere le proprie immagini di macchina virtuale di Azure certificate e le proprie applicazioni gestite a professionisti IT e sviluppatori. Azure ha clienti in tutto il mondo e [Azure Marketplace](https://azuremarketplace.microsoft.com/) offre ampia copertura ed esposizione per i prodotti.
 
 > [!NOTE]
-> Se si è interessati a vendere la propria [applicazione gestita](https://docs.microsoft.com/en-us/azure/managed-applications/overview), seguire la procedura per inserirla in Azure Marketplace riportata [qui](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+> Se si è interessati a vendere la propria [applicazione gestita](https://docs.microsoft.com/azure/managed-applications/overview), seguire la procedura per inserirla in Azure Marketplace riportata [qui](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app).
 
 > [!NOTE]
 > Se si è interessati a vendere i propri prodotti software-as-a-service (SaaS) finiti a _sviluppatori e professionisti IT_, è possibile inviare un'email all'indirizzo saas-on-amp@microsoft.com per ottenere altre informazioni sulle opzioni disponibili.
@@ -72,8 +72,8 @@ A questo punto è lecito chiedersi se Azure Marketplace sia la scelta adatta per
 
 - **Vendere in nuovi mercati con un portfolio ampliato di soluzioni in Azure**. Si tratta dell'opportunità di usare upselling e cross-selling delle offerte del Marketplace con i servizi di Azure disponibili per i clienti Microsoft Online Subscription Program (MOSP) e Microsoft Enterprise Agreement. È possibile incorporare facilmente offerte del Marketplace nella soluzione dei clienti e nello scenario di Azure.
 - **Migliorare il valore aziendale e aumentare le dimensioni dell'offerta con account di clienti nuovi ed esistenti**. Il Marketplace può aiutare ad aumentare la dimensione dell'offerta, a risolvere i punti deboli del cliente durante lo spostamento dei carichi di lavoro nel cloud e ad aumentare la redditività dell'offerta. È possibile aumentare il valore dell'azienda vendendo soluzioni complete e risolvendo le falle della piattaforma cloud di Azure per soddisfare le richieste del cliente.
-- **Ricorrere a una più vasta gamma di potenziali clienti vendendo applicazioni e servizi e del Marketplace**. Il Marketplace può rendere più semplice trovare e mantenere i nuovi clienti. Molte aziende oggi hanno bisogno di carichi di lavoro di transizione al cloud e si adattano ad ambienti di infrastruttura in continua evoluzione. È possibile fornire servizi e applicazioni adeguati per aiutare i clienti a colmare il divario.
-- **Integrare ed estendere la funzionalità Azure raggruppando le offerte con servizi di Azure Marketplace**. Marketplace consente di creare conversazioni basate su scenario con i clienti. È anche possibile risolvere le falle specifiche della piattaforma e le esigenze del cliente parlando delle soluzioni end-to-end. Infine, con la vendita dei pacchetti di soluzioni, è possibile utilizzare l'ecosistema della piattaforma Azure per risolvere numerosi problemi del cliente e aumentare le vendite.
+- **Ricorrere a una vasta gamma di potenziali clienti dalla vendita di servizi e applicazioni Marketplace**. Il Marketplace può rendere più semplice trovare e mantenere i nuovi clienti. Molte aziende oggi hanno bisogno di carichi di lavoro di transizione al cloud e si adattano ad ambienti di infrastruttura in continua evoluzione. È possibile fornire servizi e applicazioni adeguati per aiutare i clienti a colmare il divario.
+- **Completare ed estendere la funzionalità Azure raggruppando le offerte con servizi di Azure Marketplace**. Marketplace consente di creare conversazioni basate su scenario con i clienti. È anche possibile risolvere le falle specifiche della piattaforma e le esigenze del cliente parlando delle soluzioni end-to-end. Infine, con la vendita dei pacchetti di soluzioni, è possibile utilizzare l'ecosistema della piattaforma Azure per risolvere numerosi problemi del cliente e aumentare le vendite.
 
 ## <a name="what39s-the-customer-base-for-the-marketplace"></a>Qual è la base clienti per il Marketplace?
 
@@ -100,7 +100,7 @@ Figura 1: Processo per la vendita in Azure Marketplace
 A seconda del carico di lavoro (macchina virtuale o applicazione gestita) che si intende pubblicare, si segue un processo diverso per pubblicare l'offerta. Il contenuto seguente è incentrato sulla pubblicazione di _offerte di macchina virtuale_.
 
 > [!NOTE]
-> Se si è interessati a vendere la propria [applicazione gestita](https://docs.microsoft.com/en-us/azure/managed-applications/overview), seguire la procedura per inserirla in Azure Marketplace riportata [qui](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+> Se si è interessati a vendere la propria [applicazione gestita](https://docs.microsoft.com/azure/managed-applications/overview), seguire la procedura per inserirla in Azure Marketplace riportata [qui](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app).
 
 > [!NOTE]
 > Se si è interessati a vendere i propri prodotti software-as-a-service (SaaS) finiti a _sviluppatori e professionisti IT_, è possibile inviare un'email all'indirizzo saas-on-amp@microsoft.com per ottenere altre informazioni sulle opzioni disponibili.
@@ -209,8 +209,8 @@ Altre informazioni sui nostri [programmi di commercializzazione](https://partner
 
 Prima del lancio, è consigliabile eseguire alcuni passaggi per ottenere una rapida adesione dell'offerta sul Marketplace. Utilizzare questo elenco di controllo per determinare se si è pronti:
 
-- **Ho annunciato che l&amp;#39;offerta è disponibile sul Marketplace** pubblicando un articolo di blog, inviando messaggi di posta elettronica o rilasciando una conferenza stampa.
-- **Sto promuovendo l&#39;offerta sul sito Web personale** , indirizzando i clienti sull'offerta sul Marketplace.
+- **Ho annunciato che I&#39;offerta è disponibile sul Marketplace** pubblicando un articolo di blog, inviando messaggi di posta elettronica o rilasciando una conferenza stampa.
+- **&#39; m innalzamento di livello l'offerta al proprio sito Web**, verso i clienti per l'offerta in Marketplace.
 - **Ho pubblicato un test drive** in modo che i clienti possano scoprire l'offerta in esecuzione su Azure nella pausa caffè.
 - **Ho attivato la generazione dei lead su richiesta** in modo che ogni volta che un cliente fa clic per distribuire l'applicazione, io ricevo le informazioni di contatto e il nome.
 - **Mi sono connesso con il mio gestore partner** presso Microsoft (se si dispone di uno) per scoprire altre opportunità.

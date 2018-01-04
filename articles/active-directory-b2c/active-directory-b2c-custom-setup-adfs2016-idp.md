@@ -4,7 +4,7 @@ description: Articolo sulle procedure per configurare AD FS 2016 tramite il prot
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: 8713fc7dd27023e1244ccb00673dd1652689baf5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 22b360aec8878925ebe8d2c67c76d275a42ca7a8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Aggiungere AD FS come provider di identità SAML tramite criteri personalizzati
 
@@ -58,7 +58,7 @@ L'appartenenza al gruppo **Amministratori** o a un gruppo equivalente nel comput
 
 5.  Nella pagina **Specifica nome visualizzato** digitare un nome in **Nome visualizzato**, in **Note** digitare una descrizione del trust della relying party e quindi fare clic su **Avanti**.
     ![Specificare il nome visualizzato e le note](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-4.png)
-6.  Facoltativo. Se si ha un certificato di crittografia di token facoltativo, nella pagina **Configura certificato** fare clic su **Sfoglia** per trovare il file del certificato e quindi fare clic su **Avanti**.
+6.  facoltativo. Se si ha un certificato di crittografia di token facoltativo, nella pagina **Configura certificato** fare clic su **Sfoglia** per trovare il file del certificato e quindi fare clic su **Avanti**.
     ![Configura certificato](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-5.png)
 7.  Nella pagina **Configura URL** selezionare la casella di controllo **Abilita supporto del protocollo SAML 2.0 WebSSO**. In **Componente URL del servizio SAML 2.0 SSO** digitare l'URL dell'endpoint di servizio SALM (Security Assertion Markup Language) per questo trust della relying party e quindi fare clic su **Avanti**.  In **Componente URL del servizio SAML 2.0 SSO** incollare `https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/{policy}`. Sostituire {tenant} con il nome del tenant (ad esempio, contosob2c.onmicrosoft.com) e sostituire i {criteri} con il nome dei criteri di estensione (ad esempio, B2C_1A_TrustFrameworkExtensions).
     > [!IMPORTANT]

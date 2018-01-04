@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 11/13/2017
 ms.author: genemi
-ms.openlocfilehash: 66dbc9c2c3ba9b9f0c7eb405dbafbd002ce50fbc
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: ce223fbd6a69bc789f902f9478b5255edfd44844
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Usare gli endpoint del servizio Rete virtuale e le regole per il database SQL di Azure
 
@@ -65,7 +65,7 @@ Una regola della rete virtuale indica al server di database SQL di accettare le 
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>Vantaggi di una regola di rete virtuale
 
-Fino a quando non si interviene, le macchine virtuali nelle subnet non possono comunicare con il database SQL. La base logica per la scelta dell'approccio delle regole di rete virtuale finalizzato a consentire le comunicazioni richiede una discussione di confronto riguardo le opzioni di sicurezza concorrenti offerte dal firewall.
+Fino a quando non si interviene, le macchine virtuali nelle subnet non possono comunicare con il database SQL. Un'azione che stabilisce la comunicazione è la creazione di una regola della rete virtuale. Le basi per la scelta dell'approccio di regola di rete virtuale richiede una descrizione di confronto e contrasto che include le opzioni di sicurezza concorrenti offerte dal firewall.
 
 #### <a name="a-allow-access-to-azure-services"></a>R. Possibilità di accedere ai servizi di Azure
 
@@ -81,7 +81,7 @@ Tuttavia, l'approccio IP statico può diventare difficile da gestire ed è dispe
 
 #### <a name="c-cannot-yet-have-sql-database-on-a-subnet"></a>C. Database SQL non ancora disponibile in una subnet
 
-Se il server di database SQL di Azure è un nodo in una subnet nella rete virtuale, tutti i nodi all'interno della rete virtuale possono comunicare con il database SQL. In questo caso le macchine virtuali sono in grado di comunicare con il database SQL senza aver bisogno di regole di rete virtuale o IP.
+Se il server di database SQL di Azure è un nodo in una subnet nella rete virtuale, tutti i nodi all'interno della rete virtuale possono comunicare con il database SQL. In questo caso, le macchine virtuali grado di comunicare con il Database SQL senza la necessità di qualsiasi rete virtuale regole o IP.
 
 Tuttavia, a partire da settembre 2017, il database SQL di Azure non è ancora tra i servizi che possono essere assegnati a una subnet.
 
@@ -115,16 +115,16 @@ I ruoli di sicurezza sono distinti nell'amministrazione degli endpoint del servi
 - **Amministratore di rete:**&nbsp; attivare l'endpoint.
 - **Amministratore di database:** &nbsp; aggiornare l'elenco di controllo di accesso (ACL) per aggiungere la subnet specificata al server di database SQL.
 
-*Alternativa del controllo degli accessi in base al ruolo:* 
+*Alternativa del controllo degli accessi in base al ruolo:*
 
 I ruoli di amministratore di rete e amministratore di database hanno più funzionalità di quelle necessarie a gestire le regole della rete virtuale. È necessario solo un subset delle relative funzionalità.
 
 È possibile scegliere di usare il [controllo degli accessi in base al ruolo (RBAC)] [ rbac-what-is-813s] in Azure per creare un singolo ruolo personalizzato che contiene solo il subset necessario di funzionalità. È possibile usare il ruolo personalizzato anziché coinvolgere l'amministratore di rete o di database. La superficie di attacco dell'esposizione a rischi per la sicurezza è ridotta se si aggiunge un utente a un ruolo personalizzato, anziché aggiungere l'utente agli altri due ruoli di amministratore principali.
 
-
-
-
-
+> [!NOTE]
+> In alcuni casi il Database di SQL Azure e la subnet di rete virtuale sono in diverse sottoscrizioni. In questi casi è necessario verificare le configurazioni seguenti:
+> - Entrambe le sottoscrizioni devono essere dello stesso tenant di Azure Active Directory.
+> - L'utente dispone delle autorizzazioni necessarie per avviare le operazioni, quali gli endpoint del servizio di attivazione e l'aggiunta di una subnet di rete virtuale al Server specificato.
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -158,8 +158,32 @@ FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deplo
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
+## <a name="impact-of-removing-allow-all-azure-services"></a>Conseguenze della rimozione di 'Consenti a tutti i servizi di Azure'
+
+Molti utenti da rimuovere **consentire tutti i servizi Azure** dai loro server SQL Azure e sostituirlo con una regola del Firewall di rete virtuale.
+Tuttavia, se si rimuove questo interessa le seguenti funzionalità di Azure SQLDB:
+
+#### <a name="import-export-service"></a>Servizio di importazione di esportazione
+Il servizio di esportazione importazione di Azure SQLDB viene eseguito su macchine virtuali in Azure. Queste macchine virtuali non sono presenti in una rete virtuale e quindi ottenere un indirizzo IP di Azure durante la connessione al database. La rimozione di **consentire tutti i servizi Azure** queste macchine virtuali non sarà in grado di accedere ai database.
+È possibile risolvere il problema. Eseguire l'importazione BACPAC o esportare direttamente nel codice utilizzando l'API DACFx. Verificare che questo venga distribuito in una macchina virtuale è nella subnet rete virtuale per cui sono stati impostati la regola del firewall.
+
+#### <a name="sql-database-query-editor"></a>Editor di Query di Database SQL
+Editor di Query di Database di SQL Azure viene distribuito in macchine virtuali in Azure. Queste macchine virtuali non sono presenti in una rete virtuale. Pertanto le macchine virtuali di ottenere un indirizzo IP di Azure durante la connessione al database. La rimozione di **consentire tutti i servizi Azure**, queste macchine virtuali non sarà in grado di accedere ai database.
+
+#### <a name="table-auditing"></a>Tabella di controllo
+Attualmente esistono due modi per abilitare il controllo sul Database SQL. Tabella di controllo ha esito negativo dopo aver attivato gli endpoint del servizio sul Server SQL Azure. Attenuazione qui consiste nello spostare il controllo di Blob.
 
 
+## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impatto dell'utilizzo di endpoint del servizio di rete virtuale con archiviazione di Azure
+
+Archiviazione di Azure è implementata la stessa funzionalità che consente di limitare la connettività all'account di archiviazione.
+Se si sceglie di utilizzare questa funzionalità con un account di archiviazione utilizzato da un Server SQL Azure, è possibile eseguire in problemi. Di seguito è un elenco e ulteriori informazioni sulle funzionalità di Azure SQLDB che sono interessati dal problema.
+
+#### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
+PolyBase è comunemente utilizzato per caricare dati in Azure SQLDW dagli account di archiviazione. Se l'account di archiviazione che si siano caricando dati limita l'accesso solo a un set di subnet della rete virtuale, si interromperà la connettività tra PolyBase e l'Account.
+
+#### <a name="azure-sqldb-blob-auditing"></a>Blob di Azure SQLDB controllo
+Il servizio controllo BLOB inserisce i registri di controllo per il proprio account di archiviazione. Se questo account di archiviazione utilizza la funzionalità di endpoint servizio PEDIRE verrà interrotta la connettività da SQLDB Azure all'account di archiviazione.
 
 
 ## <a name="errors-40914-and-40615"></a>Errori 40914 e 40615
@@ -217,16 +241,17 @@ Anche uno script di PowerShell può creare regole della rete virtuale. Ad esempi
 3. Impostare il controllo **Consenti l'accesso a Servizi di Azure** su OFF.
 
     > [!IMPORTANT]
-    > Se si lascia il controllo impostato su ON, il server di database SQL di Azure accetta le comunicazioni da qualsiasi subnet, con il rischio di un eccesso di accessi dal punto di vista della sicurezza. La funzionalità di endpoint del servizio Rete virtuale di Microsoft Azure, in sinergia con la funzionalità delle regole della rete virtuale del database SQL, consente di ridurre la superficie di attacco per la sicurezza.
+    > Se si lascia il controllo è impostato su ON, il server di Database SQL di Azure accetta la comunicazione di qualsiasi subnet. Se si lascia il controllo è impostato su ON potrebbe essere eccessivo accesso da un punto di vista della sicurezza. La funzionalità di endpoint del servizio Rete virtuale di Microsoft Azure, in sinergia con la funzionalità delle regole della rete virtuale del database SQL, consente di ridurre la superficie di attacco per la sicurezza.
 
 4. Fare clic sul controllo **+ Aggiungi esistenti** nella sezione **Reti virtuali**.
 
     ![Fare clic su Aggiungi esistenti (endpoint della subnet, come regola SQL).][image-portal-firewall-vnet-add-existing-10-png]
 
 5. Nel nuovo riquadro **Crea/Aggiorna** compilare i controlli con i nomi delle risorse di Azure.
- 
+
     > [!TIP]
-    > È necessario includere il **prefisso dell'indirizzo** corretto per la subnet. Il valore è disponibile nel portale. Passare a **Tutte le risorse** &gt; **Tutti i tipi** &gt; **Reti virtuali**. Il filtro visualizza le reti virtuali. Fare clic sulla rete virtuale desiderata e quindi su **Subnet**. La colonna **INTERVALLO DI INDIRIZZI** contiene il prefisso dell'indirizzo desiderato.
+    > È necessario includere il **prefisso dell'indirizzo** corretto per la subnet. Il valore è disponibile nel portale.
+    > Passare a **Tutte le risorse** &gt; **Tutti i tipi** &gt; **Reti virtuali**. Il filtro visualizza le reti virtuali. Fare clic sulla rete virtuale desiderata e quindi su **Subnet**. La colonna **INTERVALLO DI INDIRIZZI** contiene il prefisso dell'indirizzo desiderato.
 
     ![Compilare i campi per la nuova regola.][image-portal-firewall-create-update-vnet-rule-20-png]
 
@@ -237,22 +262,26 @@ Anche uno script di PowerShell può creare regole della rete virtuale. Ad esempi
     ![Osservare la nuova regola nel riquadro del firewall.][image-portal-firewall-vnet-result-rule-30-png]
 
 
-
-
+> [!NOTE]
+> Gli Stati o gli stati seguenti si applicano le regole:
+> - **Inizio:** indica che è stata avviata l'operazione ha avuto esito positivo.
+> - **Operazione non riuscita:** indica che è Impossibile eseguire l'operazione che è stata avviata.
+> - **Eliminato:** solo l'operazione di eliminazione viene applicata e indica che la regola è stata eliminata e non è più valido.
+> - **In corso:** indica che l'operazione è in corso. Durante l'operazione in questo stato, si applica la regola precedente.
 
 
 <a name="anchor-how-to-links-60h" />
 
 ## <a name="related-articles"></a>Articoli correlati
 
-- [Usare PowerShell per creare un endpoint del servizio virtuale e una regola per il database SQL di Azure][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 - [Endpoint del servizio Rete virtuale di Azure][vm-virtual-network-service-endpoints-overview-649d]
 - [Regole firewall a livello di server e di database per il database SQL di Azure][sql-db-firewall-rules-config-715d]
 
-La funzionalità di endpoint del servizio Rete virtuale di Microsoft Azure e la funzionalità di regole della rete virtuale per il database SQL di Azure sono entrambe disponibili a partire dalla fine di settembre 2017.
+La funzionalità di regola di rete virtuale per il Database di SQL Azure è disponibile in 2017 settembre ad associazione tardiva.
 
+## <a name="next-steps"></a>Passaggi successivi
 
-
+- [Utilizzare PowerShell per creare un endpoint del servizio di rete virtuale, quindi selezionare una regola della rete virtuale per il Database SQL di Azure.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
 
 
 <!-- Link references, to images. -->
@@ -304,4 +333,3 @@ La funzionalità di endpoint del servizio Rete virtuale di Microsoft Azure e la 
 
 - ARM templates
 -->
-

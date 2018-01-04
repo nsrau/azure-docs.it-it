@@ -3,7 +3,7 @@ title: Compilazione di configurazioni in Azure Automation DSC | Documentazione M
 description: Questo articolo descrive come compilare configurazioni Desired State Configuration (DSC) per l'automazione di Azure.
 services: automation
 documentationcenter: na
-author: eslesar
+author: georgewallace
 manager: carmonm
 ms.assetid: 49f20b31-4fa5-4712-b1c7-8f4409f1aecc
 ms.service: automation
@@ -12,16 +12,16 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
-ms.author: magoedte; eslesar
-ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.author: magoedte; gwallace
+ms.openlocfilehash: 96702fb1b377861c3692358a5754e73475cee84d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilazione di configurazioni in Azure Automation DSC
 
-È possibile compilare configurazioni dello stato desiderato (DSC, Desired State Configuration) in due modi con Automazione di Azure: nel portale di Azure e con Windows PowerShell. La tabella seguente consente di determinare quando usare ciascun metodo in base alle caratteristiche specifiche:
+È possibile compilare configurazioni dello stato desiderato (DSC, Desired State Configuration) in due modi con Automazione di Azure: nel portale di Azure e con Windows PowerShell. Nella tabella seguente contribuisce di determinare quando usare il metodo in base alle caratteristiche di ogni:
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -47,7 +47,7 @@ Una volta scelto il metodo di compilazione, è possibile seguire le rispettive p
 1. Nell'account di Automazione fare clic su **Configurazioni DSC**.
 2. Fare clic su una configurazione per aprirne il pannello.
 3. Fare clic su **Compila**.
-4. Se la configurazione non ha alcun parametro, verrà richiesto di confermare se compilarla. Se la configurazione contiene parametri, verrà aperto il pannello **Compila configurazione** in cui sarà possibile specificare i valori dei parametri. Per altri dettagli sui parametri, vedere la sezione [**Parametri di base**](#basic-parameters) più avanti.
+4. Se la configurazione non ha alcun parametro, viene chiesto di confermare se si desidera eseguire la compilazione. Se la configurazione include parametri, il **configurazione compilazione** blade viene aperta, pertanto è possibile fornire i valori dei parametri. Per altri dettagli sui parametri, vedere la sezione [**Parametri di base**](#basic-parameters) più avanti.
 5. Viene aperto il pannello **Processo di compilazione** in cui è possibile tenere traccia dello stato del processo di compilazione e delle configurazioni dei nodi (documenti di configurazione MOF) che sono state inserite nel server di pull di Azure Automation DSC.
 
 ## <a name="compiling-a-dsc-configuration-with-windows-powershell"></a>Compilazione di una configurazione DSC con Windows PowerShell
@@ -108,7 +108,7 @@ Configuration ParametersExample
 
 È possibile compilare configurazioni DSC che usano parametri di base nel portale di Automation DSC per Azure o con Azure PowerShell:
 
-### <a name="portal"></a>di Microsoft Azure
+### <a name="portal"></a>Portale
 
 Nel portale è possibile immettere i valori dei parametri dopo avere fatto clic su **Compila**.
 
@@ -131,16 +131,16 @@ Per informazioni sul passaggio di PSCredentials come parametri, vedere <a href="
 
 ## <a name="composite-resources"></a>Risorse composite
 
-Le **risorse composite** consentono di usare le configurazioni DSC come risorse annidate in una configurazione.  Questo consente di applicare più configurazioni a un'unica risorsa.  Per informazioni sulle **risorse composite**, vedere [Risorse composite: uso di una configurazione DSC come risorsa](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite)
+Le **risorse composite** consentono di usare le configurazioni DSC come risorse annidate in una configurazione. Questo consente di applicare più configurazioni a un'unica risorsa.  Per informazioni sulle **risorse composite**, vedere [Risorse composite: uso di una configurazione DSC come risorsa](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite)
 
 > [!NOTE]
 > Per compilare le **risorse composite** nel modo corretto, verificare che le risorse DSC su cui si basa la risorsa composita siano installate nel repository del modulo Account di automazione di Azure altrimenti non verranno importate nel modo corretto.
 
-Per aggiungere una **risorsa composita** DSC, aggiungere il modulo di risorsa a un archivio (*.zip). Accedere al repository dei moduli nell'account di automazione di Azure  e fare clic sul pulsante Aggiungi un modulo.
+Per aggiungere una **risorsa composita** DSC, aggiungere il modulo di risorsa a un archivio (*.zip). Accedere al repository dei moduli nell'account di automazione di Azure e fare clic sul pulsante Aggiungi un modulo.
 
 ![Aggiungi modulo](./media/automation-dsc-compile/add_module.png)
 
-Passare alla directory in cui si trova l'archivio.  Selezionare il file di archivio e fare clic su OK.
+Passare alla directory in cui si trova l'archivio. Selezionare il file di archivio e fare clic su OK.
 
 ![Seleziona modulo](./media/automation-dsc-compile/select_dscresource.png)
 
@@ -227,7 +227,7 @@ $ConfigData = @{
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ConfigurationDataSample" -ConfigurationData $ConfigData
 ```
 
-## <a name="assets"></a>asset
+## <a name="assets"></a>Asset
 
 I riferimenti agli asset sono gli stessi nelle configurazioni di Azure Automation DSC e nei runbook. Per altre informazioni, vedere quanto segue:
 
@@ -263,7 +263,7 @@ Configuration CredentialSample
 }
 ```
 
-È possibile compilare la configurazione DSC precedente con PowerShell. Il cmdlet di PowerShell seguente aggiunge due configurazioni del nodo al server di pull di Automation DSC per Azure, **CredentialSample.MyVM1** e **CredentialSample.MyVM2**.
+È possibile compilare la configurazione DSC precedente con PowerShell. Di seguito PowerShell aggiunge due configurazioni del nodo per il Server di Pull DSC di Azure Automation: **CredentialSample.MyVM1** e **CredentialSample.MyVM2**.
 
 ```powershell
 $ConfigData = @{
@@ -286,7 +286,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## <a name="importing-node-configurations"></a>Importazione delle configurazioni di nodo
 
-È anche possibile importare configurazioni di nodo (MOF) compilate all'esterno di Azure. Uno dei vantaggi di questa operazione consiste nel fatto che le configurazioni di nodo possono essere firmate.
+È inoltre possibile importare configurazioni del nodo (file MOF) che sono stati compilati all'esterno di Azure. Uno dei vantaggi di questa operazione consiste nel fatto che le configurazioni di nodo possono essere firmate.
 Una configurazione del nodo firmata viene verificata in locale in un nodo gestito dall'agente DSC, garantendo che la configurazione applicata al nodo provenga da una fonte autorizzata.
 
 > [!NOTE]

@@ -4,7 +4,7 @@ description: Informazioni sugli stati utente in Azure MFA.
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: 0b9fde23-2d36-45b3-950d-f88624a68fbd
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 06/26/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: b73b5e47e3e14742e5094b8b0e979de7835cb9c7
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: HT
+ms.openlocfilehash: b7fb5135ac1ae776851d79f936eb860b4b121c71
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Come richiedere la verifica in due passaggi per un utente o un gruppo
 
@@ -40,11 +40,11 @@ In entrambi i casi, gli utenti devono registrarsi ad Azure Multi-Factor Authenti
 
 Gli account utente in modalità Multi-Factor Authentication di Azure presentano i seguenti tre stati distinti:
 
-| Stato | Descrizione | App interessate non basate su browser | Autenticazione moderna e app interessate basate su browser |
-|:---:|:---:|:---:|:--:|
-| Disabled |Lo stato predefinito per un nuovo utente non registrato alla modalità Multi-Factor Authentication (MFA). |No |No |
-| Enabled |L'utente è stato iscritto ad Azure MFA, ma non ha eseguito la registrazione. Verrà richiesto di eseguire la registrazione al successivo accesso. |No.  Continuano a funzionare fino al completamento della registrazione. | Sì. Quando il token di aggiornamento per la sessione scade, è richiesta la registrazione MFA.|
-| Enforced |L'utente è stato iscritto e ha completato il processo di registrazione per Azure MFA. |Sì.  Le app richiedono password per le app. |Sì. Autenticazione a più fattori obbligatoria all'accesso. |
+| Status | DESCRIZIONE | App interessate non basate su browser | Applicazioni browser interessate | Autenticazione moderna interessati |
+|:---:|:---:|:---:|:--:|:--:|
+| Disabled |Lo stato predefinito per un nuovo utente non registrato alla modalità Multi-Factor Authentication (MFA). |No  |No  |No  |
+| Attivato |L'utente è stato iscritto ad Azure MFA, ma non ha eseguito la registrazione. Verrà richiesto di eseguire la registrazione al successivo accesso. |di serie  Continuano a funzionare fino al completamento della registrazione. | Sì. Una volta la sessione scade, la registrazione di autenticazione a più fattori sono necessario.| Sì. Una volta scaduto il token di accesso, sarà necessario registrazione autenticazione a più fattori. |
+| Enforced |L'utente è stato iscritto e ha completato il processo di registrazione per Azure MFA. |Sì.  Le app richiedono password per le app. |Sì. Autenticazione a più fattori obbligatoria all'accesso. | Sì. Autenticazione a più fattori obbligatoria all'accesso. |
 
 Lo stato dell'utente indica se un amministratore ha eseguito la relativa iscrizione in Azure MFA e se l'utente ha completato il processo di registrazione.
 
@@ -80,7 +80,7 @@ Per accedere alla pagina in cui è possibile visualizzare e gestire gli stati ut
 ### <a name="use-powershell"></a>Usare PowerShell
 Per modificare lo stato dell'utente usando [Azure AD PowerShell](/powershell/azure/overview), modificare `$st.State`. Esistono tre possibili stati:
 
-* Enabled
+* Attivato
 * Enforced
 * Disabled  
 
@@ -94,7 +94,7 @@ L'uso di PowerShell è la scelta migliore quando è necessario abilitare utenti 
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
-Di seguito è fornito un esempio:
+Di seguito è fornito un esempio: 
 
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)

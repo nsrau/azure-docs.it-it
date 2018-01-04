@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
-ms.openlocfilehash: 74765877e7836d6878284b350a25d8355dc83d7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cad36fdaf0e7b151809cf07ede10abd1abec99d0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Come reimpostare la password o la chiave SSH di una VM Linux, correggere la configurazione SSH e verificare la coerenza dei dischi che utilizzano l'estensione VMAccess
 Se non è possibile connettersi a una macchina virtuale Linux su Azure perché si è dimenticata la password o una chiave SSH (Secure Shell) non è valida o per un problema di configurazione di SSH, usare l'estensione VMAccessForLinux con l'interfaccia della riga di comando di Azure per reimpostare la password o la chiave SSH, correggere la configurazione SSH e verificare la coerenza del disco. 
@@ -44,7 +44,7 @@ Con l’interfaccia della riga di comando di Azure è possibile eseguire le atti
 ## <a name="prerequisites"></a>Prerequisiti
 Sarà necessario eseguire le operazioni seguenti:
 
-* Sarà necessario [installare l'interfaccia della riga di comando di Azure](../../../cli-install-nodejs.md) e [connettersi alla proprio sottoscrizione](../../../xplat-cli-connect.md) per usare le risorse di Azure associate al proprio account.
+* Sarà necessario [installare l'interfaccia della riga di comando di Azure](../../../cli-install-nodejs.md) e [connettersi alla proprio sottoscrizione](/cli/azure/authenticate-azure-cli) per usare le risorse di Azure associate al proprio account.
 * Impostare la modalità corretta per il modello di distribuzione classico digitando quanto segue al prompt dei comandi:
     ``` 
         azure config mode asm

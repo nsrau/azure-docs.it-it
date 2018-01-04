@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 96d6d707d69f80a866f6ac17addabc0db076b079
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: e2f4601daf9aa3537f9170c3516d62ab1bd602e5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Usare Sqoop con Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -47,15 +47,15 @@ Il cluster HDInsight include alcuni dati di esempio. Usare i due esempi seguenti
   
   | Campo | Tipo di dati |
   | --- | --- |
-  | clientid |string |
-  | querytime |string |
-  | market |string |
-  | deviceplatform |string |
-  | devicemake |string |
-  | devicemodel |string |
-  | state |string |
-  | country |string |
-  | querydwelltime |double |
+  | clientid |stringa |
+  | querytime |stringa |
+  | market |stringa |
+  | deviceplatform |stringa |
+  | devicemake |stringa |
+  | devicemodel |stringa |
+  | state |stringa |
+  | country |stringa |
+  | querydwelltime |Double |
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
 
@@ -94,7 +94,7 @@ Se si preferisce usare Azure PowerShell per creare il cluster e il database SQL,
      
         I valori seguenti sono hardcoded nella sezione relativa alle variabili:
         
-        |Nome|Valore|
+        |NOME|Valore|
         |----|-----|
         | Nome dell'account di archiviazione predefinito | &lt;NomeCluster>store |
         | Nome server del database SQL di Azure | &lt;NomeCluster>dbserver |
@@ -221,7 +221,7 @@ L'esempio di PowerShell esegue questa procedura:
    > Ad eccezione delle informazioni sulla stringa di connessione, la procedura descritta in questa sezione dovrebbe funzionare per il database SQL di Azure e per SQL Server. La procedura è stata verificata con la configurazione seguente:
    > 
    > * **Configurazione da punto a sito della rete virtuale di Azure**: una rete virtuale che connette il cluster HDInsight a un SQL Server in un data center privato. Per altre informazioni, vedere [Configurare una VPN da punto a sito nel portale di gestione](../../vpn-gateway/vpn-gateway-point-to-site-create.md) .
-   > * **Azure HDInsight 3.1**: per informazioni sulla creazione di un cluster in una rete virtuale, vedere l'articolo relativo alla [creazione di cluster Hadoop in HDInsight con opzioni personalizzate](../hdinsight-hadoop-provision-linux-clusters.md) .
+   > * **Azure HDInsight**: vedere [cluster creare Hadoop in HDInsight mediante le opzioni personalizzate](../hdinsight-hadoop-provision-linux-clusters.md) per informazioni sulla creazione di un cluster in una rete virtuale.
    > * **SQL Server 2014**: configurato per consentire l'autenticazione SQL e l'esecuzione del pacchetto di configurazione del client VPN per eseguire la connessione sicura alla rete virtuale.
    > 
    > 

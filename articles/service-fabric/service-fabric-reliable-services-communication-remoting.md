@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 53c9072f98dfe9c03b85eb7409b8ed91c3c0ce33
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: df4a86e3de87daad22646672f278c7f3226660c6
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Comunicazione remota con i servizi con Reliable Services
 Per i servizi che non sono legati a un protocollo di comunicazione o uno stack particolare, ad esempio WebAPI, Windows Communication Foundation (WCF) o altri, il framework Reliable Services fornisce un meccanismo remoto per impostare in modo semplice e rapido una chiamata di procedura remota per i servizi.
@@ -85,18 +85,18 @@ Il framework remoto propaga le eccezioni generate dal servizio al client. Di con
 La creazione del proxy servizio è un'operazione semplice e, pertanto, l'utente può creare quanti proxy desidera. Le istanze del proxy servizio possono essere usate più volte, fintanto che l'utente ne ha necessità. Se una chiamata di procedura remota genera un'eccezione, gli utenti possono comunque riusare la stessa istanza del proxy. Ogni proxy servizio contiene un client di comunicazione usato per inviare messaggi sulla rete. Durante chiamate remote, vengono effettuati controlli interni per verificare che il client di comunicazione sia valido. In base al risultato, il client di comunicazione viene ricreato. Pertanto, se si verifica un'eccezione, l'utente non deve ricreare `ServiceProxy` perché questa operazione viene eseguita in modo trasparente.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Durata di ServiceProxyFactory
-[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) è una factory che crea istanze di proxy per interfacce di connessione remota diverse. Se si usa l'API `ServiceProxy.Create` per la creazione di un proxy, il framework crea un singleton ServiceProxy.
-È utile per crearne una manualmente quando è necessario eseguire l'override delle proprietà [IServiceRemotingClientFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory).
+[ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) è una factory che crea istanze di proxy per interfacce di connessione remota diverse. Se si usa l'API `ServiceProxy.Create` per la creazione di un proxy, il framework crea un singleton ServiceProxy.
+È utile per crearne una manualmente quando è necessario eseguire l'override delle proprietà [IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory).
 La creazione di una factory è un'operazione costosa. ServiceProxyFactory mantiene una cache interna del client di comunicazione.
 La procedura consigliata consiste nel memorizzare nella cache ServiceProxyFactory il più a lungo possibile.
 
 ## <a name="remoting-exception-handling"></a>Gestione delle eccezioni remote
-Tutte le eccezioni generate dall'API del servizio vengono inviate nuovamente al client come AggregateException. RemoteExceptions deve essere serializzabile per DataContract; in caso contrario, l'API del proxy genera una [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) contenente l'errore di serializzazione.
+Tutte le eccezioni generate dall'API del servizio vengono inviate nuovamente al client come AggregateException. RemoteExceptions deve essere serializzabile per DataContract; in caso contrario, l'API del proxy genera una [ServiceException](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) contenente l'errore di serializzazione.
 
 ServiceProxy gestisce tutte le eccezioni di failover per la partizione del servizio per la quale è stato creato. Risolve nuovamente gli endpoint in presenza di eccezioni di failover (eccezioni non temporanee) e tenta di nuovo la chiamata con l'endpoint corretto. Il numero di tentativi per le eccezioni di failover è indefinito.
 In caso di eccezioni temporanee, il proxy ripete la chiamata.
 
-I parametri di ripetizione dei tentativi predefiniti sono forniti da [OperationRetrySettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+I parametri di ripetizione dei tentativi predefiniti sono forniti da [OperationRetrySettings](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
 L'utente può configurare questi valori passando l'oggetto OperationRetrySettings al costruttore ServiceProxyFactory.
 ## <a name="how-to-use-remoting-v2-stack"></a>Come usare lo stack V2 per la comunicazione remota
 Con il pacchetto per la comunicazione remota NuGet 2.8, è possibile usare lo stack V2 per la comunicazione remota. Lo stack V2 per la comunicazione remota è più efficiente e offre funzionalità come API serializzabili personalizzate e più collegabili.
@@ -146,7 +146,7 @@ Ecco i passaggi da seguire.
   </Resources>
   ```
 
-2. Usare il [listener V2 per la comunicazione remota](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). Il nome predefinito della risorsa per l'endpoint di servizio usato è "ServiceEndpointV2" e deve essere definito nel manifesto del servizio.
+2. Usare il [listener V2 per la comunicazione remota](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingistener?view=azure-dotnet). Il nome predefinito della risorsa per l'endpoint di servizio usato è "ServiceEndpointV2" e deve essere definito nel manifesto del servizio.
 
   ```csharp
   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -162,7 +162,7 @@ Ecco i passaggi da seguire.
     }
   ```
 
-3. Usare [factory client](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) V2.
+3. Usare [factory client](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) V2.
   ```csharp
   var proxyFactory = new ServiceProxyFactory((c) =>
           {
@@ -215,151 +215,151 @@ L'esempio seguente usa la serializzazione Json con la comunicazione remota V2.
 1. Implementare l'interfaccia IServiceRemotingMessageSerializationProvider per offrire l'implementazione per la serializzazione personalizzata.
     Di seguito è riportato il frammento di codice che illustra come dovrebbe apparire l'implementazione.
 
-    ```csharp
+ ```csharp
     public class ServiceRemotingJsonSerializationProvider : IServiceRemotingMessageSerializationProvider
     {
-      public IServiceRemotingRequestMessageBodySerializer CreateRequestMessageSerializer(Type serviceInterfaceType,
-          IEnumerable<Type> requestBodyTypes)
-      {
-          return new ServiceRemotingRequestJsonMessageBodySerializer(serviceInterfaceType, requestBodyTypes);
-      }
-
-      public IServiceRemotingResponseMessageBodySerializer CreateResponseMessageSerializer(Type serviceInterfaceType,
-          IEnumerable<Type> responseBodyTypes)
-      {
-          return new ServiceRemotingResponseJsonMessageBodySerializer(serviceInterfaceType, responseBodyTypes);
-      }
-
-      public IServiceRemotingMessageBodyFactory CreateMessageBodyFactory()
-      {
-          return new JsonMessageFactory();
-      }
-     }
-
-  class JsonMessageFactory: IServiceRemotingMessageBodyFactory
-  {
-      public IServiceRemotingRequestMessageBody CreateRequest(string interfaceName, string methodName,
-          int numberOfParameters)
-      {
-          return new JsonRemotingRequestBody(new JObject());
-      }
-
-      public IServiceRemotingResponseMessageBody CreateResponse(string interfaceName, string methodName)
-      {
-          return  new JsonRemotingResponseBody();
-      }
-   }
-
-  class ServiceRemotingRequestJsonMessageBodySerializer: IServiceRemotingRequestMessageBodySerializer
-  {
-      public ServiceRemotingRequestJsonMessageBodySerializer(Type serviceInterfaceType,
-          IEnumerable<Type> parameterInfo)
-      {
-      }
-
-      public OutgoingMessageBody Serialize(IServiceRemotingRequestMessageBody serviceRemotingRequestMessageBody)
-      {
-          if (serviceRemotingRequestMessageBody == null)
-          {
-              return null;
-          }
-
-          var json = serviceRemotingRequestMessageBody.ToString();
-          var bytes = Encoding.UTF8.GetBytes(json);
-          var segment = new ArraySegment<byte>(bytes);
-          var segments = new List<ArraySegment<byte>> {segment};
-          return new OutgoingMessageBody(segments);
-      }
-
-      public IServiceRemotingRequestMessageBody Deserialize(IncomingMessageBody messageBody)
-      {
-          using (var sr = new StreamReader(messageBody.GetReceivedBuffer()))
-
-          using (JsonReader reader = new JsonTextReader(sr))
-          {
-              var serializer = new JsonSerializer();
-              var ob = serializer.Deserialize<JObject>(reader);
-              var ob2 = new JsonRemotingRequestBody(ob);
-              return ob2;
-          }
-      }
-  }
-
-  class ServiceRemotingResponseJsonMessageBodySerializer: IServiceRemotingResponseMessageBodySerializer
-  {
-
-      public ServiceRemotingResponseJsonMessageBodySerializer(Type serviceInterfaceType,
-          IEnumerable<Type> parameterInfo)
-      {
-      }
-
-      public OutgoingMessageBody Serialize(IServiceRemotingResponseMessageBody responseMessageBody)
-      {
-          var json = JsonConvert.SerializeObject(responseMessageBody,new JsonSerializerSettings()
-          {
-              TypeNameHandling = TypeNameHandling.All
-          });
-          var bytes = Encoding.UTF8.GetBytes(json);
-          var segment = new ArraySegment<byte>(bytes);
-          var list = new List<ArraySegment<byte>> {segment};
-          return new OutgoingMessageBody(list);
-      }
-
-      public IServiceRemotingResponseMessageBody Deserialize(IncomingMessageBody messageBody)
-      {
-          using (var sr = new StreamReader(messageBody.GetReceivedBuffer()))
-
-          using (var reader = new JsonTextReader(sr))
-          {
-              var serializer = JsonSerializer.Create(new JsonSerializerSettings()
-              {
-                  TypeNameHandling = TypeNameHandling.All
-              });
-              return serializer.Deserialize<JsonRemotingResponseBody>(reader);
-          }
-      }
-  }
-  internal class JsonRemotingResponseBody: IServiceRemotingResponseMessageBody
-  {
-      public object Value;
-
-      public void Set(object response)
-      {
-          this.Value = response;
-      }
-
-      public object Get(Type paramType)
-      {
-          return this.Value;
-      }
-  }
-
-  class JsonRemotingRequestBody: IServiceRemotingRequestMessageBody
-    {
-      private readonly JObject jobject;
-
-        public JsonRemotingRequestBody(JObject ob)
+        public IServiceRemotingRequestMessageBodySerializer CreateRequestMessageSerializer(Type serviceInterfaceType,
+            IEnumerable<Type> requestBodyTypes)
         {
-            this.jobject = ob;
+            return new ServiceRemotingRequestJsonMessageBodySerializer(serviceInterfaceType, requestBodyTypes);
         }
+
+        public IServiceRemotingResponseMessageBodySerializer CreateResponseMessageSerializer(Type serviceInterfaceType,
+            IEnumerable<Type> responseBodyTypes)
+        {
+            return new ServiceRemotingResponseJsonMessageBodySerializer(serviceInterfaceType, responseBodyTypes);
+        }
+
+        public IServiceRemotingMessageBodyFactory CreateMessageBodyFactory()
+        {
+            return new JsonMessageFactory();
+        }
+    }
+
+    class JsonMessageFactory : IServiceRemotingMessageBodyFactory
+    {
+        public IServiceRemotingRequestMessageBody CreateRequest(string interfaceName, string methodName,
+            int numberOfParameters)
+        {
+            return new JsonRemotingRequestBody();
+        }
+
+        public IServiceRemotingResponseMessageBody CreateResponse(string interfaceName, string methodName)
+        {
+            return new JsonRemotingResponseBody();
+        }
+    }
+
+    class ServiceRemotingRequestJsonMessageBodySerializer : IServiceRemotingRequestMessageBodySerializer
+    {
+        public ServiceRemotingRequestJsonMessageBodySerializer(Type serviceInterfaceType,
+            IEnumerable<Type> parameterInfo)
+        {
+        }
+
+        public OutgoingMessageBody Serialize(IServiceRemotingRequestMessageBody serviceRemotingRequestMessageBody)
+        {
+            if (serviceRemotingRequestMessageBody == null)
+            {
+                return null;
+            }
+
+            var writeStream = new MemoryStream();
+            var jsonWriter = new JsonTextWriter(new StreamWriter(writeStream));
+
+            var serializer = JsonSerializer.Create(new JsonSerializerSettings()
+            {
+                TypeNameHandling = TypeNameHandling.All
+            });
+            serializer.Serialize(jsonWriter, serviceRemotingRequestMessageBody);
+
+            jsonWriter.Flush();
+            var segment = new ArraySegment<byte>(writeStream.ToArray());
+            var segments = new List<ArraySegment<byte>> { segment };
+            return new OutgoingMessageBody(segments);
+        }
+
+        public IServiceRemotingRequestMessageBody Deserialize(IncomingMessageBody messageBody)
+        {
+            using (var sr = new StreamReader(messageBody.GetReceivedBuffer()))
+
+            using (JsonReader reader = new JsonTextReader(sr))
+            {
+                var serializer = JsonSerializer.Create(new JsonSerializerSettings()
+                {
+                    TypeNameHandling = TypeNameHandling.All
+                });
+
+                return serializer.Deserialize<JsonRemotingRequestBody>(reader);
+            }
+        }
+    }
+
+    class ServiceRemotingResponseJsonMessageBodySerializer : IServiceRemotingResponseMessageBodySerializer
+    {
+        public ServiceRemotingResponseJsonMessageBodySerializer(Type serviceInterfaceType,
+            IEnumerable<Type> parameterInfo)
+        {
+        }
+
+        public OutgoingMessageBody Serialize(IServiceRemotingResponseMessageBody responseMessageBody)
+        {
+            var json = JsonConvert.SerializeObject(responseMessageBody, new JsonSerializerSettings()
+            {
+                TypeNameHandling = TypeNameHandling.All
+            });
+            var bytes = Encoding.UTF8.GetBytes(json);
+            var segment = new ArraySegment<byte>(bytes);
+            var list = new List<ArraySegment<byte>> { segment };
+            return new OutgoingMessageBody(list);
+        }
+
+        public IServiceRemotingResponseMessageBody Deserialize(IncomingMessageBody messageBody)
+        {
+            using (var sr = new StreamReader(messageBody.GetReceivedBuffer()))
+
+            using (var reader = new JsonTextReader(sr))
+            {
+                var serializer = JsonSerializer.Create(new JsonSerializerSettings()
+                {
+                    TypeNameHandling = TypeNameHandling.All
+                });
+
+                return serializer.Deserialize<JsonRemotingResponseBody>(reader);
+            }
+        }
+    }
+
+    internal class JsonRemotingResponseBody : IServiceRemotingResponseMessageBody
+    {
+        public object Value;
+
+        public void Set(object response)
+        {
+            this.Value = response;
+        }
+
+        public object Get(Type paramType)
+        {
+            return this.Value;
+        }
+    }
+
+    class JsonRemotingRequestBody : IServiceRemotingRequestMessageBody
+    {
+        public readonly Dictionary<string, object> parameters = new Dictionary<string, object>();        
 
         public void SetParameter(int position, string parameName, object parameter)
         {
-            this.jobject.Add(parameName, JToken.FromObject(parameter));
+            this.parameters[parameName] = parameter;
         }
 
         public object GetParameter(int position, string parameName, Type paramType)
-       {
-           var ob = this.jobject[parameName];
-           return ob.ToObject(paramType);
-       }
-
-       public override string ToString()
         {
-            return this.jobject.ToString();
+            return this.parameters[parameName];
         }
     }
-    ```
+ ```
 
 2.    Eseguire l'override del provider di serializzazione predefinito con JsonSerializationProvider per il listener di comunicazione remota.
 

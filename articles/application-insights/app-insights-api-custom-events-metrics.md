@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1e7b5d4409b3e53db9313cf353894d5818837588
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 4cbc423555abfe6beee2c89d9df0760ce7c2fd6e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -106,7 +106,7 @@ Ad esempio, in un'app di gioco è possibile inviare un evento ogni volta che un 
 
     telemetry.trackEvent("WinGame");
     
-*Node.js*
+*Node.JS*
 
     telemetry.trackEvent({name: "WinGame"});
 
@@ -165,7 +165,7 @@ Per inviare un singolo valore di metrica:
     telemetryClient.TrackMetric(sample);
 ```
 
-*Node.js*
+*Node.JS*
 
  ```Javascript
      telemetry.trackMetric({name: "queueLength", value: 42.0});
@@ -488,7 +488,7 @@ I report includono le analisi dello stack.
        appInsights.trackException(ex);
     }
     
-*Node.js*
+*Node.JS*
 
     try
     {
@@ -522,7 +522,7 @@ Se il [campionamento](app-insights-sampling.md) è attivo, la proprietà `itemCo
 exceptions | summarize sum(itemCount) by type
 ```
 
-La maggior parte delle informazioni importanti dello stack è già stata estratta in variabili distinte, ma è possibile separare la struttura `details` per ottenerne altre. Poiché si tratta di una struttura dinamica, è necessario eseguire il cast del risultato per il tipo previsto. ad esempio:
+La maggior parte delle informazioni importanti dello stack è già stata estratta in variabili distinte, ma è possibile separare la struttura `details` per ottenerne altre. Poiché si tratta di una struttura dinamica, è necessario eseguire il cast del risultato per il tipo previsto. Ad esempio: 
 
 ```AIQL
 exceptions
@@ -545,7 +545,7 @@ Gli [adattatori di log](app-insights-asp-net-trace-logs.md) usano questa API per
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
     
-*Node.js*
+*Node.JS*
 
     telemetry.trackTrace({message: message, severity:applicationInsights.Contracts.SeverityLevel.Warning, properties:properties});
 
@@ -555,7 +555,7 @@ Gli [adattatori di log](app-insights-asp-net-trace-logs.md) usano questa API per
 Il limite delle dimensioni per `message` è molto superiore al limite per le proprietà.
 Un vantaggio di TrackTrace è che è possibile inserire dati relativamente lunghi nel messaggio. Ad esempio è possibile codificare dati POST.  
 
-È anche possibile aggiungere al messaggio un livello di gravità. E come per altri tipi di dati di telemetria è possibile aggiungere valori di proprietà utili per filtrare o cercare set di tracce diversi. Ad esempio:
+È anche possibile aggiungere al messaggio un livello di gravità. E come per altri tipi di dati di telemetria è possibile aggiungere valori di proprietà utili per filtrare o cercare set di tracce diversi. Ad esempio: 
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
@@ -634,7 +634,7 @@ In genere l'SDK invia i dati in momenti scelti per ridurre al minimo l'impatto s
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
     
-*Node.js*
+*Node.JS*
 
     telemetry.flush();
 
@@ -724,7 +724,7 @@ Esistono tuttavia alcuni [limiti sul numero di proprietà, di valori delle propr
     // Send the event:
     telemetry.TrackEvent("WinGame", properties, metrics);
 
-*Node.js*
+*Node.JS*
 
     // Set up some properties and metrics:
     var properties = {"game": currentGame.Name, "difficulty": currentGame.Difficulty};
@@ -880,7 +880,7 @@ Se si intende impostare solo i valori di proprietà predefiniti per alcuni degli
 
     gameTelemetry.TrackEvent("WinGame");
     
-*Node.js*
+*Node.JS*
 
     var gameTelemetry = new applicationInsights.TelemetryClient();
     gameTelemetry.commonProperties["Game"] = currentGame.Name;
@@ -900,7 +900,7 @@ Le singole chiamate di telemetria possono sostituire i valori predefiniti nei re
 
 [Aggiungere proprietà](app-insights-api-filtering-sampling.md#add-properties) ai dati di telemetria implementando `ITelemetryInitializer`. Ad esempio è possibile aggiungere numeri di versione o valori calcolati da altre proprietà.
 
-L'[applicazione di filtri](app-insights-api-filtering-sampling.md#filtering) consente di modificare o rimuovere i dati di telemetria prima che vengano inviati dall'SDK implementando `ITelemetryProcesor`. È possibile controllare gli elementi inviati o eliminati, ma è necessario tenere conto dell'effetto sulle metriche. A seconda di come si eliminano gli elementi, si potrebbe perdere la possibilità di navigare tra elementi correlati.
+L'[applicazione di filtri](app-insights-api-filtering-sampling.md#filtering) consente di modificare o rimuovere i dati di telemetria prima che vengano inviati dall'SDK implementando `ITelemetryProcessor`. È possibile controllare gli elementi inviati o eliminati, ma è necessario tenere conto dell'effetto sulle metriche. A seconda di come si eliminano gli elementi, si potrebbe perdere la possibilità di navigare tra elementi correlati.
 
 Il [campionamento](app-insights-api-filtering-sampling.md) è una soluzione in pacchetto che consente di ridurre il volume dei dati inviati dall'app al portale. Lo fa senza influenzare le metriche visualizzate e senza influire sulla possibilità di diagnosticare i problemi navigando tra elementi correlati, come eccezioni, richieste e visualizzazioni di pagina.
 
@@ -920,7 +920,7 @@ Per *avviare e arrestare in modo dinamico* la raccolta e la trasmissione di dati
 
 Per *disabilitare gli agenti di raccolta standard selezionati*, ad esempio contatori delle prestazioni, richieste HTTP o dipendenze, eliminare o impostare come commento le righe pertinenti in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Ad esempio è possibile eseguire questa operazione se si desidera inviare i propri dati TrackRequest.
 
-*Node.js*
+*Node.JS*
 
 ```Javascript
 
@@ -999,7 +999,7 @@ Nelle pagine Web è possibile impostarla dallo stato del server Web anziché cod
 
 
 ## <a name="telemetrycontext"></a>TelemetryContext
-TelemetryClient dispone di una proprietà Context contenente valori che vengono inviati insieme a tutti i dati di telemetria. Sono in genere impostati dai moduli di telemetria standard, ma è possibile anche impostarli manualmente. Ad esempio:
+TelemetryClient dispone di una proprietà Context contenente valori che vengono inviati insieme a tutti i dati di telemetria. Sono in genere impostati dai moduli di telemetria standard, ma è possibile anche impostarli manualmente. Ad esempio: 
 
     telemetry.Context.Operation.Name = "MyOperationName";
 
@@ -1035,7 +1035,7 @@ Per determinare quanto tempo vengono conservati i dati, vedere [Raccolta, conser
 * [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Pacchetti per Windows Server](https://github.com/Microsoft/applicationInsights-dotnet-server)
-* [SDK per Java](https://github.com/Microsoft/ApplicationInsights-Java)
+* [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
 * [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 * [Tutte le piattaforme](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
@@ -1043,7 +1043,7 @@ Per determinare quanto tempo vengono conservati i dati, vedere [Raccolta, conser
 ## <a name="questions"></a>Domande
 * *Quali eccezioni potrebbero essere generate dalle chiamate Track_()?*
 
-    Nessuna. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
+    No. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
 * *Esiste un'API REST per ottenere dati dal portale?*
 
     Sì, l'[API di accesso ai dati](https://dev.applicationinsights.io/). Altri modi per estrarre i dati sono l'[esportazione da Analytics a Power BI](app-insights-export-power-bi.md) e l'[esportazione continua](app-insights-export-telemetry.md).

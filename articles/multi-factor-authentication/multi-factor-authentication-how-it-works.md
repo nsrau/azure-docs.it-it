@@ -4,7 +4,7 @@ description: "Azure multi-Factor Authentication contribuisce a salvaguardare l'a
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: d14db902-9afe-4fca-b3a5-4bd54b3d8ec5
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 06/20/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 1f3495b038171edd713678aef49be9401ab458dd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: 0791ec4c3bf4a69e2a93b8f3dd1dcf9b649f4cff
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-azure-multi-factor-authentication-works"></a>Come funziona Azure Multi-Factor Authentication
 La sicurezza della verifica in due passaggi sta nel suo approccio a livelli. La manomissione di più fattori rappresenta una sfida significativa per gli autori di attacchi. Tuttavia, anche se un autore di attacco riesce a ottenere la password dell'utente, questa risulta inutile se non è in possesso del dispositivo attendibile. 
@@ -32,7 +32,7 @@ Azure multi-Factor Authentication contribuisce a salvaguardare l'accesso a dati 
 ## <a name="methods-available-for-two-step-verification"></a>Metodi disponibili per la verifica in due passaggi
 Quando un utente accede, una verifica aggiuntiva viene inviata all'utente.  Di seguito è riportato un elenco di metodi che possono essere utilizzati per la seconda verifica.
 
-| Metodo di verifica | Descrizione |
+| Metodo di verifica | DESCRIZIONE |
 | --- | --- |
 | Chiamata telefonica |Viene eseguita una chiamata al telefono registrato di un utente. Se è necessario l'utente immette un PIN, quindi preme il tasto #. |
 | SMS |Viene inviato un SMS al cellulare dell'utente con un codice di sei cifre. L'utente immette il codice nella pagina di accesso. |

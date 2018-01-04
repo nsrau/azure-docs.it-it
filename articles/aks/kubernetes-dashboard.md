@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 75ee9cc7c4b40e9a724c8ce98d770a18ae654096
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
+ms.openlocfilehash: ca828dab7bdb47e41596be2717598cfe828953ca
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Dashboard di Kubernetes con il servizio contenitore di Azure
 
-Per avviare il dashboard di Kubernetes, è possibile usare l'interfaccia della riga di comando di Azure. Questo documento illustra la procedura per avviare il dashboard di Kubernetes con l'interfaccia della riga di comando di Azure, oltre ad alcune operazioni di base con il dashboard. Per altre informazioni sul dashboard di Kubernetes, vedere [Web UI (Dashboard)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) (Interfaccia utente Web - Dashboard).
+Per avviare il dashboard di Kubernetes, è possibile usare l'interfaccia della riga di comando di Azure. Questo documento illustra la procedura per avviare il dashboard di Kubernetes con l'interfaccia della riga di comando di Azure, oltre ad alcune operazioni di base con il dashboard. Per ulteriori informazioni, vedere dashboard Kubernetes [Dashboard dell'interfaccia utente Web di Kubernetes][kubernetes-dashboard].
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-I passaggi dettagliati contenuti in questo documento presuppongono che sia stato creato un cluster del servizio contenitore di Azure e che sia stata stabilita una connessione kubectl al cluster. Se sono necessari questi elementi, vedere la [guida introduttiva al servizio contenitore di Azure](./kubernetes-walkthrough.md).
+I passaggi dettagliati contenuti in questo documento presuppongono che sia stato creato un cluster del servizio contenitore di Azure e che sia stata stabilita una connessione kubectl al cluster. Se è necessario di questi elementi, vedere il [delle Guide rapide AKS][aks-quickstart].
 
-È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure versione 2.0.21 o successiva. Eseguire az --version per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+È anche necessario che sia installata e configurata l'interfaccia della riga di comando di Azure versione 2.0.21 o successiva. Eseguire az --version per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 ## <a name="start-kubernetes-dashboard"></a>Avviare il dashboard di Kubernetes
 
@@ -76,4 +76,11 @@ Selezionare **Update** (Aggiorna) al termine.
 Per altre informazioni sul dashboard di Kubernetes, vedere la documentazione di Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Dashboard dell'interfaccia utente Web di Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
+> [Dashboard dell'interfaccia utente Web Kubernetes][kubernetes-dashboard]
+
+<!-- LINKS - external -->
+[kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+
+<!-- LINKS - internal -->
+[aks-quickstart]: ./kubernetes-walkthrough.md
+[install-azure-cli]: /cli/azure/install-azure-cli

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 3c29c43f88608760cc6d5f19f27f692c8448ebd9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: a1e4f15747031ba75ba5ae589557750919a71853
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Associazioni di app per dispositivi mobili per Funzioni di Azure 
 
@@ -37,8 +37,7 @@ L'associazione di input di App per dispositivi mobili carica un record da un end
 
 Vedere l'esempio specifico per ciascun linguaggio:
 
-<!-- * [Precompiled C#](#input---c-example)-->
-* [Script C#](#input---c-script-example)
+* [Script c# (con estensione csx)](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
 
 ### <a name="input---c-script-example"></a>Input - esempio di script C#
@@ -129,7 +128,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="input---attributes"></a>Input - attributi
 
-Per funzioni in [C# precompilato](functions-dotnet-class-library.md) usare l'attributo [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+In [librerie di classi c#](functions-dotnet-class-library.md), utilizzare il [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attributo, che è definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
 Per informazioni sulle proprietà degli attributi che è possibile configurare, vedere la [sezione seguente relativa alla configurazione](#input---configuration).
 
@@ -137,7 +136,7 @@ Per informazioni sulle proprietà degli attributi che è possibile configurare, 
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `MobileTable`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
+|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
 |---------|---------|----------------------|
 | **type**|| Deve essere impostato su "mobileTable"|
 | **direction**||Deve essere impostato su "in"|
@@ -168,13 +167,13 @@ L'associazione di output di app per dispositivi mobili consente di scrivere un n
 
 Vedere l'esempio specifico per ciascun linguaggio:
 
-* [C# precompilato](#output---c-example)
-* [Script C#](#output---c-script-example)
+* [C#](#output---c-example)
+* [Script c# (con estensione csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Output - esempio in C#
 
-L'esempio seguente mostra una [funzione in C# precompilato](functions-dotnet-class-library.md) che viene attivata da un messaggio in coda e che crea un record in una tabella di app per dispositivi mobili.
+Nell'esempio seguente un [funzione c#](functions-dotnet-class-library.md) che viene attivato da un messaggio nella coda e crea un record in una tabella di app per dispositivi mobili.
 
 ```csharp
 [FunctionName("MobileAppsOutput")]        
@@ -275,7 +274,7 @@ module.exports = function (context, myQueueItem) {
 
 ## <a name="output---attributes"></a>Output - attributi
 
-Per funzioni in [C# precompilato](functions-dotnet-class-library.md) usare l'attributo [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
+In [librerie di classi c#](functions-dotnet-class-library.md), utilizzare il [MobileTable](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) attributo, che è definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps).
 
 Per informazioni sulle proprietà degli attributi che è possibile configurare, vedere la sezione [Output - configurazione](#output---configuration). Di seguito è riportato un esempio dell'attributo `MobileTable` in una firma del metodo:
 
@@ -290,13 +289,13 @@ public static object Run(
 }
 ```
 
-Per un esempio completo, vedere [Output - esempio in C# precompilato](#output---c-example).
+Per un esempio completo, vedere [Output - esempio c#](#output---c-example).
 
 ## <a name="output---configuration"></a>Output - configurazione
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `MobileTable`.
 
-|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
+|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
 |---------|---------|----------------------|
 | **type**|| Deve essere impostato su "mobileTable"|
 | **direction**||Deve essere impostato su "out"|
@@ -312,7 +311,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 ## <a name="output---usage"></a>Output - uso
 
-Nelle funzioni script C# è necessario usare un parametro di output denominato di tipo `out object` per accedere al record di output. Nelle funzioni in C# precompilato l'attributo `MobileTable` può essere usato con uno qualsiasi dei tipi seguenti:
+Nelle funzioni script C# è necessario usare un parametro di output denominato di tipo `out object` per accedere al record di output. In c# librerie di classi, il `MobileTable` attributo può essere utilizzato con uno qualsiasi dei tipi seguenti:
 
 * `ICollector<T>` o `IAsyncCollector<T>`, dove `T` è `JObject` o qualsiasi tipo con una proprietà `public string Id`.
 * `out JObject`

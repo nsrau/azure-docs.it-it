@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 8de1eca5a3e52533e05d93cfe30de612e3d0c648
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
-ms.translationtype: HT
+ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-azure-monitor"></a>Panoramica di Monitoraggio di Azure
 Questo articolo fornisce una panoramica del servizio Monitoraggio di Azure in Microsoft Azure. Illustra il funzionamento di Monitoraggio di Azure e fornisce collegamenti a informazioni aggiuntive su come usare Monitoraggio di Azure.  Per un'introduzione video, vedere i collegamenti della sezione Passaggi successivi alla fine dell'articolo. 
@@ -43,7 +43,7 @@ La pagina è un punto di partenza per la navigazione, incluso il caricamento. Mo
 
 Quando si apre la pagina, è possibile scegliere tra le sottoscrizioni per cui si dispone di accesso in lettura. Per una sottoscrizione selezionata, è possibile vedere:
 
-- **Avvisi attivati e origini degli avvisi**: questa tabella mostra il riepilogo conteggi, le origini degli avvisi e quante volte sono stati generati gli avvisi per la durata di tempo selezionata. Si applica sia agli avvisi metrica che agli avvisi del log attività.
+- **Avvisi attivati e origini degli avvisi**: questa tabella mostra il riepilogo conteggi, le origini degli avvisi e quante volte sono stati generati gli avvisi per la durata di tempo selezionata. Si applica sia agli avvisi metrica che agli avvisi del log attività. *< modifica: avvisi (anteprima) con esperienza unificata visualizzate anche per tutti gli avvisi, eventi, metriche e log >*
 - **Errori log attività**: se una delle risorse di Azure registra eventi con gravità a livello di errore, è possibile visualizzare un conteggio di alto livello e andare alla pagina log attività per esaminare ogni evento.
 - **Integrità dei servizi di Azure**: è possibile visualizzare un conteggio di problemi di integrità del servizio, eventi pianificati di manutenzione e avvisi sull'integrità. Integrità dei servizi di Azure offre informazioni personalizzate quando nell'infrastruttura di Azure si verificano problemi che influiscono sui servizi.  Per altre informazioni, vedere [Integrità dei servizi di Azure](../service-health/service-health-overview.md).  
 - **Application Insights**: vedere gli indicatori KPI per ogni risorsa AppInsights nella sottoscrizione corrente. Gli indicatori KPI sono ottimizzati affinché l'applicazione sul lato server monitori le applicazioni web ASP.NET e i tipi di applicazione Java, Node e generali. Gli indicatori KPI includono metriche per la frequenza di richieste, la durata di risposta, la percentuale di errori e di disponibilità. 
@@ -55,6 +55,7 @@ Se non sono state caricate Log Analytics o Application Insights o se non è stat
 ## <a name="azure-monitor-sources---compute-subset"></a>Origini di Monitoraggio di Azure: subset di calcolo
 
 ![Modello di monitoraggio e diagnostica per risorse non di calcolo](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
+
 
 I servizi di calcolo includono: 
 - Servizi cloud 
@@ -69,7 +70,7 @@ Nel modello di calcolo le applicazioni possono essere eseguite nel sistema opera
 * Log applicazioni
 * Registri eventi di Windows
 * Origine dell'evento .NET
-* Log di IIS
+* log di IIS
 * ETW basato su manifesto
 * Dump di arresto anomalo del sistema
 * Log degli errori dei clienti
@@ -124,7 +125,7 @@ Ecco alcuni modi in cui usare questi dati:
 ### <a name="query"></a>Query
 Per accedere ai dati nel sistema o in Archiviazione di Azure, è possibile usare l'API REST di Monitoraggio di Azure, l'interfaccia della riga di comando multipiattaforma, i cmdlet di PowerShell o .NET SDK.
 
-Ecco alcuni esempi: 
+Tra gli esempi sono inclusi:
 
 * Recuperare i dati per un'applicazione di monitoraggio personalizzata che si è scritta.
 * Creare query personalizzate e inviare i dati a un'applicazione di terze parti.
@@ -141,7 +142,10 @@ Ecco alcuni metodi di visualizzazione:
 
 
 ### <a name="automate"></a>Automatizzare
-È possibile usare i dati di monitoraggio per attivare avvisi o anche interi processi. Tra gli esempi sono inclusi:
+> [!NOTE]
+> Come parte dell'evoluzione degli avvisi in Microsoft Azure in corso, ora in anteprima un'esperienza unificata per gli avvisi. Ulteriori informazioni su [gli avvisi di Azure (anteprima)](monitoring-overview-unified-alerts.md)
+
+Negli avvisi di Azure standard, è possibile utilizzare dati di monitoraggio per attivare gli avvisi o addirittura interi processi. Tra gli esempi sono inclusi:
 
 * Usare i dati per la scalabilità automatica delle istanze di calcolo in base al carico dell'applicazione.
 * Inviare messaggi di posta elettronica quando una metrica supera una soglia predeterminata.

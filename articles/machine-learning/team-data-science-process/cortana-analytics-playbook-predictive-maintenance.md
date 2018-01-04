@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: fboylu
-ms.openlocfilehash: aafa395f8c0593d9597f74cd5cd2a41f26897c6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: da7826c49c3548600187956908f5369cc4891065
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Studio del modello di soluzione Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale e in altri campi
 ## <a name="executive-summary"></a>Riepilogo
@@ -165,7 +165,7 @@ Gli elementi di dati comuni per i problemi di manutenzione predittiva possono es
 
 Ecco alcuni esempi di elementi dati dai casi d'uso precedenti:
 
-Cronologia dei guasti: date di ritardo dei voli, date e tipi di guasti dei componenti dell'aereo, errori delle transazioni di prelievo di contanti dagli sportelli bancomat, guasti delle porte di treni/ascensori, date degli ordini di sostituzione dei dischi dei freni, dati dei guasti delle turbine eoliche ed errori dei comandi degli interruttori automatici.
+Cronologia di errore: volo date ritardo, le date di errore componente aereo e tipi, errori di ATM cassa ritiro delle transazioni, errori sportello train/sollevamento, freni disco sostituzione order date, vento turbina errore date e interruttore i comandi non riusciti.
 
 Cronologia di manutenzione: registri degli errori dei voli, registri degli errori delle transazioni degli sportelli bancomat, record di manutenzione dei treni inclusi tipo di manutenzione, breve descrizione e così via e record di manutenzione degli interruttori.
 
@@ -230,7 +230,7 @@ Durante la generazione della funzione è necessario eseguire altri passaggi impo
 
 La tabella delle funzioni finale, dopo i passaggi di progettazione delle funzioni illustrati nella sezione precedente, dovrebbe essere simile allo schema di dati di esempio seguente quando l'unità di tempo è un giorno:
 
-| ID asset | Time | Colonne delle funzioni | Etichetta |
+| ID asset | Tempo | Colonne delle funzioni | Etichetta |
 | --- | --- | --- | --- |
 | 1 |Giorno 1 | | |
 | 1 |Giorno 2 | | |

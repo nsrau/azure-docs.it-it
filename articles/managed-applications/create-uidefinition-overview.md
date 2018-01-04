@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: d8f04d8ed2e56cecb1b7a850bed55a02a9492bb5
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
-ms.translationtype: HT
+ms.openlocfilehash: bdbde834695040df4e333bef42fab7d29614ab75
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Creare l'interfaccia utente del portale di Azure per l'applicazione gestita
 Questo documento illustra i concetti di base del file createUiDefinition.json. Il portale di Azure usa questo file per generare l'interfaccia utente per la creazione di un'applicazione gestita.
@@ -52,11 +52,23 @@ Il passaggio relativo alle informazioni di base è sempre il primo passaggio del
 
 Se il comportamento di un elemento dipende dalla sottoscrizione, dal gruppo di risorse o dalla posizione dell'utente, non è possibile usare tale elemento per le proprietà basics. Ad esempio, **Microsoft.Compute.SizeSelector** dipende dalla sottoscrizione e dalla posizione dell'utente per la determinazione dell'elenco delle dimensioni disponibili. È quindi possibile usare **Microsoft.Compute.SizeSelector** solo nelle proprietà steps. In genere è possibile usare nelle proprietà basics solo gli elementi disponibili nello spazio dei nomi **Microsoft.Common**. Sono tuttavia consentiti alcuni elementi disponibili in altri spazi dei nomi, ad esempio **Microsoft.Compute.Credentials**, che non dipendono dal contesto dell'utente.
 
-## <a name="steps"></a>Passi
+## <a name="steps"></a>Passaggi
 La proprietà steps può contenere zero o più passaggi aggiuntivi da visualizzare dopo la proprietà basics, ognuna delle quali contiene uno o più elementi. Prendere in considerazione l'aggiunta di passaggi per ogni ruolo o livello dell'applicazione in fase di distribuzione. Aggiungere ad esempio un passaggio per gli input dei nodi master e un passaggio per i nodi di lavoro in un cluster.
 
 ## <a name="outputs"></a>Output
 Il portale di Azure usa la proprietà `outputs` per il mapping di elementi da `basics` e `steps` ai parametri del modello di distribuzione Azure Resource Manager. Le chiavi di questo dizionario sono i nomi dei parametri del modello e i valori sono le proprietà degli oggetti di output dagli elementi a cui si fa riferimento.
+
+Per impostare il nome della risorsa applicazione gestita, è necessario includere un valore denominato `applicationResourceName` nella proprietà di output. Se non si imposta questo valore, l'applicazione assegna un GUID per il nome. È possibile includere una casella di testo nell'interfaccia utente che richiede un nome dell'utente.
+
+```json
+"outputs": {
+    "vmName": "[steps('appSettings').vmName]",
+    "trialOrProduction": "[steps('appSettings').trialOrProd]",
+    "userName": "[steps('vmCredentials').adminUsername]",
+    "pwd": "[steps('vmCredentials').vmPwd.password]",
+    "applicationResourceName": "[steps('appSettings').vmName]"
+}
+```
 
 ## <a name="functions"></a>Funzioni
 Analogamente alle funzioni del modello in Azure Resource Manager, a livello di sintassi e di funzionalità, CreateUiDefinition offre funzioni per l'uso di input e output degli elementi, oltre a funzionalità quali le istruzioni condizionali.
@@ -67,6 +79,6 @@ Il file createUiDefinition.json è contraddistinto da uno schema semplice ma sup
 - [Elementi](create-uidefinition-elements.md)
 - [Funzioni](create-uidefinition-functions.md)
 
-Per uno schema JSON corrente per createUiDefinition, vedere qui: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json. 
+Per uno schema JSON corrente per createUiDefinition, vedere qui: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
 
-Le versioni più aggiornate verranno rese disponibili nello stesso percorso. Sostituire la parte `0.1.2-preview` dell'URL e il valore `version` con l'identificatore della versione da usare. Gli identificatori attualmente supportati per la versione sono `0.0.1-preview`, `0.1.0-preview`, `0.1.1-preview` e `0.1.2-preview`.
+Per un file di interfaccia utente di esempio, vedere [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json).

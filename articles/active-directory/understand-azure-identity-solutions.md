@@ -3,7 +3,7 @@ title: "Comprendere le identità di Azure | Microsoft Docs"
 description: "Ottenere una conoscenza di base dei termini, dei concetti e delle raccomandazioni relativi alle soluzioni di gestione delle identità di Microsoft Azure, per migliorare il processo decisionale in termini di governance delle identità per la propria organizzazione."
 keywords: 
 author: jeffgilb
-manager: femila
+manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.date: 7/17/2017
@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 4d4e15e1bada54ce06f38187e6a2ea1f8c749dc4
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 4438917db93c37ddbba3e7ee692b2e3c065d2beb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understand-azure-identity-solutions"></a>Informazioni sulle soluzioni di gestione delle identità di Azure
 Microsoft Azure Active Directory (Azure AD) è una soluzione cloud completa per la gestione delle identità e degli accessi che fornisce servizi di directory, governance delle identità e gestione dell'accesso alle applicazioni. Azure AD [abilita il single sign-on (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) rapidamente su oltre 1000 applicazioni preintegrate commerciali e personalizzate nella [raccolta di applicazioni Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Molte di queste applicazioni sono già in uso, ad esempio Office 365, Salesforce.com, Box, ServiceNow e Workday.
@@ -32,12 +32,12 @@ Microsoft Azure offre diverse modalità per sfruttare l'identità come servizio 
 
 Prima di prendere una decisione relativa alla soluzione di identità di Azure per l'organizzazione, è necessario avere una conoscenza di base dei termini comunemente usati a proposito dei servizi di gestione delle identità di Azure.
 
-|Termini chiave| Descrizione|
+|Termini chiave| DESCRIZIONE|
 |-----|-----|
 |Sottoscrizione di Azure |Le sottoscrizioni vengono usate per effettuare i pagamenti relativi ai servizi cloud di Azure e sono in genere collegate a una carta di credito. È possibile disporre di più sottoscrizioni, ma può essere difficile condividere le risorse tra le sottoscrizioni.|
 |Tenant di Azure | Un tenant di Azure AD rappresenta un'unica organizzazione. Si tratta di un'istanza attendibile e dedicata di Azure AD che viene creata automaticamente quando un'organizzazione si registra a una sottoscrizione a un servizio cloud Microsoft, ad esempio Azure, Intune o Office 365. I tenant possano accedere ai servizi in un ambiente dedicato (tenant singolo) o in un ambiente condiviso con altre organizzazioni (multi-tenant).|
 |Directory di Azure AD | Ogni tenant di Azure è dotato di una directory di Azure AD dedicata e attendibile che contiene gli utenti, i gruppi e le applicazioni del tenant. Viene usata per eseguire le funzioni di gestione degli accessi e delle identità relative alle risorse del tenant. Poiché viene eseguito automaticamente il provisioning di un'unica directory di Azure AD per rappresentare l'organizzazione quando si effettua l'iscrizione a un servizio cloud di Microsoft, come Azure, Microsoft Intune o Office 365, talvolta si noterà che i termini *tenant*, *Azure AD* e *directory di Azure AD* vengono usati in modo intercambiabile. |
-|Dominio personalizzato | Quando ci si registra per la prima volta a una sottoscrizione a un servizio cloud Microsoft il tenant (organizzazione) usa un nome di dominio *.onmicrosoft.com*. La maggior parte delle organizzazioni tuttavia dispongono di uno o più nomi di dominio impegnati nello svolgimento delle proprie attività di business e che gli utenti finali usano per accedere alle risorse aziendali. È possibile aggiungere il nome di dominio personalizzato ad Azure AD, in modo che il nome di dominio sia familiare agli utenti, ad esempio  *alice@contoso.com*  anziché  *alice@contoso.onmicrosoft.com* . |
+|Dominio personalizzato | Quando ci si registra per la prima volta a una sottoscrizione a un servizio cloud Microsoft il tenant (organizzazione) usa un nome di dominio *.onmicrosoft.com*. La maggior parte delle organizzazioni tuttavia dispongono di uno o più nomi di dominio impegnati nello svolgimento delle proprie attività di business e che gli utenti finali usano per accedere alle risorse aziendali. È possibile aggiungere il nome di dominio personalizzato ad Azure AD, in modo che il nome di dominio sia familiare agli utenti, ad esempio *alice@contoso.com* anziché *alice@contoso.onmicrosoft.com*. |
 |Account Azure AD | Si tratta delle identità create tramite Azure AD o un altro servizio cloud Microsoft, ad esempio Office 365. Sono archiviate in Azure AD e accessibili da una qualsiasi delle sottoscrizioni di servizi cloud dell'organizzazione. |
 |Amministratore della sottoscrizione di Azure| L'amministratore account è la persona che ha eseguito l'accesso o ha acquistato la sottoscrizione di Azure. Possono usare [Centro account](https://account.azure.com/Subscriptions) ed eseguire diverse attività di gestione, ad esempio creare e annullare sottoscrizioni, modificare la fatturazione per una sottoscrizione oppure modificare l'amministratore del servizio. |
 |Amministrazione globale di Azure AD | Gli amministratori globali di Azure AD hanno accesso completo a tutte le funzionalità amministrative di Azure AD. Per impostazione predefinita, la persona che registra la sottoscrizione al servizio cloud Microsoft diventa automaticamente un amministratore globale. È possibile avere più amministratori globali; solo gli amministratori globali possono assegnare gli [altri ruoli di amministratore](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) agli utenti. |
@@ -49,7 +49,7 @@ Prima di prendere una decisione relativa alla soluzione di identità di Azure pe
 
 Ora che si conoscono i termini di base di identità di Azure, si devono ottenere ulteriori informazioni sui concetti di identità di Azure per prendere una decisione informata relativamente al servizio di gestione delle identità di Azure.
 
-|Concetto chiave |Descrizione|
+|Concetto chiave |DESCRIZIONE|
 |-----|-----|
 |[Associare le sottoscrizioni di Azure ad Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory) |Ogni sottoscrizione di Azure ha una relazione di trust con una directory di Azure AD, necessaria per autenticare gli utenti, i servizi e i dispositivi. *Più sottoscrizioni possono considerare attendibile la stessa directory di Azure AD, ma una sottoscrizione considererà attendibile solo una singola directory di Azure AD*. Questa relazione di trust è diversa dalla relazione tra la sottoscrizione e le altre risorse in Azure, ad esempio siti Web, database e così via, le quali sono da considerarsi più come risorse figlio di una sottoscrizione. Se la sottoscrizione scade, non sarà più possibile accedere alle risorse associate alla sottoscrizione diversa da Azure AD. Tuttavia, la directory Azure AD rimane in Azure, quindi sarà possibile associarvi un'altra sottoscrizione e continuare a gestire le risorse del tenant.|
 |[Come funzionano le licenze di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-get-started-azure-portal) | Quando si acquista o si attiva Enterprise Mobility Suite, Azure AD Premium o Azure AD Basic, la directory viene aggiornata con la sottoscrizione, inclusi il relativo periodo di validità e le licenze prepagate. Quando la sottoscrizione è attiva, il servizio può essere gestito dagli amministratori globali di Azure AD e usato dagli utenti dotati di licenza. Le informazioni relative alla sottoscrizione, tra cui il numero di licenze disponibili o assegnate, sono disponibili nel portale di Azure nel pannello **Licenze** >  **di Azure Active Directory**. Questa è anche la posizione migliore per gestire le assegnazioni delle licenze.|

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Esempio 1: creare una semplice rete perimetrale usando un NSG con PowerShell classico
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
@@ -41,7 +41,7 @@ Una sottoscrizione in questo esempio include le risorse seguenti:
 * Un gruppo di sicurezza di rete applicato a entrambe le subnet
 * Un server Windows che rappresenta un server Web applicazioni ("IIS01")
 * Due server Windows che rappresentano i server applicazioni back-end ("AppVM01", "AppVM02")
-* Un server Windows che rappresenta un server DNS ("DNS01")
+* Un server Windows che rappresenta un server DNS ("DNS01").
 
 Nella sezione Riferimenti è disponibile uno script di PowerShell per creare la maggior parte dell'ambiente descritto in questo esempio. La creazione di macchine virtuali e reti virtuali, anche se eseguita dallo script di esempio, non è descritta in dettaglio in questo documento. 
 
@@ -266,11 +266,11 @@ Modificare le variabili definite dall'utente secondo le esigenze ed eseguire lo 
 #### <a name="full-script"></a>Script completo
 In base alle variabili definite dall'utente, lo script consente di:
 
-1. Connettersi a una sottoscrizione di Azure.
+1. Connettersi a una sottoscrizione di Azure
 2. Creare un account di archiviazione
 3. Creare una rete virtuale e due subnet, come definito nel file di configurazione di rete
 4. Compilare quattro macchine virtuali Windows Server
-5. Configurare il gruppo di sicurezza di rete eseguendo queste operazioni:
+5. Configurare il gruppo di sicurezza di rete, incluse le operazioni seguenti:
    * Creazione di un gruppo di sicurezza di rete
    * Inserimento delle regole.
    * Associazione del gruppo di sicurezza di rete alle subnet appropriate

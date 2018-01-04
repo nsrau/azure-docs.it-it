@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/03/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: e8cad53d95186f4f7679d1f19f339ad4149059a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f99fe340b6cfebaafb04af9dba8abf9cb0f09a2b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Sviluppare le Funzioni di Azure con Servizi multimediali
 
-In questo argomento viene illustrato come iniziare a creare le Funzioni di Azure che usano i Servizi multimediali. La funzione di Azure definita in questo argomento consente di monitorare un contenitore di account di archiviazione denominato **input** per i nuovi file MP4. Una volta rilasciato un file nel contenitore di archiviazione, il trigger BLOB eseguirà la funzione. Per le funzioni di Azure, vedere [Panoramica](../azure-functions/functions-overview.md) e altri argomenti della sezione **Funzioni di Azure**.
+Questo articolo illustra come iniziare con la creazione di funzioni di Azure che utilizzano i servizi di supporto. La funzione di Azure definito in questo articolo consente di monitorare un contenitore di account di archiviazione denominato **input** per i nuovi file MP4. Una volta che viene rilasciato un file nel contenitore di archiviazione, la funzione viene eseguito il trigger di blob. Per le funzioni di Azure, vedere [Panoramica](../azure-functions/functions-overview.md) e altri argomenti della sezione **Funzioni di Azure**.
 
 Se si vuole esplorare e distribuire le Funzioni di Azure esistenti che usano i Servizi multimediali di Azure, estrarre [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) (Funzioni di Azure di Servizi multimediali). Questo repository contiene esempi che usano Servizi multimediali per visualizzare i flussi di lavoro correlati all'inserimento di contenuto direttamente dall'archiviazione BLOB, alla codifica e alla scrittura del contenuto nell'archiviazione BLOB. Include inoltre esempi su come monitorare le notifiche dei processi tramite i webhook e le code di Azure. È inoltre possibile sviluppare le funzioni in base agli esempi nel repository [Funzioni di Azure dei Servizi multimediali](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Per distribuire le funzioni, premere il pulsante **Distribuisci in Azure**.
 
@@ -47,13 +47,13 @@ Per la funzione definita in questo articolo si presuppongono le seguenti variabi
 
 **AMSAADTenantDomain**: endpoint tenant di Azure AD. Per altre informazioni sulla connessione alle API di Servizi multimediali di Azure, vedere [questo](media-services-use-aad-auth-to-access-ams-api.md) articolo.
 
-**AMSRESTAPIEndpoint**:  URI che rappresenta l'endpoint dell'API REST. 
+**AMSRESTAPIEndpoint**: URI che rappresenta l'endpoint dell'API REST. 
 
-**AMSClientId**: ID client dell'applicazione Azure AD.
+**AMSClientId**: ID client dell'applicazione di Azure AD.
 
 **AMSClientSecret**: segreto client dell'applicazione Azure AD.
 
-**StorageConnection**: connessione di archiviazione dell'account associato all'account di Servizi multimediali. Questo valore è usato nei file **function.json** e **run.csx** (descritti di seguito).
+**StorageConnection**: connessione di archiviazione dell'account associato all'account di servizi multimediali. Questo valore è usato nei file **function.json** e **run.csx** (descritti di seguito).
 
 ## <a name="create-a-function"></a>Creare una funzione
 
@@ -61,11 +61,11 @@ In seguito alla distribuzione dell'app per le funzioni, questa verrà visualizza
 
 1. Selezionare l'app per le funzioni e fare clic su **Nuova funzione**.
 2. Scegliere il linguaggio **C#** e lo scenario **Elaborazione dati**.
-3. Scegliere il modello **BlobTrigger**. Questa funzione verrà attivata ogni volta che viene caricato un BLOB nel contenitore di **input**. Il nome **input** è specificato nel **percorso**, nel passaggio successivo.
+3. Scegliere il modello **BlobTrigger**. Questa funzione viene attivata ogni volta che un blob viene caricato nel **input** contenitore. Il nome **input** è specificato nel **percorso**, nel passaggio successivo.
 
     ![input](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
-4. Dopo aver selezionato **BlobTrigger**, altri controlli verranno visualizzati nella pagina.
+4. Dopo aver selezionato **BlobTrigger**, alcuni ulteriori controlli vengono visualizzati nella pagina.
 
     ![input](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
@@ -103,7 +103,7 @@ Sostituire il contenuto del file .json della funzione esistente con il codice se
 
 ### <a name="projectjson"></a>project.json
 
-Il file project.json contiene dipendenze. Di seguito è riportato un esempio del file **project.json** che include i pacchetti di Servizi multimediali di Azure .NET da Nuget. Si noti che i numeri di versione cambieranno con gli aggiornamenti più recenti per i pacchetti, pertanto è consigliabile confermare le versioni più recenti. 
+Il file project.json contiene dipendenze. Di seguito è riportato un esempio del file **project.json** che include i pacchetti di Servizi multimediali di Azure .NET da Nuget. Si noti che i numeri di versione modificare con gli aggiornamenti più recenti per i pacchetti, pertanto è necessario verificare le versioni più recenti. 
 
 Aggiungere la seguente definizione .json. 
 
@@ -125,7 +125,7 @@ Aggiungere la seguente definizione .json.
     
 ### <a name="runcsx"></a>run.csx
 
-Questo è il codice C# per la funzione.  La funzione definita di seguito monitora un contenitore dell'account di archiviazione denominato **input** (cioè quello specificato nel percorso) per i nuovi file MP4. Una volta rilasciato un file nel contenitore di archiviazione, il trigger BLOB eseguirà la funzione.
+Questo è il codice C# per la funzione.  La funzione definita di seguito monitora un contenitore dell'account di archiviazione denominato **input** (cioè quello specificato nel percorso) per i nuovi file MP4. Una volta che viene rilasciato un file nel contenitore di archiviazione, la funzione viene eseguito il trigger di blob.
     
 L'esempio viene definito in questa sezione illustra 
 
@@ -134,7 +134,7 @@ L'esempio viene definito in questa sezione illustra
 
 Nello scenario reale, è probabile che l'utente desideri tenere traccia dello stato dei processi e quindi pubblicare l'asset codificato. Per altre informazioni, vedere [Usare i webhook di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET](media-services-dotnet-check-job-progress-with-webhooks.md). Per altri esempi, vedere [Funzioni di Azure dei Servizi multimediali](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).  
 
-Sostituire il contenuto del file run.csx esistente con il codice seguente. Al termine dell'operazione di definizione della funzione fare clic su **Salva ed esegui**.
+Sostituire il contenuto del file run.csx esistente con il codice seguente: dopo aver eseguito la definizione di una funzione fare clic su **salvare ed eseguire**.
 
 ```
 #r "Microsoft.WindowsAzure.Storage"
@@ -334,7 +334,7 @@ Per testare la funzione, è necessario caricare un file MP4 nel contenitore **in
 1. Selezionare l'account di archiviazione specificato nella variabile di ambiente **StorageConnection**.
 2. Fare clic su **Blob**.
 3. Fare clic su **+ Contenitore**. Denominare il contenitore **input**.
-4. Premere **Upload** e passare al file MP4 che si desidera caricare.
+4. Premere **caricare** e selezionare un file MP4 che si desidera caricare.
 
 >[!NOTE]
 > Quando si usa un trigger di tipo BLOB in un piano a consumo, è possibile che si verifichi un ritardo di un massimo di 10 minuti per l'elaborazione di nuovi BLOB in caso di inattività di un'app per le funzioni. Quando l'app per le funzioni è in esecuzione, i BLOB vengono elaborati immediatamente. Per altre informazioni, vedere [Trigger e associazioni di archiviazione BLOB](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings).

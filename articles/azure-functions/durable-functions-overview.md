@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: fa0d5cf7469a1a36fe0ab9a712cd4f8c963ceb48
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: f1def2a43edee58bc8b5a33880e206130a1b4687
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="durable-functions-overview-preview"></a>Panoramica di Funzioni permanenti (anteprima)
 
@@ -215,7 +215,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
         if (approvalEvent == await Task.WhenAny(approvalEvent, durableTimeout))
         {
             timeoutCts.Cancel();
-            await ctx.CallActivityAsync("HandleApproval", approvalEvent.Result);
+            await ctx.CallActivityAsync("ProcessApproval", approvalEvent.Result);
         }
         else
         {
@@ -235,7 +235,7 @@ L'estensione Funzioni permanenti è basata su [Durable Task Framework](https://g
 
 Le funzioni di orchestrazione mantengono in modo affidabile il proprio stato di esecuzione usando un modello di progettazione cloud noto come [Origine eventi](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). Anziché archiviare direttamente lo stato *corrente* di un'orchestrazione, l'estensione Funzioni permanenti usa un archivio di solo accodamento per registrare la *serie completa di azioni* eseguita dall'orchestrazione di funzioni. Questo offre numerosi vantaggi, tra cui il miglioramento delle prestazioni, della scalabilità e della velocità di risposta rispetto al dump completo dello stato di runtime. Inoltre, consente di garantire coerenza finale ai dati transazionali e mantenere dati di cronologia e audit trail completi, che consentono di eseguire azioni di compensazione affidabili.
 
-L'uso dell'origine eventi da parte di questa estensione è trasparente. Dietro le quinte, l'operatore `await` in una funzione di orchestrazione restituisce il controllo del thread di orchestrazione al dispatcher di Durable Task Framework. Il dispatcher quindi esegue il commit di eventuali nuove azioni pianificate dalla funzione di orchestrazione (ad esempio, la chiamata di una o più funzioni figlio o la pianificazione di un timer permanente) in un archivio. Questa azione di commit trasparente viene accodata alla *cronologia di esecuzione* dell'istanza di orchestrazione. La cronologia viene archiviata in una risorsa di archiviazione durevole. L'azione di commit aggiunge quindi messaggi a una coda per pianificare le operazioni effettive. A questo punto, la funzione di orchestrazione può essere scaricata dalla memoria. Se si usa il piano a consumo di Funzioni di Azure, la fatturazione per la funzione si interrompe.  Quando ci sono altre operazioni da eseguire, la funzione viene riavviata e il relativo stato viene ricostruito.
+L'uso dell'origine eventi da parte di questa estensione è trasparente. Dietro le quinte, l'operatore `await` in una funzione di orchestrazione restituisce il controllo del thread di orchestrazione al dispatcher di Durable Task Framework. Il dispatcher quindi esegue il commit di eventuali nuove azioni pianificate dalla funzione di orchestrazione (ad esempio, la chiamata di una o più funzioni figlio o la pianificazione di un timer permanente) in un archivio. Questa azione di commit trasparente viene accodata alla *cronologia di esecuzione* dell'istanza di orchestrazione. La cronologia viene archiviata in una tabella di archiviazione. L'azione di commit aggiunge quindi messaggi a una coda per pianificare le operazioni effettive. A questo punto, la funzione di orchestrazione può essere scaricata dalla memoria. Se si usa il piano a consumo di Funzioni di Azure, la fatturazione per la funzione si interrompe.  Quando ci sono altre operazioni da eseguire, la funzione viene riavviata e il relativo stato viene ricostruito.
 
 Quando a una funzione di orchestrazione vengono assegnate altre operazioni da eseguire (ad esempio, viene ricevuto un messaggio di risposta o un timer permanente scade), l'agente di orchestrazione si riattiva ed esegue nuovamente l'intera funzione dall'inizio per ricompilare lo stato locale. Se durante la riesecuzione il codice tenta di chiamare una funzione o di eseguire altro lavoro asincrono, Durable Task Framework esamina la *cronologia di esecuzione* dell'orchestrazione corrente. Se rileva che la funzione di attività è già stata eseguita e ha restituito un risultato, riesegue il risultato della funzione e l'esecuzione del codice dell'agente di orchestrazione continua. Il processo continua finché il codice della funzione non giunge a un punto in cui termina o viene pianificato nuovo lavoro asincrono.
 
@@ -249,7 +249,7 @@ Attualmente C# è l'unico linguaggio supportato per Funzioni permanenti. Questo 
 
 ## <a name="monitoring-and-diagnostics"></a>Monitoraggio e diagnostica
 
-L'estensione Funzioni permanenti invia automaticamente dati di rilevamento strutturati ad [Application Insights](functions-monitoring.md) quando l'app per le funzioni è configurata con una chiave di Application Insights. Questi dati di rilevamento possono essere usati per monitorare il comportamento e lo stato di avanzamento delle orchestrazioni.
+L'estensione funzioni durevole genera automaticamente i dati di rilevamento strutturati [Application Insights](functions-monitoring.md) quando l'app di funzione è configurato con una chiave di strumentazione di Application Insights. Questi dati di rilevamento possono essere usati per monitorare il comportamento e lo stato di avanzamento delle orchestrazioni.
 
 Ecco un esempio di come si presentano gli eventi di rilevamento nel portale Application Insights usando [Application Insights Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics):
 

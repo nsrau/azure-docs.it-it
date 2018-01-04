@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: banders
-ms.openlocfilehash: 10e8eeaade5d51b1a15c30802b28600bcf6c72d9
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
-ms.translationtype: HT
+ms.openlocfilehash: d5d5ec1b524fa455c8d2231c7c16fd7942f713c4
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Soluzione di monitoraggio delle prestazioni di rete in Log Analytics
 
@@ -46,7 +46,7 @@ Se si desidera monitorare un'applicazione line-of-business, è possibile usare l
 Inoltre, se si investe già in altri strumenti di monitoraggio della rete, la soluzione può completarli perché le più tradizionali soluzioni di monitoraggio di rete non forniscono informazioni dettagliate sulle metriche delle prestazioni di rete end-to-end come perdita e la latenza.  La soluzione di monitoraggio delle prestazioni di rete aiuterà a colmare il divario.
 
 ## <a name="installing-and-configuring-agents-for-the-solution"></a>Installazione e configurazione degli agenti per la soluzione
-Usare i processi di base per installare gli agenti descritti in [Connettere computer Windows a Log Analytics](log-analytics-windows-agents.md) e [Connettere Operations Manager a Log Analytics](log-analytics-om-agents.md).
+Usare i processi di base per installare gli agenti descritti in [Connettere computer Windows a Log Analytics](log-analytics-windows-agent.md) e [Connettere Operations Manager a Log Analytics](log-analytics-om-agents.md).
 
 > [!NOTE]
 > Per poter avere dati sufficienti per individuare e monitorare le risorse di rete, è necessario installare almeno 2 agenti. In caso contrario, la soluzione rimarrà in uno stato di configurazione fino a quando non verranno installati e configurati altri agenti.
@@ -212,7 +212,7 @@ Monitoraggio delle prestazioni di rete usa pacchetti di handshake TCP SYN-SYNACK
 
 Nella tabella seguente vengono illustrati i metodi di raccolta dei dati e altri dettagli sulla modalità di raccolta dei dati per il monitoraggio delle prestazioni di rete.
 
-| Piattaforma | Agente diretto | Agente SCOM | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | frequenza della raccolta |
+| Piattaforma | Agente diretto | Agente SCOM | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | Frequenza della raccolta |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows | &#8226; | &#8226; |  |  |  |Handshake TCP/messaggi ICMP ECHO ogni 5 secondi, dati inviati ogni 3 minuti |
 

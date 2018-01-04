@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
 ms.openlocfilehash: e831048f34ecf6e89595adc4bfd58b5977e04bdb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Usare il codificatore FMLE per inviare un flusso live a velocità in bit singola.
 > [!div class="op_single_selector"]
@@ -106,14 +106,14 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
    * Livello: 4.0
    * Frequenza dei fotogrammi chiave: 2 secondi
 
-     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle4.png)
+     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle4.png)
 3. Impostare la seguente impostazione importante dell’audio:
 
    * Formato: AAC
    * Frequenza di campionamento: 44100 kHz
    * Velocità in bit: 192 kbps
 
-     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
+     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
 4. Ottenere l’input URL del canale per assegnargli il FMLE **RTMP Endpoint**.
 
     Passare allo strumento AMSE e controllare lo stato di completamento del canale. Una volta che lo stato è passato da **Avvio in corso** a **In esecuzione**, è possibile ottenere l'URL di input.
@@ -123,7 +123,7 @@ In questa esercitazione vengono usate le seguenti impostazioni di output. Nel re
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle6.png)
 5. Incollare le informazioni nel campo **URL FMS** della sezione di output e assegnare un nome di flusso.
 
-    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle7.png)
+    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle7.png)
 
     Per garantire la ridondanza aggiuntiva, ripetere questi passaggi con l'URL di Input secondari.
 6. Selezionare **Connessione**.

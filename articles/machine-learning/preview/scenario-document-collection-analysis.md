@@ -2,24 +2,25 @@
 title: Analisi di raccolte di documenti - Azure | Microsoft Docs
 description: Procedura per riepilogare e analizzare una vasta raccolta di documenti, incluse tecniche quali apprendimento della frase, modellazione dell'argomento e analisi del modello di argomento mediante Azure ML Workbench.
 services: machine-learning
-documentationcenter: 
 author: kehuan
 ms.author: kehuan
-ms.reviewer: garyericson, jasonwhowell, mldocs
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview, mldocs
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 5ef1589e28c01d750641873d3c8482f61d90a887
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
-ms.translationtype: HT
+ms.openlocfilehash: a6034652f27765bb20db4dbbb4c25741b261e50a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="document-collection-analysis"></a>Analisi delle raccolta di documenti
 
 Questo scenario dimostra la procedura per riepilogare e analizzare una vasta raccolta di documenti, incluse tecniche quali apprendimento della frase, modellazione dell'argomento e analisi del modello di argomento mediante Azure ML Workbench. Azure Machine Learning Workbench consente di affrontare facilmente vaste raccolte di documenti e fornisce meccanismi per addestrare e ottimizzare i modelli in un'ampia varietà di contesti di calcolo, che spaziano dal calcolo locale, alle macchine virtuali per data science, al cluster Spark. Lo sviluppo semplificato è fornito tramite notebook Jupyter all'interno di Azure Machine Learning Workbench.
 
-## <a name="link-to-the-gallery-github-repository"></a>Collegamento al repository GitHub della raccolta
+## <a name="link-to-the-gallery-github-repository"></a>Collegamento al repository GitHub delle raccolte
 
 Il repository GitHub pubblico per questo scenario reale contiene tutti i materiali, inclusi esempi di codice necessari per questo esempio:
 
@@ -66,13 +67,13 @@ I prerequisiti per eseguire questo esempio sono i seguenti:
 Creare un nuovo progetto usando questo esempio come modello:
 1.  Aprire Azure Machine Learning Workbench
 2.  Nella pagina **Projects** (Progetti) fare clic sul segno **+** e selezionare **New Project** (Nuovo progetto)
-3.  Nel riquadro **Crea nuovo progetto** specificare le informazioni per il nuovo progetto
+3.  Nel riquadro **Create New Project** (Crea nuovo progetto) specificare le informazioni per il nuovo progetto
 4.  Nella casella di ricerca **Cerca modelli di progetto** digitare "Analisi raccolta documenti" e selezionare il modello
 5.  Fare clic su **Crea**
 
 ## <a name="data-description"></a>Descrizione dei dati
 
-Il set di dati utilizzato in questo scenario contiene riepiloghi di testo e metadati associati per ogni azione legislativa del Congresso degli Stati Uniti. I dati vengono raccolti da [GovTrack.us](https://www.govtrack.us/) che tiene traccia delle attività del Congresso e aiuta gli americani a partecipare al loro processo legislativo nazionale. I dati in blocco possono essere scaricati tramite [questo collegamento](https://www.govtrack.us/data/congress/) usando uno script manuale, che non è incluso in questo scenario. È possibile trovare i dettagli su come scaricare i dati nella [documentazione dell'API GovTrack](https://www.govtrack.us/developers/api).
+Il set di dati utilizzati in questo scenario contiene riepiloghi di testo e i metadati associati per ogni azione legislativi congresso US. I dati vengono raccolti da [GovTrack.us](https://www.govtrack.us/) che tiene traccia delle attività del Congresso e aiuta gli americani a partecipare al loro processo legislativo nazionale. I dati in blocco possono essere scaricati tramite [questo collegamento](https://www.govtrack.us/data/congress/) usando uno script manuale, che non è incluso in questo scenario. È possibile trovare i dettagli su come scaricare i dati nella [documentazione dell'API GovTrack](https://www.govtrack.us/developers/api).
 
 ### <a name="data-source"></a>Origine dati
 
@@ -82,17 +83,17 @@ In questo scenario i dati non elaborati raccolti sono una serie di azioni legisl
 
 Nel file di dati sono presenti nove campi dati. I nomi e le descrizioni dei campi dati sono elencati come indicato di seguito.
 
-| Nome campo | Tipo | Descrizione | Contiene un valore mancante |
+| Nome campo | type | DESCRIZIONE | Contiene un valore mancante |
 |------------|------|-------------|---------------|
-| `ID` | String | L'ID della legge/risoluzione. Il formato di questo campo è [tipo_legge][numero]-[congresso]. Ad esempio "hconres1-93" significa che il tipo di legge è "hconres" (sta per House Concurrent Resolution, vedere [questo documento](https://github.com/unitedstates/congress/wiki/bills#basic-information)), il numero della legge è "1" e il numero del Congresso è "93". | No |
-| `Text` | String | Il contenuto della legge/risoluzione. | No |
-| `Date` | String | La data in cui la legge/risoluzione è stata proposta inizialmente. Nel formato "aaaa-mm-gg". | No |
-| `SponsorName` | String | Il nome del promotore primario che ha proposto la legge/risoluzione. | Sì |
-| `Type` | String | Il tipo di titolo dello promotore primario, che può essere "rep" (rappresentante) o "sen" (senatore). | Sì |
-| `State` | String | Lo stato del promotore primario. | Sì |
+| `ID` | string | L'ID della legge/risoluzione. Il formato di questo campo è [tipo_legge][numero]-[congresso]. Ad esempio "hconres1-93" significa che il tipo di legge è "hconres" (sta per House Concurrent Resolution, vedere [questo documento](https://github.com/unitedstates/congress/wiki/bills#basic-information)), il numero della legge è "1" e il numero del Congresso è "93". | No  |
+| `Text` | string | Il contenuto della legge/risoluzione. | No  |
+| `Date` | string | La data in cui la legge/risoluzione è stata proposta inizialmente. Nel formato "aaaa-mm-gg". | No  |
+| `SponsorName` | string | Il nome del promotore primario che ha proposto la legge/risoluzione. | Sì |
+| `Type` | string | Il tipo di titolo dello promotore primario, che può essere "rep" (rappresentante) o "sen" (senatore). | Sì |
+| `State` | string | Lo stato del promotore primario. | Sì |
 | `District` | Integer | Il numero di zona del promotore primario se il titolo del promotore è "rappresentante". | Sì |
-| `Party` | String | Il partito del promotore primario. | Sì |
-| `Subjects` | String | I termini della materia aggiunti in modo cumulativo dalla Libreria del Congresso alla legge. I termini sono concatenati con virgole. Questi termini vengono scritti da una persona nella Libreria del Congresso e non sono in genere presenti nella prima pubblicazione delle informazioni sulla legge. Possono essere aggiunti in qualsiasi momento. In questo modo, alla fine del ciclo di vita di una legge, una materia potrebbe non essere più rilevante. | Sì |
+| `Party` | string | Il partito del promotore primario. | Sì |
+| `Subjects` | string | I termini della materia aggiunti in modo cumulativo dalla Libreria del Congresso alla legge. I termini sono concatenati con virgole. Questi termini vengono scritti da una persona nella Libreria del Congresso e non sono in genere presenti nella prima pubblicazione delle informazioni sulla legge. Possono essere aggiunti in qualsiasi momento. In questo modo, alla fine del ciclo di vita di una legge, una materia potrebbe non essere più rilevante. | Sì |
 
 ## <a name="scenario-structure"></a>Struttura dello scenario
 
@@ -100,7 +101,7 @@ L'esempio di analisi della raccolta di documenti è organizzato in due tipi di r
 
 I file in questo esempio sono organizzati come indicato di seguito.
 
-| File Name | Tipo | Descrizione |
+| File Name | type | DESCRIZIONE |
 |-----------|------|-------------|
 | `aml_config` | Cartella | Cartella di configurazione di Azure Machine Learning Workbench: per la configurazione di esecuzione dettagliata per l'esperimento, vedere [questa documentazione](./experimentation-service-configuration-reference.md) |
 | `Code` | Cartella | La cartella del codice utilizzata per salvare gli script Python e il pacchetto Python |

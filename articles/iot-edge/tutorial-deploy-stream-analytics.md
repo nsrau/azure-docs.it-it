@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6cf8e2469a6fe6bac0db6caf9acb182a6349096f
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: 5c9231f400b00f455f30692c58f007bd63d3cc76
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Distribuire Analisi di flusso di Azure come modulo IoT Edge: anteprima
 
@@ -82,7 +82,7 @@ Per specificare un endpoint da usare come output nel processo di Analisi di flus
     > [!NOTE]
     > I processi di Analisi di flusso di Azure in IoT Edge non sono al momento supportati nell'area Stati Uniti occidentali 2. 
 
-3. Selezionare **Crea**.
+3. Selezionare **Create**.
 
 4. Nel processo creato, in **Topologia processo** selezionare **Input** e fare clic su **Aggiungi**.
 
@@ -96,7 +96,7 @@ Per specificare un endpoint da usare come output nel processo di Analisi di flus
 
    ![Input di Analisi di flusso di Azure](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-6. Selezionare **Crea**.
+6. Selezionare **Create**.
 
 7. In **Topologia processo** selezionare **Output** e fare clic su **Aggiungi**.
 
@@ -106,7 +106,7 @@ Per specificare un endpoint da usare come output nel processo di Analisi di flus
     
     b. Nei campi rimanenti usare i valori predefiniti. 
     
-    c. Selezionare **Crea**.
+    c. Selezionare **Create**.
 
    ![Output di Analisi di flusso di Azure](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
@@ -227,9 +227,9 @@ In questa esercitazione sono stati configurati un contenitore di archiviazione d
 [lnk-what-is-iot-edge]: what-is-iot-edge.md
 [lnk-module-dev]: module-development.md
 [iot-hub-get-started-create-hub]: ../../includes/iot-hub-get-started-create-hub.md
-[azure-iot]: https://docs.microsoft.com/en-us/azure/iot-hub/
-[azure-storage]: https://docs.microsoft.com/en-us/azure/storage/
-[azure-stream]: https://docs.microsoft.com/en-us/azure/stream-analytics/
+[azure-iot]: https://docs.microsoft.com/azure/iot-hub/
+[azure-storage]: https://docs.microsoft.com/azure/storage/
+[azure-stream]: https://docs.microsoft.com/azure/stream-analytics/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md

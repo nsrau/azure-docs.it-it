@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 12/08/2017
 ms.author: yurid
-ms.openlocfilehash: 3ad22e78693c54c62f9230f7f52460e01e5e0022
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
-ms.translationtype: HT
+ms.openlocfilehash: dd5c874406ec184a2526a9eb0843cd6f3b6b3aa1
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="pen-testing"></a>Test di penetrazione
 Uno dei vantaggi che si ottengono usando Azure per il test e la distribuzione delle applicazioni consiste nella creazione rapida degli ambienti.  Non è necessario richiedere, acquistare e installare il proprio hardware locale.
@@ -29,11 +29,12 @@ Forse si è già a conoscenza del fatto che Microsoft esegue [il test di penetra
 
 Il test di penetrazione delle applicazioni non viene eseguito automaticamente, ma è ovvio che è auspicabile e necessario eseguirlo. Questo è positivo, perché quando si migliora la sicurezza delle applicazioni, l'intero ecosistema di Azure diventa più sicuro.
 
-Quando si esegue il test di penetrazione delle applicazioni, potrebbe sembrare un attacco a Microsoft. I modelli di attacco vengono [continuamente monitorati](http://blogs.msdn.com/b/azuresecurity/archive/2015/07/05/best-practices-to-protect-your-azure-deployment-against-cloud-drive-by-attacks.aspx) e, se necessario, verrà avviato un processo di risposta agli eventi imprevisti, ma l'attivazione di una risposta agli eventi imprevisti in seguito a un test di penetrazione basato sulla due diligence dell'utente non è utile a nessuno.
-
 Cosa fare?
 
-Quando si è pronti per eseguire il test di penetrazione delle applicazioni ospitate in Azure, [comunicarlo a Microsoft](https://portal.msrc.microsoft.com/en-us/engage/pentest). Dopo avere ricevuto la notifica, Microsoft non eseguirà l'arresto in modo accidentale, ad esempio bloccando l'indirizzo IP da cui si esegue il test. I test devono essere conformi alle condizioni relative ai test di penetrazione di Azure indicate in [Microsoft Cloud Unified Penetration Testing Rules of Engagement (Regole di engagement per il test di penetrazione unificate di Microsoft Cloud)](https://technet.microsoft.com/en-us/mt784683).
+A partire da 15 giugno 2017, Microsoft non richiede l'approvazione per condurre un penetrazione test su risorse di Azure. I clienti che desiderano formalmente documento future del test di penetrazione appuntamenti in Microsoft Azure sono invitati a compilare il [modulo di notifica di test di penetrazione del servizio Azure](https://portal.msrc.microsoft.com/engage/pentest). Questo processo è correlato solo in Microsoft Azure e non è applicabile a qualsiasi altro servizio Cloud di Microsoft. 
+
+>[!IMPORTANT] 
+>Durante la notifica di Microsoft della penna le attività di test non è più necessario comunque devono conformarsi i clienti di [Microsoft Cloud unificata penetrazione test regole di comportamento](https://technet.microsoft.com/en-us/mt784683). 
 
 I test standard che è possibile eseguire includono:
 

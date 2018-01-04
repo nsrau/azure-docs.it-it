@@ -4,7 +4,7 @@ description: Materiale sussidiario su come compilare campi specifici quando si r
 services: active-directory
 documentationcenter: 
 author: ajamess
-manager: femila
+manager: mtillman
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 04fd35f238e4dd05486f85b0b16c2ab0c5ae9f30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: cb85971d6d3d4dade69b9dc04e070c67341533a5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Come compilare campi specifici per un'applicazione personalizzata
 
@@ -36,16 +36,16 @@ Questo articolo include una breve descrizione di tutti i campi disponibili nel m
 ## <a name="fields-in-the-application-registration-form"></a>Campi nel modulo di registrazione dell'applicazione
 
 
-| Campo            | Descrizione                                                                              |
+| Campo            | DESCRIZIONE                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Nome             | Il nome dell'applicazione. Deve essere minimo di quattro caratteri.                |
+| NOME             | Il nome dell'applicazione. Deve essere minimo di quattro caratteri.                |
 | Tipo di applicazione | **App Web/API Web**: un'applicazione Web, un'API Web o entrambe 
 | |**Nativa**: un'applicazione che può essere installata in un computer o dispositivo utente           |
 | URL di accesso      | L'URL a cui possono accedere gli utenti per usare l'applicazione                                  |
 
 Dopo aver compilato i campi sopra elencati, registrare l'applicazione nel Portale di Azure. Verrà visualizzata la pagina dell'applicazione. Il pulsante **Impostazioni** del riquadro dell'applicazione apre la pagina Impostazioni, che include più campi per personalizzare l'applicazione. La tabella seguente illustra tutti i campi nella pagina Impostazioni. Si noti che viene visualizzato solo un sottoinsieme di questi campi, a seconda se è stata creata un'applicazione Web o un'applicazione nativa.
 
-| Campo           | Descrizione                                                                                                                                                                                                                                                                                                     |
+| Campo           | DESCRIZIONE                                                                                                                                                                                                                                                                                                     |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ID applicazione  | Quando si registra un'applicazione, Azure AD assegna un ID all'applicazione. L'ID dell'applicazione può essere usato per identificare in modo univoco l'applicazione nelle richieste di autenticazione ad Azure AD, nonché per accedere a risorse, ad esempio l'API Graph.                                                          |
 | URI dell'ID dell'app      | Deve essere un URI univoco, in genere nel formato **https://&lt;nome\_tenant&gt;/&lt;nome\_applicazione&gt;.** L'URI viene usato durante il flusso di concessione delle autorizzazioni, come identificatore univoco per specificare la risorsa per cui deve essere emesso il token. Diventa anche l'attestazione "aud" nel token di accesso emesso. |

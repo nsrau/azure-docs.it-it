@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: e8871ea9c3aa9f962bf961a8b44b748392a56ba7
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
-ms.translationtype: HT
+ms.openlocfilehash: e3dadac0bcec3242804e90b1c0fa68d25bb9ffa4
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Esercitazione: Integrazione di Azure Active Directory con GoToMeeting
 
@@ -28,7 +28,7 @@ L'integrazione di GoToMeeting con Azure AD offre i vantaggi seguenti:
 
 - È possibile controllare in Azure AD chi può accedere a GoToMeeting.
 - È possibile abilitare gli utenti per l'accesso automatico a GoToMeeting (Single Sign-On) con gli account Azure AD personali.
-- È possibile gestire gli account da una posizione centrale: il portale di Azure.
+- È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -36,7 +36,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con GoToMeeting, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di GoToMeeting abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
@@ -48,7 +48,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due le procedure di base seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di GoToMeeting dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -98,30 +98,17 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **GoToMeeting** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Collegamento per la configurazione dell'accesso Single Sign-On][4]
+    ![Collegamento Configura accesso Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
     ![Finestra di dialogo Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_samlbase.png)
 
-3. Nella sezione **URL e dominio GoToMeeting** fare clic su **Mostra impostazioni URL avanzate** e seguire questa procedura:
+3. Nel **GoToMeeting dominio e gli URL** sezione, eseguire la procedura seguente:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_ssourl.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    a. Nella casella di testo **Identificatore** digitare l'URL: `https://authentication.logmeininc.com/saml/sp`
-
-    b. Nella casella di testo **URL di risposta** digitare l'URL: `https://authentication.logmeininc.com/saml/acs`
-
-    c. Nella casella di testo **Stato dell'inoltro** digitare uno degli URL seguenti:
-
-    **Per GoToMeeting**: `https://global.gotomeeting.com`
-    
-    **Per GoToTraining**: `https://global.gototraining.com`
-
-    **Per GoToWebinar**: `https://global.gotowebinar.com`
-
-    **Per GoToAssist**: `https://app.gotoassist.com`
-
+    Nella casella di testo **Identificatore** digitare l'URL: `https://login.citrixonline.com/saml/sp`
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
@@ -135,19 +122,19 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Fare clic su **Registrazioni per l'app**.
     
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appregistrations.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appregistrations.png)
    
     b. Fare clic su **Endpoint** per aprire la finestra di dialogo **Endpoint**.  
     
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpointicon.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpointicon.png)
 
     c. Fare clic sul pulsante Copia per copiare l'URL del **DOCUMENTO METADATI FEDERAZIONE** e incollarlo nel Blocco note.
     
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpoint.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpoint.png)
      
     d. Passare ora alla pagina delle proprietà di **GoToMeeting**, copiare l'**ID applicazione** usando il pulsante **Copia** e incollarlo nel Blocco note.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appid.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appid.png)
 
     e. Generare l'**URL dei metadati** usando il modello seguente: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`   
 
@@ -155,7 +142,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configurazione di GoToMeeting](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
 
-8. In un'altra finestra del browser accedere a [GoToMeeting Organization Center](https://account.citrixonline.com/organization/administration/)
+8. In un'altra finestra del browser accedere a [GoToMeeting Organization Center](https://organization.logmeininc.com/)
 
 9. Nella scheda **Identity provider** (Provider di identità) è possibile configurare le impostazioni di Azure fornendo l'**URL dei metadati** generato o il **file di metadati** scaricato oppure scegliendo l'opzione **Manual** (Manuale).
 
@@ -167,7 +154,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Incollare l'**URL dei metadati** generato nei passaggi precedenti nella relativa casella di testo.
 
-    c. Fare clic su **Salva**.
+    c. Fare clic su **Save**.
 
 11. Per il **file di metadati**, seguire questa procedura:
 
@@ -177,7 +164,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Per caricare il file di metadati scaricato, fare clic su **Upload metadata file** (Carica file di metadati).
 
-    c. Fare clic su **Salva**.
+    c. Fare clic su **Save**.
 
 12. Per **Manual** (Manuale), seguire questa procedura:
 
@@ -191,7 +178,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     d. Estrarre il certificato X509 dal file di metadati scaricato e caricarlo facendo clic su **Upload certificate** (Carica certificato).
 
-    e. Fare clic su **Salva**.
+    e. Fare clic su **Save**.
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).

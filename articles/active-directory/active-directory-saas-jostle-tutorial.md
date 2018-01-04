@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: 9ca4ca1f-8f68-4225-81a6-1666b486d6a8
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 0ca8aca1446a38643ce9f6751b6fe9cae1eaa5b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 94575331fa1ff16ee76bbd3cfc7de90f78d08fbd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jostle"></a>Esercitazione: Integrazione di Azure Active Directory con Jostle
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Per configurare l'integrazione di Azure AD con Jostle, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Sottoscrizione di Jostle abilitata per l'accesso Single Sign-On
 
 > [!NOTE]
@@ -47,7 +47,7 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non si dispone di un ambiente di prova di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Jostle dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -63,11 +63,11 @@ Per configurare l'integrazione di Jostle in Azure AD, è necessario aggiungere J
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Applicazioni][2]
+    ![APPLICAZIONI][2]
     
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![Applicazioni][3]
+    ![APPLICAZIONI][3]
 
 4. Nella casella di ricerca digitare **Jostle**.
 
@@ -86,7 +86,7 @@ Per stabilire la relazione di collegamento, in Jostle assegnare il valore di **n
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Jostle, è necessario completare i blocchi predefiniti seguenti:
 
-1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Creazione di un utente test di Jostle](#creating-a-jostle-test-user)** : per avere una controparte di Britta Simon in Jostle collegata alla relativa rappresentazione in Azure AD.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
@@ -100,17 +100,17 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 1. Nella pagina di integrazione dell'applicazione **Jostle** del portale di Azure fare clic su **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On][4]
+    ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
  
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_samlbase.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_samlbase.png)
 
 3. Nella sezione **URL e dominio Jostle** seguire questa procedura:
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_url.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_url.png)
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<tanent name>.jostle.us/jostle-prod/`.
+    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<tanent name>.jostle.us/jostle-prod/`
 
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<tanent name>.jostle.us`
 
@@ -121,11 +121,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_certificate.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_certificate.png) 
 
 5. Fare clic sul pulsante **Salva** .
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-jostle-tutorial/tutorial_general_400.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-jostle-tutorial/tutorial_general_400.png)
 
 7. Per configurare l'accesso Single Sign-On sul lato Jostle è necessario inviare il file XML metadati scaricato al [team di supporto di Jostle](mailto:support@jostle.me). L’impostazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati. 
 
@@ -185,7 +185,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 2. Nell'elenco delle applicazioni, selezionare **Jostle**.
 
-    ![Configura accesso Single Sign-On](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_app.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_app.png) 
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

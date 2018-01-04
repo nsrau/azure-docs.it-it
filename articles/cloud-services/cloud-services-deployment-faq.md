@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/20/2017
+ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: 755b8e7414f6e77d0013d2678e8d4228091e1e4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 61d1cc511bf541e75ffda3e84b116f78a434f6f1
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di distribuzione per Servizi cloud di Azure: domande frequenti
 
@@ -75,3 +75,8 @@ Poiché il servizio Cloud è una risorsa classica che non è direttamente compat
 
     Questa tecnica funziona dal [portale di Azure](https://portal.azure.com) in quanto la chiamata passa attraverso un proxy/shim che consente la comunicazione tra le risorse di Azure Resource Manager e classiche. 
  
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Perché il portale di Azure richiede di specificare un account di archiviazione per la distribuzione? 
+
+Il pacchetto è stato caricato a livello di API di gestione direttamente nel portale classico, e quindi il livello API temporaneamente dovrà inserire il pacchetto in un account di archiviazione interna.  Questo processo può causare problemi di prestazioni e scalabilità perché il layer dell'API non è stato progettato per essere un servizio di caricamento file.  Nel portale di Azure (modello di distribuzione di gestione delle risorse), è stato ignorato il passaggio intermedio di caricare prima il layer dell'API, risultante in distribuzioni più veloci e affidabili. 
+
+Per quanto riguarda il costo, è molto piccolo ed è possibile riutilizzare lo stesso account di archiviazione in tutte le distribuzioni. È possibile utilizzare il [calcolatore dei costi di archiviazione](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) per determinare il costo per caricare il pacchetto del servizio (CSPKG), scaricare il CSPKG e quindi eliminare il CSPKG. 

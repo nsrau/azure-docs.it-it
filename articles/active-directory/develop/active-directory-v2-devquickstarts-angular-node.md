@@ -4,7 +4,7 @@ description: Come creare un'app a pagina singola AngularJS che consente agli ute
 services: active-directory
 documentationcenter: 
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: d286aa33-8a94-452f-beb7-ddc6c6daa5c8
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0e90171afd9c4c782fbb18375ab2d147497ef442
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 10f797ad97ac3253984896c6cadb66b6b948ff8a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---nodejs"></a>Aggiungere l'accesso a un'app a pagina singola AngularJS - NodeJS
 In questo articolo si aggiungerà l'accesso con account Microsoft a un'app AngularJS usando l'endpoint v2.0 di Azure Active Directory. L'endpoint v2.0 consente di eseguire un'unica integrazione nell'app e autenticare gli utenti con account personali e aziendali o dell'istituto di istruzione.
@@ -31,7 +31,7 @@ Questo esempio è una semplice app a pagina singola To-Do List che archivia le a
 > 
 > 
 
-## <a name="download"></a>Scaricare
+## <a name="download"></a>Download
 Per iniziare, sarà necessario scaricare e installare [node.js](https://nodejs.org).  Sarà quindi possibile clonare o [scaricare](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-NodeJS/archive/skeleton.zip) lo scheletro di un'app:
 
 ```
@@ -230,7 +230,7 @@ return $http.get('/api/tasks');
 ...
 ```
 
-Congratulazioni.  A questo punto l'app a singola pagina integrata in Azure AD è completata.  Come è evidente,  può autenticare gli utenti, chiamare in modo sicuro l'API REST back-end con OpenID Connect e ottenere informazioni di base sull'utente.  Per impostazione predefinita, supporta tutti gli utenti con un account Microsoft personale o un account aziendale o dell'istituto di istruzione di Azure AD.  Provare l'app eseguendo:
+Congratulazioni!  A questo punto l'app a singola pagina integrata in Azure AD è completata.  Come è evidente,  può autenticare gli utenti, chiamare in modo sicuro l'API REST back-end con OpenID Connect e ottenere informazioni di base sull'utente.  Per impostazione predefinita, supporta tutti gli utenti con un account Microsoft personale o un account aziendale o dell'istituto di istruzione di Azure AD.  Provare l'app eseguendo:
 
 ```
 node server.js

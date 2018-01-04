@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 8a8a400b87bacae7f0c34ad5643f66c078053f7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3f7d6a0b7b1f874d87e10c490d0b48fe6e6083ef
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Procedure dettagliate di data science per SQL Server con R, Python e T-SQL
 
@@ -39,12 +39,12 @@ La procedura dettagliata relativa all'[uso di servizi R per SQL Server](https://
 
 ## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>Stimare le mance dei taxi usando R da T-SQL o stored procedure con SQL Server
 
-La procedura dettagliata relativa a [R e SQL Server](https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) offre ai programmatori SQL indicazioni per la compilazione di una soluzione di analisi avanzata con Transact-SQL usando i servizi R per SQL Server per rendere operativa una soluzione R. 
+La procedura dettagliata relativa a [R e SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) offre ai programmatori SQL indicazioni per la compilazione di una soluzione di analisi avanzata con Transact-SQL usando i servizi R per SQL Server per rendere operativa una soluzione R. 
 
 
 ## <a name="predict-taxi-tips-using-python-in-sql-server-stored-procedures"></a>Stimare le mance dei taxi usando Python in stored procedure SQL Server
 
-La procedura dettagliata relativa all'[uso di T-SQL con i servizi Python per SQL Server](https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) offre ai programmatori SQL indicazioni per la compilazione di una soluzione di apprendimento automatico in SQL Server. Illustra come incorporare Python in un'applicazione aggiungendo il codice Python alle stored procedure.
+La procedura dettagliata relativa all'[uso di T-SQL con i servizi Python per SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) offre ai programmatori SQL indicazioni per la compilazione di una soluzione di apprendimento automatico in SQL Server. Illustra come incorporare Python in un'applicazione aggiungendo il codice Python alle stored procedure.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

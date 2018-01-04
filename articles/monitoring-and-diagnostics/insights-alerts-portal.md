@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
 ms.openlocfilehash: 3e09c145d35665ec1c2467b60f06191ac51a5c16
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Creare avvisi sulle metriche in Monitoraggio di Azure per i servizi di Azure: portale di Azure
 > [!div class="op_single_selector"]
-> * [Portale](insights-alerts-portal.md)
+> * [di Microsoft Azure](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
 > * [CLI](insights-alerts-command-line-interface.md)
 >
@@ -50,7 +50,7 @@ Questo articolo descrive come impostare gli avvisi sulle metriche di Azure trami
 
 È possibile configurare e ottenere informazioni sulle regole degli avvisi sulle metriche tramite
 
-* [Portale di Azure](insights-alerts-portal.md)
+* [Azure portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
 * [interfaccia della riga di comando](insights-alerts-command-line-interface.md)
 * [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: 4597ee28e4c3b797c0ab050b21a126a95d9e8191
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 2ebd6a8cb70f218c3b56bc78c9b853dbf51ab468
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Esercitazione: Elaborare fatture EDIFACT con Servizi BizTalk di Azure
 
@@ -55,7 +55,7 @@ Per completare lo scenario, vengono usate code di bus di servizio per inviare la
 
 ## <a name="prerequisites"></a>Prerequisiti
 * È necessario disporre di uno spazio dei nomi di bus di servizio. Per istruzioni sulla creazione di uno spazio dei nomi, vedere [Procedura: Creare o modificare uno spazio dei nomi del servizio del bus di servizio](https://msdn.microsoft.com/library/azure/hh674478.aspx). Si supponga di aver già effettuato il provisioning di uno spazio dei nomi di bus di servizio, denominato **edifactbts**.
-* È necessario disporre di una sottoscrizione a Servizi BizTalk. Per le istruzioni, vedere [Creazione di servizi BizTalk tramite il portale di Azure](http://go.microsoft.com/fwlink/?LinkID=302280). Per questa esercitazione, si supponga di avere una sottoscrizione a Servizi BizTalk, denominata **contosowabs**.
+* È necessario disporre di una sottoscrizione a Servizi BizTalk. Per questa esercitazione, si supponga di avere una sottoscrizione a Servizi BizTalk, denominata **contosowabs**.
 * Registrare la propria sottoscrizione a Servizi BizTalk nel portale di Servizi BizTalk. Per istruzioni, vedere [Registrazione e aggiornamento di una distribuzione del servizio BizTalk nel portale dei servizi BizTalk](https://msdn.microsoft.com/library/hh689837.aspx)
 * È necessario aver installato Visual Studio.
 * È necessario aver installato BizTalk Services SDK. È possibile scaricare l'SDK dal sito Web all'indirizzo [http://go.microsoft.com/fwlink/?LinkId=235057](http://go.microsoft.com/fwlink/?LinkId=235057)  
@@ -120,7 +120,7 @@ Gli accordi tra partner commerciali vengono creati tra i profili di business dei
       ![][6]  
       
       1. Nei campi **Nome regola**, **Route rule** (Regola route) e **Route destination** (Destinazione route) specificare i valori mostrati nell'immagine.
-      2. Fare clic su **Salva**.
+      2. Fare clic su **Save**.
    5. Sempre nella scheda **Route** , specificare dove devono essere instradati gli acknowledgement sospesi, ossia gli acknowledgement che presentano problemi durante l'elaborazione. Impostare il tipo di trasporto su Bus di servizio di Azure, il tipo di destinazione route su **Coda**, il tipo di autenticazione su **Firma di accesso condiviso**, specificare la relativa stringa di connessione per lo spazio dei nomi di bus di servizio quindi immettere **suspended** come nome della coda.
 5. Fare infine clic su **Distribuisci** per distribuire l'accordo. Notare gli endpoint in cui vengono distribuiti gli accordi di invio e ricezione.
    

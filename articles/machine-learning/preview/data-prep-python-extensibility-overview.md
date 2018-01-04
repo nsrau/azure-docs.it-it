@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 53771c407fedc53f27a38ec3fe9b381d6b8c0dad
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
-ms.translationtype: HT
+ms.openlocfilehash: 4b888facdba2eb5ff48bcbf43c93c1b75183cbad
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="data-preparations-python-extensions"></a>Estensioni della preparazione dati in Python
 Al fine di colmare i vuoti funzionali tra le funzioni incorporate, la preparazione dati di Azure Machine Learning include più livelli di estensibilità. In questo documento viene descritta l'estensibilità tramite lo script di Python. 
@@ -68,7 +68,7 @@ math.log(row["Score"])
 ```
  
 
-Errore  
+Tipi di errore  
 
 ```python
 import math  
@@ -127,7 +127,7 @@ oppure
 ## <a name="column-data"></a>Dati della colonna 
 I dati della colonna sono accessibili da una riga usando la dot notation o la notazione key-value. I nomi delle colonne che contengono spazi o caratteri speciali non sono accessibili tramite la dot notation. La variabile `row` deve sempre essere definita in entrambe le modalità di estensioni di Python, ovvero Modulo ed Espressione. 
 
-esempi 
+Esempi 
 
 ```python
     row.ColumnA + row.ColumnB  

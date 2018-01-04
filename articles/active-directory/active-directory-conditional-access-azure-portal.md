@@ -5,7 +5,7 @@ services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 40849e7f0c8a76bdd8a0e03d0780534569d9874a
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
-ms.translationtype: HT
+ms.openlocfilehash: 3ca9157823a52bd0e4e8dd3b2656fc2724c8b4b6
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accesso condizionale in Azure Active Directory
 
@@ -200,7 +200,7 @@ Per aggiungere un altro livello di protezione a queste app, è possibile configu
 
 Questo scenario è simile a quello precedente perché aggiunge un requisito per l'autenticazione a più fattori.
 La differenza principale è tuttavia la condizione per questo requisito.  
-Mentre l'elemento essenziale dello scenario precedente sono le app con accesso a dati sensibili, in questo scenario l'elemento essenziale sono le località attendibili.  
+Mentre lo stato attivo dello scenario precedente era in App con accesso ai dati sensibili, l'obiettivo di questo scenario è su percorsi attendibili.  
 In altre parole, è possibile avere un requisito per l'autenticazione a più fattori se un'app è accessibile a un utente da una rete non considerata attendibile.
 
 
@@ -209,6 +209,9 @@ In altre parole, è possibile avere un requisito per l'autenticazione a più fat
 Se si usa Intune nell'ambiente, è possibile iniziare immediatamente a usare l'interfaccia del criterio di accesso condizionale nella console Azure.
 
 Molti clienti Intune usano l'accesso condizionale per assicurarsi che solo i dispositivi attendibili possano accedere a Office 365. Di conseguenza i dispositivi mobili vengono registrati con Intune e soddisfano i requisiti dei criteri di conformità e i PC Windows vengono aggiunti e un dominio locale. Un importante miglioramento consiste nel fatto che non è necessario impostare lo stesso criterio per ogni servizio di Office 365.  Quando si crea un nuovo criterio, configurare le app per cloud in modo da includere ogni app di O365 da proteggere con l'accesso condizionale.
+
+### <a name="switching-a-device-from-corporate-owned-to-bring-your-own-device-byod"></a>Cambio di un dispositivo di proprietà dell'azienda per BYOD Bring Your Own Device)
+Se si desidera bloccare registrati i dispositivi modificando la proprietà del dispositivo da aziendale personale, è possibile eseguire questa operazione utilizzando accesso condizionale di Azure Active Directory (AAD). È innanzitutto necessario creare un criterio di accesso condizionale in cui **bloccare l'accesso** viene selezionato da controlli di accesso **Grant** blade. Successivamente, creare un **dispositivi dinamici** gruppo impostando la **deviceOwnership** proprietà **personale**. Quindi, il criterio precedente al nuovo gruppo di destinazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

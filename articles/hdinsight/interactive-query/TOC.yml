@@ -5,14 +5,14 @@
     - name: Controllo delle versioni dei componenti
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: Introduzione
+- name: Attività iniziali
   items:
     - name: Iniziare a usare Interactive Query
       href: ./apache-interactive-query-get-started.md
     - name: Installare app HDInsight
       href: ../hdinsight-apps-install-applications.md
       maintainContext: true
-    - name: Pianificazione della capacità
+    - name: pianificazione della capacità
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
 - name: Procedure
@@ -52,7 +52,7 @@
             - name: Uso di cURL
               href: ../hadoop/apache-hadoop-use-hive-curl.md
               maintainContext: true
-            - name: Uso di Azure PowerShell
+            - name: Usare Azure PowerShell
               href: ../hadoop/apache-hadoop-use-hive-powershell.md
               maintainContext: true
             - name: Usare .NET SDK
@@ -73,7 +73,7 @@
         - name: Inviare processi di Hadoop
           href: ../hadoop/submit-apache-hadoop-jobs-programmatically.md
           maintainContext: true
-    - name: Sviluppare
+    - name: Sviluppo
       items:
         - name: Usare nodi perimetrali vuoti
           href: ../hdinsight-apps-use-edge-node.md
@@ -98,6 +98,8 @@
         - name: Eseguire l'analisi con Power Query
           href: ../hadoop/apache-hadoop-connect-excel-power-query.md
           maintainContext: true
+        - name: Connettere Power BI a Interactive Query
+          href: ./apache-hadoop-connect-hive-power-bi-directquery.md
         - name: Connettere Power BI a Hadoop
           href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
           maintainContext: true
@@ -166,7 +168,7 @@
           href: ../hdinsight-hadoop-provision-linux-clusters.md
           maintainContext: true
           items:
-            - name: Uso di Azure PowerShell
+            - name: Usare Azure PowerShell
               href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
               maintainContext: true
             - name: Usare cURL e l'API REST di Azure
@@ -194,7 +196,7 @@
             - name: Usare .NET SDK
               href: ../hdinsight-administer-use-dotnet-sdk.md
               maintainContext: true
-            - name: Uso di Azure PowerShell
+            - name: Usare Azure PowerShell
               href: ../hdinsight-administer-use-powershell.md
               maintainContext: true
             - name: Utilizzare l’interfaccia della riga di comando di Azure
@@ -231,7 +233,7 @@
         - name: Applicazione di patch del sistema operativo per il cluster HDInsight
           href: ../hdinsight-os-patching.md
           maintainContext: true
-    - name: Risoluzione dei problemi
+    - name: Risolvere problemi
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:

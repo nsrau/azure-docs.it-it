@@ -4,7 +4,7 @@ description: Come ripristinare un gruppo eliminato, visualizzare i gruppi ripris
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: cc5f232a-1e77-45c2-b28b-1fcb4621725c
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 5d06cee492e3360bcaf8c7663c97d0c8ed3e243f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 66b76b9bfd63f270c1bb86454908e2bae0897d04
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Ripristinare un gruppo di Office 365 eliminato in Azure Active Directory
 
@@ -31,7 +31,7 @@ Quando si elimina un gruppo di Office 365 in Azure Active Directory (Azure AD), 
 
 Per ripristinare un gruppo sono necessarie una delle autorizzazioni seguenti:
 
-Ruolo  | autorizzazioni 
+Ruolo  | Autorizzazioni 
 --------- | ---------
 Amministratore della società, supporto partner di livello 2 e amministratori del servizio di InTune | Possono ripristinare qualsiasi gruppo di Office 365 eliminato 
 Amministratore dell'account utente e supporto partner di livello 1 | Possono ripristinare qualsiasi gruppo di Office 365 eliminato, ad eccezione di quelli assegnati al ruolo di amministratore della società 

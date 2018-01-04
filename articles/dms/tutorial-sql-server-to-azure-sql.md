@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 11/17/2017
-ms.openlocfilehash: 3938af29caec99f076452529cbc5d93cf2c8802b
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
-ms.translationtype: HT
+ms.openlocfilehash: 3e7e80d58a3eb27920736a1594633021b90014e9
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="migrate-sql-server-to-azure-sql-database"></a>Eseguire la migrazione di SQL Server nel database SQL di Azure
 È possibile usare Servizio Migrazione del database di Azure per migrare i database da un'istanza di SQL Server locale al database SQL di Azure. In questa esercitazione si esegue la migrazione del database **Adventureworks2012** ripristinato in un'istanza locale di SQL Server 2016 o versione successiva verso un database SQL di Azure tramite Servizio Migrazione del database di Azure.
@@ -189,7 +189,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure e creare un prog
 5.  Selezionare **Salva** nella schermata **Migration summary** (Riepilogo migrazione), nella casella di testo **Nome attività** specificare un nome per l'attività di migrazione.
 
     In questa schermata è anche possibile espandere la schermata **Choose validation option** (Scegli opzione di convalida) che consente di specificare la convalida del database migrato per:
-    - Schema
+    - SCHEMA
     - Coerenza dei dati
     - Prestazioni e correttezza delle query
 

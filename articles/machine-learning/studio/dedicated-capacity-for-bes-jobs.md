@@ -3,7 +3,7 @@ title: "Capacità dedicata per i processi del servizio di esecuzione Batch di Ma
 description: Panoramica dei servizi di Azure Batch per i processi di Machine Learning.
 services: machine-learning
 documentationcenter: 
-author: vDonGlover
+author: garyericson
 manager: raymondl
 editor: 
 ms.service: machine-learning
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 40641910f904aa0c0516f96d84d0ebbbbe8e5501
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7f7498c63db89a77121d33afc9d48a4132b1a51d
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Servizio Azure Batch per i processi di Machine Learning
 
@@ -110,4 +110,4 @@ Se si crea un pool Batch con 4 macchine virtuali e lo si elimina dopo 12 ore, al
 
 | **Usare l'elaborazione di pool Batch quando**    | **Usare l'elaborazione di batch classica quando**  |
 |---|---|
-|È necessario eseguire un numero elevato di processi<br>Or<br/>È necessario che i processi vengano eseguiti immediatamente<br/>Or<br/>È necessario garantire la velocità effettiva. Ad esempio, è necessario eseguire alcuni processi in un determinato intervallo temporale e aumentare le risorse di calcolo in base alle esigenze.    | Si sta eseguendo un numero limitato di processi<br/>e<br/> non è necessario che i processi vengano eseguiti immediatamente |
+|È necessario eseguire un numero elevato di processi<br>Oppure<br/>È necessario che i processi vengano eseguiti immediatamente<br/>Oppure<br/>È necessario garantire la velocità effettiva. Ad esempio, è necessario eseguire alcuni processi in un determinato intervallo temporale e aumentare le risorse di calcolo in base alle esigenze.    | Si sta eseguendo un numero limitato di processi<br/>e<br/> non è necessario che i processi vengano eseguiti immediatamente |

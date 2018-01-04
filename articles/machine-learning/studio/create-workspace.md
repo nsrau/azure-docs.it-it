@@ -1,24 +1,22 @@
 ---
-title: Creare un'area di lavoro di Machine Learning | Microsoft Docs
+title: Creare un Machine Learning Studio dell'area di lavoro | Documenti Microsoft
 description: Come creare un'area di lavoro per Azure Machine Learning Studio.
 services: machine-learning
-documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
-ms.author: garye;bradsev;ahgyger
-ms.openlocfilehash: 4e1fa0a9abd4721d15a94923263ff2f521bceee8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.date: 12/07/2017
+ms.author: garye
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
+ms.openlocfilehash: 7aad885b1643ddeb25e5d00a151005b8444315fa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Creare e condividere un'area di lavoro di Azure Machine Learning
 Questo menu si collega ad argomenti che descrivono come configurare i diversi ambienti di scienza dei dati usati da Cortana Analytics Process (CAP).
@@ -39,16 +37,16 @@ Per usare Azure Machine Learning Studio, è necessario disporre di un'area di la
 
 2. Fare clic su **+Nuovo**
 
-3. Selezionare **Intelligence e analisi**, fare clic su **Area di lavoro di Machine Learning** e quindi su **Crea**
+3. Nella casella di ricerca, digitare **area di lavoro di Machine Learning Studio** e selezionare l'elemento corrispondente. Selezionare quindi **crea** nella parte inferiore della pagina.
 
-4. Immettere le informazioni sull'area di lavoro
+4. Immettere le informazioni dell'area di lavoro:
 
     - Il *nome dell'area di lavoro* può contenere al massimo 260 caratteri e non può terminare con uno spazio. Il nome non può includere questi caratteri: `< > * % & : \ ? + /`
     - Se si distribuiscono i servizi Web da quest'area di lavoro, vengono usati il *piano di servizio Web* che si sceglie (o si crea) e il *piano tariffario* selezionato.
 
     ![Creazione di una nuova area di lavoro](./media/create-workspace/create-new-workspace.png)
 
-5. Fare clic su **Crea**
+5. Fare clic su **Crea**.
 
 Dopo aver distribuito l'area di lavoro è possibile aprirla in Machine Learning Studio.
 

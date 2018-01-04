@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e1fb9ee3147f94b173b0fd324943b8801b984d2b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
-ms.translationtype: HT
+ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informazioni sulle unità di flusso e su come modificarle
 
@@ -27,7 +27,7 @@ Analisi di flusso di Azure aggrega il "peso" delle prestazioni dell'esecuzione d
 
 Per ottenere l'elaborazione di flussi a bassa latenza, i processi di Analisi di flusso di Azure eseguono tutta l'elaborazione in memoria. Quando la memoria viene esaurita, il processo di streaming non riesce. Di conseguenza, per un processo di produzione è importante monitorare l'utilizzo delle risorse di un processo di streaming e assicurarsi che siano state allocate risorse sufficienti per mantenere il processo in esecuzione 24 ore su 24, 7 giorni su 7.
 
-La metrica è un numero in percentuale compreso tra 0% e 100%. Per un processo di streaming con footprint minimo, la metrica di utilizzo in percentuale delle unità di streaming è in genere compresa tra 10% e 20%. È consigliabile mantenere la metrica al di sotto dell'80% in modo da tenere conto dei picchi occasionali.  È possibile impostare un avviso per la metrica. Vedere [qui per configurare avvisi delle metriche](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/insights-alerts-portal).
+La metrica è un numero in percentuale compreso tra 0% e 100%. Per un processo di streaming con footprint minimo, la metrica di utilizzo in percentuale delle unità di streaming è in genere compresa tra 10% e 20%. È consigliabile mantenere la metrica al di sotto dell'80% in modo da tenere conto dei picchi occasionali.  È possibile impostare un avviso per la metrica. Vedere [qui per configurare avvisi delle metriche](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal).
 
 
 
@@ -82,7 +82,7 @@ Per risolvere i problemi causati dalla cardinalità elevata nella query preceden
 
 In seguito al partizionamento, la query viene distribuita su più nodi. Di conseguenza, il numero di elementi clusterid in arrivo in ogni nodo diminuisce, riducendo a sua volta la cardinalità dell'operatore GROUP BY. 
 
-Le partizioni di Hub eventi devono essere create in base alla chiave di raggruppamento per evitare la necessità di un passaggio di riduzione. Altri dettagli sono disponibili [qui](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview). 
+Le partizioni di Hub eventi devono essere create in base alla chiave di raggruppamento per evitare la necessità di un passaggio di riduzione. Altri dettagli sono disponibili [qui](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview). 
 #### <a name="temporal-join"></a>Join temporale
 Le dimensioni dello stato di un join temporale sono proporzionali al numero di eventi all'interno del margine di manovra temporale del join, che corrisponde alla frequenza di input degli eventi moltiplicata per le dimensioni del margine di manovra. 
 

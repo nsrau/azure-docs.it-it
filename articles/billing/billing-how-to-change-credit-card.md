@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 03764377b3ea0e17d4a192a7e05bb495ec56f331
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9cab81b6072c6f096f6f1a419cebcca9630ebde3
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Aggiungere, aggiornare o rimuovere una carta di credito o di debito per Azure
 
@@ -77,7 +77,7 @@ Se la carta di credito è associata ad altre sottoscrizioni di Microsoft attive,
 
 Dopo aver disabilitato o annullato una sottoscrizione, Microsoft attende 90 giorni prima di eliminare definitivamente la sottoscrizione. Durante questo periodo, il metodo di pagamento viene conservato, nel caso in cui il titolare della sottoscrizione voglia riattivarla. Dopo questo periodo di tempo, la sottoscrizione viene eliminata completamente.
 
-Se è necessario rimuovere la carta di credito o di debito prima della fine del periodo di conservazione di 90 giorni, [contattare il supporto di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Se è necessario rimuovere la carta di credito prima termina il periodo di memorizzazione di 90 giorni, [riattivare la sottoscrizione](billing-subscription-become-disable.md). Se non è possibile riattivare, [contattare il supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>Perché continua a essere visualizzato il messaggio "La sessione è scaduta. Per continuare, accedere di nuovo"?
 
@@ -96,6 +96,10 @@ Se si usa l'opzione di [pagamento con fattura](billing-how-to-pay-by-invoice.md)
 ### <a name="how-do-i-make-a-one-time-payment"></a>Come si effettua un pagamento unico?
 
 Sfortunatamente, al momento Azure non supporta pagamenti unici per carte di credito o di debito. 
+
+### <a name="how-do-i-change-the-tax-id"></a>Come è possibile modificare la partita IVA?
+
+Per aggiungere o aggiornare l'ID imposta, visitare [ **profilo** nel centro Account Azure](https://account.azure.com/Profile), quindi selezionare **imposta record**. Questo ID imposta è utilizzato per calcoli di esenzione imposte e viene visualizzato nella fattura.
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 

@@ -4,7 +4,7 @@ description: Illustra come risolvere gli errori nel Proxy applicazione di Azure 
 services: active-directory
 documentationcenter: 
 author: kgremban
-manager: femila
+manager: mtillman
 ms.assetid: 970caafb-40b8-483c-bb46-c8b032a4fb74
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 07/21/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 6534320d36653d296f254dfff129d4c5031f8ce8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 87c88f9ba9932c101e979c949121aae0884e9f24
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Risolvere i problemi e i messaggi di errore del proxy dell'applicazione
 Se si verificano errori durante l'accesso a un'applicazione pubblicata o durante la pubblicazione di applicazioni, controllare le opzioni seguenti per verificare se il Proxy applicazione di Microsoft Azure AD funziona correttamente: 
@@ -48,7 +48,7 @@ Se la registrazione non riesce durante l'installazione guidata del connettore, e
 
 Dopo aver individuato l'errore del connettore nel log eventi, usare questa tabella di errori comuni per risolvere il problema:
 
-| Errore | Procedure consigliate |
+| Tipi di errore | Procedure consigliate |
 | ----- | ----------------- |
 | La registrazione del connettore non è riuscita: assicurarsi di avere abilitato il Proxy applicazione nel portale di gestione di Azure e di avere immesso il nome utente e la password di Active Directory corretti. Errore: "Si sono verificati uno o più errori". | Se si è chiusa la finestra di registrazione senza aver eseguito l'accesso ad Azure AD, eseguire di nuovo la creazione guidata del connettore e registrarlo. <br><br> Se la finestra di registrazione si apre e poi si chiude immediatamente senza consentire all'utente di accedere, è probabile che venga visualizzato questo errore. L'errore si verifica quando viene rilevato un errore di rete nel sistema. Assicurarsi che sia possibile connettersi da un browser a un sito Web pubblico e che le porte siano aperte come specificato in [Prerequisiti del Proxy dell’applicazione](active-directory-application-proxy-enable.md). |
 | Viene visualizzato un errore di cancellazione nella finestra di registrazione. Impossibile proseguire | Se viene visualizzato questo errore e la finestra si chiude, è stato commesso un errore durante l'immissione di nome utente o password. Riprovare. |
@@ -61,7 +61,7 @@ Dopo aver individuato l'errore del connettore nel log eventi, usare questa tabel
 
 Questa tabella contiene gli errori più comuni generati dall'installazione e dalla configurazione di Kerberos e include suggerimenti per la risoluzione.
 
-| Errore | Procedure consigliate |
+| Tipi di errore | Procedure consigliate |
 | ----- | ----------------- |
 | Non è possibile recuperare i criteri di esecuzione correnti per l'esecuzione degli script PowerShell. | Se l'installazione del connettore non riesce, verificare che il criterio di esecuzione di PowerShell non sia disabilitato.<br><br>1. Aprire l'Editor Criteri di gruppo.<br>2. Passare a **Configurazione computer** > **Modelli amministrativi** > **Componenti di Windows** > **Windows PowerShell** e fare doppio clic su **Attiva l'esecuzione di script**.<br>3. L'esecuzione di questo criterio può essere impostata su **Non configurato** o **Abilitato**. Se l'impostazione è **Abilitato**, verificare che in Opzioni la voce Criteri di esecuzione sia impostata su **Consenti script locali e script remoti firmati** o su **Consenti tutti gli script**. |
 | 12008: Azure AD ha superato il numero massimo di tentativi di autenticazione Kerberos consentiti al server back-end. | Questo errore può indicare una configurazione non corretta tra Azure AD e il server back-end dell'applicazione oppure un problema di configurazione di data e ora su entrambi i computer. Il server back-end ha rifiutato il ticket Kerberos creato da Azure AD. Verificare che Azure AD e il server applicazioni back-end siano configurati correttamente. Assicurarsi che la configurazione di data e ora in Azure AD e nel server back-end dell'applicazione siano sincronizzate. |
@@ -74,7 +74,7 @@ Questa tabella contiene gli errori più comuni generati dall'installazione e dal
 
 Questo elenco contiene gli errori che potrebbero verificarsi quando gli utenti finali tentano di accedere all'app senza riuscirci. 
 
-| Errore | Procedure consigliate |
+| Tipi di errore | Procedure consigliate |
 | ----- | ----------------- |
 | Il sito Web non riesce a visualizzare la pagina. | L'utente può visualizzare questo errore quando prova ad accedere all'app pubblicata, se l'applicazione è un'applicazione con autenticazione integrata di Windows. Il nome dell'entità servizio dell'applicazione definito potrebbe non essere corretto. Per le app con autenticazione integrata di Windows, assicurarsi che il nome dell'entità servizio configurato per l'applicazione sia corretto. |
 | Il sito Web non riesce a visualizzare la pagina. | L'utente può visualizzare questo errore quando prova ad accedere all'app pubblicata, se si tratta di un'applicazione OWA. Il problema può dipendere da uno dei motivi seguenti: <br><li>Il nome dell'entità servizio dell'applicazione definito non è corretto. Assicurarsi che il nome dell'entità servizio configurato per l'applicazione sia corretto.</li><li>L'utente che ha provato ad accedere all'applicazione sta usando un account Microsoft invece dell'account aziendale appropriato oppure si tratta di un utente guest. Assicurarsi che l'utente acceda con il proprio account aziendale corrispondente al dominio dell'applicazione pubblicata. Gli utenti con account Microsoft o guest non possono accedere alle applicazioni con autenticazione integrata di Windows.</li><li>L'utente che ha provato ad accedere all'applicazione non è definito correttamente per l'applicazione sul lato locale. Assicurarsi che l'utente abbia le autorizzazioni appropriate definite per questa applicazione back-end nel computer locale. |
@@ -86,7 +86,7 @@ Questo elenco contiene gli errori che potrebbero verificarsi quando gli utenti f
 
 Se si verifica un errore o un problema con il Proxy dell'applicazione Azure AD che non è elencato in questa guida alla risoluzione dei problemi, è necessario segnalarlo. Invia un'email al [team che si occupa del feedback](mailto:aadapfeedback@microsoft.com) specificando i dettagli dell'errore che si è verificato.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Abilitare il proxy di applicazione per Azure Active Directory](active-directory-application-proxy-enable.md)
 * [Pubblicare le applicazioni con il proxy di applicazione](active-directory-application-proxy-publish.md)
 * [Abilita Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)

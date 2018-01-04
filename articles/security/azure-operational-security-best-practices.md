@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: ced8ecde1f36c49b479c7b253a90614567783663
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: db9840817d92b4f2f63009d30dbd554666d53dbe
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedure consigliate per la sicurezza operativa di Azure
 La sicurezza operativa di Azure include i servizi, i controlli e le funzionalità offerti ai clienti per proteggere i dati, le applicazioni e gli altri asset di Microsoft Azure. Questa soluzione si basa su un framework che incorpora le conoscenze acquisite tramite varie funzionalità univoche di Microsoft, tra cui Microsoft Security Development Lifecycle (SDL), il programma Microsoft Security Response Center e una profonda consapevolezza del panorama delle minacce per la sicurezza informatica.
@@ -156,7 +156,7 @@ Per creare una rete end-to-end in Azure è possibile orchestrare e comporre vari
 Monitorare e diagnosticare i problemi di rete senza accedere alle macchine virtuali con Network Watcher. Attivare l'[acquisizione dei pacchetti](https://docs.microsoft.com/azure/network-watcher/network-watcher-alert-triggered-packet-capture) impostando gli avvisi e ottenere l'accesso alle informazioni sulle prestazioni in tempo reale a livello del pacchetto. Quando viene rilevato un problema, è possibile esaminarlo in dettaglio per una diagnosi migliore.
 
 ### <a name="gain-insight-into-your-network-traffic-using-flow-logs"></a>Acquisire informazioni dettagliate sul traffico di rete con i log dei flussi
-Ottenere informazioni approfondite sul modello del traffico di rete con i [log dei flussi del gruppo di sicurezza di rete](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Le informazioni fornite dai log dei flussi permettono di raccogliere i dati per la conformità, il controllo e il monitoraggio del profilo di sicurezza della rete.
+Ottenere informazioni approfondite sul modello del traffico di rete con i [log dei flussi del gruppo di sicurezza di rete](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Le informazioni fornite dai log dei flussi permettono di raccogliere i dati per la conformità, il controllo e il monitoraggio del profilo di sicurezza della rete.
 
 ### <a name="diagnose-vpn-connectivity-issues"></a>Diagnosticare i problemi di connettività della VPN
 Network Watcher permette di [diagnosticare i problemi più comuni delle connessioni e dei gateway VPN](https://docs.microsoft.com/azure/network-watcher/network-watcher-diagnose-on-premises-connectivity). Non solo aiuta a identificare il problema, ma offre anche log dettagliati per eseguire ulteriori indagini.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: lakasa
-ms.openlocfilehash: 6d1e6752fb631114f5be06cb27a63e40547bf6ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 0a05a0d28899cc3db11f8fda8aec5bd6ed9bd5f8
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Crittografia del servizio di archiviazione con chiavi gestite dall'utente in Azure Key Vault
 
@@ -50,7 +50,7 @@ Per altre informazioni, vedere le [domande frequenti](#frequently-asked-question
 ![Screenshot del portale che illustra l'opzione Crittografia](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 <br/>*Abilitare la crittografia SSE per il servizio BLOB*
 
-Se si vuole abilitare o disabilitare a livello di codice la crittografia del servizio di archiviazione in un account di archiviazione, è possibile usare l'[API REST del provider di risorse di archiviazione di Azure](https://docs.microsoft.com/en-us/rest/api/storagerp/?redirectedfrom=MSDN), la [libreria client dei provider delle risorse di archiviazione per .NET](https://docs.microsoft.com/en-us/dotnet/api/?redirectedfrom=MSDN), [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.0.0) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli).
+Se si vuole abilitare o disabilitare a livello di codice la crittografia del servizio di archiviazione in un account di archiviazione, è possibile usare l'[API REST del provider di risorse di archiviazione di Azure](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN), la [libreria client dei provider delle risorse di archiviazione per .NET](https://docs.microsoft.com/dotnet/api/?redirectedfrom=MSDN), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.0.0) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
 Se in questa schermata non appare la casella di controllo "Usare una chiave personalizzata" non è presente l'approvazione per eseguire l'anteprima. Inviare un messaggio di posta elettronica a [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) e richiedere l'approvazione.
 
@@ -71,10 +71,10 @@ Se l'account di archiviazione non ha accesso all'insieme di credenziali delle ch
 È anche possibile concedere l'accesso tramite il portale di Azure accedendo ad Azure Key Vault nel portale e attivando l'accesso all'account di archiviazione.
 
 ## <a name="step-4-copy-data-to-storage-account"></a>Passaggio 4: Copiare i dati in un account di archiviazione
-Per trasferire i dati nel nuovo account di archiviazione in modo che vengano crittografati, vedere il [passaggio 3 della sezione Introduzione di Crittografia del servizio di archiviazione di Azure per dati inattivi](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
+Per trasferire i dati nel nuovo account di archiviazione in modo che vengano crittografati, vedere il [passaggio 3 della sezione Introduzione di Crittografia del servizio di archiviazione di Azure per dati inattivi](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-3-copy-data-to-storage-account).
 
 ## <a name="step-5-query-the-status-of-the-encrypted-data"></a>Passaggio 5: Eseguire query relative allo stato dei dati crittografati
-Per l'esecuzione di query relative allo stato dei dati crittografati, vedere il [passaggio 4 della sezione Introduzione di Crittografia del servizio di archiviazione di Azure per dati inattivi](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
+Per l'esecuzione di query relative allo stato dei dati crittografati, vedere il [passaggio 4 della sezione Introduzione di Crittografia del servizio di archiviazione di Azure per dati inattivi](https://docs.microsoft.com/azure/storage/storage-service-encryption#step-4-query-the-status-of-the-encrypted-data).
 
 ## <a name="frequently-asked-questions-about-storage-service-encryption-for-data-at-rest"></a>Domande frequenti su Crittografia del servizio di archiviazione per i dati inattivi
 **D: È possibile usare SSE con chiavi gestite dal cliente se si usa l'archiviazione Premium?**
@@ -91,7 +91,7 @@ R: Per l'uso di Azure Key Vault è previsto un costo. Per altre informazioni, vi
 
 **D: È possibile revocare l'accesso alle chiavi di crittografia?**
 
-R: Sì, è possibile revocare l'accesso in qualsiasi momento. Esistono diversi modi per revocare l'accesso alle chiavi. Per altre informazioni, vedere [Azure Key Vault PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) (Modulo PowerShell di Azure Key Vault) e [Azure Key Vault CLI](https://docs.microsoft.com/en-us/cli/azure/keyvault) (Interfaccia della riga di comando di Azure Key Vault). La revoca dell'accesso blocca di fatto l'accesso a tutti i BLOB dell'account di archiviazione, in quanto l'Archiviazione di Azure non dispone di accesso alla chiave di crittografia account.
+R: Sì, è possibile revocare l'accesso in qualsiasi momento. Esistono diversi modi per revocare l'accesso alle chiavi. Per altre informazioni, vedere [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.0.0) (Modulo PowerShell di Azure Key Vault) e [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) (Interfaccia della riga di comando di Azure Key Vault). La revoca dell'accesso blocca di fatto l'accesso a tutti i BLOB dell'account di archiviazione, in quanto l'Archiviazione di Azure non dispone di accesso alla chiave di crittografia account.
 
 **D: È possibile creare un account di archiviazione e una chiave in aree diverse?**
 
@@ -123,6 +123,6 @@ D: Contattare [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-*   Per altre informazioni sul set completo di funzionalità di sicurezza che consentono agli sviluppatori di creare applicazioni protette, vedere [Guida alla sicurezza di Archiviazione di Azure](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
-*   Per informazioni generali su Azure Key Vault , vedere [Cos'è l'insieme di credenziali chiave di Azure?](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)
+*   Per altre informazioni sul set completo di funzionalità di sicurezza che consentono agli sviluppatori di creare applicazioni protette, vedere [Guida alla sicurezza di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/storage-security-guide).
+*   Per informazioni generali su Azure Key Vault , vedere [Cos'è l'insieme di credenziali chiave di Azure?](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
 *   Per la guida introduttiva di Azure Key Vault, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-get-started.md).

@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 173ffbdd70313ef5a0d2af2cf1c8996d2395274a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
-ms.translationtype: HT
+ms.openlocfilehash: e00c4ab2fc8bb13a765f7c2154555607dddfc651
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Rilevare i problemi usando regole basate su soglie
 
@@ -40,7 +40,7 @@ Se la soluzione di monitoraggio remoto non è stata ancora distribuita, è neces
 
 ## <a name="view-the-rules-in-your-solution"></a>Visualizzare le regole nella soluzione
 
-La pagina **Rules & Actions** (Regole e azioni) visualizza un elenco di tutte le regole correnti:
+Il **regole e le azioni** pagina nella soluzione viene visualizzato un elenco di tutte le regole corrente:
 
 ![Pagina Rules & Actions (Regole e azioni)](media/iot-suite-remote-monitoring-automate/rulesactions.png)
 
@@ -66,17 +66,17 @@ Usare i valori seguenti per creare la regola:
 
 | Impostazione          | Valore                                 |
 | ---------------- | ------------------------------------- |
-| Nome             | Chiller warning (Avviso refrigeratore)                       |
-| Sorgente           | Gruppo di dispositivi **Chiller** (Refrigeratore)              |
-| Field (Campo)    | Pressure (Pressione)                              |
+| NOME             | Chiller warning (Avviso refrigeratore)                       |
+| Sorgente           | **Chillers** gruppo di dispositivi             |
+| Field (Campo)    | pressure                              |
 | Operator (Operatore) | Maggiore di                          |
 | Value (Valore)    | 150                                   |
 | Livello di gravità   | Avviso                               |
-| Testo evento allarme | Chiller pressure has exceeded 150 PSI (La pressione del refrigeratore è maggiore di 150 PSI) |
+| DESCRIZIONE      | Chiller pressure has exceeded 150 PSI (La pressione del refrigeratore è maggiore di 150 PSI) |
 
 Per salvare la nuova regola, scegliere **Apply** (Applica).
 
-È possibile visualizzare i momenti in cui viene attivata la regola nella pagina **Rules & Actions** (Regole e azioni) o nella pagina **Dashboard**.
+È possibile visualizzare quando la regola è attivata per il **regole e le azioni** pagina oppure il **Dashboard** pagina.
 
 ## <a name="edit-an-existing-rule"></a>Modificare una regola esistente
 

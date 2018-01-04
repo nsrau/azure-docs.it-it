@@ -13,42 +13,52 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/30/2017
+ms.date: 12/19/2017
 ms.author: genli
-ms.openlocfilehash: d78174cd968c0f918a07027daf1e59665d6b6c1e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: bb82eeda21fe4913acbe930696aa110ea1554f28
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>Aggiungere o modificare i ruoli di amministratore di Azure che gestiscono la sottoscrizione o i servizi
+# <a name="add-or-change-azure-subscription-administrators"></a>Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure
 
-È possibile modificare l'amministratore di Azure che gestisce la sottoscrizione di Azure o i servizi Azure usati nella sottoscrizione. Per visualizzare le informazioni di fatturazione di Azure e gestire le sottoscrizioni, è necessario accedere al Centro account come amministratore account. 
+Gli amministratori delle sottoscrizioni classico di Azure e Azure [controllo di accesso basato sui ruoli (RBAC)](../active-directory/role-based-access-control-what-is.md) due sistemi per la gestione dell'accesso alle risorse di Azure:
+
+* Ruoli di amministratore classico sottoscrizione offrono di gestione di accesso di base e includono Account amministratore, amministratore del servizio e coamministratori.
+    * Quando effettua l'iscrizione per una nuova sottoscrizione di Azure, come l'amministratore dell'Account e l'amministratore del servizio per impostazione predefinita è impostato l'account.
+    * Coamministratori possono essere aggiunte dopo la disconnessione.
+* RBAC è un sistema più recente che offre la gestione di accesso con granularità fine con molti ruoli predefiniti, la flessibilità di ambito e ruoli personalizzati.
+    * Tuttavia, gli utenti con solo ruoli RBAC e non i ruoli di amministratore classico sottoscrizione non è possibile gestire le distribuzioni di Azure classiche.
+
+Per garantire un migliore controllo e per semplificare la gestione di accesso, è consigliabile usare RBAC per tutte le esigenze di gestione di accesso. Se possibile, è consigliabile riconfigurare i criteri di accesso usa tale controllo. 
 
 <a name="add-an-admin-for-a-subscription"></a>
 
 ## <a name="add-an-rbac-owner-admin-for-a-subscription-in-azure-portal"></a>Aggiungere un amministratore proprietario di Controllo degli accessi in base al ruolo per una sottoscrizione nel portale di Azure 
 
-Per aggiungere un utente come amministratore per una sottoscrizione nel portale di Azure, è necessario assegnare il ruolo di proprietario di [Controllo degli accessi in base al ruolo](../active-directory/role-based-access-control-configure.md). Il ruolo di proprietario può gestire le risorse nella sottoscrizione assegnata e non ha privilegi di accesso per altre sottoscrizioni. I proprietari aggiunti tramite il [portale di Azure](https://portal.azure.com) non possono gestire le risorse nel [portale di Azure classico](https://manage.windowsazure.com).
+Per aggiungere un utente come amministratore per l'amministrazione del servizio di sottoscrizione di Azure, assegnare loro un ruolo di proprietario RBAC alla sottoscrizione. Il ruolo di proprietario può gestire le risorse nella sottoscrizione assegnata e non ha privilegi di accesso per altre sottoscrizioni.
 
-1. Accedere alla [visualizzazione Sottoscrizioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Selezionare la sottoscrizione a cui si vuole che l'amministratore acceda.
+1. Visitare [ **sottoscrizioni** nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Selezionare la sottoscrizione che si desidera consentire l'accesso.
 1. Selezionare **Controllo di accesso (IAM)** nel menu.
 1. Selezionare **Aggiungi** > **Ruolo** > **Proprietario**. Immettere l'indirizzo e-mail dell'utente che si vuole aggiungere come proprietario, selezionare l'utente e quindi fare clic su **Salva**.
 
     ![Schermata che mostra il pulsante Proprietario selezionato](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
+In questo modo all'utente l'accesso completo a tutte le risorse, compreso il diritto di delegare l'accesso ad altri utenti. Per concedere l'accesso a un ambito diverso, ad esempio un gruppo di risorse, visitare il menu IAM di tale ambito. 
+
 ## <a name="add-or-change-co-administrator"></a>Aggiungere o modificare un coamministratore
 
 Solo un proprietario può essere aggiunto come coamministratore. Gli altri utenti con ruoli come collaboratore e lettore non possono essere aggiunti come coamministratori.
 
+> [!TIP]
+> È sufficiente aggiungere l'account di "Proprietario" come co-amministratore se l'utente deve gestire le distribuzioni di Azure classiche. È consigliabile usare RBAC per tutti gli altri scopi.
+
 1. Se non è già stato fatto, aggiungere un utente come proprietario seguendo le istruzioni illustrate in precedenza.
-2. **Fare clic con il pulsante destro del mouse** sull'utente proprietario appena aggiunto e quindi scegliere **Aggiungi come coamministratore**. Se l'opzione **Aggiungi come coamministratore** non è visibile, aggiornare la pagina o provare a usare un altro browser Internet. 
+2. **Fare clic con il pulsante destro del mouse** sull'utente proprietario appena aggiunto e quindi scegliere **Aggiungi come coamministratore**. Se non viene visualizzato il **Aggiungi come coamministratore** opzione, aggiornare la pagina o provare un altro browser Internet. 
 
-     ![Schermata per l'aggiunta di un coamministratore](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
-
-    >[!TIP]
-    >È necessario aggiungere l'account "Proprietario" come coamministratore se l'utente deve gestire i servizi di Azure nel [portale di Azure classico](https://manage.windowsazure.com/).
+    ![Schermata per l'aggiunta di un coamministratore](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 
     Per rimuovere l'autorizzazione di coamministratore, **fare clic con il pulsante destro del mouse** sull'utente "Coamministratore" e quindi scegliere **Rimuovi coamministratore**.
 
@@ -58,7 +68,7 @@ Solo un proprietario può essere aggiunto come coamministratore. Gli altri utent
 
 ## <a name="change-the-service-administrator-for-an-azure-subscription"></a>Modificare l'amministratore del servizio per una sottoscrizione di Azure
 
-Solo l'amministratore account può modificare l'amministratore del servizio per una sottoscrizione. Per impostazione predefinita, al momento dell'iscrizione, l'amministratore del servizio corrisponde all'amministratore account.
+Solo l'amministratore account può modificare l'amministratore del servizio per una sottoscrizione. Per impostazione predefinita, al momento dell'iscrizione, l'amministratore del servizio corrisponde all'amministratore account. Se l'amministratore del servizio viene modificato in un altro utente, quindi l'amministratore dell'Account perde l'accesso al portale di Azure. Tuttavia, l'amministratore dell'Account possono utilizzare sempre il centro Account per modificare l'amministratore del servizio torna a se stessi.
 
 1. Assicurarsi che lo scenario sia supportato verificando le [limitazioni per la modifica degli amministratori del servizio](#limits).
 1. Accedere al [Centro account](https://account.windowsazure.com/subscriptions) come amministratore account.
@@ -74,38 +84,38 @@ Solo l'amministratore account può modificare l'amministratore del servizio per 
 
 ### <a name="limitations-for-changing-service-administrators"></a>Limitazioni per la modifica degli amministratori del servizio
 
-* Ogni sottoscrizione è associata a una directory di Azure AD. Per trovare la directory a cui è associata la sottoscrizione, accedere al [portale di Azure classico](https://manage.windowsazure.com/) e selezionare **Impostazioni** > **Sottoscrizioni**. Verificare l'ID sottoscrizione per trovare la directory.
+* Ogni sottoscrizione è associata a una directory di Azure AD. Per trovare la directory è associata la sottoscrizione, andare al [ **sottoscrizioni**](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), quindi selezionare una sottoscrizione per visualizzare la directory.
 * Se l'accesso è stato eseguito con un account aziendale o dell'istituto di istruzione, è possibile aggiungere altri account dell'organizzazione come amministratori del servizio. Ad esempio, abby@contoso.com può aggiungere bob@contoso.com come amministratore del servizio, ma non può aggiungere john@notcontoso.com a meno che john@notcontoso.com non si trovi nella directory contoso.com. Gli utenti che hanno eseguito l'accesso con un account aziendale o dell'istituto di istruzione possono continuare ad aggiungere utenti con account Microsoft come amministratori del servizio.
 
   | Metodo di accesso | Aggiunta di un utente con account Microsoft come amministratore del servizio? | Aggiunta di un account aziendale o dell'istituto di istruzione nella stessa organizzazione come amministratore del servizio? | Aggiunta di un account aziendale o dell'istituto di istruzione in un'organizzazione diversa come amministratore del servizio? |
   | --- | --- | --- | --- |
-  |  Account Microsoft |Sì |No |No |
-  |  Account aziendale o dell'istituto di istruzione |Sì |Sì |No |
+  |  Account Microsoft |Sì |No  |No  |
+  |  Account aziendale o dell'istituto di istruzione |Sì |Sì |No  |
 
 ## <a name="change-the-account-administrator-for-an-azure-subscription"></a>Modificare l'amministratore account per una sottoscrizione di Azure
 
-Per modificare l'amministratore account di una sottoscrizione, vedere [Trasferimento della proprietà di una sottoscrizione di Azure a un altro account](billing-subscription-transfer.md).
+L'amministratore dell'Account è l'utente che ha inizialmente effettuata l'iscrizione per la sottoscrizione di Azure e responsabile come proprietario della sottoscrizione di fatturazione. Per modificare l'amministratore account di una sottoscrizione, vedere [Trasferimento della proprietà di una sottoscrizione di Azure a un altro account](billing-subscription-transfer.md).
 
 <a name="check-the-account-administrator-of-the-subscription"></a>
 
 **Non si è sicuri di chi sia l'amministratore account?** A tale scopo, seguire questa procedura:
 
-1. Accedere alla [visualizzazione Sottoscrizioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Visitare [ **sottoscrizioni** nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Scegliere la sottoscrizione da controllare e quindi controllare la sezione **Impostazioni**.
-1. Selezionare **Proprietà**. L'amministratore account della sottoscrizione viene visualizzato nella casella **Amministratore account** .  
+1. Selezionare **Proprietà**. L'amministratore dell'Account della sottoscrizione viene visualizzato nel **amministratore dell'Account** casella.  
 
-## <a name="types-of-azure-admin-accounts"></a>Tipi di account amministratore di Azure
+## <a name="types-of-classic-subscription-admins"></a>Tipi di amministratori della sottoscrizione classico
 
- L'Amministratore account, l'Amministratore del servizio e il Coamministratore costituiscono i tre tipi di ruoli di amministratore in Microsoft Azure. La tabella seguente descrive la differenza tra questi tre ruoli amministrativi.
+ Account amministratore, amministratore del servizio e coamministratore sono tre tipi di ruoli di amministratore classico sottoscrizione in Azure. L'account utilizzato per iscriversi a Azure viene impostato automaticamente come l'amministratore dell'Account e l'amministratore del servizio. Quindi, è possibile aggiungere altri coamministratori. Nella tabella seguente descrive esatte differenze tra questi tre ruoli amministrativi. 
 
-| Ruolo amministrativo | Limite | Descrizione |
+> [!TIP]
+> Per un migliore controllo e gestione di accesso granulare, è consigliabile utilizzare Azure Role-based Access controllo (RBAC), che consente agli utenti di essere aggiunti a più ruoli. Per ulteriori informazioni, vedere [controllo di accesso basato sui ruoli di Azure Active Directory](../active-directory/role-based-access-control-what-is.md).
+
+| Amministratore sottoscrizione classico | Limite | DESCRIZIONE |
 | --- | --- | --- |
-| Amministratore dell'account |1 per ogni account di Azure |Indica la persona che si è iscritta o ha acquistato le sottoscrizioni di Azure ed è autorizzata ad accedere al [Centro account](https://account.azure.com/Subscriptions) ed eseguire diverse attività di gestione. Queste includono la possibilità di creare sottoscrizioni, annullare sottoscrizioni, modificare la fatturazione per una sottoscrizione e modificare l'amministratore del servizio. |
-| Amministratore del servizio |1 per ogni sottoscrizione di Azure |Questo ruolo è autorizzato a gestire i servizi nel [portale di Azure](https://portal.azure.com). Per impostazione predefinita, per una nuova sottoscrizione l'amministratore account è anche amministratore del servizio. |
-| Coamministratore (CA) del [portale di Azure classico](https://manage.windowsazure.com) |200 per ogni sottoscrizione |Questo ruolo ha gli stessi privilegi di accesso dell'amministratore del servizio, ma non può modificare l'associazione di sottoscrizioni alle directory di Azure. |
-
-Il controllo degli accessi in base al ruolo di Azure Active Directory consente di aggiungere gli utenti a più ruoli. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo di Azure Active Directory](../active-directory/role-based-access-control-configure.md).
-
+| Amministratore dell'account |1 per ogni account di Azure |Questo è l'utente che ha effettuato l'iscrizione per la sottoscrizione di Azure ed è autorizzato ad accedere il [centro Account](https://account.azure.com/Subscriptions) ed eseguire varie attività di gestione. Queste includono la possibilità di creare nuove sottoscrizioni, annullare sottoscrizioni, modificare la fatturazione per una sottoscrizione e modificare l'amministratore del servizio. Concettualmente, l'amministratore dell'Account è il proprietario di fatturazione della sottoscrizione. In RBAC, l'amministratore dell'Account non è assegnato un ruolo.|
+| Amministratore del servizio |1 per ogni sottoscrizione di Azure |Questo ruolo è autorizzato a gestire i servizi nel [portale di Azure](https://portal.azure.com). Per impostazione predefinita, per una nuova sottoscrizione l'amministratore account è anche amministratore del servizio. In RBAC, il ruolo proprietario viene assegnato per l'amministratore del servizio nell'ambito della sottoscrizione.|
+| CO-amministratore (CA) |200 per ogni sottoscrizione |Questo ruolo ha gli stessi privilegi di accesso dell'amministratore del servizio, ma non può modificare l'associazione di sottoscrizioni alle directory di Azure. In RBAC, viene assegnato il ruolo di proprietario per il coamministratore nell'ambito della sottoscrizione.|
 
 ## <a name="learn-more-about-resource-access-control-and-active-directory"></a>Altre informazioni sul controllo dell'accesso alle risorse e Active Directory
 

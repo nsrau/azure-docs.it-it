@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
-ms.translationtype: HT
+ms.openlocfilehash: 81cc7f78ef777e02b195422a81d9a9f15cb63564
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche software nell'ambiente in uso con la soluzione di rilevamento modifiche
 
@@ -32,7 +32,7 @@ La soluzione viene installata per aggiornare il tipo di agente che è stato inst
 ## <a name="installing-and-configuring-the-solution"></a>Installazione e configurazione della soluzione
 Usare le informazioni seguenti per installare e configurare la soluzione.
 
-* È necessario avere un agente [Windows](log-analytics-windows-agents.md), [Operations Manager](log-analytics-om-agents.md) o [Linux](log-analytics-linux-agents.md) su ogni computer in cui si vuole monitorare le modifiche.
+* È necessario avere un agente [Windows](log-analytics-windows-agent.md), [Operations Manager](log-analytics-om-agents.md) o [Linux](log-analytics-linux-agents.md) su ogni computer in cui si vuole monitorare le modifiche.
 * Aggiungere la soluzione di Rilevamento modifiche all'area di lavoro OMS dal [Marketplace di Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview). In alternativa, è possibile aggiungere la soluzione usando le informazioni in [Aggiungere soluzioni di gestione di Log Analytics di Azure all'area di lavoro](log-analytics-add-solutions.md). Non è necessaria una configurazione aggiuntiva.
 
 ### <a name="configure-linux-files-to-track"></a>Configurare i file di Linux da rilevare
@@ -41,7 +41,7 @@ Seguire questa procedura per configurare i file da rilevare in computer Linux.
 1. Nel portale di OMS, fare clic su **Impostazioni** (simbolo dell'ingranaggio).
 2. Nella pagina **Impostazioni** fare clic su **Dati** e quindi su **Rilevamento file di Linux**.
 3. In Rilevamento modifiche file di Linux digitare l'intero percorso, includendo il nome del file che si vuole rilevare, e quindi fare clic sul simbolo **Aggiungi**. Ad esempio: "/etc/*.conf"
-4. Fare clic su **Salva**.  
+4. Fare clic su **Save**.  
 
 > [!NOTE]
 > Il rilevamento dei file di Linux include funzionalità aggiuntive, tra cui il rilevamento di directory, la ricorsione tramite directory e il rilevamento di caratteri jolly.
@@ -61,7 +61,7 @@ Seguire questa procedura per configurare le chiavi del Registro di Sistema da ri
 1. Nel portale di OMS, fare clic su **Impostazioni** (simbolo dell'ingranaggio).
 2. Nella pagina **Impostazioni** fare clic su **Dati** e poi su **Rilevamento del Registro di sistema di Windows**.
 3. In Rilevamento modifiche del Registro di sistema di Windows digitare l'intera chiave che si vuole rilevare e fare clic sul simbolo **Aggiungi**.
-4. Fare clic su **Salva**.  
+4. Fare clic su **Save**.  
    ![Rilevamento modifiche del Registro di sistema Windows](./media/log-analytics-change-tracking/windows-registry-change-tracking.png)
 
 ### <a name="explanation-of-linux-file-collection-properties"></a>Spiegazione delle proprietà di raccolta di file di Linux
@@ -105,7 +105,7 @@ Change Tracking consente di raccogliere l'inventario software e i metadati del s
 
 La tabella seguente mostra i metodi di raccolta di dati e altre informazioni dettagliate sul modo in cui vengono raccolti i dati per Change Tracking.
 
-| piattaforma | Agente diretto | Agente di Operations Manager | Agente Linux | Archiviazione di Azure | È necessario Operations Manager? | Dati dell'agente Operations Manager inviati con il gruppo di gestione | Frequenza della raccolta |
+| Piattaforma | Agente diretto | Agente di Operations Manager | Agente Linux | Archiviazione di Azure | È necessario Operations Manager? | Dati dell'agente Operations Manager inviati con il gruppo di gestione | Frequenza della raccolta |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Windows e Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | Da 5 minuti a 50 minuti, a seconda del tipo di modifica. Per altre informazioni, vedere la tabella seguente. |
 
@@ -114,7 +114,7 @@ La tabella seguente mostra la frequenza di raccolta dati per i tipi di modifiche
 
 | **tipo di modifica** | **frequency** | **L'****agente** **invia le differenze quando vengono rilevate?**  |
 | --- | --- | --- |
-| Registro di sistema di Windows | 50 minuti | No |
+| Registro di sistema di Windows | 50 minuti | No  |
 | File Windows | 30 minuti | Sì. Se non si verifica alcun cambiamento in 24 ore, viene inviato uno snapshot. |
 | File Linux | 15 minuti | Sì. Se non si verifica alcun cambiamento in 24 ore, viene inviato uno snapshot. |
 | Servizi Windows | 30 minuti | Sì, ogni 30 minuti quando vengono rilevate modifiche. Ogni 24 ore viene inviato uno snapshot, indipendentemente dalle modifiche. Pertanto, lo snapshot viene inviato anche se sono state apportate modifiche. |

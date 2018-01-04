@@ -17,10 +17,10 @@ ms.date: 02/17/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2a9ac5763bb934bd0646e47c3936f7bdd0d603b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurare l'integrazione di Azure Key Vault per SQL Server in macchine virtuali di Azure (distribuzione classica)
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Come prima operazione, [installare l'estensione di SQL Server IaaS](../classic/s
 ### <a name="understand-the-input-parameters"></a>Comprendere i parametri di input
 La tabella seguente elenca i parametri necessari per eseguire lo script di PowerShell nella sezione successiva.
 
-| Parametro | Descrizione | Esempio |
+| Parametro | DESCRIZIONE | Esempio |
 | --- | --- | --- |
 | **$akvURL** |**URL dell'insieme di credenziali delle chiavi** |"https://contosokeyvault.vault.azure.net/" |
 | **$spName** |**Nome entità servizio** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |

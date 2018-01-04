@@ -3,6 +3,7 @@
 | Numero di account di archiviazione per sottoscrizione | 200<sup>1</sup> |
 | Capacità massima dell'account di archiviazione | 500 TiB<sup>2</sup> |
 | Numero massimo di contenitori BLOB, BLOB, condivisioni file, tabelle, code, entità o messaggi per account di archiviazione | Nessun limite |
+| Frequenza massima di richieste per account di archiviazione | 20.000 richieste al secondo<sup>2</sup> |
 | Traffico in ingresso massimo<sup>3</sup> per account di archiviazione (aree degli Stati Uniti) | 10 Gbps con archiviazione GRS/ZRS<sup>4</sup> abilitata, 20 Gbps per LRS<sup>2</sup> |
 | Traffico in uscita massimo<sup>3</sup> per account di archiviazione (aree degli Stati Uniti) | 20 Gbps con archiviazione RA-GRS/GRS/ZRS<sup>4</sup> abilitata, 30 Gbps per LRS<sup>2</sup> |
 | Traffico in ingresso massimo<sup>3</sup> per account di archiviazione (aree non degli Stati Uniti) | 5 Gbps con archiviazione GRS/ZRS<sup>4</sup> abilitata, 10 Gbps per LRS<sup>2</sup> |

@@ -4,7 +4,7 @@ description: Informazioni sul tempo necessario per la visualizzazione nel portal
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/15/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 44e31d30cf5f6d6ca216fb7ed9f6be6e38cd8697
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latenze dei report di Azure Active Directory
 
@@ -37,13 +37,15 @@ Esistono due aree di reporting sulle attività:
 
 Nella tabella seguente sono elencate le informazioni sulla latenza per i report di attività.
 
-| Report | Minima | Media | Massima |
-| :-- | --- | --- | --- |
-| Log di controllo             | 30 minuti  | 45 minuti | 1 ora     |
-| Accessi               | 15 minuti  | 15 minuti | 2 ore*   |
+| Report | Minima | Media | Osservazioni |
+| :-- | --- | --- | :-- |
+| Log di controllo | 30 minuti  | 1 ora  |In alcuni casi, può richiedere fino a 2 ore per dati di attività di controllo da visualizzare.|
+| Accessi | 15 minuti  | 2 ore |In alcuni casi, può richiedere fino a 24 ore per i dati di attività di accesso da visualizzare. Sono inclusi i dati di attività accessi provenienti da applicazioni di office legacy. |
 
->[!NOTE]
-> Per alcuni dati di attività di accesso provenienti da applicazioni legacy di office, potrebbero essere necessarie fino a 8 ore per la visualizzazione dei dati dei report. 
+
+
+
+
 
 
 ## <a name="security-reports"></a>Report sulla sicurezza

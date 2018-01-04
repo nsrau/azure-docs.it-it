@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
-ms.translationtype: HT
+ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="monitor-azure-functions"></a>Monitorare Funzioni di Azure
 
@@ -64,7 +64,7 @@ Ottenere la chiave di strumentazione e salvarla in un'app per le funzioni:
 
    ![Aggiungere la chiave di strumentazione alle impostazioni dell'app](media/functions-monitoring/add-ai-key.png)
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 ## <a name="view-telemetry-data"></a>Visualizzare i dati di telemetria
 
@@ -151,9 +151,9 @@ Il logger delle funzioni di Azure include anche un *livello di registrazione* pe
 |Debug       | 1 |
 |Informazioni | 2 |
 |Avviso     | 3 |
-|Errore       | 4 |
+|Tipi di errore       | 4 |
 |Critico    | 5 |
-|Nessuno        | 6 |
+|Nessuna        | 6 |
 
 Il livello di registrazione `None` è illustrato nella sezione successiva. 
 
@@ -452,7 +452,7 @@ Il parametro `tagOverrides` imposta `operation_Id` sull'ID di chiamata alla funz
 
 ## <a name="known-issues"></a>Problemi noti
 
-### <a name="dependencies"></a>Dipendenze
+### <a name="dependencies"></a>Dependencies
 
 Le dipendenze tra la funzione e gli altri servizi non vengono visualizzate automaticamente, ma è possibile scrivere codice personalizzato per visualizzarle. Il codice di esempio nella [sezione relativa ai dati di telemetria personalizzati C#](#custom-telemetry-in-c-functions) ne illustra le modalità. Il codice di esempio crea una *mappa dell'applicazione* in Application Insights simile alla seguente:
 
@@ -486,7 +486,7 @@ Queste statistiche sono in tempo reale, ma la creazione effettiva dei grafici re
 
 ### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Monitorare i file di log dell'app per le funzioni con l'interfaccia della riga di comando di Azure 1.0
 
-Per iniziare, [installare l'interfaccia della riga di comando di Azure 1.0](../cli-install-nodejs.md) e [accedere ad Azure](../xplat-cli-connect.md).
+Per iniziare, [installare l'interfaccia della riga di comando di Azure 1.0](../cli-install-nodejs.md) e [accedere ad Azure](/cli/azure/authenticate-azure-cli).
 
 Usare i comandi seguenti per abilitare la modalità classica di Gestione servizi, scegliere la sottoscrizione e trasmettere in streaming i file di log:
 

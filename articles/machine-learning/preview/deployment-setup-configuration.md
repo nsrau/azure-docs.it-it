@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/29/2017
-ms.openlocfilehash: 61ecea71874b05c2c5f7572aa6128fc320422b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.date: 12/6/2017
+ms.openlocfilehash: d6686af546f43db663a6e5d6742096776ad185a6
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="model-management-setup"></a>Installazione di Gestione modelli
 
@@ -25,8 +25,8 @@ Usando Gestione modelli di Machine Learning di Azure, è possibile distribuire e
 Alla fine di questo documento sarà possibile configurare l'ambiente di gestione dei modelli e renderlo pronto per la distribuzione dei modelli di Machine Learning.
 
 ## <a name="what-you-need-to-get-started"></a>Elementi necessari per iniziare
-Per sfruttare al meglio questa guida, è necessario disporre dell'accesso come proprietario ad una sottoscrizione di Azure su cui è possibile distribuire i modelli.
-L'interfaccia della riga di comando preinstallata in Azure Machine Learning Workbench e in [Azure DSVMs](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) (DSVM di Azure).
+Per sfruttare al meglio questa Guida, è necessario disporre di accesso di collaboratore a una sottoscrizione di Azure o un gruppo di risorse che è possibile distribuire i modelli.
+L'interfaccia della riga di comando preinstallata in Azure Machine Learning Workbench e in [Azure DSVMs](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) (DSVM di Azure).
 
 ## <a name="using-the-cli"></a>Uso dell'interfaccia della riga di comando
 Per usare le interfacce della riga di comando (CLI) dal Workbench, fare clic su **File** -> **Apri prompt dei comandi**. 
@@ -84,10 +84,12 @@ Una volta completata l'installazione dell'ambiente:
 - Durante il processo di autenticazione viene richiesta l'autenticazione con un account. Importante: selezionare un account che dispone di una sottoscrizione di Azure valida e di autorizzazioni sufficienti per creare risorse nell'account. -Quando il log è completo, vengono presentate le informazioni riguardanti la sottoscrizione e viene chiesto se si desidera continuare con l'account selezionato.
 
 ### <a name="environment-setup"></a>Configurazione dell'ambiente
-Per avviare il processo di installazione, è necessario registrare il provider dell'ambiente immettendo il comando seguente:
+Per avviare il processo di installazione, è necessario registrare i provider di ambiente qualche immettendo i comandi seguenti:
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
+az provider register -n Microsoft.ContainerRegistry
+az provider register -n Microsoft.ContainerService
 ```
 #### <a name="local-deployment"></a>Distribuzione locale
 Per distribuire e testare il servizio web nel computer locale, configurare un ambiente locale tramite il comando seguente. Il nome del gruppo di risorse è opzionale.
@@ -128,7 +130,7 @@ Il comando di configurazione dell'ambiente del cluster crea le seguenti risorse 
 - Un account di Application Insights
 
 >[!IMPORTANT]
-> Per creare con successo un ambiente del cluster, è necessario essere un proprietario nella sottoscrizione di Azure e avere anche la possibilità di creare un'entità servizio. Per controllare se si dispone di privilegi sufficienti, seguire le istruzioni in questa pagina: [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+> Per creare correttamente un ambiente cluster, è necessario avere accesso collaboratore nella sottoscrizione di Azure o il gruppo di risorse.
 
 Il gruppo di risorse, l'account di archiviazione e il record di controllo di accesso vengono creati rapidamente. La distribuzione di ACS può richiedere fino a 20 minuti. 
 

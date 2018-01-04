@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: 70ec03d2ed32cb0362bf2f7b24c66979093603be
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: d5b33b15c315c7538bba7bf9ae067946f3b6d3c4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Procedure consigliate per la scalabilità automatica
 Questo articolo illustra le procedure consigliate per applicare la scalabilità automatica in Azure. Il ridimensionamento automatico di Monitoraggio di Azure si applica solo a [set di scalabilità di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Servizi cloud](https://azure.microsoft.com/services/cloud-services/) e [app Web del servizio app](https://azure.microsoft.com/services/app-service/web/). Altri servizi Azure usano metodi di ridimensionamento diversi.
@@ -44,9 +44,6 @@ Se si aggiorna manualmente il conteggio delle istanze impostandolo su un valore 
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Usare sempre una combinazione di regole di aumento e di riduzione del numero di istanze
 Se si usa solo una parte della combinazione, la scalabilità automatica viene applicata solo per aumentare o ridurre il numero di istanze fino a raggiungere il valore massimo o minimo.
-
-### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>Non passare dal portale di Azure al portale di Azure classico e viceversa quando si gestisce la scalabilità automatica
-Per i servizi cloud e i servizi app (App Web), usare il portale di Azure (portal.azure.com) per creare e gestire le impostazioni di scalabilità automatica. Per i set di scalabilità di macchine virtuali, usare PowerShell, l'interfaccia della riga di comando o l'API REST per creare e gestire l'impostazione di scalabilità automatica. Non passare dal portale di Azure classico (manage.windowsazure.com) al portale di Azure (portal.azure.com) e viceversa quando si gestiscono le configurazioni di scalabilità automatica. Il portale di Azure classico e il back-end sottostante presentano delle limitazioni. Passare al portale di Azure per gestire la scalabilità automatica con un'interfaccia utente grafica. Le opzioni prevedono l'uso di PowerShell, dell'interfaccia della riga di comando o dell'API REST (tramite Esplora risorse di Azure) per la scalabilità automatica.
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Scegliere la statistica appropriata per la metrica di diagnostica
 Per le metriche di diagnostica, è possibile scegliere tra *Medio*, *Minimo*, *Massimo* e *Totale* come metrica per il ridimensionamento. La statistica più comune è *Medio*.
@@ -155,6 +152,6 @@ Per monitorare l'integrità del motore di scalabilità automatica si può anche 
 
 Oltre a usare gli avvisi di log attività, è possibile configurare le notifiche tramite posta elettronica o webhook per ricevere una notifica delle azioni di scalabilità riuscite tramite la scheda delle notifiche dell'impostazione di scalabilità automatica.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 - [Creare un avviso di log attività per monitorare tutte le operazioni del motore di scalabilità automatica della sottoscrizione.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Creare un avviso di log attività per monitorare tutte le operazioni di scalabilità automatica in riduzione e in aumento non riuscite per la sottoscrizione.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)

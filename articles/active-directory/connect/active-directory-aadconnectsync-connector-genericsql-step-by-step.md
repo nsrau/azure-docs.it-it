@@ -4,7 +4,7 @@ description: Questo articolo presenta la procedura dettagliata per la creazione 
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 28c1cc60-24fd-4d0d-a36d-b4aba6de86e7
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 3fdc1b405b95180d031aa4ad45b406f7fc149d8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 311ef784497310b5605e25daf13102e3ff4bb08c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="generic-sql-connector-step-by-step"></a>Procedura dettagliata per la creazione del connettore Generic SQL
 Questo argomento è una guida dettagliata. Verrà creato un semplice database delle risorse umane di esempio che sarà usato per importare alcuni utenti con la relativa appartenenza ai gruppi.
@@ -48,7 +48,7 @@ Il connettore Generic SQL usa ODBC per connettersi al server remoto. È necessar
    ![ODBC6](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc6.png)
 8. Specificare il nome del database di esempio, **GSQLDEMO**.  
    ![ODBC7](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc7.png)
-9. In questa schermata mantenere tutte le selezioni predefinite. Fare clic su **Finish**.  
+9. In questa schermata mantenere tutte le selezioni predefinite. Fare clic su **Fine**.  
    ![ODBC8](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc8.png)
 10. Per verificare che tutto funzioni come previsto, fare clic su **Verifica origine dati**.  
     ![ODBC9](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc9.png)

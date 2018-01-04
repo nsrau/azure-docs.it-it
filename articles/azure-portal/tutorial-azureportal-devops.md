@@ -7,18 +7,18 @@ author: mlearned
 manager: douge
 editor: mlearned
 ms.assetid: 4f1c5bc1-c732-4d35-b5df-0fd68e547d38
-ms.service: multiple
+ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: b590fb06a3dba8aec66a380217269e1ca39bb5e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d2c059fe415b743e4b2265d6dda492878307be93
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Esercitazione: DevOps con il portale di Azure
 La piattaforma Azure include diversi flussi di lavoro flessibili di DevOps. Questa esercitazione illustra come sfruttare le funzionalità del portale di Azure per sviluppare, testare, distribuire, risolvere i problemi, monitorare e gestire le applicazioni in esecuzione. L'esercitazione si incentra sugli argomenti seguenti:
@@ -258,7 +258,7 @@ Quando si gestiscono applicazioni, spesso è necessario eseguire un'ampia gamma 
     
      ![Immagine69][image69]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Questa esercitazione ha illustrato alcune potenzialità della piattaforma Azure abilitando rapidamente la distribuzione continua per un'app Web, eseguendo diverse attività di sviluppo e test, monitorando e risolvendo i problemi di un'app attiva e infine gestendo strategie chiave, ad esempio il ripristino di emergenza, l'identità e il controllo degli accessi in base al ruolo. La piattaforma Azure consente un'esperienza integrata per questi flussi di lavoro di DevOps ed è possibile lavorare in modo efficiente rimanendo nell'ambito dell'attività in questione.
 
 ## <a name="next-steps"></a>Passaggi successivi

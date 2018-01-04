@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 358986f58c431aebfe7b41daa8c40ba641dc408a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: e147ca57658c232580fd9867790e55c3454e7e05
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Usare il log di diagnostica delle prestazioni del database SQL di Azure generato da Intelligent Insights
 
@@ -118,7 +118,7 @@ Nell'esempio di log seguente è possibile notare che la query con hash 0x9102EXZ
 }]
 ```
 
-### <a name="metrics"></a>Metrica
+### <a name="metrics"></a>Metriche
 
 L'unità di misura per ogni metrica segnalata viene indicata nella proprietà relativa alla metrica (metric) con i valori possibili: secondi, numero e percentuale. Il valore di una metrica misurata viene restituito nella proprietà relativa al valore (value).
 
@@ -139,13 +139,13 @@ L'ultima parte del log delle prestazioni di Intelligent Insights riguarda l'anal
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-Questo log di diagnostica di Intelligent Insights può essere usato con [Azure Log Analytics]( https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql) o una soluzione di terze parti per usufruire delle funzionalità di avvisi e creazione report DevOps personalizzate.
+Questo log di diagnostica di Intelligent Insights può essere usato con [Azure Log Analytics]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) o una soluzione di terze parti per usufruire delle funzionalità di avvisi e creazione report DevOps personalizzate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni sui concetti di [Intelligent Insights](sql-database-intelligent-insights.md).
 - Informazioni su come [risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
-- Informazioni su come [monitorare un database SQL di Azure usando Analisi SQL di Azure](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
-- Informazioni su come [raccogliere e usare i dati dei log dalle risorse di Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+- Informazioni su come [monitorare un database SQL di Azure usando Analisi SQL di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
+- Informazioni su come [raccogliere e usare i dati dei log dalle risorse di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 
 

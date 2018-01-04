@@ -4,7 +4,7 @@ description: Questo articolo contiene informazioni sulla risoluzione dei problem
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: d3bb2883257896c72cc616ea7476f3d25ee6aa4b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
-ms.translationtype: HT
+ms.openlocfilehash: 89e6fd07553570a13c134a94a25fc73f4fa8c99c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Risolvere i problemi di sincronizzazione della password con il servizio di sincronizzazione Azure AD Connect
 In questo argomento viene descritta la procedura per risolvere i problemi di sincronizzazione della password. Se le password non vengono sincronizzate come previsto, il problema può riguardare un subset di utenti o tutti gli utenti.
@@ -212,7 +212,7 @@ Per risolvere i problemi per cui nessuna password viene sincronizzata per un ute
    ```
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
    ```
-   ad esempio:
+   Ad esempio: 
    ```
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
    ```
@@ -324,7 +324,7 @@ Se invece si è usata l'installazione personalizzata, impostare manualmente le a
 ### <a name="password-sync-log"></a>Log di sincronizzazione delle password
 I valori possibili per la colonna dello stato sono i seguenti:
 
-| Stato | Descrizione |
+| Status | DESCRIZIONE |
 | --- | --- |
 | Success |La password è stata sincronizzata. |
 | FilteredByTarget |La password è impostata su **Richiedi modifica della password all'accesso successivo**. La password non è stata sincronizzata. |
@@ -332,7 +332,7 @@ I valori possibili per la colonna dello stato sono i seguenti:
 | SourceConnectorNotPresent |Nessun oggetto trovato nello spazio connettore di Active Directory locale. |
 | TargetNotExportedToDirectory |L'oggetto nello spazio connettore di Azure AD non è stato ancora esportato. |
 | MigratedCheckDetailsForMoreInfo |La voce di log è stata creata prima della compilazione 1.0.9125.0 e viene visualizzata nello stato precedente. |
-| Errore |Il servizio ha restituito un errore sconosciuto. |
+| Tipi di errore |Il servizio ha restituito un errore sconosciuto. |
 | Sconosciuto |Si è verificato un errore durante il tentativo di elaborare un batch di hash delle password.  |
 | MissingAttribute |Gli attributi specifici (ad esempio hash Kerberos) richiesti da Azure AD Domain Services non sono disponibili. |
 | RetryRequestedByTarget |Gli attributi specifici (ad esempio hash Kerberos) richiesti da Azure AD Domain Services non erano disponibili in precedenza. Viene effettuato un tentativo di risincronizzare l'hash della password dell'utente. |

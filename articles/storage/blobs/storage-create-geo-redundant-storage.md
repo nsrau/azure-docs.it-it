@@ -4,25 +4,25 @@ description: "Usare l'archiviazione con ridondanza geografica e accesso in lettu
 services: storage
 documentationcenter: 
 author: georgewallace
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/12/2017
+ms.date: 11/15/2017
 ms.author: gwallace
 ms.custom: mvc
-ms.openlocfilehash: 547ca7843f53bd11fdb922af8e0ae77e38f813d9
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
-ms.translationtype: HT
+ms.openlocfilehash: 3eb57b7e071a0a20effee65074cc509ee4eeb449
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Applicare la disponibilità elevata ai dati delle applicazioni con l'archiviazione di Azure
 
-Questa è la prima di una serie di esercitazioni. Questa esercitazione illustra come applicare la disponibilità elevata ai dati delle applicazioni in Azure. Al termine, si disporrà di un'applicazione console che recupera e carica un BLOB in un account di archiviazione [con ridondanza geografica e accesso in lettura](../common/storage-redundancy.md#read-access-geo-redundant-storage). L'archiviazione con ridondanza geografica e accesso in lettura funziona replicando le transazioni dall'area primaria all'area secondaria. Il processo di replica garantisce che i dati nell'area secondaria abbiano coerenza finale. L'applicazione usa il criterio [Interruttore](/azure/architecture/patterns/circuit-breaker.md) per determinare l'endpoint a cui connettersi. L'applicazione passa all'endpoint secondario quando viene simulato un errore.
+Questa è la prima di una serie di esercitazioni. Questa esercitazione illustra come applicare la disponibilità elevata ai dati delle applicazioni in Azure. Al termine, si dispone di un'applicazione console principale di .NET che carica e recupera un blob da un [geograficamente ridondante con accesso in lettura](../common/storage-redundancy.md#read-access-geo-redundant-storage) account di archiviazione (RA-GRS). L'archiviazione con ridondanza geografica e accesso in lettura funziona replicando le transazioni dall'area primaria all'area secondaria. Il processo di replica garantisce che i dati nell'area secondaria abbiano coerenza finale. L'applicazione usa il criterio [Interruttore](/azure/architecture/patterns/circuit-breaker.md) per determinare l'endpoint a cui connettersi. L'applicazione passa all'endpoint secondario quando viene simulato un errore.
 
 Nella prima parte della serie si apprenderà come:
 
@@ -45,7 +45,7 @@ Per completare questa esercitazione:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
+## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
 Accedere al [Portale di Azure](https://portal.azure.com/).
 
@@ -63,14 +63,14 @@ Seguire questa procedura per creare un account di archiviazione con ridondanza g
    | Impostazione       | Valore consigliato | Descrizione |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nome** | mystorageaccount | Un valore univoco per l'account di archiviazione |
-   | **Modello di distribuzione** | Gestione risorse  | Gestione risorse include le funzionalità più recenti.  |
+   | **Modello di distribuzione** | Gestione risorse  | Gestione risorse include le funzionalità più recenti.|
    | **Tipo di account** | Scopo generico | Per informazioni dettagliate sui tipi di account, consultare i [tipi di account di archiviazione](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Prestazioni** | Standard | Standard è sufficiente per lo scenario di esempio. |
    | **Replica**| Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS). | È necessario ai fini dell'esempio. |
    |**Trasferimento sicuro necessario** | Disabled| Il trasferimento sicuro non è necessario per questo scenario. |
    |**Sottoscrizione** | sottoscrizione in uso |Per informazioni dettagliate sulle sottoscrizioni, vedere [Subscriptions](https://account.windowsazure.com/Subscriptions) (Sottoscrizioni). |
    |**ResourceGroup** | myResourceGroup |Per i nomi di gruppi di risorse validi, vedere [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Regole di denominazione e restrizioni). |
-   |**Posizione** | Stati Uniti Orientali | Scegliere un paese. |
+   |**Posizione** | Stati Uniti orientali | Scegliere un paese. |
 
 ![Creare un account di archiviazione](media/storage-create-geo-redundant-storage/figure1.png)
 
@@ -83,17 +83,29 @@ Il progetto di esempio contiene un'applicazione console.
 
 ## <a name="set-the-connection-string"></a>Impostare la stringa di connessione
 
-Aprire l'applicazione console *storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs* in Visual Studio.
+Nell'applicazione è necessario inserire la stringa di connessione per l'account di archiviazione. È consigliabile archiviare la stringa di connessione all'interno di una variabile di ambiente nel computer locale che esegue l'applicazione. Seguire uno degli esempi di seguito a seconda del sistema operativo per creare la variabile di ambiente.
 
-Nel nodo **appSettings** del file **App.config** sostituire il valore di _StorageConnectionString_ con la stringa di connessione dell'account di archiviazione. Questo valore viene recuperato selezionando **Chiavi di accesso** nelle **Impostazioni** dell'account di archiviazione nel portale di Azure. Copiare la **stringa di connessione** dalla chiave primaria o secondaria e incollarla nel file **App.config**. Selezionare **Salva** per salvare il file al termine dell'operazione.
+Nel portale di Azure, passare all'account di archiviazione. Selezionare **le chiavi di accesso** in **impostazioni** nell'account di archiviazione. Copia il **stringa di connessione** dalla chiave primaria o secondaria. Sostituire \<yourconnectionstring\> con la connessione effettiva stringa eseguendo uno dei seguenti comandi in base al sistema operativo. Questo comando Salva una variabile di ambiente al computer locale. In Windows, la variabile di ambiente non è disponibile fino a ricaricare la **prompt dei comandi** o shell in uso. Sostituire  **\<storageConnectionString\>**  nell'esempio seguente:
+
+### <a name="linux"></a>Linux
+
+```bash
+export storageconnectionstring=<yourconnectionstring>
+```
+
+### <a name="windows"></a>Windows
+
+```cmd
+setx storageconnectionstring "<yourconnectionstring>"
+```
 
 ![File App config](media/storage-create-geo-redundant-storage/figure2.png)
 
 ## <a name="run-the-console-application"></a>Eseguire l'applicazione console
 
-In Visual Studio premere **F5** o selezionare **Avvia** per avviare il debug dell'applicazione. Visual Studio ripristina automaticamente i pacchetti NuGet mancanti se sono stati configurati. Per altre informazioni visitare la pagina per l'[installazione ripetuta dei pacchetti con ripristino del pacchetto](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview). 
+In Visual Studio premere **F5** o selezionare **Avvia** per avviare il debug dell'applicazione. Visual studio automaticamente ripristini i pacchetti NuGet mancanti se configurato, visitare la pagina per [installare e reinstallare i pacchetti con ripristino del pacchetto](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) per altre informazioni.
 
-Si apre una finestra della console e l'applicazione avvia l'esecuzione. L'applicazione carica l'immagine **HelloWorld.png** dalla soluzione nell'account di archiviazione. L'applicazione verifica che l'immagine sia stata replicata nell'endpoint RA-GRS secondario. Si avvia quindi il download dell'immagine fino a 999 volte. Ogni lettura è rappresentata da una **P** o da una **S**. **P** rappresenta l'endpoint primario e **S** rappresenta l'endpoint secondario.
+Si apre una finestra della console e l'applicazione avvia l'esecuzione. L'applicazione carica l'immagine **HelloWorld.png** dalla soluzione nell'account di archiviazione. L'applicazione verifica che l'immagine sia stata replicata nell'endpoint RA-GRS secondario. Si avvia quindi il download dell'immagine fino a 999 volte. Ogni lettura è rappresentato da un **P** o **S**. **P** rappresenta l'endpoint primario e **S** rappresenta l'endpoint secondario.
 
 ![App console in esecuzione](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -101,10 +113,10 @@ Nell'esempio di codice l'attività `RunCircuitBreakerAsync` nel file `Program.cs
 
 ### <a name="retry-event-handler"></a>Riprovare il gestore dell'evento
 
-Quando il download dell'immagine non riesce e si imposta un nuovo tentativo viene chiamato il gestore dell'evento `Operation_context_Retrying`. Se viene raggiunto il numero massimo di tentativi definiti nell'applicazione, [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) della richiesta viene modificato in `SecondaryOnly`. Questa impostazione forza l'applicazione a tentare di scaricare l'immagine dall'endpoint secondario. Questa configurazione riduce il tempo necessario per richiedere che l'immagine non venga ripetuta all'infinito come endpoint primario.
+Il `OperationContextRetrying` gestore eventi viene chiamato quando il download dell'immagine non riesce e viene impostato su Riprova. Se viene raggiunto il numero massimo di tentativi, vengono definiti nell'applicazione, il [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) della richiesta viene modificato in `SecondaryOnly`. Questa impostazione forza l'applicazione a tentare di scaricare l'immagine dall'endpoint secondario. Questa configurazione riduce il tempo necessario per richiedere che l'immagine non venga ripetuta all'infinito come endpoint primario.
 
 ```csharp
-private static void Operation_context_Retrying(object sender, RequestEventArgs e)
+private static void OperationContextRetrying(object sender, RequestEventArgs e)
 {
     retryCount++;
     Console.WriteLine("Retrying event because of failure reading the primary. RetryCount = " + retryCount);
@@ -129,10 +141,10 @@ private static void Operation_context_Retrying(object sender, RequestEventArgs e
 
 ### <a name="request-completed-event-handler"></a>Gestore dell'evento per la richiesta completata
 
-Quando il download dell'immagine riesce viene chiamato il gestore dell'evento `Operation_context_RequestCompleted`. Se l'applicazione usa l'endpoint secondario, continua a usarlo fino a 20 volte. Superate le 20 volte l'applicazione reimposta [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) su `PrimaryThenSecondary` e ritenta l'endpoint primario. Se una richiesta ha esito positivo l'applicazione continua la lettura dall'endpoint primario.
+Quando il download dell'immagine riesce viene chiamato il gestore dell'evento `OperationContextRequestCompleted`. Se l'applicazione usa l'endpoint secondario, continua a usarlo fino a 20 volte. Dopo 20 volte, l'applicazione imposta la [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) al `PrimaryThenSecondary` e ritenta l'endpoint primario. Se una richiesta ha esito positivo, l'applicazione continua a leggere l'endpoint primario.
 
 ```csharp
-private static void Operation_context_RequestCompleted(object sender, RequestEventArgs e)
+private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
 {
     if (blobClient.DefaultRequestOptions.LocationMode == LocationMode.SecondaryOnly)
     {

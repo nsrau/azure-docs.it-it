@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.assetid: c7aac6da-f4bf-419e-9e1a-16b460641a52
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 5c276c23288292a1c54dd9d57177d5072b90c9e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 929ae8b780c0e18074832adfefb9a7674097fd08
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Esercitazione: Integrazione di Azure Active Directory con IBM Kenexa Survey Enterprise
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS (Software as a Service, sof
 
 Per configurare l'integrazione di Azure AD con IBM Kenexa Survey Enterprise, sono necessari gli elementi seguenti:
 
-- Sottoscrizione di Azure AD.
+- Sottoscrizione di Azure AD
 - Una sottoscrizione IBM Kenexa Survey Enterprise abilitata per l'accesso SSO
 
 > [!NOTE]
@@ -50,7 +50,7 @@ A questo scopo, seguire queste indicazioni:
 In questa esercitazione viene testato l'accesso SSO di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede i due blocchi predefiniti seguenti:
 
 * Aggiunta di IBM Kenexa Survey Enterprise dalla raccolta
-* Configurazione e test dell'accesso Single Sign-On (SSO) di Microsoft Azure AD
+* Configurazione e test dell'accesso SSO di Azure AD
 
 ## <a name="add-ibm-kenexa-survey-enterprise-from-the-gallery"></a>Aggiungere IBM Kenexa Survey Enterprise dalla raccolta
 Per configurare l'integrazione di IBM Kenexa Survey Enterprise in Azure AD, aggiungere IBM Kenexa Survey Enterprise dalla raccolta al proprio elenco di app SaaS gestite.
@@ -119,7 +119,7 @@ In questa sezione viene abilitato l'accesso SSO di Azure AD nel portale di Azure
     
     ![Finestra di dialogo Attributi utente](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_attribute.png)   
 
-5. Fare clic su **Salva**.
+5. Fare clic su **Save**.
 
     ![Pulsante Salva di Configura accesso Single Sign-On](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_400.png)
 

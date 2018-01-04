@@ -1,6 +1,6 @@
 ---
-title: Limitazione per motivi di sicurezza con Ricerca di Azure
-description: Implementare la limitazione per motivi di sicurezza con i filtri di Ricerca di Azure.
+title: I filtri di sicurezza per i risultati di taglio in ricerca di Azure | Documenti Microsoft
+description: "Controllo di accesso al contenuto di ricerca di Azure utilizzando i filtri di sicurezza e identità utente."
 ms.custom: 
 ms.date: 08/07/2017
 ms.service: search
@@ -11,15 +11,15 @@ caps.latest.revision: "26"
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: f49004b68f95ae796196009e3cf879e3503ecf91
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: c829399f9c21846d8ee5b43945e2565565279820
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-with-azure-search"></a>Limitazione per motivi di sicurezza con Ricerca di Azure
+# <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtri di sicurezza per i risultati di taglio in ricerca di Azure
 
-È possibile applicare i filtri di sicurezza sui risultati della ricerca per limitare l'accesso al documento in base all'identità dell'utente. Per questa esperienza di ricerca in genere è necessario il confronto dell'identità dell'utente che richiede la ricerca con un campo contenente i principi che dispongono delle autorizzazioni per il documento. Quando viene trovata una corrispondenza, l'utente o l'entità di sicurezza, ad esempio un gruppo o ruolo, può accedere a un documento.
+È possibile applicare i filtri di sicurezza per tagliare i risultati della ricerca in ricerca di Azure in base all'identità utente. Per questa esperienza di ricerca in genere è necessario il confronto dell'identità dell'utente che richiede la ricerca con un campo contenente i principi che dispongono delle autorizzazioni per il documento. Quando viene trovata una corrispondenza, l'utente o l'entità di sicurezza, ad esempio un gruppo o ruolo, può accedere a un documento.
 
 Un modo per applicare il filtro di sicurezza è tramite una disgiunzione complessa di espressioni di uguaglianza: ad esempio `Id eq 'id1' or Id eq 'id2'` e così via. Questo approccio è soggetto a errori, difficili da gestire e nei casi in cui l'elenco contenga centinaia o migliaia di valori, rallenta il tempo di risposta della query di molti secondi. 
 
@@ -108,13 +108,13 @@ Se si desidera aggiornare un documento esistente con l'elenco di gruppi, è poss
 }
 ```
 
-Per informazioni dettagliate sull'aggiunta o l'aggiornamento dei documenti, è possibile leggere [Modificare documenti](https://docs.microsoft.com/en-us/rest/api/searchservice/addupdate-or-delete-documents).
+Per informazioni dettagliate sull'aggiunta o l'aggiornamento dei documenti, è possibile leggere [Modificare documenti](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
    
 ## <a name="apply-the-security-filter"></a>Applicare il filtro di sicurezza
 
 Al fine di tagliare i documenti in base all'accesso `group_ids`, è consigliabile eseguire una query di ricerca con un filtro `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))`, in cui "group_id1, group_id2,..." sono i gruppi a cui appartiene l'emittente della richiesta di ricerca.
 Questo filtro corrisponde a tutti i documenti per cui il campo `group_ids` contiene uno degli identificatori specificati.
-Per informazioni dettagliate sulla ricerca di documenti con Ricerca di Azure, è possibile leggere [Cercare documenti](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents).
+Per informazioni dettagliate sulla ricerca di documenti con Ricerca di Azure, è possibile leggere [Cercare documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 Si noti che questo esempio mostra come eseguire la ricerca di documenti con una richiesta POST.
 
 Inviare la richiesta HTTP POST:
@@ -155,3 +155,8 @@ Specificare il filtro nel corpo della richiesta:
 
 Ecco come è possibile filtrare i risultati in base all'identità dell'utente e alla funzione `search.in()` di Ricerca di Azure. È possibile usare questa funzione per passare agli identificatori dell'entità di sicurezza per l'utente richiedente per confrontare gli identificatori dell'entità di sicurezza associati a ciascun documento di destinazione. Quando viene gestita una richiesta di ricerca, la funzione `search.in` filtra i risultati della ricerca per cui l'accesso in lettura non è consentito ad alcuna entità di sicurezza dell'utente. Gli identificatori dell'entità di sicurezza possono rappresentare oggetti quali i gruppi di sicurezza, i ruoli o persino l'identità dell'utente.
  
+## <a name="see-also"></a>Vedere anche 
+
++ [Controllo accesso basato su identità di Active Directory utilizzando i filtri di ricerca di Azure](search-security-trimming-for-azure-search-with-aad.md)
++ [Filtri in Ricerca di Azure](search-filters.md)
++ [Controllo di accesso e protezione di dati nelle operazioni di ricerca di Azure](search-security-overview.md)

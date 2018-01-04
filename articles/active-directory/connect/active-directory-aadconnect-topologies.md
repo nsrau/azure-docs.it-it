@@ -4,7 +4,7 @@ description: Questo argomento illustra in modo dettagliato le topologie supporta
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
@@ -14,18 +14,18 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: f8e71541562d397c3f2cc195bfb74cfd60cafdc0
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 152cb9daa8338da6cc85ffda6feb3bd7b4f1bc92
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie per Azure AD Connect
 Questo articolo descrive diverse topologie locali e di Azure Active Directory (Azure AD) che usano il Servizio di sincronizzazione Azure AD Connect come soluzione di integrazione chiave. Questo articolo include le configurazioni supportate e non supportate.
 
 Ecco la legenda delle immagini usate nell'articolo:
 
-| Descrizione | Simbolo |
+| DESCRIZIONE | Simbolo |
 | --- | --- |
 | Foresta locale di Active Directory |![Foresta locale di Active Directory](./media/active-directory-aadconnect-topologies/LegendAD1.png) |
 | Active Directory locale con importazione con filtri |![Active Directory con importazione con filtri](./media/active-directory-aadconnect-topologies/LegendAD2.png) |
@@ -181,6 +181,6 @@ I tenant di Azure AD sono isolati per impostazione predefinita. Queste attività
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni su come installare Azure AD Connect per questi scenari, vedere [Installazione personalizzata di Azure Ad Connect](active-directory-aadconnect-get-started-custom.md).
 
-Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
+Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Altre informazioni sull'[integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).

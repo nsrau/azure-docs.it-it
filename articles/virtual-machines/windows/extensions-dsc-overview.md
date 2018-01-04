@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: zachal
-ms.openlocfilehash: c05c2d541a5f526f362f9cd72fe6d878374112b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: deb360e36b68f7ddb13b00946c700d0c83890ca6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -37,11 +37,9 @@ Questo articolo illustra l'estensione DSC (Desired State Configuration) PowerShe
 ## <a name="terms-and-concepts"></a>Termini e concetti
 Questa guida presuppone che si abbia familiarità con i concetti seguenti:
 
-Configurazione: documento di configurazione DSC. 
-
-Nodo: destinazione per una configurazione DSC. In questo documento, "nodo" fa sempre riferimento a una VM di Azure.
-
-Dati di configurazione: file con estensione psd1 contenente i dati ambientali per una configurazione.
+* **Configurazione** -documento di configurazione A DSC. 
+* **Nodo** -una destinazione per una configurazione DSC. In questo documento, "nodo" fa sempre riferimento a una VM di Azure.
+* **Dati di configurazione** : un file con estensione psd1 che contiene dati dell'ambiente per una configurazione
 
 ## <a name="architectural-overview"></a>Panoramica dell'architettura
 L'estensione DSC di Azure usa il framework dell'agente VM di Azure per recapitare, applicare e generare report sulle configurazioni DSC in esecuzione nelle VM di Azure. L'estensione DSC prevede un file ZIP contenente almeno un documento di configurazione e un set di parametri fornito tramite Azure PowerShell SDK oppure tramite il portale di Azure.
@@ -146,7 +144,9 @@ Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMNam
 ## <a name="logging"></a>Registrazione
 I log vengono inseriti in:
 
-C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Numero versione]
+```
+C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su PowerShell DSC, [vedere il centro di documentazione di PowerShell](https://msdn.microsoft.com/powershell/dsc/overview). 

@@ -4,7 +4,7 @@ description: "Questa è la pagina di Azure Multi-Factor Authentication che descr
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
 ms.service: multi-factor-authentication
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: joflore
-ms.openlocfilehash: 31b32079de19c6c9822c388f60269b07a8c70198
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: a6064e33dca09a304074efa4029c0f96fc19b2a2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 Le informazioni in questo articolo sono utili per gestire Azure Multi-Factor Authentication ora che si è operativi.  L'articolo illustra diversi argomenti che permettono di ottenere il massimo da Azure Multi-Factor Authentication.  Non tutte queste funzionalità sono disponibili in ogni versione di Azure Multi-Factor Authentication.
 
-| Funzionalità | Descrizione | 
+| Funzionalità | DESCRIZIONE | 
 |:--- |:--- |
 | [Avviso di illecito](#fraud-alert) |È possibile configurare e impostare un avviso di illecito in modo che gli utenti possano segnalare i tentativi illeciti di accedere alle loro risorse. |
 | [Bypass monouso](#one-time-bypass) |Un bypass monouso consente a un utente di eseguire l'autenticazione una sola volta "ignorando" Multi-Factor Authentication. |
@@ -157,7 +157,7 @@ Per attivare il messaggio per gli utenti:
 4. Se questo messaggio è per un'applicazione specifica, specificarlo nella casella Applicazione.
 5. Nell'elenco a discesa Tipo di messaggio selezionare il tipo di messaggio da sostituire con il nuovo messaggio personalizzato.
 6. Nell'elenco a discesa File audio selezionare il file audio caricato in precedenza.
-7. Fare clic su **Create**(Crea). Viene visualizzato un messaggio per confermare che è stato creato un messaggio vocale.
+7. Fare clic su **Crea**. Viene visualizzato un messaggio per confermare che è stato creato un messaggio vocale.
     ![Cloud](./media/multi-factor-authentication-whats-next/custom5.png)</center>
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>Memorizzazione nella cache in Azure Multi-Factor Authentication
@@ -174,7 +174,7 @@ La memorizzazione nella cache non può essere usata per gli accessi ad Azure AD.
 
 <center>![Cloud](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
-## <a name="trusted-ips"></a>IP attendibili
+## <a name="trusted-ips"></a>Indirizzi IP attendibili
 Indirizzi IP attendibili è una funzionalità di Azure MFA che consente agli amministratori di un tenant gestito o federato di ignorare la verifica in due passaggi. Questo metodo viene usato per gli utenti che accedono dalla rete Intranet locale dell'azienda. Questa funzionalità è disponibile con la versione completa di Azure Multi-Factor Authentication, ma non nella versione gratuita per amministratori. Per informazioni dettagliate su come ottenere la versione completa di Azure Multi-Factor Authentication, vedere [Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
 | Tipo di tenant di Azure AD | Opzioni disponibili per gli indirizzi IP attendibili |
@@ -304,7 +304,7 @@ Dopo aver abilitato questa funzionalità, gli utenti possono contrassegnare un d
 
 Quando gli utenti registrano i propri account per l'autenticazione MFA, scelgono il metodo di verifica preferito tra le opzioni abilitate. Le linee guida per il processo di registrazione sono disponibili in [Configurare l'account per la verifica in due passaggi](multi-factor-authentication-end-user-first-time.md)
 
-| Metodo | Descrizione |
+| Metodo | DESCRIZIONE |
 |:--- |:--- |
 | Chiamata al telefono |Invia una chiamata vocale automatizzata. Per l’autenticazione, l'utente risponde alla chiamata e preme # sul tastierino telefonico. Il numero di telefono non viene sincronizzato con Active Directory locale. |
 | SMS al telefono |Invia un messaggio di testo contenente un codice di verifica. L'utente deve rispondere al messaggio con il codice di verifica oppure immettere il codice di verifica nell'interfaccia di accesso. |

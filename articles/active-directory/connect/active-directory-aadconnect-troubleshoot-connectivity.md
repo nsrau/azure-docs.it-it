@@ -4,7 +4,7 @@ description: "Descrive come risolvere i problemi di connettività con Azure AD C
 services: active-directory
 documentationcenter: 
 author: andkjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: fa98672551a2089f1a306c838295dd1980da0bca
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
-ms.translationtype: HT
+ms.openlocfilehash: 09e1858c748c50a084cd66ac8bc8406180d97ace
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Risolvere i problemi di connettività con Azure AD Connect
 Questo articolo illustra il funzionamento della connettività tra Azure AD Connect e Azure AD e come risolverne i problemi. Questi problemi si verificano con maggiore probabilità in un ambiente con un server proxy.
@@ -40,7 +40,7 @@ Per il server proxy devono essere aperti anche gli URL necessari. L'elenco uffic
 
 Nella tabella seguente sono riportate le impostazioni minime relative agli URL assolutamente indispensabili per potersi connettere ad Azure AD. L'elenco non include le funzionalità facoltative, ad esempio il writeback delle password o Azure AD Connect Health. Le impostazioni documentate di seguito sono finalizzate alla risoluzione dei problemi relativi alla configurazione iniziale.
 
-| URL | Port | Descrizione |
+| URL | Porta | DESCRIZIONE |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Usate per scaricare gli elenchi di CRL. |
 | \*.verisign.com |HTTP/80 |Usate per scaricare gli elenchi di CRL. |
@@ -90,7 +90,7 @@ Se viene visualizzato il messaggio **Impossibile effettuare la connessione al se
 Se il proxy non è configurato correttamente, verrà visualizzato un errore: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png)
 ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
-| Tipi di errore | Testo dell'errore | Commento |
+| Tipi di errore | Testo dell'errore | Comment |
 | --- | --- | --- |
 | 403 |Accesso negato |Il proxy non è stato aperto per l'URL richiesto. Rivedere la configurazione del proxy e assicurarsi che gli [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) siano stati aperti. |
 | 407 |Autenticazione proxy obbligatoria |Il server proxy ha richiesto l'accesso, che non è stato eseguito. Se il server proxy richiede l'autenticazione, assicurarsi che tale impostazione sia configurata in machine.config. Verificare anche di usare account di dominio sia per l'utente che esegue la procedura guidata sia per l'account del servizio. |
@@ -110,7 +110,7 @@ Ecco il dump del log di un proxy effettivo e la pagina dell'Installazione guidat
 
 **Connessione ad Azure AD**
 
-| Time | URL |
+| Tempo | URL |
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
@@ -121,7 +121,7 @@ Ecco il dump del log di un proxy effettivo e la pagina dell'Installazione guidat
 
 **Configura**
 
-| Time | URL |
+| Tempo | URL |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
@@ -137,7 +137,7 @@ Ecco il dump del log di un proxy effettivo e la pagina dell'Installazione guidat
 
 **Sincronizzazione iniziale**
 
-| Time | URL |
+| Tempo | URL |
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |

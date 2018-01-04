@@ -1,10 +1,10 @@
 ---
 title: Gestire Azure Cosmos DB in Azure Storage Explorer
 description: Informazioni su come gestire Azure Cosmos DB in Azure Storage Explorer.
-Keywords: Azure Cosmos DB, Azure Storage Explorer, DocumentDB, MongoDB, DocumentDB
+Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
 documentationcenter: 
-author: Jiaj-Li
+author: jejiang
 manager: omafnan
 editor: 
 tags: Azure Cosmos DB
@@ -16,23 +16,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/19/2017
-ms.author: Jiaj-Li
-ms.openlocfilehash: 303fcfbda1934e3b29cb8ed06087c560275489e0
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
+ms.author: Jejiang
+ms.openlocfilehash: fa91630674151ac434c7f97fa2795e47bb38f16f
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Gestire Azure Cosmos DB in Azure Storage Explorer (anteprima)
 
-L'uso di Azure Cosmos DB in Azure Storage Explorer consente agli utenti di gestire le entità di Azure Cosmos DB, modificare i dati, aggiornare le stored procedure e attivarle assieme ad altre entità come code e BLOB di archiviazione di Azure. È ora possibile usare lo stesso strumento per gestire le diverse entità di Azure in un'unica posizione. A questo punto, Azure Storage Explorer supporta account SQL (DocumentDB) e MongoDB.
+L'uso di Azure Cosmos DB in Azure Storage Explorer consente agli utenti di gestire le entità di Azure Cosmos DB, modificare i dati, aggiornare le stored procedure e attivarle assieme ad altre entità come code e BLOB di archiviazione di Azure. È ora possibile usare lo stesso strumento per gestire le diverse entità di Azure in un'unica posizione. A questo punto, Azure Storage Explorer supporta SQL <!--and MongoDB--> account. Esplora archivi Azure non funziona con l'emulatore di Azure Cosmos DB locale. 
 
 In questo articolo viene illustrato come usare Azure Storage Explorer per la gestione di Azure Cosmos DB.
 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Un account Azure Cosmos DB per un database di MongoDB o di SQL (DocumentDB). Se non si dispone di un account, è possibile crearne uno sul portale di Azure, come descritto in [Azure Cosmos DB: Creare un'app Web per le API DocumentDB con .NET e il portale di Azure](create-documentdb-dotnet.md).
+Un account Azure Cosmos DB per l'API di SQL <!--or MongoDB API-->. Se non si dispone di un account, è possibile crearne uno nel portale di Azure, come descritto in [DB Cosmos Azure: creare un'app di web API SQL con .NET e il portale di Azure](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Installazione
 
@@ -50,7 +50,7 @@ Installare i bit più recenti di Azure Storage Explorer qui: [Azure Storage Expl
 
 2. Nella finestra di dialogo **Azure Sign In** (Accesso ad Azure), fare clic su **Accedi** e immettere le credenziali di Azure.
 
-    ![pagina di accesso](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/sign-in.png)
+    ![Accesso](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/sign-in.png)
 
 3. Selezionare la sottoscrizione dall'elenco e quindi fare clic su **Applica**.
 
@@ -70,7 +70,7 @@ Un modo alternativo per connettersi a un Azure Cosmos DB consiste nell'usare una
 
     ![Connettersi ad Azure Cosmos DB usando una stringa di connessione](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Scegliere l'**esperienza predefinita** per il tipo di account tra **DocumentDB** o **MongoDB**, incollare la **stringa di connessione**, quindi fare clic su **OK** per connettersi all'account di Azure Cosmos DB. Per informazioni su come recuperare la stringa di connessione, vedere [Ottenere la stringa di connessione](https://docs.microsoft.com/en-us/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Scegliere il **predefinito esperienza** per il tipo di account, <!--either--> **DocumentDB** <!--or **MongoDB**-->, incollare il **stringa di connessione**e quindi Fare clic su **OK** per la connessione account Azure Cosmos DB. Per informazioni su come recuperare la stringa di connessione, vedere [Ottenere la stringa di connessione](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
 
     ![Connection-string](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/connection-string.png)
 
@@ -137,7 +137,7 @@ Per creare un nuovo documento, aprire **Documenti** nella finestra di sinistra, 
 #### <a name="delete-a-document"></a>Eliminare un documento
 Fare clic sul pulsante **Elimina** per eliminare il documento esistente.
 #### <a name="query-for-documents"></a>Eseguire query per documenti
-Modificare il filtro documento immettendo una [query SQL](documentdb-sql-query.md), quindi fare clic su **Applica**.
+Modificare il filtro documento immettendo una [query SQL](sql-api-sql-query.md), quindi fare clic su **Applica**.
 
 ![Filtro](./media/tutorial-documentdb-and-mongodb-in-storage-explorer/filter.png)
 
@@ -152,5 +152,5 @@ Modificare il filtro documento immettendo una [query SQL](documentdb-sql-query.m
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Guardare il video seguente per informazioni su come usare Azure Cosmos DB in Azure Storage Explorer: [Usare Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
-* Per altre informazioni su Storage Explorer e per connettersi ad altri servizi, vedere [Guida introduttiva a Storage Explorer (anteprima)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Per altre informazioni su Storage Explorer e per connettersi ad altri servizi, vedere [Guida introduttiva a Storage Explorer (anteprima)](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

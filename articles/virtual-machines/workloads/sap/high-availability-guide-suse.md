@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: ed728011f2cb7b6108e19a916010fd5447c07093
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 609b811705bb6f116db055b756910450f8990528
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Disponibilità elevata per SAP NetWeaver su macchina virtuali di Azure in SUSE Linux Enterprise Server for SAP applications
 
@@ -50,8 +50,8 @@ ms.lasthandoff: 10/11/2017
 
 [sap-hana-ha]:sap-hana-high-availability.md
 
-Questo articolo descrive come distribuire le macchine virtuali, configurare le macchine virtuali, installare il framework del cluster e installare un sistema SAP NetWeaver 7.50 a disponibilità elevata.
-Nelle configurazioni di esempio, nei comandi di installazione e così via vengono usati il numero di istanza ASCS 00, il numero di istanza ERS 02 e l'ID del sistema SAP NWS. I nomi delle risorse (ad esempio macchine virtuali e reti virtuali) nell'esempio presuppongono che sia stato usato il [modello convergente][template-converged] con l'ID del sistema SAP NWS per creare le risorse.
+In questo articolo viene descritto come distribuire le macchine virtuali, configurare le macchine virtuali, installare il framework di cluster e installare un sistema SAP NetWeaver 7,50 a disponibilità elevata.
+Nelle configurazioni di esempio, nei comandi di installazione e così via Numero di istanza ASCS 00, Hiamanti istanza numero 02 e NWS ID di sistema SAP viene utilizzato. I nomi delle risorse (ad esempio macchine virtuali e reti virtuali) nell'esempio presuppongono che sia stato usato il [modello convergente][template-converged] con l'ID del sistema SAP NWS per creare le risorse.
 
 Leggere prima di tutto le note e i documenti seguenti relativi a SAP
 
@@ -84,7 +84,7 @@ Per ottenere la disponibilità elevata, SAP NetWeaver richiede un server NFS. Il
 
 ![Panoramica della disponibilità elevata di SAP NetWeaver](./media/high-availability-guide-suse/img_001.png)
 
-Il server NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il database SAP HANA usano un nome host virtuale e indirizzi IP virtuali. Per usare un indirizzo IP virtuale in Azure, occorre il bilanciamento del carico. L'elenco seguente mostra la configurazione del bilanciamento del carico.
+Il server NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver Hiamanti e il database SAP HANA utilizzare nome host virtuale e gli indirizzi IP virtuali. Per usare un indirizzo IP virtuale in Azure, occorre il bilanciamento del carico. L'elenco seguente mostra la configurazione del bilanciamento del carico.
 
 ### <a name="nfs-server"></a>Server NFS
 * Configurazione front-end
@@ -142,7 +142,7 @@ Il server NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il dat
 ### <a name="deploying-linux"></a>Distribuzione di Linux
 
 Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP Applications 12 che è possibile usare per distribuire nuove macchine virtuali.
-È possibile usare uno dei modelli di avvio rapido di GitHub per distribuire tutte le risorse necessarie. Il modello consente di distribuire le macchine virtuali, il servizio di bilanciamento del carico, il set di disponibilità e così via. Per distribuire il modello, seguire questi passaggi:
+È possibile utilizzare uno dei modelli di avvio rapido su github per distribuire tutte le risorse necessarie. Il modello consente di distribuire le macchine virtuali, il servizio di bilanciamento del carico, il set di disponibilità e così via. Per distribuire il modello, seguire questi passaggi:
 
 1. Aprire il [modello di file server di SAP][template-file-server] nel portale di Azure   
 1. Immettere i parametri seguenti
@@ -152,8 +152,8 @@ Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP 
       Selezionare una delle distribuzioni Linux. Per questo esempio, selezionare SLES 12
    3. Nome utente e password amministratore  
       Verrà creato un nuovo utente con cui è possibile accedere alla macchina
-   4. ID subnet  
-      ID della subnet a cui devono essere connesse le macchine virtuali. Lasciare vuoto se si vuole creare una nuova rete virtuale o selezionare la subnet della rete virtuale Express Route o VPN per connettere la macchina virtuale alla rete locale. L'ID in genere è simile al seguente: /subscriptions/**&lt;ID sottoscrizione&gt;**/resourceGroups/**&lt;nome gruppo risorse&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nome rete virtuale&gt;**/subnets/**&lt;nome subnet&gt;**
+   4. ID di subnet  
+      ID della subnet a cui devono essere connesse le macchine virtuali. Lasciare vuoto se si vuole creare una nuova rete virtuale o selezionare la subnet della rete virtuale Express Route o VPN per connettere la macchina virtuale alla rete locale. L'ID è in genere simile /Subscriptions/<ID**&lt;ID sottoscrizione&gt;**/ResourceGroups /**&lt;nome gruppo di risorse&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;nome di rete virtuale&gt;**/subnets/**&lt;nome subnet&gt;**
 
 ### <a name="installation"></a>Installazione
 
@@ -254,7 +254,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo passwd hacluster
    </code></pre>
 
-1. **[A]** Configurare corosync per usare un altro trasporto e aggiungere nodelist In caso contrario, il cluster non funzionerà.
+1. **[A]** Configurare corosync per usare un altro trasporto e aggiungere nodelist Cluster non funziona in caso contrario.
    
    <pre><code> 
    sudo vi /etc/corosync/corosync.conf   
@@ -475,7 +475,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo crm configure
 
    crm(live)configure# primitive vip_<b>NWS</b>_nfs IPaddr2 \
-     params ip=<b>10.0.0.4</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.4</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_nfs anything \
@@ -495,7 +495,7 @@ Il dispositivo STONITH usa un'entità servizio per l'autorizzazione in Microsoft
 
 1. Passare a <https://portal.azure.com>
 1. Aprire il pannello Azure Active Directory  
-   Passare a Proprietà e annotare l'ID directory. Si tratta dell'**ID tenant**.
+   Passare alle proprietà e annotare l'ID di Directory. Si tratta di **ID tenant**.
 1. Fare clic su Registrazioni per l'app
 1. Fare clic su Aggiungi.
 1. Immettere un nome, selezionare il tipo di applicazione "App Web/API", immettere un URL di accesso (ad esempio http://localhost) e fare clic su Crea
@@ -503,7 +503,7 @@ Il dispositivo STONITH usa un'entità servizio per l'autorizzazione in Microsoft
 1. Selezionare la nuova app e fare clic su Chiavi nella scheda Impostazioni
 1. Immettere una descrizione per una nuova chiave, selezionare "Non scade mai" e fare clic su Salva
 1. Annotare il valore. Viene usato come **password** per l'entità servizio
-1. Annotare l'ID applicazione. Viene usato come nome utente (**ID di accesso** nella procedura seguente) dell'entità servizio
+1. Annotare l'ID di applicazione. Viene utilizzato il nome utente (**ID di accesso** nella procedura riportata di seguito) dell'entità servizio
 
 L'entità servizio non ha le autorizzazioni per accedere alle risorse di Azure per impostazione predefinita. È necessario concedere all'entità servizio le autorizzazioni per avviare e arrestare (deallocare) tutte le macchine virtuali del cluster.
 
@@ -523,13 +523,13 @@ Dopo aver modificato le autorizzazioni per le macchine virtuali, è possibile co
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -549,13 +549,13 @@ sudo crm configure property stonith-enabled=true
 
 Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP Applications 12 che è possibile usare per distribuire nuove macchine virtuali. L'immagine del marketplace contiene l'agente delle risorse per SAP NetWeaver.
 
-È possibile usare uno dei modelli di avvio rapido di GitHub per distribuire tutte le risorse necessarie. Il modello consente di distribuire le macchine virtuali, il servizio di bilanciamento del carico, il set di disponibilità e così via. Per distribuire il modello, seguire questi passaggi:
+È possibile utilizzare uno dei modelli di avvio rapido su github per distribuire tutte le risorse necessarie. Il modello consente di distribuire le macchine virtuali, il servizio di bilanciamento del carico, il set di disponibilità e così via. Per distribuire il modello, seguire questi passaggi:
 
 1. Aprire il [modello ASCS/SCS a più SID][template-multisid-xscs] o il [modello convergente][template-converged] nel portale di Azure. Il modello ASCS/SCS consente di creare solo le regole di bilanciamento del carico per le istanze ASCS/SCS e ERS di SAP NetWeaver (solo Linux), mentre il modello convergente crea anche le regole di bilanciamento del carico per un database, ad esempio Microsoft SQL Server o SAP HANA. Se si prevede di installare un sistema basato su SAP NetWeaver e si vuole installare anche il database nelle stesse macchine, usare il [modello convergente][template-converged].
 1. Immettere i parametri seguenti
    1. Prefisso di risorsa (solo modello ASCS/SCS a più SID)  
       Immettere il prefisso che si vuole usare. Il valore viene usato come prefisso per le risorse distribuite.
-   3. ID del sistema SAP (solo modello convergente)  
+   3. ID sistema SAP (solo modello convergente)  
       Immettere l'ID del sistema SAP che si vuole installare. L'ID viene usato come prefisso per le risorse distribuite.
    4. Tipo di stack  
       Selezionare il tipo di stack SAP NetWeaver
@@ -564,13 +564,13 @@ Azure Marketplace contiene un'immagine per SUSE Linux Enterprise Server for SAP 
    6. Tipo di database  
       Selezionare HANA
    7. Dimensioni del sistema SAP  
-      Quantità di SAPS forniti dal nuovo sistema. Se non si è certi del numero di SAPS necessari per il sistema, chiedere all'integratore di sistemi o al partner tecnologico SAP.
+      Quantità di SAPS forniti dal nuovo sistema. Se non si è sicuri SAPS quanti richiede il sistema, contattare il Partner di tecnologia di SAP o l'integratore di sistema
    8. Disponibilità del sistema  
       Selezionare la disponibilità elevata.
    9. Nome utente e password amministratore  
       Verrà creato un nuovo utente con cui è possibile accedere alla macchina
-   10. ID subnet  
-   ID della subnet a cui devono essere connesse le macchine virtuali.  Lasciare vuoto se si vuole creare una nuova rete virtuale o selezionare la stessa subnet usata o creata come parte della distribuzione del server NFS. L'ID in genere è simile al seguente: /subscriptions/**&lt;ID sottoscrizione&gt;**/resourceGroups/**&lt;nome gruppo risorse&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nome rete virtuale&gt;**/subnets/**&lt;nome subnet&gt;**
+   10. ID di subnet  
+   ID della subnet a cui devono essere connesse le macchine virtuali.  Lasciare vuoto se si vuole creare una nuova rete virtuale o selezionare la stessa subnet usata o creata come parte della distribuzione del server NFS. L'ID è in genere simile /Subscriptions/<ID**&lt;ID sottoscrizione&gt;**/ResourceGroups /**&lt;nome gruppo di risorse&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;nome di rete virtuale&gt;**/subnets/**&lt;nome subnet&gt;**
 
 ### <a name="installation"></a>Installazione
 
@@ -700,7 +700,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo passwd hacluster
    </code></pre>
 
-1. **[A]** Configurare corosync per usare un altro trasporto e aggiungere nodelist In caso contrario, il cluster non funzionerà.
+1. **[A]** Configurare corosync per usare un altro trasporto e aggiungere nodelist Cluster non funziona in caso contrario.
    
    <pre><code> 
    sudo vi /etc/corosync/corosync.conf   
@@ -967,7 +967,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ASCS IPaddr2 \
-     params ip=<b>10.0.0.10</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.10</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ASCS anything \
@@ -1008,7 +1008,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 1. **[1]** Installare SAP NetWeaver ASCS  
 
-   Installare SAP NetWeaver ASCS come root nel primo nodo usando un nome host virtuale mappato all'indirizzo IP della configurazione front-end di bilanciamento del carico per l'istanza ASCS, ad esempio <b>nws ascs</b>, <b>10.0.0.10</b> e il numero di istanza usato per il probe del bilanciamento del carico, ad esempio <b>00</b>.
+   Installazione di SAP NetWeaver ASCS come radice nel primo nodo utilizzando un nome host virtuale che esegue il mapping all'indirizzo IP di una configurazione front-end di bilanciamento del carico per ASCS, ad esempio <b>nws ascs</b>, <b>10.0.0.10</b> e istanza numero utilizzato per il probe del bilanciamento del carico, ad esempio <b>00</b>.
 
    È possibile usare il parametro sapinst SAPINST_REMOTE_ACCESS_USER per consentire a un utente non ROOT di connettersi a sapinst.
 
@@ -1041,7 +1041,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ERS IPaddr2 \
-     params ip=<b>10.0.0.11</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ERS anything \
@@ -1092,7 +1092,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 1. **[2]** Installare SAP NetWeaver ERS  
 
-   Installare SAP NetWeaver ERS come root nel secondo nodo usando un nome host virtuale mappato all'indirizzo IP della configurazione front-end di bilanciamento del carico per ERS, ad esempio <b>nws-ers</b>, <b>10.0.0.11</b> e il numero di istanza usato per il probe del bilanciamento del carico, ad esempio <b>02</b>.
+   Installazione di SAP NetWeaver Hiamanti come radice sul secondo nodo utilizzando un nome host virtuale che esegue il mapping all'indirizzo IP di una configurazione front-end di bilanciamento del carico per Hiamanti, ad esempio <b>nws hiamanti</b>, <b>10.0.0.11</b> e istanza numero utilizzato per il probe del bilanciamento del carico, ad esempio <b>02</b>.
 
    È possibile usare il parametro sapinst SAPINST_REMOTE_ACCESS_USER per consentire a un utente non ROOT di connettersi a sapinst.
 
@@ -1101,7 +1101,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    </code></pre>
 
    > [!NOTE]
-   > Usare SWPM SP 20 PL 05 o versione successiva. Le versioni precedenti non impostano correttamente le autorizzazioni e l'installazione avrà esito negativo.
+   > Utilizzare SWPM SP 20 PL 05 o versione successiva. Le versioni precedenti non impostano correttamente le autorizzazioni e l'installazione avrà esito negativo.
    > 
 
 1. **[1]**  Adattare i profili di istanza ASCS/SCS e ERS
@@ -1136,7 +1136,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 1. **[A]**  Configurare keep-alive
 
-   Le comunicazioni tra il server applicazioni SAP NetWeaver e ASCS/SCS vengono instradate tramite un servizio di bilanciamento del carico software. Il servizio di bilanciamento del carico disconnette le connessioni inattive dopo un timeout configurabile. Per evitare questo comportamento, è necessario impostare un parametro nel profilo ASCS/SCS di SAP NetWeaver e modificare le impostazioni di sistema di Linux. Per altre informazioni, leggere la [nota SAP 1410736][1410736].
+   Le comunicazioni tra il server applicazioni SAP NetWeaver e ASCS/SCS vengono instradate tramite un servizio di bilanciamento del carico software. Il servizio di bilanciamento del carico disconnette le connessioni inattive dopo un timeout configurabile. Per evitare questo comportamento, è necessario impostare un parametro nel profilo ASCS/SCS di SAP NetWeaver e modificare le impostazioni di sistema di Linux. Lettura [1410736 nota SAP] [ 1410736] per ulteriori informazioni.
    
    Il parametro del profilo ASCS/SCS enque/encni/set_so_keepalive è già stato aggiunto nell'ultimo passaggio.
 
@@ -1228,7 +1228,7 @@ Il dispositivo STONITH usa un'entità servizio per l'autorizzazione in Microsoft
 
 1. Passare a <https://portal.azure.com>
 1. Aprire il pannello Azure Active Directory  
-   Passare a Proprietà e annotare l'ID directory. Si tratta dell'**ID tenant**.
+   Passare alle proprietà e annotare l'ID di Directory. Si tratta di **ID tenant**.
 1. Fare clic su Registrazioni per l'app
 1. Fare clic su Aggiungi.
 1. Immettere un nome, selezionare il tipo di applicazione "App Web/API", immettere un URL di accesso (ad esempio http://localhost) e fare clic su Crea
@@ -1236,7 +1236,7 @@ Il dispositivo STONITH usa un'entità servizio per l'autorizzazione in Microsoft
 1. Selezionare la nuova app e fare clic su Chiavi nella scheda Impostazioni
 1. Immettere una descrizione per una nuova chiave, selezionare "Non scade mai" e fare clic su Salva
 1. Annotare il valore. Viene usato come **password** per l'entità servizio
-1. Annotare l'ID applicazione. Viene usato come nome utente (**ID di accesso** nella procedura seguente) dell'entità servizio
+1. Annotare l'ID di applicazione. Viene utilizzato il nome utente (**ID di accesso** nella procedura riportata di seguito) dell'entità servizio
 
 L'entità servizio non ha le autorizzazioni per accedere alle risorse di Azure per impostazione predefinita. È necessario concedere all'entità servizio le autorizzazioni per avviare e arrestare (deallocare) tutte le macchine virtuali del cluster.
 
@@ -1256,13 +1256,13 @@ Dopo aver modificato le autorizzazioni per le macchine virtuali, è possibile co
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -1280,7 +1280,7 @@ sudo crm configure property stonith-enabled=true
 
 ## <a name="install-database"></a>Installare il database
 
-In questo esempio viene installata e configurata una replica di sistema di SAP HANA. SAP HANA verrà eseguito nello stesso cluster di SAP NetWeaver ASCS/SCS ed ERS. È anche possibile installare SAP HANA in un cluster dedicato. Per altre informazioni, vedere [Disponibilità elevata di SAP HANA in macchine virtuali di Azure (VM)][sap-hana-ha].
+In questo esempio, una replica di sistema SAP HANA è installata e configurata. SAP HANA viene eseguito nello stesso cluster come Hiamanti e SAP NetWeaver ASCS/SCS. È anche possibile installare SAP HANA in un cluster dedicato. Per ulteriori informazioni, vedere [disponibilità elevata di SAP HANA in macchine virtuali di Azure (VM)][sap-hana-ha].
 
 ### <a name="prepare-for-sap-hana-installation"></a>Prepararsi per l'installazione di SAP HANA
 
@@ -1326,7 +1326,7 @@ In questo esempio viene installata e configurata una replica di sistema di SAP H
    sudo chattr +i /hana/data
    sudo chattr +i /hana/log
    sudo chattr +i /hana/shared
-   # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+   # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
    sudo blkid
    </code></pre>
    
@@ -1440,7 +1440,7 @@ I passaggi seguenti sono basati sul capitolo 4 della guida [SAP HANA SR Performa
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number and HANA system id
+   # replace the bold string with your instance number and HANA system ID
    
    crm(live)configure# primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b>   ocf:suse:SAPHanaTopology \
      operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -1461,7 +1461,7 @@ I passaggi seguenti sono basati sul capitolo 4 della guida [SAP HANA SR Performa
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+   # replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
     
    crm(live)configure# primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
      operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \

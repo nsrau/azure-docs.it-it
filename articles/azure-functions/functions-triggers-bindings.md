@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: e3413c9e1055ca9198dae4a467bcf47372ad4ecb
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.openlocfilehash: ab5550ee0c057c9abc4b706929d780a495aaff65
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
 Funzioni di Azure consente di scrivere codice in risposta agli eventi in Azure e in altri servizi, tramite *trigger* e *associazioni*. In questo articolo viene fornita una panoramica concettuale di trigger e associazioni per tutti i linguaggi di programmazione supportati. Le funzionalità comuni a tutte le associazioni sono descritte di seguito.
@@ -410,6 +410,10 @@ module.exports = function (context, info) {
 
 In C# e altri linguaggi .NET, è possibile usare un metodo di associazione imperativa anziché dichiarativa in *function.json*. L'associazione imperativa è utile quando i parametri di associazione devono essere calcolati in fase di runtime invece che in fase di progettazione. Per altre informazioni, vedere [Associazione in fase di runtime tramite le associazioni imperative](functions-reference-csharp.md#imperative-bindings) nel riferimento per sviluppatori C#.
 
+## <a name="functionjson-file-schema"></a>schema di file Function.JSON
+
+Il *function.json* dello schema di file è disponibile all'indirizzo [http://json.schemastore.org/function](http://json.schemastore.org/function).
+
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su questi elementi, vedere gli articoli indicati di seguito:
 
@@ -424,6 +428,6 @@ Per altre informazioni su questi elementi, vedere gli articoli indicati di segui
 - [Microsoft Graph](functions-bindings-microsoft-graph.md)
 - [SendGrid](functions-bindings-sendgrid.md)
 - [Twilio](functions-bindings-twilio.md)
-- [Hub di notifica](functions-bindings-notification-hubs.md)
+- [Hub di notifica di Azure](functions-bindings-notification-hubs.md)
 - [App per dispositivi mobili](functions-bindings-mobile-apps.md)
 - [File esterno](functions-bindings-external-file.md)

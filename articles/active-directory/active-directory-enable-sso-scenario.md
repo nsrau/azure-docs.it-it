@@ -4,7 +4,7 @@ description: Questo articolo illustra i vantaggi dell'integrazione di Azure Acti
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 95b96f10-2d5c-4b78-8af8-d3657a24140f
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ff3e3284f34f8373a2cfd80438d94a7052bb7f5e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: HT
+ms.openlocfilehash: dc69da316870f897fb126d8033e09a066bf89153
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Gestione di applicazioni con Azure Active Directory
 Oltre alla gestione del flusso di lavoro o del contenuto effettivo, in generale le aziende prevedono due requisiti di base per tutte le applicazioni:
@@ -110,6 +110,6 @@ Azure AD consente di proteggere le applicazioni tramite criteri di accesso granu
 ## <a name="getting-started"></a>Introduzione
 Per iniziare a integrare applicazioni con Azure AD, vedere [Guida introduttiva all'integrazione di Azure Active Directory con le applicazioni](active-directory-integrating-applications-getting-started.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 

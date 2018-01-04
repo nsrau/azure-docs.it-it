@@ -4,7 +4,7 @@ Per altre informazioni sui dischi, vedere [Informazioni sui dischi e sui dischi 
 <a id="attachempty"></a>
 
 ## <a name="attach-an-empty-disk"></a>Collegare un disco vuoto
-1. Aprire l'interfaccia della riga di comando di Azure 1.0 e [connettersi alla sottoscrizione di Azure](../articles/xplat-cli-connect.md). Assicurarsi che sia attiva la modalità Azure Service Management (`azure config mode asm`).
+1. Aprire l'interfaccia della riga di comando di Azure 1.0 e [connettersi alla sottoscrizione di Azure](/cli/azure/authenticate-azure-cli). Assicurarsi che sia attiva la modalità Azure Service Management (`azure config mode asm`).
 2. Immettere `azure vm disk attach-new` per creare e collegare un nuovo disco, come illustrato nell'esempio seguente. Sostituire *myVM* con il nome della macchina virtuale Linux e specificare le dimensioni in GB del disco, che in questo esempio è di *100 GB*:
 
     ```azurecli
@@ -37,7 +37,7 @@ Per altre informazioni sui dischi, vedere [Informazioni sui dischi e sui dischi 
 ## <a name="attach-an-existing-disk"></a>Collegare un disco esistente
 Per collegare un disco esistente, è necessario che in un account di archiviazione sia disponibile un file con estensione vhd.
 
-1. Aprire l'interfaccia della riga di comando di Azure 1.0 e [connettersi alla sottoscrizione di Azure](../articles/xplat-cli-connect.md). Assicurarsi che sia attiva la modalità Azure Service Management (`azure config mode asm`).
+1. Aprire l'interfaccia della riga di comando di Azure 1.0 e [connettersi alla sottoscrizione di Azure](/cli/azure/authenticate-azure-cli). Assicurarsi che sia attiva la modalità Azure Service Management (`azure config mode asm`).
 2. Controllare se il disco rigido virtuale che si desidera collegare è già caricato nella sottoscrizione di Azure:
    
     ```azurecli

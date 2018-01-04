@@ -7,6 +7,7 @@ author: daden
 manager: mithal
 editor: daden
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: c7ed8e695097d0cf2f5c99f8ccf3378c4e553c3b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: 25c9079bc1a3030b8c65a83e5e9969c4a5a626b3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsione del carico di lavoro server in terabyte di dati
 
@@ -46,9 +47,11 @@ In questo scenario si analizza la stima del carico di lavoro per ogni computer (
 I prerequisiti per eseguire questo esempio sono i seguenti:
 
 * Un [account di Azure](https://azure.microsoft.com/free/) (sono disponibili versioni di valutazione gratuite).
-* Una copia installata di [Machine Learning Workbench](./overview-what-is-azure-ml.md). Per installare il programma e creare un'area di lavoro, vedere la [guida rapida all'installazione](./quickstart-installation.md).
+* Installata una copia di [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md). Per installare il programma e creare un'area di lavoro, vedere la [guida rapida all'installazione](./quickstart-installation.md). Se si dispone di più sottoscrizioni, è possibile [impostare la sottoscrizione desiderata per la sottoscrizione attiva corrente](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
 * Windows 10 (le istruzioni generali riportate in questo esempio sono le stesse per i sistemi macOS).
-* Una macchina virtuale di data science (DSVM) per Linux (Ubuntu). È possibile eseguire il provisioning di una macchina virtuale di data science Ubuntu seguendo [queste istruzioni](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Si può anche vedere [questa Guida rapida](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). È consigliabile usare una macchina virtuale con almeno 8 core e 32 GB di memoria. Per questo esempio sono necessari indirizzo IP della macchina virtuale di data science, nome utente e password. Conservare la tabella seguente con le informazioni sulla macchina virtuale di data science per i passaggi successivi:
+* Una Data Science macchina virtuale (DSVM) per Linux (Ubuntu), preferibilmente nell'area Stati Uniti orientali in cui i dati di individuazione. È possibile eseguire il provisioning di una macchina virtuale di data science Ubuntu seguendo [queste istruzioni](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Si può anche vedere [questa Guida rapida](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). È consigliabile usare una macchina virtuale con almeno 8 core e 32 GB di memoria. 
+
+Seguire il [istruzione](https://docs.microsoft.com/en-us/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) per abilitare l'accesso senza password sudoer della macchina virtuale per AML Workbench.  È possibile scegliere di utilizzare [l'autenticazione basata su chiavi SSH per la creazione e l'utilizzo della macchina virtuale AML Workbench di](https://docs.microsoft.com/en-us/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). In questo esempio, utilizziamo la password per accedere alla macchina virtuale.  Conservare la tabella seguente con le informazioni sulla macchina virtuale di data science per i passaggi successivi:
 
  Nome campo| Valore |  
  |------------|------|
@@ -56,9 +59,10 @@ Indirizzo IP macchina virtuale di data science | xxx|
  Nome utente  | xxx|
  Password   | xxx|
 
+
  Si può scegliere di usare qualsiasi VM con [motore Docker](https://docs.docker.com/engine/) installato.
 
-* Un cluster Spark HDInsight con Hortonworks Data Platform versione 3.6 e Spark versione 2.1.x. Per informazioni dettagliate su come creare cluster HDInsight, vedere [Creare un cluster Apache Spark in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql). È consigliabile usare un cluster con tre ruoli di lavoro che abbiano ognuno 16 core e 112 GB di memoria. In alternativa, è possibile scegliere il tipo di macchina virtuale `D12 V2` per il nodo head e il tipo `D14 V2` per il nodo del ruolo di lavoro. La distribuzione del cluster richiede circa 20 minuti. Per questo esempio sono necessari nome del cluster, nome utente SSH e password. Conservare la tabella seguente con le informazioni sul cluster Azure HDInsight per i passaggi successivi:
+* Un Cluster di HDInsight Spark, con la versione Hortonworks Data Platform 3.6 e Spark 2.1. x, preferibilmente nell'area Stati Uniti orientali in cui i dati di individuazione. Per informazioni dettagliate su come creare cluster HDInsight, vedere [Creare un cluster Apache Spark in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). È consigliabile usare un cluster con tre ruoli di lavoro che abbiano ognuno 16 core e 112 GB di memoria. In alternativa, è possibile scegliere il tipo di macchina virtuale `D12 V2` per il nodo head e il tipo `D14 V2` per il nodo del ruolo di lavoro. La distribuzione del cluster richiede circa 20 minuti. Per questo esempio sono necessari nome del cluster, nome utente SSH e password. Conservare la tabella seguente con le informazioni sul cluster Azure HDInsight per i passaggi successivi:
 
  Nome campo| Valore |  
  |------------|------|
@@ -84,35 +88,35 @@ Creare un nuovo progetto usando questo esempio come modello:
 2.  Nella pagina **Projects** (Progetti) selezionare il segno **+** e selezionare **New Project** (Nuovo progetto).
 3.  Nel riquadro **Create New Project** (Crea nuovo progetto) specificare le informazioni per il nuovo progetto.
 4.  Nella casella di ricerca **Search Project Templates** (Cerca modelli di progetto) digitare **Workload Forecasting on Terabytes Data** (Previsione carico di lavoro con terabyte di dati) e selezionare il modello.
-5.  Selezionare **Crea**.
+5.  Selezionare **Create**.
 
 È possibile creare un progetto di Workbench con un repository Git creato in precedenza seguendo queste [istruzioni](./tutorial-classifying-iris-part-1.md).  
 Eseguire il comando `git status` per esaminare lo stato dei file per il monitoraggio delle versioni.
 
 ## <a name="data-description"></a>Descrizione dei dati
 
-I dati utilizzati in questo esempio sono dati del carico di lavoro del server sintetizzati. Sono ospitati in un account di archiviazione BLOB di Azure accessibile pubblicamente. Le informazioni specifiche dell'account di archiviazione sono disponibili nel campo `dataFile` di [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json). È possibile usare i dati direttamente dall'archiviazione BLOB di Azure. Se la risorsa di archiviazione viene usata da molti utenti contemporaneamente, è possibile usare [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) per scaricare i dati nello spazio di archiviazione locale. 
+I dati utilizzati in questo esempio sono dati del carico di lavoro del server sintetizzati. È ospitato in un account di archiviazione Blob di Azure che è accessibile pubblicamente nell'area Stati Uniti orientali. Le informazioni di account di archiviazione specifico, vedere il `dataFile` campo [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) nel formato "wasb: / /<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>". È possibile usare i dati direttamente dall'archiviazione BLOB di Azure. Se lo spazio di archiviazione viene usato da molti utenti contemporaneamente, è possibile utilizzare [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) per scaricare i dati nel proprio spazio di archiviazione per una migliore esperienza di sperimentazione. 
 
 La dimensione totale dei dati è circa 1 TB. Ogni file ha una dimensione di circa 1-3 GB ed è in formato CSV senza intestazione. Ogni riga di dati rappresenta il carico di una transazione in un determinato server. Le informazioni dettagliate dello schema dei dati sono le seguenti:
 
-Numero di colonna | Nome campo| Tipo | Descrizione |  
+Numero di colonna | Nome campo| type | DESCRIZIONE |  
 |------------|------|-------------|---------------|
-1  | `SessionStart` | Datetime |    Ora di inizio della sessione
-2  |`SessionEnd`    | Datetime | Ora di fine della sessione
+1  | `SessionStart` | DateTime |    Ora di inizio della sessione
+2  |`SessionEnd`    | DateTime | Ora di fine della sessione
 3 |`ConcurrentConnectionCounts` | Integer | Numero di connessioni simultanee
 4 | `MbytesTransferred` | Double | Dati normalizzati trasferiti in megabyte
 5 | `ServiceGrade` | Integer |  Livello di servizio per la sessione
 6 | `HTTP1` | Integer|  La sessione usa HTTP1 o HTTP2
 7 |`ServerType` | Integer   |Tipo di server
 8 |`SubService_1_Load` | Double |   Carico servizio secondario 1
-9 | `SubService_1_Load` | Double |  Carico servizio secondario 2
-10 | `SubService_1_Load` | Double |     Carico servizio secondario 3
-11 |`SubService_1_Load` | Double |  Carico servizio secondario 4
-12 | `SubService_1_Load`| Double |      Carico servizio secondario 5
+9 | `SubService_2_Load` | Double |  Carico servizio secondario 2
+10 | `SubService_3_Load` | Double |     Carico servizio secondario 3
+11 |`SubService_4_Load` | Double |  Carico servizio secondario 4
+12 | `SubService_5_Load`| Double |      Carico servizio secondario 5
 13 |`SecureBytes_Load`  | Double | Carico byte sicuri
 14 |`TotalLoad` | Double | Carico totale nel server
-15 |`ClientIP` | String|    Indirizzo IP client
-16 |`ServerIP` | String|    Indirizzo IP del server
+15 |`ClientIP` | string|    Indirizzo IP client
+16 |`ServerIP` | string|    Indirizzo IP del server
 
 
 
@@ -123,7 +127,7 @@ I tipi di dati previsti sono elencati nella tabella precedente. A causa di probl
 
 I file in questo esempio sono organizzati come indicato di seguito.
 
-| Nome file | Tipo | Descrizione |
+| Nome file | type | DESCRIZIONE |
 |-----------|------|-------------|
 | `Code` | Cartella | La cartella contenente tutto il codice dell'esempio. |
 | `Config` | Cartella | La cartella contenente i file di configurazione. |
@@ -154,7 +158,7 @@ Il codice in [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-Big
 
 Si deve usare un contenitore per la sperimentazione sul set di dati di un mese e un altro per la sperimentazione sul set di dati completo. Poiché i dati e i modelli vengono salvati come file PARQUET, ogni file è in realtà una cartella nel contenitore, che include più BLOB. Il contenitore risultante è simile al seguente:
 
-| Nome di prefisso BLOB | Tipo | Descrizione |
+| Nome di prefisso BLOB | type | DESCRIZIONE |
 |-----------|------|-------------|
 | featureScaleModel | Parquet | Modello di convertitore in scala standard per funzionalità numeriche. |
 | stringIndexModel | Parquet | Modello di indicizzatore di stringa per funzionalità numeriche.|
@@ -180,13 +184,13 @@ Il file [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/
 
 Il primo argomento, `configFilename`, è un file di configurazione locale in cui si archiviano le informazioni dell'archiviazione BLOB e si specifica dove caricare i dati. Per impostazione predefinita è [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/storageconfig.json) e verrà usato per l'esecuzione sui dati di un mese. Si include anche [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json), che deve essere usato per l'esecuzione sul set di dati completo. Il contenuto della configurazione è il seguente: 
 
-| Campo | Tipo | Descrizione |
+| Campo | type | DESCRIZIONE |
 |-----------|------|-------------|
-| storageAccount | String | Nome dell'account di archiviazione di Azure |
-| storageContainer | String | Contenitore nell'account di archiviazione di Azure per archiviare i risultati intermedi |
-| storageKey | String |Chiave di accesso dell'account di archiviazione di Azure |
-| dataFile|String | File dell'origine dati  |
-| duration| String | Durata dei dati nei file dell'origine dati|
+| storageAccount | string | Nome dell'account di archiviazione di Azure |
+| storageContainer | string | Contenitore nell'account di archiviazione di Azure per archiviare i risultati intermedi |
+| storageKey | string |Chiave di accesso dell'account di archiviazione di Azure |
+| dataFile|string | File dell'origine dati  |
+| duration| string | Durata dei dati nei file dell'origine dati|
 
 Modificare sia `Config/storageconfig.json` che `Config/fulldata_storageconfig.json` per configurare l'account di archiviazione, la chiave di archiviazione e il contenitore BLOB per l'archiviazione dei risultati intermedi. Per impostazione predefinita, il contenitore BLOB per l'esecuzione sui dati di un mese è `onemonthmodel` e il contenitore BLOB per l'esecuzione sul set di dati completo è `fullmodel`. Assicurarsi di creare questi due contenitori nell'account di archiviazione. Il campo `dataFile` in [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json) determina quali dati vengono caricati in [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py). Il campo `duration` determina l'intervallo che i dati includono. Se la durata è impostata su ONE_MONTH, i dati caricati devono corrispondere a uno solo dei sette file .csv dei dati di giugno 2016. Se la durata è FULL, viene caricato il set di dati completo, con dimensione di 1 TB. Non è necessario modificare `dataFile` e `duration` in questi due file di configurazione.
 
@@ -270,7 +274,7 @@ Dopo aver completato correttamente la sperimentazione sui dati di piccole dimens
 
 I due file seguenti vengono creati nella cartella aml_config:
     
--  myhdo.compute: questo file contiene le informazioni di connessione e configurazione per una destinazione di esecuzione remota.
+-  myhdi.COMPUTE: questo file contiene informazioni di connessione e la configurazione per una destinazione di esecuzione in modalità remota.
 -  myhdi.runconfig: questo file è un set di opzioni di esecuzione utilizzato all'interno dell'applicazione Workbench.
 
 
@@ -324,7 +328,7 @@ Sulla barra laterale destra di Workbench passare a **Esecuzioni** per visualizza
 
 ### <a name="operationalize-the-model"></a>Operazionalizzare il modello
 
-In questa sezione si operazionalizza il modello creato nei passaggi precedenti come servizio Web. Si vedrà anche come usare il servizio Web per stimare il carico di lavoro. Usare le interfacce della riga di comando di operazionalizzazione di Machine Language per creare un pacchetto del codice e le dipendenze come immagini Docker e per pubblicare il modello come servizio Web in contenitori. Per altre informazioni, vedere [questa panoramica](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/operationalization-overview.md).
+In questa sezione si operazionalizza il modello creato nei passaggi precedenti come servizio Web. Si vedrà anche come usare il servizio Web per stimare il carico di lavoro. Usare le interfacce della riga di comando di operazionalizzazione di Machine Language per creare un pacchetto del codice e le dipendenze come immagini Docker e per pubblicare il modello come servizio Web in contenitori.
 
 È possibile usare il prompt della riga di comando nell'area di Machine Learning Workbench per eseguire l'interfaccia della riga di comando.  È anche possibile eseguire le interfacce della riga di comando in Ubuntu Linux seguendo la [guida di installazione](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
 

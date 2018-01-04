@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-ms.openlocfilehash: fcd58736d8915a61683a416fb9bf3892ba7b7bd8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7df8bb2dd61466fd9af6492277d54cf0ffdfeb0b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Debug delle applicazioni in un contenitore Docker locale
 ## <a name="overview"></a>Panoramica
@@ -54,7 +54,7 @@ Per eseguire rapidamente l'iterazione delle modifiche, è possibile avviare l'ap
 
 1. Impostare la configurazione della soluzione su `Debug` e premere **&lt;CTRL + F5>** per creare l'immagine Docker ed eseguirla localmente.
 
-    Una volta che l'immagine del contenitore è stata compilata ed è in esecuzione in un contenitore Docker, Visual Studio avvierà l'App Web nel browser predefinito.
+    Una volta che l'immagine contenitore è stato compilato e viene eseguito in un contenitore Docker, Visual Studio avvia l'app Web nel browser predefinito.
     Se si usa il browser Microsoft Edge o se si verificano problemi, vedere la sezione relativa alla [risoluzione dei problemi](vs-azure-tools-docker-troubleshooting-docker-errors.md) .
 2. Passare alla pagina About, da dove verranno apportate le modifiche.
 3. Tornare a Visual Studio e aprire `Views\Home\About.cshtml`.
@@ -88,7 +88,7 @@ Spesso è necessario analizzare le modifiche in modo più approfondito, sfruttan
 
    ![][2]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Con [Docker Tools for Visual Studio 2015](https://aka.ms/DockerToolsForVS)si ottiene la produttività tipica del lavoro in locale, con la realtà produttiva offerta dallo sviluppo in un contenitore Docker.
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi

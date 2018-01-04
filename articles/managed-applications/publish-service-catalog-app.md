@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: fd2c60cbc237f6d302616723c745563a3e1afecb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
-ms.translationtype: HT
+ms.openlocfilehash: 46adcdf39625c85dc962a7541b68c5500cf920ee
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Pubblicare un'applicazione gestita per uso interno
 
@@ -91,6 +91,7 @@ Aggiungere il codice JSON seguente al file.
 
 ```json
 {
+    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
     "handler": "Microsoft.Compute.MultiVm",
     "version": "0.1.2-preview",
     "parameters": {
@@ -218,11 +219,11 @@ A questo punto si usa il portale per distribuire l'applicazione gestita. Viene v
 
    ![Selezionare il catalogo di servizi](./media/publish-service-catalog-app/select-service-catalog.png)
 
-1. Selezionare **Crea**.
+1. Selezionare **Create**.
 
    ![Selezionare Crea](./media/publish-service-catalog-app/select-create.png)
 
-1. Trovare l'applicazione gestita che si vuole creare dall'elenco di soluzioni disponibili e selezionarla. Selezionare **Crea**.
+1. Trovare l'applicazione gestita che si vuole creare dall'elenco di soluzioni disponibili e selezionarla. Selezionare **Create**.
 
    ![Trovare l'applicazione gestita](./media/publish-service-catalog-app/find-application.png)
 
@@ -244,5 +245,4 @@ Al termine della distribuzione, l'applicazione gestita si trova in un gruppo di 
 
 * Per un'introduzione alle applicazioni gestite, vedere [Panoramica delle applicazioni gestite di Azure](overview.md).
 * Per i progetti di esempio, vedere [Progetti di esempio per applicazioni gestite di Azure](sample-projects.md).
-* Per informazioni sulla pubblicazione di applicazioni gestite in Azure Marketplace, vedere [Applicazioni gestite di Azure nel Marketplace](publish-marketplace-app.md).
 * Per informazioni sulla creazione di un file di definizione dell'interfaccia utente per un'applicazione gestita, vedere [Introduzione a CreateUiDefinition](create-uidefinition-overview.md).

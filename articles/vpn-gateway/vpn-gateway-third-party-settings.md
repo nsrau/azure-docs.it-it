@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: delhan
-ms.openlocfilehash: fae8ba81f925f53458133c8802b0766dd0f42684
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: cc45d84ea9a5eb4c2eaefb5a3ac321feb2d896d2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Impostazioni dei dispositivi firewall o VPN di terze parti consigliate dalla community per il gateway VPN di Azure
 
@@ -32,7 +32,7 @@ Questo articolo include diverse soluzioni consigliate per i dispositivi firewall
 
 La tabella seguente elenca diversi dispositivi comuni e la guida correlata:
 
-|Prodotto    |Riferimento                                                |
+|Prodotto    |Riferimenti                                                |
 |-----------|-----------------------------------------------------------|
 |Cisco ASA  |[Soluzioni consigliate dalla community per Cisco ASA in una VPN di Azure](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASA&locale=enUS&tab=Cisco)   |
 |Cisco ISR  |[Soluzioni consigliate dalla community per Cisco ISR in una VPN di Azure](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ISR&locale=enUS&tab=Cisco)   |
@@ -47,7 +47,7 @@ La tabella seguente elenca diversi dispositivi comuni e la guida correlata:
 
 ## <a name="next-step"></a>Passaggio successivo
 
-[Impostazioni dei gateway di Azure](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-devices#a-nameipsecaipsecike-parameters)
+[Impostazioni dei gateway di Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#a-nameipsecaipsecike-parameters)
 
-[Dispositivi compatibili noti](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-devices#validated-vpn-devices)
+[Dispositivi compatibili noti](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#validated-vpn-devices)
 

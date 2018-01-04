@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 2d940b42108948f4cd36a585f1e79def05fe8fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 73d6b42e7a97d6041f6213a1f7d060806734d763
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Guida introduttiva a Threat Modeling Tool
 
@@ -29,13 +29,13 @@ Questo articolo si basa sulle conoscenze esistenti dell'approccio di modellazion
 
 Per riepilogare rapidamente, l'approccio prevede la creazione di un diagramma, l'identificazione delle minacce, la loro mitigazione e la convalida di ogni mitigazione. Di seguito è riportato un diagramma che illustra questo processo:
 
-![Processo SDL](./media/azure-security-threat-modeling-tool/sdlapproach.png)
+![Processo SDL](./media/azure-security-threat-modeling-tool-feature-overview/sdlapproach.png)
 
 ## <a name="starting-the-threat-modeling-process"></a>Avvio del processo di modellazione delle minacce
 
 Quando si avvia Threat Modeling Tool, si noteranno alcune cose, come illustrato nell'immagine:
 
-![Pagina iniziale vuota](./media/azure-security-threat-modeling-tool/tmtstart.png)
+![Pagina iniziale vuota](./media/azure-security-threat-modeling-tool-feature-overview/tmtstart.png)
 
 ### <a name="threat-model-section"></a>Sezione del modello di minaccia
 
@@ -70,7 +70,7 @@ Essi stanno completando il processo di sviluppo del loro primo modello di minacc
 > Cristina: Certo. Vediamo.
 > Ricardo apre lo strumento e condivide la sua schermata con Cristina.
 
-![Modello di minaccia di base](./media/azure-security-threat-modeling-tool/basictmt.png)
+![Modello di minaccia di base](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
 > Cristina: OK, sembra semplice, ma puoi spiegarmelo?
 > Ricardo: Certo! Ecco i dettagli:
@@ -89,17 +89,17 @@ Quando fa clic sulla visualizzazione di analisi nel menu di icone (il file con l
 
 Questo approccio è come proteggere una casa dotando ogni porta e finestra di un meccanismo di blocco prima di aggiungere un sistema di allarme o rincorrere il ladro.
 
-![Minacce di base](./media/azure-security-threat-modeling-tool/basicthreats.png)
+![Minacce di base](./media/azure-security-threat-modeling-tool-feature-overview/basicthreats.png)
 
 Ricardo inizia selezionando il primo elemento nell'elenco. Di seguito è illustrato ciò che accade:
 
 In primo luogo è stata migliorata l'interazione tra i due stencil
 
-![Interazione](./media/azure-security-threat-modeling-tool/interaction.png)
+![Interazione](./media/azure-security-threat-modeling-tool-feature-overview/interaction.png)
 
 In secondo luogo, altre informazioni sulla minaccia sono visualizzate nella finestra delle proprietà della minaccia
 
-![Informazioni di interazione](./media/azure-security-threat-modeling-tool/interactioninfo.png)
+![Informazioni di interazione](./media/azure-security-threat-modeling-tool-feature-overview/interactioninfo.png)
 
 La minaccia generata lo aiuta a comprendere i potenziali difetti di progettazione. La classificazione STRIDE gli dà un'idea dei potenziali vettori di attacco, mentre la descrizione aggiuntiva gli dice esattamente qual è il problema, unitamente a possibili modi per limitarlo. Può usare campi modificabili per scrivere note nei dettagli di giustificazione o modificare le classificazioni di priorità a seconda della barra di bug della propria organizzazione.
 
@@ -116,7 +116,7 @@ Le minacce non applicabili alla progettazione a causa di mitigazioni o garanzie 
 
 Dopo che Ricardo ha ripercorso l'elenco con Cristina e aggiunto note importanti, mitigazioni/giustificazioni, modifiche di priorità e stato, seleziona Report -> Crea report completo -> Salva report, per stampare un bel report da usare insieme ai collegji come traccia per assicurarsi che gli interventi di sicurezza appropriati siano eseguiti.
 
-![Informazioni di interazione](./media/azure-security-threat-modeling-tool/report.png)
+![Informazioni di interazione](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
 Se invece Ricardo desidera condividere il file, può farlo facilmente salvandolo nell'account OneDrive dell'organizzazione. Dopo averlo fatto, può copiare il collegamento al documento e condividerlo con i colleghi. 
 
@@ -140,6 +140,6 @@ Se si intende eseguire la modellazione delle minacce per una casa, si può inizi
 
 L'approccio alla modellazione delle minacce che è stato presentato è sostanzialmente più semplice rispetto a ciò che Microsoft ha fatto in passato. È stato rilevato che l'approccio di progettazione del software funziona bene per molti team. Ci auguriamo che sia così anche per il lettore.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Inviare domande, commenti e problemi a tmtextsupport@microsoft.com. **[Scaricare](https://aka.ms/tmtpreview)** Threat Modeling Tool per iniziare.

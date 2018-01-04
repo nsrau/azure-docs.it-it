@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 43e1a66c3aca882f8f572d2bf71976d6b65a9c68
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
-ms.translationtype: HT
+ms.openlocfilehash: 5fed3b5b127a2b398b99ab2b46c762920e9dc249
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-fabric-application-upgrade"></a>Aggiornamento di un'applicazione di infrastruttura di servizi
-Un'applicazione di Azure Service Fabric è una raccolta di servizi. Durante un aggiornamento, Service Fabric confronta il nuovo [manifesto dell'applicazione](service-fabric-application-model.md#describe-an-application) con la versione precedente e determina quali servizi dell'applicazione richiedono aggiornamenti. Service Fabric confronta i numeri di versione nel manifesto del servizio con quelli della versione precedente. Se un servizio non è cambiato, non viene aggiornato.
+Un'applicazione di Azure Service Fabric è una raccolta di servizi. Durante un aggiornamento, Service Fabric confronta il nuovo [manifesto dell'applicazione](service-fabric-application-and-service-manifests.md) con la versione precedente e determina quali servizi dell'applicazione richiedono aggiornamenti. Service Fabric confronta i numeri di versione nel manifesto del servizio con quelli della versione precedente. Se un servizio non è cambiato, non viene aggiornato.
 
 ## <a name="rolling-upgrades-overview"></a>Panoramica degli aggiornamenti in sequenza
 In un aggiornamento in sequenza di un'applicazione l'operazione viene eseguita in fasi. In ogni fase l'aggiornamento viene applicato a un subset di nodi del cluster denominato dominio di aggiornamento. In questo modo l'applicazione continua a essere disponibile durante l'aggiornamento. È possibile che durante l'aggiornamento il cluster contenga una combinazione di versioni precedenti e nuove.
@@ -47,14 +47,14 @@ La modalità consigliata per l'aggiornamento dell'applicazione è la modalità m
 La modalità UnmonitoredManual richiede l'intervento manuale dopo ogni aggiornamento eseguito in un dominio di aggiornamento per passare al dominio di aggiornamento successivo. Non viene eseguito alcun controllo di integrità su Service Fabric. L'amministratore esegue i controlli di integrità o di stato previsti prima di avviare l'aggiornamento nel dominio di aggiornamento successivo.
 
 ## <a name="upgrade-default-services"></a>Aggiornare i servizi predefiniti
-I servizi predefiniti all'interno dell'applicazione Service Fabric possono essere aggiornati durante il processo di aggiornamento di un'applicazione. I servizi predefiniti sono definiti nel [manifesto dell'applicazione](service-fabric-application-model.md#describe-an-application). Le regole standard di aggiornamento dei servizi predefiniti sono:
+I servizi predefiniti all'interno dell'applicazione Service Fabric possono essere aggiornati durante il processo di aggiornamento di un'applicazione. I servizi predefiniti sono definiti nel [manifesto dell'applicazione](service-fabric-application-and-service-manifests.md). Le regole standard di aggiornamento dei servizi predefiniti sono:
 
-1. I servizi predefiniti nel nuovo [manifesto dell'applicazione](service-fabric-application-model.md#describe-an-application) che non esistono nel cluster vengono creati.
+1. I servizi predefiniti nel nuovo [manifesto dell'applicazione](service-fabric-application-and-service-manifests.md) che non esistono nel cluster vengono creati.
 > [!TIP]
 > È necessario impostare [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) su true per abilitare le regole seguenti. Questa funzionalità è supportata dalla versione 5.5.
 
-2. I servizi predefiniti che esistono sia nel [manifesto dell'applicazione](service-fabric-application-model.md#describe-an-application) precedente sia nella nuova versione vengono aggiornati. Le descrizioni dei servizi della nuova versione sovrascrivono quelle già presenti nel cluster. L'aggiornamento di un'applicazione subisce automaticamente il rollback in caso di errore dell'aggiornamento del servizio predefinito.
-3. I servizi predefiniti del [manifesto dell'applicazione](service-fabric-application-model.md#describe-an-application) precedente che non sono presenti nella nuova versione vengono eliminati. **Si noti che questa eliminazione dei servizi predefiniti non è reversibile.**
+2. I servizi predefiniti che esistono sia nel [manifesto dell'applicazione](service-fabric-application-and-service-manifests.md) precedente sia nella nuova versione vengono aggiornati. Le descrizioni dei servizi della nuova versione sovrascrivono quelle già presenti nel cluster. L'aggiornamento di un'applicazione subisce automaticamente il rollback in caso di errore dell'aggiornamento del servizio predefinito.
+3. I servizi predefiniti del [manifesto dell'applicazione](service-fabric-application-and-service-manifests.md) precedente che non sono presenti nella nuova versione vengono eliminati. **Si noti che questa eliminazione dei servizi predefiniti non è reversibile.**
 
 In caso di rollback dell'aggiornamento di un'applicazione, i servizi predefiniti vengono riportati allo stato precedente l'avvio dell'aggiornamento. I servizi eliminati non possono in alcun caso essere creati.
 

@@ -3,7 +3,7 @@ title: Ripristino di emergenza geografico nel servizio Hub eventi di Azure | Mic
 description: Come usare le aree geografiche per il failover ed eseguire il ripristino di emergenza servizio Hub eventi di Azure
 services: event-hubs
 documentationcenter: 
-author: ShubhaVijayasarathy
+author: sethmanheim
 manager: timlt
 editor: 
 ms.service: event-hubs
@@ -11,103 +11,94 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 94c2782b3166fbc65ae755291a82a2a14556b96f
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
-ms.translationtype: HT
+ms.openlocfilehash: 237b0639be75e12cff56f40ac76426aba7a8a701
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 12/16/2017
 ---
-# <a name="azure-event-hubs-geo-disaster-recovery-preview"></a>Ripristino di emergenza geografico nel servizio Hub eventi di Azure (anteprima)
+# <a name="azure-event-hubs-geo-disaster-recovery"></a>Azure hub eventi Geo-ripristino d'emergenza
 
-In caso di tempo di inattività dei data center di un'area specifica, è essenziale che l'elaborazione dei dati continui in un'area diversa o in un data center diverso. Il *ripristino di emergenza geografico* e la *replica geografica* sono quindi funzionalità importanti per qualsiasi azienda. Il servizio Hub eventi di Azure supporta il ripristino di emergenza geografico e la replica geografica a livello di spazio dei nomi. 
+Quando l'intero Data Center o aree di Azure (se non [zone disponibilità](../availability-zones/az-overview.md) vengono utilizzati) verificarsi tempi di inattività, è fondamentale per l'elaborazione dati continuare a operare in un'area diversa o un Data Center. Il *ripristino di emergenza geografico* e la *replica geografica* sono quindi funzionalità importanti per qualsiasi azienda. Il servizio Hub eventi di Azure supporta il ripristino di emergenza geografico e la replica geografica a livello di spazio dei nomi. 
 
-La funzionalità di ripristino di emergenza geografico del servizio Hub eventi di Azure è una soluzione di ripristino di emergenza. I concetti e il flusso di lavoro illustrati in questo articolo sono applicabili a scenari di emergenza, non a interruzioni temporanee.
+La funzionalità di ripristino di emergenza di geografica è disponibile a livello globale per lo SKU Standard hub di eventi.
 
-Per una descrizione dettagliata del ripristino di emergenza in Microsoft Azure, vedere [questo articolo](/azure/architecture/resiliency/disaster-recovery-azure-applications). 
+## <a name="outages-and-disasters"></a>Emergenze e interruzioni
 
-## <a name="terminology"></a>Terminologia
+È importante notare la distinzione tra "interruzioni" e "emergenza". Un *interruzione* è la temporanea indisponibilità di hub eventi di Azure e può interessare alcuni componenti del servizio, ad esempio un archivio di messaggistica, o anche l'intero Data Center. Tuttavia, dopo la risoluzione del problema, gli hub di eventi diventa nuovamente disponibili. In genere, un'interruzione non determina la perdita di messaggi o di altri dati. Un'interruzione può essere provocata ad esempio da un'interruzione dell'alimentazione nel data center. Alcuni interruzioni sono solo le perdite di connessione breve a causa di problemi di rete o temporaneo. 
 
-**Associazione**: lo spazio dei nomi primario è definito come *attivo* e riceve messaggi. Lo spazio dei nomi di failover è definito come *passivo* e non riceve messaggi. I metadati vengono sincronizzati tra entrambi gli spazi dei nomi, quindi entrambi possono accettare messaggi senza modifiche al codice dell'applicazione. La definizione della configurazione del ripristino di emergenza tra area attiva e area passiva viene definita *associazione* delle aree.
+Oggetto *emergenza* è definito come la perdita permanente o a lungo termine di un cluster, area di Azure o datacenter di hub eventi. L'area o Data Center può o non diventi disponibile nuovamente o potrebbe essere inattivo per ore o giorni. Un'emergenza può essere causata, ad esempio, da un incendio, un'inondazione o un terremoto. Una situazione di emergenza diventa permanente potrebbe causare la perdita di alcuni messaggi, eventi o altri dati. Tuttavia, nella maggior parte dei casi non dovrebbe esserci perdita di dati e i messaggi possono essere ripristinati dopo aver eseguito il backup del data center.
 
-**Alias**: nome per una configurazione di ripristino di emergenza impostata. L'alias fornisce una singola stringa di connessione FQDN (nome di dominio completo) stabile. Le applicazioni usano questa stringa di connessione alias per connettersi a uno spazio dei nomi.
+La funzionalità di ripristino di emergenza di area geografica di hub di eventi di Azure è una soluzione di ripristino di emergenza. I concetti e il flusso di lavoro illustrati in questo articolo sono applicabili a scenari di emergenza, non a interruzioni temporanee. Per una descrizione dettagliata del ripristino di emergenza in Microsoft Azure, vedere [questo articolo](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
-**Metadati**: fa riferimento a nomi di hub eventi, gruppi di consumer, partizioni, unità elaborate, entità e proprietà associati allo spazio dei nomi.
+## <a name="basic-concepts-and-terms"></a>Concetti e terminologia di base
 
-## <a name="enable-geo-disaster-recovery"></a>Abilitare il ripristino di emergenza geografico
+La funzionalità di ripristino di emergenza implementa il ripristino di emergenza di metadati e si basa sugli spazi dei nomi ripristino di emergenza primario e secondario. Si noti che la funzionalità di ripristino di emergenza di geografica è disponibile per il [SKU Standard](https://azure.microsoft.com/pricing/details/event-hubs/) solo. Non è necessario apportare modifiche alla stringa di connessione, perché la connessione viene effettuata tramite un alias.
 
-La procedura di abilitazione del ripristino di emergenza geografico nel servizio Hub eventi si articola in tre passaggi: 
+In questo articolo viene usata la terminologia seguente:
 
-1. Creare un'associazione geografica (con la conseguente creazione di una stringa di connessione alias e disponibilità della replica dei metadati in tempo reale). 
-2. Aggiornare le stringhe di connessione client esistenti in base all'alias creato nel passaggio 1.
-3. Avviare il failover: l'associazione geografica viene interrotta e l'alias fa riferimento allo spazio dei nomi secondario come nuovo spazio dei nomi primario.
+-  *Alias*: il nome per una configurazione di ripristino di emergenza impostati. L'alias fornisce una singola stringa di connessione FQDN (nome di dominio completo) stabile. Le applicazioni usano questa stringa di connessione alias per connettersi a uno spazio dei nomi. 
 
-Nella figura seguente è illustrato questo flusso di lavoro:
+-  *Spazio dei nomi primario o secondario*: gli spazi dei nomi che corrispondono all'alias. Spazio dei nomi primario è "attivo" e riceve messaggi (può essere uno spazio dei nomi esistente o nuova). Spazio dei nomi secondario è "passivo" e non riceve i messaggi. I metadati tra entrambi vengono sincronizzati, pertanto entrambi facilmente può accettare messaggi senza modifiche stringa di connessione o codice di applicazione. Per garantire che solo lo spazio dei nomi active riceve i messaggi, è necessario utilizzare l'alias. 
 
-![Flusso relativo all'associazione geografica][1] 
+-  *Metadati*: entità, ad esempio gli hub di eventi e gruppi di consumer; e le relative proprietà del servizio che sono associate allo spazio dei nomi. Si noti che solo le entità e le relative impostazioni vengono replicate automaticamente. I messaggi e gli eventi non vengono replicati. 
 
-### <a name="step-1-create-a-geo-pairing"></a>Passaggio 1: Creare un'associazione geografica
+-  *Failover*: processo di attivazione dello spazio dei nomi secondario.
 
-Per creare un'associazione tra due aree, è necessario uno spazio dei nomi primario e uno spazio dei nomi secondario. Sarà quindi possibile creare un alias per creare l'associazione geografica. Dopo aver associato gli spazi dei nomi a un alias, i metadati vengono replicati periodicamente in entrambi gli spazi dei nomi. 
+## <a name="setup-and-failover-flow"></a>Flusso di programma di installazione e il failover
 
-Nel codice seguente viene illustrato come eseguire questa operazione:
+Nella sezione seguente viene fornita una panoramica del processo di failover e viene spiegato come configurare il failover iniziale. 
 
-```csharp
-ArmDisasterRecovery adr = await client.DisasterRecoveryConfigs.CreateOrUpdateAsync(
-                                    config.PrimaryResourceGroupName,
-                                    config.PrimaryNamespace,
-                                    config.Alias,
-                                    new ArmDisasterRecovery(){ PartnerNamespace = config.SecondaryNamespace});
-```
+![1][]
 
-### <a name="step-2-update-existing-client-connection-strings"></a>Passaggio 2: Aggiornare le stringhe di connessione client esistenti
+### <a name="setup"></a>Configurazione
 
-Dopo aver completato l'associazione geografica, le stringhe di connessione che fanno riferimento agli spazi dei nomi primari devono essere aggiornate in modo da fare riferimento alla stringa di connessione alias. Recuperare le stringhe di connessione come illustrato nell'esempio seguente:
+È prima di tutto creare o usare uno spazio dei nomi primario e un nuovo spazio dei nomi secondario, quindi associare i due. L'associazione fornisce un alias che può essere usato per la connessione. Poiché si usa un alias, non è necessario modificare le stringhe di connessione. È possibile aggiungere solo nuovi spazi dei nomi all'associazione di failover. Infine, è necessario aggiungere alcune attività di monitoraggio per rilevare se è necessario un failover. Nella maggior parte dei casi, il servizio è una parte di un ecosistema di grandi dimensioni, pertanto i failover automatici sono raramente possibili, molto spesso i failover devono essere eseguiti la sincronizzazione con il sottosistema o infrastruttura rimanente.
 
-```csharp
-var accessKeys = await client.Namespaces.ListKeysAsync(config.PrimaryResourceGroupName,
-                                                       config.PrimaryNamespace, "RootManageSharedAccessKey");
-var aliasPrimaryConnectionString = accessKeys.AliasPrimaryConnectionString;
-var aliasSecondaryConnectionString = accessKeys.AliasSecondaryConnectionString;
-```
+### <a name="example"></a>Esempio
 
-### <a name="step-3-initiate-a-failover"></a>Passaggio 3: Avviare un failover
+Nell'esempio di questo scenario, considerare una soluzione di punto di vendita (POS) che genera i messaggi o gli eventi. Hub eventi passa gli eventi alla soluzione alcuni mapping o riformattando, che quindi inoltra i dati sottoposti a mapping a un altro sistema per un'ulteriore elaborazione. A questo punto, tutti questi sistemi potrebbe trovarsi nella stessa area di Azure. La decisione su quando e le parti per eseguire il failover dipende il flusso di dati nell'infrastruttura. 
 
-Se si verifica un'emergenza o se si decide di avviare un failover sullo spazio dei nomi secondario, i metadati e dati vengono trasferiti allo spazio dei nomi secondario. Poiché le applicazioni usano le stringhe di connessione alias, non sono richieste altre azioni dal momento che iniziano automaticamente a leggere e scrivere negli hub eventi nello spazio dei nomi secondario. 
+È possibile automatizzare il failover con sistemi di controllo o con soluzioni di monitoraggio personalizzate. Tuttavia, tali automazione ha pianificazione aggiuntiva e lavoro, che non rientra nell'ambito di questo articolo.
 
-Il codice seguente mostra come attivare il failover:
+### <a name="failover-flow"></a>Flusso di failover
 
-```csharp
-await client.DisasterRecoveryConfigs.FailOverAsync(config.SecondaryResourceGroupName,
-                                                   config.SecondaryNamespace, config.Alias);
-```
+Se si avvia il failover, sono necessari due passaggi:
 
-Al completamento del failover, se i dati devono essere presenti nello spazio dei nomi primario, per estrarre i dati è necessario usare una stringa di connessione esplicita per gli hub eventi nello spazio dei nomi primario.
+1. Se si verifica un'interruzione di un altro, si desidera essere in grado di eseguire il failover. Pertanto, impostare un altro spazio dei nomi passivo e aggiornare l'associazione. 
 
-### <a name="other-operations-optional"></a>Altre operazioni (facoltativo)
+2. Pull dei messaggi dallo spazio dei nomi primario precedente quando sarà nuovamente disponibile. Successivamente, utilizzare tale spazio dei nomi per la messaggistica regolare di fuori del programma di installazione geografica ripristino oppure eliminare lo spazio dei nomi primario precedente.
 
-È anche possibile interrompere l'associazione geografica o eliminare un alias, come illustrato nel codice seguente. Si noti che per eliminare una stringa di connessione alias, è prima necessario interrompere l'associazione geografica:
+> [!NOTE]
+> È supportata solo semantica di inoltro hanno esito negativo. In questo scenario, il failover e quindi associare nuovamente con un nuovo spazio dei nomi. Failback non è supportato. ad esempio, in un cluster SQL. 
 
-```csharp
-// Break pairing
-await client.DisasterRecoveryConfigs.BreakPairingAsync(config.PrimaryResourceGroupName,
-                                                       config.PrimaryNamespace, config.Alias);
+![2][]
 
-// Delete alias connection string
-// Before the alias is deleted, pairing must be broken
-await client.DisasterRecoveryConfigs.DeleteAsync(config.PrimaryResourceGroupName,
-                                                 config.PrimaryNamespace, config.Alias);
-```
+## <a name="management"></a>Gestione
 
-## <a name="considerations-for-public-preview"></a>Considerazioni per l'anteprima pubblica
+Se si commette un errore; ad esempio, è abbinato le aree non corrette durante l'installazione iniziale, è possibile interrompere l'associazione degli spazi dei due nomi in qualsiasi momento. Se si desidera utilizzare gli spazi dei nomi associato come normali spazi dei nomi, è possibile eliminare l'alias.
 
-Tenere presente le considerazioni seguenti per questa versione:
+## <a name="samples"></a>Esempi
 
-1. La funzionalità del ripristino di emergenza geografico è disponibile solo nelle aree Stati Uniti centro-settentrionali e Stati Uniti centro-meridionali. 
-2. La funzionalità è supportata solo per i nuovi spazi dei nomi.
-3. Per la versione di anteprima è abilitata solo la replica dei metadati. I dati effettivi non vengono replicati.
-4. Con la versione di anteprima non è previsto alcun costo per l'abilitazione della funzionalità. Tuttavia, gli spazi dei nomi primario e secondario daranno entrambi luogo ad addebiti per le unità elaborate riservate.
+Il [sample su GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) viene illustrato come configurare e avviare un failover. Questo esempio illustra i concetti seguenti:
+
+- Impostazioni in Azure Active Directory è necessarie utilizzare Gestione risorse di Azure con gli hub di eventi. 
+- Passaggi necessari per eseguire il codice di esempio. 
+- Inviare e ricevere dallo spazio dei nomi primario corrente. 
+
+## <a name="considerations"></a>Considerazioni
+
+Tenere presente le considerazioni da tenere presenti in questa versione seguenti:
+
+1. Durante la pianificazione di failover, è consigliabile considerare il fattore tempo. Ad esempio, se si perde la connessione per più di 15-20 minuti, è possibile decidere avviare il failover. 
+ 
+2. Il fatto che nessun dato venga replicato significa che attualmente sessioni attive non vengono replicate. Inoltre, il rilevamento dei duplicati e messaggi pianificati potrebbero non funzionare. Nuove sessioni e messaggi pianificati duplicati nuovo funzionerà. 
+
+3. Failover di un'infrastruttura distribuita complessa deve essere [provare a implementarlo](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) almeno una volta. 
+
+4. La sincronizzazione delle entità può richiedere del tempo, circa il 50-100 entità al minuto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -120,5 +111,5 @@ Per altre informazioni su Hub eventi, vedere i collegamenti seguenti:
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
 * [Applicazioni di esempio che usano Hub eventi](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
-[1]: ./media/event-hubs-geo-dr/eh-geodr1.png
-
+[1]: ./media/event-hubs-geo-dr/geo1.png
+[2]: ./media/event-hubs-geo-dr/geo2.png

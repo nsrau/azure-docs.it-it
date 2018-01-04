@@ -1,30 +1,30 @@
 ---
-title: Documentazione tecnica sull'accesso condizionale di Azure Active Directory | Microsoft Docs
-description: Informazioni su come usare il controllo di accesso condizionale in Azure Active Directory. Specificare le condizioni per l'autenticazione degli utenti e il controllo dell'accesso all'applicazione. Quando vengono soddisfatte le condizioni specificate, gli utenti vengono autenticati e viene concesso loro l'accesso all'applicazione.
+title: Riferimento sulle impostazioni di Azure Active Directory l'accesso condizionale | Documenti Microsoft
+description: Ottenere una panoramica delle impostazioni supportate in un criterio di accesso condizionale di Azure Active Directory.
 services: active-directory.
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 5fad793bcf9ac86c2a1bc67e74dfb62af9876100
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
+ms.openlocfilehash: 1ce1fc4c03130dfea4e79c89c25cf5a9004e4dc8
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/23/2017
 ---
-# <a name="azure-active-directory-conditional-access-technical-reference"></a>Documentazione tecnica sull'accesso condizionale di Azure Active Directory
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Fare riferimento a impostazioni di accesso condizionale di Azure Active Directory
 
-È possibile usare l'[accesso condizionale di Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) per ottimizzare il modo in cui gli utenti autorizzati possono accedere alle risorse.   
+È possibile utilizzare [accesso condizionale di Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) per controllare gli utenti come autorizzati possono accedere alle risorse.   
 
-Questo articolo contiene informazioni di supporto per le opzioni di configurazione seguenti di un criterio di accesso condizionale: 
+In questo articolo vengono fornite informazioni di supporto per le seguenti opzioni di configurazione in un criterio di accesso condizionale: 
 
 - Assegnazioni delle applicazioni cloud
 
@@ -35,6 +35,7 @@ Questo articolo contiene informazioni di supporto per le opzioni di configurazio
 - Requisito per le applicazioni client approvate
 
 
+In caso contrario le informazioni che si sta cercando, lasciare un commento alla fine di questo articolo.
 
 ## <a name="cloud-apps-assignments"></a>Assegnazioni di app cloud
 
@@ -57,7 +58,7 @@ Grazie ai criteri di accesso condizionale è possibile controllare la modalità 
 
 - Microsoft Office 365 Exchange Online
 
-- Microsoft Office 365 SharePoint Online (include OneDrive for Business)
+- Microsoft Office 365 SharePoint Online (include OneDrive for Business e di Project Online)
 
 - Microsoft Power BI 
 
@@ -198,7 +199,7 @@ Questa impostazione è valida solo per le app client seguenti:
 
 
 
-**Osservazioni**
+**Osservazioni:**
 
 - Le app client approvate supportano la funzionalità di gestione di applicazioni mobili di Intune.
 

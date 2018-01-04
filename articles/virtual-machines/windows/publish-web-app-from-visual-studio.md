@@ -19,11 +19,11 @@ ms.date: 11/03/2017
 ms.author:
 - kraigb
 - justcla
-ms.openlocfilehash: 5a0dd3d123cb0d580ea753cebc36ebcdb7084db9
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: HT
+ms.openlocfilehash: 74ac1f27620e4871c3c6972baa949c64d850fe4c
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Pubblicare un'app Web ASP.NET in una macchina virtuale di Azure da Visual Studio
 
@@ -73,7 +73,7 @@ La sezione seguente descrive come pubblicare un'applicazione Web ASP.NET esisten
 
 10. Esaminare la finestra di output per controllare l'avanzamento dell'operazione di pubblicazione.
 
-    ![Finestra  di output]
+    ![Finestra Output]
 
 11. Se la pubblicazione ha esito positivo, viene avviato un browser per aprire l'URL del sito appena pubblicato.
 
@@ -119,7 +119,7 @@ Le impostazioni saranno simili a quanto segue:
 
 ### <a name="set-up-cicd-for-automated-deployment-to-azure-vm"></a>Configurare l'integrazione continua e la distribuzione continua per la distribuzione automatica in una macchina virtuale di Azure
 
-Per configurare una pipeline di distribuzione continua con Visual Studio Team Service, vedere [Deploy to a Windows Virtual Machine](https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups) (Eseguire la distribuzione in una macchina virtuale Windows).
+Per configurare una pipeline di distribuzione continua con Visual Studio Team Service, vedere [Deploy to a Windows Virtual Machine](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups) (Eseguire la distribuzione in una macchina virtuale Windows).
 
 [VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png
 [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png

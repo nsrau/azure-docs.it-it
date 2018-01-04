@@ -4,7 +4,7 @@ description: "Il report Utilizzo senza licenza semplifica l'identificazione di u
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 92138f43-9528-4c8a-b834-66a47da476e3
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 91b48098cc8ba2bb230b0536a9bcd121db79c533
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: HT
+ms.openlocfilehash: 298102fedc766d362d1b3c525293212825eef5c7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="unlicensed-usage-report"></a>Report Utilizzo senza licenza
 Il report Utilizzo senza licenza semplifica l'identificazione di utenti senza licenza che usano funzionalità a pagamento di Azure AD. Ciò consente di usare in modo ottimale le licenze acquistate e di identificare le situazioni in cui potrebbero essere necessarie licenze aggiuntive. 
@@ -25,7 +25,7 @@ Il report Utilizzo senza licenza semplifica l'identificazione di utenti senza li
 Il report mostra l'utilizzo attivo effettivo delle funzionalità a pagamento negli ultimi 30 giorni. 
 
 ## <a name="report-structure"></a>Struttura del report
-| Nome colonna | Descrizione |
+| Nome colonna | DESCRIZIONE |
 |:--- |:--- |
 | Utente senza licenza |Nome dell'utente |
 | Funzionalità |Nome della funzionalità. Ad esempio: accesso condizionale. |
@@ -41,7 +41,7 @@ Gli utenti senza licenza verranno contrassegnati quando accedono a un servizio a
 
 Questo approccio viene applicato ai criteri di MFA e di posizione, oltre ai dispositivi dei criteri che usano Intune.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](active-directory-conditional-access-azure-portal.md)
 * [Guida introduttiva all'accesso condizionale ad Azure AD](active-directory-conditional-access-azure-portal-get-started.md) 
 

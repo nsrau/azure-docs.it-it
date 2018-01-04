@@ -4,7 +4,7 @@ description: Questa pagina consente agli utenti di comprendere il ruolo e la fun
 services: multi-factor-authentication
 documentationcenter: 
 author: barlanmsft
-manager: femila
+manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
 ms.service: multi-factor-authentication
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: c1c5a83fc54744dca1da0c7049f34fcf0bd5dfb4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: af755683ba2e62f01b175b8eb53a34dfd6013e9e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Che cosa sono le password per le app in Azure Multi-Factor Authentication?
 Alcune applicazioni non basate su browser, come il client di posta elettronica di Apple, utilizzano Exchange Active Sync e attualmente non supportano l'autenticazione a più fattori. L’autenticazione a più fattori viene abilitata per singolo utente.  Ciò significa che l'utente non può usare l'autenticazione a più fattori se:
@@ -62,7 +62,7 @@ Durante l'accesso iniziale, viene fornita una password dell'app che è possibile
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Gestione delle password per le app nel Portale di Azure
 Se si usa la verifica in due passaggi con Azure, è consigliabile creare password per le app tramite il Portale di Azure.
 
-### <a name="to-create-app-passwords-in-the-azure-portal"></a>Per creare password dell'app nel portale di Azure
+### <a name="to-create-app-passwords-in-the-azure-portal"></a>Per creare password per le app nel portale di Azure
 1. Accedere al portale di Microsoft Azure classico.
 2. Nella parte superiore fare clic con il pulsante destro del mouse sul nome utente, quindi scegliere Verifica aggiuntiva di sicurezza.
 3. Nella parte superiore della pagina di verifica selezionare le password dell'app.
@@ -96,8 +96,8 @@ Se non si è certi di come utilizzare Multi-Factor Authentication, è sempre pos
 
 5. Fare clic su **Crea**.
 6. Immettere un nome per la password dell'app e quindi fare clic su **Avanti**.
-7. Copiare la password dell'app negli Appunti, quindi incollarla nell'app.
-   ![Creare la password di un'app](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+7. Copiare la password per l'app negli Appunti, quindi incollarla nell'app.
+   ![Creare una password di app](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
 ### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Per eliminare una password di app tramite il portale Myapps
 1. Effettuare l'accesso ad [https://myapps.microsoft.com](https://myapps.microsoft.com)

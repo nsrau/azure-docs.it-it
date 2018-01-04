@@ -1,24 +1,26 @@
 ---
-title: Creare ruoli personalizzati di controllo degli accessi in base al ruolo e assegnarli a utenti interni ed esterni in Azure | Microsoft Docs
+title: Creare ruoli di controllo di accesso basato sui ruoli personalizzati e assegnare agli utenti interni ed esterni in Azure | Documenti Microsoft
 description: Assegnare ruoli personalizzati di controllo degli accessi in base al ruolo creati con PowerShell e l'interfaccia della riga di comando per utenti interni ed esterni
 services: active-directory
 documentationcenter: 
 author: andreicradu
-manager: catadinu
+manager: mtillman
 editor: kgremban
 ms.assetid: 
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 05/10/2017
+ms.date: 12/06/2017
 ms.author: a-crradu
-ms.openlocfilehash: 213b02205bbe7f767b6aff6a0693bb34b97cb9ec
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
-ms.translationtype: HT
+ms.reviewer: skwan
+ms.custom: it-pro
+ms.openlocfilehash: b3b65812d453a9f7d93ee4381c4261e685a60376
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="intro-on-role-based-access-control"></a>Introduzione al controllo degli accessi in base al ruolo
 
@@ -35,7 +37,7 @@ L'uso del controllo degli accessi in base al ruolo nell'ambiente di Azure richie
 * Verificare che i provider di risorse seguenti siano registrati per la sottoscrizione dell'utente: **Microsoft.Authorization**. Per altre informazioni su come registrare i provider di risorse, vedere [Provider, aree, versioni API e schemi di Resource Manager](../azure-resource-manager/resource-manager-supported-services.md).
 
 > [!NOTE]
-> Gli abbonamenti di Office 365 o le licenze di Azure Active Directory, ad esempio Accesso ad Azure Active Directory, di cui viene effettuato il provisioning dal portale di Office 365 non danno diritto all'uso del controllo degli accessi in base al ruolo.
+> Le sottoscrizioni di Office 365 o di licenze di Azure Active Directory (ad esempio: accesso ad Azure Active Directory) fornito da Office 365 Admin, non si qualificano per l'utilizzo di RBAC center.
 
 ## <a name="how-can-rbac-be-used"></a>Modalità d'uso del controllo degli accessi in base al ruolo
 Il controllo degli accessi in base al ruolo può essere applicato in tre ambiti diversi in Azure. Dal livello più alto al più basso, gli ambiti sono i seguenti:
@@ -102,7 +104,7 @@ Essendo esterno all'organizzazione, il nuovo utente non dispone degli attributi 
 
 ![messaggio di invito tramite posta elettronica per il ruolo di controllo degli accessi in base al ruolo](./media/role-based-access-control-create-custom-roles-for-internal-external-users/6.png)
 
-L'utente esterno diventa visibile nel tenant di Azure Active Directory da questo momento in poi come utente esterno e può essere visualizzato sia nel portale di Azure sia nel portale classico.
+Mostra l'utente esterno nel tenant di Azure Active Directory in come utente esterno e questo può essere visualizzata nel portale di Azure.
 
 
 
@@ -112,14 +114,7 @@ L'utente esterno diventa visibile nel tenant di Azure Active Directory da questo
 
 
 
-
-
-![pannello utenti azure active directory portale di Azure classico](./media/role-based-access-control-create-custom-roles-for-internal-external-users/8.png)
-
-Nella visualizzazione **Utenti** in entrambi i portali gli utenti esterni possono essere riconosciuti da:
-
-* Il tipo di icona diverso nel portale di Azure
-* Il punto di origine diverso nel portale classico
+Nel **utenti** vista, gli utenti esterni possono essere riconosciuti dal tipo di icona diversa nel portale di Azure.
 
 Tuttavia, la concessione dell'accesso come **Proprietario** o **Collaboratore** a un utente esterno nell'ambito della **sottoscrizione**, non consente l'accesso alla directory dell'utente amministratore, a meno che ciò non sia consentito dall'opzione di **amministrazione globale**. Nelle proprietà dell'utente è possibile identificare il **tipo di utente** che dispone di due parametri comuni, **Membro** e **Guest**. Un membro è un utente registrato nella directory, mentre un utente guest è un utente invitato nella directory da un'origine esterna. Per altre informazioni, vedere [Procedura per aggiungere utenti di Collaborazione B2B ad Azure Active Directory da parte degli amministratori](active-directory-b2b-admin-add-users.md).
 
@@ -145,9 +140,6 @@ L'assegnazione del ruolo predefinito di controllo degli accessi in base al ruolo
 * Non può visualizzare gli altri tipi di risorse nella sottoscrizione
 * Non può applicare modifiche dalla prospettiva della fatturazione
 
-> [!NOTE]
-> Il controllo degli accessi in base al ruolo non concede l'accesso al portale classico poiché è una funzionalità disponibile solo nel portale di Azure.
-
 ## <a name="assign-a-built-in-rbac-role-to-an-external-user"></a>Assegnare un ruolo predefinito di controllo degli accessi in base al ruolo a un utente esterno
 Per uno scenario diverso in questo test, l'utente esterno "alflanigan@gmail.com" viene aggiunto come **Collaboratore Macchina virtuale**.
 
@@ -156,9 +148,7 @@ Per uno scenario diverso in questo test, l'utente esterno "alflanigan@gmail.com"
 
 ![ruolo predefinito collaboratore macchina virtuale](./media/role-based-access-control-create-custom-roles-for-internal-external-users/11.png)
 
-Il comportamento normale per questo utente esterno con questo ruolo predefinito è visualizzare e gestire solo le macchine virtuali e solo le risorse di Resource Manager adiacenti necessarie durante la distribuzione. Per impostazione predefinita, questi ruoli limitati consentono l'accesso solo alle risorse corrispondenti create nel portale di Azure, indipendentemente dal fatto che alcune possano essere distribuite anche nel portale classico, ad esempio le macchine virtuali.
-
-
+Il comportamento normale per questo utente esterno con questo ruolo predefinito è visualizzare e gestire solo le macchine virtuali e solo le risorse di Resource Manager adiacenti necessarie durante la distribuzione. Per impostazione predefinita, questi ruoli limitati offrono l'accesso solo alle risorse corrispondenti creato nel portale di Azure.
 
 
 

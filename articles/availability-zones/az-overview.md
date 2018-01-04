@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 53c5c340dc4e91db29fbbb45893fabe6eec2bc5d
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
+ms.openlocfilehash: 9d21b112a1021cbefa42722404391220e6c018e5
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Panoramica di Zone di disponibilità in Azure (anteprima)
 
@@ -32,6 +32,7 @@ Le zone di disponibilità offrono protezione dagli errori a livello di data cent
 
 - Stati Uniti orientali 2
 - Europa occidentale
+- Francia centrale
 
 ## <a name="services-that-support-availability-zones"></a>Servizi che supportano la funzionalità Zone di disponibilità
 
@@ -42,17 +43,11 @@ I servizi che supportano la funzionalità Zone di disponibilità sono i seguenti
 - Set di scalabilità di macchine virtuali di zona
 - Managed Disks
 - Bilanciamento del carico
-
-## <a name="supported-virtual-machine-size-families"></a>Famiglie di dimensioni di macchine virtuali supportate
-
-- Av2
-- Dv2
-- DSv2
-
+- Indirizzo IP pubblico
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>Introduzione all'anteprima di Zone di disponibilità
 
-L'anteprima di Zone di disponibilità è disponibile nelle aree Stati Uniti orientali 2 ed Europa occidentale per servizi specifici di Azure. 
+L'anteprima di zone di disponibilità è disponibile negli Stati Uniti orientali 2, Europa occidentale e aree Francia centrale per i servizi di Azure specifici. 
 
 1. [Effettuare l'iscrizione all'anteprima di Zone di disponibilità](http://aka.ms/azenroll). 
 2. Accedere alla sottoscrizione di Azure.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: zivr
-ms.openlocfilehash: b0103acf1e407a6a198159fad227b7ccc25052d2
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: d6d8507508ef1946c1dfa41c47ae81f51c0ad4ef
+ms.sourcegitcommit: 8fc9b78a2a3625de2cecca0189d6ee6c4d598be3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 12/29/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Gestire gli avvisi relativi alla manutenzione pianificata per le macchine virtuali Windows
 
@@ -56,9 +56,7 @@ Le linee guida seguenti consentono di decidere se è necessario utilizzare quest
 
 Manutenzione self-service non è consigliata per distribuzioni con **set di disponibilità** poiché sono le installazioni a disponibilità elevata, in cui un solo aggiornamento dominio ha un impatto in qualsiasi momento. 
     - Consente di Azure trigger di manutenzione, ma tenere presente che l'ordine dei domini di aggiornamento influenzate non necessariamente avvengono in modo sequenziale e che sia presente una pausa di 30 minuti tra i domini di aggiornamento.
-    - Se una temporanea perdita di alcune delle capacità di (numero di domini di aggiornamento/1) è un problema, è possibile per compensare facilmente allocando le istanze di aggiunta durante il periodo di manutenzione. 
-
-**Non** utilizzare self-service di manutenzione negli scenari seguenti: 
+    - Se una temporanea perdita di alcune delle capacità di (numero di domini di aggiornamento/1) è un problema, si può facilmente essere compensato allocando le istanze di aggiunta durante il periodo di manutenzione **non** utilizzare self-service di manutenzione nell'esempio seguente scenari: 
     - Se si arresta le macchine virtuali, spesso, sia manualmente, utilizzando DevTest labs, utilizzando arresto automatici o in base alla pianificazione, è possibile ripristinare lo stato di manutenzione e pertanto causare tempi di inattività aggiuntive.
     - In breve durate macchine virtuali che verranno eliminati prima della fine della fase di manutenzione. 
     - Per i carichi di lavoro con uno stato di grandi dimensioni archiviati nel disco locale (temporaneo) che si desidera essere mantenute dopo l'aggiornamento. 
@@ -88,13 +86,13 @@ Get-AzureRmVM -ResourceGroupName rgName -Name vmName -Status
 ```
 
 MaintenanceRedeployStatus restituisce le proprietà seguenti: 
-| Valore | Descrizione   |
+| Valore | DESCRIZIONE   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica se in questo momento è possibile avviare la manutenzione per la macchina virtuale ||
 | PreMaintenanceWindowStartTime         | Inizio della finestra di manutenzione self-service, che segnala la possibilità di avviare la manutenzione della VM ||
 | PreMaintenanceWindowEndTime           | Termine della finestra di manutenzione self-service, che segnala la possibilità di avviare la manutenzione della VM ||
-| MaintenanceWindowStartTime            | Inizio della finestra di manutenzione pianificata, che segnala la possibilità di avviare la manutenzione della VM ||
-| MaintenanceWindowEndTime              | Termine della finestra di manutenzione pianificata, che segnala la possibilità di avviare la manutenzione della VM ||
+| MaintenanceWindowStartTime            | Inizio della manutenzione pianificata in cui Azure avvia la manutenzione di una macchina virtuale ||
+| MaintenanceWindowEndTime              | La fine della finestra di manutenzione pianificata in cui Azure avvia la manutenzione di una macchina virtuale ||
 | LastOperationResultCode               | Risultato dell'ultimo tentativo di avviare la manutenzione della macchina virtuale ||
 
 
@@ -117,7 +115,8 @@ function MaintenanceIterator
 
     for ($rgIdx=0; $rgIdx -lt $rgList.Length ; $rgIdx++)
     {
-        $rg = $rgList[$rgIdx]        $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
+        $rg = $rgList[$rgIdx]        
+    $vmList = Get-AzureRMVM -ResourceGroupName $rg.ResourceGroupName 
         for ($vmIdx=0; $vmIdx -lt $vmList.Length ; $vmIdx++)
         {
             $vm = $vmList[$vmIdx]
@@ -157,7 +156,7 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 ```
 
 
-## <a name="faq"></a>domande frequenti
+## <a name="faq"></a>Domande frequenti
 
 
 **D: Perché è necessario riavviare ora le macchine virtuali?**
@@ -184,7 +183,7 @@ Per ulteriori informazioni sulla disponibilità elevata, vedere [aree e disponib
 
 **D: Quanto tempo sarà necessario per riavviare la macchina virtuale?**
 
-**R:** A seconda delle dimensioni della VM, il riavvio può richiedere anche diversi minuti. Si noti che in caso di un set di disponibilità, imposta la scala di macchine virtuali o servizi Cloud (ruoli Web/di lavoro), sarà possibile 30 minuti tra ogni gruppo di macchine virtuali (UD). 
+**R:** a seconda delle dimensioni della macchina virtuale, riavviare il computer potrebbe richiedere alcuni minuti durante la finestra di manutenzione self-service. Durante il Azure avviata riavvii nella finestra di manutenzione pianificata, il take typicall verrà riavvio circa 25 minuti. Si noti che in caso di un set di disponibilità, imposta la scala di macchine virtuali o servizi Cloud (ruoli Web/di lavoro), sarà possibile 30 minuti tra ogni gruppo di macchine virtuali (UD) durante la finestra di manutenzione pianificata. 
 
 **D: che cos'è l'esperienza in caso di servizi Cloud (ruoli Web/di lavoro), Service Fabric e set di scalabilità di macchine virtuali?**
 

@@ -4,15 +4,17 @@ description: Questo scenario mostra come eseguire l'ottimizzazione distribuita d
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
+ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: HT
+ms.openlocfilehash: f0c466c433701c295bde00258d9ff7fd267b71f7
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Ottimizzazione distribuita di iperparametri con Azure Machine Learning Workbench
 
@@ -26,7 +28,7 @@ Di seguito è disponibile il collegamento al repository GitHub pubblico:
 ## <a name="use-case-overview"></a>Panoramica del caso d'uso
 
 Molti algoritmi di apprendimento automatico hanno uno o più controlli, detti iperparametri. Questi controlli consentono di regolare gli algoritmi per ottimizzarne le prestazioni sui dati futuri, in base a metriche specificate dall'utente, ad esempio, accuratezza, RMSE (radice errore quadratico medio) e AUC (area sottesa della curva). I data scientist devono fornire i valori degli iperparametri quando creano un modello in base ai dati di training e prima di visualizzare i dati di test futuri. In che modo, in base ai dati di training noti, è possibile configurare i valori degli iperparametri in modo che il modello abbia buone prestazioni sui dati di test non noti? 
-
+    
 Una tecnica comune per l'ottimizzazione degli iperparametri consiste in una *ricerca a griglia* combinata con la *convalida incrociata*. La convalida incrociata è una tecnica che valuta l'accuratezza con cui un modello, di cui è stato eseguito il training in base a un set di training, esegue le stime sul set di test. Usando questa tecnica, prima il set di dati viene diviso in K-iterazioni e quindi viene eseguito il training dell'algoritmo per K volte, in base a uno schema round robin. Questa operazione viene eseguita su tutte le iterazioni tranne una, che viene esclusa. Si calcola il valore medio delle metriche di K modelli sulle K parti escluse. Questo valore medio, detto *stima delle prestazioni con convalida incrociata*, dipende dai valori degli iperparametri usati per la creazione di K modelli. Quando si ottimizzano gli iperparametri, si cerca nello spazio dei valori degli iperparametri candidati per trovare quelli che consentono di ottimizzare la stima delle prestazioni della convalida incrociata. La ricerca a griglia è una tecnica comune di ricerca, in cui lo spazio dei valori candidati di più iperparametri è un prodotto incrociato di set dei valori candidati dei singoli iperparametri. 
 
 La ricerca a griglia con la convalida incrociata può richiedere molto tempo. Se un algoritmo ha cinque iperparametri, ognuno con cinque valori candidati, si usa K=5 iterazioni. Una ricerca a griglia viene quindi completata eseguendo il training di 5<sup>6</sup>=15625 modelli. Fortunatamente, la ricerca a griglia con convalida incrociata è una procedura con un elevatissimo livello di parallelismo e il training di tutti questi modelli può essere eseguito in parallelo.
@@ -36,20 +38,22 @@ La ricerca a griglia con la convalida incrociata può richiedere molto tempo. Se
 * Un [account di Azure](https://azure.microsoft.com/free/) (sono disponibili versioni di valutazione gratuite).
 * Una copia di [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) installata seguendo la [guida introduttiva all'installazione e alla creazione](./quickstart-installation.md) per installare Workbench e creare gli account.
 * Questo scenario presuppone che Azure ML Workbench sia in esecuzione in un computer Windows 10 o MacOS con il motore Docker installato in locale. 
-* Per eseguire lo scenario con un contenitore Docker remoto, effettuare il provisioning di una macchina virtuale di data science (DSVM) Ubuntu seguendo le [istruzioni](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). È consigliabile usare una macchina virtuale con almeno 8 core e 28 GB di memoria. Le istanze D4 delle macchine virtuali offrono questa capacità. 
-* Per eseguire questo scenario con un cluster Spark, effettuare il provisioning del cluster Azure HDInsight seguendo queste [istruzioni](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). È consigliabile avere un cluster con almeno: 
-- sei nodi di lavoro
-- otto core
-- 28 GB di memoria sia nel nodo head che nei nodi di lavoro. Le istanze D4 delle macchine virtuali offrono questa capacità. Per ottimizzare le prestazioni del cluster, è consigliabile modificare i parametri seguenti.
-- spark.executor.instances
-- spark.executor.cores
-- spark.executor.memory 
+* Per eseguire lo scenario con un contenitore Docker remoto, effettuare il provisioning di una macchina virtuale di data science (DSVM) Ubuntu seguendo le [istruzioni](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). È consigliabile usare una macchina virtuale con almeno 8 core e 28 GB di memoria. Le istanze D4 delle macchine virtuali offrono questa capacità. 
+* Per eseguire questo scenario con un cluster Spark, effettuare il provisioning del cluster Azure HDInsight seguendo queste [istruzioni](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).   
+Si consiglia di gestire un cluster con almeno:
+    - sei nodi di lavoro
+    - otto core
+    - 28 GB di memoria sia nel nodo head che nei nodi di lavoro. Le istanze D4 delle macchine virtuali offrono questa capacità.       
+    - Si consiglia di modificare i parametri seguenti per ottimizzare le prestazioni del cluster:
+        - spark.executor.instances
+        - spark.executor.cores
+        - spark.executor.memory 
 
-È possibile seguire queste [istruzioni](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) e modificare le definizioni nella sezione delle impostazioni predefinite di Spark personalizzate.
+È possibile seguire queste [istruzioni](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) e modificare le definizioni nella sezione delle impostazioni predefinite di Spark personalizzate.
 
      **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
 
-* Creare un account di archiviazione di Azure per l'archiviazione del set di dati. Seguire queste [istruzioni](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) per creare un account di archiviazione.
+* Creare un account di archiviazione di Azure per l'archiviazione del set di dati. Seguire queste [istruzioni](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) per creare un account di archiviazione.
 
 ## <a name="data-description"></a>Descrizione dei dati
 
@@ -58,7 +62,7 @@ Viene usato il [set di dati TalkingData](https://www.kaggle.com/c/talkingdata-mo
 ## <a name="scenario-structure"></a>Struttura dello scenario
 Questo scenario ha più cartelle nel repository GitHub. I file di codice e configurazione si trovano nella cartella **Code**, tutta la documentazione si trova nella cartella **Docs** e tutte le immagini si trovano nella cartella **Images**. La cartella radice include un file leggimi che contiene un breve riepilogo dello scenario.
 
-### <a name="getting-started"></a>introduttiva
+### <a name="getting-started"></a>Introduzione
 Fare clic sull'icona di Azure Machine Learning Workbench per eseguire la soluzione e creare un progetto dal modello "Distributed Tuning of Hyperparameters" (Ottimizzazione distribuita di iperparametri). È possibile trovare istruzioni dettagliate su come creare un nuovo progetto nella [guida introduttiva all'installazione e alla creazione](quickstart-installation.md).   
 
 ### <a name="configuration-of-execution-environments"></a>Configurazione degli ambienti di esecuzione

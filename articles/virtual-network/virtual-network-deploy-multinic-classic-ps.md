@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 37f1f5bbd5f39290121414a4c5532abdb2b6f9ae
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
-ms.translationtype: HT
+ms.openlocfilehash: 824af3f0f5f6d42341f6f1dc94104f6009b568b8
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Creare una macchina virtuale (classica) con più schede di interfaccia di rete usando PowerShell
 
@@ -73,7 +73,7 @@ Le macchine virtuali di back-end dipendono dalla creazione delle risorse seguent
     $numberOfVMs           = 2
     ```
 
-### <a name="step-2---create-necessary-resources-for-your-vms"></a>Passaggio 2 - creare le risorse necessarie per le macchine virtuali
+### <a name="step-2---create-necessary-resources-for-your-vms"></a>Passaggio 2 - Creare le risorse necessarie per le macchine virtuali
 È necessario creare un nuovo servizio cloud e un account di archiviazione per i dischi di dati per tutte le macchine virtuali. È inoltre necessario specificare un'immagine e un account amministratore locale per le macchine virtuali. Per creare le risorse, seguire questa procedura:
 
 1. Creare un nuovo servizio cloud
@@ -180,7 +180,7 @@ Le macchine virtuali di back-end dipendono dalla creazione delle risorse seguent
     }
     ```
 
-### <a name="step-4---run-the-script"></a>Passaggio 4 - eseguire lo script.
+### <a name="step-4---run-the-script"></a>Passaggio 4 - Eseguire lo script.
 Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo script per creare le macchine virtuali del database di back-end con più schede di rete.
 
 1. Salvare lo script ed eseguirlo dal prompt dei comandi **PowerShell** o **PowerShell ISE**. Verrà visualizzato l'output iniziale, come illustrato di seguito.
@@ -198,4 +198,4 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 
 ### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>Passaggio 5 - Configurare il routing all'interno del sistema operativo della VM
 
-Azure DHCP assegna un gateway predefinito alla prima interfaccia di rete (primaria) associata alla macchina virtuale. Azure non assegna un gateway predefinito alle interfacce di rete (secondarie) associate a una macchina virtuale. Pertanto, per impostazione predefinita, non si riesce a comunicare con le risorse all'esterno della subnet in cui si trova un'interfaccia di rete secondaria. Le interfacce di rete secondarie possono tuttavia comunicare con risorse esterne alla loro subnet. Per configurare il routing per le interfacce di rete secondarie, vedere [Routing within a virtual machine operating system with multiple network interfaces](virtual-network-network-interface-vm.md#routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces) (Routing in un sistema operativo di macchina virtuale con più interfacce di rete).
+Azure DHCP assegna un gateway predefinito alla prima interfaccia di rete (primaria) associata alla macchina virtuale. Azure non assegna un gateway predefinito alle interfacce di rete (secondarie) associate a una macchina virtuale. Di conseguenza, per impostazione predefinita, non è possibile comunicare con risorse esterne alla subnet in cui si trova un'interfaccia di rete secondaria. Le interfacce di rete secondarie possono tuttavia comunicare con risorse esterne alla loro subnet. Per configurare il routing per le interfacce di rete secondarie, vedere [Routing within a virtual machine operating system with multiple network interfaces](virtual-network-network-interface-vm.md) (Routing in un sistema operativo di macchina virtuale con più interfacce di rete).
