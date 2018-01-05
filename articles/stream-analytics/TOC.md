@@ -3,7 +3,7 @@
 ## [Confrontare Storm e l'analisi di flusso](stream-analytics-comparison-storm.md)
 
 
-# Introduzione
+# Attività iniziali
 ## [Elaborare dati di streaming IoT](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 ## [Rilevamento delle frodi in tempo reale](stream-analytics-real-time-fraud-detection.md)
 ## [Analizzare dati con Power BI](stream-analytics-power-bi-dashboard.md)
@@ -52,8 +52,9 @@
 ## Gestisci
 ### [Ruotare le credenziali di input e output](stream-analytics-login-credentials-inputs-outputs.md)
 ### [Affidabilità dei processi durante gli aggiornamenti](stream-analytics-job-reliability.md)
+### [Configurare il livello di compatibilità](stream-analytics-compatibility-level.md)
 
-## Risoluzione dei problemi
+## Risolvere problemi
 ### [Guida per la risoluzione dei problemi](stream-analytics-troubleshooting-guide.md)
 ### [Pannello Integrità risorse](stream-analytics-resource-health.md)
 ### [Diagramma dei processi e metriche](stream-analytics-job-diagram-with-metrics.md)
@@ -62,7 +63,7 @@
 ### [Limiti del lettore dell'hub eventi](stream-analytics-event-hub-consumer-groups.md)
 ### [Log di diagnostica](stream-analytics-job-diagnostic-logs.md)
 
-## Automazione
+## Automatizzare
 ### [Usare .NET SDK per la gestione](stream-analytics-dotnet-management-sdk.md)
 ### [Azure PowerShell con un clic](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 

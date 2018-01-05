@@ -39,7 +39,7 @@ Sì. Per il modello di distribuzione Resource Manager, è necessario un gateway 
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>È possibile configurare un client da punto a sito per connettersi contempo a più reti virtuali?
 
-No. Un client da punto a sito può connettersi solo alle risorse nella rete virtuale in cui risiede il gateway di rete virtuale.
+di serie Un client da punto a sito può connettersi solo alle risorse nella rete virtuale in cui risiede il gateway di rete virtuale.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Che velocità effettiva è possibile prevedere usando connessioni da sito a sito o da punto a sito?
 
@@ -47,7 +47,7 @@ No. Un client da punto a sito può connettersi solo alle risorse nella rete virt
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>Per la connettività da punto a sito è possibile usare qualsiasi client VPN software che supporta SSTP e/o IKEv2?
 
-No. È possibile usare solo il client VPN nativo in Windows per SSTP e il client VPN nativo in Mac per IKEv2. Vedere l'elenco dei sistemi operativi client supportati.
+di serie È possibile usare solo il client VPN nativo in Windows per SSTP e il client VPN nativo in Mac per IKEv2. Vedere l'elenco dei sistemi operativi client supportati.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure supporta VPN IKEv2 con Windows?
 
@@ -59,6 +59,6 @@ Gli utenti possono connettersi ad Azure utilizzando il client VPN di Windows int
 
 Per VPN P2S, Azure supporta solo Windows e Mac.
 
-### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enabled-radius-andor-ikev2-vpn-on-it"></a>Si dispone già di un Gateway VPN di Azure distribuito. È possibile attivare RADIUS e/o VPN IKEv2 su di esso?
+### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>Si dispone già di un Gateway VPN di Azure distribuito. È possibile attivare RADIUS e/o VPN IKEv2 su di esso?
 
-Sì, è possibile abilitare queste nuove funzionalità del gateway già distribuito, sia tramite Powershell che il portale di Azure.
+Sì, è possibile abilitare queste nuove funzionalità del gateway già distribuito tramite Powershell o il portale di Azure, purché il gateway SKU che si sta utilizzando supporti RADIUS e/o IKEv2. Ad esempio, il gateway VPN SKU Basic non supporta RADIUS o IKEv2.

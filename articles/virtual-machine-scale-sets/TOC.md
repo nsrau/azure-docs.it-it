@@ -22,6 +22,7 @@
 ## Distribuire
 ### [Creare con Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Set di scalabilità con Managed Disks](virtual-machine-scale-sets-managed-disks.md)
+### [Usare le zone di disponibilità](virtual-machine-scale-sets-use-availability-zones.md)
 ### [Ridimensionare automaticamente un set di scalabilità](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Usare il portale di Azure](virtual-machine-scale-sets-autoscale-portal.md)
 #### [Usare l'interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md)
@@ -43,7 +44,7 @@
 ### [Risorse di rete per i set di scalabilità](virtual-machine-scale-sets-networking.md)
 ### [Convertire un modello in dischi gestiti](virtual-machine-scale-sets-convert-template-to-md.md)
 
-## Risoluzione dei problemi
+## Risolvere problemi
 ### [Autoscale](virtual-machine-scale-sets-troubleshoot.md)
 
 ## Domande frequenti

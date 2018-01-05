@@ -9,22 +9,23 @@
 ## [Risoluzione dei problemi di connettività VPN](network-watcher-troubleshoot-overview.md)
 ## [Controllo della connettività](network-watcher-connectivity-overview.md)
 ## [Limiti del servizio](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
+
 # Attività iniziali
 ## [Configurare Network Watcher](network-watcher-create.md)
 ## Gestire l'acquisizione pacchetti
-### [Portale di Azure](network-watcher-packet-capture-manage-portal.md)
+### [Azure portal](network-watcher-packet-capture-manage-portal.md)
 ### [Azure PowerShell](network-watcher-packet-capture-manage-powershell.md)
 ### [Interfaccia della riga di comando di Azure 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
 ### [Interfaccia della riga di comando di Azure](network-watcher-packet-capture-manage-cli.md)
 ### [REST](network-watcher-packet-capture-manage-rest.md)
 ## Verificare i flussi IP verso e da una VM
-### [Portale di Azure](network-watcher-check-ip-flow-verify-portal.md)
+### [Azure portal](network-watcher-check-ip-flow-verify-portal.md)
 ### [Azure PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
 ### [Interfaccia della riga di comando di Azure 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
 ### [Interfaccia della riga di comando di Azure](network-watcher-check-ip-flow-verify-cli.md)
 ### [REST](network-watcher-check-ip-flow-verify-rest.md)
 ## Analizzare l'hop successivo
-### [Portale di Azure](network-watcher-check-next-hop-portal.md)
+### [Azure portal](network-watcher-check-next-hop-portal.md)
 ### [Azure PowerShell](network-watcher-check-next-hop-powershell.md)
 ### [Interfaccia della riga di comando di Azure 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 ### [Interfaccia della riga di comando di Azure](network-watcher-check-next-hop-cli.md)
@@ -35,7 +36,7 @@
 ### [Interfaccia della riga di comando di Azure](network-watcher-topology-cli.md)
 ### [REST](network-watcher-topology-rest.md)
 ## Risolvere i problemi relativi a gateway e connessioni VPN
-### [Portale di Azure](network-watcher-troubleshoot-manage-portal.md)
+### [Azure portal](network-watcher-troubleshoot-manage-portal.md)
 ### [Azure PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 ### [Interfaccia della riga di comando di Azure 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
 ### [Interfaccia della riga di comando di Azure](network-watcher-troubleshoot-manage-cli.md)
@@ -46,16 +47,17 @@
 ### [Interfaccia della riga di comando di Azure](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
 ## Testare la connettività
-### [Portale di Azure](network-watcher-connectivity-portal.md)
+### [Azure portal](network-watcher-connectivity-portal.md)
 ### [Azure PowerShell](network-watcher-connectivity-powershell.md)
 ### [Interfaccia della riga di comando di Azure](network-watcher-connectivity-cli.md)
 ### [REST](network-watcher-connectivity-rest.md)
 ## Configurare i log dei flussi dei gruppi di sicurezza di rete
-### [Portale di Azure](network-watcher-nsg-flow-logging-portal.md)
+### [Azure portal](network-watcher-nsg-flow-logging-portal.md)
 ### [Azure PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 ### [Interfaccia della riga di comando di Azure 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 ### [Interfaccia della riga di comando di Azure](network-watcher-nsg-flow-logging-cli.md)
 ### [REST](network-watcher-nsg-flow-logging-rest.md)
+
 # Procedure
 ## [Monitorare il gateway VPN con Automazione di Azure](network-watcher-monitor-with-azure-automation.md)
 ## [Diagnosticare la connettività locale tramite il gateway VPN](network-watcher-diagnose-on-premises-connectivity.md)
@@ -72,6 +74,7 @@
 ### [Usare Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Usare Grafana](network-watcher-nsg-grafana.md)
 ### [Usare Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
+## [Determinare la latenza relativa tra una posizione e un'area di Azure](view-relative-latencies.md)
 
 # riferimento
 ## [Interfaccia della riga di comando di Azure](/cli/azure/network/watcher)

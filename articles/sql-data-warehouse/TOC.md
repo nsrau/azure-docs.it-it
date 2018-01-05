@@ -18,7 +18,7 @@
 ### [Backup del data warehouse](sql-data-warehouse-backups.md)
 ### [Controllo](sql-data-warehouse-auditing-overview.md)
 ### [Limiti di capacità](sql-data-warehouse-service-capacity-limits.md)
-### [Domande frequenti](sql-data-warehouse-overview-faq.md)
+### [DOMANDE FREQUENTI](sql-data-warehouse-overview-faq.md)
 
 ## Sicurezza
 ### [Panoramica](sql-data-warehouse-overview-manage-security.md)
@@ -32,7 +32,7 @@
 ### [Eseguire la migrazione dei dati](sql-data-warehouse-migrate-data.md)
 
 ## Caricare e spostare dati
-### [Panoramica](design-elt-data-loading.md)
+### [Overview](design-elt-data-loading.md)
 ### [Procedure consigliate](guidance-for-loading-data.md)
 
 
@@ -91,11 +91,11 @@
 
 ## Caricare e spostare dati
 ### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
+### [Dati pubblici Contoso](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Archivio Data Lake di Azure](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
-### [PolyBase da archiviazione BLOB](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [PolyBase da SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [AzCopy](sql-data-warehouse-load-from-sql-server-with-polybase.md)
 ### [RedGate](sql-data-warehouse-load-with-redgate.md)
 ### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 
@@ -116,7 +116,7 @@
 ### [Automatizzare i livelli di calcolo](manage-compute-with-azure-functions.md)
 
 
-# riferimento
+# Riferimenti
 
 
 ## T-SQL

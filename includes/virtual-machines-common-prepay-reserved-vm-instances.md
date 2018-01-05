@@ -12,12 +12,12 @@ Pagare in anticipo le macchine virtuali e risparmiare sui costi tramite le istan
 3. Selezionare **Aggiungi** per acquistare una nuova prenotazione.
 4. Compilare i campi obbligatori. Lo sconto relativo alla prenotazione viene applicato alle istanze di macchine virtuali in esecuzione che corrispondono agli attributi. Il numero di istanze di macchine virtuali a cui viene applicato lo sconto dipende dall'ambito e dalla quantità selezionati.
 
-    | Campo      | Descrizione|
+    | Campo      | DESCRIZIONE|
     |:------------|:--------------|
-    |Nome        |Il nome della prenotazione.| 
+    |NOME        |Il nome della prenotazione.| 
     |Sottoscrizione|La sottoscrizione usata per pagare la prenotazione. L'acquisto delle istanze di macchina virtuale riservate viene addebitato in base al metodo di pagamento associato alla sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta: MS-AZR-0017P) o con pagamento in base al consumo (numero offerta: MS-AZR-0003P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Se si dispone di una sottoscrizione con pagamento in base al consumo, il costo viene addebitato alla carta di credito o al metodo di pagamento tramite fattura per la sottoscrizione.|    
     |Scope       |L'ambito della prenotazione può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: <ul><li>Sottoscrizione singola: lo sconto relativo alla prenotazione viene applicato alle macchine virtuali in questa sottoscrizione. </li><li>Condivisa: lo sconto relativo alla prenotazione viene applicato alle macchine virtuali in tutte le sottoscrizione all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni (eccetto le sottoscrizioni di sviluppo/test) all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.</li></ul>|
-    |Percorso    |L'area di Azure coperta dalla prenotazione.|    
+    |Località    |L'area di Azure coperta dalla prenotazione.|    
     |Dimensioni macchina virtuale     |Le dimensioni delle istanze della macchina virtuale.|
     |Termine        |Un anno o tre anni.|
     |Quantità    |Il numero di istanze acquistate all'interno della prenotazione. La quantità è il numero di istanze di macchina virtuale in esecuzione che possono ottenere lo sconto sulla fatturazione. Ad esempio, se si eseguono 10 macchine virtuali Standard_D2 negli Stati Uniti orientali, si specificherà 10 come quantità per ottenere lo sconto per tutte le macchine in esecuzione. |
@@ -33,5 +33,5 @@ Pagare in anticipo le macchine virtuali e risparmiare sui costi tramite le istan
 ## <a name="next-steps-after-buying-a-reservation"></a>Passaggi successivi dopo l'acquisto di una prenotazione
 Lo sconto della prenotazione si applica automaticamente alle macchine virtuali in esecuzione corrispondenti all'ambito di prenotazione e agli attributi. È possibile aggiornare l'ambito della prenotazione nel [portale di Azure](https://portal.azure.com), in PowerShell, nell'interfaccia della riga di comando o tramite le API. 
 
-Per informazioni su come gestire una prenotazione, vedere [Gestire le istanze di macchina virtuale riservate di Azure](https://go.microsoft.com/fwlink/?linkid=861613).
+Per informazioni su come gestire una prenotazione, vedere [Gestire le istanze di macchina virtuale riservate di Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
 

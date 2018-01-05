@@ -23,8 +23,8 @@
       href: container-instances-tutorial-deploy-app.md
 - name: Concetti
   items:
-    - name: Aree e disponibilità
-      href: container-instances-region-availability.md
+    - name: Quote e limiti a livello di area
+      href: container-instances-quotas.md
     - name: Relazione con agenti di orchestrazione
       href: container-instances-orchestrator-relationship.md
     - name: Gruppi di contenitori
@@ -41,7 +41,7 @@
       href: container-instances-restart-policy.md
     - name: Risolvere i problemi delle distribuzioni
       href: container-instances-troubleshooting.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/container

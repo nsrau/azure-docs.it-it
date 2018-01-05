@@ -51,9 +51,9 @@ Tali considerazioni vengono ora esaminate più in dettaglio.
 
 Di seguito sono indicate le dimensioni dei dischi disponibili per un disco gestito Premium:
 
-| **Tipo di disco <br>gestito Premium** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
-|------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Dimensione disco        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| **Tipo di disco <br>gestito Premium** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
+|------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
+| Dimensione disco        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 
 
 Di seguito sono indicate le dimensioni dei dischi disponibili per un disco gestito Standard:

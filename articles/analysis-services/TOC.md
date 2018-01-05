@@ -1,5 +1,5 @@
 # Panoramica
-## [Che cos'è Azure Analysis Services?](analysis-services-overview.md)
+## [Informazioni su Analysis Services](analysis-services-overview.md)
 ## [Origini dati supportate](analysis-services-datasource.md)
 ## [Autenticazione e autorizzazioni utente](analysis-services-manage-users.md)
 ## [Connessione a origini dati locali](analysis-services-gateway.md)
@@ -48,7 +48,7 @@
 ### [Lezione supplementare: Sicurezza dinamica](tutorials/aas-supplemental-lesson-dynamic-security.md)
 ### [Lezione supplementare: Gerarchie incomplete](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
-# riferimento
+# Riferimenti
 ## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)

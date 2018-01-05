@@ -26,8 +26,12 @@
       href: tutorial-deploy-function.md
 - name: Guide alle procedure
   items:
-    - name: Creare un gateway trasparente
-      href: how-to-create-transparent-gateway.md
+    - name: Creare gateway
+      items:
+        - name: Creare un gateway trasparente
+          href: how-to-create-transparent-gateway.md
+        - name: Gateway Modbus
+          href: deploy-modbus-gateway.md
     - name: Distribuire e monitorare su larga scala
       href: how-to-deploy-monitor.md
     - name: Effettuare il provisioning di un dispositivo IoT Core
@@ -42,7 +46,7 @@
           href: how-to-vscode-develop-azure-function.md
         - name: Eseguire il debug di Funzioni di Azure
           href: how-to-vscode-debug-azure-function.md
-    - name: Risoluzione dei problemi
+    - name: Risolvere problemi
       href: troubleshoot.md
 - name: Concetti
   items:

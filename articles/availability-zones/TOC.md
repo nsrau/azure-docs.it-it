@@ -20,7 +20,7 @@
 #### [Aggiungere un disco gestito nelle zone di disponibilità con PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 
 ### set di scalabilità di macchine virtuali
-#### [Creare un set di scalabilità di macchine virtuali con il portale di Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+#### [Creare un set di scalabilità in una zona di disponibilità](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
 ### Bilanciamento del carico
 #### [Informazioni sul servizio di bilanciamento del carico](../load-balancer/load-balancer-standard-overview.md)

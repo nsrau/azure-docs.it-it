@@ -191,6 +191,8 @@
           href: agent-user-guide.md
         - name: Manutenzione pianificata
           href: maintenance-notifications.md
+        - name: Domande frequenti sulla manutenzione accelerata
+          href: accelerated-maintenance.md
         - name: Eventi pianificati
           href: scheduled-events.md
         - name: Monitorare i metadati
@@ -225,7 +227,7 @@
           items:
             - name: PowerShell
               href: create-powershell-availability-zone.md
-            - name: di Microsoft Azure
+            - name: Portale
               href: create-portal-availability-zone.md
     - name: Usare strumenti di automazione
       items:
@@ -304,6 +306,8 @@
           href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Usare più schede di interfaccia di rete
           href: multiple-nics.md
+        - name: Usare la rete accelerata
+          href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Assegnare un nome DNS pubblico
           href: portal-create-fqdn.md
         - name: Risoluzione DNS
@@ -359,9 +363,9 @@
               href: migration-classic-resource-manager-errors.md
             - name: Strumenti della community per la migrazione
               href: migration-classic-resource-manager-community-tools.md
-            - name: domande frequenti
+            - name: Domande frequenti
               href: migration-classic-resource-manager-faq.md
-    - name: Risoluzione dei problemi
+    - name: Risolvere problemi
       items:
         - name: Connessioni Desktop remoto
           href: troubleshoot-rdp-connection.md
@@ -442,5 +446,5 @@
       href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
     - name: Video
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
-    - name: domande frequenti
+    - name: Domande frequenti
       href: faq.md
