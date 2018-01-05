@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 7056aefc6bc6203c8961b8a254a2b631c9072c7b
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: dce4252846732ca5161018103438df1f9ff6146d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gestire la capacità di archiviazione per lo Stack di Azure
 
@@ -53,7 +53,7 @@ Condivisioni nei volumi di archiviare dati di tenant. Dati del tenant includono 
 Quando una condivisione è bassa in spazio disponibile e le azioni da [recuperare](#reclaim-capacity) spazio non disponibile o ha esito positivo, l'operatore di cloud di Azure Stack può [migrare](#migrate-a-container-between) i contenitori di blob da una condivisione a un altro.
 
 - Per ulteriori informazioni sui contenitori e BLOB, vedere [nell'archiviazione Blob](azure-stack-key-features.md#blob-storage) le funzionalità chiave e concetti nello Stack di Azure.
-- Per informazioni sul funzionamento di utenti del tenant con archiviazione BLOB nello Stack di Azure, vedere [servizi di archiviazione di Azure Stack](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
+- Per informazioni sul funzionamento di utenti del tenant con archiviazione blob nello Stack di Azure, vedere [servizi di archiviazione di Azure Stack](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
 
 
 ### <a name="containers"></a>Contenitori
