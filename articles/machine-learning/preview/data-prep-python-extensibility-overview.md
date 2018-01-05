@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 4b888facdba2eb5ff48bcbf43c93c1b75183cbad
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Estensioni della preparazione dati in Python
 Al fine di colmare i vuoti funzionali tra le funzioni incorporate, la preparazione dati di Azure Machine Learning include più livelli di estensibilità. In questo documento viene descritta l'estensibilità tramite lo script di Python. 
@@ -123,6 +123,31 @@ Quindi, eseguire uno dei comandi seguenti:
 oppure 
 
 `./pip install <libraryname>`
+
+## <a name="use-custom-modules"></a>Usare i moduli personalizzati
+Nella trasformazione del flusso di dati (Script), scrivere python codice simile al seguente:
+
+```python
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction1
+df = ExtensionFunction1(df)
+```
+
+In Aggiungi colonna (Script), impostare il tipo di blocco di codice = modulo e codice python seguenti:
+
+```python 
+import sys
+sys.path.append(*<absolute path to the directory containing UserModule.py>*)
+
+from UserModule import ExtensionFunction2
+
+def newvalue(row):
+    return ExtensionFunction2(row)
+```
+Per i contesti di esecuzione diverso (spark docker locale), punto percorso assoluto per il posto giusto. È consigliabile utilizzare "os.getcwd() + relativePath" per consentirne l'individuazione.
+
 
 ## <a name="column-data"></a>Dati della colonna 
 I dati della colonna sono accessibili da una riga usando la dot notation o la notazione key-value. I nomi delle colonne che contengono spazi o caratteri speciali non sono accessibili tramite la dot notation. La variabile `row` deve sempre essere definita in entrambe le modalità di estensioni di Python, ovvero Modulo ed Espressione. 

@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09198355ecd862c73b728d8119bbf9d56e3b9f69
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: e48e0e256306707ca7fde3636a4215b235fa2eb7
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Panoramica e architettura di SAP HANA (istanze Large) in Azure
 
@@ -468,7 +468,7 @@ La distribuzione del livello applicazione SAP o dei componenti su più reti virt
 
 Esistono tre importanti rete routing considerazioni SAP HANA in Azure (istanze di grandi dimensioni):
 
-1. SAP HANA in Azure (istanze di grandi dimensioni) è accessibile solo tramite macchine virtuali di Azure e la connessione ExpressRoute dedicata; non è direttamente da on-premise. Da locale l'accesso diretto alle unità HANA istanza di grandi dimensioni, distribuiti da Microsoft, non è possibile immediatamente a causa delle restrizioni di routine temporanee dell'architettura di rete di Azure corrente utilizzato per le istanze di grandi dimensioni di SAP HANA. Alcuni client di amministrazione e le applicazioni che necessitano di accesso diretto, ad esempio SAP Solution Manager in esecuzione in locale, non possono connettersi al database SAP HANA.
+1. SAP HANA in Azure (istanze di grandi dimensioni) è accessibile solo tramite macchine virtuali di Azure e la connessione ExpressRoute dedicata; non è direttamente da on-premise. Da locale l'accesso diretto alle unità HANA istanza di grandi dimensioni, distribuiti da Microsoft, non è possibile immediatamente a causa delle restrizioni di routine transitive dell'architettura di rete di Azure corrente utilizzato per le istanze di grandi dimensioni di SAP HANA. Alcuni client di amministrazione e le applicazioni che necessitano di accesso diretto, ad esempio SAP Solution Manager in esecuzione in locale, non possono connettersi al database SAP HANA.
 
 2. Se si dispone di unità di istanza di grandi dimensioni HANA distribuita in due diverse aree di Azure allo scopo di ripristino di emergenza, vengono applicate le stesse restrizioni di routine temporanee. O in altre parole, gli indirizzi IP di un'unità di istanza di grandi dimensioni HANA in un'unica area (ad esempio Stati Uniti occidentali) non verranno indirizzati a un'unità di istanza di grandi dimensioni HANA distribuita automaticamente in un'altra area (ad esempio Stati Uniti orientali). Questo è indipendente dell'utilizzo della rete di Azure peering in aree diverse o tra la connessione di circuiti ExpressRoute che si connettono unità istanza grande HANA a reti virtuali di Azure. Come indicato di un bit ulteriormente verso il basso in questa documentazione. Questa restrizione, che viene fornito con l'architettura distribuita, non sarà l'utilizzo immediato della replica di sistema HANA come funzionalità di ripristino di emergenza.
 

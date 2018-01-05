@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 9d21b112a1021cbefa42722404391220e6c018e5
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: b3618207c1d4d2b8d3c0eaf83408b4813cd3da2d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Panoramica di Zone di disponibilità in Azure (anteprima)
 
@@ -54,7 +54,7 @@ L'anteprima di zone di disponibilità è disponibile negli Stati Uniti orientali
 3. Scegliere un'area che supporta la funzionalità Zone di disponibilità.
 4. Usare uno dei collegamenti seguenti per iniziare a usare Zone di disponibilità con il servizio. 
     - [Creare una macchina virtuale](../virtual-machines/windows/create-portal-availability-zone.md)
-    - [Creare un set di scalabilità di macchine virtuali di zona](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md)
+    - [Creare un set di scalabilità della macchina virtuale](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
     - [Aggiungere un disco gestito usando PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
     - [Bilanciamento del carico](../load-balancer/load-balancer-standard-overview.md)
 

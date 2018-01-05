@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: gwallace
-ms.openlocfilehash: 0c399a24962efc1263ed35361a96c98bc60633ee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfdec6d3982bb7744374a8026a41c3d548aca612
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Caricamento di computer per la gestione con Automation DSC per Azure
 
@@ -36,7 +36,7 @@ Come [PowerShell DSC (Desired State Configuration)](https://technet.microsoft.co
 Inoltre, se non si è pronti a gestire la configurazione delle macchina virtuali dal cloud, Automation DSC per Azure può anche essere usato come endpoint solo per i report. In questo modo è possibile impostare (push) la configurazione desiderata tramite DSC locale e visualizzare i dettagli dei report sulla conformità dei nodi con lo stato scelto in Automazione di Azure.
 
 > [!NOTE]
-> La gestione di macchine virtuali di Azure con DSC è inclusa senza alcun costo aggiuntivo se la versione dell'estensione DSC per le macchine virtuali installata è successiva alla 2.7.  Per altri dettagli, vedere la pagina [**Prezzi di Automazione**](https://azure.microsoft.com/en-us/pricing/details/automation/).
+> La gestione di macchine virtuali di Azure con DSC è inclusa senza alcun costo aggiuntivo se è installata l'estensione di macchina virtuale DSC è maggiore di 2,70. Per altri dettagli, vedere la pagina [**Prezzi di Automazione**](https://azure.microsoft.com/en-us/pricing/details/automation/).
 
 
 Le sezioni seguenti illustrano come caricare ogni tipo di computer in Automation DSC per Azure.

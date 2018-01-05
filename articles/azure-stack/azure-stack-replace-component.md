@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 5f760ae0cc33e138fc3d484711b8747b984977d4
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 20a830f99c5545b49e7b8c0211d145eef3e46179
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Sostituire un componente hardware in un nodo di unità di scala di Azure Stack
 
 *Si applica a: Azure Stack integrate di sistemi*
 
-In questo articolo viene descritto il processo generale per sostituire i componenti hardware non collegabile a caldo. Sostituzione effettiva passaggi variano in base al fornitore dell'hardware (OEM) original equipment manufacturer. Vedere la documentazione del fornitore campo unità sostituibili (FRU) per i passaggi dettagliati che sono specifiche per il sistema integrato dello Stack di Azure.
+In questo articolo viene descritto il processo generale per sostituire i componenti hardware non collegabile a caldo. Sostituzione effettivi variano in base al fornitore dell'hardware (OEM) original equipment manufacturer. Vedere la documentazione del fornitore campo unità sostituibili (FRU) per i passaggi dettagliati che sono specifiche per il sistema integrato dello Stack di Azure.
 
 Di seguito sono indicati i componenti non collegabile a caldo:
 
@@ -40,7 +40,7 @@ Di seguito sono indicati i componenti non collegabile a caldo:
 
 Il diagramma di flusso seguente viene illustrato il processo generale di FRU per sostituire un componente hardware non collegabile a caldo.
 
-![Diagramma di flusso che mostra un componente flusso di sostituzione](media/azure-stack-replace-component/ReplaceComponentFlow.PNG)
+![Diagramma di flusso che mostra un componente flusso di sostituzione](media/azure-stack-replace-component/replacecomponentflow.PNG)
 
 * Questa operazione potrebbe non essere necessaria in base alla condizione dell'hardware fisica.
 
@@ -48,11 +48,11 @@ Il diagramma di flusso seguente viene illustrato il processo generale di FRU per
 
 ## <a name="review-alert-information"></a>Rivedere le informazioni di avviso
 
-L'integrità di Azure Stack e un sistema di monitoraggio controlla lo stato delle schede di rete e delle unità di dati che sono controllate da spazi di archiviazione diretta. Altri componenti hardware non effettua il monitoraggio. Per tutti gli altri componenti hardware, vengono generati avvisi nell'hardware specifici del fornitore di soluzione che viene eseguito nell'host hardware del ciclo di vita di monitoraggio.
+L'integrità di Azure Stack e un sistema di monitoraggio tenere traccia dell'integrità schede di rete e unità dati controllate da spazi di archiviazione diretta. Non rileva altri componenti hardware. Per tutti gli altri componenti hardware, vengono generati avvisi nell'hardware specifici del fornitore di soluzione che viene eseguito nell'host hardware del ciclo di vita di monitoraggio.
 
 ## <a name="component-replacement-process"></a>Processo di sostituzione del componente
 
-I passaggi seguenti vengono forniti come una panoramica del processo di sostituzione di componenti. Non eseguire la procedura senza fare riferimento alla documentazione fornita dall'OEM FRU.
+I passaggi seguenti offrono una panoramica del processo di sostituzione di componenti. Non eseguire la procedura senza fare riferimento alla documentazione fornita dall'OEM FRU.
 
 1. Utilizzare il [svuotare](azure-stack-node-actions.md#scale-unit-node-actions) azione per inserire il nodo di unità di scala in modalità di manutenzione. Questa azione potrebbe non essere necessaria in base alla condizione dell'hardware fisica.
 2. Dopo il nodo di unità di scala è in modalità manutenzione, utilizzare il [spegnere](azure-stack-node-actions.md#scale-unit-node-actions) azione. Questa azione potrebbe non essere necessaria in base alla condizione dell'hardware fisica.
@@ -69,4 +69,5 @@ I passaggi seguenti vengono forniti come una panoramica del processo di sostituz
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni sulla sostituzione di un disco fisico a caldo, vedere [sostituire un disco](azure-stack-replace-disk.md).
-- Per informazioni sulla sostituzione di un nodo fisico, vedere [sostituire un nodo di unità di scala](azure-stack-replace-node.md). 
+- Per informazioni sulla sostituzione di un nodo fisico, vedere [sostituire un nodo di unità di scala](azure-stack-replace-node.md).
+- 

@@ -4,7 +4,7 @@ description: Informazioni su come configurare l'accesso Single Sign-On tra Azure
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 12/28/2017
 ms.author: jeedes
-ms.openlocfilehash: a525bab0409dc212da9fe46a23b8320aed9a4463
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a6d9ea9de1035bf9c84cf3c451cc1121f04a82a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Esercitazione: Integrazione di Azure Active Directory con Zoom
 
@@ -113,29 +113,57 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `<companyname>.zoom.us`
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Zoom](https://support.zoom.us/hc). 
+    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Zoom](https://support.zoom.us/hc).
+
+4. L'applicazione dello Zoom prevede le asserzioni SAML in un formato specifico, che è necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione. 
+
+    ![Configure Single Sign-On](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute.png)
+
+5. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come indicato nell'immagine precedente ed eseguire i passaggi descritti di seguito:
+    
+    | Nome attributo | Valore attributo | Valore di Namespace |
+    | ------------------- | -----------|--------- |    
+    | Indirizzo di posta elettronica | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail`|
+    | Nome | user.givenname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`|
+    | Cognome | user.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname `|
+    | Numero di telefono | User. telephoneNumber | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone`|
+    | department | user.department | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`|
+
+    a. Fare clic su **Aggiungi attributo** per aprire la finestra di dialogo **Aggiungi attributo**.
+
+    ![Configure Single Sign-On](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_04.png)
+
+    ![Configure Single Sign-On](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_05.png)
+
+    b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
+
+    c. Nell'elenco **Valore** digitare il valore dell'attributo indicato per la riga.
+
+    d. Nel **Namespace** casella di testo, digitare il valore dello spazio dei nomi indicato per la riga.
+    
+    e. Fare clic su **OK**. 
  
-4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+6. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
-    ![Collegamento di download del certificato](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png) 
+    ![Collegamento di download del certificato](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png)
 
-5. Fare clic sul pulsante **Salva** .
+7. Fare clic sul pulsante **Salva** .
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/active-directory-saas-zoom-tutorial/tutorial_general_400.png)
 
-6. Nella sezione **Configurazione di Zoom** fare clic su **Configura Zoom** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
+8. Nella sezione **Configurazione di Zoom** fare clic su **Configura Zoom** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
 
-    ![Configurazione di Zoom](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png) 
+    ![Configurazione di Zoom](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png)
 
-7. In un'altra finestra del Web browser accedere al sito aziendale di Zoom come amministratore.
+9. In un'altra finestra del Web browser accedere al sito aziendale di Zoom come amministratore.
 
-8. Fare clic sulla scheda **Single Sign-On** .
+10. Fare clic sulla scheda **Single Sign-On** .
    
     ![Scheda Single Sign-On](./media/active-directory-saas-zoom-tutorial/IC784700.png "Single Sign-On")
 
-9. Fare clic sulla scheda **Security Control** (Controllo di sicurezza) e quindi passare alle impostazioni **Single Sign-On**.
+11. Fare clic sulla scheda **Security Control** (Controllo di sicurezza) e quindi passare alle impostazioni **Single Sign-On**.
 
-10. Nella sezione Single Sign-On seguire questa procedura:
+12. Nella sezione Single Sign-On seguire questa procedura:
    
     ![Sezione Single Sign-On](./media/active-directory-saas-zoom-tutorial/IC784701.png "Single Sign-On")
    
@@ -148,6 +176,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     d. Nella casella di testo **Autorità emittente** incollare il valore dell'**ID di entità SAML** copiato dal portale di Azure. 
 
     e. Fare clic su **Save**.
+
+    > [!NOTE] 
+    > Per altre informazioni, vedere la documentazione di zoom [https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566)
 
 > [!TIP]
 > Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).

@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: 986cc450302a04720dc92e55eb8d1248cd3b8f26
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5e742187295d0bd6dbc0767ee164335fc0cf9f02
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Creare una macchina virtuale Linux in una zona di disponibilità con l'interfaccia della riga di comando di Azure
 
@@ -29,6 +29,35 @@ Questo articolo descrive come usare l'interfaccia della riga di comando di Azure
 [!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
 
 Verificare di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e di avere eseguito l'accesso a un account di Azure con [az login](/cli/azure/#login).
+
+
+## <a name="check-vm-sku-availability"></a>Verificare la disponibilità di VM SKU
+La disponibilità di dimensioni delle macchine Virtuali o SKU, può variare per area e area. Per la pianificazione per l'utilizzo delle aree di disponibilità, è possibile elencare gli SKU di macchina virtuale disponibili per area e area di Azure. Questa possibilità garantisce scegliere una dimensione di macchina virtuale appropriata e ottenere resilienza desiderata tra aree. Per ulteriori informazioni sui diversi tipi di macchine Virtuali e le dimensioni, vedere [Panoramica di dimensioni delle macchine Virtuali](sizes.md).
+
+È possibile visualizzare gli SKU di VM disponibili con la [az vm elenco-SKU](/cli/azure/vm#az_vm_list_skus) comando. L'esempio seguente elenca le SKU VM disponibili nel *eastus2* area:
+
+```azurecli
+az vm list-skus --location eastus2 --output table
+```
+
+L'output è simile all'esempio seguente ridotta, che vengono visualizzate le zone di disponibilità in cui è disponibile ogni dimensione della macchina virtuale:
+
+```azurecli
+ResourceType      Locations  Name               Tier       Size     Zones
+----------------  ---------  -----------------  ---------  -------  -------
+virtualMachines   eastus2    Standard_DS1_v2    Standard   DS1_v2   1,2,3
+virtualMachines   eastus2    Standard_DS2_v2    Standard   DS2_v2   1,2,3
+[...]
+virtualMachines   eastus2    Standard_F1s       Standard   F1s      1,2,3
+virtualMachines   eastus2    Standard_F2s       Standard   F2s      1,2,3
+[...]
+virtualMachines   eastus2    Standard_D2s_v3    Standard   D2_v3    1,2,3
+virtualMachines   eastus2    Standard_D4s_v3    Standard   D4_v3    1,2,3
+[...]
+virtualMachines   eastus2    Standard_E2_v3     Standard   E2_v3    1,2,3
+virtualMachines   eastus2    Standard_E4_v3     Standard   E4_v3    1,2,3
+```
+
 
 ## <a name="create-resource-group"></a>Creare un gruppo di risorse
 

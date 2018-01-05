@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/13/2017
 ms.author: magoedte; bwren
-ms.openlocfilehash: 847a5eca37c80c0cd5cdbad52f39567fa85a355f
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: d442fd3c1713f4cdc53ef0dc6f7e15cd74b21d1a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Asset di connessione in Automazione di Azure
 
@@ -71,14 +71,6 @@ La funzione nella tabella seguente viene usata per accedere alle connessioni in 
 3. Fare clic su **Aggiungi connessione** nella parte superiore del pannello.
 4. Dall'elenco a discesa **Tipo** selezionare il tipo di connessione da creare. Il modulo presenta le proprietà per il tipo di connessione specifico.
 5. Completare il modulo e fare clic su **Crea** per salvare la nuova connessione.
-
-### <a name="to-create-a-new-connection-with-the-azure-classic-portal"></a>Per creare una nuova connessione con il portale di Azure classico
-
-1. Dall'account di automazione fare clic su **Asset** nella parte superiore della finestra.
-2. Nella parte inferiore della finestra fare clic su **Aggiungi impostazione**.
-3. Fare clic su **Aggiungi connessione**.
-4. Dall'elenco a discesa **Tipo di connessione** selezionare il tipo di connessione da creare.  La procedura guidata presenta le proprietà per il tipo di connessione specifico.
-5. Completare la procedura guidata e selezionare la casella di controllo per salvare la nuova connessione.
 
 ### <a name="to-create-a-new-connection-with-windows-powershell"></a>Per creare una nuova connessione con Windows PowerShell
 

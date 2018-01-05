@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/03/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: 6f1085a8b434aca18499e17ba1c1d086edfc302e
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 1f82f0f867173da10907d06c6c093ddcc569565f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory"></a>Aggiungere o modificare informazioni sul profilo per un utente in Azure Active Directory
 Questo articolo descrive come aggiungere informazioni sul profilo utente, ad esempio un'immagine o i dati sull'autenticazione di telefono e posta elettronica in Azure Active Directory (Azure AD). Per informazioni sull'aggiunta di nuovi utenti nell'organizzazione, vedere [Aggiungere nuovi utenti ad Azure Active Directory](active-directory-users-create-azure-portal.md).

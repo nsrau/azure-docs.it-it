@@ -9,17 +9,20 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5de818b0b47ee3345ddbc41455f5e953c5b96aa4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 2ffebf06e2e013f909410fa4861420a5ae3d4dcf
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="deploy-a-container-group"></a>Distribuire un gruppo di contenitori
 
-Istanze di contenitore di Azure supporta la distribuzione di più contenitori in un singolo host usando un *gruppo contenitore*. Ciò è utile quando si compila un contenitore collaterale dell'applicazione per la registrazione, il monitoraggio o qualsiasi altra configurazione in cui un servizio necessita di un secondo processo associato.
+Istanze di contenitore di Azure supporta la distribuzione di più contenitori in un singolo host usando un [gruppo contenitore](container-instances-container-groups.md). Ciò è utile quando si compila un contenitore collaterale dell'applicazione per la registrazione, il monitoraggio o qualsiasi altra configurazione in cui un servizio necessita di un secondo processo associato.
 
 Questo documento viene illustrata l'esecuzione di una configurazione semplice multi-contenitore Car tramite la distribuzione di un modello di gestione risorse di Azure.
+
+> [!NOTE]
+> Contenitori a più gruppi sono limitati ai contenitori di Linux. Mentre ci stiamo lavorando per portare tutte le funzionalità ai contenitori di Windows, è possibile trovare le differenze di piattaforma corrente in [quote e la disponibilità di area per le istanze di Azure contenitore](container-instances-quotas.md).
 
 ## <a name="configure-the-template"></a>Configurare il modello
 

@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/19/2017
+ms.date: 01/04/2018
 ms.author: genli
-ms.openlocfilehash: bb82eeda21fe4913acbe930696aa110ea1554f28
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: dc09f29fec78d408e1560bfa0a943f16ab50c760
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure
 
@@ -40,9 +40,11 @@ Per garantire un migliore controllo e per semplificare la gestione di accesso, Ã
 Per aggiungere un utente come amministratore per l'amministrazione del servizio di sottoscrizione di Azure, assegnare loro un ruolo di proprietario RBAC alla sottoscrizione. Il ruolo di proprietario puÃ² gestire le risorse nella sottoscrizione assegnata e non ha privilegi di accesso per altre sottoscrizioni.
 
 1. Visitare [ **sottoscrizioni** nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Selezionare la sottoscrizione che si desidera consentire l'accesso.
-1. Selezionare **Controllo di accesso (IAM)** nel menu.
-1. Selezionare **Aggiungi** > **Ruolo** > **Proprietario**. Immettere l'indirizzo e-mail dell'utente che si vuole aggiungere come proprietario, selezionare l'utente e quindi fare clic su **Salva**.
+2. Selezionare la sottoscrizione che si desidera concedere l'accesso.
+3. Selezionare **Controllo di accesso (IAM)** nel menu.
+4. Nel **ruolo** , quindi selezionare **proprietario**. 
+5. Nel **assegnare l'accesso** , quindi selezionare **utente Azure AD, gruppo o applicazione**. 
+6. Nel **selezionare** , digitare l'indirizzo di posta elettronica dell'utente a cui si desidera aggiungere come proprietario. Selezionare l'utente e quindi selezionare **Salva**.
 
     ![Schermata che mostra il pulsante Proprietario selezionato](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 

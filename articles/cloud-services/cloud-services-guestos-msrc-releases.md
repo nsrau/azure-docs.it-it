@@ -12,24 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2017
+ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 27ab6b97610ab27500cbef703120e2c67cd07183
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 3c2e39470f89d5bf5717ccb7849b9b3ed49fd43f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamento vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
 
+## <a name="december-guest-os"></a>Sistema operativo guest di dicembre
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+| Rel 17-12 | [4053579], [4054517] |Aggiornamenti della sicurezza di Windows 10 |4.49, 5.14 |12 dicembre 2017. |
+| Rel 17-12 | [4054521], [4054522], [4054523] |Solo sicurezza di Windows |2.69, 3.56, 4.49 |12 dicembre 2017. |
+| Rel 17-12 | [4052978] |Internet Explorer |2.69, 3.56, 4.49 |12 dicembre 2017. |
+| Rel 17-12 | [4052978] |Lampeggiante |3.56, 4.49, 5.14 |12 dicembre 2017. |
+| N/D | [4048957] |Cumulativo di novembre non correlato alla sicurezza |2.67 |14 novembre 2017 |
+| N/D | [4048959] |Cumulativo di novembre non correlato alla sicurezza |3.56 |14 novembre 2017 |
+| N/D | [4048958] |Cumulativo di novembre non correlato alla sicurezza |4.49 |14 novembre 2017 |
+| N/D | [4049068] |Aggiornamento di dicembre Timezone |2.69, 3.56, 4.49 |12 dicembre 2017. |
+
 ## <a name="november-guest-os"></a>Sistema operativo guest di novembre
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
 | --- | --- | --- | --- | --- |
-| Rel 17-10 | [4048953] |Aggiornamenti di Windows 10 |5.13 |14 novembre 2017 |
-| Rel 17-10 | [4048960], [4048962], [4048961] |Solo sicurezza di Windows |2.68, 3.55, 4.48 |14 novembre 2017 |
-| Rel 17-10 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 novembre 2017 |
-| Rel 17-10 | [4048951] |Lampeggiante |3.55, 4.48, 5.13 |14 novembre 2017 |
+| Rel 17-11 | [4048953] |Aggiornamenti di Windows 10 |5.13 |14 novembre 2017 |
+| Rel 17-11 | [4048960], [4048962], [4048961] |Solo sicurezza di Windows |2.68, 3.55, 4.48 |14 novembre 2017 |
+| Rel 17-11 | [4047206] |Internet Explorer |2.68, 3.55, 4.48 |14 novembre 2017 |
+| Rel 17-11 | [4048951] |Lampeggiante |3.55, 4.48, 5.13 |14 novembre 2017 |
 | N/D | [4041681] |Rollup di ottobre non correlato alla sicurezza |2.67 |10 ottobre 2017 |
 | N/D | [4041690] |Rollup di ottobre non correlato alla sicurezza |3.55 |10 ottobre 2017 |
 | N/D | [4041693] |Rollup di ottobre non correlato alla sicurezza |4.48 |10 ottobre 2017 |
@@ -562,6 +574,19 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[3007054] |L'opzione di stampa protetta da PIN viene sempre visualizzata quando si stampa un documento in un'applicazione di Windows Store in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
 | N/D |[2999802] |In Windows vengono stampate linee a tinta unita invece che linee tratteggiate |4.15, 3.22, 2.34 |13 gennaio 2015 |
 | N/D |[2896881] |È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
+
+[4053579]: http://support.microsoft.com/kb/4053579
+[4054517]: http://support.microsoft.com/kb/4054517 
+[4054521]: http://support.microsoft.com/kb/4054521
+[4054522]: http://support.microsoft.com/kb/4054522
+[4054523]: http://support.microsoft.com/kb/4054523
+[4052978]: http://support.microsoft.com/kb/4052978
+[4048951]: http://support.microsoft.com/kb/4048951
+[4048957]: http://support.microsoft.com/kb/4048957
+[4048959]: http://support.microsoft.com/kb/4048959
+[4048958]: http://support.microsoft.com/kb/4048958
+[4049068]: http://support.microsoft.com/kb/4049068
+
 
 [4048953]: http://support.microsoft.com/kb/4048953
 [4048960]: http://support.microsoft.com/kb/4048960 

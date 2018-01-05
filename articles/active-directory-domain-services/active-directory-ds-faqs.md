@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/05/2018
 ms.author: maheshu
-ms.openlocfilehash: cfab51f985dd0b9db109f1ca8e4030bc9d0de1cc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4e95cd128c0c8ee8492e7bd224afc317101f346c
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Servizi di dominio Azure Active Directory: domande frequenti
 Questa pagina include le risposte a domande frequenti relative a Servizi di dominio Azure AD. Controllarla costantemente per eventuali aggiornamenti.
@@ -31,7 +31,7 @@ Consultare la [Troubleshooting guide](active-directory-ds-troubleshooting.md) pe
 di serie È possibile creare solo un singolo dominio gestito da Active Directory Domain Services per una singola directory di Azure AD.  
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>È possibile abilitare Active Directory Domain Services in una rete virtuale di Azure Resource Manager?
-Sì. Azure AD Domain Services può essere abilitato in una rete virtuale di Azure Resource Manager. Questa funzionalità è attualmente disponibile in anteprima.
+Sì. Azure AD Domain Services può essere abilitato in una rete virtuale di Azure Resource Manager. Reti virtuali di Azure classiche non sono più supportate per la creazione di nuovi domini gestiti.
 
 #### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>È possibile eseguire la migrazione del dominio gestito esistente da una rete virtuale classica a una rete virtuale di Resource Manager?
 No, per il momento. Microsoft fornirà un meccanismo per eseguire la migrazione del dominio esistente gestito da una rete virtuale classica a una rete virtuale di gestione delle risorse in futuro.

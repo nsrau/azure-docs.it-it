@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: 7d5252cab8c6238126c802b8c6a5293bb448e65e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usare l'estensione Diagnostica per Linux per monitorare le metriche e i registri
 
@@ -134,6 +134,10 @@ storageAccountEndPoint | (facoltativo) Endpoint che identifica il cloud in cui e
 storageAccountSasToken | Un [token SAS dell'account](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/) per i servizi BLOB e tabella (`ss='bt'`), applicabile a contenitori e oggetti (`srt='co'`), che concede le autorizzazioni di aggiunta, creazione, creazione di elenchi, aggiornamenti e scrittura (`sp='acluw'`). *Non* includere il punto interrogativo (?) principale.
 mdsdHttpProxy | (facoltativo) Informazioni sul proxy HTTP necessarie per abilitare l'estensione affinché si connetta all'account di archiviazione e all'endpoint specificati.
 sinksConfig | (facoltativo) Informazioni sulle destinazioni alternative a cui possono essere inviati le metriche e gli eventi. Nelle sezioni che seguono vengono illustrati i dettagli specifici di ogni sink di dati supportato dall'estensione.
+
+
+> [!NOTE]
+> Quando si distribuisce l'estensione con un modello di distribuzione di Azure, l'account di archiviazione e il token di firma di accesso condiviso deve essere create in precedenza e quindi passati al modello. Impossibile distribuire una macchina virtuale, l'account di archiviazione e configurare l'estensione in un unico modello. Creazione di un token di firma di accesso condiviso all'interno di un modello non è attualmente supportata.
 
 È possibile costruire con facilità il token SAS richiesto tramite il portale di Azure.
 

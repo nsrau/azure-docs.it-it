@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/19/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: b4a0af8fffd3ce012bf9addeec7029884d4ccf25
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: a42c01917926a4297c97cf9c5dfd1333dbef6793
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Gruppi contenitore in istanze di contenitori di Azure
 
@@ -33,6 +33,9 @@ Questo gruppo di contenitore di esempio:
 * Espone un singolo indirizzo IP pubblico, con una porta esposto.
 * È costituito da due contenitori. Un contenitore è in ascolto sulla porta 80, mentre l'altro è in ascolto sulla porta 5000.
 * Sono inclusi due condivisioni di file di Azure come volume mount e ogni contenitore Monta una delle condivisioni in locale.
+
+> [!NOTE]
+> Contenitori a più gruppi sono limitati ai contenitori di Linux. Mentre ci stiamo lavorando per portare tutte le funzionalità ai contenitori di Windows, è possibile trovare le differenze di piattaforma corrente in [quote e la disponibilità di area per le istanze di Azure contenitore](container-instances-quotas.md).
 
 ### <a name="networking"></a>Rete
 

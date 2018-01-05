@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/29/2017
 ms.author: owend
-ms.openlocfilehash: 982626b3bafbb3857d2d85e9442982e8f46f0501
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 02c25de980b399812676285ad3f87f60af93265f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Configurare la registrazione diagnostica
 
@@ -34,7 +34,7 @@ Una parte importante di qualsiasi soluzione di Analysis Services esegue il monit
 
 ### <a name="engine"></a>Engine (Motore)
 
-Selezione motore registra tutte le [XEvent](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). È possibile selezionare singoli eventi. 
+Selezione **motore** registra tutte le [XEvent](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). È possibile selezionare singoli eventi. 
 
 |Categorie di XEvent |Nome evento  |
 |---------|---------|
@@ -73,17 +73,17 @@ Selezione motore registra tutte le [XEvent](https://docs.microsoft.com/sql/analy
 
 ### <a name="all-metrics"></a>Tutte le metriche
 
-La categoria AllMetrics registra lo stesso [metriche Server](analysis-services-monitor.md#server-metrics) nella metrica.
+La categoria di metriche registra lo stesso [metriche Server](analysis-services-monitor.md#server-metrics) nella metrica.
 
 ## <a name="setup-diagnostics-logging"></a>Registrazione della diagnostica del programma di installazione
 
-### <a name="by-using-the-azure-portal"></a>Usando il portale di Azure
+### <a name="azure-portal"></a>Portale di Azure
 
-1. In [portale di Azure](https://portal.azure.com), nel server di Azure Analysis Services, fare clic su **log di diagnostica** nella navigazione a sinistra e quindi fare clic su **attivare la diagnostica**.
+1. In [portale di Azure](https://portal.azure.com) > server, fare clic su **log di diagnostica** nella navigazione a sinistra e quindi fare clic su **attivare la diagnostica**.
 
     ![Abilitare la registrazione diagnostica per Azure Cosmos DB nel portale di Azure](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
 
-2. Nella pagina **Impostazioni di diagnostica** eseguire le operazioni seguenti: 
+2. In **le impostazioni di diagnostica**, eseguire le operazioni seguenti: 
 
     * **Nome**. Immettere un nome per i log da creare.
 
@@ -101,8 +101,9 @@ La categoria AllMetrics registra lo stesso [metriche Server](analysis-services-m
 
     Se si desidera modificare la modalità ai log di diagnostica vengono salvati in un punto qualsiasi in futuro, è possibile tornare a questa pagina per modificare le impostazioni.
 
-### <a name="by-using-powershell"></a>Tramite PowerShell
-Ecco i comandi di base per iniziare a usarlo. Per informazioni dettagliate sulla configurazione di registrazione per un account di archiviazione usando PowerShell, vedere il [esercitazione](#tutorial) più avanti in questo articolo.
+### <a name="powershell"></a>PowerShell
+
+Ecco i comandi di base per iniziare a usarlo. Se si desidera della Guida dettagliata su come configurare la registrazione per un account di archiviazione usando PowerShell, vedere l'esercitazione più avanti in questo articolo.
 
 Per abilitare le metriche e la registrazione diagnostica con PowerShell, usare i comandi seguenti:
 
@@ -156,13 +157,11 @@ I log sono in genere disponibili entro due ore di impostare la registrazione. La
 * Eliminare i log che non è più necessario mantenere nell'account di archiviazione.
 * Assicurarsi di impostare un periodo di memorizzazione per in modo che i log precedenti vengono eliminati dall'account di archiviazione.
 
-
-<a id="#view-in-loganalytics"></a>
 ## <a name="view-logs-in-log-analytics"></a>Visualizzare i log in Log Analytics
 
 Eventi metriche e i server sono integrati con XEvent in Analitica di Log per l'analisi side-by-side. Log Analitica può anche essere configurato per ricevere eventi da altri servizi di Azure fornendo una visualizzazione olistica registrazione dei dati di diagnostica tra l'architettura.
 
-Per visualizzare i dati di diagnostica nel Log Analitica, aprire la pagina di ricerca nei Log dal menu a sinistra o nell'area di gestione della pagina, come illustrato nella figura seguente:
+Per visualizzare i dati di diagnostica nel Log Analitica, aprire la pagina di ricerca nei Log dal menu a sinistra o nell'area di gestione, come illustrato di seguito.
 
 ![Opzioni di Ricerca log nel portale di Azure](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
@@ -174,7 +173,6 @@ Fare clic su **EventClass\_s** o uno dei nomi degli eventi e Log Analitica conti
 
 Assicurarsi di estrazione Operations Management Suite, che fornisce un sito Web di query avanzata, creare dashboard e le funzionalità di avvisi sui dati di Log Analitica.
 
-<a id="#queries"></a>
 ### <a name="queries"></a>Query
 
 Sono disponibili centinaia di query che è possibile utilizzare. Ecco alcuni per iniziare.
@@ -199,7 +197,6 @@ Per ulteriori informazioni sull'utilizzo di nuovo linguaggio di query di ricerca
 > Dispone di una query Log Analitica grande che si desidera condividere? Se si dispone di un account GitHub, è possibile aggiungerlo in questo articolo. Fare clic su **modificare** in alto a destra della pagina.
 
 
-<a id="#tutorial"></a>
 ## <a name="tutorial---turn-on-logging-by-using-powershell"></a>Esercitazione - attiva la registrazione tramite PowerShell
 In questa esercitazione rapida crei un account di archiviazione nella stessa sottoscrizione e gruppo di risorse del server di Analysis Services. È quindi possibile utilizzare Set-AzureRmDiagnosticSetting per attivare la registrazione, l'invio di output per il nuovo account di archiviazione di diagnostica.
 
@@ -208,8 +205,7 @@ Per completare l'esercitazione, sono necessarie le risorse seguenti:
 
 * Un server di Azure Analysis Services esistente. Per istruzioni sulla creazione di una risorsa del server, vedere [creare un server nel portale Azure](analysis-services-create-server.md), o [creare un server Azure Analysis Services usando PowerShell](analysis-services-create-powershell.md).
 
-
-### <a id="connect"></a>Connettersi alle sottoscrizioni
+### <a name="aconnect-to-your-subscriptions"></a></a>Connettersi alle sottoscrizioni
 
 Avviare una sessione di Azure PowerShell e accedere all'account Azure con il comando seguente:  
 
@@ -236,7 +232,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 >
 >
 
-### <a id="storage"></a>Creare un nuovo account di archiviazione per i log
+### <a name="create-a-new-storage-account-for-your-logs"></a>Creare un nuovo account di archiviazione per i log
 
 È possibile utilizzare un account di archiviazione esistente per i log, purché sia nella stessa sottoscrizione del server. Per questa esercitazione si crea un nuovo account di archiviazione dedicato per i log di Analysis Services. Per semplificare questa operazione, si desidera archiviare i dettagli di account di archiviazione in una variabile denominata **sa**.
 
@@ -247,7 +243,7 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
 -Name awsaleslogs -Type Standard_LRS -Location 'West Central US'
 ```
 
-### <a id="identify"></a>Identificare l'account del server per i log
+### <a name="identify-the-server-account-for-your-logs"></a>Identificare l'account del server per i log
 
 Impostare il nome dell'account a una variabile denominata **account**, dove ResourceName è il nome dell'account.
 
@@ -256,7 +252,7 @@ $account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
-### <a id="enable"></a>Abilitare la registrazione
+### <a name="enable-logging"></a>Abilitazione della registrazione
 
 Per abilitare la registrazione, utilizzare il cmdlet Set-AzureRmDiagnosticSetting con le variabili per il nuovo account di archiviazione, account del server e la categoria. Eseguire questo comando, impostando il flag **-Enabled** su **$true**:
 

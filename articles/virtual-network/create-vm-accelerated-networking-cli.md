@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: cd7889be101e718e309e630a04a2e23b6b5823ac
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: bd163e4168c844acab8d50c234115abf8ae874cf
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Creare una macchina virtuale Linux con accelerazione di rete
 
@@ -30,7 +30,7 @@ In questa esercitazione imparare a creare una macchina virtuale Linux (VM) con a
 
 Senza rete accelerata, tutto il traffico di rete in ingresso e in uscita dalla VM deve attraversare l'host e il commutatore virtuale. Quest'ultimo è responsabile dell'applicazione di tutti i criteri al traffico di rete, ad esempio gruppi di sicurezza di rete, elenchi di controllo di accesso, isolamento e altri servizi di rete virtualizzati. Per altre informazioni sui commutatori virtuali, vedere l'articolo [Hyper-V Network Virtualization and Virtual Switch](https://technet.microsoft.com/library/jj945275.aspx) (Virtualizzazione rete Hyper-V e commutatore virtuale).
 
-Con rete accelerata, il traffico di rete raggiunge la scheda di interfaccia di rete della VM e quindi viene inoltrato alla VM. Il carico di tutti i criteri di rete applicati dal commutatore virtuale senza rete accelerata viene ripartito e applicato all'hardware. L'applicazione dei criteri all'hardware permette alla scheda di rete di inoltrare il traffico di rete direttamente alla macchina virtuale ignorando l'host e il commutatore virtuale, pur mantenendo tutti i criteri applicati all'host.
+Con rete accelerata, il traffico di rete raggiunge la scheda di interfaccia di rete della VM e quindi viene inoltrato alla VM. Tutti i criteri di rete che si applica il commutatore virtuale sono ora scaricati e applicati in hardware. L'applicazione dei criteri all'hardware permette alla scheda di rete di inoltrare il traffico di rete direttamente alla macchina virtuale ignorando l'host e il commutatore virtuale, pur mantenendo tutti i criteri applicati all'host.
 
 I vantaggi della funzionalità rete accelerata si applicano solo alla VM in cui è abilitata. Per ottenere risultati ottimali, è consigliabile abilitarla in almeno due VM connesse alla stessa Rete virtuale di Azure. Nella comunicazione tra reti virtuali o nella connessione locale questa funzionalità ha un impatto minimo sulla latenza complessiva.
 
@@ -39,16 +39,26 @@ I vantaggi della funzionalità rete accelerata si applicano solo alla VM in cui 
 * **Instabilità ridotta:** l'elaborazione del commutatore dipende dalla quantità di criteri da applicare e dal carico di lavoro della CPU che esegue l'elaborazione. La ripartizione del carico di applicazione dei criteri nell'hardware elimina tale variabilità recapitando i pacchetti direttamente alla macchina virtuale, rimuovendo l'host dalle comunicazioni con la macchina virtuale nonché tutte le interruzioni software e i cambi di contesto.
 * **Utilizzo ridotto della CPU:** ignorando il commutatore virtuale nell'host si ottiene un minore utilizzo della CPU per l'elaborazione del traffico di rete.
 
+## <a name="supported-operating-systems"></a>Sistemi operativi supportati
+* **Ubuntu 16.04**: 4.11.0-1013 o versione successiva di kernel
+* **SLES SP3**: 4.4.92-6.18 o versione successiva di kernel
+* **RHEL**: 7.4.2017120423 o versione successiva di kernel
+* **CentOS**: 7.4.20171206 o versione successiva di kernel
+
+## <a name="supported-vm-instances"></a>Istanze di macchina virtuale supportate
+Rete accelerata è supportata in più generale e dimensioni di istanze di calcolo ottimizzata con Vcpu 4 o più. Sulle istanze, ad esempio D/DSv3 o/ESv3 E che supportano l'Hyper-Threading, accelerazione di rete è supportata nelle istanze di macchina virtuale con più di 8 Vcpu.  Sono supportate serie: D/DSv2, D/DSv3, E/ESv3, ADFS/F/Fsv2 e Ms/Mms. 
+
+Per ulteriori informazioni sulle istanze di macchina virtuale, vedere [le dimensioni di VM Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+## <a name="regions"></a>Regioni
+Disponibile in tutte le aree di Azure pubbliche fatta eccezione per Asia orientale.   Cloud di Azure per enti pubblici non è ancora supportata.
+
 ## <a name="limitations"></a>Limitazioni
 L'uso della funzionalità Rete accelerata presenta le limitazioni seguenti:
 
 * **Creazione di un'interfaccia di rete**: la funzionalità rete accelerata può essere abilitata solo per una nuova scheda di interfaccia di rete. Non può essere abilitata per una scheda di interfaccia di rete esistente.
 * **Creazione di una VM**: una scheda di interfaccia di rete con rete accelerata abilitata può essere collegata a una VM solo durante la creazione della VM. Non è possibile collegare la scheda di interfaccia di rete a una VM esistente. Se l'aggiunta della macchina virtuale a un gruppo di disponibilità è impostata, tutte le macchine virtuali nel set di disponibilità devono inoltre accelerato networking abilitato.
-* **Aree:** la funzionalità è disponibile in molte aree di Azure e continua a espandersi. Per un elenco completo, vedere [aggiornamenti di servizi di rete virtuale Azure](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) blog.   
-* **I sistemi operativi supportati:** Ubuntu Server 16.04 LTS con kernel 4.4.0-77 o versione successiva, SLES 12 SP2, RHEL 7.4 e 7.4 CentOS (pubblicato dal Software di Wave non autorizzato).
-* **Dimensione della VM**: dimensioni di istanza per scopo generico e con ottimizzazione per il calcolo con otto o più memorie centrali. Per ulteriori informazioni, vedere [le dimensioni di VM Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Il set di dimensioni di istanza di macchina virtuale supportate continua a espandere.
 * **Distribuzione tramite Gestione risorse di Azure:** macchine virtuali (classico) non possono essere distribuiti con accelerazione di rete.
-
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 

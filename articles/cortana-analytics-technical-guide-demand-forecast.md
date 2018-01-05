@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
-ms.openlocfilehash: ccad7e41921c2fecbac113f3b950f654c62b1c8e
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: bb3520d36e4c34c752fe388f3126da285e2161cd
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guida tecnica per il modello di soluzione di Cortana Intelligence per la previsione della domanda nel settore energetico
 ## <a name="overview"></a>**Panoramica**
@@ -150,7 +150,7 @@ Dopo aver avviato il generatore di dati, la pipeline inizia ad attivarsi e i div
     Uno dei processi di Analisi di flusso scrive i dati in ingresso non elaborati nell'archivio BLOB. Se si fa clic sul componente **Archiviazione BLOB di Azure** della soluzione dalla schermata in cui è stata distribuita la soluzione e si fa clic su **Apri** nel pannello di destra, verrà visualizzato il [portale di Azure](https://portal.azure.com). Nel portale fare clic su **BLOB**. Nel pannello successivo viene visualizzato un elenco di contenitori. Fare clic su **"energysadata"**. Nel pannello successivo viene visualizzata la cartella **"demandongoing"**. All'interno della cartella rawdata sono presenti cartelle con nomi quali date=2016-01-28 e così via. Se vengono visualizzate queste cartelle, significa che i dati non elaborati sono stati generati nel computer e archiviati nell'archivio BLOB. Verranno visualizzati file che in tali cartelle devono avere dimensioni limitate in MB.
 2. Caricare dati dal database SQL di Azure
 
-    L'ultimo passaggio della pipeline consiste nella scrittura di dati, ad esempio stime da Machine Learning, nel database SQL. Possono essere necessarie al massimo due ore prima che i dati siano visibili nel database SQL. È possibile monitorare la quantità di dati disponibile nel database SQL usando il [portale di Azure](https://manage.windowsazure.com/). Nel pannello di sinistra trovare DATABASE SQL![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png) e fare clic su questa voce. Individuare quindi il database (ad esempio demo123456db) e selezionarlo. Nella sezione **"Connetti al database"** della pagina successiva fare clic su **"Esegui query Transact-SQL nel database SQL"**.
+    L'ultimo passaggio della pipeline consiste nella scrittura di dati, ad esempio stime da Machine Learning, nel database SQL. Potrebbe essere necessario attendere un massimo di due ore per i dati siano visibili nel Database SQL. È possibile monitorare la quantità di dati disponibile nel database SQL usando il [portale di Azure](https://portal.azure.com/). Nel riquadro di sinistra, individuare i database di SQL![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png) e farvi clic sopra. Individuare quindi il database (ad esempio demo123456db) e selezionarlo. Nella sezione **"Connetti al database"** della pagina successiva fare clic su **"Esegui query Transact-SQL nel database SQL"**.
 
     Qui è possibile fare clic su Nuova query ed eseguire una query per il numero di righe (ad esempio "select count(*) from DemandRealHourly)" Man mano che il database cresce, il numero delle righe nella tabella dovrebbe aumentare.
 3. Caricare dati dal dashboard di Power BI.
@@ -167,7 +167,7 @@ La procedura seguente mostra come visualizzare l'output dei dati in tempo reale 
 1. Aggiungere l'output di Power BI ad Analisi di flusso di Azure.
 
    * Per impostare l'output del processo di Analisi di flusso di Azure come dashboard di Power BI, seguire le istruzioni in [Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati](stream-analytics/stream-analytics-power-bi-dashboard.md).
-   * Trovare il processo di Analisi di flusso nel [portale di Azure](https://manage.windowsazure.com). Il nome del processo deve essere nel formato seguente: NomeSoluzione+"streamingjob"+numero casuale+"asapbi", ad esempio demostreamingjob123456asapbi.
+   * Trovare il processo di Analisi di flusso nel [portale di Azure](https://portal.azure.com). Il nome del processo deve essere nel formato seguente: NomeSoluzione+"streamingjob"+numero casuale+"asapbi", ad esempio demostreamingjob123456asapbi.
    * Aggiungere un output di PowerBI per il processo ASA. Impostare il valore di **Alias di output** su **"PBIoutput"**. Impostare il valore di **Nome del set di dati** e di **Nome tabella** su **"EnergyStreamData"**. Dopo aver aggiunto l'output, fare clic su **"Avvia"** nella parte inferiore della pagina per avviare il processo di Analisi di flusso. Verrà visualizzato un messaggio di conferma simile al seguente: "L'avvio del processo di Analisi di flusso myteststreamingjob12345asablob è stato completato".
 2. Accedere a [Power BI online](http://www.powerbi.com)
 

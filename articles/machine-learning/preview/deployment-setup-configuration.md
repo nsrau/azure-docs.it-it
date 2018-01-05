@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/6/2017
-ms.openlocfilehash: d6686af546f43db663a6e5d6742096776ad185a6
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: c8949e4f66623951ef66005b3acc2b2279486b4d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="model-management-setup"></a>Installazione di Gestione modelli
 
@@ -81,7 +81,7 @@ Per iniziare è necessario configurare l'ambiente di distribuzione. L'impostazio
 
 Una volta completata l'installazione dell'ambiente:
 - Viene visualizzata la richiesta di accedere ad Azure. Per accedere, usare un Web browser per aprire la pagina https://aka.ms/devicelogin e immettere il codice fornito per l'autenticazione.
-- Durante il processo di autenticazione viene richiesta l'autenticazione con un account. Importante: selezionare un account che dispone di una sottoscrizione di Azure valida e di autorizzazioni sufficienti per creare risorse nell'account. -Quando il log è completo, vengono presentate le informazioni riguardanti la sottoscrizione e viene chiesto se si desidera continuare con l'account selezionato.
+- Durante il processo di autenticazione viene richiesta l'autenticazione con un account. Importante: Selezionare un account che dispone di autorizzazioni sufficienti per creare risorse nell'account e una sottoscrizione Azure valida. Quando il log è completata, le informazioni sulla sottoscrizione viene presentati e viene chiesto se si desidera continuare con l'account selezionato.
 
 ### <a name="environment-setup"></a>Configurazione dell'ambiente
 Per avviare il processo di installazione, è necessario registrare i provider di ambiente qualche immettendo i comandi seguenti:

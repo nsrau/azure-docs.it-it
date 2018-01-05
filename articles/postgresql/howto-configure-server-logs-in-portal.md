@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 10/19/2017
-ms.openlocfilehash: 9e22d96d20f3201a8d1618c5ff1878e99d50ad79
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
-ms.translationtype: HT
+ms.openlocfilehash: a2f67b21293a1a0456b27cad9043be01fdd5274a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurare e accedere ai log del server nel portale di Azure
 
@@ -75,5 +75,5 @@ Quando inizia la registrazione, è possibile visualizzare un elenco di log dispo
 ## <a name="next-steps"></a>Passaggi successivi
 - Per informazioni su come scaricare i log a livello di codice, vedere [Configurare e accedere ai log del server usando l'interfaccia della riga di comando di Azure](howto-configure-server-logs-using-cli.md).
 - Altre informazioni sui [Log del server](concepts-server-logs.md) in Database di Azure per PostgreSQL. 
-- Per altre informazioni sulle definizioni di parametri e sulla registrazione PostgreSQL, vedere la documentazione di PostgreSQL in merito a [Error reporting and Logging](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) (Creazione di report e registrazione di errori).
+- Per ulteriori informazioni sulle definizioni di parametro e PostgreSQL registrazione, vedere la documentazione di PostgreSQL su [segnalazione errori e registrazione](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).
 

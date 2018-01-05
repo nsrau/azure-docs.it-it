@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 4e5b1269e2bee31316cba99d69ea2a6d702faf05
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.openlocfilehash: 468af385833395963ef8acad905b99a9b7e6b8fa
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Sostituire un nodo di unità di scala su un sistema integrato dello Stack di Azure
 
@@ -28,23 +28,23 @@ In questo articolo viene descritto il processo generale per sostituire un comput
 
 Il diagramma di flusso seguente illustra il processo FRU generale per sostituire un nodo di unità di scala intero.
 
-![Diagramma di flusso per processo di sostituzione nodo](media/azure-stack-replace-node/ReplaceNodeFlow.PNG)
+![Diagramma di flusso per processo di sostituzione nodo](media/azure-stack-replace-node/replacenodeflow.png)
 
 * Questa operazione potrebbe non essere necessaria in base alla condizione dell'hardware fisica.
 
 ## <a name="review-alert-information"></a>Rivedere le informazioni di avviso
 
-Se un nodo di unità di scala è attivo, si riceverà tutti gli avvisi critici seguenti:
+Se un nodo di unità di scala è attivo, si riceveranno gli avvisi critici seguenti:
 
 - Nodo non è connesso al controller di rete
 - Nodo inaccessibile per la selezione host macchina virtuale
 - Nodo di unità di scala è offline
 
-![Elenco di avvisi per le unità di scala verso il basso](media/azure-stack-replace-node/NodeDownAlerts.PNG)
+![Elenco di avvisi per le unità di scala verso il basso](media/azure-stack-replace-node/nodedownalerts.png)
 
-Se si apre l'avviso "nodo unità di scala non in linea", la descrizione dell'avviso contiene il nodo di unità di scala che non è accessibile. Altri avvisi viene visualizzato anche nella soluzione di monitoraggio specifico dell'OEM che è in esecuzione nell'host del ciclo di vita dell'hardware.
+Se si apre il **nodo unità di scala non è in linea** avviso, la descrizione dell'avviso contiene il nodo di unità di scala che non è accessibile. Altri avvisi viene visualizzato anche nella soluzione di monitoraggio specifico dell'OEM che è in esecuzione nell'host del ciclo di vita dell'hardware.
 
-![Dettagli dell'avviso di nodo non in linea](media/azure-stack-replace-node/NodeOffline.PNG)
+![Dettagli dell'avviso di nodo non in linea](media/azure-stack-replace-node/nodeoffline.png)
 
 ## <a name="scale-unit-node-replacement-process"></a>Processo di sostituzione nodo unità di scala
 
@@ -53,7 +53,7 @@ I passaggi seguenti vengono forniti come una panoramica del processo di sostituz
 1. Utilizzare il [svuotare](azure-stack-node-actions.md#scale-unit-node-actions) azione per inserire il nodo di unità di scala in modalità di manutenzione. Questa azione potrebbe non essere necessaria in base alla condizione dell'hardware fisica.
 
    > [!NOTE]
-   > In ogni caso, un solo nodo possa essere svuotato e lo spegnimento nello stesso momento, senza interrompere le unità SSD (spazi di archiviazione diretta).
+   > In ogni caso, un solo nodo possa essere svuotato e lo spegnimento nello stesso momento, senza interrompere il S2D (spazi di archiviazione diretta).
 
 2. Se il nodo è ancora attiva, utilizzare il [spegnere](azure-stack-node-actions.md#scale-unit-node-actions) azione. Questa azione potrebbe non essere necessaria in base alla condizione dell'hardware fisica.
  
@@ -68,4 +68,4 @@ I passaggi seguenti vengono forniti come una panoramica del processo di sostituz
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni sulla sostituzione di un disco fisico a caldo, vedere [sostituire un disco](azure-stack-replace-disk.md). 
-- Per informazioni sulla sostituzione di un componente hardware non collegabile a caldo, vedere [sostituire un componente hardware](azure-stack-replace-component.md). 
+- Per informazioni sulla sostituzione di un componente hardware non collegabile a caldo, vedere [sostituire un componente hardware](azure-stack-replace-component.md).

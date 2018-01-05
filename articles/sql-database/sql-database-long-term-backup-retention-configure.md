@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 9b218756277e52a4d582b1e8e42200f78d38580e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: HT
+ms.openlocfilehash: e75facfd77fc1cb3c23aa4e1f6f7f799620fef39
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention"></a>Configurare e ripristinare dalla conservazione dei backup a lungo termine del database SQL di Azure
 
@@ -82,6 +82,9 @@ Si [configurerà un insieme di credenziali di Servizi di ripristino di Azure per
 12. Nella pagina **Configura** specificare un nome valido per i nuovi criteri di conservazione, modificare i criteri di conservazione predefiniti in base alle esigenze e quindi fare clic su **OK**.
 
    ![definizione dei criteri di conservazione](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
+   
+   >[!NOTE]
+   >I nomi dei criteri di conservazione non alcuni caratteri, inclusi gli spazi.
 
 13. Nella pagina **Conservazione backup a lungo termine** del database in uso fare clic su **Salva** e quindi su **OK** per applicare i criteri di conservazione dei backup a lungo termine a tutti i database selezionati.
 
@@ -147,7 +150,7 @@ Visualizzare informazioni sui backup del database nella [conservazione backup a 
 
 Nelle sezioni seguenti viene illustrato come usare PowerShell per configurare l'insieme di credenziali di Servizi di ripristino di Azure, visualizzare i backup nell'insieme di credenziali ed eseguire il ripristino dall'insieme di credenziali.
 
-### <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
+### <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali dei servizi di ripristino
 
 Usare [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault) per creare un nuovo insieme di credenziali dei servizi di ripristino.
 

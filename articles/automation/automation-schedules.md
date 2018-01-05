@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: magoedte
-ms.openlocfilehash: c651ab70977367d0e41364120c89561a04a45cf4
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 6ad70d736cd0a267ace3ade0a1ecfea38128ac72
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Pianificazione di un runbook in Automazione di Azure
-Per pianificare un runbook in Automazione di Azure per l'avvio a un'ora specifica, è necessario collegarlo a una o più pianificazioni. È possibile configurare una pianificazione perché venga eseguita una sola volta o perché venga eseguita in base a una pianificazione oraria o giornaliera ricorrente per i runbook nel portale di Azure classico. Per i runbook nel portale di Azure è possibile inoltre creare una pianificazione settimanale, mensile, relativa a giorni specifici della settimana o del mese o a una data specifica del mese.  Un runbook può essere collegato a più pianificazioni e a una pianificazione possono essere collegati più runbook.
+Per pianificare un runbook in Automazione di Azure per l'avvio a un'ora specifica, è necessario collegarlo a una o più pianificazioni. Pianificazione in esecuzione una sola volta o in un record oraria o giornaliera per i runbook nel portale di Azure, è possibile configurare una pianificazione. È inoltre possibile pianificare tali per quella settimanale, mensile, giorni specifici della settimana o i giorni del mese o un determinato giorno del mese.  Un runbook può essere collegato a più pianificazioni e a una pianificazione possono essere collegati più runbook.
 
 > [!NOTE]
 > Le pianificazioni attualmente non supportano le configurazioni DSC di automazione di Azure.
@@ -51,7 +51,7 @@ I cmdlet della tabella seguente vengono usati per creare e gestire pianificazion
 | [Unregister-AzureAutomationScheduledRunbook](/powershell/module/azure/unregister-azureautomationscheduledrunbook?view=azuresmps-3.7.0) |Annulla l'associazione di un runbook a una pianificazione. |
 
 ## <a name="creating-a-schedule"></a>Creazione di una pianificazione
-È possibile creare una nuova pianificazione per i runbook nel portale di Azure, nel portale classico o con Windows PowerShell. È anche possibile creare una nuova pianificazione quando si collega un runbook a una pianificazione usando il portale di Azure classico o il portale di Azure.
+È possibile creare una nuova pianificazione per i runbook nel portale di Azure o con Windows PowerShell. È anche possibile creare una nuova pianificazione quando si collega un runbook a una pianificazione usando il portale di Azure classico o il portale di Azure.
 
 > [!NOTE]
 > Quando viene eseguito un nuovo processo pianificato, Automazione di Azure usa i moduli più recenti nell'account di automazione.  Per evitare conseguenze per i runbook e i processi che vengono automatizzati, è necessario innanzitutto testare tutti i runbook che dispongono di pianificazioni collegate con un account di automazione dedicato ai test.  In questo modo vengono convalidati i runbook pianificati, che continuano a funzionare correttamente; in caso contrario è possibile risolvere i problemi e applicare eventuali modifiche necessarie prima della migrazione della versione aggiornata del runbook all'ambiente di produzione.  
@@ -63,14 +63,6 @@ I cmdlet della tabella seguente vengono usati per creare e gestire pianificazion
 2. Fare clic su **Aggiungi pianificazione** nella parte superiore della pagina.
 4. Nel riquadro **Nuova pianificazione** digitare un **Nome** e facoltativamente una **Descrizione** per la nuova pianificazione.
 5. Specificare se la pianificazione verrà eseguita una volta o in modo ricorrente, selezionando **Una sola volta** o **Ricorrenza**.  Se si seleziona **Una sola volta** specificare un'**Ora di inizio** e quindi fare clic su **Crea**.  Se si seleziona **Ricorrenza**, specificare un'**Ora di inizio** e la frequenza desiderata per la ripetizione del runbook, ad esempio **ora**, **giorno**, **settimana** o **mese**.  Se si seleziona **settimana** o **mese** dall'elenco a discesa, l'**opzione Ricorrenza** verrà visualizzata nel riquadro e al momento della selezione verrà visualizzato il riquadro **Opzioni di ricorrenza**, in cui sarà possibile selezionare il giorno della settimana, se è stata selezionata l'opzione **settimana**.  Se è stata selezionata l'opzione **mese**, è possibile scegliere **Giorni della settimana** o indicare i giorni specifici del mese nel calendario e infine specificare se si vuole eseguire la pianificazione l'ultimo giorno del mese, quindi fare clic su **OK**.   
-
-### <a name="to-create-a-new-schedule-in-the-azure-classic-portal"></a>Per creare una nuova pianificazione nel portale di Azure classico
-1. Nel portale di Azure classico selezionare Automazione e selezionare il nome di un account di automazione.
-2. Fare clic sulla scheda **Asset** .
-3. Nella parte inferiore della finestra fare clic su **Aggiungi impostazione**.
-4. Fare clic su **Aggiungi pianificazione**.
-5. Digitare un **Nome** e facoltativamente una **Descrizione** per la nuova pianificazione. La pianificazione può essere eseguita **Una sola volta**, **Ogni ora**, **Ogni giorno**, **Ogni settimana** o **Ogni mese**.
-6. Specificare un valore per il campo **Ora inizio** e altre opzioni a seconda del tipo di pianificazione selezionato.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Per creare una nuova pianificazione con Windows PowerShell
 È possibile usare il cmdlet [New-AzureAutomationSchedule](/powershell/module/azure/new-azureautomationschedule?view=azuresmps-3.7.0) per creare una nuova pianificazione in Automazione di Azure per i runbook classici oppure il cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) per i runbook nel portale di Azure. È necessario specificare l'ora di inizio per la pianificazione e la frequenza di esecuzione.
@@ -98,14 +90,6 @@ Un runbook può essere collegato a più pianificazioni e a una pianificazione po
 2. Fare clic sul nome del runbook da pianificare.
 3. Se il runbook non è attualmente collegato a una pianificazione, è possibile creare una nuova pianificazione o collegarsi a una pianificazione esistente.  
 4. Se il runbook include parametri, è possibile selezionare l'opzione **Modifica le impostazioni di esecuzione (impostazione predefinita: Azure)**. Verrà visualizzato il riquadro **Parametri**, in cui è possibile immettere le informazioni in base alla esigenze.  
-
-### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-classic-portal"></a>Per collegare una pianificazione a un runbook con il portale di Azure classico
-1. Nel portale di Azure classico selezionare **Automazione** e fare quindi clic sul nome di un account di automazione.
-2. Fare clic sulla scheda **Runbook** .
-3. Fare clic sul nome del runbook da pianificare.
-4. Fare clic sulla scheda **Pianificazione** .
-5. Se il runbook non è attualmente collegato a una pianificazione, è possibile scegliere l'opzione **Collega a una nuova pianificazione** oppure **Collega a una pianificazione esistente**.  Se il runbook attualmente è collegato a una pianificazione, fare clic su **Collegamento** nella parte inferiore della finestra per accedere a queste opzioni.
-6. Se il runbook include parametri, viene chiesto di inserire i relativi valori.  
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>Per collegare una pianificazione a un runbook con Windows PowerShell
 È possibile usare il cmdlet [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx) per collegare una pianificazione a un runbook classico o il cmdlet [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) per i runbook nel portale di Azure.  È possibile specificare i valori per i parametri del runbook con il parametro Parameters. Per altre informazioni su come specificare i valori dei parametri, vedere [Avvio di un runbook in Automazione di Azure](automation-starting-a-runbook.md) .
@@ -135,14 +119,6 @@ Quando si disabilita una pianificazione, i runbook a essa collegati non vengono 
 1. Dall'account di automazione nel portale di Azure, selezionare **Pianificazioni** nella sezione **Risorse condivise** a sinistra.
 2. Fare clic sul nome di una pianificazione per aprire il rispettivo riquadro dei dettagli.
 3. Impostare **Abilitata** su **No**.
-
-### <a name="to-disable-a-schedule-from-the-azure-classic-portal"></a>Per disabilitare una pianificazione dal portale di Azure classico
-È possibile disabilitare una pianificazione nel portale di Azure classico dalla pagina Dettagli pianificazione per la pianificazione.
-
-1. Nel portale di Azure classico selezionare Automazione e fare quindi clic sul nome di un account di automazione.
-2. Fare clic sulla scheda Asset.
-3. Fare clic sul nome di una pianificazione per aprire la relativa pagina dei dettagli.
-4. Impostare **Abilitata** su **No**.
 
 ### <a name="to-disable-a-schedule-with-windows-powershell"></a>Per disabilitare una pianificazione con Windows PowerShell
 È possibile usare il cmdlet [Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690270.aspx) per modificare le proprietà di una pianificazione esistente per un runbook classico o il cmdlet [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) per i runbook nel portale di Azure. Per disabilitare la pianificazione, specificare **false** per il parametro **IsEnabled**.

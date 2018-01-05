@@ -3,10 +3,9 @@ title: Integrazione di applicazioni con Azure Active Directory
 description: Come aggiungere, aggiornare o rimuovere un'applicazione in Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: PatAltimore
 manager: mtillman
 editor: mbaldwin
-ms.assetid: ae637be5-0b71-4b1e-b1fe-b83df3eb4845
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -16,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: b4e2ff19cb14ac0abdea1d76ee965b542f6fa7ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e398536ff6f660c75e4e063040eab33a831d65c6
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrazione di applicazioni con Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -111,7 +110,7 @@ Inoltre, prima che un client possa accedere a un'API Web esposta da un'applicazi
 - Autorizzazioni delegate: l'applicazione client deve accedere all'API Web come utente connesso, ma con accesso limitato dall'autorizzazione selezionata. Questo tipo di autorizzazione può essere concesso da un utente, a meno che l'autorizzazione richieda il consenso dell'amministratore. 
 
   > [!NOTE]
-  > L'aggiunta di un'autorizzazione delegata a un'applicazione non concede automaticamente il consenso all'utente all'interno del tenant, come accadeva nel portale di Azure classico. Gli utenti devono comunque concedere manualmente il consenso per le autorizzazioni delegate aggiuntive al runtime, a meno che l'amministratore non faccia clic sul pulsante **Concedi autorizzazioni** nella sezione **Autorizzazioni necessarie** della pagina dell'applicazione nel portale di Azure. 
+  > Aggiunta di un'autorizzazione delegata a un'applicazione non automaticamente consentire agli utenti nel tenant. Gli utenti devono comunque concedere manualmente il consenso per le autorizzazioni delegate aggiuntive al runtime, a meno che l'amministratore non faccia clic sul pulsante **Concedi autorizzazioni** nella sezione **Autorizzazioni necessarie** della pagina dell'applicazione nel portale di Azure. 
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Per aggiungere credenziali dell'applicazione o autorizzazioni per accedere alle API Web
 1. Accedere al [portale di Azure](https://portal.azure.com).

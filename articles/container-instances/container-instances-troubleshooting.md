@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 0b7397e00c2d11c4c7be51421fb40ca6a9fe5779
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 1fd3b2c251860e883519744b11fcfc2b925cd2fa
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-deployment-issues-with-azure-container-instances"></a>Risolvere i problemi di distribuzione in Istanze di contenitore di Azure
 
@@ -203,7 +203,7 @@ A causa del carico variabile delle risorse delle aree in Azure, quando si cerca 
 
 Questo errore indica che a causa di un carico elevato nell'area in cui si sta cercando di eseguire la distribuzione, le risorse specificate per il contenitore non possono essere al momento allocate. Per risolvere il problema, utilizzare uno o più dei seguenti passaggi di attenuazione.
 
-* Verificare che le impostazioni di distribuzione del contenitore rientrino nei parametri definiti in [Disponibilità a livello di area per Istanze di contenitore di Azure](container-instances-region-availability.md)
+* Verificare le impostazioni di distribuzione contenitore rientrano i parametri definiti [quote e la disponibilità di area per le istanze di contenitore di Azure](container-instances-quotas.md#region-availability)
 * Specificare impostazioni di memoria e CPU inferiori per il contenitore
 * Eseguire la distribuzione in un'area di Azure diversa
 * Eseguire la distribuzione in un secondo momento

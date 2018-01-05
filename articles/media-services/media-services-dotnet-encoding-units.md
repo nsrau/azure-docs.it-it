@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: 4a1bf91c3b3e9dd4d42d84f205a9bc07a71525c2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f45da151472efb4cc6297b005d5bc3844d664928
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Come scalare la codifica con .NET SDK
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="overview"></a>Panoramica
 > [!IMPORTANT]
-> Per altre informazioni sul ridimensionamento dell'elaborazione multimediale, vedere questo argomento di [panoramica](media-services-scale-media-processing-overview.md) .
+> Assicurarsi di esaminare il [Panoramica](media-services-scale-media-processing-overview.md) per ottenere ulteriori informazioni sulla scalabilità elaborazione multimediale.
 > 
 > 
 
@@ -56,17 +56,7 @@ Per cambiare il tipo di unità riservata e il numero di unità riservate di codi
 Per impostazione predefinita, ogni account di Media Services può includere fino a 25 unità di codifica riservate e cinque unità riservate di streaming on demand. È possibile richiedere l'applicazione di un limite superiore mediante l'apertura di un ticket di supporto.
 
 ### <a name="open-a-support-ticket"></a>Aprire un ticket di supporto
-Per aprire un ticket di supporto, seguire questa procedura:
-
-1. Fare clic su [Ottieni supporto](https://manage.windowsazure.com/?getsupport=true). Se non si è ancora connessi, verrà richiesto di immettere le credenziali.
-2. Selezionare la propria sottoscrizione.
-3. Come tipo di supporto, selezionare "Tecnico".
-4. Fare clic su "Create Ticket".
-5. Selezionare "Servizi multimediali di Azure" dall'elenco dei prodotti visualizzato nella pagina successiva.
-6. Selezionare un tipo di problema appropriato per la situazione specifica.
-7. Fare clic su Continue.
-8. Seguire le istruzioni nella pagina successiva e quindi immettere i dettagli relativi al problema.
-9. Fare clic su Invia per aprire il ticket.
+Nel portale di Azure, passare a [Guida e supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Se non è stato effettuato l'accesso ad Azure, viene chiesto di immettere le credenziali.
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

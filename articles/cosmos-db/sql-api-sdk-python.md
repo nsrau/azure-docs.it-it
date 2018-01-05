@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 1/4/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 709a17b6d14e896fea7fce21e40a92e516e661c6
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 6801c5b62be08e4dcb32ad342b15e9ad3f3e20a8
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK per l'API di SQL: note sulla versione e le risorse
 > [!div class="op_single_selector"]
@@ -53,6 +53,9 @@ ms.lasthandoff: 12/18/2017
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
+### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
+* Documentazione aggiornata al riferimento DB Cosmos Azure anziché Azure DocumentDB.
+
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
 * Questa versione dell'SDK richiede la versione più recente dell'emulatore di Azure Cosmos DB che è possibile scaricare dalla pagina https://aka.ms/cosmosdb-emulator.
 
@@ -136,6 +139,7 @@ Eventuali richieste di database di Cosmos usando un SDK ritirato vengono rifiuta
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.3.1](#2.3.1) |21 dicembre 2017. |--- |
 | [2.3.0](#2.3.0) |10 novembre 2017 |--- |
 | [2.2.1](#2.2.1) |29 settembre 2017 |--- |
 | [2.2.0](#2.2.0) |10 maggio 2017 |--- |

@@ -3,8 +3,8 @@ title: Controllo delle versioni SDK di client e server in App per dispositivi mo
 description: "Elenco degli SDK del client e compatibilità con versioni SDK del server per Servizi mobili e App per dispositivi mobili di Azure"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: f79e819b1547f81498ea213858faf3c75e374782
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: crdun
+ms.openlocfilehash: 37bf36af535eb9b5c8b0ba38434b71f1a6686811
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Controllo delle versioni client e server in App per dispositivi mobili e Servizi mobili
 La versione più recente di Servizi mobili di Azure è la funzionalità **App per dispositivi mobili** del Servizio app di Azure.
@@ -33,7 +33,7 @@ Per ulteriori informazioni sulla migrazione al servizio app senza apportare modi
 ## <a name="header-specification"></a>Specifica di intestazione
 La chiave `ZUMO-API-VERSION` può essere specificata nell'intestazione HTTP o nella stringa di query. Il valore è una stringa di versione nel formato **x.y.z**.
 
-Ad esempio:
+Ad esempio: 
 
 GET https://service.azurewebsites.net/tables/TodoItem
 
@@ -69,7 +69,7 @@ Gli SDK del client nella tabella seguente sono compatibili con **Servizi mobili*
 Nota: gli SDK del client di Servizi mobili *non* inviano un valore di intestazione per `ZUMO-API-VERSION`. Se il servizio riceve questo valore di intestazione o di stringa di query, verrà restituito un errore, a meno che non lo si abbia rifiutato in modo esplicito come descritto sopra.
 
 ### <a name="MobileServicesClients"></a> SDK del client di *Servizi* mobili
-| Piattaforma client | Versione | Valore dell'intestazione della versione |
+| Piattaforma client | Version | Valore dell'intestazione della versione |
 | --- | --- | --- |
 | Client gestito (Windows, Xamarin) |[1.3.2](https://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.2) |n/d |
 | iOS |[2.2.2](http://aka.ms/gc6fex) |n/d |
@@ -77,7 +77,7 @@ Nota: gli SDK del client di Servizi mobili *non* inviano un valore di intestazio
 | HTML |[1.2.7](http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.7.min.js) |n/d |
 
 ### <a name="mobile-services-server-sdks"></a>SDK del server di *Servizi* mobili
-| Piattaforma server | Versione | Intestazione della versione accettata |
+| Piattaforma server | Version | Intestazione della versione accettata |
 | --- | --- | --- |
 | .NET |[WindowsAzure.MobileServices.Backend.* Versione 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**Nessuna intestazione di versione ** |
 | Node.js |(Presto disponibile) |**Nessuna intestazione di versione** |
@@ -85,17 +85,17 @@ Nota: gli SDK del client di Servizi mobili *non* inviano un valore di intestazio
 <!-- TODO: add Node npm version -->
 
 ### <a name="behavior-of-mobile-services-backends"></a>Comportamento dei back-end di Servizi mobili
-| ZUMO-API-VERSION | Valore di MS_SkipVersionCheck | Response |
+| ZUMO-API-VERSION | Valore di MS_SkipVersionCheck | Risposta |
 | --- | --- | --- |
 | Non specificato |Qualsiasi |200 - OK |
-| Qualsiasi valore |True |200 - OK |
+| Qualsiasi valore |True  |200 - OK |
 | Qualsiasi valore |False/Non specificato |400 - Richiesta non valida |
 
 ## <a name="2.0.0"></a>Client e server di App per dispositivi mobili di Azure
 ### <a name="MobileAppsClients"></a> SDK del client di *App* per dispositivi mobili
 Il controllo della versione è stata introdotta a partire dalle seguenti versioni dell’SDK del client per **App per dispositivi mobili di Azure**:
 
-| Piattaforma client | Versione | Valore dell'intestazione della versione |
+| Piattaforma client | Version | Valore dell'intestazione della versione |
 | --- | --- | --- |
 | Client gestito (Windows, Xamarin) |[2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) |2.0.0 |
 | iOS |[3.0.0](http://go.microsoft.com/fwlink/?LinkID=529823) |2.0.0 |
@@ -112,15 +112,15 @@ Il controllo della versione è incluso nelle seguenti versioni dell’SDK del se
 | Node.js |[azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps) |2.0.0 |
 
 ### <a name="behavior-of-mobile-apps-backends"></a>Comportamento dei back-end di app per dispositivi mobili
-| ZUMO-API-VERSION | Valore di MS_SkipVersionCheck | Response |
+| ZUMO-API-VERSION | Valore di MS_SkipVersionCheck | Risposta |
 | --- | --- | --- |
-| x.y.z o Null |True |200 - OK |
+| x.y.z o Null |True  |200 - OK |
 | Null |False/Non specificato |400 - Richiesta non valida |
 | 1.x.y |False/Non specificato |400 - Richiesta non valida |
 | 2.0.0-2.x.y |False/Non specificato |200 - OK |
 | 3.0.0-3.x.y |False/Non specificato |400 - Richiesta non valida |
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * [Eseguire la migrazione di un servizio mobile al servizio app di Azure]
 
 [Client di Servizi mobili]: #MobileServicesClients

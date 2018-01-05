@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: ab1a9dfa71c4b633392ef839bb848347fdd26431
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
-ms.translationtype: HT
+ms.author: crdun
+ms.openlocfilehash: 336da28bea7de313bced97e447fc6b7b1fb1390d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>Come usare Node.js SDK per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -119,7 +119,7 @@ Visual Studio 2015 richiede un'estensione per lo sviluppo di applicazioni Node.j
 10. Eseguire l'applicazione in locale, ovvero l'API viene eseguita in http://localhost:3000, o pubblicarla in Azure.
 
 ### <a name="create-node-backend-portal"></a>Procedura: Creare un back-end Node.js usando il portale di Azure
-È possibile creare un back-end dell'app per dispositivi mobili direttamente nel [Portale di Azure]. È possibile seguire i passaggi seguenti o creare un client e un nuovo server seguendo l'esercitazione [Creare un'app per dispositivi mobili](app-service-mobile-ios-get-started.md) . L'esercitazione contiene una versione semplificata di queste istruzioni e dimostra i progetti del concetto.
+È possibile creare un back-end dell'app per dispositivi mobili direttamente nel [portale di Azure]. È possibile seguire i passaggi seguenti o creare un client e un nuovo server seguendo l'esercitazione [Creare un'app per dispositivi mobili](app-service-mobile-ios-get-started.md) . L'esercitazione contiene una versione semplificata di queste istruzioni e dimostra i progetti del concetto.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
@@ -163,7 +163,7 @@ Molte applicazioni sono una combinazione di app Web e per dispositivi mobili e i
 ## <a name="TableOperations"></a>Operazioni su tabella
 Node.js Server SDK (azure-mobile-apps) offre diversi meccanismi per esporre le tabelle dati archiviate nel database SQL di Azure come API Web.  Sono disponibili cinque operazioni.
 
-| Operazione | Descrizione |
+| Operazione | DESCRIZIONE |
 | --- | --- |
 | GET /tables/*tablename* |Ottiene tutti i record nella tabella |
 | GET /tables/*tablename*/:id |Ottiene un record specifico nella tabella |
@@ -265,13 +265,13 @@ Node.js SDK per le app per dispositivi mobili di Azure usa il [pacchetto mssql p
    1. Fare clic con il pulsante destro del mouse sull'istanza in Esplora oggetti e scegliere **Proprietà**
    2. Selezionare la pagina **Sicurezza** .
    3. Assicurarsi che l'opzione **Modalità di autenticazione di SQL Server e di Windows** sia selezionata.
-   4. Fare clic su **OK**
+   4. Fare clic su **OK**.
 
           ![Configure SQL Express Authentication][4]
    5. Espandere **Sicurezza** > **Account di accesso** .
    6. Fare clic con il pulsante destro del mouse su **Account di accesso** e scegliere **Nuovo account di accesso**
    7. Immettere un nome account di accesso.  Selezionare **Autenticazione di SQL Server**.  Immettere una password e quindi immetterla di nuovo in **Conferma password**.  La password deve soddisfare i requisiti di complessità di Windows.
-   8. Fare clic su **OK**
+   8. Fare clic su **OK**.
 
           ![Add a new user to SQL Express][5]
    9. Fare clic con il pulsante destro del mouse sul nuovo account di accesso e scegliere **Proprietà**
@@ -289,7 +289,7 @@ L'applicazione Node.js legge la variabile di ambiente **SQLCONNSTR_MS_TableConne
 Accedere al database con una connessione TCP/IP e fornire un nome utente e una password per la connessione.
 
 ### <a name="howto-config-localdev"></a>Procedura: Configurare il progetto per lo sviluppo locale
-App per dispositivi mobili di Azure legge un file JavaScript denominato *azureMobile.js* dal file system locale.  Non usare questo file per configurare Azure Mobile Apps SDK nell'ambiente di produzione. Usare invece Impostazioni app nel [Portale di Azure].  Il file *azureMobile.js* deve esportare un oggetto di configurazione.  Le impostazioni più comuni sono:
+App per dispositivi mobili di Azure legge un file JavaScript denominato *azureMobile.js* dal file system locale.  Non usare questo file per configurare Azure Mobile Apps SDK nell'ambiente di produzione. Usare invece Impostazioni app nel [portale di Azure].  Il file *azureMobile.js* deve esportare un oggetto di configurazione.  Le impostazioni più comuni sono:
 
 * Impostazioni database
 * Impostazioni di registrazione diagnostica
@@ -313,14 +313,14 @@ Di seguito è riportato un file *azureMobile.js* di esempio che implementa le im
         }
     };
 
-È consigliabile aggiungere *azureMobile.js* al file con estensione *.gitignore*, o altro file IGNORE di controllo del codice sorgente, per evitare che le password vengano archiviate nel cloud.  Configurare sempre le impostazioni di produzione in Impostazioni app nel [Portale di Azure].
+È consigliabile aggiungere *azureMobile.js* al file con estensione *.gitignore*, o altro file IGNORE di controllo del codice sorgente, per evitare che le password vengano archiviate nel cloud.  Configurare sempre le impostazioni di produzione in Impostazioni app nel [portale di Azure].
 
 ### <a name="howto-appsettings"></a>Procedura: Configurare le impostazioni dell'app per dispositivi mobili
-Quasi tutte le impostazioni nel file *azureMobile.js* hanno un'impostazione app equivalente nel [Portale di Azure].  Usare l'elenco seguente per configurare l'app in Impostazioni app:
+Quasi tutte le impostazioni nel file *azureMobile.js* hanno un'impostazione app equivalente nel [portale di Azure].  Usare l'elenco seguente per configurare l'app in Impostazioni app:
 
-| Impostazione app | *azureMobile.js* | Descrizione | Valori validi |
+| Impostazione app | *azureMobile.js* | DESCRIZIONE | Valori validi |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |name |Nome dell'app |string |
+| **MS_MobileAppName** |name |Nome dell'app |stringa |
 | **MS_MobileLoggingLevel** |logging.level |Livello log minimo di messaggi da registrare |error, warning, info, verbose, debug, silly |
 | **MS_DebugMode** |debug |Abilitare o disabilitare la modalità di debug |true, false |
 | **MS_TableSchema** |data.schema |Nome dello schema predefinito per le tabelle SQL |string (valore predefinito: dbo) |
@@ -330,7 +330,7 @@ Quasi tutte le impostazioni nel file *azureMobile.js* hanno un'impostazione app 
 
 Per definire un'impostazione app:
 
-1. Accedere al [Portale di Azure].
+1. Accedere al [portale di Azure].
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome dell'app per dispositivi mobili.
 3. Per impostazione predefinita si apre il pannello Impostazioni. In caso contrario fare clic su **Impostazioni**.
 4. Fare clic su **Impostazioni dell'applicazione** nel menu GENERALE.
@@ -346,7 +346,7 @@ Per modificare la maggior parte delle impostazioni dell'app, è necessario riavv
 
 L'uso del database SQL di Azure come archivio dati è identico in tutti i tipi di applicazione del Servizio app di Azure. Se non è già stato fatto, seguire questa procedura per creare un back-end dell'app per dispositivi mobili.
 
-1. Accedere al [Portale di Azure].
+1. Accedere al [portale di Azure].
 2. Nella parte superiore sinistra della finestra fare clic sul pulsante **+NUOVO** > **Web e dispositivi mobili** > **App per dispositivi mobili** e quindi specificare un nome per il back-end dell'app per dispositivi mobili.
 3. Nella casella **Gruppo di risorse** immettere lo stesso nome dell'app.
 4. Viene selezionato il piano di servizio app predefinito.  Per modificare il piano di servizio app, fare clic su Piano di servizio app > **+ Crea nuovo**.  Specificare un nome del nuovo piano del servizio app e selezionare un percorso appropriato.  Fare clic su Piano tariffario e selezionare un piano tariffario appropriato per il servizio. Selezionare **Visualizza tutto** per visualizzare altre opzioni sui prezzi, ad esempio **Gratuito** e **Condiviso**.  Dopo aver scelto il livello di prezzo, fare clic su **Seleziona** .  Nel pannello **Piano di servizio app** fare clic su **OK**.
@@ -373,7 +373,7 @@ Una volta creato il back-end dell'app per dispositivi mobili, è possibile scegl
 La creazione del database può richiedere alcuni minuti.  Usare l'area **Notifiche** per monitorare l'avanzamento della distribuzione.  L'avanzamento non viene eseguito se il database non è stato distribuito correttamente.  Al termine della distribuzione viene creata una stringa di connessione per l'istanza di database SQL nelle impostazioni dell'app del back-end mobile.  È possibile visualizzare l'impostazione dell'app in **Impostazioni** > **Impostazioni dell'applicazione** > **Stringhe di connessione**.
 
 ### <a name="howto-tables-auth"></a>Procedura: Richiedere l'autenticazione per l'accesso alle tabelle
-Per usare l'autenticazione del servizio app con l'endpoint delle tabelle, è necessario prima configurare l'autenticazione del servizio app nel [Portale di Azure] .  Per altre informazioni sulla configurazione dell'autenticazione in un Servizio app di Azure, vedere la Guida alla configurazione per il provider di identità che si intende usare:
+Per usare l'autenticazione del servizio app con l'endpoint delle tabelle, è necessario prima configurare l'autenticazione del servizio app nel [portale di Azure] .  Per altre informazioni sulla configurazione dell'autenticazione in un Servizio app di Azure, vedere la Guida alla configurazione per il provider di identità che si intende usare:
 
 * [Come configurare l'autenticazione di Azure Active Directory]
 * [Come configurare l'autenticazione di Facebook]
@@ -653,7 +653,7 @@ Durante la registrazione per le notifiche push da un client autenticato, assicur
 ### <a name="howto-customapi-basic"></a>Procedura: Definire un'API personalizzata
 Oltre all'API di accesso ai dati attraverso l'endpoint /tables, App per dispositivi mobili di Azure può fornire la copertura per le API personalizzate.  Le API personalizzate sono definite in modo analogo alle definizioni di tabella e possono accedere alle stesse funzionalità, inclusa l'autenticazione.
 
-Per usare l'autenticazione del servizio app con un'API personalizzata, è necessario prima configurare l'autenticazione del servizio app nel [Portale di Azure] .  Per altre informazioni sulla configurazione dell'autenticazione in un Servizio app di Azure, vedere la Guida alla configurazione per il provider di identità che si intende usare:
+Per usare l'autenticazione del servizio app con un'API personalizzata, è necessario prima configurare l'autenticazione del servizio app nel [portale di Azure] .  Per altre informazioni sulla configurazione dell'autenticazione in un Servizio app di Azure, vedere la Guida alla configurazione per il provider di identità che si intende usare:
 
 * [Come configurare l'autenticazione di Azure Active Directory]
 * [Come configurare l'autenticazione di Facebook]
@@ -790,7 +790,7 @@ Per iniziare la risoluzione dei problemi del back-end Node.js Mobile, consultare
 * [Abilitazione della registrazione diagnostica nel servizio app di Azure]
 * [Risoluzione dei problemi di un Servizio app di Azure in Visual Studio]
 
-Le applicazioni Node.js hanno accesso a un'ampia gamma di strumenti per i log di diagnostica.  Al suo interno l'SDK di Node.js per App per dispositivi mobili di Azure usa [Winston] per la registrazione diagnostica.  La registrazione viene abilitata automaticamente abilitando la modalità di debug o impostando su true l'impostazione dell'app **MS_DebugMode** nel [Portale di Azure]. I log generati vengono visualizzati tra i log di diagnostica del [Portale di Azure].
+Le applicazioni Node.js hanno accesso a un'ampia gamma di strumenti per i log di diagnostica.  Al suo interno l'SDK di Node.js per App per dispositivi mobili di Azure usa [Winston] per la registrazione diagnostica.  La registrazione viene abilitata automaticamente abilitando la modalità di debug o impostando su true l'impostazione dell'app **MS_DebugMode** nel [portale di Azure]. I log generati vengono visualizzati tra i log di diagnostica del [portale di Azure].
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Procedura: Usare tabelle semplici nel portale di Azure
 L'impostazione Easy Tables nel portale consente di creare e usare tabelle direttamente nel portale. È possibile caricare il set di dati in Easy Tables in formato CSV. Si noti che non è possibile usare nomi di proprietà (nel set di dati CSV) in conflitto con i nomi di proprietà di sistema del back-end di App per dispositivi mobili di Azure. I nomi delle proprietà di sistema sono:
@@ -864,7 +864,7 @@ Il portale di Azure consente di modificare i file di script del back-end Node.js
 [Express]: http://expressjs.com/
 [Swagger]: http://swagger.io/
 
-[Portale di Azure]: https://portal.azure.com/
+[portale di Azure]: https://portal.azure.com/
 [OData]: http://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [esempio basicapp in GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app

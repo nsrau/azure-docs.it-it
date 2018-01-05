@@ -1,12 +1,11 @@
 ---
-title: Informazioni sul flusso del codice di autorizzazione OAuth 2.0 in Azure AD | Documentazione Microsoft
+title: Comprendere il flusso di codice di autorizzazione OAuth 2.0 in Azure AD
 description: Questo articolo descrive come usare messaggi HTTP per autorizzare l'accesso ad applicazioni Web e API Web nel proprio tenant con Azure Active Directory e OAuth 2.0.
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mtillman
 editor: 
-ms.assetid: de3412cb-5fde-4eca-903a-4e9c74db68f2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5a3aa69ce35ff6049478a4182afeda2ee62266b7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d123a6b18baf8019a6dcea2faa938e9ee403f400
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>Autorizzare l'accesso ad applicazioni Web con OAuth 2.0 e Azure Active Directory
 Azure Active Directory (Azure AD) usa OAuth 2.0 per consentire di autorizzare l'accesso ad applicazioni Web e API Web nel proprio tenant di Azure AD. Questa guida, indipendente dal linguaggio, descrive come inviare e ricevere messaggi HTTP senza usare una delle librerie open source di Microsoft.
@@ -34,7 +33,7 @@ A livello generale, l'intero flusso di autenticazione per un'applicazione ha un 
 ![Flusso del codice di autenticazione di OAuth](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## <a name="request-an-authorization-code"></a>Richiedere un codice di autorizzazione
-Il flusso del codice di autorizzazione ha inizio con il client che indirizza l'utente all'endpoint `/authorize` . In questa richiesta, il client indica le autorizzazioni che deve acquisire dall'utente. È possibile ottenere gli endpoint di OAuth 2.0 nella pagina dell'applicazione nel portale di Azure classico, con il pulsante **Visualizza endpoint** nel pannello in basso.
+Il flusso del codice di autorizzazione ha inizio con il client che indirizza l'utente all'endpoint `/authorize` . In questa richiesta, il client indica le autorizzazioni che deve acquisire dall'utente. È possibile ottenere l'endpoint di OAuth 2.0 per il tenant selezionando **registrazioni di App > endpoint** nel portale di Azure.
 
 ```
 // Line breaks for legibility only
@@ -133,7 +132,7 @@ grant_type=authorization_code
 | Parametro |  | DESCRIZIONE |
 | --- | --- | --- |
 | tenant |Obbligatoria |Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione.  I valori consentiti sono gli identificatori dei tenant, ad esempio `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` o `common` per i token indipendenti dai tenant |
-| client_id |Obbligatoria |ID applicazione assegnato all'app quando è stata registrata in Azure AD. È disponibile nel portale di Azure classico. Fare clic su **Active Directory** e quindi sulla directory, sull'applicazione e infine su **Configura** |
+| client_id |Obbligatoria |ID applicazione assegnato all'app quando è stata registrata in Azure AD. È possibile trovare questo nel portale di Azure. L'Id dell'applicazione viene visualizzato nelle impostazioni della registrazione dell'app.  |
 | grant_type |Obbligatoria |Deve essere `authorization_code` per il flusso del codice di autorizzazione. |
 | code |Obbligatoria |Il valore `authorization_code` acquisito nella sezione precedente |
 | redirect_uri |Obbligatoria |Lo stesso valore `redirect_uri` utilizzato per acquisire `authorization_code`. |

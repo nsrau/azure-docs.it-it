@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2018
+ms.date: 01/05/2018
 ms.author: cgronlun
-ms.openlocfilehash: d7cc0deabf6ce19e7a2b90a474e6c890fa5b76ae
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: f63911d8b48393ec8b0f041b1340bec40c768f38
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiare il lavoro di altre persone per l'analisi scientifica dei dati
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Analisi scientifica dei dati per principianti
@@ -92,7 +92,7 @@ Esistono altri esperimenti nel [raccolta di Azure AI](https://gallery.cortanaint
 
 [Raccolta di Azure AI](https://gallery.cortanaintelligence.com) è possibile trovare gli esperimenti di lavoro che è possibile utilizzare come punto di partenza per soluzioni personalizzate.
 
-Assicurarsi di guardare gli altri video della serie "Analisi scientifica dei dati per principianti" in Microsoft Azure Machine Learning.
+Anche gli altri video della serie "Analisi scientifica dei dati per principianti" di Microsoft Azure Machine Learning meritano di essere visti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [È possibile effettuare il primo esperimento di analisi scientifica dei dati con Azure Machine Learning](create-experiment.md)

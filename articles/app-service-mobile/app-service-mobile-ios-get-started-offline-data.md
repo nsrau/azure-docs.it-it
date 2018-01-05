@@ -2,8 +2,8 @@
 title: Abilitare la sincronizzazione offline con le app per dispositivi mobili per iOS | Documentazione Microsoft
 description: Informazioni su come usare le app per dispositivi mobili del servizio app di Azure per memorizzare i dati nella cache e sincronizzarli offline nelle app iOS.
 documentationcenter: ios
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 services: app-service\mobile
 ms.assetid: eb5b9520-0f39-4a09-940a-dadb6d940db8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 44c0d26b2d7d28322d436d4bda319d728c31a635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: crdun
+ms.openlocfilehash: b676b51241e4883fb1b4c40caba8e281bfa68a4c
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Sincronizzare offline le app per dispositivi mobili iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -158,12 +158,12 @@ Quando si usa la funzionalità di sincronizzazione offline, definire le tre tabe
 
 ![Attributi della tabella MS_TableOperations][defining-core-data-tableoperations-entity]
 
-| Attributo | Tipo |
+| Attributo | type |
 | --- | --- |
 | id | Valore integer 64 |
-| itemId | String |
+| itemId | string |
 | properties | Dati binari |
-| tabella | String |
+| tabella | string |
 | tableKind | Integer 16 |
 
 
@@ -171,9 +171,9 @@ Quando si usa la funzionalità di sincronizzazione offline, definire le tre tabe
 
  ![Attributi della tabella MS_TableOperationErrors][defining-core-data-tableoperationerrors-entity]
 
-| Attributo | Tipo |
+| Attributo | type |
 | --- | --- |
-| id |String |
+| id |string |
 | operationId |Valore integer 64 |
 | properties |Dati binari |
 | tableKind |Integer 16 |
@@ -182,23 +182,23 @@ Quando si usa la funzionalità di sincronizzazione offline, definire le tre tabe
 
  ![][defining-core-data-tableconfig-entity]
 
-| Attributo | Tipo |
+| Attributo | type |
 | --- | --- |
-| id |String |
-| key |String |
+| id |string |
+| key |string |
 | keyType |Valore integer 64 |
-| tabella |String |
-| value |String |
+| tabella |string |
+| value |string |
 
 ### <a name="data-table"></a>Tabella dati
 
 **TodoItem**
 
-| Attributo | Tipo | Nota |
+| Attributo | type | Note |
 | --- | --- | --- |
 | id | Stringa, contrassegnata come obbligatoria |chiave primaria nell'archivio remoto |
-| complete | Boolean | campo elemento ToDo |
-| text |String |campo elemento ToDo |
+| complete | boolean | campo elemento ToDo |
+| text |string |campo elemento ToDo |
 | createdAt | Data | (facoltativo) viene mappato alla proprietà di sistema **createdAt** |
 | updatedAt | Data | (facoltativo) viene mappato alla proprietà di sistema **updatedAt** |
 | version | string | (facoltativo) viene usato per il rilevamento dei conflitti, viene mappato a version |
@@ -260,7 +260,7 @@ Verrà visualizzato un indicatore di avanzamento.
 
 7. Visualizzare nuovamente i dati di **TodoItem**. Gli elementi attività nuovi e modificati dovrebbero essere a questo punto visualizzati.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 Per supportare la funzionalità di sincronizzazione offline è stata usata l'interfaccia `MSSyncTable` ed è stato inizializzato `MSClient.syncContext` con un archivio locale. In questo caso l'archivio locale era un database basato su Core Data.
 
 Quando si usa un archivio locale Core Data, è necessario definire varie tabelle con le [proprietà di sistema corrette](#review-core-data).

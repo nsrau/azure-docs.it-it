@@ -1,5 +1,5 @@
 ---
-title: Linee guida per gli sviluppatori per l'accesso condizionale di Azure Active Directory | Microsoft Docs
+title: Linee guida per gli sviluppatori per l'accesso condizionale di Azure Active Directory
 description: Scenari e linee guida per gli sviluppatori per l'accesso condizionale di Azure AD
 services: active-directory
 keywords: 
@@ -8,17 +8,16 @@ manager: mtillman
 editor: PatAltimore
 ms.author: dadobali
 ms.date: 07/19/2017
-ms.assetid: 115bdab2-e1fd-4403-ac15-d4195e24ac95
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: c3b691022b02aa2f3836c4e3a96dd5db7affad76
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 346f19b01460aaa4aeb2c2d97c07ef11924ec80f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Linee guida per gli sviluppatori per l'accesso condizionale di Azure Active Directory
 
@@ -28,7 +27,7 @@ Azure Active Directory (AD) offre diversi modi per proteggere l'app e un servizi
 * Autorizzazione dell'accesso a servizi specifici solo per dispositivi registrati in Intune
 * Limitazione delle posizioni dell'utente e degli intervalli IP
 
-Per altre informazioni sulle complete funzionalità di accesso condizionale, vedere [Accesso condizionale nel portale di Azure classico](../active-directory-conditional-access-azure-portal.md). 
+Per ulteriori informazioni su tutte le funzionalità di accesso condizionale, vedere [accesso condizionale in Azure Active Directory](../active-directory-conditional-access-azure-portal.md). 
 
 In questo articolo viene illustrato il significato dell'accesso condizionale per gli sviluppatori che creano app per Azure AD.  Si presuppone una conoscenza delle app a [tenant singolo](active-directory-integrating-applications.md) e [multi-tenant](active-directory-devhowto-multi-tenant-overview.md) e dei [modelli di autenticazione comuni](active-directory-authentication-scenarios.md).
 
@@ -218,7 +217,7 @@ Per provare questo scenario, vedere l'[esempio di codice on-behalf-of JS SPA](ht
 
 ## <a name="see-also"></a>Vedere anche 
 
-* Per altre informazioni sulle funzionalità, vedere [Accesso condizionale in Azure AD](../active-directory-conditional-access-azure-portal.md).
+* Per ulteriori informazioni sulle funzionalità, vedere [accesso condizionale in Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 * Per altri esempi di codice di Azure AD, vedere il [repository GitHub di esempi di codice](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory). 
 * Per altre informazioni su ADAL SDK e sull'accesso alla documentazione di riferimento, vedere la [guida alle librerie](active-directory-authentication-libraries.md).
 * Per altre informazioni sugli scenari multi-tenant, vedere [Come consentire l'accesso a qualsiasi utente di Azure Active Directory (AD) usando il modello di applicazione multi-tenant](active-directory-devhowto-multi-tenant-overview.md).

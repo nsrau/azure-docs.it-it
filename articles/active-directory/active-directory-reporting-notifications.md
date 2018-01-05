@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 01/03/2018
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7aacb31f708e8c3221a5b8cf4223c65160ccb019
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 99783eebb76363ca3fa96c6777906239f3de1131
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Notifiche di Report di Azure Active Directory
 ## <a name="what-reports-generate-email-notifications"></a>Quali report generano notifiche tramite posta elettronica
@@ -36,13 +36,13 @@ Il messaggio di posta elettronica viene inviato a tutti gli amministratori globa
 Il messaggio di posta elettronica viene inviato se si verificano 10 nuove attività di accesso irregolare negli ultimi 30 giorni o dopo l'ultimo messaggio di posta elettronica inviato, a seconda del periodo più breve.
 
 ## <a name="how-do-i-access-the-report-mentioned-in-the-email"></a>Come si accede al report indicato nel messaggio di posta elettronica?
-Quando si fa clic sul collegamento, si verrà reindirizzati alla pagina del report nel portale di Azure classico. Per accedere al report, è necessario essere:
+Quando si fa clic sul collegamento, si verrà reindirizzati alla pagina del report nel portale di Azure. Per accedere al report, è necessario essere:
 
 * Un amministratore o un coamministratore della sottoscrizione di Azure.
 * Un amministratore globale nella directory e assegnata una licenza di Active Directory Premium. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md).
 
 ## <a name="can-i-turn-off-these-emails"></a>È possibile disattivare questi messaggi di posta elettronica?
-Sì, per disattivare le notifiche correlate ad accessi anomali all'interno del portale di Azure classico, fare clic su **Configura** e quindi selezionare **Disabilitato** nella sezione **Notifiche**.
+Sì, per disattivare le notifiche relative accessi anomali nel portale di Azure, fare clic su **configura**, quindi selezionare **disabilitato** sotto il **notifiche** sezione.
 
 ## <a name="whats-next"></a>Passaggi successivi
 * Per informazioni sui report di sicurezza, controllo e attività disponibili, Vedere [Report di sicurezza, controllo e attività di Azure AD](active-directory-view-access-usage-reports.md)

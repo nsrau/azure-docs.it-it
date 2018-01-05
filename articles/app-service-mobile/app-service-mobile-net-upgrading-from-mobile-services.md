@@ -3,8 +3,8 @@ title: L'aggiornamento da Servizi mobili a Servizio app di Azure
 description: Informazioni su come eseguire facilmente l'aggiornamento dell'applicazione Servizi mobili a un'app per dispositivi mobili del servizio app
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 9c0ac353-afb6-462b-ab94-d91b8247322f
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 81c8ba6245565368eab4cdaca297ff7656180605
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: crdun
+ms.openlocfilehash: f07b1d6037ff8ca16b673e6a1a235769355a9993
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Aggiornare il servizio mobile .NET di Azure esistente al servizio app
 I dispositivi mobili del servizio app offrono un nuovo modo per creare applicazioni mobili usando Microsoft Azure. Per altre informazioni, vedere [Che cosa sono le app per dispositivi mobili?].
@@ -150,12 +150,12 @@ Se un'app client viene aggiornata da Servizi mobili alle app per dispositivi mob
 
 In iOS, è necessario modificare lo schema dei dati di base per le entità di dati in modo che corrispondano a quanto segue. Si noti che le proprietà `createdAt`, `updatedAt` e `version` non hanno più un prefisso `ms_`:
 
-| Attributo | Tipo | Nota |
+| Attributo | type | Note |
 | --- | --- | --- |
 | id |Stringa, contrassegnata come obbligatoria |chiave primaria nell'archivio remoto |
 | createdAt |Data |(facoltativo) viene mappato alla proprietà di sistema createdAt |
 | updatedAt |Data |(facoltativo) viene mappato alla proprietà di sistema updatedAt |
-| version |String |(facoltativo) usato per il rilevamento dei conflitti, viene mappato a version |
+| version |string |(facoltativo) usato per il rilevamento dei conflitti, viene mappato a version |
 
 #### <a name="querying-system-properties"></a>Query delle proprietà di sistema
 In Servizi mobili di Azure, le proprietà di sistema non vengono inviate per impostazione predefinita, ma solo quando vengono richieste usando la stringa di query `__systemProperties`. Al contrario, nel sistema App per dispositivi mobili di Azure le proprietà sono **sempre selezionate** poiché fanno parte del modello a oggetti dell'SDK server.

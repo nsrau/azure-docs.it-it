@@ -9,15 +9,18 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 7203c95a1269698dea91475aa6aa24c47bcfb0f0
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 06a6e91725e751fbea97d9a3b60f48fa50121fc4
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Esecuzione del montaggio di una condivisione file di Azure con Istanze di contenitore di Azure
 
 Per impostazione predefinita, Istanze di contenitore di Azure è senza stato. Se il contenitore si blocca o si arresta, lo stato viene perso. Per rendere persistente lo stato oltre la durata del contenitore, è necessario montare un volume da un archivio esterno. Questo articolo illustra come montare una condivisione file di Azure per l'uso con Istanze di contenitore di Azure.
+
+> [!NOTE]
+> L'installazione di una condivisione di file di Azure è attualmente limitato ai contenitori di Linux. Mentre ci stiamo lavorando per portare tutte le funzionalità ai contenitori di Windows, è possibile trovare le differenze di piattaforma corrente in [quote e la disponibilità di area per le istanze di Azure contenitore](container-instances-quotas.md).
 
 ## <a name="create-an-azure-file-share"></a>Creare una condivisione file di Azure
 

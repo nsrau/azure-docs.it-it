@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: 978af1a57a5fc3d9c95d517288a074c636874984
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: ddaf7bf12854aa5f80c1d292613c3049850ca3ff
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usare l'analisi di flusso per elaborare dati esportati da Application Insights
 L'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) è lo strumento ideale per elaborare dati [esportati da Application Insights](app-insights-export-telemetry.md). L'analisi di flusso può eseguire il pull di dati da un'ampia gamma di origini. Può trasformare e filtrare i dati e quindi instradarli a molti sink diversi.
@@ -76,27 +76,27 @@ L'esportazione continua invia sempre i dati a un account di Archiviazione di Azu
 Gli eventi vengono scritti nei file BLOB in formato JSON. Ogni file può contenere uno o più eventi. A questo punto sarà possibile leggere i dati degli eventi e filtrare i campi preferiti. È possibile eseguire una serie di operazioni sui dati, ma lo scopo di questo articolo è usare l'analisi di flusso per spostare i dati in un Power BI.
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Creare un'istanza di analisi di flusso di Azure
-Nel [portale di Azure classico](https://manage.windowsazure.com/)selezionare il servizio di analisi di flusso di Azure e creare un nuovo processo di analisi di flusso:
+Dal [portale di Azure](https://portal.azure.com/), selezionare il servizio di Azure flusso Analitica e creare un nuovo processo di flusso Analitica:
 
-![](./media/app-insights-export-stream-analytics/090.png)
+![](./media/app-insights-export-stream-analytics/SA001.png)
 
-![](./media/app-insights-export-stream-analytics/100.png)
+![](./media/app-insights-export-stream-analytics/SA002.png)
 
-Quando viene creato il nuovo processo, espanderne i dettagli:
+Quando viene creato il nuovo processo, selezionare **passare alla risorsa**.
 
-![](./media/app-insights-export-stream-analytics/110.png)
+![](./media/app-insights-export-stream-analytics/SA003.png)
 
-### <a name="set-blob-location"></a>Impostare il percorso BLOB
+### <a name="add-a-new-input"></a>Aggiungere un nuovo input
+
+![](./media/app-insights-export-stream-analytics/SA004.png)
+
 Impostarlo in modo da accettare l'input dal BLOB di esportazione continua:
 
-![](./media/app-insights-export-stream-analytics/120.png)
+![](./media/app-insights-export-stream-analytics/SA005.png)
 
 A questo punto è necessaria la chiave di accesso primaria dell'account di archiviazione, di cui si è preso nota in precedenza. Impostarla come chiave dell'account di archiviazione.
 
-![](./media/app-insights-export-stream-analytics/130.png)
-
 ### <a name="set-path-prefix-pattern"></a>Impostare lo schema prefisso percorso
-![](./media/app-insights-export-stream-analytics/140.png)
 
 **Assicurarsi di impostare il formato della data su AAAA-MM-GG (con i trattini).**
 
@@ -114,33 +114,19 @@ Esempio:
 > [!NOTE]
 > Controllare lo spazio di archiviazione per assicurarsi di ottenere il percorso corretto.
 > 
-> 
 
-### <a name="finish-initial-setup"></a>Completare l'installazione iniziale
-Verificare il formato di serializzazione:
+## <a name="add-new-output"></a>Aggiungere nuovo output
+Selezionare il processo > **output** > **Aggiungi**.
 
-![Confermare e chiudere la procedura guidata](./media/app-insights-export-stream-analytics/150.png)
+![](./media/app-insights-export-stream-analytics/SA006.png)
 
-Chiudere la procedura guidata e attendere il completamento dell'installazione.
 
-> [!TIP]
-> Utilizzare il comando di esempio per scaricare alcuni dati. Utilizzare come esempio di test per eseguire il debug della query.
-> 
-> 
-
-## <a name="set-the-output"></a>Visualizzare l'output
-Selezionare il processo e impostare l'output.
-
-![Selezionare il nuovo canale, fare clic su Output, su Aggiungi e quindi su Power BI](./media/app-insights-export-stream-analytics/160.png)
+![Selezionare il nuovo canale, fare clic su Output, su Aggiungi e quindi su Power BI](./media/app-insights-export-stream-analytics/SA010.png)
 
 Fornire l’ **account aziendale o dell’istituto di istruzione** per autorizzare l'analisi di flusso per l’accesso alla risorsa di Power BI. Creare quindi un nome per l'output e per il set di dati Power BI e la tabella di destinazione.
 
-![Inventare tre nomi](./media/app-insights-export-stream-analytics/170.png)
-
 ## <a name="set-the-query"></a>Impostare la query
 La query gestisce la conversione dall'input all'output.
-
-![Selezionare il processo e fare clic su Query. Incollare l'esempio.](./media/app-insights-export-stream-analytics/180.png)
 
 Utilizzare la funzione Test per verificare di ottenere l'output corretto. Assegnare i dati di esempio presenti nella pagina di input. 
 
@@ -162,7 +148,7 @@ Incollare questa query:
 
 * export-input è l'alias assegnato all'input del flusso
 * pbi-output è l'alias dell'output definito
-* Utilizziamo [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) perché il nome dell'evento si trova in una matrice JSON annidata. L'istruzione SELECT seleziona quindi il nome dell'evento insieme al conteggio del numero di istanze che presentano tale nome nel periodo di tempo indicato. La clausola [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) raggruppa gli elementi in periodi di tempo di 1 minuto.
+* Utilizziamo [OUTER GetElements applicare](https://msdn.microsoft.com/library/azure/dn706229.aspx) perché è il nome dell'evento in una matrice annidata di JSON. L'istruzione SELECT seleziona quindi il nome dell'evento insieme al conteggio del numero di istanze che presentano tale nome nel periodo di tempo indicato. Il [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) clausola Raggruppa gli elementi in periodi di tempo di un minuto.
 
 ### <a name="query-to-display-metric-values"></a>Query per visualizzare i valori delle metriche
 ```SQL
@@ -206,7 +192,7 @@ Incollare questa query:
 ## <a name="run-the-job"></a>Eseguire il processo
 Per la data di inizio del processo, è possibile selezionare una data nel passato. 
 
-![Selezionare il processo e fare clic su Query. Incollare l'esempio.](./media/app-insights-export-stream-analytics/190.png)
+![Selezionare il processo e fare clic su Query. Incollare l'esempio.](./media/app-insights-export-stream-analytics/SA008.png)
 
 Attendere fino al termine dell'esecuzione del processo.
 

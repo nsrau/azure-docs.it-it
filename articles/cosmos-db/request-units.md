@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 57e8274d67bff86832d9cd070b781ade6575dee7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 40390c6f92136d5731ac9d6857f06852c8ee6d85
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
 Ora disponibile: [calcolatore di unità richiesta](https://www.documentdb.com/capacityplanner) di Azure Cosmos DB. Per altre informazioni, vedere [Stima delle esigenze di velocità effettiva](request-units.md#estimating-throughput-needs).
@@ -55,7 +55,7 @@ Per iniziare è consigliabile guardare il video riportato di seguito, in cui Ara
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Specifica della capacità in unità richiesta in Azure Cosmos DB
 Quando si crea una nuova raccolta, tabella o grafo, si specifica il numero di unità richiesta al secondo (UR/sec) da riservare. In base alla velocità effettiva di cui è stato effettuato il provisioning, Azure Cosmos DB alloca partizioni fisiche per ospitare la raccolta e suddivide/ribilancia la crescita dei dati nelle partizioni.
 
-In Azure Cosmos DB è necessario specificare una chiave di partizione quando viene effettuato il provisioning di una raccolta con almeno 2.500 unità richiesta. La chiave di partizione è necessaria anche per ridimensionare la velocità effettiva della raccolta oltre le 2.500 unità richiesta in futuro. È quindi consigliabile configurare una [chiave di partizione](partition-data.md) durante la creazione di un contenitore, indipendentemente dalla velocità effettiva iniziale. Dal momento che i dati potrebbero essere stati suddivisi in più partizioni, è necessario scegliere una chiave di partizione che abbia un'elevata cardinalità (da 100 a milioni di valori distinti). La selezione di una chiave di partizione con molti valori distinti garantisce la scalabilità uniforme di raccolte/tabelle/grafi e richieste in Azure Cosmos DB. 
+Azure DB Cosmos contenitori possono essere creati come predefinito o un numero illimitato. I contenitori a dimensione fissa hanno un limite massimo di 10 GB e velocità effettiva di 10.000 UR/s. Per creare un contenitore senza limito è necessario specificare una velocità effettiva minima di 1.000 UR/sec e una [chiave di partizione](partition-data.md). Dal momento che i dati potrebbero essere stati suddivisi in più partizioni, è necessario scegliere una chiave di partizione che abbia un'elevata cardinalità (da 100 a milioni di valori distinti). La selezione di una chiave di partizione con molti valori distinti garantisce la scalabilità uniforme di raccolte/tabelle/grafi e richieste in Azure Cosmos DB. 
 
 > [!NOTE]
 > Una chiave di partizione è un limite logico, non un limite fisico. Non è quindi necessario limitare il numero di valori distinti per le chiavi di partizioni. È in effetti consigliabile avere un numero maggiore di valori distinti per le chiavi di partizione, perché Azure Cosmos DB offre un numero maggiore di opzioni per il bilanciamento del carico.

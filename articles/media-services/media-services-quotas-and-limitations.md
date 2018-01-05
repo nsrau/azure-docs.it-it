@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: juliako
-ms.openlocfilehash: 4b55b6cb87443871decf6f14ef3949e76433afcc
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
-ms.translationtype: HT
+ms.openlocfilehash: 79de06407a66e936f19579574ef90478799c9953
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="quotas-and-limitations"></a>Quote e limitazioni
 Questo articolo descrive le quote e le limitazioni associate a Servizi multimediali di Microsoft Azure.
@@ -29,17 +29,8 @@ Questo articolo descrive le quote e le limitazioni associate a Servizi multimedi
 Per richiedere modifiche alle quote predefinite fornite, è possibile aprire un ticket di supporto. Includere informazioni dettagliate nella richiesta sulle modifiche alle quote desiderate, sugli scenari di utilizzo e sulle aree necessarie.
 
 ### <a name="how-to-open-a-support-ticket"></a>Come aprire un ticket di supporto
-Per aprire un ticket di supporto, seguire questa procedura:
+Nel portale di Azure, passare a [Guida e supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Se non è stato effettuato l'accesso ad Azure, verrà richiesto di immettere le credenziali.
 
-1. Fare clic su [Ottieni supporto](https://manage.windowsazure.com/?getsupport=true). Se non si è ancora connessi, verrà richiesto di immettere le credenziali.
-2. Selezionare la propria sottoscrizione.
-3. Sotto il tipo di supporto, selezionare "Tecnico".
-4. Fare clic su "Crea Ticket".
-5. Selezionare "Servizi multimediali di Azure" dall'elenco dei prodotti visualizzato nella pagina successiva.
-6. Selezionare un tipo di problema appropriato per la situazione specifica.
-7. Fare clic su Continue.
-8. Seguire le istruzioni nella pagina successiva e quindi immettere i dettagli relativi al problema.
-9. Fare clic su Invia per aprire il ticket.
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

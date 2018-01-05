@@ -3,8 +3,8 @@ title: Eseguire la migrazione da Servizi mobili a un'app per dispositivi mobili 
 description: Informazioni su come eseguire facilmente la migrazione dell'applicazione Servizi mobili a un'app per dispositivi mobili del servizio app
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
-ms.author: glenga
-ms.openlocfilehash: ee64913629124f886e91478c21304956fbec9f90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.author: crdun
+ms.openlocfilehash: f3d89c627f462c9e34b2ff067972be56f5bed32f
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="article-top"></a>Eseguire la migrazione del servizio mobile di Azure esistente al servizio app di Azure
 Con la [disponibilità generale del servizio app di Azure], è possibile eseguire facilmente la migrazione sul posto dei siti di Servizi mobili di Azure per sfruttare appieno tutte le funzionalità del servizio app di Azure.  Questo documento illustra cosa accade durante la migrazione del sito da Servizi mobili di Azure al servizio app di Azure.
@@ -68,7 +68,7 @@ Pianificare il test del sito da un client mobile al termine del processo di migr
 ### <a name="update-app-service-tier"></a>Selezionare un piano tariffario appropriato per il servizio app
 La migrazione al servizio app di Azure offre una maggiore flessibilità dei prezzi.
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome del servizio mobile di cui è stata eseguita la migrazione.
 3. Per impostazione predefinita si apre il pannello Impostazioni.
 4. Fare clic su **Piano di servizio app** nel menu Impostazioni.
@@ -79,7 +79,7 @@ Come punto di partenza, è consigliabile scegliere i livelli seguenti:
 
 | Piano tariffario del servizio mobile | Piano tariffario del servizio app |
 |:--- |:--- |
-| Free |F1 Gratuito |
+| Gratuito |F1 Gratuito |
 | Basic |B1 Basic |
 | Standard |S1 Standard |
 
@@ -94,7 +94,7 @@ C'è una notevole flessibilità nella scelta del piano tariffario per l'applicaz
 I processi dell'utilità di pianificazione non saranno visibili fino a circa 30 minuti dopo la migrazione.  L'esecuzione dei processi pianificati continua in background.
 Per visualizzare i processi pianificati quando sono nuovamente visibili, seguire questa procedura:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Esplora>**, immettere **Pianificazione** nella casella *Filtro* e quindi selezionare **Raccolte dell'Utilità di pianificazione**.
 
 Dopo la migrazione è disponibile un numero limitato di processi dell'utilità di pianificazione gratuiti.  Esaminare l'utilizzo e i [piani dell'utilità di pianificazione di Azure].
@@ -104,7 +104,7 @@ La condivisione di risorse tra le origini è una tecnica che consente a un sito 
 
 Le impostazioni CORS di cui è stata eseguita la migrazione sono disponibili come impostazione app **MS_CrossDomainWhitelist**.  Per eseguire la migrazione del sito alla funzionalità CORS del servizio app:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome del servizio mobile di cui è stata eseguita la migrazione.
 3. Per impostazione predefinita si apre il pannello Impostazioni.
 4. Fare clic su **CORS** nel menu dell'API.
@@ -119,7 +119,7 @@ Le impostazioni CORS di cui è stata eseguita la migrazione sono disponibili com
 ### <a name="download-publish-profile"></a>Scaricare un nuovo profilo di pubblicazione
 Il profilo di pubblicazione del sito viene modificato durante la migrazione al Servizio app di Azure.  Se si intende pubblicare il sito da Visual Studio, è necessario un nuovo profilo di pubblicazione.  Per scaricare il nuovo profilo di pubblicazione:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome del servizio mobile di cui è stata eseguita la migrazione.
 3. Fare clic su **Recupera profilo di pubblicazione**.
 
@@ -133,12 +133,12 @@ Il file PublishSettings verrà scaricato nel computer.  In genere è denominato 
 6. Fare clic su **Pubblica** per pubblicare il sito.
 
 ## <a name="working-with-your-site"></a>Uso del sito dopo la migrazione
-Dopo la migrazione è possibile iniziare a usare il nuovo servizio app nel [portale di Azure].  Di seguito sono riportate informazioni sulle operazioni specifiche che era possibile eseguire nel [portale di Azure classico], con i rispettivi equivalenti nel servizio app.
+Dopo la migrazione è possibile iniziare a usare il nuovo servizio app nel [Portale di Azure].  Di seguito sono riportate informazioni sulle operazioni specifiche che era possibile eseguire nel [portale di Azure classico], con i rispettivi equivalenti nel servizio app.
 
 ### <a name="publishing-your-site"></a>Download e pubblicazione del sito di cui è stata eseguita la migrazione
 Il sito è disponibile tramite Git o FTP e può essere pubblicato nuovamente con vari meccanismi, inclusi WebDeploy, TFS, Mercurial, GitHub e FTP.  La migrazione delle credenziali di distribuzione viene eseguita con il resto del sito.  Se le credenziali di distribuzione non sono state impostate o non sono disponibili, è possibile reimpostarle:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome del servizio mobile di cui è stata eseguita la migrazione.
 3. Per impostazione predefinita si apre il pannello Impostazioni.
 4. Fare clic su **Credenziali di distribuzione** nel menu PUBBLICAZIONE.
@@ -147,10 +147,10 @@ Il sito è disponibile tramite Git o FTP e può essere pubblicato nuovamente con
 È possibile usare queste credenziali per clonare il sito con Git o configurare distribuzioni automatizzate da GitHub, TFS o Mercurial.  Per altre informazioni, vedere la [documentazione sulla distribuzione del Servizio app di Azure].
 
 ### <a name="appsettings"></a>Impostazioni dell'applicazione
-La maggior parte delle impostazioni di un servizio mobile di cui è stata eseguita la migrazione è disponibile in Impostazioni app.  Nel [portale di Azure] è possibile ottenere un elenco delle impostazioni dell'app.
+La maggior parte delle impostazioni di un servizio mobile di cui è stata eseguita la migrazione è disponibile in Impostazioni app.  Nel [Portale di Azure] è possibile ottenere un elenco delle impostazioni dell'app.
 Per visualizzare o modificare le impostazioni app:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome del servizio mobile di cui è stata eseguita la migrazione.
 3. Per impostazione predefinita si apre il pannello Impostazioni.
 4. Fare clic su **Impostazioni dell'applicazione** nel menu GENERALE.
@@ -187,7 +187,7 @@ Nota: l'impostazione **MS\_AadTenants** viene archiviata come elenco delimitato 
 ### <a name="easytables"></a>Dati
 La scheda *Dati* in Servizi mobili è stata sostituita da *Tabelle semplici* nel portale di Azure.  Per accedere a Easy Tables:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome del servizio mobile di cui è stata eseguita la migrazione.
 3. Per impostazione predefinita si apre il pannello Impostazioni.
 4. Fare clic su **Tabelle semplici** nel menu MOBILE.
@@ -204,7 +204,7 @@ La scheda *Dati* in Servizi mobili è stata sostituita da *Tabelle semplici* nel
 ### <a name="easyapis"></a>API
 La scheda *API* in Servizi mobili è stata sostituita da *API semplici* nel portale di Azure.  Per accedere a Easy APIs:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome del servizio mobile di cui è stata eseguita la migrazione.
 3. Per impostazione predefinita si apre il pannello Impostazioni.
 4. Fare clic su **API semplici** nel menu MOBILE.
@@ -215,7 +215,7 @@ Dal nuovo pannello è possibile modificare le autorizzazioni e gli script per l'
 ### <a name="on-demand-jobs"></a>Processi dell'Utilità di pianificazione
 Tutti i processi dell'Utilità di pianificazione sono disponibili tramite la sezione relativa alle raccolte dei processi dell'Utilità di pianificazione.  Per accedere ai processi dell'Utilità di pianificazione:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Esplora>**, immettere **Pianificazione** nella casella *Filtro* e quindi selezionare **Raccolte dell'Utilità di pianificazione**.
 3. Selezionare la raccolta di processi per il sito.  È denominata *nomesito*-Processi.
 4. Fare clic su **Impostazioni**.
@@ -233,28 +233,28 @@ I processi su richiesta si trovano in `App_Data/config/scripts/scheduler post-mi
 ### <a name="notification-hubs"></a>Hub di notifica
 Servizi mobili usa Hub di notifica per le notifiche push.  Le impostazioni app riportate di seguito vengono usate per collegare l'hub di notifica al servizio mobile dopo la migrazione:
 
-| Impostazione dell'applicazione | Descrizione |
+| Impostazione dell'applicazione | DESCRIZIONE |
 |:--- |:--- |
 | **MS\_PushEntityNamespace** |Spazio dei nomi dell'hub di notifica |
 | **MS\_NotificationHubName** |Nome dell'hub di notifica |
 | **MS\_NotificationHubConnectionString** |Stringa di connessione dell'hub di notifica |
 | **MS\_NamespaceName** |Alias per MS_PushEntityNamespace |
 
-L'hub di notifica viene gestito attraverso il [portale di Azure].  Prendere nota del nome dell'hub di notifica. Per trovarlo è possibile usare le impostazioni app:
+L'hub di notifica viene gestito attraverso il [Portale di Azure].  Prendere nota del nome dell'hub di notifica. Per trovarlo è possibile usare le impostazioni app:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Esplora>** e quindi **Hub di notifica**.
 3. Fare clic sul nome dell'hub di notifica associato al servizio mobile.
 
 > [!NOTE]
-> Se l'hub di notifica è di tipo "Misto", non è visibile.  Gli hub di notifica di tipo "Misto" utilizzano sia Hub di notifica che le funzionalità legacy del bus di servizio.  [Convertire gli spazi dei nomi di tipo Misto] prima di continuare.  Al termine della conversione, l'hub di notifica viene visualizzato nel [portale di Azure].
+> Se l'hub di notifica è di tipo "Misto", non è visibile.  Gli hub di notifica di tipo "Misto" utilizzano sia Hub di notifica che le funzionalità legacy del bus di servizio.  [Convertire gli spazi dei nomi di tipo Misto] prima di continuare.  Al termine della conversione, l'hub di notifica viene visualizzato nel [Portale di Azure].
 >
 >
 
 Per altre informazioni, vedere la documentazione relativa a [Hub di notifica] .
 
 > [!TIP]
-> Le funzionalità di gestione di Hub di notifica nel [portale di Azure] sono ancora in anteprima.  Il [portale di Azure classico] rimane disponibile per la gestione di tutti gli hub di notifica.
+> Le funzionalità di gestione di Hub di notifica nel [Portale di Azure] sono ancora in anteprima.  Il [portale di Azure classico] rimane disponibile per la gestione di tutti gli hub di notifica.
 >
 >
 
@@ -266,7 +266,7 @@ Nel frattempo tutte le impostazioni push legacy, con l'importante eccezione del 
 ### <a name="app-settings"></a>Altre impostazioni app
 Per le impostazioni app aggiuntive riportate di seguito viene eseguita la migrazione dal servizio mobile e sono disponibili in *Impostazioni* > *App Impostazioni*:
 
-| Impostazione dell'applicazione | Descrizione |
+| Impostazione dell'applicazione | DESCRIZIONE |
 |:--- |:--- |
 | **MS\_MobileServiceName** |Nome dell'app |
 | **MS\_MobileServiceDomainSuffix** |Prefisso del dominio, vale a dire azure-mobile.net |
@@ -305,7 +305,7 @@ Modificare i file e pubblicare il sito tramite Git o FTP.
 ### <a name="diagnostics"></a>Diagnostica e registrazione
 Nel servizio app di Azure la registrazione diagnostica è generalmente disabilitata.  Per abilitare la registrazione diagnostica:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome del servizio mobile di cui è stata eseguita la migrazione.
 3. Per impostazione predefinita si apre il pannello Impostazioni.
 4. Selezionare **Log di diagnostica** nel menu FUNZIONALITÀ.
@@ -315,7 +315,7 @@ Nel servizio app di Azure la registrazione diagnostica è generalmente disabilit
 
 Per visualizzare i log:
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 2. Selezionare **Tutte le risorse** o **Servizi app** e quindi fare clic sul nome del servizio mobile di cui è stata eseguita la migrazione.
 3. Fare clic sul pulsante **Strumenti**.
 4. Selezionare **Flusso di registrazione** nel menu OSSERVAZIONE.
@@ -377,7 +377,7 @@ Dopo aver eseguito la migrazione dell'applicazione nel servizio app, è possibil
 [Scalabilità automatica]: ../app-service/web-sites-scale.md
 [servizio app di Azure]: ../app-service/app-service-web-overview.md
 [portale di Azure classico]: https://manage.windowsazure.com
-[portale di Azure]: https://portal.azure.com
+[Portale di Azure]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/en-us/regions/
 [piani dell'utilità di pianificazione di Azure]: ../scheduler/scheduler-plans-billing.md
 [distribuzione continua]: ../app-service/app-service-continuous-deployment.md

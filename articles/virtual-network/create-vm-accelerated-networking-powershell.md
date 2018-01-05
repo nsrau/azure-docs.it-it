@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/20/2017
 ms.author: jimdial
-ms.openlocfilehash: c1a86e6f235964b4019cedb13833d01f99a59997
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 8c2cc9ef487ee754f904f04e604ef76c3f9e07af
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Creare una macchina virtuale Windows con accelerazione di rete
 
@@ -28,7 +28,7 @@ In questa esercitazione imparare a creare una macchina virtuale di Windows (VM) 
 
 Senza rete accelerata, tutto il traffico di rete in ingresso e in uscita dalla VM deve attraversare l'host e il commutatore virtuale. Quest'ultimo è responsabile dell'applicazione di tutti i criteri al traffico di rete, ad esempio gruppi di sicurezza di rete, elenchi di controllo di accesso, isolamento e altri servizi di rete virtualizzati. Per altre informazioni sui commutatori virtuali, vedere l'articolo [Hyper-V Network Virtualization and Virtual Switch](https://technet.microsoft.com/library/jj945275.aspx) (Virtualizzazione rete Hyper-V e commutatore virtuale).
 
-Con rete accelerata, il traffico di rete raggiunge la scheda di interfaccia di rete della VM e quindi viene inoltrato alla VM. Il carico di tutti i criteri di rete applicati dal commutatore virtuale senza rete accelerata viene ripartito e applicato all'hardware. L'applicazione dei criteri all'hardware permette alla scheda di rete di inoltrare il traffico di rete direttamente alla macchina virtuale ignorando l'host e il commutatore virtuale, pur mantenendo tutti i criteri applicati all'host.
+Con rete accelerata, il traffico di rete raggiunge la scheda di interfaccia di rete della VM e quindi viene inoltrato alla VM. Tutti i criteri di rete che si applica il commutatore virtuale sono ora scaricati e applicati in hardware. L'applicazione dei criteri all'hardware permette alla scheda di rete di inoltrare il traffico di rete direttamente alla macchina virtuale ignorando l'host e il commutatore virtuale, pur mantenendo tutti i criteri applicati all'host.
 
 I vantaggi della funzionalità rete accelerata si applicano solo alla VM in cui è abilitata. Per ottenere risultati ottimali, è consigliabile abilitarla in almeno due VM connesse alla stessa Rete virtuale di Azure. Nella comunicazione tra reti virtuali o nella connessione locale questa funzionalità ha un impatto minimo sulla latenza complessiva.
 
@@ -37,14 +37,22 @@ I vantaggi della funzionalità rete accelerata si applicano solo alla VM in cui 
 * **Instabilità ridotta:** l'elaborazione del commutatore dipende dalla quantità di criteri da applicare e dal carico di lavoro della CPU che esegue l'elaborazione. La ripartizione del carico di applicazione dei criteri nell'hardware elimina tale variabilità recapitando i pacchetti direttamente alla macchina virtuale, rimuovendo l'host dalle comunicazioni con la macchina virtuale nonché tutte le interruzioni software e i cambi di contesto.
 * **Utilizzo ridotto della CPU:** ignorando il commutatore virtuale nell'host si ottiene un minore utilizzo della CPU per l'elaborazione del traffico di rete.
 
+## <a name="supported-operating-systems"></a>Sistemi operativi supportati
+Data Center di Microsoft Windows Server 2012 R2 e Windows Server 2016.
+
+## <a name="supported-vm-instances"></a>Istanze di macchina virtuale supportate
+Rete accelerata è supportata in più generale e dimensioni di istanze di calcolo ottimizzata con Vcpu 4 o più. Sulle istanze, ad esempio D/DSv3 o/ESv3 E che supportano l'Hyper-Threading, accelerazione di rete è supportata nelle istanze di macchina virtuale con più di 8 Vcpu. Sono supportate serie: D/DSv2, D/DSv3, E/ESv3, ADFS/F/Fsv2 e Ms/Mms.
+
+Per ulteriori informazioni sulle istanze di macchina virtuale, vedere [dimensioni delle macchine Virtuali di Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+## <a name="regions"></a>Regioni
+Disponibile in tutte le aree di Azure pubbliche e Cloud di Azure per enti pubblici. 
+
 ## <a name="limitations"></a>Limitazioni
 L'uso della funzionalità Rete accelerata presenta le limitazioni seguenti:
 
 * **Creazione di un'interfaccia di rete**: la funzionalità rete accelerata può essere abilitata solo per una nuova scheda di interfaccia di rete. Non può essere abilitata per una scheda di interfaccia di rete esistente.
 * **Creazione di una VM**: una scheda di interfaccia di rete con rete accelerata abilitata può essere collegata a una VM solo durante la creazione della VM. Non è possibile collegare la scheda di interfaccia di rete a una VM esistente. Se l'aggiunta della macchina virtuale a un gruppo di disponibilità è impostata, tutte le macchine virtuali nel set di disponibilità devono inoltre accelerato networking abilitato.
-* **Aree:** disponibile in Azure più aree. 
-* **I sistemi operativi supportati:** Microsoft Windows Server 2012 R2 Datacenter e Windows Server 2016
-* **Dimensione della VM**: dimensioni di istanza per scopo generico e con ottimizzazione per il calcolo con otto o più memorie centrali. Per altre informazioni, vedere [Dimensioni delle macchine virtuali in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * **Distribuzione tramite Gestione risorse di Azure:** macchine virtuali (classico) non possono essere distribuiti con accelerazione di rete.
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
