@@ -1,4 +1,4 @@
-# [Panoramica](azure-security.md)
+# [Overview](azure-security.md)
 ## [Sicurezza di rete](security-network-overview.md)
 ## [Sicurezza del database](azure-database-security-overview.md)
 ## [Sicurezza delle risorse di archiviazione](security-storage-overview.md)
@@ -52,8 +52,10 @@
 ##### [Integrità del sistema e delle informazioni](./blueprints/fedramp-system-information-integrity-controls.md)
 ##### [Acquisizione del sistema e dei servizi](./blueprints/fedramp-system-services-acquisition-controls.md)
 #### [Conformità - UFFICIALE nel Regno Unito](./blueprints/uk-official-three-tier-applications-overview.md)
-##### [Panoramica](./blueprints/uk-official-three-tier-applications-overview.md)
+##### [Overview](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Panoramica dei principi](./blueprints/uk-official-three-tier-applications-principles-overview.md)
+#### Conformità - Servizi finanziari
+##### [Servizi finanziari per carichi di lavoro regolamentati](./blueprints/financial-services-regulated-workloads.md)
 
 # Attività iniziali
 ## [Introduzione alla sicurezza di Azure](azure-security-getting-started.md)
@@ -148,7 +150,7 @@
 ## [Corsi sulla sicurezza di Virtual Academy](security-microsoft-virtual-academy.md)
 ## [Video sulla sicurezza su Channel 9](security-channel-nine.md)
 ## [Threat Modeling Tool](azure-security-threat-modeling-tool.md)
-### [Attività iniziali](azure-security-threat-modeling-tool-getting-started.md)
+### [Introduzione](azure-security-threat-modeling-tool-getting-started.md)
 ### [Panoramica delle funzionalità](azure-security-threat-modeling-tool-feature-overview.md)
 ### [Minacce](azure-security-threat-modeling-tool-threats.md)
 ### [Procedure di mitigazione](azure-security-threat-modeling-tool-mitigations.md)

@@ -2,11 +2,10 @@
 ## [Che cos'è la messaggistica del bus di servizio?](service-bus-messaging-overview.md)
 ## [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 ## [Architettura del bus di servizio](service-bus-architecture.md)
-## [Domande frequenti](service-bus-faq.md)
+## [DOMANDE FREQUENTI](service-bus-faq.md)
 
 # Attività iniziali
 ## [Creare uno spazio dei nomi](service-bus-create-namespace-portal.md)
-### [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md)
 ## Usare le code
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
@@ -35,8 +34,9 @@
 ### [Messaggistica asincrona e disponibilità elevata](service-bus-async-messaging.md)
 ### [Gestione di emergenze e interruzioni](service-bus-outages-disasters.md)
 
-## Sviluppare
+## Sviluppo
 ### Gestione dei messaggi
+#### [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md)
 #### [Messaggi, payload e serializzazione](service-bus-messages-payloads.md)
 #### [Trasferimenti, blocchi e compensazioni dei messaggi](message-transfers-locks-settlement.md)
 #### [Sequenze e timestamp dei messaggi](message-sequencing.md)
