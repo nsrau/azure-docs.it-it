@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: c136016ba885ec9ba999cb72ee6c1d4fc8770a0b
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 5c18444b5a2767ccdd9a61a3bc9218fa4c0aac04
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbook figlio in Automazione di Azure
 È buona norma in automazione di Azure scrivere runbook riutilizzabili e modulari con una funzione discreta che può essere utilizzata da altri runbook. Un runbook padre chiama spesso uno o più runbook figlio per eseguire la funzionalità richiesta. Esistono due modi per chiamare un runbook figlio e ognuno presenta differenze che è necessario comprendere in modo che sia possibile determinare quale sarà migliore per i diversi scenari.
@@ -30,7 +30,7 @@ Quando si richiama un runbook inline, esso viene eseguito nello stesso processo 
 
 Quando viene pubblicato un runbook, tutti i runbook figlio chiamati devono già essere pubblicati. Questo avviene perché l'automazione di Azure crea un'associazione con i runbook figlio quando viene compilato un runbook. In caso contrario, il runbook padre sembrerà pubblicato correttamente ma al suo avvio verrà generata un'eccezione. In questo caso, è possibile ripubblicare il runbook padre per fare riferimento in modo corretto ai runbook figlio. Non è necessario ripubblicare il runbook padre se alcuni runbook figlio sono stati modificati in quanto l'associazione sarà già stata creata.
 
-I parametri di un runbook figlio chiamato inline possono essere costituiti da qualsiasi tipo di dati, inclusi gli oggetti complessi, e non esiste alcuna [serializzazione JSON](automation-starting-a-runbook.md#runbook-parameters) come quando si avvia il runbook usando il portale di gestione di Azure o il cmdlet Start-AzureAutomationRunbook.
+I parametri di un runbook figlio chiamato inline possono essere qualsiasi tipo di dati, compresi gli oggetti complessi e non esiste alcun [serializzazione JSON](automation-starting-a-runbook.md#runbook-parameters) come avviene quando si avvia il runbook con il portale di Azure o con il Cmdlet Start-AzureRmAutomationRunbook.
 
 ### <a name="runbook-types"></a>Tipi di runbook
 Tipi che possono richiamarsi a vicenda:

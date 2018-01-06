@@ -14,14 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 3c2e39470f89d5bf5717ccb7849b9b3ed49fd43f
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 675a304e2ca913c8b9cd18fb2f2a41abfd8f28d4
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamento vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## <a name="january-guest-os"></a>Sistema operativo guest di gennaio
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+| N/D | [4056898] |Solo sicurezza di Windows |4.50 |3 gennaio 2018 |
+| N/D | [4056890] |Solo sicurezza di Windows |5.15 |3 gennaio 2018 |
 
 ## <a name="december-guest-os"></a>Sistema operativo guest di dicembre
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -574,6 +580,9 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[3007054] |L'opzione di stampa protetta da PIN viene sempre visualizzata quando si stampa un documento in un'applicazione di Windows Store in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
 | N/D |[2999802] |In Windows vengono stampate linee a tinta unita invece che linee tratteggiate |4.15, 3.22, 2.34 |13 gennaio 2015 |
 | N/D |[2896881] |È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
+
+[4056898]: http://support.microsoft.com/kb/4056898
+[4056890]: http://support.microsoft.com/kb/4056890 
 
 [4053579]: http://support.microsoft.com/kb/4053579
 [4054517]: http://support.microsoft.com/kb/4054517 

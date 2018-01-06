@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: fb83e957a206bff29132973d2dd3e9a7b5f9f060
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 696f4ae3cb479a208e73e53a9a9a437caeabd294
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Report in Azure Multi-Factor Authentication
 
@@ -28,6 +28,7 @@ Azure multi-Factor Authentication fornisce diversi report che può essere utiliz
 |:--- |:--- |:--- |
 | Cronologia utenti bloccati | Azure AD > Server di autenticazione a più fattori > Blocca/Sblocca utenti | Mostra la cronologia delle richieste di blocco o sblocco degli utenti. |
 | Avvisi di illecito e di utilizzo | Azure AD > accessi | Vengono fornite informazioni sull'utilizzo complessivo, riepilogo utenti e i dettagli dell'utente; nonché una cronologia degli avvisi di illecito inviati durante l'intervallo di date specificato. |
+| Utilizzo per i componenti locali | Azure AD > Server di autenticazione a più fattori > Report di attività | Fornisce informazioni sull'utilizzo complessivo per l'autenticazione a più fattori tramite l'estensione dei criteri di rete, ADFS e il server di autenticazione a più fattori. |
 | Cronologia utenti bypass | Azure AD > Server di autenticazione a più fattori > bypass monouso | Fornisce una cronologia delle richieste di bypass di multi-Factor Authentication per un utente. |
 | Stato del server | Azure AD > Server di autenticazione a più fattori > lo stato del Server | Visualizza che lo stato dei server multi-Factor Authentication associato all'account. |
 

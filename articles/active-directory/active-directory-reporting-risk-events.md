@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a48fc35574b13133ad28c5b58f4288ff390674cc
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventi di rischio di Azure Active Directory
 
@@ -36,7 +36,7 @@ Azure Active Directory rileva attualmente sei tipi di eventi di rischio:
 
 ![Evento di rischio](./media/active-directory-reporting-risk-events/91.png)
 
-Le informazioni che viene visualizzato per un evento di rischio rilevati sono associata alla sottoscrizione di Azure AD. Se si dispone di un'edizione di Azure AD Premium P1 (inclusa in EMS E3 offerta), i rilevamenti non previste dalla licenza vengono segnalati come **Accedi con maggiori rischi rilevato**. In altre parole, viene visualizzato un evento di rischio Accedi con maggiori rischi rilevato per rilevamenti esclusivi ai sottoscrittori di Azure AD Identity Protection.
+Le informazioni che viene visualizzato per un evento di rischio rilevati sono associata alla sottoscrizione di Azure AD. Con l'edizione di Azure AD Premium P2, sono disponibili le informazioni più dettagliate su tutti i rilevamenti sottostante. L'edizione di Azure AD Premium P1, rilevamenti non previste dalla licenza vengono visualizzate come l'evento di rischio **Accedi con maggiori rischi rilevato**.
 
 
 In questo argomento viene fatta una panoramica dettagliata della definizione di eventi di rischio e di come è possibile usarli per proteggere le identità di Azure AD.

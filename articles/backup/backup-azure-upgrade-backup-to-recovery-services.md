@@ -1,5 +1,5 @@
 ---
-title: Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino (Anteprima) | Microsoft Docs
+title: L'aggiornamento di un insieme di credenziali di Backup a un insieme di credenziali di servizi di ripristino | Documenti Microsoft
 description: Istruzioni e informazioni di supporto per l'aggiornamento di un insieme di credenziali di Backup di Azure a un insieme di credenziali di Servizi di ripristino.
 services: backup
 documentationcenter: dev-center-name
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/09/2017
+ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: c50095ef5aef750787ec65d64ab92b0e06e20d2c
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino
 
@@ -120,7 +120,7 @@ Dopo avere eseguito l'aggiornamento a un insieme di credenziali di Servizi di ri
 di serie I backup in corso proseguono senza interruzioni durante e dopo l'aggiornamento.
 
 **Se non si prevede un aggiornamento a breve, cosa succede agli insiemi di credenziali?**</br>
-Poiché tutte le nuove funzionalità sono applicabili solo agli insiemi di credenziali di Servizi di ripristino, è consigliabile eseguire l'aggiornamento degli insiemi di credenziali. Microsoft deprecherà il portale classico in futuro. A partire dall'1 settembre 2017, Microsoft inizierà a eseguire l'aggiornamento automatico degli insiemi di credenziali di Backup agli insiemi di credenziali di Servizi di ripristino. Dopo il 30 novembre 2017 non sarà più possibile creare insiemi di credenziali di backup usando PowerShell. L'insieme di credenziali può essere aggiornato automaticamente in qualsiasi momento prima di tale data. Microsoft consiglia di aggiornare l'insieme di credenziali il prima possibile.
+Poiché tutte le nuove funzionalità sono applicabili solo agli insiemi di credenziali di Servizi di ripristino, è consigliabile eseguire l'aggiornamento degli insiemi di credenziali. A partire dall'1 settembre 2017, Microsoft inizierà a eseguire l'aggiornamento automatico degli insiemi di credenziali di Backup agli insiemi di credenziali di Servizi di ripristino. Dopo il 30 novembre 2017 non sarà più possibile creare insiemi di credenziali di backup usando PowerShell. L'insieme di credenziali può essere aggiornato automaticamente in qualsiasi momento prima di tale data. Microsoft consiglia di aggiornare l'insieme di credenziali il prima possibile.
 
 **Qual è l'impatto di questo aggiornamento per gli strumenti esistenti?**</br>
 Aggiornare gli strumenti al modello di distribuzione Resource Manager. Gli insiemi di credenziali di Servizi di ripristino sono stati creati per l'uso nel modello di distribuzione Resource Manager. È importante definire una pianificazione appropriata per il modello di distribuzione Resource Manager e tenere in considerazione le differenze negli insiemi di credenziali. 
@@ -133,9 +133,6 @@ di serie Il ripristino dello stato precedente non è supportato dopo il completa
 
 **È possibile convalidare la sottoscrizione o le risorse per verificare che siano in grado di eseguire l'aggiornamento?**</br>
 Sì. Il primo passaggio del processo di aggiornamento verifica che le risorse siano in grado di eseguire l'aggiornamento. In caso di esito negativo della convalida dei prerequisiti, si ricevono messaggi per tutti i motivi che impediscono il completamento dell'aggiornamento.
-
-**Di quali autorizzazioni è necessario disporre per attivare l'aggiornamento dell'insieme di credenziali?**</br>
-Per eseguire l'aggiornamento dell'insieme di credenziali, è necessario essere aggiunti come coamministratori della sottoscrizione nel portale di Azure classico. Questo è un passaggio necessario anche se si è già stati elencati come proprietari nel portale di Azure. Provare ad aggiungere un co-amministratore per la sottoscrizione nel portale di Azure classico per scoprire se si è già co-amministratori per la sottoscrizione. Se non è possibile aggiungere un coamministratore, contattare un amministratore o un coamministratore del servizio, che può aggiungere l'utente come coamministratore.
 
 **È possibile aggiornare l'insieme di credenziali di Backup basato su CSP?**</br>
 di serie Non è attualmente possibile aggiornare gli insiemi di credenziali di Backup basati su CSP. Il supporto per l'aggiornamento degli insiemi di credenziali di Backup basati su CSP verrà aggiunto nelle prossime versioni.

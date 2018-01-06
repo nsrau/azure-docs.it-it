@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: mbullwin
-ms.openlocfilehash: e935350fbcdeb7a3192778b3dafb288aac281886
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 8d008727d964df56d128265b632dafa4ab776f98
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procedura dettagliata: Eseguire l'esportazione in SQL da Application Insights tramite l'analisi di flusso
 Questo articolo illustra come spostare i dati di telemetria da [Azure Application Insights][start] in un database SQL di Azure usando l'[esportazione continua][export] e l'[analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/). 
@@ -141,29 +141,29 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 In questo esempio vengono usati i dati delle visualizzazioni pagina. Per visualizzare gli altri dati disponibili, esaminare l'output JSON e vedere il [modello di dati di esportazione](app-insights-export-data-model.md).
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Creare un'istanza di analisi di flusso di Azure
-Nel [portale di Azure classico](https://manage.windowsazure.com/)selezionare il servizio di analisi di flusso di Azure e creare un nuovo processo di analisi di flusso:
+Dal [portale di Azure](https://portal.azure.com/), selezionare il servizio di Azure flusso Analitica e creare un nuovo processo di flusso Analitica:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/37-create-stream-analytics.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/38-create-stream-analytics-form.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
-Quando viene creato il nuovo processo, espanderne i dettagli:
+Quando viene creato il nuovo processo, selezionare **passare alla risorsa**.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/41-sa-job.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 
-#### <a name="set-blob-location"></a>Impostare il percorso BLOB
+#### <a name="add-a-new-input"></a>Aggiungere un nuovo input
+
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
+
 Impostarlo in modo da accettare l'input dal BLOB di esportazione continua:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/42-sa-wizard1.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA005.png)
 
 A questo punto è necessaria la chiave di accesso primaria dell'account di archiviazione, di cui si è preso nota in precedenza. Impostarla come chiave dell'account di archiviazione.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/46-sa-wizard2.png)
-
 #### <a name="set-path-prefix-pattern"></a>Impostare lo schema prefisso percorso
-![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-Assicurarsi di impostare il formato della data su **AAAA-MM-GG** (con i **trattini**).
+**Assicurarsi di impostare il formato della data su AAAA-MM-GG (con i trattini).**
 
 Lo schema prefisso percorso specifica il modo in cui l'analisi di flusso trova i file di input nell'archivio. È necessario configurarlo in modo che corrisponda alla modalità di archiviazione dei dati dell'esportazione continua. Impostarlo come segue:
 
@@ -178,22 +178,12 @@ Esempio:
 
 Per ottenere il nome e la chiave di strumentazione (iKey) della risorsa di Application Insights, aprire Essentials nella relativa pagina di panoramica o aprire le impostazioni.
 
-#### <a name="finish-initial-setup"></a>Completare l'installazione iniziale
-Verificare il formato di serializzazione:
-
-![Confermare e chiudere la procedura guidata](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
-
-Chiudere la procedura guidata e attendere il completamento dell'installazione.
-
 > [!TIP]
 > Utilizzare la funzione di esempio per verificare di aver impostato correttamente il percorso di input. In caso di errore: verificare che ci siano dati nell’archiviazione per l’intervallo di tempo esemplificativo che si seleziona. Modificare la definizione di input e controllare di impostare l'account di archiviazione, il prefisso del percorso e il formato di data corretto.
 > 
 > 
-
 ## <a name="set-query"></a>Impostare la query
 Aprire la sezione delle query:
-
-![In Analisi di flusso selezionare Query](./media/app-insights-code-sample-export-sql-stream-analytics/51-query.png)
 
 Sostituire la query predefinita con:
 
@@ -238,22 +228,20 @@ Tenere presente che le prime proprietà sono specifiche dei dati relativi alle v
 ## <a name="set-up-output-to-database"></a>Configurare l'output nel database
 Selezionare SQL come output.
 
-![In Analisi di flusso selezionare Output](./media/app-insights-code-sample-export-sql-stream-analytics/53-store.png)
+![In Analisi di flusso selezionare Output](./media/app-insights-code-sample-export-sql-stream-analytics/SA006.png)
 
 Specificare il database SQL.
 
-![Inserire i dettagli del database](./media/app-insights-code-sample-export-sql-stream-analytics/55-output.png)
+![Inserire i dettagli del database](./media/app-insights-code-sample-export-sql-stream-analytics/SA007.png)
 
 Chiudere la procedura guidata e attendere la notifica di configurazione dell'output.
 
 ## <a name="start-processing"></a>Avviare l'elaborazione
 Avviare il processo dalla barra delle azioni:
 
-![In Analisi di flusso fare clic su Avvia.](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
+![In Analisi di flusso fare clic su Avvia.](./media/app-insights-code-sample-export-sql-stream-analytics/SA008.png)
 
 È possibile scegliere se avviare l'elaborazione dei dati a partire dai dati correnti o se includere i dati precedenti. La seconda opzione è utile se l'esportazione continua è già stata eseguita per un determinato periodo di tempo.
-
-![In Analisi di flusso fare clic su Avvia.](./media/app-insights-code-sample-export-sql-stream-analytics/63-start.png)
 
 Dopo alcuni minuti, tornare agli strumenti di gestione di SQL Server e controllare il flusso dei dati. Usare ad esempio una query simile alla seguente:
 

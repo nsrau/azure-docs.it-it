@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok;rotimpe
-ms.openlocfilehash: 519ac38c484b9631a3fc096a17be026e9378a178
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: e2adfffa00a726fe2c452c25dd777ef054319b04
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API di rilevamento delle anomalie di Machine Learning
 ## <a name="overview"></a>Panoramica
@@ -44,7 +44,7 @@ L'offerta per il rilevamento anomalie include strumenti utili per iniziare.
 >
 
 ## <a name="api-deployment"></a>Distribuzione API
-Per utilizzare l'API, è necessario distribuirlo alla sottoscrizione di Azure dove verrà ospitato come servizio web di Machine Learning di Azure.  È possibile effettuare questa operazione in [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Con questa operazione due servizi Web di AzureML (e le relative risorse) verranno distribuite alla sottoscrizione di Azure, uno per il rilevamento delle anomalie con rilevamento della stagionalità e l'altro senza rilevamento della stagionalità.  Dopo aver completato la distribuzione, sarà possibile gestire le API dalla pagina dei [servizi Web di AzureML](https://services.azureml.net/webservices/).  In questa pagina è possibile trovare le posizioni endpoint, le chiavi API, nonché il codice di esempio per la chiamata all'API.  Le istruzioni più dettagliate sono disponibili [qui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
+Per utilizzare l'API, è necessario distribuirlo alla sottoscrizione di Azure dove verrà ospitato come servizio web di Machine Learning di Azure.  È possibile eseguire questa operazione dal [raccolta di Azure AI](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Con questa operazione due servizi Web di AzureML (e le relative risorse) verranno distribuite alla sottoscrizione di Azure, uno per il rilevamento delle anomalie con rilevamento della stagionalità e l'altro senza rilevamento della stagionalità.  Dopo aver completato la distribuzione, sarà possibile gestire le API dalla pagina dei [servizi Web di AzureML](https://services.azureml.net/webservices/).  In questa pagina è possibile trovare le posizioni endpoint, le chiavi API, nonché il codice di esempio per la chiamata all'API.  Le istruzioni più dettagliate sono disponibili [qui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Scalabilità dell'API
 Per impostazione predefinita, la distribuzione disporrà di un piano di fatturazione di sviluppo/test gratuito che include 1.000 operazioni e 2 ore di calcolo al mese.  È possibile passare a un altro piano in base alle proprie esigenze.  I dettagli sui prezzi dei vari piani sono disponibili [qui](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) in "Prezzi API Web di produzione".

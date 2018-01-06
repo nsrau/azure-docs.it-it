@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 23f932f6a82a041ba7c54d00cdee7aa98bfce479
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 4178b07f59885a67b12f0863129995542ee0752a
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="what-is-the-access-panel"></a>Che cos'è il pannello di accesso?
 
@@ -70,7 +70,31 @@ Dopo l'autenticazione, è possibile interagire con le applicazioni che l'amminis
 
 Il pannello di accesso richiede almeno un browser che supporti JavaScript e abbia CSS abilitato. Affinché gli utenti possano accedere alle applicazioni tramite l'accesso Single Sign-On (SSO) basato su password, è necessario installare l'estensione del pannello di accesso nel browser. Questa estensione viene scaricata automaticamente quando si seleziona un'applicazione configurata per l'accesso SSO basato su password.
 
-L'estensione del pannello di accesso è attualmente disponibile per i browser Internet Explorer 8 e versioni successive, Microsoft Edge, Chrome e Firefox.
+L'estensione del Pannello di accesso è attualmente disponibile per:
+-   Edge su Windows 10 Anniversary Edition o versioni successive 
+
+-   Chrome in Windows 7 o versione successiva e MacOS X o versione successiva
+
+-   Firefox 26.0 o versione successiva in Windows XP SP2 o versione successiva e in Mac OS X 10.6 o versione successiva
+
+-   Internet Explorer 8, 9, 10, 11 - in Windows 7 o versioni successive (supporto limitato)
+
+## <a name="my-apps-secure-sign-in-extension"></a>Estensione per l'accesso sicuro alle app personali
+L'estensione è necessaria per gli utenti di effettuare l'accesso basato su password single sign-on. Dopo aver installato gli utenti possono anche abilitare funzionalità aggiuntive accedendo con l'estensione facendo **Accedi per iniziare**. 
+
+- Gli utenti possono accedere alle App direttamente visitando l'app **Sign-on URL**. Quando l'utente passa all'URL di accesso dell'applicazione l'estensione rileverà questa e specificare l'opzione per l'utente esegue l'accesso dall'estensione.
+- Gli utenti inoltre possono avviare le applicazioni dal Pannello di accesso utilizzando il **ricerca rapida** funzionalità dell'estensione. 
+- L'estensione verrà visualizzata anche agli utenti le ultime tre applicazioni vengono avviate nel **usati di recente** sezione.
+> [!NOTE]
+> Altre funzionalità sono disponibili solo per Edge, Chrome, Firefox.
+
+
+Se si utilizza un altro URL App personali di https://myapps.microsoft.com quindi è necessario configurare l'URL predefinito tramite la procedura seguente:
+1. Mentre non è firmato nell'estensione, **destro del mouse su** l'icona di estensione.
+2. Fare clic su **selezionare un URL App personali** dal menu.
+3. **Selezionare** l'URL predefinito.
+4. Fare clic sull'icona di estensione.
+5. Accedi all'estensione selezionando **Accedi per iniziare**.
 
 ## <a name="mobile-app-support"></a>Supporto per app per dispositivi mobili
 

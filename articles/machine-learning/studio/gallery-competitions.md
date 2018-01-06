@@ -1,6 +1,6 @@
 ---
-title: Concorsi di Cortana Intelligence Gallery | Microsoft Docs
-description: Scoprire concorsi in Cortana Intelligence Gallery.
+title: Azure concorsi AI raccolta | Documenti Microsoft
+description: Individuare concorsi nella raccolta di Azure.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: e9c1ae9448ad7179c33bbbafa34a4643a4840d0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1e39d636b3322201465700a4c9de83dda1bbefcc
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-competitions-in-the-cortana-intelligence-gallery"></a>Scoprire concorsi in Cortana Intelligence Gallery
+# <a name="discover-competitions-in-the-azure-ai-gallery"></a>Individuare concorsi nella raccolta di Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="cortana-intelligence-competitions"></a>Concorsi di Cortana Intelligence
@@ -29,12 +29,12 @@ I **[concorsi](https://gallery.cortanaintelligence.com/competitions)** offrono l
 Per consultare le risposte alle domande frequenti sui concorsi, vedere l'articolo [Domande frequenti sui concorsi in Cortana Intelligence Gallery](competition-faq.md).
 
 ## <a name="discover"></a>Scoprire
-  Per cercare i concorsi disponibili in Gallery, aprire [Gallery](http://gallery.cortanaintelligence.com), posizionare il puntatore del mouse su **More** (Più) nella parte alta della home page di Gallery e selezionare **Competitions** (Concorsi).
+Il  **[concorsi](https://gallery.cortanaintelligence.com/competitions)**  pagina ([aka.ms/CIComp](http://aka.ms/CIComp)) Visualizza un elenco di concorsi i più diffusi.
 
 ![Selezionare Competitions (Concorsi) dalla home page di Gallery](./media/gallery-competitions/select-competitions-in-gallery.png)
 
- Nella pagina **[Competitions](https://gallery.cortanaintelligence.com/competitions)** (Concorsi) è disponibile l'elenco dei concorsi più visualizzati.
-Fare clic su **See all** (Visualizza tutto) per visualizzare tutti i concorsi.
+ 
+ Fare clic su **See all** (Visualizza tutto) per visualizzare tutti i concorsi.
 In questa pagina è possibile eseguire la ricerca di tutti i concorsi presenti nella raccolta. È anche possibile eseguire la ricerca selezionando i criteri di filtro a sinistra della pagina e immettendo i termini di ricerca nella parte superiore.
 
  Fare clic su un concorso qualsiasi per aprirne la pagina dei dettagli e leggere maggiori informazioni su di esso. In questa pagina è disponibile una sezione dedicata ai commenti in cui è possibile inserire un commento, inviare suggerimenti o porre una domanda. Usando le funzionalità di condivisione di LinkedIn o Twitter è anche possibile condividere la pagina con amici o colleghi. È inoltre possibile invitare altri utenti a visualizzare la pagina inviando loro un collegamento al concorso tramite posta elettronica.

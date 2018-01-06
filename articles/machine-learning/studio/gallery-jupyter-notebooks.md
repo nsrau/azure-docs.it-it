@@ -1,6 +1,6 @@
 ---
-title: Notebook Jupyter di Cortana Intelligence Gallery | Microsoft Docs
-description: Scoprire notebook di Jupiter in Cortana Intelligence Gallery.
+title: Azure AI raccolta Jupyter notebook | Documenti Microsoft
+description: Individuazione server Jupyter notebook nella raccolta di Azure.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 10828d78f6e16b57c21f4d05b6d6116428ea4039
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 59092514705d998fcf9ff835b3fde8a04f81aac5
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-jupyter-notebooks-in-the-cortana-intelligence-gallery"></a>Scoprire notebook di Jupiter in Cortana Intelligence Gallery
+# <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Individuazione server Jupyter notebook nella raccolta di Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="jupyter-notebooks"></a>Notebook di Jupyter
@@ -40,7 +40,7 @@ In questa pagina è possibile eseguire la ricerca di tutti i notebook della racc
 
 ![Aggiungere un commento](./media/gallery-how-to-use-contribute-publish/comments.png)
 
-## <a name="download"></a>Scaricare
+## <a name="download"></a>Download
 È possibile scaricare nella propria area di lavoro di Machine Learning Studio una copia di un qualsiasi notebook presente in Gallery.
 
 ### <a name="download-from-the-gallery"></a>Download dalla raccolta
@@ -66,7 +66,7 @@ Quando si fa clic su **Open in Studio** (Apri in Studio), il notebook viene cari
 Una copia del notebook viene scaricata e aperta nella propria area di lavoro, nella sezione Jupyter Notebooks (Notebook di Jupiter) di Machine Learning Studio.
 Il notebook verrà elencato insieme agli altri notebook di cui già si dispone nella pagina **Notebooks** (Notebook) di Studio (fare clic su **Notebooks** (Notebook) nella parte sinistra della [home page di Studio](https://studio.azureml.net/)).
 
-**[VAI A GALLERY >>](http://gallery.cortanaintelligence.com)**
+**[VAI A CORTANA INTELLIGENCE GALLERY &gt;&gt;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

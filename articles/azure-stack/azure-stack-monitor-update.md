@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: mabrigg
-ms.openlocfilehash: 55688ad4959d59e41dca9be2d00011e1d41ebd8c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 96eebf340f13f2f5e9e922fee8032d04fce1d130
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Monitorare gli aggiornamenti nello Stack di Azure utilizzando l'endpoint con privilegi
 
 *Si applica a: Azure Stack integrate di sistemi*
 
-Per monitorare lo stato di avanzamento di un'operazione di aggiornamento dello Stack di Azure e per riprendere un aggiornamento non riuscito a eseguire dall'ultima operazione ha esito positivo, è possibile utilizzare l'endpoint con privilegi. 
+È possibile utilizzare l'endpoint con privilegi per monitorare lo stato di avanzamento di un'esecuzione di aggiornamento dello Stack di Azure e per riprendere un aggiornamento non riuscito a eseguire dall'ultima operazione ha esito positivo devono lo Stack di Azure portal diventano non disponibili.  Tramite il portale di Azure Stack è il metodo consigliato per gestire gli aggiornamenti nello Stack di Azure.
 
 I seguenti nuovi cmdlet di PowerShell per la gestione degli aggiornamenti sono inclusi nell'aggiornamento 1710 per i sistemi Azure Stack integrato.
 
-| Cmdlet  | Descrizione  |
+| Cmdlet  | DESCRIZIONE  |
 |---------|---------|
 | `Get-AzureStackUpdateStatus` | Restituisce lo stato dell'aggiornamento attualmente in esecuzione, completato o non riuscito. Fornisce lo stato di alto livello di operazione di aggiornamento e un documento XML che descrive il passaggio corrente sia stato corrispondente. |
 | `Get-AzureStackUpdateVerboseLog` | Restituisce i log dettagliati generati dall'aggiornamento. |
@@ -70,7 +70,7 @@ Poiché i cmdlet sono nuovi nel pacchetto di aggiornamento 1710 per lo Stack di 
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName 
    ```
-   ad esempio:
+   Ad esempio: 
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName
    
@@ -190,7 +190,7 @@ Se l'aggiornamento non riesce, è possibile riprendere l'aggiornamento eseguito 
 Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate } 
 ```
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 L'endpoint con privilegi è disponibile in tutte le macchine virtuali ERCS nell'ambiente dello Stack di Azure. Poiché non viene stabilita la connessione a un endpoint a disponibilità elevata, potrebbero verificarsi interruzioni occasionali, avvisi o messaggi di errore. Questi messaggi possono indicare che la sessione è stata disconnessa o che si è verificato un errore di comunicazione con il servizio ECE. Questo comportamento è previsto. È possibile ripetere l'operazione tra qualche minuto o creare una nuova sessione di endpoint con privilegi in una delle altre macchine virtuali ERCS. 
 

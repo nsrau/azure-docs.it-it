@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/05/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b852712edd897e99c89341a90a44ae50538212a1
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 0032a00883cedfe754e14293dc13a1009f6dd3a0
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
@@ -35,9 +35,9 @@ In Azure Cosmos DB è possibile archiviare dati ed eseguire query senza schema c
 
 I contenitori sono risorse logiche e possono comprendere una o più partizioni fisiche o server. Il numero di partizioni è determinato da Azure Cosmos DB in base allo spazio di archiviazione e alla velocità effettiva con provisioning del contenitore. 
 
-Una partizione fisica è una quantità fissa di archiviazione riservata di backup unità SSD, con un massimo di 10 GB. Ogni partizione fisica viene replicato per la disponibilità elevata. Uno o più partizioni fisiche costituiscono da un contenitore. Gestione di partizioni fisiche è completamente gestiti da Azure Cosmos DB, e non è necessario scrivere codice complesso o gestire le partizioni. I contenitori di Azure Cosmos DB sono illimitati in termini di risorse di archiviazione e di velocità effettiva. 
+Una partizione fisica è una quantità fissa di archiviazione di backup unità SSD riservata. Ogni partizione fisica viene replicato per la disponibilità elevata. Uno o più partizioni fisiche costituiscono da un contenitore. Gestione di partizioni fisiche è completamente gestiti da Azure Cosmos DB, e non è necessario scrivere codice complesso o gestire le partizioni. I contenitori di Azure Cosmos DB sono illimitati in termini di risorse di archiviazione e di velocità effettiva. 
 
-Una partizione logica è una partizione all'interno di una partizione fisica, che archivia tutti i dati associati a un valore di chiave singola partizione. Nel diagramma seguente, un singolo contenitore dispone di tre partizioni logiche. Ogni partizione logica archivia i dati per una chiave di partizione, LAX AMS e MEL rispettivamente. Ognuna delle partizioni logiche LAX AMS e MEL dimensioni non può aumentare oltre il limite della partizione fisica massima di 10 GB. 
+Una partizione logica è una partizione all'interno di una partizione fisica che archivia tutti i dati associati a un valore di chiave singola partizione. Una partizione logica dispone di un massimo di 10 GB. Nel diagramma seguente, un singolo contenitore dispone di tre partizioni logiche. Ogni partizione logica archivia i dati per una chiave di partizione, LAX AMS e MEL rispettivamente. Ognuna delle partizioni logiche LAX AMS e MEL dimensioni non può aumentare oltre il limite massimo di partizioni logiche di 10 GB. 
 
 ![Partizionamento delle risorse](./media/introduction/azure-cosmos-db-partitioning.png) 
 
@@ -45,7 +45,7 @@ Quando una raccolta soddisfa il [partizionamento prerequisiti](#prerequisites), 
 
 ## <a name="how-does-partitioning-work"></a>Come funziona il partizionamento
 
-Per il partizionamento, ogni elemento deve avere una chiave di partizione e una chiave di riga che lo identificano in modo univoco. La chiave di partizione funge da partizione logica per i dati e garantisce ad Azure Cosmos DB un limite naturale per la distribuzione dei dati tra partizioni. Tenere presente che una partizione logica può estendersi su più partizioni fisiche, ma la gestione delle partizioni fisiche è gestita da Azure Cosmos DB. 
+Per il partizionamento, ogni elemento deve avere una chiave di partizione e una chiave di riga che lo identificano in modo univoco. La chiave di partizione funge da una partizione logica per i dati e fornisce DB Cosmos Azure con un limite naturale per la distribuzione dei dati tra partizioni fisiche. Tenere presente che i dati per una singola partizione logica devono trovarsi all'interno di una singola partizione fisica, ma gestione partizione fisica è gestito da Azure Cosmos DB. 
 
 In sintesi, il partizionamento in Azure Cosmos DB funziona nel modo seguente:
 

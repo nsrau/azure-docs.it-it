@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 2b274244cc7b7fd0fc3eee22a57a51db77370370
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: b8075f0e1149a6fc5194347fc34e2a16d5eb2ffc
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="assessment-calculations"></a>Calcoli delle valutazioni
 
@@ -47,10 +47,11 @@ I computer di cui si vuole eseguire la migrazione ad Azure devono soddisfare i r
 
 Dopo che un computer è stato contrassegnato come adatto per Azure, Azure Migrate esegue il mapping alle dimensioni di una macchina virtuale in Azure usando i criteri seguenti:
 
-- **Controllo dell'archiviazione**: Azure Migrate prova a eseguire il mapping di ogni disco collegato al computer a un disco di Azure: - Azure Migrate moltiplica le operazioni di I/O al secondo per il fattore di comfort. Moltiplica anche la velocità effettiva (in Mbps) di ogni disco per il fattore di comfort. In questo modo vengono calcolati l'effettivo numero di operazioni di I/O al secondo e la velocità effettiva del disco. In base a questi dati, Azure Migrate esegue il mapping del disco a un disco standard o premium di Azure.
-    - Se il servizio non riesce a trovare un disco con le operazioni di I/O al secondo e la velocità effettiva necessarie, contrassegna il computer come non adatto per Azure.
-    - Se trova un set di dischi adatti, Azure Migrate seleziona quelli che supportano il metodo di ridondanza dell'archiviazione e il percorso specificato nelle impostazioni di valutazione.
-    - Se sono presenti più dischi idonei, viene selezionato quello con il costo più basso.
+- **Controllo archiviazione**: eseguire la migrazione di Azure tenta di eseguire il mapping di ogni disco collegato alla macchina un disco in Azure:
+    - Migrazione Azure Moltiplica il / o al secondo (IOPS) per il fattore di comodità. Moltiplica anche la velocità effettiva (in Mbps) di ogni disco per il fattore di comfort. In questo modo vengono calcolati l'effettivo numero di operazioni di I/O al secondo e la velocità effettiva del disco. In base a questi dati, Azure Migrate esegue il mapping del disco a un disco standard o premium di Azure.
+      - Se il servizio non riesce a trovare un disco con le operazioni di I/O al secondo e la velocità effettiva necessarie, contrassegna il computer come non adatto per Azure.
+      - Se trova un set di dischi adatti, Azure Migrate seleziona quelli che supportano il metodo di ridondanza dell'archiviazione e il percorso specificato nelle impostazioni di valutazione.
+      - Se sono presenti più dischi idonei, viene selezionato quello con il costo più basso.
 - **Velocità effettiva del disco di archiviazione**: sono disponibili [altre informazioni](../azure-subscription-service-limits.md#storage-limits) sulle limitazioni di Azure per disco e macchina virtuale.
 - **Tipo di disco**: Azure Migrate supporta solo i dischi gestiti.
 - **Controllo di rete**: Azure Migrate prova a trovare una macchina virtuale di Azure in grado di supportare il numero di NIC nel computer locale.

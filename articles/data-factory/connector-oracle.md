@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 8742860ce5950271189b8903f281d5643eac4a5f
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
-ms.translationtype: HT
+ms.openlocfilehash: ff5dc0d2c5f744cb42da715713977fdc89a96edf
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-from-and-to-oracle-using-azure-data-factory"></a>Copiare dati da e in Oracle usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ In particolare, il connettore Oracle supporta le versioni seguenti del database 
 
 Per copiare dati da/in un database Oracle non accessibile pubblicamente, è necessario configurare un runtime di integrazione self-hosted. Per altri dettagli sul runtime di integrazione, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md). Il runtime di integrazione offre un driver per Oracle integrato e non è quindi necessario installare manualmente alcun driver quando si copiano dati da/in Oracle.
 
-## <a name="getting-started"></a>introduttiva
+## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di Data Factory specifiche per il connettore Oracle.
@@ -54,11 +54,11 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Oracle sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Oracle** | Sì |
-| connectionString | Specificare le informazioni necessarie per la connessione all'istanza del database Oracle. Contrassegnare questo campo come SecureString. | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectionString | Specificare le informazioni necessarie per la connessione all'istanza del database Oracle. Contrassegnare questo campo come SecureString.<br><br>**Tipo di connessione supportati**: è possibile scegliere di utilizzare **SID Oracle** o **nome del servizio Oracle** per identificare il database:<br>-Utilizzo di SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>-Nome del servizio di utilizzo:`Host=<host>;Port=<port>;ServiceName=<sid>;User Id=<username>;Password=<password>;` | Sì |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
 **Esempio:**
 
@@ -87,7 +87,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da/in Oracle, impostare la proprietà type del set di dati su **OracleTable**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **OracleTable** | Sì |
 | tableName |Nome della tabella nell'istanza del database Oracle a cui fa riferimento il servizio collegato. | Sì |
@@ -119,10 +119,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Oracle, impostare il tipo di origine nell'attività di copia su **OracleSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **OracleSource** | Sì |
-| oracleReaderQuery | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No |
+| oracleReaderQuery | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No  |
 
 Se non si specifica "oracleReaderQuery", le colonne definite nella sezione "struttura" del set di dati vengono usate per creare una query, `select column1, column2 from mytable`, da eseguire nel database Oracle. Se nella definizione del set di dati non è inclusa la "struttura", vengono selezionate tutte le colonne della tabella.
 
@@ -162,12 +162,12 @@ Se non si specifica "oracleReaderQuery", le colonne definite nella sezione "stru
 
 Per copiare dati in Oracle, impostare il tipo di sink nell'attività di copia su **OracleSink**. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del sink dell'attività di copia deve essere impostata su: **OracleSink** | Sì |
 | writeBatchSize | Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize.<br/>I valori consentiti sono: integer (numero di righe). |No (il valore predefinito è 10.000) |
-| writeBatchTimeout | Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>I valori consentiti sono: intervallo di tempo. Ad esempio: "00:30:00" (30 minuti). | No |
-| preCopyScript | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in Oracle ad ogni esecuzione. È possibile usare questa proprietà per pulire i dati precaricati. | No |
+| writeBatchTimeout | Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>I valori consentiti sono: intervallo di tempo. Ad esempio: "00:30:00" (30 minuti). | No  |
+| preCopyScript | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in Oracle ad ogni esecuzione. È possibile usare questa proprietà per pulire i dati precaricati. | No  |
 
 **Esempio:**
 
@@ -208,25 +208,25 @@ Quando si copiano dati da/in Oracle, vengono usati i mapping seguenti tra i tipi
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(supportato solo in Oracle 10g e versioni successive) |
-| CHAR |String |
-| CLOB |String |
-| DATE |DateTime |
+| CHAR |string |
+| CLOB |string |
+| DATE |Datetime |
 | FLOAT |Decimal, String (se la precisione > 28) |
 | INTEGER |Decimal, String (se la precisione > 28) |
-| LONG |String |
+| LONG |string |
 | LONG RAW |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
+| NCHAR |string |
+| NCLOB |string |
 | NUMBER |Decimal, String (se la precisione > 28) |
-| NVARCHAR2 |String |
+| NVARCHAR2 |string |
 | RAW |Byte[] |
-| ROWID |String |
-| TIMESTAMP |DateTime |
-| TIMESTAMP WITH LOCAL TIME ZONE |String |
-| TIMESTAMP WITH TIME ZONE |String |
+| ROWID |string |
+| TIMESTAMP |Datetime |
+| TIMESTAMP WITH LOCAL TIME ZONE |string |
+| TIMESTAMP WITH TIME ZONE |string |
 | UNSIGNED INTEGER |NUMBER |
-| VARCHAR2 |String |
-| XML |String |
+| VARCHAR2 |string |
+| XML |string |
 
 > [!NOTE]
 > I tipi di dati INTERVAL YEAR TO MONTH e INTERVAL DAY TO SECOND non sono supportati.

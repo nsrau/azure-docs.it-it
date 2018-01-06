@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: roastala
-ms.openlocfilehash: 5f45a500c7cc28b6d6ad3fcac780791d43067ff3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a43dc7162be4b2f3cfd122c6a87921caf2e3e418
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Creare modelli di analisi del testo in Azure Machine Learning Studio
 È possibile usare Azure Machine Learning per creare modelli di analisi del testo e renderli operativi. Questi modelli consentono di risolvere, ad esempio, problemi di classificazione dei documenti o analisi di valutazione.
@@ -33,7 +33,7 @@ In un esperimento di analisi del testo è necessario in genere:
 
 In questa esercitazione si apprenderanno questi passaggi eseguendo un modello di analisi di valutazione mediante il set di dati di Amazon Book Reviews (vedere il documento di ricerca “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” di John Blitzer, Mark Dredze e Fernando Pereira; Association of Computational Linguistics (ACL), 2007). Questo set di dati è costituito da punteggi di recensione (1-2 o 4-5) e testo in formato libero. L'obiettivo consiste nella stima del punteggio di recensione: basso (1-2) o alto (4-5).
 
-È possibile trovare gli esperimenti trattati in questa esercitazione nella raccolta Cortana Intelligence:
+È possibile trovare esperimenti trattati in questa esercitazione in Azure AI raccolta:
 
 [Stimare le recensioni dei libri](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 
@@ -88,6 +88,6 @@ Si inseriscono le colonne selezionate nel modulo Select Columns in Dataset prima
 
 Ora abbiamo un esperimento che può essere pubblicato come servizio Web e chiamato mediante le API di richiesta-risposta o di esecuzione in batch.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Per informazioni sui moduli di analisi del testo, vedere la [documentazione su MSDN](https://msdn.microsoft.com/library/azure/dn905886.aspx).
 

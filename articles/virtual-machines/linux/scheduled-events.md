@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 7be60bfebee80e92c69f87432124ff9b667ab4f1
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: ae9955253647f3277729e7905baf7bb07645de42
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Azure Metadata Service: Gli eventi pianificati (anteprima) per le macchine virtuali Linux
 
@@ -184,7 +184,7 @@ import urllib2
 import socket
 import sys
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01"
 headers = "{Metadata:true}"
 this_host = socket.gethostname()
 
@@ -204,13 +204,14 @@ def handle_scheduled_events(data):
         resourcetype = evt['ResourceType']
         notbefore = evt['NotBefore'].replace(" ","_")
         if this_host in resources:
-            print "+ Scheduled Event. This host is scheduled for " + eventype + " not before " + notbefore
+            print "+ Scheduled Event. This host " + this_host + " is scheduled for " + eventtype + " not before " + notbefore
             # Add logic for handling events here
+
 
 def main():
    data = get_scheduled_events()
    handle_scheduled_events(data)
-   
+
 if __name__ == '__main__':
   main()
   sys.exit(0)

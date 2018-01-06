@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: negat
-ms.openlocfilehash: 60468860a8fe7d10bf0f25b92f4313aaa2614db3
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 145f4ec92b142a1585ba17bf6e49c7824cc32529
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Aggiornamenti automatici del sistema operativo per un set di scalabilità di macchine virtuali di Azure
 
@@ -152,7 +152,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname -Virtual
 
 Nell'esempio seguente viene usata l'interfaccia della riga di comando di Azure (2.0.20 o versione successiva) per configurare gli aggiornamenti automatici per il set di scalabilità denominato *myVMSS* nel gruppo di risorse denominato *myResourceGroup*:
 
-```azure-cli
+```azurecli
 rgname="myResourceGroup"
 vmssname="myVMSS"
 az vmss update --name $vmssname --resource-group $rgname --set upgradePolicy.AutomaticOSUpgrade=true
@@ -172,7 +172,7 @@ Get-AzureRmVmssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName
 ### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
 Nell'esempio seguente viene usata l'interfaccia della riga di comando di Azure (2.0.20 o versione successiva) per controllare lo stato per il set di scalabilità denominato *myVMSS* nel gruppo di risorse denominato *myResourceGroup*:
 
-```azure-cli
+```azurecli
 az vmss rolling-upgrade get-latest --resource-group myResourceGroup --name myVMSS
 ```
 

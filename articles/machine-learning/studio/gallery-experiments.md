@@ -1,6 +1,6 @@
 ---
-title: Esperimenti di Cortana Intelligence Gallery | Documentazione Microsoft
-description: Scoprire e condividere esperimenti in Cortana Intelligence Gallery.
+title: Raccolta di Azure AI esperimenti | Documenti Microsoft
+description: Individuare e condividere gli esperimenti nella raccolta di Azure AI.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 472ecac4ac1d9a86f0a3ad8271dd96257c331e5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ad41d431b78a69e54bb5e4df3aaea1ec7c858b7f
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-experiments-in-cortana-intelligence-gallery"></a>Scoprire esperimenti in Cortana Intelligence Gallery
+# <a name="discover-experiments-in-azure-ai-gallery"></a>Individuare i seguenti esperimenti nella raccolta di Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="experiments-for-machine-learning-studio"></a>Esperimenti per Machine Learning Studio
@@ -42,10 +42,10 @@ Nella pagina **[Esperimenti](https://gallery.cortanaintelligence.com/experiments
 
 ![Aggiungere un commento](./media/gallery-how-to-use-contribute-publish/comments.png)
 
-## <a name="download"></a>Scaricare
+## <a name="download"></a>Download
 È possibile scaricare nella propria area di lavoro di Machine Learning Studio una copia di un qualsiasi esperimento presente in Gallery. A quel punto è possibile modificare la copia per creare soluzioni personalizzate.
 
-Cortana Intelligence Gallery offre due modi per importare la copia di un esperimento:
+Raccolta di Azure AI offre due modi per importare una copia di un esperimento:
 
 * **Da Gallery**. Se si trova un esperimento di proprio interesse in Gallery, è possibile scaricarne e aprirne una copia nella propria area di lavoro di Machine Learning Studio.
 * **Da Machine Learning Studio**. In Machine Learning Studio è possibile usare qualsiasi esperimento presente in Gallery come modello per creare un nuovo esperimento.

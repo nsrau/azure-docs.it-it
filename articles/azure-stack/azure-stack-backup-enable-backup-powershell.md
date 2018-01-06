@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: e0be5f1916ddb653550e6428201356290560c00e
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: b4f48b7fd07c5fb590b6989e04e9084c86142d2a
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Abilitare il Backup per lo Stack di Azure con PowerShell
 
@@ -107,7 +107,7 @@ Nella stessa sessione di PowerShell, modificare lo script di PowerShell seguente
     $location = Get-AzsLocation
     $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
 
-Set-AzSBackupShare -Location $location -Path $path -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey 
+Set-AzSBackupShare -Location $location -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey 
 
    ```
 ##  <a name="confirm-backup-settings"></a>Confermare le impostazioni di backup

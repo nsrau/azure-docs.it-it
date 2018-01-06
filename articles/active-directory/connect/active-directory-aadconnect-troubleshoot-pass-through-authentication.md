@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/05/2018
 ms.author: billmath
-ms.openlocfilehash: d25f682d3c42f95752d09454f778c3975f551cca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b842791be74094c87643528c0b4d3a65be6b3cb1
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Risolvere i problemi di autenticazione pass-through di Azure Active Directory
 
@@ -165,7 +165,7 @@ Se la registrazione di controllo è abilitata, sono disponibili informazioni agg
     </QueryList>
 ```
 
-### <a name="performance-monitor-counters"></a>Contatori di Performance Monitor
+## <a name="performance-monitor-counters"></a>Contatori di Performance Monitor
 
 Un altro metodo per monitorare gli agenti di autenticazione consiste nel monitorare contatori di Performance Monitor specifici in ogni server in cui è installato l'agente di autenticazione. Usare i contatori globali (relativi a **numero di autenticazioni pass-through**, **numero di autenticazioni pass-through non riuscite** e **numero di autenticazioni pass-through riuscite**) e i contatori di errori (relativi a **numero di errori di autenticazione pass-through**) seguenti:
 

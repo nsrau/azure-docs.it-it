@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2017
 ms.author: sethm;darosa
-ms.openlocfilehash: 81614f8061fdf15c55e61ee06eec54fa6a6a02f0
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: fbd4aef62891341ad3760b74cd8aaee7abf7b827
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-event-hubs-capture"></a>Acquisizione di Hub eventi di Azure
 
@@ -45,7 +45,7 @@ Acquisizione di Hub eventi consente di configurare una finestra per controllare 
 Si noti che i valori di data vengono riempiti con zeri; potrebbe essere un nome di file di esempio:
 
 ```
-https://mynamespace.blob.core.windows.net/mycapturehub/mypartition/mysecondhub/0/2017/12/08/03/03/17.avro
+https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
 ```
 
 ### <a name="scaling-to-throughput-units"></a>Ridimensionamento alle unità elaborate

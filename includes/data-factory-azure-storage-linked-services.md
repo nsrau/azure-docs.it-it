@@ -1,7 +1,7 @@
 ### <a name="azure-storage-linked-service"></a>Servizio collegato Archiviazione di Azure
 Il **servizio collegato ad Archiviazione di Azure** consente di collegare un account di Archiviazione di Azure a una data factory di Azure tramite la **chiave dell'account**, che fornisce alla data factory l'accesso globale ad Archiviazione di Azure. La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato Archiviazione di Azure.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type |La proprietà type deve essere impostata su: **AzureStorage** |Sì |
 | connectionString |Specificare le informazioni necessarie per connettersi all’archivio Azure per la proprietà connectionString. |Sì |
@@ -27,11 +27,14 @@ Una firma di accesso condiviso (SAS) fornisce accesso delegato alle risorse nell
 
 > [!IMPORTANT]
 > Azure Data Factory supporta attualmente solo il **servizio di firma di accesso condiviso**, ma non la firma di accesso condiviso dell'account. Vedere [Tipi di firme di accesso condiviso](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) per informazioni dettagliate su questi due tipi e sulla modalità di costruzione. Si noti che l'URL di firma di accesso condiviso generabile dal portale di Azure o da Storage Explorer è una firma di accesso condiviso dell'account, che non è supportata.
-> 
+
+> [!TIP]
+> È possibile eseguire i comandi di PowerShell per generare una firma di accesso condiviso del servizio per l'account di archiviazione (sostituire i segnaposto e concedere l'autorizzazione necessaria) di seguito:`$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Il servizio collegato di firma di accesso condiviso Archiviazione di Azure consente di collegare un account di Archiviazione di Azure a Data factory di Azure tramite una firma di accesso condiviso. Offre a Data factory un accesso con restrizioni o limiti di tempo a tutte le risorse o a risorse specifiche (BLOB/contenitore) nella risorsa di archiviazione. La tabella seguente fornisce la descrizione degli elementi JSON specifici del servizio collegato di firma di accesso condiviso Archiviazione di Azure. 
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type |La proprietà type deve essere impostata su: **AzureStorageSas** |Sì |
 | sasUri |Specificare l'URI della firma di accesso condiviso per le risorse di Archiviazione di Azure come BLOB, contenitore o tabella.  |Sì |

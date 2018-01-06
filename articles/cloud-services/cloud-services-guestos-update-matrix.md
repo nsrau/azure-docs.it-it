@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 1/4/2018
 ms.author: raiye
-ms.openlocfilehash: 4172af775c041cc23663ed5572a46f0a49fdf5d3
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: e645d57dfff040eb05f4d395fac058b2b485933b
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
@@ -42,6 +42,8 @@ Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure p
 Non si è certi di quale sia il sistema operativo guest o di come funzionano i rilasci del sistema operativo guest? Leggere [questa](#how-it-works) sezione.
 
 ## <a name="news-updates"></a>Novità e aggiornamenti
+###### <a name="january-4-2018"></a>**4 gennaio 2018**
+Il sistema operativo Guest di gennaio è stato rilasciato per 4 famiglie del sistema operativo (WA-GUEST-OS-4.50_201801-01) & 5 (WA-GUEST-OS-5.15_201801-01) e contiene le patch di sicurezza importante.  
 
 ###### <a name="january-4-2018"></a>**4 gennaio 2018**
 Dicembre del sistema operativo Guest è stata rilasciata.
@@ -88,6 +90,7 @@ Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.15_201801-01 |4 gennaio 2018 |Post 5.17 |Da definire |
 | WA-GUEST-OS-5.14_201712-01 |4 gennaio 2018 |Post 5.16 |Da definire |
 | WA-GUEST-OS-5.13_201711-01 |14 dicembre 2017 |Post 5.15 |Da definire |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 novembre 2017 |4 gennaio 2018 |Da definire |
@@ -112,6 +115,7 @@ Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.50_201801-01 |4 gennaio 2018 |Post 4.52 |Da definire |
 | WA-GUEST-OS-4.49_201712-01 |4 gennaio 2018 |Post da 4,51 |Da definire |
 | WA-GUEST-OS-4.48_201711-01 |14 dicembre 2017 |Post 4,50 |Da definire |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 novembre 2017 |4 gennaio 2018 |Da definire |

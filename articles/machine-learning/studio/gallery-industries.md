@@ -1,6 +1,6 @@
 ---
-title: Soluzioni specifiche del settore di Cortana Intelligence Gallery | Documentazione Microsoft
-description: Scoprire soluzioni di settore in Cortana Intelligence Gallery.
+title: Soluzioni di Azure AI raccolta specifici del settore | Documenti Microsoft
+description: Consente di individuare soluzioni nella raccolta di Azure.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 0dec0f47eced45c496399bc6b84169116dcc551d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 9b9f835620153d0e68e8c5504eab00d7b6e0f1e8
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-industry-specific-solutions-in-the-cortana-intelligence-gallery"></a>Scoprire soluzioni specifiche del settore in Cortana Intelligence Gallery
+# <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Individuare soluzioni specifici del settore nella raccolta di Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="industry-specific-cortana-intelligence-solutions"></a>Soluzioni specifiche del settore di Cortana Intelligence
@@ -46,7 +46,7 @@ In questa pagina è possibile eseguire la ricerca di tutte le risorse presenti n
 
  Fare clic su un qualsiasi elemento di Gallery per aprirne la pagina dei dettagli e visualizzare maggiori informazioni.
 
-**[VAI A GALLERY &gt;&gt;](http://gallery.cortanaintelligence.com)**
+**[VAI A CORTANA INTELLIGENCE GALLERY &gt;&gt;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

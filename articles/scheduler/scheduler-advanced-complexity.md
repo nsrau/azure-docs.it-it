@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e1e45d394a4c442a4fb255ed6d838a589e98860e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Come creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Alla base dell’Utilità di pianificazione di Azure c’è la *pianificazione*. La pianificazione determina come e quando l'Utilità di Pianificazione esegue il processo.
 
 L’Utilità di pianificazione di Azure consente di specificare pianificazioni varie, sia monouso che ricorrenti, per un processo. Le pianificazioni *monouso* vengono eseguite una volta sola all'ora specificata. Si tratta in effetti di pianificazioni *ricorrenti* che vengono eseguite solo una volta. Le pianificazioni ricorrenti vengono eseguite con una frequenza predeterminata.
@@ -59,7 +59,7 @@ Per creare una pianificazione semplice con l'[API REST dell'Utilità di pianific
         "recurrence":                     // optional
         {
             "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
-            "interval": 1,                // optional, how often to fire (default to 1)
+            "interval": 1,                // how often to fire
             "schedule":                   // optional (advanced scheduling specifics)
             {
                 "weekDays": ["monday", "wednesday", "friday"],
@@ -89,13 +89,13 @@ Dopo questa panoramica, esaminiamo ciascuno di questi elementi in modo dettaglia
 
 | **Nome JSON** | **Tipo di valore** | **Obbligatorio?** | **Valore predefinito** | **Valori validi** | **Esempio** |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| ***startTime*** |String |No |None |Date-Ore ISO-8601 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
-| ***recurrence*** |Oggetto |No |None |Oggetto ricorrenza |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
-| ***frequency*** |String |Sì |None |"minute", "hour", "day", "week", "month" |<code>"frequency" : "hour"</code> |
-| ***interval*** |Number |No |1 |Da 1 a 1000. |<code>"interval":10</code> |
-| ***endTime*** |String |No |None |Il valore Data-Ora fa riferimento a un momento nel futuro |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
-| ***count*** |Number |No |None |>= 1 |<code>"count": 5</code> |
-| ***schedule*** |Oggetto |No |None |Oggetto pianificazione |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
+| ***startTime*** |string |No  |Nessuna |Date-Ore ISO-8601 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
+| ***recurrence*** |Oggetto |No  |Nessuna |Oggetto ricorrenza |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
+| ***frequency*** |string |Sì |Nessuna |"minute", "hour", "day", "week", "month" |<code>"frequency" : "hour"</code> |
+| ***interval*** |Number |Sì |Nessuna |Da 1 a 1000. |<code>"interval":10</code> |
+| ***endTime*** |string |No  |None |Il valore Data-Ora fa riferimento a un momento nel futuro |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
+| ***count*** |Number |No  |Nessuna |>= 1 |<code>"count": 5</code> |
+| ***schedule*** |Oggetto |No  |Nessuna |Oggetto pianificazione |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
 
 ## <a name="deep-dive-starttime"></a>Approfondimenti: *startTime*
 La tabella seguente illustra come *startTime* controlla la modalità di esecuzione di un processo.
@@ -125,11 +125,11 @@ La tabella seguente illustra in modo dettagliato gli elementi dell'oggetto *sche
 
 | **Nome JSON** | **Descrizione** | **Valori validi** |
 |:--- |:--- |:--- |
-| **minutes** |Minuti dell'ora in cui verrà eseguito il processo |<ul><li>Numero intero o</li><li>Matrice di numeri interi</li></ul> |
-| **hours** |Ora del giorno in cui verrà eseguito il processo |<ul><li>Numero intero o</li><li>Matrice di numeri interi</li></ul> |
-| **weekDays** |Giorni della settimana in cui verrà eseguito il processo. Può essere specificato solo con una frequenza settimanale. |<ul><li>I valori consentiti sono "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" o "Sunday"</li><li>Matrice dei valori precedenti (dimensione massima della matrice: 7)</li></ul>*Non* viene applicata la distinzione tra maiuscole e minuscole |
-| **monthlyOccurrences** |Determina in quali giorni del mese verrà eseguito il processo. Può essere specificato solo con una frequenza mensile. |<ul><li>Matrice di oggetti monthlyOccurrence:</li></ul> <pre>{ "day": *day*,<br />  "occurrence":*occurrence*<br />}</pre><p> *day* è il giorno della settimana in cui verrà eseguito il processo, ad esempio {Sunday} corrisponde a ogni domenica del mese. Richiesto.</p><p>*occurrence* è l'occorrenza del giorno durante il mese, ad esempio {Sunday, -1} corrisponde all'ultima domenica del mese. Facoltativo.</p> |
-| **monthDays** |Giorno del mese in cui verrà eseguito il processo. Può essere specificato solo con una frequenza mensile. |<ul><li>Qualsiasi valore <= -1 e >= -31.</li><li>Qualsiasi valore >= 1 e <= 31.</li><li>Matrice dei valori precedenti</li></ul> |
+| **minutes** |Minuti dell'ora in cui verrà eseguito il processo |<ul><li>Matrice di numeri interi</li></ul> |
+| **hours** |Ora del giorno in cui verrà eseguito il processo |<ul><li>Matrice di numeri interi</li></ul> |
+| **weekDays** |Giorni della settimana in cui verrà eseguito il processo. Può essere specificato solo con una frequenza settimanale. |<ul><li>Matrice di uno del sotto valori (dimensione matrice massima 7)<ul><li>"Lunedì"</li><li>"Martedì"</li><li>"Mercoledì"</li><li>"Giovedì"</li><li>"Venerdì"</li><li>"Sabato"</li><li>"Domenica"</li></ul></li></ul>*Non* viene applicata la distinzione tra maiuscole e minuscole |
+| **monthlyOccurrences** |Determina in quali giorni del mese verrà eseguito il processo. Può essere specificato solo con una frequenza mensile. |<ul><li>Matrice di oggetti monthlyOccurrence:</li></ul> <pre>{ "day": *day*,<br />  "occurrence":*occurrence*<br />}</pre><p> *day* è il giorno della settimana in cui verrà eseguito il processo, ad esempio {Sunday} corrisponde a ogni domenica del mese. Richiesto.</p><p>*occurrence* è l'occorrenza del giorno durante il mese, ad esempio {Sunday, -1} corrisponde all'ultima domenica del mese. facoltativo.</p> |
+| **monthDays** |Giorno del mese in cui verrà eseguito il processo. Può essere specificato solo con una frequenza mensile. |<ul><li>Matrice di valori di sotto</li><ul><li>Qualsiasi valore <= -1 e >= -31.</li><li>Qualsiasi valore >= 1 e <= 31.</li></ul></ul> |
 
 ## <a name="examples-recurrence-schedules"></a>Esempi: Pianificazioni di ricorrenza
 Di seguito sono riportati diversi esempi di pianificazioni di ricorrenza – concentrarsi sull'oggetto pianificazione e i relativi elementi secondari.

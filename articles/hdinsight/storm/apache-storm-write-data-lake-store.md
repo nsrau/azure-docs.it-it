@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: 485bc8e21e92b7dc5734458506c6825d349c45f9
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 5550dc2ffc53c6ccd30ecb4901ec98c4d38e366b
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
@@ -140,7 +140,7 @@ Per altre informazioni sul framework Flux, vedere [https://storm.apache.org/rele
 
 Per impostazione predefinita, Storm in HDInsight non include i componenti che HdfsBolt usa per comunicare con Archiviazione di Azure o Data Lake Store nel classpath di Storm. Usare la seguente azione script per aggiungere questi componenti alla directory `extlib` per Storm nel cluster:
 
-* URI script: `https://gist.githubusercontent.com/Blackmist/dbd4a3f555397a84ac1074ee73484df2/raw/63a76e559efd532021580d079e378c6b2f8c475e/stormextlib.sh`
+* URI script: `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
 * Nodi da applicare a: Nimbus, Supervisor
 * Parametri: nessuno
 

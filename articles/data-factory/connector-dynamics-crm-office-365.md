@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: b0906ef180359cef2f83042d9aa5a0f8296bac8a
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: b9b7091a8cb1de3eefcce77cbf82eedfcb33c787
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Copiare dati da/in Dynamics 365/Dynamics CRM usando Azure Data Factory
 
@@ -68,10 +68,10 @@ Per il servizio collegato di Dynamics sono supportate le proprietà seguenti:
 | authenticationType | Il tipo di autenticazione per la connessione al server Dynamics. Specificare **"Office365"** per Dynamics Online. | Sì |
 | username | Specificare il nome utente per la connessione a Dynamics. | Sì |
 | password | Specificare la password per l'account utente specificato per il nome utente. È necessario inserire la password in Azure Key Vault e configurarla come "AzureKeyVaultSecret". Per altre informazioni, vedere [Archiviare le credenziali nell'insieme di credenziali delle chiavi](store-credentials-in-key-vault.md). | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No per l'origine, Sì per il sink |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | Non per l'origine, Sì per il sink se origine collegato servizio privo di IR |
 
 >[!IMPORTANT]
->Per copiare i dati in Dynamics, [creare un runtime di integrazione di Azure](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con una posizione prossima a Dynamics e associarlo al servizio collegato come illustrato nell'esempio seguente.
+>Quando si copiano dati **in** Dynamics, impostazione predefinita, il Runtime di integrazione di Azure non può essere utilizzato per eseguire copia. In altre parole, se l'origine collegato servizio non ha un IR specificato, in modo esplicito [creare un IR Azure](create-azure-integration-runtime.md#create-azure-ir) con un percorso del Dynamics e associare nel servizio collegato Dynamics quasi come nell'esempio seguente.
 
 **Esempio: Dynamics Online usando l'autenticazione di Office365**
 

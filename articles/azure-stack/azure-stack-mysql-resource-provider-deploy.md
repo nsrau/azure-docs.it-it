@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: JeffGo
-ms.openlocfilehash: 71abceb1afe315a09ea88b593f9806e9e8b31f16
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 065d4cbc9a324f00a0985c4ebed3d4dffc79d91a
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Utilizzare i database MySQL in Microsoft Azure Stack
 
@@ -71,6 +71,7 @@ L'account di sistema deve disporre dei privilegi seguenti:
 
     | Compilazione di Azure Stack | Programma di installazione di MySQL RP |
     | --- | --- |
+    | 1.0.180102.3 | **Attendere. Per ulteriori informazioni, le compilazioni corrente non è possibile installare ma continueranno a essere eseguito su più nodi dopo un aggiornamento dello Stack di Azure.** |
     | 1.0.171122.1 | [RP MySQL versione 1.1.12.0](https://aka.ms/azurestackmysqlrp) |
     | 1.0.171028.1 | [RP MySQL versione 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
     | 1.0.170928.3 | [RP MySQL versione 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |

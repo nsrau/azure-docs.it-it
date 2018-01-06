@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: glenga
-ms.openlocfilehash: f00bda8e4700676e70f958eff511495f0ea564b1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 923bc54d9edc9aecdf27c674d3020c2f82f03b3d
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Binding dell'archiviazione BLOB di Azure per Funzioni di Azure
 
@@ -210,10 +210,12 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 ## <a name="trigger---usage"></a>Trigger - uso
 
-In C# e negli script C# è possibile accedere ai dati del BLOB con un parametro del metodo, ad esempio `Stream paramName`. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. È possibile definire associazioni con uno dei seguenti tipi:
+In C# e negli script C# è possibile accedere ai dati del BLOB con un parametro del metodo, ad esempio `T paramName`. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. È possibile definire associazioni con uno dei seguenti tipi:
 
-* `TextReader`
 * `Stream`
+* `TextReader`
+* `Byte[]`
+* `string`
 * `ICloudBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
 * `CloudBlockBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
 * `CloudPageBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
@@ -498,10 +500,16 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 
 Librerie di classi c# e script c#, accedere al blob tramite un parametro di metodo, ad esempio `Stream paramName`. Negli script C#, `paramName` è il valore specificato nella proprietà `name` di *function.json*. È possibile definire associazioni con uno dei seguenti tipi:
 
-* `out string`
-* `TextWriter` 
-* `TextReader`
+* `TextReader` (solo input)
+* `string` (solo input)
+* `Byte[]` (solo input)
+* `TextWriter` (solo output)
+* `out string` (solo output)
+* `out Byte[]` (solo output)
+*  `CloudBlobStream` (solo output)
 * `Stream`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
 * `ICloudBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
 * `CloudBlockBlob` (è necessaria la direzione di associazione "inout" in *function.json*)
 * `CloudPageBlob` (è necessaria la direzione di associazione "inout" in *function.json*)

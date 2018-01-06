@@ -6,13 +6,13 @@ author: djrosanova
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 01/05/2018
 ms.author: darosa
-ms.openlocfilehash: e0f8afdfd84ea3c0c061459c27da285f6ae8957e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 4eacb37d6e19b4b69d604aa84fd404479dead1ea
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Recapito di messaggi di Griglia di eventi e nuovi tentativi 
 
@@ -62,7 +62,31 @@ Griglia di eventi aggiunge una piccola parte di casualità a tutti gli intervall
 
 ## <a name="retry-duration"></a>Durata dei tentativi
 
-Con la versione di anteprima, Griglia di eventi di Azure fa scadere tutti gli eventi che non vengono recapitati entro due ore. Prima del rilascio del servizio con disponibilità generale, questo intervallo di tempo verrà aumentato a 24 ore. 
+Con la versione di anteprima, Griglia di eventi di Azure fa scadere tutti gli eventi che non vengono recapitati entro due ore.
+
+## <a name="monitoring"></a>Monitoraggio
+
+È possibile utilizzare il portale per visualizzare lo stato di recapito di eventi.
+
+Per visualizzare le metriche per una sottoscrizione di eventi, cercare **le sottoscrizioni di eventi** dei servizi disponibili e selezionarlo.
+
+![Ricerca per le sottoscrizioni di eventi](./media/delivery-and-retry/select-event-subscriptions.png)
+
+Filtrare in base al tipo di evento, la sottoscrizione e posizione. Selezionare **metriche** per la sottoscrizione da visualizzare.
+
+![Filtrare le sottoscrizioni di eventi](./media/delivery-and-retry/filter-events.png)
+
+Visualizzare le metriche per l'argomento relativo all'evento e la sottoscrizione.
+
+![Visualizzazione eventi metriche](./media/delivery-and-retry/subscription-metrics.png)
+
+Se è stato pubblicato un argomento personalizzato, è possibile visualizzare le metriche per tale. Selezionare il gruppo di risorse contenente l'argomento e selezionare l'argomento.
+
+![Selezionare un argomento personalizzato](./media/delivery-and-retry/select-custom-topic.png)
+
+Visualizzare le metriche per l'argomento dell'evento personalizzato.
+
+![Visualizzazione eventi metriche](./media/delivery-and-retry/custom-topic-metrics.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

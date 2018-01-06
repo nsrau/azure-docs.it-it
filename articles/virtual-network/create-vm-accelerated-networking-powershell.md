@@ -12,15 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/20/2017
+ms.date: 01/04/2018
 ms.author: jimdial
-ms.openlocfilehash: 8c2cc9ef487ee754f904f04e604ef76c3f9e07af
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: f4908963e0650be9b12b745f6868a1ba6ad933e4
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Creare una macchina virtuale Windows con accelerazione di rete
+
+> [!IMPORTANT] 
+> Con accelerazione di rete abilitata, è necessario creare macchine virtuali. Questa funzionalità non può essere abilitata nelle macchine virtuali esistenti. È possibile seguire la procedura seguente per abilitare la rete accelerata
+>   1. Eliminare la macchina virtuale
+>   2. Ricreare la macchina virtuale con la rete accelerata abilitata
+>
 
 In questa esercitazione imparare a creare una macchina virtuale di Windows (VM) con accelerazione di rete. La funzionalità rete accelerata abilita Single Root I/O Virtualization (SR-IOV) per le VM, migliorandone le prestazioni di rete. Questo percorso ad alte prestazioni consente di ignorare l'host dal relativo al percorso dati, riducendo l'utilizzo della CPU, per l'utilizzo con i carichi di lavoro rete più complesse in tipi di macchine Virtuali supportati, instabilità e latenza. La figura seguente illustra la comunicazione tra due macchine virtuali con e senza la configurazione di rete:
 

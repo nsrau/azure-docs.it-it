@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Gallery | Microsoft Docs
-description: Condividere e scoprire risorse di analisi e altro in Cortana Intelligence Gallery. Imparare da altri utenti e offrire il proprio contributo alla community.
+title: Raccolta di Azure AI | Documenti Microsoft
+description: Condividere e individuare le risorse di analitica e altro ancora nella raccolta di Azure. Imparare da altri utenti e offrire il proprio contributo alla community.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 9da6cc9d306930fbec33ecebc85784d0d1e1532d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: d60815e848277637e3d692a676dbde838b249754
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="share-and-discover-resources-in-the-cortana-intelligence-gallery"></a>Condividere e scoprire risorse in Cortana Intelligence Gallery
+# <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Condividere e individuare le risorse nella raccolta di Azure
 [!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 <!-- separating these 2 includes -->
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Che cosa è disponibile all'interno di Cortana Intelligence Gallery?
-Cortana Intelligence Gallery contiene diverse risorse che è possibile usare per sviluppare soluzioni di analisi.
+La raccolta di Azure AI contiene varie risorse che è possibile utilizzare per sviluppare soluzioni personalizzate analitica.
 
 * **[Esperimenti](gallery-experiments.md)**: Cortana Intelligence Gallery contiene un'ampia gamma di esperimenti sviluppati in Azure Machine Learning Studio, da veloci esperimenti di prova che illustrano una tecnica di apprendimento automatico specifica a soluzioni complete per la risoluzione di problemi di apprendimento automatico complessi.
 * **[Appunti di Jupyter](gallery-jupyter-notebooks.md)**: gli appunti di Jupyter includono codice, visualizzazioni di dati e documentazione in un'unica area di disegno interattiva.
@@ -48,7 +48,7 @@ Queste risorse di base possono essere raggruppate in modo logico in due modi div
 
 La sezione **[Competitions](gallery-competitions.md)** (Concorsi), infine, offre la possibilità di competere con la community dei data scientist per risolvere problemi complessi usando Cortana Intelligence Suite.
 
-![Home page di Cortana Intelligence Gallery](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
+![Home page di Azure AI raccolta](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
 ## <a name="discover-and-learn"></a>Fare nuove scoperte e imparare
 Tutti possono eseguire ricerche ed esplorare i diversi tipi di risorse proposti da Cortana Intelligence Gallery con il contributo di Microsoft e dalla community che si occupa di analisi avanzate.

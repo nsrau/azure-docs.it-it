@@ -16,13 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: bd163e4168c844acab8d50c234115abf8ae874cf
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 908d81c363a556917d211e0bcc92188f849fb690
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Creare una macchina virtuale Linux con accelerazione di rete
+
+> [!IMPORTANT] 
+> Con accelerazione di rete abilitata, è necessario creare macchine virtuali. Questa funzionalità non può essere abilitata nelle macchine virtuali esistenti. È possibile seguire la procedura seguente per abilitare l'accelerazione di rete:
+>   1. Eliminare la macchina virtuale.
+>   2. Ricreare la macchina virtuale con accelerazione di rete abilitato.
+>
 
 In questa esercitazione imparare a creare una macchina virtuale Linux (VM) con accelerazione di rete. La funzionalità rete accelerata abilita Single Root I/O Virtualization (SR-IOV) per le VM, migliorandone le prestazioni di rete. Questo percorso ad alte prestazioni consente di ignorare l'host dal relativo al percorso dati, riducendo l'utilizzo della CPU, per l'utilizzo con i carichi di lavoro rete più complesse in tipi di macchine Virtuali supportati, instabilità e latenza. La figura seguente illustra la comunicazione tra due macchine virtuali con e senza la configurazione di rete:
 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/05/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: d485d2e7d22ea79a87dc52dbc063a811f4a1a2ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Configurare la scadenza per i gruppi di Office 365 (anteprima)
 
@@ -30,9 +30,7 @@ ms.lasthandoff: 12/11/2017
 -   I gruppi di Office 365 eliminati possono essere ripristinati entro 30 giorni dai proprietari o dall'amministratore.
 
 > [!NOTE]
-> L'impostazione della scadenza per i gruppi di Office 365 richiede una licenza Azure AD Premium o Azure AD Basic EDU per tutti i membri dei gruppi a cui sono applicate le impostazioni relative alla scadenza.
-> 
-> Per configurare questi criteri per la prima volta, i clienti con licenza Azure AD Basic EDU devono usare i cmdlet di Azure Active Directory PowerShell. In seguito è possibile aggiornare le impostazioni relative alla scadenza in PowerShell o nel portale di Azure AD con un account amministratore di account utente o con un account amministratore globale nel tenant di Azure AD.
+> L'impostazione di scadenza per i gruppi di Office 365 richiede una licenza di Azure AD Premium per tutti i membri dei gruppi a cui vengono applicate le impostazioni di scadenza.
 
 Per informazioni su come scaricare e installare i cmdlet di Azure AD PowerShell, vedere [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) (Azure Active Directory PowerShell per Graph: versione di anteprima pubblica 2.0.0.137).
 

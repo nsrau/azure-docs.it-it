@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 5887dbd606acd1df47be1c421bee1a1008dc91d1
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a7a5d04c55adc33db5ccce761efd622935acefb
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>Problemi riscontrati con il portale App personali
 
@@ -51,17 +51,17 @@ Se si dimentica la password, la si vuole modificare, il personale IT non l'ha ma
 Come utente finale, è possibile reimpostare la password o sbloccare l'account senza la necessità di rivolgersi a un'altra persona usando la funzionalità di reimpostazione della password self-service (SSPR). Per poter usare questa funzionalità, è prima necessario registrare i metodi di autenticazione o confermare i metodi di autenticazione predefiniti inseriti dall'amministratore. Per altre informazioni, vedere [Eseguire la registrazione per la reimpostazione password self-service](active-directory-passwords-reset-register.md).
 
 
-## <a name="i-am-having-trouble-installing-the-my-apps-portal-browser-extension"></a>Si riscontrano problemi con l'installazione dell'estensione browser per il portale App personali
+## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Si è verificato un problema durante l'installazione dell'estensione accesso proteggere le app personali
 
 Verificare se i requisiti del browser sono soddisfatti:
 
 - Per il portale è necessario un browser che supporti JavaScript e in cui sia abilitato CSS. Se si usano app con accesso Single Sign-On basato su password è necessario installare anche l'estensione corrispondente. L'estensione viene scaricata automaticamente quando si avvia un'applicazione configurata per le app con accesso Single Sign-On basato su password.
 
 - I requisiti del browser per l'estensione sono i seguenti:
-    - Internet Explorer 8, 9, 10, 11 su Windows 7 o versioni successive
     - Edge su Windows 10 Anniversary Edition o versioni successive
     - Chrome in Windows 7 o versione successiva e in MacOS X o versione successiva
     - Firefox 26.0 o versione successiva in Windows XP SP2 o versione successiva e in Mac OS X 10.6 o versione successiva
+    - Internet Explorer 8, 9, 10, 11 su Windows 7 o versioni successive (supporto limitato)
 
 È anche possibile scaricare l'estensione per Chrome ed Edge dai collegamenti diretti seguenti:
 
@@ -76,6 +76,32 @@ Se dopo l'installazione si riscontrano problemi, seguire questa procedura:
 - Riavviare il browser e accedere al portale App personali.
 
 - Cancellare i cookie del browser e accedere al portale App personali.
+- Seguire il [risoluzione dei problemi di estensione del Pannello di accesso per Internet Explorer](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-ie-troubleshooting) Guida per l'accesso a uno strumento di diagnostica e istruzioni dettagliate su come configurare l'estensione per Internet Explorer.
+
+## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Come è possibile utilizzare l'estensione Accedi proteggere le app personali?
+Modifica l'URL predefinito di App personali per l'estensione
+
+Se si utilizza un altro URL App personali di https://myapps.microsoft.com quindi è necessario configurare l'URL predefinito tramite la procedura seguente:
+1. Mentre non è firmato nell'estensione, **destro del mouse su** l'icona di estensione.
+2. Fare clic su **selezionare un URL App personali** dal menu.
+3. **Selezionare** l'URL predefinito.
+4. Fare clic sull'icona di estensione.
+5. Accedi all'estensione selezionando **Accedi per iniziare**.
+
+Accedere direttamente in un'app dal browser
+1. Dopo aver installato l'estensione, accedi per l'estensione selezionando **Accedi per iniziare**.
+2. Passare il **sign-on URL** dell'app per accedere a, si tratta in genere l'URL dell'app che consente di visualizzare il form di accesso.
+3. L'estensione deve modificare lo stato e consentono di conoscere la password è disponibile, fare clic su di **icona estensione** per accedere
+
+Avviare un'app dall'estensione
+1. Dopo aver installato l'estensione, accedi per l'estensione selezionando **Accedi per iniziare**.
+2. Fare clic sull'icona per aprire il menu di estensione.
+3. **Ricerca** per un'app disponibile nel portale di App personali.
+4. Scegliere l'applicazione di **i risultati della ricerca** per avviarlo.
+5. Le ultime tre App avviate verranno inoltre visualizzata nel **usati di recente** elenco di scelta rapida
+
+> [!NOTE]
+> Queste opzioni sono disponibili solo per Edge, Chrome, Firefox.
 
 ## <a name="how-do-i-add-a-new-app"></a>Come aggiungere una nuova app
 
@@ -92,9 +118,9 @@ Se dopo l'installazione si riscontrano problemi, seguire questa procedura:
 
 ## <a name="how-do-i-manage-my-group-memberships"></a>Come gestire l'appartenenza ai gruppi
 
-1. Fare clic nel riquadro delle app Gruppi. 
-2. Per creare un gruppo, in Gruppi di cui si è proprietari fare clic su Crea gruppo, quindi seguire le istruzioni.
-3. Per partecipare a un gruppo, in Gruppi a cui si appartiene fare clic su Partecipa a gruppo, quindi seguire le istruzioni.
+1. Fare clic su di **gruppi** riquadro. 
+2. Per creare un gruppo, in gruppi di proprietà, fare clic su **Crea gruppo**e quindi seguire le istruzioni.
+3. Per aggiungere un gruppo, in gruppi in, fare clic su **partecipa a gruppo**e quindi seguire le istruzioni.
 
 **Osservazioni:**
 

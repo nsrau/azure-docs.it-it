@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
-ms.openlocfilehash: 0b7746125c9bcff64bd721f6ec5d2ea2c73f6f18
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: ed1d8298123597fe8330b54f89fd580095f21ec7
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools for Visual Studio  
 
@@ -46,7 +46,8 @@ Per creare e distribuire funzioni, è necessario disporre anche di quanto segue:
 
 * Una sottoscrizione di Azure attiva. Se non si possiede una sottoscrizione di Azure, sono disponibili [account gratuiti](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Un account dell'Archiviazione di Azure. Per creare un account di archiviazione, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account).  
+* Un account dell'Archiviazione di Azure. Per creare un account di archiviazione, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+
 ## <a name="create-an-azure-functions-project"></a>Creare un progetto di Funzioni di Azure 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
@@ -136,4 +137,4 @@ Per altre informazioni sull'utilizzo degli strumenti di base di Funzioni di Azur
 Per altre informazioni su Azure Functions Tools, vedere la sezione Common Questions (Domande comuni) del post di blog [Visual Studio 2017 Tools for Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/).
 
 Per altre informazioni sull'utilizzo degli strumenti di base di Funzioni di Azure, vedere [Come scrivere codice per le funzioni di Azure e testarle in locale](functions-run-local.md).  
-Per altre informazioni sullo sviluppo di funzioni quali le librerie della classe .NET, vedere [Uso di librerie di classi .NET con Funzioni di Azure](functions-dotnet-class-library.md). Questo argomento fornisce anche esempi d'uso degli attributi per dichiarare i vari tipi di associazioni supportate da Funzioni di Azure.    
+Per ulteriori informazioni sullo sviluppo di funzioni come librerie di classi .NET, vedere [di riferimento per sviluppatori c# Azure funzioni](functions-dotnet-class-library.md). In questo argomento è anche collegamenti a esempi di utilizzo degli attributi per dichiarare i vari tipi di associazioni supportate dalle funzioni di Azure.    

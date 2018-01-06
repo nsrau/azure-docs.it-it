@@ -1,6 +1,6 @@
 ---
-title: Soluzioni di Cortana Intelligence Gallery | Documentazione Microsoft
-description: Scoprire soluzioni in Cortana Intelligence Gallery.
+title: Azure AI raccolta soluzioni | Documenti Microsoft
+description: Consente di individuare soluzioni della raccolta AI Azure.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 3d249a12b31418b159b3e5391528488f5d9d57a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 813b431b2e8ee22435e302800b7f707f6ba693b9
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-solutions-in-the-cortana-intelligence-gallery"></a>Scoprire soluzioni in Cortana Intelligence Gallery
+# <a name="discover-solutions-in-the-azure-ai-gallery"></a>Individuazione di soluzioni della raccolta di Azure AI
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="solutions"></a>Soluzioni
@@ -40,7 +40,7 @@ In questa pagina è possibile eseguire la ricerca di tutte le soluzioni presenti
 
 ![Aggiungere un commento](./media/gallery-how-to-use-contribute-publish/comments.png)
 
-## <a name="deploy"></a>Distribuisci
+## <a name="deploy"></a>Distribuire
 Se si vuole usare una soluzione, fare clic su **Deploy** (Distribuisci). Seguire la procedura descritta per configurare e distribuire la soluzione nella propria area di lavoro.
 
 ![Distribuire una soluzione di Gallery](./media/gallery-solutions/deploy-solution.png)

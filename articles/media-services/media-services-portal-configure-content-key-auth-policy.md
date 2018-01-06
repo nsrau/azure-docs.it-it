@@ -1,5 +1,5 @@
 ---
-title: Configurare i criteri di autorizzazione della chiave dei contenuti tramite il portale di Azure | Microsoft Docs
+title: Configurare un criterio di autorizzazione chiave del contenuto tramite il portale di Azure | Documenti Microsoft
 description: Informazioni su come configurare i criteri di autorizzazione per una chiave simmetrica.
 services: media-services
 documentationcenter: 
@@ -14,65 +14,72 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 36ec76718d21cac5ae3203f1c6d4b8af2aacb9ed
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: a0ab954bda3340b9010b16f54e343933808cc463
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="configure-content-key-authorization-policy"></a>Configurare i criteri di autorizzazione della chiave simmetrica
+# <a name="configure-a-content-key-authorization-policy"></a>Configurare un criterio di autorizzazione chiave del contenuto
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## <a name="overview"></a>Overview
-Servizi multimediali di Microsoft Azure consente di distribuire flussi MPEG-DASH, Smooth Streaming e HTTP-Live-Streaming (HLS) protetti con Advanced Encryption Standard (AES) con chiavi di crittografia a 128 bit o [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/). AMS consente anche di recapitare flussi DASH crittografati con Widevine DRM. PlayReady e Widewine vengono crittografati in base alle specifiche della crittografia comune (ISO/IEC 23001-7 CENC).
+## <a name="overview"></a>Panoramica
+ È possibile utilizzare servizi multimediali di Azure per distribuire i flussi MPEG-DASH, Smooth Streaming e HTTP Live Streaming (HLS) protetti con Advanced Encryption Standard (AES) con chiavi di crittografia a 128 bit o [gestione dei diritti digitali (DRM)PlayReady](https://www.microsoft.com/playready/overview/). Con servizi multimediali, è anche possibile recapitare i flussi DASH crittografati con DRM Widevine. PlayReady sia Widevine vengono crittografati in base alla specifica di crittografia (ISO/IEC 23001-7 CENC) comuni.
 
-Servizi multimediali offre anche un **servizio di distribuzione di chiavi/licenze** dal quale i client possono ottenere chiavi AES o licenze PlayReady/Widevine per riprodurre contenuti crittografati.
+Servizi multimediali fornisce anche un servizio di recapito chiave/licenza da cui i client possono ottenere le chiavi AES o PlayReady/Widevine licenze per riprodurre il contenuto crittografato.
 
-Questo articolo illustra come usare il Portale di Azure per configurare i criteri di autorizzazione della chiave simmetrica. La chiave può essere usata in un secondo momento per crittografare i contenuti dinamicamente. Attualmente è possibile crittografare i formati di streaming seguenti: HLS, MPEG DASH e Smooth Streaming. Non è possibile crittografare i download progressivi.
+Questo articolo illustra come usare il Portale di Azure per configurare i criteri di autorizzazione della chiave simmetrica. La chiave può essere usata in un secondo momento per crittografare i contenuti dinamicamente. Attualmente, è possibile crittografare i formati di Smooth Streaming, MPEG-DASH e HLS. È possibile crittografare il download progressivo.
 
-Quando un lettore richiede un flusso impostato per la crittografia dinamica, Servizi multimediali usa la chiave configurata per crittografare dinamicamente i contenuti con la crittografia DRM o AES. Per decrittografare il flusso, il lettore richiede la chiave dal servizio di distribuzione delle chiavi. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati.
+Quando un lettore richiede un flusso che è impostato in modo dinamico da crittografare, servizi multimediali Usa la chiave configurata per crittografare dinamicamente il contenuto mediante la crittografia AES o DRM. Per decrittografare il flusso, il lettore richiede la chiave dal servizio di distribuzione delle chiavi. Per determinare se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione per la chiave specificata.
 
-Se si prevede di usare più chiavi di contenuti o si desidera specificare un URL di **servizio di distribuzione di chiavi/licenze** diverso dal servizio di distribuzione delle chiavi di Servizi multimediali, usare Media Services SDK per .NET o le API REST.
+Se si prevede di avere più chiavi simmetriche o per specificare un URL di servizio di recapito chiave licenza diverso dal servizio di distribuzione delle chiavi di servizi multimediali, utilizzare la Media Services .NET SDK o le API REST. Per altre informazioni, vedere:
 
-[Configurare i criteri di autorizzazione della chiave simmetrica mediante Media Services .NET SDK](media-services-dotnet-configure-content-key-auth-policy.md)
+* [Configurare un criterio di autorizzazione chiave del contenuto con Media Services .NET SDK](media-services-dotnet-configure-content-key-auth-policy.md)
+* [Configurare un criterio di autorizzazione chiave del contenuto tramite l'API REST di servizi multimediali](media-services-rest-configure-content-key-auth-policy.md)
 
-[Configurare i criteri di autorizzazione della chiave simmetrica mediante l'API REST di Servizi multimediali](media-services-rest-configure-content-key-auth-policy.md)
-
-### <a name="some-considerations-apply"></a>Considerazioni applicabili:
-* Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming dei contenuti e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming deve trovarsi nello stato **In esecuzione**. 
+### <a name="some-considerations-apply"></a>Le considerazioni
+* Quando viene creato l'account di servizi multimediali, endpoint di streaming predefinito viene aggiunto al tuo account nello stato "Stopped". Per avviare lo streaming del contenuto e sfruttare i vantaggi di creazione dinamica dei pacchetti e la crittografia dinamica, l'endpoint di streaming deve essere nello stato "Running". 
 * L'asset deve contenere un set di file MP4 o Smooth Streaming a velocità in bit adattiva. Per altre informazioni, vedere l'articolo relativo alla [codifica di un asset](media-services-encode-asset.md).
-* Il servizio di distribuzione delle chiavi memorizza nella cache l'oggetto ContentKeyAuthorizationPolicy e gli oggetti correlati (opzioni e restrizioni) per 15 minuti.  Se si crea un oggetto ContentKeyAuthorizationPolicy e si specifica di usare una restrizione Token, quindi si esegue il test della configurazione e si aggiornano i criteri impostando una restrizione Open, il passaggio dei criteri alla versione Open richiede circa 15 minuti.
-* L'endpoint di streaming AMS imposta il valore dell'intestazione CORS 'Access-Control-Allow-Origin' nella risposta preliminare come il carattere jolly '\*'. Questo funziona bene con la maggior parte dei lettori, tra cui Azure Media Player, Roku, JW e altri. Tuttavia, alcuni lettori che usano dashjs non funzionano perché, con la modalità delle credenziali impostata su "include", XMLHttpRequest nella loro dashjs non consente il carattere jolly "\*" come valore di "'Access-Control-Allow-Origin". Come soluzione alternativa a questa limitazione in dashjs, se si ospita il client da un singolo dominio, Servizi multimediali di Azure può specificare tale dominio nell'intestazione della risposta preliminare. È possibile fare ciò mediante l'apertura di un ticket di supporto tramite il portale di Azure.
+* Il servizio di distribuzione delle chiavi memorizza nella cache ContentKeyAuthorizationPolicy e gli oggetti correlati (opzioni di criteri e restrizioni) per 15 minuti. È possibile creare un oggetto ContentKeyAuthorizationPolicy e specificare se usare una restrizione token, testarlo e quindi aggiornare i criteri di restrizione open. Questo processo richiede circa 15 minuti prima le opzioni di criteri per la versione aperta.
+* Un endpoint di streaming di servizi multimediali imposta il valore dell'intestazione CORS Access-Control-Allow-Origin nella risposta preliminare come il carattere jolly "\*". Questo valore funziona bene con la maggior parte dei lettori, tra cui Azure Media Player, Roku e JWPlayer e altri. Tuttavia, alcuni lettori che utilizzano dash.js non funzionano perché, in modalità di credenziali impostata su "include" XMLHttpRequest nella loro dash.js non consente il carattere jolly "\*" come valore di Access-Control-Allow-Origin. Come soluzione alternativa per questo limite di dash.js, se si ospita il client da un singolo dominio, servizi multimediali può specificare tale dominio nell'intestazione della risposta preliminare. Per assistenza, aprire un ticket di supporto tramite il portale di Azure.
 
-## <a name="how-to-configure-the-key-authorization-policy"></a>Procedura: Configurare i criteri di autorizzazione della chiave simmetrica
+## <a name="configure-the-key-authorization-policy"></a>Configurare i criteri di autorizzazione della chiave
 Per configurare i criteri di autorizzazione della chiave simmetrica, selezionare la pagina **PROTEZIONE DEL CONTENUTO** .
 
-Servizi multimediali supporta più modalità di autenticazione degli utenti che eseguono richieste di chiavi. I criteri di autorizzazione della chiave simmetrica possono avere restrizioni di autorizzazione di tipo **open**, **token** o **IP** (la restrizione **IP** può essere configurata con REST o con .NET SDK).
+Servizi multimediali supporta più modalità per autenticare gli utenti che eseguono richieste di chiavi. I criteri di autorizzazione chiave del contenuto possono essere aperti, token o restrizioni IP. (IP può essere configurato con REST o .NET SDK).
 
 ### <a name="open-restriction"></a>Restrizione Open
-Se si applica una restrizione **open**, il sistema distribuisce la chiave a chiunque ne faccia richiesta. Questa restrizione può essere utile a scopo di test.
+La restrizione open, che il sistema invia la chiave per qualsiasi utente che effettua una richiesta di chiave. Questa restrizione può essere utile a scopo di test.
 
 ![OpenPolicy][open_policy]
 
 ### <a name="token-restriction"></a>Restrizione Token
-Per scegliere il criterio con restrizione token, premere il pulsante **TOKEN** .
+Per scegliere i criteri con restrizione token, selezionare il **TOKEN** pulsante.
 
-I criteri con restrizione **token** devono essere accompagnati da un token rilasciato da un **servizio STS** (Secure Token Service, servizio token di sicurezza). Servizi multimediali supporta i token nei formati **Simple Web Tokens** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) e **JSON Web Token** (JWT). Per informazioni, vedere [Autenticazione dei token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
+I criteri con restrizione token devono essere accompagnato da un token rilasciato da un servizio token di sicurezza (STS). Servizi multimediali supporta i token nel token web semplice ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) e formati diversi da JSON Web Token (JWT). Per ulteriori informazioni, vedere [autenticazione JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 
-Servizi multimediali non fornisce **servizi token di sicurezza**. Per il rilascio di token è possibile creare un servizio token di sicurezza personalizzato oppure usare il Servizio di controllo di accesso di Microsoft Azure. Il servizio token di sicurezza deve essere configurato in modo da creare un token firmato con la chiave specificata e rilasciare le attestazioni specificate nella configurazione della restrizione token. Il servizio di distribuzione delle chiavi di Servizi multimediali restituisce la chiave di crittografia al client se il token è valido e le attestazioni nel token corrispondono a quelle configurate per la chiave simmetrica. Per altre informazioni, vedere l'articolo relativo all' [uso di Servizio di controllo di accesso di Azure per il rilascio di token](http://mingfeiy.com/acs-with-key-services).
+Servizi multimediali non fornisce servizio token di sicurezza. È possibile creare un servizio token di sicurezza personalizzato o utilizzare Azure Access Control Service al rilascio di token. Il servizio token di sicurezza deve essere configurato in modo da creare un token firmato con la chiave specificata e rilasciare le attestazioni specificate nella configurazione della restrizione token. Se il token è valido e le attestazioni nel token corrispondono a quelli configurati per la chiave simmetrica, il servizio di distribuzione delle chiavi di servizi multimediali restituisce la chiave di crittografia al client. Per ulteriori informazioni, vedere [utilizzare Azure Access Control Service al rilascio di token](http://mingfeiy.com/acs-with-key-services).
 
-Quando si configurano i criteri di restrizione **token**, è necessario specificare i parametri **primary verification key**, **issuer** e **audience**. Il parametro **primary verification key** include la chiave usata per firmare il token. Il parametro **issuer** è il servizio token di sicurezza che emette il token. Il parametro **audience** (talvolta denominato **scope**) descrive l'ambito del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione delle chiavi di Servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello.
+Quando si configura il criterio con restrizioni token, è necessario specificare la chiave di verifica primaria, l'autorità emittente e parametri pubblico. La chiave di verifica primaria contiene il token è stato firmato con la chiave. L'autorità emittente è il servizio token di sicurezza che emette il token. Il parametro audience (talvolta denominato scope) descrive l'ambito del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione delle chiavi di Servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello.
 
 ### <a name="playready"></a>PlayReady
-Quando si protegge il contenuto con **PlayReady**, è necessario includere nei criteri di autorizzazione una stringa XML che definisce il modello di licenza PlayReady. Per impostazione predefinita, vengono definiti i seguenti criteri:
+Quando si proteggono i contenuti con PlayReady, una delle operazioni che è necessario specificare nei criteri di autorizzazione è una stringa XML che definisce il modello di licenza PlayReady. Per impostazione predefinita, vengono definiti i seguenti criteri:
 
-<PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1"><LicenseTemplates><PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices><ContentKey i:type="ContentEncryptionKeyFromHeader" /><LicenseType>Nonpersistent</LicenseType><PlayRight><AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput></PlayRight></PlayReadyLicenseTemplate></LicenseTemplates></PlayReadyLicenseResponseTemplate>
+    <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
+          <LicenseTemplates>
+            <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
+              <ContentKey i:type="ContentEncryptionKeyFromHeader" />
+              <LicenseType>Nonpersistent</LicenseType>
+              <PlayRight>
+                <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput>
+              </PlayRight>
+            </PlayReadyLicenseTemplate>
+          </LicenseTemplates>
+        </PlayReadyLicenseResponseTemplate>
 
-È possibile fare clic sul pulsante **importa xml criterio** e specificare codice XML differente, conforme allo schema XML definito [qui](media-services-playready-license-template-overview.md).
+È possibile selezionare il **importare criteri xml** pulsante e fornire un diverso XML conforme allo schema XML definito nel [Cenni preliminari sui modelli di licenza PlayReady di servizi multimediali](media-services-playready-license-template-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Analizzare i percorsi di apprendimento di Servizi multimediali.
-
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti

@@ -1,6 +1,6 @@
 ---
-title: Raccolte di Cortana Intelligence Gallery | Documentazione Microsoft
-description: Scoprire e condividere raccolte in Cortana Intelligence Gallery.
+title: Le raccolte AI raccolta Azure | Documenti Microsoft
+description: Individuare e condividere insiemi nella raccolta di Azure.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 9ca9b45bf977a562982535feb4093fcee0f10a05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a90686d42aa3187e358d9ba3c8c5c3fb579a1d5e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-and-share-collections-in-cortana-intelligence-gallery"></a>Scoprire e condividere raccolte in Cortana Intelligence Gallery
+# <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Individuare e condividere insiemi nella raccolta di Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="collections"></a>Raccolte
@@ -69,9 +69,9 @@ Ad esempio, è possibile usare una raccolta per raggruppare elementi su un argom
    > 
    
     ![Selezionare "Public" (Pubblica) o "Unlisted" (Non in elenco)](./media/gallery-collections/create-collection-page-3.png)
-7. Selezionare **Crea**.
+7. Selezionare **Create**.
 
-La raccolta si trova ora in Cortana Intelligence Gallery. Le raccolte vengono elencate nella pagina del proprio account, all'interno della scheda **Raccolte**.
+La raccolta è ora nella raccolta di Azure. Le raccolte vengono elencate nella pagina del proprio account, all'interno della scheda **Raccolte**.
 
 ### <a name="add-items-to-a-collection"></a>Aggiungere elementi a una raccolta
 Per aggiungere elementi alla raccolta, aprirla, selezionare **Modifica** e quindi selezionare **Aggiungi elemento**.

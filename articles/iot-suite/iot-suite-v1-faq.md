@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: db928795cc38dea4ca9fc441e6053e3bb44da23e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
-ms.translationtype: HT
+ms.openlocfilehash: 6c644395aa7ad51c289cdc4a23b02e9e0239a0fe
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Domande frequenti su IoT Suite
 
@@ -86,13 +86,16 @@ Due. È possibile creare solo due Transazioni sito Web interno - Livello 1 per B
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-microsoft-azure-for-dreamspark"></a>È possibile creare una soluzione preconfigurata se è disponibile Microsoft Azure per DreamSpark?
 
-Al momento non è possibile creare una soluzione preconfigurata con un account [Microsoft Azure for DreamSpark][lnk-dreamspark], ma è possibile creare facilmente un [account di valutazione gratuito per][lnk-30daytrial] che consente di creare una soluzione preconfigurata.
+> [!NOTE]
+> Microsoft Azure per DreamSpark è ora noto come Microsoft Imagine per studenti.
+
+Attualmente non è possibile creare una soluzione preconfigurata con un account [Microsoft Azure per DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/), ma in un paio di minuti è possibile creare un [account di valutazione gratuito per Azure](https://azure.microsoft.com/free/), che consente di creare una soluzione preconfigurata.
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-cloud-solution-provider-csp-subscription"></a>È possibile creare una soluzione preconfigurata se si dispone di una sottoscrizione di Cloud Solution Provider?
 
 È possibile attualmente creare una soluzione preconfigurata con una sottoscrizione di Cloud Solution Provider, ma è possibile creare facilmente un [account di valutazione gratuito per][lnk-30daytrial] che consente di creare una soluzione preconfigurata.
 
-### <a name="how-do-i-delete-an-aad-tenant"></a>Come si elimina un tenant AAD?
+### <a name="how-do-i-delete-an-azure-ad-tenant"></a>Come è possibile eliminare un tenant di Azure AD?
 
 Vedere il post del blog di Eric Golpe relativo alla [procedura dettagliata di eliminazione di un tenant di Azure AD][lnk-delete-aad-tennant].
 

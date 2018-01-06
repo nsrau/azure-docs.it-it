@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 75b1862f288152fa2ff4619f807b86f94dc00e3f
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: ad18d82109e3048625f32d90af9677956350fb84
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Ripetere il training di un servizio Web classico
 Il servizio Web predittivo distribuito è l'endpoint dei punteggi predefinito. Gli endpoint predefiniti vengono mantenuti sincronizzati con gli esperimenti di training e di assegnazione dei punteggi di origine, quindi il modello con training per l'endpoint predefinito non può essere sostituito. Per ripetere il training del servizio Web è necessario aggiungere un nuovo endpoint al servizio Web. 
@@ -116,7 +116,7 @@ I valori di *apiKey* e *endpointUrl* per la chiamata possono essere ottenuti dal
 
 Il valore del parametro *Name* in *Resources* deve corrispondere al nome della risorsa del modello sottoposto a training nell'esperimento predittivo. Per ottenere il nome della risorsa:
 
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Nel menu a sinistra fare clic su **Machine Learning**.
 3. In Nome fare clic sull'area di lavoro e quindi su **Servizi Web**.
 4. In Nome fare clic su **Census Model [predictive exp.]**.

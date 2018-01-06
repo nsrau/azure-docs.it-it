@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
-ms.openlocfilehash: 742efd1496de9ce76b1e5636297ef30f546bd108
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a3d4b6e5db8835b23b014b344f0c9daae68adc09
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="resize-a-windows-vm"></a>Ridimensionare una VM Windows
 Questo articolo illustra come ridimensionare una VM Windows creata nel modello di distribuzione Resource Manager usando Azure PowerShell.
@@ -35,7 +35,7 @@ Dopo aver creato una macchina virtuale (VM), è possibile scalarla in verticale 
 2. Se la dimensione desiderata è inclusa nell'elenco, per ridimensionare la VM eseguire i comandi seguenti. Se la dimensione desiderata non è inclusa nell'elenco, andare al passaggio 3.
    
     ```powershell
-    $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -VMName <vmName>
+    $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -Name <vmName>
     $vm.HardwareProfile.VmSize = "<newVMsize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
     ```
@@ -44,8 +44,8 @@ Dopo aver creato una macchina virtuale (VM), è possibile scalarla in verticale 
     ```powershell
     $rgname = "<resourceGroupName>"
     $vmname = "<vmName>"
-    Stop-AzureRmVM -ResourceGroupName $rgname -VMName $vmname -Force
-    $vm = Get-AzureRmVM -ResourceGroupName $rgname -VMName $vmname
+    Stop-AzureRmVM -ResourceGroupName $rgname -Name $vmname -Force
+    $vm = Get-AzureRmVM -ResourceGroupName $rgname -Name $vmname
     $vm.HardwareProfile.VmSize = "<newVMSize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName $rgname
     Start-AzureRmVM -ResourceGroupName $rgname -Name $vmname
@@ -67,7 +67,7 @@ Se la nuova dimensione di una VM inclusa in un set di disponibilità non è disp
 2. Se la dimensione desiderata è inclusa nell'elenco, per ridimensionare la VM eseguire i comandi seguenti. Se non è inclusa nell'elenco, andare al passaggio 3.
    
     ```powershell
-    $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -VMName <vmName>
+    $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -Name <vmName>
     $vm.HardwareProfile.VmSize = "<newVmSize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
     ```

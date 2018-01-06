@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2017
+ms.date: 01/05/2018
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 74d732709e1cc3c97b485cc45e3a4e2c8e3cd11e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: c5f71d27a9e07cc6d6a260b809e91aaa2a50270c
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="sign-in-using-a-vm-user-assigned-managed-service-identity-msi"></a>Accedere utilizzando una macchina virtuale assegnati dall'utente del servizio identità gestite (MSI)
 
@@ -51,7 +51,7 @@ Lo script seguente illustra come:
 2. Chiamare Gestione risorse di Azure e ottenere il percorso di area di Azure per una macchina virtuale. L'interfaccia della riga di comando si occupa di gestire automaticamente l'acquisizione/uso dei token. Assicurarsi di sostituire il nome della macchina virtuale per `<VM NAME>`e id di risorsa MSI assegnati dall'utente per `<MSI ID>`. Viene restituito l'id di risorsa file MSI nel `id` proprietà durante la creazione di un file MSI assegnati dall'utente (vedere [configurare un utente assegnato gestiti servizio identità (MSI) per una macchina virtuale con Azure CLI](msi-qs-configure-cli-windows-vm.md) per esempi del `az identity create` comando ).
 
     ```azurecli
-    az login -–msi –u <MSI ID>
+    az login --msi –u <MSI ID>
    
     vmLocation=$(az resource list -n <VM NAME> --query [*].location --out tsv)
     echo The VM region location is $vmLocation

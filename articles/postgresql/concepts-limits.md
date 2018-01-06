@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: dbb88e033d5be73b7b069d69c095d8df2c1faf1b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
-ms.translationtype: HT
+ms.date: 12/04/2017
+ms.openlocfilehash: 6dbed1a834d74047178a9f996683d65520047e66
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limiti del Database di Azure per PostgreSQL
 Il servizio Database di Azure per PostgreSQL è in anteprima pubblica. Nelle sezioni seguenti vengono descritti i limiti delle capacità e funzionali nel servizio del database.
@@ -27,12 +27,12 @@ Esiste un numero massimo di connessioni, unità di calcolo e archiviazione in og
 | | |
 | :------------------------- | :---------------- |
 | **Numero massimo di connessioni**        |                   |
-| Base con 50 unità di calcolo     | 50 connessioni    |
-| Base con 100 unità di calcolo    | 100 connessioni   |
-| Standard con 100 unità di calcolo | 200 connessioni   |
-| Standard con 200 unità di calcolo | 300 connessioni   |
-| Standard con 400 unità di calcolo | 400 connessioni   |
-| Standard con 800 unità di calcolo | 500 connessioni   |
+| Base con 50 unità di calcolo     | 55 connessioni    |
+| Base con 100 unità di calcolo    | 105 connessioni   |
+| Standard con 100 unità di calcolo | 150 connessioni   |
+| Standard con 200 unità di calcolo | 250 connessioni   |
+| Standard con 400 unità di calcolo | 480 connessioni   |
+| Standard con 800 unità di calcolo | 950 connessioni   |
 | **Unità di calcolo massime**      |                   |
 | Livello di servizio Basic         | 100 unità di calcolo |
 | Livello di servizio Standard      | 800 unità di calcolo |
@@ -40,8 +40,9 @@ Esiste un numero massimo di connessioni, unità di calcolo e archiviazione in og
 | Livello di servizio Basic         | 1 TB              |
 | Livello di servizio Standard      | 1 TB              |
 
-Quando viene raggiunto un numero eccessivo di connessioni, è possibile che si riceva l'errore seguente:
+Il sistema Azure richiede cinque connessioni per il monitoraggio del Database di Azure per server PostgreSQL. Quando viene raggiunto un numero eccessivo di connessioni, è possibile che si riceva l'errore seguente:
 > FATAL: sorry, too many clients already (ERRORE IRREVERSIBILE: ci sono già troppi client)
+
 
 ## <a name="preview-functional-limitations"></a>Limiti funzionali dell'anteprima
 ### <a name="scale-operations"></a>Operazioni di scalabilità

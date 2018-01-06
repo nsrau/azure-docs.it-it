@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 00962b1bb32ff096712d36c07620505e72667380
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: f2d2b3eed3e3249ba863fa3d6a37abb6c4a2bdd8
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="copy-data-from-google-bigquery-using-azure-data-factory-beta"></a>Copiare i dati da Google BigQuery usando Azure Data Factory (Beta)
 
@@ -48,8 +48,8 @@ Le proprietà seguenti sono supportate per Google BigQuery servizio collegato:
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà di tipo deve essere impostata su: **GoogleBigQuery** | Sì |
-| Progetto | Il progetto BigQuery predefinito per eseguire query.  | Sì |
-| additionalProjects | Un elenco delimitato da virgole di pubblico BigQuery progetti per l'accesso.  | No  |
+| Progetto | L'ID di progetto del progetto per eseguire query sul BigQuery predefinito.  | Sì |
+| additionalProjects | Un elenco delimitato da virgole di ID di progetto del ruolo public BigQuery progetti per l'accesso.  | No  |
 | requestGoogleDriveScope | Se si desidera richiedere l'accesso all'unità di Google. Consentire l'accesso di Google Drive Abilita il supporto per le tabelle federate che combinano dati BigQuery con i dati dall'unità di Google. Il valore predefinito è False.  | No  |
 | authenticationType | Il meccanismo di autenticazione OAuth 2.0 utilizzato per l'autenticazione. ServiceAuthentication può essere utilizzato solo su infrarossi self-hosted. <br/>I valori consentiti sono: **ServiceAuthentication**, **UserAuthentication** | Sì |
 | RefreshToken | Il token di aggiornamento ottenuto da Google per autorizzare l'accesso a BigQuery per UserAuthentication. È possibile scegliere contrassegnare questo campo come SecureString per archiviare in modo sicuro in ADF o archiviare le password nell'insieme di credenziali chiave di Azure e consentire l'attività di copia pull da tale posizione quando si esegue una copia dei dati - ulteriori da [archiviare le credenziali nell'insieme di credenziali chiave](store-credentials-in-key-vault.md). | No  |
@@ -66,13 +66,13 @@ Le proprietà seguenti sono supportate per Google BigQuery servizio collegato:
     "properties": {
         "type": "GoogleBigQuery",
         "typeProperties": {
-            "project" : "<project>",
-            "additionalProjects" : "<additionalProjects>",
+            "project" : "<project ID>",
+            "additionalProjects" : "<additional project IDs>",
             "requestGoogleDriveScope" : true,
             "authenticationType" : "UserAuthentication",
             "refreshToken": {
                  "type": "SecureString",
-                 "value": "<refreshToken>"
+                 "value": "<refresh token>"
             }
         }
     }

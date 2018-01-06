@@ -1,5 +1,5 @@
 ---
-title: Configurazione dei criteri di protezione del contenuto tramite il portale di Azure | Microsoft Docs
+title: Configurare i criteri di protezione del contenuto tramite il portale di Azure | Documenti Microsoft
 description: Questo articolo illustra come usare il portale di Azure per configurare i criteri di protezione del contenuto. Descrive anche come abilitare la crittografia dinamica per gli asset.
 services: media-services
 documentationcenter: 
@@ -14,107 +14,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: ecc766abb5df38813b3eb6dde98cdc9afd24ac6b
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 805e1246dbc984582528d2b351d2f14ab2e811fc
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="configuring-content-protection-policies-using-the-azure-portal"></a>Configurazione dei criteri di protezione del contenuto tramite il portale di Azure
-Servizi multimediali di Microsoft Azure (AMS) consente di proteggere i file multimediali dal momento in cui escono dal computer fino alle fasi di archiviazione, elaborazione e recapito. Servizi multimediali consente di distribuire contenuti crittografati dinamicamente con AES (Advanced Encryption Standard) mediante chiavi di crittografia a 128 bit, con la crittografia comune (CENC) mediante PlayReady e/o la soluzione DRM Widevine e Apple FairPlay. 
+# <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configurare i criteri di protezione del contenuto tramite il portale di Azure
+ Con servizi multimediali di Azure, è possibile proteggere gli elementi multimediali dal momento in che cui lascia computer tramite l'archiviazione, elaborazione e il recapito. Servizi multimediali consente di distribuire il contenuto crittografato in modo dinamico con Advanced Encryption Standard (AES) con chiavi di crittografia a 128 bit. È inoltre possibile utilizzarlo con common encryption (CENC) con PlayReady e/o Widevine gestione dei diritti digitali (DRM) e FairPlay Apple. 
 
-AMS offre un servizio per la distribuzione di licenze DRM e chiavi non crittografate AES ai client autorizzati. Il portale di Azure consente di creare un **criterio di autorizzazione per chiavi e licenze** per tutti i tipi di crittografia.
+Servizi multimediali fornisce un servizio per la distribuzione di licenze DRM e chiavi ai client autorizzati non crittografata AES. È possibile utilizzare il portale di Azure per creare un criterio di autorizzazione chiave licenza per tutti i tipi di crittografia.
 
-Questo articolo illustra come configurare i criteri di protezione del contenuto con il portale di Azure. Descrive anche come applicare la crittografia dinamica agli asset.
+In questo articolo viene illustrato come configurare un criterio di protezione del contenuto tramite il portale. Descrive anche come applicare la crittografia dinamica agli asset.
 
-## <a name="start-configuring-content-protection"></a>Avviare la configurazione della protezione del contenuto
-Per usare il portale per avviare la configurazione della protezione del contenuto per l'intero account AMS, eseguire questa procedura:
-1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
+## <a name="start-to-configure-content-protection"></a>Iniziare a configurare la protezione del contenuto
+Per utilizzare il portale per configurare la protezione del contenuto globale usando l'account di servizi multimediali, procedere come segue:
+
+1. Nel [portal](https://portal.azure.com/), selezionare l'account di servizi multimediali.
+
 2. Selezionare **Impostazioni** > **Protezione del contenuto**.
 
-![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection001.png)
+    ![Protezione del contenuto](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
 ## <a name="keylicense-authorization-policy"></a>criterio di autorizzazione per chiavi e licenze
-AMS supporta più modalità di autenticazione degli utenti che eseguono richieste di chiavi o licenze. I criteri di autorizzazione delle chiavi simmetriche devono essere configurati dall'utente e soddisfatti dal client perché la chiave o la licenza possa essere distribuita al client. I criteri di autorizzazione delle chiavi simmetriche possono avere una o più restrizioni di tipo **Open** o **Token**.
+Servizi multimediali supporta più modalità di autenticazione degli utenti che eseguono richieste di licenza o di chiave. È necessario configurare i criteri di autorizzazione chiave del contenuto. Il client quindi deve soddisfare i criteri prima che la chiave di licenza può essere recapitata a esso. I criteri di autorizzazione chiave del contenuto possono avere uno o più restrizioni, le restrizioni aperte o token.
 
-Il portale di Azure consente di creare un **criterio di autorizzazione per chiavi e licenze** per tutti i tipi di crittografia.
+È possibile utilizzare il portale per creare un criterio di autorizzazione chiave licenza per tutti i tipi di crittografia.
 
 ### <a name="open-authorization"></a>Autorizzazione aperta
-Limitazione aperta indica che il sistema distribuirà la chiave a chiunque ne faccia richiesta. Questo tipo di limitazione può risultare utile ai fini dei test. 
+Restrizione Open significa che il sistema invia la chiave per qualsiasi utente che effettua una richiesta di chiave. Questo tipo di limitazione può risultare utile ai fini dei test. 
 
 ### <a name="token-authorization"></a>Autorizzazione con token
-I criteri con restrizione Token devono essere accompagnati da un token rilasciato da un servizio STS (Secure Token Service, servizio token di sicurezza). Servizi multimediali supporta i token nei formati Simple Web Tokens (SWT) e JSON Web Token (JWT). Servizi multimediali non fornisce servizi token di sicurezza. Per il rilascio di token è possibile creare un servizio token di sicurezza personalizzato oppure usare il Servizio di controllo di accesso di Microsoft Azure. Il servizio token di sicurezza deve essere configurato in modo da creare un token firmato con la chiave specificata e rilasciare le attestazioni specificate nella configurazione della restrizione token. Il servizio di distribuzione di chiavi di Servizi multimediali restituirà al client la chiave o la licenza richiesta se il token è valido e le attestazioni del token corrispondono a quelle configurate per la chiave o la licenza.
+I criteri di token con restrizioni devono essere accompagnato da un token rilasciato da un servizio token di sicurezza (STS). Servizi multimediali supporta i token in cui i token web semplice (SWT) e i formati di JSON Web Token (JWT). Servizi multimediali non fornisce un servizio token di sicurezza. È possibile creare un servizio token di sicurezza personalizzato o utilizzare Azure Access Control Service al rilascio di token. Il servizio token di sicurezza deve essere configurato in modo da creare un token firmato con la chiave specificata e rilasciare le attestazioni specificate nella configurazione della restrizione token. Se il token è valido e le attestazioni nel token corrispondono a quelli configurati per la chiave (o licenza), il servizio di distribuzione delle chiavi di servizi multimediali restituisce la chiave richiesta (o licenza) al client.
 
-Quando si configurano i criteri di restrizione token, è necessario specificare i parametri primary verification key, issuer e audience. Il parametro primary verification key include la chiave usata per firmare il token. Il parametro issuer è il servizio token di sicurezza che emette il token. Il parametro audience (talvolta denominato scope) descrive l'ambito del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione delle chiavi di Servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello.
+Quando si configura il criterio con restrizioni token, è necessario specificare la chiave di verifica primaria, l'autorità emittente e parametri pubblico. La chiave di verifica primaria contiene il token è stato firmato con la chiave. L'autorità emittente è il servizio token di sicurezza che emette il token. Il parametro audience (talvolta denominato scope) descrive l'ambito del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione delle chiavi di Servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello.
 
-![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection002.png)
+![criterio di autorizzazione per chiavi e licenze](./media/media-services-portal-content-protection/media-services-content-protection002.png)
 
 ## <a name="playready-license-template"></a>Modello di licenza PlayReady
-Il modello di licenza PlayReady imposta la funzionalità abilitata nella licenza PlayReady. Per informazioni dettagliate sul modello di licenza PlayReady, vedere [Panoramica del modello di licenza PlayReady di Servizi multimediali](media-services-playready-license-template-overview.md).
+Il modello di licenza PlayReady imposta la funzionalità è abilitata nella propria licenza PlayReady. Per ulteriori informazioni sul modello di licenza PlayReady, vedere il [Cenni preliminari sui modelli di licenza PlayReady di servizi multimediali](media-services-playready-license-template-overview.md).
 
-### <a name="non-persistent"></a>Non persistente
-Se viene configurata come non persistente, la licenza verrà conservata in memoria solo mentre il lettore la usa.  
+### <a name="nonpersistent"></a>Non persistenti
+Se si configura una licenza come non persistenti, viene mantenuto in memoria solo quando il lettore utilizza la licenza.  
 
-![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection003.png)
+![Protezione del contenuto non persistente](./media/media-services-portal-content-protection/media-services-content-protection003.png)
 
 ### <a name="persistent"></a>Persistente
-Se viene configurata come persistente, la licenza verrà salvata nell'archivio persistente del client.
+Se si configura una licenza come permanente, esso viene salvato nell'archivio permanente nel client.
 
-![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection004.png)
+![Protezione del contenuto persistente](./media/media-services-portal-content-protection/media-services-content-protection004.png)
 
 ## <a name="widevine-license-template"></a>Modello di licenza Widevine
-Il modello di licenza Widevine imposta la funzionalità abilitata nelle licenze Widevine.
+Il modello di licenza Widevine imposta la funzionalità è abilitata nelle licenze Widevine.
 
 ### <a name="basic"></a>Basic
-Se si seleziona **Basic**, il modello verrà creato con tutti i valori predefiniti.
+Quando si seleziona **base**, il modello viene creato con tutti i valori predefiniti.
 
 ### <a name="advanced"></a>Avanzate
-Per informazioni dettagliate sul modello dei diritti Widevine, vedere [Panoramica del modello di licenza Widevine](media-services-widevine-license-template-overview.md).
+Per ulteriori informazioni sul modello di diritti Widevine, vedere il [Cenni preliminari sui modelli di licenza Widevine](media-services-widevine-license-template-overview.md).
 
-![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection005.png)
+![Protezione avanzata del contenuto](./media/media-services-portal-content-protection/media-services-content-protection005.png)
 
 ## <a name="fairplay-configuration"></a>Configurazione di FairPlay
-Per abilitare la crittografia FairPlay, è necessario indicare il certificato dell'app e la chiave privata dell'applicazione (ASK) tramite l'opzione di configurazione FairPlay. Per informazioni dettagliate sulla configurazione e i requisiti di FairPlay, vedere [questo](media-services-protect-hls-with-FairPlay.md) articolo.
+Per abilitare la crittografia FairPlay, selezionare **FairPlay configurazione**. Selezionare quindi il **certificato App** e immettere il **chiave segreto applicazione**. Per ulteriori informazioni sulla configurazione di FairPlay e requisiti, vedere [proteggere il contenuto con Microsoft PlayReady o di FairPlay Apple HLS](media-services-protect-hls-with-FairPlay.md).
 
-![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection006.png)
+![Configurazione di FairPlay](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
 ## <a name="apply-dynamic-encryption-to-your-asset"></a>Applicare la crittografia dinamica agli asset
-Per sfruttare i vantaggi della crittografia dinamica, è necessario codificare il file di origine in un set di file MP4 a velocità in bit adattiva.
+Per sfruttare i vantaggi della crittografia dinamica, codificare il file di origine in un set di file MP4 a velocità in bit adattiva.
 
 ### <a name="select-an-asset-that-you-want-to-encrypt"></a>Selezionare un asset da crittografare
 Per visualizzare tutti gli asset, selezionare **Impostazioni** > **Asset**.
 
-![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection007.png)
+![Opzione Asset](./media/media-services-portal-content-protection/media-services-content-protection007.png)
 
 ### <a name="encrypt-with-aes-or-drm"></a>Crittografare con AES o DRM
-Quando si seleziona **Crittografa** per un asset, sono disponibili due opzioni: **AES** o **DRM**. 
+Quando si seleziona **Encrypt** per un asset, sono visualizzate due opzioni: **AES** o **DRM**. 
 
 #### <a name="aes"></a>AES
-La crittografia con chiave non crittografata AES sarà abilitata su tutti i protocolli di streaming: Smooth Streaming, HLS e MPEG-DASH.
+Non è abilitata la crittografia con chiave in tutti i protocolli di streaming crittografata AES: Smooth Streaming, HLS e MPEG-DASH.
 
-![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection008.png)
+![Configurazione della crittografia](./media/media-services-portal-content-protection/media-services-content-protection008.png)
 
 #### <a name="drm"></a>DRM
-Nella scheda DRM sono disponibili diverse opzioni per i criteri di protezione del contenuto (che è necessario aver configurato a questo punto) e un set di protocolli di streaming.
+1. Dopo aver selezionato **DRM**, vedrai i criteri di protezione del contenuto diverso (che devono essere configurati a questo punto) e un set di protocolli di flusso:
 
-* **PlayReady e Widevine con MPEG-DASH** : il flusso MPEG-DASH verrà crittografato dinamicamente con le soluzioni DRM PlayReady e Widevine.
-* **PlayReady e Widevine con MPEG-DASH + FairPlay con HLS** : il flusso MPEG-DASH verrà crittografato dinamicamente con le soluzioni DRM PlayReady e Widevine. Verranno anche crittografati i flussi HLS con FairPlay.
-* **PlayReady solo con Smooth Streaming, HLS e MPEG-DASH** : i flussi Smooth Streaming, HLS e MPEG-DASH verranno crittografati dinamicamente con la soluzione DRM PlayReady.
-* **Solo Widevine con MPEG-DASH** : il flusso MPEG-DASH verrà crittografato dinamicamente con la soluzione DRM Widevine.
-* **Solo FairPlay con HLS** : il flusso HLS verrà crittografato dinamicamente con FairPlay.
+    a. **PlayReady e Widevine con MPEG-DASH** crittografa in modo dinamico il flusso MPEG-DASH con PlayReady e Widevine DRMs.
 
-Per abilitare la crittografia FairPlay, è necessario indicare il certificato dell'app e la chiave privata dell'applicazione (ASK) tramite l'opzione di configurazione FairPlay del pannello delle impostazioni di Protezione del contenuto.
+    b. **PlayReady e Widevine con MPEG-DASH + FairPlay con HLS** crittografare dinamicamente il flusso MPEG-DASH con PlayReady e Widevine DRMs. Questa opzione consente di crittografare anche i flussi HLS con FairPlay.
 
-![Proteggere il contenuto](./media/media-services-portal-content-protection/media-services-content-protection009.png)
+    c. **PlayReady solo con Smooth Streaming, HLS e MPEG-DASH** crittografa in modo dinamico i flussi Smooth Streaming, HLS e MPEG-DASH con PlayReady DRM.
 
-Dopo aver selezionato la crittografia, fare clic su **Applica**.
+    d. **Widevine solo con MPEG-DASH** crittografa in modo dinamico il MPEG-DASH con DRM Widevine.
+    
+    e. **FairPlay solo con HLS** crittografa in modo dinamico il flusso HLS con FairPlay.
+
+2. Per attivare la crittografia, FairPlay il **impostazioni globali di protezione del contenuto** pannello seleziona **FairPlay configurazione**. Selezionare quindi il **certificato App**e immettere il **chiave segreto applicazione**.
+
+    ![Tipo di crittografia](./media/media-services-portal-content-protection/media-services-content-protection009.png)
+
+3. Dopo aver effettuato la selezione di crittografia, selezionare **applica**.
 
 >[!NOTE] 
->Se si prevede di eseguire un flusso HLS crittografato con AES in Safari, vedere il [blog sull'HLS crittografato in Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+>Se si prevede di riprodurre un HLS crittografato con AES in Safari, vedere il post di blog [HLS crittografato in Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Analizzare i percorsi di apprendimento di Servizi multimediali.
-
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti

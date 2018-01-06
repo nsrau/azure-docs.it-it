@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 12ebfdfaaf9325ba57fe3972ee073fa5181cdbff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 077a60949b5eed24cb9a1c56008a0073693f121e
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticazione pass-through di Azure Active Directory: domande frequenti
 
@@ -81,6 +81,12 @@ Sì. Se Web Proxy Auto-Discovery (WPAD) è abilitato nell'ambiente locale, gli a
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>È possibile installare due o più agenti di autenticazione pass-through nello stesso server?
 
 No, è possibile installare solo un agente di autenticazione pass-through in un singolo server. Se si vuole configurare l'autenticazione pass-through per la disponibilità elevata, seguire le istruzioni fornite in [Autenticazione pass-through di Azure Active Directory - Avvio rapido](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+
+## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Come rimuovere un agente autenticazione pass-through?
+
+Fino a quando un agente autenticazione pass-through è in esecuzione, rimane attivo e continuamente gestisce le richieste di accesso utente. Se si desidera disinstallare un agente di autenticazione, passare a **Pannello di controllo -> programmi -> programmi e funzionalità** e disinstallare sia il **agente autenticazione di Microsoft Azure AD Connect** e il  **Aggiornamento di Microsoft Azure AD Connect agente** programmi.
+
+Se si seleziona il pannello di autenticazione pass-through nel [centro di amministrazione di Azure Active Directory](https://aad.portal.azure.com) dopo aver completato il passaggio precedente, si noterà l'agente di autenticazione che mostra come **inattivo**. Questo è il comportamento _previsto_. L'agente di autenticazione viene eliminato automaticamente nell'elenco dopo alcuni giorni.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Si usa già AD FS per eseguire l'accesso a Azure AD. Come si passa all'autenticazione pass-through?
 
