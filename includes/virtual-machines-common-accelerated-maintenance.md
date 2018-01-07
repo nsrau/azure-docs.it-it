@@ -8,11 +8,11 @@ Con la diffusione pubblica di vulnerabilità della sicurezza, abbiamo [accelerat
  
 ## <a name="how-can-i-see-which-of-my-vms-are-already-updated"></a>Come è possibile vedere quali macchine virtuali vengono già aggiornate? 
 
-È possibile visualizzare lo stato delle macchine virtuali e se il riavvio è completata entro il nel [elenco VM nel portale di Azure](https://aka.ms/T08tdc). Le macchine virtuali verranno elencate come "Già aggiornato" se l'aggiornamento è stato applicato, o "Pianificato" se l'aggiornamento è ancora necessario. Se si desidera visualizzare solo le macchine virtuali "Pianificato" consultare il [dell'integrità del servizio di Azure](https://portal.azure.com/).
+È possibile visualizzare lo stato delle macchine virtuali, se il riavvio è stata completata, nel [elenco VM nel portale di Azure](https://aka.ms/T08tdc). Se l'aggiornamento è stato applicato, o "Pianificato" se l'aggiornamento è comunque necessario, le macchine virtuali sono elencate come "già aggiornato". Se si desidera visualizzare solo le macchine virtuali "Pianificato" consultare il [dell'integrità del servizio di Azure](https://portal.azure.com/).
 
 ## <a name="can-i-find-out-exactly-when-my-vms-will-be-rebooted"></a>È possibile stabilire esattamente quando macchine virtuali verranno riavviate?
 
-Il modo migliore per ottenere un avviso per il riavvio del computer consiste nel configurare [agli eventi pianificati](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events). Fornisce una notifica di 15 minuti della macchina virtuale sta perdendo per interventi di manutenzione: effettua una chiamata API per la macchina virtuale e, inoltre, la voce di log attività utilizzabile per attivare il monitoraggio di Azure per inviare messaggi di posta elettronica, SMS o webhook. Non è possibile fornire qualsiasi avviso precedente.
+Il modo migliore per ottenere un avviso per il riavvio del computer consiste nel configurare [agli eventi pianificati](https://docs.microsoft.com/azure/virtual-machines/windows/scheduled-events). Ciò fornisce una notifica di 15 minuti della macchina virtuale sta perdendo per interventi di manutenzione.
 
 ## <a name="can-i-manually-redeploy-now-to-perform-the-required-maintenance"></a>È ridistribuire manualmente ora per eseguire la manutenzione necessaria? 
 
@@ -24,7 +24,7 @@ La maggior parte dei riavvii richiede circa **30 minuti**.
 
 ## <a name="does-the-guest-os-need-to-be-updated"></a>Se il guest OS dovranno essere aggiornati. 
 
-L'aggiornamento dell'infrastruttura di Azure risolve la vulnerabilità divulgata a livello di hypervisor e non richiede un aggiornamento per le immagini di Windows o Linux VM. Tuttavia, come sempre, si deve continuare ad applicare le procedure consigliate per le immagini di macchina virtuale. Consultare il fornitore del sistema dei sistemi operativi per gli aggiornamenti e le istruzioni, in base alle esigenze. Per i clienti di macchina virtuale Windows Server, informazioni aggiuntive a questo punto è stato pubblicato ed è disponibile qui.
+L'aggiornamento dell'infrastruttura di Azure risolve la vulnerabilità divulgata a livello di hypervisor e non richiede un aggiornamento per le immagini di Windows o Linux VM. Tuttavia, come sempre, si deve continuare ad applicare le procedure consigliate per le immagini di macchina virtuale. Consultare il fornitore del sistema dei sistemi operativi per gli aggiornamenti e le istruzioni, in base alle esigenze. Per i clienti di macchina virtuale Windows Server, informazioni aggiuntive a questo punto è stato pubblicato e disponibile [qui](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002).
 
 ## <a name="will-there-be-a-performance-impact-as-a-result-of-resolving-this-update"></a>Vi sarà un impatto sulle prestazioni a causa di risoluzione di questo aggiornamento?
 
