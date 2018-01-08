@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: f2849fe25fd0d5b3dc26598ffba7591cb7433161
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: f131eb021d85766f12b0fb6cb8b5a07f965f9c97
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="intro"></a> Integrare un servizio cloud con la rete CDN di Azure
 È possibile integrare un servizio cloud con la rete CDN di Azure, rendendo disponibile qualsiasi contenuto dalla posizione del servizio cloud. Questo approccio offre i vantaggi seguenti:
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 * Flusso di lavoro di distribuzione unificato per l'applicazione Web e il contenuto gestito dalla rete CDN
 * Integrazione di creazione di bundle e minimizzazione ASP.NET con la rete CDN di Azure
 
-## <a name="what-you-will-learn"></a>Contenuto dell'esercitazione
+## <a name="what-you-will-learn"></a>Concetti legati all'esercitazione
 In questa esercitazione si apprenderà come:
 
 * [Integrare un endpoint della rete CDN di Azure con il servizio cloud e rendere disponibile il contenuto statico nella pagine Web dalla rete CDN di Azure](#deploy)
@@ -111,7 +111,7 @@ Un profilo di rete CDN è una raccolta di endpoint della rete CDN.  Ogni profilo
 ## <a name="create-a-new-cdn-endpoint"></a>Creare un nuovo endpoint della rete CDN
 **Per creare un nuovo endpoint della rete CDN per l'account di archiviazione**
 
-1. Nel [portale di gestione di Azure](https://portal.azure.com)passare al profilo di rete CDN.  Lo si potrebbe aver bloccato nel dashboard nel passaggio precedente.  Se così non fosse, è possibile trovarlo facendo clic su **Esplora**, quindi su **Profili rete CDN** e facendo clic sul profilo in cui si prevede di aggiungere l'endpoint.
+1. Nel [portale di Azure](https://portal.azure.com)passare al profilo della rete CDN.  Lo si potrebbe aver bloccato nel dashboard nel passaggio precedente.  Se così non fosse, è possibile trovarlo facendo clic su **Esplora**, quindi su **Profili rete CDN** e facendo clic sul profilo in cui si prevede di aggiungere l'endpoint.
    
     Viene visualizzato il pannello del profilo di rete CDN.
    
@@ -150,7 +150,7 @@ Quando si passa a **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css**,
 
 ![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
-È possibile accedere in maniera simile a qualsiasi URL pubblicamente accessibile all'indirizzo **http://*&lt;nomeServizio>*.cloudapp.net/**, direttamente dall'endpoint della rete CDN. ad esempio:
+È possibile accedere in maniera simile a qualsiasi URL pubblicamente accessibile all'indirizzo **http://*&lt;nomeServizio>*.cloudapp.net/**, direttamente dall'endpoint della rete CDN. Ad esempio: 
 
 * Un file con estensione js dal percorso /Script
 * Qualsiasi file di contenuto dal percorso /Content
@@ -444,13 +444,13 @@ Attenersi alla procedura seguente per integrare la creazione di bundle e la mini
    
    * L'origine per questo URL della rete CDN è `http://<yourCloudService>.cloudapp.net/bundles/jquery?v=<W.X.Y.Z>`, che in realtà è la directory virtuale del bundle di script nel servizio cloud.
    * Poiché si sta usando un costruttore CDN, il tag dello script CDN per il bundle non contiene più la stringa di versione generata automaticamente nell'URL di cui è stato eseguito il rendering. È necessario generare manualmente una stringa di versione univoca ogni volta che il bundle di script viene modificato per forzare un mancato riscontro nella cache nella rete CDN di Azure. Allo stesso tempo, questa stringa di versione univoca deve rimanere costante per tutta la durata della distribuzione per aumentare i riscontri nella cache nella rete CDN di Azure dopo aver distribuito il bundle.
-   * La stringa di query v=<W.X.Y.Z> effettua il pull da *Properties\AssemblyInfo.cs* nel progetto di ruolo Web. È possibile prevedere un flusso di lavoro di distribuzione che includa l'incremento della versione di assembly ogni volta che si pubblica su Azure. In alternativa, è possibile modificare solo il file *Properties\AssemblyInfo.cs* nel progetto per incrementare automaticamente la stringa di versione ogni volta che si compila, usando il carattere jolly '*'. ad esempio:
+   * La stringa di query v=<W.X.Y.Z> effettua il pull da *Properties\AssemblyInfo.cs* nel progetto di ruolo Web. È possibile prevedere un flusso di lavoro di distribuzione che includa l'incremento della versione di assembly ogni volta che si pubblica su Azure. In alternativa, è possibile modificare solo il file *Properties\AssemblyInfo.cs* nel progetto per incrementare automaticamente la stringa di versione ogni volta che si compila, usando il carattere jolly '*'. Ad esempio: 
      
         [assembly: AssemblyVersion("1.0.0.*")]
      
      Qualsiasi altra strategia volta a semplificare la generazione di una stringa univoca per la durata della distribuzione avrà esito positivo.
 2. Ripubblicare il servizio cloud e accedere alla home page.
-3. Visualizzare il codice HTML relativo alla pagina. Dovrebbe essere possibile visualizzare l'URL della rete CDN di cui è stato eseguito il rendering, con una stringa di versione univoca ogni volta che si ripubblicano le modifiche al servizio cloud, Ad esempio:  
+3. Visualizzare il codice HTML relativo alla pagina. Dovrebbe essere possibile visualizzare l'URL della rete CDN di cui è stato eseguito il rendering, con una stringa di versione univoca ogni volta che si ripubblicano le modifiche al servizio cloud, Ad esempio:   
    
         ...
    

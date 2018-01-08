@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/08/2018
 ms.author: andredm
-ms.openlocfilehash: 92708909a472f98b45492f3c0c807634f1c204d7
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: fadd72d76862694af96b51d198b6693e104c05de
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-stack-1712-update"></a>Aggiornamento dello Stack 1712 Azure
 
@@ -31,17 +31,9 @@ In questo articolo vengono descritti i miglioramenti e correzioni in questo pacc
 
 ## <a name="build-reference"></a>Compilazione di riferimento
 
-È il numero di build di aggiornamento di Azure Stack 1712 **180103.2**.
+È il numero di build di aggiornamento di Azure Stack 1712 **180106.1**. Se un cliente ha distribuito **180103.2** in precedenza, non è necessario applicare **180106.1**.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-
-> [!WARNING]
-> Se si è attualmente in una sessione remota di PEP interattiva attiva, è necessario chiudere la sessione prima di avviare il processo di installazione dello Stack di Azure. È possibile digitare **uscire** nella console per chiudere la sessione remota.
-> È possibile verificare se è tutte le sessioni remote PEP eseguendo innanzitutto i due comandi di PowerShell, **Get-PSSession** in cui sono elencate tutte delle sessioni remote attive, quindi **Remove-PSSession** terminare e rimuovere le sessioni remote attive. I comandi di PowerShell devono essere eseguita da qualsiasi computer usato per creare sessioni remote PEP nell'ambiente dello Stack di Azure. Di seguito è riportato l'esempio di comando di PowerShell:
-```
-Get-PSSession | Remove-PSSession
-```
-Inoltre, non creare una sessione PEP anche dopo l'aggiornamento dello Stack di Azure è stata avviata.
 
 > [!IMPORTANT]
 > Non tentare di creare macchine virtuali durante il processo di installazione di aggiornamenti 1712. Vedere [gestire gli aggiornamenti in panoramica di Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#plan-for-updates) per altri dettagli.
@@ -100,7 +92,7 @@ In questa sezione contiene i problemi noti che possono verificarsi durante l'ins
 
 ### <a name="known-issues-post-installation"></a>Problemi noti (post-installazione)
 
-In questa sezione contiene i problemi noti di post-installazione con compilazione **180103.2**.
+In questa sezione contiene i problemi noti di post-installazione con compilazione **180106.1**.
 
 #### <a name="portal"></a>Portale
 
@@ -161,6 +153,11 @@ Ambienti, distribuiti in Azure Active Directory Federation Services (ADFS) di **
 
 È possibile scaricare il pacchetto di aggiornamento da Azure Stack 1712 [qui](https://aka.ms/azurestackupdatedownload).
 
+## <a name="more-information"></a>Altre informazioni
+
+Microsoft ha fornito un modo per monitorare e riprendere gli aggiornamenti utilizzando i privilegi punto finale (PEP) installati con aggiornamento 1712.
+
+- Vedere il [monitorare gli aggiornamenti nello Stack di Azure utilizzando la documentazione di endpoint con privilegi](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
 ## <a name="see-also"></a>Vedere anche 
 
 - Vedere [gestire gli aggiornamenti in panoramica di Azure Stack](azure-stack-updates.md) per una panoramica del processo di gestione nello Stack di Azure.

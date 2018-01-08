@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 01/05/2018
 ms.author: terrylan
-ms.openlocfilehash: e71d407050f210c770bcac30259b9c2f2fb27aa3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 428587830af9299f5768c42e4c5fcf555701d09f
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Domande frequenti sul Centro sicurezza di Azure
 Queste FAQ rispondono alle domande sul Centro sicurezza di Azure, un servizio che consente di prevenire, rilevare e rispondere alle minacce con visibilità e controllo maggiori sulla sicurezza delle risorse di Microsoft Azure.
@@ -131,7 +131,7 @@ Questo messaggio viene visualizzato quando non sono presenti dati di analisi per
 ### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>Con quale frequenza il Centro sicurezza esegue l'analisi alla ricerca di vulnerabilità del sistema operativo, aggiornamenti del sistema e problemi di protezione degli endpoint?
 La latenza con cui il Centro sicurezza esegue l'analisi alla ricerca di vulnerabilità, aggiornamenti e problemi è riportata di seguito:
 
-- Vulnerabilità del sistema operativo (da Microsoft): i dati vengono aggiornati entro 48 ore
+- Configurazioni di sicurezza del sistema operativo: dati viene aggiornato entro 48 ore
 - Aggiornamenti di sistema: i dati vengono aggiornati entro 24 ore
 - Problemi di protezione degli endpoint: i dati vengono aggiornati entro 8 ore
 

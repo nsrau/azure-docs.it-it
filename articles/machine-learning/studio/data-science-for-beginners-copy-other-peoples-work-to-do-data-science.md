@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: cgronlun
-ms.openlocfilehash: f63911d8b48393ec8b0f041b1340bec40c768f38
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 52edc2158e5e74fc544d03efbba2f7e29290e424
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiare il lavoro di altre persone per l'analisi scientifica dei dati
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Analisi scientifica dei dati per principianti
 Uno dei segreti commerciali di analisi scientifica dei dati è quello di far svolgere il proprio lavoro ad altre persone. Trovare un esempio di algoritmo di clustering nella raccolta di Azure da utilizzare per la propria esperimento di machine learning.
 
 > [!IMPORTANT]
-> È stato rinominato Cortana Intelligence Gallery **raccolta di Azure AI**. Di conseguenza, testo e immagini in questa trascrizione variano leggermente dal video, che utilizza il nome precedente.
+> **Raccolta di Intelligence Cortana** è stato rinominato **raccolta di Azure AI**. Di conseguenza, testo e immagini in questa trascrizione variano leggermente dal video, che utilizza il nome precedente.
 >
 
 Per trarre il meglio dalla serie è consigliabile guardare tutti i video. [L'elenco dei video è disponibile qui](#other-videos-in-this-series)
@@ -52,7 +52,7 @@ In questo video si scoprirà dove trovare esempi che è possibile usare come pun
 
 Uno dei segreti commerciali di analisi scientifica dei dati è quello di far svolgere il proprio lavoro ad altre persone.
 
-## <a name="find-examples-in-the-azure-ai-intelligence-gallery"></a>Trovare gli esempi nella raccolta di Intelligence di Azure
+## <a name="find-examples-in-the-azure-ai-gallery"></a>Trovare gli esempi nella raccolta di Azure
 
 Microsoft dispone di un servizio basato su cloud denominato [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) che hai di prova gratuitamente. Offre un'area di lavoro in cui si possono provare i diversi algoritmi di Machine Learning e, una volta creata la soluzione personalizzata, si potrà avviarla come servizio Web.
 

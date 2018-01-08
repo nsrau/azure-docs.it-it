@@ -3,19 +3,19 @@ title: Informazioni su Azure Time Series Insights | Microsoft Docs
 description: Introduzione ad Azure Time Series Insights, un nuovo servizio per le soluzioni IoT e di analisi dei dati delle serie temporali
 services: time-series-insights
 ms.service: time-series-insights
-author: op-ravi
-ms.author: omravi
+author: ashannon7
+ms.author: anshan
 manager: jhubbard
 editor: MarkMcGeeAtAquent
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 95cb26ada6f8ea39bc1a437a755f80ee7ddb7698
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.openlocfilehash: cb4b3c701f3d3ec52addd1b98c01b97c2220ae34
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="what-is-azure-time-series-insights"></a>Informazioni su Azure Time Series Insights
 
@@ -50,7 +50,7 @@ Non è necessario avere familiarità con un particolare linguaggio. Time Series 
 - **Compilare soluzioni personalizzate**: è possibile incorporare i dati di Azure Time Series Insights nelle applicazioni esistenti o creare nuove soluzioni personalizzate con le API REST di Time Series Insights. Creare visualizzazioni personalizzate che è possibile condividere per consentire ad altri di usufruire delle informazioni dettagliate rilevate.
 - **Scalabilità**: Time Series Insights è progettato per supportare IoT su larga scala. Può infatti inserire da 1 milione a 100 milioni di eventi al giorno, con un intervallo di conservazione di 31 giorni. È possibile visualizzare e analizzare i flussi dei dati attivi quasi in tempo reale, oltre a dati cronologici. I tassi di inserimento e conservazione aumenteranno man mano proporzionalmente in base alle esigenze aziendali.
 
-## <a name="getting-started"></a>introduttiva
+## <a name="getting-started"></a>Introduzione
 Iniziare a usare Time Series Insights richiede meno di 5 minuti. 
 
 1.  Per iniziare, eseguire il provisioning di un ambiente Time Series Insights nel portale di Azure. 

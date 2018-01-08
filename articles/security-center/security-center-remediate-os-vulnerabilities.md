@@ -1,6 +1,6 @@
 ---
-title: "Correggere le vulnerabilità del sistema operativo nel Centro sicurezza di Azure | Microsoft Docs"
-description: "Questo documento illustra come implementare la raccomandazione **Remediate OS vulnerabilities (Risolvi vulnerabilità del sistema operativo)** del Centro sicurezza di Azure."
+title: Monitorare e aggiornare le configurazioni di sicurezza nel Centro protezione di Azure | Documenti Microsoft
+description: Questo documento viene illustrato come implementare la raccomandazione del Centro sicurezza di Azure **monitora e aggiorna le configurazioni di sicurezza**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,33 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 39879c22278a55f841e294cda5a89bec2bdf6988
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 412234b1486fa15cbc399bcf43be8ce90aac252a
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Risolvere le vulnerabilità del sistema operativo in Centro sicurezza di Azure
-Il Centro sicurezza di Azure analizza ogni giorno il sistema operativo delle macchine virtuali e dei computer per trovare eventuali configurazioni che li renderebbero più vulnerabili agli attacchi. Il Centro sicurezza consiglia di risolvere le vulnerabilità quando la configurazione del sistema operativo non corrisponde alle regole di configurazione consigliate e suggerisce di modificare la configurazione per risolvere le vulnerabilità.
+# <a name="remediate-security-configurations-in-azure-security-center"></a>Monitorare e aggiornare le configurazioni di sicurezza nel Centro protezione di Azure
+Il Centro sicurezza di Azure analizza ogni giorno il sistema operativo delle macchine virtuali e dei computer per trovare eventuali configurazioni che li renderebbero più vulnerabili agli attacchi. Centro sicurezza PC consiglia di risolvere le vulnerabilità durante la configurazione del sistema operativo non corrispondono alle regole di configurazione consigliata per la protezione e propone le modifiche di configurazione per risolvere tali problemi.
 
-> [!NOTE]
-> Per altre informazioni sulle configurazioni specifiche monitorate, vedere l'[elenco delle regole di configurazione consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
->
->
+Per altre informazioni sulle configurazioni specifiche monitorate, vedere l'[elenco delle regole di configurazione consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Vedere [personalizzazione delle configurazioni di protezione del sistema operativo](security-center-customize-os-security-config.md) per informazioni su come personalizzare le valutazioni della configurazione di sicurezza del Centro sicurezza PC.
 
 ## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
-La correzione delle vulnerabilità del sistema operativo viene presentata sotto forma di suggerimento nel Centro sicurezza. Questa indicazione verrà visualizzata in **Raccomandazioni** e in **Calcolo**.
+Correggere presentato come un'indicazione del Centro sicurezza PC mancata corrispondenza tra le configurazioni di sicurezza. Questa indicazione verrà visualizzata in **Raccomandazioni** e in **Calcolo**.
 
-In questo esempio verrà esaminata la raccomandazione **Correggi le vulnerabilità del sistema operativo (di Microsoft)** in **Calcolo**.
+In questo esempio, verranno esaminati i **monitora e aggiorna le configurazioni di sicurezza** raccomandazione in **calcolo**.
 1. Selezionare **Calcolo** nel menu principale del Centro sicurezza.
 
-   ![Remediate OS vulnerabilities (Risolvi vulnerabilità del sistema operativo)][1]
+   ![Monitorare e aggiornare le configurazioni di sicurezza][1]
 
-2. In **Calcolo** selezionare **Correggi le vulnerabilità del sistema operativo (di Microsoft)**. Si apre il dashboard **Mancata corrispondenza di vulnerabilità del sistema operativo (di Microsoft)**.
+2. In **calcolo**selezionare **monitora e aggiorna le configurazioni di sicurezza**. **Le configurazioni di sicurezza** apre.
 
-   ![Remediate OS vulnerabilities (Risolvi vulnerabilità del sistema operativo)][2]
+   ![Configurazioni di sicurezza][2]
 
   Nella parte superiore del dashboard sono presenti:
 
@@ -77,11 +74,11 @@ In questo esempio verrà esaminata la raccomandazione **Correggi le vulnerabilit
   - VALORE EFFETTIVO: valore restituito dopo l'analisi della configurazione del sistema operativo della VM rispetto alla regola
   - OPERAZIONE DI REGOLA: operazione di regola usata dal Centro sicurezza durante l'analisi della configurazione del sistema operativo della VM rispetto alla regola
 
-4. Selezionare l'icona **Cerca** nella barra multifunzione superiore. Si apre la ricerca che elenca le aree di lavoro contenenti le macchine virtuali e i computer con la vulnerabilità del sistema operativo selezionata. Questo pannello di selezione dell'area di lavoro viene visualizzato solo se la regola selezionata si applica a più macchine virtuali connesse a diverse aree di lavoro.
+4. Selezionare l'icona **Cerca** nella barra multifunzione superiore. Ricerca apre elenco aree di lavoro con le macchine virtuali e i computer con la mancata corrispondenza delle configurazioni di protezione selezionato. Questo pannello di selezione dell'area di lavoro viene visualizzato solo se la regola selezionata si applica a più macchine virtuali connesse a diverse aree di lavoro.
 
   ![Aree di lavoro elencate][4]
 
-5. Selezionare un'area di lavoro. Consente di aprire una query di ricerca di Log Analytics filtrata nell'area di lavoro con la vulnerabilità del sistema operativo.
+5. Selezionare un'area di lavoro. Consente di aprire una query di ricerca Log Analitica filtrati nell'area di lavoro con la mancata corrispondenza delle configurazioni di sicurezza.
 
   ![Area di lavoro con vulnerabilità del sistema operativo][5]
 
@@ -90,7 +87,9 @@ In questo esempio verrà esaminata la raccomandazione **Correggi le vulnerabilit
   ![Filtrate per quel computer][6]
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questo documento illustra come implementare la raccomandazione "Remediate OS vulnerabilities" (Risolvi vulnerabilità del sistema operativo) del Centro sicurezza. È possibile esaminare il set di regole di configurazione [qui](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Il Centro sicurezza usa l'enumerazione di configurazione comune (CCE) per assegnare identificatori univoci per le regole di configurazione. Per altre informazioni, vedere la pagina relativa alla enumerazione [CCE](https://nvd.nist.gov/cce/index.cfm) .
+In questo articolo è stato illustrato come implementare la raccomandazione del Centro sicurezza PC "Monitora e aggiorna le configurazioni di sicurezza". Vedere [personalizzazione delle configurazioni di protezione del sistema operativo](security-center-customize-os-security-config.md) per informazioni su come personalizzare le valutazioni della configurazione di sicurezza del Centro sicurezza PC.
+
+È possibile esaminare il set di regole di configurazione [qui](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Il Centro sicurezza usa l'enumerazione di configurazione comune (CCE) per assegnare identificatori univoci per le regole di configurazione. Per altre informazioni, vedere la pagina relativa alla enumerazione [CCE](https://nvd.nist.gov/cce/index.cfm) .
 
 Per altre informazioni sul Centro sicurezza, vedere le risorse seguenti:
 

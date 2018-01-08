@@ -9,15 +9,15 @@ ms.date: 04/28/2017
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: 5851b5219b6e25a5a2b005fc3d3c3b44d98ed746
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 15d4001e656c456c2fbe3b3d63cdd094498940c8
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="create-an-app-service"></a>Creare un servizio app
 
-In questo scenario si apprenderà come creare un'app per le funzioni usando il [piano a consumo](../functions-scale.md#consumption-plan) con le risorse correlate e come distribuire in modo continuo il codice di funzione da un archivio di Visual Studio Team Services (VSTS). In questo esempio sono necessari gli elementi seguenti:
+In questo scenario, informazioni su come creare un'app di funzione che usa il [piano il consumo](../functions-scale.md#consumption-plan) e si configura la distribuzione continua da un repository di Visual Studio Team Services (VSTS). Per questo esempio è necessario:
 
 * Archivio VSTS contenente il codice di funzione per il quale si hanno autorizzazioni amministrative.
 * [Token di accesso personale](https://help.github.com/articles/creating-an-access-token-for-command-line-use) per il proprio account GitHub.
@@ -26,7 +26,7 @@ In questo scenario si apprenderà come creare un'app per le funzioni usando il [
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessario eseguire la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Se si sceglie di installare e utilizzare l'interfaccia CLI in locale, è necessario essere in esecuzione l'interfaccia CLI di Azure versione 2.0 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
 
