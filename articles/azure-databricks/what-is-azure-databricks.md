@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 20f6899362420d96e7f03ea4dddeb6147a92f304
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: b96896b22d406954e80d1df268f55c1c5a02ec6f
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="what-is-azure-databricks"></a>Informazioni su Azure Databricks
 
@@ -73,7 +73,7 @@ Grazie a un ambiente integrato che favorisce la collaborazione, Azure Databricks
 
 * Stabilire come usare i dati con semplici funzionalità di esplorazione dei dati.
 * Documentare lo stato di avanzamento nei blocchi appunti in R, Python, Scala o SQL.
-* Visualizzare i dati in pochi clic e usare strumenti familiari come Matplotlib, ggoplot o d3.
+* Visualizzare i dati in pochi clic e usare strumenti familiari come Matplotlib, ggplot o d3.
 * Usare dashboard interattivi per creare report dinamici.
 * Usare Spark e interagire contemporaneamente con i dati.
 

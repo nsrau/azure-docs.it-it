@@ -3,7 +3,7 @@ title: Creare un'applicazione Framework o Core Cosmos DB tramite l'API Graph | M
 description: Presenta un esempio di codice .NET Framework/Core che permette di connettersi ad Azure Cosmos DB ed eseguire query sul servizio
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 ms.assetid: daacbabf-1bb5-497f-92db-079910703046
@@ -13,21 +13,21 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 10/06/2017
-ms.author: denlee
-ms.openlocfilehash: 4c90ead99c513a56f8891b889e2c873952a33ec8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/02/2018
+ms.author: lbosq
+ms.openlocfilehash: 29153180da576f144a3f21718c3044b7b843eafb
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Creare un'applicazione .NET Framework o Core tramite l'API Graph
 
-Azure Cosmos DB è il servizio di database multimodello distribuito a livello globale di Microsoft. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave/valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
+Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
 
-Questa guida di avvio rapido mostra come creare un account, un database e un grafo (contenitore) di Azure Cosmos DB tramite il portale di Azure. Quindi, si creerà ed eseguirà un'app console basata sull'[API Graph](graph-sdk-dotnet.md) (anteprima).  
+Questa guida di avvio rapido mostra come creare un account, un database e un grafo (contenitore) di Azure Cosmos DB tramite il portale di Azure. Quindi, si creerà ed eseguirà un'app console basata sull'[API Graph](graph-sdk-dotnet.md).  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
 
@@ -63,7 +63,7 @@ Questo progetto di esempio usa il formato di progetto .NET Core ed è stato conf
 
 ## <a name="review-the-code"></a>Esaminare il codice
 
-Ecco una breve analisi di ciò che accade nell'app. Aprire il file Program.cs. Come si noterà, queste righe di codice creano le risorse di Azure Cosmos DB. 
+Ecco una breve panoramica delle operazioni eseguire nell'app. Aprire il file Program.cs. Come si noterà, queste righe di codice creano le risorse di Azure Cosmos DB. 
 
 * Viene inizializzato DocumentClient. Nell'anteprima è stata aggiunta un'API di estensione Graph nel client Azure Cosmos DB. È in corso lo sviluppo di un client Graph autonomo separato dal client e dalle risorse di Azure Cosmos DB.
 
@@ -108,19 +108,31 @@ Ecco una breve analisi di ciò che accade nell'app. Aprire il file Program.cs. C
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app.
 
-1. In Visual Studio 2017 aprire il file appsettings.json. 
+1. Nel [portale di Azure](http://portal.azure.com/) fare clic su **Chiavi**. 
 
-2. Nell'account Azure Cosmos DB nel portale di Azure fare clic su **Chiavi** nel riquadro di spostamento a sinistra. 
+    Copiare la prima parte del valore dell'URI.
 
-    ![Visualizzare e copiare una chiave primaria nella pagina Chiavi del portale di Azure](./media/create-graph-dotnet/keys.png)
+    ![Visualizzare e copiare una chiave di accesso nella pagina Chiavi del portale di Azure](./media/create-graph-dotnet/keys.png)
 
-3. Copiare il valore **URI** dal portale e impostarlo come valore della chiave di Endpoint in appsettings.json. Come illustrato nello screenshot precedente è possibile usare il pulsante di copia per copiare il valore.
+2. In Visual Studio 2017 aprire il file appsettings.json e incollare il valore su `FILLME` in `endpoint`. 
 
     `"endpoint": "https://FILLME.documents.azure.com:443/",`
+
+    Il valore dell'endpoint dovrebbe ora essere simile all'output seguente:
+
+    `"endpoint": "https://testgraphacct.documents.azure.com:443/",`
+
+3. Se l'account del database a grafo è stato creato prima del 27 novembre 2017, sostituire `documents` con `graphs` nel valore di `endpoint`. Se l'account del database a grafo è stato creato il 27 novembre 2017 o dopo, sostituire `documents` con `gremlin.cosmosdb` nel valore di `endpoint`.
+
+    Il valore dell'endpoint dovrebbe ora essere simile all'output seguente:
+
+    `"endpoint": "https://testgraphacct.graphs.azure.com:443/",` oppure `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/",`
 
 4. Copiare il valore di **CHIAVE PRIMARIA** dal portale e impostarlo come valore della chiave AuthKey in App.config, quindi salvare le modifiche. 
 
     `"authkey": "FILLME"`
+
+5. Salvare il file appsettings.json. 
 
 L'app è stata aggiornata con tutte le informazioni necessarie per comunicare con Azure Cosmos DB. 
 
@@ -136,7 +148,7 @@ Prima di eseguire l'applicazione si consiglia di aggiornare il pacchetto *Micros
 
     Se viene visualizzato un messaggio sulla verifica delle modifiche alla soluzione, fare clic su **OK**. Se viene visualizzato un messaggio sull'accettazione della licenza, fare clic su **Accetto**.
 
-4. Premere CTRL+F5 per eseguire l'applicazione.
+4. Premere CTRL + F5 per eseguire l'applicazione.
 
    La finestra della console visualizza i vertici e gli archi aggiunti al grafo. Al termine dello script, premere INVIO due volte per chiudere la finestra della console.
 

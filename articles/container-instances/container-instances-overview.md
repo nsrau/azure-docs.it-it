@@ -6,20 +6,20 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/20/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 98feed192f21cbc2bf9197b6d32646f50ddbd0c5
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 83666edc75a6c75fd2361e79192f9717d69fd746
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-container-instances"></a>Istanze di contenitore di Azure
 
 I contenitori si stanno rapidamente affermando come soluzione preferita per creare pacchetti, distribuire e gestire le applicazioni cloud. Istanze di contenitore di Azure rappresenta il modo più semplice e rapido per eseguire un contenitore in Azure, senza dover effettuare il provisioning di macchine virtuali o adottare un servizio di livello superiore.
 
-Istanze di contenitore di Azure è un'ottima soluzione per qualsiasi scenario e funziona anche in contenitori isolati, inclusi i processi di compilazione, l'automazione di attività e le applicazioni semplici. Per gli scenari in cui si rende necessaria l'orchestrazione completa dei contenitori, quali il rilevamento dei servizi tra più contenitori, la scalabilità automatica e gli aggiornamenti coordinati delle applicazioni, è consigliabile usare il [Servizio contenitore di Azure](https://docs.microsoft.com/azure/container-service/).
+Istanze di contenitore di Azure è un'ottima soluzione per qualsiasi scenario e funziona anche in contenitori isolati, inclusi i processi di compilazione, l'automazione di attività e le applicazioni semplici. Per gli scenari in cui si rende necessaria l'orchestrazione completa dei contenitori, quali il rilevamento dei servizi tra più contenitori, la scalabilità automatica e gli aggiornamenti coordinati delle applicazioni, è consigliabile usare il [servizio contenitore di Azure](../aks/index.yml).
 
 ## <a name="fast-startup-times"></a>Tempi di avvio rapidi
 
@@ -39,7 +39,7 @@ Istanze di contenitore di Azure permette di esporre i contenitori direttamente a
 
 ## <a name="persistent-storage"></a>Archiviazione permanente
 
-Per recuperare e rendere persistente lo stato con Istanze di contenitore di Azure, è disponibile il montaggio diretto di condivisioni file di Azure.
+Per recuperare e rendere persistente lo stato con Istanze di contenitore di Azure, è disponibile il [montaggio diretto di condivisioni file di Azure](container-instances-mounting-azure-files-volume.md).
 
 ## <a name="linux-and-windows-containers"></a>Contenitori Linux e Windows
 
@@ -47,7 +47,7 @@ Istanze di contenitore di Azure permette di pianificare i contenitori Windows e 
 
 ## <a name="co-scheduled-groups"></a>Gruppi con pianificazione condivisa
 
-Istanze di contenitore di Azure supporta la pianificazione di gruppi multi-contenitore che condividono un computer host, una rete locale, un'archiviazione e un ciclo di vita. Questo permette di combinare l'applicazione principale con altre che svolgono un ruolo di supporto, ad esempio la registrazione.
+Istanze di contenitore di Azure supporta la pianificazione di [gruppi multi-contenitore](container-instances-container-groups.md) che condividono un computer host, una rete locale, un archivio e un ciclo di vita. Questo permette di combinare l'applicazione principale con altre che svolgono un ruolo di supporto, ad esempio la registrazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

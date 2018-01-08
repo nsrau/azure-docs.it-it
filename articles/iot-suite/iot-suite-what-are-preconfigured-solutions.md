@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 5c5fa4927073ff52418a940fce59ca1f6b57daa6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c9e0441ec42e5710f43bbe7fa8af4a9fe7447a69
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>Che cos'è Azure IoT Suite?
 
@@ -30,6 +30,10 @@ Azure IoT Suite è un set di *soluzioni preconfigurate* con le caratteristiche s
 * Possono essere personalizzate in base a requisiti specifici
 
 Le soluzioni preconfigurate di *IoT Suite* sono tutte progettate in base agli stessi principi e obiettivi.
+
+Il video seguente offre una panoramica della soluzione preconfigurata di monitoraggio remoto:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Meet-the-new-Remote-Monitoring-accelerator-for-Azure-IoT/Player]
 
 ## <a name="preconfigured-solutions-overview"></a>Panoramica delle soluzioni preconfigurate
 
@@ -80,7 +84,7 @@ Quando si distribuisce una soluzione preconfigurata, il processo di provisioning
 | Hub eventi           |                    | Sì                    |                   |
 | Time Series Insights |                    |                        | Sì               |
 | Servizi contenitore   | Sì                |                        | Sì               |
-| Analisi di flusso     |                    | Sì                    |                   |
+| Analisi dei flussi     |                    | Sì                    |                   |
 | App Web             | Sì                | Sì                    | Sì               |
 | Cosmos DB            | Sì                | Sì                    | Sì               |
 | Tabelle di Azure         |                    | Sì                    | Sì               |
@@ -102,7 +106,7 @@ Per una panoramica dell'architettura di una tipica soluzione IoT, vedere [Micros
 
 Microsoft sta aggiornando le soluzioni preconfigurate a una nuova architettura basata su microservizi. La tabella seguente illustra lo stato corrente delle soluzioni preconfigurate.
 
-| Soluzione preconfigurata | Architettura  | Lingue     |
+| Soluzione preconfigurata | Architecture  | Lingue     |
 | ---------------------- | ------------- | ------------- |
 | Monitoraggio remoto      | Microservizi | Java e .NET |
 | Manutenzione predittiva | MVC           | .NET          |

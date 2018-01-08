@@ -15,13 +15,17 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 312ff3d4013c7406a9acd86185ab43a6602c539c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 3f75a49c697898ee52bcec68e520f103061752a8
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Creare un'app Web Node.js nel Servizio app di Azure in Linux
+
+> [!NOTE]
+> Questo articolo consente di distribuire un'app nel servizio app in Linux. Per la distribuzione nel servizio app in _Windows_, vedere [Creare un'app Web Node.js in Azure](../app-service-web-get-started-nodejs.md).
+>
 
 Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa Guida introduttiva illustra come distribuire un'app Node.js nel Servizio app in Linux usando un'immagine incorporata. È necessario creare l'app Web con immagine incorporata usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e Git per distribuire il codice Node.js nell'app Web.
 
@@ -29,7 +33,7 @@ Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di host
 
 È possibile eseguire queste procedure con un computer Mac, Windows o Linux.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa guida introduttiva:
 
@@ -138,7 +142,7 @@ Il codice di esempio Node.js è in esecuzione in un'app Web con immagine incorpo
 
 ![App di esempio in esecuzione in Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
-**Congratulazioni.** La distribuzione della prima app Node.js nel Servizio app in Linux è stata completata.
+**Congratulazioni** La distribuzione della prima app Node.js nel Servizio app in Linux è stata completata.
 
 ## <a name="update-and-redeploy-the-code"></a>Aggiornare e ridistribuire il codice
 

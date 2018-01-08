@@ -15,13 +15,17 @@ ms.topic: quickstart
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 47f8fd97ad3be833e4f86f4bda57b140ce73c5de
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 5860c88b3b6c9f6f715c8e2d8ce667189f9b4438
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Creare un'app Web ASP.NET Core in Azure
+
+> [!NOTE]
+> Questo articolo consente di distribuire un'app nel servizio app in Windows. Per la distribuzione nel servizio app in _Linux_, vedere [Creare un'app Web .NET Core nel servizio app in Linux](./containers/quickstart-dotnetcore.md).
+>
 
 Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione.  Questa guida introduttiva illustra come distribuire la prima app Web ASP.NET Core in un'app Web di Azure. Al termine della procedura si avrà un gruppo di risorse costituito da un piano di servizio App e da un'app Web di Azure con un'applicazione Web distribuita.
 
@@ -29,7 +33,7 @@ Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hos
 > Per informazioni su come compilare e distribuire un'app Web con il framework ASP.NET, leggere l'articolo disponibile [qui](app-service-web-get-started-dotnet-framework.md). 
 >
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione:
 
@@ -106,7 +110,7 @@ Nella finestra di dialogo **Configura piano di servizio app** usare le impostazi
 
 ![Creare un piano di servizio app](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
-| Impostazione | Valore consigliato | Descrizione |
+| Impostazione | Valore consigliato | DESCRIZIONE |
 |-|-|-|
 |Piano di servizio app| myAppServicePlan | Nome del piano di servizio app. |
 | Località | Europa occidentale | Data center in cui è ospitata l'app Web. |

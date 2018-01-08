@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: tamram
-ms.openlocfilehash: a300294c83cb206e6211985c736e3ff01bb1ab43
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 7313df35baadf7aa6d476f44b113dc60e6845f4b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Trasferire oggetti da e verso la risorsa di archiviazione BLOB con l'interfaccia della riga di comando di Azure
 
@@ -35,7 +35,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="create-a-container"></a>Creare un contenitore
 
-Gli elementi BLOB vengono sempre caricati in un contenitore. I contenitori consentono di organizzare i gruppi di BLOB come si organizzano i file nelle directory del computer.
+Gli elementi BLOB vengono sempre caricati in un contenitore. È possibile organizzare i gruppi di BLOB in modo simile a come si organizzano i file in cartelle sul computer.
 
 Creare un contenitore per l'archiviazione di BLOB con il comando [az storage container create](/cli/azure/storage/container#create).
 
@@ -47,6 +47,9 @@ az storage container create --name mystoragecontainer
 
 L'archiviazione BLOB supporta BLOB in blocchi, BLOB di aggiunta e BLOB di pagine. La maggior parte dei file presenti nell'archiviazione BLOB viene archiviata sotto forma di BLOB in blocchi. I BLOB di aggiunta vengono usati quando è necessario aggiungere dati a un BLOB esistente senza modificarne il contenuto, ad esempio nelle operazioni di registrazione. I BLOB di pagine supportano i file con estensione VHD delle macchine virtuali IaaS.
 
+Creare prima di tutto un file da caricare in un BLOB.
+Se si usa Azure Cloud Shell, usare quanto segue per creare un file: `vi helloworld` quando il file si apre, premere **INS**, digitare "Hello world" e quindi premere **ESC**, immettere `:x` e premere **INVIO**.
+
 In questo esempio si usa il comando [az storage blob upload](/cli/azure/storage/blob#upload) per caricare un BLOB nel contenitore creato nel passaggio precedente.
 
 ```azurecli-interactive
@@ -56,7 +59,18 @@ az storage blob upload \
     --file ~/path/to/local/file
 ```
 
+Se è stato usato il metodo descritto prima per creare un file in Azure Cloud Shell, è possibile usare invece questo comando dell'interfaccia della riga di comando (si noti che non è stato necessario specificare un percorso perché il file è stato creato nella directory di base, mentre di norma è necessario specificare un percorso):
+
+```azurecli-interactive
+az storage blob upload \
+    --container-name mystoragecontainer \
+    --name helloworld
+    --file helloworld
+```
+
 Questa operazione crea il BLOB se non esiste o lo sovrascrive se esiste già. Caricare tutti i file desiderati prima di continuare.
+
+Per caricare più file contemporaneamente, è possibile usare il comando [az storage blob upload-batch](/cli/azure/storage/blob#upload-batch).
 
 ## <a name="list-the-blobs-in-a-container"></a>Elencare i BLOB in un contenitore
 
@@ -70,7 +84,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>Scaricare un BLOB
 
-Usare il comando [az storage blob download](/cli/azure/storage/blob#download) per scaricare un BLOB caricato in precedenza.
+Usare il comando [az storage blob download](/cli/azure/storage/blob#download) per scaricare il BLOB caricato in precedenza.
 
 ```azurecli-interactive
 az storage blob download \
@@ -79,7 +93,7 @@ az storage blob download \
     --file ~/destination/path/for/file
 ```
 
-## <a name="data-transfer-with-azcopy"></a>Trasferire i dati con AzCopy
+## <a name="data-transfer-with-azcopy"></a>Trasferimento dati con AzCopy
 
 L'utility [AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) è un'altra opzione per il trasferimento di dati script ad alte prestazioni per Archiviazione di Azure. È possibile usare AzCopy per trasferire i dati da e verso risorse di archiviazione BLOB, file e tabelle.
 

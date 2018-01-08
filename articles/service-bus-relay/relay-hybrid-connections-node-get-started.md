@@ -14,11 +14,11 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 0349afa355038644e695858cc42d12a68ca2bdd8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d79c05253da568d3a9b2f2912d22eab2df586821
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Introduzione alle connessioni ibride di inoltro
 
@@ -35,7 +35,7 @@ Dato che le connessioni ibride richiedono sia un componente client che un compon
 3. Scrivere un'applicazione console server per ricevere messaggi.
 4. Scrivere un'applicazione console client per inviare messaggi.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 1. [Node.js](https://nodejs.org/en/).
 2. Una sottoscrizione di Azure.
@@ -56,13 +56,13 @@ Se è già stata creata una connessione ibrida, passare alla sezione [Creare un'
 
 ## <a name="3-create-a-server-application-listener"></a>3. Creare un'applicazione server (listener)
 
-Per ascoltare e ricevere messaggi da servizio di inoltro, verrà scritta un'applicazione console Node.js.
+Per ascoltare e ricevere messaggi dal servizio di inoltro, scrivere un'applicazione console Node.js.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
 
 ## <a name="4-create-a-client-application-sender"></a>4. Creare un'applicazione client (mittente)
 
-Per inviare messaggi al servizio di inoltro, verrà scritta un'applicazione console Node.js.
+Per inviare messaggi al servizio di inoltro, scrivere un'applicazione console Node.js.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-node-get-started-client.md)]
 
@@ -76,9 +76,9 @@ Per inviare messaggi al servizio di inoltro, verrà scritta un'applicazione cons
 
 A questo punto è stata creata un'applicazione per le connessioni ibride end-to-end con Node.js.
 
-## <a name="next-steps"></a>Passaggi successivi:
+## <a name="next-steps"></a>Passaggi successivi
 
-* [Domande frequenti sul servizio di inoltro](relay-faq.md)
+* [Domande frequenti sull'inoltro](relay-faq.md)
 * [Creare uno spazio dei nomi](relay-create-namespace-portal.md)
 * [Introduzione a .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introduzione a Node](relay-hybrid-connections-node-get-started.md)

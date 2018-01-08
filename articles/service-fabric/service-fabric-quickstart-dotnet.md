@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/02/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 40b29ccb454caf5462807d6c24ca3f470865d368
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: bdf73cc13cbdbe75c426fc17fce2828164297826
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Creare un'applicazione .NET Service Fabric in Azure
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili. 
@@ -38,7 +38,7 @@ Usando questa applicazione, si apprenderà come:
 > * Scalare orizzontalmente l'applicazione in più nodi
 > * Eseguire un aggiornamento in sequenza delle applicazioni
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare questa guida introduttiva:
 1. [Installare Visual Studio 2017](https://www.visualstudio.com/) con i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
 2. [Installare Git](https://git-scm.com/)
@@ -92,7 +92,7 @@ Durante il debug dell'applicazione in Visual Studio, viene usato un cluster di s
 Per osservare che cosa avviene nel codice, completare la procedura seguente:
 1. Aprire il file **/VotingWeb/Controllers/VotesController.cs** e impostare un punto di interruzione nel metodo **Put** dell'API Web alla riga 47. È possibile eseguire una ricerca nel file usando Esplora soluzioni in Visual Studio.
 
-2. Aprire il file **/VotingData/ControllersVoteDataController.cs** e impostare un punto di interruzione nel metodo **Put** dell'API Web alla riga 50.
+2. Aprire il file **/VotingData/Controllers/VoteDataController.cs** e impostare un punto di interruzione nel metodo **Put** dell'API Web alla riga 50.
 
 3. Tornare al browser e fare clic su un'opzione di voto oppure aggiungere una nuova opzione di voto. È stato raggiunto il primo punto di interruzione nel controller API del front-end Web.
     - In questa posizione, il codice JavaScript nel browser invia una richiesta al controller API Web nel servizio front-end.
@@ -134,7 +134,7 @@ Ora che l'applicazione è pronta, è possibile distribuirla in un cluster dirett
 
     ![Finestra di dialogo Pubblica](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. Copiare l'**endpoint della connessione** dalla pagina del party cluster nel campo **Endpoint connessione** e fare clic su **Pubblica**. ad esempio `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+2. Copiare l'**endpoint della connessione** dalla pagina del party cluster nel campo **Endpoint connessione** e fare clic su **Pubblica**. Ad esempio, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
 
     Ogni applicazione nel cluster deve avere un nome univoco.  Un party cluster è tuttavia un ambiente pubblico condiviso e potrebbe verificarsi un conflitto con un'applicazione esistente.  Se è presente un conflitto di nomi, ridenominare il progetto di Visual Studio e distribuirlo di nuovo.
 
@@ -171,7 +171,7 @@ Durante la distribuzione di nuovi aggiornamenti per l'applicazione, Service Fabr
 Per aggiornare l'applicazione, eseguire le operazioni seguenti:
 
 1. Aprire il file **/VotingWeb/Views/Home/Index.cshtml** in Visual Studio.
-2. Modificare <h2> l'intestazione della pagina aggiungendo o aggiornando il testo. Ad esempio, modificare il titolo in "Esempio di voto di Service Fabric v2".
+2. Modificare l'intestazione della pagina aggiungendo o aggiornando il testo. Ad esempio, modificare il titolo in "Esempio di voto di Service Fabric v2".
 3. Salvare il file.
 4. Fare clic con il pulsante destro del mouse su **Voting** in Esplora soluzioni e scegliere **Pubblica**. Verrà visualizzata la finestra di dialogo Pubblica.
 5. Fare clic sul pulsante **Versione manifesto** per modificare la versione del servizio e dell'applicazione.

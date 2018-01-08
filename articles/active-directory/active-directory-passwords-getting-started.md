@@ -13,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2017
+ms.date: 12/22/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6c5eed2cf8f61785f1a60cd2175334771a49ed41
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87e0d96c3bd0e9a488734487b5f39503c28f9b00
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Distribuzione rapida della reimpostazione della password self-service di Azure AD
 
 > [!IMPORTANT]
-> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso,** vedere [Password di Azure AD dimenticata](active-directory-passwords-update-your-own-password.md).
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso** vedere [Password di Azure AD dimenticata](active-directory-passwords-update-your-own-password.md).
 
 La reimpostazione self-service della password (SSPR) offre agli amministratori IT una modalità semplice per consentire agli utenti di reimpostare o sbloccare le password o gli account. Il sistema include report dettagliati per tenere traccia del momento in cui gli utenti accedono al sistema, oltre a notifiche per segnalare usi impropri.
 
@@ -36,35 +36,38 @@ Questa guida presuppone che sia già disponibile un tenant di valutazione o con 
 1. Nel tenant di Azure AD esistente, selezionare **Reimpostazione password**.
 
 2. Nella pagina **Proprietà** scegliere una delle opzioni seguenti in **Reimpostazione password self-service abilitata**:
-    * **Nessuno**: nessuno può usare la reimpostazione password self-service.
-    * **Selezionato**: solo i membri di un gruppo specifico di Azure AD scelti dall'amministratore possono usare la reimpostazione password self-service. È consigliabile definire un gruppo di utenti e usare questa impostazione nella distribuzione di questa funzionalità per un modello di verifica.
-    * **Tutti**: tutti gli utenti con account nel tenant di Azure AD possono usare la reimpostazione password self-service. È consigliabile usare questa impostazione quando si è pronti a distribuire la funzionalità nell'intero tenant dopo avere completato un modello di verifica.
+   * **Nessuno**: nessuno può usare la reimpostazione password self-service.
+   * **Selezionato**: solo i membri di un gruppo specifico di Azure AD scelti dall'amministratore possono usare la reimpostazione password self-service. È consigliabile definire un gruppo di utenti e usare questa impostazione nella distribuzione di questa funzionalità per un modello di verifica.
+   * **Tutti**: tutti gli utenti con account nel tenant di Azure AD possono usare la reimpostazione password self-service. È consigliabile usare questa impostazione quando si è pronti a distribuire la funzionalità nell'intero tenant dopo avere completato un modello di verifica.
+
+   > [!IMPORTANT]
+   > Gli account amministratore di Azure potranno sempre reimpostare le password indipendentemente dal valore su cui questa opzione è impostata. 
 
 3. Nella pagina **Metodi di autenticazione** scegliere:
-    * **Numero di metodi da reimpostare**: è supportato un minimo di uno o un massimo di due.
-    * **Metodi disponibili per gli utenti**: ne è necessario almeno uno, ma è consigliabile avere a disposizione un'opzione aggiuntiva.
-        * **Posta elettronica** invia un messaggio con un codice all'indirizzo di posta elettronica di autenticazione configurato dell'utente.
-        * **Cellulare**: consente all'utente di ricevere una chiamata o un SMS con un codice al numero di telefono cellulare configurato.
-        * **Telefono ufficio**: chiama l'utente fornendo un codice al numero di telefono dell'ufficio configurato.
-        * Per **Domande di sicurezza** è necessario scegliere:
-            * **Numero di domande necessarie per la registrazione**: è il requisito minimo per la registrazione. Un utente può decidere di rispondere a più domande per creare un pool di domande da cui scegliere. Possono essere impostate da tre a cinque domande. Il valore deve essere maggiore o uguale al numero di domande necessarie per la reimpostazione della password. L'utente può aggiungere domande personalizzate facendo clic sul pulsante **Personalizzata** quando seleziona le domande di sicurezza.
-            * **Numero di domande necessarie per la reimpostazione**: può essere impostato su un valore compreso da tre a cinque. Si tratta delle domande cui rispondere prima di consentire la reimpostazione o lo sblocco della password di un utente.
+   * **Numero di metodi da reimpostare**: è supportato un minimo di uno o un massimo di due.
+   * **Metodi disponibili per gli utenti**: ne è necessario almeno uno, ma è consigliabile avere a disposizione un'opzione aggiuntiva.
+      * **Posta elettronica** invia un messaggio con un codice all'indirizzo di posta elettronica di autenticazione configurato dell'utente.
+      * **Cellulare**: consente all'utente di ricevere una chiamata o un SMS con un codice al numero di telefono cellulare configurato.
+      * **Telefono ufficio**: chiama l'utente fornendo un codice al numero di telefono dell'ufficio configurato.
+      * Per **Domande di sicurezza** è necessario scegliere:
+         * **Numero di domande necessarie per la registrazione**: è il requisito minimo per la registrazione. Un utente può decidere di rispondere a più domande per creare un pool di domande da cui scegliere. Possono essere impostate da tre a cinque domande. Il valore deve essere maggiore o uguale al numero di domande necessarie per la reimpostazione della password. L'utente può aggiungere domande personalizzate facendo clic sul pulsante **Personalizzata** quando seleziona le domande di sicurezza.
+         * **Numero di domande necessarie per la reimpostazione**: può essere impostato su un valore compreso da tre a cinque. Si tratta delle domande cui rispondere prima di consentire la reimpostazione o lo sblocco della password di un utente.
             
     ![Autenticazione][Authentication]
 
 4. Consigliato: in **Personalizzazione** è possibile modificare il collegamento **Contattare l'amministratore** in modo che punti a una pagina o a un indirizzo di posta elettronica definito. È consigliabile usare questo collegamento ad esempio per un indirizzo di posta elettronica o un sito Web che gli utenti sono soliti usare per inviare domande al supporto tecnico.
 
 5. Facoltativo: la pagina **Registrazione** offre agli amministratori le opzioni seguenti:
-    * Richiedere agli utenti di registrarsi all'accesso.
-    * Impostare il numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione.
+   * Richiedere agli utenti di registrarsi all'accesso.
+   * Impostare il numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione.
 
 6. Facoltativo: la pagina **Notifiche** offre agli amministratori le opzioni seguenti:
-    * Inviare notifiche agli utenti al momento della reimpostazione della password.
-    * Inviare una notifica a tutti gli amministratori quando altri amministratori reimpostano le proprie password.
+   * Inviare notifiche agli utenti al momento della reimpostazione della password.
+   * Inviare una notifica a tutti gli amministratori quando altri amministratori reimpostano le proprie password.
 
 A questo punto è stata configurata la reimpostazione password self-service per il tenant di Azure AD. Gli utenti possono ora usare le istruzioni disponibili negli articoli [Eseguire la registrazione per la reimpostazione password self-service](active-directory-passwords-reset-register.md) e [Reimpostare o modificare la password](active-directory-passwords-update-your-own-password.md) per aggiornare la password senza l'intervento dell'amministratore. È possibile interrompere la procedura se si usa solo il cloud oppure passare alla sezione successiva per configurare la sincronizzazione delle password con un dominio Active Directory locale.
 
-> [!IMPORTANT]
+> [!TIP]
 > Testare la reimpostazione password self-service con un utente e non con un amministratore, perché Microsoft applica requisiti di autenticazione avanzata per gli account di tipo amministratore di Azure. Per altre informazioni sui criteri delle password amministratore, vedere l'[articolo sui criteri delle password](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## <a name="configure-synchronization-to-an-existing-identity-source"></a>Configurare la sincronizzazione con un'origine delle identità esistente

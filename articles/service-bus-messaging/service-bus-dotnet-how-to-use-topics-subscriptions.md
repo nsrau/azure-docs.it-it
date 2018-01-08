@@ -14,11 +14,11 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/6/2017
 ms.author: sethm
-ms.openlocfilehash: ca771648e9be9b8fd2b5d930c65610311820c7ba
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 5391951c34498b3bd684cd2e223b8288d4040247
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introduzione agli argomenti del bus di servizio
 
@@ -32,7 +32,7 @@ Questa esercitazione illustra i passaggi seguenti:
 4. Scrivere un'applicazione console .NET Core per inviare un set di messaggi all'argomento.
 5. Scrivere un'applicazione console .NET Core per ricevere tali messaggi dalla sottoscrizione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 1. [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](http://www.visualstudio.com/vs) o versioni successive.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.
@@ -377,7 +377,7 @@ Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core 
 
             static void RegisterOnMessageHandlerAndReceiveMessages()
             {
-                // Configure the message hnadler options in terms of exception handling, number of concurrent messages to deliver, etc.
+                // Configure the message handler options in terms of exception handling, number of concurrent messages to deliver, etc.
                 var messageHandlerOptions = new MessageHandlerOptions(ExceptionReceivedHandler)
                 {
                     // Maximum number of concurrent calls to the callback ProcessMessagesAsync(), set to 1 for simplicity.
@@ -424,7 +424,7 @@ Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core 
    
     ![Lunghezza argomento][topic-message-receive]
 
-Congratulazioni. Usando la libreria .NET Standard sono stati creati un argomento e una sottoscrizione e sono stati inviati 10 messaggi che sono quindi stati ricevuti.
+Congratulazioni! Usando la libreria .NET Standard sono stati creati un argomento e una sottoscrizione e sono stati inviati 10 messaggi che sono quindi stati ricevuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

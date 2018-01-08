@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.openlocfilehash: 7adaf2aa51d2a48116a816d83b42ba8416c157cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0218365a21f241b5672774005cd6e0417fba358b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-your-azure-ad-directory"></a>Gestire la directory di Azure AD
 
@@ -80,7 +80,6 @@ Da uno qualsiasi di questi portali o cmdlet è possibile:
 * Configurare l'integrazione locale con i servizi di autenticazione e di gestione delle identità di Azure AD
 
 L'interfaccia di amministrazione di Azure AD, l'interfaccia di amministrazione di Office 365, il portale per gli account di Microsoft Intune e i cmdlet di Azure AD eseguono tutti la lettura e la scrittura in una singola istanza condivisa di Azure AD associata alla directory dell'organizzazione. Ognuno di questi strumenti funge da interfaccia front-end che esegue il pull o la modifica dei dati della directory.
-
 Quando si modificano i dati dell'organizzazione con uno qualsiasi dei portali o dei cmdlet dopo aver eseguito l'accesso nel contesto di uno di questi servizi, le modifiche verranno visualizzate anche negli altri portali all'accesso successivo. Questi dati vengono condivisi tra i servizi cloud Microsoft a cui si effettua la sottoscrizione.
 
 Se ad esempio si usa l'interfaccia di amministrazione di Office 365 per impedire a un utente di eseguire l'accesso, tale azione impedirà l'accesso dell'utente a qualsiasi altro servizio attualmente sottoscritto dall'organizzazione. Se si visualizza lo stesso account utente nel portale per gli account di Microsoft Intune, l'utente risulterà bloccato.
@@ -117,8 +116,8 @@ Viene verificato che siano soddisfatte le condizioni seguenti:
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Forum di Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
-* [Forum di Azure Multi-Factor Authentication](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
-* [Domande per Azure in Stack Overflow](http://stackoverflow.com/questions/tagged/azure)
+* [Forum di Azure AD](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuread)
+* [Forum di Azure Multi-Factor Authentication](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazureactiveauthentication)
+* [StackOverflow for Azure questions (Domande di StackOverflow per Azure)](https://stackoverflow.com/questions/tagged/azure-active-directory)
 * [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
 * [Assegnazione dei ruoli di amministratore in Azure AD](active-directory-assign-admin-roles-azure-portal.md)

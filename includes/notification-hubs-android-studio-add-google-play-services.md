@@ -8,11 +8,15 @@
    
     ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)
 4. In *dependencies*aggiungere questa riga: 
-   
-           compile 'com.google.android.gms:play-services-gcm:9.2.0'
+    
+    ```java
+        compile 'com.google.android.gms:play-services-gcm:9.2.0'
+    ```
 5. Fare clic sul pulsante **Sync Project with Gradle Files** sulla barra degli strumenti.
 6. Aprire **AndroidManifest.xml** e aggiungere il tag seguente al tag *application* .
    
-        <meta-data android:name="com.google.android.gms.version"
+    ```java
+    <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+    ```
 
