@@ -8,7 +8,7 @@
 ## [Configurare un cluster HPC ibrido con Microsoft HPC Pack](cloud-services-setup-hybrid-hpcpack-cluster.md)
 
 # Procedure
-## Pianificare
+## Pianificazione
 ### [Dimensioni delle macchine virtuali](cloud-services-sizes-specs.md)
 ### [Aggiornamenti](cloud-services-update-azure-service.md)
 
@@ -34,7 +34,7 @@
 #### [Usare un'attività per installare .NET in un ruolo di un servizio cloud](cloud-services-dotnet-install-dotnet.md)
 
 ### Configurare Desktop remoto
-#### [Portale](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [di Microsoft Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Distribuire
@@ -44,6 +44,7 @@
 ### [Connettersi a un controller di dominio personalizzato](cloud-services-connect-to-custom-domain.md)
 
 ## Gestire il servizio
+### [Attenuazione dell'esecuzione speculativa](mitigate-se.md}
 ### [Attività di gestione comuni](cloud-services-how-to-manage-portal.md)
 ### [Configurare il servizio cloud](cloud-services-how-to-configure-portal.md)
 ### [Gestire un servizio cloud con Automazione di Azure](automation-manage-cloud-services.md)
@@ -92,7 +93,7 @@
 #### [Domande frequenti su connettività e rete](cloud-services-connectivity-and-networking-faq.md)
 #### [Domande frequenti sulla distribuzione](cloud-services-deployment-faq.md)
 
-# riferimento
+# Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
 ## [Schema XML .csdef](schema-csdef-file.md)
 ### [Schema LoadBalancerProbe](schema-csdef-loadbalancerprobe.md)

@@ -36,6 +36,8 @@
   items:
     - name: Trasmettere i dati da Hub eventi a data warehouse
       href: event-grid-event-hubs-integration.md
+    - name: Modelli per le sottoscrizioni di eventi
+      href: event-subscription-template.md
 - name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

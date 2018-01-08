@@ -3,12 +3,12 @@
 ## [Informazioni sulla Gestione delle identità di Azure](identity-fundamentals.md)
 ## [Informazioni sulle soluzioni di gestione delle identità di Azure](understand-azure-identity-solutions.md)
 ## [Scegliere una soluzione ibrida di gestione delle identità](choose-hybrid-identity-solution.md)
-## [Associare le sottoscrizioni di Azure](active-directory-how-subscriptions-associated-directory.md)
+## [Associate Azure subscriptions](active-directory-how-subscriptions-associated-directory.md) (Associare le sottoscrizioni di Azure)
 ## [Domande frequenti](active-directory-faq.md)
 ## [Novità](whats-new.md)
 
 
-# Introduzione
+# Attività iniziali
 ## [Inizia a usare Azure AD](get-started-azure-ad.md)
 ## [Iscriversi ad Azure AD Premium](active-directory-get-started-premium.md)
 ## [Aggiungere un nome di dominio personalizzato](add-custom-domain.md)
@@ -62,7 +62,7 @@
 #### [Condivisione esterna di Office 365 e B2B](active-directory-b2b-o365-external-user.md)
 #### [Licenze B2B](active-directory-b2b-licensing.md)
 #### [Limitazioni correnti](active-directory-b2b-current-limitations.md)
-#### [Domande frequenti](active-directory-b2b-faq.md)
+#### [DOMANDE FREQUENTI](active-directory-b2b-faq.md)
 #### [Risoluzione dei problemi B2B](active-directory-b2b-troubleshooting.md)
 #### [Informazioni sull'utente B2B](active-directory-b2b-user-properties.md)
 #### [Token utente B2B](active-directory-b2b-user-token.md)
@@ -73,7 +73,7 @@
 
 ## [Gestire i gruppi e i membri](active-directory-manage-groups.md)
 ### Gestire i gruppi
-#### [Portale di Azure](active-directory-groups-create-azure-portal.md)
+#### [portale di Azure](active-directory-groups-create-azure-portal.md)
 #### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Gestire i membri dei gruppi](active-directory-groups-members-azure-portal.md)
 ### [Gestire i proprietari dei gruppi](active-directory-accessmanagement-managing-group-owners.md)
@@ -93,7 +93,7 @@
 #### [portale di Azure](active-directory-groups-settings-azure-portal.md)
 #### [Cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### Creare regole avanzate
-#### [Portale di Azure](active-directory-groups-dynamic-membership-azure-portal.md)
+#### [portale di Azure](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Configurare i gruppi self-service](active-directory-accessmanagement-self-service-group-management.md)
 ### [Risolvere i problemi](active-directory-accessmanagement-troubleshooting.md)
 
@@ -103,18 +103,18 @@
 ### [Utenti a rischio](active-directory-reporting-security-user-at-risk.md)
 ### [Accessi a rischio](active-directory-reporting-security-risky-sign-ins.md)
 ### [Eventi di rischio](active-directory-reporting-risk-events.md)
-### [Domande frequenti](active-directory-reporting-faq.md)
+### [DOMANDE FREQUENTI](active-directory-reporting-faq.md)
 ### Attività
 #### [Configurare località denominate](active-directory-named-locations.md)
 #### [Trovare report sull'attività](active-directory-reporting-migration.md)
 #### [Usare il pacchetto di contenuto Power BI di Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)
-### Riferimento
+### riferimento
 #### [Conservazione](active-directory-reporting-retention.md)
 #### [Latenze](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
 #### [Codici errore relativi alle attività di accesso](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Autenticazione a più fattori](active-directory-reporting-activity-sign-ins-mfa.md)
-### Risoluzione dei problemi
+### Risolvere problemi
 #### [Dati di controllo mancanti](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Dati mancanti nei download](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Errori dei pacchetti di contenuto dei log attività di Azure Active Directory](active-directory-reporting-troubleshoot-content-pack.md)
@@ -140,7 +140,7 @@
 ### [Requisiti relativi ai dati di SSPR](active-directory-passwords-data.md)
 ### [Creazione di report di SSPR](active-directory-passwords-reporting.md)
 ### Amministratori IT: reimpostare le password
-#### [Portale di Azure](active-directory-users-reset-password-azure-portal.md)
+#### [portale di Azure](active-directory-users-reset-password-azure-portal.md)
 ### [Concedere in licenza SSPR](active-directory-passwords-licensing.md)
 ### [Writeback delle password](active-directory-passwords-writeback.md)
 ### [Risolvere i problemi](active-directory-passwords-troubleshoot.md)
@@ -158,13 +158,13 @@
 #### [Configurare i dispositivi aggiunti all'istanza ibrida di Azure AD](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md) (Distribuire in locale)
 #### [Aggiunta ad Azure AD durante il completamento dell'installazione in Windows 10](device-management-azuread-joined-devices-frx.md)
-### Risoluzione dei problemi
+### Risolvere problemi
 #### [Dispositivi Windows 10 e Windows Server 2016 aggiunti ad Azure AD ibridi](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [Dispositivi Windows legacy aggiunti ad Azure AD ibridi](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 
 ## Gestire le app
 ### [Panoramica](active-directory-enable-sso-scenario.md)
-### [Attività iniziali](active-directory-integrating-applications-getting-started.md)
+### [Introduzione](active-directory-integrating-applications-getting-started.md)
 ### [Esercitazioni sull'integrazione di app SaaS](active-directory-saas-tutorial-list.md)
 ### [Cloud App Discovery](cloudappdiscovery-get-started.md)
 #### [Creare report di snapshot](cloudappdiscovery-set-up-snapshots.md)
@@ -177,7 +177,7 @@
 
 
 ### [Accedere alle app in remoto con il proxy delle app](active-directory-application-proxy-get-started.md)
-#### Introduzione
+#### Attività iniziali
 ##### [Abilitare il proxy delle app](active-directory-application-proxy-enable.md)
 ##### [Pubblicare le app](application-proxy-publish-azure-portal.md)
 ##### [Domini personalizzati](active-directory-application-proxy-custom-domains.md)
@@ -303,7 +303,7 @@
 ### Autenticazione basata su certificati
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Introduzione](active-directory-certificate-based-authentication-get-started.md)
+#### [Attività iniziali](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Abilitazione](active-directory-identityprotection-enable.md)
@@ -342,7 +342,7 @@
 ### [Studio del modello di verifica: blocchi predefiniti](active-directory-playbook-building-blocks.md)
 
 
-# riferimento
+# Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Cmdlet di Azure PowerShell](/powershell/azure/overview)
 ## [Informazioni di riferimento sulle API Java](/java/api)

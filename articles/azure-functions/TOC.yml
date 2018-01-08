@@ -71,10 +71,10 @@
       items:
         - name: Lingue supportate
           href: supported-languages.md
-        - name: 'Script C#'
-          href: functions-reference-csharp.md
-        - name: Libreria di classi .NET
+        - name: 'C# (libreria di classi)'
           href: functions-dotnet-class-library.md
+        - name: 'Script C# (file con estensione csx)'
+          href: functions-reference-csharp.md
         - name: 'F#'
           href: functions-reference-fsharp.md
         - name: JavaScript
@@ -121,7 +121,7 @@
           href: durable-functions-perf-and-scale.md
 - name: Guide alle procedure
   items:
-    - name: Sviluppare
+    - name: Sviluppo
       items:
         - name: Guida per sviluppatori
           href: functions-reference.md
@@ -175,7 +175,7 @@
           href: durable-functions-counter.md
         - name: Interazione umana
           href: durable-functions-phone-verification.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Associazioni
       items:

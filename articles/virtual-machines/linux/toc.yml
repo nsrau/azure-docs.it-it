@@ -197,6 +197,8 @@
               href: update-agent.md
         - name: Manutenzione pianificata
           href: maintenance-notifications.md
+        - name: Attenuazione dell'esecuzione speculativa
+          href: mitigate-se.md
         - name: Domande frequenti sulla manutenzione accelerata
           href: accelerated-maintenance.md
         - name: Eventi pianificati

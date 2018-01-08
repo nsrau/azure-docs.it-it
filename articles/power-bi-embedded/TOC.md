@@ -1,7 +1,7 @@
 # Panoramica
 ## [Informazioni su Power BI Embedded](what-is-power-bi-embedded.md)
 
-# Introduzione
+# Attività iniziali
 ## [Introduzione a Power BI Embedded](get-started.md)
 ## [Esempio introduttivo](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
 
@@ -21,22 +21,20 @@
 # Esempi
 ## [Esempi di codice](https://github.com/Microsoft/PowerBI-Developer-Samples)
 ## [Procedura dettagliata di esempio](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)
+## [Esempio per incorporare JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
 # riferimento
 ## API
 ### [API REST di Gestione delle risorse di Azure](https://docs.microsoft.com/rest/api/power-bi-embedded/)
-### [API REST](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
-## SDK
-### [Download di .NET SDK](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
-### [Download di JavaScript SDK](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)
+### [API REST di Power BI](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
 
 # Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
-## [Esempio per incorporare JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)
-## [Apiary](http://docs.powerbi.apiary.io/)
+## [Community di Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [Download di .NET SDK](https://www.nuget.org/packages/Microsoft.PowerBI.Api/)
+## [Download di JavaScript SDK](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## Repository GitHub
-### [.NET](https://github.com/Microsoft/PowerBI-CSharp)
-### [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
-## [Community di Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+### [.NET per Power BI](https://github.com/Microsoft/PowerBI-CSharp)
+### [JavaScript per Power BI](https://github.com/Microsoft/PowerBI-JavaScript)
+
 

@@ -7,12 +7,12 @@
 ## [Migrazione della piattaforma](security-center-platform-migration.md)
 ### [Domande frequenti sulla migrazione della piattaforma](security-center-platform-migration-faq.md)
 
-# Introduzione
+# Attività iniziali
 ## [Avvio rapido](security-center-get-started.md)
 ## [Pianificazione e gestione](security-center-planning-and-operations-guide.md)
 ## [Autorizzazioni](security-center-permissions.md)
 ## [Piattaforme supportate](security-center-os-coverage.md)
-## [Domande frequenti](security-center-faq.md)
+## [DOMANDE FREQUENTI](security-center-faq.md)
 
 # Procedure
 ## [Criteri di sicurezza](security-center-policies-overview.md)
@@ -40,7 +40,7 @@
 #### [Aggiungere un firewall di nuova generazione](security-center-add-next-generation-firewall.md)
 #### [Abilitare i gruppi di sicurezza di rete](security-center-enable-network-security-groups.md)
 #### [Limitare l'accesso tramite endpoint con connessione Internet](security-center-restrict-access-through-internet-facing-endpoints.md)
-#### [Indirizza il traffico solo tramite il firewall di nuova generazione](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
+#### [Route traffic through NGFW only (Indirizza il traffico solo tramite il firewall di nuova generazione) (Indirizza il traffico solo tramite il firewall di nuova generazione)](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only)
 
 ### [Raccomandazioni sul servizio SQL](security-center-sql-service-recommendations.md)
 #### [Abilitare il controllo e il rilevamento delle minacce nei database SQL](security-center-enable-auditing-on-sql-databases.md)
@@ -79,10 +79,10 @@
 ## Automazione e orchestrazione
 ### [Playbook](security-center-playbooks.md)
 
-## Risoluzione dei problemi
+## Risolvere problemi
 ### [Guida per la risoluzione dei problemi](security-center-troubleshooting-guide.md)
 
-# Riferimento
+# riferimento
 ## [REST](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
 
 # Risorse correlate
@@ -90,6 +90,7 @@
 
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Guida di orientamento alla preparazione del Centro sicurezza](security-center-readiness-roadmap.md)
 ## [Blog su sicurezza, privacy e conformità per Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Panoramica del servizio](https://azure.microsoft.com/services/security-center/)

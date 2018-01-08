@@ -90,7 +90,6 @@
 
 
 ## Caricare e spostare dati
-### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
 ### [Dati pubblici Contoso](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Archivio Data Lake di Azure](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
@@ -116,7 +115,7 @@
 ### [Automatizzare i livelli di calcolo](manage-compute-with-azure-functions.md)
 
 
-# Riferimenti
+# riferimento
 
 
 ## T-SQL

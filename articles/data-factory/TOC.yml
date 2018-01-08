@@ -19,7 +19,7 @@
           href: quickstart-create-data-factory-python.md
         - name: REST
           href: quickstart-create-data-factory-rest-api.md
-        - name: di Microsoft Azure
+        - name: Portale
           href: quickstart-create-data-factory-portal.md
         - name: Modello di Resource Manager
           href: quickstart-create-data-factory-resource-manager-template.md
@@ -94,7 +94,7 @@
               href: connector-azure-file-storage.md
             - name: Ricerca di Azure
               href: connector-azure-search.md
-            - name: Database SQL di Azure
+            - name: database SQL di Azure
               href: connector-azure-sql-database.md
             - name: Azure SQL Data Warehouse
               href: connector-azure-sql-data-warehouse.md
@@ -124,7 +124,7 @@
               href: connector-google-bigquery.md
             - name: Greenplum
               href: connector-greenplum.md
-            - name: HBase
+            - name: hbase
               href: connector-hbase.md
             - name: HDFS
               href: connector-hdfs.md
@@ -303,7 +303,9 @@
       items:
         - name: Creare un trigger di pianificazione
           href: how-to-create-schedule-trigger.md
-- name: riferimento
+        - name: Creare un trigger di finestra a cascata
+          href: how-to-create-tumbling-window-trigger.md
+- name: Riferimenti
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.datafactory
@@ -315,7 +317,7 @@
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Risorse
   items:
-    - name: domande frequenti
+    - name: Domande frequenti
       href: frequently-asked-questions.md
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=analytics'
