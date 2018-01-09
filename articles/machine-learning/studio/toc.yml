@@ -59,7 +59,7 @@
               href: create-workspace.md
             - name: Gestisci
               href: manage-workspace.md
-            - name: Risoluzione dei problemi
+            - name: Risolvere problemi
               href: troubleshooting-creating-ml-workspace.md
             - name: Eseguire la distribuzione usando ARM
               href: deploy-with-resource-manager-template.md
@@ -159,7 +159,7 @@
               href: retrain-new-web-service-using-powershell.md
             - name: Ripetere il training di un servizio Web esistente
               href: retrain-existing-resource-manager-based-web-service.md
-            - name: Risoluzione dei problemi
+            - name: Risolvere problemi
               href: troubleshooting-retraining-models.md
         - name: Utilizzare i modelli
           items:
@@ -173,7 +173,7 @@
               href: consume-web-service-with-web-app-template.md
             - name: Usare un pool di Batch
               href: dedicated-capacity-for-bes-jobs.md
-    - name: esempi
+    - name: Esempi
       items:
         - name: Esperimenti di esempio
           href: sample-experiments.md
@@ -195,7 +195,7 @@
       href: web-service-error-codes.md
 - name: Risorse correlate
   items:
-    - name: Cortana Intelligence Gallery
+    - name: Raccolta di intelligenza artificiale per Azure
       items:
         - name: Panoramica
           href: gallery-how-to-use-contribute-publish.md

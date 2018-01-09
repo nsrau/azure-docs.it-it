@@ -77,7 +77,7 @@
 ### Inviare messaggi da cloud a dispositivo
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
-#### [Node.js](iot-hub-node-node-c2d.md)
+#### [Node.JS](iot-hub-node-node-c2d.md)
 ### Caricare file da dispositivi
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -143,7 +143,7 @@
 #### [Introduzione alla sicurezza con certificati X.509 dell'autorità di certificazione](iot-hub-security-x509-get-started.md)
 ##### [Creare certificati - PowerShell](iot-hub-security-x509-create-certificates.md)
 
-# riferimento
+# Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/iot)
 ## [.NET (servizio)](/dotnet/api/microsoft.azure.devices)
@@ -162,6 +162,7 @@
 
 # Risorse correlate
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
+## [Servizio Device Provisioning in hub IoT di Azure](https://azure.microsoft.com/documentation/services/iot-dps/)
 ## [Hub eventi di Azure](https://azure.microsoft.com/documentation/services/event-hubs/)
 ## [Analisi di flusso](https://azure.microsoft.com/documentation/services/stream-analytics/)
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
