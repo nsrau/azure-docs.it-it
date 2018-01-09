@@ -6,13 +6,13 @@
 
 # Attività iniziali
 ## [Uso del portale](data-lake-store-get-started-portal.md)
-## [Uso di PowerShell](data-lake-store-get-started-powershell.md)
+## [Tramite PowerShell](data-lake-store-get-started-powershell.md)
 ## [Uso dell'interfaccia della riga di comando di Azure 2.0](data-lake-store-get-started-cli-2.0.md)
 
 
 # Procedure
 ## Caricare e spostare dati
-### [Uso di Data factory di Azure](../data-factory/data-factory-azure-datalake-connector.md)
+### [Uso di Data factory di Azure](../data-factory/connector-azure-data-lake-store.md)
 ### [Con AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Con DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Uso di Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -74,7 +74,7 @@
 ### [Uso con SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager)
 ### [Altre opzioni di integrazione di Azure](data-lake-store-integrate-with-other-services.md)
 
-## Gestire
+## Gestisci
 ### [Accedere ai log di diagnostica](data-lake-store-diagnostic-logs.md)
 ### [Pianificare la disponibilità elevata](data-lake-store-disaster-recovery-guidance.md)
 
@@ -83,7 +83,7 @@
 ## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
-## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
+## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-store)
 ## [Python (gestione di account)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 ## [Python (gestione del file system)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
@@ -93,7 +93,7 @@
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Blog di Data Lake Store](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Commenti e suggerimenti su UserVoice](https://feedback.azure.com/forums/327234-data-lake)
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
+## [Forum di MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/data-lake-store/)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=data-lake-store)

@@ -22,8 +22,6 @@
       href: how-to-create-a-group.md
     - name: Raggruppare i computer usando le dipendenze dei computer
       href: how-to-create-group-machine-dependencies.md
-    - name: Raggruppare i computer usando l'assegnazione di tag di VMware
-      href: how-to-tag-v-center.md
     - name: Affinare un gruppo usando le dipendenze del gruppo
       href: how-to-create-group-dependencies.md
     - name: Personalizzare una valutazione
