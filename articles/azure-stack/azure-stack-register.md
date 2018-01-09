@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/5/2018
+ms.date: 1/8/2018
 ms.author: jeffgilb
-ms.openlocfilehash: c2edafbf483692d5a11771268a1755c11b74521f
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: b58b3fc538d2237c12a860d268d550c4223155ba
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>Registro dello Stack di Azure con la sottoscrizione di Azure
 
@@ -36,7 +36,7 @@ Prima di registrare dello Stack di Azure con Azure, è necessario disporre di:
 
 - L'ID di sottoscrizione per una sottoscrizione di Azure. Per ottenere l'ID, accedere a Azure, fare clic su **più servizi** > **sottoscrizioni**, fare clic sulla sottoscrizione che si desidera utilizzare, quindi in **Essentials** è possibile trovare il **ID sottoscrizione**. Cina, Germania e noi sottoscrizioni cloud per enti pubblici non sono attualmente supportati.
 - Il nome utente e password per un account che è un proprietario per la sottoscrizione (sono supportati account MSA/2FA).
-- *Non richiesto a partire dalla versione di aggiornamento di Azure Stack 1712 (1.0.180103.2):* di Azure Active Directory per la sottoscrizione di Azure. È possibile trovare la directory in Azure passando sul proprio avatar in alto a destra del portale di Azure.
+- *Non richiesto a partire dalla versione di aggiornamento di Azure Stack 1712 (180106.1):* di Azure Active Directory per la sottoscrizione di Azure. È possibile trovare la directory in Azure passando sul proprio avatar in alto a destra del portale di Azure.
 
 Se non si dispone di una sottoscrizione di Azure che soddisfa questi requisiti, è possibile [creare un account gratuito di Azure qui](https://azure.microsoft.com/en-us/free/?b=17.06). Registrazione dello Stack di Azure non comporta alcun costo nella sottoscrizione di Azure.
 
@@ -126,7 +126,7 @@ Se si desidera modificare il modello di fatturazione o la funzionalità di diffu
 
 
 ## <a name="disconnected-registration"></a>Registrazione disconnessa
-*Le informazioni contenute in questa sezione si applica a partire dalla versione di aggiornamento di Azure Stack 1712 (1.0.180103.2) e non sono supportate con le versioni precedenti.*
+*Le informazioni contenute in questa sezione si applica a partire dalla versione di aggiornamento di Azure Stack 1712 (180106.1) e non sono supportate con le versioni precedenti.*
 
 Se si sta registrando dello Stack di Azure in un ambiente disconnesso, è necessario ottenere una registrazione token dall'ambiente dello Stack di Azure e quindi usare tale token in un computer che può connettersi a Azure per la registrazione.  
 

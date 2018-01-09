@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: andredm
-ms.openlocfilehash: fadd72d76862694af96b51d198b6693e104c05de
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 344fe7496a9129ea1653881a72139fea8a202ff0
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/08/2018
@@ -55,7 +55,6 @@ Questo aggiornamento include i seguenti miglioramenti e correzioni per lo Stack 
 
 #### <a name="new-features"></a>Nuove funzionalità
 
-- Nuova esperienza utente durante la creazione di elementi del Marketplace
 - Cmdlet test-AzureStack per convalidare Cloud Stack Azure disponibile tramite l'endpoint con privilegi
 - Consente di registrare una distribuzione disconnessa dello Stack di Azure
 - Avvisi di monitoraggio per la scadenza dell'account utente e certificati
@@ -76,7 +75,7 @@ Questo aggiornamento include i seguenti miglioramenti e correzioni per lo Stack 
 
 - [Il 3 gennaio - 2018: KB4056890 (Build del sistema operativo 14393.2007)](https://support.microsoft.com/help/4056890/windows-10-update-kb4056890)
     - Questo aggiornamento include le correzioni di software per il problema di sicurezza del settore descritto da [MSRC Security Advisory ADV 180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002).
- 
+
 ### <a name="known-issues-with-the-update-process"></a>Problemi noti con il processo di aggiornamento
 
 In questa sezione contiene i problemi noti che possono verificarsi durante l'installazione dell'aggiornamento 1712.
@@ -103,7 +102,7 @@ In questa sezione contiene i problemi noti di post-installazione con compilazion
 
    - È possibile visualizzare una riga vuota nella parte superiore dell'elenco. È comunque possibile selezionare un elemento come previsto.
    - Se l'elenco di elementi nell'elenco a discesa è breve, non sarà possibile visualizzare i nomi degli elementi.
-   - Se si dispone di più sottoscrizioni utente, l'elenco di riepilogo a discesa gruppo di risorse può essere vuoto. 
+   - Se si dispone di più sottoscrizioni utente, l'elenco di riepilogo a discesa gruppo di risorse può essere vuoto.
 
         > [!NOTE]
         > Per risolvere i problemi ultimi due, è possibile digitare il nome della sottoscrizione o del gruppo di risorse (se si conosce) oppure è possibile usare PowerShell.
@@ -124,16 +123,16 @@ In questa sezione contiene i problemi noti di post-installazione con compilazion
 - È possibile configurare una macchina virtuale set di disponibilità solo con un dominio di errore di uno e un dominio di aggiornamento di uno.
 - Non sussiste alcuna esperienza di marketplace per creare il set di scalabilità di macchine virtuali. È possibile creare un set, utilizzando un modello di scalabilità.
 - Impostazioni di scalabilità per il set di scalabilità di macchine virtuali non sono disponibili nel portale. In alternativa, è possibile utilizzare [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). A causa delle differenze di versione di PowerShell, è necessario utilizzare il `-Name` parametro anziché `-VMScaleSetName`.
- 
+
 #### <a name="networking"></a>Rete
 - Tramite il portale, è possibile creare un servizio di bilanciamento del carico con un indirizzo IP pubblico. In alternativa, è possibile utilizzare PowerShell per creare il servizio di bilanciamento del carico.
 - Quando si crea un servizio di bilanciamento del carico di rete, è necessario creare una regola di translation (NAT) indirizzo di rete. In caso contrario, si riceverà un errore quando si tenta di aggiungere una regola NAT, dopo aver creato il bilanciamento del carico.
 - Dopo aver creata e associata a tale indirizzo IP della macchina virtuale è non è possibile eliminare l'associazione di un indirizzo IP pubblico da una macchina virtuale (VM). Disassociazione verrà visualizzata a funzionare, ma l'indirizzo IP pubblico assegnato in precedenza rimane associato con la macchina virtuale originale. Questo comportamento si verifica anche se si riassegna l'indirizzo IP per una nuova macchina virtuale (conosciuta come un *scambio VIP*). Tutti i successivi tentativi di connessione attraverso il risultato di indirizzi IP in una connessione alla macchina virtuale di origine associati e non a quello nuovo. Attualmente, è necessario utilizzare solo i nuovi indirizzi IP pubblici per la creazione della nuova macchina virtuale.
 - Gli operatori di Azure Stack potrebbero non essere possibile distribuire, eliminare, modificare le reti virtuali o i gruppi di sicurezza di rete. Questo problema si verifica principalmente sui tentativi di aggiornamento successive dello stesso pacchetto. Ciò è causato da un problema di creazione di pacchetti con un aggiornamento che è attualmente in corso il controllo.
 - Bilanciamento di carico interno (ILB) gestisce correttamente gli indirizzi MAC per macchine virtuali di back-end che interrompe le istanze di Linux.
- 
+
 #### <a name="sqlmysql"></a>SQL o MySQL
-- È possibile richiedere un'ora prima che i tenant possono creare database in un nuovo SQL o MySQL SKU. 
+- È possibile richiedere un'ora prima che i tenant possono creare database in un nuovo SQL o MySQL SKU.
 - Creazione di elementi direttamente nel server che non vengono eseguite dal provider di risorse di hosting MySQL e SQL Server non è supportata e può comportare uno stato non corrispondente.
 
     > [!NOTE]
@@ -158,6 +157,7 @@ Ambienti, distribuiti in Azure Active Directory Federation Services (ADFS) di **
 Microsoft ha fornito un modo per monitorare e riprendere gli aggiornamenti utilizzando i privilegi punto finale (PEP) installati con aggiornamento 1712.
 
 - Vedere il [monitorare gli aggiornamenti nello Stack di Azure utilizzando la documentazione di endpoint con privilegi](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
+
 ## <a name="see-also"></a>Vedere anche 
 
 - Vedere [gestire gli aggiornamenti in panoramica di Azure Stack](azure-stack-updates.md) per una panoramica del processo di gestione nello Stack di Azure.
