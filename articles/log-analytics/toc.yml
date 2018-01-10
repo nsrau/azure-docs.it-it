@@ -73,8 +73,6 @@
               href: log-analytics-sccm.md
             - name: Gateway OMS
               href: log-analytics-oms-gateway.md
-            - name: Risolvere i problemi dell'agente Linux
-              href: log-analytics-agent-linux-support.md
         - name: Origini dati
           items:
             - name: Panoramica delle origini dati
@@ -99,6 +97,8 @@
               href: log-analytics-data-sources-custom-logs.md
             - name: Campi personalizzati
               href: log-analytics-custom-fields.md
+            - name: API di raccolta dati
+              href: log-analytics-data-collector-api.md
     - name: Eseguire query sui dati
       items:
         - name: Documentazione del linguaggio
@@ -164,15 +164,25 @@
           href: log-analytics-manage-cost-storage.md
         - name: Eliminazione di un'area di lavoro
           href: log-analytics-manage-del-workspace.md
+    - name: Risolvere problemi
+      items:
+        - name: Risoluzione dei problemi relativi all'estensione di macchina virtuale
+          href: log-analytics-azure-vmext-troubleshoot.md
+        - name: Risolvere i problemi dell'agente Linux
+          href: log-analytics-agent-linux-support.md
     - name: Usare le soluzioni
       items:
         - name: Panoramica delle soluzioni
           href: log-analytics-add-solutions.md
         - name: Soluzioni di destinazione
           href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Activity Log Analytics
-          href: log-analytics-activity.md
-        - name: Controllo integrità AD
+        - name: Log attività di Azure
+          items:
+            - name: Analytics
+              href: log-analytics-activity.md
+            - name: Raccolta tra sottoscrizioni
+              href: log-analytics-activity-logs-subscriptions.md
+        - name: AD Assessment
           href: log-analytics-ad-assessment.md
         - name: Stato della replica di AD
           href: log-analytics-ad-replication-status.md
@@ -199,7 +209,7 @@
           items:
             - name: Connessioni di IT Service Management
               href: log-analytics-itsmc-connections.md
-        - name: Insieme di credenziali delle chiavi
+        - name: Insieme di credenziali di chiave
           href: log-analytics-azure-key-vault.md
         - name: Messaggi per le app per la logica B2B
           items:
@@ -242,10 +252,8 @@
               href: 'https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started'
         - name: Trasferimento dati
           href: log-analytics-wire-data.md
-    - name: Sviluppare
+    - name: Sviluppo
       items:
-        - name: API di raccolta dati
-          href: log-analytics-data-collector-api.md
         - name: Cmdlet PowerShell
           href: log-analytics-powershell-workspace-configuration.md
         - name: Modelli di Gestione risorse
@@ -257,7 +265,7 @@
               href: log-analytics-log-search-api-python.md
         - name: API degli avvisi
           href: log-analytics-api-alerts.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Informazioni di riferimento sul linguaggio
       href: 'https://docs.loganalytics.io/docs/Language-Reference'

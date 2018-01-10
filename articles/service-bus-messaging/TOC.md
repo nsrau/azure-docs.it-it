@@ -64,6 +64,7 @@
 #### [Concatenare entità con l'inoltro automatico](service-bus-auto-forwarding.md)
 #### [Elaborazione di transazioni](service-bus-transactions.md)
 #### [Implementazione dello spazio dei nomi associato](service-bus-paired-namespaces.md)
+### [Traccia e diagnostica end-to-end](service-bus-end-to-end-tracing.md)
 ## Gestisci
 ### [Monitorare il bus di servizio con Monitoraggio di Azure](service-bus-metrics-azure-monitor.md)
 ### [Librerie di gestione del bus di servizio](service-bus-management-libraries.md)
@@ -78,7 +79,7 @@
 #### 
 ### [Uso di Azure PowerShell per il provisioning delle entità](service-bus-manage-with-ps.md)
 
-# riferimento
+# Riferimento
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)

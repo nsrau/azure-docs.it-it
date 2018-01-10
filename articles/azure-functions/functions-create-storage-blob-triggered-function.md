@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: db95f3991cfc36e0588f94aa7053bf3f5a794222
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e34d3634b592efe4581135f9dee52bf77d7506cd
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Creare una funzione attivata dall'archiviazione BLOB di Azure
 
@@ -51,19 +51,23 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
     ![Pagina della guida introduttiva di Funzioni nel portale di Azure](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-2. Selezionare il modello **BlobTrigger** per la lingua desiderata e usare le impostazioni specificate nella tabella.
+2. Nel campo di ricerca digitare `blob` e quindi scegliere la lingua da usare per il modello di attivazione dell'archiviazione BLOB.
 
-    ![Creare una funzione attivata dall'archiviazione BLOB.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+    ![Scegliere il modello di attivazione dell'archiviazione BLOB.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+ 
+3. Usare le impostazioni specificate nella tabella disponibile sotto l'immagine.
+
+    ![Creare una funzione attivata dall'archiviazione BLOB.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
 
     | Impostazione | Valore consigliato | Descrizione |
     |---|---|---|
-    | **Percorso**   | mycontainer/{name}    | Percorso da monitorare nell'archiviazione BLOB. Il nome file del BLOB viene passato nel binding come parametro _name_.  |
-    | **Connessione dell'account di archiviazione** | AzureWebJobStorage | È possibile usare la connessione dell'account di archiviazione già usata dall'app per le funzioni oppure crearne una nuova.  |
-    | **Dare un nome alla funzione** | Univoco nell'app per le funzioni | Nome della funzione attivata dal BLOB. |
+    | **Nome** | Univoco nell'app per le funzioni | Nome della funzione attivata dal BLOB. |
+    | **Percorso**   | samples-workitems/{name}    | Percorso da monitorare nell'archiviazione BLOB. Il nome file del BLOB viene passato nel binding come parametro _name_.  |
+    | **Connessione dell'account di archiviazione** | AzureWebJobsStorage | È possibile usare la connessione dell'account di archiviazione già usata dall'app per le funzioni oppure crearne una nuova.  |
 
 3. Fare clic su **Crea** per creare la funzione.
 
-Connettersi quindi all'account di archiviazione di Azure e creare il contenitore **mycontainer**.
+Connettersi quindi all'account di archiviazione di Azure e creare il contenitore **samples-workitems**.
 
 ## <a name="create-the-container"></a>Creare il contenitore
 
@@ -79,7 +83,7 @@ Connettersi quindi all'account di archiviazione di Azure e creare il contenitore
 
     ![Immettere le credenziali di archiviazione ed eseguire la connessione.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Espandere l'account di archiviazione associato, fare doppio clic su **Contenitori BLOB**, fare clic su **Crea contenitore BLOB**, digitare `mycontainer` e quindi premere INVIO.
+1. Espandere l'account di archiviazione associato, fare doppio clic su **Contenitori BLOB**, fare clic su **Crea contenitore BLOB**, digitare `samples-workitems` e quindi premere INVIO.
 
     ![Creare una coda di archiviazione.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 
@@ -89,7 +93,7 @@ Dopo aver creato un contenitore BLOB, è possibile ora testare la funzione caric
 
 1. Tornare al portale di Azure, selezionare la funzione, espandere i **log** nella parte inferiore della pagina e assicurarsi che lo streaming dei log non sia stato interrotto.
 
-1. In Esplora archivi espandere l'account di archiviazione, **Contenitori BLOB** e **mycontainer**. Fare clic su **Carica** e quindi su **Carica file...**.
+1. In Esplora archivi espandere l'account di archiviazione, **Contenitori BLOB** e **samples-workitems**. Fare clic su **Carica** e quindi su **Carica file...**.
 
     ![Caricare un file nel contenitore BLOB.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 

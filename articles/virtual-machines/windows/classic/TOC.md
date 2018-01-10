@@ -1,63 +1,39 @@
 # Panoramica
 ## [Informazioni sulle macchine virtuali](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-## [Dischi e dischi rigidi virtuali](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Reti virtuali](../../../virtual-network/virtual-networks-overview.md)
-## [Domande frequenti](faq.md)
-## [Confrontare macchine virtuali, siti Web e servizi cloud](../../../app-service/choose-web-site-cloud-service-vm.md)
-## [Contenitori](../../virtual-machines-windows-containers.md)
+## [DOMANDE FREQUENTI](faq-classic.md)
 
 # Attività iniziali
-## [Creare una macchina virtuale con il portale di Azure](tutorial.md)
-## [Accedere a una VM](connect-logon.md)
-## [Installare Azure PowerShell](/powershell/azure/overview)
-## [Installare l'interfaccia da riga di comando di Azure](../../../cli-install-nodejs.md)
+## [Creare una macchina virtuale con il portale di Azure](tutorial-classic.md)
+## [Accedere a una VM](connect-logon-classic.md)
 
 # Procedure
-
 ## Usare le risorse di archiviazione
-### [Collegare un disco dati](attach-disk.md)
-### [Scollegare un disco dati](detach-disk.md)
-### [Usare l'unità D: come disco dati](../../virtual-machines-windows-change-drive-letter.md)
+### [Collegare un disco dati](attach-disk-classic.md)
+### [Scollegare un disco dati](detach-disk-classic.md)
 
 ## Rete
 ### [Come configurare gli endpoint](setup-endpoints.md)
-### [Connettere VM a una rete virtuale o a un servizio cloud](connect-vms.md)
-### [Connettere reti virtuali classiche a reti virtuali di Resource Manager](../../../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
-### [Creare un servizio di bilanciamento del carico](../../../load-balancer/load-balancer-get-started-internet-classic-portal.md)
-### [Gestire NSG usando Azure PowerShell](../../../virtual-network/virtual-networks-create-nsg-classic-ps.md)
+### [Connettere VM a una rete virtuale o a un servizio cloud](connect-vms-classic.md)
 
-## Distribuisci
-### [Creare una VM personalizzata](createportal.md)
-### [Creare e configurare una VM tramite Azure PowerShell](create-powershell.md)
-### [Acquisire una VM Windows](capture-image.md)
-### [Creare e caricare un disco rigido virtuale tramite PowerShell](createupload-vhd.md)
-### [Automatizzare la distribuzione di macchine virtuali di Azure con Chef](../../virtual-machines-windows-chef-automation.md)
-### [Creare e gestire VM in Visual Studio](manage-visual-studio.md)
-### [Creare una macchina virtuale per un'app Web con Visual Studio](web-app-visual-studio.md)
+## Distribuire
+### [Creare una VM personalizzata](createportal-classic.md)
+### [Acquisire una VM Windows](capture-image-classic.md)
 ### [Eseguire un'attività a elevato utilizzo di calcolo in Java](java-run-compute-intensive-task.md)
 ### [Applicazione Web Django Hello World](python-django-web-app.md)
 
 ## Configurare
-### [Reimpostare una password o il servizio Desktop remoto](../../virtual-machines-windows-reset-rdp.md)
 ### [Installare e configurare Symantec Endpoint Protection](install-symantec.md)
 ### [Installare e configurare Trend Micro Deep Security come servizio](install-trend.md)
-### [Configurare un set di disponibilità](configure-availability.md)
-### [Ridimensionare una VM Windows create nel modello di distribuzione classica](resize-vm.md)
-### [Manutenzione](planned-maintenance-schedule.md)
+### [Configurare un set di disponibilità](configure-availability-classic.md)
+### [Ridimensionare una VM Windows create nel modello di distribuzione classica](resize-vm-classic.md)
+### [Manutenzione](planned-maintenance-schedule-classic.md)
 
-## Manage
+## Gestisci
 ### [Migrazione dal modello classico a Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
-### [Gestire le VM con Azure PowerShell](manage-psh.md)
-### [Informazioni sull'agente e sulle estensioni delle VM](agents-and-extensions.md)
-### [Gestire le estensioni di VM](manage-extensions.md)
-### [Estensione Script personalizzato per le VM](extensions-customscript.md)
-### [Inserimento dei dati personalizzati in una VM di Azure](inject-custom-data.md)
-
-## Pianificazione
-### [Informazioni sulle immagini](about-images.md)
-### [Dimensioni delle VM](../../virtual-machines-windows-sizes.md)
-### [Manutenzione pianificata per le VM di Azure](../../virtual-machines-windows-planned-maintenance.md)
-### [Linee guida sull'implementazione dei servizi di infrastruttura di Azure](../../virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md)
+### [Gestire le VM con Azure PowerShell](manage-psh-classic.md)
+### [Informazioni sull'agente e sulle estensioni delle VM](agents-and-extensions-classic.md)
+### [Gestire le estensioni di VM](manage-extensions-classic.md)
+### [Estensione Script personalizzato per le VM](extensions-customscript-classic.md)
 
 ## Gestire i carichi di lavoro
 ### [High-performance Computing (HPC)](../../virtual-machines-windows-hpcpack-cluster-options.md)
@@ -68,23 +44,16 @@
 #### [Eseguire carichi di lavoro di Excel e SOA](../../virtual-machines-windows-excel-cluster-hpcpack.md)
 #### [Creare il nodo head con un'immagine del Marketplace](../../virtual-machines-windows-hpcpack-cluster-headnode.md)
 #### [Inviare processi da locale ad Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
-### [MongoDB](install-mongodb.md)
 ### [MySQL](mysql-2008r2.md)
-### [Oracle](../../workloads/oracle/oracle-considerations.md)
-### [SAP](sap-get-started.md)
-### [SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
 
-## Risoluzione dei problemi
-### [Connessioni Desktop remoto](../../virtual-machines-windows-troubleshoot-rdp-connection.md)
-####[Procedura dettagliata per la risoluzione dei problemi di connessione di Desktop remoto](../../virtual-machines-windows-detailed-troubleshoot-rdp.md)
-### [Accedere a un'applicazione](../../virtual-machines-windows-troubleshoot-app-connection.md)
+## Risolvere problemi
 ### [Problemi della distribuzione classica con la creazione di una nuova VM](troubleshoot-deployment-new-vm.md)
 ### [Problemi della distribuzione classica con il riavvio o il ridimensionamento di una VM esistente](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md)
 ### [Reimpostare la password RDP](reset-rdp.md)
 ### [Collegare un disco rigido virtuale alla VM di risoluzione dei problemi](troubleshoot-recovery-disks-portal.md)
 
-# riferimento
+# Riferimento
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/vm)
 ## [Java](/java/api)

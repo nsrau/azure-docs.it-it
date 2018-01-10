@@ -44,6 +44,7 @@
 ### [Gestire i profili utente](active-directory-users-profile-azure-portal.md)
 ### [Condividere gli account](active-directory-sharing-accounts.md)
 ### [Assegnare utenti a ruoli amministrativi](active-directory-users-assign-role-azure-portal.md)
+### [Ripristinare un utente eliminato](active-directory-users-restore.md)
 ### [Aggiungere utenti guest da un'altra directory (B2B)](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Aggiunta di utenti B2B da parte di amministratori](active-directory-b2b-admin-add-users.md)
 #### [Aggiunta di utenti B2B da parte di information worker](active-directory-b2b-iw-add-users.md)
@@ -108,7 +109,7 @@
 #### [Configurare località denominate](active-directory-named-locations.md)
 #### [Trovare report sull'attività](active-directory-reporting-migration.md)
 #### [Usare il pacchetto di contenuto Power BI di Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)
-### riferimento
+### Riferimento
 #### [Conservazione](active-directory-reporting-retention.md)
 #### [Latenze](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
@@ -342,7 +343,7 @@
 ### [Studio del modello di verifica: blocchi predefiniti](active-directory-playbook-building-blocks.md)
 
 
-# Riferimenti
+# Riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Cmdlet di Azure PowerShell](/powershell/azure/overview)
 ## [Informazioni di riferimento sulle API Java](/java/api)

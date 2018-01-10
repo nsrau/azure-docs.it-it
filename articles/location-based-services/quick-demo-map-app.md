@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 0fcd25183617de879ada6d1f7d2a8fcf9551d6de
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 0edca9e5eb709eb3e1b42b45e5a41ac7a5ba1e75
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Avviare una demo di una ricerca interattiva sulla mappa con Servizi Location Based di Azure (anteprima)
 
@@ -33,7 +33,7 @@ Accedere al [Portale di Azure](https://portal.azure.com/).
 
 1. Nell'angolo superiore sinistro del [portale di Azure](https://portal.azure.com) fare clic su **Crea una risorsa**.
 2. Nella casella *Cerca nel Marketplace* digitare **Servizi Location Based**.
-3. In *Risultati* fare clic su **Location Based Services (preview)** (Servizi Location Based - Anteprima). Fare clic sul pulsante **Crea** visualizzato sotto la mappa. 
+3. In *Risultati* fare clic su **Servizi Location Based (preview)**. Fare clic sul pulsante **Crea** visualizzato sotto la mappa. 
 4. Nella pagina **Crea account Servizi Location Based** immettere il *Nome* per il nuovo account, selezionare la *Sottoscrizione* da usare e immettere il nome di un *Gruppo di risorse* nuovo o esistente. Selezionare la posizione per il gruppo di risorse, accettare le *Condizioni per l'anteprima* e fare clic su **Crea**.
 
     ![Creare un account Servizi Location Based nel portale](./media/quick-demo-map-app/create-lbs-account.png)
@@ -44,7 +44,7 @@ Accedere al [Portale di Azure](https://portal.azure.com/).
 
 1. Scaricare o copiare il contenuto del file [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html).
 2. Salvare il contenuto del file in locale come **AzureMapDemo.html** e aprirlo in un editor di testo.
-3. Cercare la stringa **<insert-key>** e sostituirla con il valore di **Chiave primaria** ottenuto nella sezione precedente. 
+3. Cercare la stringa **&#60;insert-key&#62;** e sostituirla con il valore di **Chiave primaria** ottenuto nella sezione precedente. 
 
 
 ## <a name="launch-the-demo-application-for-azure-maps"></a>Avviare l'applicazione demo per le mappe di Azure

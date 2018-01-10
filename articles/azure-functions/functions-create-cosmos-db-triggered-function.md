@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 2d2c83b1ce718e6954e908beb9080ace12a12a34
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2a4037d68413fb02ab3fe0c9a82af2ae22d10e68
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creare una funzione attivata da Azure Cosmos DB
 
@@ -50,9 +50,9 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
     ![Pagina della guida introduttiva di Funzioni nel portale di Azure](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-2. Individuare e selezionare il modello **CosmosDBTrigger di Azure** per la lingua desiderata.
+2. Nel campo di ricerca digitare `cosmos` e quindi scegliere la lingua da usare per il modello di attivazione di Azure Cosmos DB.
 
-    ![Creare la funzione attivata da Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
+    ![Scegliere il trigger di Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/select-cosmos-db-trigger-portal.png)
 
 3. Configurare il nuovo trigger con le impostazioni come indicato nella tabella sotto l'immagine.
 
@@ -60,10 +60,10 @@ Si creerà ora una funzione nella nuova app per le funzioni.
     
     | Impostazione      | Valore consigliato  | Descrizione                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Dare un nome alla funzione** | Default | Usare il nome della funzione predefinito suggerito dal modello. |
-    | **Database name** (Nome database) | Attività | Nome del database con la raccolta da monitorare. |
+    | **Nome** | Default | Usare il nome della funzione predefinito suggerito dal modello. |
     | **Nome raccolta** | Items | Nome della raccolta da monitorare. |
     | **Creare la raccolta di lease se non esiste** | Selezionato | La raccolta non esiste ancora, quindi crearla. |
+    | **Database name** (Nome database) | Attività | Nome del database con la raccolta da monitorare. |
 
 4. Selezionare **Nuovo** accanto all'etichetta **della connessione dell'account Cosmos DB di Azure** e selezionare un account Cosmos DB esistente o fare clic su **+ Crea nuovo**. 
  

@@ -4,11 +4,11 @@ hide_bc: True
 title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
 featureFlags: clicktale
-ms.openlocfilehash: 2df814a9132e13bd177e5690f97376bd793bd9b7
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 2591fad9efd9dba2f53101a747bcf79a4d0bad4f
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/10/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -102,8 +102,9 @@ ms.lasthandoff: 01/02/2018
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>Gestire risorse</h3>
+                                                <h3> Sicurezza e gestione delle risorse</h3>
                                                 <ul class="noBullet">
+                                                    <li><a class="barLink" href="/azure/security-center/">Centro sicurezza di Azure</a></li>
                                                     <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Monitoraggio di Azure</a></li>
                                                     <li><a class="barLink" href="/azure/application-insights/">Azure Application Insights</a></li>
                                                     <li><a class="barLink" href="/azure/cost-management/">Gestione dei costi di Azure</a></li>

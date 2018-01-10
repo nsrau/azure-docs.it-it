@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 03246846484878f7155449ad11b009aeffe8a576
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 3136bccb7724c95c4001e353d7feeecb045f1273
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Scegliere tra Flow, App per la logica, Funzioni e Processi Web
 Questo articolo mette a confronto i servizi seguenti, disponibili in Microsoft Cloud, ognuno dei quali consente di risolvere i problemi di integrazione e automatizzare i processi aziendali:
@@ -41,18 +41,18 @@ Microsoft Flow e App per la logica di Azure possono essere affrontati insieme, p
 * Hanno la stessa funzionalità di progettazione flussi di lavoro
 * [connettori](../connectors/apis-list.md) che funzionano in un servizio possono funzionare anche nell'altro
 
-Flow consente a qualsiasi impiegato di eseguire semplici integrazioni, ad esempio ricevere SMS per i messaggi di posta elettronica importanti, senza ricorrere a sviluppatori o professionisti IT. D'altra parte, App per la logica consente di abilitare integrazioni avanzate o cruciali, come i processi B2B, in cui sono necessarie procedure di sicurezza e la metodologia DevOps a livello di organizzazione. È normale che la complessità di un flusso di lavoro aziendale aumenti nel tempo. Di conseguenza, è possibile iniziare con un flusso e quindi convertirlo in un'app per la logica in base alle esigenze.
+Flow consente a qualsiasi impiegato di eseguire semplici integrazioni, ad esempio un processo di approvazione su una raccolta documenti di SharePoint, senza ricorrere a sviluppatori o professionisti IT. D'altra parte, App per la logica consente di abilitare integrazioni avanzate, come i processi B2B, in cui sono necessarie procedure di sicurezza e la metodologia DevOps a livello di organizzazione. È normale che la complessità di un flusso di lavoro aziendale aumenti nel tempo. Di conseguenza, è possibile iniziare con un flusso e quindi convertirlo in un'app per la logica in base alle esigenze.
 
 La tabella seguente consente di determinare se per una data integrazione è più appropriato usare Flow o App per la logica.
 
 |  | Flusso | App per la logica |
 | --- | --- | --- |
-| Audience |Impiegati, utenti aziendali |Professionisti IT, sviluppatori |
-| Scenari |Self-service |Cruciale |
+| Audience |Impiegati, utenti aziendali, amministratori di SharePoint |Integratori e sviluppatori professionisti, professionisti IT |
+| Scenari |Self-service |Integrazioni avanzate |
 | Strumento di progettazione |Nel browser e app per dispositivi mobili, solo interfaccia utente |Nel browser e in [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md) è disponibile la [visualizzazione Codice](../logic-apps/logic-apps-author-definitions.md) |
-| DevOps |Ad hoc, sviluppo nell'ambiente di produzione |Controllo del codice sorgente, test, supporto, oltre ad automazione e gestibilità in [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
-| Esperienza di amministrazione |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com](https://portal.azure.com) |
-| Sicurezza |Procedure standard: [sovranità dei dati](https://wikipedia.org/wiki/Technological_Sovereignty), [crittografia dati inattivi](https://wikipedia.org/wiki/Data_at_rest#Encryption) per i dati sensibili e così via. |Garanzie di sicurezza di Azure: [Sicurezza di Azure](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Centro sicurezza](https://azure.microsoft.com/services/security-center/), [log di controllo](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) e altro. |
+| Application Lifecycle Management (ALM) |Progettare ed eseguire test in ambienti non di produzione, alzare di livello quando si è pronti. |DevOps: controllo del codice sorgente, test, supporto, automazione e gestibilità in [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
+| Esperienza di amministrazione |Gestire ambienti di Flow e criteri di prevenzione della perdita dei dati, tenere traccia delle licenze [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |Gestire gruppi di risorse, connessioni, gestione dell'accesso e registrazione [https://portal.azure.com](https://portal.azure.com) |
+| Sicurezza |Log di controllo del Centro sicurezza e conformità di Office 365, prevenzione della perdita dei dati, [crittografia di dati inattivi](https://wikipedia.org/wiki/Data_at_rest#Encryption) per dati sensibili e così via. |Garanzie di sicurezza di Azure: [Sicurezza di Azure](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Centro sicurezza](https://azure.microsoft.com/services/security-center/), [log di controllo](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) e altro. |
 
 <a name="function"></a>
 
@@ -106,7 +106,7 @@ L'uso di Funzioni o di Processi Web dipende in definitiva dalle operazioni che g
 Come accennato in precedenza, il servizio ottimale dipende dalla situazione specifica dell'utente. 
 
 * Per la semplice ottimizzazione aziendale usare Flow.
-* Se lo scenario di integrazione è troppo avanzato per Flow o sono necessarie le funzionalità di DevOps e la conformità ai requisiti di sicurezza, usare App per la logica.
+* Se lo scenario di integrazione è troppo avanzato per Flow o sono necessarie le funzionalità di DevOps, usare App per la logica.
 * Se un passaggio nello scenario di integrazione richiede codice specializzato o di trasformazione altamente personalizzato, scrivere una funzione e quindi attivarla come azione nell'app per la logica.
 
 È possibile chiamare un'app per la logica in un flusso. Si può anche chiamare una funzione in un'app per la logica e un'app per la logica in una funzione. L'integrazione tra Flow, App per la logica e Funzioni continua a migliorare nel tempo. È possibile creare un elemento in un servizio e usarlo in altri servizi. Qualsiasi investimento effettuato in queste tre tecnologie risulterà comunque proficuo.

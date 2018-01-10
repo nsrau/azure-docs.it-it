@@ -13,56 +13,72 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/23/2017
   ms.author: carolz
+  ms.openlocfilehash: 0d66952b5f159ce92b8586f7beb71c25fe7c7b39
+  ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 01/10/2018
 abstract:
-  description: 'Azure Site Recovery orchestra e gestisce il ripristino di emergenza per le macchine virtuali di Azure, le macchine virtuali locali e i server fisici. Questo articolo contiene informazioni su come replicare ed effettuare il failover e il failback con guide introduttive ed esercitazioni.'
+  description: Azure Site Recovery orchestra e gestisce il ripristino di emergenza per le macchine virtuali di Azure, le macchine virtuali locali e i server fisici. Questo articolo contiene informazioni su come replicare ed effettuare il failover e il failback con guide introduttive ed esercitazioni.
 sections:
-  - title: Guide introduttive di 5 minuti
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: Configurare rapidamente il ripristino di emergenza per una macchina virtuale di Azure
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Configurare rapidamente il ripristino di emergenza per una macchina virtuale di Azure
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/site-recovery/media/index/portal.svg
-            text: Portale di Azure
-            href: /azure/site-recovery/azure-to-azure-quickstart
-  - title: Esercitazioni dettagliate
+    - image:
+        src: /azure/site-recovery/media/index/portal.svg
+      text: Portale di Azure
+      href: /azure/site-recovery/azure-to-azure-quickstart
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: Informazioni su come configurare il ripristino di emergenza per server fisici e macchine virtuali.
+  - type: text
+    html: <h3>Da Azure ad Azure</h3>
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: Informazioni su come configurare il ripristino di emergenza per server fisici e macchine virtuali.
-      - type: text
-        html: <h3>Da Azure ad Azure</h3>
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="azure-to-azure-tutorial-enable-replication">Configurare il ripristino di emergenza</a>
-          - html: <a href="azure-to-azure-tutorial-dr-drill">Eseguire un'esercitazione sul ripristino di emergenza</a>
-          - html: <a href="azure-to-azure-tutorial-failover-failback">Effettuare il failover e il failback</a>
-      - type: text
-        html: <h3>VMware</h3>
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-prepare-azure">Preparare Azure</a>
-          - html: <a href="tutorial-prepare-on-premises-vmware">Preparare istanze di VMware locali</a>
-          - html: <a href="tutorial-vmware-to-azure">Configurare il ripristino di emergenza</a>
-          - html: <a href="tutorial-dr-drill-azure">Eseguire un'esercitazione sul ripristino di emergenza</a>
-          - html: <a href="tutorial-vmware-to-azure-failover-failback">Effettuare il failover e il failback</a>
-      - type: text
-        html: <h3>Eseguire la migrazione ad Azure</h3>
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-prepare-azure">Preparare Azure</a>
-          - html: <a href="tutorial-migrate-on-premises-to-azure">Eseguire la migrazione di macchine locali</a> o di <a href="tutorial-migrate-aws-to-azure">istanze di AWS ad Azure</a>
-  - title: riferimento
+    - html: <a href="azure-to-azure-tutorial-enable-replication">Configurare il ripristino di emergenza</a>
+    - html: <a href="azure-to-azure-tutorial-dr-drill">Eseguire un'esercitazione sul ripristino di emergenza</a>
+    - html: <a href="azure-to-azure-tutorial-failover-failback">Effettuare il failover e il failback</a>
+  - type: text
+    html: <h3>VMware</h3>
+  - type: list
+    style: ordered
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Riga di comando
-            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/site-recovery/">Informazioni di riferimento sulle API REST</a></p>
+    - html: <a href="tutorial-prepare-azure">Preparare Azure</a>
+    - html: <a href="tutorial-prepare-on-premises-vmware">Preparare istanze di VMware locali</a>
+    - html: <a href="tutorial-vmware-to-azure">Configurare il ripristino di emergenza</a>
+    - html: <a href="tutorial-dr-drill-azure">Eseguire un'esercitazione sul ripristino di emergenza</a>
+    - html: <a href="tutorial-vmware-to-azure-failover-failback">Effettuare il failover e il failback</a>
+  - type: text
+    html: <h3>Hyper-V</h3>
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="tutorial-prepare-azure">Preparare Azure</a>
+    - html: <a href="tutorial-prepare-on-premises-hyper-v">Preparare Hyper-V in locale</a>
+    - html: <a href="tutorial-hyper-v-to-azure">Configurare il ripristino di emergenza per macchine virtuali Hyper-V</a>
+    - html: <a href="tutorial-hyper-v-vmm-to-azure">Configurare il ripristino di emergenza per macchine virtuali Hyper-V gestite da System Center VMM</a>
+    - html: <a href="tutorial-dr-drill-azure">Eseguire un'esercitazione sul ripristino di emergenza</a>
+    - html: <a href="tutorial-hyper-v-to-azure-failover-failback">Effettuare il failover e il failback</a>
+  - type: text
+    html: <h3>Eseguire la migrazione ad Azure</h3>
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="tutorial-prepare-azure">Preparare Azure</a>
+    - html: <a href="tutorial-migrate-on-premises-to-azure">Eseguire la migrazione di macchine locali</a> o di <a href="tutorial-migrate-aws-to-azure">istanze di AWS ad Azure</a>
+- title: Riferimento
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Riga di comando
+      html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/site-recovery/">Informazioni di riferimento sulle API REST</a></p>
