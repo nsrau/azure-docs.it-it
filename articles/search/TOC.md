@@ -1,4 +1,4 @@
-# [Panoramica](search-what-is-azure-search.md)
+# [Overview](search-what-is-azure-search.md)
 ## [Che cos'è la Ricerca di Azure?](search-what-is-azure-search.md)
 
 # Attività iniziali
@@ -9,7 +9,7 @@
 ### [.NET](search-create-index-dotnet.md)
 ### [REST](search-create-index-rest-api.md)
 ## [Aggiungere dati](search-what-is-data-import.md)
-### [Portale di Azure](search-import-data-portal.md)
+### [Azure portal](search-import-data-portal.md)
 ### [.NET](search-import-data-dotnet.md)
 ### [REST](search-import-data-rest-api.md)
 ## [Eseguire la ricerca in un indice](search-query-overview.md)
@@ -51,23 +51,23 @@
 ### [Indicizzatore di archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
 ### [Indicizzatore di archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)
 ### [Indicizzatore di Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Indicizzatore di Azure Cosmos DB](search-howto-index-documentdb.md)
+### [Indicizzatore di Azure Cosmos DB](search-howto-index-cosmosdb.md)
 ### [Indicizzare i BLOB CSV](search-howto-index-csv-blobs.md)
 ### [Indicizzare i BLOB JSON](search-howto-index-json-blobs.md)
 ### [Configurare le connessioni dell'indicizzatore a SQL Server nella VM di Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Mapping dei campi negli indicizzatori](search-indexer-field-mappings.md)
-##  Search
+##  Ricerca
 ### [Funzionamento della ricerca full-text](search-lucene-query-architecture.md)
 ### Costruzione delle query
 #### [Sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 #### [Sintassi di query Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 #### [Esempi di query Lucene](search-query-lucene-examples.md)
 ### Analizzatori in Ricerca di Azure
-#### [Panoramica](search-analyzers.md)
+#### [Overview](search-analyzers.md)
 #### [Analizzatori di linguaggi](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Analizzatori personalizzati](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### Filtri in Ricerca di Azure
-#### [Panoramica](search-filters.md)
+#### [Overview](search-filters.md)
 #### [Filtri facet](search-filters-facets.md)
 #### [Filtri per linguaggio](search-filters-language.md)
 #### [Informazioni di riferimento sulla sintassi delle espressioni](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
@@ -84,7 +84,7 @@
 ### [Analisi del traffico di ricerca](search-traffic-analytics.md)
 ### [Prestazioni e ottimizzazione](search-performance-optimization.md)
 
-# riferimento
+# Riferimento
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)
 ## [.NET (gestione)](/dotnet/api/?term=microsoft.azure.management.search)
@@ -108,7 +108,7 @@
 ### [App di offerte di lavoro](http://aka.ms/azjobsdemo)
 ## Partner e community
 ### [Ricerca di Azure in GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [Forum MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
+### [Forum di MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Blog: modellare dati relazionali](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [Blog: facet multilivello](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
