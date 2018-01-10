@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 20a830f99c5545b49e7b8c0211d145eef3e46179
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Sostituire un componente hardware in un nodo di unità di scala di Azure Stack
 
@@ -55,6 +55,10 @@ L'integrità di Azure Stack e un sistema di monitoraggio tenere traccia dell'int
 I passaggi seguenti offrono una panoramica del processo di sostituzione di componenti. Non eseguire la procedura senza fare riferimento alla documentazione fornita dall'OEM FRU.
 
 1. Utilizzare il [svuotare](azure-stack-node-actions.md#scale-unit-node-actions) azione per inserire il nodo di unità di scala in modalità di manutenzione. Questa azione potrebbe non essere necessaria in base alla condizione dell'hardware fisica.
+
+   > [!NOTE]
+   > In ogni caso, un solo nodo possa essere svuotato e lo spegnimento nello stesso momento, senza interrompere il S2D (spazi di archiviazione diretta).
+
 2. Dopo il nodo di unità di scala è in modalità manutenzione, utilizzare il [spegnere](azure-stack-node-actions.md#scale-unit-node-actions) azione. Questa azione potrebbe non essere necessaria in base alla condizione dell'hardware fisica.
  
    > [!NOTE]
