@@ -1,45 +1,45 @@
 
-**Ultimo aggiornamento del documento**: 6 gennaio 6:30 PM PST.
+**Ultimo aggiornamento del documento**: 6 gennaio, 18:30 PST.
 
-La diffusione di recente un [nuova classe di vulnerabilità CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) noto come attacchi al canale laterale speculativo esecuzione ha comportato domande dei clienti che desiderano ottenere maggiore chiarezza.  
+La divulgazione recente di una [nuova classe di vulnerabilità della CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), definita attacchi del canale laterale per l'esecuzione speculativa, ha suscitato molte domande e richieste di chiarimenti da parte dei clienti.  
 
-L'infrastruttura che esegue Azure e isola i carichi di lavoro cliente da altra è protetto.  Ciò significa che l'applicazione utilizzando queste vulnerabilità non è possibile attacchi da altri clienti in esecuzione in Azure.
+L'infrastruttura che esegue Azure e isola i carichi di lavoro dei clienti gli uni da gli altri è protetta.  Gli altri clienti in esecuzione su Azure non possono quindi attaccare l'applicazione di un utente tramite queste vulnerabilità.
 
-## <a name="keeping-your-operating-systems-up-to-date"></a>Aggiornamento dei sistemi operativi
+## <a name="keeping-your-operating-systems-up-to-date"></a>Mantenere aggiornato il sistema operativo
 
-Mentre un aggiornamento del sistema operativo non è necessario per isolare le applicazioni in esecuzione in Azure da altri clienti in esecuzione in Azure, è sempre consigliabile mantenere le versioni del sistema operativo aggiornato. 
+Benché non sia necessario un aggiornamento del sistema operativo per isolare le applicazioni in esecuzione su Azure da altri clienti in esecuzione su Azure, è sempre consigliabile mantenere aggiornate le versioni del sistema operativo. 
 
-Nelle offerte seguenti, ecco le azioni consigliate per aggiornare il sistema operativo: 
+Nelle offerte seguenti sono illustrate le azioni consigliate per aggiornare il sistema operativo: 
 
 <table>
 <tr>
 <th>Offerta</th> <th>Azione consigliata </th>
 </tr>
 <tr>
-<td>Servizi cloud di Azure </td>  <td>Abilita aggiornamento automatico o assicurarsi che si esegue il sistema operativo Guest più recenti.</td>
+<td>Servizi cloud di Azure </td>  <td>Abilitare l'aggiornamento automatico o assicurarsi che sia in esecuzione il sistema operativo Guest più recente.</td>
 </tr>
 <tr>
-<td>Macchine virtuali Linux di Azure</td> <td>Installare gli aggiornamenti dal provider di sistema operativo, se disponibile. </td>
+<td>Macchine virtuali Linux in Azure</td> <td>Installare aggiornamenti dal provider del sistema operativo, quando disponibili. </td>
 </tr>
 <tr>
-<td>Macchine virtuali di Windows Azure </td> <td><ul><li>Verificare che si esegue un'applicazione antivirus supportata prima di installare gli aggiornamenti del sistema operativo. Per informazioni sulla compatibilità, contattare il fornitore di software antivirus. </li> <li> Installare il [rollup della sicurezza gennaio](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </li></ul></td>
+<td>Macchine virtuali Windows in Azure </td> <td>Verificare che sia in esecuzione un'applicazione antivirus supportata prima di installare aggiornamenti del sistema operativo. Contattare il fornitore di software antivirus per ottenere informazioni sulla compatibilità.<p> Installare il [rollup per la sicurezza di gennaio](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </p></td>
 </tr>
 <tr>
-<td>Altri servizi PaaS di Azure</td> <td>Non vi è nessuna azione necessaria per i clienti che utilizzano questi servizi. Azure automaticamente mantiene le versioni del sistema operativo aggiornato. </td>
+<td>Altri servizi PaaS di Azure</td> <td>Non sono necessarie azioni da parte dei clienti che usano questi servizi. Azure aggiorna automaticamente le versioni del sistema operativo. </td>
 </tr>
 </table>
 
-## <a name="additional-guidance-if-you-are-running-untrusted-code"></a>Informazioni aggiuntive, se si esegue codice non attendibile 
+## <a name="additional-guidance-if-you-are-running-untrusted-code"></a>Indicazioni aggiuntive in caso di esecuzione di codice non attendibile 
 
-A meno che non si eseguono codice non attendibile, è necessaria alcuna azione aggiuntivi del cliente. Se si consente a codice non attendibile (ad esempio, consentire a uno ai clienti di caricare un file binario o frammenti di codice quindi eseguite nel cloud all'interno dell'applicazione), quindi eseguire i passaggi aggiuntivi seguenti.  
+Non sono necessarie azioni aggiuntive da parte dei clienti, a meno che il codice eseguito non sia attendibile. Se si consente codice non attendibile, ad esempio se si permette a un cliente di caricare un file binario o un frammento di codice che viene eseguito sul cloud entro l'applicazione, sarà necessario seguire questa procedura aggiuntiva.  
 
 
 ### <a name="windows"></a>Windows 
-Se si utilizza Windows e l'hosting di codice non attendibile, è inoltre consigliabile abilitare una funzionalità di Windows denominata Shadowing Kernel virtuale indirizzo (kVA ()) che fornisce protezione aggiuntiva contro le vulnerabilità di canale lato speculativo esecuzione. Questa funzionalità è disattivata per impostazione predefinita e può influire sulle prestazioni se abilitato. Seguire [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) le istruzioni per l'abilitazione di protezioni sul Server. Se si eseguono i servizi Cloud di Azure, verificare che si eseguono WA-GUEST-OS-5.15_201801-01 o WA-GUEST-OS-4.50_201801-01 (disponibile a partire dal 10 gennaio) e abilitare il Registro di sistema della chiave tramite un'attività di avvio.
+Se si usa Windows e si esegue l'hosting di codice non attendibile, è necessario abilitare una funzionalità di Windows definita shadowing dell'indirizzo virtuale del kernel, che offre protezione aggiuntiva dalle vulnerabilità del canale laterale per l'esecuzione speculativa. Questa funzionalità viene disattivata per impostazione predefinita e potrebbe influire sulle prestazioni, se abilitata. Seguire le istruzioni disponibili in [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) per l'abilitazione delle protezioni sul server. Se si eseguono Servizi cloud di Azure, verificare che sia in esecuzione WA-GUEST-OS-5.15_201801-01 o WA-GUEST-OS-4.50_201801-01 (disponibile a partire dal 10 gennaio) e abilitare la chiave del Registro di sistema tramite un'attività di avvio.
 
 
 ### <a name="linux"></a>Linux
-Se si utilizza Linux e hosting di codice non attendibile, è necessario aggiornare anche Linux per una versione più recente che implementa l'isolamento della tabella pagine kernel (KPTI) che separa le tabelle di pagina utilizzate dal kernel tra quelli che appartengono allo spazio utente. Queste soluzioni richiedono un aggiornamento del sistema operativo Linux e possono essere ottenute dal provider di distribuzione, se disponibile. Il provider del sistema operativo può indicare se le protezioni vengono abilitate o disabilitate per impostazione predefinita.
+Se si usa Linux e si esegue l'hosting di codice non attendibile, è necessario aggiornare anche Linux a una versione più recente che implementa l'isolamento di tabelle di pagina del kernel che separa le tabelle di pagina usate dal kernel da quelle appartenente allo spazio utente. Queste mitigazioni richiedono un aggiornamento del sistema operativo Linux e possono essere ottenute dal provider di distribuzione, se disponibili. Il provider del sistema operativo può segnalare se le protezioni sono abilitate o disabilitate per impostazione predefinita.
 
 
 
@@ -50,4 +50,4 @@ Se si utilizza Linux e hosting di codice non attendibile, è necessario aggiorna
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni, vedere [protezione di Azure i clienti da vulnerabilità CPU](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/).
+Per altre informazioni, vedere [Securing Azure customers from CPU vulnerability](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/) (Protezione dei clienti di Azure dalla vulnerabilità della CPU).

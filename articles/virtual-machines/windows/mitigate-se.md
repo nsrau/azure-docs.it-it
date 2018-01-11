@@ -1,12 +1,13 @@
 ---
-title: Indicazioni per ridurre speculativo esecuzione in Azure | Documenti Microsoft
-description: "Indicazioni per ridurre le vulnerabilità di canale lato speculativo esecuzione in Azure."
+title: Indicazione per l'attenuazione dell'esecuzione speculativa in Azure | Microsoft Docs
+description: "Indicazioni per la mitigazione delle vulnerabilità del canale laterale per l'esecuzione speculativa in Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
+keywords: spectre,meltdown,specter
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -14,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 55cabb1df612474dd67a0bf7429ef10f63c6d193
-ms.sourcegitcommit: 113fe856a110b5522d2759ba1788b01697ae2b32
-ms.translationtype: MT
+ms.openlocfilehash: 6d34a4f6e165d2925594783ce198aca8a810451d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2018
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities"></a>Indicazioni per ridurre le vulnerabilità di esecuzione speculativo canale laterale
+# <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Indicazioni per la mitigazione delle vulnerabilità del canale laterale per l'esecuzione speculativa in Azure
 
 [!INCLUDE [virtual-machines-common-mitigate-se](../../../includes/virtual-machines-common-mitigate-se.md)]
