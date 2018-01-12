@@ -31,11 +31,11 @@
       href: how-to-use-map-control.md
     - name: Come cercare un indirizzo
       href: how-to-search-for-address.md
-- name: riferimento
+- name: Riferimento
   items:
-    - name: API funzionale - REST
+    - name: API funzionale
       href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services/'
-    - name: API di gestione - REST
+    - name: API di gestione
       href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services-management/'
     - name: API di controllo mappa - Javascript
       href: 'https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/'

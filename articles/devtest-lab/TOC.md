@@ -16,6 +16,7 @@
 ### [Creare VM](devtest-lab-add-vm.md)
 ### [Creare e gestire macchine virtuali richiedibili](devtest-lab-add-claimable-vm.md)
 ### [Creare e gestire VM con l'interfaccia della riga di comando di Azure](devtest-lab-vmcli.md)
+### [Creare una VM da un modello di Resource Manager](devtest-lab-use-resource-manager-template.md)
 ### [Riavviare una macchina virtuale](devtest-lab-restart-vm.md)
 
 ## Usare gli ambienti in un lab
@@ -46,7 +47,6 @@
 
 ## Gestire i modelli riutilizzabili
 ### [Aggiungere un repository Git per elementi e modelli](devtest-lab-add-artifact-repo.md)
-### [Usare il modello di Resource Manager](devtest-lab-use-resource-manager-template.md)
 ### [Gestire formule](devtest-lab-manage-formulas.md)
 
 ## Gestire gli elementi
@@ -65,7 +65,7 @@
 ## Integrazione con integrazione continua/distribuzione continua
 ### [Integrare i lab nella pipeline di integrazione continua/distribuzione continua di Visual Studio Team Services](devtest-lab-integrate-ci-cd-vsts.md)
 
-# riferimento
+# Riferimento
 ## [Interfaccia della riga di comando 2.0](/cli/azure/lab)
 ## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Creare o modificare automaticamente i lab](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
@@ -76,7 +76,7 @@
 # Risorse correlate
 ## [DOMANDE FREQUENTI](devtest-lab-faq.md)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=devtest-lab)
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
+## [Forum di MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
 ## [Blog del team](https://blogs.msdn.microsoft.com/devtestlab/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
 ## [Video](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)

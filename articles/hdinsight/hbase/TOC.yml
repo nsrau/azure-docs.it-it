@@ -7,7 +7,7 @@
     - name: Componenti Hadoop in HDInsight
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: Introduzione
+- name: Attività iniziali
   items:
     - name: Iniziare a usare HBase e NoSQL
       href: apache-hbase-tutorial-get-started-linux.md
@@ -27,7 +27,7 @@
         - name: Uso di Azure Data Lake Store
           href: ../hdinsight-hadoop-use-data-lake-store.md
           maintainContext: true
-    - name: Sviluppare
+    - name: Sviluppo
       items:
         - name: Sviluppare applicazioni Java
           href: apache-hbase-build-java-maven-linux.md
@@ -74,7 +74,7 @@
           href: ../hdinsight-hadoop-provision-linux-clusters.md
           maintainContext: true
           items:
-            - name: Uso di Azure PowerShell
+            - name: Usare Azure PowerShell
               href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
               maintainContext: true
             - name: Usare cURL e l'API REST di Azure
@@ -102,7 +102,7 @@
             - name: Usare .NET SDK
               href: ../hdinsight-administer-use-dotnet-sdk.md
               maintainContext: true
-            - name: Uso di Azure PowerShell
+            - name: Usare Azure PowerShell
               href: ../hdinsight-administer-use-powershell.md
               maintainContext: true
             - name: Utilizzare l’interfaccia della riga di comando di Azure
@@ -121,6 +121,8 @@
         - name: Caricare dati per processi Hadoop
           href: ../hdinsight-upload-data.md
           maintainContext: true
+        - name: Caricamento bulk di dati in Phoenix tramite psql
+          href: apache-hbase-phoenix-psql.md
         - name: Cluster HDInsight multipli con Data Lake Store
           href: ../hdinsight-multiple-clusters-data-lake-store.md
           maintainContext: true
@@ -148,7 +150,7 @@
         - name: Applicazione di patch del sistema operativo per il cluster HDInsight
           href: ../hdinsight-os-patching.md
           maintainContext: true
-    - name: Risoluzione dei problemi
+    - name: Risolvere problemi
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:
@@ -218,7 +220,7 @@
         - name: Monitorare le prestazioni di un cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: riferimento
+- name: Riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

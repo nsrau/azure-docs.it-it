@@ -86,10 +86,16 @@
           href: submit-apache-hadoop-jobs-programmatically.md
     - name: Sviluppo
       items:
+        - name: Eseguire programmi MapReduce personalizzati
+          href: apache-hadoop-run-custom-programs.md
         - name: 'Sviluppare programmi MapReduce di flusso in C#'
           href: apache-hadoop-dotnet-csharp-mapreduce-streaming.md
         - name: Sviluppare programmi MapReduce in Java
           href: apache-hadoop-develop-deploy-java-mapreduce-linux.md
+        - name: 'Usare Apache Hive come strumento per estrazione, trasformazione e caricamento'
+          href: apache-hadoop-using-apache-hive-as-an-etl-tool.md
+        - name: 'Estrarre, trasformare e caricare su larga scala'
+          href: apache-hadoop-etl-at-scale.md
         - name: Usare nodi perimetrali vuoti
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
@@ -145,6 +151,8 @@
         - name: Analizzare i log di Application Insights Telemetry
           href: ../spark/apache-spark-analyze-application-insight-logs.md
           maintainContext: true
+        - name: Analisi avanzate per HDInsight
+          href: apache-hadoop-deep-dive-advanced-analytics.md
     - name: Estendere i cluster
       items:
         - name: Personalizzare i cluster usando bootstrap
@@ -378,7 +386,9 @@
         - name: Monitorare le prestazioni di un cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: riferimento
+        - name: Analizzare i log di Hadoop
+          href: apache-hadoop-debug-jobs.md
+- name: Riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

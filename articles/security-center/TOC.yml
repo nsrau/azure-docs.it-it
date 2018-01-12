@@ -1,0 +1,190 @@
+- name: Documentazione del Centro sicurezza
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni sul Centro sicurezza
+      href: security-center-intro.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: Sottoscrizioni Azure
+      href: security-center-get-started.md
+    - name: Computer Windows
+      href: quick-onboard-windows-computer.md
+    - name: Computer Linux
+      href: quick-onboard-linux-computer.md
+    - name: Soluzioni di sicurezza
+      href: quick-security-solutions.md
+- name: Esercitazioni
+  items:
+    - name: Definire i criteri di sicurezza
+      href: tutorial-security-policy.md
+    - name: Proteggere le risorse
+      href: tutorial-protect-resources.md
+    - name: Rispondere agli eventi imprevisti
+      href: tutorial-security-incident.md
+- name: Concetti
+  items:
+    - name: Autorizzazioni
+      href: security-center-permissions.md
+    - name: Sicurezza dei dati
+      href: security-center-data-security.md
+- name: Guide alle procedure
+  items:
+    - name: Eseguire l'aggiornamento alla sicurezza avanzata
+      href: security-center-onboarding.md
+    - name: Impostare i criteri di sicurezza
+      href: security-center-policies-overview.md
+      items:
+        - name: Raccolta dei dati
+          href: security-center-enable-data-collection.md
+        - name: Definizioni dei criteri
+          href: security-center-policies.md
+        - name: Notifiche tramite posta elettronica
+          href: security-center-provide-security-contact-details.md
+        - name: Piano tariffario
+          href: security-center-pricing.md
+        - name: Configurazioni di sicurezza
+          href: security-center-customize-os-security-config.md
+        - name: Criteri di sicurezza con Criteri di Azure
+          href: security-center-azure-policy.md
+    - name: Monitorare l'integrità della sicurezza
+      href: security-center-monitoring.md
+    - name: Identità e accesso
+      href: security-center-identity-access.md
+    - name: Implementare le raccomandazioni sulla sicurezza
+      href: security-center-recommendations.md
+    - name: Sicurezza di calcolo
+      href: security-center-virtual-machine-recommendations.md
+      items:
+        - name: Applicare Crittografia dischi
+          href: security-center-apply-disk-encryption.md
+        - name: Applicare gli aggiornamenti di sistema
+          href: security-center-apply-system-updates.md
+        - name: Abilitare la crittografia per l'account di archiviazione
+          href: security-center-enable-encryption-for-storage-account.md
+        - name: Abilita l'agente di macchine virtuali
+          href: security-center-enable-vm-agent.md
+        - name: Installa Endpoint Protection
+          href: security-center-install-endpoint-protection.md
+        - name: Riavviare dopo gli aggiornamenti del sistema
+          href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
+        - name: Correggere le configurazioni di sicurezza
+          href: security-center-remediate-os-vulnerabilities.md
+        - name: Aggiornare la versione sistema operativo
+          href: security-center-update-os-version.md
+        - name: La valutazione della vulnerabilità non è installata
+          href: security-center-vulnerability-assessment-recommendations.md
+    - name: Sicurezza di rete
+      href: security-center-network-recommendations.md
+      items:
+        - name: Aggiunger un firewall di nuova generazione
+          href: security-center-add-next-generation-firewall.md
+        - name: Abilitare i gruppi di sicurezza di rete
+          href: security-center-enable-network-security-groups.md
+        - name: Limitare l'accesso tramite endpoint con connessione Internet
+          href: security-center-restrict-access-through-internet-facing-endpoints.md
+        - name: Route traffic through NGFW only (Indirizza il traffico solo tramite il firewall di nuova generazione)
+          href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
+    - name: Sicurezza delle risorse di archiviazione e dei dati
+      href: security-center-sql-service-recommendations.md
+      items:
+        - name: Abilitare il controllo e il rilevamento delle minacce nei database SQL
+          href: security-center-enable-auditing-on-sql-databases.md
+        - name: Abilitare il controllo e il rilevamento delle minacce nei server SQL
+          href: security-center-enable-auditing-on-sql-servers.md
+        - name: Abilitare Transparent Data Encryption
+          href: security-center-enable-transparent-data-encryption.md
+    - name: 'Sicurezza delle applicazioni:'
+      href: security-center-application-recommendations.md
+      items:
+        - name: Aggiungere un Web Application Firewall
+          href: security-center-add-web-application-firewall.md
+        - name: Finalizza la protezione dell'applicazione
+          href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
+    - name: Difese cloud
+      items:
+        - name: Accesso JIT (Just-in-Time)
+          href: security-center-just-in-time.md
+        - name: Controlli delle applicazioni adattivi
+          href: security-center-adaptive-application.md
+    - name: Gestire le soluzioni di sicurezza
+      href: security-center-partner-integration.md
+      items:
+        - name: Soluzioni connesse
+          href: security-center-partner-solutions.md
+        - name: Connettere Microsoft Advanced Threat Analytics (ATA)
+          href: security-center-ata-integration.md
+        - name: Connettere Azure AD Identity Protection
+          href: security-center-aadip-integration.md
+    - name: Analizzare le minacce
+      href: security-center-detection-capabilities.md
+      items:
+        - name: Avvisi di sicurezza
+          href: security-center-managing-and-responding-alerts.md
+        - name: Eventi imprevisti relativi alla sicurezza
+          href: security-center-incident.md
+        - name: Report sulle minacce
+          href: security-center-threat-report.md
+        - name: Tipi di avviso
+          href: security-center-alerts-type.md
+        - name: Avvisi personalizzati
+          href: security-center-custom-alert.md
+        - name: Convalida degli avvisi
+          href: security-center-alert-validation.md
+        - name: Mappa di intelligence per le minacce
+          href: security-center-threat-intel.md
+        - name: Analisi
+          href: security-center-investigation.md
+    - name: Automatizzare e orchestrare
+      items:
+        - name: Playbook per app per la logica
+          href: security-center-playbooks.md
+        - name: Visualizzare eventi
+          href: security-center-events-dashboard.md
+        - name: Ricerca
+          href: security-center-search.md
+    - name: Integrazione dei log di Azure
+      href: security-center-integrating-alerts-with-log-integration.md
+    - name: Scenari
+      items:
+        - name: Risposta agli eventi imprevisti
+          href: security-center-incident-response.md
+        - name: Usare le raccomandazioni per migliorare la sicurezza
+          href: security-center-using-recommendations.md
+    - name: Risolvere problemi
+      href: security-center-troubleshooting-guide.md
+- name: Riferimento
+  items:
+    - name: API REST
+      href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'
+- name: Risorse
+  items:
+    - name: Domande frequenti
+      href: security-center-faq.md
+    - name: Piattaforme supportate
+      href: security-center-os-coverage.md
+    - name: Migrazione della piattaforma
+      href: security-center-platform-migration.md
+    - name: Domande frequenti sulla migrazione della piattaforma
+      href: security-center-platform-migration-faq.md
+    - name: Pianificazione e gestione
+      href: security-center-planning-and-operations-guide.md
+    - name: Sicurezza di Azure
+      href: /azure/security/
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: Guida di orientamento per l'idoneità
+      href: security-center-readiness-roadmap.md
+    - name: 'Blog su sicurezza, privacy e conformità per Azure'
+      href: 'http://blogs.msdn.com/b/azuresecurity/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=security-center'
+    - name: Video
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=security-center'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/security-center/'
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=security-center'
+    - name: Disponibilità internazionale
+      href: 'https://azure.microsoft.com/regions/services/'

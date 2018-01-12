@@ -38,7 +38,9 @@
       href: event-grid-event-hubs-integration.md
     - name: Modelli per le sottoscrizioni di eventi
       href: event-subscription-template.md
-- name: riferimento
+    - name: Monitorare il recapito di eventi
+      href: monitor-event-delivery.md
+- name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/eventgrid
