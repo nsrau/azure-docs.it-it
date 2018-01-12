@@ -1,6 +1,6 @@
 ---
-title: Abilitare il Backup per lo Stack di Azure dal portale di amministrazione | Documenti Microsoft
-description: "Attivare il nuovo servizio di infrastruttura tramite il portale di amministrazione, in modo che Azure Stack può essere ripristinato se si è verificato un errore."
+title: Abilitare il backup per lo Stack di Azure dal portale di amministrazione | Documenti Microsoft
+description: "Abilitare il servizio di Backup di infrastruttura tramite il portale di amministrazione in modo che Azure Stack può essere ripristinato se si è verificato un errore."
 services: azure-stack
 documentationcenter: 
 author: mattbriggs
@@ -8,23 +8,26 @@ manager: femila
 editor: 
 ms.assetid: 56C948E7-4523-43B9-A236-1EF906A0304F
 ms.service: azure-stack
-ms.workload: na
+ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: a5a9757d871c343ba663862de7b6d75b9dd21c31
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 456a0db9771f5963c8d4375d54a22257f6ca1c56
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Abilitare il Backup per lo Stack di Azure dal portale di amministrazione
+# <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Abilitare il backup per lo Stack di Azure dal portale di amministrazione
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Attivare il nuovo servizio di infrastruttura tramite il portale di amministrazione, in modo che Azure Stack può generare backup. È possibile utilizzare questi esegue il gruppo di continuità per ripristinare l'ambiente, se si è verificato un errore.
+Abilitare il servizio di Backup di infrastruttura tramite il portale di amministrazione in modo che Azure Stack può generare backup. È possibile utilizzare queste copie di backup per ripristinare l'ambiente in caso di errore.
+
+> [!Note]  
+> Prima di abilitare il backup tramite la console, è necessario configurare il servizio di backup. È possibile configurare il servizio di backup tramite PowerShell. Per ulteriori informazioni, vedere [abilitare il Backup per lo Stack di Azure con PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 ## <a name="enable-backup"></a>Abilitare il backup
 
@@ -33,7 +36,7 @@ Attivare il nuovo servizio di infrastruttura tramite il portale di amministrazio
 
     ![Stack di Azure - impostazioni Backup del controller](media\azure-stack-backup\azure-stack-backup-settings.png).
 
-3. Digitare il percorso di **il percorso di archiviazione di Backup**. È necessario utilizzare una stringa di Universal Naming Convention (UNC) per il percorso di una condivisione file ospitata su un dispositivo distinto. Una stringa UNC specifica il percorso delle risorse, ad esempio i dispositivi o file condivisi. Per il servizio, è possibile utilizzare un indirizzo IP. Per garantire la disponibilità dei dati di backup in caso di emergenza, il dispositivo deve essere in una posizione separata.
+3. Digitare il percorso di **il percorso di archiviazione di Backup**. Utilizzare una stringa di Universal Naming Convention (UNC) per il percorso di una condivisione file ospitata su un dispositivo distinto. Una stringa UNC specifica il percorso delle risorse, ad esempio i dispositivi o file condivisi. Per il servizio, è possibile utilizzare un indirizzo IP. Per garantire la disponibilità dei dati di backup dopo un'emergenza, il dispositivo deve essere in una posizione separata.
     > [!Note]  
     > Se l'ambiente supporta la risoluzione dei nomi di rete dell'infrastruttura di Azure Stack per l'ambiente aziendale, è possibile utilizzare un nome di dominio completo anziché l'indirizzo IP.
 4. Tipo di **Username** utilizzando il dominio e il nome utente. Ad esempio, `Contoso\administrator`.
@@ -46,5 +49,5 @@ Per eseguire un backup, è necessario scaricare gli strumenti di Azure Stack e q
 
 ## <a name="next-steps"></a>Passaggi successivi
 
- - Informazioni su come eseguire un backup, vedere [backup Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
-- Informazioni su come verificare che sia stato eseguito il backup, vedere [backup conferma completata nel portale di amministrazione](azure-stack-backup-back-up-azure-stack.md ).
+ - Informazioni su come eseguire un backup. Vedere [backup Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
+- Informazioni su come verificare che sia stato eseguito il backup. Vedere [backup conferma completata nel portale di amministrazione](azure-stack-backup-back-up-azure-stack.md ).

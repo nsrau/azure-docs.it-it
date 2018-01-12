@@ -3,7 +3,7 @@ title: Aggiornamento di Azure Stack 1712 | Documenti Microsoft
 description: "Informazioni sulle novità nell'aggiornamento 1712 per Azure Stack integrate di sistemi, i problemi noti e come scaricare l'aggiornamento."
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: b14f79ad-025f-45d8-9e1d-e53d2b420bb1
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2018
-ms.author: andredm
-ms.openlocfilehash: 344fe7496a9129ea1653881a72139fea8a202ff0
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.date: 01/11/2018
+ms.author: brenduns
+ms.openlocfilehash: 0456a202990d383370051d99112f829533b1b101
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-stack-1712-update"></a>Aggiornamento dello Stack 1712 Azure
 
@@ -58,7 +58,7 @@ Questo aggiornamento include i seguenti miglioramenti e correzioni per lo Stack 
 - Cmdlet test-AzureStack per convalidare Cloud Stack Azure disponibile tramite l'endpoint con privilegi
 - Consente di registrare una distribuzione disconnessa dello Stack di Azure
 - Avvisi di monitoraggio per la scadenza dell'account utente e certificati
-- Cmdlet di aggiornamento BMCCredential aggiunto in PEP per la rotazione di password BMC
+- Aggiunta cmdlet Set-BmcPassword in PEP per la rotazione di password BMC
 - Aggiornamenti di registrazione di rete per supportare la registrazione su richiesta
 - Supporta l'operazione di ricreazione immagine per la macchina virtuale scale set (VMSS)
 - Abilitare la modalità tutto schermo in VM ERCS per account di accesso CloudAdmin
@@ -141,7 +141,7 @@ In questa sezione contiene i problemi noti di post-installazione con compilazion
 #### <a name="app-service"></a>Servizio app
 - Un utente deve registrare il provider di risorse di archiviazione prima di creare la prima funzione di Azure nella sottoscrizione.
 
-#### <a name="identity"></a>Identità
+#### <a name="identity"></a>Identity
 
 Ambienti, distribuiti in Azure Active Directory Federation Services (ADFS) di **azurestack\azurestackadmin** account non è più proprietario della sottoscrizione del Provider predefinito. Anziché la registrazione nel **portale di amministrazione / endpoint adminmanagement** con il **azurestack\azurestackadmin**, è possibile utilizzare il **azurestack\cloudadmin** account, questa operazione che è possibile gestire e usare la sottoscrizione di Provider predefinito.
 

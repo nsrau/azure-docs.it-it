@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/10/2018
 ms.author: JeffGo
-ms.openlocfilehash: 065d4cbc9a324f00a0985c4ebed3d4dffc79d91a
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Utilizzare i database MySQL in Microsoft Azure Stack
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/05/2018
 
 È possibile distribuire un provider di risorse MySQL nello Stack di Azure. Dopo aver distribuito il provider di risorse, è possibile creare MySQL Server e database tramite i modelli di distribuzione di gestione risorse di Azure e fornire i database MySQL come servizio. Database MySQL, che sono comuni nei siti web, supportano molte piattaforme di sito Web. Ad esempio, dopo aver distribuito il provider di risorse, è possibile creare siti Web WordPress dalla piattaforma Azure Web App come un componente aggiuntivo del servizio (PaaS) per lo Stack di Azure.
 
-Per distribuire il provider di MySQL in un sistema che non dispone dell'accesso a internet, è possibile copiare il file [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.9.9.msi) in una condivisione locale. Quindi, specificare il nome della condivisione quando richiesto. È inoltre necessario installare i moduli di Azure e Azure PowerShell dello Stack.
+Per distribuire il provider di MySQL in un sistema che non dispone dell'accesso a internet, è possibile copiare il file [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.10.5.msi) in una condivisione locale. Quindi, specificare il nome della condivisione quando richiesto. È inoltre necessario installare i moduli di Azure e Azure PowerShell dello Stack.
 
 
 ## <a name="mysql-server-resource-provider-adapter-architecture"></a>Architettura dell'Adapter Provider risorse di MySQL Server
@@ -71,10 +71,9 @@ L'account di sistema deve disporre dei privilegi seguenti:
 
     | Compilazione di Azure Stack | Programma di installazione di MySQL RP |
     | --- | --- |
-    | 1.0.180102.3 | **Attendere. Per ulteriori informazioni, le compilazioni corrente non è possibile installare ma continueranno a essere eseguito su più nodi dopo un aggiornamento dello Stack di Azure.** |
-    | 1.0.171122.1 | [RP MySQL versione 1.1.12.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.180102.3 o 1.0.180106.1 (a più nodi) | [RP MySQL versione 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
+    | 1.0.171122.1 | [RP MySQL versione 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1.0.171028.1 | [RP MySQL versione 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
-    | 1.0.170928.3 | [RP MySQL versione 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  Il certificato radice dello Stack di Azure viene recuperato dall'Endpoint con privilegi. Per ASDK, viene creato un certificato autofirmato come parte di questo processo. Per più nodi, è necessario fornire un certificato appropriato.
 
@@ -159,18 +158,18 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 ### <a name="deploysqlproviderps1-parameters"></a>Parametri DeploySqlProvider.ps1
 È possibile specificare questi parametri nella riga di comando. Se non fosse possibile, o qualsiasi parametro convalida non riesce, viene chiesto di fornire le.
 
-| Nome parametro | DESCRIZIONE | Commento o il valore predefinito |
+| Nome parametro | Descrizione | Commento o il valore predefinito |
 | --- | --- | --- |
 | **CloudAdminCredential** | Le credenziali per l'amministratore del cloud, necessaria per l'accesso al Privleged Endpoint. | _obbligatorio_ |
 | **AzCredential** | Specificare le credenziali per l'account di amministratore del servizio Azure dello Stack. Utilizzare le stesse credenziali utilizzate per la distribuzione dello Stack di Azure). | _obbligatorio_ |
 | **VMLocalCredential** | Definire le credenziali per l'account amministratore locale del provider di risorse MySQL macchina virtuale. | _obbligatorio_ |
 | **PrivilegedEndpoint** | Specificare l'indirizzo IP o nome DNS dell'Endpoint con privilegi. |  _obbligatorio_ |
-| **DependencyFilesLocalPath** | Percorso alla condivisione locale contenente [mysql-connector-net-6.9.9.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.9.9.msi). Se si specifica uno, il file del certificato deve trovarsi in questa directory. | _parametro facoltativo_ (_obbligatorio_ a nodi multipli) |
+| **DependencyFilesLocalPath** | Percorso alla condivisione locale contenente [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi). Se si specifica uno, il file del certificato deve trovarsi in questa directory. | _parametro facoltativo_ (_obbligatorio_ a nodi multipli) |
 | **DefaultSSLCertificatePassword** | La password per il certificato con estensione pfx | _obbligatorio_ |
 | **MaxRetryCount** | Definire il numero di volte che si desidera ripetere ogni operazione se si verifica un errore.| 2 |
 | **RetryDuration** | Definire il timeout di tra due tentativi, in secondi. | 120 |
-| **Disinstallare** | Rimuovere il provider di risorse e tutte le risorse associate (vedere le note sottostanti) | No  |
-| **DebugMode** | Impedisce la pulizia automatica in caso di errore | No  |
+| **Disinstallare** | Rimuovere il provider di risorse e tutte le risorse associate (vedere le note sottostanti) | No |
+| **DebugMode** | Impedisce la pulizia automatica in caso di errore | No |
 | **AcceptLicense** | Ignora la richiesta di accettare le condizioni di licenza GPL (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
 
@@ -319,7 +318,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 ### <a name="updatemysqlproviderps1-parameters"></a>Parametri UpdateMySQLProvider.ps1
 È possibile specificare questi parametri nella riga di comando. Se non fosse possibile, o qualsiasi parametro convalida non riesce, viene chiesto di fornire le.
 
-| Nome parametro | DESCRIZIONE | Commento o il valore predefinito |
+| Nome parametro | Descrizione | Commento o il valore predefinito |
 | --- | --- | --- |
 | **CloudAdminCredential** | Le credenziali per l'amministratore del cloud, necessaria per l'accesso all'Endpoint con privilegi. | _obbligatorio_ |
 | **AzCredential** | Specificare le credenziali per l'account di amministratore del servizio Azure dello Stack. Utilizzare le stesse credenziali utilizzate per la distribuzione dello Stack di Azure). | _obbligatorio_ |
@@ -329,8 +328,8 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 | **DefaultSSLCertificatePassword** | La password per il certificato con estensione pfx | _obbligatorio_ |
 | **MaxRetryCount** | Definire il numero di volte che si desidera ripetere ogni operazione se si verifica un errore.| 2 |
 | **RetryDuration** | Definire il timeout di tra due tentativi, in secondi. | 120 |
-| **Disinstallare** | Rimuovere il provider di risorse e tutte le risorse associate (vedere le note sottostanti) | No  |
-| **DebugMode** | Impedisce la pulizia automatica in caso di errore | No  |
+| **Disinstallare** | Rimuovere il provider di risorse e tutte le risorse associate (vedere le note sottostanti) | No |
+| **DebugMode** | Impedisce la pulizia automatica in caso di errore | No |
 | **AcceptLicense** | Ignora la richiesta di accettare le condizioni di licenza GPL (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
 ## <a name="remove-the-mysql-resource-provider-adapter"></a>Rimuovere la scheda Provider di risorse MySQL

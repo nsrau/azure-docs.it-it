@@ -1,6 +1,6 @@
 ---
 title: Abilitare il Backup per lo Stack di Azure con PowerShell | Documenti Microsoft
-description: "Abilitare l'infrastruttura di servizio con Windows PowerShell in modo che Azure Stack può essere ripristinato se si è verificato un errore."
+description: "Abilitare il servizio di Backup di infrastruttura con Windows PowerShell in modo che Azure Stack può essere ripristinato se si è verificato un errore."
 services: azure-stack
 documentationcenter: 
 author: mattbriggs
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: b4f48b7fd07c5fb590b6989e04e9084c86142d2a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 5326aa5af174c9027729b98eac62a314e3ecc122
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Abilitare il Backup per lo Stack di Azure con PowerShell
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Abilitare l'infrastruttura di servizio con Windows PowerShell in modo che Azure Stack può essere ripristinato se si è verificato un errore. Per visualizzare i cmdlet PowerShell per abilitare il backup, avviare il backup e ottenere informazioni di backup tramite l'endpoint di gestione di operatore.
+Abilitare il servizio di Backup di infrastruttura con Windows PowerShell in modo che Azure Stack può essere ripristinato se si è verificato un errore. Per visualizzare i cmdlet PowerShell per abilitare il backup, avviare il backup e ottenere informazioni di backup tramite l'endpoint di gestione di operatore.
 
 ## <a name="download-azure-stack-tools"></a>Scaricare strumenti di Azure Stack
 
@@ -47,7 +47,7 @@ Aprire Windows PowerShell con un prompt dei comandi con privilegi elevati ed ese
 
 Nella stessa sessione di PowerShell, modificare lo script di PowerShell seguente aggiungendo le variabili per l'ambiente. Eseguire lo script aggiornato per configurare l'ambiente RM e accedere all'endpoint di gestione di operatore.
 
-| Variabile    | DESCRIZIONE |
+| Variabile    | Descrizione |
 |---          |---          |
 | $TenantName | Nome di tenant di Azure Active Directory. |
 | Nome dell'account (operatore)        | Il nome dell'account Azure Stack operatore. |
@@ -90,26 +90,29 @@ Nella stessa sessione di PowerShell, eseguire i comandi seguenti:
    $encryptionkey = New-EncryptionKeyBase64
    ```
 
+> [!Warning]  
+> È necessario utilizzare gli strumenti di AzureStack per generare la chiave.
+
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Specificare la chiave di crittografia, credenziali e condivisione di backup per abilitare il backup
 
 Nella stessa sessione di PowerShell, modificare lo script di PowerShell seguente aggiungendo le variabili per l'ambiente. Eseguire lo script aggiornato per fornire la chiave di crittografia, credenziali e condivisione di backup per il servizio di Backup di infrastruttura.
 
-| Variabile        | DESCRIZIONE   |
+| Variabile        | Descrizione   |
 |---              |---                                        |
 | $username       | Tipo di **Username** utilizzando il dominio e il nome utente per il percorso dell'unità condivisa. Ad esempio, `Contoso\administrator`. |
 | $password       | Tipo di **Password** per l'utente. |
 | $sharepath      | Digitare il percorso di **il percorso di archiviazione di Backup**. È necessario utilizzare una stringa di Universal Naming Convention (UNC) per il percorso di una condivisione file ospitata su un dispositivo distinto. Una stringa UNC specifica il percorso delle risorse, ad esempio i dispositivi o file condivisi. Per garantire la disponibilità dei dati di backup, il dispositivo deve essere in una posizione separata. |
 
    ```powershell
-   $username = "domain\backupoadmin"
+    $username = "domain\backupoadmin"
     $password = "password"
     $credential = New-Object System.Management.Automation.PSCredential($username, ($password| ConvertTo-SecureString -asPlainText -Force))  
     $location = Get-AzsLocation
     $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
-
-Set-AzSBackupShare -Location $location -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey 
-
+    
+    Set-AzSBackupShare -Location $location.Name -Path $sharepath -UserName $credential.UserName -Password $credential.GetNetworkCredential().password -EncryptionKey $encryptionkey
    ```
+   
 ##  <a name="confirm-backup-settings"></a>Confermare le impostazioni di backup
 
 Nella stessa sessione di PowerShell, eseguire i comandi seguenti:

@@ -12,19 +12,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 01/09/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4b94092f1284abfa2462ddef04b6e84136e54dde
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 55cc0eb3cc187d87e0d2ae96e2433cb9682ab370
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azioni di nodo di unità di scala nello Stack di Azure
 
 *Si applica a: Azure Stack integrate di sistemi*
 
 In questo articolo viene descritto come visualizzare lo stato di un'unità di scala e i relativi nodi associati e come utilizzare le azioni di nodo disponibile. Nodo azioni includono l'accensione, power off, svuotare, riprenderanno e ripristinano. In genere, queste azioni di nodo è utilizzare durante la sostituzione del campo di parti o per scenari di ripristino del nodo.
+
+> [!Important]  
+> Tutte le azioni nodo descritte in questo articolo deve essere solo destinazione un nodo alla volta.
+
 
 ## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>Visualizza lo stato di un'unità di scala e i relativi nodi
 
@@ -75,13 +79,17 @@ Lo stato operativo del nodo determina quali opzioni sono disponibili.
 
 Il **spegnere** azione disattiva il nodo. Ha lo stesso come se si preme il pulsante di alimentazione. Caso **non** inviare un segnale di arresto del sistema operativo. Per le operazioni di alimentazione pianificato, assicurarsi che si svuotare un nodo di unità di scala prima.
 
-Questa operazione viene in genere utilizzata quando un nodo è in uno stato bloccato e non risponde alle richieste.  
+Questa operazione viene in genere utilizzata quando un nodo è in uno stato bloccato e non risponde alle richieste.
+
+> [!Important] 
+> Questa funzionalità è disponibile solo tramite PowerShell. Sarà disponibile nel portale di amministrazione di Azure Stack in un secondo momento.
+
 
 Per eseguire lo spegnimento azione tramite PowerShell:
 
-  ````PowerShell
+````PowerShell
   Stop-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ```` 
+```` 
 
 Nel caso improbabile in cui spegnimento azione non funziona, utilizzare l'interfaccia web BMC.
 
@@ -89,11 +97,14 @@ Nel caso improbabile in cui spegnimento azione non funziona, utilizzare l'interf
 
 Il **accendere** azione attiva nel nodo. Ha lo stesso come se si preme il pulsante di alimentazione. 
 
+> [!Important] 
+> Questa funzionalità è disponibile solo tramite PowerShell. Sarà disponibile nel portale di amministrazione di Azure Stack in un secondo momento.
+
 Per eseguire la potenza azione tramite PowerShell:
 
-  ````PowerShell
+````PowerShell
   Start-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ````
+````
 
 Nel caso improbabile in cui l'azione di accensione non funziona, utilizzare l'interfaccia web BMC.
 
@@ -122,7 +133,7 @@ Per eseguire l'azione di ripresa tramite PowerShell:
   Enable-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
   ````
 
-### <a name="repair"></a>Ripristina
+### <a name="repair"></a>Ripara
 
 Il **ripristino** azione consente di ripristinare un nodo. Utilizzarlo solo per uno dei seguenti scenari:
 

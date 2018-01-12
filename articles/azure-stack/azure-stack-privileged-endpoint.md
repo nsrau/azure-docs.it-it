@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 949715317de69064bb66fb470a805e367512bd6f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 80c3f248edb40b66e3177c512f3caf77295c6c5d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Utilizzo di un endpoint con privilegi nello Stack di Azure
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Come operatore di Stack di Azure, utilizzare il portale dell'amministratore, PowerShell o le API di gestione risorse di Azure per le attività di gestione quotidiane di più. Tuttavia, per alcuni meno operazioni comuni, è necessario utilizzare il *endpoint con privilegi*. Questo endpoint è una console di PowerShell remota configurata in precedenza che offre di sufficiente capacità che consentono di eseguire un'attività obbligatoria. L'endpoint utilizza PowerShell JEA (Just Enough Administration) per esporre solo un set limitato di cmdlet. Per accedere all'endpoint con privilegi e richiamare un insieme limitato di cmdlet, viene utilizzato un account con privilegi limitati. Nessun account di amministratore è necessario. Per una maggiore sicurezza, l'esecuzione degli script non è consentita.
+Come operatore di Stack di Azure, utilizzare il portale dell'amministratore, PowerShell o le API di gestione risorse di Azure per le attività di gestione quotidiane di più. Tuttavia, per alcuni meno operazioni comuni, è necessario utilizzare il *endpoint con privilegi* (PEP). Questo endpoint è una console di PowerShell remota configurata in precedenza che offre di sufficiente capacità che consentono di eseguire un'attività obbligatoria. L'endpoint utilizza PowerShell JEA (Just Enough Administration) per esporre solo un set limitato di cmdlet. Per accedere all'endpoint con privilegi e richiamare un insieme limitato di cmdlet, viene utilizzato un account con privilegi limitati. Nessun account di amministratore è necessario. Per una maggiore sicurezza, l'esecuzione degli script non è consentita.
 
 È possibile utilizzare l'endpoint con privilegi per eseguire le attività seguenti:
 
@@ -98,6 +98,7 @@ Prima di iniziare questa procedura per un sistema integrato, verificare che è p
     - Remove-CloudAdminUser
     - Select-Object
     - Set-CloudAdminUserPassword
+    - Test AzureStack
     - Stop-AzureStack
     - Get-ClusterLog
 

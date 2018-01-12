@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/09/2018
 ms.author: JeffGo
-ms.openlocfilehash: 4d6683a1a80dfdccdc5d46e9bac095a0d9f4d3e1
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: e2f29a1686d0f4baa88b9d37bac0261952f4caa6
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Utilizzare i database SQL nello Stack di Microsoft Azure
 
@@ -60,11 +60,10 @@ Il provider di risorse è costituito da tre componenti:
 
     | Compilazione di Azure Stack | Programma di installazione di SQL RP |
     | --- | --- |
-    | 1.0.180102.3 | **Attendere. Per ulteriori informazioni, le compilazioni corrente non è possibile installare ma continueranno a essere eseguito su più nodi dopo un aggiornamento dello Stack di Azure.** |
-    | 1.0.171122.1 | [RP SQL versione 1.1.12.0](https://aka.ms/azurestacksqlrp) |
+    |1.0.180102.3 o 1.0.180106.1 (a più nodi) | [RP SQL versione 1.1.14.0](https://aka.ms/azurestacksqlrp1712) |
+    | 1.0.171122.1 | [RP SQL versione 1.1.12.0](https://aka.ms/azurestacksqlrp1711) |
     | 1.0.171028.1 | [RP SQL versione 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
-    | 1.0.170928.3 | [RP SQL versione 1.1.3.0](https://aka.ms/azurestacksqlrp1709) |
-   
+  
 
 4. Il certificato radice dello Stack di Azure viene recuperato dall'Endpoint con privilegi. Per ASDK, viene creato un certificato autofirmato come parte di questo processo. Per più nodi, è necessario fornire un certificato appropriato.
 
@@ -141,7 +140,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 ### <a name="deploysqlproviderps1-parameters"></a>Parametri DeploySqlProvider.ps1
 È possibile specificare questi parametri nella riga di comando. Se non fosse possibile, o qualsiasi parametro convalida non riesce, viene chiesto di fornire le.
 
-| Nome parametro | DESCRIZIONE | Commento o il valore predefinito |
+| Nome parametro | Descrizione | Commento o il valore predefinito |
 | --- | --- | --- |
 | **CloudAdminCredential** | Le credenziali per l'amministratore del cloud, necessaria per l'accesso all'Endpoint con privilegi. | _obbligatorio_ |
 | **AzCredential** | Specificare le credenziali per l'account di amministratore del servizio Azure dello Stack. Utilizzare le stesse credenziali utilizzate per la distribuzione dello Stack di Azure). | _obbligatorio_ |
@@ -151,8 +150,8 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 | **DefaultSSLCertificatePassword** | La password per il certificato con estensione pfx | _obbligatorio_ |
 | **MaxRetryCount** | Definire il numero di volte che si desidera ripetere ogni operazione se si verifica un errore.| 2 |
 | **RetryDuration** | Definire il timeout di tra due tentativi, in secondi. | 120 |
-| **Disinstallare** | Rimuovere il provider di risorse e tutte le risorse associate (vedere le note sottostanti) | No  |
-| **DebugMode** | Impedisce la pulizia automatica in caso di errore | No  |
+| **Disinstallare** | Rimuovere il provider di risorse e tutte le risorse associate (vedere le note sottostanti) | No |
+| **DebugMode** | Impedisce la pulizia automatica in caso di errore | No |
 
 
 ## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Verificare la distribuzione tramite il portale di Azure Stack
@@ -220,7 +219,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 ### <a name="updatesqlproviderps1-parameters"></a>Parametri UpdateSQLProvider.ps1
 È possibile specificare questi parametri nella riga di comando. Se non fosse possibile, o qualsiasi parametro convalida non riesce, viene chiesto di fornire le.
 
-| Nome parametro | DESCRIZIONE | Commento o il valore predefinito |
+| Nome parametro | Descrizione | Commento o il valore predefinito |
 | --- | --- | --- |
 | **CloudAdminCredential** | Le credenziali per l'amministratore del cloud, necessaria per l'accesso all'Endpoint con privilegi. | _obbligatorio_ |
 | **AzCredential** | Specificare le credenziali per l'account di amministratore del servizio Azure dello Stack. Utilizzare le stesse credenziali utilizzate per la distribuzione dello Stack di Azure). | _obbligatorio_ |
@@ -230,8 +229,8 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 | **DefaultSSLCertificatePassword** | La password per il certificato con estensione pfx | _obbligatorio_ |
 | **MaxRetryCount** | Definire il numero di volte che si desidera ripetere ogni operazione se si verifica un errore.| 2 |
 | **RetryDuration** | Definire il timeout di tra due tentativi, in secondi. | 120 |
-| **Disinstallare** | Rimuovere il provider di risorse e tutte le risorse associate (vedere le note sottostanti) | No  |
-| **DebugMode** | Impedisce la pulizia automatica in caso di errore | No  |
+| **Disinstallare** | Rimuovere il provider di risorse e tutte le risorse associate (vedere le note sottostanti) | No |
+| **DebugMode** | Impedisce la pulizia automatica in caso di errore | No |
 
 
 

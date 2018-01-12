@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: mabrigg
-ms.openlocfilehash: b44129400e878e9032623e4d0962153d50303660
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 25b89571277e393fbad7cdd6e193d9b3f02f3ee5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installare PowerShell per Azure Stack  
 
@@ -31,7 +31,7 @@ In questo articolo contiene istruzioni dettagliate per installare PowerShell per
 > [!NOTE]
 > Le operazioni seguenti richiedono PowerShell 5.0. Per controllare la versione in uso, eseguire $PSVersionTable.PSVersion e confrontare la versione "Principale".
 
-I comandi di PowerShell per lo Stack di Azure vengono installati tramite PowerShell gallery. Per il repository PSGallery regiser, aprire una sessione di PowerShell con privilegi elevata del kit di sviluppo o da un client esterno basato su Windows se si sono connessi tramite VPN ed eseguire il comando seguente:
+I comandi di PowerShell per lo Stack di Azure vengono installati tramite PowerShell Gallery. Per registrare il repository PSGallery, aprire una sessione di PowerShell con privilegi elevata del kit di sviluppo o da un client esterno basato su Windows se si sono connessi tramite VPN ed eseguire il comando seguente:
 
 ```powershell
 Set-PSRepository `
@@ -49,7 +49,7 @@ Prima di installare la versione richiesta, assicurarsi di disinstallare i moduli
    Get-Module -ListAvailable | where-Object {$_.Name -like “Azure*”} | Uninstall-Module
    ```
 
-* Accedere al kit di sviluppo o per client basati su Windows esterno se si prevede di stabilire una connessione VPN. Eliminare tutte le cartelle che iniziano con "Azure" dal `C:\Program Files (x86)\WindowsPowerShell\Modules` e `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` cartelle. Eliminazione di queste cartelle rimuove tutti i moduli PowerShell esistenti dal ambiti utente "globali" e "AzureStackAdmin". 
+* Accedere al kit di sviluppo o per client basati su Windows esterno se si prevede di stabilire una connessione VPN. Eliminare tutte le cartelle che iniziano con "Azure" dal `C:\Program Files\WindowsPowerShell\Modules` e `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` cartelle. Eliminazione di queste cartelle rimuove tutti i moduli PowerShell esistenti dal ambiti utente "globali" e "AzureStackAdmin". 
 
 Nelle sezioni seguenti vengono descritti i passaggi necessari per installare PowerShell per Azure Stack. PowerShell può essere installato nello Stack di Azure che viene gestita in connessa, parzialmente connesso o in uno scenario disconnesso. 
 
@@ -126,7 +126,6 @@ In uno scenario disconnesso, è necessario innanzitutto scaricare i moduli di Po
      -SourceLocation $SourceLocation `
      -InstallationPolicy Trusted
 
-   ```powershell
    Install-Module AzureRM `
      -Repository $RepoName
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: ed62f2f8441220eb37aea7f4c848702e9821698b
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f88ac4da58279ea9642bd93ac5f971d8047e310b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Aggiungere l'immagine di macchina virtuale di Windows Server 2016 a Stack Azure Marketplace
 
@@ -34,11 +34,11 @@ Per impostazione predefinita, nessuna immagine di macchina virtuale sono disponi
 
 2. Selezionare **più servizi** > **gestione Marketplace** > **Aggiungi da Azure**. 
 
-3. Trovare o cercare il **Datacenter di Windows Server 2016-Eval** immagine e quindi selezionare **scaricare**.
+3. Trovare o cercare il **Data Center di Windows Server 2016** immagine e quindi selezionare **scaricare**.
 
    ![Scaricare l'immagine da Azure](media/azure-stack-add-default-image/download-image.png)
 
-Al termine dell'operazione di download, l'immagine è disponibile in **gestione Marketplace**. L'immagine è anche disponibile sotto **macchine virtuali**.
+Al termine dell'operazione di download, l'immagine è disponibile in **gestione Marketplace**. L'immagine è anche disponibile sotto **calcolo** ed è possibile creare nuove macchine virtuali.
 
 ## <a name="add-the-image-by-using-powershell"></a>Aggiungere l'immagine con PowerShell
 
@@ -113,7 +113,7 @@ Eseguire i seguenti prerequisiti, tramite il [kit di sviluppo](azure-stack-conne
       -GraphAudience $GraphAudience `
       -EnableAdfsAuthentication:$true
 
-   $TenantID = Get-AzsDirectoryTenantId `
+    $TenantID = Get-AzsDirectoryTenantId `
      -ADFS `
      -EnvironmentName "AzureStackAdmin" 
 
@@ -137,15 +137,15 @@ Per assicurarsi che l'immagine di macchina virtuale di Windows Server 2016 inclu
 
 ## <a name="parameters"></a>Parametri
 
-|Parametri di nuovo AzsServer2016VMImage|Obbligatorio?|Descrizione|
+|Parametri di nuovo AzsServer2016VMImage|Obbligatorio|Descrizione|
 |-----|-----|------|
 |ISOPath|Sì|Il percorso completo per Windows Server 2016 ISO scaricata.|
 |net35|No|Installa il runtime di .NET 3.5 dell'immagine di Windows Server 2016. Per impostazione predefinita, questo valore è impostato su **true**.|
 |Versione|No|Specifica **Core**, **completo**, o **entrambi** immagini di Windows Server 2016. Per impostazione predefinita, questo valore è impostato su **completo**.|
 |VHDSizeInMB|No|Imposta le dimensioni (in MB) dell'immagine del disco rigido virtuale da aggiungere all'ambiente dello Stack di Azure. Per impostazione predefinita, questo valore è impostato su 40,960 MB.|
 |CreateGalleryItem|No|Specifica se è necessario creare un elemento del Marketplace per l'immagine di Windows Server 2016. Per impostazione predefinita, questo valore è impostato su **true**.|
-|location |No |Specifica il percorso in cui deve essere pubblicata l'immagine di Windows Server 2016.|
-|IncludeLatestCU|No|Si applica l'aggiornamento cumulativo più recente di Windows Server 2016 per il nuovo disco rigido virtuale.|
+|località |No |Specifica il percorso in cui deve essere pubblicata l'immagine di Windows Server 2016.|
+|IncludeLatestCU|No|Si applica l'aggiornamento cumulativo più recente di Windows Server 2016 per il nuovo disco rigido virtuale (. controllare lo script per assicurarsi che sia associato per l'aggiornamento più recente o utilizzare una delle due opzioni). |
 |CUUri |No |Aggiornamento cumulativo di Windows Server 2016 set per l'esecuzione da un URI specifico. |
 |CUPath |No |Aggiornamento cumulativo di Windows Server 2016 set per l'esecuzione da un percorso locale. Questa opzione è utile se è stata distribuita l'istanza dello Stack di Azure in un ambiente disconnesso.|
 
