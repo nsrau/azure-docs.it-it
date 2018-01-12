@@ -113,7 +113,7 @@
               href: app-insights-asp-net-trace-logs.md
             - name: Contatori delle prestazioni
               href: app-insights-performance-counters.md
-            - name: Dipendenze
+            - name: Dependencies
               href: app-insights-asp-net-dependencies.md
             - name: Annotazioni sulle versioni
               href: app-insights-annotations.md
@@ -127,7 +127,7 @@
               href: app-insights-java-trace-logs.md
             - name: Metriche di UNIX
               href: app-insights-java-collectd.md
-            - name: Dipendenze
+            - name: Dependencies
               href: app-insights-java-agent.md
             - name: Filtrare i dati di telemetria
               href: app-insights-java-filter-telemetry.md
@@ -164,7 +164,7 @@
               href: app-insights-dashboards.md
             - name: Ricerca
               href: app-insights-diagnostic-search.md
-            - name: Metrica
+            - name: Metriche
               href: app-insights-metrics-explorer.md
             - name: Live stream
               href: app-insights-live-stream.md
@@ -180,7 +180,7 @@
               href: app-insights-visual-studio-trends.md
             - name: CodeLens
               href: app-insights-visual-studio-codelens.md
-        - name: Utilizzo
+        - name: Uso
           items:
             - name: Panoramica
               href: app-insights-usage-overview.md
@@ -202,7 +202,7 @@
               href: app-insights-analytics.md
             - name: Importare i log personalizzati
               href: app-insights-analytics-import.md
-    - name: Automazione
+    - name: Automatizzare
       items:
         - name: Configurazione di Azure PowerShell
           href: app-insights-powershell.md
@@ -216,7 +216,7 @@
           href: app-insights-automate-with-flow.md
         - name: Automatizzare con un'app per la logica di Azure
           href: automate-with-logic-apps.md
-    - name: Sviluppare
+    - name: Sviluppo
       items:
         - name: API per eventi e metriche personalizzati
           href: app-insights-api-custom-events-metrics.md
@@ -232,7 +232,7 @@
           href: app-insights-pricing.md
         - name: Application Performance Monitoring con Application Insights per SCOM
           href: app-insights-scom.md
-    - name: Esporta
+    - name: Esportazione
       items:
         - name: Esportazione continua
           href: app-insights-export-telemetry.md
@@ -255,7 +255,7 @@
           href: app-insights-resources-roles-access-control.md
         - name: Indirizzi IP
           href: app-insights-ip-addresses.md
-    - name: Risoluzione dei problemi
+    - name: Risolvere problemi
       items:
         - name: Nessun dato per .NET
           href: app-insights-asp-net-troubleshoot-no-data.md
@@ -265,7 +265,11 @@
           href: app-insights-analytics-troubleshooting.md
         - name: Java
           href: app-insights-java-troubleshoot.md
-- name: riferimento
+- name: Esempi
+  items:
+    - name: Esempi di codice
+      href: 'https://azure.microsoft.com/resources/samples/?service=application-insights&sort=0'
+- name: Riferimento
   items:
     - name: Linguaggio di query di Analytics
       href: 'https://docs.loganalytics.io/'
@@ -288,7 +292,7 @@
           href: application-insights-data-model-exception-telemetry.md
         - name: Trace
           href: application-insights-data-model-trace-telemetry.md
-        - name: Evento
+        - name: Event
           href: application-insights-data-model-event-telemetry.md
         - name: Metrica
           href: application-insights-data-model-metric-telemetry.md
@@ -318,7 +322,7 @@
           href: app-insights-release-notes.md
         - name: Note sulla versione per Developer Analytics Tools
           href: app-insights-release-notes-vsix.md
-    - name: domande frequenti
+    - name: Domande frequenti
       href: app-insights-troubleshoot-faq.md
     - name: Guida
       items:

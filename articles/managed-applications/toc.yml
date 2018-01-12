@@ -12,6 +12,8 @@
   items:
     - name: Creare file di un'applicazione gestita
       href: publish-service-catalog-app.md
+    - name: Creare un'applicazione del Marketplace
+      href: publish-marketplace-app.md
 - name: Esempi
   items:
     - name: Interfaccia della riga di comando di Azure
@@ -28,7 +30,7 @@
       href: update-managed-resources.md
     - name: Usare il portale per la pubblicazione
       href: publish-portal.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/managedapp

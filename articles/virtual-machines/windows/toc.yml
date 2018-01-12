@@ -125,7 +125,11 @@
         - name: 'Usare C#'
           href: csharp.md
         - name: Usare un disco specializzato
-          href: create-vm-specialized.md
+          items:
+            - name: Portale
+              href: create-vm-specialized-portal.md
+            - name: PowerShell
+              href: create-vm-specialized.md
         - name: 'Usare un modello con C#'
           href: csharp-template.md
         - name: Creare una VM con Chef
@@ -414,7 +418,7 @@
           href: performance-diagnostics-vm-extension.md
         - name: Usare la virtualizzazione annidata
           href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/vm

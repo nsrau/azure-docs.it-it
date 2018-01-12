@@ -85,7 +85,7 @@
       href: functions-best-practices.md
     - name: Proxy di Funzioni
       href: functions-proxies.md
-    - name: Runtime di Funzioni
+    - name: Funzioni locali
       href: functions-runtime-overview.md
     - name: Funzioni permanenti
       items:
@@ -175,14 +175,14 @@
           href: durable-functions-counter.md
         - name: Interazione umana
           href: durable-functions-phone-verification.md
-- name: Riferimenti
+- name: Riferimento
   items:
     - name: Associazioni
       items:
         - name: Archiviazione BLOB
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
-          href: functions-bindings-documentdb.md
+          href: functions-bindings-cosmosdb.md
         - name: Hub eventi
           href: functions-bindings-event-hubs.md
         - name: File esterno
