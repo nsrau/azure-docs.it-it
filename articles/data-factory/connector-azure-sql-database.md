@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jingwang
-ms.openlocfilehash: a5d2994eb1203274454fc31c3ee9bf7a21562f75
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 856ea3e01dad0936d8191a4e57b4137e06eac705
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiare dati da o nel database SQL di Azure tramite Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/10/2017
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da un database SQL di Azure. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
 > [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Connettore database SQL di Azure in V1](v1/data-factory-azure-sql-connector.md).
+> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Connettore database SQL di Azure in V1](v1/data-factory-azure-sql-connector.md).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -39,8 +39,9 @@ In particolare, il connettore database SQL di Azure supporta:
 - Come origine, il recupero di dati tramite query SQL o stored procedure.
 - Come sink, l'aggiunta di dati alla tabella di destinazione o la chiamata a una stored procedure con logica personalizzata durante la copia.
 
-## <a name="getting-started"></a>introduttiva
-È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+## <a name="getting-started"></a>Attività iniziali
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà usate per definire entità di data factory specifiche in un connettore del database SQL di Azure.
 
@@ -452,33 +453,33 @@ Quando si copiano i dati da o verso il database SQL di Azure, vengono usati i ma
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |Boolean |
+| bit |Booleano |
 | char |String, Char[] |
-| date |DateTime |
-| DateTime |DateTime |
-| datetime2 |DateTime |
-| Datetimeoffset |Datetimeoffset |
-| Decimale |Decimale |
+| data |Data/Ora |
+| DateTime |Data/Ora |
+| datetime2 |Data/Ora |
+| Datetimeoffset |DateTimeOffset |
+| Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
-| Float |Double |
+| Float |A due righe |
 | immagine |Byte[] |
 | int |Int32 |
-| money |Decimale |
+| money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimale |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
-| real |Single |
+| real |Singola |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Data/Ora |
 | smallint |Int16 |
-| smallmoney |Decimale |
+| smallmoney |Decimal |
 | sql_variant |Object * |
-| text |String, Char[] |
+| testo |String, Char[] |
 | time |Intervallo di tempo |
 | timestamp |Byte[] |
 | tinyint |Byte |
-| uniqueidentifier |Guid |
+| uniqueidentifier |GUID |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |xml |

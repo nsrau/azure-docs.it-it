@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 46d5a673c530c6fbcbd1a88a8e74a753ae04998b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d38d2790ae73d147209bb0ccdbbbe20bf880daa4
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Reimpostazione password self-service di Azure AD dalla schermata di accesso
 
@@ -56,8 +56,8 @@ Per consentire agli utenti di reimpostare la password di Azure AD dalla schermat
       * Impostare **URI OMA** su `./Vendor/MSFT/Policy/Config/Authentication/AllowAadPasswordReset`
       * Impostare **Tipo di dati** su **Integer**
       * Impostare **Valore** su **1**
-      * Fare clic su **OK**
-   * Fare clic su **OK**
+      * Fare clic su **OK**.
+   * Fare clic su **OK**.
 4. Fare clic su **Crea**
 
 ### <a name="assign-a-device-configuration-policy-in-intune"></a>Assegnare criteri di configurazione dei dispositivi in Intune

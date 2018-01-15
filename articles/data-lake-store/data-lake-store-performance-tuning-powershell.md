@@ -3,7 +3,7 @@ title: Linee guida per l'ottimizzazione delle prestazioni per l'uso di PowerShel
 description: Suggerimenti su come migliorare le prestazioni quando si usa Azure PowerShell con Data Lake Store
 services: data-lake-store
 documentationcenter: 
-author: nitinme
+author: stewu
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/30/2017
-ms.author: nitinme
-ms.openlocfilehash: 49404c7df6423a20c71347e4a764d5626110310e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/09/2018
+ms.author: stewu
+ms.openlocfilehash: 63e1114d49b7bcb8910e8cd8205f10d1e8587f61
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-store"></a>Linee guida per l'ottimizzazione delle prestazioni per l'uso di PowerShell con Azure Data Lake Store
 
@@ -25,7 +25,7 @@ Questo articolo elenca le proprietà che possono essere ottimizzate per ottenere
 
 ## <a name="performance-related-properties"></a>Proprietà correlate alle prestazioni
 
-| Proprietà            | Default | Descrizione |
+| Proprietà            | Impostazione predefinita | Descrizione |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | Questo parametro consente di scegliere il numero di thread paralleli per il caricamento o il download di ogni file. Questo valore rappresenta il numero massimo di thread che può essere allocato per ogni file, ma è possibile ottenere meno thread a seconda dello scenario (ad esempio, se si sta caricando un file da 1 KB, si ottiene un thread anche se si chiedono 20 thread).  |
 | ConcurrentFileCount | 10      | Questo parametro viene usato specificamente per il caricamento e il download delle cartelle. Questo parametro determina il numero di file che possono essere caricati o scaricati contemporaneamente. Questo valore rappresenta il numero massimo di file che possono essere caricati o scaricati contemporaneamente in una sola volta, ma è possibile ottenere un valore inferiore di concorrenza a seconda dello scenario (ad esempio, se si caricano due file, si ottiene il caricamento di due file contemporaneamente anche se ne vengono richiesti 15). |

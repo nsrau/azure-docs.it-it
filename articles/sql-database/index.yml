@@ -14,82 +14,87 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/03/2017
   ms.author: carolz
+  ms.openlocfilehash: 662d4f32cb6abb8694253a50d17daa242b55e409
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 01/12/2018
 abstract:
-  description: 'Il database SQL di Azure è un database come servizio relazionale che usa il motore Microsoft SQL Server. Il database SQL è un database sicuro, affidabile, a prestazioni elevate, che consente di creare applicazioni e siti Web basati sui dati nel linguaggio di programmazione preferito, senza dovere gestire l''infrastruttura. Informazioni su come usare il database SQL con le guide rapide, le esercitazioni e gli esempi.'
+  description: "Il database SQL di Azure è un database come servizio relazionale che usa il motore Microsoft SQL Server. Il database SQL è un database sicuro, affidabile, a prestazioni elevate, che consente di creare applicazioni e siti Web basati sui dati nel linguaggio di programmazione preferito, senza dovere gestire l'infrastruttura. Informazioni su come usare il database SQL con le guide rapide, le esercitazioni e gli esempi."
   aside:
     image:
-      alt: null
+      alt: 
       height: 110
-      src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/create-sql-database-on-azure.png'
+      src: https://docs.microsoft.com/azure/sql-database/media/index/create-sql-database-on-azure.png
       width: 250
-    title: 'Creare un database SQL in Azure. (3:12)'
-    href: 'https://azure.microsoft.com/en-us/resources/videos/create-sql-database-on-azure/'
+    title: Creare un database SQL in Azure. (3:12)
+    href: https://azure.microsoft.com/resources/videos/create-sql-database-on-azure/
     width: 250
 sections:
-  - title: Guide introduttive di 5 minuti
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: 'Informazioni su come creare un database SQL, gestirlo con SQL Management Studio e svilupparlo in C#, Java, Python, Node.js e Ruby:'
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Informazioni su come creare un database SQL, gestirlo con SQL Management Studio e svilupparlo in C#, Java, Python, Node.js e Ruby:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg'
-            text: Portale di Azure
-            href: 'https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-portal'
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg'
-            text: Interfaccia della riga di comando di Azure
-            href: 'https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-cli'
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/logo_powershell.svg'
-            text: Azure PowerShell
-            href: 'https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-powershell'
-  - title: Esercitazioni dettagliate
+    - image:
+        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
+      text: Portale di Azure
+      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal
+    - image:
+        src: https://docs.microsoft.com/azure/sql-database/media/index/cli.svg
+      text: Interfaccia della riga di comando di Azure
+      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-cli
+    - image:
+        src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-powershell
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: Informazioni su come creare e gestire i database ed eseguirne la migrazione tramite un database SQL
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: Informazioni su come creare e gestire i database ed eseguirne la migrazione tramite un database SQL
-      - type: list
-        style: ordered
-        items:
-          - html: Creare e progettare lo schema di un nuovo database SQL con <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> o <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
-          - html: <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Eseguire la migrazione di un database SQL Server esistente per l'uso di un database SQL di Azure</a>
-          - html: <a href="/azure/sql-database/sql-database-security-tutorial">Proteggere il database SQL</a>
-          - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Implementare un database con distribuzione geografica</a>
-  - title: Video di formazione gratuiti su PluralSight
+    - html: Creare e progettare lo schema di un nuovo database SQL con <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> o <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
+    - html: <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Eseguire la migrazione di un database SQL Server esistente per l'uso di un database SQL di Azure</a>
+    - html: <a href="/azure/sql-database/sql-database-security-tutorial">Proteggere il database SQL</a>
+    - html: <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Implementare un database con distribuzione geografica</a>
+- title: Video di formazione gratuiti su PluralSight
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Sviluppo con .NET in Azure
-            href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7'
-  - title: Esempi
+    - title: Sviluppo con .NET in Azure
+      href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
+- title: Esempi
+  items:
+  - type: paragraph
+    text: "Trovare script per gestire le attività comuni."
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Trovare script per gestire le attività comuni.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a>
-          - html: <a href="/azure/sql-database/sql-database-cli-samples">Interfaccia della riga di comando di Azure</a>
-  - title: Riferimento
+    - html: <a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a>
+    - html: <a href="/azure/sql-database/sql-database-cli-samples">Interfaccia della riga di comando di Azure</a>
+- title: Riferimento
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Riga di comando
-            html: '<p><a href="/powershell/module/azurerm.sql/#sql">Azure PowerShell</a></p><p><a href="/powershell/module/elasticdatabasejobs/#elasticdatabasejobs">Azure PowerShell (database elastico)</a></p><p><a href="/cli/azure/sql">Interfaccia della riga di comando di Azure</a></p>'
-          - title: Lingue
-            html: '<p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>'
-          - title: REST
-            html: <p><a href="/rest/api/sql/">Informazioni di riferimento sulle API REST</a></p>
-          - title: Strumenti di SQL Server
-            html: '<p><a href="https://msdn.microsoft.com/library/mt238365.aspx">Strumenti di SQL Server</a></p><p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SQL Server Management Studio (SSMS)</a></p><p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SQL Server Data Tools (SSDT)</a></p><p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p><p><a href="https://msdn.microsoft.com/library/ms162773.aspx">SQLCMD</a></p><p><a href="https://msdn.microsoft.com/hh550080.aspx">SqlPackage</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql">Pacchetto della libreria di gestione del database SQL</a></p>'
-          - title: Driver di SQL Server
-            html: '<p><a href="https://msdn.microsoft.com/library/mt654049.aspx">Driver di SQL Server</a></p><p><a href="https://msdn.microsoft.com/library/mt657768.aspx">ADO.NET</a></p><p><a href="https://msdn.microsoft.com/library/mt484311.aspx">JDBC</a></p><p><a href="https://msdn.microsoft.com/library/mt654048.aspx">ODBC</a></p>'
+    - title: Riga di comando
+      html: <p><a href="/powershell/module/azurerm.sql/#sql">Azure PowerShell</a></p><p><a href="/powershell/module/elasticdatabasejobs/#elasticdatabasejobs">Azure PowerShell (database elastico)</a></p><p><a href="/cli/azure/sql">Interfaccia della riga di comando di Azure</a></p>
+    - title: Lingue
+      html: <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.JS</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/sql/">Informazioni di riferimento sulle API REST</a></p>
+    - title: Strumenti di SQL Server
+      html: <p><a href="https://msdn.microsoft.com/library/mt238365.aspx">Strumenti di SQL Server</a></p><p><a href="https://msdn.microsoft.com/library/mt238290.aspx">SQL Server Management Studio (SSMS)</a></p><p><a href="https://msdn.microsoft.com/library/mt204009.aspx">SQL Server Data Tools (SSDT)</a></p><p><a href="https://msdn.microsoft.com/library/ms162802.aspx">BCP</a></p><p><a href="https://msdn.microsoft.com/library/ms162773.aspx">SQLCMD</a></p><p><a href="https://msdn.microsoft.com/hh550080.aspx">SqlPackage</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Sql">Pacchetto della libreria di gestione del database SQL</a></p>
+    - title: Driver di SQL Server
+      html: <p><a href="https://msdn.microsoft.com/library/mt654049.aspx">Driver di SQL Server</a></p><p><a href="https://msdn.microsoft.com/library/mt657768.aspx">ADO.NET</a></p><p><a href="https://msdn.microsoft.com/library/mt484311.aspx">JDBC</a></p><p><a href="https://msdn.microsoft.com/library/mt654048.aspx">ODBC</a></p>

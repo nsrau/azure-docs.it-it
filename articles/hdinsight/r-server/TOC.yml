@@ -7,7 +7,7 @@
     - name: Componenti Hadoop in HDInsight
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: Introduzione
+- name: Attività iniziali
   items:
     - name: Iniziare a usare R Server
       href: r-server-get-started.md
@@ -112,7 +112,7 @@
           href: ../hdinsight-hadoop-provision-linux-clusters.md
           maintainContext: true
           items:
-            - name: Uso di Azure PowerShell
+            - name: Usare Azure PowerShell
               href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
               maintainContext: true
             - name: Usare cURL e l'API REST di Azure
@@ -140,7 +140,7 @@
             - name: Usare .NET SDK
               href: ../hdinsight-administer-use-dotnet-sdk.md
               maintainContext: true
-            - name: Uso di Azure PowerShell
+            - name: Usare Azure PowerShell
               href: ../hdinsight-administer-use-powershell.md
               maintainContext: true
             - name: Utilizzare l’interfaccia della riga di comando di Azure
@@ -150,9 +150,15 @@
           href: ../hdinsight-hadoop-manage-ambari.md
           maintainContext: true
           items:
+            - name: Ottimizzare i cluster con l'interfaccia utente Web Ambari
+              href: ../hdinsight-changing-configs-via-ambari.md
+              maintainContext: true
             - name: Usare l'API REST Ambari
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: Gestire i log per un cluster HDInsight
+          href: ../hdinsight-log-management.md
+          maintainContext: true
         - name: Aggiungere account di archiviazione
           href: ../hdinsight-hadoop-add-storage.md
           maintainContext: true
@@ -194,10 +200,13 @@
         - name: Applicazione di patch del sistema operativo per il cluster HDInsight
           href: ../hdinsight-os-patching.md
           maintainContext: true
-    - name: Risoluzione dei problemi
+    - name: Risolvere problemi
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:
+        - name: Risolvere i problemi di un cluster HDInsight lento o in errore
+          href: ../hdinsight-troubleshoot-failed-cluster.md
+          maintainContext: true
         - name: Risoluzione dei problemi relativi a Hadoop Distributed File System
           href: ../hdinsight-troubleshoot-hdfs.md
           maintainContext: true
@@ -260,7 +269,7 @@
         - name: Monitorare le prestazioni di un cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: riferimento
+- name: Riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

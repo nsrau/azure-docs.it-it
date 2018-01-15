@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 4877258c128d00f621eb198b0f0ec7d197e757ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c00dc99950c25dedc94c17444881a049138a7c5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="open-source-big-data-applications-that-work-with-azure-data-lake-store"></a>Aprire le applicazioni Big Data di origine che funzionano con Archivio Data Lake di Azure
 Questo articolo elenca le applicazioni Big Data di origine che funzionano con Archivio Data Lake di Azure Per le applicazioni nella tabella seguente, sono supportate solo le versioni disponibili con la distribuzione elencata. Per sapere quali versioni di queste applicazioni sono disponibili con HDInsight, vedere [Controllo delle versioni del componente HDInsight](../hdinsight/hdinsight-component-versioning.md).
@@ -38,6 +38,6 @@ Questo articolo elenca le applicazioni Big Data di origine che funzionano con Ar
 | [Apache Spark](http://spark.apache.org/) |HDInsight 3.4, 3.5 e 3.6 |
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Panoramica dell’Archivio Data Lake di Azure](data-lake-store-overview.md)
 

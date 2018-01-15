@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 2b6219dc509b1af8f196f056b489a31fa331acaf
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 844efa74aba8a5dbc3a116456900d59dab3bafab
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copiare dati in un indice di Ricerca di Azure usando Azure Data Factory
 
@@ -34,8 +34,9 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 È possibile copiare dati da qualsiasi archivio dati di origine supportato nell'indice di Ricerca di Azure. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
-## <a name="getting-started"></a>introduttiva
-È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+## <a name="getting-started"></a>Attività iniziali
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Le sezioni seguenti riportano le informazioni dettagliate sulle proprietà che vengono usate per definire entità di Data Factory specifiche per il connettore Ricerca di Azure.
 
@@ -46,8 +47,8 @@ Per il servizio collegato di Ricerca di Azure sono supportate le proprietà segu
 | Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **AzureSearch** | Sì |
-| URL | URL del servizio Ricerca di Azure. | sì |
-| key | Chiave amministratore del servizio Ricerca di Azure. Contrassegnare questo campo come SecureString. | Sì |
+| url | URL del servizio Ricerca di Azure. | Sì |
+| chiave | Chiave amministratore del servizio Ricerca di Azure. Contrassegnare questo campo come SecureString. | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 > [!IMPORTANT]
@@ -171,12 +172,12 @@ La tabella seguente indica se un tipo di dati di Ricerca di Azure è supportato 
 
 | Tipo di dati di Ricerca di Azure | Supportato nel sink di Ricerca di Azure |
 | ---------------------- | ------------------------------ |
-| String | S |
-| Int32 | S |
-| Int64 | S |
-| Double | S |
-| Boolean | S |
-| DataTimeOffset | S |
+| Stringa | Y |
+| Int32 | Y |
+| Int64 | Y |
+| A due righe | Y |
+| Booleano | Y |
+| DataTimeOffset | Y |
 | String Array | N |
 | GeographyPoint | N |
 

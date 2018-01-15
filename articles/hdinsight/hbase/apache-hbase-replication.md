@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: b5497e9d66833ec8bc291c40d71931aff11820c2
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: b0a22815dc0bf0ea31e47efe5152498f9aa45de4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurare la replica di cluster HBase nelle reti virtuali di Azure
 
@@ -106,7 +106,7 @@ Alcuni valori hardcoded nel modello:
 
 | Proprietà | Valore |
 |----------|-------|
-| Località | Stati Uniti occidentali |
+| Percorso | Stati Uniti occidentali |
 | Nome della rete virtuale | &lt;ClusterNamePrevix>-vnet1 |
 | Prefisso dello spazio degli indirizzi | 10.1.0.0/16 |
 | Nome della subnet | subnet 1 |
@@ -128,7 +128,7 @@ Alcuni valori hardcoded nel modello:
 
 | Proprietà | Valore |
 |----------|-------|
-| Località | Stati Uniti orientali |
+| Percorso | Stati Uniti orientali |
 | Nome della rete virtuale | &lt;ClusterNamePrevix>-vnet2 |
 | Prefisso dello spazio degli indirizzi | 10.2.0.0/16 |
 | Nome della subnet | subnet 1 |
@@ -182,7 +182,7 @@ La procedura seguente illustra come chiamare lo script di azione script dal port
 
 Argomenti obbligatori:
 
-|NOME|DESCRIZIONE|
+|Nome|Descrizione|
 |----|-----------|
 |-s, --src-cluster | Specifica il nome DNS del cluster HBase di origine. Ad esempio: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, - dst-cluster | Specifica il nome DNS del cluster HBase di destinazione (replica). Ad esempio: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -191,7 +191,7 @@ Argomenti obbligatori:
 
 Argomenti facoltativi:
 
-|NOME|DESCRIZIONE|
+|Nome|Descrizione|
 |----|-----------|
 |-su, --src-ambari-user | Specifica il nome utente amministratore per Ambari nel cluster HBase di origine. Il valore predefinito è **admin**. |
 |-du, --dst-ambari-user | Specifica il nome utente amministratore per Ambari nel cluster HBase di destinazione. Il valore predefinito è **admin**. |
@@ -268,7 +268,7 @@ La sezione `print_usage()` dello [script](https://raw.githubusercontent.com/Azur
 - **Disabilitare la replica in tutte le tabelle**:
 
         -m hn1 -s <source cluster DNS name> -sp Mypassword\!789 -all
-  oppure
+  o
 
         --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 
@@ -283,4 +283,4 @@ In questa esercitazione si è appreso come configurare la replica HBase in una r
 * [Introduzione ad Apache HBase in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Panoramica di HBase di HDInsight](./apache-hbase-overview.md)
 * [Creare cluster HBase nella rete virtuale di Azure](./apache-hbase-provision-vnet.md)
-* [Analizzare i dati dei sensori con Storm e HBase in HDInsight (Hadoop)](../storm/apache-storm-sensor-data-analysis.md)
+

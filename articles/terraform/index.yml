@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/21/2017
   ms.author: routlaw
-  ms.openlocfilehash: 000d7d19a6bf897d5c32ec31017f96fe23461b29
-  ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+  ms.openlocfilehash: ee0dc6f351823347b1d0572c0a9fb392bbc6956e
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 12/11/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: Usare Terraform per eseguire in modo affidabile il controllo delle versioni e la creazione dell'infrastruttura in Azure. Le guide introduttive e le esercitazioni illustrano come creare risorse, usare i moduli Terraform per Azure e gestire l'infrastruttura con il codice.
   aside:
@@ -35,11 +35,11 @@ sections:
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/en-us/azure/media/index/azure_dev-9.svg
+        src: https://docs.microsoft.com/azure/media/index/azure_dev-9.svg
       text: Installare e configurare Terraform
       href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure
     - image:
-        src: https://docs.microsoft.com/en-us/azure/media/index/VirtualMachine.svg
+        src: https://docs.microsoft.com/azure/media/index/VirtualMachine.svg
       text: Creare una macchina virtuale Linux
       href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm
 - title: Esercitazioni dettagliate
@@ -62,7 +62,7 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples">GitHub</a>
-- title: riferimento
+- title: Riferimento
   items:
   - type: list
     style: cards

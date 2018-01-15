@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 710543b5423d2b651545151eb4a8d426720e28e0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>Importare dati in Ricerca di Azure tramite il portale
 Il portale di Azure include una procedura guidata **Importa dati** nel dashboard di Ricerca di Azure che permette di caricare i dati in un indice. 
@@ -48,7 +48,7 @@ La procedura guidata Importa dati supporta le origini dati seguenti:
 
 Un set di dati bidimensionale è un input obbligatorio. È possibile eseguire l'importazione solo da una singola tabella, di una vista di database o di una struttura dei dati equivalente. È necessario creare la struttura dei dati prima di eseguire la procedura guidata.
 
-## <a name="connect-to-your-data"></a>Connettersi ai dati
+## <a name="connect-to-your-data"></a>Definisci la connessione ai dati
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire il dashboard del servizio. Per cercare i servizi di ricerca esistenti nella sottoscrizione corrente, è possibile fare clic su **Altri servizi** nell'indice. 
 2. Fare clic su **Importa dati** nella barra dei comandi per aprire il pannello corrispondente.  
 3. Fare clic su **Definisci la connessione ai dati** per specificare una definizione dell'origine dati usata da un indicizzatore. Per le origini dati all'interno della sottoscrizione, la procedura guidata può in genere rilevare e leggere le informazioni di connessione, riducendo al minimo i requisiti di configurazione complessivi.
@@ -60,7 +60,7 @@ Un set di dati bidimensionale è un input obbligatorio. È possibile eseguire l'
 | **Macchine virtuali SQL Server in Azure** |Specificare un nome completo del servizio, un ID utente, una password e un database come stringa di connessione. Per usare questa origine dati, è necessario avere già installato un certificato nell'archivio locale che esegue la crittografia della connessione. Per istruzioni, vedere [Connessione di una macchina virtuale SQL a Ricerca di Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>È necessario specificare nella pagina la tabella o la vista che fornisce il set di righe. Questa opzione viene visualizzata quando la connessione ha esito positivo, con un elenco a discesa che permette di effettuare una selezione. |
 | **Azure Cosmos DB** |Tra i requisiti: l'account, il database e la raccolta. Tutti i documenti nella raccolta verranno inclusi nell'indice. È possibile definire una query per rendere flat o filtrare il set di righe oppure per rilevare i documenti modificati per operazioni successive di aggiornamento dei dati. |
 | **Archivio BLOB di Azure** |Tra i requisiti: l'account di archiviazione e un contenitore. Facoltativamente, se i nomi dei BLOB seguono una convenzione di denominazione virtuale a scopo di raggruppamento, è possibile specificare la porzione directory virtuale del nome come una cartella nel contenitore. Per altre informazioni, vedere [Indicizzazione di documenti nell'archivio BLOB di Azure con Ricerca di Azure](search-howto-indexing-azure-blob-storage.md). |
-| **Archiviazione tabelle di Azure** |Tra i requisiti: l'account di archiviazione e un nome di tabella. Facoltativamente, è possibile specificare una query per recuperare un subset delle tabelle. Per altre informazioni, vedere [Indicizzazione nell'archivio tabelle di Azure con Ricerca di Azure](search-howto-indexing-azure-tables.md). |
+| **Archivio tabelle di Azure** |Tra i requisiti: l'account di archiviazione e un nome di tabella. Facoltativamente, è possibile specificare una query per recuperare un subset delle tabelle. Per altre informazioni, vedere [Indicizzazione nell'archivio tabelle di Azure con Ricerca di Azure](search-howto-indexing-azure-tables.md). |
 
 ## <a name="customize-target-index"></a>Personalizzare l'indice di destinazione
 In genere, un indice preliminare viene dedotto dal set di dati. È possibile aggiungere, modificare o eliminare campi per completare lo schema. È anche possibile impostare attributi a livello di campo per determinarne i comportamenti di ricerca successivi.
@@ -113,7 +113,7 @@ Le modifiche che non richiedono la ricompilazione includono l'aggiunta di un nuo
 Per altre informazioni sugli indicizzatori, usare questi collegamenti:
 
 * [Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Indicizzazione di Azure Cosmos DB](search-howto-index-documentdb.md)
+* [Indicizzazione di Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Indicizzazione di documenti nell'archivio BLOB di Azure con Ricerca di Azure](search-howto-indexing-azure-blob-storage.md)
 * [Indicizzazione nell'archivio tabelle di Azure con Ricerca di Azure](search-howto-indexing-azure-tables.md)
 

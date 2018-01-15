@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 > [!div class="op_single_selector"]
@@ -270,13 +270,13 @@ che dovrebbe definire l'associazione di output in `function.json`:
 
 Talvolta una funzione deve disporre di controllo dettagliato sui dati di input e output. I tipi specializzati nel pacchetto `azure-functions-java-core` sono disponibili al fine di modificare le informazioni sulla richiesta e di personalizzare lo stato restituito di un trigger HTTP:
 
-| Tipo specializzato      |       Destinazione        | Uso tipico                  |
+| Tipo specializzato      |       Target        | Uso tipico                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    Trigger HTTP     | Metodo Get, intestazioni o query |
 | `HttpResponseMessage<T>` | Associazione di output HTTP | Stato restituito diverso da 200   |
 
 > [!NOTE] 
-> È anche possibile usare l'annotazione `@BindingName` per ottenere le intestazioni e le query HTTP. `@Bind("name") String query` consente ad esempio di scorrere le intestazioni delle richieste e le query HTTP e di passare tale valore al metodo. `query` sarà `"test"`, ad esempio, se l'URL richiesto è `http://example.org/api/echo?name=test`.
+> È anche possibile usare l'annotazione `@BindingName` per ottenere le intestazioni e le query HTTP. `@BindingName("name") String query` consente ad esempio di scorrere le intestazioni delle richieste e le query HTTP e di passare tale valore al metodo. `query` sarà `"test"`, ad esempio, se l'URL richiesto è `http://example.org/api/echo?name=test`.
 
 ### <a name="metadata"></a>Metadata
 

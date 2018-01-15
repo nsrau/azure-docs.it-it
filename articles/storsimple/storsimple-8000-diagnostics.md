@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7199009553eb7aae31db3f913fe4de87e03d74ba
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Usare lo strumento di diagnostica StorSimple per risolvere i problemi dei dispositivi della serie 8000
 
@@ -32,17 +32,17 @@ L'uso dello strumento di diagnostica è destinato principalmente a dispositivi S
 
 Per eseguire questo strumento è possibile usare l'interfaccia di Windows PowerShell del dispositivo StorSimple. Per accedere all'interfaccia locale del dispositivo è possibile procedere in due modi:
 
-* [Usare PuTTY per connettersi alla console seriale del dispositivo](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-* [Accedere in remoto allo strumento tramite Windows PowerShell per StorSimple](storsimple-remote-connect.md).
+* [Usare PuTTY per connettersi alla console seriale del dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+* [Accedere in remoto allo strumento tramite Windows PowerShell per StorSimple](storsimple-8000-remote-connect.md).
 
 In questo articolo si presuppone che la connessione alla console seriale del dispositivo sia stata stabilita tramite PuTTY.
 
 #### <a name="to-run-the-diagnostics-tool"></a>Per eseguire lo strumento di diagnostica
 
 Dopo aver stabilito la connessione all'interfaccia di Windows PowerShell del dispositivo, seguire questa procedura seguente per eseguire il cmdlet.
-1. Accedere alla console seriale del dispositivo seguendo i passaggi riportati in [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](storsimple-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+1. Accedere alla console seriale del dispositivo seguendo i passaggi riportati in [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 
-2. Digitare il seguente comando:
+2. Digitare il comando seguente:
 
     `Invoke-HcsDiagnostics`
 
@@ -85,11 +85,11 @@ Questo test determina lo stato dei componenti hardware, del firmware USM e del f
 * I componenti hardware segnalati sono quelli che non hanno superato il test o non sono presenti nel sistema.
 * Le versioni del firmware USM e del firmware del disco vengono segnalate per il Controller 0, il Controller 1 e i componenti condivisi nel sistema. Per un elenco completo dei componenti hardware, vedere:
 
-    * [Componenti nello chassis principale](storsimple-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
-    * [Componenti nello chassis EBOD](storsimple-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
+    * [Componenti nello chassis principale](storsimple-8000-monitor-hardware-status.md#component-list-for-primary-enclosure-of-storsimple-device)
+    * [Componenti nello chassis EBOD](storsimple-8000-monitor-hardware-status.md#component-list-for-ebod-enclosure-of-storsimple-device)
 
 > [!NOTE]
-> Se il test dell'hardware segnala componenti con errori, [inviare una richiesta di servizio al supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
+> Se il test dell'hardware segnala componenti con errori, [inviare una richiesta di servizio al supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md).
 
 #### <a name="sample-output-of-hardware-test-run-on-an-8100-device"></a>Output di esempio del test dell'hardware per un dispositivo 8100
 
@@ -210,7 +210,7 @@ Questo test restituisce informazioni sul sistema, sul cluster e sul servizio per
 * Le informazioni sul sistema includono il modello, il numero di serie del dispositivo, il fuso orario, lo stato del controller e i dettagli sulla versione del software in esecuzione nel sistema. Per comprendere i vari parametri di sistema segnalati come output, vedere l'[Appendice: interpretazione delle informazioni sul sistema](#appendix-interpreting-system-information).
 
 * La disponibilità di aggiornamenti segnala se la modalità normale e la modalità di manutenzione sono disponibili e i relativi nomi di pacchetto associati. Se `RegularUpdates` e `MaintenanceModeUpdates` sono `false`, non sono disponibili aggiornamenti e il dispositivo è già aggiornato.
-* Le informazioni sul cluster contengono informazioni su vari componenti logici di tutti i gruppi di cluster HCS e i rispettivi stati. Se in questa sezione del report è presente un gruppo di cluster offline, [contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).
+* Le informazioni sul cluster contengono informazioni su vari componenti logici di tutti i gruppi di cluster HCS e i rispettivi stati. Se in questa sezione del report è presente un gruppo di cluster offline, [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md).
 * Le informazioni sul servizio includono i nomi e gli stati di tutti i servizi CiS e HCS in esecuzione nel dispositivo. Queste informazioni sono utili per il supporto tecnico Microsoft nella risoluzione dei problemi del dispositivo.
 
 #### <a name="sample-output-of-system-test-run-on-an-8100-device"></a>Output di esempio del test del sistema per un dispositivo 8100
@@ -377,7 +377,7 @@ Per usare lo strumento di diagnostica, seguire questa procedura:
 
 1.  Creare prima di tutto una combinazione di volumi a livelli e volumi a livelli con l'opzione di archiviazione selezionata. Questa azione assicura l'esecuzione dei test per entrambe le dimensioni del BLOB, 64 KB e 512 KB.
 
-2. Eseguire il cmdlet dopo aver creato e configurato i volumi. Digitare:
+2. Eseguire il cmdlet dopo aver creato e configurato i volumi. Digitare: 
 
     `Invoke-HcsDiagnostics -Scope Performance`
 
@@ -433,7 +433,7 @@ La tabella riportata di seguito illustra il mapping dei vari parametri di Window
 | CisAgentVersion         | Versione dell'agente CiS in esecuzione nel dispositivo StorSimple. Questo agente consente di comunicare con il servizio StorSimple Manager in esecuzione in Azure.|
 | MdsAgentVersion         | Versione corrispondente all'agente MDS in esecuzione nel dispositivo StorSimple. Questo agente sposta i dati verso il servizio di monitoraggio e diagnostica (MDS).|
 | Lsisas2Version          | Versione corrispondente ai driver LSI nel dispositivo StorSimple.|
-| Capacità                | Capacità totale del dispositivo espressa in byte.|
+| Capacity                | Capacità totale del dispositivo espressa in byte.|
 | RemoteManagementMode    | Indica se il dispositivo può essere gestito in remoto tramite la relativa interfaccia di Windows PowerShell. |
 | FipsMode                | Indica se la modalità FIPS (Federal Information Processing Standard per gli Stati Uniti) è abilitata nel dispositivo. Lo standard FIPS 140 definisce gli algoritmi di crittografia approvati per l'uso da parte dei sistemi del governo federale degli Stati Uniti per la protezione dei dati sensibili. Per i dispositivi che eseguono l'aggiornamento 4 o versione successiva, la modalità FIPS è abilitata per impostazione predefinita. |
 

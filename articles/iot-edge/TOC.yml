@@ -6,13 +6,13 @@
       href: how-iot-edge-works.md
 - name: Guide introduttive
   items:
-    - name: Distribuire in un dispositivo perimetrale - Linux
+    - name: Distribuire in un dispositivo perimetrale - Linux/Mac
       href: quickstart-linux.md
     - name: Distribuire in un dispositivo perimetrale - Windows
       href: quickstart.md
 - name: Esercitazioni
   items:
-    - name: Simulare un dispositivo perimetrale - Linux
+    - name: Simulare un dispositivo perimetrale - Linux/Mac
       href: tutorial-simulate-device-linux.md
     - name: Simulare un dispositivo perimetrale - Windows
       href: tutorial-simulate-device-windows.md

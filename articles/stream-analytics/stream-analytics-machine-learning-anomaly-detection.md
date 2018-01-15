@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: ff8571c6447f32ef9a435f5200803e76f6013ffa
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="using-the-anomalydetection-operator"></a>Uso dell'operatore ANOMALYDETECTION
 
@@ -89,7 +89,7 @@ Un'anomalia di un determinato tipo viene rilevata quando uno di questi punteggi 
 
 **ANOMALYDETECTION** usa la semantica delle finestre temporali scorrevoli. Questo significa che il calcolo viene eseguito per ogni evento introdotto nella funzione e che per l'evento viene prodotto un punteggio. Il calcolo è basato sui processo martingala scambiabili, che operano controllando se è stata modificata la distribuzione dei valori di evento. In questo caso, viene rilevata una possibile anomalia. Il punteggio restituito indica il livello di attendibilità dell'anomalia. Come ottimizzazione interna, **ANOMALYDETECTION** calcola il punteggio di anomalia di un evento in base a un valore compreso tra *d* e *2d* per gli eventi, in cui *d* è la dimensione della finestra di rilevamento specificata.
 
-**ANOMALYDETECTION** prevede che la serie temporale di input sia uniforme. Un flusso di eventi può essere reso uniforme tramite l'aggregazione in una finestra a cascata o di salto. In scenari in cui lo spazio tra gli eventi è sempre minore della finestra di aggregazione una finestra a cascata è sufficiente per rendere uniforme la serie temporale. Quando gli spazi possono essere maggiori, vengono riempiti ripetendo l'ultimo valore tramite una finestra di salto. Entrambi questi scenari possono essere gestiti dall'esempio seguente. Attualmente, il passaggio `FillInMissingValuesStep` non può essere ignorato. Se viene ignorato, si verificherà un errore di compilazione.
+**ANOMALYDETECTION** prevede che la serie temporale di input sia uniforme. Un flusso di eventi può essere reso uniforme tramite l'aggregazione in una finestra a cascata o di salto. In scenari in cui lo spazio tra gli eventi è sempre minore della finestra di aggregazione una finestra a cascata è sufficiente per rendere uniforme la serie temporale. Quando gli spazi possono essere maggiori, vengono riempiti ripetendo l'ultimo valore tramite una finestra di salto. Entrambi questi scenari possono essere gestiti dall'esempio seguente.
 
 ## <a name="performance-guidance"></a>Linee guida sulle prestazioni
 
@@ -105,8 +105,6 @@ Un'anomalia di un determinato tipo viene rilevata quando uno di questi punteggi 
 
 È possibile usare la query seguente per generare un avviso se viene rilevata un'anomalia.
 Quando il flusso di input non è uniforme, il passaggio di aggregazione può aiutare a trasformarlo in una serie temporale uniforme. L'esempio usa **AVG**, ma il tipo specifico di aggregazione dipende dallo scenario utente. Inoltre, quando una serie temporale include spazi maggiori della finestra di aggregazione, nessun evento nella serie temporale attiverà il rilevamento delle anomalie, in base alla semantica delle finestre temporali scorrevoli. Di conseguenza, l'ipotesi di uniformità verrà annullata all'arrivo dell'evento successivo. In questi casi, è necessario individuare un modo per riempire gli spazi vuoti nella serie temporale. Un possibile approccio consiste nel considerare l'ultimo evento in ogni finestra di salto, come mostrato di seguito.
-
-Come indicato sopra, non ignorare il passaggio `FillInMissingValuesStep` per ora. Se questo passaggio viene omesso, si verificherà un errore di compilazione.
 
     WITH AggregationStep AS 
     (

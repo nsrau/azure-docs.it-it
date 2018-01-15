@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 76e84687815ca6f4b031e5f7143ba0079fb053db
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 834dbc93348e00b0a0821bcbca989b0c2d539056
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-python"></a>Operazioni di gestione di account in Azure Data Lake Store con Python
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Informazioni su come usare Python SDK per Azure Data Lake Store per eseguire ope
 
 * **Python**. È possibile scaricare Python [qui](https://www.python.org/downloads/). Questo articolo fa riferimento a Python 3.6.2.
 
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Un gruppo di risorse di Azure**. Per istruzioni, vedere [Creare un gruppo di risorse di Azure](../azure-resource-manager/resource-group-portal.md).
 
@@ -134,7 +134,7 @@ Il frammento seguente crea prima il client account Data Lake Store, poi usa l'og
 ## <a name="next-steps"></a>Passaggi successivi
 * [Operazioni del file system in Data Lake Store con Python](data-lake-store-data-operations-python.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Azure Data Lake Store Python (Account management) Reference (Informazioni di riferimento su Python con Azure Data Lake Store - gestione di account)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 * [Azure Data Lake Store Python (Filesystem) Reference (Informazioni di riferimento su Python con Azure Data Lake Store - file system)](http://azure-datalake-store.readthedocs.io/en/latest)
 * [Aprire le applicazioni Big Data di origine che funzionano con Archivio Azure Data Lake](data-lake-store-compatible-oss-other-applications.md)

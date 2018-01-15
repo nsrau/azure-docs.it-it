@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 343facadfec217adaef9a05426e7ae914f4cfd38
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8f586c12ce1d24cfccbd6804e80dae51f6adf085
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Copiare dati da Teradata usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,8 +45,9 @@ Per usare questo connettore Teradata, è necessario:
 - Configurare un runtime di integrazione self-hosted. Per i dettagli, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md).
 - Installare il [provider di dati .NET per Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) versione 14 o successiva nel computer del runtime di integrazione.
 
-## <a name="getting-started"></a>introduttiva
-È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+## <a name="getting-started"></a>Attività iniziali
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di Data Factory specifiche per il connettore Teradata.
 
@@ -59,7 +60,7 @@ Per il servizio collegato di Teradata sono supportate le proprietà seguenti:
 | type | La proprietà type deve essere impostata su: **Teradata** | Sì |
 | server | Nome del server Teradata. | Sì |
 | authenticationType | Tipo di autenticazione usato per connettersi al database Teradata.<br/>I valori consentiti sono: **Di base** e **Windows**. | Sì |
-| username | Specificare il nome utente per la connessione al database Teradata. | Sì |
+| nome utente | Specificare il nome utente per la connessione al database Teradata. | Sì |
 | password | Specificare la password per l'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString. | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
 
@@ -169,41 +170,41 @@ Quando si copiano dati da Teradata, vengono usati i mapping seguenti tra i tipi 
 | BLOB |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| Char |String |
-| Clob |String |
-| Date |DateTime |
+| Char |Stringa |
+| Clob |Stringa |
+| Data |Data/Ora |
 | Decimal |Decimal |
-| Double |Double |
-| Graphic |String |
+| A due righe |A due righe |
+| Graphic |Stringa |
 | Integer |Int32 |
-| Interval Day |TimeSpan |
-| Interval Day To Hour |TimeSpan |
-| Interval Day To Minute |TimeSpan |
-| Interval Day To Second |TimeSpan |
-| Interval Hour |TimeSpan |
-| Interval Hour To Minute |TimeSpan |
-| Intervallo - da ora a secondo |TimeSpan |
-| Interval Minute |TimeSpan |
-| Interval Minute To Second |TimeSpan |
-| Interval Month |String |
-| Interval Second |TimeSpan |
-| Interval Year |String |
-| Interval Year To Month |String |
-| Number |Double |
-| Period(Date) |String |
-| Period(Time) |String |
-| Period(Time With Time Zone) |String |
-| Period(Timestamp) |String |
-| Period(Timestamp With Time Zone) |String |
+| Interval Day |Intervallo di tempo |
+| Interval Day To Hour |Intervallo di tempo |
+| Interval Day To Minute |Intervallo di tempo |
+| Interval Day To Second |Intervallo di tempo |
+| Interval Hour |Intervallo di tempo |
+| Interval Hour To Minute |Intervallo di tempo |
+| Intervallo - da ora a secondo |Intervallo di tempo |
+| Interval Minute |Intervallo di tempo |
+| Interval Minute To Second |Intervallo di tempo |
+| Interval Month |Stringa |
+| Interval Second |Intervallo di tempo |
+| Interval Year |Stringa |
+| Interval Year To Month |Stringa |
+| Numero |A due righe |
+| Period(Date) |Stringa |
+| Period(Time) |Stringa |
+| Period(Time With Time Zone) |Stringa |
+| Period(Timestamp) |Stringa |
+| Period(Timestamp With Time Zone) |Stringa |
 | SmallInt |Int16 |
-| Tempo |TimeSpan |
-| Time With Time Zone |String |
-| Timestamp |DateTime |
-| Timestamp With Time Zone |Datetimeoffset |
+| Ora |Intervallo di tempo |
+| Time With Time Zone |Stringa |
+| Timestamp |Data/Ora |
+| Timestamp With Time Zone |DateTimeOffset |
 | VarByte |Byte[] |
-| VarChar |String |
-| VarGraphic |String |
-| Xml |String |
+| VarChar |Stringa |
+| VarGraphic |Stringa |
+| xml |Stringa |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

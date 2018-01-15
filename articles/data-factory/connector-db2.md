@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 75c3b514b8cb7758399efb92cb9e0738c855f022
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 23bc0ba87abbac0f83e3e5ac9d1049bbf42707c9
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiare dati da DB2 usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,8 +52,9 @@ In particolare, il connettore DB2 supporta le piattaforme e le versioni di IBM D
 
 Per copiare dati da un database DB2 non accessibile pubblicamente, è necessario configurare un runtime di integrazione self-hosted. Per altre informazioni sui runtime di integrazione self-hosted, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md). Il runtime di integrazione offre un driver per DB2 integrato e non è quindi necessario installare manualmente alcun driver quando si copiano dati da/in DB2.
 
-## <a name="getting-started"></a>introduttiva
-È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+## <a name="getting-started"></a>Attività iniziali
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di Data Factory specifiche per il connettore DB2.
 
@@ -68,7 +69,7 @@ Per il servizio collegato di DB2 sono supportate le proprietà seguenti:
 | database |Nome del database DB2. |Sì |
 | schema |Nome dello schema nel database. Il nome dello schema fa distinzione tra maiuscole e minuscole. |No |
 | authenticationType |Tipo di autenticazione usato per connettersi al database DB2.<br/>Il valore consentito è: **Di base**. |Sì |
-| username |Specificare il nome utente per la connessione al database DB2. |Sì |
+| nome utente |Specificare il nome utente per la connessione al database DB2. |Sì |
 | password |Specificare la password per l'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString. |Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
@@ -177,30 +178,30 @@ Quando si copiano dati da DB2, vengono usati i mapping seguenti tra i tipi di da
 | Tipo di database DB2 | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
 | BigInt |Int64 |
-| Binary |Byte[] |
+| Binario |Byte[] |
 | BLOB |Byte[] |
-| Char |String |
-| Clob |String |
-| Date |Datetime |
-| DB2DynArray |String |
-| DbClob |String |
+| Char |Stringa |
+| Clob |Stringa |
+| Data |DateTime |
+| DB2DynArray |Stringa |
+| DbClob |Stringa |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| Double |Double |
-| Float |Double |
-| Graphic |String |
+| A due righe |A due righe |
+| Float |A due righe |
+| Graphic |Stringa |
 | Integer |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |String |
-| LongVarGraphic |String |
+| LongVarChar |Stringa |
+| LongVarGraphic |Stringa |
 | Numeric |Decimal |
-| Real |Single |
+| Real |Singola |
 | SmallInt |Int16 |
-| Tempo |TimeSpan |
-| Timestamp |DateTime |
+| Ora |Intervallo di tempo |
+| Timestamp |Data/Ora |
 | VarBinary |Byte[] |
-| VarChar |String |
-| VarGraphic |String |
+| VarChar |Stringa |
+| VarGraphic |Stringa |
 | xml |Byte[] |
 
 

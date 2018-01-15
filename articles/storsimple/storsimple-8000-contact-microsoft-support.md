@@ -4,7 +4,7 @@ description: Informazioni su come registrare una richiesta di supporto e avviare
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 01/09/2018
 ms.author: alkohli;
-ms.openlocfilehash: 4b5a14237ce79100f980b2186b2c3c887abaa296
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0df86e40d0dc1092ad7ff04f01bbc3e5e3d1c4e
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="contact-microsoft-support"></a>Contattare il supporto tecnico Microsoft
 
@@ -97,7 +97,7 @@ Per avviare una sessione di supporto, attenersi alla procedura seguente.
 
 #### <a name="to-start-a-support-session"></a>Per avviare una sessione di supporto
 
-1. Accedere al dispositivo direttamente tramite la console seriale o tramite una sessione telnet da un computer remoto. A tale scopo, attenersi alle istruzioni riportate in [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+1. Accedere al dispositivo direttamente tramite la console seriale o tramite una sessione telnet da un computer remoto. A tale scopo, attenersi alle istruzioni riportate in [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 2. Nella sessione che viene aperta, premere **Invio** per visualizzare un prompt dei comandi.
 3. Nel menu della console seriale, scegliere l'opzione 1, **Accedi con accesso completo**.
 4. Al prompt dei comandi, digitare la seguente password:
@@ -115,4 +115,4 @@ Per avviare una sessione di supporto, attenersi alla procedura seguente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [diagnosticare e risolvere i problemi relativi al dispositivo virtuale StorSimple serie 8000](storsimple-troubleshoot-deployment.md)
+Informazioni su come [diagnosticare e risolvere i problemi relativi al dispositivo virtuale StorSimple serie 8000](storsimple-8000-troubleshoot-deployment.md)

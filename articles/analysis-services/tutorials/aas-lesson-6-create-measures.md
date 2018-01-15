@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: a80500e806d85d0c1dd01d10fea74f59c92fb50a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: fa47d4ea9aa019464e465c051b016dac7c224dc9
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-6-create-measures"></a>Lezione 6: Creare misure
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-measures"></a>Creare misure
 
 In questa lezione verranno create le misure da includere nel modello. In modo simile alle colonne calcolate create, una misura è un calcolo creato usando una formula DAX. Tuttavia, a differenza delle colonne calcolate, le misure vengono valutate in base a un *filtro* selezionato dall'utente, ad esempio una particolare colonna o un filtro dei dati aggiunto al campo Etichette di riga in una tabella pivot. Con la misura applicata viene quindi calcolato un valore per ogni cella nel filtro. Le misure sono calcoli potenti e flessibili che è utile includere in quasi tutti i modelli tabulari per eseguire calcoli dinamici su dati numerici. Per altre informazioni, vedere [Measures](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular) (Misure).
   
@@ -92,7 +90,7 @@ Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabular
 
     |Colonna|Nome misura|Somma automatica (∑)|Formula|  
     |----------------|----------|-----------------|-----------|  
-    |SalesOrderLineNumber|InternetOrderLinesCount|Numero|=COUNTA([SalesOrderLineNumber])|  
+    |SalesOrderLineNumber|InternetOrderLinesCount|Conteggio|=COUNTA([SalesOrderLineNumber])|  
     |OrderQuantity|InternetTotalUnits|Somma|=SUM([OrderQuantity])|  
     |DiscountAmount|InternetTotalDiscountAmount|Somma|=SUM([DiscountAmount])|  
     |TotalProductCost|InternetTotalProductCost|Somma|=SUM([TotalProductCost])|  

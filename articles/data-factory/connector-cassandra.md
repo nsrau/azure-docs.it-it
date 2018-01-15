@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: eba08c38a5502368beda7ca7f84559ecca011133
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 4f83d61ff51b87b0a1dc120c62f3f986b46c6c8c
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiare dati da Cassandra usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,8 +43,9 @@ In particolare, il connettore Cassandra supporta:
 
 Per copiare i dati da un database Cassandra non accessibile pubblicamente, è necessario configurare un runtime di integrazione self-hosted. Per i dettagli, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md). Il runtime di integrazione offre un driver per Cassandra integrato e non è quindi necessario installare manualmente alcun driver quando si copiano dati da/in Cassandra.
 
-## <a name="getting-started"></a>introduttiva
-È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+## <a name="getting-started"></a>Attività iniziali
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di Data Factory specifiche per il connettore Cassandra.
 
@@ -58,7 +59,7 @@ Per il servizio collegato di Cassandra sono supportate le proprietà seguenti:
 | host |Uno o più indirizzi IP o nomi host di server Cassandra.<br/>Specificare un elenco delimitato da virgole degli indirizzi IP o nomi host per la connessione a tutti i server contemporaneamente. |Sì |
 | port |La porta TCP che il server Cassandra usa per ascoltare le connessioni client. |No (il valore predefinito è 9042) |
 | authenticationType | Tipo di autenticazione usato per la connessione al database Cassandra.<br/>I valori consentiti sono: **Di base** e **Anonima**. |Sì |
-| username |Specificare il nome utente per l'account utente. |Sì, se authenticationType è impostato su Basic. |
+| nome utente |Specificare il nome utente per l'account utente. |Sì, se authenticationType è impostato su Basic. |
 | password |Specifica la password per l'account utente. Contrassegnare questo campo come SecureString. |Sì, se authenticationType è impostato su Basic. |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
@@ -170,20 +171,20 @@ Quando si copiano dati da Cassandra, vengono usati i mapping seguenti tra i tipi
 
 | Tipo di dati di Cassandra | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
-| ASCII |String |
+| ASCII |Stringa |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | BOOLEAN |BOOLEAN |
-| DECIMAL |DECIMAL |
+| DECIMAL |Decimal |
 | DOUBLE |DOUBLE |
-| FLOAT |Single |
-| INET |String |
+| FLOAT |Singola |
+| INET |Stringa |
 | INT |Int32 |
-| TEXT |String |
-| TIMESTAMP |DateTime |
-| TIMEUUID |Guid |
-| UUID |Guid |
-| VARCHAR |String |
+| TEXT |Stringa |
+| TIMESTAMP |Data/Ora |
+| TIMEUUID |GUID |
+| UUID |GUID |
+| VARCHAR |Stringa |
 | VARINT |DECIMAL |
 
 > [!NOTE]
@@ -241,7 +242,7 @@ Le tabelle seguenti illustrano le tabelle virtuali che normalizzano di nuovo i d
 
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
-| 1 |S1 |Una  |
+| 1 |S1 |A |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
@@ -249,10 +250,10 @@ Le tabelle seguenti illustrano le tabelle virtuali che normalizzano di nuovo i d
 
 | pk_int | StringSet_value |
 | --- | --- |
-| 1 |Una  |
+| 1 |A |
 | 1 |b |
 | 1 |C |
-| 3 |Una  |
+| 3 |A |
 | 3 |E |
 
 ## <a name="next-steps"></a>Passaggi successivi

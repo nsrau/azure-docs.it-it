@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: dc4bfa4a94eaa2fb4e0e821c4931dcd1963f3109
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 0397b45753ea64d1a33916d5e0dff12d6e1d80aa
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creare un account di Automazione di Azure autonomo
 Questo argomento illustra come creare un account di Automazione dal portale di Azure se si vuole valutare e imparare a usare Automazione di Azure senza includere soluzioni di gestione aggiuntive o l'integrazione con OMS Log Analytics per offrire il monitoraggio avanzato dei processi dei runbook.  È possibile aggiungere le soluzioni di gestione o eseguire l'integrazione con Log Analytics in qualsiasi momento in futuro.  Con l'account di Automazione è possibile autenticare i runbook che gestiscono risorse in Azure Resource Manager o nella distribuzione classica di Azure.
@@ -42,7 +42,7 @@ Se l'utente non è membro dell'istanza di Active Directory della sottoscrizione 
 La procedura descritta in questa sezione consente di creare un account di Automazione di Azure nel portale di Azure.    
 
 1. Accedere al Portale di Azure con un account membro del ruolo Amministratori della sottoscrizione e coamministratore della sottoscrizione.
-2. Fare clic su **New**.<br><br> ![Selezionare l'opzione Nuovo nel portale di Azure](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
+2. Fare clic su **Nuovo**.<br><br> ![Selezionare l'opzione Nuovo nel portale di Azure](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 3. Cercare **Automazione** e quindi nei risultati della ricerca selezionare **Automation & Control***.<br><br> ![Cercare e selezionare Automazione nel Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
 3. Nel pannello Account di automazione fare clic su **Aggiungi**.<br><br>![Aggiungi account di Automazione](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 

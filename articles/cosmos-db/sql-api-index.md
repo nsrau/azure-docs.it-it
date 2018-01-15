@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Articoli sull''API SQL | Documenti Microsoft'
-description: Un elenco di tutti gli articoli specifici per la creazione di database di documenti con l'API di SQL nel database di Azure Cosmos.
+title: 'Azure Cosmos DB: articoli sull''API SQL | Microsoft Docs'
+description: Elenco di tutti gli articoli specifici sulla creazione di database di documenti con l'API SQL in Azure Cosmos DB.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8de2a541f307adfed1125dbfc25825b3e28d9c48
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 8faa8a08d4a5bc323951a594049002fc61eb56b8
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB: Documentazione dell'API di SQL
+# <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB: documentazione dell'API SQL
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Questo articolo fornisce collegamenti a tutti i contenuti di Azure Cosmos DB specifico per l'API di SQL.
+Questo articolo contiene i collegamenti a tutto il contenuto di Azure Cosmos DB specifico dell'API SQL.
 
 Questi articoli non si applicano all'API Graph, all'API di tabella o all'API MongoDB. 
 
 ## <a name="introduction-and-concepts"></a>Introduzione e concetti
 
-Si tratta di deve leggere gli argomenti e le risorse per iniziare a capire l'API di SQL di Azure Cosmos DB.
+I seguenti sono argomenti e risorse indispensabili per apprendere le nozioni di base sull'API SQL per Azure Cosmos DB.
 
-- [Introduzione a SQL API](sql-api-introduction.md)
+- [Introduzione all'API SQL](sql-api-introduction.md)
 - [Modello di risorsa di database](sql-api-resources.md)
 - Sito Web: [Query Playground](https://www.documentdb.com/sql/demo)
 - Foglio informativo: [Grammatica SQL](sql-api-sql-query-cheat-sheet.md)
@@ -53,7 +53,7 @@ Queste esercitazioni sono più approfondite delle guide introduttive. Nelle eser
 ### <a name="create-a-web-app"></a>Creare un'app Web
 
 - [.NET](sql-api-dotnet-application.md)
-- [Node.JS](sql-api-nodejs-application.md) 
+- [Node.js](sql-api-nodejs-application.md) 
 - [Java](sql-api-java-application.md)
 - [Python](sql-api-python-application.md)
 
@@ -99,19 +99,19 @@ Azure Cosmos DB offre diversi SDK per abilitare lo sviluppo di applicazioni lato
 - [.NET](sql-api-sdk-dotnet.md)
 - [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
 - [.NET Core](sql-api-sdk-dotnet-core.md)
-- [Node.JS](sql-api-sdk-node.md)
+- [Node.js](sql-api-sdk-node.md)
 - [Python](sql-api-sdk-python.md)
 
-## <a name="reference"></a>Riferimenti
+## <a name="reference"></a>Riferimento
 
 - [REST](/rest/api/documentdb/)
 - [Provider di risorse REST](/rest/api/documentdbresourceprovider/)
 - [Informazioni di riferimento sulle query SQL](sql-api-sql-query-reference.md)
-- [Informazioni di riferimento su Funzioni di Azure](../azure-functions/functions-bindings-documentdb.md)
+- [Informazioni di riferimento su Funzioni di Azure](../azure-functions/functions-bindings-cosmosdb.md)
 
 ## <a name="samples"></a>Esempi
 
-Queste pagine di esempio forniscono collegamenti a codice di esempio e API di fare riferimento a contenuto per le attività più comuni di API di SQL.
+Queste pagine di esempi contengono collegamenti al codice di esempio e ai contenuti di riferimento per le API per le attività più comuni dell'API SQL.
 
 - [.NET](sql-api-dotnet-samples.md)
 - [Node.JS](sql-api-nodejs-samples.md)

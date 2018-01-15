@@ -4,7 +4,7 @@ description: Viene descritto come rimuovere, sostituire e mantenere il modulo de
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/05/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 174a3163082594ea6a49b7f5a78857848f8f0566
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8071cde67017ff031418f0d97da15a618c4969b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Sostituzione del modulo della batteria di backup nel dispositivo StorSimple
 
@@ -67,7 +67,7 @@ Il modulo della batteria di backup per il dispositivo StorSimple è un'unità so
    | 4 |PCM OK |
    | 5 |Guasto dell'alimentazione CC |
    | 6 |Integrità della batteria |
-3. Per rimuovere il PCM con una batteria guasta, seguire i passaggi descritti in [Rimozione di un PCM](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
+3. Per rimuovere il PCM con una batteria guasta, seguire i passaggi descritti in [Rimozione di un PCM](storsimple-8000-power-cooling-module-replacement.md#remove-a-pcm).
 4. Dopo aver rimosso il PCM, sollevare e ruotare il punto di manipolazione del modulo della batteria verso l'alto, come indicato nella figura riportata di seguito ed estrarlo fino a rimuovere la batteria.
    
     ![Rimozione della batteria dal PCM](./media/storsimple-battery-replacement/IC741019.png)
@@ -82,7 +82,7 @@ Eseguire i passaggi seguenti per installare il modulo della batteria sostitutiva
 #### <a name="to-install-the-battery-module"></a>Per installare il modulo della batteria:
 1. Inserire il modulo della batteria di backup con l'orientamento appropriato nel PCM.
 2. Premere completamente il punto di manipolazione del modulo della batteria per alloggiare il connettore.
-3. Sostituire il PCM nello chassis principale seguendo le linee guida descritte in [Sostituzione del modulo di alimentazione e raffreddamento nel dispositivo StorSimple](storsimple-power-cooling-module-replacement.md).
+3. Sostituire il PCM nello chassis principale seguendo le linee guida descritte in [Sostituzione del modulo di alimentazione e raffreddamento nel dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md).
 4. Dopo aver completato la sostituzione, passare al dispositivo e quindi a **Monitoraggio** > **Integrità hardware** nel portale di Azure. Verificare lo stato della batteria per assicurarsi che l'installazione abbia avuto esito positivo. Uno stato verde indica che la batteria è integra.
 
 ## <a name="maintain-the-backup-battery-module"></a>Mantenimento del modulo della batteria di backup

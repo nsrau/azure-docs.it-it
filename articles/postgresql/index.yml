@@ -4,7 +4,7 @@ title: Documentazione del database di Azure per PostgreSQL
 metadata:
   document_id: c0fe8cd3-35da-e3e5-718e-8f3cf2f87f34
   title: 'Documentazione di Azure PostgreSQL: esercitazioni e informazioni di riferimento sulle API'
-  description: Il database di Azure per PostgreSQL è un servizio di database relazionale in Microsoft Cloud creato per gli sviluppatori e basato sul motore di database PostgreSQL open source.
+  description: "Il database di Azure per PostgreSQL è un servizio di database relazionale in Microsoft Cloud creato per gli sviluppatori e basato sul motore di database PostgreSQL open source."
   services: postgresql
   author: czeumault
   manager: carolz
@@ -14,49 +14,54 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: carolz
+  ms.openlocfilehash: ef78955bf3b7453702725d0899f3f6813fa29ef2
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 01/12/2018
 abstract:
-  description: 'Il database di Azure per PostgreSQL è un servizio di database relazionale basato sul motore di database Postgres open source.  Si tratta di un database distribuito come servizio completamente gestito capace di gestire carichi di lavoro mission-critical con prestazioni prevedibili, sicurezza, disponibilità elevata e scalabilità dinamica.  È possibile sviluppare applicazioni con il database di Azure per PostgreSQL sfruttando la piattaforma e gli strumenti open source preferiti.  Informazioni su come usare il database di Azure per PostgreSQL con le guide rapide, le esercitazioni e gli esempi.'
+  description: "Il database di Azure per PostgreSQL è un servizio di database relazionale basato sul motore di database Postgres open source.  Si tratta di un database distribuito come servizio completamente gestito capace di gestire carichi di lavoro mission-critical con prestazioni prevedibili, sicurezza, disponibilità elevata e scalabilità dinamica.  È possibile sviluppare applicazioni con il database di Azure per PostgreSQL sfruttando la piattaforma e gli strumenti open source preferiti.  Informazioni su come usare il database di Azure per PostgreSQL con le guide rapide, le esercitazioni e gli esempi."
 sections:
-  - title: Guide introduttive di 5 minuti
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: 'Informazioni su come creare un database PostgreSQL usando:'
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Informazioni su come creare un database PostgreSQL usando:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/portal.svg'
-            text: Portale di Azure
-            href: /azure/postgresql/quickstart-create-server-database-portal
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/sql-database/media/index/cli.svg'
-            text: Interfaccia della riga di comando di Azure
-            href: /azure/postgresql/quickstart-create-server-database-azure-cli
-  - title: Esercitazioni dettagliate
+    - image:
+        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
+      text: Portale di Azure
+      href: /azure/postgresql/quickstart-create-server-database-portal
+    - image:
+        src: https://docs.microsoft.com/azure/sql-database/media/index/cli.svg
+      text: Interfaccia della riga di comando di Azure
+      href: /azure/postgresql/quickstart-create-server-database-azure-cli
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: "È possibile passare agli argomenti seguenti:"
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'È possibile passare agli argomenti seguenti:'
-      - type: list
-        style: ordered
-        items:
-          - html: 'Progettare un database&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">portale di Azure</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">interfaccia della riga di comando di Azure</a>'
-          - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Compilare un'app Web usando Python e l'interfaccia della riga di comando</a>
-  - title: Esempi
+    - html: Progettare un database&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">portale di Azure</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">interfaccia della riga di comando di Azure</a>
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Compilare un'app Web usando Python e l'interfaccia della riga di comando</a>
+- title: Esempi
+  items:
+  - type: paragraph
+    text: "Trovare script per gestire le attività comuni."
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Trovare script per gestire le attività comuni.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/postgresql/sample-scripts-azure-cli">Interfaccia della riga di comando di Azure</a>
-  - title: Riferimento
+    - html: <a href="/azure/postgresql/sample-scripts-azure-cli">Interfaccia della riga di comando di Azure</a>
+- title: Riferimento
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Riga di comando
-            html: <p><a href="/cli/azure">Interfaccia della riga di comando di Azure</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/postgresql">API REST</a></p>
+    - title: Riga di comando
+      html: <p><a href="/cli/azure">Interfaccia della riga di comando di Azure</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/postgresql">API REST</a></p>

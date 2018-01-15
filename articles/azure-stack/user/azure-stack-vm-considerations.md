@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: mabrigg
-ms.openlocfilehash: fe655facf4da99d951a430db8ce603cc0ec7f224
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8367f7897581ff9599b763c7a39232bbe6860b8f
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considerazioni per le macchine virtuali in Azure Stack
 
@@ -40,11 +40,11 @@ Macchine virtuali sono un su richiesta, le risorse di elaborazione scalabili off
 |Set di disponibilità della macchina virtuale|Più domini di errore (2 o 3 regione)<br>Più domini di aggiornamento<br>Supporto disco gestito|Dominio di errore singolo<br>Dominio di aggiornamento singolo<br>Nessun supporto per dischi gestiti|
 |set di scalabilità di macchine virtuali|Scalabilità automatica è supportata|Scalabilità automatica non è supportato.<br>Aggiungere più istanze di una scala impostata utilizzando il portale, i modelli di gestione risorse o PowerShell.
 
-## <a name="virtual-machine-sizes"></a>Dimensioni delle macchine virtuali 
+## <a name="virtual-machine-sizes"></a>Dimensioni delle macchine virtuali
 
-Il Kit di sviluppo dello Stack di Azure supporta le dimensioni seguenti: 
+Stack di Azure supporta le dimensioni seguenti:
 
-| Tipo | Dimensione | Intervallo di dimensioni supportate |
+| type | Dimensione | Intervallo di dimensioni supportate |
 | --- | --- | --- |
 |Scopo generico |Basic A|A0 - A4|
 |Scopo generico |A standard|A0-A7|
@@ -55,9 +55,9 @@ Il Kit di sviluppo dello Stack di Azure supporta le dimensioni seguenti:
 |Ottimizzate per la memoria|Serie DS|DS11 - DS14|
 |Ottimizzate per la memoria |Serie DSv2|DS11_v2 - DS14_v2|
 
-Dimensioni delle macchine virtuali e le relative quantità di risorse associati sono coerenti tra Stack di Azure e Azure. Ad esempio, ciò include la quantità di memoria, numero di core e la dimensione o numero di dischi dati che possono essere creati. Prestazioni delle stesse dimensioni di macchina virtuale nello Stack di Azure dipendono tuttavia le caratteristiche di un particolare ambiente dello Stack di Azure sottostante.
+Dimensioni delle macchine virtuali e le relative quantità di risorse associati sono coerenti tra Stack di Azure e Azure. Ad esempio, questa coerenza include la quantità di memoria, numero di core e la dimensione o numero di dischi dati che possono essere creati. Prestazioni delle stesse dimensioni di macchina virtuale nello Stack di Azure dipendono tuttavia le caratteristiche di un particolare ambiente dello Stack di Azure sottostante.
 
-## <a name="virtual-machine-extensions"></a>Estensioni macchina virtuale 
+## <a name="virtual-machine-extensions"></a>Estensioni macchina virtuale
 
  Il Kit di sviluppo dello Stack di Azure supporta le seguenti versioni di estensione di macchina virtuale:
 
@@ -65,15 +65,15 @@ Dimensioni delle macchine virtuali e le relative quantità di risorse associati 
 
 Utilizzare lo script di PowerShell seguente per ottenere l'elenco di estensioni di macchine virtuali che sono disponibili nell'ambiente dello Stack di Azure:
 
-```powershell 
+```powershell
 Get-AzureRmVmImagePublisher -Location local | `
   Get-AzureRmVMExtensionImageType | `
   Get-AzureRmVMExtensionImage | `
   Select Type, Version | `
-  Format-Table -Property * -AutoSize 
+  Format-Table -Property * -AutoSize
 ```
 
-## <a name="api-versions"></a>Versioni dell'API 
+## <a name="api-versions"></a>Versioni dell'API
 
 Funzionalità delle macchine virtuali nel Kit di sviluppo dello Stack di Azure supportano le versioni di API seguenti:
 
@@ -81,7 +81,7 @@ Funzionalità delle macchine virtuali nel Kit di sviluppo dello Stack di Azure s
 
 Per ottenere le versioni di API per la funzionalità delle macchine virtuali che sono disponibili nell'ambiente dello Stack di Azure, è possibile utilizzare lo script di PowerShell seguente:
 
-```powershell 
+```powershell
 Get-AzureRmResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
   Select * -Expand ApiVersions | `

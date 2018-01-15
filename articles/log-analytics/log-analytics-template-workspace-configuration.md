@@ -14,11 +14,11 @@ ms.devlang: json
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: richrund
-ms.openlocfilehash: 7fffaf3861feebc0cf3537ca096b1eebb252b7d6
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.openlocfilehash: cea25429dc6e5f9f12f472d17e8743d272135257
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gestire Log Analytics usando i modelli di Azure Resource Manager
 È possibile usare i [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) per creare e configurare aree di lavoro di Log Analytics. Ecco alcuni esempi di attività eseguibili con i modelli:
@@ -43,7 +43,7 @@ L'esempio riportato in questo articolo descrive un'[area di lavoro di Log Analyt
 | Risorsa | Tipo di risorsa | Versione API legacy | Versione API aggiornata |
 |:---|:---|:---|:---|
 | Area di lavoro   | aree di lavoro    | 2015-11-01-preview | 2017-03-15-preview |
-| Ricerca      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
+| Cerca      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
 | Origine dati | datasources   | 2015-11-01-preview | 2015-11-01-preview |
 | Soluzione    | solutions     | 2015-11-01-preview | 2015-11-01-preview |
 
@@ -63,7 +63,7 @@ Il modello di esempio seguente illustra come:
 10. Raccogliere i dati di un log personalizzato 
 11. Raccogliere i log IIS e i log eventi di Windows scritti dalla diagnostica Azure in un account di archiviazione
 
-```
+```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -469,10 +469,12 @@ Per distribuire il modello di esempio:
 3. Usare PowerShell o la riga di comando per distribuire il modello
 
 #### <a name="powershell"></a>PowerShell
-`New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json`
+```powershell
+New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
+```
 
 #### <a name="command-line"></a>Riga di comando
-```
+```cmd
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```

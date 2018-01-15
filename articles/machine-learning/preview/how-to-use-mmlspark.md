@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/26/2017
-ms.openlocfilehash: 9ba2cbe1d6ce4b2010decb8bff4fa46faf0852b3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.date: 01/12/2018
+ms.openlocfilehash: f978805f800a35908629a6febb59d7db50d14023
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-use-microsoft-machine-learning-library-for-apache-spark"></a>Informazioni su come usare la libreria Microsoft Machine Learning per Apache Spark
 
@@ -56,7 +56,7 @@ repositories:
 packages:
   - group: "com.microsoft.ml.spark"
     artifact: "mmlspark_2.11"
-    version: "0.7.9"
+    version: "0.9.9"
 ```
 
 È anche possibile installare MMLSpark direttamente nel cluster HDInsight Spark usando l'[azione Script](https://github.com/Azure/mmlspark#hdinsight).

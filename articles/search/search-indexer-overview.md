@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 10/17/2017
 ms.author: heidist
-ms.openlocfilehash: 827c0122fafceca369c0350e6846c77e98abc3b5
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: a51aa48a9a2c3c062c374885d45f08ae0b397ce1
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="indexers-in-azure-search"></a>Indicizzatori in Ricerca di Azure
 > [!div class="op_single_selector"]
@@ -27,8 +27,8 @@ ms.lasthandoff: 12/13/2017
 > * [Panoramica](search-indexer-overview.md)
 > * [Portale](search-import-data-portal.md)
 > * [SQL di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-> * [Azure Cosmos DB](search-howto-index-documentdb.md)
-> * [Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
+> * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+> * [Archivio BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
 > * [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)
 >
 
@@ -57,7 +57,7 @@ Gli indicizzatori possono offrire funzionalità univoche per l'origine dati. In 
 Un indicizzatore effettua il pull dei dati da un'*origine dati* che contiene informazioni, ad esempio una stringa di connessione ed eventualmente credenziali. Attualmente sono supportate le origini dati seguenti:
 
 * [Database SQL di Azure o SQL Server in una macchina virtuale di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Archivio BLOB di Azure](search-howto-indexing-azure-blob-storage.md) per i tipi di contenuti selezionati
 * [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)
 
@@ -76,8 +76,8 @@ La definizione dell'indicizzatore è un costrutto che specifica l'indice, l'orig
 Dopo aver acquisito queste informazioni di base, il passaggio successivo prevede l'analisi dei requisiti e delle attività specifici per ogni tipo di origine dati.
 
 * [Database SQL di Azure o SQL Server in una macchina virtuale di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-documentdb.md)
-* [Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+* [Archivio BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
 * [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)
 * [Indicizzazione di BLOB CSV con l'indicizzatore di BLOB di Ricerca di Azure](search-howto-index-csv-blobs.md)
 * [Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure](search-howto-index-json-blobs.md)

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 20d6f463d135028bf272c23de9f34be66e73325a
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 4ab0ddcc3a42ab4ebb7c9555f57bc2533989b071
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,8 +49,9 @@ Per usare il connettore SAP Business Warehouse, è necessario:
 > [!TIP]
 > Inserire le DLL estratte dall'SDK di NetWeaver RFC nella cartella system32.
 
-## <a name="getting-started"></a>introduttiva
-È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+## <a name="getting-started"></a>Attività iniziali
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di Data Factory specifiche per il connettore SAP Business Warehouse.
 
@@ -167,27 +168,27 @@ Quando si copiano dati da SAP BW, vengono usati i mapping seguenti tra i tipi di
 | Tipo di dati di SAP BW | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
 | ACCP | int |
-| CHAR | String |
-| CLNT | String |
+| CHAR | Stringa |
+| CLNT | Stringa |
 | CURR | Decimale |
-| CUKY | String |
-| DEC | Decimale |
-| FLTP | Double |
+| CUKY | Stringa |
+| DEC | Decimal |
+| FLTP | A due righe |
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | int |
-| LANG | String |
-| LCHR | String |
+| LANG | Stringa |
+| LCHR | Stringa |
 | LRAW | Byte[] |
 | PREC | Int16 |
-| QUAN | Decimale |
+| QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| STRING | String |
-| UNITÀ | String |
-| DATS | String |
-| NUMC | String |
-| TIMS | String |
+| STRING | Stringa |
+| UNITÀ | Stringa |
+| DATS | Stringa |
+| NUMC | Stringa |
+| TIMS | Stringa |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

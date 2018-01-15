@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: jingwang
-ms.openlocfilehash: 54afc7d993058ac2b3d2990ba131d334e9332555
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: cdf4e808045bb649b3a2406e8f7c1ef30e34fe7b
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copiare dati da un endpoint HTTP usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/07/2017
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da un endpoint HTTP. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
 > [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Connettore HTTP in V1](v1/data-factory-http-connector.md).
+> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Connettore HTTP in V1](v1/data-factory-http-connector.md).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -41,8 +41,9 @@ In particolare, il connettore HTTP supporta:
 
 La differenza tra questo connettore e [il connettore della tabella Web](connector-web-table.md) è che quest'ultimo viene usato per estrarre il contenuto di una tabella da una pagina Web HTML.
 
-## <a name="getting-started"></a>introduttiva
-È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+## <a name="getting-started"></a>Attività iniziali
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di data factory specifiche per il connettore HTTP.
 
@@ -53,7 +54,7 @@ Per il servizio collegato HTTP sono supportate le proprietà seguenti:
 | Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **HttpServer**. | Sì |
-| URL | URL di base al server Web | Sì |
+| url | URL di base al server Web | Sì |
 | enableServerCertificateValidation | Specificare se abilitare la convalida del certificato SSL del server quando si esegue la connessione all'endpoint HTTP. | No, il valore predefinito è true |
 | authenticationType | Specifica il tipo di autenticazione. I valori consentiti sono: **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Fare riferimento alle sezioni sotto questa tabella per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
@@ -165,7 +166,7 @@ Per copiare dati da HTTP, impostare la proprietà type del set di dati su **Http
 | requestMethod | Metodo HTTP.<br/>I valori consentiti sono **Get**, come valore predefinito, o **Post**. | No |
 | additionalHeaders | Intestazioni richiesta HTTP aggiuntive. | No |
 | requestBody | Il corpo della richiesta HTTP. | No |
-| format | Se si desidera **recuperare dati dall'endpoint HTTP così com'è**, senza analizzarli e copiarli in un archivio basato su file, ignorare la sezione del formato sia per le definizioni di input che di output.<br/><br/>Se si desidera analizzare i contenuti della risposta HTTP durante la copia, sono supportati i tipi di formato file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [Json Format](supported-file-formats-and-compression-codecs.md#json-format) (Formato JSON), [Text Format](supported-file-formats-and-compression-codecs.md#text-format) (Formato testo), [Avro Format](supported-file-formats-and-compression-codecs.md#avro-format) (Formato Avro), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format) (Formato Orc) e [Parquet Format](supported-file-formats-and-compression-codecs.md#parquet-format) (Formato Parquet). |No |
+| formato | Se si desidera **recuperare dati dall'endpoint HTTP così com'è**, senza analizzarli e copiarli in un archivio basato su file, ignorare la sezione del formato sia per le definizioni di input che di output.<br/><br/>Se si desidera analizzare i contenuti della risposta HTTP durante la copia, sono supportati i tipi di formato file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [Json Format](supported-file-formats-and-compression-codecs.md#json-format) (Formato JSON), [Text Format](supported-file-formats-and-compression-codecs.md#text-format) (Formato testo), [Avro Format](supported-file-formats-and-compression-codecs.md#avro-format) (Formato Avro), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format) (Formato Orc) e [Parquet Format](supported-file-formats-and-compression-codecs.md#parquet-format) (Formato Parquet). |No |
 | compressione | Specificare il tipo e il livello di compressione dei dati. Per altre informazioni, vedere l'articolo sui [formati di file supportati e i codec di compressione](supported-file-formats-and-compression-codecs.md#compression-support).<br/>I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>I livelli supportati sono **Ottimale** e **Più veloce**. |No |
 
 **Esempio 1: uso del metodo Get, per impostazione predefinita**

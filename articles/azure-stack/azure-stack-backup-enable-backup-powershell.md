@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: 5326aa5af174c9027729b98eac62a314e3ecc122
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: cbec6242fb4e185c9801a93fc2c4b35721269c2f
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Abilitare il Backup per lo Stack di Azure con PowerShell
 
@@ -28,7 +28,7 @@ Abilitare il servizio di Backup di infrastruttura con Windows PowerShell in modo
 
 ## <a name="download-azure-stack-tools"></a>Scaricare strumenti di Azure Stack
 
-Installare e PowerShell configurato per lo Stack di Azure e gli strumenti di Azure Stack. Vedere [diventare operativi con PowerShell nello Stack di Azure](https://review.docs.microsoft.com/en-us/azure/azure-stack/azure-stack-powershell-configure-quickstart).
+Installare e PowerShell configurato per lo Stack di Azure e gli strumenti di Azure Stack. Vedere [diventare operativi con PowerShell nello Stack di Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
 
 ##  <a name="load-the-connect-and-infrastructure-modules"></a>Caricare i moduli di connessione e l'infrastruttura
 
@@ -47,7 +47,7 @@ Aprire Windows PowerShell con un prompt dei comandi con privilegi elevati ed ese
 
 Nella stessa sessione di PowerShell, modificare lo script di PowerShell seguente aggiungendo le variabili per l'ambiente. Eseguire lo script aggiornato per configurare l'ambiente RM e accedere all'endpoint di gestione di operatore.
 
-| Variabile    | Descrizione |
+| Variabile    | DESCRIZIONE |
 |---          |---          |
 | $TenantName | Nome di tenant di Azure Active Directory. |
 | Nome dell'account (operatore)        | Il nome dell'account Azure Stack operatore. |
@@ -97,7 +97,7 @@ Nella stessa sessione di PowerShell, eseguire i comandi seguenti:
 
 Nella stessa sessione di PowerShell, modificare lo script di PowerShell seguente aggiungendo le variabili per l'ambiente. Eseguire lo script aggiornato per fornire la chiave di crittografia, credenziali e condivisione di backup per il servizio di Backup di infrastruttura.
 
-| Variabile        | Descrizione   |
+| Variabile        | DESCRIZIONE   |
 |---              |---                                        |
 | $username       | Tipo di **Username** utilizzando il dominio e il nome utente per il percorso dell'unità condivisa. Ad esempio, `Contoso\administrator`. |
 | $password       | Tipo di **Password** per l'utente. |

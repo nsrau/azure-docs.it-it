@@ -43,15 +43,19 @@
       href: container-registry-get-started-docker-cli.md
     - name: Visualizzare i repository
       href: container-registry-repositories.md
-    - name: Creare un’entità servizio
-      href: ../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json
-    - name: Eseguire l'autenticazione con un Registro di sistema
-      href: container-registry-authentication.md
+    - name: Creare un'entità servizio
+      href: ../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.jso
     - name: Aggiornare un registro classico
       href: container-registry-upgrade.md
     - name: Usare i webhook ACR
       href: ./container-registry-webhook.md
-- name: riferimento
+    - name: Authentication
+      items:
+        - name: Panoramica dell'autenticazione
+          href: container-registry-authentication.md
+        - name: Servizio contenitore di Azure
+          href: ./container-registry-auth-aks.md
+- name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/acr

@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 8cff85337ac7f5d1c0e00f09128cbbd4fa79741e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 57b3a172445047291f0aea5b1616b9dcbf6bf745
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-4-create-relationships"></a>Lezione 4: Creare relazioni
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="create-relationships"></a>Crea relazioni
 
 In questa lezione si verificheranno le relazioni create automaticamente quando sono stati importati i dati e si aggiungeranno nuove relazioni tra tabelle diverse. Una relazione è una connessione tra due tabelle che stabilisce la modalità con cui devono essere correlati i dati in tali tabelle. Ad esempio, la tabella DimProduct e la tabella DimProductSubcategory hanno una relazione basata sul fatto che ogni prodotto appartiene a una sottocategoria. Per altre informazioni, vedere [Relationships](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular) (Relazioni).
   
@@ -60,7 +58,7 @@ Prima di procedere alla creazione del modello, verificare che tali relazioni tra
   
 3.  Verificare che siano state create le relazioni seguenti al momento dell'importazione di ogni tabella dal database AdventureWorksDW:  
   
-    |Attivo|Table|Tabella di ricerca correlata|  
+    |Attivo|Tabella|Tabella di ricerca correlata|  
     |----------|---------|------------------------|  
     |Sì|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
     |Sì|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  

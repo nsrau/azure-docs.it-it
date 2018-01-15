@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: 045cf83caa15cb2487b4781f3c1f42752880580c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5dedad4fa3695d1b210e1174d8f29966d2259889
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integrare i criteri di sicurezza del Centro sicurezza con Criteri di Azure
-Questo articolo illustra la configurazione dei criteri di sicurezza del Centro sicurezza di Azure, basati sulla tecnologia di Criteri di Azure. 
+Questo articolo illustra la configurazione dei criteri di sicurezza del Centro sicurezza di Azure, basati sulla tecnologia di Criteri di Azure.
 
 ## <a name="how-security-policies-work"></a>Funzionamento dei criteri di sicurezza
 Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito per ogni sottoscrizione di Azure. È possibile modificare i criteri nel Centro sicurezza o usare [Criteri di Azure](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) per eseguire le operazioni seguenti:
@@ -50,8 +50,8 @@ Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito pe
 
 5. Per eliminare una definizione di criterio, in **Policies and Parameters** (Criteri e parametri) selezionare **Elimina** accanto alla definizione da eliminare.
 
-6. Fare clic su **Salva**.  
-    Viene visualizzata la finestra **Available Definitions** (Definizioni disponibili), che mostra il criterio predefinito assegnato al Centro sicurezza tramite Criteri di Azure. 
+6. Fare clic su **Save**.  
+    Viene visualizzata la finestra **Available Definitions** (Definizioni disponibili), che mostra il criterio predefinito assegnato al Centro sicurezza tramite Criteri di Azure.
 
 7. (Facoltativo) Nella finestra **Available Definitions** (Definizioni disponibili) eseguire una delle operazioni seguenti:
 
@@ -68,12 +68,12 @@ Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito pe
 
 ## <a name="available-security-policy-definitions"></a>Definizioni di criteri di sicurezza disponibili
 
-Per informazioni sulle definizioni dei criteri disponibili nel criterio di sicurezza predefinito, vedere la tabella seguente: 
+Per informazioni sulle definizioni dei criteri disponibili nel criterio di sicurezza predefinito, vedere la tabella seguente:
 
-| Criteri | Operazione eseguita dal criterio abilitato |
+| Criterio | Operazione eseguita dal criterio abilitato |
 | --- | --- |
 | Aggiornamenti del sistema |Recupera un elenco giornaliero degli aggiornamenti della sicurezza e critici da Windows Update o da Windows Server Update Services. L'elenco recuperato dipende dal servizio configurato per le macchine virtuali e consiglia di applicare gli aggiornamenti mancanti. Per i sistemi Linux, il criterio usa il sistema di gestione pacchetti fornito dalla distribuzione per determinare per quali pacchetti sono disponibili aggiornamenti. Controlla anche la presenza di aggiornamenti critici e della sicurezza dalle macchine virtuali di [Servizi cloud di Azure](../cloud-services/cloud-services-how-to-configure-portal.md). |
-| Vulnerabilità del sistema operativo |Analizza giornalmente le configurazioni del sistema operativo per determinare i problemi che potrebbero rendere vulnerabile agli attacchi la macchina virtuale. Il criterio consiglia anche le modifiche alla configurazione necessarie per risolvere queste vulnerabilità. Per altre informazioni sulle configurazioni specifiche sottoposte a monitoraggio, vedere l'[elenco di baseline consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). (Al momento, Windows Server 2016 non è completamente supportato.) |
+| Configurazioni di sicurezza |Analizza giornalmente le configurazioni del sistema operativo per determinare i problemi che potrebbero rendere vulnerabile agli attacchi la macchina virtuale. Il criterio consiglia anche le modifiche alla configurazione necessarie per risolvere queste vulnerabilità. Per altre informazioni sulle configurazioni specifiche sottoposte a monitoraggio, vedere l'[elenco di baseline consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). (Al momento, Windows Server 2016 non è completamente supportato.) |
 | Endpoint Protection |Consiglia di configurare Endpoint Protection per tutte le macchine virtuali di Windows, per identificare e rimuovere virus, spyware e altro software dannoso. |
 | Crittografia del disco |Suggerisce di abilitare la crittografia dischi in tutte le macchine virtuali per migliorare la protezione dei dati inattivi. |
 | Gruppi di sicurezza di rete |Consiglia di configurare [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) per controllare il traffico in ingresso e in uscita nelle VM che hanno endpoint pubblici. I gruppi di sicurezza di rete configurati per una subnet vengono ereditati da tutte le interfacce di rete della macchina virtuale se non diversamente specificato. Oltre a controllare che sia stato configurato un gruppo di sicurezza di rete, questo criterio valuta le regole di sicurezza in ingresso per identificare le regole che consentono il traffico in ingresso. |

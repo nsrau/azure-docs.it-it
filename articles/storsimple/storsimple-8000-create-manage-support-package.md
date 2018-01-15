@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 641109970865ea915f83d48488f1bdf5cb2d5242
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: c83caae58e73d6f2d0fe086938e0bbc5cfdf80c4
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Creare e gestire un pacchetto di supporto StorSimple serie 8000
 
@@ -30,7 +30,7 @@ Questa esercitazione include istruzioni dettagliate per creare e gestire il pacc
 
 ## <a name="create-a-support-package"></a>Creare un pacchetto di supporto
 
-In alcuni casi, è necessario creare manualmente il pacchetto per il supporto tramite Windows PowerShell per StorSimple. Ad esempio:
+In alcuni casi, è necessario creare manualmente il pacchetto per il supporto tramite Windows PowerShell per StorSimple. Ad esempio: 
 
 * Se è necessario rimuovere informazioni riservate dai file di log prima di condividerli con il supporto tecnico Microsoft.
 * In caso di difficoltà nel caricare il pacchetto a causa di problemi di connettività.
@@ -71,7 +71,7 @@ In alcuni casi, è necessario creare manualmente il pacchetto per il supporto tr
 
 Con il cmdlet Export-HcsSupportPackage è possibile usare i parametri seguenti.
 
-| Parametro | Obbligatorio/Facoltativo | Description |
+| Parametro | Obbligatorio/Facoltativo | Descrizione |
 | --- | --- | --- |
 | `-Path` |Obbligatorio |Consente di specificare il percorso della cartella di rete condivisa in cui verrà inserito il pacchetto per il supporto. |
 | `-EncryptionPassphrase` |Obbligatorio |Consente di fornire una passphrase per crittografare il pacchetto per il supporto. |
@@ -147,6 +147,6 @@ L'esempio seguente mostra come decrittografare, modificare e crittografare di nu
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni raccolte nel pacchetto per il supporto](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
-* Informazioni su come [utilizzare i pacchetti per il supporto e i registri del dispositivo per risolvere i problemi di distribuzione del dispositivo](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
+* Informazioni su come [utilizzare i pacchetti per il supporto e i registri del dispositivo per risolvere i problemi di distribuzione del dispositivo](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 * Informazioni su come [usare il servizio Gestione dispositivi StorSimple per gestire il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

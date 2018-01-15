@@ -14,58 +14,63 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/02/2017
   ms.author: carolz
+  ms.openlocfilehash: 6ab2ecc6e2082939b51eef8a95fe68a9303ab47c
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.translationtype: MT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 01/12/2018
 abstract:
-  description: 'Azure Stack è una piattaforma cloud ibrida che permette di usare i servizi di Azure dal data center aziendale o del provider di servizi. Azure Stack permette agli sviluppatori di compilare app e quindi distribuirle in Azure Stack o in Azure. In alternativa è possibile compilare app veramente ibride che sfruttano la connettività tra un cloud di Azure Stack e Azure. Questo articolo contiene informazioni su come creare le risorse e distribuire le app con esercitazioni e guide introduttive.<br/><br/>Se si ha un operatore di Stack di Azure che gestisce l''infrastruttura e offre servizi, vedere il nostro <a href="/azure/azure-stack/">documentazione operatore</a>.'
+  description: "Azure Stack è una piattaforma cloud ibrida che permette di usare i servizi di Azure dal data center aziendale o del provider di servizi. Azure Stack permette agli sviluppatori di compilare app e quindi distribuirle in Azure Stack o in Azure. In alternativa è possibile compilare app veramente ibride che sfruttano la connettività tra un cloud di Azure Stack e Azure. Questo articolo contiene informazioni su come creare le risorse e distribuire le app con esercitazioni e guide introduttive.<br/><br/>Se si ha un operatore di Stack di Azure che gestisce l'infrastruttura e offre servizi, vedere il nostro <a href=\"/azure/azure-stack/\">documentazione operatore</a>."
 sections:
-  - title: Guide introduttive di 5 minuti
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: 'Informazioni su come distribuire una macchina virtuale Windows in Azure Stack:'
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Informazioni su come distribuire una macchina virtuale Windows in Azure Stack:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: di Microsoft Azure
-            href: azure-stack-quick-windows-portal.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
-            text: PowerShell
-            href: azure-stack-quick-create-vm-windows-powershell.md
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
-            text: CLI
-            href: azure-stack-quick-create-vm-windows-cli.md
-      - type: paragraph
-        text: 'Informazioni su come distribuire una macchina virtuale Linux in Azure Stack:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: di Microsoft Azure
-            href: azure-stack-quick-linux-portal.md
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
-            text: PowerShell
-            href: azure-stack-quick-create-vm-linux-powershell.md
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
-            text: CLI
-            href: azure-stack-quick-create-vm-linux-cli.md
-  - title: Esercitazioni dettagliate
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Portale
+      href: azure-stack-quick-windows-portal.md
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
+      text: PowerShell
+      href: azure-stack-quick-create-vm-windows-powershell.md
+    - image:
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
+      text: CLI
+      href: azure-stack-quick-create-vm-windows-cli.md
+  - type: paragraph
+    text: 'Informazioni su come distribuire una macchina virtuale Linux in Azure Stack:'
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Distribuire le applicazioni tra Azure e Azure Stack.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/azure-stack/user/azure-stack-solution-pipeline">Distribuire app in Azure Stack e Azure</a>
-  - title: riferimento
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Portale
+      href: azure-stack-quick-linux-portal.md
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
+      text: PowerShell
+      href: azure-stack-quick-create-vm-linux-powershell.md
+    - image:
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
+      text: CLI
+      href: azure-stack-quick-create-vm-linux-cli.md
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: Distribuire le applicazioni tra Azure e Azure Stack.
+  - type: list
+    style: ordered
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Riga di comando
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">PowerShell per Azure Stack</a></p><p><a href="/cli/azure/?view=azure-cli-2017-03-09-profile">Stack Azure CLI</a></p>
+    - html: <a href="/azure/azure-stack/user/azure-stack-solution-pipeline">Distribuire app in Azure Stack e Azure</a>
+- title: Riferimenti
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Riga di comando
+      html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">PowerShell per Azure Stack</a></p><p><a href="/cli/azure/?view=azure-cli-2017-03-09-profile">Stack Azure CLI</a></p>

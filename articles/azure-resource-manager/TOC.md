@@ -4,7 +4,7 @@
 ## [Distribuzione Resource Manager e classica](resource-manager-deployment-model.md)
 ## [Governance per le sottoscrizioni](resource-manager-subscription-governance.md)
 
-# Introduzione
+# Attività iniziali
 ## [Creare e distribuire il modello](resource-manager-create-first-template.md)
 ## [Estensione di Visual Studio Code per i modelli](resource-manager-vscode-extension.md)
 ## [Visual Studio con Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
@@ -12,11 +12,11 @@
 # Procedure
 ## Creare modelli
 ### [Sezioni di modelli](resource-group-authoring-templates.md)
-#### [Parametri](resource-manager-templates-parameters.md)
+#### [Parameters](resource-manager-templates-parameters.md)
 #### [Variabili](resource-manager-templates-variables.md)
 #### [Risorse](resource-manager-templates-resources.md)
 #### [Outputs](resource-manager-templates-outputs.md)
-### [Eseguire il collegamento ad altri modelli](resource-group-linked-templates.md)
+### [Modelli collegati e annidati](resource-group-linked-templates.md)
 ### [Definire la dipendenza tra risorse](resource-group-define-dependencies.md)
 ### [Creare più istanze](resource-group-create-multiple.md)
 ### [Aggiornare una risorsa](/azure/architecture/building-blocks/extending-templates/update-resource)
@@ -43,7 +43,7 @@
 ## Gestisci
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Interfaccia della riga di comando di Azure](xplat-cli-azure-resource-manager.md)
-### [Portale di Azure](resource-group-portal.md)
+### [Azure portal](resource-group-portal.md)
 ### [API REST](resource-manager-rest-api.md)
 ### [Usare tag per organizzare le risorse](resource-group-using-tags.md)
 ### [Spostare le risorse in un nuovo gruppo o sottoscrizione](resource-group-move-resources.md)
@@ -55,7 +55,7 @@
 ### Creare un'entità servizio
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
 #### [Interfaccia della riga di comando di Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Portale di Azure](resource-group-create-service-principal-portal.md)
+#### [Azure portal](resource-group-create-service-principal-portal.md)
 ### [API di autenticazione per accedere alle sottoscrizioni](resource-manager-api-authentication.md)
 ### [Bloccare le risorse](resource-group-lock-resources.md)
 
@@ -63,7 +63,7 @@
 ### [Visualizzare log di attività](resource-group-audit.md)
 ### [Visualizzare le operazioni di distribuzione](resource-manager-deployment-operations.md)
 
-## Risoluzione dei problemi
+## Risolvere problemi
 ### [Errori di distribuzione comuni](resource-manager-common-deployment-errors.md)
 #### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
 #### [InvalidTemplate](resource-manager-invalid-template-errors.md)
@@ -80,7 +80,7 @@
 #### [Problemi di distribuzione di Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 ### [Informazioni sugli errori di distribuzione](resource-manager-troubleshoot-tips.md)
 
-# riferimento
+# Riferimento
 ## [Formato del modello](/azure/templates/)
 ## [Funzioni di modello](resource-group-template-functions.md)
 ### [Matrici e funzioni oggetto](resource-group-template-functions-array.md)

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6704db9a722de78d9460703330cf3fdbc238b7d2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 8fae46088bad5cbcbdb879f0b5a948fb85b76875
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuire la reimpostazione della password senza richiedere la registrazione dell'utente finale
 
@@ -40,7 +40,7 @@ Se si usano le impostazioni predefinite in Azure AD Connect, vengono eseguiti i 
 | Active Directory locale | Azure AD | Informazioni di contatto per l'autenticazione di Azure AD |
 | --- | --- | --- |
 | telephoneNumber | Telefono ufficio | Telefono alternativo |
-| mobile | Cellulare | Telefono |
+| cellulare | Cellulare | Telefono |
 
 
 ## <a name="security-questions-and-answers"></a>Domande di sicurezza e risposte

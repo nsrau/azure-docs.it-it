@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 01/04/2018
 ms.author: yurid
-ms.openlocfilehash: f4614ac55cde26e921edfe41160e2766aef6bb2c
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: b304ce8c60aefc417993574a0baa43cfc2298d66
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure
 Questo articolo consente di comprendere i diversi tipi di avvisi di sicurezza e le informazioni significative che ne derivano disponibili nel Centro sicurezza di Azure. Per altre informazioni sulla gestione degli avvisi e degli eventi imprevisti, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).
@@ -144,7 +144,6 @@ Il Centro sicurezza usa l'analisi avanzata per identificare le risorse compromes
 * **Credenziali di documento sospette**: un avviso simile a questo indica un hash delle password pre-calcolato comune sospetto usato dal malware usato per eseguire un file.
 * **Costruzione di script di PowerShell dinamica**: un avviso simile a questo indica che è in corso la costruzione dinamica di uno script di PowerShell. Gli utenti malintenzionati usano questa tecnica per la compilazione progressiva di uno script per potersi sottrarre ai sistemi di rilevamento delle intrusioni.
 * **Indicatori Metasploit**: un avviso simile a questo indica un'attività associata al framework Metasploit, in cui sono disponibili svariate funzionalità e strumenti per gli utenti malintenzionati.
-* **Manomissione di SENSE**: un avviso simile a questo indica un tentativo di disabilitare SENSE, il servizio di monitoraggio della sicurezza di Windows Defender ATP.
 * **Attività sospetta di un account**: un avviso simile a questo indica un tentativo di connettersi a un computer usando un account compromesso di recente.
 * **Possibile accesso sospetto basato su attività di pianificazione**: un avviso simile a questo indica che è stato eseguito un processo CRON, che può essere usato da utenti malintenzionati per eseguire programmi dannosi in base a una pianificazione.
 * **Possibile accesso sospetto al file della cronologia dei comandi**: un avviso simile a questo indica un accesso insolito al file della cronologia dei comandi.
@@ -189,7 +188,7 @@ Il sistema di rilevamento delle minacce di rete del Centro sicurezza funziona me
 
 L'analisi delle risorse del Centro sicurezza si concentra sui servizi PaaS (Platform as a Service), ad esempio l'integrazione con la funzione di [rilevamento delle minacce nel database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection). In base ai risultati dell'analisi di queste aree, il Centro sicurezza attiva un avviso correlato alle risorse.
 
-* **Potenziale attacco SQL injection**: in un attacco SQL injection, il malware viene inserito in stringhe che vengono successivamente passate a un'istanza di SQL Server per l'analisi e l'esecuzione. È consigliabile verificare la presenza di vulnerabilità a questo tipo di attacco in qualsiasi procedura che crea istruzioni SQL, perché SQL Server esegue tutte le query sintatticamente valide che riceve. Il rilevamento delle minacce SQL usa Machine Learning, l'analisi del comportamento e il rilevamento delle anomalie per individuare eventi sospetti che possono verificarsi nei database SQL di Azure. Ad esempio: 
+* **Potenziale attacco SQL injection**: in un attacco SQL injection, il malware viene inserito in stringhe che vengono successivamente passate a un'istanza di SQL Server per l'analisi e l'esecuzione. È consigliabile verificare la presenza di vulnerabilità a questo tipo di attacco in qualsiasi procedura che crea istruzioni SQL, perché SQL Server esegue tutte le query sintatticamente valide che riceve. Il rilevamento delle minacce SQL usa Machine Learning, l'analisi del comportamento e il rilevamento delle anomalie per individuare eventi sospetti che possono verificarsi nei database SQL di Azure. Ad esempio:  
     * Tentativo di accesso al database da parte di un ex dipendente
     * Attacchi SQL injection
     * Accesso insolito al database di produzione da parte di un utente da casa

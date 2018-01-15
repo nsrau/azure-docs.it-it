@@ -14,104 +14,109 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: carolz
+  ms.openlocfilehash: e79c80d894ec798df28f9d447097b2d8070baf61
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 01/12/2018
 abstract:
-  description: 'App Web di Azure consente di creare e ospitare applicazioni Web nel linguaggio di programmazione preferito, senza dovere gestire l''infrastruttura. Offre la scalabilità automatica e la disponibilità elevata, supporta sia Windows che Linux e consente le distribuzioni automatizzate da GitHub, Visual Studio Team Services o qualsiasi repository Git. Informazioni su come usare App Web di Azure con le guide rapide, le esercitazioni e gli esempi.'
+  description: "App Web di Azure consente di creare e ospitare applicazioni Web nel linguaggio di programmazione preferito, senza dovere gestire l'infrastruttura. Offre la scalabilità automatica e la disponibilità elevata, supporta sia Windows che Linux e consente le distribuzioni automatizzate da GitHub, Visual Studio Team Services o qualsiasi repository Git. Informazioni su come usare App Web di Azure con le guide rapide, le esercitazioni e gli esempi."
   aside:
     image:
-      alt: null
+      alt: 
       height: 110
-      src: 'https://docs.microsoft.com/en-us/azure/app-service/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png'
+      src: https://docs.microsoft.com/azure/app-service/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png
       width: 250
-    title: 'Creare un''app Web con Node.js e il servizio app di Azure. (2:41)'
-    href: 'https://azure.microsoft.com/en-us/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/'
+    title: Creare un'app Web con Node.js e il servizio app di Azure. (2:41)
+    href: https://azure.microsoft.com/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/
     width: 250
 sections:
-  - title: Guide introduttive di 5 minuti
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: 'Informazioni su come distribuire la prima applicazione nel cloud tramite App Web:'
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Informazioni su come distribuire la prima applicazione nel cloud tramite App Web:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_net.svg'
-            text: .NET
-            href: 'https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-dotnet'
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_nodejs.svg'
-            text: Node.js
-            href: 'https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs'
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_php.svg'
-            text: PHP
-            href: 'https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-php'
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_java.svg'
-            text: Java
-            href: 'https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-java'
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_python.svg'
-            text: Python
-            href: 'https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-python'
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_html5.svg'
-            text: HTML
-            href: 'https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-html'
-      - type: paragraph
-        text: 'Informazioni su come eseguire la distribuzione continua:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/media/index/logo_vs-team-services.svg'
-            text: VSTS
-            href: 'https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json'
-  - title: Esercitazioni dettagliate
+    - image:
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_net.svg
+      text: .NET
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-dotnet
+    - image:
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_nodejs.svg
+      text: Node.js
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs
+    - image:
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_php.svg
+      text: PHP
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-php
+    - image:
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg
+      text: Java
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java
+    - image:
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_python.svg
+      text: Python
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-python
+    - image:
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_html5.svg
+      text: HTML
+      href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html
+  - type: paragraph
+    text: 'Informazioni su come eseguire la distribuzione continua:'
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Informazioni su come distribuire, gestire e monitorare applicazioni Web sicure in Azure'
-      - type: list
-        style: ordered
-        items:
-          - html: Creare un'applicazione usando <a href="/en-us/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase">.NET con il database SQL di Azure</a> o <a href="/en-us/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app">Node.js con MongoDB</a>
-          - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-domain">Eseguire il mapping di un dominio personalizzato esistente all'applicazione</a>
-          - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-SSL">Associare un certificato SSL esistente all'applicazione</a>
-          - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-content-delivery-network">Aggiungere una rete CDN all'applicazione</a>
-  - title: Video di formazione gratuiti su PluralSight
+    - image:
+        src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
+      text: VSTS
+      href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: Informazioni su come distribuire, gestire e monitorare applicazioni Web sicure in Azure
+  - type: list
+    style: ordered
     items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Sviluppo con .NET
-            href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-          - title: Sviluppo con Node.js
-            href: 'https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-  - title: Esempi
+    - html: Creare un'applicazione usando <a href="/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase">.NET con il database SQL di Azure</a> o <a href="/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app">Node.js con MongoDB</a>
+    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Eseguire il mapping di un dominio personalizzato esistente all'applicazione</a>
+    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Associare un certificato SSL esistente all'applicazione</a>
+    - html: <a href="/azure/app-service/app-service-web-tutorial-content-delivery-network">Aggiungere una rete CDN all'applicazione</a>
+- title: Video di formazione gratuiti su PluralSight
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-      - type: paragraph
-        text: Trovare script per gestire le attività comuni.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
-          - html: <a href="/cli/azure/appservice">Interfaccia della riga di comando di Azure</a>
-  - title: Riferimento
+    - title: Sviluppo con .NET
+      href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+    - title: Sviluppo con Node.js
+      href: https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/developing-nodejs-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+- title: Esempi
+  items:
+  - type: paragraph
+    text: "Trovare script per gestire le attività comuni."
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Riga di comando
-            html: <p><a href="/en-us/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Interfaccia della riga di comando di Azure</a></p>
-          - title: Lingue
-            html: <p><a href="/en-us/dotnet/api">.NET</a></p><p><a href="/en-us/java/api/">Java</a></p>
-          - title: REST
-            html: <p><a href="/en-us/rest/api/appservice">Informazioni di riferimento sulle API REST</a></p>
+    - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
+    - html: <a href="/cli/azure/appservice">Interfaccia della riga di comando di Azure</a>
+- title: Riferimento
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Riga di comando
+      html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Interfaccia della riga di comando di Azure</a></p>
+    - title: Lingue
+      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/appservice">Informazioni di riferimento sulle API REST</a></p>

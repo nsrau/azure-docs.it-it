@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 43582ae805d560e72fb8d03ab8e0abee4c4325b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec0d1fa9c422dbe4958c5d5f0b7a6e093aeb32da
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Controllo di accesso in Azure Data Lake Store
 
@@ -274,7 +274,7 @@ Di seguito sono riportate alcune domande frequenti sugli ACL in Data Lake Store.
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>È necessario abilitare il supporto per gli ACL?
 
-No. Il controllo di accesso tramite ACL è sempre attivo per un account Data Lake Store.
+di serie Il controllo di accesso tramite ACL è sempre attivo per un account Data Lake Store.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Quali autorizzazioni sono necessarie per eliminare in modo ricorsivo una cartella e il relativo contenuto?
 
@@ -294,7 +294,7 @@ Il creatore di un file o una cartella ne diventa il proprietario.
 
 Il gruppo proprietario viene copiato da quello della cartella padre in cui si crea il nuovo file o la nuova cartella.
 
-### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Se l'utente proprietario di un file non ha le autorizzazioni RWX di cui ha bisogno, che cosa occorre fare?
+### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Se l'utente proprietario di un file non ha le autorizzazioni RWX di cui ha bisogno, Cosa devo fare?
 
 L'utente proprietario può modificare le autorizzazioni del file in modo da assegnarsi tutte le autorizzazioni RWX necessarie.
 
@@ -308,7 +308,7 @@ Il GUID viene visualizzato quando l'utente non esiste più in Azure AD. In gener
 
 ### <a name="does-data-lake-store-support-inheritance-of-acls"></a>Data Lake Store supporta l'ereditarietà degli ACL?
 
-No.
+di serie
 
 ### <a name="what-is-the-difference-between-mask-and-umask"></a>Qual è la differenza tra mask e umask?
 
@@ -337,6 +337,6 @@ No.
 
 * [ACL: Using Access Control Lists on Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/) (ACL: uso di elenchi di controllo di accesso in Linux)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 * [Panoramica dell’Archivio Data Lake di Azure](data-lake-store-overview.md)

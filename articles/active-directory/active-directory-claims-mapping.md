@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 6f5ca44e08c783fdf22a14d71c56c3019cc2bb52
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 1bc669dfa5a41e38b35751af62560ff650575a08
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Mapping delle attestazioni in Azure Active Directory (anteprima pubblica)
 
@@ -95,7 +95,7 @@ Le attestazioni con restrizioni non possono essere modificate usando i criteri. 
 |domain_dns_name|
 |domain_netbios_name|
 |e_exp|
-|email|
+|posta elettronica|
 |endpoint|
 |enfpolids|
 |exp|
@@ -175,7 +175,7 @@ Le attestazioni con restrizioni non possono essere modificate usando i criteri. 
 |unique_name|
 |upn|
 |user_setting_sync_url|
-|username|
+|nome utente|
 |uti|
 |ver|
 |verified_primary_email|
@@ -280,7 +280,7 @@ Se l'origine è transformation, anche l'elemento **TransformationID** deve esser
 L'elemento ID identifica la proprietà dell'origine che indica il valore per l'attestazione. La tabella seguente elenca i valori di ID validi per ogni valore di Source.
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabella 3: Valori di ID validi per ogni Source
-|Sorgente|ID|DESCRIZIONE|
+|Sorgente|ID|Descrizione|
 |-----|-----|-----|
 |Utente|surname|Cognome|
 |Utente|givenname|Nome|
@@ -317,14 +317,14 @@ L'elemento ID identifica la proprietà dell'origine che indica il valore per l'a
 |Utente|othermail|Posta elettronica alternativa|
 |Utente|country|Paese|
 |Utente|city|city|
-|Utente|state|Stato|
+|Utente|stato|Stato|
 |Utente|jobtitle|Posizione|
 |Utente|employeeid|ID dipendente|
 |Utente|facsimiletelephonenumber|Numero di telefono fax|
 |application, resource, audience|displayname|Nome visualizzato|
 |application, resource, audience|objected|ObjectID|
 |application, resource, audience|tags|Tag di entità servizio|
-|Azienda|tenantcountry|Paese del tenant|
+|Società|tenantcountry|Paese del tenant|
 
 **TransformationID:** l'elemento TransformationID è obbligatorio solo se l'elemento Source è impostato su "transformation".
 
@@ -353,7 +353,7 @@ L'elemento ID identifica la proprietà dell'origine che indica il valore per l'a
 In base al metodo scelto è previsto un set di input e output. Questi vengono definiti usando gli elementi **InputClaims**, **InputParameters** e **OutputClaims**.
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabella 4: Metodi di trasformazione e input/output previsti
-|TransformationMethod|Input previsto|Output previsto|DESCRIZIONE|
+|TransformationMethod|Input previsto|Output previsto|Descrizione|
 |-----|-----|-----|-----|
 |Join|string1, string2, separator|outputClaim|Esegue il join di stringhe di input dividendole con un separatore. Ad esempio: stringa1: "foo@bar.com", stringa2: "sandbox", separatore: "." comporta in outputClaim: "foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Estrae la parte locale di un indirizzo di posta elettronica. Ad esempio: mail:"foo@bar.com" comporta in outputClaim:"foo". Se non è presente un segno @, la stringa di input originale viene restituita così come è.|
@@ -378,7 +378,7 @@ In base al metodo scelto è previsto un set di input e output. Questi vengono de
 **NameID e UPN di SAML:** gli attributi da cui hanno origine i valori NameID e UPN, e le trasformazioni di attestazioni consentite, presentano limitazioni.
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabella 5: Attributi consentiti come origine dati per NameID di SAML
-|Sorgente|ID|DESCRIZIONE|
+|Sorgente|ID|Descrizione|
 |-----|-----|-----|
 |Utente|mail|Indirizzo di posta elettronica|
 |Utente|userprincipalname|Nome dell'entità utente|
@@ -403,7 +403,7 @@ In base al metodo scelto è previsto un set di input e output. Questi vengono de
 #### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabella 6: Metodi di trasformazione consentiti per NameID di SAML
 |TransformationMethod|Restrizioni|
 | ----- | ----- |
-|ExtractMailPrefix|Nessuna|
+|ExtractMailPrefix|Nessuno|
 |Join|Il suffisso da aggiungere deve essere un dominio verificato del tenant delle risorse.|
 
 ### <a name="custom-signing-key"></a>Chiave di firma personalizzata
@@ -490,7 +490,7 @@ In questo esempio si creano i criteri che generano un'attestazione personalizzat
     1. Per creare i criteri, eseguire questo comando: 
      
      ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformation":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"Id":"string2","Value":"sandbox"},{"Id":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample” -Type "ClaimsMappingPolicy"
+    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
     ```
     
     2. Per visualizzare il nuovo criterio e ottenere il relativo ObjectId, eseguire questo comando: 

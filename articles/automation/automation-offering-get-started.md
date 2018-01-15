@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 2a57b60a2222d6e2ea864410edc6a32a0bf0c76c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 69670d789d75a99d69538821d88427bd8ac397be
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="getting-started-with-azure-automation"></a>Introduzione ad Automazione di Azure
 
@@ -88,10 +88,6 @@ Tutte le attività di automazione eseguite sulle risorse con i cmdlet di Azure i
 
 Le risorse di Automazione per ogni account di Automazione sono associate a una singola area di Azure, ma gli account di Automazione possono gestire tutte le risorse nella sottoscrizione. Creare gli account di Automazione in aree diverse se sono presenti criteri che richiedono l'isolamento di dati e risorse in un'area specifica.
 
-> [!NOTE]
-> Gli account di Automazione e le risorse che contengono, creati nel portale di Azure, non sono accessibili nel portale di Azure classico. Se si vogliono gestire questi account o le relative risorse con Windows PowerShell, è necessario usare i moduli di Gestione risorse di Azure.
-> 
-
 Quando si crea un account di Automazione nel portale di Azure, vengono create automaticamente due entità di autenticazione:
 
 * Un account RunAs. Questo account crea un'entità servizio in Azure Active Directory (Azure AD) e un certificato. Assegna il controllo degli accessi in base al ruolo Collaboratore, che permette di gestire le risorse di Resource Manager usando i runbook.
@@ -102,7 +98,7 @@ Il controllo degli accessi in base al ruolo è disponibile con Azure Resource Ma
 #### <a name="authentication-methods"></a>Metodi di autenticazione
 La tabella seguente riepiloga i diversi metodi di autenticazione per ogni ambiente supportato da Automazione di Azure.
 
-| Metodo | Environment 
+| Metodo | Ambiente 
 | --- | --- | 
 | Account RunAs di Azure e account RunAs classico |Distribuzione Azure Resource Manager e distribuzione classica di Azure |  
 | Account utente di Azure AD |Distribuzione Azure Resource Manager e distribuzione classica di Azure |  
@@ -159,7 +155,7 @@ Il metodo consigliato per caricare Automazione prevede la selezione dell'offerta
 
 1. Accedere al Portale di Azure con un account membro del ruolo Amministratori della sottoscrizione e coamministratore della sottoscrizione.
 
-2. Fare clic su **New**.<br><br> ![Selezionare l'opzione Nuovo nel portale di Azure](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
+2. Fare clic su **Nuovo**.<br><br> ![Selezionare l'opzione Nuovo nel portale di Azure](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 
 3. Cercare **Automazione** e quindi nei risultati della ricerca selezionare **Automation & Control***.<br><br> ![Cercare e selezionare Automation & Control nel Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
 

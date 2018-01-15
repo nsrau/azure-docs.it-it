@@ -14,99 +14,104 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: carolz
+  ms.openlocfilehash: 41531cf8ea7d4f94caafac0fd2ecaa1902eb8988
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 01/12/2018
 abstract:
-  description: 'Le macchine virtuali Linux di Azure offrono un''infrastruttura virtualizzata, sicura, a scalabilità elevata e su richiesta con Red Hat, Ubuntu o la distribuzione Linux preferita. Informazioni su come creare, configurare, gestire, aggiornare e ridimensionare le macchine virtuali Linux con guide rapide, le esercitazioni ed esempi.'
+  description: "Le macchine virtuali Linux di Azure offrono un'infrastruttura virtualizzata, sicura, a scalabilità elevata e su richiesta con Red Hat, Ubuntu o la distribuzione Linux preferita. Informazioni su come creare, configurare, gestire, aggiornare e ridimensionare le macchine virtuali Linux con guide rapide, le esercitazioni ed esempi."
   aside:
     image:
-      alt: null
+      alt: 
       height: 110
-      src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/create-linux-virtual-machine.png'
+      src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/create-linux-virtual-machine.png
       width: 250
-    title: 'Creare una macchina virtuale Linux. (4:11)'
-    href: 'https://azure.microsoft.com/en-us/resources/videos/create-linux-virtual-machine/'
+    title: Creare una macchina virtuale Linux. (4:11)
+    href: https://azure.microsoft.com/resources/videos/create-linux-virtual-machine/
     width: 250
 sections:
-  - title: Guide introduttive di 5 minuti
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: 'Informazioni su come distribuire un server Web NGINX in una macchina virtuale che esegue Ubuntu:'
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Informazioni su come distribuire un server Web NGINX in una macchina virtuale che esegue Ubuntu:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
-            text: Interfaccia della riga di comando di Azure
-            href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json'
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg'
-            text: Portale di Azure
-            href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json'
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg'
-            text: Azure PowerShell
-            href: 'https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json'
-  - title: Esercitazioni dettagliate
+    - image:
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
+      text: Interfaccia della riga di comando di Azure
+      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - image:
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg
+      text: Portale di Azure
+      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - image:
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: Informazioni su come distribuire, gestire e ridimensionare le macchine virtuali Linux in Azure
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Informazioni su come distribuire, gestire e ridimensionare le macchine virtuali Linux in Azure'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/virtual-machines/linux/tutorial-manage-vm">Creare e gestire macchine virtuali Linux</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-manage-disks">Creare e gestire dischi di macchine virtuali</a></li>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-automate-vm-deployment">Automatizzare la configurazione delle macchine virtuali</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-custom-images">Creare un'immagine di VM personalizzata</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-availability-sets">Creare VM a disponibilità elevata</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-create-vmss">Creare un set di scalabilità di macchine virtuali</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">Bilanciare il carico delle VM</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">Gestire le VM e le reti virtuali</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">Eseguire il backup delle VM</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Monitorare e aggiornare le macchine virtuali</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">Gestire la sicurezza nelle VM</a>
-          - html: '<a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Creare un''infrastruttura di integrazione continua e di distribuzione continua con Jenkins, Docker e GitHub</a>'
-          - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">Integrazione continua e distribuzione continua con Team Services</a>
-          - html: 'Creare uno stack di server Web con <a href="/azure/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/azure/virtual-machines/linux/tutorial-lemp-stack">LEMP</a> o <a href="/azure/virtual-machines/linux/tutorial-mean-stack">MEAN</a>'
-          - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">Proteggere un server Web con SSL</a>
-  - title: Video di formazione gratuiti su PluralSight
+    - html: <a href="/azure/virtual-machines/linux/tutorial-manage-vm">Creare e gestire macchine virtuali Linux</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-manage-disks">Creare e gestire dischi di macchine virtuali</a></li>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-automate-vm-deployment">Automatizzare la configurazione delle macchine virtuali</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-custom-images">Creare un'immagine di VM personalizzata</a>
+    - html: "<a href=\"/azure/virtual-machines/linux/tutorial-availability-sets\">Creare VM a disponibilità elevata</a>"
+    - html: "<a href=\"/azure/virtual-machines/linux/tutorial-create-vmss\">Creare un set di scalabilità di macchine virtuali</a>"
+    - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">Bilanciare il carico delle VM</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">Gestire le VM e le reti virtuali</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">Eseguire il backup delle VM</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Monitorare e aggiornare le macchine virtuali</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">Gestire la sicurezza nelle VM</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Creare un'infrastruttura di integrazione continua e di distribuzione continua con Jenkins, Docker e GitHub</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">Integrazione continua e distribuzione continua con Team Services</a>
+    - html: Creare uno stack di server Web con <a href="/azure/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/azure/virtual-machines/linux/tutorial-lemp-stack">LEMP</a> o <a href="/azure/virtual-machines/linux/tutorial-mean-stack">MEAN</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">Proteggere un server Web con SSL</a>
+- title: Video di formazione gratuiti su PluralSight
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Gestione dell'infrastruttura in Azure
-            href: 'https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-          - title: Introduzione alle macchine virtuali di Azure
-            href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-          - title: Introduzione al monitoraggio IaaS
-            href: 'https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-  - title: Esempi
+    - title: Gestione dell'infrastruttura in Azure
+      href: https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+    - title: Introduzione alle macchine virtuali di Azure
+      href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+    - title: Introduzione al monitoraggio IaaS
+      href: https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+- title: Esempi
+  items:
+  - type: paragraph
+    text: Distribuire la prima applicazione in Azure.
+  - type: list
+    style: unordered
+    className: spaced noBullet
     items:
-      - type: paragraph
-        text: Distribuire la prima applicazione in Azure.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/virtual-machines/virtual-machines-linux-cli-samples">Interfaccia della riga di comando di Azure</a>
-          - html: <a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a>
-  - title: Riferimento
+    - html: <a href="/azure/virtual-machines/virtual-machines-linux-cli-samples">Interfaccia della riga di comando di Azure</a>
+    - html: <a href="/azure/virtual-machines/virtual-machines-linux-powershell-samples">Azure PowerShell</a>
+- title: Riferimento
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Riga di comando
-            html: <p><a href="/cli/azure/vm">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
-          - title: Lingue
-            html: '<p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>'
-          - title: REST
-            html: <p><a href="/rest/api/compute">Informazioni di riferimento sulle API REST</a></p>
+    - title: Riga di comando
+      html: <p><a href="/cli/azure/vm">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
+    - title: Lingue
+      html: <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.JS</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/compute">Informazioni di riferimento sulle API REST</a></p>

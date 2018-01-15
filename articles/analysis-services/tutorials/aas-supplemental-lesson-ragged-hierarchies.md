@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 89a0f388815b3a0e2a6e020690f9a644e73bbcad
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c5c4a687ffe512b15372d152b517834771e46328
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Lezione supplementare: gerarchie incomplete
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 Questa lezione supplementare spiega come risolvere un problema comune che si verifica quando si applica il calcolo pivot sulle gerarchie che contengono valori (membri) vuoti a livelli diversi. Per fare un esempio, un'organizzazione in cui un responsabile di alto livello ha sia responsabili di reparto sia non responsabili come dipendenti diretti. Un altro esempio è rappresentato dalle gerarchie geografiche composte da paese-regione-città, in cui alcune città non dispongono di uno stato o una provincia, ad esempio Washington D.C. e la Città del Vaticano. Quando una gerarchia include membri vuoti, spesso finisce per includere livelli diversi o incompleti.
 
@@ -52,10 +50,10 @@ Se il progetto Adventure Works Internet Sales è stato creato nell'ambito dell'e
 
     | Tabella 1           | Colonna       | Direzione del filtro   | Tabella 2     | Colonna      | Attivo |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
-    | FactResellerSales | OrderDateKey | Default            | DimDate     | Data        | Sì    |
-    | FactResellerSales | DueDate      | Default            | DimDate     | Data        | No     |
-    | FactResellerSales | ShipDateKey  | Default            | DimDate     | Data        | No     |
-    | FactResellerSales | ProductKey   | Default            | DimProduct  | ProductKey  | Sì    |
+    | FactResellerSales | OrderDateKey | Impostazione predefinita            | DimDate     | Data        | Sì    |
+    | FactResellerSales | DueDate      | Impostazione predefinita            | DimDate     | Data        | No     |
+    | FactResellerSales | ShipDateKey  | Impostazione predefinita            | DimDate     | Data        | No     |
+    | FactResellerSales | ProductKey   | Impostazione predefinita            | DimProduct  | ProductKey  | Sì    |
     | FactResellerSales | EmployeeKey  | A entrambe le tabelle | DimEmployee | EmployeeKey | Sì    |
 
 5. Nella tabella **DimEmployee** creare le [colonne calcolate](../tutorials/aas-lesson-5-create-calculated-columns.md) seguenti: 

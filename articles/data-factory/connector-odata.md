@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: d26adec8c273d015a671c745f2136fc6251fd291
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 6a3941efcc7d9cebe49024fa7aa792cf12e9937d
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Copiare dati da un'origine OData usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,8 +38,9 @@ In particolare, il connettore OData supporta:
 - OData **versione 3.0 e 4.0**.
 - La copia di dati usando le autenticazioni seguenti: **Anonima**, **Di base** e **Windows**.
 
-## <a name="getting-started"></a>introduttiva
-È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+## <a name="getting-started"></a>Attività iniziali
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di Data Factory specifiche per il connettore OData.
 
@@ -50,7 +51,7 @@ Per il servizio collegato di OData sono supportate le proprietà seguenti:
 | Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **OData** |Sì |
-| URL | URL radice del servizio OData. |Sì |
+| url | URL radice del servizio OData. |Sì |
 | authenticationType | Tipo di autenticazione usato per connettersi all'origine OData.<br/>I valori consentiti sono: **Anonima**, **Di base** e **Windows**. OAuth non è supportato. | Sì |
 | userName | Specificare il nome utente se si usa l'autenticazione di base o Windows. | No |
 | password | Specificare la password per l'account utente specificato per userName. Contrassegnare questo campo come SecureString. | No |
@@ -132,7 +133,7 @@ Per copiare dati da OData, impostare la proprietà type del set di dati su **ODa
 | Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **ODataResource** | Sì |
-| path | Percorso della risorsa OData. | No |
+| percorso | Percorso della risorsa OData. | No |
 
 **Esempio**
 
@@ -208,18 +209,18 @@ Quando si copiano dati da OData, vengono usati i mapping seguenti tra i tipi di 
 | Edm.Binary | Byte[] |
 | Edm.Boolean | Booleano |
 | Edm.Byte | Byte[] |
-| Edm.DateTime | DateTime |
-| Edm.Decimal | Decimale |
-| Edm.Double | Double |
-| Edm.Single | Single |
-| Edm.Guid | Guid |
+| Edm.DateTime | Data/Ora |
+| Edm.Decimal | Decimal |
+| Edm.Double | A due righe |
+| Edm.Single | Singola |
+| Edm.Guid | GUID |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | String |
+| Edm.String | Stringa |
 | Edm.Time | Intervallo di tempo |
-| Edm.DateTimeOffset | Datetimeoffset |
+| Edm.DateTimeOffset | DateTimeOffset |
 
 > [!Note]
 > Non sono supportati tipi di dati OData complessi, come Object.

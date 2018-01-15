@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.openlocfilehash: 8b0f3941526214455992ba2f0f6299df24323c9c
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 2ec1e02ccc8d8916f6d9d50ce787f2562f33fd7d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori
 
@@ -26,7 +26,7 @@ Prima di poter eseguire una query nell'[indice di Ricerca di Azure](search-what-
 
 In questo articolo vengono illustrati i meccanismi di uso degli [indicizzatori](search-indexer-overview.md), ma vengono anche descritte le funzionalità disponibili solo con i database SQL, ad esempio, il rilevamento delle modifiche integrato. 
 
-Oltre ai database SQL di Azure, Ricerca di Azure offre indicizzatori per [Azure Cosmos DB](search-howto-index-documentdb.md), [Archivio BLOB di Azure](search-howto-indexing-azure-blob-storage.md) e [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md). Per richiedere il supporto per altre origini dati, inviare commenti e suggerimenti nel [forum relativo a commenti e suggerimenti di Ricerca di Azure](https://feedback.azure.com/forums/263029-azure-search/).
+Oltre ai database SQL di Azure, Ricerca di Azure offre indicizzatori per [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Archivio BLOB di Azure](search-howto-indexing-azure-blob-storage.md) e [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md). Per richiedere il supporto per altre origini dati, inviare commenti e suggerimenti nel [forum relativo a commenti e suggerimenti di Ricerca di Azure](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indicizzatori e origini dati
 
@@ -295,7 +295,7 @@ Quando si utilizza la tecnica dell’eliminazione temporanea, è possibile speci
 | uniqueidentifer |Edm.String | |
 | geography |Edm.GeographyPoint |Sono supportate solo le istanze geografiche di tipo POINT con SRID 4326 (ossia l'impostazione predefinita) |
 | rowversion |N/D |Le colonne di versione di riga non possono essere archiviate nell'indice di ricerca, ma possono essere usate per il rilevamento modifiche |
-| time, timespan, binary, varbinary, image, xml, geometry, CLR types |N/D |Non supportate |
+| time, timespan, binary, varbinary, image, xml, geometry, CLR types |N/D |Non supportato |
 
 ## <a name="configuration-settings"></a>Impostazioni di configurazione
 L'indicizzatore SQL espone diverse impostazioni di configurazione:

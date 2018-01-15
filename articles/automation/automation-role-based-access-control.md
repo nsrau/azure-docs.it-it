@@ -10,16 +10,16 @@ keywords: controllo degli accessi in base al ruolo di Automazione, controllo deg
 ms.assetid: 04b5625e-0ee8-4b5b-85cd-7734c1b3d4a3
 ms.service: automation
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/30/2016
 ms.author: magoedte;sngun
-ms.openlocfilehash: 59ec4000645583b8cd35f7e8e475b95ea5499232
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 9a115301e173b3d5cb3a4ac527ed1b01bc9cc421
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controllo degli accessi in base al ruolo in Automazione di Azure
 ## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
@@ -32,7 +32,7 @@ In Automazione di Azure l'accesso viene concesso assegnando il ruolo Controllo d
 |:--- |:--- |
 | Proprietario |Il ruolo Proprietario consente l'accesso a tutte le risorse e le azioni in un account di automazione, inclusa la possibilità di concedere l'accesso ad altri utenti e gruppi e ad altre applicazioni per gestire l'account di automazione. |
 | Collaboratore |Il ruolo Collaboratore consente di gestire tutto, tranne la modifica delle autorizzazioni di accesso di altri utenti a un account di automazione. |
-| Lettore |Il ruolo Lettore consente di visualizzare tutte le risorse in un account di automazione, ma non di apportare modifiche. |
+| Reader |Il ruolo Lettore consente di visualizzare tutte le risorse in un account di automazione, ma non di apportare modifiche. |
 | Operatore di automazione |Il ruolo Operatore di automazione permette di eseguire attività operative, tra cui l'avvio, l'arresto, la sospensione, la ripresa e la pianificazione di processi. Questo ruolo è utile per proteggere le risorse dell'account di automazione, come asset delle credenziali e runbook, dalla visualizzazione o dalla modifica, consentendo però ai membri dell'organizzazione di eseguire i runbook. |
 | Amministratore accessi utente |Il ruolo Amministratore Accesso utenti consente di gestire l'accesso utente agli account di automazione di Azure. |
 
@@ -140,13 +140,13 @@ La tabella seguente illustra le azioni specifiche che possono essere eseguite da
 ### <a name="add-a-new-user-and-assign-a-role"></a>Aggiungere un nuovo utente e assegnare un ruolo
 1. Nella pagina Utenti fare clic su **Aggiungi** per aprire la pagina **Aggiungi accesso**, in cui è possibile aggiungere un utente, un gruppo o un'applicazione cui assegnare un ruolo.  
    
-   ![Add user](media/automation-role-based-access-control/automation-02-add-user.png)  
+   ![Aggiungi utente](media/automation-role-based-access-control/automation-02-add-user.png)  
 2. Selezionare un ruolo dall'elenco di ruoli disponibili. Qui si sceglierà il ruolo **Lettore** , ma è possibile scegliere uno qualsiasi dei ruoli predefiniti disponibili supportati da un account di automazione oppure un ruolo personalizzato definito dall'utente.  
    
    ![Selezionare il ruolo](media/automation-role-based-access-control/automation-03-select-role.png)  
 3. Fare clic su **Aggiungi utenti** per aprire la pagina **Aggiungi utenti**. Se sono stati aggiunti utenti, gruppi o applicazioni per gestire la sottoscrizione, questi saranno elencati e si potranno selezionare per aggiungere l'accesso. Se non è elencato alcun utente o se l'utente che si vuole aggiungere non è nell'elenco, fare clic su **Invita** per aprire la pagina **Invitare un utente guest**, in cui è possibile invitare un utente con un indirizzo di posta elettronica di un account Microsoft valido, ad esempio Outlook.com, OneDrive o ID Xbox Live. Dopo aver immesso l'indirizzo di posta elettronica dell'utente, fare clic su **Seleziona** per aggiungere l'utente e quindi fare clic su **OK**. 
    
-   ![Aggiungi utenti](media/automation-role-based-access-control/automation-04-add-users.png)  
+   ![Aggiungere utenti](media/automation-role-based-access-control/automation-04-add-users.png)  
    
    L'utente aggiunto verrà ora visualizzato nella pagina **Utenti** con il ruolo **Lettore** assegnato.  
    

@@ -4,7 +4,7 @@ description: Viene descritto come disimballare, montare su rack e cablare il dis
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: 
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/24/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 309ceba2d65c0745ba1acac698acb62526ab8078
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a8b460441323cb668a3d9939cce434636afc44d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8600
 ## <a name="overview"></a>Panoramica
@@ -38,7 +38,7 @@ Prima di disimballare il dispositivo, consultare le informazioni seguenti.
 Successivamente, completare la procedura seguente per disimballare il dispositivo.
 
 #### <a name="to-unpack-your-device"></a>Per disimballare il dispositivo
-1. Controllare le scatole e le protezioni in schiuma per verificare l'eventuale presenza di ammaccature, tagli, danni provocati dall'acqua o altri danni evidenti. Se la scatola o le protezioni risultano danneggiate in modo grave, non aprire la confezione. [Contattare il Supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) per istruzioni su come verificare il corretto funzionamento del dispositivo.
+1. Controllare le scatole e le protezioni in schiuma per verificare l'eventuale presenza di ammaccature, tagli, danni provocati dall'acqua o altri danni evidenti. Se la scatola o le protezioni risultano danneggiate in modo grave, non aprire la confezione. [Contattare il Supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) per istruzioni su come verificare il corretto funzionamento del dispositivo.
 2. Aprire la scatola esterna ed estrarre le due scatole corrispondenti all’enclosure principale e all’enclosure EBOD. È ora possibile disimballare l'enclosure principale e l'enclosure EBOD. Nella figura seguente viene illustrato uno degli enclosure disimballato.
    
     ![Disimballare il dispositivo di archiviazione](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
@@ -66,7 +66,7 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
    * 2 kit per il montaggio in rack (4 guide laterali con componenti di montaggio, 2 per l'enclosure principale e 2 per l'enclosure EBOD), 1 in ciascuna scatola
    * Guida introduttiva
      
-     In caso di mancato ricevimento di uno qualsiasi degli elementi sopra elencati, [Contattare il supporto tecnico Microsoft](storsimple-contact-microsoft-support.md).  
+     In caso di mancato ricevimento di uno qualsiasi degli elementi sopra elencati, [Contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md).  
 
 Il passaggio successivo consiste nel montaggio su rack del dispositivo.
 
@@ -201,7 +201,7 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
    
     **Parte posteriore del dispositivo con le porte dati**
    
-   | Etichetta | Description |
+   | Etichetta | Descrizione |
    | --- | --- |
    |   0,1,4,5 |Interfacce di rete da 1 GbE |
    |   2,3 |Interfacce di rete da 10 GbE |
@@ -234,7 +234,7 @@ Quando si effettua il cablaggio del dispositivo, la configurazione minima richie
 Da tenere presente per prestazioni e disponibilità elevate:
 
 * Se possibile, configurare in ogni controller una coppia di interfacce di rete per l'accesso al cloud (1 GbE) e un'altra coppia per iSCSI (10 GbE consigliati).
-* Se possibile, collegare le interfacce di rete di ogni controller a due interruttori diversi per assicurare la disponibilità in caso di malfunzionamento di un interruttore. L'immagine illustra le due interfacce di rete 10 GbE, DATA 2 e DATA 3, di ogni controller connesso a due diversi interruttori. Per altre informazioni, consultare le **interfacce di rete** sotto i [requisiti di disponibilità elevata per il dispositivo StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
+* Se possibile, collegare le interfacce di rete di ogni controller a due interruttori diversi per assicurare la disponibilità in caso di malfunzionamento di un interruttore. L'immagine illustra le due interfacce di rete 10 GbE, DATA 2 e DATA 3, di ogni controller connesso a due diversi interruttori. Per altre informazioni, consultare le **interfacce di rete** sotto i [requisiti di disponibilità elevata per il dispositivo StorSimple](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
 > Se si usano ricetrasmettitori SFP+ con interfacce di rete 10 GbE, usare le schede QSFP-SFP+ fornite di serie. Per altre informazioni, passare a [Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
@@ -266,5 +266,5 @@ Per cablare la porta seriale, attenersi alla seguente procedura.
 Il cablaggio del dispositivo per l'alimentazione, l'accesso di rete e la connessione seriale sono stati completati. Il passaggio successivo consiste nella configurazione del software sul dispositivo.
 
 ## <a name="next-steps"></a>Passaggi successivi
-A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-deployment-walkthrough-u2.md).
+A questo punto è possibile [distribuire e configurare il dispositivo StorSimple locale](storsimple-8000-deployment-walkthrough-u2.md).
 

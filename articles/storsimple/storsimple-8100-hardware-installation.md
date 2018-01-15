@@ -4,7 +4,7 @@ description: Viene descritto come disimballare, montare su rack e cablare il dis
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: 
 ms.assetid: 6098a01e-c031-488a-a8d7-0b607ce665e1
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 102dffcd73f3d3b9362d7b2853faa060e9c645dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fbc407a9792d033037fdaa2b14f4055d94c15ab
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Disimballaggio, montaggio su rack e cablaggio del dispositivo StorSimple 8100
 ## <a name="overview"></a>Panoramica
@@ -30,7 +30,7 @@ Nella seguente procedura vengono fornite istruzioni chiare e dettagliate su come
 ### <a name="prepare-to-unpack-your-device"></a>Preparazione del disimballaggio del dispositivo
 Prima di disimballare il dispositivo, consultare le informazioni seguenti.
 
-![Icona di avviso](./media/storsimple-safety/IC740879.png)![icona peso elevato](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **AVVISO**
+![Icona di avviso](./media/storsimple-safety/IC740879.png)![icona peso elevato](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)**AVVISO**
 
 1. Accertarsi che siano disponibili almeno due persone per sostenere il peso dell'enclosure, nel caso in cui debba essere trasportato manualmente. Un'enclosure completamente configurata può pesare fino a 32 kg.
 2. Posizionare la scatola su una superficie piana e orizzontale.
@@ -38,7 +38,7 @@ Prima di disimballare il dispositivo, consultare le informazioni seguenti.
 Successivamente, completare la procedura seguente per disimballare il dispositivo.
 
 #### <a name="to-unpack-your-device"></a>Per disimballare il dispositivo
-1. Controllare le scatole e le protezioni in schiuma per verificare l'eventuale presenza di ammaccature, tagli, danni provocati dall'acqua o altri danni evidenti. Se la scatola o le protezioni risultano danneggiate in modo grave, non aprire la confezione. [Contattare il Supporto tecnico Microsoft](storsimple-contact-microsoft-support.md) per istruzioni su come verificare il corretto funzionamento del dispositivo.
+1. Controllare le scatole e le protezioni in schiuma per verificare l'eventuale presenza di ammaccature, tagli, danni provocati dall'acqua o altri danni evidenti. Se la scatola o le protezioni risultano danneggiate in modo grave, non aprire la confezione. [Contattare il Supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) per istruzioni su come verificare il corretto funzionamento del dispositivo.
 2. Disimballare la scatola. La figura seguente illustra il dispositivo StorSimple disimballato.
    
      ![Disimballare il dispositivo di archiviazione](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
@@ -64,7 +64,7 @@ Successivamente, completare la procedura seguente per disimballare il dispositiv
    * 1 kit per il montaggio in rack (2 guide laterali con componenti di montaggio)
    * Guida introduttiva
      
-     In caso di mancato ricevimento di uno qualsiasi degli elementi sopra elencati, [contattare il Supporto Tecnico Microsoft](storsimple-contact-microsoft-support.md).
+     In caso di mancato ricevimento di uno qualsiasi degli elementi sopra elencati, [contattare il Supporto Tecnico Microsoft](storsimple-8000-contact-microsoft-support.md).
 
 Il passaggio successivo consiste nel montaggio su rack del dispositivo.
 
@@ -187,7 +187,7 @@ Per supportare il failover del controller ridondante, è necessario cablare la r
    
     **Parte posteriore del dispositivo con le porte dati**
    
-   | Etichetta | Description |
+   | Etichetta | Descrizione |
    | --- | --- |
    |   0,1,4,5 |Interfacce di rete da 1 GbE |
    |   2,3 |Interfacce di rete da 10 GbE |
@@ -220,7 +220,7 @@ Da tenere presente per prestazioni e disponibilità elevate:
 * Se possibile, configurare in ogni controller una coppia di interfacce di rete per l'accesso al cloud (1 GbE) e un'altra coppia per iSCSI (10 GbE consigliati).
 * Se possibile, collegare le interfacce di rete di ogni controller a due interruttori diversi per assicurare la disponibilità in caso di malfunzionamento di un interruttore. L'immagine illustra le due interfacce di rete 10 GbE, DATA 2 e DATA 3, di ogni controller connesso a due diversi interruttori.
 
-Per altre informazioni, consultare le **interfacce di rete** sotto i [requisiti di disponibilità elevata per il dispositivo StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
+Per altre informazioni, consultare le **interfacce di rete** sotto i [requisiti di disponibilità elevata per il dispositivo StorSimple](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
 > Se si usano ricetrasmettitori SFP+ con interfacce di rete 10 GbE, usare le schede QSFP-SFP+ di serie. Per altre informazioni, passare a [Hardware supportato per le interfacce di rete 10 GbE sul dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
@@ -246,5 +246,5 @@ Per cablare la porta seriale, attenersi alla seguente procedura.
 Il dispositivo è ora collegato per l'alimentazione, l'accesso di rete e quello seriale. Il passaggio successivo prevede la configurazione del software e la distribuzione del dispositivo.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Informazioni su come [distribuire e configurare un dispositivo StorSimple locale](storsimple-deployment-walkthrough-u2.md).
+Informazioni su come [distribuire e configurare un dispositivo StorSimple locale](storsimple-8000-deployment-walkthrough-u2.md).
 

@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: True
 title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
-ms.openlocfilehash: aba00d7c90d173ecf58fedc1b8af5d1be418358c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 85745cf147296e053824a879108c1ea607343f57
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -292,7 +292,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/sql-server-stretch-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
-                                                <p>Estensione database di SQL Server</p>
+                                                <p>SQL Server Stretch Database</p>
                                             </a>
                                         </li>
                                         <li>
@@ -388,7 +388,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/sql-server-stretch-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
-                                                <p>Estensione database di SQL Server</p>
+                                                <p>SQL Server Stretch Database</p>
                                             </a>
                                         </li>
                                         <li>
@@ -474,7 +474,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                         <a href="/azure/traffic-manager/">
                                                 <img src="media/index/TrafficManager.svg" alt="" />
-                                                <p>Gestione traffico</p>
+                                                <p>servizio Gestione traffico</p>
                                             </a>
                                         </li>
                                         <li>
@@ -591,7 +591,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/cognitive-services/Custom-Vision-Service/home">
                                                 <img src="media/index/cs-custom-vision.svg" alt="" />
-                                                <p>Ricerca visione personalizzata</p>
+                                                <p>Servizio visione personalizzata</p>
                                             </a>
                                         </li>
                                         <li>
@@ -682,7 +682,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                                <p>Archivio Data Lake</p>
                                             </a>
                                         </li>
                                         <li>
@@ -721,13 +721,13 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Analisi di flusso</p>
+                                                <p>Analisi dei flussi</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/data-catalog/">
                                                 <img src="media/index/data-catalog.svg" alt="" />
-                                                <p>Data Catalog</p>
+                                                <p>Catalogo dati</p>
                                             </a>
                                         </li>
                                         <li>
@@ -739,7 +739,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                                <p>Archivio Data Lake</p>
                                             </a>
                                         </li>
                                         <li>
@@ -835,7 +835,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Analisi di flusso</p>
+                                                <p>Analisi dei flussi</p>
                                             </a>
                                         </li>
                                         <li>
@@ -894,7 +894,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
-                                                <p>Ricerca</p>
+                                                <p>Cerca</p>
                                             </a>
                                         </li>
                                         <li>
@@ -921,7 +921,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/key-vault/">
                                                 <img src="media/index/KeyVault.svg" alt="" />
-                                                <p>Insieme di credenziali delle chiavi</p>
+                                                <p>Insieme di credenziali di chiave</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1350,7 +1350,7 @@ ms.lasthandoff: 10/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Gestione traffico</h3>
+                                                    <h3>servizio Gestione traffico</h3>
                                                     <p>Instradare il traffico in ingresso per livelli elevati di prestazioni e disponibilità</p>
                                                 </div>
                                             </div>
@@ -1431,7 +1431,7 @@ ms.lasthandoff: 10/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
+                                                    <h3>Archivio Data Lake</h3>
                                                     <p>Repository con iperscalabilità per i carichi di lavoro di analisi dei Big Data</p>
                                                 </div>
                                             </div>
@@ -1626,7 +1626,7 @@ ms.lasthandoff: 10/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Ricerca</h3>
+                                                    <h3>Cerca</h3>
                                                     <p>Ricerca come servizio completamente gestita</p>
                                                 </div>
                                             </div>
@@ -1826,7 +1826,7 @@ ms.lasthandoff: 10/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Estensione database di SQL Server</h3>
+                                                    <h3>SQL Server Stretch Database</h3>
                                                     <p>Estendere in modo dinamico i database di SQL Server locali in Azure</p>
                                                 </div>
                                             </div>
@@ -2140,7 +2140,7 @@ ms.lasthandoff: 10/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Analisi di flusso</h3>
+                                                    <h3>Analisi dei flussi</h3>
                                                     <p>Elaborazione dei flussi di dati in tempo reale da milioni di dispositivi IoT</p>
                                                 </div>
                                             </div>
@@ -2159,7 +2159,7 @@ ms.lasthandoff: 10/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Catalog</h3>
+                                                    <h3>Catalogo dati</h3>
                                                     <p>Individuazione self-service di origini dati nell'intera organizzazione</p>
                                                 </div>
                                             </div>
@@ -2197,7 +2197,7 @@ ms.lasthandoff: 10/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
+                                                    <h3>Archivio Data Lake</h3>
                                                     <p>Repository con iperscalabilità per i carichi di lavoro di analisi dei Big Data</p>
                                                 </div>
                                             </div>
@@ -2373,7 +2373,7 @@ ms.lasthandoff: 10/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Analisi di flusso</h3>
+                                                    <h3>Analisi dei flussi</h3>
                                                     <p>Elaborazione dei flussi di dati in tempo reale da milioni di dispositivi IoT</p>
                                                 </div>
                                             </div>
@@ -2530,7 +2530,7 @@ ms.lasthandoff: 10/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Estensione database di SQL Server</h3>
+                                                    <h3>SQL Server Stretch Database</h3>
                                                     <p>Estendere in modo dinamico i database di SQL Server locali in Azure</p>
                                                 </div>
                                             </div>
@@ -2611,7 +2611,7 @@ ms.lasthandoff: 10/11/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Insieme di credenziali delle chiavi</h3>
+                                                    <h3>Insieme di credenziali di chiave</h3>
                                                     <p>Informazioni su come gestire segreti e chiavi crittografiche</p>
                                                 </div>
                                             </div>
