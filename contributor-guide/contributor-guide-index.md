@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 12/19/2014
 ms.author: tysonn
 ms.openlocfilehash: a461f9b625b3561ece9ea10027b529b0a94e4c53
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/15/2018
 ---
 # <a name="azure-technical-content-contributors-guide-index"></a>Indice della Guida per Azure tecniche collaboratori ai contenuti
 

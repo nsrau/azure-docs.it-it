@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
 ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/15/2018
 ---
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Connettersi a Dynamics 365 da flussi di lavoro di app per la logica
 
@@ -30,7 +30,7 @@ Con il servizio App per la logica è possibile connettersi a Dynamics 365 (onlin
 
 Questo argomento illustra come creare un'app per la logica che crea un'attività in Dynamics 365 ogni volta che viene creato un nuovo lead in Dynamics 365.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * Un account Azure.
 * Un account Dynamics 365 (online).
 
@@ -113,7 +113,7 @@ Ad esempio, è possibile usare una query di filtro per recuperare solo gli accou
 
 Quando si aggiunge un valore a un campo, il tipo di campo deve corrispondere, indipendentemente dal fatto che il valore venga digitato o selezionato nell'elenco del contenuto dinamico.
 
-Tipo di campo  |Utilizzo  |Posizione  |Nome  |Tipo di dati  
+Tipo di campo  |Utilizzo  |Posizione  |NOME  |Tipo di dati  
 ---------|---------|---------|---------|---------
 Campi di testo|I campi di testo richiedono una singola riga di testo oppure contenuto dinamico costituito da un campo di tipo testo. Ad esempio, i campi Categoria e Sottocategoria.|Impostazioni > Personalizzazioni > Personalizza il sistema > Entità > Attività > Campi |category |Riga di testo singola        
 Campi di tipo Integer | Alcuni campi richiedono Integer oppure contenuto dinamico costituito da un campo di tipo Integer. Ad esempio, Percentuale completamento e Durata. |Impostazioni > Personalizzazioni > Personalizza il sistema > Entità > Attività > Campi |percentcomplete |Numero intero         
@@ -147,7 +147,7 @@ In alternativa, sulla barra degli strumenti delle azioni fare clic su **Invia li
 
    ![ID record e tipo account nel flusso](./media/connectors-create-api-crmonline/recordid.png)
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 Per risolvere i problemi relativi a un passaggio non riuscito in un'app per la logica, visualizzare i dettagli dello stato dell'evento.
 
 1. In **App per la logica**, selezionare l'app per la logica e quindi fare clic su **Panoramica**. 

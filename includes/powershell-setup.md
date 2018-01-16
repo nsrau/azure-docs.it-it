@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 05/12/2015
 ms.author: rasquill
 ms.openlocfilehash: 19c704d965ff3e2fc9ac8c5b623aeb386cb0b974
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/15/2018
 ---
 ## <a name="setting-up-powershell"></a>Configurazione di PowerShell
 Prima di usare Azure PowerShell, seguire questi passaggi.

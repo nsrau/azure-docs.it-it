@@ -4,7 +4,7 @@ description: Come usare Fiddler o Postman per inviare richieste HTTP e chiamate 
 services: search
 documentationcenter: 
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 
 ms.service: search
@@ -12,17 +12,17 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2017
+ms.date: 01/04/2018
 ms.author: heidist
-ms.openlocfilehash: d8da3f02fab90e0c690e320736409a4d113d634c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: a9a6bc035ba9f02057e3086a9682b54282da19f3
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>Esplorare le API REST di Ricerca di Azure con Fiddler o Postman
 
-Uno dei modi più semplici per esplorare l'[API REST di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice) consiste nell'usare Fiddler o Postman per formulare le richieste HTTP e analizzare le risposte. In questo articolo si sperimentano i payload di richiesta e di risposta senza dover scrivere codice.
+Uno dei modi più semplici per esplorare l'[API REST di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice) consiste nell'usare Fiddler o Postman per formulare le richieste HTTP e analizzare le risposte. Con gli strumenti corretti e con queste istruzioni è possibile inviare richieste e visualizzare le risposte prima di scrivere codice.
 
 > [!div class="checklist"]
 > * Scaricare uno strumento di test delle API Web
@@ -76,7 +76,7 @@ Formulare una richiesta simile allo screenshot seguente. Scegliere **PUT** come 
 > [!Tip]
 > È possibile disattivare il traffico Web per nascondere l'attività HTTP estranea non correlata alle attività che si stanno eseguendo. In Fiddler passare al menu **File** e disattivare l'opzione **Capture Traffic** (Acquisisci traffico). 
 
-### <a name="postman"></a>Postman
+### <a name="postman"></a>postman
 
 Formulare una richiesta simile allo screenshot seguente. Scegliere **PUT** come verbo. 
 
@@ -118,7 +118,7 @@ Copiare la definizione di indice nel corpo della richiesta, in modo analogo allo
 
 ![Corpo della richiesta Fiddler][7]
 
-### <a name="postman"></a>Postman
+### <a name="postman"></a>postman
 
 Copiare la definizione di indice nel corpo della richiesta, in modo analogo allo screenshot seguente, e quindi fare clic su **Send** (Invia) in alto a destra per inviare la richiesta completata.
 
@@ -208,7 +208,7 @@ Modificare il verbo in **POST**. Modificare l'URL per includere `/docs/index`. C
 
 ![Payload della richiesta Fiddler][9]
 
-### <a name="postman"></a>Postman
+### <a name="postman"></a>postman
 
 Modificare il verbo in **POST**. Modificare l'URL per includere `/docs/index`. Copiare i documenti nel corpo della richiesta, in modo analogo allo screenshot seguente, e quindi eseguire la richiesta.
 
