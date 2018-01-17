@@ -7,11 +7,12 @@ ms.author: csand
 ms.date: 12/14/2017
 ms.topic: quickstart
 ms.service: automation
-ms.openlocfilehash: 55bed1bc4788799465e87e65b136ff9e51318fbd
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.custom: mvc
+ms.openlocfilehash: 34ae160c5e19e161f4412838e377a844c737728d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-an-azure-automation-runbook"></a>Creare un runbook di Automazione di Azure
 
@@ -71,7 +72,7 @@ Dopo avere creato il runbook, lo si testa per convalidarne il funzionamento.
 
 1. Nella pagina **Modifica runbook di PowerShell** fare clic su **Pubblica** per pubblicare il runbook come versione ufficiale del runbook nell'account.
 
-   ![Panoramica del runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-overview.png)
+   ![Processo di test del runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
 
 ## <a name="run-the-runbook"></a>Eseguire il runbook
 
@@ -83,11 +84,11 @@ Dopo la pubblicazione del runbook, viene visualizzata la pagina di panoramica.
 
 1. Lasciare vuoto **Nome** in modo che venga usato il valore predefinito e fare clic su **OK**. Viene inviato il processo del runbook e viene visualizzata la pagina del processo.
 
-   ![Processo di test del runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
+   ![Processo di test del runbook](./media/automation-quickstart-create-runbook/automation-job-page.png)
 
 1. Quando **Stato processo** viene impostato su **In esecuzione** o su **Completato**, fare clic su **Output** per aprire il riquadro **Output** e visualizzare l'output del runbook.
 
-    ![Processo di test del runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
+   ![Processo di test del runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

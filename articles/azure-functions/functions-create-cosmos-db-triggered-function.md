@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 2a4037d68413fb02ab3fe0c9a82af2ae22d10e68
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ff0c468179ef7b71151b64426bf2e6701d5032fe
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creare una funzione attivata da Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Informazioni su come creare una funzione attivata quando i dati vengono aggiunti
 
 ![Visualizzare il messaggio nei log.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione:
 
@@ -60,7 +60,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
     
     | Impostazione      | Valore consigliato  | Descrizione                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Nome** | Default | Usare il nome della funzione predefinito suggerito dal modello. |
+    | **Nome** | Predefinito | Usare il nome della funzione predefinito suggerito dal modello. |
     | **Nome raccolta** | Items | Nome della raccolta da monitorare. |
     | **Creare la raccolta di lease se non esiste** | Selezionato | La raccolta non esiste ancora, quindi crearla. |
     | **Database name** (Nome database) | Attività | Nome del database con la raccolta da monitorare. |
@@ -71,7 +71,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
 6. Quando si crea un nuovo account Cosmos DB, usare le impostazioni del **nuovo account** come indicato nella tabella.
 
-    | Impostazione      | Valore consigliato  | Descrizione                                |
+    | Impostazione      | Valore consigliato  | DESCRIZIONE                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **ID** | Nome del database | ID univoco per il database di Azure Cosmos DB  |
     | **API** | SQL (DocumentDB) | Questo argomento usa l'API del database di documenti.  |
@@ -107,7 +107,7 @@ Successivamente, connettersi al proprio account di Azure Cosmos DB e creare la r
  
     ![Definire taskCollection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection2.png)
  
-    | Impostazione|Valore consigliato|Descrizione |
+    | Impostazione|Valore consigliato|DESCRIZIONE |
     | ---|---|--- |
     | **ID database** | Attività |Nome del nuovo database. Deve corrispondere al nome definito nell'associazione della funzione. |
     | **ID raccolta** | Items | Nome della nuova raccolta. Deve corrispondere al nome definito nell'associazione della funzione.  |
@@ -149,4 +149,4 @@ Dopo aver creato la raccolta specificata nell'associazione della funzione, è po
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-Per altre informazioni sui trigger di Azure Cosmos DB, vedere [Binding di Azure Cosmos DB per Funzioni di Azure](functions-bindings-documentdb.md).
+Per altre informazioni sui trigger di Azure Cosmos DB, vedere [Binding di Azure Cosmos DB per Funzioni di Azure](functions-bindings-cosmosdb.md).

@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 29153180da576f144a3f21718c3044b7b843eafb
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: c7fff37e1b59fd90952826a1410a8dd8c6931e77
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Creare un'applicazione .NET Framework o Core tramite l'API Graph
 
@@ -65,7 +65,7 @@ Questo progetto di esempio usa il formato di progetto .NET Core ed è stato conf
 
 Ecco una breve panoramica delle operazioni eseguire nell'app. Aprire il file Program.cs. Come si noterà, queste righe di codice creano le risorse di Azure Cosmos DB. 
 
-* Viene inizializzato DocumentClient. Nell'anteprima è stata aggiunta un'API di estensione Graph nel client Azure Cosmos DB. È in corso lo sviluppo di un client Graph autonomo separato dal client e dalle risorse di Azure Cosmos DB.
+* Viene inizializzato DocumentClient. 
 
     ```csharp
     using (DocumentClient client = new DocumentClient(
@@ -122,17 +122,11 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
     `"endpoint": "https://testgraphacct.documents.azure.com:443/",`
 
-3. Se l'account del database a grafo è stato creato prima del 27 novembre 2017, sostituire `documents` con `graphs` nel valore di `endpoint`. Se l'account del database a grafo è stato creato il 27 novembre 2017 o dopo, sostituire `documents` con `gremlin.cosmosdb` nel valore di `endpoint`.
-
-    Il valore dell'endpoint dovrebbe ora essere simile all'output seguente:
-
-    `"endpoint": "https://testgraphacct.graphs.azure.com:443/",` oppure `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/",`
-
-4. Copiare il valore di **CHIAVE PRIMARIA** dal portale e impostarlo come valore della chiave AuthKey in App.config, quindi salvare le modifiche. 
+3. Copiare il valore di **CHIAVE PRIMARIA** dal portale e impostarlo come valore della chiave AuthKey in App.config, quindi salvare le modifiche. 
 
     `"authkey": "FILLME"`
 
-5. Salvare il file appsettings.json. 
+4. Salvare il file appsettings.json. 
 
 L'app è stata aggiornata con tutte le informazioni necessarie per comunicare con Azure Cosmos DB. 
 

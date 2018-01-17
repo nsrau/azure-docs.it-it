@@ -19,7 +19,7 @@ ms.openlocfilehash: 7e48c60eb7305a1044db88489cad1f1b7fb3d522
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="get-started-with-the-box-connector"></a>Introduzione al connettore Box
 Connettersi a Box per creare ed eliminare file e così via. Con Box è possibile:
