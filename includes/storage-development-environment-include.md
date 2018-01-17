@@ -2,15 +2,15 @@
 Configurare quindi l'ambiente di sviluppo in Visual Studio per poter provare gli esempi di codice di questa guida.
 
 ### <a name="create-a-windows-console-application-project"></a>Creare un progetto di applicazione console di Windows
-In Visual Studio creare una nuova applicazione console di Windows. La procedura seguente illustra come creare un'applicazione console in Visual Studio 2017, ma i passaggi sono simili anche per le altre versioni di Visual Studio.
+In Visual Studio creare una nuova applicazione console di Windows. La procedura seguente illustra come creare un'applicazione console in Visual Studio 2017. La procedura è simile per le altre versioni di Visual Studio.
 
-1. Selezionare **File** > **Nuovo** > **Progetto**
+1. Selezionare **File** > **Nuovo** > **Progetto**.
 2. Selezionare **Installati** > **Modelli** > **Visual C#** > **Desktop classico di Windows**
 3. Selezionare **App console (.NET Framework)**
-4. Immettere un nome per l'applicazione nel campo **Nome**
+4. Nel campo **Nome** immettere un nome per l'applicazione.
 5. Selezionare **OK**.
 
-![Finestra di dialogo di creazione del progetto in Visual Studio](./media/storage-development-environment-include/storage-development-environment-include-1.png)
+![Screenshot della finestra di dialogo Nuovo progetto in Visual Studio](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
 Tutti gli esempi di codice in questa esercitazione possono essere aggiunti al metodo `Main()` del file `Program.cs` dell'applicazione console.
 
@@ -25,8 +25,8 @@ Per completare questa esercitazione, è necessario fare riferimento a due pacche
 Per ottenere entrambi i pacchetti, è possibile usare NuGet. A tale scopo, seguire questa procedura:
 
 1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**.
-2. Cercare online "WindowsAzure.Storage" e fare clic su **Installa** per installare il pacchetto della libreria client di archiviazione e le relative dipendenze.
-3. Cercare online "WindowsAzure.ConfigurationManager" e fare clic su **Installa** per installare Gestione configurazione di Azure.
+2. Cercare online "WindowsAzure.Storage" e selezionare **Installa** per installare il pacchetto della libreria client di archiviazione e le relative dipendenze.
+3. Cercare online "WindowsAzure.ConfigurationManager" e selezionare **Installa** per installare Gestione configurazione di Azure.
 
 > [!NOTE]
 > Il pacchetto della libreria client di archiviazione è incluso anche in [Azure SDK per .NET](https://azure.microsoft.com/downloads/). È tuttavia consigliabile installare anche la libreria client di archiviazione da NuGet per assicurarsi di avere sempre la versione più recente di questa libreria.
@@ -39,7 +39,7 @@ Per ottenere entrambi i pacchetti, è possibile usare NuGet. A tale scopo, segui
 Sono disponibili due opzioni relative all'ambiente per l'esecuzione degli esempi di questa guida:
 
 * È possibile eseguire il codice con un account di archiviazione di Azure nel cloud. 
-* È possibile eseguire il codice nell'emulatore di archiviazione di Azure. L'emulatore di archiviazione è un ambiente locale che emula un account di archiviazione di Azure nel cloud. L'emulatore è un'opzione gratuita per il test e il debug del codice durante lo sviluppo dell'applicazione. L'emulatore usa un account e una chiave noti. Per altre informazioni, vedere [Usare l'emulatore di archiviazione di Azure per sviluppo e test](../articles/storage/common/storage-use-emulator.md)
+* È possibile eseguire il codice nell'emulatore di archiviazione di Azure. L'emulatore di archiviazione è un ambiente locale che emula un account di archiviazione di Azure nel cloud. L'emulatore è un'opzione gratuita per il test e il debug del codice durante lo sviluppo dell'applicazione. L'emulatore usa un account e una chiave noti. Per altre informazioni, vedere [Usare l'emulatore di archiviazione di Azure per sviluppo e test](../articles/storage/common/storage-use-emulator.md).
 
 Se si specifica come destinazione un account di archiviazione nel cloud, immettere la chiave di accesso primaria per tale account tramite il portale di Azure. Per altre informazioni, vedere [Gestire le chiavi di accesso alle risorse di archiviazione](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 0910d5802d64ca637b3ecd1e392a6df8629c7f25
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2985ed0b4bf5d9525bc2274d71b703922524f5a8
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Azure Site Recovery Deployment Planner per distribuzioni da VMware ad Azure
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
@@ -29,7 +29,7 @@ Prima di iniziare a proteggere le macchine virtuali VMware con Site Recovery, al
 
 È anche necessario creare il tipo e il numero corretti di account di archiviazione di Azure di destinazione. Per creare account di archiviazione Standard o Premium, si considera la crescita nei server di produzione di origine a causa del maggiore utilizzo nel tempo. Si sceglie il tipo di archiviazione per ogni VM in base alle caratteristiche del carico di lavoro (ad esempio, le operazioni di I/O al secondo in lettura/scrittura o la varianza dati) e ai limiti di Site Recovery.
 
-Azure Site Recovery Deployment Planner (versione 2) è uno strumento da riga di comando disponibile per gli scenari di ripristino di emergenza da Hyper-V ad Azure e da VMware ad Azure. Questo strumento consente di profilare le VM VMware in modalità remota, senza alcun impatto sulla produzione, per determinare i requisiti di larghezza di banda e archiviazione di Azure per operazioni di replica e failover di test. È possibile eseguire lo strumento senza installare alcun componente di Site Recovery in locale. Per ottenere risultati accurati sulla velocità effettiva ottenuta, è tuttavia consigliabile eseguire lo strumento di pianificazione in un server Windows che soddisfi i requisiti minimi del server di configurazione di Site Recovery che dovrà essere successivamente distribuito nell'ambito di uno dei primi passaggi della distribuzione di produzione.
+Azure Site Recovery Deployment Planner è uno strumento da riga di comando per scenari di distribuzione con ripristino di emergenza da Hyper-V ad Azure e da VMware ad Azure. Questo strumento consente di profilare le VM VMware in modalità remota, senza alcun impatto sulla produzione, per determinare i requisiti di larghezza di banda e archiviazione di Azure per operazioni di replica e failover di test. È possibile eseguire lo strumento senza installare alcun componente di Site Recovery in locale. Per ottenere risultati accurati sulla velocità effettiva ottenuta, è tuttavia consigliabile eseguire lo strumento di pianificazione in un server Windows che soddisfi i requisiti minimi del server di configurazione di Site Recovery che dovrà essere successivamente distribuito nell'ambito di uno dei primi passaggi della distribuzione di produzione.
 
 Lo strumento indica i dettagli seguenti:
 
@@ -106,9 +106,9 @@ La cartella contiene più file e sottocartelle. Il file eseguibile è ASRDeploym
 
     Esempio:  
     Copiare il file ZIP nell'unità E:\ ed estrarlo.
-   E:\ASR Deployment Planner_v2.0zip
+   E:\ASR Deployment Planner_v2.1zip
 
-    E:\ASR Deployment Planner_v2.0\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Aggiornamento alla versione più recente di Deployment Planner
 Se si ha una versione precedente di Deployment Planner, eseguire una di queste operazioni:
@@ -121,6 +121,11 @@ Se si ha una versione precedente di Deployment Planner, eseguire una di queste o
  >Quando si avvia la profilatura con la nuova versione, passare lo stesso percorso della directory di output in modo che lo strumento accodi i dati del profilo nei file esistenti. Un set completo di dati profilati verrà usato per generare il report. Se si passa una directory di output diversa, vengono creati nuovi file e i dati profilati precedenti non vengono usati per generare il report.
  >
  >Ogni nuova utilità di pianificazione delle distribuzioni è un aggiornamento cumulativo del file ZIP. Non è necessario copiare i file più recenti nella cartella precedente. È possibile creare e usare una nuova cartella.
+
+
+## <a name="version-history"></a>Cronologia delle versioni
+La versione più recente di Azure Site Recovery Deployment Planner è la 2.1.
+Per le correzioni aggiunte in ogni aggiornamento, vedere la pagina [ASR Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) (Cronologia delle versioni di Azure Site Recovery Deployment Planner).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Eseguire Deployment Planner](site-recovery-vmware-deployment-planner-run.md).

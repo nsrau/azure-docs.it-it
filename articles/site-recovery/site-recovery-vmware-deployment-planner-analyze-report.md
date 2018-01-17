@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: fe50f159baedf5455c2ea3cfe825d6d826e70851
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: d8c4f5431d8e2d406cd5b203b468c447d4dd6e17
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Report di Azure Site Recovery Deployment Planner
 Il report di Microsoft Excel generato contiene i fogli riportati di seguito.
@@ -182,7 +182,7 @@ Si possono verificare situazioni in cui non è possibile impostare una larghezza
 
 **VM Name** (Nome macchina virtuale): nome o indirizzo IP della VM usato in VMListFile quando viene generato un report. Questa colonna elenca anche i dischi (VMDK) collegati alle VM. Per distinguere le VM vCenter con nomi o indirizzi IP duplicati, i nomi includono il nome dell'host ESXi. L'host ESXi elencato è quello in cui la VM è stata inserita quando lo strumento l'ha rilevata durante il periodo di profilatura.
 
-**VM Compatibility** (Compatibilità VM): i valori sono **Yes** e **Yes**\*. **Yes**\* è per i casi in cui la VM è idonea per l'[Archiviazione Premium di Azure](https://aka.ms/premium-storage-workload). Qui, il disco con varianza elevata o operazioni di I/O al secondo profilato è idoneo per la categoria P20 o P30, ma le dimensioni del disco prevedono la mappatura alla categoria P10 o P20. In base alle dimensioni, l'account di archiviazione decide a quale tipo di disco di archiviazione Premium mappare un disco. Ad esempio:
+**VM Compatibility** (Compatibilità VM): i valori sono **Yes** e **Yes**\*. **Yes**\* è per i casi in cui la VM è idonea per l'[Archiviazione Premium di Azure](https://aka.ms/premium-storage-workload). Qui, il disco con varianza elevata o operazioni di I/O al secondo profilato è idoneo per la categoria P20 o P30, ma le dimensioni del disco prevedono la mappatura alla categoria P10 o P20. In base alle dimensioni, l'account di archiviazione decide a quale tipo di disco di archiviazione Premium mappare un disco. Ad esempio: 
 * <128 GB rientrano nella categoria P10.
 * Da 128 GB a 256 GB rientrano nella categoria P15.
 * Da 256 GB a 512 GB rientrano nella categoria P20.
@@ -214,9 +214,9 @@ Se in virtù delle caratteristiche del carico di lavoro un disco appartiene alla
 
 **NICs** (Schede di interfaccia di rete): numero di schede di interfaccia di rete della VM.
 
-**Boot Type** (Tipo di avvio): tipo di avvio della macchina virtuale. Può essere BIOS o EFI. Azure Site Recovery supporta attualmente solo il tipo di avvio BIOS. Tutte le macchine virtuali con tipo di avvio EFI sono elencate nel foglio di lavoro VM incompatibili.
+**Boot Type** (Tipo di avvio): tipo di avvio della macchina virtuale. Può essere BIOS o EFI.  Attualmente Azure Site Recovery supporta VM Windows Server basate su EFI (Windows Server 2012, 2012 R2 e 2016), a condizione che il numero di partizioni nel disco di avvio sia inferiore a 4 e che i settori di avvio abbiano dimensioni di 512 byte. Per proteggere le VM basate su EFI, la versione del servizio Mobility di Azure Site Recovery deve essere la 9.13 o successive. Per le VM basate su EFI è supportato solo il failover. Il failback non è supportato.  
 
-**OS Type** (Tipo di sistema operativo): tipo di sistema operativo della macchina virtuale. Può essere Windows, Linux o altro.
+**OS Type** (Tipo di sistema operativo): tipo di sistema operativo della VM. Può essere Windows o Linux o un altro ancora, in base al modello scelto da VMware vSphere durante la creazione della VM.  
 
 ## <a name="incompatible-vms"></a>VM incompatibili
 
@@ -228,20 +228,31 @@ Se in virtù delle caratteristiche del carico di lavoro un disco appartiene alla
 **VM Compatibility** (Compatibilità VM): indica perché la VM è incompatibile per l'uso con Site Recovery. I motivi vengono descritti per ogni disco incompatibile della VM e, in base ai [limiti di archiviazione](https://aka.ms/azure-storage-scalbility-performance) pubblicati, possono essere uno dei seguenti:
 
 * Dimensioni disco superiori a 4095 GB. Archiviazione di Azure attualmente non supporta dischi dati di dimensioni superiori a 4095 GB.
+
 * Disco del sistema operativo superiore a 2048 GB. Archiviazione di Azure attualmente non supporta dischi del sistema operativo di dimensioni superiori a 2048 GB.
-* Il tipo di avvio è EFI. Azure Site Recovery supporta attualmente solo macchine virtuali con tipo di avvio BIOS.
 
 * Le dimensioni totali della VM (replica + failover di test) superano i limiti supportati dall'account di archiviazione (35 TB). Questa incompatibilità si verifica in genere quando un singolo disco della VM ha una caratteristica di prestazioni che supera i limiti massimi supportati da Azure o da Site Recovery per l'archiviazione Standard. In questo caso la VM rientra nell'area dell'archiviazione Premium. Le dimensioni massime supportate da un account di archiviazione Premium sono tuttavia pari a 35 TB e non è possibile proteggere una singola VM su più account di archiviazione. Si noti anche che, quando un failover di test viene eseguito in una VM protetta, viene eseguito nello stesso account di archiviazione in cui è in corso la replica. In questo caso, configurare il doppio delle dimensioni del disco per far sì che la replica prosegua e il failover di test venga completato in parallelo.
-* Le operazioni di I/O al secondo di origine superano il limite supportato di archiviazione di 5000 operazioni per ogni disco.
+
+* Le operazioni di I/O al secondo di origine superano il limite supportato di archiviazione di 7500 operazioni per disco.
+
 * Le operazioni di I/O al secondo di origine superano il limite supportato di archiviazione di 80.000 operazioni per ogni VM.
+
 * La varianza media dei dati supera il limite supportato da Site Recovery di 10 MB/s per le dimensioni I/O medie del disco.
-* La varianza totale dei dati per tutti i dischi della macchina virtuale supera il limite massimo supportato da Site Recovery di 54 MB/s per VM.
+
+* La varianza media dei dati supera il limite supportato da Site Recovery di 25 MB/s per le dimensioni di I/O medie della VM (somma della varianza di tutti i dischi).
+
+* Il picco di varianza dei dati per tutti i dischi nella VM supera il limite massimo supportato da Site Recovery di 54 MB/s per VM.
+
 * Le operazioni di I/O al secondo in scrittura superano il limite supportato da Site Recovery di 840 operazioni per disco.
+
 * L'archiviazione snapshot calcolata supera il limite supportato di 10 TB.
 
-**R/W IOPS (with Growth Factor)** (Operazioni di I/O al secondo in lettura/scrittura - con fattore di crescita): picco di operazioni di I/O al secondo del carico di lavoro nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che il numero totale di operazioni di I/O al secondo in lettura/scrittura della VM non è sempre costituito dalla somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi della VM, perché il picco di operazioni di I/O al secondo in lettura/scrittura della VM è il picco della somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi per ogni minuto del periodo di profilatura.
+* La varianza totale dei dati al giorno supera il limite di 2 TB supportato per ogni giorno da un server di elaborazione.
 
-**Data Churn in Mbps (with Growth Factor)** (Varianza dati in Mbps - con fattore di crescita): picco della frequenza di varianza nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che la varianza dei dati totale della VM non è sempre costituita dalla somma delle varianze dei singoli dischi della VM perché il picco della varianza dei dati corrisponde al picco della somma delle varianze dei singoli dischi per ogni minuto del periodo di profilatura.
+
+**R/W IOPS (with Growth Factor)** (Operazioni di I/O al secondo in lettura/scrittura - Con fattore di crescita): picco di operazioni di I/O al secondo per i carichi di lavoro nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che il numero totale di operazioni di I/O al secondo in lettura/scrittura della VM non è sempre costituito dalla somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi della VM, perché il picco di operazioni di I/O al secondo in lettura/scrittura della VM è il picco della somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi per ogni minuto del periodo di profilatura.
+
+**Peak Data Churn in Mbps (with Growth Factor)** (Picco di varianza dati in Mbps - Con fattore di crescita): picco della frequenza di varianza nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che la varianza dei dati totale della VM non è sempre costituita dalla somma delle varianze dei singoli dischi della VM perché il picco della varianza dei dati corrisponde al picco della somma delle varianze dei singoli dischi per ogni minuto del periodo di profilatura.
 
 **Number of Disks** (Numero di dischi): numero totale dei dischi VMDK nella VM.
 
@@ -253,14 +264,13 @@ Se in virtù delle caratteristiche del carico di lavoro un disco appartiene alla
 
 **NICs** (Schede di interfaccia di rete): numero di schede di interfaccia di rete della VM.
 
-**Boot Type** (Tipo di avvio): tipo di avvio della macchina virtuale. Può essere BIOS o EFI. Azure Site Recovery supporta attualmente solo il tipo di avvio BIOS. Tutte le macchine virtuali con tipo di avvio EFI sono elencate nel foglio di lavoro VM incompatibili.
+**Boot Type** (Tipo di avvio): tipo di avvio della macchina virtuale. Può essere BIOS o EFI.  Attualmente Azure Site Recovery supporta VM Windows Server basate su EFI (Windows Server 2012, 2012 R2 e 2016), a condizione che il numero di partizioni nel disco di avvio sia inferiore a 4 e che i settori di avvio abbiano dimensioni di 512 byte. Per proteggere le VM basate su EFI, la versione del servizio Mobility di Azure Site Recovery deve essere la 9.13 o successive. Per le VM basate su EFI è supportato solo il failover. Il failback non è supportato.
 
-**OS Type** (Tipo di sistema operativo): tipo di sistema operativo della macchina virtuale. Può essere Windows, Linux o altro.
-
+**OS Type** (Tipo di sistema operativo): tipo di sistema operativo della VM. Può essere Windows o Linux o un altro ancora, in base al modello scelto da VMware vSphere durante la creazione della VM. 
 
 ## <a name="azure-site-recovery-limits"></a>Limiti di Azure Site Recovery
 La tabella seguente indica i limiti di Azure Site Recovery. Questi limiti si basano su test di Microsoft, ma non possono coprire tutte le possibili combinazioni di I/O delle applicazioni. I risultati effettivi possono variare in base alla combinazione di I/O delle applicazioni. Per risultati ottimali, anche dopo la pianificazione della distribuzione è sempre consigliabile eseguire test approfonditi delle applicazioni con un failover di test per ottenere il quadro reale delle prestazioni dell'applicazione.
- 
+
 **Destinazione archiviazione di replica** | **Dimensioni medie I/O disco di origine** |**Varianza dati media disco di origine** | **Varianza dati totale giornaliera disco di origine**
 ---|---|---|---
 Archiviazione standard | 8 KB | 2 MB/s | 168 GB per disco
@@ -270,7 +280,14 @@ Disco P10 o P15 Premium | 32 KB o superiori | 8 MB/s | 672 GB per disco
 Disco P20, P30, P40 o P50 Premium | 8 KB    | 5 MB/s | 421 GB per disco
 Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |10 MB/s | 842 GB per disco
 
+**Varianza dati di origine** | **Limite massimo**
+---|---
+Varianza media dei dati per VM| 25 MB/s 
+Picco di varianza dei dati su tutti i dischi in una VM | 54 MB/s
+Varianza massima dei dati al giorno supportata da un server di elaborazione | 2 TB 
+
 Si tratta di numeri medi presupponendo una sovrapposizione I/O del 30%. Site Recovery può gestire una velocità effettiva maggiore in base alla percentuale di sovrapposizione, alle dimensioni di scrittura maggiori e all'effettivo I/O del carico di lavoro. I numeri precedenti presuppongono un backlog tipico di circa cinque minuti, ovvero i dati, dopo essere stati caricati, verranno elaborati e verrà creato un punto di ripristino entro cinque minuti.
+
 
 ## <a name="cost-estimation"></a>Stima dei costi
 Vedere altre informazioni sulla [stima dei costi](site-recovery-vmware-deployment-planner-cost-estimation.md). 

@@ -1,7 +1,7 @@
 ---
-title: Copiare gli esperimenti di esempio di Machine Learning - Azure | Microsoft Docs
-description: Informazioni su come usare gli esperimenti di Machine Learning per creare nuovi esperimenti con Cortana Intelligence Gallery e Microsoft Azure Machine Learning.
-keywords: esperimenti di esempio di Machine Learning, esperimento di esempio, esempio di Machine Learning
+title: Creare esperimenti da esempi di Machine Learning - Azure | Microsoft Docs
+description: Informazioni su come usare gli esperimenti di esempio di Machine Learning per creare nuovi esperimenti con la raccolta di intelligenza artificiale di Azure e Azure Machine Learning.
+keywords: esperimenti di esempio di Machine Learning, esperimento di esempio, esempio di Machine Learning, esempi di intelligenza artificiale
 services: machine-learning
 documentationcenter: 
 author: cjgronlund
@@ -13,16 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/28/2017
+ms.date: 01/05/2018
 ms.author: cgronlun
-ms.openlocfilehash: f798ac1b46d702dbb96a2384d96f2d14eb3cac0e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ea19f137acb23d3527315aae2624c746e138545
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>Copiare gli esperimenti di esempio per creare nuovi esperimenti di Machine Learning
-Questo articolo illustra come usare gli esperimenti di esempio di [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) invece di creare esperimenti di Machine Learning da zero. È possibile usare gli esempi per compilare la propria soluzione di Machine Learning.
+# <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>Creare esperimenti di Machine Learning da esempi funzionanti nella raccolta di intelligenza artificiale di Azure
+
+Informazioni su come iniziare a usare gli esperimenti di esempio dalla [raccolta di intelligenza artificiale di Azure](https://gallery.cortanaintelligence.com/) invece di creare esperimenti di Machine Learning completamente nuovi. È possibile usare gli esempi per compilare la propria soluzione di Machine Learning.
 
 Nella raccolta sono disponibili esperimenti di esempio del team di Microsoft Azure Machine Learning, oltre a esempi condivisi dalla community di Machine Learning. È anche possibile porre domande o inviare commenti sugli esperimenti disponibili.
 
@@ -30,7 +31,7 @@ Per informazioni su come usare la raccolta, guardare il video di 3 minuti [Copia
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="find-an-experiment-to-copy-in-cortana-intelligence-gallery"></a>Trovare un esperimento da copiare in Cortana Intelligence Gallery
+## <a name="find-an-experiment-to-copy-in-azure-ai-gallery"></a>Trovare un esperimento da copiare nella raccolta di intelligenza artificiale per Azure
 Per visualizzare gli esperimenti disponibili, passare a [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) e fare clic su **Experiments** (Esperimenti) nella parte superiore della pagina.
 
 ### <a name="find-the-newest-or-most-popular-experiments"></a>Trovare gli esperimenti più recenti o richiesti
@@ -42,8 +43,8 @@ Per esplorare tutti gli esperimenti:
 1. Fare clic su **Browse all** (Esplora tutto) nella parte superiore della pagina.
 2. In **Refine by** (Affina per) a sinistra nella sezione **Categories** (Categorie) selezionare **Experiment** (Esperimento) per visualizzare tutti gli esperimenti nella raccolta.
 3. È possibile trovare esperimenti che soddisfano i requisiti in due modi diversi:
-   * **Selezionare i filtri a sinistra.** Per esaminare ad esempio gli esperimenti che fanno uso di un algoritmo di rilevamento delle anomalie basato su PCA, selezionare **Experiment** (Esperimento) in **Categories** (Categorie) e fare clic su **Show all** (Mostra tutto). In **Algorithms Used** (Algoritmi usati) scegliere **PCA-Based Anomaly Detection** (Rilevamento anomalie basato su PCA). <br></br>
-     ![Selezione dei filtri](./media/sample-experiments/refine-the-view.png)
+   * **Selezionare i filtri a sinistra.** Per esaminare ad esempio gli esperimenti che fanno uso di un algoritmo di rilevamento delle anomalie basato su PCA, in **Categories** (Categorie) fare clic su **Experiment** (Esperimento). In **Algorithms Used** (Algoritmi usati) fare clic su click **Show all** (Mostra tutto) e nella finestra di dialogo scegliere **PCA-Based Anomaly Detection** (Rilevamento anomalie basato su PCA). Potrebbe essere necessario scorrere per visualizzare l'opzione.<br></br>
+     ![Selezione dei filtri](./media/sample-experiments/choose-an-algorithm.png)
    * **Usare la casella di ricerca.** Ad esempio, per trovare esperimenti Microsoft sul riconoscimento di cifre che usano un algoritmo di macchine a vettori di supporto a due classi, immettere "digit recognition" nella casella di ricerca. Selezionare quindi i filtri **Experiment** (Esperimento), **Microsoft content only** (Solo contenuto Microsoft) e **Two-Class Support Vector Machine** (Macchina a vettori di supporto a due classi):<br></br>
      ![Usare la casella di ricerca](./media/sample-experiments/search-for-experiments.png)
 4. Per altre informazioni su un esperimento, fare clic su di esso.

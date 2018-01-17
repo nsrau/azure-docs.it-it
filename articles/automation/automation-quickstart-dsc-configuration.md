@@ -6,14 +6,14 @@ keywords: dsc, configurazione, automazione
 author: KrisBash
 ms.author: krbash
 ms.date: 12/17/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e9e75f1714217f452d55aba49929fec767df3353
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 7f35acc0d8d553a3f5d1576ae18cbafd1dcbb225
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurare una macchina virtuale Linux con Desired State Configuration
 
@@ -31,7 +31,7 @@ Per completare l'esercitazione introduttiva, sono necessari gli elementi seguent
 Accedere ad Azure all'indirizzo https://portal.azure.com
 
 ## <a name="onboard-a-virtual-machine"></a>Caricare una macchina virtuale
-Ci sono molti metodi diversi per caricare un computer e abilitare Desired State Configuration. Questa guida introduttiva illustra l'onboarding tramite un account di Automazione. Per altre informazioni sui diversi metodi per caricare i computer in Desired State Configuration, vedere l'articolo sull'[onboarding](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-onboarding).
+Ci sono molti metodi diversi per caricare un computer e abilitare Desired State Configuration. Questa guida introduttiva illustra l'onboarding tramite un account di Automazione. Per altre informazioni sui diversi metodi per caricare i computer in Desired State Configuration, vedere l'articolo sull'[onboarding](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).
 
 1. Nel riquadro sinistro del portale di Azure selezionare **Account di Automazione**. Se non è visibile nel riquadro sinistro, fare clic su **Tutti i servizi** e cercarlo nella visualizzazione risultante.
 1. Nell'elenco selezionare un account di Automazione.
@@ -39,7 +39,7 @@ Ci sono molti metodi diversi per caricare un computer e abilitare Desired State 
 1. Fare clic sull'opzione di menu **Aggiungi macchina virtuale di Azure**
 1. Trovare la macchina virtuale per che si vuole abilitare DSC. È possibile usare il campo di ricerca e le opzioni di filtro per trovare una macchina virtuale specifica.
 1. Fare clic sulla macchina virtuale e quindi selezionare **Connetti**
-1. Selezionare le impostazioni DSC appropriate per la macchina virtuale. Se è già stata preparata una configurazione, è possibile specificarla come *Nome della configurazione del nodo*. È possibile impostare la [modalità di configurazione](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig) per controllare il comportamento della configurazione per il computer.
+1. Selezionare le impostazioni DSC appropriate per la macchina virtuale. Se è già stata preparata una configurazione, è possibile specificarla come *Nome della configurazione del nodo*. È possibile impostare la [modalità di configurazione](https://docs.microsoft.com/powershell/dsc/metaconfig) per controllare il comportamento della configurazione per il computer.
 1. Fare clic su **OK**.
 
 ![Onboarding di una macchina virtuale di Azure in DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
@@ -105,7 +105,7 @@ Per importare la configurazione:
 
 ## <a name="compile-a-configuration"></a>Compilare una configurazione
 
-Le configurazioni DSC devono essere compilate in una configurazione nodo (documento MOF) prima di essere assegnate a un nodo. La compilazione convalida la configurazione e consente l'input dei valori dei parametri. Per altre informazioni sulla compilazione di una configurazione, vedere [Compilazione di configurazioni in Automation DSC per Azure](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile)
+Le configurazioni DSC devono essere compilate in una configurazione nodo (documento MOF) prima di essere assegnate a un nodo. La compilazione convalida la configurazione e consente l'input dei valori dei parametri. Per altre informazioni sulla compilazione di una configurazione, vedere [Compilazione di configurazioni in Automation DSC per Azure](https://docs.microsoft.com/azure/automation/automation-dsc-compile)
 
 Per compilare la configurazione:
 
@@ -123,7 +123,7 @@ Si può assegnare una *configurazione del nodo* compilata ai nodi DSC. L'assegna
 1. Nel riquadro sinistro dell'account di Automazione selezionare **Nodi DSC**
 1. Selezionare il nodo a cui si vuole assegnare una configurazione
 1. Fare clic su **Assegna configurazione nodo**
-1. Selezionare la *configurazione del nodo*, **LAMPServer.localhost**, da assegnare e fare clic su **OK**
+1. Selezionare la *configurazione del nodo* - **LAMPServer.localhost**, da assegnare e fare clic su **OK**
 1. La configurazione compilata è ora assegnata al nodo e lo stato del nodo viene impostato su *In sospeso*. Durante il successivo controllo periodico, il nodo recupera la configurazione, la applica e segnala lo stato. A seconda delle impostazioni, il nodo può impiegare fino a 30 minuti per recuperare la configurazione. Per forzare un controllo immediato, è possibile eseguire il comando seguente in locale sulla macchina virtuale Linux: `sudo /opt/microsoft/dsc/Scripts/PerformRequiredConfigurationChecks.py`
 
 ![Assegnazione di una configurazione del nodo](./media/automation-quickstart-dsc-configuration/dsc-assign-node-configuration.png)
@@ -141,6 +141,6 @@ In questa guida introduttiva è stata caricata una VM Linux in DSC ed è stata c
 > [!div class="nextstepaction"]
 > [Distribuzione continua in una VM tramite DSC e Chocolatey](./automation-dsc-cd-chocolatey.md)
 
-* Per altre informazioni su PowerShell Desired State Configuration, vedere [Panoramica di PowerShell Desired State Configuration](https://docs.microsoft.com/en-us/powershell/dsc/overview).
-* Per altre informazioni sulla gestione di Automation DSC da PowerShell, vedere [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/?view=azurermps-5.0.0)
-* Per informazioni su come inoltrare i report DSC a Log Analytics per la creazione di report e avvisi, vedere [Inoltro dei report DSC a Log Analytics](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-diagnostics) 
+* Per altre informazioni su PowerShell Desired State Configuration, vedere [Panoramica di PowerShell Desired State Configuration](https://docs.microsoft.com/powershell/dsc/overview).
+* Per altre informazioni sulla gestione di Automation DSC da PowerShell, vedere [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0)
+* Per informazioni su come inoltrare i report DSC a Log Analytics per la creazione di report e avvisi, vedere [Inoltro dei report DSC a Log Analytics](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 

@@ -3,7 +3,7 @@ title: Informazioni su App per dispositivi mobili nel servizio app di Azure
 description: "Informazioni sui vantaggi che il servizio app può apportare alle app per dispositivi mobili aziendali."
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
+author: conceptdev
 manager: yochayk
 editor: 
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: f0731237c9376d5f762eea1c7559bc6a70a2025d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: crdun
+ms.openlocfilehash: b55d186aba49e91bab6814da2380a372f61f39cb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="getting-started"> </a>Informazioni su App per dispositivi mobili nel servizio app di Azure
 Il servizio app di Azure è un'offerta di [piattaforma distribuita come servizio ](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) interamente gestita per sviluppatori professionisti. Il servizio offre un set completo di funzionalità per scenari Web, per dispositivi mobili e di integrazione. 
@@ -65,7 +65,7 @@ Le funzionalità della piattaforma seguenti sono utili per i siti di produzione 
 
   Altre informazioni sugli [ambienti di staging].
 
-* **Distribuzione continua**. Il servizio app può integrarsi con i comuni sistemi di gestione della supply chain e consente così di distribuire automaticamente una nuova versione del back-end eseguendo il push in un ramo del sistema di gestione della supply chain.
+* **Distribuzione continua**: il servizio app può integrarsi con i sistemi comuni per la gestione del controllo del codice sorgente e consente così di distribuire automaticamente una nuova versione del back-end eseguendo il push in un ramo del sistema per la gestione del controllo del codice sorgente.
 
   Altre informazioni sulle [opzioni di distribuzione](../app-service/app-service-deploy-local-git.md).
 

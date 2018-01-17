@@ -13,27 +13,25 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 0e223222c482d6d3aeaed85388f3a1ce1b53a78d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9b81e011d3e1ed23465bbd554a0c7376b432b585
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services: esercitazione su Adventure Works
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+Questa esercitazione comprende una serie di lezioni sulla creazione e la distribuzione di un modello tabulare al livello di compatibilità 1400 tramite Visual Studio con [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
-Questa esercitazione comprende una serie di lezioni sulla creazione e la distribuzione di un modello tabulare al livello di compatibilità 1400 tramite [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
-
-Se non si ha familiarità con Analysis Services e la modellazione tabulare, completare questa esercitazione è il modo più rapido per imparare a creare un modello tabulare di base. Dopo essersi assicurati che siano stati soddisfatti tutti i prerequisiti, per il completamento dell'esercitazione sono necessarie dalle due alle tre ore.  
+Se non si ha familiarità con Analysis Services e la modellazione tabulare, completare questa esercitazione è il modo più rapido per imparare a creare un modello tabulare di base usando Visual Studio. Dopo essersi assicurati che siano stati soddisfatti tutti i prerequisiti, per il completamento dell'esercitazione sono necessarie dalle due alle tre ore.  
   
 ## <a name="what-you-learn"></a>Contenuto dell'esercitazione   
   
--   Creazione di un nuovo progetto di modello tabulare al **livello di compatibilità 1400** in SSDT.
+-   Creazione di un nuovo progetto di modello tabulare al **livello di compatibilità 1400** in Visual Studio con SSDT.
   
--   Importazione di dati da un database relazionale in un progetto di modello tabulare.  
+-   Importazione di dati da un database relazionale in un database dell'area di lavoro di un progetto di modello tabulare.  
   
 -   Creazione e gestione di relazioni tra tabelle nel modello.  
   
@@ -50,13 +48,13 @@ Se non si ha familiarità con Analysis Services e la modellazione tabulare, comp
 ## <a name="prerequisites"></a>Prerequisiti  
 Per completare questa esercitazione, sono necessari:  
   
--   Un'istanza di Azure Analysis Services o di SQL Server 2017 Analysis Services in cui distribuire il modello. Iscriversi per ottenere una [versione di valutazione di Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) gratuita e [creare un server](../analysis-services-create-server.md). In alternativa, iscriversi e scaricare [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
+-   Un server di Azure Analysis Services. Iscriversi per ottenere una [versione di valutazione di Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) gratuita e [creare un server](../analysis-services-create-server.md). 
 
--   SQL Server Data Warehouse o Azure SQL Data Warehouse con il [database di esempio AdventureWorksDW2014](http://go.microsoft.com/fwlink/?LinkID=335807). Questo database di esempio include i dati necessari per completare l'esercitazione. Scaricare le [edizioni gratuite di SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads). In alternativa, iscriversi per ottenere una [versione di valutazione del database SQL di Azure](https://azure.microsoft.com/services/sql-database/) gratuita. 
+-   Un'istanza di [Azure SQL Data Warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) con il **database AdventureWorksDW di esempio** o un'istanza di SQL Server Data Warehouse con il [database Adventure Works di esempio](http://go.microsoft.com/fwlink/?LinkID=335807).
 
-    **Importante:** se si installa il database di esempio in un'istanza di SQL Server locale e si distribuisce il modello in un server Azure Analysis Services, è richiesto un [gateway dati locale](../analysis-services-gateway.md).
+    **Importante:** se si installa il database di esempio in un'istanza di SQL Server Data Warehouse locale e si distribuisce il modello in un server Azure Analysis Services, è richiesto un [gateway dati locale](../analysis-services-gateway.md).
 
--   La versione più recente di [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
+-   La versione più recente di [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) per Visual Studio.
 
 -   La versione più recente di [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).    
 

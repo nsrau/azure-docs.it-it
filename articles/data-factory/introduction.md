@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: fb664b76a948244d96a26b199a4e8e6c83bae0f4
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 7961f998b59991b47e1c22d826bf0a50fcd09099
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introduzione a Data factory di Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -78,7 +78,7 @@ La pipeline offre il vantaggio di poter gestire le attività come un set anzich�
 ### <a name="activity"></a>Attività
 Le attività rappresentano un passaggio di elaborazione in una pipeline. È ad esempio possibile usare un'attività di copia per copiare i dati da un archivio dati all'altro. Allo stesso modo è possibile usare un'attività Hive che esegue una query Hive in un cluster Azure HDInsight per trasformare o analizzare i dati. Data Factory supporta tre tipi di attività: attività di spostamento dei dati, attività di trasformazione dei dati e attività di controllo.
 
-### <a name="datasets"></a>DATASETS
+### <a name="datasets"></a>Set di dati
 I set di dati rappresentano strutture dei dati all'interno degli archivi dati e fanno semplicemente riferimento ai dati da usare nelle attività come input o output. 
 
 ### <a name="linked-services"></a>Servizi collegati
@@ -119,9 +119,9 @@ Per altre informazioni sui concetti relativi a Data Factory, vedere gli articoli
 
 Azure Data Factory stesso non archivia alcun dato. Consente di creare flussi di lavoro basati sui dati per orchestrare lo spostamento di dati tra archivi dati supportati e l'elaborazione di dati usando i servizi di calcolo in altre aree o in un ambiente locale. Consente anche di monitorare e gestire i flussi di lavoro usando meccanismi a livello di codice e di interfaccia utente.
 
-Anche se Data Factory è disponibile solo nelle aree Stati Uniti orientali, Stati Uniti orientali 2 ed Europa occidentale, il servizio che consente lo spostamento dei dati in Data Factory è disponibile a livello globale in diverse aree. Se l'archivio dati è protetto da firewall, i dati verranno spostati da un gateway di gestione dati installato nell'ambiente locale.
+Anche se Data Factory è disponibile solo nelle aree Stati Uniti orientali, Stati Uniti orientali 2 ed Europa occidentale, il servizio che consente lo spostamento dei dati in Data Factory è disponibile a livello globale in diverse aree. Se l'archivio dati è protetto da firewall, i dati verranno invece spostati da un runtime di integrazione self-hosted installato nell'ambiente locale.
 
-Si supponga ad esempio che gli ambienti di calcolo, come un cluster Azure HDInsight e Azure Machine Learning, siano in esecuzione nell'area Europa occidentale. È possibile creare e usare un'istanza di Azure Data Factory in Europa settentrionale e usarla per pianificare processi negli ambienti di calcolo in Europa occidentale. Data Factory necessita di alcuni millisecondi per attivare il processo nell'ambiente di calcolo, ma il tempo per l'esecuzione del processo nell'ambiente di calcolo non cambia.
+Si supponga ad esempio che gli ambienti di calcolo, come un cluster Azure HDInsight e Azure Machine Learning, siano in esecuzione nell'area Europa occidentale. È possibile creare e usare un'istanza di Azure Data Factory in Stati Uniti orientali o Stati Uniti orientali 2 e usarla per pianificare processi negli ambienti di calcolo in Europa occidentale. Data Factory necessita di alcuni millisecondi per attivare il processo nell'ambiente di calcolo, ma il tempo per l'esecuzione del processo nell'ambiente di calcolo non cambia.
 
 ## <a name="compare-with-version-2"></a>Eseguire il confronto con la versione 2
 Per un elenco delle differenze tra la versione 1 e la versione 2 del servizio Data Factory, vedere [Eseguire il confronto con la versione 1](compare-versions.md). 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 38101134beb59d9cae46e8ca00354e14d5c16c54
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c3cba0c9ba38e7b0539fde7dc6460c76a47a19d6
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="network-security"></a>Sicurezza di rete
 
@@ -51,9 +51,9 @@ Un gruppo di sicurezza di rete può contenere zero regole o il numero di regole 
 |Nome|Nome univoco all'interno del gruppo di sicurezza di rete.|
 |Priorità | Numero compreso tra 100 e 4096. Le regole vengono elaborate in ordine di priorità. I numeri più bassi vengono elaborati prima di quelli più elevati perché hanno priorità più alta. Quando il traffico corrisponde a una regola, l'elaborazione viene interrotta. Di conseguenza, le regole con priorità più bassa (numeri più elevati) che hanno gli stessi attributi di regole con priorità più elevata non vengono elaborate.|
 |Origine o destinazione| Singolo indirizzo IP, blocco CIDR (ad esempio 10.0.0.0/24), tag di servizio o gruppo di sicurezza delle applicazioni oppure uno qualsiasi. Per altre informazioni, vedere [Tag di servizio](#service-tags) e [Gruppi di sicurezza delle applicazioni](#application-security-groups). Specificando un intervallo, un tag di servizio o un gruppo di sicurezza delle applicazioni è possibile creare un minor numero di regole di sicurezza. La possibilità di specificare più intervalli e indirizzi IP singoli in una regola è detta regola di sicurezza ottimizzata. Non si possono specificare più tag di servizio o gruppi di applicazioni. Vedere altre informazioni sulle [regole di sicurezza ottimizzate](#augmented-security-rules). È possibile creare regole di sicurezza ottimizzate solo in gruppi di sicurezza di rete creati tramite il modello di distribuzione Resource Manager. Non si possono specificare più indirizzi IP e intervalli di indirizzi IP nei gruppi di sicurezza di rete creati tramite il modello di distribuzione classica.|
-|Protocol     | TCP, UDP o Qualsiasi, che include TCP, UDP e ICMP. Non è possibile specificare solo ICMP. Se è necessario ICMP, si deve usare Qualsiasi. |
+|Protocollo     | TCP, UDP o Qualsiasi, che include TCP, UDP e ICMP. Non è possibile specificare solo ICMP. Se è necessario ICMP, si deve usare Qualsiasi. |
 |Direzione| Definisce se la regola si applica al traffico in ingresso o in uscita.|
-|Intervallo di porte     |È possibile specificare una singola porta o un intervallo di porte. Ad esempio, è possibile specificare 80 oppure 10000-10005. Specificando intervalli è possibile creare un minor numero di regole di sicurezza. La possibilità di specificare più intervalli di porte e porte singole in una regola (detta regola di sicurezza ottimizzata) è disponibile in versione di anteprima. Prima di usare le regole di sicurezza ottimizzate, vedere le informazioni importanti relative alle [funzionalità in anteprima](#preview-features). È possibile creare regole di sicurezza ottimizzate solo in gruppi di sicurezza di rete creati tramite il modello di distribuzione Resource Manager. Non si possono specificare più porte o intervalli di porte nella stessa regola di sicurezza nei gruppi di sicurezza di rete creati tramite il modello di distribuzione classica.   |
+|Intervallo di porte     |È possibile specificare una singola porta o un intervallo di porte. Ad esempio, è possibile specificare 80 oppure 10000-10005. Specificando intervalli è possibile creare un minor numero di regole di sicurezza. È possibile creare regole di sicurezza ottimizzate solo in gruppi di sicurezza di rete creati tramite il modello di distribuzione Resource Manager. Non si possono specificare più porte o intervalli di porte nella stessa regola di sicurezza nei gruppi di sicurezza di rete creati tramite il modello di distribuzione classica.   |
 |Azione     | Consentire o impedire.        |
 
 Le regole di sicurezza sono regole con stato. Se si specifica una regola di sicurezza in uscita per qualsiasi indirizzo sulla porta 80, ad esempio, non è necessario specificare una regola di sicurezza in ingresso per la risposta al traffico in uscita. È necessario specificare una regola di sicurezza in ingresso solo se la comunicazione viene avviata all'esterno. Questa considerazione si applica anche al contrario. Se il traffico in ingresso è consentito su una porta, non è necessario specificare una regola di sicurezza in uscita per rispondere al traffico sulla porta. Per informazioni sui limiti associati alla creazione di regole di sicurezza, vedere l'articolo relativo ai [limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
@@ -72,41 +72,41 @@ Se a una subnet o un'interfaccia di rete non è associato un gruppo di sicurezza
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Priorità|Sorgente|Porte di origine|Destination|Porte di destinazione|Protocol|Accesso|
+|Priorità|Sorgente|Porte di origine|Destination|Porte di destinazione|Protocollo|Accesso|
 |---|---|---|---|---|---|---|
-|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Tutti|CONSENTI|
+|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Tutti|Consenti|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Priorità|Sorgente|Porte di origine|Destination|Porte di destinazione|Protocol|Accesso|
+|Priorità|Sorgente|Porte di origine|Destination|Porte di destinazione|Protocollo|Accesso|
 |---|---|---|---|---|---|---|
-|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Tutti|CONSENTI|
+|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Tutti|Consenti|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Priorità|Sorgente|Porte di origine|Destination|Porte di destinazione|Protocol|Accesso|
+|Priorità|Sorgente|Porte di origine|Destination|Porte di destinazione|Protocollo|Accesso|
 |---|---|---|---|---|---|---|
-|65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Tutti|NEGA|
+|65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Tutti|Nega|
 
 ### <a name="outbound"></a>In uscita
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Priorità|Sorgente|Porte di origine| Destination | Porte di destinazione | Protocol | Accesso |
+|Priorità|Sorgente|Porte di origine| Destination | Porte di destinazione | Protocollo | Accesso |
 |---|---|---|---|---|---|---|
-| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Tutti | CONSENTI |
+| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Tutti | Consenti |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Priorità|Sorgente|Porte di origine| Destination | Porte di destinazione | Protocol | Accesso |
+|Priorità|Sorgente|Porte di origine| Destination | Porte di destinazione | Protocollo | Accesso |
 |---|---|---|---|---|---|---|
-| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Tutti | CONSENTI |
+| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Tutti | Consenti |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Priorità|Sorgente|Porte di origine| Destination | Porte di destinazione | Protocol | Accesso |
+|Priorità|Sorgente|Porte di origine| Destination | Porte di destinazione | Protocollo | Accesso |
 |---|---|---|---|---|---|---|
-| 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Tutti | NEGA |
+| 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Tutti | Nega |
 
 Nelle colonne **Origine** e **Destinazione**, *VirtualNetwork*, *AzureLoadBalancer* e *Internet* sono [tag di servizio](#tags), anziché indirizzi IP. Nella colonna del protocollo, **Tutti** include TCP, UDP e ICMP. Quando si crea una regola, è possibile specificare TCP, UDP o tutti i protocolli, ma non ICMP soltanto. Se la regola richiede ICMP, come protocollo è quindi necessario selezionare *Tutti*. Nelle colonne **Origine** e **Destinazione**, *0.0.0.0/0* rappresenta tutti gli indirizzi.
  
@@ -144,8 +144,7 @@ Per informazioni sui limiti associati alla creazione di gruppi di sicurezza dell
 I gruppi di sicurezza delle applicazioni sono disponibili in versione di anteprima. Le funzionalità in anteprima non offrono lo stesso livello di disponibilità e affidabilità delle funzionalità in versione di disponibilità generale. Prima di usare gruppi di sicurezza delle applicazioni, è necessario eseguire l'apposita registrazione completando i passaggi da 1 a 5 delle sezioni relative ad Azure o PowerShell dell'articolo su come [creare un gruppo di sicurezza di rete con gruppi di sicurezza delle applicazioni](create-network-security-group-preview.md). I gruppi di sicurezza delle applicazioni hanno i vincoli seguenti:
 
 -   Tutte le interfacce di rete all'interno di un gruppo di sicurezza delle applicazioni devono trovarsi nella stessa rete virtuale. Non è possibile aggiungere interfacce di rete da reti virtuali diverse allo stesso gruppo di sicurezza delle applicazioni. La rete virtuale in cui si trova la prima interfaccia di rete assegnata al gruppo di sicurezza delle applicazioni definisce la rete virtuale in cui devono trovarsi tutte le interfacce di rete successivamente assegnate.
-- Se si specificano gruppi di sicurezza delle applicazioni come origine e destinazione in una regola di sicurezza, le interfacce di rete in entrambi i gruppi di sicurezza delle applicazioni devono trovarsi nella stessa rete virtuale. Ad esempio, se il gruppo di sicurezza delle applicazioni 1 contiene interfacce di rete che si trovano nella rete virtuale 1 e il gruppo di sicurezza delle applicazioni 2 contiene interfacce di rete che si trovano nella rete virtuale 2, non è possibile assegnare il gruppo di sicurezza delle applicazioni 1 come origine e il gruppo di sicurezza delle applicazioni 2 come destinazione in una regola, perché tutte le interfacce di rete devono trovarsi nella rete virtuale 1. 
-- Sono disponibili per l'uso solo nell'area Stati Uniti centro-occidentali.
+- Se si specificano gruppi di sicurezza delle applicazioni come origine e destinazione in una regola di sicurezza, le interfacce di rete in entrambi i gruppi di sicurezza delle applicazioni devono trovarsi nella stessa rete virtuale. Ad esempio, se il gruppo di sicurezza delle applicazioni 1 contiene interfacce di rete che si trovano nella rete virtuale 1 e il gruppo di sicurezza delle applicazioni 2 contiene interfacce di rete che si trovano nella rete virtuale 2, non è possibile assegnare il gruppo di sicurezza delle applicazioni 1 come origine e il gruppo di sicurezza delle applicazioni 2 come destinazione in una regola, perché tutte le interfacce di rete devono trovarsi nella rete virtuale 1.
 
 ## <a name="azure-platform-considerations"></a>Considerazioni sulla piattaforma Azure
 
@@ -153,13 +152,13 @@ I gruppi di sicurezza delle applicazioni sono disponibili in versione di antepri
 - **Licenze (servizio di gestione delle chiavi):** le immagini Windows in esecuzione nelle macchine virtuali devono essere concesse in licenza. Per verificare la concessione della licenza, viene inviata una richiesta ai server host del Servizio di gestione delle chiavi che gestiscono le query di questo tipo. La richiesta viene inviata in uscita tramite la porta 1688.
 - **Macchine virtuali in pool con carico bilanciato**: l'intervallo di porte e indirizzi di origine applicato è quello del computer di origine e non quello del servizio di bilanciamento del carico. L'intervallo di porte e indirizzi di destinazione riguarda il computer di destinazione e non il servizio di bilanciamento del carico.
 - **Istanze di servizi di Azure**: nelle subnet delle reti virtuali vengono distribuite istanze di diversi servizi di Azure, ad esempio HDInsight, ambienti del servizio app e set di scalabilità di macchine virtuali. Per un elenco completo dei servizi che è possibile distribuire nelle reti virtuali, vedere l'articolo relativo alla [rete virtuale per i servizi di Azure](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Assicurarsi di acquisire familiarità con i requisiti relativi alle porte per ogni servizio prima di applicare un gruppo di sicurezza di rete alla subnet in cui è distribuita la risorsa. Se si bloccano le porte richieste dal servizio, il servizio non funzionerà correttamente.
-- **Invio di messaggi di posta elettronica in uscita**: per inviare posta elettronica da macchine virtuali di Azure è consigliabile utilizzare servizi di inoltro SMTP autenticato, in genere connessi tramite la porta TCP 587 ma spesso anche con altre. Sono disponibili servizi di inoltro SMTP specializzati per la reputazione del mittente, per ridurre al minimo la possibilità che provider di posta elettronica di terze parti rifiutino i messaggi. Tali servizi di inoltro SMTP includono, ad esempio, Exchange Online Protection e SendGrid. L'uso di servizi di inoltro SMTP non è soggetto ad alcuna restrizione in Azure, indipendentemente dal tipo di sottoscrizione. 
+- **Invio di messaggi di posta elettronica in uscita**: per inviare posta elettronica da macchine virtuali di Azure è consigliabile usare servizi di inoltro SMTP autenticato, in genere connessi tramite la porta TCP 587 ma spesso anche con altre. Sono disponibili servizi di inoltro SMTP specializzati per la reputazione del mittente, per ridurre al minimo la possibilità che provider di posta elettronica di terze parti rifiutino i messaggi. Tali servizi di inoltro SMTP includono, ad esempio, Exchange Online Protection e SendGrid. L'uso di servizi di inoltro SMTP non è soggetto ad alcuna restrizione in Azure, indipendentemente dal tipo di sottoscrizione. 
 
   Se la sottoscrizione di Azure è stata creata prima del 15 novembre 2017, oltre a poter usare servizi di inoltro SMTP è possibile inviare posta elettronica direttamente sulla porta TCP 25. Se la sottoscrizione è stata creata dopo il 15 novembre 2017, potrebbe non essere possibile inviare posta elettronica direttamente sulla porta 25. Il comportamento della comunicazione in uscita sulla porta 25 dipende dal tipo di sottoscrizione, come illustrato di seguito.
 
      - **Enterprise Agreement**: la comunicazione in uscita sulla porta 25 è consentita. È possibile inviare messaggi di posta elettronica in uscita direttamente dalle macchine virtuali a provider di posta elettronica esterni, senza restrizioni dalla piattaforma Azure. 
      - **Pagamento in base al consumo:** la comunicazione in uscita sulla porta 25 è bloccata per tutte le risorse. Se è necessario inviare posta elettronica direttamente da un macchina virtuale a provider di posta elettronica esterni, senza un inoltro SMTP autenticato, è necessario richiedere la rimozione della restrizione. Le richieste vengono esaminate e approvate a discrezione di Microsoft e vengono soddisfatte solo in seguito a controlli anti-frode. Per effettuare una richiesta, aprire un caso di supporto con il tipo di problema *Tecnico*, *Virtual Network Connectivity* (Connettività di rete virtuale), *Cannot send e-mail (SMTP/Port 25)* (Impossibile inviare posta elettronica - SMTP/porta 25). Nel caso di supporto includere informazioni dettagliate sui motivi per cui è necessario inviare posta elettronica dalla sottoscrizione a provider di posta direttamente anziché tramite un inoltro SMTP autenticato. Se la sottoscrizione viene esentata, potranno comunicare in uscita sulla porta 25 solo le macchine virtuali create dopo la data di esenzione.
-     - **MSDN, Azure Pass, Azure in Open, Education, BizSpark e versione di prova gratuita**: la comunicazione in uscita sulla porta 25 è bloccata per tutte le risorse. Non è possibile richiedere la rimozione della restrizione, perché le richieste non verranno soddisfatte. Se è necessario inviare posta elettronica dalla macchina virtuale, si deve usare un servizio di inoltro SMTP.
+     - **Provider di servizi cloud, MSDN, Azure Pass, Azure in Open, Education, BizSpark e versione di valutazione gratuita**: la comunicazione in uscita sulla porta 25 è bloccata per tutte le risorse. Non è possibile richiedere la rimozione della restrizione, perché le richieste non verranno soddisfatte. Se è necessario inviare posta elettronica dalla macchina virtuale, si deve usare un servizio di inoltro SMTP.
 
   Se Azure consente di inviare posta elettronica sulla porta 25, Microsoft non può garantire che i provider di posta elettronica accetteranno i messaggi in ingresso provenienti dalla macchina virtuale. Se un provider specifico rifiuta i messaggi di posta elettronica dalla macchina virtuale, è necessario rivolgersi direttamente al provider per risolvere i problemi di recapito dei messaggi o di filtro della posta indesiderata oppure usare un servizio di inoltro SMTP autenticato. 
 

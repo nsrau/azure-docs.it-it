@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/29/2017
 ms.author: joflore
-ms.openlocfilehash: 99052718d268135e1b9c51d019513aa59afede84
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c94b20ec984c96cfb8e7339826ee933ea4194bfc
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protezione delle risorse cloud con Azure Multi-Factor Authentication e AD FS
 Se l'organizzazione è federata con Azure Active Directory, usare Azure Multi-Factor Authentication o Active Directory Federation Services (AD FS) per proteggere le risorse accessibili da Azure AD. Usare le procedure seguenti per proteggere le risorse di Azure Active Directory con Azure Multi-Factor Authentication o Active Directory Federation Services.
@@ -83,16 +83,13 @@ Per prima cosa è necessario configurare le attestazioni ADFS. Creare due regole
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configurare gli indirizzi IP attendibili di Azure Multi-Factor Authentication con utenti federati
 Ora che le attestazioni sono configurate, è possibile procedere alla configurazione degli indirizzi IP attendibili.
 
-1. Accedere al [portale di Azure classico](https://manage.windowsazure.com).
-2. A sinistra fare clic su **Active Directory**.
-3. In Directory selezionare la directory in cui impostare gli indirizzi IP attendibili.
-4. Nella directory selezionata fare clic su **Configura**.
-5. Nella sezione Multi-Factor Authentication fare clic su **Gestisci impostazioni del servizio**.
-6. Nella pagina Impostazioni servizio selezionare **Ignora l'autenticazione a più fattori per le richieste provenienti da utenti federati nella Intranet** in Indirizzi IP attendibili.  
+1. Accedere al [portale di Azure](https://portal.com).
+2. Selezionare **Azure Active Directory** > **Accesso condizionale** > **Posizioni specifiche**.
+3. Dal pannello **Accesso condizionale - Posizioni specifiche** selezionare **Configura indirizzi IP attendibili MFA**
 
-   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
-   
-7. Fare clic su **save**.
-8. Dopo che gli aggiornamenti sono stati applicati, fare clic su **Chiudi**.
+   ![Azure AD, Accesso condizionale, Posizioni specifiche, Configura indirizzi IP attendibili MFA](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+
+4. In **Indirizzi IP attendibili** nella pagina Impostazioni servizio selezionare **Ignora l'autenticazione a più fattori per le richieste provenienti da utenti federati nella Intranet**.  
+5. Fare clic su **save**.
 
 La procedura è terminata. A questo punto, gli utenti federati di Office 365 dovrebbero usare solo MFA quando una richiesta proviene dall'esterno della Intranet aziendale.

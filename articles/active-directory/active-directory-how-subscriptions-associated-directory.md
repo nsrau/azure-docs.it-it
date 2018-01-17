@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 4f5275584d75c88ce3ef5b607f315f3b425d2c3f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e063e6a46b6b99c4bbe749347e6887a930adb882
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Come associare o aggiungere una sottoscrizione di Azure ad Azure Active Directory
 
@@ -46,7 +46,7 @@ Tutti gli utenti dispongono di una singola home directory che li autentica, ma p
 
     ![Screenshot che illustra l'interfaccia utente per cambiare la directory](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
 5. Fare clic su **Modifica**.
-6. Completamento della procedura Passare alla nuova directory usando l'apposito controllo.
+6. Operazione riuscita. Passare alla nuova directory usando l'apposito controllo. Per la visualizzazione corretta di tutti gli elementi potrebbero essere necessari fino a 10 minuti.
 
     ![Screenshot che illustra la notifica dell'avvenuto cambio di directory](./media/active-directory-how-subscriptions-associated-directory/edit-directory-success.PNG)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: bb4ec5cfd455ab0cc22ab693c2a07eed9883dc76
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 5c7ff99c2f67f82f9a7d605d9960960f84e96900
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Eseguire Azure Site Recovery Deployment Planner per distribuzioni da Hyper-V ad Azure
 
@@ -107,6 +107,15 @@ Durante la profilatura è possibile passare il nome e la chiave di un account di
 
 È possibile eseguire più istanze dello strumento per diversi set di VM. Assicurarsi che i nomi delle VM non siano ripetuti nei set di profilatura. Se ad esempio sono state profilate 10 VM (da VM1 a VM10) e dopo alcuni giorni si vogliono profilare altre cinque VM (da VM11 a VM15), è possibile eseguire lo strumento da un'altra console della riga di comando per il secondo set di VM (da VM11 a VM15). Verificare che le VM del secondo set non abbiano nomi uguali a quelli della prima istanza di profilatura oppure usare una directory di output diversa per la seconda esecuzione. Se vengono usate due istanze dello strumento per profilare le stesse VM usando la stessa directory di output, il report generato sarà errato. 
 
+Per impostazione predefinita, lo strumento è configurato per profilare, generando il report corrispondente, fino a 1000 VM. È possibile modificare questo limite cambiando il valore della chiave MaxVMsSupported nel file *ASRDeploymentPlanner.exe.config*.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
+Per profilare, ad esempio, 1500 VM con le impostazioni predefinite, creare due file VMList.txt, uno con l'elenco di 1000 VM e l'altro di 500 VM. Eseguire le due istanze di Azure Site Recovery Deployment Planner, una con VMList1.txt e l'altra con VMList2.txt. È possibile usare lo stesso percorso di directory per archiviare i dati di profilatura delle VM di entrambi i file VMList. 
+
+È stato osservato che in base alla configurazione hardware, in particolare alle dimensioni della RAM del server da cui viene eseguito lo strumento per generare il report, l'operazione può non riuscire a causa di memoria insufficiente. Se l'hardware è appropriato, è possibile modificare MaxVMsSupported in base a un valore maggiore.  
+
 Le configurazioni delle VM vengono acquisite una volta all'inizio dell'operazione di profilatura e archiviate in un file denominato VMDetailList.xml. Queste informazioni vengono usate quando viene generato il report. Eventuali modifiche apportate alla configurazione delle VM (ad esempio, un incremento del numero di core, dischi o schede di interfaccia di rete) dall'inizio alla fine della profilatura non vengono acquisite. Se la configurazione di una VM profilata è stata modificata nel corso della profilatura, la soluzione alternativa seguente consente di ottenere i dettagli più recenti della VM durante la generazione del report:
 
 * Eseguire il backup di VMdetailList.xml ed eliminare il file dal percorso corrente.
@@ -114,7 +123,7 @@ Le configurazioni delle VM vengono acquisite una volta all'inizio dell'operazion
 
 Il comando di profilatura genera diversi file nella directory della profilatura. Non eliminare nessuno dei file, altrimenti la generazione del report verrà compromessa.
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 #### <a name="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>Esempio 1: Profilare le VM per 30 giorni e determinare la velocità effettiva dall'ambiente locale ad Azure
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile 30 -User Contoso\HyperVUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
@@ -169,7 +178,13 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 |-OfferId|(Facoltativo) Offerta associata alla sottoscrizione. Il valore predefinito è MS-AZR-0003P (pagamento in base al consumo).|
 |-Currency|(Facoltativo) Valuta usata per visualizzare il costo nel report generato. Il valore predefinito è Dollaro USA ($) o l'ultima valuta usata.<br>Vedere l'elenco delle [valute supportate](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies).|
 
-### <a name="examples"></a>esempi
+Per impostazione predefinita, lo strumento è configurato per profilare, generando il report corrispondente, fino a 1000 VM. È possibile modificare questo limite cambiando il valore della chiave MaxVMsSupported nel file *ASRDeploymentPlanner.exe.config*.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
+
+### <a name="examples"></a>Esempi
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Esempio 1: Generare un report con valori predefiniti quando i dati profilati si trovano nell'unità locale
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”
@@ -206,6 +221,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Dire
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
+
 
 ## <a name="percentile-value-used-for-the-calculation"></a>Valore percentile usato per il calcolo
 **Valore percentile predefinito delle metriche delle prestazioni raccolte durante la profilatura usato dallo strumento quando genera un report**

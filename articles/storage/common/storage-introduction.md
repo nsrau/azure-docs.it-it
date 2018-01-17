@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: ff0f6446b51c4549e5a367b5b767d4777a1d946d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e0da76d1c99de94762a54f552e49f7ee75eba26f
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduzione ad Archiviazione di Microsoft Azure
 
@@ -35,9 +35,7 @@ In questo articolo sono disponibili informazioni sugli argomenti seguenti:
 * Trasferimento di dati verso e dalle risorse di archiviazione
 * Numerose librerie client di archiviazione disponibili
 
-Per diventare rapidamente operativi con Archiviazione di Azure, vedere una delle guide introduttive seguenti:
-* [Creare un account di archiviazione tramite PowerShell](storage-quickstart-create-storage-account-powershell.md)
-* [Creare un account di archiviazione tramite l'interfaccia della riga di comando](storage-quickstart-create-storage-account-cli.md)
+Per iniziare a usare Archiviazione di Azure, vedere [Create a storage account](storage-quickstart-create-account.md) (Creare un account di archiviazione).
 
 ## <a name="introducing-the-azure-storage-services"></a>Introduzione ai servizi di archiviazione di Azure
 
@@ -139,7 +137,7 @@ Sono disponibili alcuni tipi di crittografia di base per i servizi di archiviazi
 
 È possibile abilitare Crittografia del servizio di archiviazione nel servizio file (anteprima) o nel servizio BLOB per un account di archiviazione di Azure. Se questa opzione è abilitata, tutti i dati scritti nel servizio specifico vengono crittografati prima della scrittura. In caso di lettura, i dati vengono decrittografati prima della restituzione.
 
-### <a name="client-side-encryption"></a>Crittografia lato client
+### <a name="client-side-encryption"></a>crittografia lato client
 
 Le librerie client di archiviazione includono metodi che possono essere chiamati per crittografare i dati a livello di codice prima del transito dal client ad Azure. I dati vengono archiviati crittografati, ovvero sono crittografati anche quando inattivi. Durante la lettura dei dati, le informazioni vengono decrittografate dopo la ricezione.
 
@@ -219,9 +217,7 @@ Le risorse di archiviazione di Azure sono accessibile da qualsiasi linguaggio in
 * [Learn more about Blob storage (Altre informazioni sull'archiviazione file)](../storage-files-introduction.md)
 * [Learn more about Blob storage (Altre informazioni sull'archiviazione code)](../queues/storage-queues-introduction.md)
 
-Per diventare rapidamente operativi con Archiviazione di Azure, vedere una delle guide introduttive seguenti:
-* [Creare un account di archiviazione tramite PowerShell](storage-quickstart-create-storage-account-powershell.md)
-* [Creare un account di archiviazione tramite l'interfaccia della riga di comando](storage-quickstart-create-storage-account-cli.md)
+Per iniziare a usare Archiviazione di Azure, vedere [Create a storage account](storage-quickstart-create-account.md) (Creare un account di archiviazione).
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 

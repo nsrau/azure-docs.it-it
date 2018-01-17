@@ -13,23 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/31/2017
+ms.date: 01/03/2018
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9f51f46b0dc942bb9749f8e962a2872a8618245a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3e14c18d5e4cd77f4c68d8a5d9d0b915e896695
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>App, autorizzazioni e consenso in Azure Active Directory
-In Azure Active Directory è possibile aggiungere applicazioni alla directory.  Le applicazioni possono variare in base al tipo di applicazione.  Per visualizzare le applicazioni nel portale classico, selezionare una directory e scegliere le applicazioni.
-
-![](media/active-directory-apps-permissions-consent/apps1.png)
+In Azure Active Directory è possibile aggiungere applicazioni alla directory.  Le applicazioni possono variare in base al tipo di applicazione.  Per visualizzare le applicazioni nel portale, selezionare una directory e scegliere le applicazioni.
 
 > [!IMPORTANT]
-> Microsoft consiglia di gestire Azure AD usando l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) nel portale di Azure invece di usare il portale di Azure classico citato nel presente articolo.
+> Microsoft consiglia di gestire Azure AD usando l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) nel portale di Azure invece di usare il portale di Azure citato nel presente articolo.
 
 ## <a name="types-of-apps"></a>Tipi di app
 
@@ -73,9 +71,7 @@ Riepilogo:
 
 ## <a name="controls"></a>Controlli
 
-Di seguito è riportato un elenco dei vari controlli amministratore disponibili per tutti i comportamenti descritti. È possibile accedere ai controlli amministratore da Configura nella directory del portale classico.
-
-![](media/active-directory-apps-permissions-consent/apps7.png)
+Di seguito è riportato un elenco dei vari controlli amministratore disponibili per tutti i comportamenti descritti.
 
 Nel portale di Azure, in **Gestisci**, selezionare **Impostazioni utente**.
 
@@ -85,18 +81,14 @@ Nel portale di Azure, in **Gestisci**, selezionare **Impostazioni utente**.
 
 - È possibile controllare se gli utenti possono ottenere il consenso alle applicazioni:
 
-Nel portale classico selezionare **Gli utenti possono concedere alle applicazioni l'autorizzazione per accedere ai propri dati.**
-![](media/active-directory-apps-permissions-consent/apps8.png)
-
 Nel portale di Azure selezionare **Gli utenti possono consentire alle app di accedere ai propri dati**.
 ![](media/active-directory-apps-permissions-consent/apps12.png)
 
 
 
-- È possibile controllare se gli utenti possono registrare le proprie app LOB a tenant singolo: nel portale classico selezionare **Gli utenti possono aggiungere applicazioni integrate.**
-![](media/active-directory-apps-permissions-consent/apps9.png)
+- È possibile stabilire se gli utenti possono registrare le proprie app line-of-business a tenant singolo:
 
-Nel portale di Azure selezionare **Gli utenti possono consentire alle app di accedere ai propri dati**.
+Nel portale di Azure selezionare **Gli utenti possono registrare applicazioni**.
 ![](media/active-directory-apps-permissions-consent/apps13.png)
 
 >[!NOTE]
@@ -108,20 +100,6 @@ Nel portale di Azure selezionare **Gli utenti possono consentire alle app di acc
 >- Quando si registrano le app LOB a tenant singolo, gli utenti non possono richiedere autorizzazioni delegate ad altre app se tali autorizzazioni richiedono il consenso dell'amministratore.
 >- Gli utenti non possono apportare modifiche alle app di cui non sono proprietari.
 
-
-
-- È possibile controllare se gli utenti possono aggiungere app preintegrate che usano password SSO (ossia "insieme di credenziali delle password") ![](media/active-directory-apps-permissions-consent/apps10.png)
-
-
-
-- È possibile controllare le condizioni in base alle quali è possibile accedere alle applicazioni (ovvero, accesso condizionale). Tenere presente che questo scenario si applica sia all'app client, sia all'app risorsa. Indicare quindi di aver impostato i criteri di accesso condizionale che informano che l'app "Office 365 Exchange Online" è accessibile solo da computer conformi.  Questi criteri verranno attivati anche quando un utente tenta di usare un'app client che richiede le autorizzazioni per Exchange Online.
-
-
-
-- Si ha visibilità delle app per le quali è stato concesso il consenso e quelle in uso.
-
-1.  Quando un utente ottiene il consenso a un'app, nel tenant viene creato un oggetto entità servizio. La creazione dell'entità servizio è inclusa nel report di controllo.
-2.  I report dell'attività di accesso indicano a quali app l'utente esegue l'accesso. 
 
 ## <a name="example"></a>Esempio
 

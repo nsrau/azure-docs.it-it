@@ -13,24 +13,22 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 0bf5eb51d3fea8ff4a62d9e7f6d76c771aaaaf77
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 138f9f6e85d5e206c8b09d5c93822cfef5dd1246
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-2-get-data"></a>Lezione 2: Ottenere i dati
+# <a name="get-data"></a>Recupera dati
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
-
-In questa lezione si usa la funzionalità Recupera dati in SSDT per connettersi al database di esempio AdventureWorksDW2014, selezionare i dati, visualizzarli in anteprima e filtrarli, quindi importarli nell'area di lavoro del modello.  
+In questa lezione si usa la funzionalità Recupera dati in SSDT per connettersi al database di esempio Adventure Works, selezionare i dati, visualizzarli in anteprima e filtrarli, quindi importarli nell'area di lavoro del modello.  
   
 Con Recupera dati è possibile importare dati da un'ampia gamma di origini: database SQL di Azure, Oracle, Sybase, feed OData, Teradata, file e altro ancora. I dati possono essere recuperati anche tramite query, usando un'espressione di formula Power Query M.
 
 > [!NOTE]
-> Attività e immagini in questa esercitazione mostrano la connessione a un database AdventureWorksDW2014 in un server locale. In alcuni casi, un database AdventureWorksDW2014 in Azure può essere diverso.
+> Attività e immagini in questa esercitazione mostrano la connessione a un database AdventureWorksDW2014 in un server locale. In alcuni casi un database Adventure Works in Azure può essere diverso.
   
 Tempo previsto per il completamento della lezione: **10 minuti**  
   

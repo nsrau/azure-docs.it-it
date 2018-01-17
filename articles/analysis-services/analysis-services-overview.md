@@ -1,5 +1,5 @@
 ---
-title: Informazioni su Azure Analysis Services | Microsoft Docs
+title: Panoramica di Azure Analysis Services | Microsoft Docs
 description: Ottenere un quadro generale di Analysis Services in Azure.
 services: analysis-services
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/08/2017
+ms.date: 01/04/2017
 ms.author: owend
-ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: fe46b3c099c4fd4e04a39e2b2f127c1206711e60
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
+# <a name="azure-analysis-services-overview"></a>Panoramica di Azure Analysis Services
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Azure Analysis Services fornisce funzionalità di modellazione di dati di livello aziendale sul cloud. È una piattaforma distribuita come servizio (PaaS) completamente gestita, integrata con i servizi della piattaforma dati di Azure. 
@@ -121,7 +121,7 @@ Gli strumenti moderni per l'esplorazione e la visualizzazione dei dati come Powe
 I client usano le [librerie client](analysis-services-data-providers.md) MSOLAP, AMO o ADOMD per la connessione ai server di Analysis Services. Le applicazioni client di Microsoft, come ad esempio Power BI Desktop ed Excel, installano tutte e tre le librerie client. A seconda della versione o della frequenza degli aggiornamenti, le librerie client potrebbero tuttavia non essere le versioni più recenti richieste da Azure Analysis Services. Lo stesso vale per le applicazioni personalizzate o per le altre interfacce come AsCmd, TOM e ADOMD.NET. Queste applicazioni richiedono in genere l'installazione manuale delle librerie come parte di un pacchetto.
 
 
-## <a name="get-help"></a>Ottenere aiuto
+## <a name="get-help"></a>Supporto
 
 #### <a name="documentation"></a>Documentazione
 La gestione e la configurazione di Azure Analysis Services sono semplici. In quest'area è possibile trovare tutte le informazioni necessarie per creare e gestire i servizi del server. La creazione di un modello dati per la distribuzione al server è analoga alla creazione di un modello dati distribuiti a un server locale. È disponibile una ricca libreria di articoli concettuali, procedurali, di esercitazioni e di riferimento nell'articolo di [informazioni su SQL Server Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: aee19cd515e1cb75dcd791363270e1b6a6d094e4
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 71090d897634989a061181f4471368cfb5f14be0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Eseguire Azure Site Recovery Deployment Planner per distribuzioni da VMware ad Azure
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
@@ -63,6 +63,7 @@ Sostituire &lsaquo;server name&rsaquo;, &lsaquo;user name&rsaquo;, &lsaquo;passw
 
     ![Elenco di nomi di VM in Deployment Planner
 ](media/site-recovery-vmware-deployment-planner-run/profile-vm-list-v2a.png)
+
 ### <a name="start-profiling"></a>Avviare la profilatura
 Dopo aver ottenuto l'elenco di macchine virtuali da profilare, è possibile eseguire lo strumento in modalità di profilatura. Di seguito è riportato l'elenco dei parametri obbligatori e facoltativi dello strumento per l'esecuzione in modalità di profilatura.
 
@@ -94,6 +95,17 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 Durante la profilatura è possibile passare il nome e la chiave di un account di archiviazione per determinare la velocità effettiva che Site Recovery può raggiungere al momento della replica dal server di configurazione o dal server di elaborazione ad Azure. Se il nome e la chiave dell'account di archiviazione non vengono passati durante la profilatura, lo strumento non calcola la velocità effettiva ottenibile.
 
 È possibile eseguire più istanze dello strumento per diversi set di VM. Assicurarsi che i nomi delle VM non siano ripetuti nei set di profilatura. Se, ad esempio, sono state profilate dieci VM (da VM1 a VM10) e dopo alcuni giorni si vogliono profilare altre cinque VM (da VM11 a VM15), è possibile eseguire lo strumento da un'altra console della riga di comando per il secondo set di VM (da VM11 a VM15). Verificare che le VM del secondo set non abbiano nomi uguali a quelli della prima istanza di profilatura oppure usare una directory di output diversa per la seconda esecuzione. Se vengono usate due istanze dello strumento per profilare le stesse VM usando la stessa directory di output, il report generato sarà errato.
+
+Per impostazione predefinita, lo strumento è configurato per profilare, generando il report corrispondente, fino a 1000 VM. È possibile modificare questo limite cambiando il valore della chiave MaxVMsSupported nel file *ASRDeploymentPlanner.exe.config*.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
+Per profilare, ad esempio, 1500 VM con le impostazioni predefinite, creare due file VMList.txt, uno con l'elenco di 1000 VM e l'altro di 500 VM. Eseguire le due istanze di Azure Site Recovery Deployment Planner, una con VMList1.txt e l'altra con VMList2.txt. È possibile usare lo stesso percorso di directory per archiviare i dati di profilatura delle VM di entrambi i file VMList. 
+
+È stato osservato che in base alla configurazione hardware, in particolare alle dimensioni della RAM del server da cui viene eseguito lo strumento per generare il report, l'operazione può non riuscire a causa di memoria insufficiente. Se l'hardware è appropriato, è possibile modificare MaxVMsSupported in base a un valore maggiore.  
+
+In presenza di più server vCenter, è necessario eseguire un'istanza di ASRDeploymentPlanner per ogni server vCenter per la profilatura.
 
 Le configurazioni delle VM vengono acquisite una volta all'inizio dell'operazione di profilatura e archiviate in un file denominato VMDetailList.xml. Queste informazioni vengono usate quando viene generato il report. Eventuali modifiche apportate alla configurazione delle VM (ad esempio, un incremento del numero di core, dischi o schede di interfaccia di rete) dall'inizio alla fine della profilatura non vengono acquisite. Se una VM profilata è stata modificata nel corso della profilatura, nell'anteprima pubblica è disponibile la soluzione alternativa seguente per ottenere i dettagli più recenti della VM durante la generazione del report:
 
@@ -158,6 +170,12 @@ Al termine della profilatura, è possibile eseguire lo strumento in modalità di
 |-TargetRegion|(Facoltativo) Area di Azure di destinazione per la replica. Azure ha costi diversi per ogni area, quindi usare questo parametro per generare report per la specifica area di destinazione di Azure.<br>Il valore predefinito è WestUS2 o l'ultima area di destinazione usata.<br>Vedere l'elenco delle [aree di destinazione supportate](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Facoltativo) Offerta associata alla sottoscrizione. Il valore predefinito è MS-AZR-0003P (pagamento in base al consumo).|
 |-Currency|(Facoltativo) Valuta usata per visualizzare il costo nel report generato. Il valore predefinito è Dollaro USA ($) o l'ultima valuta usata.<br>Vedere l'elenco delle [valute supportate](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
+
+Per impostazione predefinita, lo strumento è configurato per profilare, generando il report corrispondente, fino a 1000 VM. È possibile modificare questo limite cambiando il valore della chiave MaxVMsSupported nel file *ASRDeploymentPlanner.exe.config*.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Esempio 1: Generare un report con valori predefiniti quando i dati profilati si trovano nell'unità locale
 ```

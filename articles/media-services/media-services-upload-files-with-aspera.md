@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 707d5db04d66760a12d0c947c8a86347fd0c73d9
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Caricare file in un account Servizi multimediali usando il servizio Aspera Server On Demand in Azure
 
@@ -33,7 +33,7 @@ Questa esercitazione illustra la procedura per caricare file in un account di ar
 Per un esempio che illustra come usare le funzioni di Azure con Aspera e Servizi multimediali, vedere [qui](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest).
 
 >[!NOTE]
->È previsto un limite per le dimensioni massime dei file supportate per l'elaborazione con i processori di contenuti multimediali di Servizi multimediali di Azure. Vedere [questo](media-services-quotas-and-limitations.md) argomento per informazioni dettagliate sulla limitazione per le dimensioni dei file.
+>È previsto un limite per le dimensioni massime dei file supportate per l'elaborazione con i processori di contenuti multimediali di Servizi multimediali di Azure. Vedere [questo](media-services-quotas-and-limitations.md) articolo per informazioni dettagliate sulla limitazione per le dimensioni dei file.
 >
 
 ## <a name="prerequisites"></a>Prerequisiti 

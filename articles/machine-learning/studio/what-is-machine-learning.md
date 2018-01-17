@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: cgronlun;tedway;olgali
-ms.openlocfilehash: 38c5f722029c80d7e61039ebe05346b345573e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adbd1badd8053d3c2b53386b0311e120738099f9
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Introduzione a Machine Learning nel cloud di Azure
 
@@ -33,7 +33,7 @@ Per una breve panoramica, guardare la serie di video [Analisi scientifica dei da
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>Cos'è Machine Learning nel cloud di Microsoft Azure?
 Azure Machine Learning è un servizio di analisi predittiva basato sul cloud che consente di creare e distribuire rapidamente modelli predittivi come soluzioni di analisi.
 
-È possibile iniziare da una libreria di algoritmi pronta all'uso, usare gli algoritmi per creare modelli su un PC connesso a Internet e distribuire rapidamente la soluzione di analisi predittiva. Per ottenere risultati rapidi, iniziare con le soluzioni e gli esempi pronti all'uso di [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/).
+È possibile iniziare da una libreria di algoritmi pronta all'uso, usare gli algoritmi per creare modelli su un PC connesso a Internet e distribuire rapidamente la soluzione di analisi predittiva. Per ottenere risultati rapidi, iniziare con le soluzioni e gli esempi pronti all'uso della [raccolta per intelligenza artificiale di Azure](https://gallery.cortanaintelligence.com/).
 
 ![Che cos'è l'apprendimento automatico? Flusso di lavoro di base per rendere operativa l'analisi predittiva in Azure Machine Learning.](./media/what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
@@ -48,9 +48,9 @@ Azure Machine Learning include tutto ciò è necessario per creare soluzioni com
 ### <a name="machine-learning-studio-create-predictive-models"></a>Machine Learning Studio: creare modelli predittivi
 In [Machine Learning Studio](what-is-ml-studio.md)è possibile creare rapidamente modelli predittivi trascinando, rilasciando e connettendo i moduli. È possibile [provarlo gratuitamente](https://studio.azureml.net/?selectAccess=true&o=2) sperimentando diverse combinazioni.
 
-* In [Cortana Intelligence Gallery](gallery-how-to-use-contribute-publish.md)è possibile provare soluzioni di analisi create da altri o contribuire con le proprie. Inviare domande o commenti sugli esperimenti nella community oppure condividere collegamenti a esperimenti tramite social network come LinkedIn e Twitter.
+* Nella [raccolta per intelligenza artificiale di Azure](gallery-how-to-use-contribute-publish.md) è possibile provare soluzioni di analisi create da altri o contribuire con le proprie. Inviare domande o commenti sugli esperimenti nella community oppure condividere collegamenti a esperimenti tramite social network come LinkedIn e Twitter.
 
-  ![Provare gli esperimenti predittivi o pubblicare il proprio esperimento in Azure Cortana Intelligence Gallery](./media/what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
+  ![Provare gli esperimenti predittivi o pubblicare il proprio esperimento nella raccolta per intelligenza artificiale di Azure](./media/what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 * Usare una grande libreria di [moduli e algoritmi di Machine Learning](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) in Machine Learning Studio per implementare rapidamente i modelli predittivi. Scegliere tra esperimenti di esempio, pacchetti R e Python e i migliori algoritmi di aziende Microsoft, come Xbox e Bing. Estendere i moduli di Studio con gli script [R](extend-your-experiment-with-r.md) e [Python](execute-python-scripts.md) personalizzati.
 
   ![Cos'è l'analisi predittiva: esempio di esperimento di analisi predittiva in Azure Machine Learning Studio](./media/what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)

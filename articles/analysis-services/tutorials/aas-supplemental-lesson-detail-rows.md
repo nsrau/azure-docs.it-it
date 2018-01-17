@@ -13,26 +13,24 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: fbc6187e80a42330c96ebaa1195ea188430894cc
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5a4dc7004245923fa6bda779114166ecf08d075f
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Lezione supplementare: Righe di dettaglio
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 In questa lezione supplementare si userà l'Editor DAX per definire un'espressione di righe di dettaglio personalizzata. Un'espressione di righe di dettaglio è una proprietà su una misura, che offre agli utenti finali ulteriori informazioni sui risultati aggregati di una misura. 
   
 Tempo previsto per il completamento della lezione: **10 minuti**  
   
 ## <a name="prerequisites"></a>Prerequisiti  
-L'argomento di questa lezione supplementare fa parte di un'esercitazione sulla creazione di modelli tabulari. Prima di eseguire le attività di questa lezione supplementare, è necessario avere completato tutte le lezioni precedenti o avere a disposizione un progetto completo del modello di esempio Adventure Works Internet Sales.  
+Questa lezione supplementare fa parte di un'esercitazione sulla creazione di modelli tabulari. Prima di eseguire le attività di questa lezione supplementare, è necessario avere completato tutte le lezioni precedenti o avere a disposizione un progetto completo del modello di esempio Adventure Works Internet Sales.  
   
-## <a name="what-do-we-need-to-solve"></a>Qual è l'esigenza?
+## <a name="whats-the-issue"></a>Qual è il problema?
 Prima di aggiungere un'espressione di righe di dettaglio, verrà esaminata in dettaglio la misura InternetTotalSales.
 
 1.  In SSDT fare clic sul menu **Modello** > **Analizza in Excel** per aprire Excel e creare una tabella pivot vuota.
@@ -51,7 +49,7 @@ In questo caso, sarebbe invece utile una tabella contenente colonne e righe dei 
 
 #### <a name="to-create-a-detail-rows-expression"></a>Per creare un'espressione di righe di dettaglio 
   
-1. In SSDT, nella griglia delle misure della tabella FactInternetSales, fare clic sulla misura **InternetTotalSales**. 
+1. Nella griglia delle misure della tabella FactInternetSales fare clic sulla misura **InternetTotalSales**. 
 
 2. In **Proprietà** > **Espressione righe di dettaglio** fare clic sul pulsante con i tre puntini per aprire l'Editor DAX.
 
@@ -81,7 +79,7 @@ In questo caso, sarebbe invece utile una tabella contenente colonne e righe dei 
 5. Ridistribuire il modello.
 
   
-## <a name="see-also"></a>Vedere anche  
-[SELECTCOLUMNS Function (DAX) (Funzione DAX SELECTCOLUMNS)](https://msdn.microsoft.com/library/mt761759.aspx)   
+## <a name="see-also"></a>Vedere anche   
+[SELECTCOLUMNS Function (DAX)](https://msdn.microsoft.com/library/mt761759.aspx) (Funzione SELECTCOLUMNS - DAX)  
 [Lezione supplementare: Sicurezza dinamica](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Lezione supplementare: Gerarchie incomplete](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  

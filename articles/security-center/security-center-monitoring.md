@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2017
+ms.date: 01/03/2018
 ms.author: yurid
-ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure
 Questo articolo descrive come usare le funzionalità di monitoraggio nel Centro sicurezza di Azure per verificare la conformità ai criteri.
@@ -48,11 +48,11 @@ Quando si fa clic sul riquadro **Calcolo** vengono visualizzate tre schede:
 In ogni scheda possono essere presenti più sezioni ed è possibile selezionare in ogni sezione una singola opzione per visualizzare altri dettagli sulla procedura consigliata per risolvere il problema.
 
 #### <a name="monitoring-recommendations"></a>Monitoraggio delle raccomandazioni
-Questa sezione indica il numero totale di macchine virtuali e computer inizializzati per il provisioning automatico, con i relativi stati correnti. Quando si fa clic su questa voce, si apre **Monitoring agent health issues** (Problemi di integrità dell'agente di monitoraggio).
+Questa sezione indica il numero totale di macchine virtuali e computer inizializzati per il provisioning automatico, con i relativi stati correnti. Questo esempio include un consiglio, **Monitoring agent health issues** (Problemi di integrità dell'agente di monitoraggio).  Selezionare questo consiglio.
 
 ![Monitoring agent health issues (Problemi di integrità dell'agente di monitoraggio)](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
-Sono elencati le macchine virtuali e i computer che il Centro sicurezza non può monitorare correttamente. Selezionare una VM o un computer per informazioni dettagliate. **MONITORING STATE** (STATO MONITORAGGIO) definisce il problema.
+Viene visualizzato **Monitoring agent health issues** (Problemi di integrità dell'agente di monitoraggio). Sono elencati le macchine virtuali e i computer che il Centro sicurezza non può monitorare correttamente. Selezionare una VM o un computer per informazioni dettagliate. **STATO DI MONITORAGGIO** fornisce un motivo che spiega perché il Centro sicurezza non è in grado di eseguire il monitoraggio. Vedere la [Guida alla risoluzione dei problemi del Centro sicurezza](security-center-troubleshooting-guide.md#monitoring-agent-health-issues) per un elenco di valori, descrizioni e procedure di risoluzione dello **STATO DI MONITORAGGIO**.
 
 #### <a name="recommendations"></a>Raccomandazioni
 Questa sezione include una serie di [raccomandazioni per ogni macchina virtuale e computer](security-center-virtual-machine-recommendations.md) monitorati dal Centro sicurezza di Azure. La prima colonna elenca la raccomandazione. La seconda colonna mostra il numero totale di macchine virtuali e computer interessati da questa raccomandazione. La terza colonna indica la gravità del problema, come illustrato nello screenshot seguente:

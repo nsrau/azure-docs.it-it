@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 4cc8e78e3ce22d70546d8a25da17b56f4b7cc166
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 11496f0ca225baf0e6647a62aae09b8992f825c8
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Esercitazione di Machine Learning: Creare il primo esperimento di analisi scientifica dei dati in Azure Machine Learning Studio
 
@@ -81,7 +81,7 @@ In questa esercitazione di Machine Learning, si seguiranno cinque passaggi di ba
 [Passaggio 5: Stimare i prezzi delle nuove automobili]: #step-5-predict-new-automobile-prices
 
 > [!TIP] 
-> Per una copia di lavoro dell'esperimento seguente, visitare il sito Web [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com). Passare a **[Your first data science experiment - Automobile price prediction](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** (Primo esperimento scientifico sui dati - stima dei prezzi delle automobili) e fare clic su **Open in Studio** (Apri in Studio) per scaricare una copia dell'esperimento nell'area di lavoro di Machine Learning Studio.
+> Una copia di lavoro dell'esperimento seguente è disponibile in [Azure AI Gallery](https://gallery.cortanaintelligence.com). Passare a **[Your first data science experiment - Automobile price prediction](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** (Primo esperimento scientifico sui dati - stima dei prezzi delle automobili) e fare clic su **Open in Studio** (Apri in Studio) per scaricare una copia dell'esperimento nell'area di lavoro di Machine Learning Studio.
 
 
 ## <a name="step-1-get-data"></a>Passaggio 1: Ottenere i dati
@@ -130,7 +130,7 @@ Prima di poter analizzare un set di dati è in genere necessario pre-elaborarlo.
 > [!TIP]
 > La pulizia dei valori mancanti dai dati di input è un prerequisito all'uso della maggior parte dei moduli.
 
-Si aggiunge prima un modulo che rimuove completamente la colonna **normalized-losses** (perdite normalizzate) e si aggiunge un altro modulo che rimuove tutte le righe con dati mancanti.
+Si aggiunge prima un modulo che rimuove completamente la colonna **normalized-losses** (perdite normalizzate) e si aggiunge quindi un altro modulo che rimuove tutte le righe con dati mancanti.
 
 1. Digitare **select columns** (seleziona colonne) nella casella di ricerca nella parte superiore del pannello dei moduli per trovare il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e trascinarlo nell'area di disegno. Questo modulo consente di selezionare le colonne di dati da includere o escludere nel modello.
 
@@ -327,14 +327,14 @@ L'esperimento dovrebbe avere un aspetto simile al seguente:
 Dopo aver completato la prima esercitazione di Machine Learning e impostato l'esperimento, è possibile migliorare il modello e successivamente distribuirlo come servizio Web predittivo.
 
 - **Eseguire l'iterazione per migliorare il modello**: ad esempio, è possibile modificare le caratteristiche usate per la stima. In alternativa, è possibile modificare le proprietà dell'algoritmo [Linear Regression][linear-regression] (Regressione lineare) oppure provare un algoritmo diverso. È anche possibile aggiungere contemporaneamente più algoritmi di Machine Learning all'esperimento e confrontarne due usando il modulo [Evaluate Model][evaluate-model] (Modello di valutazione).
-Per un esempio di come confrontare più modelli in un esperimento singolo, vedere [Compare Regressors](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) (Confrontare regressori) in [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com).
+Per un esempio di come confrontare più modelli in un singolo esperimento, vedere [Compare Regressors](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) (Confrontare i regressori) in [Azure AI Gallery](https://gallery.cortanaintelligence.com).
 
     > [!TIP]
     > Usare il pulsante **SAVE AS** (SALVA CON NOME) nella parte inferiore della pagina per copiare eventuali iterazioni dell'esperimento. È possibile visualizzare tutte le iterazioni dell'esperimento facendo clic su **VIEW RUN HISTORY** (VISUALIZZA LA CRONOLOGIA DI ESECUZIONE) nella parte inferiore della pagina. Per altre informazioni, vedere [Gestire iterazioni dell'esperimento in Azure Machine Learning Studio][runhistory].
 
 [runhistory]: manage-experiment-iterations.md
 
-- **Distribuire il modello come servizio Web predittivo**: se si è soddisfatti con i risultati del modello, è possibile distribuirlo come servizio Web per stimare prezzi di automobili usando dati nuovi. Per altre informazioni dettagliate, vedere [Distribuire un servizio Web di Azure Machine Learning][publish].
+- **Distribuire il modello come servizio Web predittivo**: se si è soddisfatti dei risultati del modello, è possibile distribuirlo come servizio Web per stimare prezzi di automobili usando dati nuovi. Per altre informazioni dettagliate, vedere [Distribuire un servizio Web di Azure Machine Learning][publish].
 
 [publish]: publish-a-machine-learning-web-service.md
 

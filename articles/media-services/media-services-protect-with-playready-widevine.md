@@ -1,6 +1,6 @@
 ---
-title: Uso della crittografia comune dinamica PlayReady e/o Widevine | Documentazione Microsoft
-description: Servizi multimediali di Microsoft Azure consente di distribuire flussi MPEG-DASH, Smooth Streaming e Http-Live-Streaming (HLS) protetti con Microsoft PlayReady DRM. Consente inoltre di recapitare contenuti DASH crittografati con Widevine DRM. Questo argomento illustra come crittografare in modo dinamico con PlayReady e Widevine DRM.
+title: Usare la crittografia comune dinamica Widevine e/o PlayReady | Microsoft Docs
+description: "È possibile usare Servizi multimediali di Azure per distribuire flussi MPEG-DASH, Smooth Streaming e HTTP Live Streaming (HLS) protetti con Microsoft PlayReady DRM. È anche possibile distribuire contenuti DASH crittografati con Widevine DRM. Questo argomento illustra come crittografare in modo dinamico con PlayReady e Widevine DRM."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: fb62a82f351502b5067367b2306f296272b6575b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 54b9c38d1122d898dd584a189b9ea2e3405dc6f5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="using-playready-andor-widevine-dynamic-common-encryption"></a>Uso della crittografia comune dinamica PlayReady e/o Widevine
+# <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Usare la crittografia comune dinamica Widevine e/o PlayReady
 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-protect-with-playready-widevine.md)
@@ -29,93 +29,104 @@ ms.lasthandoff: 12/18/2017
 >
 
 > [!NOTE]
-> Per ottenere la versione più recente di Java SDK e iniziare a sviluppare con Java, vedere [Introduzione a Java Client SDK per Servizi multimediali](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Per scaricare la versione più recente di PHP SDK per Servizi multimediali, cercare la versione 0.5.7 del pacchetto Microsoft/WindowAzure nel [repository Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
+> Per ottenere la versione più recente di Java SDK e iniziare a sviluppare con Java, vedere [Introduzione a Java Client SDK per Servizi multimediali di Azure](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Per scaricare la versione più recente di PHP SDK per Servizi multimediali, cercare la versione 0.5.7 del pacchetto Microsoft/WindowAzure nel [repository Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7). 
 
 ## <a name="overview"></a>Panoramica
 
-Servizi multimediali di Microsoft Azure consente di distribuire flussi MPEG-DASH, Smooth Streaming e HTTP-Live-Streaming (HLS) protetti con il DRM di [Microsoft PlayReady](https://www.microsoft.com/playready/overview/). Consente anche di distribuire contenuti DASH crittografati tramite licenze DRM Widevine. PlayReady e Widewine vengono crittografati in base alle specifiche della crittografia comune (ISO/IEC 23001-7 CENC). È possibile utilizzare [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (inizia con la versione 3.5.1) o l'API REST per configurare il AssetDeliveryConfiguration per utilizzare Widevine.
+ È possibile usare Servizi multimediali per distribuire flussi MPEG-DASH, Smooth Streaming e HTTP Live Streaming (HLS) protetti con [PlayReady DRM (Digital Rights Management)](https://www.microsoft.com/playready/overview/). È anche possibile distribuire flussi DASH crittografati con licenze Widevine DRM. Sia per PlayReady che per Widevine la crittografia avviene in base alla specifica di crittografia comune (ISO/IEC 23001-7 CENC). È possibile usare [Media Services SDK per .NET](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partire dalla versione 3.5.1) o l'API REST per configurare AssetDeliveryConfiguration per l'uso di Widevine.
 
-Servizi multimediali rende disponibili servizi per la distribuzione di licenze DRM Widevine e PlayReady. Servizi multimediali fornisce anche le API che consentono di configurare i diritti e le restrizioni che il runtime DRM di Widevine o PlayReady deve imporre quando l'utente riproduce contenuto protetto. Quando un utente richiede contenuto protetto tramite DRM, il lettore richiede una licenza dal servizio licenze AMS. Il servizio licenze AMS rilascia una licenza al lettore, se questo è autorizzato. Una licenza PlayReady o Widevine contiene la chiave di decrittografia che può essere usata dal lettore client per decrittografare e trasmettere il contenuto.
+Servizi multimediali rende disponibili servizi per la distribuzione di licenze PlayReady e Widevine DRM. Servizi multimediali fornisce anche API che è possibile usare per configurare i diritti e le restrizioni che il runtime di PlayReady o Widevine DRM deve applicare quando un utente riproduce contenuto protetto. Quando un utente richiede contenuto protetto tramite DRM, l'applicazione lettore richiede una licenza dal servizio licenze di Servizi multimediali. Se l'applicazione lettore viene autorizzata, il servizio licenze di Servizi multimediali rilascia una licenza per il lettore. Una licenza PlayReady o Widevine contiene la chiave di decrittografia che può essere usata dal lettore client per decrittografare e trasmettere il contenuto.
 
-È anche possibile usare i partner AMS seguenti per facilitare la distribuzione di licenze Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/). Per altre informazioni, vedere gli articoli relativi all'integrazione con [Axinom](media-services-axinom-integration.md) e [castLabs](media-services-castlabs-integration.md).
+Per distribuire le licenze Widevine, è anche possibile ricorrere ai partner di Servizi multimediali seguenti: 
 
-Servizi multimediali supporta più modalità di autenticazione degli utenti che richiedono le chiavi. I criteri di autorizzazione delle chiavi simmetriche possono avere una o più restrizioni di tipo Open o Token. I criteri con restrizione Token devono essere accompagnati da un token rilasciato da un servizio STS (Secure Token Service, servizio token di sicurezza). Servizi multimediali supporta i token nei formati [Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) e [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Per altre informazioni, vedere l'argomento Configurare i criteri di autorizzazione della chiave simmetrica.
+* [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/) 
+* [EZDRM](http://ezdrm.com/) 
+* [castLabs](http://castlabs.com/company/partners/azure/) 
 
-Per sfruttare la crittografia dinamica, è necessario disporre di un asset che contenga un set di file MP4 con velocità in bit multipla o di file di origine Smooth Streaming con velocità in bit multipla. È anche necessario configurare i criteri di distribuzione dell'asset, descritti più avanti in questo argomento. Quindi, in base al formato specificato nell'URL del flusso, il server di streaming on demand garantirà che il flusso sia distribuito nel protocollo scelto. Di conseguenza, è necessario archiviare e pagare solo per i file in un singolo formato di archiviazione e Servizi multimediali creerà e gestirà la risposta HTTP appropriata in base alle singole richieste dei client.
+Per altre informazioni, vedere gli articoli relativi all'integrazione con [Axinom](media-services-axinom-integration.md) e [castLabs](media-services-castlabs-integration.md).
 
-Questo articolo è utile per gli sviluppatori che creano applicazioni per la distribuzione di contenuto multimediale protetto tramite più DRM, ad esempio PlayReady e Widevine. L'articolo illustra come configurare il servizio di distribuzione della licenza PlayReady con criteri di autorizzazione, in modo che solo i client autorizzati possano ricevere licenze PlayReady o Widevine. Descrive anche come usare la crittografia dinamica con PlayReady o Widevine DRM tramite DASH.
+Servizi multimediali supporta più modalità di autenticazione degli utenti che richiedono le chiavi. I criteri di autorizzazione della chiave simmetrica possono avere una o più restrizioni di autorizzazione, ad esempio restrizione aperta o di tipo token. I criteri con restrizione di tipo token richiedono la presenza di un token rilasciato da un servizio token di sicurezza. Servizi multimediali supporta i token nei formati [SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (Simple Web Token, token Web semplice) e [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JSON Web Token, token JSON Web). 
+
+Per altre informazioni, vedere [Configurare i criteri di autorizzazione della chiave simmetrica](media-services-protect-with-aes128.md#configure_key_auth_policy).
+
+Per sfruttare la crittografia dinamica, è necessario un asset contenente un set di file MP4 a bitrate multipli o di file di origine Smooth Streaming a bitrate multipli. È anche necessario configurare i criteri di distribuzione dell'asset, descritti più avanti in questo argomento. Quindi, in base al formato specificato nell'URL di streaming, il server di streaming on demand garantisce che il flusso venga distribuito nel protocollo scelto. Di conseguenza, si archiviano, e si pagano, file in un solo formato di archiviazione. Servizi multimediali crea e fornisce la risposta HTTP appropriata in base a ogni richiesta del client.
+
+Questo articolo è utile per gli sviluppatori che lavorano ad applicazioni per la distribuzione di contenuto multimediale protetto tramite diverse tecnologie DRM, ad esempio PlayReady e Widevine. L'articolo illustra come configurare il servizio di distribuzione delle licenze PlayReady con criteri di autorizzazione, in modo che solo i client autorizzati possano ricevere licenze PlayReady o Widevine. Descrive anche come usare la crittografia dinamica con PlayReady o Widevine DRM tramite DASH.
 
 >[!NOTE]
->Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
+>Quando viene creato l'account di Servizi multimediali, viene aggiunto all'account un endpoint di streaming predefinito con stato "Arrestato". Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato "In esecuzione". 
 
-## <a name="download-sample"></a>Scaricare un esempio
-È possibile scaricare l'esempio descritto in questo articolo [qui](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
+## <a name="download-the-sample"></a>Scaricare l'esempio
+È possibile scaricare l'esempio descritto in questo articolo dal sito di [esempi di Azure su GitHub](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
 
-## <a name="configuring-dynamic-common-encryption-and-drm-license-delivery-services"></a>Configurazione della crittografia comune dinamica e dei servizi di distribuzione delle licenze DRM
+## <a name="configure-dynamic-common-encryption-and-drm-license-delivery-services"></a>Configurare la crittografia comune dinamica e i servizi di distribuzione delle licenze DRM
 
-Di seguito sono indicati i passaggi generali da eseguire quando si proteggono gli asset con PlayReady, tramite il servizio di distribuzione delle licenze di Servizi multimediali e tramite la crittografia dinamica.
+Eseguire i passaggi generali illustrati di seguito quando si proteggono gli asset con PlayReady usando il servizio di distribuzione delle licenze di Servizi multimediali e la crittografia dinamica:
 
 1. Creare un asset e caricare file al suo interno.
-2. Codificare l'asset contenente il file per il set di file MP4 con velocità in bit adattiva.
-3. Creare una chiave simmetrica e associarla all'asset codificato. In Servizi multimediali, la chiave simmetrica contiene la chiave di crittografia dell'asset.
-4. Configurare i criteri di autorizzazione della chiave simmetrica. I criteri di autorizzazione della chiave simmetrica devono essere configurati dall'utente e soddisfatti dal client affinché la chiave simmetrica possa essere distribuita al client.
 
-    Quando si creano i criteri di autorizzazione della chiave simmetrica, è necessario specificare il metodo di distribuzione (PlayReady o Widevine), le restrizioni (Open o Token) e le informazioni specifiche del tipo di distribuzione della chiave che definisce la modalità di distribuzione della chiave al client (modello di licenza [PlayReady](media-services-playready-license-template-overview.md) o [Widevine](media-services-widevine-license-template-overview.md)).
+2. Codificare l'asset contenente il file nel set MP4 con velocità in bit adattiva.
 
-5. Configurare i criteri di distribuzione di un asset. La configurazione dei criteri di distribuzione include: protocollo di recapito (ad esempio, MPEG DASH, HLS, Smooth Streaming o tutti), tipo di crittografia dinamica (ad esempio, crittografia comune), URL di acquisizione della licenza PlayReady o Widevine.
+3. Creare una chiave simmetrica e associarla all'asset codificato. In Servizi multimediali la chiave simmetrica contiene la chiave di crittografia dell'asset.
 
-    È possibile applicare criteri diversi per ogni protocollo allo stesso asset. Ad esempio, è possibile applicare la crittografia PlayReady a Smooth/DASH e AES Envelope ad HLS. Gli eventuali protocolli non definiti nei criteri di distribuzione (ad esempio quando si aggiunge un singolo criterio che specifica soltanto HLS come protocollo) verranno esclusi dallo streaming. Questo comportamento non si verifica quando non è presente alcun criterio di distribuzione degli asset. In tal caso, sono consentiti tutti i protocolli in chiaro.
+4. Configurare i criteri di autorizzazione della chiave simmetrica. È necessario configurare i criteri di autorizzazione della chiave simmetrica. Il client deve soddisfare i criteri prima che la chiave simmetrica venga distribuita al client stesso.
+
+    Quando si creano i criteri di autorizzazione della chiave simmetrica, è necessario specificare il metodo di distribuzione (PlayReady o Widevine) e le restrizioni (aperta o token). È anche necessario indicare le informazioni specifiche per il tipo di distribuzione della chiave al client (modello di licenza [PlayReady](media-services-playready-license-template-overview.md) o [Widevine](media-services-widevine-license-template-overview.md)).
+
+5. Configurare i criteri di distribuzione di un asset. La configurazione dei criteri di distribuzione include il protocollo di recapito (ad esempio MPEG-DASH, HLS, Smooth Streaming o tutti). La configurazione include anche il tipo di crittografia dinamica (ad esempio, crittografia comune) e l'URL di acquisizione della licenza PlayReady o Widevine.
+
+    È possibile applicare criteri diversi per ogni protocollo nello stesso asset. È ad esempio possibile applicare la crittografia PlayReady a Smooth/DASH e AES Envelope ad HLS. I protocolli non definiti nei criteri di distribuzione (ad esempio se si aggiunge un singolo criterio che specifica solo HLS come protocollo) verranno esclusi dallo streaming. Questo comportamento non si verifica quando non sono definiti criteri di distribuzione degli asset. In tal caso, sono consentiti tutti i protocolli in chiaro.
 
 6. Creare un localizzatore OnDemand per ottenere un URL di streaming.
 
 Alla fine dell'articolo è disponibile un esempio .NET completo.
 
-Nell'immagine seguente viene illustrato il flusso di lavoro descritto in precedenza. Di seguito viene utilizzato il token per l'autenticazione.
+L'immagine seguente illustra il flusso di lavoro descritto in precedenza. Per l'autenticazione viene usato il token.
 
 ![Protezione con PlayReady](media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
-Nella parte rimanente di questo articolo vengono fornite spiegazioni dettagliate, esempi di codice e collegamenti ad argomenti che illustrano come eseguire le attività descritte in precedenza.
+La parte rimanente di questo articolo fornisce spiegazioni dettagliate, esempi di codice e collegamenti ad argomenti che illustrano come eseguire le attività descritte in precedenza.
 
 ## <a name="current-limitations"></a>Limitazioni correnti
-Se si aggiungono o si aggiornano i criteri di distribuzione dell'asset, è necessario eliminare l'eventuale localizzatore associato (se presente) e crearne uno nuovo.
+Se si aggiungono o si aggiornano i criteri di distribuzione degli asset, è necessario eliminare ogni eventuale localizzatore associato e crearne uno nuovo.
 
-Limitazione per la crittografia tramite Widevine con Servizi multimediali di Azure: attualmente non sono supportate più chiavi simmetriche.
+Attualmente non sono supportate più chiavi simmetriche quando si esegue la crittografia usando Widevine con Servizi multimediali. 
 
 ## <a name="create-an-asset-and-upload-files-into-the-asset"></a>Creare un asset e caricare file nell'asset
-Per gestire, codificare e trasmettere i video, è innanzitutto necessario caricare il contenuto in Servizi multimediali di Microsoft Azure. Dopo aver caricato i file, i contenuti vengono archiviati in modo sicuro nel cloud per altre operazioni di elaborazione e streaming.
+Per gestire, codificare e trasmettere in streaming i video, è prima di tutto necessario caricare il contenuto in Servizi multimediali. Dopo il caricamento, il contenuto viene archiviato in modo sicuro nel cloud per consentire altre operazioni di elaborazione e streaming.
 
-Per informazioni dettagliate, vedere [Caricare file in un account di Servizi multimediali](media-services-dotnet-upload-files.md).
+Per altre informazioni, vedere [Caricare file in un account di Servizi multimediali](media-services-dotnet-upload-files.md).
 
-## <a name="encode-the-asset-containing-the-file-to-the-adaptive-bitrate-mp4-set"></a>Codificare l'asset contenente il file per il set di file MP4 con velocità in bit adattiva
-Con la crittografia dinamica è necessario solamente creare un asset che contenga un set di file MP4 con velocità in bit multipla o di file di origine Smooth Streaming con velocità in bit multipla. In base al formato specificato nella richiesta del manifesto e del frammento, il server di streaming on demand garantirà che il flusso sia ricevuto nel protocollo scelto. Di conseguenza, si archiviano e si pagano solo i file in un singolo formato di archiviazione e il servizio Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client. Per altre informazioni, vedere l'articolo [Creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md).
+## <a name="encode-the-asset-that-contains-the-file-to-the-adaptive-bitrate-mp4-set"></a>Codificare l'asset contenente il file nel set MP4 a bitrate adattivo
+Con la crittografia dinamica, si crea un asset contenente un set di file MP4 a bitrate multipli o di file di origine Smooth Streaming a bitrate multipli. In base al formato specificato nella richiesta del manifesto o del frammento, il server di streaming on demand garantisce che il flusso venga ricevuto nel protocollo scelto. Quindi si archiviano, e si pagano, file in un solo formato di archiviazione. Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client. Per altre informazioni, vedere [Creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md).
 
-Per istruzioni su come eseguire la codifica, vedere [Come codificare un asset mediante Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
+Per istruzioni su come eseguire la codifica, vedere [Codificare un asset con Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
 ## <a id="create_contentkey"></a>Creare una chiave simmetrica e associarla all'asset codificato
 In Servizi multimediali, la chiave simmetrica contiene la chiave con cui si desidera crittografare un asset.
 
-Per informazioni dettagliate, vedere [Creare una chiave simmetrica](media-services-dotnet-create-contentkey.md).
+Per altre informazioni, vedere [Creare una chiave simmetrica](media-services-dotnet-create-contentkey.md).
 
-## <a id="configure_key_auth_policy"></a>Configurare i criteri di autorizzazione della chiave simmetrica.
-Servizi multimediali supporta più modalità di autenticazione degli utenti che eseguono richieste di chiavi. I criteri di autorizzazione della chiave simmetrica devono essere configurati dall'utente e soddisfatti dal client (lettore) affinché la chiave possa essere distribuita al client. I criteri di autorizzazione delle chiavi simmetriche possono avere una o più restrizioni di tipo Open o Token.
+## <a id="configure_key_auth_policy"></a>Configurare i criteri di autorizzazione della chiave simmetrica
+Servizi multimediali supporta più modalità di autenticazione degli utenti che eseguono richieste di chiavi. È necessario configurare i criteri di autorizzazione della chiave simmetrica. Il client (lettore) deve soddisfare i criteri prima che la chiave venga distribuita al client stesso. I criteri di autorizzazione della chiave simmetrica possono avere una o più restrizioni di autorizzazione, ad esempio restrizione aperta o di tipo token.
 
-Per informazioni dettagliate, vedere [Configurare i criteri di autorizzazione della chiave simmetrica](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption).
+Per altre informazioni, vedere [Configurare i criteri di autorizzazione della chiave simmetrica](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption).
 
-## <a id="configure_asset_delivery_policy"></a>Configurare i criteri di distribuzione dell'asset
-Configurare i criteri di distribuzione dell'asset. Alcuni aspetti inclusi nella configurazione dei criteri di distribuzione dell’asset:
+## <a id="configure_asset_delivery_policy"></a>Configurare i criteri di distribuzione degli asset
+Configurare i criteri di distribuzione degli asset. La configurazione dei criteri di distribuzione degli asset include:
 
-* L'URL di acquisizione della licenza DRM.
-* Il protocollo di recapito dell'asset (ad esempio, MPEG DASH, HLS, Smooth Streaming o tutti).
-* Il tipo di crittografia dinamica (in questo caso, crittografia comune).
+* URL di acquisizione della licenza DRM.
+* Protocollo di recapito degli asset (ad esempio, MPEG-DASH, HLS, Smooth Streaming o tutti).
+* Tipo di crittografia dinamica (in questo caso, crittografia comune).
 
-Per informazioni dettagliate, vedere [Configurare i criteri di distribuzione degli asset].
+Per altre informazioni, vedere [Configurare i criteri di distribuzione degli asset](media-services-dotnet-configure-asset-delivery-policy.md).
 
 ## <a id="create_locator"></a>Creare un localizzatore di streaming on demand per ottenere un URL di streaming
-È necessario fornire all'utente l'URL del flusso per Smooth, DASH o HLS.
+È necessario fornire all'utente l'URL di streaming per Smooth Streaming, DASH o HLS.
 
 > [!NOTE]
-> Se si aggiungono o si aggiornano i criteri di distribuzione dell'asset, è necessario eliminare l'eventuale localizzatore esistente e creare un nuovo localizzatore.
+> Se si aggiungono o si aggiornano i criteri di distribuzione degli asset, è necessario eliminare qualsiasi localizzatore esistente e crearne uno nuovo.
 >
 >
 
@@ -124,23 +135,24 @@ Per istruzioni su come pubblicare un asset e creare un URL di streaming, vedere 
 ## <a name="get-a-test-token"></a>Ottenere un token di test
 Ottenere un token di test basato sulla restrizione Token usata per i criteri di autorizzazione della chiave.
 
-    // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
+    // Deserializes a string containing an XML representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
     TokenRestrictionTemplate tokenTemplate =
         TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
     // Generate a test token based on the data in the given TokenRestrictionTemplate.
-    //The GenerateTestToken method returns the token without the word “Bearer” in front
+    //The GenerateTestToken method returns the token without the word "Bearer" in front,
     //so you have to add it in front of the token string.
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 
 
-È possibile utilizzare il [lettore AMS](http://amsplayer.azurewebsites.net/azuremediaplayer.html) per testare il flusso.
+Per testare il flusso, è possibile usare il [lettore di Servizi multimediali di Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
-1. Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
+1. Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md).
+
 2. Aggiungere gli elementi seguenti alla sezione **appSettings** definita nel file app.config:
 
         <add key="Issuer" value="http://testacs.com"/>
@@ -148,12 +160,14 @@ Ottenere un token di test basato sulla restrizione Token usata per i criteri di 
 
 ## <a name="example"></a>Esempio
 
-L'esempio seguente illustra la funzionalità introdotta in Azure Media Services SDK per .Net versione 3.5.2, in particolare la possibilità di definire un modello di licenza Widevine e richiedere una licenza Widevine da Servizi multimediali di Azure.
+L'esempio seguente illustra una funzionalità introdotta in Media Services SDK per .NET, versione 3.5.2. In particolare, include la possibilità di definire un modello di licenza Widevine e richiedere una licenza Widevine da Servizi multimediali.
 
 Sovrascrivere il codice nel file Program.cs con il codice riportato in questa sezione.
 
 >[!NOTE]
->È previsto un limite di 1.000.000 di criteri per i diversi criteri AMS (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Usare lo stesso ID criterio se si usano sempre gli stessi giorni/autorizzazioni di accesso, come nel cado di criteri per i localizzatori che devono rimanere attivi per molto tempo (criteri di non caricamento). Per altre informazioni, vedere [questo](media-services-dotnet-manage-entities.md#limit-access-policies) articolo.
+>È previsto un limite di un milione di criteri per i diversi criteri di Servizi multimediali (ad esempio per i criteri del localizzatore o ContentKeyAuthorizationPolicy). Se si usano sempre gli stessi giorni/autorizzazioni di accesso, usare lo stesso ID criteri. Ad esempio, usare lo stesso ID per i criteri dei localizzatori che devono rimanere sul posto per molto tempo (criteri di non caricamento). 
+
+Per altre informazioni, vedere [Gestione di asset ed entità correlate con Media Services .NET SDK](media-services-dotnet-manage-entities.md#limit-access-policies).
 
 Assicurarsi di aggiornare le variabili in modo da puntare alle cartelle in cui si trovano i file di input.
 
@@ -237,14 +251,14 @@ namespace DynamicEncryptionWithDRM
 
             if (tokenRestriction && !String.IsNullOrEmpty(tokenTemplateString))
             {
-                // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
+                // Deserializes a string containing an XML representation of a TokenRestrictionTemplate
                 // back into a TokenRestrictionTemplate class instance.
                 TokenRestrictionTemplate tokenTemplate =
                     TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
-                // Generate a test token based on the the data in the given TokenRestrictionTemplate.
-                // Note, you need to pass the key id Guid because we specified
-                // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
+                // Generate a test token based on the data in the given TokenRestrictionTemplate.
+                // Note that you need to pass the key ID GUID because 
+                // TokenClaim.ContentKeyIdentifierClaim was specified during the creation of TokenRestrictionTemplate.
                 Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
                 string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey,
                                             DateTime.UtcNow.AddDays(365));
@@ -253,7 +267,7 @@ namespace DynamicEncryptionWithDRM
             }
 
             // You can use the http://amsplayer.azurewebsites.net/azuremediaplayer.html player to test streams.
-            // Note that DASH works on IE 11 (via PlayReady), Edge (via PlayReady), Chrome (via Widevine).
+            // Note that DASH works on Internet Explorer 11 (via PlayReady), Edge (via PlayReady), and Chrome (via Widevine).
 
             string url = GetStreamingOriginLocator(encodedAsset);
             Console.WriteLine("Encrypted DASH URL: {0}/manifest(format=mpd-time-csf)", url);
@@ -331,8 +345,8 @@ namespace DynamicEncryptionWithDRM
         static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
         {
 
-            // Create ContentKeyAuthorizationPolicy with Open restrictions
-            // and create authorization policy          
+            // Create ContentKeyAuthorizationPolicy with open restrictions
+            // and create an authorization policy.         
 
             List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
                 {
@@ -409,7 +423,7 @@ namespace DynamicEncryptionWithDRM
             contentKeyAuthorizationPolicy.Options.Add(PlayReadyPolicy);
             contentKeyAuthorizationPolicy.Options.Add(WidevinePolicy);
 
-            // Associate the content key authorization policy with the content key
+            // Associate the content key authorization policy with the content key.
             contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
             contentKey = contentKey.UpdateAsync().Result;
 
@@ -431,41 +445,41 @@ namespace DynamicEncryptionWithDRM
 
         static private string ConfigurePlayReadyLicenseTemplate()
         {
-            // The following code configures PlayReady License Template using .NET classes
+            // The following code configures the PlayReady license template by using .NET classes
             // and returns the XML string.
 
             //The PlayReadyLicenseResponseTemplate class represents the template for the response sent back to the end user.
             //It contains a field for a custom data string between the license server and the application
-            //(may be useful for custom app logic) as well as a list of one or more license templates.
+            //(which might be useful for custom app logic) as well as a list of one or more license templates.
             PlayReadyLicenseResponseTemplate responseTemplate = new PlayReadyLicenseResponseTemplate();
 
-            // The PlayReadyLicenseTemplate class represents a license template for creating PlayReady licenses
-            // to be returned to the end users.
+            // The PlayReadyLicenseTemplate class represents a license template you can use to create PlayReady licenses
+            // to be returned to end users.
             //It contains the data on the content key in the license and any rights or restrictions to be
-            //enforced by the PlayReady DRM runtime when using the content key.
+            //enforced by the PlayReady DRM runtime when you use the content key.
             PlayReadyLicenseTemplate licenseTemplate = new PlayReadyLicenseTemplate();
             //Configure whether the license is persistent (saved in persistent storage on the client)
-            //or non-persistent (only held in memory while the player is using the license).  
+            //or nonpersistent (held in memory only while the player uses the license).  
             licenseTemplate.LicenseType = PlayReadyLicenseType.Nonpersistent;
 
             // AllowTestDevices controls whether test devices can use the license or not.  
             // If true, the MinimumSecurityLevel property of the license
-            // is set to 150.  If false (the default), the MinimumSecurityLevel property of the license is set to 2000.
+            // is set to 150. If false (the default), the MinimumSecurityLevel property of the license is set to 2,000.
             licenseTemplate.AllowTestDevices = true;
 
-            // You can also configure the Play Right in the PlayReady license by using the PlayReadyPlayRight class.
-            // It grants the user the ability to playback the content subject to the zero or more restrictions
-            // configured in the license and on the PlayRight itself (for playback specific policy).
-            // Much of the policy on the PlayRight has to do with output restrictions
+            // You also can configure the PlayRight in the PlayReady license by using the PlayReadyPlayRight class.
+            // It grants the user the ability to play back the content subject to the zero or more restrictions
+            // configured in the license and on the PlayRight itself (for playback-specific policy).
+            // Much of the policy on the PlayRight has to do with output restrictions,
             // which control the types of outputs that the content can be played over and
-            // any restrictions that must be put in place when using a given output.
-            // For example, if the DigitalVideoOnlyContentRestriction is enabled,
-            //then the DRM runtime will only allow the video to be displayed over digital outputs
-            //(analog video outputs won’t be allowed to pass the content).
+            // any restrictions that must be put in place when you use a given output.
+            // For example, if DigitalVideoOnlyContentRestriction is enabled,
+            // the DRM runtime allows the video to be displayed only over digital outputs
+            //(analog video outputs aren't allowed to pass the content).
 
-            //IMPORTANT: These types of restrictions can be very powerful but can also affect the consumer experience.
-            // If the output protections are configured too restrictive,
-            // the content might be unplayable on some clients. For more information, see the PlayReady Compliance Rules document.
+            //IMPORTANT: These types of restrictions can be very powerful but also can affect the consumer experience.
+            // If output protections are too restrictive, 
+            // content might be unplayable on some clients. For more information, see the PlayReady Compliance Rules document.
 
             // For example:
             //licenseTemplate.PlayRight.AgcAndColorStripeRestriction = new AgcAndColorStripeRestriction(1);
@@ -508,10 +522,10 @@ namespace DynamicEncryptionWithDRM
 
             // GetKeyDeliveryUrl for Widevine attaches the KID to the URL.
             // For example: https://amsaccount1.keydelivery.mediaservices.windows.net/Widevine/?KID=268a6dcb-18c8-4648-8c95-f46429e4927c.  
-            // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption
-            // to append /? KID =< keyId > to the end of the url when creating the manifest.
-            // As a result Widevine license acquisition URL will have KID appended twice,
-            // so we need to remove the KID that in the URL when we call GetKeyDeliveryUrl.
+            // WidevineBaseLicenseAcquisitionUrl (used in the following) also tells dynamic encryption
+            // to append /? KID =< keyId > to the end of the URL when you create the manifest.
+            // As a result, the Widevine license acquisition URL has the KID appended twice,
+            // so you need to remove the KID in the URL when you call GetKeyDeliveryUrl.
 
             Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
             UriBuilder uriBuilder = new UriBuilder(widevineUrl);
@@ -526,8 +540,8 @@ namespace DynamicEncryptionWithDRM
 
             };
 
-            // In this case we only specify Dash streaming protocol in the delivery policy,
-            // All other protocols will be blocked from streaming.
+            // In this case, we specify only the DASH streaming protocol in the delivery policy.
+            // All other protocols are blocked from streaming.
             var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
                 "AssetDeliveryPolicy",
             AssetDeliveryPolicyType.DynamicCommonEncryption,
@@ -535,7 +549,7 @@ namespace DynamicEncryptionWithDRM
             assetDeliveryPolicyConfiguration);
 
 
-            // Add AssetDelivery Policy to the asset
+            // Add AssetDelivery Policy to the asset.
             asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 
         }
@@ -548,14 +562,14 @@ namespace DynamicEncryptionWithDRM
         static public string GetStreamingOriginLocator(IAsset asset)
         {
 
-            // Get a reference to the streaming manifest file from the  
+            // Get a reference to the streaming manifest file from the 
             // collection of files in the asset.
 
             var assetFile = asset.AssetFiles.Where(f => f.Name.ToLower().
                          EndsWith(".ism")).
                          FirstOrDefault();
 
-            // Create a 30-day readonly access policy.
+            // Create a 30-day read-only access policy.
             IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
             TimeSpan.FromDays(30),
             AccessPermissions.Read);
@@ -594,16 +608,13 @@ namespace DynamicEncryptionWithDRM
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Vedere anche
-[CENC con Multi-DRM e controllo di accesso](media-services-cenc-with-multidrm-access-control.md)
-
-[Configurare i pacchetti Widevine con AMS](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
-
-[Annuncio dei servizi di distribuzione delle licenze Google Widevine in Servizi multimediali di Azure](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
+## <a name="see-also"></a>Vedere anche 
+* [Usare la crittografia comune con più tecnologie DRM e il controllo di accesso](media-services-cenc-with-multidrm-access-control.md)
+* [Configure Widevine packaging with Media Services (Configurare pacchetti Widewine con Servizi multimediali)](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
+* [Annuncio dei servizi di distribuzione delle licenze Google Widevine in Servizi multimediali di Azure](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)

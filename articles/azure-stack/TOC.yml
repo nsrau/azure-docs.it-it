@@ -19,7 +19,7 @@
 - name: Guide introduttive
   expanded: true
   items:
-    - name: Distribuire Azure Stack
+    - name: Valutare Azure Stack
       href: azure-stack-deploy-overview.md
 - name: Esercitazioni
   items:
@@ -31,8 +31,6 @@
       href: azure-stack-tutorial-app-service.md
 - name: Concetti
   items:
-    - name: Considerazioni sulla pianificazione
-      href: azure-stack-planning-considerations.md
     - name: Criteri di manutenzione
       href: azure-stack-servicing-policy.md
     - name: Funzionalità e concetti principali
@@ -43,17 +41,17 @@
       href: azure-stack-manage-basics.md
 - name: Guide alle procedure
   items:
-    - name: Distribuisci
+    - name: Distribuire il ASDK
       items:
         - name: Prerequisiti
           href: azure-stack-deploy.md
         - name: Telemetria
           href: azure-stack-telemetry.md
-        - name: Distribuisci
+        - name: Distribuire
           href: azure-stack-run-powershell-script.md
         - name: Installare PowerShell
           href: azure-stack-powershell-install.md
-        - name: Registra
+        - name: 'Register '
           href: azure-stack-register.md
         - name: Connettersi ad Azure Stack
           href: azure-stack-connect-azure-stack.md
@@ -61,11 +59,28 @@
           href: azure-stack-add-default-image.md
         - name: Creare una macchina virtuale di test
           href: azure-stack-provision-vm.md
+    - name: Distribuire i sistemi Azure Stack integrato
+      items:
+        - name: Considerazioni sulla pianificazione della distribuzione
+          href: azure-stack-deployment-planning.md
+        - name: Decisioni di pianificazione di distribuzione
+          href: azure-stack-deployment-decisions.md
+        - name: Distribuire connesso ad Azure
+          href: azure-stack-connected-deployment.md
+        - name: Distribuire disconnesso da Azure
+          href: azure-stack-disconnected-deployment.md
+        - name: Requisiti per Azure Stack distribuzione PKI
+          href: azure-stack-pki-certs.md
+          items:
+            - name: Ottenere i certificati di infrastruttura a chiave pubblica per la distribuzione di Azure Stack
+              href: azure-stack-get-pki-certs.md
+        - name: Registro dello Stack di Azure
+          href: azure-stack-registration.md
     - name: Integrazione di Datacenter
       items:
         - name: DNS
           href: azure-stack-integrate-dns.md
-        - name: Identity
+        - name: Identità
           href: azure-stack-integrate-identity.md
         - name: Pubblicare endpoint
           href: azure-stack-integrate-endpoints.md
@@ -142,7 +157,7 @@
       items:
         - name: Panoramica della sicurezza
           href: azure-stack-security-foundations.md
-        - name: Identity
+        - name: Identità
           items:
             - name: Gestire il controllo degli accessi in base al ruolo
               href: azure-stack-manage-permissions.md
@@ -156,7 +171,7 @@
               href: azure-stack-enable-multitenancy.md
         - name: Ruotare i segreti
           href: azure-stack-rotate-secrets.md
-    - name: Servizi dell'offerta
+    - name: Offrire servizi
       items:
         - name: Panoramica dei servizi dell'offerta
           href: azure-stack-offer-services-overview.md
@@ -234,7 +249,7 @@
               href: azure-stack-tenant-resource-usage-api.md
             - name: Domande frequenti sull'utilizzo
               href: azure-stack-usage-related-faq.md
-        - name: Connettersi ad Azure
+        - name: Connect to Azure
           items:
             - name: Connessione tramite VPN
               href: azure-stack-connect-vpn.md
@@ -244,7 +259,7 @@
               href: azure-stack-vpn-gateway-settings.md
             - name: Connessione tramite ExpressRoute
               href: azure-stack-connect-expressroute.md
-    - name: Risoluzione dei problemi
+    - name: Risolvere problemi
       items:
         - name: Problemi noti
           href: azure-stack-troubleshooting.md
@@ -254,11 +269,11 @@
           href: azure-stack-diagnostic-test.md
         - name: Ridistribuire Azure Stack Development Kit
           href: azure-stack-redeploy.md
-- name: Riferimento
+- name: Riferimenti
   items:
     - name: PowerShell per Azure Stack
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.9
-- name: Correlati
+- name: Risorse correlate
   items:
     - name: Documentazione dell'utente di Azure Stack
       href: /azure/azure-stack/user/

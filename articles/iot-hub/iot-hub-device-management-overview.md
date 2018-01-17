@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 6d667d42bfef2ec61b055009210d5621f51c17df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 458b316ba76ff7cace56eb21eaf105233e508741
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Panoramica della gestione dei dispositivi con l'hub IoT
 ## <a name="introduction"></a>Introduzione
@@ -57,7 +57,7 @@ Ciascuna di queste cinque fasi prevede diversi requisiti per gli operatori dei d
     *Altre informazioni*: [Introduzione ai dispositivi gemelli][lnk-twins-getstarted], [Informazioni sui dispositivi gemelli][lnk-twins-devguide], [Come usare le proprietà dei dispositivi gemelli][lnk-twin-properties].
 * **Provisioning**: il provisioning dei nuovi dispositivi viene eseguito in modo sicuro nell'hub IoT e gli operatori possono individuare immediatamente le funzionalità dei dispositivi.  Usare il registro di identità dell'hub IoT per creare credenziali e identità flessibili per i dispositivi ed eseguire l'operazione in blocco tramite un processo. Creare dispositivi per creare report delle funzionalità e delle condizioni tramite le proprietà del dispositivo nel dispositivo gemello.
   
-    *Altre informazioni*: [Gestire le identità dei dispositivi][lnk-identity-registry], [Gestione in blocco delle identità dei dispositivi ][lnk-bulk-identity], [Come usare le proprietà dei dispositivi gemelli][lnk-twin-properties].
+    *Altre informazioni*: [Gestire le identità dei dispositivi][lnk-identity-registry], [Gestire in blocco le identità dei dispositivi dell'hub IoT][lnk-bulk-identity], [Come usare le proprietà dei dispositivi gemelli][lnk-twin-properties], [Servizio Device Provisioning in hub IoT di Azure][lnk-dps].
 * **Configurazione**: vengono facilitate le operazioni in blocco di modifica alla configurazione e aggiornamento del firmware dei dispositivi mantenendo al tempo stesso integrità e sicurezza. Per eseguire queste operazioni di gestione dei dispositivi in blocco, usare le proprietà desiderate oppure metodi diretti e processi di trasmissione.
   
     *Altre informazioni*: [Usare metodi diretti][lnk-c2d-methods], [Richiamare un metodo diretto in un dispositivo][lnk-methods-devguide], [Come usare le proprietà dei dispositivi gemelli][lnk-twin-properties], [Pianificare e trasmettere processi][lnk-jobs], [Pianificare processi in più dispositivi][lnk-jobs-devguide].
@@ -69,7 +69,7 @@ Ciascuna di queste cinque fasi prevede diversi requisiti per gli operatori dei d
     *Altre informazioni*: [Come usare le proprietà dei dispositivi gemelli][lnk-twin-properties], [Gestire le identità dei dispositivi][lnk-identity-registry].
 
 ## <a name="device-management-patterns"></a>Modelli di gestione dei dispositivi
-L'hub IoT supporta il set seguente di modelli di gestione dei dispositivi.  Le [esercitazioni sulla gestione dei dispositivi][lnk-get-started] illustrano con maggior dettagli come estendere questi modelli per adattarli perfettamente allo scenario e come progettare nuovi modelli basati sui modelli di base.
+L'hub IoT supporta il set seguente di modelli di gestione dei dispositivi.  Le [esercitazioni sulla gestione dei dispositivi][lnk-get-started] illustrano con maggior dettaglio come estendere questi modelli per adattarli perfettamente allo scenario e come progettare nuovi modelli basati sui modelli di base.
 
 * **Riavvio**: l'app back-end usa un metodo diretto per comunicare al dispositivo che è stato avviato un riavvio.  Il dispositivo usa le proprietà segnalate per aggiornare lo stato di riavvio del dispositivo.
   
@@ -113,3 +113,4 @@ Per altre informazioni sulle funzionalità di gestione dei dispositivi nell'hub 
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

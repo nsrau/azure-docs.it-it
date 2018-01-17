@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e823aeb4291b3e765b35181c24b41fa58c170cca
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Strumenti di diagnostica Azure Stack
 
@@ -121,28 +121,28 @@ if($s)
    | ACS                     | ACSFabric              | ACSFrontEnd        |
    | ACSTableMaster          | ACSTableServer         | ACSWac             |
    | AD FS                    | ASAppGateway           | BareMetal          |
-   | BRP                     | CA                     | IPC                |
+   | BRP                     | CA                     | CPI                |
    | CRP                     | DeploymentMachine      | DHCP               |
    | Domain                  | ECE                    | ECESeedRing        | 
-   | FabricRing              | FabricRingServices     | IN MATERIA PLASTICA RINFORZATA                |
+   | FabricRing              | FabricRingServices     | FRP                |
    | Gateway                 | HealthMonitoring       | EFFETTUATO                |   
    | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider|
    | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
    | NonPrivilegedAppGateway | NRP                    | SeedRing           |
    | SeedRingServices        | SLB                    | SQL                |   
-   | CRITERI DI RESTRIZIONE SOFTWARE                     | Archiviazione                | Che controller di archiviazione  |
+   | SRP                     | Archiviazione                | StorageController  |
    | URP                     | UsageBridge            | Macchine virtuali    |  
-   | È STATO                     | WASPUBLIC              | SERVIZI DI DISTRIBUZIONE WINDOWS                |
+   | WAS                     | WASPUBLIC              | WDS                |
 
 
-### <a name="collect-logs-using-a-graphical-user-interface"></a>Raccogliere i log usando un'interfaccia utente grafica
+### <a name="bkmk_gui"></a>Raccogliere i log usando un'interfaccia utente grafica
 Anziché fornire i parametri necessari per il cmdlet Get-AzureStackLog recuperare i registri di Stack di Azure, è anche possibile sfruttare gli strumenti di Azure Stack disponibile Apri origine si trova nella finestra principale dello Stack di Azure tools strumenti repository GitHub in http://aka.ms/AzureStackTools.
 
 Il **ERCS_AzureStackLogs.ps1** script di PowerShell è archiviato nel repository GitHub degli strumenti e viene aggiornato a intervalli regolari. Per garantire che la versione più recente disponibile, è necessario scaricarlo direttamente dalla http://aka.ms/ERCS. Avviato da una sessione di PowerShell amministrativa, lo script si connette all'endpoint con privilegi e l'esecuzione di Get-AzureStackLog con parametri forniti. Se viene specificato alcun parametro, per impostazione predefinita lo script di una richiesta di conferma per i parametri tramite un'interfaccia utente grafica.
 
 Per ulteriori informazioni sullo script ERCS_AzureStackLogs.ps1 PowerShell, è possibile guardare [un breve video](https://www.youtube.com/watch?v=Utt7pLsXEBc) o visualizzare lo script [file readme](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) si trova nel repository GitHub strumenti dello Stack di Azure. 
 
-### <a name="additional-considerations"></a>Considerazioni aggiuntive
+### <a name="additional-considerations"></a>Ulteriori considerazioni
 
 * Il comando richiede del tempo per eseguire in base alle quali ruoli per raccogliere i log. Fattori includono anche la durata specificata per la raccolta di log e i numeri di nodi nell'ambiente dello Stack di Azure.
 * Al termine della raccolta di log, selezionare la cartella creata nel **OutputPath** parametro specificato nel comando.
@@ -159,3 +159,4 @@ Per ulteriori informazioni sullo script ERCS_AzureStackLogs.ps1 PowerShell, è p
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Microsoft Azure Stack troubleshooting (Risoluzione dei problemi di Microsoft Azure Stack)](azure-stack-troubleshooting.md)
+
