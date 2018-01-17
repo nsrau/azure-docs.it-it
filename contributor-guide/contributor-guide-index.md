@@ -1,6 +1,6 @@
 ---
-title: Indice della Guida per Azure tecniche collaboratori ai contenuti
-description: Elenca gli articoli disponibili nella Guida di Azure tecniche collaboratori ai contenuti per azure.microsoft.com.
+title: Indice della guida per i collaboratori al contenuto tecnico di Azure
+description: Elenco degli articoli disponibili nella guida per i collaboratori al contenuto tecnico di Azure per azure.microsoft.com.
 metakeywords: 
 services: 
 solutions: 
@@ -18,13 +18,13 @@ ms.date: 12/19/2014
 ms.author: tysonn
 ms.openlocfilehash: a461f9b625b3561ece9ea10027b529b0a94e4c53
 ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2018
+ms.lasthandoff: 01/16/2018
 ---
-# <a name="azure-technical-content-contributors-guide-index"></a>Indice della Guida per Azure tecniche collaboratori ai contenuti
+# <a name="azure-technical-content-contributors-guide-index"></a>Indice della guida per i collaboratori al contenuto tecnico di Azure
 
-Nel caso di un collaboratore della community, vedere il nostro [file Leggimi](../README.md)
+Se si è un collaboratore della community, vedere il [file leggimi](../README.md).
 
-Dovrebbe essere collaboratori dipendente [la Guida del collaboratore interno](https://review.docs.microsoft.com/en-us/help/contribute/?branch=master).
+I collaboratori dipendenti Microsoft devono vedere la [guida per i collaboratori interni](https://review.docs.microsoft.com/en-us/help/contribute/?branch=master).
 

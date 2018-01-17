@@ -11,6 +11,10 @@
   items:
     - name: Creare un'istanza di Data Factory
       items:
+        - name: Interfaccia utente
+          href: quickstart-create-data-factory-portal.md
+        - name: Strumento Copia dati
+          href: quickstart-create-data-factory-copy-data-tool.md
         - name: PowerShell
           href: quickstart-create-data-factory-powershell.md
         - name: .NET
@@ -19,35 +23,75 @@
           href: quickstart-create-data-factory-python.md
         - name: REST
           href: quickstart-create-data-factory-rest-api.md
-        - name: Portale
-          href: quickstart-create-data-factory-portal.md
         - name: Modello di Resource Manager
           href: quickstart-create-data-factory-resource-manager-template.md
 - name: Esercitazioni
   items:
     - name: 1 - Distribuire i pacchetti SSIS in Azure
-      href: tutorial-deploy-ssis-packages-azure.md
+      items:
+        - name: Interfaccia utente
+          href: tutorial-create-azure-ssis-runtime-portal.md
+        - name: PowerShell
+          href: tutorial-deploy-ssis-packages-azure.md
     - name: 2 - Copiare i dati nel cloud
-      href: tutorial-copy-data-dot-net.md
+      items:
+        - name: Strumento Copia dati
+          href: tutorial-copy-data-tool.md
+        - name: Interfaccia utente
+          href: tutorial-copy-data-portal.md
+        - name: PowerShell
+          href: tutorial-copy-data-dot-net.md
     - name: 3 - Copiare i dati locali nel cloud
-      href: tutorial-hybrid-copy-powershell.md
+      items:
+        - name: Strumento Copia dati
+          href: tutorial-hybrid-copy-data-tool.md
+        - name: Interfaccia utente
+          href: tutorial-hybrid-copy-portal.md
+        - name: PowerShell
+          href: tutorial-hybrid-copy-powershell.md
     - name: 4 - Copiare i dati nel bulk
-      href: tutorial-bulk-copy.md
+      items:
+        - name: Interfaccia utente
+          href: tutorial-bulk-copy-portal.md
+        - name: PowerShell
+          href: tutorial-bulk-copy.md
     - name: 5 - Copiare i dati in modo incrementale
       href: tutorial-incremental-copy-overview.md
       items:
         - name: 5.1 - Copiare da una tabella
-          href: tutorial-incremental-copy-powershell.md
+          items:
+            - name: Interfaccia utente
+              href: tutorial-incremental-copy-portal.md
+            - name: PowerShell
+              href: tutorial-incremental-copy-powershell.md
         - name: 5.2 - Copiare da più tabelle
-          href: tutorial-incremental-copy-multiple-tables-powershell.md
+          items:
+            - name: PowerShell
+              href: tutorial-incremental-copy-multiple-tables-powershell.md
         - name: 5.3 - Usare la funzionalità di rilevamento delle modifiche
-          href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+          items:
+            - name: Interfaccia utente
+              href: tutorial-incremental-copy-change-tracking-feature-portal.md
+            - name: PowerShell
+              href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 - Trasformare i dati nel cloud
-      href: tutorial-transform-data-spark-powershell.md
+      items:
+        - name: Interfaccia utente
+          href: tutorial-transform-data-spark-portal.md
+        - name: PowerShell
+          href: tutorial-transform-data-spark-powershell.md
     - name: 7 - Trasformare i dati nella rete virtuale
-      href: tutorial-transform-data-hive-virtual-network.md
+      items:
+        - name: Interfaccia utente
+          href: tutorial-transform-data-hive-virtual-network-portal.md
+        - name: PowerShell
+          href: tutorial-transform-data-hive-virtual-network.md
     - name: 8 - Flusso di controllo
-      href: tutorial-control-flow.md
+      items:
+        - name: Interfaccia utente
+          href: tutorial-control-flow-portal.md
+        - name: PowerShell
+          href: tutorial-control-flow.md
 - name: Esempi
   items:
     - name: Esempi di codice
@@ -66,10 +110,14 @@
       href: concepts-integration-runtime.md
 - name: Guide alle procedure
   items:
+    - name: Creare data factory con strumenti visivi
+      href: author-visually.md
     - name: Copiare i dati
       items:
-        - name: Copiare i dati da origini supportate alle destinazioni
+        - name: Copiare dati con l'attività di copia
           href: copy-activity-overview.md
+        - name: Strumento Copia dati
+          href: copy-data-tool.md
         - name: Leggere o scrivere dati partizionati
           href: how-to-read-write-partitioned-data.md
         - name: Connettori
@@ -86,6 +134,9 @@
               href: connector-azure-cosmos-db.md
             - name: Archivio Azure Data Lake
               href: connector-azure-data-lake-store.md
+              items:
+                - name: Caricare dati in Data Lake Store
+                  href: load-azure-data-lake-store.md
             - name: Database di Azure per MySQL
               href: connector-azure-database-for-mysql.md
             - name: Database di Azure per PostgreSQL
@@ -98,6 +149,9 @@
               href: connector-azure-sql-database.md
             - name: Azure SQL Data Warehouse
               href: connector-azure-sql-data-warehouse.md
+              items:
+                - name: Caricare dati in SQL Data Warehouse
+                  href: load-azure-sql-data-warehouse.md
             - name: Archiviazione tabelle di Azure
               href: connector-azure-table-storage.md
             - name: Cassandra
@@ -289,8 +343,6 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Eseguire pacchetti SSIS in Azure
       items:
-        - name: Creare un runtime di integrazione SSIS di Azure
-          href: create-azure-ssis-integration-runtime.md
         - name: Aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Gestire il runtime di integrazione SSIS di Azure

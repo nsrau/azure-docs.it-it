@@ -96,6 +96,7 @@
 ##### [Parametri di aggiornamento di un'applicazione](service-fabric-application-upgrade-parameters.md)
 ##### [Serializzazione dei dati negli aggiornamenti delle applicazioni](service-fabric-application-upgrade-data-serialization.md)
 ##### [Argomenti avanzati sugli aggiornamenti delle applicazioni](service-fabric-application-upgrade-advanced.md)
+#### [Gestire applicazioni per più ambienti](service-fabric-manage-multiple-environment-app-configuration.md)
 #### [Test delle app con analisi degli errori](service-fabric-testability-overview.md)
 #### [Impostazione ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
@@ -202,7 +203,7 @@
 ##### [Comunicazioni sicure - C#](service-fabric-reliable-services-secure-communication.md)
 ##### [Comunicazioni sicure - Java](service-fabric-reliable-services-secure-communication-java.md)
 
-#### [Configurare](service-fabric-reliable-services-configuration.md)
+#### [Configura](service-fabric-reliable-services-configuration.md)
 #### [Inviare notifiche](service-fabric-reliable-services-notifications.md)
 #### [Backup e ripristino](service-fabric-reliable-services-backup-restore.md)
 
@@ -226,7 +227,6 @@
 ## Usare un ambiente di sviluppo Windows/VS
 ### [Gestire le applicazioni in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 ### [Configurare connessioni sicure in Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
-### [Configurare l'applicazione per più ambienti](service-fabric-manage-multiple-environment-app-configuration.md)
 ### [Eseguire il debug di un servizio .NET in Visual Studio](service-fabric-debugging-your-application.md)
 ### [Errori ed eccezioni comuni](service-fabric-errors-and-exceptions.md)
 ### [Monitorare e diagnosticare in locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -244,10 +244,13 @@
 
 ## Gestire il ciclo di vita delle applicazioni
 ### [Inserire un'applicazione in un pacchetto](service-fabric-package-apps.md)
+### [Usare parametri con i file di configurazione](service-fabric-how-to-parameterize-configuration-files.md)
+### [Specificare i numeri di porta usando parametri](service-fabric-how-to-specify-port-number-using-parameters.md)
+### [Specificare variabili di ambiente](service-fabric-how-to-specify-environment-variables.md)
 
 ### Distribuire o rimuovere applicazioni
 #### [Distribuire applicazioni in un cluster locale](service-fabric-get-started-with-a-local-cluster.md)
-#### [Gestione risorse di Azure](service-fabric-application-arm-resource.md)
+#### [Azure Resource Manager](service-fabric-application-arm-resource.md)
 #### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Interfaccia della riga di comando di Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 #### [API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
@@ -273,14 +276,14 @@
 ## Creare e gestire i cluster
 ### Cluster in Azure
 #### Create
-##### [Portale di Azure](service-fabric-cluster-creation-via-portal.md)
-##### [Gestione risorse di Azure](service-fabric-cluster-creation-via-arm.md)
+##### [Azure portal](service-fabric-cluster-creation-via-portal.md)
+##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 #### Scalabilità
 ##### [Manualmente](service-fabric-cluster-scale-up-down.md)
 ##### [A livello di codice](service-fabric-cluster-programmatic-scaling.md)
 #### [Aggiornamento](service-fabric-cluster-upgrade.md)
 #### [Configurare il controllo di accesso](service-fabric-cluster-security-roles.md)
-#### [Configurare](service-fabric-cluster-fabric-settings.md)
+#### [Configura](service-fabric-cluster-fabric-settings.md)
 #### [Aprire una porta nel servizio di bilanciamento del carico](create-load-balancer-rule.md)
 #### [Gestire i certificati cluster](service-fabric-cluster-security-update-certs-azure.md)
 #### [Eliminazione](service-fabric-cluster-delete.md)
@@ -293,7 +296,7 @@
 ##### [Contenuti del pacchetto autonomo](service-fabric-cluster-standalone-package-contents.md)
 #### [Ridimensionare](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Configurare il controllo di accesso](service-fabric-cluster-security-roles.md)
-#### [Configurare](service-fabric-cluster-manifest.md)
+#### [Configura](service-fabric-cluster-manifest.md)
 #### [Aggiornamento](service-fabric-cluster-upgrade-windows-server.md)
 
 ### [Visualizzare un cluster](service-fabric-visualizing-your-cluster.md)
@@ -328,12 +331,13 @@
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [Schema XML del modello del servizio](service-fabric-service-model-schema.md)
+## [Variabili di ambiente](service-fabric-environment-variables-reference.md)
 
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
 ## [Domande frequenti](service-fabric-common-questions.md)
 ## [Percorso di apprendimento](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
+## [Forum di MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/service-fabric/)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Codice di esempio](http://aka.ms/servicefabricsamples)

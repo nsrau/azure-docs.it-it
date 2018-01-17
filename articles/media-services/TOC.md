@@ -135,8 +135,9 @@
 ### [Crittografia AES-128](media-services-protect-with-aes128.md)
 ### [PlayReady/Widevine per lo streaming](media-services-protect-with-playready-widevine.md)
 ### [FairPlay per lo streaming](media-services-protect-hls-with-fairplay.md)
-### [PlayReady offline](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
-### [FairPlay offline](media-services-protect-hls-with-offline-fairplay.md)
+### [PlayReady offline per Windows 10](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
+### [Fairplay offline per iOS](media-services-protect-hls-with-offline-fairplay.md)
+### [Widevine offline per Android](offline-widevine-for-android.md)
 ### [Configurare il portale di Azure](media-services-portal-protect-content.md)
 ### [Distribuire licenze DRM](media-services-deliver-keys-and-licenses.md)
 ### Creare entità ContentKey
@@ -222,7 +223,7 @@
 ### [Codici di errore](media-services-error-codes.md)
 ### [Logica di ripetizione dei tentativi](media-services-retry-logic-in-dotnet-sdk.md)
 
-# Riferimenti
+# riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell (gestione dei servizi)](/powershell/module/azure/?view=azuresmps-3.7.0)
