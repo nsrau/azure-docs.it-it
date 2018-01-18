@@ -1,5 +1,5 @@
-# <a name="pull-request-comment-automation"></a>Automazione di commento richiesta pull
+# <a name="pull-request-comment-automation"></a>Automazione dei commenti sulle richieste pull
 
-Questa guida è stata spostata alla Guida del collaboratore interno docs.microsoft.com.
+Queste indicazioni sono state spostate nella guida per collaboratori interni docs.microsoft.com.
 
-[https://aka.ms/PR-Comments](https://aka.ms/pr-comments)
+[https://aka.ms/pr-comments](https://aka.ms/pr-comments)

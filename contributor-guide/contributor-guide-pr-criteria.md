@@ -1,5 +1,5 @@
-# <a name="quality-criteria-for-pull-request-review"></a>Esaminare i criteri di qualità per la richiesta di pull
+# <a name="quality-criteria-for-pull-request-review"></a>Verifica dei criteri di qualità per le richieste pull
 
-Questa guida è stata spostata alla Guida del collaboratore interno docs.microsoft.com.
+Queste indicazioni sono state spostate nella guida per collaboratori interni docs.microsoft.com.
 
-[https://aka.ms/PR-Review-Criteria](https://aka.ms/pr-review-criteria)
+[https://aka.ms/pr-review-criteria](https://aka.ms/pr-review-criteria)

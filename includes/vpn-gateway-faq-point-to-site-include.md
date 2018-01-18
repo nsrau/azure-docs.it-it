@@ -14,7 +14,7 @@ Sono supportati i sistemi operativi client seguenti:
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp"></a>Per la connettività da punto a sito è possibile usare qualsiasi client VPN software che supporta SSTP?
 
-No. L'assistenza è limitata solo alle versioni dei sistemi operativi Windows elencati in precedenza.
+di serie L'assistenza è limitata solo alle versioni dei sistemi operativi Windows elencati in precedenza.
 
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Quanti endpoint client VPN è possibile includere nella configurazione da punto sito?
 

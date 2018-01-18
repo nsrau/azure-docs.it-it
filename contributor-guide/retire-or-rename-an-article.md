@@ -1,5 +1,5 @@
-# <a name="steps-to-follow-when-you-want-to-delete-move-or-rename-an-azure-technical-article"></a>I passaggi da seguire quando si desidera eliminare, spostare o rinominare un articolo tecnico su Azure
+# <a name="steps-to-follow-when-you-want-to-delete-move-or-rename-an-azure-technical-article"></a>Procedura da seguire quando si vuole eliminare, spostare o rinominare un articolo tecnico di Azure
 
-Questa guida è stata spostata alla Guida del collaboratore interno docs.microsoft.com.
+Queste indicazioni sono state spostate nella guida per collaboratori interni docs.microsoft.com.
 
-[https://aka.ms/retire-or-Rename](https://aka.ms/retire-or-rename)
+[https://aka.ms/retire-or-rename](https://aka.ms/retire-or-rename)

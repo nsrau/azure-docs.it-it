@@ -1,5 +1,5 @@
-# <a name="writing-azure-documentation---style-and-voice-cheat-sheet"></a>Scrittura di documentazione di Azure - stile e tono schede di riferimento rapido
+# <a name="writing-azure-documentation---style-and-voice-cheat-sheet"></a>Scrittura di documentazione di Azure - Tabella di riepilogo dello stile e del tono
 
-Questa guida è stata spostata alla Guida del collaboratore interno docs.microsoft.com.
+Queste indicazioni sono state spostate nella guida per collaboratori interni docs.microsoft.com.
 
 Vedere [https://aka.ms/style-guidance](https://aka.ms/style-guidance).

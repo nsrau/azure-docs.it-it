@@ -1,5 +1,5 @@
-# <a name="working-with-release-branches"></a>Utilizzo dei rami di rilascio
+# <a name="working-with-release-branches"></a>Uso dei rami delle versioni
 
-Questa guida è stata spostata alla Guida del collaboratore interno docs.microsoft.com.
+Queste indicazioni sono state spostate nella guida per collaboratori interni docs.microsoft.com.
 
-[https://aka.ms/Release-branches](https://aka.ms/release-branches)
+[https://aka.ms/release-branches](https://aka.ms/release-branches)

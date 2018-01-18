@@ -1,67 +1,67 @@
 ## <a name="test-your-code"></a>Testare il codice
 
-Per testare l'applicazione in Visual Studio, premere **F5** per eseguire il progetto. Il browser apre l'http://<span></span>localhost: percorso {porta} e visualizzato il **accedere con Microsoft** pulsante. Selezionare il pulsante per avviare il processo di accesso.
+Per eseguire test dell'applicazione in Visual Studio, premere **F5** per eseguire il progetto. Il browser viene aperto sulla posizione http://<span></span>localhost:{porta} e viene visualizzato il pulsante **Accedi con Microsoft**. Selezionare il pulsante per avviare il processo di accesso.
 
-Quando si è pronti per eseguire il test, utilizzare un account di Microsoft Azure Active Directory (Azure AD) (account aziendale o dell'istituto di istruzione) o un account Microsoft personale (<span>in tempo reale.</span> COM o <span>outlook.</span> COM) per accedere.
+Quando si è pronti per eseguire il test, usare un account Microsoft Azure Active Directory (Azure AD) (aziendale o dell'istituto di istruzione) o un account Microsoft personale (<span>live.</span>com oppure <span>outlook.</span>com) per accedere.
 
-![Accedere con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
+![Accedi con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
-![Accedi al tuo account Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
+![Accedere all'account Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
 #### <a name="view-application-results"></a>Visualizzare i risultati dell'applicazione
-Dopo l'accesso, l'utente viene reindirizzato alla home page del sito Web. La pagina home è l'URL HTTPS specificato nelle informazioni di registrazione dell'applicazione nel portale di registrazione dell'applicazione di Microsoft. La home page include un messaggio di benvenuto "Hello \<utente >," un collegamento di disconnessione e un collegamento per visualizzare le attestazioni dell'utente. Il collegamento per le attestazioni dell'utente cerca di **Authorize** controller creato in precedenza.
+Dopo l'accesso, l'utente viene reindirizzato alla home page del sito Web. La home page è l'URL HTTPS specificato nelle informazioni di registrazione dell'applicazione nel portale di registrazione delle applicazioni Microsoft. La home page include un messaggio di benvenuto di tipo "Hello \<Utente>", un collegamento per la disconnessione e un collegamento per la visualizzazione delle attestazioni dell'utente. Il collegamento per le attestazioni dell'utente porta al controller **Authorize** creato in precedenza.
 
-### <a name="browse-to-see-the-users-claims"></a>Sfoglia per visualizzare le attestazioni dell'utente
-Per visualizzare le attestazioni dell'utente, selezionare il collegamento per passare alla visualizzazione controller che è disponibile solo per gli utenti autenticati.
+### <a name="browse-to-see-the-users-claims"></a>Esplorare per visualizzare le attestazioni dell'utente
+Per visualizzare le attestazioni dell'utente, selezionare il collegamento per passare alla visualizzazione dei controller disponibile solo per gli utenti autenticati.
 
-#### <a name="view-the-claims-results"></a>Visualizzare i risultati di attestazioni
-Quando si Sfoglia per la visualizzazione del controller, dovrebbe essere una tabella che contiene le proprietà di base per l'utente:
+#### <a name="view-the-claims-results"></a>Visualizzare i risultati delle attestazioni
+Dopo il passaggio alla visualizzazione dei controller, dovrebbe essere visualizzata una tabella contenente le proprietà di base per l'utente:
 
 |Proprietà |Valore |DESCRIZIONE |
 |---|---|---|
-|**Nome** |Nome completo dell'utente | L'utente del nome e cognome.
-|**Nome utente** |utente<span>@domain.com</span> | Il nome utente utilizzato per identificare l'utente.
-|**Oggetto** |Oggetto |Stringa che identifica in modo univoco l'utente attraverso il web.|
-|**ID tenant** |Guid | Oggetto **guid** che rappresenta in modo univoco l'organizzazione dell'utente AD Azure.|
+|**Nome** |Nome e cognome dell'utente | Nome e cognome dell'utente.
+|**Nome utente** |utente<span>@domain.com</span> | Nome utente usato per identificare l'utente.
+|**Oggetto** |Oggetto |Stringa che identifica in modo univoco l'utente sul Web.|
+|**ID tenant** |Guid | **GUID** che rappresenta in modo univoco l'organizzazione di Azure AD dell'utente.|
 
-Inoltre, si dovrebbe essere una tabella di tutte le attestazioni presenti nella richiesta di autenticazione. Per ulteriori informazioni, vedere il [elenco delle attestazioni in un Token di Azure AD ID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Dovrebbe essere visualizzata anche una tabella di tutte le attestazioni disponibili nella richiesta di autenticazione. Per altre informazioni, vedere l'[elenco di attestazioni disponibili in un token ID di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 
-### <a name="test-access-to-a-method-that-has-an-authorize-attribute-optional"></a>Verificare l'accesso a un metodo che presenta un attributo Authorize (facoltativo)
-Per verificare l'accesso per il **Authorize** controller per le attestazioni dell'utente come utente anonimo, seguire questi passaggi:
-1. Selezionare il collegamento per effettuare la disconnessione dell'utente e completare il processo di disconnessione.
-2. Nel browser, digitare http://<span></span>localhost: {porta} / autenticati di accedere il controller che è protetto con il **Authorize** attributo.
+### <a name="test-access-to-a-method-that-has-an-authorize-attribute-optional"></a>Eseguire test dell'accesso a un metodo con attributo Authorize (facoltativo)
+Per eseguire test dell'accesso al controller **Authorize** per le attestazioni dell'utente come utente anonimo, seguire questa procedura:
+1. Selezionare il collegamento per la disconnessione dell'utente e completare il processo di disconnessione.
+2. Nel browser digitare http://<span></span>localhost:{porta}/authenticated per accedere al controller protetto con l'attributo **Authorize**.
 
 #### <a name="expected-results-after-access-to-a-protected-controller"></a>Risultati previsti dopo l'accesso a un controller protetto
-Viene chiesto di eseguire l'autenticazione per utilizzare la vista del controller protetto.
+Viene richiesta l'autenticazione per usare la visualizzazione protetta dei controller.
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
 <!--start-collapse-->
 ### <a name="protect-your-entire-website"></a>Proteggere l'intero sito Web
-Per proteggere l'intero sito Web, il **Global. asax** file, aggiungere il **AuthorizeAttribute** attributo la **GlobalFilters** filtrare nel **applicazione Avvia** metodo:
+Per proteggere l'intero sito Web, nel file **Global.asax** aggiungere l'attributo **AuthorizeAttribute** al filtro **GlobalFilters** nel metodo **Application_Start**:
 
 ```csharp
 GlobalFilters.Filters.Add(new AuthorizeAttribute());
 ```
 <!--end-collapse-->
 
-### <a name="restrict-sign-in-access-to-your-application"></a>Limitare l'accesso di accesso all'applicazione
-Per impostazione predefinita, account personali come outlook.com, live.com e ad altri utenti possono accedere all'applicazione. Gli account aziendali o dell'istituto di istruzione nelle organizzazioni in cui sono integrate con Azure AD possono anche accedere per impostazione predefinita.
+### <a name="restrict-sign-in-access-to-your-application"></a>Limitare l'accesso all'applicazione
+Per impostazione predefinita, gli account personali come outlook.com, live.com e di altro tipo possono accedere all'applicazione. Anche gli account aziendali o dell'istituto di istruzione delle organizzazioni integrate con Azure AD possono accedere per impostazione predefinita.
 
-Per limitare l'accesso accesso utente per l'applicazione, sono disponibili diverse opzioni.
+Per limitare l'accesso degli utenti all'applicazione, sono disponibili alcune opzioni.
 
 #### <a name="restrict-access-to-a-single-organization"></a>Limitare l'accesso a una singola organizzazione
-È possibile limitare l'accesso di accesso per l'applicazione solo agli account utente in una singola organizzazione di Azure AD:
-1. Nel **Web. config** file, modificare il valore per il **Tenant** parametro. Modificare il valore da **comuni** per il nome del tenant dell'organizzazione, ad esempio **contoso.onmicrosoft.com**.
-2. Nel **di avvio di OWIN** , impostare il **ValidateIssuer** argomento **true**.
+È possibile limitare l'accesso all'applicazione ai soli account utente inclusi in una singola organizzazione di Azure AD:
+1. Nel file **web.config** cambiare il valore per il parametro **Tenant**. Cambiare il valore da **Common** al nome del tenant dell'organizzazione, ad esempio **contoso.onmicrosoft.com**.
+2. Nella classe **OWIN Startup** impostare l'argomento **ValidateIssuer** su **true**.
 
 #### <a name="restrict-access-to-a-list-of-organizations"></a>Limitare l'accesso a un elenco di organizzazioni
-È possibile limitare l'accesso di accesso per gli account utente solo in un'organizzazione di Azure AD che è presente nell'elenco di organizzazioni consentite:
-1. Nel **Web. config** nel file il **di avvio di OWIN** , impostare il **ValidateIssuer** argomento **true**.
-2. Impostare il valore della **ValidIssuers** parametro all'elenco di organizzazioni consentite.
+È possibile limitare l'accesso ai soli account utente inclusi in un'organizzazione di Azure AD che fa parte dell'elenco di organizzazioni consentite:
+1. Nel file **web.config** nella classe **OWIN Startup** impostare l'argomento **ValidateIssuer** su **true**.
+2. Impostare il valore del parametro **ValidIssuers** sull'elenco di organizzazioni consentite.
 
-#### <a name="use-a-custom-method-to-validate-issuers"></a>Utilizzare un metodo personalizzato per convalidare l'autorità emittenti
-È possibile implementare un metodo personalizzato per convalidare gli emittenti utilizzando il **IssuerValidator** parametro. Per ulteriori informazioni su come usare questo parametro, informazioni di [TokenValidationParameters classe](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) su MSDN.
+#### <a name="use-a-custom-method-to-validate-issuers"></a>Usare un metodo personalizzato per convalidare le autorità di certificazione
+È possibile implementare un metodo personalizzato per convalidare le autorità di certificazione usando il parametro **IssuerValidator**. Per altre informazioni su come usare questo parametro, vedere [TokenValidationParameters class](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) (Classe TokenValidationParameters) su MSDN.
 
 [!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]

@@ -155,7 +155,7 @@ m Una distribuzione di questa architettura di riferimento è disponibile in [Git
    * Poiché il nome del **gruppo di risorse** è già definito nel file dei parametri, selezionare **Crea nuovo** e immettere `ra-single-vm-rg` nella casella di testo.
    * Selezionare l'area dalla casella di riepilogo a discesa **Località**.
    * Non modificare le caselle di testo **Template Root Uri** (URI radice modello) né **Parameter Root Uri** (URI radice parametro).
-.   * Selezionare **linux** nel **tipo di sistema operativo** elenchi a discesa.
+.   * Selezionare **linux** nella casella di riepilogo a discesa **Tipo di sistema operativo**.
    * Leggere i termini e le condizioni, quindi fare clic sulla casella di controllo **Accetto le condizioni riportate sopra**.
    * Fare clic sul pulsante **Acquista**.
 3. Attendere il completamento della distribuzione.

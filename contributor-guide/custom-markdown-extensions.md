@@ -1,5 +1,5 @@
-# <a name="custom-markdown-extensions"></a>Estensioni markdown personalizzate
+# <a name="custom-markdown-extensions"></a>Estensioni personalizzate del Markdown
 
-Questa guida è stata spostata alla Guida del collaboratore interno docs.microsoft.com.
+Queste indicazioni sono state spostate nella guida per collaboratori interni docs.microsoft.com.
 
 Vedere [https://aka.ms/custom-markdown-extensions](https://aka.ms/custom-markdown-extensions).

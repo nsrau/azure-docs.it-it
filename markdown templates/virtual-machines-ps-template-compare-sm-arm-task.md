@@ -11,21 +11,21 @@ Pay attention to spacing and indents. They affect formatting.
 <!--replace this with Properties and Tags sections. These are required sections. See "article-metadata.md" in under the "contributor-guide" folder in your repo. Attributes in each section can be placed on separate lines to make them easier to read and check-->
 
 # <a name="use-azure-powershell-to-task"></a>Usare Azure PowerShell per [attività]
-In questo articolo viene illustrato come [attività], utilizzando i comandi dal modulo di Azure e il modulo di gestione risorse di Azure. Questo documento intende consentono di acquisire i nuovi comandi, nonché eseguire la migrazione degli script esistenti a nuovi comandi.
+Questo articolo illustra come [attività], usando comandi dal modulo di Azure e dal modulo di Azure Resource Manager. L'articolo intende fornire informazioni utili per apprendere i nuovi comandi e per eseguire la migrazione degli script esistenti ai nuovi comandi.
 
-## <a name="prerequisite-install-a-recent-version-of-azure-powershell"></a>Prerequisito: Installare una versione recente di Azure PowerShell
-Se non è già fatto, installare almeno la versione [versione] di Azure PowerShell nel computer locale. Se si utilizza una versione precedente, avranno i cmdlet di Azure Resource Manager descritti in questo articolo. Per informazioni dettagliate, vedere:
+## <a name="prerequisite-install-a-recent-version-of-azure-powershell"></a>Prerequisito: installare una versione recente di Azure PowerShell
+Se non è già stato fatto, installare almeno la versione [numero di versione] di Azure PowerShell nel computer locale. Se si usa una versione precedente, non saranno disponibili i cmdlet di Azure Resource Manager illustrati in questo articolo. Per informazioni dettagliate, vedere:
 
-* [Come installare e configurare Azure PowerShell](install-configure-powershell.md) per istruzioni su come configurare Azure PowerShell.
-* [Utilizzo di Windows PowerShell con Gestione risorse di](powershell-azure-resource-manager.md) per nozioni di base sull'utilizzo di gestione risorse.
+* [Come installare e configurare Azure PowerShell](install-configure-powershell.md) per istruzioni sulla configurazione di Azure PowerShell.
+* [Uso di Windows PowerShell con Resource Manager](powershell-azure-resource-manager.md) per informazioni di base sull'uso di Resource Manager.
 
 > [!NOTE]
-> La maggior parte delle attività richiedono di utilizzare un prompt dei comandi di Azure PowerShell a livello di amministratore.
+> La maggior parte delle attività richiede l'uso di un prompt dei comandi di Azure PowerShell a livello di amministratore.
 > 
 > 
 
-## <a name="command-comparison"></a>Confronto di comando
-Questo [tabella | sezione] Mostra la sintassi del comando.
+## <a name="command-comparison"></a>Confronto tra i comandi
+Questa [tabella | sezione] mostra la sintassi dei comandi.
 
 <!--[optional image - to use an image in this article, add a folder with the same name as the article file name without extension, inside the Media folder of the repo. Use only this folder to store the images. Don't attempt to use a common folder to share images you want to use in more than 1 file.]
 Then, use the following syntax to add a reference to the image in your article:
@@ -34,9 +34,9 @@ Then, use the following syntax to add a reference to the image in your article:
 
 <!--if a command string uses variables, define the variables first, using the  following construction. In some cases the variable is straightforward and doesn't need much explanation. But parameters such as location and size can benefit from brief explanation or listing all accepted values:--> 
 
-Questi esempi di comandi utilizzano le seguenti variabili:
+Questi esempi di comando usano le variabili seguenti:
 
-$FriendlyName"<Describe value>"
+$NomeDescrittivo"<Describe value>"
 
 <!-- if it makes more sense to present this in a table, use this. Otherwise, delete. The table won't render until it's in GitHub or published to Sandbox.-->
 
@@ -46,15 +46,15 @@ $FriendlyName"<Describe value>"
 
 <!--if it makes more sense to present this one command block after the other instead of a table, use this. Otherwise, delete-->
 
-[Frase introduttiva breve relativo al comando. Omettere se è piuttosto semplice nulla da pronunciare. Tuttavia, se viene utilizzato tali approcci una pipeline, spiegare che]:
+[Breve frase introduttiva sul comando. Ometterla se non è necessario fornire alcuna informazione. Se usa approcci quali una pipeline, spiegare il concetto]:
 
     [command string]
 
 ## <a name="script-examples"></a>Esempi di script
-Ecco un esempio di utilizzo [nomi di cmdlet)] a [attività]. Include i comandi che:
+Ecco un esempio che usa [nomi di cmdlet] per [attività]. Include comandi che:
 
-* [verbo breve, viene utilizzato, è, è, e così via]
-* [Avanti verbo breve] 
+* [verbo breve, usa, ha, è e così via]
+* [verbo breve successivo] 
 
 <!--include this statement if it uses variables that weren't introduced earlier--> It includes the following variables:
 
@@ -97,5 +97,5 @@ Ecco un esempio di utilizzo [nomi di cmdlet)] a [attività]. Include i comandi c
     [link text](http://azure.microsoft.com/pricing/details/virtual-machines/)-->
 
 <!--use this for URLs outside of ACOM. Be sure to locale, and if you're linking to the Azure library on MSDN, include the '/azure/' part of the URL-->
-[Documentazione su macchine virtuali](https://msdn.microsoft.com/library/azure/jj156003.aspx)
+[Documentazione delle macchine virtuali](https://msdn.microsoft.com/library/azure/jj156003.aspx)
 

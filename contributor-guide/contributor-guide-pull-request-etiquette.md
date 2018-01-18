@@ -1,5 +1,5 @@
-# <a name="pull-request-etiquette-and-best-practices-for-microsoft-contributors-to-azure-documentation"></a>Pull richiesta preferito e procedure consigliate per i collaboratori Microsoft documentazione di Azure
+# <a name="pull-request-etiquette-and-best-practices-for-microsoft-contributors-to-azure-documentation"></a>Convenzioni e procedure consigliate per le richieste pull per collaboratori Microsoft alla documentazione di Azure
 
-Questa guida è stata spostata alla Guida del collaboratore interno docs.microsoft.com.
+Queste indicazioni sono state spostate nella guida per collaboratori interni docs.microsoft.com.
 
-[https://aka.ms/PR-Best-Practices](https://aka.ms/pr-best-practices)
+[https://aka.ms/pr-best-practices](https://aka.ms/pr-best-practices)

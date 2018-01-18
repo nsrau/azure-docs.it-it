@@ -1,5 +1,5 @@
-# <a name="create-images-in-markdown"></a>Creare immagini in markdown
+# <a name="create-images-in-markdown"></a>Creare immagini in un Markdown
 
-Questa guida è stata spostata alla Guida del collaboratore interno docs.microsoft.com.
+Queste indicazioni sono state spostate nella guida per collaboratori interni docs.microsoft.com.
 
-[https://aka.ms/Art-Guidance](https://aka.ms/art-guidance)
+[https://aka.ms/art-guidance](https://aka.ms/art-guidance)

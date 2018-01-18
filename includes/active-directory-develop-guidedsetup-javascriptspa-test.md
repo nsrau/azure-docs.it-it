@@ -1,49 +1,49 @@
 ## <a name="test-your-code"></a>Testare il codice
 
-### <a name="test-with-visual-studio"></a>Eseguire il test con Visual Studio
-Se si utilizza Visual Studio, premere **F5** per eseguire il progetto. Il browser apre l'http://<span></span>localhost: percorso {porta} e visualizzato il **chiamare API di Microsoft Graph** pulsante.
+### <a name="test-with-visual-studio"></a>Eseguire test con Visual Studio
+Se si usa Visual Studio, premere **F5** per eseguire il progetto. Il browser viene aperto sulla posizione http://<span></span>localhost:{porta} e viene visualizzato il pulsante **Call Microsoft Graph API** (Chiama API Microsoft Graph).
 
 <p/><!-- --> 
 
-### <a name="test-with-python-or-other-web-server"></a>Test con Python o un altro server web
-Se non si utilizza Visual Studio, verificare che il server web sia avviato. Configurare il server per una porta TCP è in base alla posizione di ascolto del **index.html** file. Per Python, iniziare a in ascolto sulla porta eseguendo il prompt dei comandi terminal dalla cartella dell'applicazione.
+### <a name="test-with-python-or-other-web-server"></a>Eseguire test con Python o un altro server Web
+Se non si usa Visual Studio, assicurarsi che il server Web sia stato avviato. Configurare il server per rimanere in ascolto di una porta TCP basata sulla posizione del file **index.html**. Per Python, avviare l'ascolto della porta eseguendo il terminale del prompt dei comandi dalla cartella dell'applicazione:
  
 ```bash
 python -m http.server 8080
 ```
-Aprire il browser e digitare http://<span></span>localhost: 8080 o http://<span></span>localhost: {porta} dove **porta** è la porta è in ascolto il server web. Verrà visualizzato il contenuto del file index.html e **chiamare API di Microsoft Graph** pulsante.
+Aprire il browser e digitare http://<span></span>localhost:8080 o http://<span></span>localhost:{porta} dove **porta** è la porta che il server Web sta ascoltando. Dovrebbero essere visualizzati i contenuti del file index.html e il pulsante **Call Microsoft Graph API** (Chiama API Microsoft Graph).
 
 ## <a name="test-your-application"></a>Testare l'applicazione
 
-Se il browser viene caricato il file index.html, fare clic su **chiamare API di Microsoft Graph**. La prima volta che si esegue l'applicazione, il browser si viene reindirizzati all'endpoint v 2.0 di Microsoft Azure Active Directory (Azure AD) e viene chiesto di accedere:
+Dopo che il browser ha caricato il file index.html, selezionare **Call Microsoft Graph API** (Chiama API Microsoft Graph). Alla prima esecuzione dell'applicazione il browser reindirizza l'utente all'endpoint di Microsoft Azure Active Directory (Azure AD) v2.0 e viene richiesto l'accesso:
  
-![Accedi al tuo account SPA JavaScript](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
+![Accedere all'account JavaScript SPA](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 
 
-### <a name="provide-consent-for-application-access"></a>Fornire il consenso per l'accesso all'applicazione
+### <a name="provide-consent-for-application-access"></a>Specificare il consenso per l'accesso all'applicazione
 
-La prima volta che si accede all'applicazione, viene chiesto di fornire il consenso dell'utente per consentire all'applicazione per accedere al profilo e per eseguire l'accesso:
+Al primo accesso all'applicazione viene richiesto di specificare il consenso per permettere all'applicazione di accedere al profilo e di completare l'accesso per l'utente:
 
-![Fornire il consenso dell'utente per l'accesso all'applicazione](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
+![Specificare il consenso per l'accesso all'applicazione](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
 ### <a name="view-application-results"></a>Visualizzare i risultati dell'applicazione
-Dopo l'accesso, si dovrebbero vedere le informazioni del profilo utente nel **risposta chiamata dell'API Graph** casella.
+Dopo l'accesso, nella casella **Graph API Call Response** (Risposta alla chiamata API Graph) dovrebbero essere visualizzate le informazioni sul profilo utente.
  
-![Risultati previsti dalla chiamata all'API di Microsoft Graph](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)
+![Risultati previsti dalla chiamata API Microsoft Graph](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)
 
-Verrà visualizzato anche il token che è stato acquisito in informazioni di base di **Token di accesso** e **le attestazioni nei Token ID** caselle.
+Dovrebbero essere anche visualizzate le informazioni di base sul token acquisite nelle caselle **Token di accesso** e **ID Token Claims** (Attestazione token ID).
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Altre informazioni sugli ambiti e sulle autorizzazioni delegate
 
-L'API di Microsoft Graph richiede la **Read** ambito per la lettura di un profilo utente. Questo ambito viene automaticamente aggiunto per impostazione predefinita in ogni applicazione che viene registrato nel portale di registrazione. Altre API per Microsoft Graph, come le API personalizzate per il server back-end, potrebbe essere necessario gli altri ambiti. L'API di Microsoft Graph richiede la **Calendars.Read** ambito per visualizzare l'elenco di calendari dell'utente.
+L'API Microsoft Graph richiede l'ambito **user.read** per leggere il profilo dell'utente. Per impostazione predefinita, questo ambito viene aggiunto automaticamente in ogni applicazione registrata nel portale di registrazione. Altre API per Microsoft Graph e le API personalizzate per il server di back-end potrebbero richiedere anche altri ambiti. L'API Microsoft Graph richiede l'ambito **Calendars.Read** per elencare i calendari dell'utente.
 
-Per accedere a calendari dell'utente nel contesto di un'applicazione, aggiungere il **Calendars.Read** delega dell'autorizzazione per le informazioni di registrazione dell'applicazione. Aggiungere quindi il **Calendars.Read** ambito per il **acquireTokenSilent** chiamare. 
+Per accedere ai calendari dell'utente nel contesto di un'applicazione, aggiungere l'autorizzazione delegata **Calendars.Read** alle informazioni di registrazione dell'applicazione. Aggiungere quindi l'ambito **Calendars.Read** alla chiamata **acquireTokenSilent**. 
 
 >[!NOTE]
->L'utente potrebbe essere richieste autorizzazioni aggiuntive quando si aumenta il numero di ambiti.
+>Con l'aumentare del numero di ambiti è possibile che all'utente venga chiesto di esprimere anche altri tipi di consenso.
 
-Se un'API back-end non richieda un ambito (non consigliato), è possibile utilizzare il **clientId** dell'ambito nel **acquireTokenSilent** e **acquireTokenRedirect** chiamate.
+Se un'API back-end non richiede alcun ambito (opzione non consigliata), è possibile usare **clientId** come ambito nelle chiamate **acquireTokenSilent** e **acquireTokenRedirect**.
 
 <!--end-collapse-->
 
