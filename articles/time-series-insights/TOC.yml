@@ -18,7 +18,7 @@
       href: time-series-insights-environment-mitigate-latency.md
     - name: Diagnosticare e risolvere i problemi
       href: time-series-insights-diagnose-and-solve-problems.md
-    - name: Sviluppare
+    - name: Sviluppo
       items:
         - name: Autenticare e autorizzare
           href: time-series-insights-authentication-and-authorization.md
@@ -76,3 +76,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
     - name: Opzioni di supporto
       href: 'https://azure.microsoft.com/support/options/'
+    - name: Video
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=time-series-insights'

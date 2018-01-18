@@ -113,6 +113,8 @@
           href: log-analytics-computer-groups.md
         - name: Connettore di flusso
           href: log-analytics-flow-tutorial.md
+        - name: API di ricerca nei log
+          href: 'https://dev.loganalytics.io/'
     - name: Ricerca log legacy
       items:
         - name: Panoramica delle ricerche nei log
@@ -122,6 +124,11 @@
           items:
             - name: Espressioni regolari
               href: log-analytics-log-searches-regex.md
+        - name: API di ricerca nei log
+          href: log-analytics-log-search-api.md
+          items:
+            - name: Python
+              href: log-analytics-log-search-api-python.md
     - name: Analizzare i dati
       items:
         - name: Dashboard
@@ -258,14 +265,9 @@
           href: log-analytics-powershell-workspace-configuration.md
         - name: Modelli di Gestione risorse
           href: log-analytics-template-workspace-configuration.md
-        - name: API di ricerca nei log
-          href: log-analytics-log-search-api.md
-          items:
-            - name: Python
-              href: log-analytics-log-search-api-python.md
         - name: API degli avvisi
           href: log-analytics-api-alerts.md
-- name: Riferimento
+- name: riferimento
   items:
     - name: Informazioni di riferimento sul linguaggio
       href: 'https://docs.loganalytics.io/docs/Language-Reference'

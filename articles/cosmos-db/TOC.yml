@@ -235,8 +235,6 @@
               items:
                 - name: Foglio informativo sulla grammatica SQL
                   href: sql-api-sql-query-cheat-sheet.md
-                - name: Stack Overflow
-                  href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
                 - name: Video
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Aggiornamenti del servizio
@@ -382,7 +380,7 @@
           href: odbc-driver.md
         - name: Usare Spring Boot Starter con le API SQL
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-- name: Riferimento
+- name: Riferimenti
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
@@ -430,7 +428,5 @@
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: Domande frequenti
       href: faq.md
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
     - name: La coerenza dei dati spiegata attraverso il baseball
       href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'

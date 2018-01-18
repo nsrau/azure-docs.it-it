@@ -118,6 +118,11 @@
           href: copy-activity-overview.md
         - name: Strumento Copia dati
           href: copy-data-tool.md
+          items:
+            - name: Caricare dati in Data Lake Store
+              href: load-azure-data-lake-store.md
+            - name: Caricare dati in SQL Data Warehouse
+              href: load-azure-sql-data-warehouse.md
         - name: Leggere o scrivere dati partizionati
           href: how-to-read-write-partitioned-data.md
         - name: Connettori
@@ -134,9 +139,6 @@
               href: connector-azure-cosmos-db.md
             - name: Archivio Azure Data Lake
               href: connector-azure-data-lake-store.md
-              items:
-                - name: Caricare dati in Data Lake Store
-                  href: load-azure-data-lake-store.md
             - name: Database di Azure per MySQL
               href: connector-azure-database-for-mysql.md
             - name: Database di Azure per PostgreSQL
@@ -149,9 +151,6 @@
               href: connector-azure-sql-database.md
             - name: Azure SQL Data Warehouse
               href: connector-azure-sql-data-warehouse.md
-              items:
-                - name: Caricare dati in SQL Data Warehouse
-                  href: load-azure-sql-data-warehouse.md
             - name: Archiviazione tabelle di Azure
               href: connector-azure-table-storage.md
             - name: Cassandra
@@ -357,7 +356,7 @@
           href: how-to-create-schedule-trigger.md
         - name: Creare un trigger di finestra a cascata
           href: how-to-create-tumbling-window-trigger.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.datafactory
