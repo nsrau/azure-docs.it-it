@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: abd9b8559cb70be6d03b85cfe19a6b37b7069985
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: fc46fe1d68538757ba5a8c5aa1acb4b51f8a171b
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Autenticazione pass-through di Azure Active Directory: blocco smart
 
@@ -36,7 +36,7 @@ Il blocco smart consente di distinguere anche tra l'accesso effettuato da utenti
 L'autenticazione pass-through inoltra le richieste di convalida della password all'istanza locale di Active Directory, quindi è necessario impedire ai pirati informatici di bloccare gli account Active Directory degli utenti. Active Directory offre criteri di blocco degli account specifici, in particolare i criteri [Soglia di blocchi dell'account](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) e [Reimposta contatore blocco account dopo](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx). Configurare la soglia di blocco di Azure AD e i valori della durata di blocco in modo appropriato per escludere tramite filtro gli attacchi sul cloud prima che raggiungano l'istanza locale di Active Directory.
 
 >[!NOTE]
->La funzionalità Smart Lockout è gratuita e _attiva_ per impostazione predefinita per tutti i clienti. Se tuttavia si vuole modificare la soglia di blocco di Azure AD e i valori della durata di blocco usando l'API Graph, il tenant deve avere almeno una licenza di Azure AD Premium P2. Non è necessaria una licenza di Azure AD Premium P2 _per ogni utente_ per ottenere la funzionalità Smart Lockout con l'autenticazione pass-through.
+>>La funzionalità Smart Lockout è gratuita e _attiva_ per impostazione predefinita per tutti i clienti. Per modificare i valori relativi alla soglia di blocco e alla durata del blocco di Azure AD usando l'API Graph, è tuttavia necessaria l'attivazione del tenant per Azure AD Premium P2. 
 
 Per garantire che gli account Active Directory locali degli utenti siano protetti, è necessario assicurarsi che:
 

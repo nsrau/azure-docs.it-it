@@ -1,6 +1,6 @@
 ---
-title: Copiare i dati da MariaDB utilizzando Data Factory di Azure | Documenti Microsoft
-description: "Informazioni su come copiare i dati da MariaDB agli archivi dati sink supportati utilizzando un'attività di copia in una pipeline di Data Factory di Azure."
+title: Copiare dati da MariaDB usando Azure Data Factory | Microsoft Docs
+description: "Informazioni su come copiare dati da MariaDB in archivi dati sink supportati usando un'attività di copia in una pipeline di Azure Data Factory."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,42 +13,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 155cf5462144986e8fe4e6e68e0a7b27b9449fc6
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.openlocfilehash: 790d7f08dd97e5ba5f376ffaf5d1b95f4ffbad03
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Copiare i dati da MariaDB utilizzando Data Factory di Azure 
+# <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Copiare i dati da MariaDB con Azure Data Factory 
 
-In questo articolo viene descritto come utilizzare l'attività di copia in Azure Data Factory per copiare i dati da MariaDB. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in MariaDB. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
 > [!NOTE]
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Attività di copia nella versione 1](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-È possibile copiare dati da MariaDB per qualsiasi archivio dati sink supportati. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
+È possibile copiare dati da MariaDB a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
 
-Questo connettore supporta attualmente MariaDB della versione 10.2 minore.
+Questo connettore supporta attualmente versioni di MariaDB precedenti alla 10.2.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Attività iniziali
 
-È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Le sezioni seguenti forniscono dettagli sulle proprietà che consentono di definire entità Data Factory specifica al connettore MariaDB.
+Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di data factory specifiche per il connettore MariaDB.
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 
-Le proprietà seguenti sono supportate per il servizio MariaDB collegato:
+Per il servizio collegato di MariaDB sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà di tipo deve essere impostata su: **MariaDB** | Sì |
-| connectionString | Una stringa di connessione ODBC per connettersi a MariaDB. È possibile scegliere contrassegnare questo campo come SecureString per archiviare in modo sicuro in ADF o archiviare le password nell'insieme di credenziali chiave di Azure e consentire l'attività di copia pull da tale posizione quando si esegue una copia dei dati - ulteriori da [archiviare le credenziali nell'insieme di credenziali chiave](store-credentials-in-key-vault.md). | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
+| type | La proprietà type deve essere impostata su **MariaDB** | Sì |
+| connectionString | Una stringa di connessione ODBC per la connessione a MariaDB. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, vedere [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 **Esempio:**
 
@@ -73,9 +73,9 @@ Le proprietà seguenti sono supportate per il servizio MariaDB collegato:
 
 ## <a name="dataset-properties"></a>Proprietà dei set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). In questa sezione fornisce un elenco delle proprietà supportate dal set di dati MariaDB.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati di MariaDB.
 
-Per copiare dati da MariaDB, impostare la proprietà del tipo di set di dati da **MariaDBTable**. Non vi è alcuna proprietà aggiuntive specifiche del tipo in questo tipo di set di dati.
+Per copiare dati da MariaDB, impostare la proprietà type del set di dati su **MariaDBTable**. Non sono presenti proprietà aggiuntive specifiche per il tipo in questo tipo di set di dati.
 
 **Esempio**
 
@@ -94,15 +94,15 @@ Per copiare dati da MariaDB, impostare la proprietà del tipo di set di dati da 
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulle [pipeline](concepts-pipelines-activities.md). In questa sezione fornisce un elenco di proprietà supportati dall'origine MariaDB.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulle [pipeline](concepts-pipelines-activities.md). Questa sezione presenta un elenco delle proprietà supportate dall'origine MariaDB.
 
 ### <a name="mariadbsource-as-source"></a>MariaDBSource come origine
 
-Per copiare dati da MariaDB, impostare il tipo di origine in attività di copia per **MariaDBSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare dati da MariaDB, impostare il tipo di origine nell'attività di copia su **MariaDBSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | Impostare la proprietà del tipo di origine dell'attività di copia: **MariaDBSource** | Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **MariaDBSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | Sì |
 
 **Esempio:**

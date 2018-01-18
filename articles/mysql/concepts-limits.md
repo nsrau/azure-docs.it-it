@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 12/09/2017
-ms.openlocfilehash: e16982e4e57ba9f2f11e9ee59f88f24b3fe3fe3f
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.date: 01/11/2018
+ms.openlocfilehash: f0f9a10f987f19d8ae77a07038cffe23446856fd
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="limitations-in-azure-database-for-mysql"></a>Limitazioni nel Database di Azure per MySQL
-Il servizio Database di Azure per MySQL è in anteprima pubblica. Le sezioni seguenti descrivono la capacità, supporto del motore di archiviazione, il supporto di privilegi, supporto istruzione di manipolazione dei dati e limiti funzionali nel servizio del database. Vedere anche le [limitazioni generali](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicabili al motore di database MySQL.
+# <a name="limitations-in-azure-database-for-mysql"></a>Limiti di Database di Azure per MySQL
+Il servizio Database di Azure per MySQL è in anteprima pubblica. Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database. Vedere anche le [limitazioni generali](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicabili al motore di database MySQL.
 
 ## <a name="service-tier-maximums"></a>Valori massimi del livello di servizio
 Database di Azure per MySQL offre più livelli di servizio tra cui è possibile scegliere durante la creazione di un server. Per altre informazioni vedere [Opzioni e prestazioni disponibili in ogni livello di servizio](concepts-service-tiers.md).  
@@ -46,27 +46,27 @@ Quando viene raggiunto un numero eccessivo di connessioni, è possibile che si r
 
 ### <a name="supported"></a>Supportato
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
-- [MEMORIA](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
+- [MEMORY](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
 
 ### <a name="unsupported"></a>Non supportato
 - [MyISAM](https://dev.mysql.com/doc/refman/5.7/en/myisam-storage-engine.html)
 - [BLACKHOLE](https://dev.mysql.com/doc/refman/5.7/en/blackhole-storage-engine.html)
-- [ARCHIVIO](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
-- [FEDERATI](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
+- [ARCHIVE](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
+- [FEDERATED](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
 
-## <a name="privilege-support"></a>Supporto di privilegi
+## <a name="privilege-support"></a>Supporto dei privilegi
 
 ### <a name="unsupported"></a>Non supportato
-- Ruolo di amministratore di database molti server parametri e impostazioni inavvertitamente possono influire negativamente sulle prestazioni del server o negare le proprietà ACID del sistema DBMS. Di conseguenza, per mantenere l'integrità del servizio e un contratto di servizio a un livello di prodotto è necessario non esporre il ruolo di amministratore di database per i clienti. L'account utente predefinito, che viene costruito quando viene creata una nuova istanza di database, consente ai clienti di eseguire la maggior parte delle istruzioni DDL e DML nell'istanza di database gestito. 
-- SUPER privilegio Analogamente [privilegio SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) anche è limitato.
+- Ruolo DBA: molti parametri e impostazioni server possono accidentalmente influire in modo negativo sulle prestazioni del server o negare le proprietà ACID del sistema DBMS. Per mantenere quindi l'integrità del servizio e un contratto di servizio a livello di prodotto, il ruolo DBA non è esposto ai clienti. L'account utente predefinito, costruito quando viene creata una nuova istanza di database, consente ai clienti di eseguire la maggior parte delle istruzioni DDL e DML nell'istanza di database gestita. 
+- Privilegi SUPER: in modo analogo, anche i [privilegi SUPER](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) presentano limitazioni.
 
-## <a name="data-manipulation-statement-support"></a>Supporto di istruzione di modifica dati
+## <a name="data-manipulation-statement-support"></a>Supporto delle istruzioni di gestione dei dati
 
 ### <a name="supported"></a>Supportato
-- CARICAMENTO dati INFILE - supportato, ma è necessario specificare il parametro di tipo [LOCAL] che viene indirizzato a un percorso UNC (archiviazione di Azure montata tramite XSMB).
+- LOAD DATA INFILE: istruzione supportata ma deve contenere la specificazione del parametro [LOCAL] indirizzato a un percorso UNC (archiviazione di Azure montata tramite XSMB).
 
 ### <a name="unsupported"></a>Non supportato
-- SELEZIONA... NEL FILE DI OUTPUT
+- SELECT... INTO OUTFILE
 
 ## <a name="preview-functional-limitations"></a>Limiti funzionali dell'anteprima
 
@@ -87,8 +87,8 @@ Quando viene raggiunto un numero eccessivo di connessioni, è possibile che si r
 ### <a name="subscription-management"></a>Gestione sottoscrizioni
 - Lo spostamento dinamico di server creati in precedenza tra le sottoscrizioni e il gruppo di risorse non è attualmente supportato.
 
-## <a name="current-known-issues"></a>Problemi noti correnti:
-- Istanza di MySQL server consente di visualizzare la versione del server non è valida quando viene stabilita una connessione. Per ottenere il server corretto controllo delle versioni di istanza, usare select viene; comando al prompt di MySQL.
+## <a name="current-known-issues"></a>Problemi attualmente noti
+- Quando viene stabilita la connessione, l'istanza del server MySQL visualizza una versione di server errata. Per ottenere la versione corretta dell'istanza del server, digitare il comando select version(); al prompt di MySQL.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Opzioni e prestazioni disponibili in ogni livello di servizio](concepts-service-tiers.md)

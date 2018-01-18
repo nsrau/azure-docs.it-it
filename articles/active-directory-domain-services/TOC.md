@@ -8,7 +8,7 @@
 ## [Funzionamento della sincronizzazione](active-directory-ds-synchronization.md)
 ## [Software di terze parti compatibile](active-directory-ds-compatible-software.md)
 
-# Introduzione
+# Attività iniziali
 ## [Attività 1: Configurare le impostazioni di base](active-directory-ds-getting-started.md)
 ## [Attività 2: Configurare le impostazioni di rete](active-directory-ds-getting-started-network.md)
 ## [Attività 3: Configurare un gruppo di amministratori e abilitare Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
@@ -41,10 +41,15 @@
 ### [Configurare la delega vincolata di Kerberos](active-directory-ds-enable-kcd.md)
 ### [Distribuire il proxy dell'applicazione di Azure AD](active-directory-ds-deploy-azure-app-proxy.md)
 ## [Eliminare un dominio gestito](active-directory-ds-disable-aadds.md)
-## Risoluzione dei problemi
+## Risolvere problemi
 ### [Domande frequenti](active-directory-ds-faqs.md)
 ### [Guida per la risoluzione dei problemi](active-directory-ds-troubleshooting.md)
+### [Risolvere i problemi correlati agli avvisi](active-directory-ds-troubleshoot-alerts.md)
+#### [Correggere una configurazione non corretta di un gruppo di sicurezza di rete](active-directory-ds-troubleshoot-nsg.md)
+#### [Ripristinare entità servizio mancanti](active-directory-ds-troubleshoot-service-principals.md)
+#### [Errori relativi a LDAP sicuro](active-directory-ds-troubleshoot-ldaps.md)
 ### [Risolvere gli errori relativi ai tenant non corrispondenti](active-directory-ds-mismatched-tenant-error.md)
+
 
 # riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 2ab14183a0ca4ade7873dbdece407937a746b663
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1619b3c67fb68f05c4af999a38794e4a52c22264
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Aggiungere e rimuovere un endpoint server di Sincronizzazione file di Azure (anteprima)
 Sincronizzazione file di Azure (anteprima) consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
@@ -32,7 +32,7 @@ Per creare un endpoint server, è necessario prima verificare che siano soddisfa
 - L'agente Sincronizzazione file di Azure è installato nel server e il server è stato registrato. Le istruzioni per l'installazione dell'agente Sincronizzazione file di Azure sono contenute nell'articolo [Registrare e annullare la registrazione di un server con Sincronizzazione file di Azure (anteprima)](storage-sync-files-server-registration.md). 
 - Verificare che sia stato distribuito un servizio di sincronizzazione archiviazione. Per informazioni dettagliate sulla distribuzione di un servizio di sincronizzazione archiviazione, vedere [Come distribuire Sincronizzazione file di Azure (anteprima)](storage-sync-files-deployment-guide.md). 
 - Verificare che sia stato distribuito un gruppo di sincronizzazione. Leggere le informazioni su [come creare un gruppo di sincronizzazione](storage-sync-files-deployment-guide.md#create-a-sync-group).
-- Verificare che il server sia connesso a Internet e che Azure sia accessibile.
+- Verificare che il server sia connesso a Internet e che Azure sia accessibile. Per tutte le comunicazioni tra il server e il servizio viene usata la porta 443.
 
 ## <a name="add-a-server-endpoint"></a>Aggiungere un endpoint server
 Per aggiungere un endpoint server, passare al gruppo di sincronizzazione che interessa e selezionare "Aggiungi endpoint server".
@@ -49,7 +49,7 @@ Inserire le informazioni seguenti in **Aggiungi endpoint server**:
 Selezionare **Crea** per aggiungere l'endpoint server. I file all'interno di uno spazio dei nomi di un gruppo di sincronizzazione ora rimangono sincronizzati. 
 
 ## <a name="remove-a-server-endpoint"></a>Rimuovere un endpoint server
-Se è abilitata per un endpoint server, la suddivisione in livelli nel cloud *archivia i file a livelli* nelle condivisioni di File di Azure. Questo consente alle condivisioni di file locali di agire come una cache, anziché una copia completa del set di dati, in modo da ottimizzare l'uso dello spazio nel file server. Tuttavia, se un endpoint server è stato rimosso con i file archiviati a livelli ancora presenti in locale nel server, tali file diventeranno inaccessibili. Di conseguenza, per garantire la continuità dell'accesso ai file, è necessario richiamare tutti i file archiviati a livelli da File di Azure prima di procedere con l'annullamento della registrazione. 
+Se per un endpoint server è abilitata la suddivisione in livelli cloud, i file verranno *archiviati a livelli* nelle condivisioni file di Azure. Questo consente alle condivisioni di file locali di agire come una cache, anziché una copia completa del set di dati, in modo da ottimizzare l'uso dello spazio nel file server. In caso di rimozione di un endpoint server con file archiviati a livelli ancora presenti in locale nel server, tuttavia, tali file diventeranno inaccessibili. Di conseguenza, per garantire la continuità dell'accesso ai file, è necessario richiamare tutti i file archiviati a livelli da File di Azure prima di procedere con l'annullamento della registrazione. 
 
 Questa operazione può essere eseguita con il cmdlet di PowerShell come illustrato di seguito:
 

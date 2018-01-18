@@ -1,5 +1,5 @@
 ---
-title: Criteri - Reimpostazione password self-service di Azure AD | Microsoft Docs
+title: Criteri di reimpostazione della password self-service - Azure Active Directory
 description: Opzioni dei criteri di reimpostazione password self-service di Azure AD
 services: active-directory
 keywords: gestione delle password in Active Directory, gestione delle password, reimpostazione password self-service di Azure AD
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6b1abd23c6f578a3a776e6174d1ea0f47b3ba27d
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 51eb7c594c02310c083b42b6c0d964b4af239d76
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restrizioni e criteri password in Azure Active Directory
 
@@ -57,11 +57,11 @@ Con il criterio a due gate, gli amministratori non hanno la possibilità di usar
   
 * Se sono trascorsi 30 giorni per una sottoscrizione di valutazione
 
-  oppure
+  o
 
 * È presente un dominio personale, ad esempio contoso.com
 
-  oppure
+  o
 
 * Identità sincronizzate da Azure AD Connect nella directory locale
 
@@ -70,7 +70,7 @@ Un criterio a un gate richiede un tipo di dati di autenticazione, ad esempio un 
 
 * Non sono ancora trascorsi i primi 30 giorni per una sottoscrizione di valutazione
 
-  oppure
+  o
 
 * Non è presente un dominio personale (*.onmicrosoft.com) 
 

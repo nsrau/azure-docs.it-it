@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: 02faf589db532222208ca53dd97b8d7a8ed92965
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: aee90f278476a899e0d47fc572c4f375bf926de2
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticazione pass-through di Azure Active Directory - Limitazioni correnti
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 01/05/2018
 Sono completamente supportati gli scenari seguenti:
 
 - Accessi utente a tutte le applicazioni basate su Web browser
-- L'accesso degli utenti alle applicazioni di Office che supportano [l'autenticazione moderna](https://aka.ms/modernauthga): Office 2016 e Office 2013 _con_ l'autenticazione moderna
-- Accesso degli utenti a Skype for Business, tale supporto l'autenticazione moderna, incluse le topologie in linea & ibrida. Altre informazioni sulle topologie supportate [qui](https://technet.microsoft.com/library/mt803262.aspx).
+- Accessi utente ad applicazioni Office che supportano l'[autenticazione moderna](https://aka.ms/modernauthga), ovvero Office 2016 e Office 2013 _con_ l'autenticazione moderna
+- Accessi utente a versioni di Skype for Business che supportano l'autenticazione moderna, incluse le topologie Online e ibrida. Altre informazioni sulle topologie supportate sono disponibili [qui](https://technet.microsoft.com/library/mt803262.aspx).
 - Aggiunte al dominio Azure AD per dispositivi Windows 10
 - Supporto di Exchange ActiveSync
 
@@ -40,12 +40,13 @@ Sono completamente supportati gli scenari seguenti:
 _Non_ sono supportati gli scenari seguenti:
 
 - Accessi utente ad applicazioni client legacy di Office: Office 2010 e Office 2013 _senza_ autenticazione moderna. Le organizzazioni sono incoraggiate a passare all'autenticazione moderna, se possibile. L'autenticazione moderna consente il supporto dell'autenticazione pass-through. Consente anche di proteggere gli account utente tramite funzionalità di [accesso condizionale](../active-directory-conditional-access-azure-portal.md), ad esempio Azure Multi-Factor Authentication.
-- L'accesso degli utenti a Skype per le applicazioni client di Business _senza_ l'autenticazione moderna.
+- Accessi utente per applicazioni client Skype for Business _senza_ autenticazione moderna.
 - Accessi utente a PowerShell versione 1.0. È consigliabile usare PowerShell versione 2.0.
 - Password di app per Multi-Factor Authentication.
 - Rilevamento di utenti con [credenziali perse](../active-directory-reporting-risk-events.md#leaked-credentials).
-- Servizi di dominio Active Directory di Azure deve sincronizzazione dell'Hash Password per attivare il tenant. Di conseguenza i tenant che utilizzano l'autenticazione pass-through _solo_ non funzionano per gli scenari che richiedono servizi di dominio Active Directory di Azure.
-- L'autenticazione pass-through non è integrato con [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
+- Azure AD Domain Services necessita della sincronizzazione dell'hash delle password per l'abilitazione nel tenant. I tenant che usano _solo_ l'autenticazione pass-through non funzionano per gli scenari che richiedono Azure AD Domain Services.
+- L'autenticazione pass-through non è integrata con [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
+- L'Apple Device Enrollment Program (Apple DEP) non supporta l'autenticazione moderna.  I dispositivi Apple DEP non possono registrarsi in Intune per i domini che usano l'autenticazione pass-through.
 
 >[!IMPORTANT]
 >Come soluzione alternativa _solo_ per gli scenari non supportati, abilitare la sincronizzazione dell'hash delle password nella pagina [Funzionalità facoltative](active-directory-aadconnect-get-started-custom.md#optional-features) della procedura guidata di Azure AD Connect.

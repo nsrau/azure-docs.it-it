@@ -4,7 +4,7 @@ description: "Informazioni sulla gestione della sicurezza del database SQL, in p
 keywords: sicurezza del database sql, gestione della sicurezza del database, sicurezza degli account di accesso, sicurezza del database, accesso al database
 services: sql-database
 documentationcenter: 
-author: BYHAM
+author: CarlRabeler
 manager: jhubbard
 editor: 
 tags: 
@@ -16,16 +16,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 01/23/2017
-ms.author: rickbyh
-ms.openlocfilehash: 78c26ee46ea7847cf78a7f3829c0f5b7a931f2d7
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.author: carlrab
+ms.openlocfilehash: 4963e67317f22140c318e29bcd03bce4b9f57ab6
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="controlling-and-granting-database-access"></a>Controllo e concessione dell'accesso al database
 
-Dopo aver configurate le regole del firewall, la connessione alle persone a un Database SQL come uno degli account di amministratore, il proprietario del database o un utente del database nel database.  
+Dopo aver configurato le regole del firewall, gli utenti possono connettersi a un database SQL come uno degli account di amministratore, il proprietario del database o un utente del database nel database.  
 
 >  [!NOTE]  
 >  Questo argomento è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse. 

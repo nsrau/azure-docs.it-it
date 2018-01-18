@@ -1,5 +1,5 @@
 ---
-title: 'Domande frequenti: reimpostazione della password self-service di Azure AD | Microsoft Docs'
+title: Domande frequenti sulla reimpostazione della password self-service - Azure Active Directory
 description: Domande frequenti su sulla reimpostazione della password self-service di Azure AD
 services: active-directory
 keywords: gestione delle password in Active Directory, gestione delle password, reimpostazione della password self-service di Azure AD
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4216c417d137c00587bf65b39410eca6f4cef8bc
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 697b82c8197a9a7ff4c60ce6fa60e098396c2bca
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Domande frequenti sulla gestione delle password
 
@@ -43,9 +43,9 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   > **R:** Sì. Se la reimpostazione della password è abilitata, gli utenti con licenza possono accedere al portale di registrazione per la reimpostazione della password (http://aka.ms/ssprsetup) per registrare le proprie informazioni di autenticazione. La registrazione può essere eseguita anche tramite il pannello di accesso (http://myapps.microsoft.com). Per la registrazione tramite il pannello di accesso, gli utenti devono selezionare la propria immagine del profilo, quindi **Profilo** e infine l'opzione **Registrazione per reimpostazione password**.
   >
   >
-* **Q: se abilita la password reimpostata per un gruppo e quindi decidere se abilitare la funzionalità per tutti gli utenti sono my utenti necessario ripetere la registrazione?**
+* **D: Se si abilita la reimpostazione della password per un gruppo e quindi si decide di abilitare questa funzionalità per tutti gli utenti, è necessario che gli utenti ripetano la registrazione?**
 
-  > **R:** No. Gli utenti che popolate con dati di autenticazione non è necessario registrare nuovamente.
+  > **R:** No. Gli utenti che hanno inserito i dati di autenticazione non devono ripetere la registrazione.
   >
   >
 * **D: è possibile definire i dati di reimpostazione della password per conto degli utenti?**

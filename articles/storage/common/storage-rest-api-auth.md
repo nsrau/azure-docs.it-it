@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/27/2017
 ms.author: robinsh
-ms.openlocfilehash: 73921f7fd4de65513f647db92b737a79f1043182
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 521487c3ed38f191308e14e4d542358438945556
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Uso dell'API REST di Archiviazione di Azure
 
@@ -27,12 +27,12 @@ Questo articolo illustra come usare le API REST del servizio di archiviazione BL
 
 L'applicazione restituisce l'elenco dei contenitori nella risorsa di archiviazione BLOB per un account di archiviazione. Per provare il codice di questo articolo, è necessario quanto segue: 
 
-* Installare [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) con il carico di lavoro seguente:
+* Installare [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) con i carichi di lavoro seguenti:
     - Sviluppo di Azure
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-* Un account di archiviazione di uso generico. Se non si ha un account di archiviazione, è possibile crearlo usando il [portale di Azure](https://portal.azure.com), [PowerShell](storage-quickstart-create-storage-account-powershell.md) o l'[interfaccia della riga di comando di Azure](storage-quickstart-create-storage-account-cli.md).
+* Un account di archiviazione di uso generico. Se non si ha un account di archiviazione, vedere [Create a storage account](storage-quickstart-create-account.md) (Creare un account di archiviazione).
 
 * L'esempio riportato in questo articolo illustra come elencare i contenitori di un account di archiviazione. Per visualizzare l'output, aggiungere alcuni contenitori alla risorsa di archiviazione BLOB nell'account di archiviazione prima di iniziare.
 
@@ -180,7 +180,7 @@ Dopo aver creato la richiesta, è possibile chiamare SendAsync per inviare la ri
 }
 ```
 
-Se si usa uno sniffer di rete come [Fiddler](https://www.telerik.com/fiddler) quando si esegue la chiamata a SendAsync, è possibile visualizzare le informazioni della richiesta e della risposta, come descritto di seguito. Il nome dell'account di archiviazione è *contosorest*.
+Se si usa uno sniffer di rete come [Fiddler](https://www.telerik.com/fiddler) quando si esegue la chiamata a SendAsync, è possibile visualizzare le informazioni della richiesta e della risposta, Vediamo. Il nome dell'account di archiviazione è *contosorest*.
 
 **Richiesta:**
 
@@ -570,4 +570,4 @@ In questo articolo si è appreso come creare una richiesta da inviare all'API RE
 
 * [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api) (API REST del servizio BLOB)
 * [File Service REST API](/rest/api/storageservices/file-service-rest-api) (API REST del servizio file)
-* [Queue Service REST API](/rest/api/storageservices/queue-service-rest-api) (API REST del servizio di accodamento)
+* [API REST del servizio di accodamento](/rest/api/storageservices/queue-service-rest-api)

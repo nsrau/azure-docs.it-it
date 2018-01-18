@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a02f6cf0923bbe7083ba29fac5f59bcce9f5ab44
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problemi di installazione del connettore dell'agente proxy dell'applicazione
 
@@ -37,9 +37,9 @@ Quando l'installazione di un connettore non riesce, la causa principale riguarda
 
 **Obiettivo:** verificare che il computer di connessione possa connettersi all'endpoint di registrazione proxy dell'applicazione AAD, nonché alla pagina di accesso Microsoft.
 
-1.  Aprire un browser e passare alla pagina Web seguente: <https://aadap-portcheck.connectorporttest.msappproxy.net>, quindi verificare che la connettività al data center degli Stati Uniti orientali e Stati Uniti centrali con le porte 9090 e 9091 sia funzionante.
+1.  Aprire un browser e passare alla pagina Web seguente: <https://aadap-portcheck.connectorporttest.msappproxy.net>, quindi verificare che la connettività al data center degli Stati Uniti orientali e Stati Uniti centrali con le porte 80 e 443 sia funzionante.
 
-2.  Se la connessione a una di queste porte non funziona (non è presente un segno di spunta verde), verificare che \*.msappproxy.net con le porte 9090 e 9091 sia definito correttamente per il firewall o proxy di back-end.
+2.  Se la connessione a una di queste porte non funziona (non è presente un segno di spunta verde), verificare che \*.msappproxy.net con le porte 80 e 443 sia definito correttamente per il firewall o proxy di back-end.
 
 3.  Aprire un browser (scheda separata) e passare alla pagina Web seguente: <https://login.microsoftonline.com>, quindi assicurarsi che sia possibile accedere a tale pagina.
 

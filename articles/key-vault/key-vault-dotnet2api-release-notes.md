@@ -1,6 +1,6 @@
 ---
 title: Note sulla versione dell'API .NET 2.x per l'insieme di credenziali delle chiavi | Microsoft Docs
-description: Gli sviluppatori .NET useranno questa API per scrivere il codice dell'insieme di credenziali delle chiavi di Azure
+description: Gli sviluppatori .NET useranno questa API per scrivere il codice per Azure Key Vault
 services: key-vault
 author: BrucePerlerMS
 manager: mbaldwin
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
 ms.author: bruceper
-ms.openlocfilehash: c5b5fd7f16faf17d16ecc82269fb1264adf4dd06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b03f5092ee4236ca3e7b12db37dc47bd6d3a309
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Guida alla migrazione e note sulla versione .NET 2.0 per l'insieme di credenziali delle chiavi di Azure
+# <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Guida alla migrazione e note sulla versione di .NET 2.0 per Azure Key Vault
 Le note e le linee guida seguenti sono destinate agli sviluppatori che usano la libreria .NET / C# di Azure Key Vault. Nel passaggio dalla versione 1.0 alla versione 2.0 sono state apportate alcune modifiche. Per poter però usufruire dei miglioramenti funzionali e delle nuove funzionalità, ad esempio la funzionalità **Certificati Key Vault**, è necessaria un'operazione di migrazione nel codice.
 
 ## <a name="key-vault-certificates"></a>Certificati Key Vault
@@ -36,8 +36,9 @@ La funzionalità Certificati dell'insieme di credenziali delle chiavi supporta l
 
 ## <a name="net-support"></a>Supporto .NET
 
-* **.NET 4.0** non è supportata dalla versione 2.0 della libreria .NET/C# dell'insieme di credenziali delle chiavi di Azure
-* **.NET Core** è supportata dalla versione 2.0 della libreria .NET/C# dell'insieme di credenziali delle chiavi di Azure
+* **.NET 4.0** non è supportata dalla versione 2.0 della libreria .NET di Azure Key Vault
+* **.NET Framework 4.5.2** non è supportata dalla versione 2.0 della libreria .NET di Azure Key Vault
+* **.NET Standard 1.4** non è supportata dalla versione 2.0 della libreria .NET di Azure Key Vault
 
 ## <a name="namespaces"></a>Spazi dei nomi
 

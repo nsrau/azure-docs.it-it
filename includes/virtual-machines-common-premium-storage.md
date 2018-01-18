@@ -60,7 +60,7 @@ Di seguito sono illustrate alcune delle funzionalità di Archiviazione Premium:
     Azure usa l'account di archiviazione come contenitore per i dischi non gestiti. Quando si crea una VM di Azure serie DS, DSv2, GS o Fs con dischi non gestiti e si seleziona un account di archiviazione Premium, il sistema operativo e i dischi dati vengono archiviati in tale account.
 
 ## <a name="supported-vms"></a>VM supportate
-L'archiviazione Premium supporta le macchine virtuali serie DS, DSv2, GS, Ls e Fs. Con questi tipi di VM è possibile usare dischi di archiviazione sia Standard che Premium. Non è possibile usare i dischi di Archiviazione Premium con MV delle serie non compatibili con Archiviazione Premium.
+Archiviazione Premium supporta le macchine virtuali serie DS, DSv2, GS, Ls, Fs e B. Con questi tipi di VM è possibile usare dischi di archiviazione sia Standard che Premium. Non è possibile usare i dischi di Archiviazione Premium con MV delle serie non compatibili con Archiviazione Premium.
 
 Per informazioni sui tipi e le dimensioni delle VM in Azure, vedere [Dimensioni delle macchine virtuali Windows](../articles/virtual-machines/windows/sizes.md). Per informazioni sui tipi e le dimensioni delle VM in Azure, vedere [Dimensioni delle macchine virtuali Linux](../articles/virtual-machines/linux/sizes.md).
 

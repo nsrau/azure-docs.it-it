@@ -1,6 +1,6 @@
 ---
-title: Copiare i dati da Impala usando Azure Data Factory (Beta) | Documenti Microsoft
-description: "Informazioni su come copiare i dati da Impala agli archivi dati sink supportati utilizzando un'attività di copia in una pipeline di Data Factory di Azure."
+title: Copiare dati da Impala usando Azure Data Factory (beta) | Microsoft Docs
+description: "Informazioni su come copiare dati da Impala in archivi dati sink supportati usando un'attività di copia in una pipeline di Azure Data Factory."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,52 +13,52 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: ff6d970b8d4bb5328eb958acc652ba05e1c8be5f
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6719db60c7a5f67e45f53c548c573e05599734fb
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="copy-data-from-impala-using-azure-data-factory-beta"></a>Copiare i dati da Impala usando Azure Data Factory (Beta)
+# <a name="copy-data-from-impala-using-azure-data-factory-beta"></a>Copiare dati da Impala usando Azure Data Factory (beta)
 
-In questo articolo viene descritto come utilizzare l'attività di copia in Azure Data Factory per copiare i dati da Impala. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da Impala. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
 > [!NOTE]
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Attività di copia nella versione 1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Questo connettore è attualmente in versione Beta. È possibile provarlo e fornire commenti e suggerimenti. Non utilizzarlo in ambienti di produzione.
+> Questo connettore è attualmente disponibile in versione beta. È possibile provarlo e inviare commenti e suggerimenti. Non usarlo in ambienti di produzione.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-È possibile copiare dati da Impala per qualsiasi archivio dati sink supportati. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
+È possibile copiare dati da Impala in qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Attività iniziali
 
-È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Le sezioni seguenti forniscono dettagli sulle proprietà che consentono di definire entità Data Factory specifica al connettore Impala.
+Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di Data Factory specifiche per il connettore per Impala.
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 
-Le proprietà seguenti sono supportate per Impala servizio collegato:
+Per il servizio collegato Impala sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà di tipo deve essere impostata su: **Impala** | Sì |
-| host | L'indirizzo IP o host nome del server Impala. (che è 192.168.222.160)  | Sì |
-| port | La porta TCP che il server Impala utilizza per l'ascolto per le connessioni client. Il valore predefinito è 21050.  | No  |
-| authenticationType | Il tipo di autenticazione da utilizzare. <br/>I valori consentiti sono: **anonimo**, **SASLUsername**, **UsernameAndPassword** | Sì |
-| username | Il nome utente utilizzato per accedere al server Impala. Quando si utilizza SASLUsername, il valore predefinito è anonimo.  | No  |
-| password | La password corrispondente al nome utente quando si utilizza UsernameAndPassword. È possibile scegliere contrassegnare questo campo come SecureString per archiviare in modo sicuro in ADF o archiviare le password nell'insieme di credenziali chiave di Azure e consentire l'attività di copia pull da tale posizione quando si esegue una copia dei dati - ulteriori da [archiviare le credenziali nell'insieme di credenziali chiave](store-credentials-in-key-vault.md). | No  |
-| enableSsl | Specifica se le connessioni al server vengono crittografate tramite SSL. Il valore predefinito è False.  | No  |
-| trustedCertPath | Il percorso completo del file con estensione PEM contenente i certificati CA attendibili per la verifica del server quando ci si connette tramite SSL. Questa proprietà può essere impostata solo quando si utilizza SSL su infrarossi self-hosted. Il valore predefinito è il file cacerts.pem installato con l'infrarossi.  | No  |
-| useSystemTrustStore | Specifica se utilizzare un certificato dall'archivio di attendibilità del sistema o da un file con estensione PEM specificato. Il valore predefinito è False.  | No  |
-| allowHostNameCNMismatch | Specifica se è richiesto un nome certificato SSL rilasciato dalla CA in modo che corrisponda il nome host del server quando ci si connette tramite SSL. Il valore predefinito è False.  | No  |
-| allowSelfSignedServerCert | Specifica se consentire i certificati autofirmati dal server. Il valore predefinito è False.  | No  |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
+| type | La proprietà type deve essere impostata su: **Impala** | Sì |
+| host | Indirizzo IP o nome host del server Impala, ovvero 192.168.222.160  | Sì |
+| port | Porta TCP che il server Impala usa per l'ascolto delle connessioni client. Il valore predefinito è 21050.  | No |
+| authenticationType | Tipo di autenticazione da usare. <br/>I valori consentiti sono: **Anonymous**, **SASLUsername**, **UsernameAndPassword** | Sì |
+| nome utente | Nome utente usato per accedere al server Impala. Quando si usa SASLUsername, il valore predefinito è Anonymous.  | No |
+| password | Password corrispondente al nome utente quando si usa UsernameAndPassword. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, vedere [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| enableSsl | Specifica se le connessioni al server sono crittografate tramite SSL. Il valore predefinito è False.  | No |
+| trustedCertPath | Percorso completo del file PEM contenente i certificati CA attendibili per la verifica del server in caso di connessione tramite SSL. È possibile impostare questa proprietà solo quando si usa SSL nel runtime di integrazione self-hosted. Il valore predefinito è il file cacerts.pem installato con il runtime di integrazione.  | No |
+| useSystemTrustStore | Specifica se usare o meno un certificato CA da un archivio di scopi consentiti o da un file PEM specificato. Il valore predefinito è False.  | No |
+| allowHostNameCNMismatch | Specifica se è necessario che il nome del certificato SSL rilasciato dall'Autorità di certificazione corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è False.  | No |
+| allowSelfSignedServerCert | Specifica se consentire o meno i certificati autofirmati dal server. Il valore predefinito è False.  | No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
 **Esempio:**
 
@@ -87,9 +87,9 @@ Le proprietà seguenti sono supportate per Impala servizio collegato:
 
 ## <a name="dataset-properties"></a>Proprietà dei set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). In questa sezione fornisce un elenco delle proprietà supportate dal set di dati Impala.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati Impala.
 
-Per copiare dati da Impala, impostare la proprietà del tipo di set di dati da **ImpalaObject**. Non vi è alcuna proprietà aggiuntive specifiche del tipo in questo tipo di set di dati.
+Per copiare dati da Impala, impostare la proprietà type del set di dati su **ImpalaObject**. Non sono presenti proprietà aggiuntive specifiche per il tipo in questo tipo di set di dati.
 
 **Esempio**
 
@@ -108,15 +108,15 @@ Per copiare dati da Impala, impostare la proprietà del tipo di set di dati da *
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulle [pipeline](concepts-pipelines-activities.md). In questa sezione fornisce un elenco di proprietà supportati dall'origine Impala.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulle [pipeline](concepts-pipelines-activities.md). Questa sezione presenta un elenco delle proprietà supportate dall'origine Impala.
 
 ### <a name="impala-as-source"></a>Impala come origine
 
-Per copiare dati da Impala, impostare il tipo di origine in attività di copia per **ImpalaSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare dati da Impala, impostare il tipo di origine nell'attività di copia su **ImpalaSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | Impostare la proprietà del tipo di origine dell'attività di copia: **ImpalaSource** | Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **ImpalaSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | Sì |
 
 **Esempio:**
@@ -152,4 +152,4 @@ Per copiare dati da Impala, impostare il tipo di origine in attività di copia p
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per un elenco di dati vengono archiviati gli archivi di dati supportati in Azure Data Factory, vedere [supportati archivi dati](copy-activity-overview.md#supported-data-stores-and-formats).
+Per un elenco degli archivi dati supportati in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).

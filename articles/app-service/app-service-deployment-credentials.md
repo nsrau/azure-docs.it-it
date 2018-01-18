@@ -13,16 +13,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 3039d29bbb92280c12d683702aeef54cb6c538cb
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: d66b5aa4eb2ad90596dfe9e26bbc18996c967295
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurazione delle credenziali per la distribuzione del Servizio app di Azure
 Il [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) supporta due tipi di credenziali per la [distribuzione di GIT locale](app-service-deploy-local-git.md) e la [distribuzione FTP/S](app-service-deploy-ftp.md). Queste credenziali non corrispondono alle credenziali di Azure Active Directory.
 
-* **Credenziali a livello di utente**: un insieme di credenziali per tutto l'account Azure. Può essere usato per distribuire il Servizio app per qualsiasi app, in tutte le sottoscrizioni a cui l'account di Azure è autorizzato ad accedere. Si tratta dell'insieme di credenziali predefinito configurabile in **Servizi app** > **&lt;nome_app>** > **Credenziali per la distribuzione**. Questo è il valore predefinito set che vengono rese disponibili nel portale di GUI (ad esempio il **Panoramica** e **proprietà** della tua app [pagina risorsa](../azure-resource-manager/resource-group-portal.md#manage-resources)).
+* **Credenziali a livello di utente**: un insieme di credenziali per tutto l'account Azure. Può essere usato per distribuire il Servizio app per qualsiasi app, in tutte le sottoscrizioni a cui l'account di Azure è autorizzato ad accedere. Si tratta dell'insieme di credenziali predefinito configurabile in **Servizi app** > **&lt;nome_app>** > **Credenziali per la distribuzione**. Corrisponde anche al set predefinito indicato nell'interfaccia utente grafica del portale, ad esempio nelle aree **Panoramica** e **Proprietà** della [pagina delle risorse](../azure-resource-manager/resource-group-portal.md#manage-resources) dell'app.
 
     > [!NOTE]
     > Quando si delega l'accesso alle risorse di Azure tramite controllo degli accessi in base al ruolo o autorizzazioni di coamministratore, ogni utente Azure che riceve l'accesso a un'app può usare le sue credenziali a livello utente fino a quando l'accesso non viene revocato. Queste credenziali di distribuzione non devono essere condivise con altri utenti di Azure.
@@ -38,14 +38,14 @@ Il [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) suppor
 
 ## <a name="userscope"></a>Impostare e reimpostare le credenziali a livello di utente
 
-È possibile configurare le credenziali a livello di utente in qualsiasi app [pagina risorsa](../azure-resource-manager/resource-group-portal.md#manage-resources). Indipendentemente dall'app, le credenziali configurate si applicano a tutte le app e a tutte le sottoscrizioni nell'account di Azure dell'utente. 
+È possibile configurare le credenziali a livello di utente nella [pagina delle risorse](../azure-resource-manager/resource-group-portal.md#manage-resources) di ogni app. Indipendentemente dall'app, le credenziali configurate si applicano a tutte le app e a tutte le sottoscrizioni nell'account di Azure dell'utente. 
 
 Per configurare le credenziali a livello di utente:
 
 1. Nel [portale di Azure](https://portal.azure.com), fare clic su Servizio app > **&lt;qualsiasi_app>** > **Credenziali per la distribuzione**.
 
     > [!NOTE]
-    > Nel portale, è necessario disporre di almeno un'app prima di poter accedere alla pagina di credenziali di distribuzione. Tuttavia, con l'[interfaccia della riga di comando di Azure](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set) è possibile configurare le credenziali a livello di utente senza un'app esistente.
+    > È necessario disporre di almeno un'app nel portale per poter accedere alla pagina delle credenziali per la distribuzione. Tuttavia, con l'[interfaccia della riga di comando di Azure](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set) è possibile configurare le credenziali a livello di utente senza un'app esistente.
 
 2. Configurare il nome utente e la password e quindi fare clic su **Salva**.
 
@@ -55,7 +55,7 @@ Dopo aver impostato le credenziali per la distribuzione, è possibile trovare il
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
-oltre a un nome utente per la distribuzione *FTP* nelle **Proprietà** dell'app.
+oltre a un nome utente per la distribuzione *FTP* nell'area **Proprietà** dell'app.
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_properties.png)
 

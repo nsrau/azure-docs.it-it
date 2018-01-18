@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 58f7f71fd619eea2865ed42d2808fe6ae3e75c1f
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 3133b0166689142a635926077bdb4e0abeba287c
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="api-management-policy-expressions"></a>Espressioni di criteri di Gestione API
 La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso alla variabile [context](api-management-policy-expressions.md#ContextVariables) fornita implicitamente e a un [subset](api-management-policy-expressions.md#CLRTypes) autorizzato di tipi di .NET Framework.  
@@ -26,13 +26,13 @@ La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso 
 > [!TIP]
 >  Per ulteriori informazioni sulle espressioni di criteri, vedere il video [Espressioni di criteri](https://azure.microsoft.com/documentation/videos/policy-expressions-in-azure-api-management/).  
 >   
->  Per una dimostrazione relativa alla configurazione dei criteri usando le espressioni, vedere l'[episodio 177 di Cloud Cover su altre funzionalità di Gestione API con Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Il video include le seguenti dimostrazioni di espressioni di criteri.  
+>  Per una dimostrazione relativa alla configurazione dei criteri usando le espressioni, vedere l'[episodio 177 di Cloud Cover su altre funzionalità di Gestione API con Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Il video include le dimostrazioni delle espressioni di criteri seguenti:  
 >   
->  -   10:30: informazioni su come applicare criteri al livello dell'API per fornire informazioni di contesto al servizio back-end usando i criteri [Imposta parametro di stringa della query](api-management-transformation-policies.md#SetQueryStringParameter) e [Imposta intestazione HTTP](api-management-transformation-policies.md#SetHTTPheader). A 12:10 minuti viene illustrata una dimostrazione su come chiamare un'operazione nel portale per sviluppatori, dove è possibile vedere all'opera i criteri stessi.  
-> -   13:50: informazioni su come usare il criterio [Convalida JWT](api-management-access-restriction-policies.md#ValidateJWT) per preautorizzare l'accesso alle operazioni in base alle attestazioni dei token. Passare a 15:00 minuti per vedere i criteri configurati nell'editor dei criteri e quindi a 18:50 minuti per una dimostrazione della chiamata di un'operazione dal portale per sviluppatori, con e senza il token di autorizzazione richiesto.  
-> -   21:00: informazioni su come usare una traccia di [Controllo API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) per visualizzare il modo in cui i criteri vengono valutati e le valutazioni stesse.   
-> -   25:25: informazioni su come usare le espressioni di criteri con i criteri [Recupera dalla cache](api-management-caching-policies.md#GetFromCache) e [Archivia nella cache](api-management-caching-policies.md#StoreToCache) per configurare la durata della memorizzazione nella cache di Gestione API corrispondente alla memorizzazione delle risposte nella cache del serivzio back-end, come specificato dalla direttiva `Cache-Control` del servizio in questione.  
-> -   34:30: informazioni su come eseguire operazioni di filtro sui contenuti rimuovendo elementi dati dalla risposta ricevuta dal servizio back-end usando i criteri [Flusso di controllo](api-management-advanced-policies.md#choose) e [Imposta corpo](api-management-transformation-policies.md#SetBody). Andare al minuto 31:50 per visualizzare una panoramica di [The Dark Sky Forecast API](https://developer.forecast.io/), l'API usata in questa dimostrazione.  
+>  -   10:30: informazioni su come fornire informazioni di contesto al servizio back-end. Per fornire queste informazioni, usare i criteri per l'[impostazione del parametro di stringa di query](api-management-transformation-policies.md#SetQueryStringParameter) e l'[impostazione dell'intestazione HTTP](api-management-transformation-policies.md#SetHTTPheader). Al minuto 12:10 viene illustrato come chiamare un'operazione nel portale per sviluppatori, dove è possibile vedere all'opera i criteri stessi.  
+> -   13:50: informazioni su come usare il criterio [Convalida JWT](api-management-access-restriction-policies.md#ValidateJWT) per preautorizzare l'accesso alle operazioni in base alle attestazioni dei token. Avanzare rapidamente fino al minuto 15:00 per vedere come si configurano i criteri nell'editor dei criteri. Al minuto 18:50 viene illustrato come chiamare un'operazione nel portale per sviluppatori con e senza il token di autorizzazione necessario.  
+> -   21:00: informazioni su come usare una traccia del [controllo delle API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) per vedere come vengono valutati i criteri e i risultati di queste valutazioni.  
+> -   25:25: informazioni su come usare le espressioni con i criteri di [recupero dalla cache](api-management-caching-policies.md#GetFromCache) e [archiviazione nella cache](api-management-caching-policies.md#StoreToCache) per configurare la memorizzazione delle risposte nella cache di Gestione API. Impostare la durata corrispondente alla memorizzazione delle risposte nella cache del servizio back-end, come specificato dalla direttiva `Cache-Control` del servizio.  
+> -   34:30: informazioni su come eseguire operazioni di filtro dei contenuti. Rimuovere elementi dati dalla risposta ricevuta dal servizio back-end usando i criteri di [controllo del flusso](api-management-advanced-policies.md#choose) e [impostazione del corpo](api-management-transformation-policies.md#SetBody). Iniziare dal minuto 31:50 per visualizzare una panoramica di [The Dark Sky Forecast API](https://developer.forecast.io/), l'API usata in questa dimostrazione.  
 > -   Le istruzioni dei criteri usate in questo video sono disponibili nel repository di github [api-management-samples/policies](https://github.com/Azure/api-management-samples/tree/master/policies).  
   
   
@@ -68,10 +68,10 @@ La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso 
 ```  
   
 ##  <a name="PolicyExpressionsUsage"></a> Uso  
- Le espressioni possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei [criteri](api-management-policies.md) di Gestione API, salvo diversamente specificato dai criteri.  
+ Le espressioni possono essere usate come valori di attributo o valori di testo in tutti i [criteri](api-management-policies.md) di Gestione API, salvo diversamente specificato nella documentazione di riferimento.  
   
 > [!IMPORTANT]
->  Si noti che quando si usano espressioni di criteri, è prevista solo una verifica limitata di tali espressioni quando i criteri vengono definiti. Poiché le espressioni vengono eseguite dal gateway al momento del runtime nella pipeline in entrata o in uscita, eventuali eccezioni di runtime generate dalle espressioni di criteri porteranno a un errore di runtime nella chiamata dell'API.  
+>  Quando si usano le espressioni di criteri, è prevista solo una verifica limitata di tali espressioni al momento della definizione dei criteri. Le espressioni vengono eseguite dal gateway in fase di esecuzione e le eccezioni generate determinano un errore di runtime.  
   
 ##  <a name="CLRTypes"></a> Tipi di .NET Framework consentiti nelle espressioni di criteri  
  Nella tabella seguente sono elencati i tipi di .NET Framework e i relativi membri consentiti nelle espressioni di criteri.  
@@ -140,7 +140,7 @@ La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso 
 |System.Text.RegularExpressions.Group|Acquisizioni, esito positivo|  
 |System.Text.RegularExpressions.GroupCollection|Conteggio, elemento|  
 |System.Text.RegularExpressions.Match|Empty, Groups, Result|  
-|System.Text.RegularExpressions.Regex|.ctor, IsMatch, Match, Matches, Replace|  
+|System.Text.RegularExpressions.Regex|(Constructor),IsMatch, Match, Matches, Replace|  
 |System.Text.RegularExpressions.RegexOptions|Compiled, IgnoreCase, IgnorePatternWhitespace, Multiline, None, RightToLeft, Singleline|  
 |System.TimeSpan|Tutti|  
 |System.Tuple|Tutti|  
@@ -172,8 +172,8 @@ La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso 
   
 |Variabile di contesto|Metodi, proprietà e valori di parametro consentiti|  
 |----------------------|-------------------------------------------------------|  
-|context|Api: IApi<br /><br /> Distribuzione<br /><br /> LastError<br /><br /> Operazione<br /><br /> Prodotto<br /><br /> Richiesta<br /><br /> RequestId: Guid<br /><br /> Response<br /><br /> Sottoscrizione<br /><br /> Tracing: bool<br /><br /> Utente<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
-|context.Api|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> ServiceUrl: IUrl|  
+|contesto|Api: IApi<br /><br /> Distribuzione<br /><br /> LastError<br /><br /> Operazione<br /><br /> Prodotto<br /><br /> Richiesta<br /><br /> RequestId: Guid<br /><br /> Risposta<br /><br /> Sottoscrizione<br /><br /> Tracing: bool<br /><br /> Utente<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|  
+|context.Api|Id: string<br /><br /> IsRevisionCurrent: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: IUrl<br /><br /> Version: string |  
 |context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificati: IReadOnlyDictionary<string, X509Certificate2>|  
 |context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Per ulteriori informazioni su context.LastError, vedere [Gestione degli errori](api-management-error-handling-policies.md).|  
 |context.Operation|Id: string<br /><br /> Method: string<br /><br /> Name: string<br /><br /> UrlTemplate: string|  
@@ -193,7 +193,7 @@ La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso 
 |string IUrl.Query.GetValueOrDefault(queryParameterName: string, defaultValue: string)|queryParameterName: string<br /><br /> defaultValue: string<br /><br /> Restituisce valori di parametro separati da virgole oppure `defaultValue` se il parametro non viene trovato.|  
 |T context.Variables.GetValueOrDefault<T\>(variableName: string, defaultValue: T)|variableName: string<br /><br /> defaultValue: T<br /><br /> Restituisce il valore della variabile nel tipo `T` oppure `defaultValue` se la variabile non viene trovata.<br /><br /> Questo metodo genera un'eccezione se il tipo specificato non corrisponde al tipo effettivo della variabile restituita.|  
 |BasicAuthCredentials AsBasic(input: this string)|input: string<br /><br /> Se il parametro di input contiene un valore di intestazione di richiesta di autorizzazione Autenticazione HTTP di base valido, il metodo restituisce un oggetto di tipo `BasicAuthCredentials`; in caso contrario restituisce un valore null.|  
-|bool TryParseBasic(input: this string, result: out BasicAuthCredentials)|input: string<br /><br /> result: out BasicAuthCredentials<br /><br /> Se il parametro di input contiene un valore di intestazione di richiesta di autorizzazione Autenticazione HTTP di base valido, il metodo restituisce un oggetto di tipo `true` e il parametro risultante contiene un valore di tipo `BasicAuthCredentials`; in caso contrario restituisce `false`.|  
+|bool TryParseBasic(input: this string, result: out BasicAuthCredentials)|input: string<br /><br /> result: out BasicAuthCredentials<br /><br /> Se il parametro di input contiene un valore di autorizzazione Autenticazione HTTP di base valido nell'intestazione della richiesta, il metodo restituisce `true` e il parametro risultante contiene un valore di tipo `BasicAuthCredentials`; in caso contrario, il metodo restituisce `false`.|  
 |BasicAuthCredentials|Password: string<br /><br /> UserId: string|  
 |Jwt AsJwt(input: this string)|input: string<br /><br /> Se il parametro di input contiene un valore di token JWT valido, il metodo restituisce un oggetto di tipo `Jwt`; in caso contrario restituisce `null`.|  
 |bool TryParseJwt(input: this string, result: out Jwt)|input: string<br /><br /> result: out Jwt<br /><br /> Se il parametro di input contiene un valore di token JWT valido, il metodo restituisce `true` e il parametro del risultato contiene un valore di tipo `Jwt`; in caso contrario il metodo restituisce `false`.|  
@@ -204,7 +204,7 @@ La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso 
 |byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - testo non crittografato da crittografare<br /><br />alg - algoritmo di crittografia<br /><br />key - chiave di crittografia<br /><br />iv - vettore di inizializzazione<br /><br />Restituisce testo normale crittografato.|
 |byte[] Decrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|input - messaggio cifrato da decrittografare<br /><br />alg - nome di un algoritmo di crittografia simmetrica<br /><br />key - chiave di crittografia<br /><br />iv - vettore di inizializzazione<br /><br />Restituisce testo normale non crittografato.|
 |byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - messaggio cifrato da decrittografare<br /><br />alg - algoritmo di crittografia<br /><br />Restituisce testo normale non crittografato.|
-|byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - input - messaggio cifrato da decrittografare<br /><br />alg - algoritmo di crittografia<br /><br />key - chiave di crittografia<br /><br />iv - vettore di inizializzazione<br /><br />Restituisce testo normale non crittografato.|
+|byte[] Encrypt(input: this byte[], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|input - messaggio cifrato da decrittografare<br /><br />alg - algoritmo di crittografia<br /><br />key - chiave di crittografia<br /><br />iv - vettore di inizializzazione<br /><br />Restituisce testo normale non crittografato.|
 
 ## <a name="video"></a>Video
 
@@ -215,6 +215,6 @@ La sintassi delle espressioni di criteri è C# 6.0. Ogni espressione ha accesso 
 Per altre informazioni sull'uso di questi criteri, vedere:
 
 + [Criteri di Gestione API](api-management-howto-policies.md)
-+ [API Transform](transform-api.md)
-+ [Informazioni di riferimento per i criteri](api-management-policy-reference.md) per un elenco completo di istruzioni dei criteri e delle relative impostazioni
++ [Trasformare le API](transform-api.md)
++ [Informazioni di riferimento sui criteri](api-management-policy-reference.md) per un elenco completo delle istruzioni dei criteri e delle relative impostazioni
 + [Esempi di criteri](policy-samples.md)   

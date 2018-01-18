@@ -24,6 +24,8 @@
       href: tutorial-deploy-machine-learning.md
     - name: Distribuire Funzioni di Azure
       href: tutorial-deploy-function.md
+    - name: Creare una distribuzione di IoT Edge con l'estensione IoT per l'interfaccia della riga di comando di Azure 2.0
+      href: tutorial-create-deployment-with-cli-iot-extension.md
 - name: Guide alle procedure
   items:
     - name: Creare gateway

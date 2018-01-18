@@ -95,6 +95,9 @@
         - name: Flusso strutturato con Kafka
           href: ../hdinsight-apache-kafka-spark-structured-streaming.md
           maintainContext: true
+        - name: Flusso strutturato da Kafka a CosmosDB
+          href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
+          maintainContext: true
         - name: Flusso Spark (DStream) con Kafka
           href: ../hdinsight-apache-spark-with-kafka.md
           maintainContext: true
@@ -363,7 +366,7 @@
         - name: Monitorare le prestazioni di un cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Riferimento
+- name: Riferimenti
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

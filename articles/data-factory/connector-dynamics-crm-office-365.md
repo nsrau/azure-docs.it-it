@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: b9b7091a8cb1de3eefcce77cbf82eedfcb33c787
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: 91de03f3472244341f4cf086bc8a2f56f7d2e487
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Copiare dati da/in Dynamics 365/Dynamics CRM usando Azure Data Factory
 
@@ -46,11 +46,11 @@ Per Dynamics 365 in particolare, sono supportati i tipi di applicazioni seguenti
 - Dynamics 365 for Marketing
 
 > [!NOTE]
-> Per usare un connettore di Dynamics, archiviare la password nell'insieme di credenziali chiave di Azure e consentire il pull di attività di copia da qui quando si esegue una copia dei dati. Per informazioni sulle procedure di configurazione, vedere la sezione [Proprietà del servizio collegato](#linked-service-properties).
+> Per usare il connettore Dynamics, archiviare la password in Azure Key Vault e consentire all'attività di copia di effettuare il pull da questa posizione quando esegue la copia dei dati. Per informazioni sulle procedure di configurazione, vedere la sezione [Proprietà del servizio collegato](#linked-service-properties).
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Attività iniziali
 
-È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di Data Factory specifiche per Dynamics.
 
@@ -60,18 +60,18 @@ Per il servizio collegato di Dynamics sono supportate le proprietà seguenti:
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 e Dynamics CRM Online
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Dynamics**. | Sì |
 | deploymentType | Il tipo di distribuzione dell'istanza di Dynamics. Deve essere **"Online"** per Dynamics Online. | Sì |
 | organizationName | Il nome organizzazione dell'istanza di Dynamics. | No, deve essere specificato solo se sono presenti più istanze di Dynamics associate all'utente. |
 | authenticationType | Il tipo di autenticazione per la connessione al server Dynamics. Specificare **"Office365"** per Dynamics Online. | Sì |
-| username | Specificare il nome utente per la connessione a Dynamics. | Sì |
+| nome utente | Specificare il nome utente per la connessione a Dynamics. | Sì |
 | password | Specificare la password per l'account utente specificato per il nome utente. È necessario inserire la password in Azure Key Vault e configurarla come "AzureKeyVaultSecret". Per altre informazioni, vedere [Archiviare le credenziali nell'insieme di credenziali delle chiavi](store-credentials-in-key-vault.md). | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | Non per l'origine, Sì per il sink se origine collegato servizio privo di IR |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No per l'origine, Sì per il sink se il servizio collegato all'origine non dispone del runtime di integrazione. |
 
 >[!IMPORTANT]
->Quando si copiano dati **in** Dynamics, impostazione predefinita, il Runtime di integrazione di Azure non può essere utilizzato per eseguire copia. In altre parole, se l'origine collegato servizio non ha un IR specificato, in modo esplicito [creare un IR Azure](create-azure-integration-runtime.md#create-azure-ir) con un percorso del Dynamics e associare nel servizio collegato Dynamics quasi come nell'esempio seguente.
+>Quando si copiano dati **in** Dynamics, non è possibile usare il runtime di integrazione di Azure predefinito per eseguire l'attività di copia. In altri termini, se il servizio collegato all'origine non dispone di un runtime di integrazione specifico, [creare un runtime di integrazione di Azure](create-azure-integration-runtime.md#create-azure-ir) in modo esplicito con una posizione prossima a Dynamics e associarlo al servizio collegato in Dynamics come illustrato nell'esempio seguente.
 
 **Esempio: Dynamics Online usando l'autenticazione di Office365**
 
@@ -107,7 +107,7 @@ Per il servizio collegato di Dynamics sono supportate le proprietà seguenti:
 
 *Proprietà aggiuntive rispetto a Dynamics Online sono "hostName" e "port".*
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Dynamics**. | Sì |
 | deploymentType | Il tipo di distribuzione dell'istanza di Dynamics. Deve essere **"OnPremisesWithIfd"** per Dynamics locale con IFD.| Sì |
@@ -160,7 +160,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da/in Dynamics, impostare la proprietà type del set di dati su **DynamicsEntity**. Sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **DynamicsEntity** |Sì |
 | entityName | Il nome logico dell'entità da recuperare. | No per l'origine (se nell'origine dell'attività è specificato "query"), Sì per il sink |
@@ -213,7 +213,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Dynamics, impostare il tipo di origine nell'attività di copia su **DynamicsSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **DynamicsSource**  | Sì |
 | query  | FetchXML è un linguaggio di query proprietario usato in Microsoft Dynamics (Online e locale). Per altre informazioni, vedere l'esempio seguente e l'articolo [Creare query con FetchXML](https://msdn.microsoft.com/en-us/library/gg328332.aspx). | No (se nel set di dati è specificato "entityName")  |
@@ -274,7 +274,7 @@ Per copiare dati da Dynamics, impostare il tipo di origine nell'attività di cop
 
 Per copiare dati in Dynamics, impostare il tipo di sink nell'attività di copia su **DynamicsSink**. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
 | type | La proprietà type del sink dell'attività di copia deve essere impostata su: **DynamicsSink**  | Sì |
 | writebehavior | Comportamento dell'azione di scrittura dell'operazione.<br/>Il valore consentito è: **"Upsert"**. | Sì |
@@ -322,26 +322,26 @@ Per copiare dati in Dynamics, impostare il tipo di sink nell'attività di copia 
 
 Quando si copiano dati da Dynamics, vengono usati i mapping seguenti tra i tipi di dati di Dynamics e i tipi di dati provvisori di Azure Data Factory. Vedere [Mapping dello schema e del tipo di dati](copy-activity-schema-and-type-mapping.md) per informazioni su come l'attività di copia esegue il mapping dello schema di origine e del tipo di dati al sink.
 
-Configurare il tipo di dati di Data Factory corrispondente nella struttura di set di dati in base all'origine dati di Dynamics digitare con tabella di mapping seguente:
+Nella struttura del set di dati, configurare il tipo di dati corrispondente di Data Factory in base al tipo di dati di origine di Dynamics usando la tabella di mapping seguente:
 
 | Tipo di dati di Dynamics | Tipo di dati provvisori di Data Factory | Supportato come origine | Supportato come sink |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
-| AttributeTypeCode.Boolean | boolean | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
 | AttributeType.Customer | Guid | ✓ |  |
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | string | ✓ | ✓ |
+| AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Guid | ✓ |  |
-| AttributeType.ManagedProperty | boolean | ✓ |  |
-| AttributeType.Memo | string | ✓ | ✓ |
+| AttributeType.ManagedProperty | Boolean | ✓ |  |
+| AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
-| AttributeType.String | string | ✓ | ✓ |
+| AttributeType.String | String | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.openlocfilehash: aeef39294bbf3ad4192fe116c6972e52bfa1c816
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: elaborazione di database senza server con Funzioni di Azure
 
@@ -34,6 +34,9 @@ Funzioni di Azure e Azure Cosmos DB consentono di integrare i database e le app 
 * In alternativa, è possibile associare una funzione di Azure a una raccolta di Azure Cosmos DB usando un'**associazione di input**. Le associazioni di input leggono i dati dal contenitore quando viene eseguita una funzione.
 * Associare una funzione di Azure a una raccolta di Azure Cosmos DB usando un'**associazione di output**. Le associazioni di output scrivono i dati in un contenitore al termine di una funzione.
 
+> [!NOTE]
+> Al momento, il trigger e le associazioni di input e output di Azure Cosmos DB funzionano solo con gli account API SQL e API Graph.
+
 Il diagramma seguente illustra ognuna di questi tre integrazioni: 
 
 ![Modalità di integrazione di Azure Cosmos DB e Funzioni di Azure](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
@@ -42,9 +45,6 @@ Il trigger di Azure Cosmos DB e le associazioni di input e output possono essere
 * Un trigger di Azure Cosmos DB può essere usato con un'associazione di output in un contenitore di Azure Cosmos DB diverso. Dopo che una funzione ha eseguito un'azione su un elemento nel feed di modifiche è possibile scriverla in un altro contenitore. Scriverla nello stesso contenitore da cui proviene creerebbe in realtà un ciclo ricorsivo. In alternativa, è possibile usare un trigger di Azure Cosmos DB per eseguire in modo efficace la migrazione di tutti gli elementi modificati da un contenitore a un altro, grazie all'uso di un'associazione di output.
 * Le associazioni di input e output per Azure Cosmos DB possono essere usate nella stessa funzione di Azure. Questo procedimento funziona bene in casi in cui si desidera trovare determinati dati con l'associazione di input, modificarli nella funzione di Azure e quindi salvarli nello stesso contenitore o in un contenitore diverso, dopo la modifica.
 * Un'associazione di input in un contenitore di Azure Cosmos DB può essere usata nella stessa funzione come trigger di Azure Cosmos DB, con o senza un'associazione di output. È possibile usare questa combinazione per applicare informazioni aggiornate sul tasso di cambio, inserite con un'associazione di input in un contenitore di cambio di valuta, per il feed di modifiche dei nuovi ordini nel servizio carrello. Il totale del carrello aggiornato, applicando la conversione valuta corrente, può essere scritto in un terzo contenitore usando un'associazione di output.
-
-> [!NOTE]
-> In questo momento, i trigger Azure Cosmos DB, associazioni di input e output associazioni usare solo account API SQL e l'API Graph.
 
 ## <a name="use-cases"></a>Casi d'uso
 
@@ -86,14 +86,14 @@ Le immagini seguenti mostrano il codice nel portale di Azure per questo scenario
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Caso d'uso di gioco: trigger di Azure Cosmos DB e associazione di output
 
-Nei giochi, quando viene creato un nuovo utente è possibile cercare altri utenti che potrebbero conoscerlo usando l'[API Graph di Azure Cosmos DB](graph-introduction.md). È quindi possibile scrivere i risultati a un [database SQL di Azure Cosmos DB] per semplificarne il recupero.
+Nei giochi, quando viene creato un nuovo utente è possibile cercare altri utenti che potrebbero conoscerlo usando l'[API Graph di Azure Cosmos DB](graph-introduction.md). È quindi possibile eseguire la scrittura dei risultati in un [database SQL di Azure Cosmos DB] per semplificarne il recupero.
 
 **Implementazione:** usare un trigger di Azure Cosmos DB e un'associazione di output
 
 1. Usando il [database dei grafici](graph-introduction.md) di Azure Cosmos DB per archiviare tutti gli utenti, è possibile creare una nuova funzione con un trigger di Azure Cosmos DB. 
 2. Ogni volta che viene inserito un nuovo utente, viene richiamata la funzione e quindi il risultato viene archiviato con un'**associazione di output**.
 3. La funzione interroga il database dei grafici per cercare tutti gli utenti direttamente correlati al nuovo utente e restituisce i set di dati alla funzione.
-4. Questi dati vengono quindi archiviati in un database di Azure Cosmos che quindi può essere facilmente recuperato da qualsiasi applicazione front-end che mostra il nuovo utente gli amici connessi.
+4. Questi dati vengono quindi archiviati in un'istanza di Azure Cosmos DB per poter essere facilmente recuperati da qualsiasi applicazione front-end che mostri al nuovo utente gli amici connessi.
 
 ### <a name="retail-use-case---multiple-functions"></a>Caso d'uso di vendita al dettaglio: funzioni multiple
 
@@ -153,7 +153,7 @@ Ora bisogna davvero collegare Funzioni di Azure e Azure Cosmos DB:
 * [Creare un trigger di Azure Cosmos DB nel portale di Azure](https://aka.ms/cosmosdbtriggerportalfunc)
 * [Create an Azure Functions HTTP trigger with an Azure Cosmos DB input binding](https://aka.ms/cosmosdbinputbind) (Creare un trigger HTTP di Funzioni di Azure con un'associazione di input di Azure Cosmos DB)
 * [Archiviare dati non strutturati tramite Funzioni di Azure e Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
-* [Associazioni e trigger di Azure Cosmos DB](../azure-functions/functions-bindings-documentdb.md)
+* [Associazioni e trigger di Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb.md)
 
 
  

@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 9ceb299b3ee521aeefb45c21920bd3b6e0049d26
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 6f9786b75f5160ceaa4dd269a91d7f3a4b6700d5
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Raccogliere i dati di modello tramite la raccolta dati
 
-La funzionalità di raccolta dati del modello in Azure Machine Learning Workbench consente di archiviare gli input e le previsioni del modello da un servizio Web.
+La funzionalità di raccolta dati di modello in Azure Machine Learning consente di archiviare gli input e le previsioni del modello da un servizio Web.
 
 ## <a name="install-the-data-collection-package"></a>Installare il pacchetto di raccolta dati
 È possibile installare la libreria di raccolta dati in modo nativo su Linux e Windows.
@@ -38,7 +38,13 @@ Quindi, eseguire il comando seguente:
 
     pip install azureml.datacollector
 
-## <a name="collect-data"></a>Raccogliere i dati
+## <a name="set-environment-variables"></a>Impostare le variabili di ambiente
+
+La raccolta dati di modello dipende da due variabili di ambiente. AML_MODEL_DC_STORAGE_ENABLED deve essere impostata su **true** (tutto in lettere minuscole) e AML_MODEL_DC_STORAGE deve essere impostata sulla stringa di connessione dell'account di Archiviazione di Azure in cui si desidera archiviare i dati.
+
+Tali variabili di ambiente sono già impostate automaticamente quando il servizio Web è in esecuzione in un cluster in Azure. Quando il servizio è in esecuzione in locale, è necessario impostare le variabili manualmente. In Docker, usare il parametro -e del comando run del docker per passare le variabili di ambiente.
+
+## <a name="collect-data"></a>Raccogli dati
 
 Per usare la raccolta dati di modello, è necessario apportare le modifiche seguenti al file dei punteggi:
 

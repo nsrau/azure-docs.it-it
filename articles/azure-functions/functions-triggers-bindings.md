@@ -1,5 +1,5 @@
 ---
-title: I trigger e le associazioni in funzioni di Azure
+title: Trigger e associazioni in Funzioni di Azure
 description: Informazioni su come usare trigger e associazioni in Funzioni di Azure per connettere l'esecuzione del codice a eventi online e servizi basati su cloud.
 services: functions
 documentationcenter: na
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 92194b0d54de1271580a237e16e652b761b4d6d4
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: a122271b5fdffd9db33a7dca5908e15f002041d7
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
 
-In questo articolo offre una panoramica concettuale di trigger e le associazioni in funzioni di Azure. Funzionalità comuni a tutte le associazioni e tutte le lingue supportate sono descritte di seguito.
+In questo articolo viene fornita una panoramica concettuale di trigger e associazioni in Funzioni di Azure. Le funzionalità comuni a tutte le associazioni e a tutti i linguaggi supportati sono descritte di seguito.
 
 ## <a name="overview"></a>Panoramica
 
@@ -31,11 +31,11 @@ Un *trigger* definisce come viene richiamata una funzione. Una funzione deve ave
 
 Le *associazioni* di input e output forniscono una modalità dichiarativa per connettersi ai dati dall'interno del codice. Le associazioni sono facoltative e una funzione può avere più associazioni di input e output. 
 
-I trigger e le associazioni consentono di evitare hardcoded i dettagli dei servizi che si sta lavorando. Funzione si riceve dati (ad esempio, il contenuto di un messaggio della coda) in parametri di funzione. Invio di dati (ad esempio, per creare un messaggio nella coda) utilizzando il valore restituito della funzione, un `out` parametro, o un [oggetto raccolta dati](functions-reference-csharp.md#writing-multiple-output-values).
+I trigger e le associazioni permettono di evitare di inserire dettagli hardcoded dei servizi usati. La funzione riceve i dati, ad esempio il contenuto di un messaggio della coda, nei parametri della funzione. I dati vengono inviati, ad esempio per creare un messaggio della coda, usando il valore restituito della funzione, un parametro `out` o un [oggetto agente di raccolta](functions-reference-csharp.md#writing-multiple-output-values).
 
-Quando si sviluppano le funzioni utilizzando il portale di Azure, trigger e le associazioni vengono configurate in un *function.json* file. Il portale fornisce un'interfaccia utente per questa configurazione, ma è possibile modificare il file direttamente modificando nel **editor avanzato**.
+Quando si sviluppano funzioni tramite il portale di Azure, i trigger e le associazioni sono configurati in un file *function.json*. Il portale fornisce un'interfaccia utente per questa configurazione, ma è possibile modificare direttamente il file passando all'**editor avanzato**.
 
-Quando si sviluppano le funzioni con Visual Studio per creare una libreria di classi, configurare i trigger e le associazioni dichiarando i metodi e i parametri con attributi.
+Se le funzioni vengono sviluppate in Visual Studio per creare una libreria di classi, i trigger e le associazioni vengono configurati tramite la decorazione di metodi e parametri con attributi.
 
 ## <a name="supported-bindings"></a>Binding supportati
 
@@ -45,9 +45,9 @@ Per informazioni sulle associazioni in anteprima o approvate per l'uso in ambien
 
 ## <a name="example-queue-trigger-and-table-output-binding"></a>Esempio: trigger di coda e tabella di associazione di output
 
-Si supponga di che voler scrivere una nuova riga per l'archiviazione tabelle di Azure ogni volta che viene visualizzato un messaggio nuovo in archiviazione di Accodamento di Azure. Questo scenario può essere implementato utilizzando una coda di Azure trigger di archiviazione e un archivio tabelle di Azure di associazione di output. 
+Si supponga di voler scrivere una nuova riga in archiviazione tabelle di Azure ogni volta che viene visualizzato un messaggio nuovo in archiviazione code di Azure. Questo scenario può essere implementato tramite un trigger di archiviazione code di Azure e un'associazione di output di archiviazione tabelle di Azure. 
 
-Ecco un *function.json* file per questo scenario. 
+Ecco un file *function.json* per questo scenario. 
 
 ```json
 {
@@ -70,16 +70,16 @@ Ecco un *function.json* file per questo scenario.
 }
 ```
 
-Il primo elemento di `bindings` matrice è il trigger di archiviazione della coda. Il `type` e `direction` proprietà consentono di identificare il trigger. Il `name` proprietà identifica il parametro della funzione che riceverà il contenuto del messaggio della coda. Il nome della coda per il monitoraggio è in `queueName`, e la stringa di connessione è in base alle impostazioni app identificato da `connection`.
+Il primo elemento nella matrice `bindings` è il trigger di archiviazione code. Le proprietà `type` e `direction` identificano il trigger. La proprietà `name` identifica il parametro di funzione che riceverà il contenuto del messaggio della coda. Il nome della coda da monitorare si trova in `queueName` e la stringa di connessione si trova nell'impostazione app identificata da `connection`.
 
-Il secondo elemento di `bindings` matrice è l'archiviazione tabelle Azure associazione di output. Il `type` e `direction` proprietà consentono di identificare l'associazione. Il `name` proprietà specifica come la funzione fornirà la nuova riga di tabella, in questo caso utilizzando il valore restituito della funzione. Il nome della tabella è in `tableName`, e la stringa di connessione è in base alle impostazioni app identificato da `connection`.
+Il secondo elemento nella matrice `bindings` è l'associazione di output dell'archiviazione tabelle di Azure. Le proprietà `type` e `direction` identificano l'associazione. La proprietà `name` specifica in che modo la funzionalità fornirà la nuova riga della tabella, in questo caso usando il valore restituito della funzione. Il nome della tabella si trova in `tableName` e la stringa di connessione si trova nell'impostazione app identificata da `connection`.
 
 Per visualizzare e modificare i contenuti della *funzione .json* nel portale di Azure, fare clic sull'opzione **Editor avanzato** nella scheda **Integrazione** della funzione.
 
 > [!NOTE]
-> Il valore di `connection` è il nome di un'impostazione di app che contiene la stringa di connessione, non la stringa di connessione. Associazioni utilizzano connessione stringhe archiviate nelle impostazioni dell'app per applicare le migliori procedure consigliate che *function.json* non contiene i segreti di servizio.
+> Il valore di `connection` corrisponde al nome di un'impostazione app che contiene la stringa di connessione e non alla stringa di connessione stessa. Le associazioni usano stringhe di connessione archiviate nelle impostazioni app per imporre la procedura consigliata che prevede che il file *function.json* non contenga i segreti del servizio.
 
-Ecco il codice di script c# che funziona con questo trigger e l'associazione. Si noti che il nome del parametro che fornisce il contenuto del messaggio della coda è `order`; questo nome è obbligatorio poiché il `name` nel valore della proprietà *function.json* è`order` 
+Ecco il codice dello script C# per questo trigger e questa associazione. Si noti che il nome del parametro che fornisce il contenuto del messaggio della coda è `order`. Questo nome è obbligatorio perché il valore della proprietà `name` nel file *function.json* è `order` 
 
 ```cs
 #r "Newtonsoft.Json"
@@ -106,7 +106,7 @@ public class Person
 }
 ```
 
-Il file di function.json stesso può essere utilizzato con una funzione JavaScript:
+Lo stesso file function.json può essere usato con una funzione JavaScript:
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -124,7 +124,7 @@ function generateRandomId() {
 }
 ```
 
-In una libreria di classi, il trigger stesso e le informazioni di associazione &mdash; coda e tabella, nomi di account di archiviazione, i parametri per l'input e output di funzione &mdash; viene fornito dagli attributi:
+In una libreria di classi, le stesse informazioni per il trigger e l'associazione, ovvero nomi di coda e tabella, account di archiviazione, parametri di funzione per input e output, sono forniti dagli attributi:
 
 ```csharp
  public static class QueueTriggerTableOutput
@@ -160,11 +160,11 @@ Tutti i trigger e le associazioni hanno una proprietà `direction` nel file *fun
 - Le associazioni di input e di output usano `in` e `out`
 - Alcune associazioni supportano una direzione speciale `inout`. Se si usa `inout`, solo l'**Editor avanzato** è disponibile nelle scheda **Integrazione**.
 
-Quando si utilizza [attributi in una libreria di classi](functions-dotnet-class-library.md) per configurare i trigger e le associazioni, la direzione è fornita in un costruttore di attributo o dedotto dal tipo di parametro.
+Quando si usano gli [attributi in una libreria di classi](functions-dotnet-class-library.md) per configurare i trigger e le associazioni, la direzione viene specificata in un costruttore di attributo o dedotta dal tipo di parametro.
 
 ## <a name="using-the-function-return-type-to-return-a-single-output"></a>Uso del tipo restituito della funzione per restituire un singolo output
 
-Nell'esempio precedente viene illustrato come utilizzare il valore restituito di funzione per fornire output di un'associazione, che viene specificata in *function.json* utilizzando il valore speciale `$return` per il `name` proprietà. (Questo è solo supportato nelle lingue che presentano un valore restituito, ad esempio script c#, JavaScript e F #). Se una funzione dispone di più associazioni di output, usare `$return` per una sola delle associazioni di output. 
+L'esempio precedente illustra come usare il valore restituito della funzione per fornire l'output a un'associazione, che viene specificato nel file *function.json* usando il valore speciale `$return` per la proprietà `name`. Questa opzione è supportata solo nei linguaggi che presentano un valore restituito, ad esempio script C#, JavaScript e F#. Se una funzione dispone di più associazioni di output, usare `$return` per una sola delle associazioni di output. 
 
 ```json
 // excerpt of function.json
@@ -176,7 +176,7 @@ Nell'esempio precedente viene illustrato come utilizzare il valore restituito di
 }
 ```
 
-Negli esempi seguenti Mostra come visualizzare i tipi utilizzati con le associazioni di output in c# script, JavaScript e F #.
+Gli esempi seguenti mostrano come vengono usati i tipi restituiti con le associazioni di output nello script C#, in JavaScript e F#.
 
 ```cs
 // C# example: use method return value for output binding
@@ -217,9 +217,9 @@ let Run(input: WorkItem, log: TraceWriter) =
 
 ## <a name="binding-datatype-property"></a>Proprietà Binding dataType
 
-In .NET, utilizzare il tipo di parametro per definire il tipo di dati per dati di input. Usare ad esempio `string` da associare al testo di un trigger di coda, una matrice di byte da leggere in formato binario e un tipo personalizzato per deserializzare un oggetto POCO.
+In .NET usare il tipo di parametro per definire il tipo di dati per i dati di input. Usare ad esempio `string` da associare al testo di un trigger di coda, una matrice di byte da leggere in formato binario e un tipo personalizzato per deserializzare un oggetto POCO.
 
-Per le lingue che vengono digitate in modo dinamico, ad esempio JavaScript, usare il `dataType` proprietà il *function.json* file. Ad esempio, per leggere il contenuto di una richiesta HTTP in formato binario, impostare `dataType` a `binary`:
+Per i linguaggi tipizzati in modo dinamico, ad esempio JavaScript, usare la proprietà `dataType` nel file *function.json*. Ad esempio, per eseguire la lettura del contenuto di una richiesta HTTP in formato binario, impostare `dataType` su `binary`:
 
 ```json
 {
@@ -256,7 +256,7 @@ L'esempio seguente è un trigger di archiviazione code di Azure che usa un'impos
 }
 ```
 
-È possibile utilizzare lo stesso approccio nelle librerie di classi:
+È possibile usare lo stesso approccio nelle librerie di classi:
 
 ```csharp
 [FunctionName("QueueTrigger")]
@@ -272,7 +272,7 @@ public static void Run(
 
 Oltre al payload dei dati offerto da un trigger (ad esempio, il messaggio di coda che ha attivato una funzione), molti trigger forniscono i valori dei metadati aggiuntivi. Questi valori possono essere usati come parametri di input in C# e F# o come proprietà nell'oggetto `context.bindings` in JavaScript. 
 
-Ad esempio, un trigger di archiviazione della coda di Azure supporta le proprietà seguenti:
+Un trigger di archiviazione code di Azure, ad esempio, supporta le proprietà seguenti:
 
 * QueueTrigge: attivazione del contenuto del messaggio, se una stringa valida
 * DequeueCount
@@ -282,7 +282,7 @@ Ad esempio, un trigger di archiviazione della coda di Azure supporta le propriet
 * NextVisibleTime
 * PopReceipt
 
-Questi valori di metadati sono accessibili in *function.json* proprietà del file. Si supponga, ad esempio, si utilizza un trigger di coda e il messaggio della coda contiene il nome di un blob da leggere. Nel *function.json* file, è possibile utilizzare `queueTrigger` proprietà dei metadati del blob `path` proprietà, come illustrato nell'esempio seguente:
+I valori di questi metadati sono accessibili nelle proprietà del file *function.json*. Si supponga, ad esempio, di usare un trigger di accodamento e che il messaggio della coda contenga il nome di un BLOB di cui si vuole eseguire la lettura. Nel file *function.json* è possibile usare la proprietà dei metadati `queueTrigger` nella proprietà `path` del BLOB come mostrato nell'esempio seguente:
 
 ```json
   "bindings": [
@@ -302,13 +302,13 @@ Questi valori di metadati sono accessibili in *function.json* proprietà del fil
   ]
 ```
 
-Dettagli delle proprietà dei metadati per tutti i trigger sono descritti nell'articolo di riferimento corrispondente. Per un esempio, vedere [i metadati della coda trigger](functions-bindings-storage-queue.md#trigger---message-metadata). La documentazione è disponibile anche nella scheda **Integrazione** del portale nella sezione **Documentazione** sotto l'area di configurazione dell'associazione.  
+I dettagli delle proprietà dei metadati per ogni trigger sono descritti nell'articolo di riferimento corrispondente. Per un esempio, vedere [metadati dei trigger per le code](functions-bindings-storage-queue.md#trigger---message-metadata). La documentazione è disponibile anche nella scheda **Integrazione** del portale nella sezione **Documentazione** sotto l'area di configurazione dell'associazione.  
 
 ## <a name="binding-expressions-and-patterns"></a>Modelli ed espressioni di associazione
 
-Una delle funzionalità più potenti di trigger e associazioni sono le *espressioni di associazione*. Nella configurazione per un'associazione, è possibile definire espressioni di modello che possono quindi essere usate in altri binding o il codice. Anche i metadati di trigger possono essere utilizzati nelle espressioni di associazione, come illustrato nella sezione precedente.
+Una delle funzionalità più potenti di trigger e associazioni sono le *espressioni di associazione*. Nella configurazione per un'associazione è possibile definire espressioni di criteri che possono quindi essere usate in altre associazioni o nel codice. I metadati dei trigger possono essere usati anche nelle espressioni di associazione, come illustrato nell'esempio della sezione precedente.
 
-Ad esempio, si supponga di voler ridimensionare le immagini in un contenitore di archiviazione blob specifico, simile al **dimensioni immagine** modello il **nuova funzione** pagina del portale di Azure (vedere il **esempi**  scenario). 
+Ad esempio, si supponga di voler ridimensionare le immagini in un contenitore di archiviazione BLOB specifico, simile al modello di **ridimensionamento immagine** nella pagina **Nuova funzione** del portale di Azure (vedere lo scenario **Esempi**). 
 
 Ecco la definizione di *function.json*:
 
@@ -333,7 +333,7 @@ Ecco la definizione di *function.json*:
 }
 ```
 
-Si noti che il `filename` parametro viene utilizzato nella definizione del trigger blob sia il blob di associazione di output. Questo parametro può essere usato anche nel codice della funzione.
+Si noti che il parametro `filename` viene usato nella definizione del trigger del BLOB e anche nell'associazione di output del BLOB. Questo parametro può essere usato anche nel codice della funzione.
 
 ```csharp
 // C# example of binding to {filename}
@@ -347,7 +347,7 @@ public static void Run(Stream image, string filename, Stream imageSmall, TraceWr
 <!--TODO: add JavaScript example -->
 <!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
 
-La stessa possibilità di utilizzare modelli e le espressioni di associazione si applica agli attributi nelle librerie di classi. Di seguito è ad esempio, una funzione in una libreria di classi di ridimensionamento delle immagini:
+La stessa possibilità di usare criteri ed espressioni di associazione si applica agli attributi nelle librerie di classi. Ad esempio, ecco una funzione di ridimensionamento immagini in una libreria di classi:
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -381,7 +381,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 ### <a name="create-guids"></a>Crea GUID
 
-Il `{rand-guid}` espressione di associazione crea un GUID. Nell'esempio seguente viene usato un GUID per creare un nome univoco di blob: 
+L'espressione di associazione `{rand-guid}` crea un GUID. Nell'esempio seguente viene usato un GUID per creare un nome BLOB univoco: 
 
 ```json
 {
@@ -394,7 +394,7 @@ Il `{rand-guid}` espressione di associazione crea un GUID. Nell'esempio seguente
 
 ### <a name="current-time"></a>Ora corrente
 
-L'espressione di associazione `DateTime` si risolve in `DateTime.UtcNow`.
+L'espressione di associazione `DateTime` viene risolta in `DateTime.UtcNow`.
 
 ```json
 {
@@ -405,7 +405,7 @@ L'espressione di associazione `DateTime` si risolve in `DateTime.UtcNow`.
 }
 ```
 
-## <a name="bind-to-custom-input-properties"></a>Associare alle proprietà di input personalizzata
+## <a name="bind-to-custom-input-properties"></a>Eseguire l'associazione a proprietà di input personalizzate
 
 Le espressioni di associazione possono anche fare riferimento alle proprietà definite nel payload del trigger stesso. Ad esempio, si potrebbe voler associare in modo dinamico ad un file di archiviazione BLOB un filename fornito da un webhook.
 
@@ -478,11 +478,11 @@ module.exports = function (context, info) {
 
 ## <a name="configuring-binding-data-at-runtime"></a>Configurazione dell'associazione di dati in fase di runtime
 
-In c# e altri linguaggi .NET, è possibile utilizzare un modello di associazione imperativo, anziché le associazioni dichiarative *function.json* e attributi. L'associazione imperativa è utile quando i parametri di associazione devono essere calcolati in fase di runtime invece che in fase di progettazione. Per altre informazioni, vedere [Associazione in fase di runtime tramite le associazioni imperative](functions-reference-csharp.md#imperative-bindings) nel riferimento per sviluppatori C#.
+In C# e altri linguaggi .NET, è possibile usare criteri di associazione imperativa, rispetto alle associazioni dichiarative nel file *function.json* e negli attributi. L'associazione imperativa è utile quando i parametri di associazione devono essere calcolati in fase di runtime invece che in fase di progettazione. Per altre informazioni, vedere [Associazione in fase di runtime tramite le associazioni imperative](functions-reference-csharp.md#imperative-bindings) nel riferimento per sviluppatori C#.
 
-## <a name="functionjson-file-schema"></a>schema di file Function.JSON
+## <a name="functionjson-file-schema"></a>Schema del file function.json
 
-Il *function.json* dello schema di file è disponibile all'indirizzo [http://json.schemastore.org/function](http://json.schemastore.org/function).
+Lo schema del file *function.json* è disponibile all'indirizzo [http://json.schemastore.org/function](http://json.schemastore.org/function).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -495,7 +495,7 @@ Per altre informazioni su questi elementi, vedere gli articoli indicati di segui
 - [Archiviazione tabelle](functions-bindings-storage-table.md)
 - [Hub eventi](functions-bindings-event-hubs.md)
 - [Bus di servizio](functions-bindings-service-bus.md)
-- [Azure Cosmos DB](functions-bindings-documentdb.md)
+- [Azure Cosmos DB](functions-bindings-cosmosdb.md)
 - [Microsoft Graph](functions-bindings-microsoft-graph.md)
 - [SendGrid](functions-bindings-sendgrid.md)
 - [Twilio](functions-bindings-twilio.md)

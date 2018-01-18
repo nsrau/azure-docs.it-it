@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/11/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 89ddbaff88584d83a109b68707f9a9b3accb8e70
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: a2ba6c6b59ba4decdfd621a62ec07ae04bfb98cb
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="reset-your-work-or-school-password"></a>Reimpostare la password aziendale o scolastica
 
@@ -141,4 +141,3 @@ Selezionare il collegamento **Reimposta password** per avviare la procedura di r
 [LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Collegamento Reimposta password nella schermata di accesso di Windows 10 Fall Creators Update"
 [ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Verificare i dati di autenticazione"
 [ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Cambiare la password"
-

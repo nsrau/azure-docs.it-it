@@ -69,10 +69,12 @@
       href: concepts-hyper-v-to-secondary-architecture.md
     - name: Matrice di supporto da Azure ad Azure
       href: site-recovery-support-matrix-azure-to-azure.md
-    - name: Matrice di supporto da locale ad Azure
-      href: site-recovery-support-matrix-to-azure.md
+    - name: Matrice di supporto da VMware ad Azure
+      href: support-matrix-vmware-to-azure.md
     - name: Matrice di supporto da Hyper-V ad Azure
       href: support-matrix-hyper-v-to-azure.md
+    - name: Matrice di supporto da locale ad Azure
+      href: site-recovery-support-matrix-to-azure.md
     - name: Matrice di supporto da locale a sito secondario
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Ripristino di emergenza per i carichi di lavoro
@@ -181,6 +183,8 @@
           items:
             - name: Ambiente di origine per VMware in Azure
               href: site-recovery-set-up-vmware-to-azure.md
+            - name: Distribuire il server di configurazione per server fisici e VMware
+              href: how-to-deploy-configuration-server.md
             - name: Ambiente di origine per computer fisico in Azure
               href: site-recovery-set-up-physical-to-azure.md
         - name: Configurare l'ambiente di destinazione
@@ -273,7 +277,7 @@
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: Raccogliere i log e risolvere i problemi locali
           href: site-recovery-monitoring-and-troubleshooting.md
-- name: Riferimento
+- name: riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.recoveryservices.siterecovery

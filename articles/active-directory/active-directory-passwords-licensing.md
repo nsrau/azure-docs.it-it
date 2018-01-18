@@ -1,5 +1,5 @@
 ---
-title: 'Licenze: reimpostazione password self-service di Azure AD | Microsoft Docs'
+title: Assegnare la licenza per la reimpostazione della password self-service - Azure Active Directory
 description: Requisiti di licenza per la reimpostazione password self-service di Azure AD
 services: active-directory
 keywords: 
@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 45cecbf1334d4d708f1578d1512627bc0ead3a04
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 2ff9f80cfe9991000fdee45421fc74e662a4dfd1
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Requisiti di licenza per la reimpostazione password self-service di Azure AD
 
 Per consentire il funzionamento della reimpostazione password di Azure Active Directory (Azure AD), *è necessario che nell'organizzazione sia presente almeno una licenza assegnata*. La reimpostazione password non prevede l'applicazione delle licenze per utente. Per mantenere la conformità con il contratto di licenza Microsoft, è necessario assegnare le licenze a tutti gli utenti che usano le funzionalità Premium.
 
 * **Utenti solo cloud**: Office 365 e SKU a pagamento o Azure AD Basic
-* **Utenti cloud** o **utenti locali**: Azure AD P1 Premium o Azure AD P2 Premium, Enterprise Mobility + Security (EMS) o Secure Productive Enterprise (SPE)
+* **Utenti cloud** o **utenti locali**: Azure AD Premium P1 o P2, Enterprise Mobility + Security (EMS) o Microsoft 365
 
 ## <a name="licenses-required-for-password-writeback"></a>Licenze richieste per il writeback delle password
 
@@ -42,6 +42,7 @@ Per usare il writeback delle password, è necessario disporre una delle licenze 
 
 > [!WARNING]
 > I piani di licenza Office 365 autonomi *non supportano il writeback delle password* e richiedono uno dei piani precedenti per l'uso della funzionalità.
+>
 
 Informazioni aggiuntive sulle licenze, ad esempio i costi, sono disponibili nelle pagine seguenti:
 
@@ -69,4 +70,3 @@ Alcuni servizi Microsoft non sono disponibili in tutte le posizioni. Per assegna
 * [Informazioni sulle opzioni della reimpostazione della password self-service](active-directory-passwords-how-it-works.md)
 * [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
-

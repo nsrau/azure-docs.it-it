@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: d424eae90d82c7306b4ef948dbc793d867c8b26f
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 998956d00ae6d3be605163b566f5667a3bb95f38
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Ottimizzare la velocità effettiva di rete per le macchine virtuali di Azure
 
@@ -26,9 +26,9 @@ Le macchine virtuali di Azure hanno impostazioni di rete predefinite che possono
 
 ## <a name="windows-vm"></a>Macchina virtuale Windows
 
-Se la macchina virtuale Windows supporta [Accelerated rete](create-vm-accelerated-networking-powershell.md), abilitare tale funzionalità sarebbe la configurazione ottimale per la velocità effettiva. Per tutte le altre macchine virtuali di Windows, tramite Receive-Side Scaling (RSS) esse possono raggiungere una velocità effettiva massima superiore rispetto a una VM senza RSS. È possibile disabilitare RSS per impostazione predefinita in una macchina virtuale Windows. Per determinare se è abilitato RSS e abilitarla se è attualmente disabilitato, completare i passaggi seguenti:
+Se la macchina virtuale di Windows supporta la funzione [Rete accelerata](create-vm-accelerated-networking-powershell.md), la velocità effettiva è configurata in modo ottimale se questa funzione è abilitata. Per tutte le altre macchine virtuali di Windows, tramite Receive-Side Scaling (RSS) esse possono raggiungere una velocità effettiva massima superiore rispetto a una VM senza RSS. È possibile disabilitare RSS per impostazione predefinita in una macchina virtuale Windows. Per determinare se RSS è abilitato e abilitarlo se è disabilitato, eseguire la procedura seguente:
 
-1. Se RSS è abilitata per una scheda di rete con il `Get-NetAdapterRss` comando di PowerShell. Nell'output di esempio seguente restituito da `Get-NetAdapterRss` RSS non è abilitato.
+1. Con il comando `Get-NetAdapterRss` di PowerShell verificare se RSS è abilitato per una scheda di rete. Nell'output di esempio seguente restituito da `Get-NetAdapterRss` RSS non è abilitato.
 
     ```powershell
     Name                    : Ethernet
@@ -46,7 +46,7 @@ Se la macchina virtuale Windows supporta [Accelerated rete](create-vm-accelerate
     ```powershell
     Name                    : Ethernet
     InterfaceDescription    : Microsoft Hyper-V Network Adapter
-    Enabled              : True
+    Enabled                  : True
     ```
 
 ## <a name="linux-vm"></a>VM Linux
@@ -55,7 +55,7 @@ RSS è sempre abilitato per impostazione predefinita nella macchina virtuale Lin
 
 ### <a name="ubuntu-for-new-deployments"></a>Ubuntu per nuove distribuzioni
 
-Il kernel Azure Ubuntu offre le migliori prestazioni di rete in Azure ed è il kernel predefinito dal 21 settembre 2017. Per ottenere questo kernel, prima di installare la versione più recente della versione supportata del 16.04-LTS, come indicato di seguito:
+Il kernel Azure Ubuntu offre le migliori prestazioni di rete in Azure ed è il kernel predefinito dal 21 settembre 2017. Per ottenere il kernel, installare prima la versione supportata più recente, 16.04-LTS, come illustrato di seguito:
 
 ```json
 "Publisher": "Canonical",
@@ -98,7 +98,7 @@ uname -r
 #4.11.0-1014-azure
 ```
 
-Se la macchina virtuale non dispone del kernel di Azure, il numero di versione è in genere inizia con "4.4." Se la macchina virtuale non dispone del kernel di Azure, eseguire i comandi seguenti come radice:
+Se la macchina virtuale non ha il kernel di Azure, il numero di versione inizia in genere con "4.4". Se la macchina virtuale non ha il kernel di Azure, eseguire i comandi seguenti come radice:
 
 ```bash
 #run as root or preface with sudo
@@ -153,5 +153,6 @@ install.sh #or upgrade.sh if prior LIS was previously installed
 Per altre informazioni su Linux Integration Services versione 4.2 per Hyper-V, vedere la [pagina di download](https://www.microsoft.com/download/details.aspx?id=55106).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Visualizzare il risultato ottimizzato con [della larghezza di banda/test della velocità effettiva macchina virtuale di Azure](virtual-network-bandwidth-testing.md) per lo scenario.
+* Verificare i risultati dell'ottimizzazione dello scenario in [Bandwidth/Throughput testing Azure VM](virtual-network-bandwidth-testing.md) (Test della larghezza di banda/velocità effettiva della macchina virtuale di Azure).
+* Sono disponibili informazioni su come [allocare la larghezza di banda alle macchine virtuali] (virtual-machine-network-throughput.md).
 * Altre informazioni sono disponibili nell'articolo [Domande frequenti sulla rete virtuale di Azure](virtual-networks-faq.md).

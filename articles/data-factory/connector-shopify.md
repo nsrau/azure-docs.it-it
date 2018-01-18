@@ -1,6 +1,6 @@
 ---
-title: Copiare i dati da Shopify usando Azure Data Factory (Beta) | Documenti Microsoft
-description: "Informazioni su come copiare i dati da Shopify agli archivi dati sink supportati utilizzando un'attività di copia in una pipeline di Data Factory di Azure."
+title: Copiare dati da Shopify usando Azure Data Factory (beta) | Microsoft Docs
+description: "Informazioni su come copiare dati da Shopify in archivi dati sink supportati usando un'attività di copia in una pipeline di Azure Data Factory."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,46 +13,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 2cafa5f04ceeee4a3ba1b3d158757836b0a23cfa
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
-ms.translationtype: MT
+ms.openlocfilehash: b99a6d907b2061251079e566cd05d9e4d7c3b069
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
-# <a name="copy-data-from-shopify-using-azure-data-factory-beta"></a>Copiare i dati da Shopify usando Azure Data Factory (Beta)
+# <a name="copy-data-from-shopify-using-azure-data-factory-beta"></a>Copiare dati da Shopify usando Azure Data Factory (beta)
 
-In questo articolo viene descritto come utilizzare l'attività di copia in Azure Data Factory per copiare i dati da Shopify. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da Shopify. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
 > [!NOTE]
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Attività di copia nella versione 1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Questo connettore è attualmente in versione Beta. È possibile provarlo e fornire commenti e suggerimenti. Non utilizzarlo in ambienti di produzione.
+> Questo connettore è attualmente disponibile in versione beta. È possibile provarlo e inviare commenti e suggerimenti. Non usarlo in ambienti di produzione.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-È possibile copiare dati da Shopify per qualsiasi archivio dati sink supportati. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
+È possibile copiare dati da Shopify a qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Attività iniziali
 
-È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Le sezioni seguenti forniscono dettagli sulle proprietà che consentono di definire entità Data Factory specifica al connettore Shopify.
+Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di Data Factory specifiche per il connettore Shopify.
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 
-Le proprietà seguenti sono supportate per il servizio Shopify collegato:
+Per il servizio collegato Shopify sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | La proprietà di tipo deve essere impostata su: **Shopify** | Sì |
-| host | L'endpoint del server Shopify. (vale a dire mystore.myshopify.com)  | Sì |
-| accessToken | Il token di accesso API che consente di accedere ai dati del Shopify. Il token non scade in caso di modalità non in linea. È possibile scegliere contrassegnare questo campo come SecureString per archiviare in modo sicuro in ADF o archiviare le password nell'insieme di credenziali chiave di Azure e consentire l'attività di copia pull da tale posizione quando si esegue una copia dei dati - ulteriori da [archiviare le credenziali nell'insieme di credenziali chiave](store-credentials-in-key-vault.md). | Sì |
-| useEncryptedEndpoints | Specifica se gli endpoint di origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No  |
-| useHostVerification | Specifica se richiedere il nome host nel certificato del server in modo che corrisponda il nome host del server quando ci si connette tramite SSL. Il valore predefinito è true.  | No  |
-| usePeerVerification | Specifica se verificare l'identità del server quando ci si connette tramite SSL. Il valore predefinito è true.  | No  |
+| type | La proprietà type deve essere impostata su: **Shopify** | Sì |
+| host | Endpoint del server Shopify, ovvero mystore.myshopify.com  | Sì |
+| accessToken | Token di accesso all'API che permette di accedere ai dati di Shopify. Il token non scade se è in modalità offline. È possibile scegliere di contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory o archiviare la password in Azure Key Vault e consentire all'attività di copia di eseguire il pull da tale posizione durante l'esecuzione della copia dei dati. Per altre informazioni, vedere [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
+| useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No |
+| usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No |
 
 **Esempio:**
 
@@ -74,9 +74,9 @@ Le proprietà seguenti sono supportate per il servizio Shopify collegato:
 
 ## <a name="dataset-properties"></a>Proprietà dei set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). In questa sezione fornisce un elenco delle proprietà supportate dal set di dati Shopify.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati Shopify.
 
-Per copiare dati da Shopify, impostare la proprietà del tipo di set di dati da **ShopifyObject**. Non vi è alcuna proprietà aggiuntive specifiche del tipo in questo tipo di set di dati.
+Per copiare dati da Shopify, impostare la proprietà type del set di dati su **ShopifyObject**. Non sono presenti proprietà aggiuntive specifiche per il tipo in questo tipo di set di dati.
 
 **Esempio**
 
@@ -95,15 +95,15 @@ Per copiare dati da Shopify, impostare la proprietà del tipo di set di dati da 
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulle [pipeline](concepts-pipelines-activities.md). In questa sezione fornisce un elenco di proprietà supportati dall'origine Shopify.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulle [pipeline](concepts-pipelines-activities.md). Questa sezione presenta un elenco delle proprietà supportate dall'origine Shopify.
 
 ### <a name="shopifysource-as-source"></a>ShopifySource come origine
 
-Per copiare dati da Shopify, impostare il tipo di origine in attività di copia per **ShopifySource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare dati da Shopify, impostare il tipo di origine nell'attività di copia su **ShopifySource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 |:--- |:--- |:--- |
-| type | Impostare la proprietà del tipo di origine dell'attività di copia: **ShopifySource** | Sì |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **ShopifySource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | Sì |
 
 **Esempio:**

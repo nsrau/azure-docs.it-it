@@ -15,11 +15,11 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4178b07f59885a67b12f0863129995542ee0752a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.openlocfilehash: 6b5c139766af9e166b12e8833c2ced8be08e743a
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="what-is-the-access-panel"></a>Che cos'è il pannello di accesso?
 
@@ -58,11 +58,11 @@ In questo caso, è possibile usare qualsiasi nome di dominio attivo o verificato
 
 Questo URL deve essere distribuito a tutti gli utenti che eseguiranno l'accesso ad applicazioni integrate con Azure AD.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticazione
 
 Per raggiungere il pannello di accesso, è necessario essere autenticati in Azure AD con un account aziendale o dell'istituto di istruzione. È possibile essere autenticati direttamente in Azure AD. In alternativa, se un'organizzazione ha configurato la federazione con Active Directory Federation Services (AD FS) o altre tecnologie, è possibile essere autenticati con Windows Server Active Directory.
 
-Se si ha una sottoscrizione di Azure oppure un abbonamento a Office 365 ed è stato usato il portale di Azure o un'applicazione di Office 365, è possibile visualizzare l'elenco di applicazioni senza dover eseguire di nuovo l'accesso. Se l'utente non autenticato viene chiesto di effettuare l'accesso utilizzando il nome utente e la password per l'account in Azure AD. Se l'organizzazione ha configurato la federazione, sarà sufficiente digitare il nome utente.
+Se si ha una sottoscrizione di Azure oppure un abbonamento a Office 365 ed è stato usato il portale di Azure o un'applicazione di Office 365, è possibile visualizzare l'elenco di applicazioni senza dover eseguire di nuovo l'accesso. Se non si è autenticati, viene chiesto di accedere usando il nome utente e la password dell'account in Azure AD. Se l'organizzazione ha configurato la federazione, sarà sufficiente digitare il nome utente.
 
 Dopo l'autenticazione, è possibile interagire con le applicazioni che l'amministratore ha integrato con la directory. Per informazioni su come integrare le applicazioni con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -70,31 +70,33 @@ Dopo l'autenticazione, è possibile interagire con le applicazioni che l'amminis
 
 Il pannello di accesso richiede almeno un browser che supporti JavaScript e abbia CSS abilitato. Affinché gli utenti possano accedere alle applicazioni tramite l'accesso Single Sign-On (SSO) basato su password, è necessario installare l'estensione del pannello di accesso nel browser. Questa estensione viene scaricata automaticamente quando si seleziona un'applicazione configurata per l'accesso SSO basato su password.
 
-L'estensione del Pannello di accesso è attualmente disponibile per:
+L'estensione del pannello di accesso è attualmente disponibile per:
 -   Edge su Windows 10 Anniversary Edition o versioni successive 
 
 -   Chrome in Windows 7 o versione successiva e MacOS X o versione successiva
 
 -   Firefox 26.0 o versione successiva in Windows XP SP2 o versione successiva e in Mac OS X 10.6 o versione successiva
 
--   Internet Explorer 8, 9, 10, 11 - in Windows 7 o versioni successive (supporto limitato)
+-   Internet Explorer 8, 9, 10, 11 in Windows 7 o versioni successive (supporto limitato)
 
 ## <a name="my-apps-secure-sign-in-extension"></a>Estensione per l'accesso sicuro alle app personali
-L'estensione è necessaria per gli utenti di effettuare l'accesso basato su password single sign-on. Dopo aver installato gli utenti possono anche abilitare funzionalità aggiuntive accedendo con l'estensione facendo **Accedi per iniziare**. 
+Questa estensione è necessaria per consentire agli utenti di usare l'accesso Single Sign-On basato su password. Dopo l'installazione, gli utenti possono anche abilitare altre funzionalità accedendo all'estensione facendo clic su **Accedere per iniziare**. 
 
-- Gli utenti possono accedere alle App direttamente visitando l'app **Sign-on URL**. Quando l'utente passa all'URL di accesso dell'applicazione l'estensione rileverà questa e specificare l'opzione per l'utente esegue l'accesso dall'estensione.
-- Gli utenti inoltre possono avviare le applicazioni dal Pannello di accesso utilizzando il **ricerca rapida** funzionalità dell'estensione. 
-- L'estensione verrà visualizzata anche agli utenti le ultime tre applicazioni vengono avviate nel **usati di recente** sezione.
+- Gli utenti possono accedere alle app direttamente visitando l'**URL di accesso** dell'app. Quando l'utente passa all'URL di accesso dell'app, l'estensione rileva questa azione e offre all'utente la possibilità di accedere dall'estensione.
+- Gli utenti possono anche avviare le app dal pannello di accesso usando la funzionalità di **ricerca rapida** dell'estensione. 
+- L'estensione visualizzerà nella sezione **Usati di recente** le ultime tre applicazioni avviate dall'utente.
+
 > [!NOTE]
-> Altre funzionalità sono disponibili solo per Edge, Chrome, Firefox.
+> Sono disponibili funzionalità aggiuntive per Edge, Chrome e Firefox.
+>
+>
 
-
-Se si utilizza un altro URL App personali di https://myapps.microsoft.com quindi è necessario configurare l'URL predefinito tramite la procedura seguente:
-1. Mentre non è firmato nell'estensione, **destro del mouse su** l'icona di estensione.
-2. Fare clic su **selezionare un URL App personali** dal menu.
+Se si usa un altro URL per le app personali rispetto a https://myapps.microsoft.com è necessario configurare l'URL predefinito tramite la procedura seguente:
+1. **Fare clic con il pulsante destro del mouse** sull'icona dell'estensione senza aver prima eseguito l'accesso all'estensione stessa.
+2. Fare clic su **Select My Apps URL** (Seleziona URL app personali) dal menu.
 3. **Selezionare** l'URL predefinito.
-4. Fare clic sull'icona di estensione.
-5. Accedi all'estensione selezionando **Accedi per iniziare**.
+4. Fare clic sull'icona dell'estensione.
+5. Accedere all'estensione selezionando **Accedere per iniziare**.
 
 ## <a name="mobile-app-support"></a>Supporto per app per dispositivi mobili
 

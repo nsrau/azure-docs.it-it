@@ -1,4 +1,4 @@
-- name: Documentazione su Backup di Azure
+- name: Documentazione di Backup di Azure
   href: index.yml
 - name: Panoramica
   items:
@@ -31,7 +31,7 @@
       href: powershell-backup-samples.md
 - name: Concetti
   items:
-    - name: domande frequenti
+    - name: Domande frequenti
       items:
         - name: Domande frequenti sull'insieme di credenziali di Servizi di ripristino
           href: backup-azure-backup-faq.md
@@ -83,7 +83,7 @@
       items:
         - name: Preparare la macchina virtuale
           items:
-            - name: Preparare le macchine virtuali distribuite da Gestione risorse
+            - name: Preparare VM distribuite con Resource Manager
               href: backup-azure-arm-vms-prepare.md
             - name: Backup coerenti con l'applicazione delle macchine virtuali Linux
               href: backup-azure-linux-app-consistent.md
@@ -93,23 +93,23 @@
               href: backup-azure-vms-introduction.md
         - name: Eseguire il backup delle VM
           items:
-            - name: Backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
+            - name: Eseguire il backup di VM di Azure in un insieme di credenziali di Servizi di ripristino
               href: backup-azure-arm-vms.md
-            - name: Backup delle macchine virtuali crittografate
+            - name: Eseguire il backup di VM crittografate
               href: backup-azure-vms-encryption.md
         - name: Gestire e monitorare le VM
           items:
             - name: Gestire i backup delle macchine virtuali di Azure nel portale di Azure
               href: backup-azure-manage-vms.md
-            - name: Monitorare gli avvisi per i backup delle macchine virtuali di Azure nel portale di Azure
+            - name: Monitorare gli avvisi per i backup di VM di Azure
               href: backup-azure-monitor-vms.md
         - name: Ripristinare i dati dalle VM
           items:
             - name: Ripristinare i file dai backup delle macchine virtuali di Azure
               href: backup-azure-restore-files-from-vm.md
-            - name: Ripristinare le macchine virtuali distribuite da Gestione risorse nel portale di Azure
+            - name: Ripristinare VM nel portale di Azure
               href: backup-azure-arm-restore-vms.md
-            - name: Ripristinare le macchine virtuali crittografate
+            - name: Ripristinare VM crittografate
               href: backup-azure-vms-encryption.md
             - name: Ripristinare la chiave e il segreto dell'insieme di credenziali delle chiavi per le macchine virtuali crittografate
               href: backup-azure-restore-key-secret.md
@@ -125,7 +125,7 @@
       items:
         - name: Preparare carichi di lavoro DPM nel portale di Azure
           href: backup-azure-dpm-introduction.md
-        - name: Usare System Center DPM per eseguire il backup del server di Exchange
+        - name: Usare DPM per eseguire il backup del server Exchange
           href: backup-azure-backup-exchange-server.md
         - name: Ripristinare i dati in un server DPM alternativo
           href: backup-azure-alternate-dpm-server.md
@@ -133,7 +133,7 @@
           href: backup-azure-backup-sql.md
         - name: Usare DPM per eseguire il backup di una farm di SharePoint
           href: backup-azure-backup-sharepoint.md
-    - name: Uso di Azure PowerShell
+    - name: Usare Azure PowerShell
       items:
         - name: Macchine virtuali di Azure nel portale di Azure
           href: backup-azure-vms-automation.md
@@ -141,7 +141,7 @@
           href: backup-dpm-automation.md
         - name: Windows Server nel portale di Azure
           href: backup-client-automation.md
-    - name: Database SQL di Azure
+    - name: database SQL di Azure
       items:
         - name: Configurare la conservazione del backup a lungo termine
           href: ../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
@@ -171,7 +171,7 @@
           href: backup-azure-upgrade-backup-to-recovery-services.md
         - name: Eliminare un insieme di credenziali dei servizi di ripristino
           href: backup-azure-delete-vault.md
-    - name: Risoluzione dei problemi
+    - name: Risolvere problemi
       items:
         - name: Problemi relativi al backup delle macchine virtuali di Azure nel portale di Azure
           href: backup-azure-vms-troubleshoot.md

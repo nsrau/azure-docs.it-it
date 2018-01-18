@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
 ms.openlocfilehash: 286f4df74bcacfa2e7d559f1135b9fba2a915bd1
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure
 
@@ -29,19 +29,19 @@ Questo articolo descrive come usare le associazioni di [Azure Cosmos DB](..\cosm
 
 ## <a name="trigger"></a>Trigger
 
-Il trigger di Azure Cosmos DB usa il [feed di modifiche di Azure Cosmos DB](../cosmos-db/change-feed.md) per ascoltare le modifiche nelle partizioni. Il feed modifica pubblica inserimenti e aggiornamenti, eliminazioni non. 
+Il trigger di Azure Cosmos DB usa il [feed di modifiche di Azure Cosmos DB](../cosmos-db/change-feed.md) per ascoltare le modifiche nelle partizioni. Il feed delle modifiche pubblica aggiunte e aggiornamenti, non eliminazioni. 
 
 ## <a name="trigger---example"></a>Trigger - esempio
 
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C#](#trigger---c-example)
-* [Script c# (con estensione csx)](#trigger---c-script-example)
+* [Script C# (file con estensione csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Trigger - esempio in C#
 
-Nell'esempio seguente un [funzione c#](functions-dotnet-class-library.md) che attiva da un database specifico e una raccolta.
+L'esempio seguente illustra una [funzione in C#](functions-dotnet-class-library.md) che si attiva da un database e una raccolta specifici.
 
 ```cs
     using System.Collections.Generic;
@@ -127,7 +127,7 @@ Ecco il codice JavaScript:
 
 ## <a name="trigger---attributes"></a>Trigger - attributi
 
-In [librerie di classi c#](functions-dotnet-class-library.md), utilizzare il [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs) attributo, che è definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+Nelle [librerie di classi di C#](functions-dotnet-class-library.md) usare l'attributo [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
 Il costruttore dell'attributo accetta il nome del database e il nome della raccolta. Per informazioni su tali impostazioni e altre proprietà che è possibile configurare, vedere [Trigger - configurazione](#trigger---configuration). Di seguito è riportato un esempio dell'attributo `CosmosDBTrigger` in una firma del metodo:
 
@@ -142,13 +142,13 @@ Il costruttore dell'attributo accetta il nome del database e il nome della racco
     }
 ```
 
-Per un esempio completo, vedere [Trigger - esempio c#](#trigger---c-example).
+Per un esempio completo, vedere [Trigger - esempio in C#](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Trigger - configurazione
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `CosmosDBTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type** || Il valore deve essere impostato su `cosmosDBTrigger`. |
 |**direction** || Il valore deve essere impostato su `in`. Questo parametro viene impostato automaticamente quando si crea il trigger nel portale di Azure. |
@@ -170,29 +170,29 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 Il trigger richiede una seconda raccolta usata per archiviare i _lease_ nelle partizioni. Sia la raccolta monitorata che la raccolta che contiene i lease deve essere disponibile affinché il trigger funzioni.
 
  >[!IMPORTANT]
- > Se più funzioni sono configurate per utilizzare un trigger Cosmos DB per la stessa raccolta, tutte le funzioni debba usare una raccolta di lease dedicato. In caso contrario, verrà generata solo una delle funzioni. 
+ > Se più funzioni sono configurate per l'uso di un trigger Cosmos DB per la stessa raccolta, ogni funzione deve usare una raccolta di lease dedicata. In caso contrario verrà attivata solo una delle funzioni. 
 
-Il trigger non indica che se un documento è stato aggiornato o inserito, fornisce solo il documento stesso. Se si desidera gestire gli aggiornamenti e inserimenti in modo diverso, è possibile farlo mediante l'implementazione di campi di data e ora per l'inserimento o aggiornamento.
+Il trigger non indica se un documento è stato aggiornato o aggiunto, fornisce solo il documento stesso. Se è necessario gestire aggiornamenti e aggiunte in modo diverso, è possibile implementare campi di timestamp per le aggiunte o gli aggiornamenti.
 
 ## <a name="input"></a>Input
 
-Associazione di input Azure Cosmos DB recupera uno o più documenti DB Cosmos Azure e li passa al parametro di input della funzione. L'ID documento o i parametri di query possono essere determinati in base al trigger che richiama la funzione. 
+L'associazione di input di Azure Cosmos DB recupera uno o più documenti di Azure Cosmos DB e li passa al parametro di input della funzione. L'ID documento o i parametri di query possono essere determinati in base al trigger che richiama la funzione. 
 
 >[!NOTE]
-> Non usare Azure Cosmos DB input o output associazioni se si utilizza un account Cosmos DB API MongoDB. Il danneggiamento dei dati è possibile.
+> Non usare le associazioni di input o output di Azure Cosmos DB se si usa l'API di MongoDB in un account Cosmos DB. È possibile il danneggiamento dei dati.
 
 ## <a name="input---example-1"></a>Input - esempio 1
 
 Vedere l'esempio specifico del linguaggio che legge un singolo documento:
 
 * [C#](#input---c-example)
-* [Script c# (con estensione csx)](#input---c-script-example)
+* [Script C# (file con estensione csx)](#input---c-script-example)
 * [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
 
 ### <a name="input---c-example"></a>Input - esempio in C#
 
-Nell'esempio seguente un [funzione c#](functions-dotnet-class-library.md) che consente di recuperare un singolo documento da un database specifico e una raccolta. 
+L'esempio seguente mostra una [funzione in C#](functions-dotnet-class-library.md) che recupera un singolo documento da un database e una raccolta specifici. 
 
 Prima di tutto, i valori `Id` e `Maker` per un'istanza `CarReview` vengono trasferiti su una coda. Il binding di Cosmos DB usa `Id` e `Maker` dal messaggio in coda per recuperare il documento dal database.
 
@@ -216,7 +216,7 @@ Prima di tutto, i valori `Id` e `Maker` per un'istanza `CarReview` vengono trasf
     }
 ```
 
-Ecco il `CarReview` POCO:
+Di seguito è riportato il POCO `CarReview`:
 
  ```cs
     public class CarReview
@@ -346,12 +346,12 @@ Ecco il codice JavaScript:
 Vedere l'esempio specifico del linguaggio che legge più documenti:
 
 * [C#](#input---c-example-2)
-* [Script c# (con estensione csx)](#input---c-script-example-2)
+* [Script C# (file con estensione csx)](#input---c-script-example-2)
 * [JavaScript](#input---javascript-example-2)
 
 ### <a name="input---c-example-2"></a>Input - esempio in C# 2
 
-Nell'esempio seguente un [funzione c#](functions-dotnet-class-library.md) che esegue una query SQL. Utilizzare il `SqlQuery` parametro, è necessario installare la versione beta di `Microsoft.Azure.WebJobs.Extensions.DocumentDB` pacchetto NuGet.
+L'esempio seguente mostra una [funzione in C# ](functions-dotnet-class-library.md) che esegue una query SQL. Per usare il parametro `SqlQuery` è necessario installare la versione beta più recente del pacchetto NuGet `Microsoft.Azure.WebJobs.Extensions.DocumentDB`.
 
 ```csharp
     using System.Net;
@@ -371,7 +371,7 @@ Nell'esempio seguente un [funzione c#](functions-dotnet-class-library.md) che es
 
 ### <a name="input---c-script-example-2"></a>Input - esempio di script C# 2
 
-L'esempio seguente mostra un'associazione di input in Azure Cosmos DB un *function.json* file e un [la funzione di script c#](functions-reference-csharp.md) che utilizza l'associazione. La funzione recupera più documenti specificati da una query SQL mediante un trigger di coda per personalizzare i parametri di query.
+L'esempio seguente mostra un'associazione di input di Azure Cosmos DB in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione recupera più documenti specificati da una query SQL mediante un trigger di coda per personalizzare i parametri di query.
 
 Il trigger di coda fornisce un parametro `departmentId`. Un messaggio nella coda di `{ "departmentId" : "Finance" }` restituirà tutti i record per il reparto finanziario. 
 
@@ -410,7 +410,7 @@ Ecco il codice script C#:
 
 ### <a name="input---javascript-example-2"></a>Input - esempio JavaScript 2
 
-L'esempio seguente mostra un'associazione di input in Azure Cosmos DB un *function.json* file e un [funzione JavaScript](functions-reference-node.md) che utilizza l'associazione. La funzione recupera più documenti specificati da una query SQL mediante un trigger di coda per personalizzare i parametri di query.
+L'esempio seguente mostra un'associazione di input di Azure Cosmos DB in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione recupera più documenti specificati da una query SQL mediante un trigger di coda per personalizzare i parametri di query.
 
 Il trigger di coda fornisce un parametro `departmentId`. Un messaggio nella coda di `{ "departmentId" : "Finance" }` restituirà tutti i record per il reparto finanziario. 
 
@@ -445,7 +445,7 @@ Ecco il codice JavaScript:
 
 ## <a name="input---attributes"></a>Input - attributi
 
-In [librerie di classi c#](functions-dotnet-class-library.md), utilizzare il [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) attributo, che è definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+Nelle [librerie di classi di C#](functions-dotnet-class-library.md) usare l'attributo [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
 Il costruttore dell'attributo accetta il nome del database e il nome della raccolta. Per informazioni su tali impostazioni e altre proprietà che è possibile configurare, vedere la [sezione seguente relativa alla configurazione](#input---configuration). 
 
@@ -453,7 +453,7 @@ Il costruttore dell'attributo accetta il nome del database e il nome della racco
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `DocumentDB`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type**     || Il valore deve essere impostato su `documentdb`.        |
 |**direction**     || Il valore deve essere impostato su `in`.         |
@@ -475,23 +475,23 @@ Nelle funzioni di JavaScript gli aggiornamenti non vengono eseguiti automaticame
 
 ## <a name="output"></a>Output
 
-L'output di Azure Cosmos DB associazione consente di scrivere un nuovo documento a un database di Azure Cosmos DB. 
+Il binding di output di Azure Cosmos DB consente di scrivere un nuovo documento in un database di Azure Cosmos DB. 
 
 >[!NOTE]
-> Non usare Azure Cosmos DB input o output associazioni se si utilizza un account Cosmos DB API MongoDB. Il danneggiamento dei dati è possibile.
+> Non usare le associazioni di input o output di Azure Cosmos DB se si usa l'API di MongoDB in un account Cosmos DB. È possibile il danneggiamento dei dati.
 
 ## <a name="output---example"></a>Output - esempio
 
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C#](#output---c-example)
-* [Script c# (con estensione csx)](#output---c-script-example)
+* [Script C# (file con estensione csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
 ### <a name="output---c-example"></a>Output - esempio in C#
 
-Nell'esempio seguente un [funzione c#](functions-dotnet-class-library.md) che aggiunge un documento a un database, utilizzando i dati forniti nel messaggio dall'archiviazione di Accodamento.
+L'esempio seguente mostra una [funzione in C#](functions-dotnet-class-library.md) che aggiunge un documento a un database usando i dati forniti nel messaggio dall'archiviazione code.
 
 ```cs
     using System;
@@ -508,7 +508,7 @@ Nell'esempio seguente un [funzione c#](functions-dotnet-class-library.md) che ag
 
 ### <a name="output---c-script-example"></a>Output - esempio di script C#
 
-L'esempio seguente mostra un output di Azure Cosmos DB associazione un *function.json* file e un [la funzione di script c#](functions-reference-csharp.md) che utilizza l'associazione. La funzione usa un'associazione di input di coda per una coda che riceve JSON nel formato seguente:
+L'esempio seguente mostra un'associazione di output di Azure Cosmos DB in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione usa un'associazione di input di coda per una coda che riceve JSON nel formato seguente:
 
 ```json
 {
@@ -572,7 +572,7 @@ Per creare più documenti, è possibile definire l'associazione a `ICollector<T>
 
 ### <a name="output---f-example"></a>Output - esempio in F#
 
-L'esempio seguente mostra un output di Azure Cosmos DB associazione un *function.json* file e un [funzione F #](functions-reference-fsharp.md) che utilizza l'associazione. La funzione usa un'associazione di input di coda per una coda che riceve JSON nel formato seguente:
+L'esempio seguente mostra un'associazione di output di Azure Cosmos DB in un file *function.json* e una [funzione script F#](functions-reference-fsharp.md) che usa l'associazione. La funzione usa un'associazione di input di coda per una coda che riceve JSON nel formato seguente:
 
 ```json
 {
@@ -650,7 +650,7 @@ Per aggiungere un file `project.json`, vedere l'argomento relativo alla [gestion
 
 ### <a name="output---javascript-example"></a>Output - esempio JavaScript
 
-L'esempio seguente mostra un output di Azure Cosmos DB associazione un *function.json* file e un [funzione JavaScript](functions-reference-node.md) che utilizza l'associazione. La funzione usa un'associazione di input di coda per una coda che riceve JSON nel formato seguente:
+L'esempio seguente mostra un'associazione di output di Azure Cosmos DB in un file *function.json* e una [funzione script JavaScript](functions-reference-node.md) che usa l'associazione. La funzione usa un'associazione di input di coda per una coda che riceve JSON nel formato seguente:
 
 ```json
 {
@@ -705,7 +705,7 @@ Ecco il codice JavaScript:
 
 ## <a name="output---attributes"></a>Output - attributi
 
-In [librerie di classi c#](functions-dotnet-class-library.md), utilizzare il [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) attributo, che è definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+Nelle [librerie di classi di C#](functions-dotnet-class-library.md) usare l'attributo [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
 Il costruttore dell'attributo accetta il nome del database e il nome della raccolta. Per informazioni su tali impostazioni e altre proprietà che è possibile configurare, vedere [Output - configurazione](#output---configuration). Di seguito è riportato un esempio dell'attributo `DocumentDB` in una firma del metodo:
 
@@ -719,13 +719,13 @@ Il costruttore dell'attributo accetta il nome del database e il nome della racco
     }
 ```
 
-Per un esempio completo, vedere [Output - esempio c#](#output---c-example).
+Per un esempio completo, vedere [Output - esempio in C#](#output---c-example).
 
 ## <a name="output---configuration"></a>Output - configurazione
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `DocumentDB`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type**     || Il valore deve essere impostato su `documentdb`.        |
 |**direction**     || Il valore deve essere impostato su `out`.         |
