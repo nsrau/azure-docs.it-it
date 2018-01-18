@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 5e8a410206f8c48affe171fb77b1a9555818953e
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 82580fbab68eab28a2027cd277213f1fb2a76e07
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 > [!NOTE]
-> Questa documentazione non è più corrente e non è precisa. In alternativa visitare Azure Marketplace [venditore Guida](https://docs.microsoft.com/en-us/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) per istruzioni sulla pubblicazione di un'offerta di Azure Marketplace.
+> Questa documentazione non è più aggiornata e pertanto non è precisa. Vedere la [Guida per i venditori](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide) di Azure Marketplace per istruzioni sulla pubblicazione di un'offerta in Azure Marketplace.
 
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Pubblicare e gestire un'offerta in Azure Marketplace
 Questo articolo viene fornito per aiutare gli sviluppatori a creare, distribuire e gestire le loro soluzioni disponibili in Azure Marketplace che altri clienti e partner di Azure possono acquistare e usare.
@@ -96,9 +96,9 @@ Gestire la soluzione con l'aiuto nelle risorse seguenti:
 * [Aggiornare i dati tecnici di un'offerta o di uno SKU](marketplace-publishing-vm-image-post-publishing.md#update-the-technical-details-of-a-sku)
 * [Aggiungere un nuovo SKU in un'offerta elencata](marketplace-publishing-vm-image-post-publishing.md#add-a-new-sku-under-a-listed-offer)
 * [Modificare il numero dei dischi dati per uno SKU elencato](marketplace-publishing-vm-image-post-publishing.md#change-the-data-disk-count-for-a-listed-sku)
-* [Eliminare un'offerta elencata da Marketplace](marketplace-publishing-vm-image-post-publishing.md)
-* [Eliminare uno SKU elencato da Marketplace](marketplace-publishing-vm-image-post-publishing.md#delete-a-listed-sku-from-the-marketplace)
-* [Eliminare la versione corrente di uno SKU elencato da Marketplace](marketplace-publishing-vm-image-post-publishing.md#delete-the-current-version-of-a-listed-sku-from-the-marketplace)
+* [Eliminare un'offerta elencata dal Marketplace](marketplace-publishing-vm-image-post-publishing.md)
+* [Eliminare uno SKU elencato dal Marketplace](marketplace-publishing-vm-image-post-publishing.md#delete-a-listed-sku-from-the-marketplace)
+* [Eliminare la versione corrente di uno SKU elencato dal Marketplace](marketplace-publishing-vm-image-post-publishing.md#delete-the-current-version-of-a-listed-sku-from-the-marketplace)
 * [Ripristinare il prezzo elencato ai valori di produzione](marketplace-publishing-vm-image-post-publishing.md#revert-the-listing-price-to-production-values)
 * [Ripristinare il modello di prezzi ai valori di produzione](marketplace-publishing-vm-image-post-publishing.md#revert-the-billing-model-to-production-values)
 * [Ripristinare l'impostazione di visibilità di uno SKU elencato al valore di produzione](marketplace-publishing-vm-image-post-publishing.md#revert-the-visibility-setting-of-a-listed-sku-to-the-production-value)

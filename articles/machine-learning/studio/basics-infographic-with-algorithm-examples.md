@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: garye
-ms.openlocfilehash: 9a7ad0cd7865923ed7356599044dfd79ff9e58cb
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: 8c392740eb0c06b7a3c47e07e5beb667b17117ae
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infografica scaricabile: nozioni fondamentali di Machine Learning con esempi di algoritmi
 Scaricare questa panoramica infografica di facile comprensione delle nozioni fondamentali di Machine Learning per ottenere altre informazioni sugli algoritmi comuni usati per rispondere a domande frequenti su Machine Learning. Algoritmi di esempio aiutano i principianti di Machine Learning a capire gli algoritmi usare e lo scopo per cui usarli.
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Algoritmi diffusi in Machine Learning Studio
-[Azure Machine Learning Studio](https://studio.azureml.net/) viene fornito con una grande libreria di algoritmi per l'analisi predittiva. L'infografica identifica quattro famiglie di algoritmi diffusi, ovvero regressione, rilevamento di anomalie, clustering e classificazione, e contiene collegamenti a esempi di utilizzo presenti nella raccolta [Cortana Intelligence](https://gallery.cortanaintelligence.com/). La raccolta contiene esperimenti di esempio ed esercitazioni che illustrano come applicare gli algoritmi a molte soluzioni reali.
+[Azure Machine Learning Studio](https://studio.azureml.net/) viene fornito con una grande libreria di algoritmi per l'analisi predittiva. L'infografica identifica quattro famiglie di algoritmi diffusi, ovvero regressione, rilevamento di anomalie, clustering e classificazione, e contiene collegamenti a esempi di utilizzo presenti nella [Raccolta di intelligenza artificiale per Azure](https://gallery.cortanaintelligence.com/). La raccolta contiene esperimenti di esempio ed esercitazioni che illustrano come applicare gli algoritmi a molte soluzioni reali.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Scaricare l'infografica con esempi di algoritmi
 **[Download: Infografica delle nozioni fondamentali di Machine Learning con collegamenti a esempi di algoritmi (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
@@ -37,7 +37,7 @@ Scaricare questa panoramica infografica di facile comprensione delle nozioni fon
 * Per un elenco per categoria degli algoritmi di Machine Learning disponibili in Machine Learning Studio, vedere l'argomento relativo al [modello di inizializzazione][initialize-model] nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
 * Per un elenco alfabetico completo degli algoritmi e dei moduli disponibili in Machine Learning Studio, vedere l'argomento relativo all'[elenco alfabetico dei moduli di Machine Learning Studio][a-z-list] nella Guida degli algoritmi e dei moduli di Machine Learning Studio.
 * Per scaricare e stampate un diagramma che offra una panoramica delle funzionalità di Machine Learning Studio, vedere [Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio](studio-overview-diagram.md).
-* Per una panoramica della raccolta di Cortana Intelligence e delle risorse create dalla community disponibili, vedere [Condividere e trovare risorse nella raccolta Cortana Intelligence](gallery-how-to-use-contribute-publish.md).
+* Per una panoramica della Raccolta di intelligenza artificiale per Azure e delle risorse create dalla community disponibili, vedere [Share and discover resources in the Azure AI Gallery](gallery-how-to-use-contribute-publish.md) (Condividere e trovare risorse nella Raccolta di intelligenza artificiale per Azure).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

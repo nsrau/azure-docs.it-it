@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: ea1069d4ec29ad66562a6798a8b13998d0d2ef89
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="performance-recommendations"></a>Raccomandazioni per le prestazioni
 
@@ -36,7 +36,7 @@ Gli indici creati usando le raccomandazioni vengono sempre contrassegnati come i
 
 Dopo aver applicato la raccomandazione per l'indice, il database SQL di Azure confronterà le prestazioni delle query con la baseline. Se il nuovo indice ha introdotto miglioramenti delle prestazioni, la raccomandazione verrà contrassegnata come positiva e sarà disponibile un report dell'impatto. Se l'indice non offre vantaggi, verrà annullato automaticamente. In questo modo il database SQL di Azure garantisce che l'uso delle raccomandazioni consenta solo di ottenere miglioramenti delle prestazioni del database.
 
-Per qualsiasi raccomandazione **Crea indice** esiste un criterio di sicurezza che non consente di applicare la raccomandazione se l'utilizzo DTU del database o del pool è superiore all'80% negli ultimi 20 minuti oppure se l'utilizzo dello spazio di archiviazione è superiore al 90%. In questo caso, l'applicazione della raccomandazione verrà posticipata.
+Per qualsiasi raccomandazione **Crea indice** esiste un criterio di sicurezza che non consente di applicare la raccomandazione se l'utilizzo delle risorse di un database o pool è elevato. Il criterio di sicurezza tiene conto di CPU, I/O dati, I/O log e dell'archiviazione disponibile. Se la CPU, l'I/O dati o l'I/O log risulta superiore all'80% negli ultimi 30 minuti, la creazione dell'indice verrà posticipata. Se l'archiviazione disponibile è inferiore al 10% dopo aver creato l'indice, la raccomandazione passerà allo stato di errore. Se dopo due giorni l'ottimizzazione automatica considera ancora utile un indice, il processo verrà avviato nuovamente. Questo processo viene ripetuto fino a quando non c'è sufficiente spazio di archiviazione disponibile per creare un indice o l'indice non è più considerato utile.
 
 ## <a name="drop-index-recommendations"></a>Raccomandazioni relative all'eliminazione di indici
 Oltre a rilevare un indice mancante, i database SQL di Azure analizzano continuamente le prestazioni degli indici esistenti. Se un indice è inutilizzato, il database SQL di Azure proporrà di eliminarlo. L'eliminazione di un indice è consigliabile in due casi:
@@ -57,10 +57,10 @@ Per stimare l'impatto di questa raccomandazione, viene illustrato un confronto t
 
 Dopo l'applicazione, questa raccomandazione abiliterà la parametrizzazione forzata sul database entro pochi minuti e inizierà il processo di monitoraggio che dura circa 24 ore. Trascorso questo intervallo di tempo, sarà possibile visualizzare il report di convalida che mostra l'utilizzo della CPU del database nelle 24 ore prima e dopo l'applicazione la raccomandazione. SQL Database Advisor include un meccanismo di sicurezza che ripristina automaticamente la raccomandazione applicata in caso di rilevamento di una regressione delle prestazioni.
 
-## <a name="fix-schema-issues-recommendations-preview"></a>Correggere indicazioni di problemi dello schema (anteprima)
+## <a name="fix-schema-issues-recommendations-preview"></a>Raccomandazioni relative alla correzione di problemi di schema (anteprima)
 
 > [!IMPORTANT]
-> Microsoft sta provvedendo al deprecazione di "Correzione problema relativo allo schema" indicazioni. È consigliabile iniziare a utilizzare [Insights intelligente](sql-database-intelligent-insights.md) per il monitoraggio automatici dei problemi di prestazioni del database, inclusi i problemi dello schema in precedenza "Risolvere il problema di schema" indicazioni coperto.
+> Microsoft sta provvedendo alla deprecazione delle raccomandazioni relative alla correzione di problemi di schema. È consigliabile iniziare a usare [Intelligent Insights](sql-database-intelligent-insights.md) per il monitoraggio automatico dei problemi di prestazioni del database, inclusi i problemi di schema trattati in precedenza nelle raccomandazioni relative alla correzione di problemi di schema.
 > 
 
 Le raccomandazioni relative alla **correzione di problemi di schema** vengono visualizzate quando il servizio del database SQL rileva un'anomalia nel numero di errori SQL correlati allo schema nel database SQL di Azure. In genere questa indicazione viene visualizzata quando il database rileva più errori correlati allo schema (nome di colonna non valido, nome di oggetto non valido e così via) nell'arco di un'ora.
@@ -69,7 +69,7 @@ I "problemi di schema" rappresentano una classe di errori di sintassi in SQL Ser
 
 Le raccomandazioni relative alla "correzione di problemi di schema" vengono visualizzate quando il servizio del database SQL di Azure rileva un'anomalia nel numero di errori SQL correlati allo schema nel database SQL di Azure. La tabella seguente illustra gli errori correlati ai problemi di schema:
 
-| Codice di errore SQL | Message |
+| Codice di errore SQL | Messaggio |
 | --- | --- |
 | 201 |La procedura o funzione '*' richiede il parametro '*', che non è stato specificato. |
 | 207 |Il nome di colonna '*' non è valido. |

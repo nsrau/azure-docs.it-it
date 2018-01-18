@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/30/2017
 ms.author: rajanaki
-ms.openlocfilehash: 1c65c32457c2311304abf07983f698289f67bbc2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 98f3b1fe5a0f1d7518e8f0ef6f2a478f59559139
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>Matrice di supporto di Azure Site Recovery per la replica da locale ad Azure
 
@@ -68,30 +68,30 @@ La tabella seguente offre un riepilogo dei sistemi operativi replicati supportat
 
  **Server fisico/VMware** | **Hyper-V (con/senza VMM)** |
 --- | --- |
-Windows Server 2016 a 64 bit (Server Core, server con Esperienza desktop)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 con almeno SP1<br/><br/> Red Hat Enterprise Linux: da 5.2 a 5.11, da 6.1 a 6.9, da 7.0 a 7.3 <br/><br/>CentOS: da 5.2 a 5.11, da 6.1 a 6.9, da 7.0 a 7.3 <br/><br/>Server Ubuntu 14.04 LTS[ (versioni del kernel supportate)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Server Ubuntu 16.04 LTS[ (versioni del kernel supportate)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4 o 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(L'aggiornamento dei computer di replica da SLES 11 SP3 a SLES 11 SP4 non è supportato. Se un computer replicato è stato aggiornato da 11SP3 SLES a SLES 11 SP4, è necessario disabilitare la replica e proteggere di nuovo il computer dopo l'aggiornamento.) | Qualsiasi sistema operativo guest [supportato da Azure](https://technet.microsoft.com/library/cc794868.aspx)
+Windows Server 2016 a 64 bit (Server Core, server con Esperienza desktop)\*, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 con almeno SP1<br/><br/> Red Hat Enterprise Linux: da 5.2 a 5.11, da 6.1 a 6.9, da 7.0 a 7.4<br/><br/>CentOS: da 5.2 a 5.11, da 6.1 a 6.9, da 7.0 a 7.4 <br/><br/>Server Ubuntu 14.04 LTS[ (versioni del kernel supportate)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Server Ubuntu 16.04 LTS[ (versioni del kernel supportate)](#supported-ubuntu-kernel-versions-for-vmwarephysical-servers)<br/><br/>Debian 7 <br/><br/>Debian 8<br/><br/>Oracle Enterprise Linux 6.4 o 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3 <br/><br/>SUSE Linux Enterprise Server 11 SP4 <br/>(L'aggiornamento dei computer di replica da SLES 11 SP3 a SLES 11 SP4 non è supportato. Se un computer replicato è stato aggiornato da 11SP3 SLES a SLES 11 SP4, è necessario disabilitare la replica e proteggere di nuovo il computer dopo l'aggiornamento.) | Qualsiasi sistema operativo guest [supportato da Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 >[!NOTE]
 >
 > \*Windows Server 2016 Nano Server non è supportato.
-
->[!IMPORTANT]
->(Applicabile ai server VMware/fisici replicati in Azure)
 >
-> Sui server Red Hat Enterprise Linux Server 7+ e CentOS 7+ la versione del kernel 3.10.0-514 è supportata a partire dalla versione 9.8 del servizio Mobility di Azure Site Recovery.<br/><br/>
-> I clienti sul kernel di 3.10.0-514 con una versione del servizio Mobility inferiore alla 9.8 devono disabilitare la replica, aggiornare il servizio Mobility alla versione 9.8 e quindi abilitare nuovamente la replica.
+> Nelle distribuzioni di Linux sono supportati solo i kernel di scorta che fanno parte di una versione/aggiornamento secondaria della distribuzione.
+>
+> Gli aggiornamenti tra versioni principali di una distribuzione di Linux in una macchina virtuale VMware o un server fisico protetto mediante Azure Site Recovery non sono supportati. Durante l'aggiornamento del sistema operativo tra versioni principali (ad esempio da CentOS 6.* a CentOS 7.*), disabilitare la replica per il computer, aggiornare il sistema operativo del computer e quindi abilitare nuovamente la replica.
+> 
 
 
 ### <a name="supported-ubuntu-kernel-versions-for-vmwarephysical-servers"></a>Versioni del kernel Ubuntu supportate per server VMware/fisici
 
 **Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
 --- | --- | --- |
-14.04 LTS | 9.9 | Da 3.13.0-24 generica a 3.13.0-117 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-75 generica |
 14.04 LTS | 9.10 | Da 3.13.0-24 generica a 3.13.0-121 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-81 generica |
 14.04 LTS | 9.11 | Da 3.13.0-24 generica a 3.13.0-128 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-91 generica |
 14.04 LTS | 9.12 | Da 3.13.0-24 generica a 3.13.0-132 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-96 generica |
+14.04 LTS | 9.13 | Da 3.13.0-24 generica a 3.13.0-137 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-104 generica |
 16.04 LTS | 9.10 | Da 4.4.0-21 generica a 4.4.0-81 generica<br/>Da 4.8.0-34 generica a 4.8.0-56 generica<br/>Da 4.10.0-14 generica a 4.10.0-24 generica |
 16.04 LTS | 9.11 | Da 4.4.0-21 generica a 4.4.0-91 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-32 generica |
 16.04 LTS | 9.12 | Da 4.4.0-21 generica a 4.4.0-96 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-35 generica |
+16.04 LTS | 9.13 | Da 4.4.0-21 generica a 4.4.0-104 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-linux-vmwarephysical-servers"></a>File system e configurazioni di archiviazione guest supportate in Linux (server VMware/fisici)
 
@@ -105,8 +105,7 @@ I dispositivi di I/O a blocchi a code multiple non sono supportati.<br/>
 I server fisici con il controller di archiviazione HP CCISS non sono supportati.<br/>
 
 >[!Note]
-> Sui server Linux le seguenti directory (se impostate come partizioni o file system separati) devono essere tutte nello stesso disco (il disco del sistema operativo) nel server di origine: / (root), /boot, /usr, /usr/local, /var, ecc.<br/><br/>
-> Le funzionalità di XFSv5 nei file system XFS, ad esempio il checksum dei metadati, sono supportate a partire dalla versione 9.10 del servizio Mobility. Se si usano le funzionalità di XFSv5, verificare che sia in esecuzione il servizio Mobility 9.10 o versione successiva. È possibile usare l'utilità xfs_info per controllare il superblocco XFS per la partizione. Se ftype è impostato su 1, le funzionalità XFSv5 sono in uso.
+> Sui server Linux le seguenti directory (se impostate come partizioni o file system separati) devono essere tutte nello stesso disco (il disco del sistema operativo) nel server di origine: / (root), /boot, /usr, /usr/local, /var e così via, mentre /boot deve essere in una partizione del disco e non in un volume LVM<br/><br/>
 >
 
 
@@ -130,7 +129,7 @@ Gruppo NIC | No  | No
 IPv4 | Sì | Sì
 IPv6 | No  | No 
 IP statico (Windows) | Sì | Sì
-IP statico (Linux) | Sì <br/><br/>Macchine virtuali è configurato per l'utilizzo di DHCP in failback  | No 
+IP statico (Linux) | Sì <br/><br/>Le macchine virtuali sono configurate per l'uso di DHCP in caso di failback  | No 
 Più NIC | Sì | Sì
 
 ### <a name="failed-over-azure-vm-network-configuration"></a>Configurazione di rete per VM di Azure sottoposte a failover
@@ -194,7 +193,7 @@ Crittografia dei dati inattivi (SSE)| Sì | Sì
 Archiviazione Premium | Sì | Sì
 Servizio di importazione/esportazione | No  | No 
 Endpoint servizio di rete virtuale rete, ovvero firewall e reti virtuali di Archiviazione di Azure, configurati in un account di archiviazione di destinazione o in un account di archiviazione della cache usato per l'archiviazione dei dati di replica | No  | No 
-Account di archiviazione generico V2 (livello sia attivo e raffreddamento) | No  | No 
+Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) | No  | No 
 
 
 ## <a name="support-for-azure-compute-configuration"></a>Supporto per configurazione di calcolo di Azure

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/22/2017
 ms.author: johnkem
-ms.openlocfilehash: ee9f4d8846f7549d0a4cd0be1d6f726293716a69
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 6355433dab7bac910dd89a50b74df13d6cf1b8fc
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Abilitare automaticamente le impostazioni di diagnostica durante la creazione di risorse con un modello di Resource Manager
 Questo articolo illustra come usare un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) per configurare le impostazioni di diagnostica in una risorsa durante la sua creazione. Ciò consente di iniziare automaticamente a trasmettere le metriche e i log di diagnostica a Hub eventi, di memorizzarli in un account di archiviazione o di inviarli a Log Analytics quando viene creata una risorsa.
@@ -40,7 +40,7 @@ Di seguito viene fornito un esempio del file JSON modello da generare per le ris
 ## <a name="non-compute-resource-template"></a>Modello per risorse non di calcolo
 Per le risorse non di calcolo, è necessario eseguire due operazioni:
 
-1. Aggiungere parametri per il blob di parametri per il nome account di archiviazione, l'ID regola di autorizzazione hub eventi, e/o ID area di lavoro OMS Log Analitica (abilitazione dell'archivio di log di diagnostica in un account di archiviazione, il flusso di log per gli hub di eventi e/o l'invio di log registro Analitica).
+1. Aggiungere parametri al BLOB dei parametri per il nome dell'account di archiviazione, l'ID della regola di autorizzazione dell'hub eventi e/o l'ID dell'area di lavoro di Log Analytics OMS, abilitando la memorizzazione dei log di diagnostica in un account di archiviazione, la trasmissione dei log a Hub eventi e/o l'invio dei log a Log Analytics.
    
     ```json
     "settingName": {
@@ -116,7 +116,7 @@ Per le risorse non di calcolo, è necessario eseguire due operazioni:
     ]
     ```
 
-Il BLOB delle proprietà per l'impostazione di diagnostica è nel [formato descritto in questo articolo](https://docs.microsoft.com/en-us/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate). L'aggiunta della proprietà `metrics` consentirà anche di inviare le metriche delle risorse a questi stessi output, purché [la risorsa supporti le metriche di Monitoraggio di Azure](monitoring-supported-metrics.md).
+Il BLOB delle proprietà per l'impostazione di diagnostica è nel [formato descritto in questo articolo](https://docs.microsoft.com/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate). L'aggiunta della proprietà `metrics` consentirà anche di inviare le metriche delle risorse a questi stessi output, purché [la risorsa supporti le metriche di Monitoraggio di Azure](monitoring-supported-metrics.md).
 
 Di seguito è riportato un esempio completo che crea un'app per la logica e abilita la trasmissione agli hub eventi e la memorizzazione in un account di archiviazione.
 
@@ -265,7 +265,7 @@ Per abilitare la diagnostica su una risorsa di calcolo, ad esempio una macchina 
 
 L'intero processo, esempi compresi, viene descritto in [questo documento](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * [Altre informazioni sui log di diagnostica di Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Trasmettere log di diagnostica di Azure a Hub eventi](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 

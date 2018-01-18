@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: cabfbda3ea31a81248e7f87b79a5637063091be0
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5a120cc38b8ecfc6ec29be35eda12978ca8b035e
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Ricevere eventi da Hub eventi di Azure usando Apache Storm
 
@@ -130,7 +130,7 @@ Questa esercitazione usa un'installazione di [HDInsight Storm][HDInsight Storm] 
     }
     ```
     
-    Questo Bolt Storm registra il contenuto degli eventi ricevuti. Può essere facilmente esteso per archiviare tuple in un servizio di archiviazione. L' [esercitazione di analisi dei sensori con HDInsight] usa lo stesso approccio per archiviare dati in HBase.
+    Questo Bolt Storm registra il contenuto degli eventi ricevuti. Può essere facilmente esteso per archiviare tuple in un servizio di archiviazione. In [Esempio di HDInsight Storm con Hub eventi] si usa questo stesso approccio per archiviare i dati in Archiviazione di Azure e Power BI.
 11. Creare una classe denominata **LogTopology** con il codice seguente:
     
     ```java
@@ -247,7 +247,7 @@ Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[esercitazione di analisi dei sensori con HDInsight]:../hdinsight/storm/apache-storm-sensor-data-analysis.md
+[Esempio di HDInsight Storm con Hub eventi]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
 
 <!-- Images -->
 

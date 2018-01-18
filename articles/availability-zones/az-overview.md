@@ -8,7 +8,7 @@ manager: carmonm
 editor: 
 tags: 
 ms.assetid: 
-ms.service: 
+ms.service: azure
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: b3618207c1d4d2b8d3c0eaf83408b4813cd3da2d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: c3a1758ab965d22eabfe44a410e9f72420e0148b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Panoramica di Zone di disponibilità in Azure (anteprima)
 
@@ -47,14 +47,14 @@ I servizi che supportano la funzionalità Zone di disponibilità sono i seguenti
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>Introduzione all'anteprima di Zone di disponibilità
 
-L'anteprima di zone di disponibilità è disponibile negli Stati Uniti orientali 2, Europa occidentale e aree Francia centrale per i servizi di Azure specifici. 
+L'anteprima di Zone di disponibilità è disponibile nelle aree Stati Uniti orientali 2, Europa occidentale e Francia centrale per servizi specifici di Azure. 
 
 1. [Effettuare l'iscrizione all'anteprima di Zone di disponibilità](http://aka.ms/azenroll). 
 2. Accedere alla sottoscrizione di Azure.
 3. Scegliere un'area che supporta la funzionalità Zone di disponibilità.
 4. Usare uno dei collegamenti seguenti per iniziare a usare Zone di disponibilità con il servizio. 
     - [Creare una macchina virtuale](../virtual-machines/windows/create-portal-availability-zone.md)
-    - [Creare un set di scalabilità della macchina virtuale](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
+    - [Creare un set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
     - [Aggiungere un disco gestito usando PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
     - [Bilanciamento del carico](../load-balancer/load-balancer-standard-overview.md)
 

@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4cbc423555abfe6beee2c89d9df0760ce7c2fd6e
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: a94a7da29d9f3c6f745df7e91ec9e19b66435eae
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -72,7 +72,7 @@ Ottenere un'istanza di `TelemetryClient` (tranne che in JavaScript nelle pagine 
 
     private TelemetryClient telemetry = new TelemetryClient();
     
-*Node.js*
+*Node.JS*
 
     var telemetry = applicationInsights.defaultClient;
 
@@ -414,32 +414,34 @@ Il server SDK usa TrackRequest per registrare le richieste HTTP.
 Il modo consigliato per inviare dati di telemetria della richiesta è quello in cui la richiesta agisce come un <a href="#operation-context">contesto dell'operazione</a>.
 
 ## <a name="operation-context"></a>Contesto dell'operazione
-È possibile associare gli elementi di telemetria tra loro mediante il collegamento di un ID operazione comune. Il modulo di rilevamento delle richieste standard esegue questa operazione per le eccezioni e gli altri eventi inviati durante l'elaborazione di una richiesta HTTP. In [Ricerca](app-insights-diagnostic-search.md) e [Analisi](app-insights-analytics.md) è possibile usare l'ID per trovare facilmente gli eventi associati alla richiesta.
+È possibile mettere in correlazione gli elementi di telemetria associandoli al contesto dell'operazione. Il modulo di rilevamento delle richieste standard esegue questa operazione per le eccezioni e gli altri eventi inviati durante l'elaborazione di una richiesta HTTP. In [Ricerca](app-insights-diagnostic-search.md) e [Analisi](app-insights-analytics.md) è possibile trovare facilmente gli eventi associati alla richiesta usando l'ID operazione.
 
-Il modo più semplice per impostare l'ID è selezionare un contesto dell'operazione mediante questo modello:
+Per altre informazioni sulla correlazione, vedere [Correlazione di dati di telemetria in Application Insights](application-insights-correlation.md).
+
+Quando si tiene traccia dei dati di telemetria manualmente, il modo più semplice per garantire la correlazione dei dati di telemetria consiste nell'usare questo modello:
 
 *C#*
 
 ```C#
 // Establish an operation context and associated telemetry item:
-using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+using (var operation = telemetryClient.StartOperation<RequestTelemetry>("operationName"))
 {
     // Telemetry sent in here will use the same operation ID.
     ...
-    telemetry.TrackTrace(...); // or other Track* calls
+    telemetryClient.TrackTrace(...); // or other Track* calls
     ...
     // Set properties of containing telemetry item--for example:
     operation.Telemetry.ResponseCode = "200";
 
     // Optional: explicitly send telemetry item:
-    telemetry.StopOperation(operation);
+    telemetryClient.StopOperation(operation);
 
 } // When operation is disposed, telemetry item is sent.
 ```
 
 Oltre a impostare un contesto operativo, `StartOperation` crea un elemento di telemetria del tipo specificato. Invia l'elemento di telemetria quando si elimina l'operazione o si chiama esplicitamente `StopOperation`. Se si usa `RequestTelemetry` come tipo di telemetria, la sua durata viene impostata sull'intervallo di tempo compreso tra l'avvio e l'arresto.
 
-I contesti dell’operazione non possono essere annidati. Se è già presente un contesto dell'operazione, il suo ID corrispondente viene associato a tutti gli elementi contenuti, compreso l'elemento creato con `StartOperation`.
+Gli elementi di telemetria segnalati in un ambito dell'operazione diventano elementi "figlio" di tale operazione. I contesti dell'operazione possono essere annidati. 
 
 In Ricerca il contesto dell'operazione viene usato per creare l'elenco di **elementi correlati**:
 
@@ -488,7 +490,7 @@ I report includono le analisi dello stack.
        appInsights.trackException(ex);
     }
     
-*Node.JS*
+*Node.js*
 
     try
     {
@@ -545,7 +547,7 @@ Gli [adattatori di log](app-insights-asp-net-trace-logs.md) usano questa API per
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
     
-*Node.JS*
+*Node.js*
 
     telemetry.trackTrace({message: message, severity:applicationInsights.Contracts.SeverityLevel.Warning, properties:properties});
 
@@ -634,7 +636,7 @@ In genere l'SDK invia i dati in momenti scelti per ridurre al minimo l'impatto s
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
     
-*Node.JS*
+*Node.js*
 
     telemetry.flush();
 
@@ -880,7 +882,7 @@ Se si intende impostare solo i valori di proprietà predefiniti per alcuni degli
 
     gameTelemetry.TrackEvent("WinGame");
     
-*Node.JS*
+*Node.js*
 
     var gameTelemetry = new applicationInsights.TelemetryClient();
     gameTelemetry.commonProperties["Game"] = currentGame.Name;
@@ -900,7 +902,7 @@ Le singole chiamate di telemetria possono sostituire i valori predefiniti nei re
 
 [Aggiungere proprietà](app-insights-api-filtering-sampling.md#add-properties) ai dati di telemetria implementando `ITelemetryInitializer`. Ad esempio è possibile aggiungere numeri di versione o valori calcolati da altre proprietà.
 
-L'[applicazione di filtri](app-insights-api-filtering-sampling.md#filtering) consente di modificare o rimuovere i dati di telemetria prima che vengano inviati dall'SDK implementando `ITelemetryProcessor`. È possibile controllare gli elementi inviati o eliminati, ma è necessario tenere conto dell'effetto sulle metriche. A seconda di come si eliminano gli elementi, si potrebbe perdere la possibilità di navigare tra elementi correlati.
+L'[applicazione di filtri](app-insights-api-filtering-sampling.md#filtering) consente di modificare o rimuovere i dati di telemetria prima che vengano inviati dall'SDK implementando `ITelemetryProcesor`. È possibile controllare gli elementi inviati o eliminati, ma è necessario tenere conto dell'effetto sulle metriche. A seconda di come si eliminano gli elementi, si potrebbe perdere la possibilità di navigare tra elementi correlati.
 
 Il [campionamento](app-insights-api-filtering-sampling.md) è una soluzione in pacchetto che consente di ridurre il volume dei dati inviati dall'app al portale. Lo fa senza influenzare le metriche visualizzate e senza influire sulla possibilità di diagnosticare i problemi navigando tra elementi correlati, come eccezioni, richieste e visualizzazioni di pagina.
 

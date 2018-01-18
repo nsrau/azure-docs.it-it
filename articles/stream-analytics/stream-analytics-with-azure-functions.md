@@ -1,7 +1,7 @@
 ---
-title: Eseguire funzioni di Azure con i processi Analitica di flusso di Azure | Documenti Microsoft
-description: Informazioni su come configurare Azure funzione come sink di output per i processi di analisi di flusso.
-keywords: flusso di dati di output, dati, Azure (funzione)
+title: Eseguire Funzioni di Azure con processi di Analisi di flusso di Azure | Microsoft Docs
+description: Informazioni su come configurare Funzioni di Azure come sink di output per i processi di Analisi di flusso.
+keywords: output dei dati, dati di streaming, funzione di Azure
 documentationcenter: 
 services: stream-analytics
 author: SnehaGunda
@@ -14,53 +14,53 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/19/2017
 ms.author: sngun
-ms.openlocfilehash: adc147fc9f47e78cc0a2fcaf53f064bcfa5eee2c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: ab095827dc9dbfee19284abfbac353b16d3239a7
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Eseguire funzioni di Azure con i processi Analitica di flusso di Azure 
+# <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Eseguire Funzioni di Azure con processi di Analisi di flusso di Azure 
  
 > [!IMPORTANT]
 > Questa funzionalità è in anteprima.
 
-È possibile eseguire le funzioni di Azure con Azure flusso Analitica configurando le funzioni di Azure come uno dei sink di output per il processo di flusso Analitica. Funzione Azure è un basato sugli eventi, l'esperienza di calcolo su richiesta che consente di implementare il codice che viene attivato dagli eventi che si verificano in Azure o i servizi di terze parti. Questa capacità della funzione di Azure per rispondere ai trigger rende un output fisica al processo Analitica di flusso di Azure.
+È possibile eseguire Funzioni di Azure con Analisi di flusso di Azure configurando Funzioni come uno dei sink di output per il processo di Analisi di flusso. Funzioni offre un'esperienza di calcolo on demand guidata dagli eventi che consente di implementare il codice attivato da eventi generati nei servizi di Azure o in servizi di terze parti. La possibilità offerta da Funzioni di rispondere ai trigger la rende l'output naturale per i processi di Analisi di flusso.
 
-Azure Analitica flusso richiama la funzione di Azure tramite trigger HTTP. L'adattatore di output della funzione di Azure consente agli utenti di connettersi funzioni Azure Analitica di flusso in modo che gli eventi possono essere attivati sulla base delle query Analitica di flusso. 
+Analisi di flusso richiama Funzioni tramite trigger HTTP. L'adattatore di output di Funzioni consente agli utenti di connettere Funzioni ad Analisi di flusso, in modo che gli eventi possano essere attivati in base alle query di Analisi di flusso. 
 
-Questa esercitazione viene illustrato come connettersi Analitica di flusso di Azure per [Cache Redis di Azure](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) utilizzando [Azure funzioni](../azure-functions/functions-overview.md). 
+Questa esercitazione illustra come connettere Analisi di flusso a [Cache Redis di Azure](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) tramite [Funzioni di Azure](../azure-functions/functions-overview.md). 
 
-## <a name="configure-stream-analytics-job-to-run-an-azure-function"></a>Configurare il processo di flusso Analitica per eseguire una funzione di Azure 
+## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>Configurare un processo di Analisi di flusso per eseguire una funzione 
 
-In questa sezione viene illustrato come configurare un processo di flusso Analitica per eseguire una funzione di Azure che scrive dati in Cache Redis di Azure. Il processo di flusso Analitica legge gli eventi dall'Hub eventi, esegue una query che richiama la funzione di Azure. Questa funzione Azure legge i dati dal processo Analitica flusso e scrive la Cache Redis di Azure.
+Questa sezione illustra come configurare un processo di Analisi di flusso per eseguire una funzione che scriva dati in Cache Redis di Azure. Il processo di Analisi di flusso legge gli eventi da Hub eventi di Azure ed esegue una query che richiama la funzione. Quest'ultima legge i dati dal processo di Analisi di flusso e li scrive in Cache Redis di Azure.
 
-![Immagine per illustrare l'esercitazione](./media/stream-analytics-with-azure-functions/image1.png)
+![Diagramma che mostra le relazioni tra i servizi di Azure](./media/stream-analytics-with-azure-functions/image1.png)
 
-I passaggi seguenti sono necessari per completare questa attività:
-* [Creare il processo di flusso Analitica con Hub eventi come input.](#create-stream-analytics-job-with-event-hub-as-input)  
-* [Creare una Cache Redis di Azure.](#create-an-azure-redis-cache)  
-* [Creare una funzione di Azure che può scrivere dati nella Cache Redis.](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
-* [Aggiornare il processo di analisi di flusso con funzione di Azure come output.](#update-the-stream-analytic-job-with-azure-function-as-output)  
-* [Per i risultati, consultare Cache Redis.](#check-redis-cache-for-results)  
+Per eseguire questa attività sono necessari i passaggi seguenti:
+* [Creare un processo di Analisi di flusso con Hub eventi come input](#create-stream-analytics-job-with-event-hub-as-input)  
+* [Creare un'istanza di Cache Redis di Azure](#create-an-azure-redis-cache)  
+* [Creare una funzione in Funzioni di Azure che possa scrivere dati in Cache Redis di Azure](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
+* [Aggiornare il processo di Analisi di flusso con la funzione come output](#update-the-stream-analytic-job-with-azure-function-as-output)  
+* [Controllare i risultati in Cache Redis di Azure](#check-redis-cache-for-results)  
 
-## <a name="create-stream-analytics-job-with-event-hub-as-input"></a>Creare il processo di flusso Analitica con Hub eventi come input
+## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Creare un processo di Analisi di flusso con Hub eventi come input
 
-Seguire il [delle frodi in tempo reale](stream-analytics-real-time-fraud-detection.md) esercitazione per creare un hub eventi, avviare l'applicazione di generatore di evento e creare un Analitica di flusso di Azure (ignorare i passaggi per creare la query e l'output, ma installerà un Funzioni di Azure l'output nella sezione successiva.)
+Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytics-real-time-fraud-detection.md) per creare un hub eventi, avviare l'applicazione di generazione di eventi e creare un processo di Analisi di flusso (ignorare i passaggi per la creazione della query e dell'output, ma fare riferimento alle sezioni seguenti per la configurazione dell'output di Funzioni).
 
-## <a name="create-an-azure-redis-cache"></a>Creare una cache Redis di Azure
+## <a name="create-an-azure-redis-cache-instance"></a>Creare un'istanza di Cache Redis di Azure
 
-1. Creare una Cache Redis di Azure tramite la procedura descritta in [creare una cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache) sezione dell'articolo Cache Redis.  
+1. Creare una cache in Cache Redis di Azure seguendo la procedura descritta in [Creare una cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
 
-2. Dopo la creazione della Cache Redis, passare alla cache creata > **chiavi di accesso** > e prendere nota del **stringa di connessione primaria**.
+2. Dopo aver creato la cache, in **Impostazioni**selezionare **Chiavi di accesso**. Annotare la **Stringa di connessione primaria**.
 
-   ![Stringa di connessione della Cache redis](./media/stream-analytics-with-azure-functions/image2.png)
+   ![Screenshot della stringa di connessione di Cache Redis di Azure](./media/stream-analytics-with-azure-functions/image2.png)
 
-## <a name="create-an-azure-function-that-can-write-data-to-the-redis-cache"></a>Creare una funzione di Azure che può scrivere dati nella Cache Redis
+## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache"></a>Creare una funzione in Funzioni di Azure che possa scrivere dati in Cache Redis di Azure
 
-1. Utilizzare il [creare un'app di funzione](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) sezione della documentazione di funzioni di Azure per creare un'App di Azure (funzione) e un [attivato HTTP funzione Azure](../azure-functions/functions-create-first-azure-function.md#create-function) (noto anche come Webhook) utilizzando **CSharp** language.  
+1. Vedere la sezione [Creare un'app per le funzioni](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) della documentazione relativa a Funzioni. L'articolo illustra come creare un'app per le funzioni e una [funzione attivata da HTTP in Funzioni di Azure](../azure-functions/functions-create-first-azure-function.md#create-function) usando il linguaggio CSharp.  
 
-2. Passare il **run.csx** funzione e aggiornarlo con il codice seguente (assicurarsi di sostituire la "\<qui la stringa di connessione della cache redis\>" testo con la stringa di connessione primaria della Cache Redis quale è stato recuperato nella sezione precedente):  
+2. Passare alla funzione **run.csx** e aggiornarla con il codice seguente. Assicurarsi di sostituire "\<your redis cache connection string goes here\>" (inserire qui la stringa di connessione di Cache Redis) con la stringa di connessione primaria di Cache Redis di Azure recuperata nella sezione precedente.  
 
    ```c#
    using System;
@@ -107,11 +107,11 @@ Seguire il [delle frodi in tempo reale](stream-analytics-real-time-fraud-detecti
       }
 
       return req.CreateResponse(HttpStatusCode.OK, "Got");
-}    
+    }    
 
    ```
 
-   Quando Azure flusso Analitica riceve 413 eccezione (Http entità della richiesta troppo grande) dalla funzione di Azure, riduce le dimensioni dei batch inviato alle funzioni di Azure. Nella funzione di Azure, utilizzare il codice seguente per verificare che il Analitica di flusso di Azure non inviare batch di dimensioni eccessive. Assicurarsi che i valori di conteggio e delle dimensioni massime batch utilizzati nella funzione siano coerenti con i valori immessi nel portale di flusso Analitica.
+   Quando Analisi di flusso di Azure riceve dalla funzione l'eccezione "Entità richiesta HTTP troppo grande", riduce la dimensione dei batch che invia a Funzioni. Nella funzione usare il codice seguente per verificare che Analisi di flusso non invii batch troppo grandi. Assicurarsi che i valori relativi alle dimensioni massime e al numero massimo di batch usati nella funzione siano conformi ai valori inseriti nel portale di Analisi di flusso.
 
    ```c#
    if (dataArray.ToString().Length > 262144)
@@ -120,7 +120,7 @@ Seguire il [delle frodi in tempo reale](stream-analytics-real-time-fraud-detecti
       }
    ```
 
-3. In un editor di testo di propria scelta, creare un file JSON denominato **Project** con il codice seguente e salvarlo nel computer locale. Questo file contiene le dipendenze dei pacchetti NuGet necessari per la funzione di c#.  
+3. In un editor di testo creare un file JSON denominato **project.json**. Usare il codice seguente e salvarlo nel computer locale. Questo file contiene le dipendenze dei pacchetti NuGet richiesti dalla funzione C#.  
    
    ```json
        {
@@ -136,35 +136,35 @@ Seguire il [delle frodi in tempo reale](stream-analytics-real-time-fraud-detecti
 
    ```
  
-4. Tornare al portale di Azure > passare alla funzione Azure > dal **funzionalità della piattaforma** scheda > fare clic su **Editor di servizio App** che si trova in **gli strumenti di sviluppo**. 
+4. Tornare al portale di Azure. Dalla scheda **Funzionalità della piattaforma** passare alla funzione. In **Strumenti di sviluppo**selezionare **Editor del servizio app**. 
  
-   ![Schermata dell'editor di servizio App](./media/stream-analytics-with-azure-functions/image3.png)
+   ![Schermata dell'editor del servizio app](./media/stream-analytics-with-azure-functions/image3.png)
 
-5. Nell'Editor di servizio App, fare clic con il pulsante destro sul nome della directory radice e caricare il **Project** file. Dopo il caricamento ha esito positivo, aggiornare la pagina, dovrebbe essere un file generato automaticamente denominato **lock**.  Il file generato automaticamente contiene riferimenti alle DLL che vengono specificati nel file Project.  
+5. Nell'editor del servizio app fare clic con il pulsante destro del mouse sulla directory radice e caricare il file **project.json**. Al termine del processo di caricamento, aggiornare la pagina. Verrà ora visualizzato un file generato automaticamente di nome **project.lock.json**. Il file generato automaticamente contiene riferimenti ai file con estensione dll specificati nel file project.json.  
 
-   ![Caricare file Project JSON](./media/stream-analytics-with-azure-functions/image4.png)
+   ![Schermata dell'editor del servizio app](./media/stream-analytics-with-azure-functions/image4.png)
 
  
 
-## <a name="update-the-stream-analytic-job-with-azure-function-as-output"></a>Aggiornare il processo di analisi di flusso con funzione di Azure come output
+## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>Aggiornare il processo di Analisi di flusso con la funzione come output
 
-1. Aprire il processo Analitica di flusso di Azure nel portale di Azure.  
+1. Nel portale di Azure aprire il processo di Analisi di flusso.  
 
-2. Passare alla funzione Azure > **Panoramica** > **output** > **Aggiungi** un nuovo output > selezionare **funzione Azure** per l'opzione di Sink. Il nuovo adattatore di output di funzione di Azure è disponibile con le proprietà seguenti:  
+2. Passare alla funzione e selezionare **Panoramica** > **Output** > **Aggiungi**. Per aggiungere un nuovo output, selezionare **Funzione di Azure** per l'opzione di sink. Il nuovo adattatore di output di Funzioni di Azure è disponibile con le proprietà seguenti:  
 
-   |**Nome della proprietà**|**Descrizione**|
+   |**Nome proprietà**|**Descrizione**|
    |---|---|
-   |Alias di output| Nome descrittivo utilizzato nella query del processo per l'output di riferimento. |
-   |Opzione di importazione| È possibile utilizzare la funzione azure dalla sottoscrizione corrente o immettere manualmente le impostazioni, se la funzione si trova in altra sottoscrizione. |
-   |App per le funzioni| Nome dell'App di Azure (funzione). |
-   |Funzione| Nome della funzione nell'App di funzione (nome della funzione di run.csx).|
-   |Dimensioni massime batch|Questa proprietà viene utilizzata per impostare le dimensioni massime per ogni batch di output, che viene inviata alla funzione Azure. Per impostazione predefinita, questo valore è impostato su 256 KB.|
-   |Numero massimo di batch|Questa proprietà consente di specificare il numero massimo di eventi in ogni batch viene inviato alla funzione di Azure. Il valore di conteggio massima del batch predefinito è 100. Questa proprietà è facoltativa.|
-   |Chiave|Questa proprietà consente di utilizzare una funzione di Azure da un'altra sottoscrizione. Fornire il valore della chiave per accedere a una funzione. Questa proprietà è facoltativa.|
+   |Alias di output| Nome descrittivo usato nella query del processo per fare riferimento all'output. |
+   |Opzione di importazione| È possibile usare la funzione dalla sottoscrizione corrente oppure specificare manualmente le impostazioni se la funzione si trova in un'altra sottoscrizione. |
+   |App per le funzioni| Nome dell'app Funzioni. |
+   |Funzione| Nome della funzione nell'app Funzioni (nome della funzione di run.csx).|
+   |Dimensioni massime batch|Imposta la dimensione massima per ogni batch di output inviato alla funzione. Per impostazione predefinita, questo valore è impostato su 256 kB.|
+   |Numero massimo di batch|Specifica il numero massimo di eventi in ogni batch inviato alla funzione. Il valore predefinito è 100. Questa proprietà è facoltativa.|
+   |Chiave|Consente di usare una funzione di un'altra sottoscrizione. Specificare il valore della chiave per accedere alla funzione. Questa proprietà è facoltativa.|
 
-3. Specificare un nome per l'alias di output. In questa esercitazione è nome **saop1** (è possibile utilizzare qualsiasi nome desiderato) e specificare altri dettagli.  
+3. Specificare un nome per l'alias di output. In questa esercitazione viene usato il nome **saop1**, ma è possibile usare qualsiasi nome. Specificare gli altri dettagli.  
 
-4. Aprire il processo di flusso Analitica e aggiornare la query al seguente (assicurarsi di sostituire il testo "saop1", denominato in modo diverso il sink di output):  
+4. Aprire il processo di Analisi di flusso e aggiornare la query nel modo seguente. Assicurarsi di sostituire il testo "saop1" se al sink di output è stato assegnato un nome diverso.  
 
    ```sql
     SELECT 
@@ -177,26 +177,25 @@ Seguire il [delle frodi in tempo reale](stream-analytics-real-time-fraud-detecti
         WHERE CS1.SwitchNum != CS2.SwitchNum
    ```
 
-5. Avviare l'applicazione telcodatagen.exe eseguendo il comando seguente nella riga di comando (il comando accetta il formato - `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`)  
+5. Avviare l'applicazione telcodatagen.exe eseguendo il comando seguente nella riga di comando (usare il formato `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`):  
    
-   **telcodatagen.exe 1000 2 à 2**
+   **telcodatagen.exe 1000 .2 2**
     
-6.  Avviare il processo di flusso Analitica.
+6.  Avviare il processo di Analisi di flusso.
 
-## <a name="check-redis-cache-for-results"></a>Cache Redis di controllo per i risultati
+## <a name="check-azure-redis-cache-for-results"></a>Controllare i risultati in Cache Redis di Azure
 
-1. Passare al portale di Azure e trovare la Cache Redis > selezionare **Console**.  
+1. Accedere al portale di Azure e individuare Cache Redis di Azure. Selezionare **Console**.  
 
-2. Utilizzare [comandi cache Redis](https://redis.io/commands) per verificare che i dati sono in cache Redis. (Il comando richiede il formato-Get {chiave}). Ad esempio: 
+2. Usare i [comandi di Cache Redis](https://redis.io/commands) per verificare che i dati si trovino al suo interno. Il comando assume il formato Get {chiave}. Ad esempio: 
 
-   **Ottenere "19/12/2017 21:32:24-123414732"**
+   **Get "12/19/2017 21:32:24 - 123414732"**
 
-   Questo comando deve visualizzare il valore per la chiave specificata:
+   Questo comando dovrebbe visualizzare il valore relativo alla chiave specificata:
 
-   ![Output della Cache redis](./media/stream-analytics-with-azure-functions/image5.png)
+   ![Screenshot dell'output di Cache Redis di Azure](./media/stream-analytics-with-azure-functions/image5.png)
 
 ## <a name="known-issues"></a>Problemi noti
 
-* Nel portale di Azure, quando si tenta di reimpostare le dimensioni del Max Batch / numero di Batch massimo valore empty(default), diventa nuovamente il valore immesso in precedenza al momento di salvataggio. Deliberatamente immettere i valori predefiniti per questi campi in questo caso.
+Nel portale di Azure, quando si tenta di reimpostare il valore di Dimensioni massime batch/Numero massimo di batch su un valore vuoto (impostazione predefinita), al momento del salvataggio il valore viene reimpostato sul valore immesso in precedenza. In questo caso, immettere manualmente i valori predefiniti per questi campi.
 
-## <a name="next-steps"></a>Passaggi successivi

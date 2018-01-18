@@ -10,11 +10,18 @@ ACU: 180-240
 |---------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
 | Standard_L4s   | 4    | 32   | 678   | 16    | 20,000 / 200   | 5.000/125        | 2 / 4,000  | 
 | Standard_L8s   | 8    | 64   | 1,388 | 32   | 40,000 / 400   | 10.000/250       | 4 / 8,000  | 
-| Standard_L16s  | 16   | 128  | 2,807 | 64   | 80.000 / 800   | 20.000/500       | 8 / 6,000 - 16,000 &#8224; | 
+| Standard_L16s  | 16   | 128  | 2,807 | 64   | 80.000 / 800   | 20.000/500       | 8 / 16.000 | 
 | Standard_L32s <sup>1</sup> | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 40.000/1.000     | 8 / 20,000 | 
  
 
 La massima velocità effettiva del disco possibile con le VM serie Ls può essere limitata dal numero, dalle dimensioni e dallo striping dei dischi collegati. Per altre informazioni, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../articles/virtual-machines/windows/premium-storage.md). 
 
-<sup>1</sup> istanza è isolata all'hardware dedicato a un singolo cliente.
+<sup>1</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 
+## <a name="size-table-definitions"></a>Definizioni delle tabelle delle dimensioni
+
+- La capacità di archiviazione viene visualizzata in unità di GiB o 1.024^3 byte. Quando si confrontano dischi misurati in GB (1.000^3 byte) con dischi misurati in GiB (1.024^3), tenere presente che i valori di capacità specificati in GiB potrebbero apparire inferiori. Ad esempio, 1.023 GiB = 1.098,4 GB
+- La velocità effettiva del disco viene misurata in operazioni di input/output al secondo (IOPS) e MBps, dove il valore di MBps corrisponde a 10^6 byte al secondo.
+- I dischi dati serie LS non possono funzionare in modalità cache; è necessario impostare la modalità della cache dell'host su **Nessuno**.
+- Se si vogliono ottenere prestazioni ottimali per le macchine virtuali, è necessario limitare il numero di dischi dati a 2 per ogni vCPU.
+- La **larghezza di banda della rete prevista** è la [larghezza di banda aggregata massima allocata per ogni tipo di VM](../articles/virtual-network/virtual-machine-network-throughput.md) in tutte le schede di interfaccia di rete, per tutte le destinazioni. I limiti massimi non sono garantiti, ma hanno lo scopo di fornire indicazioni per la selezione del tipo di VM corretto per l'applicazione desiderata. Le prestazioni di rete effettive dipenderanno da svariati fattori, tra cui congestione della rete, carichi dell'applicazione e impostazioni di rete. Per informazioni sull'ottimizzazione della velocità effettiva della rete, vedere [Ottimizzazione della velocità effettiva di rete per Windows e Linux](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md). Per realizzare le prestazioni di rete previste in Linux o Windows, potrebbe essere necessario selezionare una versione specifica o ottimizzare la VM. Per altre informazioni, vedere [Come eseguire test affidabili della velocità effettiva della macchina virtuale](../articles/virtual-network/virtual-network-bandwidth-testing.md).

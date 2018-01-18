@@ -22,7 +22,7 @@ sql-database-single-database-resources.md
 | Numero max DTU** | 10 | 20 | 50 | 100 |
 | Risorse di archiviazione incluse (GB) | 250 | 250 | 250 | 250 |
 | Opzioni per lo spazio di archiviazione massimo (GB)* | 250 | 250 | 250 | 250, 500, 750, 1024 |
-| Spazio di archiviazione OLTP in memoria max (GB) | N/D | N/D | N/D | N/D  |
+| Spazio di archiviazione OLTP in memoria max (GB) | N/D | N/D | N/D | N/D |
 | Numero massimo di ruoli di lavoro simultanei (richieste)| 60 | 90 | 120 | 200 |
 | Numero massimo di accessi simultanei | 60 | 90 | 120 | 200 |
 | Numero massimo di sessioni simultanee |600 | 900 | 1200 | 2400 |
@@ -34,7 +34,7 @@ sql-database-single-database-resources.md
 | Numero max DTU** | 200 | 400 | 800 | 1600 | 3000 |
 | Risorse di archiviazione incluse (GB) | 250 | 250 | 250 | 250 | 250 |
 | Opzioni per lo spazio di archiviazione massimo (GB)* | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
-| Spazio di archiviazione OLTP in memoria max (GB) | N/D | N/D | N/D | N/D |N/D  |
+| Spazio di archiviazione OLTP in memoria max (GB) | N/D | N/D | N/D | N/D |N/D |
 | Numero massimo di ruoli di lavoro simultanei (richieste)| 400 | 800 | 1600 | 3200 |6000 |
 | Numero massimo di accessi simultanei | 400 | 800 | 1600 | 3200 |6000 |
 | Numero massimo di sessioni simultanee |4800 | 9600 | 19200 | 30000 |30000 |
@@ -67,7 +67,7 @@ sql-database-single-database-resources.md
 > [!IMPORTANT]
 > \* Le dimensioni di archiviazione superiori alla quantità di risorse di archiviazione incluse sono disponibili in anteprima e vengono applicati costi aggiuntivi. Per ulteriori informazioni, vedere [Database SQL Prezzi](https://azure.microsoft.com/pricing/details/sql-database/). 
 >
->\* Nel livello Premium sono attualmente disponibili più di 1 TB di risorse di archiviazione nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti occidentali, US Gov Virginia, Europa occidentale, Germania centrale, Asia sud-orientale, Giappone orientale, Australia orientale, Canada centrale e Canada orientale. Vedere [Limitazioni correnti per P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+>\* Nel livello Premium sono attualmente disponibili più di 1 TB di risorse di archiviazione nelle aree seguenti: Australia orientale, Australia sud-orientale, Canada centrale, Canada orientale, Francia centrale, Germania centrale, Giappone orientale, Corea centrale, Stati Uniti centro-meridionali, Asia sud-orientale, Stati Uniti orientali 2, Stati Uniti occidentali, US Gov Virginia ed Europa occidentale. Vedere [Limitazioni correnti per P11-P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > 
 >\*\* Il numero massimo di DTU per database uguale o superiore a 200 nei siti Web Standard è disponibile in anteprima.
 >

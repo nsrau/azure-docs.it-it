@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: d7cd31dcb2278284ada6e7ac1d8beab9e1b5b1df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95dbd80e740210c3800a0af10071875a6d6f0939
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Specifiche e conformità tecniche per il dispositivo StorSimple
 
@@ -80,7 +80,7 @@ I dispositivi StorSimple usano una combinazione di unità disco rigido e unità 
 | Capacità utilizzabile totale* |~ 15 TB |~ 38 TB |
 | Capacità massima della soluzione (incluso il cloud) |200 TB |500 TB |
 
-<sup>* </sup>- *La capacità totale utilizzabile include la capacità disponibile per i dati, i metadati e i buffer.*
+<sup>* </sup>- *La capacità totale usabile include la capacità disponibile per i dati, i metadati e i buffer. È possibile effettuare il provisioning di volumi aggiunti in locale fino a 8,5 TB in dispositivi 8100 o fino a 22,5 TB in dispositivi 8600 più grandi. Per altre informazioni, vedere [Volumi StorSimple aggiunti in locale](storsimple-8000-local-volume-faq.md).*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Specifiche su peso e dimensioni dello chassis
 

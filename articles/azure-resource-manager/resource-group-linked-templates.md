@@ -12,23 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 78e5749369de1dd9865f61baefd70e6ce4bde31d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: 7f88cd2a9e23ec1b142fc754ada49a8562e774bc
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="using-linked-templates-when-deploying-azure-resources"></a>Uso di modelli collegati nella distribuzione di risorse di Azure
+# <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
-Per distribuire una soluzione, è possibile usare un modello singolo o un modello principale con più modelli collegati. Per le piccole e medie soluzioni, un modello singolo è più facile da comprendere e gestire. È possibile vedere tutti i valori e le risorse in un singolo file. Per gli scenari avanzati, i modelli collegati consentono di suddividere la soluzione in componenti di destinazione, oltre che di riutilizzare i modelli.
+Per distribuire la soluzione, è possibile usare un modello singolo o un modello principale con più modelli correlati. Il modello correlato può essere un file separato collegato dal modello principale o un modello che viene annidato all'interno del modello principale.
+
+Per le piccole e medie soluzioni, un modello singolo è più facile da comprendere e gestire. È possibile vedere tutti i valori e le risorse in un singolo file. Per gli scenari avanzati, i modelli collegati consentono di suddividere la soluzione in componenti di destinazione, oltre che di riutilizzare i modelli.
 
 Quando si usa un modello collegato, si crea un modello principale che riceve i valori dei parametri durante la distribuzione. Il modello principale contiene tutti i modelli collegati e passa i valori a tali modelli in base alle esigenze.
 
 ![Modelli collegati](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
-## <a name="link-to-a-template"></a>Stabilire un collegamento a un modello
+## <a name="link-or-nest-a-template"></a>Collegare o annidare un modello
 
 Per stabilire un collegamento a un altro modello, aggiungere una risorsa **deployments** al modello principale.
 
@@ -40,17 +42,17 @@ Per stabilire un collegamento a un altro modello, aggiungere una risorsa **deplo
       "type": "Microsoft.Resources/deployments",
       "properties": {
           "mode": "Incremental",
-          <inline-template-or-external-template>
+          <nested-template-or-external-template>
       }
   }
 ]
 ```
 
-Le proprietà fornite per la risorsa di distribuzione variano in base al fatto che si stia stabilendo un collegamento a un modello esterno o incorporando un modello inline nel modello principale.
+Le proprietà fornite per la risorsa di distribuzione variano in base al fatto che si stia stabilendo un collegamento a un modello esterno o annidando un modello inline nel modello principale.
 
-### <a name="inline-template"></a>Modello inline
+### <a name="nested-template"></a>Modello annidato
 
-Per incorporare il modello collegato, usare la proprietà **template** e includere il modello.
+Per annidare il modello all'interno del modello principale, usare la proprietà **template** e specificare la sintassi del modello.
 
 ```json
 "resources": [
@@ -63,8 +65,6 @@ Per incorporare il modello collegato, usare la proprietà **template** e include
       "template": {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
-        "parameters": {},
-        "variables": {},
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
@@ -76,12 +76,13 @@ Per incorporare il modello collegato, usare la proprietà **template** e include
             }
           }
         ]
-      },
-      "parameters": {}
+      }
     }
   }
 ]
 ```
+
+Per i modelli annidati non è possibile usare i parametri o le variabili definiti all'interno del modello annidato. È possibile usare i parametri e variabili dal modello principale. Nell'esempio precedente `[variables('storageName')]` recupera un valore dal modello principale e non dal modello annidato. Questa restrizione non è valida per i modelli esterni.
 
 ### <a name="external-template-and-external-parameters"></a>Modello esterno e parametri esterni
 
@@ -176,7 +177,7 @@ Gli esempi seguenti illustrano come fare riferimento a un modello collegato e re
 }
 ```
 
-Il modello padre distribuisce il modello collegato e ottiene il valore restituito. Si noti che fa riferimento alla risorsa di distribuzione in base al nome e usa il nome della proprietà restituito dal modello collegato.
+Il modello principale distribuisce il modello collegato e ottiene il valore restituito. Si noti che fa riferimento alla risorsa di distribuzione in base al nome e usa il nome della proprietà restituito dal modello collegato.
 
 ```json
 {
@@ -309,9 +310,9 @@ Per usare l'indirizzo IP pubblico del modello precedente, quando si distribuisce
 }
 ```
 
-## <a name="linked-templates-in-deployment-history"></a>Modelli collegati nella cronologia di distribuzione
+## <a name="linked-and-nested-templates-in-deployment-history"></a>Modelli collegati e annidati nella cronologia di distribuzione
 
-Resource Manager elabora ogni modello collegato come distribuzione distinta nella cronologia di distribuzione. Un modello padre con tre modelli collegati viene quindi visualizzato nella cronologia di distribuzione come segue:
+Resource Manager elabora ogni modello come distribuzione distinta nella cronologia di distribuzione. Un modello principale con tre modelli collegati o annidati viene pertanto visualizzato nella cronologia di distribuzione come segue:
 
 ![Cronologia di distribuzione](./media/resource-group-linked-templates/deployment-history.png)
 
@@ -478,13 +479,13 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 
 ## <a name="example-templates"></a>Modelli di esempio
 
-Gli esempi seguenti mostrano i comuni di utilizzo di modelli collegati.
+Gli esempi seguenti mostrano gli usi più frequenti dei modelli collegati.
 
-|Modello principale  |Modello collegato |DESCRIZIONE  |
+|Modello principale  |Modello collegato |Descrizione  |
 |---------|---------| ---------|
-|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[modello collegato](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Restituisce una stringa dal modello collegato. |
-|[Servizio di bilanciamento del carico indirizzo IP pubblico](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modello collegato](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Restituisce l'indirizzo IP pubblico da modello collegato e imposta tale valore nel servizio di bilanciamento del carico. |
-|[Indirizzi IP multipli](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [modello collegato](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Crea più indirizzi IP pubblici nel modello collegato.  |
+|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[Modello collegato](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Restituisce una stringa dal modello collegato. |
+|[Load Balancer con indirizzo IP pubblico](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[Modello collegato](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Restituisce l'indirizzo IP pubblico dal modello collegato e imposta tale valore nel servizio di bilanciamento del carico. |
+|[Indirizzi IP multipli](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [Modello collegato](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Crea più indirizzi IP pubblici nel modello collegato.  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

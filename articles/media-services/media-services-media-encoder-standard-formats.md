@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 1115408443e11c8b0d26b83217c5f63e4b6ba819
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 036c192c5f52a1943bc2799ad6c7e6db7bbffcc4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Formati e codec Media Encoder Standard
 Questo documento contiene un elenco dei formati di file di importazione ed esportazione più comuni che è possibile usare con Media Encoder Standard.
@@ -26,9 +26,9 @@ Questo documento contiene un elenco dei formati di file di importazione ed espor
 ## <a name="input-containerfile-formats"></a>Contenitore di input/formati di file
 | Formato di file (estensioni di file) | Supportato |
 | --- | --- | --- | --- |
-| FLV (con codec H. 264 e AAC) (.flv) |sì |
+| FLV (con codec H. 264 e AAC) (.flv) |Sì |
 | MXF    (.mxf) |Sì |
-| GXF    (.gxf) |sì |
+| GXF    (.gxf) |Sì |
 | MPEG2 PS, MPEG2-TS, 3GP (TS, PS, 3GP, .3gpp, mpg) |Sì |
 | Windows Media Video (WMV) (.wmv) |Sì |
 | AVI (non compresso 8 bit/10 bit) (.avi) |Sì |
@@ -48,11 +48,11 @@ Il Codificatore multimedia standard supporta i seguenti formati audio nei conten
 
 * file MXF, GXF e QuickTime che dispongono di tracce audio con esempi di stereo interleaved o 5.1
 
-oppure
+o
 
 * File MXF, GXF e QuickTime in cui l'audio viene trasportato in tracce PCM separate, ma il mapping del canale (in stereo o 5.1) può essere dedotto dai metadati del file
 
-Si noti che il supporto per il mapping del canale esplicito/fornito dall'utente verrà fornito in futuro.
+Il supporto per il mapping del canale esplicito/fornito dall'utente verrà fornito in futuro.
 
 ## <a name="input-video-codecs"></a>Codec video di input
 | Codec video di input | Supportato |
@@ -62,7 +62,7 @@ Si noti che il supporto per il mapping del canale esplicito/fornito dall'utente 
 | DVCPro/DVCProHD (in MXF) |Sì |
 | Video digitale (DV) (in file AVI) |Sì |
 | JPEG 2000 |Sì |
-| MPEG-2 (fino a 4:2:2 Profile e High Level; incluse varianti quali XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10) |Fino a 422 Profile |
+| MPEG-2 (fino a 422 Profile e High Level; incluse varianti quali XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10) |Fino a 422 Profile |
 | MPEG-1 |Sì |
 | FORMATO VC-1/WMV9 |Sì |
 | Canopus HQ/HQX |No |
@@ -101,13 +101,13 @@ La tabella seguente include l'elenco dei codec e dei formati di file supportati 
 | MP4  <br/><br/>(multi-bitrate MP4 container inclusi) |H.264 (High, Main e Baseline Profile) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 | MPEG2-TS |H.264 (High, Main e Baseline Profile) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 
-## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Media Services
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 [Codifica di contenuti su richiesta con Servizi multimediali di Azure](media-services-encode-asset.md)
 
 [Come codificare con Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)

@@ -11,17 +11,24 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: cb4b3c701f3d3ec52addd1b98c01b97c2220ae34
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
-ms.translationtype: MT
+ms.openlocfilehash: 2a0d3e829ed28912b56a022aa6aa82ade1718e35
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="what-is-azure-time-series-insights"></a>Informazioni su Azure Time Series Insights
 
 Time Series Insights è una soluzione che consente di archiviare, visualizzare ed eseguire query su grandi quantità di dati relativi a serie temporali, ad esempio i dati generati dai dispositivi IoT.  Se si desidera archiviare, gestire, eseguire query o visualizzare i dati delle serie temporali nel cloud, Time Series Insights rappresenta la soluzione ideale.  
 
-Se si intende compilare un'applicazione per uso interno o destinata a clienti esterni, è possibile usare Time Series Insights come back-end per l'indicizzazione, l'archiviazione e l'aggregazione di dati relativi alle serie temporali.  È anche possibile creare una visualizzazione e un'esperienza utente personalizzate.  Per abilitare questo scenario, Time Series Insights espone le API per query REST.  
+Time Series Insights è caratterizzato da quattro processi chiavi:
+
+- Integrazione completa con i gateway cloud, ad esempio Hub IoT di Azure e Hub eventi di Azure. Connessione semplificata a queste origini evento e analisi JSON da messaggi e strutture di dati in colonne e righe normali. Unione di metadati con dati di telemetria e indicizzazione dei dati in un archivio a colonne.
+- Time Series Insights gestisce l'archiviazione dei dati. Per garantire un accesso semplificato ai dati, i dati vengono archiviati nella memoria e nell'unità SSD per un massimo di 400 giorni. È possibile eseguire query in modalità interattiva su miliardi di eventi in pochi secondi e su richiesta.
+- In Time Series Insights è disponibile una visualizzazione predefinita tramite TSI Explorer.  
+- Time Series Insights fornisce un servizio di query, in TSI Explorer e mediante l'uso di API di facile integrazione per l'incorporamento di dati delle serie temporali nelle applicazioni personalizzate.  
+
+Se si intende compilare un'applicazione per uso interno o destinata a clienti esterni, è possibile usare Time Series Insights come back-end per l'indicizzazione, l'archiviazione e l'aggregazione di dati relativi alle serie temporali. È anche possibile creare una visualizzazione e un'esperienza utente personalizzate.  Per abilitare questo scenario, Time Series Insights espone le API per query.  
 
 Per verificare se i dati fanno riferimento a una serie temporale, considerare le informazioni riportate di seguito.  I dati delle serie temporali rappresentano il modo in cui un asset o un processo varia nel corso del tempo.  Tali dati sono univoci nel senso che sono associati a un timestamp e il tempo è il fattore di riferimento più significativo.  I dati delle serie temporali in genere vengono acquisiti in ordine cronologico e vengono considerati un inserimento nel database e non un suo aggiornamento.  Poiché Time Series Insights acquisisce e archivia ogni nuovo evento sotto forma di riga, le variazioni vengono misurate nel corso del tempo e ciò consente di analizzare i dati a ritroso e prevedere variazioni future.  In presenza di ingenti quantità di dati, l'archiviazione, l'indicizzazione, l'esecuzione di query, l'analisi e la visualizzazione dei dati delle serie temporali possono trasformarsi in operazioni molto complesse.  
 

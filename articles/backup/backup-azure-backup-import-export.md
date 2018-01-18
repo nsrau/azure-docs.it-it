@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/18/2017
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: c58aafda21e02e12984e09ef605f7ea13200e381
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: 32a48a34711a7f053a74e103deb6853150de3903
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flusso di lavoro del backup offline in Backup di Azure
 In Backup di Azure sono incorporate diverse funzionalità che consentono di ridurre in modo efficiente i costi di archiviazione e di rete durante i backup completi iniziali dei dati in Azure. I backup completi iniziali comportano in genere il trasferimento di grandi quantità di dati e richiedono una larghezza di banda di rete superiore rispetto ai backup successivi con cui vengono trasferiti solo backup differenziali/incrementali. Backup di Azure comprime i backup iniziali. Con il processo di seeding offline, Backup di Azure può usare i dischi per caricare in Azure i dati compressi dei backup iniziali.  
@@ -31,7 +31,7 @@ Con la funzionalità di seeding offline di Backup di Azure e Importazione/Esport
 L' [aggiornamento di agosto 2016 di Backup di Azure e le versioni successive](http://go.microsoft.com/fwlink/?LinkID=229525) includono uno *strumento di preparazione dischi di Azure*denominato AzureOfflineBackupDiskPrep che:
 
 * Consente di preparare le unità per l'importazione in Azure con lo strumento di importazione/esportazione di Azure.
-* Crea automaticamente un processo di importazione di Azure per il servizio di importazione/esportazione di Azure nel [portale di Azure](https://ms.portal.azure.com).
+* Crea automaticamente un processo di importazione di Azure per il servizio Importazione/Esportazione di Azure nel [portale di Azure](https://ms.portal.azure.com).
 
 Al termine del caricamento dei dati di backup in Azure, i dati di backup vengono copiati da Backup di Azure nell'insieme di credenziali per il backup e vengono pianificati i backup incrementali.
 
@@ -46,7 +46,7 @@ Al termine del caricamento dei dati di backup in Azure, i dati di backup vengono
   * È stato creato un insieme di credenziali di Backup di Azure.
   * Le credenziali dell'insieme di credenziali sono state scaricate.
   * L'agente di Backup di Azure è stato installato in Windows Server, nel client Windows o nel server di System Center Data Protection Manager e il computer è registrato con l'insieme di credenziali di Backup di Azure.
-* [Scaricare il file di impostazioni di pubblicazione di Azure](https://manage.windowsazure.com/publishsettings) nel computer da cui si prevede di eseguire il backup dei dati.
+* [Scaricare il file di impostazioni di pubblicazione di Azure](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) nel computer da cui si prevede di eseguire il backup dei dati.
 * Preparare un percorso di gestione temporanea che può essere una condivisione di rete o un'unità aggiuntiva nel computer. Il percorso di gestione temporanea è una risorsa di archiviazione temporanea usata durante questo flusso di lavoro. Verificare che nel percorso di gestione temporanea sia disponibile spazio su disco sufficiente per contenere la copia iniziale. Se ad esempio si prevede di eseguire il backup di un file server da 500 GB, verificare che la dimensione dell'area di staging sia di almeno 500 GB. Verrà tuttavia usata una quantità inferiore in virtù della compressione.
 * Verificare che sia in uso un'unità supportata. Con il servizio Importazione/Esportazione sono supportati solo le unità SSD da 2,5 pollici o i dischi rigidi interni SATA II/III da 2,5 o 3,5 pollici. È possibile usare dischi rigidi fino a 10 TB. Per informazioni sul set più recente di unità supportato dal servizio, vedere la [documentazione del servizio Importazione/Esportazione di Azure](../storage/common/storage-import-export-service.md#hard-disk-drives).
 * Abilitare BitLocker nel computer a cui è connessa l'unità di scrittura SATA.
@@ -67,13 +67,13 @@ Le informazioni presenti in questa sezione consentono di completare il flusso di
 
     * **Percorso di gestione temporanea**: posizione di archiviazione temporanea in cui verrà scritta la copia del backup iniziale. Può essere una condivisione di rete o un computer locale. Se il computer di copia e il computer di origine sono diversi, è consigliabile specificare il percorso di rete completo per la gestione temporanea.
     * **Nome processo di importazione di Azure**: nome univoco con cui il servizio di importazione di Azure e Backup di Azure tengono traccia del trasferimento dei dati inviati in Azure usando dischi.
-    * **Impostazioni di pubblicazione di Azure**: file XML contenente informazioni sul profilo di sottoscrizione. Contiene anche le credenziali sicure associate alla sottoscrizione. È possibile [scaricare il file](https://manage.windowsazure.com/publishsettings). Specificare il percorso locale del file di impostazioni di pubblicazione.
+    * **Impostazioni di pubblicazione di Azure**: file XML contenente informazioni sul profilo di sottoscrizione. Contiene anche le credenziali sicure associate alla sottoscrizione. È possibile [scaricare il file](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade). Specificare il percorso locale del file di impostazioni di pubblicazione.
     * **ID sottoscrizione di Azure**: ID della sottoscrizione di Azure in cui si intende avviare il processo di importazione di Azure. Se si hanno più sottoscrizioni di Azure, usare l'ID della sottoscrizione a cui si vuole associare il processo di importazione.
-    * **Account di archiviazione Azure**: l'account di archiviazione nella sottoscrizione di Azure associata al processo di importazione di Azure.
+    * **Account di Archiviazione di Microsoft Azure**: l'account di archiviazione nella sottoscrizione di Azure associato al processo di importazione di Azure.
     * **Contenitore di archiviazione di Azure**: nome del BLOB di archiviazione di destinazione nell'account di archiviazione di Azure in cui verranno importati i dati del processo.
 
     > [!NOTE]
-    > Se è stato registrato il server a un insieme di credenziali di servizi di ripristino di Azure dal [portale di Azure](https://portal.azure.com) per il backup e non si trovano in una sottoscrizione di Provider di soluzioni Cloud (CSP), è possibile comunque creare un account di archiviazione dal portale di Azure e usarlo per il flusso di lavoro di backup non in linea.
+    > Se il server è stato registrato in un insieme di credenziali di Servizi di ripristino di Azure dal [portale di Azure](https://portal.azure.com) per i backup e non in una sottoscrizione di Cloud Solution Provider (CSP), è comunque possibile creare un account di archiviazione dal portale di Azure e usarlo per il flusso di lavoro del backup offline.
     >
     >
 
@@ -106,7 +106,7 @@ Lo strumento di preparazione dischi di Azure è disponibile nella directory di i
 
     `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to PublishSettingsFile*>]`
 
-    | Parametro | DESCRIZIONE |
+    | Parametro | Descrizione |
     | --- | --- |
     | s:&lt;*Percorso posizione staging*&gt; |Input obbligatorio usato per specificare il percorso di gestione temporanea immesso durante il flusso di lavoro di **avvio del backup offline** . |
     | p:&lt;*Percorso FileImpostazioniPubblicazione*&gt; |Input facoltativo usato per specificare il percorso del file delle **impostazioni di pubblicazione di Azure** immesso durante il flusso di lavoro di **avvio del backup offline**. |
@@ -123,7 +123,7 @@ Lo strumento di preparazione dischi di Azure è disponibile nella directory di i
 
     Lo strumento inizia quindi a preparare il disco con i dati di backup. Potrebbe essere necessario collegare dischi aggiuntivi quando richiesto dallo strumento, nel caso in cui lo spazio sul disco specificato non sia sufficiente a contenere i dati di backup. <br/>
 
-    Al termine della corretta esecuzione dello strumento, uno o più dischi specificati vengono preparati per la spedizione ad Azure. Inoltre, un processo di importazione con il nome fornito durante il **avviare il backup non in linea** flusso di lavoro viene creato nel portale di Azure. Infine, lo strumento visualizza l'indirizzo di spedizione al Data Center di Azure in cui i dischi devono essere spedito e il collegamento per individuare il processo di importazione nel portale di Azure.
+    Al termine della corretta esecuzione dello strumento, uno o più dischi specificati vengono preparati per la spedizione ad Azure. Nel portale di Azure viene anche creato un processo di importazione con il nome specificato durante il flusso di lavoro di **backup offline** . Lo strumento visualizza infine l'indirizzo del data center di Azure a cui i dischi devono essere spediti nonché il collegamento per individuare il processo di importazione nel portale di Azure.
 
     ![Preparazione dischi di Azure completata](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)<br/>
 
@@ -161,7 +161,7 @@ Al termine del processo di importazione, i dati del backup iniziale saranno disp
     >
     >
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 | --- | --- |
 | /j:<*FileJournal*> |Percorso del file journal. Ogni unità deve contenere esattamente un file journal. Il file journal non deve trovarsi nell'unità di destinazione. Il file journal ha estensione jrn e viene creato durante l'esecuzione del comando. |
 | /id:<*IDSessione*> |L'ID di sessione identifica una sessione di copia. Viene usato per garantire il recupero accurato di una sessione di copia interrotta. I file copiati in una sessione di copia vengono archiviati in una directory denominata in base all'ID di sessione nell'unità di destinazione. |
@@ -181,7 +181,7 @@ Al termine del processo di importazione, i dati del backup iniziale saranno disp
   ![Output di PowerShell](./media/backup-azure-backup-import-export/psoutput.png)
 
 ### <a name="create-an-import-job-in-the-azure-portal"></a>Creazione di un processo di importazione nel portale di Azure
-1. Passare all'account di archiviazione nel [portale di Azure](https://ms.portal.azure.com/), fare clic su **importazione/esportazione**e quindi **Crea processo di importazione** nel riquadro attività.
+1. Passare all'account di archiviazione nel [portale di Azure](https://ms.portal.azure.com/), fare clic su **Importa/Esporta** e quindi su **Crea processo di importazione** nel riquadro attività.
 
     ![Scheda Importazione/Esportazione nel portale di Azure](./media/backup-azure-backup-import-export/azureportal.png)
 

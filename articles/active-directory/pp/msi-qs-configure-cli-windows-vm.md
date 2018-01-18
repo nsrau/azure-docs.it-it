@@ -1,6 +1,6 @@
 ---
-title: Come configurare un file MSI assegnati dall'utente per una macchina virtuale di Azure mediante Azure CLI
-description: "Passaggio da istruzioni dettagliate per la configurazione di un utente assegnato gestiti servizio identità (MSI) per una macchina virtuale di Azure, tramite l'interfaccia CLI di Azure."
+title: "Come configurare un'identità del servizio gestito assegnata dall'utente per una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure"
+description: "Istruzioni dettagliate per la configurazione di un'identità del servizio gestito assegnata dall'utente per una macchina virtuale di Azure, tramite l'interfaccia della riga di comando di Azure."
 services: active-directory
 documentationcenter: 
 author: BryanLa
@@ -14,28 +14,28 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2aed60c2b35d750c892bc61c0e2693d6407c641f
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 4b6f4e2b0e42724276448fd4726c8326de8ea6ee
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-azure-cli"></a>Configurare un utente assegnato gestiti servizio identità (MSI) per una macchina virtuale, tramite l'interfaccia CLI di Azure
+# <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-azure-cli"></a>Configurare un'identità del servizio gestito assegnata dall'utente per una macchina virtuale tramite l'interfaccia della riga di comando di Azure
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Identità del servizio gestito fornisce servizi di Azure con un'identità gestita in Azure Active Directory. È possibile utilizzare questa identità di autenticazione ai servizi che supportano l'autenticazione di Azure AD, senza la necessità di credenziali nel codice. 
+L'identità del servizio gestito offre servizi di Azure con un'identità gestita in Azure Active Directory. È possibile usare questa identità per l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
-In questo articolo si apprenderà come abilitare e rimuovere un file MSI assegnati dall'utente per una macchina virtuale di Azure, tramite l'interfaccia CLI di Azure.
+In questo articolo si apprende come abilitare e rimuovere un'identità del servizio gestito assegnata dall'utente per una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
-Per eseguire gli esempi di script CLI in questa esercitazione, sono disponibili due opzioni:
+Per eseguire gli esempi di script dell'interfaccia della riga di comando in questa esercitazione sono disponibili due opzioni:
 
-- Utilizzare [Azure Cloud Shell](~/articles/cloud-shell/overview.md) dal portale di Azure o tramite il pulsante "Provalo", si trova nell'angolo superiore destro di ogni blocco di codice.
-- [Installare la versione più recente di CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 o versione successiva) se si preferisce utilizzare una console locale di CLI. Accedere quindi a Azure tramite [accesso az](/cli/azure/#login). Utilizzare un account che viene associato alla sottoscrizione di Azure in cui si desidera distribuire il file MSI assegnati dall'utente e macchina virtuale:
+- Usare [Azure Cloud Shell](~/articles/cloud-shell/overview.md) tramite il portale di Azure o il pulsante "Prova", che si trova nell'angolo in alto a destra di ogni blocco di codice.
+- [Installare la versione più recente dell'interfaccia della riga di comando 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale. Accedere quindi ad Azure tramite [az login](/cli/azure/#login). Usare un account associato alla sottoscrizione di Azure in cui si desidera distribuire la macchina virtuale e l'identità del servizio gestito assegnata dall'utente:
 
    ```azurecli
    az login
@@ -43,20 +43,20 @@ Per eseguire gli esempi di script CLI in questa esercitazione, sono disponibili 
 
 ## <a name="enable-msi-during-creation-of-an-azure-vm"></a>Abilitare l'Identità del servizio gestito durante la creazione di una macchina virtuale di Azure
 
-In questa sezione illustra la creazione della macchina virtuale e l'assegnazione del file MSI utente assegnato alla macchina virtuale. Se si dispone già di una macchina virtuale che si desidera utilizzare, ignorare questa sezione e procedere al successivo.
+Questa sezione illustra come creare la macchina virtuale e assegnare l'identità del servizio gestito assegnata dall'utente alla macchina virtuale. Se si dispone già di una macchina virtuale che si intende usare, ignorare questa sezione e procedere alla successiva.
 
-1. È possibile ignorare questo passaggio se si dispone già di un gruppo di risorse da utilizzare. Creare un [gruppo di risorse](~/articles/azure-resource-manager/resource-group-overview.md#terminology) indipendenza e la distribuzione di MSI, utilizzando [gruppo az creare](/cli/azure/group/#create). Assicurarsi di sostituire il `<RESOURCE GROUP>` e `<LOCATION>` i valori dei parametri con valori personalizzati. :
+1. Se si dispone già di un gruppo di risorse da usare, è possibile ignorare questo passaggio. Creare un [gruppo di risorse](~/articles/azure-resource-manager/resource-group-overview.md#terminology) per il contenuto e la distribuzione dell'identità del servizio gestito usando [az group create](/cli/azure/group/#create). Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<LOCATION>` con valori personalizzati. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
    ```
 
-2. Creare un file MSI assegnati dall'utente tramite [identità az creare](/cli/azure/identity#az_identity_create).  Il `-g` parametro specifica il gruppo di risorse in cui viene creato il file MSI, e `-n` parametro specifica il nome. Assicurarsi di sostituire il `<RESOURCE GROUP>` e `<MSI NAME>` i valori dei parametri con valori personalizzati:
+2. Creare un'identità del servizio gestito assegnata dall'utente tramite [az identity create](/cli/azure/identity#az_identity_create).  Il parametro `-g` specifica il gruppo di risorse in cui viene creata l'identità del servizio gestito, mentre il parametro `-n` ne specifica il nome. Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<MSI NAME>` con valori personalizzati:
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
-La risposta contiene i dettagli per il file MSI assegnati dall'utente creato, simile al seguente. La risorsa `id` valore assegnato per il file MSI è utilizzato nel passaggio seguente.
+La risposta contiene i dettagli relativi all'identità del servizio gestito assegnata dall'utente creata ed è simile all'esempio seguente. Il valore `id` della risorsa assegnato all'identità del servizio gestito è usato nel passaggio seguente.
 
    ```json
    {
@@ -73,7 +73,7 @@ La risposta contiene i dettagli per il file MSI assegnati dall'utente creato, si
    }
    ```
 
-3. Creare una macchina virtuale usando il comando [az vm create](/cli/azure/vm/#create). L'esempio seguente crea una macchina virtuale associata con il nuovo utente assegnato file MSI, come specificato da di `--assign-identity` parametro. Assicurarsi di sostituire il `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>`, e `<`ID MSI >` parameter values with your own values. For `<MSI ID>`, use the user-assigned MSI's resource `id' proprietà creata nel passaggio precedente: 
+3. Creare una macchina virtuale usando il comando [az vm create](/cli/azure/vm/#create). L'esempio seguente crea una macchina virtuale associata alla nuova identità del servizio gestito assegnata dall'utente, come specificato dal parametro `--assign-identity`. Assicurarsi di sostituire i valori di `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` e della proprietà `<`MSI ID>` parameter values with your own values. For `<MSI ID>`, use the user-assigned MSI's resource `id' creata nel passaggio precedente: 
 
    ```azurecli-interactive 
    az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
@@ -81,12 +81,12 @@ La risposta contiene i dettagli per il file MSI assegnati dall'utente creato, si
 
 ## <a name="enable-msi-on-an-existing-azure-vm"></a>Abilitare l'Identità del servizio gestito in una macchina virtuale di Azure esistente
 
-1. Creare un file MSI assegnati dall'utente tramite [identità az creare](/cli/azure/identity#az_identity_create).  Il `-g` parametro specifica il gruppo di risorse in cui viene creato il file MSI, e `-n` parametro specifica il nome. Assicurarsi di sostituire il `<RESOURCE GROUP>` e `<MSI NAME>` i valori dei parametri con valori personalizzati:
+1. Creare un'identità del servizio gestito assegnata dall'utente tramite [az identity create](/cli/azure/identity#az_identity_create).  Il parametro `-g` specifica il gruppo di risorse in cui viene creata l'identità del servizio gestito, mentre il parametro `-n` ne specifica il nome. Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<MSI NAME>` con valori personalizzati:
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
-La risposta contiene i dettagli per il file MSI assegnati dall'utente creato, simile al seguente. La risorsa `id` valore assegnato per il file MSI è utilizzato nel passaggio seguente.
+La risposta contiene i dettagli relativi all'identità del servizio gestito assegnata dall'utente creata ed è simile all'esempio seguente. Il valore `id` della risorsa assegnato all'identità del servizio gestito è usato nel passaggio seguente.
 
    ```json
    {
@@ -103,15 +103,15 @@ La risposta contiene i dettagli per il file MSI assegnati dall'utente creato, si
    }
    ```
 
-2. Assegnare il file MSI assegnati dall'utente per la macchina virtuale con [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Assicurarsi di sostituire il `<RESOURCE GROUP>` e `<VM NAME>` i valori dei parametri con valori personalizzati. Il `<MSI ID>` sarà risorse l'utente assegnato MSI `id` proprietà, creato nel passaggio precedente:
+2. Assegnare l'identità del servizio gestito assegnata dall'utente alla propria macchina virtuale tramite [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<VM NAME>` con valori personalizzati. `<MSI ID>` sarà la proprietà `id` della risorsa dell'identità del servizio gestito assegnata dall'utente creata nel passaggio precedente:
 
     ```azurecli-interactive
-    az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> -–identities <MSI ID>
+    az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI ID>
     ```
 
 ## <a name="remove-msi-from-an-azure-vm"></a>Rimuovere l'Identità del servizio gestito da una macchina virtuale di Azure
 
-1. Rimuovere il file MSI assegnati dall'utente dal VM utilizzando [az vm remove-identity](/cli/azure/vm#az_vm_remove_identity). Assicurarsi di sostituire il `<RESOURCE GROUP>` e `<VM NAME>` i valori dei parametri con valori personalizzati. Il `<MSI NAME>` sarà MSI assegnati dall'utente `name` proprietà, come specificato durante la `az identity create` comando (vedere esempi nelle sezioni precedenti):
+1. Rimuovere l'identità del servizio gestito assegnata dall'utente dalla propria macchina virtuale tramite [az vm remove-identity](/cli/azure/vm#az_vm_remove_identity). Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<VM NAME>` con valori personalizzati. `<MSI NAME>` sarà la proprietà `name` della risorsa dell'identità del servizio gestito assegnata dall'utente fornita durante il comando `az identity create` (vedere gli esempi nelle sezioni precedenti):
 
    ```azurecli-interactive
    az vm remove-identity -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>

@@ -9,11 +9,11 @@ ms.date: 10/31/2017
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 1b8fd12e071bfbd01567803370e510e7e07ccb99
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c4cb8acd12cbda5784d0ea48f7782e47f57db8b5
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -22,9 +22,9 @@ La definizione dei criteri delle risorse usata da Criteri di Azure consente di s
 Per creare una definizione di criterio è possibile usare JSON. La definizione dei criteri contiene gli elementi per:
 
 * mode
-* parameters
+* parametri
 * nome visualizzato
-* description
+* descrizione
 * regola dei criteri
   * valutazione logica
   * effetto
@@ -64,7 +64,7 @@ Ad esempio, la notazione JSON seguente illustra un criterio che limita i punti i
 
 Tutti i modelli di Criteri di Azure di esempio sono disponibili nella pagina [Modelli per Criteri di Azure](json-samples.md).
 
-## <a name="mode"></a>Mode
+## <a name="mode"></a>Modalità
 
 È consigliabile impostare `mode` su `all` affinché un'assegnazione di criteri valuti tutti i tipi e i gruppi di risorse. È possibile visualizzare un esempio di definizione dei criteri che applica tag a un gruppo di risorse in [Allow custom VM image from a Resource Group](scripts/allow-custom-vm-image.md) (Consentire l'uso di un'immagine di macchina virtuale personalizzata da un gruppo di risorse).
 
@@ -179,7 +179,7 @@ Quando si usa la condizione **like**, è possibile inserire un carattere jolly (
 
 Quando si usa la condizione **match**, specificare `#` per rappresentare una cifra, `?` per una lettera e qualsiasi altro carattere per rappresentare il carattere effettivo. Per alcuni esempi, vedere [Immagini di macchine virtuali approvate](scripts/allowed-custom-images.md).
 
-### <a name="fields"></a>Fields
+### <a name="fields"></a>Campi
 Le condizioni vengono formate usando i campi. Un campo rappresenta le proprietà nel payload delle richieste di risorse usato per descrivere lo stato della risorsa.  
 
 Sono supportati i seguenti campi:
@@ -200,7 +200,6 @@ Il criterio supporta i tipi di effetto seguenti:
 * **Append**: aggiunge il set di campi definiti alla richiesta
 * **AuditIfNotExists**: abilita il controllo se una risorsa non esiste
 * **DeployIfNotExists**: distribuisce una risorsa se non esiste già. Attualmente questo effetto è supportato solo tramite criteri predefiniti.
-* **DenyIfNotExists**: nega la creazione di una risorsa esistente se non esiste già
 
 In caso di **aggiunta**, è necessario specificare questi dettagli:
 
@@ -216,7 +215,7 @@ In caso di **aggiunta**, è necessario specificare questi dettagli:
 
 Il valore può essere una stringa o un oggetto formato JSON.
 
-Con **AuditIfNotExists**, **DeployIfNotExists** e **DenyIfNotExists**, è possibile valutare l'esistenza di una risorsa figlio e applicare una regola e un effetto corrispondente quando tale risorsa non esiste. È possibile ad esempio richiedere che venga distribuito un Network Watcher per tutte le reti virtuali.
+Con **AuditIfNotExists** e **DeployIfNotExists** è possibile valutare l'esistenza di una risorsa figlio e applicare una regola e un effetto corrispondente quando tale risorsa non esiste. È possibile ad esempio richiedere che venga distribuito un Network Watcher per tutte le reti virtuali.
 Per un esempio di controllo quando non è stata distribuita un'estensione della macchina virtuale, vedere [Audit if extension does not exist](scripts/audit-ext-not-exist.md) (Controllare se l'estensione esiste).
 
 

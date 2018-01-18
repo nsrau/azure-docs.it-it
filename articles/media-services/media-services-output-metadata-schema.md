@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.openlocfilehash: c175d359f93e7cd8cd73aa498ad8b71c4ec497f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8792535eeeb71e7233c42bd9ea2a446a1c4d43c
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="output-metadata"></a>Metadati di output
 ## <a name="overview"></a>Panoramica
@@ -26,10 +26,10 @@ Un processo di codifica è associato uno (o più) asset di input in cui si desid
 
 Se si desidera esaminare il file di metadati, è possibile creare un localizzatore **SAS** e scaricare il file nel computer locale.  
 
-In questo argomento vengono descritti gli elementi e i tipi di schema XML su cui si basato i metadati di output (&lt;nome_file_origine&gt;_manifest.xml). Per informazioni sul file contenente i metadati sull'asset di input, vedere [Input Metadata](media-services-input-metadata-schema.md) (Metadati di input).  
+Questo articolo descrive gli elementi e i tipi di schema XML su cui si basato i metadati di output (&lt;nome_file_origine&gt;_manifest.xml). Per informazioni sul file contenente i metadati sull'asset di input, vedere [Input Metadata](media-services-input-metadata-schema.md) (Metadati di input).  
 
 > [!NOTE]
-> Il codice schema completo e un esempio di codice XML sono disponibili alla fine di questo argomento.  
+> Il codice schema completo e un esempio di codice XML sono disponibili alla fine di questo articolo.  
 >
 >
 
@@ -55,7 +55,7 @@ Consultare l'[esempio di codice XML](media-services-output-metadata-schema.md#xm
 | Nome | Descrizione |
 | --- | --- |
 | **Sources** |Raccolta di file multimediali di input/origine elaborata per produrre questo AssetFile. Per altre informazioni, vedere [Elemento di origine](media-services-output-metadata-schema.md). |
-| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Ogni elemento AssetFile fisico può contenere da zero a più tracce video con interfoliazione in un formato contenitore appropriato. Questa è la raccolta di tutte queste tracce video. Per altre informazioni, vedere [Elemento VideoTracks](media-services-output-metadata-schema.md). |
+| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Ogni elemento AssetFile fisico può contenere da zero a più tracce video con interfoliazione in un formato contenitore appropriato. Per altre informazioni, vedere [Elemento VideoTracks](media-services-output-metadata-schema.md). |
 | **AudioTrack**<br/><br/> minOccurs="0" maxOccurs="1" |Ogni elemento AssetFile fisico può contenere da zero a più tracce audio con interfoliazione in un formato contenitore appropriato. Questa è la raccolta di tutte queste tracce audio. Per altre informazioni, vedere [Elemento AudioTracks](media-services-output-metadata-schema.md). |
 
 ## <a name="Sources "></a> Elemento Sources
@@ -76,10 +76,10 @@ Consultare l'[esempio di codice XML](media-services-output-metadata-schema.md#xm
 ### <a name="attributes"></a>Attributi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **Nome**<br/><br/> Obbligatorio |**xs:string**  |Nome di file di origine di input. |
+| **Nome**<br/><br/> Obbligatorio |**xs:string** |Nome di file di origine di input. |
 
 ## <a name="VideoTracks "></a> Elemento VideoTracks
-Ogni elemento AssetFile fisico può contenere da zero a più tracce video con interfoliazione in un formato contenitore appropriato. Questa è la raccolta di tutte queste tracce video.  
+Ogni elemento AssetFile fisico può contenere da zero a più tracce video con interfoliazione in un formato contenitore appropriato. L'elemento **VideoTracks** rappresenta una raccolta di tutte le tracce video.  
 
 Consultare l'[esempio di codice XML](media-services-output-metadata-schema.md#xml) disponibile.  
 
@@ -96,10 +96,10 @@ Consultare l'[esempio di codice XML](media-services-output-metadata-schema.md#xm
 ### <a name="attributes"></a>Attributi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Indice in base zero della traccia video. **Nota:** non corrisponde necessariamente al TrackID usato in un file MP4. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Indice in base zero della traccia video. **Nota:** questo **ID** non corrisponde necessariamente al TrackID usato in un file MP4. |
 | **FourCC**<br/><br/> Obbligatorio |**xs:string** |Codice FourCC del codec video. |
-| **Profilo** |**xs:string**  |Profilo H264 (applicabile solo al codec H264). |
-| **Level** |**xs:string**  |Livello H264 (applicabile solo al codec H264). |
+| **Profilo** |**xs:string** |Profilo H264 (applicabile solo al codec H264). |
+| **Level** |**xs:string** |Livello H264 (applicabile solo al codec H264). |
 | **Width**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Larghezza del video codificata in pixel. |
 | **Height**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:int** |Altezza del video codificata in pixel. |
 | **DisplayAspectRatioNumerator**<br/><br/> minInclusive ="0"<br/><br/> Obbligatorio |**xs:double** |Numeratore delle proporzioni della visualizzazione video. |
@@ -111,7 +111,7 @@ Consultare l'[esempio di codice XML](media-services-output-metadata-schema.md#xm
 | **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |Velocità media in bit Max GOP per la traccia video, in kilobit al secondo. |
 
 ## <a name="AudioTracks "></a> Elemento AudioTrack
-Ogni elemento AssetFile fisico può contenere da zero a più tracce audio con interfoliazione in un formato contenitore appropriato. Questa è la raccolta di tutte queste tracce audio.  
+Ogni elemento AssetFile fisico può contenere da zero a più tracce audio con interfoliazione in un formato contenitore appropriato. L'elemento **AudioTracks** rappresenta una raccolta di tutte le tracce audio.  
 
 Consultare l'[esempio di codice XML](media-services-output-metadata-schema.md#xml) disponibile.  
 
@@ -510,7 +510,8 @@ Consultare l'[esempio di codice XML](media-services-output-metadata-schema.md#xm
 
 
 ## <a name="xml"></a> Esempio XML
- Di seguito è riportato un esempio di file di metadati di output:  
+
+L'XML seguente è un esempio di file di metadati di output.  
 
     <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"   
                 xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata">  

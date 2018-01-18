@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 7a7a5d04c55adc33db5ccce761efd622935acefb
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.openlocfilehash: 9bec51e1d49308baecc76143ec80902d2da418e8
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>Problemi riscontrati con il portale App personali
 
@@ -51,7 +51,7 @@ Se si dimentica la password, la si vuole modificare, il personale IT non l'ha ma
 Come utente finale, è possibile reimpostare la password o sbloccare l'account senza la necessità di rivolgersi a un'altra persona usando la funzionalità di reimpostazione della password self-service (SSPR). Per poter usare questa funzionalità, è prima necessario registrare i metodi di autenticazione o confermare i metodi di autenticazione predefiniti inseriti dall'amministratore. Per altre informazioni, vedere [Eseguire la registrazione per la reimpostazione password self-service](active-directory-passwords-reset-register.md).
 
 
-## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Si è verificato un problema durante l'installazione dell'estensione accesso proteggere le app personali
+## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Si riscontrano problemi con l'installazione dell'estensione di accesso sicuro per le app personali
 
 Verificare se i requisiti del browser sono soddisfatti:
 
@@ -76,29 +76,29 @@ Se dopo l'installazione si riscontrano problemi, seguire questa procedura:
 - Riavviare il browser e accedere al portale App personali.
 
 - Cancellare i cookie del browser e accedere al portale App personali.
-- Seguire il [risoluzione dei problemi di estensione del Pannello di accesso per Internet Explorer](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-ie-troubleshooting) Guida per l'accesso a uno strumento di diagnostica e istruzioni dettagliate su come configurare l'estensione per Internet Explorer.
+- Per accedere a uno strumento di diagnostica e per istruzioni passo passo sulla configurazione dell'estensione per Internet Explorer, seguire la [Risoluzione dei problemi relativi all'estensione del pannello di accesso per Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
-## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Come è possibile utilizzare l'estensione Accedi proteggere le app personali?
-Modifica l'URL predefinito di App personali per l'estensione
+## <a name="how-do-i-use-the-my-apps-secure-sign-in-extension"></a>Come usare l'estensione per l'accesso sicuro alle app personali
+Modifica dell'URL predefinito delle app personali per l'estensione
 
-Se si utilizza un altro URL App personali di https://myapps.microsoft.com quindi è necessario configurare l'URL predefinito tramite la procedura seguente:
-1. Mentre non è firmato nell'estensione, **destro del mouse su** l'icona di estensione.
-2. Fare clic su **selezionare un URL App personali** dal menu.
+Se per le app personali si usa un URL diverso da https://myapps.microsoft.com è necessario configurare l'URL predefinito tramite la procedura seguente:
+1. Senza accedere all'estensione, **fare clic con il pulsante destro del mouse** sull'icona dell'estensione.
+2. Fare clic su **Seleziona URL app personali** dal menu.
 3. **Selezionare** l'URL predefinito.
-4. Fare clic sull'icona di estensione.
-5. Accedi all'estensione selezionando **Accedi per iniziare**.
+4. Fare clic sull'icona dell'estensione.
+5. Accedere all'estensione selezionando **Accedere per iniziare**.
 
-Accedere direttamente in un'app dal browser
-1. Dopo aver installato l'estensione, accedi per l'estensione selezionando **Accedi per iniziare**.
-2. Passare il **sign-on URL** dell'app per accedere a, si tratta in genere l'URL dell'app che consente di visualizzare il form di accesso.
-3. L'estensione deve modificare lo stato e consentono di conoscere la password è disponibile, fare clic su di **icona estensione** per accedere
+Accedere direttamente a un'app dal browser
+1. Dopo aver installato l'estensione, accedervi selezionando **Accedere per iniziare**.
+2. Passare all'**URL di accesso** dell'app a cui si vuole accedere, in genere l'URL dell'app che consente di visualizzare la pagina di accesso.
+3. L'estensione dovrebbe modificare lo stato e consentire di sapere se la password è disponibile, fare clic sull'**icona di estensione** per accedere
 
 Avviare un'app dall'estensione
-1. Dopo aver installato l'estensione, accedi per l'estensione selezionando **Accedi per iniziare**.
-2. Fare clic sull'icona per aprire il menu di estensione.
-3. **Ricerca** per un'app disponibile nel portale di App personali.
-4. Scegliere l'applicazione di **i risultati della ricerca** per avviarlo.
-5. Le ultime tre App avviate verranno inoltre visualizzata nel **usati di recente** elenco di scelta rapida
+1. Dopo aver installato l'estensione, accedervi selezionando **Accedere per iniziare**.
+2. Fare clic sull'icona di estensione per aprire il menu.
+3. **Cercare** un'app disponibile nel portale delle app personali.
+4. Scegliere l'app nei **i risultati della ricerca** per avviarla.
+5. Le ultime tre app avviate verranno inoltre visualizzate nell'elenco di collegamenti **Usati di recente**
 
 > [!NOTE]
 > Queste opzioni sono disponibili solo per Edge, Chrome, Firefox.
@@ -118,9 +118,9 @@ Avviare un'app dall'estensione
 
 ## <a name="how-do-i-manage-my-group-memberships"></a>Come gestire l'appartenenza ai gruppi
 
-1. Fare clic su di **gruppi** riquadro. 
-2. Per creare un gruppo, in gruppi di proprietà, fare clic su **Crea gruppo**e quindi seguire le istruzioni.
-3. Per aggiungere un gruppo, in gruppi in, fare clic su **partecipa a gruppo**e quindi seguire le istruzioni.
+1. Fare clic nel riquadro **Gruppi**. 
+2. Per creare un gruppo, in Gruppi di cui si è proprietari fare clic su **Crea gruppo**, quindi seguire le istruzioni.
+3. Per partecipare a un gruppo, in Gruppi a cui si appartiene fare clic su **Partecipa a gruppo**, quindi seguire le istruzioni.
 
 **Osservazioni:**
 

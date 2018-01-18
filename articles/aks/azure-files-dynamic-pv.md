@@ -9,29 +9,29 @@ ms.topic: article
 ms.date: 1/04/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d468944883cca80946001724c38dd5ec9ba0d94f
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
-ms.translationtype: MT
+ms.openlocfilehash: 4873b98c8ba4f1e574be20baebef3b6860341529
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="persistent-volumes-with-azure-files---dynamic-provisioning"></a>Provisioning permanente per i volumi con file di Azure - dinamici
+# <a name="persistent-volumes-with-azure-files---dynamic-provisioning"></a>Volumi permanenti con i file di Azure - provisioning dinamico
 
-Un volume permanente rappresenta una parte di spazio di archiviazione è stato eseguito il provisioning per l'utilizzo in un cluster Kubernetes. Un volume persistente può essere utilizzato da uno o più unità e può essere staticamente o dinamicamente il provisioning. Questo documento illustra in dettaglio il provisioning dinamico di una condivisione di file di Azure come volume Kubernetes persistente in un cluster AKS. 
+Un volume permanente rappresenta una parte di risorsa di archiviazione di cui è stato eseguito il provisioning per l'uso in un cluster Kubernetes. Un volume permanente può essere usato da uno o più pod e se ne può eseguire il provisioning in modo dinamico o in modo statico. Questo documento illustra in dettaglio il provisioning dinamico di una condivisione di file di Azure come volume Kubernetes permanente in un cluster servizio contenitore di Azure. 
 
-Per ulteriori informazioni sui volumi permanenti Kubernetes, vedere [volumi permanenti Kubernetes][kubernetes-volumes].
+Per altre informazioni sui volumi Kubernetes permanenti, vedere [Kubernetes persistent volumes][kubernetes-volumes] (Volumi Kubernetes permanenti).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Quando il provisioning dinamico di una condivisione di file di Azure come volume Kubernetes, qualsiasi account di archiviazione è utilizzabile come è inclusa nello stesso gruppo di risorse del cluster AKS. Se necessario, creare un account di archiviazione nello stesso gruppo di risorse del cluster AKS. 
+Quando si esegue il provisioning dinamico di una condivisione di file di Azure come volume Kubernetes, è possibile usare qualsiasi account di archiviazione se è incluso nello stesso gruppo di risorse del cluster AKS. Se necessario, creare un account di archiviazione nello stesso gruppo di risorse del cluster servizio contenitore di Azure. 
 
-Per identificare il gruppo di risorse appropriato, utilizzare il [elenco gruppi az] [ az-group-list] comando.
+Per identificare il gruppo di risorse appropriato, usare il comando [az group list][az-group-list].
 
 ```azurecli-interactive
 az group list --output table
 ```
 
-L'output di esempio seguente mostra i gruppi di risorse, che sia associata a un cluster AKS. Il gruppo di risorse con un nome come *MC_myAKSCluster_myAKSCluster_eastus* contiene le risorse del cluster AKS e in cui è necessario creare l'account di archiviazione. 
+L'output di esempio seguente mostra i gruppi di risorse, associati entrambi a un cluster servizio contenitore di Azure. Il gruppo di risorse con un nome simile a *MC_myAKSCluster_myAKSCluster_eastus* contiene le risorse del cluster servizio contenitore di Azure e si trova nella posizione in cui è necessario creare l'account di archiviazione. 
 
 ```
 Name                                 Location    Status
@@ -40,17 +40,17 @@ MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
 myAKSCluster                         eastus      Succeeded
 ```
 
-Dopo aver individuato il gruppo di risorse, creare l'account di archiviazione con il [creare account di archiviazione az] [ az-storage-account-create] comando.
+Dopo aver individuato il gruppo di risorse, creare l'account di archiviazione con il comando [az storage account create][az-storage-account-create].
 
 ```azurecli-interactive
 az storage account create --resource-group  MC_myAKSCluster_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
 ```
 
-## <a name="create-storage-class"></a>Creare una classe di archiviazione
+## <a name="create-storage-class"></a>Creazione della classe di archiviazione
 
-Una classe di archiviazione viene utilizzata per definire la configurazione di un volume permanente creato dinamicamente. Gli elementi, ad esempio il nome di account di archiviazione di Azure, SKU e area sono definiti nell'oggetto classe di archiviazione. Per ulteriori informazioni sulle classi di archiviazione Kubernetes, vedere [classi di archiviazione Kubernetes][kubernetes-storage-classes].
+Una classe di archiviazione viene usata per definire la configurazione di un volume permanente creato dinamicamente. Gli elementi come il nome di account di archiviazione di Azure, SKU, e l'area sono definiti nell'oggetto classe di archiviazione. Per altre informazioni sulle classi di archiviazione Kubernetes, vedere [Kubernetes Storage Classes][kubernetes-storage-classes] (Classi di archiviazione Kubernetes).
 
-Nell'esempio seguente specifica che tipo di qualsiasi account di archiviazione di SKU `Standard_LRS` nel `eastus` area utilizzabile per la richiesta di archiviazione. 
+L'esempio seguente specifica che in una richiesta di risorsa di archiviazione è possibile usare qualsiasi account di archiviazione di tipo `Standard_LRS` di SKU nell'area `eastus`. 
 
 ```yaml
 kind: StorageClass
@@ -62,7 +62,7 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Per usare un account di archiviazione specifico, il `storageAccount` parametro può essere utilizzato.
+Per usare un account di archiviazione specifico è possibile usare il parametro `storageAccount`.
 
 ```yaml
 kind: StorageClass
@@ -74,14 +74,14 @@ parameters:
   storageAccount: azure_storage_account_name
 ```
 
-## <a name="create-persistent-volume-claim"></a>Creare un volume permanente attestazione
+## <a name="create-persistent-volume-claim"></a>Creare un'attestazione di volume permanente
 
-Un'attestazione di volume permanente utilizza l'oggetto di classe di archiviazione per il provisioning dinamico di una parte di spazio di archiviazione. Quando si utilizza un file di Azure, viene creata una condivisione di file di Azure nell'account di archiviazione selezionato o specificato nell'oggetto classe di archiviazione.
+Un'attestazione di volume permanente usa l'oggetto classe di archiviazione per il provisioning dinamico di una parte di spazio di archiviazione. Quando si usa File di Azure, viene creata una condivisione di file di Azure nell'account di archiviazione selezionato o specificato nell'oggetto classe di archiviazione.
 
 >  [!NOTE]
->   Verificare che un account di archiviazione appropriato sia stata già creato nello stesso gruppo di risorse del cluster AKS. L'attestazione volume permanente avrà esito negativo per effettuare il provisioning di condividere il file di Azure, se un account di archiviazione non è disponibile. 
+>   Verificare che sia stato già creato un account di archiviazione appropriato nello stesso gruppo di risorse delle risorse del cluster servizio contenitore di Azure. Questo gruppo di risorse ha un nome simile a *MC_myAKSCluster_myAKSCluster_eastus*. L'attestazione di volume permanente non riuscirà a effettuare il provisioning della condivisione di file di Azure se non è disponibile un account di archiviazione. 
 
-Il manifesto seguente consente di creare un'attestazione di volume permanente `5GB` dimensioni con `ReadWriteOnce` accesso. Per ulteriori informazioni sulle modalità di accesso PVC, vedere [modalità di accesso][access-modes].
+Il manifesto seguente può essere usato per creare un'attestazione di volume permanente di dimensioni di `5GB` con accesso `ReadWriteOnce`. Per altre informazioni sulle modalità di accesso PVC, vedere [Access Modes][access-modes] (Modalità di accesso).
 
 ```yaml
 apiVersion: v1
@@ -97,9 +97,9 @@ spec:
       storage: 5Gi
 ```
 
-## <a name="using-the-persistent-volume"></a>Utilizzando il volume permanente
+## <a name="using-the-persistent-volume"></a>Uso del volume permanente
 
-Una volta l'attestazione permanente volume è stato creato e lo spazio di archiviazione eseguito correttamente il provisioning, è possibile creare un pod con accesso al volume. Il manifesto seguente crea un pod che utilizza l'attestazione volume permanente `azurefile` montare alla condivisione file di Azure di `/var/www/html` percorso. 
+Una volta creata l'attestazione del volume permanente ed eseguito correttamente il provisioning delle risorse di archiviazione, è possibile creare un pod con accesso al volume. Il manifesto seguente crea un pod che usa l'attestazione del volume permanente `azurefile` per montare la condivisione file di Azure nel percorso `/var/www/html`. 
 
 ```yaml
 kind: Pod
@@ -121,17 +121,17 @@ spec:
 
 ## <a name="mount-options"></a>Opzioni di montaggio
 
-Valori predefiniti di fileMode e dirMode diversi tra versioni Kubernetes come descritto nella tabella seguente. 
+I valori predefiniti fileMode e dirMode differiscono tra le versioni di Kubernetes come descritto nella tabella seguente. 
 
-| version | value |
+| version | valore |
 | ---- | ---- |
-| V1.6.x, v1.7.x | 0777 |
-| V1.8.0 v1.8.5 | 0700 |
-| V1.8.6 o versione successiva | 0755 |
-| V1.9.0 | 0700 |
-| V1.9.1 o versione successiva | 0755 |
+| v1.6.x, v1.7.x | 0777 |
+| v1.8.0-v1.8.5 | 0700 |
+| v1.8.6 o successiva | 0755 |
+| v1.9.0 | 0700 |
+| v1.9.1 o successiva | 0755 |
 
-Se si utilizza un cluster della versione 1.8.5 o montaggio maggiore, è possibile specificare opzioni per l'oggetto di classe di archiviazione. L'esempio seguente imposta `0777`. 
+Se si usa un cluster della versione 1.8.5 o superiore, è possibile specificare opzioni di montaggio per l'oggetto classe di archiviazione. L'esempio imposta `0777`. 
 
 ```yaml
 kind: StorageClass
@@ -148,14 +148,14 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Se si utilizza un cluster della versione 1.8.0 - 1.8.4, è possibile specificare un contesto di sicurezza con il `runAsUser` valore impostato su `0`. Per ulteriori informazioni sul contesto di sicurezza Pod, vedere [configura un contesto di sicurezza][kubernetes-security-context].
+Se si usa un cluster della versione 1.8.0 - 1.8.4, è possibile specificare un contesto di protezione con il valore `runAsUser` impostato su `0`. Per altre informazioni sul contesto di sicurezza Pod, vedere [Configure a Security Context][kubernetes-security-context] (Configurazione di un contesto di protezione).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sui volumi di permanente Kubernetes utilizzando file di Azure.
+Altre informazioni sui volumi Kubernetes che usano File di Azure.
 
 > [!div class="nextstepaction"]
-> [Plug-in Kubernetes per file di Azure][kubernetes-files]
+> [Plug-in Kubernetes per File di Azure][kubernetes-files]
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes

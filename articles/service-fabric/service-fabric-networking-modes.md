@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 1/5/2018
 ms.author: subramar
-ms.openlocfilehash: 1dacbbef915580b0095ef588f3dafad35daf1bde
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: d541e5a1af5e57cd5956a026d7772076509c8514
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modalità di rete del contenitore di Service Fabric
 
@@ -179,11 +179,11 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
    |Impostazione |Valore | |
    | --- | --- | --- |
    |Priorità |2000 | |
-   |NOME |Custom_Dns  | |
+   |Nome |Custom_Dns  | |
    |Sorgente |VirtualNetwork | |
    |Destination | VirtualNetwork | |
    |Service | DNS (UDP/53) | |
-   |Azione | CONSENTI  | |
+   |Azione | Consenti  | |
    | | |
 
 4. Specificare la modalità di rete nel manifesto dell'applicazione per ogni servizio: `<NetworkConfig NetworkType="Open">`. La modalità di rete **Open** consente al servizio di ottenere un indirizzo IP dedicato. Se non è specificata alcuna modalità, viene impostata la modalità predefinita **nat**. Nell'esempio di manifesto seguente, i servizi `NodeContainerServicePackage1` e `NodeContainerServicePackage2` possono essere in ascolto sulla stessa porta (entrambi i servizi sono in ascolto su `Endpoint1`). Se è specificata la modalità di rete Open, non è possibile specificare configurazioni `PortBinding`.
@@ -220,6 +220,16 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
     >[!NOTE]
     >Nei cluster Linux non è supportato l'uso di più modalità di rete per servizi diversi. 
     >
+
+5. Se è selezionata la modalità **Open**, la definizione **Endpoint** nel manifesto del servizio deve puntare esplicitamente al pacchetto di codice corrispondente all'endpoint, anche se il pacchetto del servizio contiene un singolo pacchetto di codice. 
+   
+   ```xml
+   <Resources>
+     <Endpoints>
+       <Endpoint Name="ServiceEndpoint" Protocol="http" Port="80" CodePackageRef="Code"/>
+     </Endpoints>
+   </Resources>
+   ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Informazioni sul modello applicativo di Service Fabric](service-fabric-application-model.md)

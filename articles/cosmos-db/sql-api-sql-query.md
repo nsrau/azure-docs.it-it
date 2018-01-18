@@ -1,10 +1,10 @@
 ---
-title: Query SQL di Azure Cosmos DB | Documenti Microsoft
+title: Query SQL per Azure Cosmos DB | Microsoft Docs
 description: "Informazioni sulla sintassi SQL, sui concetti relativi ai database e sulle query SQL per Cosmos DB. SQL può essere usato come linguaggio di query JSON in Cosmos DB."
 keywords: sintassi sql, query sql, linguaggio di query json, concetti relativi ai database e query sql, funzioni di aggregazione
 services: cosmos-db
 documentationcenter: 
-author: arramac
+author: LalithaMV
 manager: jhubbard
 editor: monicar
 ms.assetid: a73b4ab3-0786-42fd-b59b-555fce09db6e
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
-ms.author: arramac
-ms.openlocfilehash: 0bd24082f3b323919493fc8e9fdb642f065afb47
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.author: laviswa
+ms.openlocfilehash: 8a8a83ca1d286b7d254c2b2271f44277e6189bf0
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="sql-queries-for-azure-cosmos-db"></a>Query SQL di Azure Cosmos DB
+# <a name="sql-queries-for-azure-cosmos-db"></a>Query SQL per Azure Cosmos DB
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Database di Microsoft Azure Cosmos supporta documenti l'esecuzione di query tramite SQL (Structured Query Language) come linguaggio di query JSON per gli account di API di SQL. Azure DB Cosmos è realmente privi di schema. Grazie all'impegno nei confronti del modello di dati JSON direttamente nel motore del database, fornisce l'indicizzazione automatica dei documenti JSON senza richiedere schemi espliciti o la creazione di indici secondari.
+Microsoft Azure Cosmos DB supporta l'esecuzione di query di documenti mediante SQL (Structured Query Language) come linguaggio di query JSON sugli account API SQL. Azure Cosmos DB è effettivamente privo di schema. Grazie all'impegno nei confronti del modello di dati JSON direttamente nel motore del database, fornisce l'indicizzazione automatica dei documenti JSON senza richiedere schemi espliciti o la creazione di indici secondari.
 
 Nella progettazione del linguaggio di query per Cosmos DB sono stati tenuti in considerazione due obiettivi:
 
 * Invece di inventare un nuovo linguaggio di query JSON, è stato introdotto il supporto del linguaggio SQL. SQL è uno dei linguaggi di query più familiari e popolari. Il linguaggio di query SQL di Cosmos DB fornisce un modello di programmazione formale per le query complesse sui documenti JSON.
-* Poiché un database di documenti JSON può eseguire JavaScript direttamente nel motore di database, l'obiettivo era di usare il modello di programmazione di JavaScript come base per il linguaggio di query. L'API di SQL è una radice nel sistema di tipi di JavaScript, la valutazione dell'espressione e chiamata di funzione. Questo rappresenta a sua volta un modello di programmazione naturale per le proiezioni relazionali, la navigazione gerarchica attraverso i documenti JSON, i self join, query spaziali e la chiamata di funzioni definite dall'utente (UDF) scritte interamente in JavaScript, tra le altre funzionalità. 
+* Poiché un database di documenti JSON può eseguire JavaScript direttamente nel motore di database, l'obiettivo era di usare il modello di programmazione di JavaScript come base per il linguaggio di query. L'API SQL è radicata nel sistema di tipi, nella valutazione delle espressioni e nella chiamata di funzioni di JavaScript. Questo rappresenta a sua volta un modello di programmazione naturale per le proiezioni relazionali, la navigazione gerarchica attraverso i documenti JSON, i self join, query spaziali e la chiamata di funzioni definite dall'utente (UDF) scritte interamente in JavaScript, tra le altre funzionalità. 
 
 Queste capacità costituiscono la chiave per la riduzione dell'attrito tra l'applicazione e il database e sono di importanza critica per la produttività degli sviluppatori.
 
@@ -102,7 +102,7 @@ Ecco un secondo documento con una sottile differenza: vengono usati `givenName` 
 }
 ```
 
-Ora provare alcune query sui dati per comprendere alcuni aspetti chiave del linguaggio di query SQL Azure Cosmos DB. Ad esempio, la query seguente restituisce i documenti in cui il campo ID corrisponde a `AndersenFamily`. Poiché si tratta di un'istruzione `SELECT *`, l'output della query è il documento JSON completo:
+A questo punto è possibile provare a eseguire alcune query a fronte di questi dati per comprendere alcuni aspetti chiave del linguaggio delle query SQL di Azure Cosmos DB. Ad esempio, la query seguente restituisce i documenti in cui il campo ID corrisponde a `AndersenFamily`. Poiché si tratta di un'istruzione `SELECT *`, l'output della query è il documento JSON completo:
 
 **Query**
 
@@ -169,13 +169,13 @@ La query successiva restituisce i nomi di elementi figlio specificati nella fami
 
 È opportuno prestare attenzione ad alcuni aspetti salienti del linguaggio di query di Cosmos DB attraverso gli esempi finora esaminati:  
 
-* Poiché l'API SQL opera su valori JSON, occupa albero a forma di entità anziché le righe e colonne. Di conseguenza, il linguaggio consente di fare riferimento ai nodi dell'albero a qualsiasi profondità arbitraria, ad esempio `Node1.Node2.Node3…..Nodem`, in modo analogo al linguaggio SQL relazionale con il riferimento in due parti di `<table>.<column>`.   
+* Poiché l'API SQL elabora i valori JSON, deve gestire entità con struttura ad albero invece di righe e colonne. Di conseguenza, il linguaggio consente di fare riferimento ai nodi dell'albero a qualsiasi profondità arbitraria, ad esempio `Node1.Node2.Node3…..Nodem`, in modo analogo al linguaggio SQL relazionale con il riferimento in due parti di `<table>.<column>`.   
 * Il linguaggio strutturato di interrogazione funziona con dati senza schema. perciò il sistema di tipi deve essere associato in modo dinamico. La stessa espressione potrebbe produrre tipi differenti su documenti differenti. Il risultato di una query è un valore JSON valido, ma non è garantito che appartenga a uno schema fisso.  
 * Cosmos DB supporta solo i documenti JSON completi. Ciò significa che il sistema di tipi e le espressioni sono limitati all'interazione esclusiva con i tipi JSON. Per altri dettagli, vedere le [specifiche JSON](http://www.json.org/).  
 * Una raccolta di Cosmos DB è un contenitore senza schema dei documenti JSON. Le relazioni nelle entità di dati all'interno e tra i documenti in una raccolta vengono implicitamente acquisiti dal contenitore e non dalle relazioni chiave primaria e chiave esterna. È un aspetto importante da sottolineare alla luce dei join tra documenti, descritti più avanti in questo articolo.
 
 ## <a id="Indexing"></a> Indicizzatore di Cosmos DB
-Prima di dentro la sintassi SQL, è opportuno considerare la progettazione di indicizzazione nel database di Azure Cosmos. 
+Prima di addentrarsi nella sintassi SQL, vale la pena esplorare la progettazione dell'indicizzazione di Azure Cosmos DB. 
 
 Lo scopo degli indici di database è gestire le query in varie forme con un consumo di risorse ridotto al minimo (ad esempio CPU, input/output), offrendo al contempo una buona velocità effettiva e basse latenze. Spesso, la scelta dell'indice corretto per l'interrogazione di un database richiede una lunga pianificazione e sperimentazione. Questo approccio costituisce una sfida per i database senza schema, in cui i dati non si conformano a un rigido schema ed evolvono rapidamente. 
 
@@ -283,7 +283,7 @@ La query seguente richiede documenti che contengono una proprietà nome il cui v
     }]
 
 
-Nell'esempio precedente è stata illustrata una semplice query di uguaglianza. L'API di SQL supporta anche un'ampia gamma di espressioni scalari. Quelle di uso più comune sono le espressioni binarie e unarie. Anche i riferimenti di proprietà dell'oggetto JSON sono espressioni valide. 
+Nell'esempio precedente è stata illustrata una semplice query di uguaglianza. Il linguaggio API SQL supporta anche una varietà di espressioni scalari. Quelle di uso più comune sono le espressioni binarie e unarie. Anche i riferimenti di proprietà dell'oggetto JSON sono espressioni valide. 
 
 Gli operatori binari seguenti sono attualmente supportati e possono essere usati nelle query come illustrato negli esempi riportati di seguito:  
 
@@ -305,7 +305,7 @@ Gli operatori binari seguenti sono attualmente supportati e possono essere usati
 <td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td>
 </tr>
 <tr>
-<td>string</td>    
+<td>Stringa</td>    
 <td>|| (concatenazione)</td>
 </tr>
 </table>  
@@ -341,7 +341,7 @@ Sono supportati anche gli operatori unari +,-, ~ e NOT, che possono essere usati
 Oltre agli operatori binari e unari, sono consentiti anche i riferimenti di proprietà. Ad esempio, `SELECT * FROM Families f WHERE f.isRegistered` restituirebbe i documenti JSON contenenti la proprietà `isRegistered` dove il valore della proprietà è uguale al valore JSON `true`. Qualsiasi altro valore (false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>` e così via) comporta l'esclusione del documento di origine dai risultati. 
 
 ### <a name="equality-and-comparison-operators"></a>Operatori di confronto e uguaglianza
-Nella tabella seguente illustra il risultato dei confronti di uguaglianza nell'API di SQL tra qualsiasi due tipi JSON.
+La tabella seguente illustra il risultato dei confronti di uguaglianza nell'API SQL tra due tipi JSON qualsiasi.
 
 <table style = "width:300px">
    <tbody>
@@ -536,27 +536,27 @@ A differenza di SQL ANSI, è possibile usare la clausola BETWEEN anche nella cla
 
 Per accelerare l'esecuzione della query, creare un criterio di indicizzazione che usa un tipo di indice di intervallo su qualsiasi proprietà/percorso numerico filtrato nella clausola BETWEEN. 
 
-La differenza principale tra l'utilizzo di BETWEEN l'API di SQL e SQL ANSI è che è possibile esprimere le query di intervallo rispetto alle proprietà di tipi misti: ad esempio, potrebbe essere "livello" essere un numero (5) in alcuni documenti e le stringhe in altri ambienti ("grade4"). In questi casi, come in JavaScript, un confronto tra due tipi diversi restituisce un risultato "undefined" e il documento viene ignorato.
+La differenza principale tra l'uso di BETWEEN nell'API SQL e ANSI SQL consiste nel fatto che è possibile esprimere le query di intervallo su proprietà di tipo misto. Ad esempio, "grade" può essere un numero (5) in alcuni documenti e stringhe in altri ("grade4"). In questi casi, come in JavaScript, un confronto tra due tipi diversi restituisce un risultato "undefined" e il documento viene ignorato.
 
 ### <a name="logical-and-or-and-not-operators"></a>Operatori logici (AND, OR e NOT)
 Gli operatori logici funzionano con valori booleani. Le tabelle di veridicità logica per questi operatori sono illustrate di seguito.
 
-| Oppure | True  | False | Undefined |
+| Oppure | Vero | Falso | Undefined |
 | --- | --- | --- | --- |
-| True  |True  |True  |True  |
-| False |True  |False |Undefined |
-| Undefined |True  |Undefined |Undefined |
+| Vero |Vero |Vero |Vero |
+| Falso |Vero |Falso |Undefined |
+| Undefined |Vero |Undefined |Undefined |
 
-| AND | True  | False | Undefined |
+| AND | Vero | Falso | Undefined |
 | --- | --- | --- | --- |
-| True  |True  |False |Undefined |
-| False |False |False |False |
-| Undefined |Undefined |False |Undefined |
+| Vero |Vero |Falso |Undefined |
+| Falso |Falso |Falso |Falso |
+| Undefined |Undefined |Falso |Undefined |
 
 | NOT |  |
 | --- | --- |
-| True  |False |
-| False |True  |
+| Vero |Falso |
+| Falso |Vero |
 | Undefined |Undefined |
 
 ### <a name="in-keyword"></a>Parola chiave IN
@@ -753,7 +753,7 @@ Nell'esempio seguente, il risultato dell'espressione scalare è un valore boolea
 
 
 ### <a name="object-and-array-creation"></a>Creazione di oggetti e matrici
-Un'altra funzionalità chiave dell'API di SQL è la creazione o l'oggetto di matrice. Nell'esempio precedente si è osservato che è stato creato un nuovo oggetto JSON. In modo analogo, è possibile creare matrici, come illustrato negli esempi seguenti:
+Un'altra funzione fondamentale dell'API SQL è la creazione di matrici/oggetti. Nell'esempio precedente si è osservato che è stato creato un nuovo oggetto JSON. In modo analogo, è possibile creare matrici, come illustrato negli esempi seguenti:
 
 **Query**
 
@@ -924,9 +924,9 @@ La parola chiave TOP può essere usata per limitare il numero di valori restitui
 
     [ 1 ]
 
-Nella tabella seguente mostra l'elenco delle funzioni di aggregazione supportate nell'API di SQL. `SUM`e `AVG` vengono eseguite su valori numerici, mentre `COUNT`, `MIN` e `MAX` possono essere eseguite su numeri, stringhe, valori booleani e valori null. 
+La tabella seguente mostra l'elenco delle funzioni di aggregazione supportate nell'API SQL. `SUM`e `AVG` vengono eseguite su valori numerici, mentre `COUNT`, `MIN` e `MAX` possono essere eseguite su numeri, stringhe, valori booleani e valori null. 
 
-| Uso | DESCRIZIONE |
+| Uso | Descrizione |
 |-------|-------------|
 | COUNT | Restituisce il numero di elementi nell'espressione. |
 | SUM   | Restituisce la somma dei valori nell'espressione. |
@@ -990,7 +990,7 @@ La query seguente recupera le famiglie in ordine di data di creazione, archiviat
 ## <a id="Advanced"></a>Concetti avanzati relativi ai database e alle query SQL
 
 ### <a id="Iteration"></a>Iterazione
-È stato aggiunto un nuovo costrutto di tramite il **IN** (parola chiave) nell'API di SQL per fornire supporto per scorrere le matrici JSON. L'origine FROM fornisce supporto per l'iterazione. Esaminare l'esempio seguente:
+Nell'API SQL è stato aggiunto un nuovo costrutto tramite la parola chiave **IN** per fornire supporto all'iterazione nelle matrici JSON. L'origine FROM fornisce supporto per l'iterazione. Esaminare l'esempio seguente:
 
 **Query**
 
@@ -1084,7 +1084,7 @@ Può essere usato per filtrare ulteriormente ciascuna voce individuale della mat
     ]
 
 ### <a id="Joins"></a>Join
-In un database relazionale, la necessità creare un join tra tabelle è importante. È il corollario logico della progettazione di schemi normalizzati. Al contrario, l'API di SQL riguarda il modello di dati denormalizzati dei documenti senza schema. È l'equivalente logico di un "self-join".
+In un database relazionale, la necessità creare un join tra tabelle è importante. È il corollario logico della progettazione di schemi normalizzati. Al contrario, l'API SQL gestisce un modello dati denormalizzato di documenti senza schema. È l'equivalente logico di un "self-join".
 
 La sintassi supportata dal linguaggio è <from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>. In generale, restituisce un set di tuple **N** (tupla con valori **N**). Ogni tupla ha valori prodotti dall'iterazione di tutti gli alias della raccolta sui rispettivi set. In altri termini, si tratta del prodotto incrociato completo dei set che partecipano al join.
 
@@ -1239,9 +1239,9 @@ Azure Cosmos DB offre un modello di programmazione per l'esecuzione di logica de
 * Modellazione naturale del flusso di controllo, definizione dell'ambito delle variabili e assegnazione e integrazione di primitivi di gestione delle eccezioni con transazioni di database. Per altri dettagli sul supporto di Azure Cosmos DB per l'integrazione di JavaScript, vedere la documentazione relativa alla programmabilità lato server di JavaScript.
 
 ### <a id="UserDefinedFunctions"></a>Funzioni definite dall'utente (UDF)
-Oltre ai tipi già definiti in questo articolo, l'API di SQL fornisce supporto per utente definite funzioni (funzione definita dall'utente). In particolare, le UDF scalari sono supportate laddove gli sviluppatori possono passare zero o molti argomenti e restituire un unico argomento. Verrà quindi eseguito un controllo per verificare che ciascuno di questi argomenti sia un valore JSON legale.  
+Oltre ai tipi già specificati in questo articolo, l'API SQL offre il supporto per le funzioni definite dall'utente (UDF). In particolare, le UDF scalari sono supportate laddove gli sviluppatori possono passare zero o molti argomenti e restituire un unico argomento. Verrà quindi eseguito un controllo per verificare che ciascuno di questi argomenti sia un valore JSON legale.  
 
-La sintassi SQL viene esteso per supportare la logica dell'applicazione personalizzata utilizzando le funzioni definite dall'utente. Funzioni definite dall'utente possono essere registrati con l'API di SQL e quindi farvi riferimento come parte di una query SQL. In effetti, le UDF sono progettate espressamente per essere richiamate dalle query. Come corollario a questa scelta, le UDF non hanno accesso all'oggetto di contesto a cui possono invece accedere altri tipi di Javascript (stored procedure e trigger). Poiché le query vengono eseguite in sola lettura, è possibile eseguirle sulle repliche primarie o secondarie. Di conseguenza, a differenza di altri tipi di JavaScript, le UDF vengono progettate per l'esecuzione sulle repliche secondarie.
+La sintassi SQL viene estesa per supportare la logica delle applicazioni personalizzata usando le funzioni definite dall'utente. Le UDF possono essere registrate con l'API SQL ed è quindi possibile fare loro riferimento come parte di una query SQL. In effetti, le UDF sono progettate espressamente per essere richiamate dalle query. Come corollario a questa scelta, le UDF non hanno accesso all'oggetto di contesto a cui possono invece accedere altri tipi di Javascript (stored procedure e trigger). Poiché le query vengono eseguite in sola lettura, è possibile eseguirle sulle repliche primarie o secondarie. Di conseguenza, a differenza di altri tipi di JavaScript, le UDF vengono progettate per l'esecuzione sulle repliche secondarie.
 
 Di seguito è riportato un esempio di come è possibile registrare una UDF nel database di Cosmos DB, in maniera specifica in una raccolta di documenti.
 
@@ -1344,18 +1344,18 @@ Di seguito è riportato un esempio per l'esercitazione con le UDF.
     ]
 
 
-Come negli esempi precedenti illustrano, funzioni definite dall'utente integrare la potenza del linguaggio JavaScript con l'API SQL per fornire un'interfaccia programmabile completa per eseguire una logica procedura, condizionale complessa con il supporto delle funzionalità di runtime JavaScript incorporato.
+Come mostra l'esempio precedente, le UDF integrano la potenza del linguaggio JavaScript con quella dell'API SQL per fornire un'interfaccia programmabile avanzata con la quale eseguire una logica condizionale e procedurale complessa con l'ausilio delle capacità di runtime JavaScript integrate.
 
-L'API di SQL fornisce gli argomenti di funzioni definite dall'utente per ogni documento nell'origine nella fase corrente (clausola WHERE o clausola SELECT) di elaborare la funzione definita dall'utente. Il risultato verrà incorporato in maniera uniforme nella pipeline di esecuzione generale. Se le proprietà a cui fanno riferimento i parametri della UDF non sono disponibili nel valore JSON, il parametro verrà considerato come Undefined, quindi la chiamata alla UDF verrà interamente ignorata. Analogamente, se il risultato della UDF è Undefined, non verrà incluso nel risultato. 
+L'API SQL fornisce gli argomenti alle UDF per ogni documento nel database di origine nella fase corrente (clausola WHERE o clausola SELECT) di elaborazione della UDF. Il risultato verrà incorporato in maniera uniforme nella pipeline di esecuzione generale. Se le proprietà a cui fanno riferimento i parametri della UDF non sono disponibili nel valore JSON, il parametro verrà considerato come Undefined, quindi la chiamata alla UDF verrà interamente ignorata. Analogamente, se il risultato della UDF è Undefined, non verrà incluso nel risultato. 
 
 Riepilogando, le UDF sono un ottimo strumento per eseguire una logica di business complessa come parte della query.
 
 ### <a name="operator-evaluation"></a>Valutazione degli operatori
 Essendo un database JSON, Cosmos DB esegue un confronto con gli operatori JavaScript e la relativa semantica di valutazione. Benché Cosmos DB provi a mantenere la semantica di JavaScript in termini di supporto JSON, la valutazione dell'operazione devia in alcune istanze.
 
-Nell'API di SQL, a differenza di SQL tradizionale, i tipi di valori sono spesso sconosciuti finché i valori vengono recuperati dal database. Per poter eseguire le query in maniera efficiente, gran parte degli operatori ha rigorosi requisiti di tipi. 
+A differenza del tradizionale linguaggio SQL, nell'API SQL spesso i tipi di valori non sono noti fino al loro recupero dal database. Per poter eseguire le query in maniera efficiente, gran parte degli operatori ha rigorosi requisiti di tipi. 
 
-L'API di SQL non esegue conversioni implicite, a differenza di JavaScript. Ad esempio, una query come `SELECT * FROM Person p WHERE p.Age = 21` corrisponde a documenti che contengono una proprietà Age il cui valore è 21. Qualsiasi altro documento la cui proprietà Age corrisponde alla stringa "21", o ad altre possibili variazioni come "021", "21.0", "0021", "00021" e così via, non verrà trovato. Questo comportamento è diverso da quanto avviene in JavaScript, che consente di eseguire implicitamente il cast dei valori di stringa al numero (in base all'operatore, ad esempio: ==). Questa scelta è fondamentale per efficiente indice corrispondente nell'API di SQL. 
+L'API SQL non esegue conversioni implicite, a differenza di JavaScript. Ad esempio, una query come `SELECT * FROM Person p WHERE p.Age = 21` corrisponde a documenti che contengono una proprietà Age il cui valore è 21. Qualsiasi altro documento la cui proprietà Age corrisponde alla stringa "21", o ad altre possibili variazioni come "021", "21.0", "0021", "00021" e così via, non verrà trovato. Questo comportamento è diverso da quanto avviene in JavaScript, che consente di eseguire implicitamente il cast dei valori di stringa al numero (in base all'operatore, ad esempio: ==). Questa scelta è fondamentale per la ricerca di indici corrispondenti nell'API SQL. 
 
 ## <a name="parameterized-sql-queries"></a>Query SQL con parametri
 Cosmos DB supporta le query con parametri espressi con la consueta notazione @. SQL con parametri fornisce solide capacità di gestione ed escape dell'input utente, evitando l'esposizione accidentale di dati mediante attacchi SQL injection. 
@@ -1404,7 +1404,7 @@ Se attualmente si usa una funzione definita dall'utente (UDF) per cui è ora dis
 Le funzioni matematiche eseguono un calcolo basato su valori di input passati come argomenti e restituiscono un valore numerico. Di seguito è riportata una tabella delle funzioni matematiche predefinite supportate.
 
 
-| Uso | DESCRIZIONE |
+| Uso | Descrizione |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [[ABS (num_expr)](#bk_abs) | Restituisce il valore assoluto (positivo) dell'espressione numerica specificata. |
 | [CEILING (num_expr)](#bk_ceiling) | Restituisce il più piccolo valore integer maggiore di o uguale all'espressione numerica specificata. |
@@ -1498,7 +1498,7 @@ Usando queste funzioni, è ora possibile eseguire query come le seguenti:
 ### <a name="string-functions"></a>Funzioni stringa
 Le funzioni scalari seguenti eseguono un'operazione su un valore di stringa di input e restituiscono una stringa, il valore numerico o booleano. Ecco una tabella di funzioni per stringhe:
 
-| Uso | DESCRIZIONE |
+| Uso | Descrizione |
 | --- | --- |
 | [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |Restituisce il numero di caratteri dell'espressione stringa specificata |
 | [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |Restituisce una stringa che rappresenta il risultato della concatenazione di due o più valori di stringa. |
@@ -1568,7 +1568,7 @@ Le funzioni stringa possono essere usate anche nella clausola WHERE per filtrare
 ### <a name="array-functions"></a>Funzioni di matrice
 Le funzioni scalari seguenti eseguono un'operazione su un valore di input di matrice e restituiscono un valore numerico, booleano o matrice. La tabella seguente include funzioni di matrice predefinite:
 
-| Uso | DESCRIZIONE |
+| Uso | Descrizione |
 | --- | --- |
 | [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Restituisce il numero di elementi dell'espressione di matrice specificato. |
 | [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Restituisce una matrice che rappresenta il risultato della concatenazione di due o più valori della matrice. |
@@ -1668,12 +1668,12 @@ Le funzioni spaziali possono essere utilizzate per eseguire query di prossimità
 
 Per informazioni dettagliate sul supporto geospaziale in Cosmos DB, vedere [Uso dei dati geospaziali in Azure Cosmos DB](geospatial.md). Viene eseguito il wrapping di funzioni spaziali e della sintassi SQL per Cosmos DB. Verrà ora esaminato il funzionamento delle query LINQ e verrà illustrato il modo in cui interagiscono con la sintassi esaminata fino ad ora.
 
-## <a id="Linq"></a>LINQ all'API di SQL
+## <a id="Linq"></a>Da LINQ all'API SQL
 LINQ è un modello di programmazione .NET che esprime il calcolo come query su flussi di oggetti. Cosmos DB fornisce una libreria lato client che si interfaccia con LINQ agevolando una conversione tra oggetti JSON e .NET e un mapping da un sottoinsieme di query LINQ alle query di Cosmos DB. 
 
 L'immagine seguente illustra l'architettura di supporto delle query LINQ usando Cosmos DB.  Con il client di Cosmos DB, gli sviluppatori possono creare un oggetto **IQueryable** che comunica una query al provider di query di Cosmos DB, il quale a sua volta traduce la query LINQ in una query di Cosmos DB. Questa viene quindi passata al server di Cosmos DB per recuperare un set di risultati in formato JSON. I risultati restituiti vengono deserializzati in un flusso di oggetti .NET sul lato client.
 
-![Architettura di supportare le query LINQ usando l'API SQL - sintassi SQL, il linguaggio di query JSON, i concetti di database e query SQL][1]
+![Architettura di supporto delle query LINQ usando API SQL - sintassi SQL, linguaggio di query JSON, concetti relativi ai database e query SQL][1]
 
 ### <a name="net-and-json-mapping"></a>Mapping .NET e JSON
 Il mapping tra oggetti .NET e documenti JSON avviene naturalmente: ogni campo del membro dati viene mappato a un oggetto JSON, in cui il nome del campo viene mappato alla parte "chiave" dell'oggetto e la parte "valore" viene mappata in modo ricorsivo alla parte del valore dell'oggetto. Si consideri l'esempio seguente: l'oggetto Family creato viene mappato al documento JSON, come illustrato di seguito. Viceversa, il documento JSON viene mappato nuovamente a un oggetto .NET.
@@ -1778,7 +1778,7 @@ In primo luogo, per il sistema di tipi sono supportati tutti i tipi primitivi JS
      new int[] { 3, child.grade, 5 };
 
 ### <a id="SupportedLinqOperators"></a>Elenco di operatori LINQ supportati
-Di seguito è riportato un elenco di operatori LINQ supportati nel provider LINQ incluso con il SDK .NET di SQL.
+Di seguito è riportato un elenco di operatori LINQ supportati nel provider LINQ incluso in SQL .NET SDK.
 
 * **Select**: le proiezioni convertono in SQL SELECT inclusa la costruzione dell'oggetto.
 * **Where**: i filtri convertono in SQL WHERE e supportano la conversione tra &amp;&amp; , || e ! in operatori SQL.
@@ -1995,7 +1995,7 @@ Cosmos DB offre un modello di programmazione aperto RESTful su HTTP. È possibil
 
 Il modello di interazione di base con queste risorse usa i verbi HTTP GET, PUT, POST e DELETE con la relativa interpretazione standard. Il verbo POST viene usato per creare una nuova risorsa, per eseguire una stored procedure o per inviare una query di Cosmos DB. Le query sono sempre operazioni di sola lettura senza nessun effetto collaterale.
 
-Gli esempi seguenti mostrano un POST per una query SQL API effettuata una raccolta che contiene i due documenti di esempio che abbiamo esaminato finora. La query ha un semplice filtro sulla proprietà nome JSON. Si noti l'uso delle intestazioni `x-ms-documentdb-isquery` e Content-Type `application/query+json` per indicare che l'operazione è una query.
+Gli esempi seguenti illustrano un'azione POST per una query dell'API SQL a fronte di una raccolta contenente i due documenti di esempio esaminati finora. La query ha un semplice filtro sulla proprietà nome JSON. Si noti l'uso delle intestazioni `x-ms-documentdb-isquery` e Content-Type `application/query+json` per indicare che l'operazione è una query.
 
 **Richiesta**
 
@@ -2123,7 +2123,7 @@ Per gestire i criteri di coerenza dei dati per le query, usare l'intestazione `x
 
 Se i criteri di indicizzazione configurati sulla raccolta non possono supportare la query specificata, il server di Azure Cosmos DB restituisce il codice di errore 400 (Richiesta non valida). Questo codice viene restituito per le query di intervallo per ricerche hash (uguaglianza) e per i percorsi esplicitamente esclusi dall'indicizzazione. È possibile specificare l'intestazione `x-ms-documentdb-query-enable-scan` per consentire alla query di eseguire una scansione quando non è disponibile un indice.
 
-È possibile ottenere metriche dettagliate sull'esecuzione di query impostando l'intestazione `x-ms-documentdb-populatequerymetrics` su `True`. Per ulteriori informazioni, vedere [metriche di query SQL di Azure Cosmos DB](sql-api-sql-query-metrics.md).
+È possibile ottenere metriche dettagliate sull'esecuzione di query impostando l'intestazione `x-ms-documentdb-populatequerymetrics` su `True`. Per altre informazioni, vedere [metriche di query SQL per Azure Cosmos DB](sql-api-sql-query-metrics.md).
 
 ### <a id="DotNetSdk"></a>C# (.NET) SDK
 .NET SDK supporta l'esecuzione di query LINQ ed SQL. Nell'esempio seguente viene illustrato come eseguire la semplice query di filtro introdotta in precedenza in questo documento.

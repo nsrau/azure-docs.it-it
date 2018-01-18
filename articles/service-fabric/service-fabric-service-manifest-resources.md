@@ -1,5 +1,5 @@
 ---
-title: Specifica degli endpoint di servizio di Service Fabric | Documentazione Microsoft
+title: Specifica degli endpoint di servizio di Service Fabric | Microsoft Docs
 description: Come descrivere le risorse di endpoint in un manifesto del servizio, inclusa l'impostazione di endpoint HTTPS
 services: service-fabric
 documentationcenter: .net
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/18/2017
+ms.date: 01/05/2018
 ms.author: subramar
-ms.openlocfilehash: 615b758d6aa48f94ec8c9159d4f52e32f413c8d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ccfbd03ed6d2cd84f8c2cf789e4fc1e99b1e5bbf
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Specificare le risorse in un manifesto del servizio
 ## <a name="overview"></a>Panoramica
@@ -33,6 +33,17 @@ Quando una risorsa dell'endpoint viene definita nel manifesto del servizio, Serv
     <Endpoint Name="ServiceEndpoint1" Protocol="http"/>
     <Endpoint Name="ServiceEndpoint2" Protocol="http" Port="80"/>
     <Endpoint Name="ServiceEndpoint3" Protocol="https"/>
+  </Endpoints>
+</Resources>
+```
+
+Se sono presenti più pacchetti di codice in un singolo pacchetto del servizio, è necessario fare riferimento anche al pacchetto di codice nella sezione **Endpoint**.  Ad esempio, se **ServiceEndpoint2a** e **ServiceEndpoint2b** sono endpoint dello stesso pacchetto del servizio che fanno riferimento a pacchetti di codice diversi, il pacchetto di codice corrispondente a ogni endpoint viene definito come indicato di seguito:
+
+```xml
+<Resources>
+  <Endpoints>
+    <Endpoint Name="ServiceEndpoint2a" Protocol="http" Port="802" CodePackageRef="Code1"/>
+    <Endpoint Name="ServiceEndpoint2b" Protocol="http" Port="801" CodePackageRef="Code2"/>
   </Endpoints>
 </Resources>
 ```
@@ -89,7 +100,7 @@ Gli endpoint HTTP vengono automaticamente inseriti nell'elenco di controllo di a
 ```
 
 ## <a name="example-specifying-an-https-endpoint-for-your-service"></a>Esempio: specificare un endpoint HTTPS per il servizio
-Il protocollo HTTPS fornisce l’autenticazione del server e viene anche usato per crittografare la comunicazione del client-server. Per abilitare il protocollo HTTPS nel servizio di Service Fabric, specificare il protocollo nella sezione *Risorse -> Endpoint -> Endpoint* del manifesto del servizio, come illustrato in precedenza per l'endpoint *ServiceEndpoint3*.
+Il protocollo HTTPS fornisce l'autenticazione del server e viene anche usato per crittografare la comunicazione del client-server. Per abilitare il protocollo HTTPS nel servizio di Service Fabric, specificare il protocollo nella sezione *Risorse -> Endpoint -> Endpoint* del manifesto del servizio, come illustrato in precedenza per l'endpoint *ServiceEndpoint3*.
 
 > [!NOTE]
 > Un protocollo del servizio non può essere modificato durante l'aggiornamento dell'applicazione. Se viene modificato durante l'aggiornamento, si tratta di una modifica importante.
@@ -185,7 +196,7 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 
 Nota: se i valori forniti per ApplicationParameters sono vuoti, si torna al il valore predefinito fornito in ServiceManifest per l'EndPointName corrispondente.
 
-ad esempio:
+Ad esempio: 
 
 Se in ServiceManifest è stato specificato
 

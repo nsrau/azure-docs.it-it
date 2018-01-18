@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: 57044afe946e21d4b3cfa991772e780e59a1710e
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: e0b82fe8e8c8bc4ac9c45370d90fa9330d749878
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Analisi della varianza del cliente tramite Azure Machine Learning
 ## <a name="overview"></a>Panoramica
-Questo argomento illustra un'implementazione di riferimento di un progetto di analisi della varianza del cliente compilata tramite Azure Machine Learning. L'articolo illustra i modelli generici associati per la risoluzione olistica dei problemi di varianza del cliente industriale. È inoltre misurare l'accuratezza di modelli compilati utilizzando Machine Learning e valutare le direzioni per uno sviluppo ulteriore.  
+Questo argomento illustra un'implementazione di riferimento di un progetto di analisi della varianza del cliente compilata tramite Azure Machine Learning. L'articolo illustra i modelli generici associati per la risoluzione olistica dei problemi di varianza del cliente industriale. Viene inoltre misurata l'accuratezza dei modelli compilati usando Machine Learning e vengono poi valutate direzioni di sviluppo ulteriore.  
 
 ### <a name="acknowledgements"></a>Riconoscimenti
 Questo esperimento è stato sviluppato e testato da Serge Berger, Principal Data Scientist presso Microsoft e Roger Barga, in precedenza Product Manager per Microsoft Azure Machine Learning. Il team di documentazione di Azure esprime riconoscenza e ringrazia gli esperti per aver condiviso le proprie competenze in questo white paper.
 
 > [!NOTE]
-> I dati usati per questo esperimento non sono disponibili pubblicamente. Per un esempio su come compilare un modello di apprendimento automatico per l'analisi della varianza, vedere: [Retail churn model template](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) (Modello di varianza al dettaglio) in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/).
+> I dati usati per questo esperimento non sono disponibili pubblicamente. Per un esempio su come compilare un modello di apprendimento automatico per l'analisi della varianza, vedere: [Retail churn model template](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) (Modello di varianza al dettaglio) nella [Raccolta di intelligenza artificiale per Azure](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="the-problem-of-customer-churn"></a>Il problema della varianza del cliente
-Le aziende del mercato consumer, come tutte quelle dei settori commerciali, devono fare i conti con la varianza. In certi casi una varianza eccessiva può arrivare a influenzare i criteri decisionali. La soluzione tradizionale consiste nel prevedere i fattori con elevata propensione alla varianza e soddisfare le relative esigenze tramite un servizio di concierge, campagne di marketing o tramite l'applicazione di dispense speciali. Questi approcci possono variare da settore a settore e persino da un determinato gruppo di clienti a un altro all'interno di un settore (ad esempio quello delle telecomunicazioni).
+Le aziende del mercato consumer, come tutte quelle dei settori commerciali, devono fare i conti con la varianza. In certi casi una varianza eccessiva può arrivare a influenzare i criteri decisionali. La soluzione tradizionale consiste nel prevedere i fattori con elevata propensione alla varianza e soddisfare le relative esigenze tramite un servizio di concierge, campagne di marketing o tramite l'applicazione di dispense speciali. Questi approcci possono variare da settore a settore. Possono variare persino da un determinato gruppo di clienti a un altro all'interno di un settore (ad esempio quello delle telecomunicazioni).
 
-Il fattore comune è che le aziende hanno necessità di ridurre al minimo questi sforzi speciali rivolti alla fidelizzazione. Pertanto, una metodologia consisterebbe nell'assegnazione di un punteggio a ogni cliente con probabilità di varianza per poi gestire i primi N classificati. I migliori clienti potrebbero essere quelli più produttivi. In scenari più sofisticati, ad esempio, una funzione dei profitti è impiegata durante la selezione di candidati per dispensa speciale. Tuttavia, queste considerazioni sono solo una parte della strategia completa per la gestione di varianza. Le aziende devono inoltre tenere in considerazione il rischio (e la tolleranza al rischio associata), il livello e i costi dell'intervento e una segmentazione dei clienti plausibile.  
+Il fattore comune è che le aziende hanno necessità di ridurre al minimo questi sforzi speciali rivolti alla fidelizzazione. Pertanto, una metodologia consisterebbe nell'assegnazione di un punteggio a ogni cliente con probabilità di varianza per poi gestire i primi N classificati. I clienti principali potrebbero essere anche i più remunerativi. Ad esempio, in scenari più sofisticati viene impiegata una funzione di redditività durante la selezione dei candidati per una dispensa speciale. Tuttavia, queste considerazioni rappresentano solo una parte della strategia completa alla base della gestione della varianza. Le aziende devono inoltre tenere in considerazione il rischio (e la tolleranza al rischio associata), il livello e i costi dell'intervento e una segmentazione dei clienti plausibile.  
 
 ## <a name="industry-outlook-and-approaches"></a>Prospettive e approcci di settore
 La gestione sofisticata della varianza è un indicatore di maturità di un settore. L'esempio classico è dato dal settore delle telecomunicazioni, nel quale gli abbonati sono soliti passare frequentemente da un provider a un altro. Questa varianza volontaria rappresenta un motivo principale di preoccupazione. I provider, inoltre, hanno accumulato notevoli conoscenze riguardo agli *elementi che inducono varianza*ovvero i fattori che spingono i clienti a cambiare.
 
-La scelta dell'apparecchio o del dispositivo, ad esempio, è un fattore di varianza ben noto nel settore della telefonia mobile. Di conseguenza, criteri comuni sono subsidize il prezzo di un ricevitore nuove sottoscrizioni e ricaricare un prezzo completo per i clienti esistenti per un aggiornamento. In passato, questo criterio ha portato ai clienti di salto da un provider a un altro per ottenere un nuovo sconto. Questa operazione, a sua volta, è richiesto ai provider di ottimizzare le strategie.
+La scelta dell'apparecchio o del dispositivo, ad esempio, è un fattore di varianza ben noto nel settore della telefonia mobile. Come risultato, un criterio diffuso è la sovvenzione promozionale di una parte del costo di un telefono per i nuovi abbonati e l'addebito del prezzo intero per i clienti esistenti per un cambio di modello. Storicamente, tale criterio ha portato i clienti a passare da un provider all'altro per ottenere un nuovo sconto. Questo, a sua volta, ha indotto i provider ad affinare le proprie strategie.
 
-Alta volatilità nelle offerte di ricevitore è un fattore che invalida rapidamente modelli di varianza basati su modelli palmari correnti. Inoltre, telefoni cellulari non sono solo periferiche di telecomunicazione, sono anche istruzioni modo (potrebbe essere preferibile iPhone). Queste variabili predittive di social networking esulano dall'ambito telecomunicazioni regolare dei set di dati.
+L'elevata volatilità nelle offerte legate ai dispositivi è un fattore in grado di invalidare velocemente i modelli di varianza che si basano sui modelli di dispositivo attuali. Inoltre, i telefoni cellulari non sono solo dispositivi di telecomunicazione, sono anche oggetti alla moda (si pensi all'iPhone). Queste variabili predittive sociali esulano dall'ambito dei set di dati delle normali telecomunicazioni.
 
 Il risultato netto per l'uso dei modelli è l'impossibilità di implementare un criterio efficace solamente eliminando i motivi noti per la varianza. Infatti, una strategia di modellazione continua, che include modelli classici che quantificano le variabili di categoria (ad esempio alberi decisionali) è **obbligatoria**.
 
@@ -109,7 +109,7 @@ Nei diagrammi che seguono sono illustrati i dati usati.
  
 
 > Questi dati sono privati e quindi il modello e i dati non possono essere condivisi.
-> Tuttavia, per un modello simile che usa dati disponibili pubblicamente, vedere questo esperimento di esempio in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/): [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383) (Varianza del cliente in ambito di telecomunicazioni).
+> Tuttavia, per un modello simile che usa dati disponibili pubblicamente, vedere questo esperimento di esempio nella [Raccolta di intelligenza artificiale per Azure](http://gallery.cortanaintelligence.com/): [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383) (Varianza del cliente in ambito di telecomunicazioni).
 > 
 > Per altre informazioni su come è possibile implementare un modello di analisi della varianza usando Cortana Intelligence Suite, si consiglia anche [questo video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) del Senior Program Manager Wee Hyong Tok. 
 > 
@@ -222,7 +222,7 @@ In questo documento viene descritto un approccio intelligente alla gestione di u
 
 [4] [Big Data Marketing: coinvolgere i clienti e valorizzare i prodotti in modo più efficace](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Telco churn model template](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) (Modello di varianza Telco) in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) 
+[5] [Modello di varianza delle telecomunicazioni](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) nella [Raccolta di intelligenza artificiale per Azure](http://gallery.cortanaintelligence.com/) 
  
 
 ## <a name="appendix"></a>Appendice

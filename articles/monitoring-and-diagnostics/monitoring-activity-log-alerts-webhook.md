@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: b0e301f58ec0b5a14254935d6c269cc8006f4eff
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 7816efd44c01c3ed60c95d8699042f89cf6de5ec
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook per gli avvisi del log attività di Azure
 Nella definizione di un gruppo di azione è possibile configurare gli endpoint webhook in modo da ricevere le notifiche per gli avvisi del log attività. Con i webhook è possibile instradare queste notifiche ad altri sistemi per la post-elaborazione o azioni personalizzate. L'articolo illustra anche il modo in cui il payload per il protocollo HTTP POST viene percepito da un webhook.
@@ -134,17 +134,17 @@ Per i dettagli su schemi specifici relativi a tutti gli altri avvisi del log att
 | Nome dell'elemento | Descrizione |
 | --- | --- |
 | status |Usato per avvisi relativi alle metriche. Sempre impostato su "Activated" per gli avvisi del registro attività. |
-| context |Contesto dell'evento. |
+| contesto |Contesto dell'evento. |
 | resourceProviderName |Provider della risorsa interessata. |
 | conditionType |Sempre "Event". |
-| name |Nome della regola di avviso. |
+| nome |Nome della regola di avviso. |
 | id |ID risorsa dell'avviso. |
-| description |Descrizione dell'avviso impostata al momento della creazione dell'avviso. |
+| descrizione |Descrizione dell'avviso impostata al momento della creazione dell'avviso. |
 | subscriptionId |ID sottoscrizione di Azure. |
 | timestamp |Data e ora in cui l'evento è stato generato dal servizio di Azure che ha elaborato la richiesta. |
-| resourceId |ID risorsa della risorsa interessata. |
+| ResourceId |ID risorsa della risorsa interessata. |
 | resourceGroupName |Nome del gruppo di risorse della risorsa interessata. |
-| properties |Set di coppie `<Key, Value>` (cioè `Dictionary<String, String>`), inclusi dettagli relativi all'evento. |
+| proprietà |Set di coppie `<Key, Value>` (cioè `Dictionary<String, String>`), inclusi dettagli relativi all'evento. |
 | event |Elemento contenente i metadati relativi all'evento. |
 | autorizzazione |Proprietà di controllo degli accessi in base al ruolo per l'evento. Queste proprietà includono in genere action, role e scope. |
 | category |Categoria dell'evento. I valori supportati includono Administrative, Alert, Security, ServiceHealth e Recommendation. |
@@ -154,10 +154,10 @@ Per i dettagli su schemi specifici relativi a tutti gli altri avvisi del log att
 | eventDataId |Identificatore univoco dell'evento. |
 | eventSource |Nome del servizio o dell'infrastruttura di Azure che ha generato l'evento. |
 | httpRequest |La richiesta in genere include clientRequestId, clientIpAddress e method HTTP, ad esempio PUT. |
-| level |Uno dei valori seguenti: Critical, Error, Warning, Informational e Verbose. |
+| level |Uno dei valori seguenti: Critical, Error, Warning e Informational. |
 | operationId |In genere un GUID condiviso tra gli eventi corrispondenti a una singola operazione. |
 | operationName |Nome dell'operazione. |
-| properties |Proprietà dell'evento. |
+| proprietà |Proprietà dell'evento. |
 | status |Stringa. Stato dell'operazione. I valori comuni includono: Started, In Progress, Succeeded, Failed, Active e Resolved. |
 | subStatus |In genere include il codice di stato HTTP della chiamata REST corrispondente. Può includere anche altre stringhe che descrivono uno stato secondario. I valori di stato secondario comuni includono OK (codice di stato HTTP: 200), Created (codice di stato HTTP: 201), Accepted (codice di stato HTTP: 202), No Content (codice di stato HTTP: 204), Bad Request (codice di stato HTTP: 400), Not Found (codice di stato HTTP: 404), Conflict (codice di stato HTTP: 409), Internal Server Error (codice di stato HTTP: 500), Service Unavailable (codice di stato HTTP: 503), Gateway Timeout (codice di stato HTTP: 504). |
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: d1f6d3af5fc414d06f4a6d3aeda660b759a88353
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee5d8d118234ca0335922be1a29c6ce1e68eb7b6
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Connettere i servizi/prodotti ITSM con IT Service Management Connector (Anteprima)
 Questo articolo offre informazioni su come connettere i prodotti/servizi di Gestione dei servizi IT a Connettore di Gestione dei servizi IT in OMS e gestire centralmente gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](log-analytics-itsmc-overview.md).
@@ -91,7 +91,7 @@ Eseguire lo script, fornendo i seguenti dettagli richiesti:
 
 - Dettagli della sottoscrizione di Azure
 - Nome del gruppo di risorse
-- Località
+- Percorso
 - Dettagli del server di Service Manager (nome del server, dominio, nome utente e password)
 - Prefisso del nome del sito per l'app Web
 - Spazio dei nomi ServiceBus.
@@ -153,7 +153,7 @@ Seguire questa procedura per configurare le impostazioni del listener per la con
 
 3. Accedere con le credenziali di Azure e selezionare la sottoscrizione in cui è stata creata la connessione ibrida.
 
-4. Fare clic su **Salva**.
+4. Fare clic su **Save**.
 
 La connessione ibrida è stata completata.
 
@@ -171,17 +171,21 @@ L'esempio seguente mostra i dettagli di una connessione riuscita:
 Le sezioni seguenti offrono informazioni dettagliate su come connettere il prodotto ServiceNow a Connettore di Gestione dei servizi IT in OMS.
 
 ### <a name="prerequisites"></a>Prerequisiti
-
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
-
 - Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Versioni supportate di ServiceNow: Fuji, Geneva, Helsinki.
+- Versioni supportate di ServiceNow: Giacarta, Istanbul, Helsinki, Ginevra
 
-ServiceNow Admins deve eseguire le operazioni seguenti nell'istanza di ServiceNow:
-- Generare l'ID client e il segreto client per il prodotto ServiceNow. Per informazioni su come generare un ID client e un segreto client, vedere [OAuth Setup](http://wiki.servicenow.com/index.php?title=OAuth_Setup) (Configurazione di OAuth).
-- Installare l'app utente per l'integrazione Microsoft OMS (app ServiceNow). [Altre informazioni](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
+**ServiceNow Admins deve eseguire le operazioni seguenti nell'istanza di ServiceNow**:
+- Generare l'ID client e il segreto client per il prodotto ServiceNow. Per informazioni su come generare un ID client e un segreto client, vedere gli articoli seguenti:
+
+    - [Set up OAuth for Jakarta](https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Giacarta)
+    - [Set up OAuth for Istanbul](https://docs.servicenow.com/bundle/istanbul-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Istanbul)
+    - [Set up OAuth for Helsinki](https://docs.servicenow.com/bundle/helsinki-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth for Helsinki)
+    - [Set up OAuth for Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Ginevra)
+
+
+- Installare l'app utente per l'integrazione Microsoft OMS (app ServiceNow). [Altre informazioni](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1).
 - Creare un ruolo utente integrazione per l'app utente installata. Per informazioni su come creare il ruolo utente di integrazione, vedere [qui](#create-integration-user-role-in-servicenow-app).
-
 
 ### <a name="connection-procedure"></a>**Procedura di connessione**
 Seguire questa procedura per creare una connessione ServiceNow:

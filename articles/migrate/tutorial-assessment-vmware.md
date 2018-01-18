@@ -4,13 +4,13 @@ description: Questo articolo descrive come individuare e valutare le macchine vi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 12/20/2017
+ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: e2806486ffb76fa7c210c3d0ef0b8bb3f86b7cd4
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: a5019d3f729f2efbd01fca021b0089c7f99b0014
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Individuare e valutare le macchine virtuali VMware locali per la migrazione ad Azure
 
@@ -44,10 +44,10 @@ Accedere al [Portale di Azure](https://portal.azure.com).
 ## <a name="create-a-project"></a>Creare un progetto
 
 1. Nel portale di Azure fare clic su **Crea una risorsa**.
-2. Cercare **eseguire la migrazione di Azure**e selezionare il servizio **eseguire la migrazione di Azure (anteprima)** nei risultati della ricerca. Fare quindi clic su **Crea**.
+2. Cercare **Azure Migrate** e selezionare il servizio **Azure Migrate (preview)** nei risultati della ricerca. Fare quindi clic su **Crea**.
 3. Specificare un nome di progetto e la sottoscrizione di Azure per il progetto.
 4. Creare un nuovo gruppo di risorse.
-5. Specificare il percorso in cui creare il progetto, quindi fare clic su **crea**. Per questa anteprima è possibile creare un progetto di Azure Migrate solo nell'area Stati Uniti centro-occidentali, Tuttavia, è comunque possibile pianificare la migrazione per qualsiasi località di Azure di destinazione. Il percorso specificato per il progetto viene utilizzato solo per archiviare i metadati raccolti da macchine virtuali locali. 
+5. Specificare il percorso in cui creare il progetto e quindi fare clic su **Crea**. Per questa anteprima è possibile creare un progetto di Azure Migrate solo nell'area Stati Uniti centro-occidentali, Tuttavia, è comunque possibile pianificare la migrazione per qualsiasi località di Azure di destinazione. Il percorso specificato per il progetto viene usato solo per archiviare i metadati raccolti da macchine virtuali locali. 
 
     ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
     
@@ -73,17 +73,18 @@ Verificare che il file con estensione ova sia sicuro prima di distribuirlo.
     - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Il valore hash generato deve corrispondere a queste impostazioni.
     
-    Per OVA versione 1.0.8.38
+    Per OVA versione 1.0.8.49:
     **Algoritmo** | **Valore hash**
     --- | ---
-    MD5 | dd27dd6ace28f9195a2b5d52a4003067 
-    SHA1 | d2349e06a5d4693fc2a1c0619591b9e45c36d695
-    SHA256 | 1492a0c6d6ef76e79269d5cd6f6a22f336341e1accbc9e3dfa5dad3049be6798
+    MD5 | 8779eea842a1ac465942295c988ac0c7 
+    SHA1 | c136c52a0f785e1fd98865e16479dd103704887d
+    SHA256 | 5143b1144836f01dd4eaf84ff94bc1d2c53f51ad04b1ca43ade0d14a527ac3f9
 
-    Per OVA versione 1.0.8.40
+    Per OVA versione 1.0.8.40:
+
     **Algoritmo** | **Valore hash**
     --- | ---
-    MD5 | afbae5a2e7142829659c21fd8a9def3f
+    MD5 |afbae5a2e7142829659c21fd8a9def3f
     SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
     SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
 
@@ -108,7 +109,7 @@ Importare il file scaricato nel server vCenter.
 1. Nella console di vSphere Client fare clic con il pulsante destro del mouse su VM > **Open Console** (Apri console).
 2. Specificare le preferenze relative alla lingua, al fuso orario e alla password per l'appliance.
 3. Sul desktop fare clic sul collegamento **Run collector** (Esegui agente di raccolta).
-4. Nel Collector di eseguire la migrazione di Azure, aprire **impostare prerequisiti**.
+4. In Agente di raccolta di Azure Migrate aprire **Set up prerequisites** (Configura prerequisiti).
     - Accettare le condizioni di licenza e leggere le informazioni di terze parti.
     - L'agente di raccolta verifica che la macchina virtuale abbia accesso a Internet.
     - Se la macchina virtuale accede a Internet tramite un proxy, fare clic su **Proxy settings** (Impostazioni proxy) e specificare l'indirizzo e la porta di ascolto del proxy. Se il proxy richiede l'autenticazione, specificare le credenziali.
@@ -116,16 +117,16 @@ Importare il file scaricato nel server vCenter.
     > [!NOTE]
     > L'indirizzo proxy deve essere immesso nel formato http://ProxyIPAddress o http://ProxyFQDN. È supportato solo il proxy HTTP.
 
-    - L'agente di raccolta verifica che il collectorservice sia in esecuzione. Il servizio è installato per impostazione predefinita nella macchina virtuale dell'agente di raccolta.
+    - L'agente di raccolta verifica che il servizio dell'agente di raccolta sia in esecuzione. Il servizio è installato per impostazione predefinita nella macchina virtuale dell'agente di raccolta.
     - Scaricare e installare VMware PowerCLI.
 
-5. In **specificare i dettagli del Server vCenter**, eseguire le operazioni seguenti:
+5. In **Specify vCenter Server details** (Specificare i dettagli del Server vCenter) eseguire queste operazioni:
     - Specificare il nome completo o l'indirizzo IP del server vCenter.
     - In **User name** (Nome utente) e **Password** specificare le credenziali dell'account di sola lettura che verranno usate dall'agente di raccolta per individuare le macchine virtuali nel server vCenter.
     - In **Collection scope** (Ambito raccolta) selezionare un ambito per l'individuazione delle macchine virtuali. L'agente di raccolta può individuare solo le macchine virtuali all'interno dell'ambito specificato. L'ambito può essere impostato su una cartella, un data center o un cluster, ma non deve contenere più di 1000 macchine virtuali. 
-    - In **Tag category for grouping** (Categoria tag per raggruppamento) selezionare **None** (Nessuna).
-6. In **il progetto di migrazione specifica**, specificare l'ID di progetto Azure di eseguire la migrazione e della chiave copiato dal portale. Se questi valori non sono stati copiati, aprire il portale di Azure dalla macchina virtuale dell'agente di raccolta. Nella pagina **Panoramica** del progetto fare clic su **Individua macchine virtuali** e copiare i valori.  
-7. In **visualizzare lo stato di raccolta**, il monitoraggio di individuazione e verificare che i metadati raccolti da macchine virtuali si trovi nell'ambito. L'agente di raccolta indica un tempo di individuazione approssimativo.
+
+6. In **Specify migration project** (Specificare il progetto di migrazione) specificare l'ID e la chiave del progetto di Azure Migrate copiati dal portale. Se questi valori non sono stati copiati, aprire il portale di Azure dalla macchina virtuale dell'agente di raccolta. Nella pagina **Panoramica** del progetto fare clic su **Individua macchine virtuali** e copiare i valori.  
+7. In **View collection progress** (Visualizza stato raccolta) monitorare l'individuazione e verificare che i metadati raccolti dalle macchine virtuali siano inclusi nell'ambito. L'agente di raccolta indica un tempo di individuazione approssimativo.
 
 > [!NOTE]
 > Come lingua del sistema operativo e lingua dell'interfaccia dell'agente di raccolta è supportato solo l'inglese (Stati Uniti). Sarà presto disponibile il supporto per altre lingue.
@@ -172,7 +173,7 @@ Questa visualizzazione mostra lo stato di idoneità di ogni macchina virtuale.
 In questa visualizzazione viene mostrato il costo di calcolo e archiviazione totale dell'esecuzione delle macchine virtuali in Azure con i dettagli per ogni computer. Le stime dei costi vengono calcolate usando le impostazioni delle proprietà di valutazione e le dimensioni consigliate in base alle prestazioni per una macchina virtuale e i relativi dischi. 
 
 > [!NOTE]
-> La stima dei costi fornita da Azure Migrate si riferisce all'esecuzione delle macchine virtuali locali come macchine virtuali dell'infrastruttura distribuita come servizio (IaaS) di Azure. Migrazione di Azure non considera qualsiasi piattaforma come servizio (PaaS) o Software come i costi di un servizio (SaaS). 
+> La stima dei costi fornita da Azure Migrate si riferisce all'esecuzione delle macchine virtuali locali come macchine virtuali dell'infrastruttura distribuita come servizio (IaaS) di Azure. In Azure Migrate non vengono considerati i costi relativi alla piattaforma distribuita come servizio (PaaS, Platform as a Service) o al software come un servizio (SaaS, Software as a Service). 
 
 I costi mensili stimati per il calcolo e l'archiviazione vengono aggregati per tutte le macchine virtuali del gruppo. 
 
@@ -184,6 +185,6 @@ I costi mensili stimati per il calcolo e l'archiviazione vengono aggregati per t
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni su](how-to-scale-assessment.md) come individuare e valutare un ambiente VMware di grandi dimensioni.
-- Informazioni su come creare gruppi di valutazione di confidenza elevata utilizzando [mapping dipendenza macchina](how-to-create-group-machine-dependencies.md)
+- [Informazioni](how-to-scale-assessment.md) su come individuare e valutare un ambiente VMware di grandi dimensioni.
+- Informazioni su come creare gruppi di valutazione con affidabilità elevata usando il [mapping delle dipendenze delle macchine virtuali](how-to-create-group-machine-dependencies.md)
 - [Altre informazioni](concepts-assessment-calculation.md) sul modo in cui vengono calcolate le valutazioni.

@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 06a6e91725e751fbea97d9a3b60f48fa50121fc4
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: be502e6aef39ee4ed8cfc1f8926cb556dc1defb1
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Esecuzione del montaggio di una condivisione file di Azure con Istanze di contenitore di Azure
 
 Per impostazione predefinita, Istanze di contenitore di Azure è senza stato. Se il contenitore si blocca o si arresta, lo stato viene perso. Per rendere persistente lo stato oltre la durata del contenitore, è necessario montare un volume da un archivio esterno. Questo articolo illustra come montare una condivisione file di Azure per l'uso con Istanze di contenitore di Azure.
 
 > [!NOTE]
-> L'installazione di una condivisione di file di Azure è attualmente limitato ai contenitori di Linux. Mentre ci stiamo lavorando per portare tutte le funzionalità ai contenitori di Windows, è possibile trovare le differenze di piattaforma corrente in [quote e la disponibilità di area per le istanze di Azure contenitore](container-instances-quotas.md).
+> Il montaggio di una condivisione file di Azure è attualmente limitato ai contenitori di Linux. Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di contenitore di Azure).
 
 ## <a name="create-an-azure-file-share"></a>Creare una condivisione file di Azure
 
@@ -66,9 +66,9 @@ STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_G
 echo $STORAGE_KEY
 ```
 
-## <a name="deploy-container-and-mount-volume"></a>Distribuire contenitore e montare volumi
+## <a name="deploy-container-and-mount-volume"></a>Distribuire contenitori e montare volumi
 
-Per montare un volume in un contenitore di una condivisione di file di Azure, specificare la condivisione e il volume punto di montaggio quando si crea il contenitore con [contenitore az creare][az-container-create]. Se è stata eseguita la procedura precedente, è possibile montare la condivisione creata in precedenza tramite il comando seguente per creare un contenitore:
+Per montare una condivisione file di Azure come volume in un contenitore, specificare la condivisione e il punto di montaggio del volume quando si crea il contenitore con [az container create][az-container-create]. Se è stata eseguita la procedura precedente, è possibile montare la condivisione creata in precedenza tramite il comando seguente per creare un contenitore:
 
 ```azurecli-interactive
 az container create \
@@ -85,13 +85,53 @@ az container create \
 
 ## <a name="manage-files-in-mounted-volume"></a>Gestire i file nel volume montato
 
-Dopo il contenitore viene avviata, è possibile usare l'app web semplici distribuito tramite il [aci/seanmckenna-hellofiles] [ aci-hellofiles] immagine per gestire i file nella condivisione di file di Azure in corrispondenza del percorso di montaggio specificato. Ottenere l'indirizzo IP per l'app web con il [Mostra contenitore az] [ az-container-show] comando:
+Dopo aver avviato il contenitore è possibile usare la semplice app Web distribuita tramite l'immagine [seanmckenna/aci-hellofiles][aci-hellofiles] per gestire i file nella condivisione file di Azure nel percorso di montaggio specificato. Ottenere l'indirizzo IP per l'app Web con il comando [az container show][az-container-show]:
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --output table
 ```
 
-È possibile utilizzare il [portale di Azure] [ portal] o uno strumento, ad esempio il [Microsoft Azure Storage Explorer] [ storage-explorer] per recuperare ed esaminare il file scritti la condivisione di file.
+È possibile usare il [portale di Azure][portal] oppure uno strumento come [Microsoft Azure Storage Explorer][storage-explorer] per recuperare e ispezionare il file scritto nella condivisione file.
+
+## <a name="mount-multiple-volumes"></a>Montare più volumi
+
+Per montare più volumi in un'istanza di contenitore, è necessario eseguire la distribuzione tramite un [modello di Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups).
+
+Prima di tutto, fornire i dettagli di condivisione e definire i volumi popolando la matrice `volumes` nella sezione `properties` del modello. Ad esempio, se sono state create due condivisioni file di Azure denominate *share1* e *share2* nell'account di archiviazione *myStorageAccount*, la matrice `volumes` sarà simile a quanto segue:
+
+```json
+"volumes": [{
+  "name": "myvolume1",
+  "azureFile": {
+    "shareName": "share1",
+    "storageAccountName": "myStorageAccount",
+    "storageAccountKey": "<storage-account-key>"
+  }
+},
+{
+  "name": "myvolume2",
+  "azureFile": {
+    "shareName": "share2",
+    "storageAccountName": "myStorageAccount",
+    "storageAccountKey": "<storage-account-key>"
+  }
+}]
+```
+
+Successivamente, per ogni contenitore del relativo gruppo in cui si desidera montare i volumi, inserire la matrice `volumeMounts` nella sezione `properties` della definizione del contenitore. Ad esempio, in questo modo vengono montati i due volumi, *myvolume1* e *myvolume2*, definiti in precedenza:
+
+```json
+"volumeMounts": [{
+  "name": "myvolume1",
+  "mountPath": "/mnt/share1/"
+},
+{
+  "name": "myvolume2",
+  "mountPath": "/mnt/share2/"
+}]
+```
+
+Per un esempio di distribuzione di istanze di contenitore con un modello di Azure Resource Manager, vedere [Deploy multi-container groups in Azure Container Instances](container-instances-multi-container-group.md) (Distribuire gruppi multicontenitore in istanze di contenitore Azure).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

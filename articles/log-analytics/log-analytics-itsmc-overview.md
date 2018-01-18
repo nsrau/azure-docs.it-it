@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: 991f86c328aba9aa184658c7da748f24ee2d6506
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: 6a08f042aad8ad00d712420d8f4d3b17305188e1
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Gestire centralmente gli elementi di lavoro ITSM con IT Service Management Connector (anteprima)
 
@@ -98,14 +98,14 @@ ServiceDeskWorkItemType_s="Incident"
 - Impatto
 - Priorità
 - Riassegnazione
-- Created By (Creato da)
+- Creato da
 - Resolved By (Risolto da)
 - Closed By (Chiuso da)
 - Sorgente
 - Assegnato a 
 - Categoria
 - Titolo
-- DESCRIZIONE
+- Descrizione
 - Data di creazione
 - Data di chiusura
 - Data di risoluzione
@@ -125,7 +125,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Sorgente
 - Assegnato a 
 - Titolo
-- type
+- Tipo
 - Categoria
 - Stato
 - Riassegnazione
@@ -143,14 +143,14 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Planned End Date (Data di fine pianificata)
 - Work Start Date (Data di inizio lavoro)
 - Work End Date (Data di fine pianificata)
-- DESCRIZIONE
+- Descrizione
 - Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dati di output per un evento imprevisto ServiceNow
 
 | Campo OMS | Campo ITSM |
 |:--- |:--- |
-| ServiceDeskId_s| Number |
+| ServiceDeskId_s| Numero |
 | IncidentState_s | Stato |
 | Urgency_s |Urgenza |
 | Impact_s |Impatto|
@@ -172,12 +172,12 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 | Campo OMS | Campo ITSM |
 |:--- |:--- |
-| ServiceDeskId_s| Number |
+| ServiceDeskId_s| Numero |
 | CreatedBy_s | Richiesto da |
 | ClosedBy_s | Chiuso da |
 | AssignedTo_s | Assegnato a  |
 | Title_s|  Breve descrizione |
-| Type_s|  type |
+| Type_s|  Tipo |
 | Category_s|  Categoria |
 | CRState_s|  Stato|
 | Urgency_s|  Urgenza |
@@ -190,7 +190,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Data di fine pianificata |
 | WorkStartDate_t  | Data di inizio effettiva |
 | WorkEndDate_t | Data di fine effettiva|
-| Description_s | DESCRIZIONE |
+| Description_s | Descrizione |
 | Computer  | Elemento di configurazione |
 
 **Schermata di esempio di Log Analytics per i dati ITSM:**
@@ -223,7 +223,7 @@ Con la soluzione Connettore di Gestione dei servizi IT disponibile, è possibile
 6. Specificare i dettagli richiesti.
 7. Per creare un elemento di lavoro separato per ogni voce di log dell'avviso, selezionare la casella di controllo **Crea elementi di lavoro singoli per ogni voce di log**.
 
-    Oppure
+    O
 
     non selezionare questa casella di controllo per creare un solo elemento di lavoro per il numero di voci di log in questo avviso.
 
@@ -292,11 +292,11 @@ Quando si crea/modifica una regola di avviso di Azure, usare un gruppo di azioni
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>Risolvere i problemi delle connessioni ITSM in OMS
 1.  Se si verifica un errore di connessione nell'interfaccia utente dell'origine connessa con un messaggio **Errore durante il salvataggio della connessione**, seguire questa procedura:
- - Per le connessioni ServiceNow, Cherwell e Provance,  
-        -Verificare il nome utente, password, l'ID client e segreto client è stato immesso correttamente per ognuna delle connessioni.  
-        - controllare se si hanno privilegi sufficienti nel prodotto Gestione dei servizi IT corrispondente per stabilire la connessione.  
- - Per le connessioni Service Manager,  
-        -Verificare che l'app Web è stato distribuito correttamente e viene creata la connessione ibrida. Per verificare che la connessione sia stata stabilita con il computer Service Manager on-premises, visitare l'URL dell'app Web come descritto nella documentazione per la creazione della [connessione ibrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
+- Per le connessioni ServiceNow, Cherwell e Provance,  
+       - assicurarsi di immettere correttamente il nome utente, la password, l'ID client e il segreto client per ognuna delle connessioni.  
+       - controllare se si hanno privilegi sufficienti nel prodotto Gestione dei servizi IT corrispondente per stabilire la connessione.  
+- Per le connessioni Service Manager,  
+       - verificare che l'app Web sia stata distribuita correttamente e che la connessione ibrida sia stata creata. Per verificare che la connessione sia stata stabilita con il computer Service Manager on-premises, visitare l'URL dell'app Web come descritto nella documentazione per la creazione della [connessione ibrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Se i dati provenienti da ServiceNow non vengono sincronizzati con Log Analytics, assicurarsi che l'istanza del servizio ServiceNow non sia sospesa. Le istanze di sviluppo di ServiceNow a volte vanno in sospensione se rimangono inattive a lungo. In caso contrario, segnalare il problema.
 3.  Se gli avvisi OMS vengono generati, ma gli elementi di lavoro non vengono creati nel prodotto ITSM o gli elementi di configurazione non vengono creati/collegati a elementi di lavoro o per qualsiasi altra informazione generica, esaminare le posizioni seguenti:

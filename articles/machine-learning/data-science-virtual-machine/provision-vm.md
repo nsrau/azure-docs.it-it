@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: d0a9926f49e2be66a9d51a1bb0e4e19342205880
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: d71d8e44d0327515ed302c5c902ce87587e36c7d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Effettuare il provisioning di una macchina virtuale data science Windows di Azure
 La macchina virtuale di Data Science di Microsoft è un'immagine di macchina virtuale (VM) di Windows Azure pre-installata e configurata con diversi strumenti diffusi comunemente usati per l'analisi dei dati e l'apprendimento automatico. Gli strumenti inclusi sono:
@@ -174,7 +174,7 @@ Diversi strumenti di Azure vengono installati nella macchina virtuale:
 È possibile usare [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) per trovare e scaricare altri strumenti di sviluppo Microsoft. È disponibile anche un collegamento allo strumento sul desktop della macchina virtuale per l'analisi scientifica dei dati di Microsoft.  
 
 ## <a name="important-directories-on-the-vm"></a>Directory importanti nella VM
-| Item | Directory |
+| Elemento | Directory |
 | --- | --- |
 | Configurazioni del server Jupyter Notebook |C:\ProgramData\jupyter |
 | Home directory degli esempi di Jupyter Notebook |c:\dsvm\notebooks |
@@ -200,5 +200,5 @@ Ecco alcuni passaggi successivi per continuare l'apprendimento e l'esplorazione.
 * Per esempi d'uso della libreria RevoScaleR in R che supporta l'analisi dei dati a livello aziendale, passare a **C:\Programmi\Microsoft ML Server\R_SERVER\library\RevoScaleR\demoScripts**.  
 * Leggere l'articolo [Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati](http://aka.ms/dsvmtenthings)
 * Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando il [processo di analisi scientifica dei dati per i team](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
-* Visitare la [raccolta di Azure Machine Learning](http://gallery.cortanaintelligence.com) per esempi di apprendimento avanzato e di analisi dei dati che usano Azure Machine Learning e i servizi dati correlati in Azure. Per questa raccolta è disponibile anche un'icona nel menu **Start** e sul desktop della macchina virtuale.
+* Per esempi di apprendimento avanzato e di analisi dei dati che usano Azure Machine Learning e i servizi dati correlati in Azure, visitare la [Raccolta di intelligenza artificiale per Azure](http://gallery.cortanaintelligence.com). Per questa raccolta è disponibile anche un'icona nel menu **Start** e sul desktop della macchina virtuale.
 

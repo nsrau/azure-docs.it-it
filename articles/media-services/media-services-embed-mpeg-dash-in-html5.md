@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 27ce6325773ba1f9fd9cd9ab9e07ea9f5e2488ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be0fc51574950cad0558a85b3f20f8b14eafda13
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="embedding-a-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Integrazione di uno streaming video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incorporamento di un flusso video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js
 ## <a name="overview"></a>Panoramica
 MPEG-DASH è uno standard ISO per lo streaming adattivo di contenuti video che offre vantaggi significativi agli utenti che desiderano distribuire output di streaming video adattivo di alta qualità. Con MPEG-DASH il flusso video viene automaticamente impostato a una definizione inferiore quando si verificano situazioni di congestione sulla rete. Questo riduce il rischio che il video si interrompa mentre il lettore scarica i secondi successivi da riprodurre (noto anche come buffering). Man mano che la congestione sulla rete si riduce, il lettore video torna a un flusso di qualità elevata. La possibilità di adattare la larghezza di banda richiesta riduce anche i tempi di avvio del video. I primi secondi, ad esempio, possono essere riprodotti con una qualità inferiore, rapida da scaricare, per poi passare a una qualità superiore nel momento in cui nel buffer è stato memorizzato contenuto sufficiente.
 
-Dash.js è un lettore video MPEG-DASH open source scritto in JavaScript. È stato sviluppato per offrire un affidabile lettore multipiattaforma che possa essere liberamente riusato in applicazioni che richiedono la riproduzione video. Offre funzionalità di riproduzione MPEG-DASH in qualsiasi browser che supportalo standard W3C Media Source Extensions (MSE), ovvero Chrome,  Microsoft Edge e IE11 (altri browser hanno manifestato l'intenzione di supportare MSE). Per altre informazioni su DASH.js, vedere la pagina relativa al repository dash.js di GitHub.
+Dash.js è un lettore video MPEG-DASH open source scritto in JavaScript. È stato sviluppato per offrire un affidabile lettore multipiattaforma che possa essere liberamente riusato in applicazioni che richiedono la riproduzione video. Offre funzionalità di riproduzione MPEG-DASH in qualsiasi browser che supporta lo standard W3C Media Source Extensions (MSE), ovvero Chrome, Microsoft Edge e IE11 (altri browser hanno annunciato l'intenzione di supportare MSE). Per altre informazioni su DASH.js, vedere la pagina relativa al repository dash.js di GitHub.
 
 ## <a name="creating-a-browser-based-streaming-video-player"></a>Creazione di un lettore di streaming video basato su browser
 Per creare una pagina Web semplice che visualizzi un lettore video con i controlli previsti, quali riproduzione, pausa, riavvolgimento e così via, sarà necessario:
@@ -36,7 +36,7 @@ Per creare una pagina Web semplice che visualizzi un lettore video con i control
 5. Aggiungere lo stile CSS
 6. Visualizzare i risultati in un browser che implementa MSE
 
-L'inizializzazione del lettore può essere eseguita con poche righe di codice JavaScript. Usando dash.js, integrare video MPEG-DASH in applicazioni basate su browser è davvero molto semplice.
+L'inizializzazione del lettore può essere eseguita con poche righe di codice JavaScript. Usando dash.js, integrare video MPEG-DASH in applicazioni basate su browser è molto semplice.
 
 ## <a name="creating-the-html-page"></a>Creazione della pagina HTML
 Il primo passaggio consiste nel creare una pagina HTML standard contenente l'elemento **video** e salvare il file come basicPlayer.html, come illustrato nell'esempio seguente:
@@ -51,7 +51,7 @@ Il primo passaggio consiste nel creare una pagina HTML standard contenente l'ele
     </html>
 
 ## <a name="adding-the-dashjs-player"></a>Aggiunta del lettore DASH.js
-Per aggiungere l'implementazione di riferimento dash.js all'applicazione, è necessario recuperare il file dash.all.js dalla versione 1.0 del progetto dash.js. Il file deve essere quindi salvato nella cartella JavaScript dell'applicazione. Si tratta di un file di riferimento che raccoglie tutto il codice dash.js necessario in un unico file. Esaminando l'archivio dash.js si potrà identificare i singoli file, il codice di test e molto altro, ma se si deve solo usare il file dash.js, questo sarà l'unico elemento effettivamente necessario.
+Per aggiungere l'implementazione di riferimento dash.js all'applicazione, è necessario recuperare il file dash.all.js dalla versione 1.0 del progetto dash.js. Il file deve essere quindi salvato nella cartella JavaScript dell'applicazione. Si tratta di un file di riferimento che raccoglie tutto il codice dash.js necessario in un unico file. Esaminando l'archivio dash.js sarà possibile identificare i singoli file, il codice di test e molto altro, ma se si vuole solo usare il file dash.js, questo sarà l'unico elemento effettivamente necessario.
 
 Per aggiungere il lettore dash.js a un'applicazione, aggiungere un tag di script alla sezione di intestazione del file basicPlayer.html:
 
@@ -73,13 +73,13 @@ Successivamente, creare una funzione per inizializzare il lettore al caricamento
     }
     </script>
 
-Questa funzione crea in primo luogo un elemento DashContext, che consente di configurare l'applicazione per un ambiente di runtime specifico. Da un punto di vista tecnico, definisce le classi che il framework di inserimento delle dipendenze dovrà usare durante la creazione dell'applicazione. Nella maggior parte dei casi, si userà Dash.di.DashContext.
+Questa funzione crea in primo luogo un elemento DashContext, che consente di configurare l'applicazione per un ambiente di runtime specifico. Da un punto di vista tecnico, definisce le classi che il framework di inserimento delle dipendenze dovrà usare durante la creazione dell'applicazione. Nella maggior parte dei casi si usa Dash.di.DashContext.
 
-Successivamente, inizializza la classe primaria del framework dash.js, MediaPlayer. Questa classe contiene i principali metodi necessari, ad esempio riproduzione e pausa, e gestisce sia la relazione con l'elemento video sia l'interpretazione del file Media Presentation Description (MPD) che descrive il video da riprodurre.
+Successivamente, inizializza la classe primaria del framework dash.js, MediaPlayer. Questa classe contiene i principali metodi necessari, ad esempio quelli per riproduzione e pausa, e gestisce sia la relazione con l'elemento video sia l'interpretazione del file Media Presentation Description (MPD) che descrive il video da riprodurre.
 
 Per verificare che il lettore sia pronto per la riproduzione del video, viene chiamata la funzione startup() della classe MediaPlayer. Tra le altre cose, questa funzione controlla anche che siano state caricate tutte le classi necessarie (come definito dal contesto). Quando il lettore è pronto, è possibile collegare l'elemento video mediante la funzione attachView(). In questo modo, MediaPlayer può inserire il flusso video nell'elemento e, se necessario, controllare la riproduzione.
 
-Passare l'URL del file MPD a MediaPlayer in modo che riconosca il video previsto per la riproduzione. Quando la pagina risulterà completamente caricata, sarà necessario eseguire la funzione setupVideo() appena creata. A questo scopo, è possibile usare l'evento onload dell'elemento del corpo. Modificare l'elemento <body> come segue:
+Passare l'URL del file MPD a MediaPlayer, in modo che sappia quale video deve riprodurre. La funzione setupVideo() appena creata dovrà essere eseguita dopo che la pagina è stata completamente caricata. A questo scopo, è possibile usare l'evento onload dell'elemento del corpo. Modificare l'elemento <body> come segue:
 
     <body onload="setupVideo()">
 

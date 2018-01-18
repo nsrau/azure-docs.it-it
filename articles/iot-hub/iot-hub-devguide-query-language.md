@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2017
 ms.author: elioda
-ms.openlocfilehash: 104c7465968f9dd063561dec011b8fd50f3ebaa8
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: 450f2d38f7b641bcf6b8be061969404a1b582b4c
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Linguaggio di query dell'hub IoT per dispositivi gemelli, processi e routing di messaggi
 
@@ -150,10 +150,10 @@ Questa query di raggruppamento restituisce un risultato simile all'esempio segue
 ]
 ```
 
-Query di proiezione consentono agli sviluppatori restituire solo le proprietà che interessano. Ad esempio, per recuperare l'ora dell'ultima attività tutti disconnesso dispositivi utilizzare la query seguente:
+Le query di proiezione consentono agli sviluppatori di restituire solo le proprietà che interessano. Ad esempio, per recuperare l'ora dell'ultima attività per tutti i dispositivi disconnessi, usare la query seguente:
 
 ```sql
-SELECT LastActivityTime FROM devices WHERE ConnectionState = 'Disconnected'
+SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 ```
 
 ### <a name="c-example"></a>Esempio in C#
@@ -486,13 +486,13 @@ Sono supportati gli operatori seguenti:
 ### <a name="functions"></a>Funzioni
 Quando si eseguono query gemelle e di processi l'unica funzione supportata è:
 
-| Funzione | DESCRIZIONE |
+| Funzione | Descrizione |
 | -------- | ----------- |
 | IS_DEFINED(proprietà) | Restituisce un valore booleano che indica se alla proprietà è stata assegnato un valore (incluso `null`). |
 
 Nelle condizioni di route, sono supportate le funzioni matematiche seguenti:
 
-| Funzione | DESCRIZIONE |
+| Funzione | Descrizione |
 | -------- | ----------- |
 | ABS(x) | Restituisce il valore assoluto (positivo) dell'espressione numerica specificata. |
 | EXP(x) | Restituisce il valore esponente dell'espressione numerica specificata (e^x). |
@@ -505,7 +505,7 @@ Nelle condizioni di route, sono supportate le funzioni matematiche seguenti:
 
 Nelle condizioni di route, sono supportate le funzioni di trasmissione e controllo seguenti:
 
-| Funzione | DESCRIZIONE |
+| Funzione | Descrizione |
 | -------- | ----------- |
 | AS_NUMBER | Converte la stringa di input in un numero. `noop` se l'input è un numero, `Undefined` se la stringa non rappresenta un numero.|
 | IS_ARRAY | Restituisce un valore booleano che indica se il tipo di espressione specificata è una matrice. |
@@ -519,7 +519,7 @@ Nelle condizioni di route, sono supportate le funzioni di trasmissione e control
 
 Nelle condizioni di route, sono supportate le funzioni di stringa seguenti:
 
-| Funzione | DESCRIZIONE |
+| Funzione | Descrizione |
 | -------- | ----------- |
 | CONCAT(x, y, …) | Restituisce una stringa che rappresenta il risultato della concatenazione di due o più valori di stringa. |
 | LENGTH(x) | Restituisce il numero di caratteri dell'espressione stringa specificata.|

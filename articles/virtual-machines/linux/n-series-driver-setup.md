@@ -4,7 +4,7 @@ description: Informazioni su come installare driver GPU NVIDIA per macchine virt
 services: virtual-machines-linux
 documentationcenter: 
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 01/12/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11415f416bf101e7f30a9d85b8e344ab40200760
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: MT
+ms.openlocfilehash: de82062f605d060dc388022cdb8ee9d5c09b2b89
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installare i driver GPU NVIDIA in VM serie N che eseguono Linux
 
@@ -33,7 +33,7 @@ Per conoscere le specifiche, le capacità di archiviazione e i dettagli dei disc
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
-## <a name="install-cuda-drivers-for-nc-ncv2-and-nd-vms"></a>Installare il driver CUDA NC NCv2 e le macchine virtuali ND
+## <a name="install-cuda-drivers-for-nc-ncv2-and-nd-vms"></a>Installare i driver CUDA per macchine virtuali C, NCv2 e ND
 
 Di seguito sono indicati i passaggi per installare i driver NVIDIA nelle VM NC Linux dal Toolkit di NVIDIA CUDA. 
 
@@ -157,7 +157,7 @@ sudo reboot
 
 Per controllare lo stato del dispositivo GPU, eseguire una connessione SSH alla VM ed eseguire l'utilità della riga di comando [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) installata con il driver. 
 
-Se è installato il driver, si verrà visualizzato un output simile al seguente. Si noti che **GPU Util** Mostra % 0, a meno che non un carico di lavoro GPU attualmente in esecuzione nella macchina virtuale. La versione del driver e i dettagli GPU possono essere diversi da quelli riportati.
+Se il driver è installato, l'output sarà simile al seguente. Si noti che **GPU-Util** mostra 0% a meno che nella macchina virtuale non sia attualmente in esecuzione un carico di lavoro GPU. La versione del driver e i dettagli GPU possono essere diversi da quelli riportati.
 
 ![Stato del dispositivo NVIDIA](./media/n-series-driver-setup/smi.png)
 
@@ -165,11 +165,11 @@ Se è installato il driver, si verrà visualizzato un output simile al seguente.
 
 ## <a name="rdma-network-connectivity"></a>Connettività di rete RDMA
 
-Ad esempio NC24r distribuito nello stesso set di disponibilità, connettività di rete RDMA può essere abilitata nelle macchine virtuali serie N con supporto per RDMA. La rete RDMA supporta il traffico Message Passing Interface (MPI) per le applicazioni in esecuzione con Intel MPI 5.x o una versione più recente. Seguono i requisiti aggiuntivi:
+La connettività di rete RDMA può essere abilitata in macchine virtuali serie N abilitate per RDMA, come le macchine virtuali NC24r distribuite nello stesso set di disponibilità. La rete RDMA supporta il traffico Message Passing Interface (MPI) per le applicazioni in esecuzione con Intel MPI 5.x o una versione più recente. Seguono i requisiti aggiuntivi:
 
 ### <a name="distributions"></a>Distribuzioni
 
-Distribuire macchine virtuali di serie N con supporto per RDMA da una delle seguenti immagini in Azure Marketplace che supporta la connettività RDMA:
+Distribuire le macchine virtuali serie N abilitate per RDMA da una delle immagini seguenti in Azure Marketplace che supporta la connettività RDMA:
   
 * **Ubuntu**: Ubuntu Server 16.04 LTS. Configurare i driver RDMA nella VM ed eseguire la registrazione con Intel per scaricare Intel MPI:
 
@@ -214,11 +214,11 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali NV, stabilire una co
 5. Scaricare e installare il driver GRID:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.111-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.111-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.111-grid.run
   ``` 
 
 6. Quando viene chiesto se si vuole eseguire l'utilità nvidia-xconfig per aggiornare il file di configurazione di X, selezionare **Yes** (Sì).
@@ -279,11 +279,11 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali NV, stabilire una co
 5. Scaricare e installare il driver GRID:
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-384.73-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-384.111-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
 
-  chmod +x NVIDIA-Linux-x86_64-384.73-grid.run
+  chmod +x NVIDIA-Linux-x86_64-384.111-grid.run
 
-  sudo ./NVIDIA-Linux-x86_64-384.73-grid.run
+  sudo ./NVIDIA-Linux-x86_64-384.111-grid.run
   ``` 
 6. Quando viene chiesto se si vuole eseguire l'utilità nvidia-xconfig per aggiornare il file di configurazione di X, selezionare **Yes** (Sì).
 
@@ -305,7 +305,7 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali NV, stabilire una co
 
 Per controllare lo stato del dispositivo GPU, eseguire una connessione SSH alla VM ed eseguire l'utilità della riga di comando [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) installata con il driver. 
 
-Se è installato il driver, si verrà visualizzato un output simile al seguente. Si noti che **GPU Util** Mostra % 0, a meno che non un carico di lavoro GPU attualmente in esecuzione nella macchina virtuale. La versione del driver e i dettagli GPU possono essere diversi da quelli riportati.
+Se il driver è installato, l'output sarà simile al seguente. Si noti che **GPU-Util** mostra 0% a meno che nella macchina virtuale non sia attualmente in esecuzione un carico di lavoro GPU. La versione del driver e i dettagli GPU possono essere diversi da quelli riportati.
 
 ![Stato del dispositivo NVIDIA](./media/n-series-driver-setup/smi-nv.png)
  

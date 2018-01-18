@@ -1,8 +1,8 @@
 ---
-title: 'Azure Cosmos DB: Riferimento alla query di sintassi SQL | Documenti Microsoft'
-description: Documentazione di riferimento per il linguaggio di query di database SQL di Azure Cosmos.
+title: 'Azure Cosmos DB: Riferimento alla query di sintassi SQL | Microsoft Docs'
+description: Documentazione di riferimento per il linguaggio delle query SQL per Azure Cosmos DB.
 services: cosmos-db
-author: mimig1
+author: LalithaMV
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
-ms.author: mimig
-ms.openlocfilehash: 64c5e1284cd8a0413ebc73b1659822078f62d2ef
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.author: laviswa
+ms.openlocfilehash: 968f9e4d643228e02a1d09aae1b6ce82d6775f25
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="azure-cosmos-db-sql-syntax-reference"></a>Riferimento alla sintassi di Cosmos DB SQL Azure
+# <a name="azure-cosmos-db-sql-syntax-reference"></a>Riferimento alla query di sintassi SQL in Azure Cosmos DB
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Azure Cosmos DB supporta l'esecuzione di query di documenti con una familiarità SQL (Structured Query Language) come grammatica su documenti JSON gerarchici senza richiedere uno schema esplicito o la creazione di indici secondari. In questo argomento fornisce la documentazione di riferimento per il linguaggio di query SQL, è compatibile con gli account di API di SQL.
+Azure Cosmos DB supporta l'esecuzione di query sui documenti usando un linguaggio SQL (Structured Query Language) familiare come una grammatica per i documenti JSON gerarchici senza richiedere uno schema esplicito o la creazione di indici secondari. Questo argomento comprende la documentazione di riferimento per il linguaggio delle query SQL, compatibile con gli account API SQL.
 
-Per una procedura dettagliata del linguaggio di query SQL, vedere [query SQL di Azure Cosmos DB](sql-api-sql-query.md).  
+Per una procedura dettagliata sul linguaggio delle query SQL, vedere l'articolo relativo alle [query SQL per Azure Cosmos DB](sql-api-sql-query.md).  
   
 Consigliamo di visitare anche il [Query Playground](http://www.documentdb.com/sql/demo) in cui è possibile provare Azure Cosmos DB ed eseguire query SQL usando il set di dati disponibile.  
   
@@ -665,7 +665,7 @@ ORDER BY <sort_specification>
   
      **Convenzioni della sintassi**  
   
-     Nella tabella seguente vengono descritte le convenzioni utilizzate per descrivere la sintassi nel riferimento SQL seguente.  
+     La tabella seguente indica le convenzioni usate per descrivere la sintassi nel riferimento SQL seguente.  
   
     |**Convenzione**|**Usata per**|  
     |-|-|    
@@ -685,7 +685,7 @@ ORDER BY <sort_specification>
 ##  <a name="bk_built_in_functions"></a> Funzioni predefinite  
  In Azure Cosmos DB sono disponibili molte funzioni SQL predefinite. Le categorie di funzioni predefinite sono elencate di seguito.  
   
-|Funzione|DESCRIZIONE|  
+|Funzione|Descrizione|  
 |--------------|-----------------|  
 |[Funzioni matematiche](#bk_mathematical_functions)|Le funzioni matematiche eseguono un calcolo basato in genere su valori di input passati come argomenti e restituiscono un valore numerico.|  
 |[Funzioni di controllo del tipo](#bk_type_checking_functions)|Le funzioni di controllo del tipo consentono di controllare il tipo di un'espressione nell'ambito delle query SQL.|  

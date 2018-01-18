@@ -1,5 +1,5 @@
 ---
-title: Note sulla versione di Microsoft Azure Storage Explorer (anteprima) | Microsoft Docs
+title: Note sulla versione di Microsoft Azure Storage Explorer (anteprima)
 description: Note sulla versione di Microsoft Azure Storage Explorer (anteprima)
 services: storage
 documentationcenter: na
@@ -14,38 +14,38 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: c709be1a509ce9ad6b6b494dea80419b3ea126c4
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 6268cff5f6c87d269f431dcdf5e6a1ee2e2bcf1f
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Note sulla versione di Microsoft Azure Storage Explorer (anteprima)
 
-Questo articolo contiene la versione di rilascio note per Azure Storage Explorer 0.9.3 (anteprima), nonché le note sulla versione per le versioni precedenti.
+Questo articolo contiene le note sulla versione di anteprima di Azure Storage Explorer 0.9.3, nonché sulle versioni precedenti.
 
 [Microsoft Azure Storage Explorer (anteprima)](./vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
 
 ## <a name="version-093"></a>Versione 0.9.3
 12/08/2017
 
-### <a name="download-azure-storage-explorer-093-preview"></a>Scaricare Azure Storage Explorer 0.9.3 (anteprima)
-- [Esplora archivi Azure 0.9.3 (anteprima) per Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Esplora archivi Azure 0.9.3 (anteprima) per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Esplora archivi Azure 0.9.3 (anteprima) per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-093-preview"></a>Download di Azure Storage Explorer 0.9.3 (anteprima)
+- [Azure Storage Explorer 0.9.3 (anteprima) per Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 0.9.3 (anteprima) per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 0.9.3 (anteprima) per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Nuovo
-* Nella finestra di esplorazione dell'archiviazione esistente verrà nuovamente usato quando:
-    * Apertura collegamenti diretti generati in Esplora archivi.
-    * Apertura di soluzioni di archiviazione dal portale.
-    * Apertura di Esplora archivi da estensione di Visual Studio Code di archiviazione Azure (presto disponibile).
-* Aggiunta la capacità di aprire una nuova finestra di esplorazione dell'archiviazione da Esplora archivi.
-    * Per Windows, è disponibile un'opzione di 'Nuova finestra' nel Menu File e nel menu di scelta rapida della barra delle applicazioni.
-    * Per Mac, è disponibile un'opzione 'Nuova finestra' nel App Menu.
+* La finestra Storage Explorer esistente verrà nuovamente usata nei casi seguenti:
+    * Apertura di collegamenti diretti generati in Storage Explorer.
+    * Apertura di Storage Explorer dal portale.
+    * Apertura di Storage Explorer dall'estensione Azure Storage VS Code (disponibile a breve).
+* Funzionalità aggiuntiva per aprire una nuova finestra di Storage Explorer da Storage Explorer.
+    * Per Windows, è disponibile l'opzione "Nuova finestra" nel menu File e nel menu di scelta rapida della barra delle applicazioni.
+    * Per Mac, è disponibile l'opzione "Nuova finestra" nel Menu app.
 
 ### <a name="fixes"></a>Correzioni
-* Attività precedente non in modo appropriato viene pulita. Questo interessate le prestazioni dei processi con esecuzione prolungata. Vengono ora essere eliminate correttamente.
-* Azioni che interessano un numero elevato di file e directory causerebbe occasionalmente Esplora archivi da bloccare. Le richieste in Azure per le condivisioni File sono ora trottled per limitare l'utilizzo delle risorse di sistema.
+* La pulizia delle attività precedenti non è stata eseguita in modo appropriato. Ciò ha avuto un impatto sulle prestazioni dei processi con esecuzione prolungata. La pulizia è stata ora eseguita correttamente.
+* Le azioni che interessano un numero elevato di file e directory potrebbero occasionalmente causare il blocco di Storage Explorer. Le richieste in Azure per le condivisioni File sono ora limitate per limitare l'utilizzo delle risorse di sistema.
 
 ### <a name="known-issues"></a>Problemi noti
 * Azure Storage Explorer non supporta gli account ADFS.
@@ -79,9 +79,9 @@ Questo articolo contiene la versione di rilascio note per Azure Storage Explorer
 11/01/2017
 
 ### <a name="download-azure-storage-explorer-092-preview"></a>Download di Azure Storage Explorer 0.9.2 (anteprima)
-* [Scaricare Azure Storage Explorer 0.9.2 (anteprima) per Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Scaricare Azure Storage Explorer 0.9.2 (anteprima) per Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Scaricare Azure Storage Explorer 0.9.2 (anteprima) per Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
+* [Download di Azure Storage Explorer 0.9.2 (anteprima) per Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Download di Azure Storage Explorer 0.9.2 (anteprima) per Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Download di Azure Storage Explorer 0.9.2 (anteprima) per Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 
 
@@ -151,7 +151,7 @@ Questo articolo contiene la versione di rilascio note per Azure Storage Explorer
 
 ## <a name="previous-releases"></a>Versioni precedenti
 
-* [Versione 0.9.1 / 0.9.0](#version-091)
+* [Versione 0.9.1/0.9.0](#version-091)
 * [ 0.8.16](#version-0816)
 * [Versione 0.8.14](#version-0814)
 * [Versione 0.8.13](#version-0813)
@@ -372,9 +372,9 @@ Questo articolo contiene la versione di rilascio note per Azure Storage Explorer
 ### <a name="version-089--088"></a>Versione 0.8.9/0.8.8
 23/02/2017
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/R6gonK3cYAc?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/R6gonK3cYAc?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/SrRPCm94mfE?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/SrRPCm94mfE?ecver=1]
 
 
 #### <a name="new"></a>Nuovo
@@ -405,7 +405,7 @@ Questo articolo contiene la versione di rilascio note per Azure Storage Explorer
 16/12/2016
 ### <a name="version-087"></a>Versione 0.8.7
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1]
 
 #### <a name="new"></a>Nuovo
 
@@ -493,7 +493,7 @@ Questo articolo contiene la versione di rilascio note per Azure Storage Explorer
 12/09/2016
 ### <a name="version-084"></a>Versione 0.8.4
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1]
 
 #### <a name="new"></a>Nuovo
 
@@ -514,7 +514,7 @@ Questo articolo contiene la versione di rilascio note per Azure Storage Explorer
 03/08/2016
 ### <a name="version-083"></a>Versione 0.8.3
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1]
 
 #### <a name="new"></a>Nuovo
 
@@ -540,7 +540,7 @@ Questo articolo contiene la versione di rilascio note per Azure Storage Explorer
 07/07/2016
 ### <a name="version-082"></a>Versione 0.8.2
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1]
 
 #### <a name="new"></a>Nuovo
 
@@ -563,11 +563,11 @@ Questo articolo contiene la versione di rilascio note per Azure Storage Explorer
 15/06/2016
 ### <a name="version-080"></a>Versione 0.8.0
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ycfQhKztSIY?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/ycfQhKztSIY?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/k4_kOUCZ0WA?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/k4_kOUCZ0WA?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1]
 
 #### <a name="new"></a>Nuovo
 
@@ -608,10 +608,9 @@ Questo articolo contiene la versione di rilascio note per Azure Storage Explorer
 
 ### <a name="version-07201603250"></a>Versione 0.7.20160325.0
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/imbgBRHX65A?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/imbgBRHX65A?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1" frameborder="0" allowfullscreen></iframe>
-
+>[!VIDEO https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1]
 
 #### <a name="new"></a>Nuovo
 

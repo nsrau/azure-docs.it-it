@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: joflore
-ms.openlocfilehash: c7cfd156faf6e4cd56f2b9094c3d63515f86cfde
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 7ae89241c67655fbcaa747c4cac224b898947f39
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Compilazione di Multi-Factor Authentication in app personalizzate (SDK)
 
@@ -38,7 +38,7 @@ Poiché le API non hanno accesso agli utenti registrati in Azure Active Director
 
 
 ## <a name="download-the-sdk"></a>Scaricare l'SDK
-Per scaricare l'SDK Multi-Factor di Azure è necessario un [provider di Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md).  Questo richiede una sottoscrizione di Azure completa, anche se si possiedono licenze di Azure MFA, Azure AD Premium o Enterprise Mobility Suite. I metodi pubblici di download dell'SDK sono stati ritirati da quando l'SDK è stata deprecata. Se è necessario scaricare l'SDK, è consigliabile aprire un caso di supporto presso Microsoft.
+Per scaricare l'SDK Multi-Factor di Azure è necessario un [provider di Multi-Factor Authentication](multi-factor-authentication-get-started-auth-provider.md).  Questo richiede una sottoscrizione di Azure completa, anche se si possiedono licenze di Azure MFA, Azure AD Premium o Enterprise Mobility Suite. I metodi pubblici di download dell'SDK sono stati ritirati da quando l'SDK è stato deprecato. Se è necessario scaricare l'SDK, è consigliabile aprire un caso di supporto presso Microsoft. L'SDK è offerto solo ai clienti che già stanno usando l'SDK. Non è previsto l'onboarding di nuovi clienti.
 
 ## <a name="whats-in-the-sdk"></a>Contenuto dell'SDK
 L'SDK include gli elementi seguenti:

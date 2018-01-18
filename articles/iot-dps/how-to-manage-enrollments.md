@@ -1,5 +1,5 @@
 ---
-title: Gestire le registrazioni dei dispositivi con il portale di Azure | Documenti Microsoft
+title: Gestire le registrazioni dei dispositivi con il portale di Azure | Microsoft Docs
 description: Come gestire le registrazioni dei dispositivi per il servizio DPS nel portale di Azure
 services: iot-dps
 keywords: 
@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: b1d4e1e54d945c6edb0054da7b465b31de8c82a1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 06cc215e5c4087c7a38937de10eaa066037ac444
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Come gestire le registrazioni dei dispositivi con il portale di Azure
 
@@ -27,11 +27,11 @@ La *registrazione dei dispositivi* crea un record di un singolo dispositivo o di
 
 Esistono due modi per registrare i dispositivi con il servizio di provisioning:
 
-* Un **gruppo registrazione** è una voce per un gruppo di dispositivi che condividono un meccanismo di attestazione comuni dei certificati x. 509, firmato dallo stesso certificato di firma, che può essere il [certificato radice](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) o [certificato intermedio](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate), utilizzato per generare il certificato di dispositivo nel dispositivo fisico. È consigliabile usare un gruppo di registrazione per un numero elevato di dispositivi che condividono una configurazione iniziale desiderata o per i dispositivi destinati allo stesso tenant. Si noti che è possibile registrare solo i dispositivi che usano il meccanismo di attestazione X.509 come *gruppi di registrazione*. 
+* Un **gruppo di registrazioni** è una voce relativa a un gruppo di dispositivi che condividono un meccanismo di attestazione comune dei certificati X.509, firmato dallo stesso certificato di firma, che può essere il [certificato radice](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) o il [certificato intermedio](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), usato per generare il certificato del dispositivo sul dispositivo fisico. È consigliabile usare un gruppo di registrazione per un numero elevato di dispositivi che condividono una configurazione iniziale desiderata o per i dispositivi destinati allo stesso tenant. Si noti che è possibile registrare solo i dispositivi che usano il meccanismo di attestazione X.509 come *gruppi di registrazione*. 
 
-    È possibile creare un gruppo di registrazione nel portale per un gruppo di dispositivi usando la procedura seguente:
+    È possibile creare un gruppo di registrazioni per un gruppo di dispositivi nel portale usando la procedura seguente:
 
-    1. Accedere al portale di Azure e fare clic su **tutte le risorse** dal menu a sinistra.
+    1. Accedere al portale di Azure e fare clic su **Tutte le risorse** nel menu a sinistra.
     2. Selezionare dall'elenco di risorse il servizio di provisioning dei dispositivi per cui si desidera registrare il dispositivo.
     3. Nel servizio di provisioning, fare clic su **Manage enrollments** (Gestisci registrazioni), quindi selezionare la scheda **Enrollment Groups** (Gruppi di registrazione).
     4. Fare clic sul pulsante **Aggiungi** nella parte superiore e inserire le informazioni necessarie per la voce dell'elenco di registrazione. Caricare il certificato radice per il gruppo di dispositivi. 
@@ -42,9 +42,9 @@ Esistono due modi per registrare i dispositivi con il servizio di provisioning:
     
 * Una **registrazione individuale** è una voce per un singolo dispositivo che esegue la registrazione. Le registrazioni individuali possono usare certificati X.509 o token di firma di accesso condiviso (in un TPM reale o virtuale) come meccanismo di attestazione. È consigliabile usare le registrazioni individuali per i dispositivi che richiedono configurazioni iniziali univoche oppure per i dispositivi che possono usare solo token di firma di accesso condiviso tramite TPM o TPM virtuale come meccanismo di attestazione. In caso di registrazione individuale è possibile specificare l'ID dispositivo hub IoT desiderato.
 
-    È possibile creare una registrazione singoli nel portale di eseguire le operazioni seguenti:
+    È possibile creare una registrazione singola nel portale mediante la procedura seguente:
 
-    1. Accedere al portale di Azure e fare clic su **tutte le risorse** dal menu a sinistra.
+    1. Accedere al portale di Azure e fare clic su **Tutte le risorse** nel menu a sinistra.
     2. Selezionare dall'elenco di risorse il servizio di provisioning dei dispositivi per cui si desidera registrare il dispositivo.
     3. Nel servizio di provisioning, fare clic su **Manage enrollments** (Gestisci registrazioni), quindi selezionare la scheda **Individual Enrollments** (Registrazioni singole).
     4. Fare clic sul pulsante **Aggiungi** in alto. 
@@ -55,7 +55,7 @@ Esistono due modi per registrare i dispositivi con il servizio di provisioning:
 
 
 ## <a name="update-an-enrollment-entry"></a>Aggiornare una voce di registrazione
-È possibile aggiornare una voce di registrazione esistente nel portale di eseguire le operazioni seguenti:
+È possibile aggiornare una voce di registrazione esistente sul portale usando la procedura seguente:
 
 1. Aprire il servizio di provisioning dei dispositivi nel portale di Azure e fare clic su **Manage enrollments** (Gestisci registrazioni). 
 2. Passare alla voce di registrazione che si desidera modificare. Selezionando la voce, si aprirà un riepilogo dei dati per la registrazione del dispositivo. 
@@ -66,7 +66,7 @@ Esistono due modi per registrare i dispositivi con il servizio di provisioning:
 
 
 ## <a name="remove-a-device-enrollment"></a>Rimuovere una registrazione del dispositivo
-Nei casi in cui le periferiche non è necessario eseguirne il provisioning in un hub IoT, è possibile rimuovere la voce di registrazione correlati nel portale di eseguire le operazioni seguenti:
+Nei casi in cui non è necessario eseguire il provisioning dei dispositivi in alcun hub IoT, è possibile rimuovere la voce di registrazione correlata sul portale usando la procedura seguente:
 
 1. Aprire il servizio di provisioning dei dispositivi nel portale di Azure e fare clic su **Manage enrollments** (Gestisci registrazioni). 
 2. Individuare e selezionare la voce di registrazione che si desidera modificare. 

@@ -1,6 +1,6 @@
 ---
 title: Schema di Media Encoder Standard | Microsoft Docs
-description: Questo argomento fornisce una panoramica dello schema di Media Encoder Standard.
+description: Questo articolo fornisce una panoramica dello schema di Media Encoder Standard.
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.openlocfilehash: 0d034e2c3827b297173262d294a2e566a6b45fac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e936f5c47abe5bb5531f9af3be48662ea2f48c97
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="media-encoder-standard-schema"></a>Schema di Media Encoder Standard
-In questo argomento vengono descritti alcuni elementi e tipi di schema XML su cui si basa il [set di impostazioni di Media Encoder Standard](media-services-mes-presets-overview.md). L'argomento spiega gli elementi e i valori possibili per ognuno. Lo schema completo verrà pubblicato in un secondo momento.  
+Questo articolo descrive alcuni elementi e tipi di schema XML su cui si basa il [set di impostazioni di Media Encoder Standard](media-services-mes-presets-overview.md). L'articolo spiega gli elementi e i valori possibili per ognuno.  
 
 ## <a name="Preset"></a> Set di impostazioni (elemento radice)
 Definisce un set di impostazioni per la codifica.  
@@ -38,7 +38,7 @@ Definisce un set di impostazioni per la codifica.
 | **Versione**<br/><br/> Obbligatorio |**xs: decimal** |Versione predefinita. Valgono le limitazioni seguenti: xs:fractionDigits value="1" e xs:minInclusive value="1" Ad esempio, **version="1.0"**. |
 
 ## <a name="Encoding"></a> Encoding
-Contiene una sequenza degli elementi seguenti.  
+Contiene una sequenza degli elementi seguenti:  
 
 ### <a name="elements"></a>Elementi
 | Nome | Tipo | Descrizione |
@@ -54,8 +54,8 @@ Contiene una sequenza degli elementi seguenti.
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs="0" |**xs:boolean** |Al momento è supportata solo la codifica in un passaggio. |
-| **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |Determina la spaziatura fissa tra i frame IDR in unità di secondi. Chiamata anche la durata GOP. Vedere **SceneChangeDetection** (sotto) per controllare se il codificatore può deviare da questo valore. |
-| **SceneChangeDetection**<br/><br/> minOccurs="0"<br/><br/> default="false" |**xs:boolean** |Se impostato su true, il codificatore tenta di rilevare i cambi scena nel video e inserisce un frame IDR. |
+| **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |Determina la spaziatura fissa tra i frame IDR in unità di secondi. Chiamata anche la durata GOP. Per controllare se il codificatore può deviare da questo valore, vedere **SceneChangeDetection**. |
+| **SceneChangeDetection**<br/><br/> minOccurs="0"<br/><br/> default="false" |**xs: boolean** |Se impostato su true, il codificatore tenta di rilevare i cambi scena nel video e inserisce un frame IDR. |
 | **Complexity**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |Consente di controllare il compromesso tra qualità video e velocità di codifica. Può corrispondere a uno dei valori seguenti: **Speed**, **Balanced** o **Quality**.<br/><br/> Valore predefinito: **Balanced** |
 | **SyncMode**<br/><br/> minOccurs="0" | |La funzionalità sarà disponibile in una delle prossime versioni. |
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Raccolta di livelli video di output. |
@@ -63,11 +63,11 @@ Contiene una sequenza degli elementi seguenti.
 ### <a name="attributes"></a>Attributi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **Condition** |**xs:string** | Quando l'input non ha video, è consigliabile forzare il codificatore per inserire una traccia video monocromatica. A tale scopo, usare Condition="InsertBlackIfNoVideoBottomLayerOnly" (per inserire un video solo alla più bassa velocità in bit) o Condition="InsertBlackIfNoVideo" (per inserire un video a tutte le velocità in bit di output). Per altre informazioni, vedere [questo](media-services-advanced-encoding-with-mes.md#no_video) argomento.|
+| **Condition** |**xs:string** | Quando l'input non ha video, è consigliabile forzare il codificatore per inserire una traccia video monocromatica. A tale scopo, usare Condition="InsertBlackIfNoVideoBottomLayerOnly" (per inserire un video solo alla più bassa velocità in bit) o Condition="InsertBlackIfNoVideo" (per inserire un video a tutte le velocità in bit di output). Per altre informazioni, vedere [questo](media-services-advanced-encoding-with-mes.md#no_video) articolo.|
 
 ## <a name="H264Layers"></a> H264Layers
 
-Per impostazione predefinita, se si invia al codificatore un input che contiene solo audio e nessun video, l'asset di output conterrà file di soli dati audio. Alcuni lettori non possono gestire flussi di output di questo tipo. È possibile usare l'impostazione dell'attributo **InsertBlackIfNoVideo** di H264Video per forzare l'aggiunta di una traccia video all'output da parte del codificatore. Per altre informazioni, vedere [questo](media-services-advanced-encoding-with-mes.md#no_video) argomento.
+Per impostazione predefinita, se si invia al codificatore un input che contiene solo audio e nessun video, l'asset di output conterrà file di soli dati audio. Alcuni lettori non possono gestire flussi di output di questo tipo. È possibile usare l'impostazione dell'attributo **InsertBlackIfNoVideo** di H264Video per forzare l'aggiunta di una traccia video all'output da parte del codificatore. Per altre informazioni, vedere [questo](media-services-advanced-encoding-with-mes.md#no_video) articolo.
               
 ### <a name="elements"></a>Elementi
 | Nome | Tipo | Descrizione |
@@ -83,18 +83,18 @@ Per impostazione predefinita, se si invia al codificatore un input che contiene 
 ### <a name="elements"></a>Elementi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **Profilo**<br/><br/> minOccurs="0"<br/><br/> default="Auto" |**xs:string** |Può corrispondere a uno dei valori seguenti **xs:string**: **Auto**, **Baseline**, **Main**, **High**. |
-| **Level**<br/><br/> minOccurs="0"<br/><br/> default="Auto" |**xs:string** | |
+| **Profilo**<br/><br/> minOccurs="0"<br/><br/> default="Auto" |**xs: string** |Può corrispondere a uno dei valori **xs:string** seguenti: **Auto**, **Baseline**, **Main**, **High**. |
+| **Level**<br/><br/> minOccurs="0"<br/><br/> default="Auto" |**xs: string** | |
 | **Bitrate**<br/><br/> minOccurs="0" |**xs:int** |La velocità in bit usata per questo livello video, espressa in kbps. |
-| **MaxBitrate**<br/><br/> minOccurs="0" |**xs:int** |La velocità in bit massima usata per questo livello video, espressa in kbps. |
-| **BufferWindow**<br/><br/> minOccurs="0"<br/><br/> default="00:00:05" |**xs:time** |Lunghezza del buffer video. |
-| **Width**<br/><br/> minOccurs="0" |**xs:int** |Larghezza del frame video di output, espressa in pixel.<br/><br/> Al momento è necessario specificare entrambi i valori di larghezza e altezza, che devono essere numeri pari. |
+| **MaxBitrate**<br/><br/> minOccurs="0" |**xs: int** |La velocità in bit massima usata per questo livello video, espressa in kbps. |
+| **BufferWindow**<br/><br/> minOccurs="0"<br/><br/> default="00:00:05" |**xs: time** |Lunghezza del buffer video. |
+| **Width**<br/><br/> minOccurs="0" |**xs: int** |Larghezza del frame video di output, espressa in pixel.<br/><br/> Al momento è necessario specificare entrambi i valori di larghezza e altezza, che devono essere numeri pari. |
 | **Height**<br/><br/> minOccurs="0" |**xs:int** |Altezza del frame video di output, espressa in pixel.<br/><br/> Al momento è necessario specificare entrambi i valori di larghezza e altezza, che devono essere numeri pari.|
-| **BFrames**<br/><br/> minOccurs="0" |**xs:int** |Numero di fotogrammi B tra frame di riferimento. |
+| **BFrames**<br/><br/> minOccurs="0" |**xs: int** |Numero di fotogrammi B tra frame di riferimento. |
 | **ReferenceFrames**<br/><br/> minOccurs="0"<br/><br/> default=”3” |**xs:int** |Numero di frame di riferimento in un GOP. |
-| **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> default="Cabac" |**xs:string** |Può corrispondere a uno dei valori seguenti: **Cabac** e **Cavlc**. |
-| **FrameRate**<br/><br/> minOccurs="0" |numero razionale |Determina la frequenza dei fotogrammi del video di output. Usare il valore predefinito "0/1" per consentire al codificatore di usare la stessa frequenza dei fotogrammi del video di input. I valori consentiti sono in genere le normali frequenze di fotogrammi video, come illustrato di seguito. Tuttavia, è consentito qualunque numero razionale. Ad esempio 1/1 corrisponderebbe a 1 fps e sarebbe valido.<br/><br/> - 12/1 (12 fps)<br/><br/> - 15/1 (15 fps)<br/><br/> - 24/1 (24 fps)<br/><br/> - 24.000/1.001 (23,976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30.000/1.001 (29,97 fps) <br/> <br/>**NOTA** se si sta creando un set di impostazioni personalizzato per la codifica a bitrate multipli, tutti i livelli del set di impostazioni **devono** usare lo stesso valore di FrameRate.|
-| **AdaptiveBFrame**<br/><br/> minOccurs="0" |**xs:boolean** |Copiare da Azure Media Encoder |
+| **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> default="Cabac" |**xs: string** |Può corrispondere a uno dei valori seguenti: **Cabac** e **Cavlc**. |
+| **FrameRate**<br/><br/> minOccurs="0" |numero razionale |Determina la frequenza dei fotogrammi del video di output. Usare il valore predefinito "0/1" per consentire al codificatore di usare la stessa frequenza dei fotogrammi del video di input. I valori consentiti sono in genere le normali frequenze dei fotogrammi video. Tuttavia, è consentito qualunque numero razionale. Ad esempio 1/1 corrisponderebbe a 1 fps e sarebbe valido.<br/><br/> - 12/1 (12 fps)<br/><br/> - 15/1 (15 fps)<br/><br/> - 24/1 (24 fps)<br/><br/> - 24.000/1.001 (23,976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30.000/1.001 (29,97 fps) <br/> <br/>**NOTA** se si sta creando un set di impostazioni personalizzato per la codifica a bitrate multipli, tutti i livelli del set di impostazioni **devono** usare lo stesso valore di FrameRate.|
+| **AdaptiveBFrame**<br/><br/> minOccurs="0" |**xs: boolean** |Copiare da Azure Media Encoder |
 | **Slices**<br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |Stabilisce il numero di sezioni in cui è suddiviso un frame. È consigliabile usare il valore predefinito. |
 
 ## <a name="AACAudio"></a> AACAudio
@@ -105,15 +105,15 @@ Per impostazione predefinita, se si invia al codificatore un input che contiene 
 ### <a name="elements"></a>Elementi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **Profilo**<br/><br/> minOccurs="0 "<br/><br/> default="AACLC" |**xs:string** |Può corrispondere a uno dei valori seguenti: **AACLC**, **HEAACV1**, or **HEAACV2**. |
+| **Profilo**<br/><br/> minOccurs="0 "<br/><br/> default="AACLC" |**xs: string** |Può corrispondere a uno dei valori seguenti: **AACLC**, **HEAACV1**, or **HEAACV2**. |
 
 ### <a name="attributes"></a>Attributi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **Condition** |**xs:string** |Per forzare la generazione di un asset contenente una traccia audio silenziosa da parte del codificatore quando l'input è privo di audio, specificare il valore "InsertSilenceIfNoAudio".<br/><br/> Per impostazione predefinita, se si invia al codificatore un input che contiene solo video e nessun audio, l'asset di output contiene file di soli dati video. Alcuni lettori non possono gestire flussi di output di questo tipo. In tal caso, è possibile usare questa impostazione per forzare l'aggiunta di una traccia audio silenziosa all'output da parte del codificatore. |
+| **Condition** |**xs: string** |Per forzare la generazione di un asset contenente una traccia audio silenziosa da parte del codificatore quando l'input è privo di audio, specificare il valore "InsertSilenceIfNoAudio".<br/><br/> Per impostazione predefinita, se si invia al codificatore un input che contiene solo video e nessun audio, l'asset di output contiene file di soli dati video. Alcuni lettori non possono gestire flussi di output di questo tipo. In tal caso, è possibile usare questa impostazione per forzare l'aggiunta di una traccia audio silenziosa all'output da parte del codificatore. |
 
 ### <a name="groups"></a>Gruppi
-| riferimento | Descrizione |
+| Riferimento | Descrizione |
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |Vedere la descrizione di [AudioGroup](media-services-mes-schema.md#AudioGroup) per conoscere il numero di canali, la frequenza di campionamento e la velocità in bit appropriati che è possibile impostare per ogni profilo. |
 
@@ -123,9 +123,9 @@ Per altre informazioni sui valori validi per ogni profilo, vedere la tabella "De
 ### <a name="elements"></a>Elementi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **Channels**<br/><br/> minOccurs="0" |**xs:int** |Numero dei canali audio codificati. Le opzioni valide sono: 1, 2, 5, 6, 8.<br/><br/> Valore predefinito: 2. |
-| **SamplingRate**<br/><br/> minOccurs="0" |**xs:int** |Frequenza di campionamento audio, espressa in Hz. |
-| **Bitrate**<br/><br/> minOccurs="0" |**xs:int** |Velocità in bit usata per la codifica audio, specificata in kbps. |
+| **Channels**<br/><br/> minOccurs="0" |**xs: int** |Numero dei canali audio codificati. Le opzioni valide sono: 1, 2, 5, 6, 8.<br/><br/> Valore predefinito: 2. |
+| **SamplingRate**<br/><br/> minOccurs="0" |**xs: int** |Frequenza di campionamento audio, espressa in Hz. |
+| **Bitrate**<br/><br/> minOccurs="0" |**xs: int** |Velocità in bit usata per la codifica audio, specificata in kbps. |
 
 ### <a name="audio-codec-details"></a>Dettagli sui codec audio
 Codec audio|Dettagli  
@@ -146,7 +146,7 @@ Codec audio|Dettagli
 ### <a name="attributes"></a>Attributi
 | Nome | Tipo | Descrizione |
 | --- | --- | --- |
-| **FileName** |**xs:string** |Nome del file di output.<br/><br/> È possibile usare le macro descritte nella tabella seguente per creare i nomi dei file di output. Ad esempio:<br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
+| **FileName** |**xs:string** |Nome del file di output.<br/><br/> È possibile usare le macro descritte nella tabella seguente per creare i nomi dei file di output. Ad esempio: <br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
 
 ### <a name="macros"></a>Macro
 | Macro | Descrizione |
@@ -157,7 +157,7 @@ Codec audio|Dettagli
 | **{Channel}** |Numero di canali audio se il file contiene audio. |
 | **{Width}** |Larghezza del video nel file di output, espressa in pixel, se il file contiene video. |
 | **{Height}** |Altezza del video nel file di output, espressa in pixel, se il file contiene video. |
-| **{Extension}** |Eredita dalla proprietà "Type" per il file di output. Il nome del file di output avrà una delle estensioni seguenti: "mp4", "ts", "jpg", "png" o "bmp". |
+| **{Extension}** |Eredita dalla proprietà "Type" per il file di output. Il nome del file di output ha una delle estensioni seguenti: "mp4", "ts", "jpg", "png" o "bmp". |
 | **{Index}** |Obbligatorio per l'anteprima. Deve essere presente solo una volta. |
 
 ## <a name="Video"></a> Video (il tipo complesso eredita da Codec)
@@ -170,17 +170,17 @@ Codec audio|Dettagli
 | **PreserveResolutionAfterRotation** |**xs:boolean** |Per informazioni dettagliate, vedere la sezione seguente: [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation) |
 
 ### <a name="PreserveResolutionAfterRotation"></a> PreserveResolutionAfterRotation
-È consigliabile usare il flag PreserveResolutionAfterRotation insieme ai valori di risoluzione espressi in termini di percentuale (Width="100%", Height="100%").  
+È consigliabile usare il flag **PreserveResolutionAfterRotation** insieme ai valori di risoluzione espressi in termini di percentuale (Width="100%" , Height="100%").  
 
-Per impostazione predefinita, le impostazioni di risoluzione della codifica (Width, Height) nel set di impostazioni di Media Encoder Standard (MES) sono destinate ai video con zero gradi di rotazione. Ad esempio, se il video di input è 1.280x720 con zero gradi di rotazione, i set di impostazioni assicurano che l'output avrà la stessa risoluzione. Vedere la figura seguente.  
+Per impostazione predefinita, le impostazioni di risoluzione della codifica (Width, Height) nel set di impostazioni di Media Encoder Standard (MES) sono destinate ai video con zero gradi di rotazione. Ad esempio, se il video di input è 1.280x720 con zero gradi di rotazione, i set di impostazioni assicurano che l'output avrà la stessa risoluzione.  
 
 ![MESRoation1](./media/media-services-shemas/media-services-mes-roation1.png) 
 
-Tuttavia, ciò significa che se il video di input è stato acquisito con rotazione diversa da zero (ad esempio nel caso di un tablet o uno smartphone tenuto verticalmente), per impostazione predefinita MES applicherà al video di input le impostazioni di risoluzione della codifica (Width, Height), compensando quindi la rotazione. Vedere l'esempio nell'immagine qui di seguito. Il set di impostazioni usa Width = "100%", Height = "100%", facendo sì che MES interpreti la necessità di un output di 1.280 pixel di larghezza e 720 pixel di altezza. Una volta ruotato il video, l'immagine viene ridotta alle dimensioni della finestra, creando colonne a sinistra e a destra.  
+Se il video di input è stato acquisito con rotazione diversa da zero (ad esempio nel caso di un tablet o uno smartphone tenuto verticalmente), per impostazione predefinita MES applica al video di input le impostazioni di risoluzione della codifica (Width, Height), compensando quindi la rotazione. Vedere l'esempio nell'immagine di seguito. Il set di impostazioni usa Width = "100%", Height = "100%", facendo sì che MES interpreti la necessità di un output di 1.280 pixel di larghezza e 720 pixel di altezza. Una volta ruotato il video, l'immagine viene ridotta alle dimensioni della finestra, creando colonne a sinistra e a destra.  
 
 ![MESRoation2](./media/media-services-shemas/media-services-mes-roation2.png) 
 
-Se il codice precedente non corrisponde al comportamento desiderato, è possibile usare il flag PreserveResolutionAfterRotation e impostarlo su "true" (il valore predefinito è "false"). Pertanto se il set di impostazioni ha come valori Width = "100%", Height = "100%" e PreserveResolutionAfterRotation è impostato su "true", un video di input da 1.280 pixel di larghezza e 720 pixel di altezza con 90 gradi di rotazione produrrà un output con zero gradi di rotazione, ma 720 pixel di larghezza e 1.280 pixel di altezza. Vedere la figura seguente.  
+In alternativa, è possibile usare il flag **PreserveResolutionAfterRotation** e impostarlo su "true" (il valore predefinito è "false"). Pertanto se il set di impostazioni ha come valori Width = "100%", Height = "100%" e PreserveResolutionAfterRotation è impostato su "true", un video di input da 1280 pixel di larghezza e 720 pixel di altezza con 90 gradi di rotazione produce un output con zero gradi di rotazione, ma 720 pixel di larghezza e 1280 pixel di altezza. Vedere l'immagine seguente:  
 
 ![MESRoation3](./media/media-services-shemas/media-services-mes-roation3.png) 
 
@@ -265,7 +265,7 @@ Se il codice precedente non corrisponde al comportamento desiderato, è possibil
 | --- | --- | --- |
 | **PngLayers**<br/><br/> minOccurs="0" |[PngLayers](media-services-mes-schema.md#PngLayers) |Png layers |
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 Per osservare esempi di set di impostazioni XML compilati in base a questo schema, vedere [Task Presets for MES (Media Encoder Standard)](media-services-mes-presets-overview.md) (Set di impostazioni delle attività di MES (Media Encoder Standard)).
 
 ## <a name="next-steps"></a>Passaggi successivi

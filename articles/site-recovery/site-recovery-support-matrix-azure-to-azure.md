@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: sujayt
-ms.openlocfilehash: 08352e35daa85a6496adc57eed5f12621a6b300c
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: c15583b9420355bb7c35bd107b899c59e80e3741
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matrice di supporto di Azure Site Recovery per la replica da Azure ad Azure
 
@@ -45,7 +45,7 @@ Questo articolo riepiloga le configurazioni e i componenti supportati per Azure 
 **Tipo spostamento risorse** | **Supportato / Non supportato** | **Osservazioni:**  
 --- | --- | ---
 **Spostamento insieme di credenziali tra gruppi di risorse** | Non supportate |È possibile spostare l'insieme di credenziali di servizi di ripristino tra gruppi di risorse.
-**Spostano i gruppi di risorse di calcolo, archiviazione e rete** | Non supportate |Se si sposta una macchina virtuale (o i componenti associati come archiviazione e rete) dopo aver abilitato la replica, è necessario disabilitarla e riabilitarla per la macchina virtuale.
+**Spostamento di servizi di calcolo, archiviazione e rete tra gruppi di risorse** | Non supportate |Se si sposta una macchina virtuale (o i componenti associati come archiviazione e rete) dopo aver abilitato la replica, è necessario disabilitarla e riabilitarla per la macchina virtuale.
 
 
 
@@ -80,8 +80,8 @@ Il supporto è applicabile a qualsiasi carico di lavoro in esecuzione nel sistem
 
 #### <a name="linux"></a>Linux
 
-- Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3
-- CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3
+- Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
+- CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4
 - Server Ubuntu 14.04 LTS[ (versioni del kernel supportate)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Server Ubuntu 16.04 LTS[ (versioni del kernel supportate)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Debian 7
@@ -90,27 +90,30 @@ Il supporto è applicabile a qualsiasi carico di lavoro in esecuzione nel sistem
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
 
-(L'aggiornamento dei computer di replica da SLES 11 SP3 a SLES 11 SP4 non è supportato. Se un computer replicato è stato aggiornato da 11SP3 SLES per SLES 11 SP4, è necessario disabilitare la replica e di proteggere la macchina registrare nuovamente l'aggiornamento.)
+(L'aggiornamento dei computer di replica da SLES 11 SP3 a SLES 11 SP4 non è supportato. Se un computer replicato è stato aggiornato da 11SP3 SLES a SLES 11 SP4, è necessario disabilitare la replica e proteggere di nuovo il computer dopo l'aggiornamento.)
 
 >[!NOTE]
 >
-> Ubuntu server utilizzando l'autenticazione basata su password e account di accesso e utilizzando il pacchetto cloud init per configurare le macchine virtuali, cloud abbia accesso basato su password disabilitata durante il failover (a seconda della configurazione di cloudinit.) Account di accesso basato su password può essere riabilitata nella macchina virtuale per la reimpostazione della password dal menu Impostazioni (sotto il supporto + TROUBLESHOOTING sezione) di tale sulla macchina virtuale nel portale di Azure.
+> Per i server Ubuntu che usano l'accesso e l'autenticazione basati su password e che usano il pacchetto cloud-init per configurare le macchine virtuali nel cloud, è possibile che l'accesso basato su password venga disabilitato in caso di failover, a seconda della configurazione di cloudinit. L'accesso basato su password può essere riabilitato nella macchina virtuale reimpostando la password dal menu Impostazioni (nella sezione SUPPORTO + RISOLUZIONE DEI PROBLEMI) di tale macchina virtuale con failover nel portale di Azure.
 
 ### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versioni del kernel Ubuntu supportate per macchine virtuali di Azure
 
 **Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
 --- | --- | --- |
-14.04 LTS | 9.9 | Da 3.13.0-24 generica a 3.13.0-117 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-75 generica |
 14.04 LTS | 9.10 | Da 3.13.0-24 generica a 3.13.0-121 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-81 generica |
 14.04 LTS | 9.11 | Da 3.13.0-24 generica a 3.13.0-125 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-83 generica |
+14.04 LTS | 9.12 | Da 3.13.0-24 generica a 3.13.0-132 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-96 generica |
+14.04 LTS | 9.13 | Da 3.13.0-24 generica a 3.13.0-137 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-104 generica |
 16.04 LTS | 9.10 | Da 4.4.0-21 generica a 4.4.0-81 generica<br/>Da 4.8.0-34 generica a 4.8.0-56 generica<br/>Da 4.10.0-14 generica a 4.10.0-24 generica |
 16.04 LTS | 9.11 | Da 4.4.0-21 generica a 4.4.0-83 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-27 generica |
+16.04 LTS | 9.12 | Da 4.4.0-21 generica a 4.4.0-96 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-35 generica |
+16.04 LTS | 9.13 | Da 4.4.0-21 generica a 4.4.0-104 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica |
 
 ## <a name="supported-file-systems-and-guest-storage-configurations-on-azure-virtual-machines-running-linux-os"></a>File system e configurazioni di archiviazione guest supportati nelle macchine virtuali di Azure che eseguono il sistema operativo Linux
 
 * File system: ext3, ext4, ReiserFS (solo Suse Linux Enterprise Server), XFS
 * Gestore volumi: LVM2
-* Software per percorsi multipli: Mapper di dispositivo
+* Software con percorsi multipli: mapper dispositivi
 
 ## <a name="region-support"></a>Supporto di area
 
@@ -128,7 +131,7 @@ Cina | Cina orientale, Cina settentrionale
 
 >[!NOTE]
 >
-> Per area Brasile meridionale, è possibile solo la replica e il failover a un centro-meridionali, centrale Stati Uniti occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2 e aree North Central US e il failback.
+> Per il Brasile meridionale, è possibile eseguire la replica e il failover solo in una delle aree di Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2 e Stati Uniti centro-settentrionali e failback.
 
 
 ## <a name="support-for-compute-configuration"></a>Supporto per la configurazione del servizio di calcolo
@@ -168,7 +171,7 @@ RA-GRS | Supportato |
 ZRS | Non supportate |  
 Archiviazione ad accesso frequente e sporadico | Non supportate | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
 Endpoint servizio di rete virtuale (i firewall di Archiviazione di Azure e le reti virtuali)  | No  | L'accesso alle reti virtuali di Azure specifiche negli account di archiviazione della cache usati per archiviare i dati replicati non è supportato. 
-Account di archiviazione generico V2 (livello sia attivo e raffreddamento) | No  | Aumento dei costi di transazione sostanzialmente rispetto a scopo generale V1 gli account di archiviazione
+Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) | No  | Aumento sostanziale dei costi delle transazioni rispetto agli account di archiviazione V1 generici
 
 >[!IMPORTANT]
 > Per evitare problemi di prestazioni, assicurarsi di osservare gli obiettivi di scalabilità e prestazioni per il disco della macchina virtuale per le macchine virtuali [Linux](../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../virtual-machines/windows/disk-scalability-targets.md). Se si seguono le impostazioni predefinite, Site Recovery crea gli account di archiviazione e i dischi necessari in base alla configurazione di origine. Se si personalizzano e si selezionano impostazioni specifiche, assicurarsi di rispettare gli obiettivi di scalabilità e prestazioni per i dischi delle macchine virtuali.

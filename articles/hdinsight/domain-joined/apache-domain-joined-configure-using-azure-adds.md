@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/10/2017
 ms.author: saurinsh
-ms.openlocfilehash: cf8532334f03f72691fa09e8dbdd02b78072cf38
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c5ab129e87c8c7903972bd94286ba0368037a738
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Configurare cluster HDInsight aggiunti al dominio usando Azure Active Directory Domain Services
 
@@ -50,7 +50,7 @@ Il passaggio successivo è la creazione del cluster HDInsight usando Microsoft A
 Quando si crea un cluster HDInsight aggiunto al dominio, è necessario fornire i seguenti parametri:
 
 - **Nome di dominio**: il nome di dominio associato ad Azure Active Directory Domain Services. Per esempio, contoso.onmicrosoft.com
-- **Nome utente del dominio**: l'account del servizio nel gruppo di amministratori Azure Active Directory Domain Services creato nella sezione precedente. ad esempio hdiadmin@contoso.onmicrosoft.com. Questo utente del dominio è l'amministratore di questo cluster HDInsight.
+- **Nome utente del dominio**: l'account del servizio nel gruppo di amministratori Azure Active Directory Domain Services creato nella sezione precedente. Ad esempio, hdiadmin@contoso.onmicrosoft.com. Questo utente del dominio è l'amministratore di questo cluster HDInsight.
 - **Password del dominio**: la password dell'account di servizio.
 - **Unità organizzativa**: immettere il nome distinto dell'unità organizzativa che si desidera usare con il cluster HDInsight. Per esempio: OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com. Se questa unità organizzativa non esiste, il cluster HDInsight tenterà di creare tale unità. 
 - **URL LDAPS**: per esempio ldaps://contoso.onmicrosoft.com:636

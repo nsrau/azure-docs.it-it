@@ -1,6 +1,6 @@
 ---
-title: Stimare Twitter sentiment con word incorporamenti tramite il processo di analisi scientifica dei dati di Team in Azure | Documenti Microsoft
-description: I passaggi necessari per eseguono i progetti della scienza dei dati.
+title: Prevedere il sentiment in Twitter con rappresentazioni distribuite delle parole usando Team Data Science Process in Azure | Microsoft Docs
+description: Questi passaggi sono necessari per eseguire i progetti di data science.
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,137 +14,137 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev;
-ms.openlocfilehash: 20bc3f31897cec4a3cec9ca409062229133102f5
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.openlocfilehash: df1124ddb436f0cfeec8f4ed9728fa15278b9325
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Stimare Twitter sentiment con word incorporamenti tramite il processo di analisi scientifica dei dati di Team
+# <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Prevedere il sentiment in Twitter con rappresentazioni distribuite delle parole usando Team Data Science Process
 
-In questo articolo viene illustrato come collaborare in modo efficace tramite il _Word2Vec_ word incorporando algoritmo e _incorporamento Word Sentiment specifiche (SSWE)_ algoritmo per la stima Twitter sentiment con [Azure Machine Learning](../preview/index.yml). Per ulteriori informazioni sulla stima polarità di Twitter sentiment, vedere il [MachineLearningSamples TwitterSentimentPrediction repository](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) su GitHub. La chiave per agevolare la collaborazione efficace su progetti scienza dei dati è quella di definire la struttura e la documentazione dei progetti con un ciclo di vita di analisi scientifica dei dati stabiliti. Il [Team Data Science processo (TDSP)](overview.md) fornisce questo tipo di strutturati [ciclo di vita](lifecycle.md). 
+Questo articolo mostra come collaborare in modo efficace usando l'algoritmo di rappresentazione distribuita delle parole _Word2Vec_ e l'algoritmo _Sentiment-Specific Word Embedding (SSWE)_ per prevedere il sentiment in Twitter con [Azure Machine Learning](../preview/index.yml). Per altre informazioni sulla previsione della polarità del sentiment in Twitter, vedere il [repository MachineLearningSamples-TwitterSentimentPrediction](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) in GitHub. L'aspetto chiave per favorire una collaborazione efficace del team in progetti di data science consiste nello standardizzare la struttura e la documentazione per i progetti con un ciclo di vita di data science stabilito. [Team Data Science Process (TDSP)](overview.md) offre questo tipo di [ciclo di vita](lifecycle.md) strutturato. 
 
-Creazione di progetti scienza dei dati con il _modello TDSP_ fornisce il framework standardizzato per i progetti di Azure Machine Learning. In precedenza, il team TDSP rilasciato un [repository GitHub per la struttura del progetto TDSP e i modelli](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Ora i progetti di Machine Learning che vengono creata un'istanza con [modelli TDSP per Azure Machine Learning](https://github.com/amlsamples/tdsp) sono abilitati. Per istruzioni, vedere come utilizzare [progetti struttura TDSP con il modello TDSP](../preview/how-to-use-tdsp-in-azure-ml.md) in Azure Machine Learning. 
+La creazione di progetti di data science con _Team Data Science Process (TDSP)_ offre il framework standardizzato per progetti di Azure Machine Learning. In passato il team di TDSP ha reso disponibile un [repository GitHub per la struttura e i modelli di progetto di TDSP](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Oggi sono disponibili progetti di Machine Learning di cui vengono create istanze con [modelli di TDSP per Azure Machine Learning](https://github.com/amlsamples/tdsp). Per istruzioni, vedere come usare [progetti di struttura di TDSP con un modello di TDSP](../preview/how-to-use-tdsp-in-azure-ml.md) in Azure Machine Learning. 
 
 
-## <a name="twitter-sentiment-polarity-sample"></a>Esempio di Twitter sentiment polarità
+## <a name="twitter-sentiment-polarity-sample"></a>Esempio di polarità del sentiment in Twitter
 
-In questo articolo usa un esempio è illustrare come creare un'istanza ed eseguire un progetto di Machine Learning. L'esempio Usa la struttura TDSP e i modelli in Azure Machine Learning Workbench. L'esempio completo viene fornito [in questa procedura dettagliata](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/blob/master/docs/deliverable_docs/Step_By_Step_Tutorial.md). L'attività di modellazione stima polarità sentiment (positivo o negativo) utilizzando il testo da TWEET. In questo articolo vengono descritte le attività di modellazione dei dati che sono descritte nella procedura dettagliata. La procedura dettagliata vengono illustrate le attività seguenti:
+Questo articolo usa un esempio per mostrare come creare un'istanza di un progetto di Machine Learning ed eseguire il progetto. L'esempio usa la struttura e i modelli di TDSP in Azure Machine Learning Workbench. L'esempio completo è disponibile in [questa procedura dettagliata](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/blob/master/docs/deliverable_docs/Step_By_Step_Tutorial.md). L'attività di modellazione prevede la polarità del sentiment (positivo o negativo) usando il testo dei Tweet. Questo articolo presenta le attività di modellazione dei dati descritte nella procedura dettagliata. La procedura dettagliata include le attività seguenti:
 
-- L'esplorazione dei dati, training e la distribuzione di un modello di machine learning che risolvere il problema di stima descritto nella panoramica di case di utilizzo. [Dati relativi al sentiment Twitter](http://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip) viene usato per queste attività.
-- Esecuzione del progetto usando il modello TDSP da Azure Machine Learning per questo progetto. Per l'esecuzione del progetto e creazione di report, viene utilizzato il ciclo di vita TDSP.
-- Rendere operativo il la soluzione direttamente da Azure Machine Learning nel servizio contenitore di Azure.
+- Esplorazione, training e distribuzione dei dati di un modello di apprendimento automatico che risolve il problema di previsione descritto nella panoramica del caso d'uso. Per queste attività vengono usati i [dati del sentiment in Twitter](http://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip).
+- Esecuzione del progetto tramite il modello di TDSP da Azure Machine Learning per questo progetto. Per l'esecuzione del progetto e la creazione di report, si userà il ciclo di vita di TDSP.
+- Operazionalizzazione della soluzione direttamente da Azure Machine Learning nel servizio contenitore di Azure.
 
-Il progetto vengono evidenziate le seguenti funzionalità di Azure Machine Learning:
+Il progetto evidenzia le funzionalità seguenti di Azure Machine Learning:
 
-- La creazione di istanze e l'utilizzo della struttura TDSP.
-- Esecuzione del codice nell'area di lavoro di Azure Machine Learning.
-- Agevolato nel servizio contenitore tramite Docker e Kubernetes.
+- Creazione di un'istanza e uso della struttura di TDSP.
+- Esecuzione di codice in Azure Machine Learning Workbench.
+- Semplice operazionalizzazione nel servizio contenitore tramite Docker e Kubernetes.
 
 ## <a name="team-data-science-process"></a>Processo di analisi scientifica dei dati per i team
-Per eseguire questo esempio, utilizzare i modelli TDSP struttura e la documentazione del progetto in Azure Machine Learning Workbench. L'esempio implementa il [ciclo di vita TDSP](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md), come illustrato nella figura riportata di seguito:
+Per eseguire questo esempio, è necessario usare la struttura di progetto e i modelli di documentazione di TDSP in Azure Machine Learning Workbench. L'esempio implementa il [ciclo di vita di TDSP](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md), mostrato nella figura seguente:
 
 ![Ciclo di vita del processo TDSP](./media/predict-twitter-sentiment/tdsp-lifecycle.PNG)
 
-In Azure Machine Learning Workbench in base a cui viene creato il progetto TDSP [queste istruzioni](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md), come illustrato nella figura riportata di seguito:
+Il progetto di TDSP viene creato in Azure Machine Learning Workbench in base a [queste istruzioni](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md), come mostrato nella figura seguente:
 
-![Creare TDSP nell'area di lavoro di Azure Machine Learning](./media/predict-twitter-sentiment/tdsp-instantiation.PNG) 
+![Creare il progetto di TDSP in Azure Machine Learning Workbench](./media/predict-twitter-sentiment/tdsp-instantiation.PNG) 
 
 
-## <a name="data-acquisition-and-preparationhttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode01dataacquisitionandunderstanding"></a>[Preparazione e l'acquisizione dei dati](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/01_data_acquisition_and_understanding)
-Il primo passaggio in questo esempio è per scaricare il set di dati sentiment140 e dividere i dati in set di training e set di dati di testing. Il set di dati sentiment140 include il contenuto effettivo del tweet (con emoticon rimossa). Il set di dati contiene inoltre la polarità di ogni tweet (negativo = 0, positivo = 4) con il TWEET neutro rimosso. Dopo che i dati vengono suddivisi, i dati di training 1.3 milioni di righe, che i dati di testing hanno 320,000 righe.
+## <a name="data-acquisition-and-preparationhttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode01dataacquisitionandunderstanding"></a>[Acquisizione e preparazione dei dati](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/01_data_acquisition_and_understanding)
+Il primo passaggio in questo esempio consiste nello scaricare il set di dati sentiment140 e dividere i dati in set di dati di training e test. Il set di dati sentiment140 contiene l'effettivo contenuto dei Tweet (dopo aver rimosso le emoticon). Il set di dati contiene anche la polarità di ogni Tweet (negativo=0, positivo=4), dopo aver rimosso i Tweet neutri. Dopo aver diviso i dati, i dati di training hanno 1,3 milioni di righe, mentre i dati di test ne hanno 320.000.
 
 
 ## <a name="model-developmenthttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode02modeling"></a>[Sviluppo del modello](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling)
 
-Il passaggio successivo nell'esempio è di sviluppare un modello per i dati. L'attività di modellazione è suddivisa in tre parti:
+Il passaggio successivo nell'esempio consiste nello sviluppare un modello per i dati. L'attività di modellazione è divisa in tre parti:
 
-- Funzionalità di progettazione: generare funzioni per il modello utilizzando word diversi algoritmi di incorporamento. 
-- Creazione del modello: eseguire il training di modelli diversi per stimare la valutazione del testo di input. Esempi di questi modelli includono _Logistic Regression_ e _Boosting dei gradienti_.
-- Valutazione del modello: valutare i modelli con training su dati di test.
+- Progettazione delle funzionalità: generazione delle funzionalità per il modello usando diversi algoritmi di rappresentazione distribuita delle parole. 
+- Creazione del modello: training di modelli diversi per prevedere il sentiment del testo di input. Tra i possibili esempi, sono disponibili i modelli di _regressione logistica_ e di _boosting a gradienti_.
+- Valutazione dei modelli: valutazione dei modelli con training con i dati di test.
 
 
-### <a name="feature-engineeringhttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode02modeling01featureengineering"></a>[Progettazione di funzionalità](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling/01_FeatureEngineering)
+### <a name="feature-engineeringhttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode02modeling01featureengineering"></a>[Progettazione delle funzionalità](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling/01_FeatureEngineering)
 
-Gli algoritmi Word2Vec e SSWE vengono utilizzati per generare incorporamenti di word. 
+Gli algoritmi Word2Vec e SSWE vengono usati per generare rappresentazioni distribuite delle parole. 
 
 
 #### <a name="word2vec-algorithm"></a>Algoritmo Word2Vec
 
-L'algoritmo Word2Vec viene utilizzato nel modello Skip-gramma. Questo modello è illustrato nel documento da Tomas Mikolov, et al. "[Distributed rappresentazioni di parole e frasi e i relativi composizionalità. Progressi nelle informazioni neurale sistemi di elaborazione. ](https://arxiv.org/abs/1310.4546)" 2013.
+L'algoritmo Word2Vec viene usato nel modello skip-gram. Questo modello viene descritto nella pubblicazione di Tomas Mikolov, et al. "[Distributed Representations of Words and Phrases and their Compositionality. Advances in neural information processing systems](https://arxiv.org/abs/1310.4546)" (Rappresentazioni distribuite di parole e frasi e composizionalità. Progressi nei sistemi neurali di elaborazione delle informazioni). 2013.
 
-Il modello di Skip-gramma è una rete neurale superficiale. L'input è la parola che viene codificata come un vettore a caldo uno, viene usato per stimare nelle vicinanze di parole. Se **V** è la dimensione del vocabolario, quindi la dimensione del livello di output è __C * V__ dove C è la dimensione della finestra di contesto. Nella figura seguente è illustrata un'architettura che è basata sul modello di Skip-gramma:
+Il modello skip-gram è una rete neurale superficiale. L'input è la parola di destinazione codificata come vettore one-hot, usato per prevedere le parole vicine. Se **V** è la dimensione del vocabolario, la dimensione del livello di output è __C*V__, dove C è la dimensione della finestra di contesto. La figura seguente mostra un'architettura basata sul modello skip-gram:
 
-![Modello Skip-gramma](./media/predict-twitter-sentiment/skip-gram-model.PNG)
+![Modello skip-gram](./media/predict-twitter-sentiment/skip-gram-model.PNG)
 
-Il meccanismo dettagliato dell'algoritmo Word2Vec e modello Skip-gramma non rientrano nell'ambito di questo esempio. Per ulteriori informazioni, vedere i seguenti riferimenti:
+I meccanismi dettagliati dell'algoritmo Word2Vec e del modello skip-gram non rientrano nell'ambito di questo esempio. Per altre informazioni, vedere i riferimenti seguenti:
 
-- [Codice 02_A_Word2Vec.py con cui viene fatto riferimento TensorFlow esempi](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/word2vec/word2vec_basic.py) 
+- [02_A_Word2Vec.py code with referenced TensorFlow examples](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/word2vec/word2vec_basic.py) (Codice 02_A_Word2Vec.py con esempi TensorFlow di riferimento) 
 - [Vector Representations of Words](https://www.tensorflow.org/tutorials/word2vec) (Rappresentazioni vettoriali di parole)
-- [Esattamente come funziona word2vec?](http://www.1-4-5.net/~dmm/ml/how_does_word2vec_work.pdf)
-- [Note sulla stima Contrastive rumore e campionamento negativo](http://demo.clab.cs.cmu.edu/cdyer/nce_notes.pdf)
+- [How exactly does word2vec work?](http://www.1-4-5.net/~dmm/ml/how_does_word2vec_work.pdf) (Come funziona esattamente Word2Vec?)
+- [Notes on Noise Contrastive Estimation and Negative Sampling](http://demo.clab.cs.cmu.edu/cdyer/nce_notes.pdf) (Note sulla stima contrastiva del rumore e sul campionamento negativo)
 
 
 
 
-#### <a name="sentiment-specific-word-embedding-algorithm"></a>Algoritmo di incorporamento Word sentiment specifiche
-L'algoritmo SSWE tenta di superare un punto debole dell'algoritmo Word2Vec in cui le parole con contesti simili e opposto polarità possono avere vettori word simili. Questi aspetti in comune possono causare l'algoritmo Word2Vec per non eseguire in modo accurato per attività, ad esempio sentiment analysis. L'algoritmo SSWE tenta di gestire questa vulnerabilità incorporando sia la polarità della frase e il contesto di word nella propria funzione di perdita.
+#### <a name="sentiment-specific-word-embedding-algorithm"></a>Algoritmo Sentiment-Specific Word Embedding (SSWE)
+L'algoritmo SSWE prova a superare i punti deboli dell'algoritmo Word2Vec, in cui le parole con contesti simili e polarità opposta possono avere vettori di parola simili. Le similarità possono far sì che l'algoritmo Word2Vec non venga eseguito accuratamente per attività come l'analisi del sentiment. L'algoritmo SSWE prova a gestire questi punti deboli incorporando sia la polarità della frase sia il contesto della parola nella funzione di perdita.
 
-L'esempio Usa una variante dell'algoritmo SSWE come indicato di seguito:
+L'esempio usa una variante dell'algoritmo SSWE nel modo seguente:
 
-- Entrambi originale _ngram_ e il danneggiato _ngram_ utilizzate come input.
-- Oggetto stile cerniera perdita funzione di rango viene utilizzato per la perdita di sintassi e la perdita di semantica.
-- La funzione di perdita finale è la combinazione di Media ponderata di sia la perdita di sintassi e la perdita di semantica.
-- Per semplicità, solo la semantica tra entropia viene utilizzata come funzione di perdita.
+- Vengono usati come input sia l'_n-gram_ originale sia l'_n-gram_ danneggiato.
+- Viene usata una funzione di perdita cardine in stile classificazione per la perdita sintattica e la perdita semantica.
+- La funzione di perdita finale è la combinazione pesata della perdita sintattica e della perdita semantica.
+- Per motivi di semplicità, come funzione di perdita viene usata solo l'entropia incrociata semantica.
 
-L'esempio mostra che, anche con la funzione di perdita più semplice, le prestazioni dell'incorporamento SSWE sono migliore l'incorporamento Word2Vec. Nella figura seguente viene illustrato il modello convolutional utilizzato per generare l'incorporamento sentiment specifiche:
+L'esempio mostra che anche con una funzione di perdita più semplice, le prestazioni di rappresentazione distribuita di SSWE sono migliori di quelle di Word2Vec. La figura seguente mostra il modello convoluzionale usato per generare la rappresentazione distribuita delle parole specifica del sentiment:
 
-![Modello di rete neurale ispirata SSWE](./media/predict-twitter-sentiment/embedding-model-2.PNG)
+![Modello di rete neurale basato su SSWE](./media/predict-twitter-sentiment/embedding-model-2.PNG)
 
-Al termine il processo di training, vengono generati due file incorporamento nel formato di valori delimitati da tabulazioni (TSV) per la fase di modellazione.
+Al termine del processo di training, vengono generati due file di rappresentazione dinamica in formato TSV (Tab-Separated Values, valori separati da tabulazioni) per la fase di modellazione.
 
-Per ulteriori informazioni sugli algoritmi SSWE, vedere l'articolo Duyu Tang, et al. "[Sentiment specifiche di apprendimento Word incorporamento per Twitter Sentiment Classification](http://www.aclweb.org/anthology/P14-1146)." Associazione per calcolo Linguistics (1). 2014.
+Per altre informazioni sugli algoritmi SSWE, vedere la pubblicazione di Duyu Tang, et al. "[Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification](http://www.aclweb.org/anthology/P14-1146)" (Apprendimento della rappresentazione distribuita delle parole specifica del sentiment per la classificazione del sentiment in Twitter). Association for Computational Linguistics (1). 2014.
 
 
 ### <a name="model-creationhttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode02modeling02modelcreation"></a>[Creazione del modello](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling/02_ModelCreation)
-Dopo avere generati i vettori di word usando l'algoritmo SSWE o Word2Vec, vengono eseguito il training dei modelli di classificazione per stimare la polarità sentiment effettivo. Due tipi di funzionalità: Word2Vec e SSWE, vengono applicate a due modelli: il modello di Boosting dei gradienti e il modello di regressione logistica. Di conseguenza, vengono eseguito il training quattro modelli diversi.
+Dopo la generazione dei vettori delle parole tramite l'algoritmo SSWE o Word2Vec, viene eseguito il training dei modelli di classificazione per prevedere la polarità effettiva del sentiment. Due tipi di funzionalità, Word2Vec e SSWE, vengono applicati a due modelli: il modello di boosting a gradienti e il modello di regressione logistica. Di conseguenza, viene eseguito il training di quattro modelli diversi.
 
 
 ### <a name="model-evaluationhttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode02modeling03modelevaluation"></a>[Valutazione del modello](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling/03_ModelEvaluation)
-Dopo aver eseguito il training dei modelli, i modelli vengono utilizzati per dati di testo di Twitter di test e valutare le prestazioni di ciascun modello. L'esempio restituisce i seguenti quattro modelli:
+Al termine del training, i modelli vengono usati per testare i dati di testo di Twitter e valutare le prestazioni di ciascuno. L'esempio valuta i quattro modelli seguenti:
 
-- Sfumatura Boosting su SSWE incorporamento.
-- Regressione logistica su SSWE incorporamento.
-- Sfumatura Boosting su Word2Vec incorporamento.
-- Regressione logistica su Word2Vec incorporamento.
+- Boosting a gradienti con rappresentazione dinamica SSWE.
+- Regressione logistica con rappresentazione dinamica SSWE.
+- Boosting a gradienti con rappresentazione dinamica Word2Vec.
+- Regressione logistica con rappresentazione dinamica Word2Vec.
 
-Un confronto delle prestazioni di quattro modelli è illustrato nella figura riportata di seguito:
+Nella figura seguente viene mostrato un confronto delle prestazioni dei quattro modelli:
 
-![Ricevitore operativo caratteristico confronto di modelli (ROC)](./media/predict-twitter-sentiment/roc-model-comparison.PNG)
+![Confronto dei modelli ROC (Receiver Operating Characteristic)](./media/predict-twitter-sentiment/roc-model-comparison.PNG)
 
-Il modello di Boosting dei gradienti con la funzionalità SSWE offre le migliori prestazioni quando si confrontano i modelli utilizzando l'area sotto la metrica della curva (AUC).
+Il modello di boosting a gradienti con la funzionalità SSWE offre le prestazioni migliori quando si confrontano i modelli usando la metrica dell'area sottesa dalla curva (AUC, Area Under Curve).
 
 
 ## <a name="deploymenthttpsgithubcomazuremachinelearningsamples-twittersentimentpredictiontreemastercode03deployment"></a>[Distribuzione](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/03_deployment)
 
-Il passaggio finale è la distribuzione del modello di stima sentiment con Training da un servizio web in un cluster nel servizio contenitore di Azure. L'esempio Usa il modello di Boosting dei gradienti con l'algoritmo di incorporamento SSWE come il modello con training. L'ambiente di rendere operativo esegue il provisioning di Docker e Kubernetes del cluster per gestire la distribuzione del servizio web, come illustrato nella figura riportata di seguito: 
+Il passaggio finale consiste nella distribuzione del modello di previsione del sentiment con training come servizio Web in un cluster nel servizio contenitore di Azure. L'esempio usa il modello di boosting a gradienti con l'algoritmo di rappresentazione distribuita SSWE come modello con training. L'ambiente di operazionalizzazione effettua il provisioning di Docker e Kubernetes nel cluster per gestire la distribuzione del servizio Web, come mostrato nella figura seguente: 
 
 ![Dashboard Kubernetes](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-Per ulteriori informazioni sul processo di rendere operativo, vedere [la distribuzione di un modello di Azure Machine Learning come un servizio web](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy).
+Per altre informazioni sul processo di operazionalizzazione, vedere [Distribuzione di un modello di Machine Learning come servizio Web](https://docs.microsoft.com/azure/machine-learning/preview/model-management-service-deploy).
 
 ## <a name="conclusion"></a>Conclusioni
 
-In questo articolo è stato descritto per il training di un modello di incorporamento di word utilizzando gli algoritmi Word2Vec e incorporamento Word Sentiment specifiche. L'estratti incorporamenti utilizzati come funzionalità per eseguire il training più modelli per stimare i punteggi di valutazione per i dati di testo di Twitter. La funzionalità SSWE con il modello di Boosting dei gradienti ha restituito prestazioni ottimali. Quindi, il modello è stato distribuito come servizio web in tempo reale nel servizio contenitore utilizzando l'area di lavoro di Azure Machine Learning.
+In questo articolo si è appreso come eseguire il training di un modello di rappresentazione distribuita delle parole usando gli algoritmi Word2Vec e Sentiment-Specific Word Embedding (SSWE). Le rappresentazioni distribuite estratte sono state usate come funzionalità per il training di diversi modelli in modo da prevedere i punteggi del sentiment per i dati di testo di Twitter. La funzionalità SSWE usata con il modello di boosting a gradienti ha avuto le prestazioni migliori. Il modello è stato quindi distribuito come servizio Web in tempo reale nel servizio contenitore usando Azure Machine Learning Workbench.
 
 
 ## <a name="references"></a>Riferimenti
 
-* [Processo di analisi scientifica dei dati di team](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) 
+* [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [How to use Team Data Science Process (TDSP) in Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml) (Come usare Team Data Science Process, TDSP, in Azure Machine Learning)
-* [Modelli di progetto TDSP per Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
-* [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/)
-* [Reddito di Stati Uniti set di dati dal repository UCI ML](https://archive.ics.uci.edu/ml/datasets/adult)
-* [Riconoscimento delle entità biomedica utilizzando modelli TDSP](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
-* [Mikolov, Tomas, et al. "Le rappresentazioni di parole e frasi e i relativi composizionalità distribuito. Sposta in neurale informazioni nei sistemi di elaborazione." 2013.](https://arxiv.org/abs/1310.4546)
-* [Tang, Duyu, et al. "Apprendimento incorporamento Sentiment specifiche per la classificazione di Twitter Sentiment". ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)
+* [TDSP project template for Azure Machine Learning](https://aka.ms/tdspamlgithubrepo) (Modello di progetto di TDSP per Azure Machine Learning)
+* [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/)
+* [Set di dati sul reddito degli Stati Uniti del repository UCI per l'apprendimento automatico](https://archive.ics.uci.edu/ml/datasets/adult)
+* [Riconoscimento di entità biomediche con un modello di Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
+* [Mikolov, Tomas, et al. "Distributed Representations of Words and Phrases and their Compositionality. Advances in neural information processing systems" (Rappresentazioni distribuite di parole e frasi e composizionalità. Progressi nei sistemi neurali di elaborazione delle informazioni) 2013.](https://arxiv.org/abs/1310.4546)
+* [Tang, Duyu, et al. "Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification" (Apprendimento della rappresentazione distribuita delle parole specifica del sentiment per la classificazione del sentiment in Twitter) ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

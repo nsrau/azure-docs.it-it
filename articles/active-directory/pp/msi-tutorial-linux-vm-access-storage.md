@@ -1,6 +1,6 @@
 ---
-title: Usare un utente assegnato MSI in una VM Linux per accedere all'archiviazione di Azure
-description: "Un'esercitazione che illustra il processo di utilizzo di un utente assegnato gestiti servizio identità (MSI) in una VM Linux per accedere all'archiviazione di Azure."
+title: "Usare un'identità del servizio gestito assegnata dall'utente su una macchina virtuale Linux per accedere ad Archiviazione di Azure"
+description: "Questa esercitazione illustra come usare un'identità del servizio gestito assegnata dall'utente su una macchina virtuale Linux per accedere ad Archiviazione di Azure."
 services: active-directory
 documentationcenter: 
 author: bryanLa
@@ -14,23 +14,23 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5c02eb32fd12e28d79dcc0340811f4ced48ed4be
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 91fe06825d1db586b715617241b0ca39115414c0
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Usare un utente assegnato gestiti servizio identità (MSI) in una VM Linux per accedere all'archiviazione di Azure
+# <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Usare un'identità del servizio gestito assegnata dall'utente su una macchina virtuale Linux per accedere ad Archiviazione di Azure
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-In questa esercitazione viene illustrato come creare e usare un utente assegnato gestiti servizio identità (MSI) da una macchina virtuale Linux, quindi utilizzarlo per accedere all'archiviazione di Azure. Si apprenderà come:
+Questa esercitazione illustra come creare un'identità del servizio gestito assegnata dall'utente da una macchina virtuale Linux e quindi usarla per accedere ad Archiviazione di Azure. Si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare un utente assegnato l'identità del servizio gestito (MSI)
-> * Assegnare il file MSI utente assegnato a una macchina virtuale Linux
-> * Concedere l'accesso a file MSI in un'istanza di archiviazione di Azure
-> * Ottenere un token di accesso usando l'identità MSI assegnati dall'utente e usarlo per accedere all'archiviazione di Azure
+> * Creare un'identità del servizio gestito assegnata dall'utente
+> * Assegnare l'identità del servizio gestito assegnata dall'utente a una macchina virtuale Linux
+> * Concedere all'identità del servizio gestito l'accesso a un'istanza di Archiviazione di Azure
+> * Ottenere un token di accesso mediante l'identità del servizio gestito assegnata dall'utente e usarlo per accedere a un'istanza di Archiviazione di Azure
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,10 +38,10 @@ In questa esercitazione viene illustrato come creare e usare un utente assegnato
 
 [!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
 
-Per eseguire gli esempi di script CLI in questa esercitazione, sono disponibili due opzioni:
+Per eseguire gli esempi di script dell'interfaccia della riga di comando in questa esercitazione, sono disponibili due opzioni:
 
-- Utilizzare [Azure Cloud Shell](~/articles/cloud-shell/overview.md) dal portale di Azure o tramite il pulsante "Provalo", si trova nell'angolo superiore destro di ogni blocco di codice.
-- [Installare la versione più recente di CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 o versione successiva) se si preferisce utilizzare una console locale di CLI.
+- Usare [Azure Cloud Shell](~/articles/cloud-shell/overview.md) tramite il portale di Azure o il pulsante "Prova", che si trova nell'angolo in alto a destra di ogni blocco di codice.
+- [Installare la versione più recente dell'interfaccia della riga di comando 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -49,7 +49,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Creare una macchina virtuale Linux in un nuovo gruppo di risorse
 
-È innanzitutto necessario creare una nuova VM Linux. Se si preferisce, è anche possibile abilitare MSI in una macchina virtuale esistente.
+Creare prima di tutto una nuova macchina virtuale Linux. In alternativa, è anche possibile abilitare l'identità del servizio gestito in una macchina virtuale esistente.
 
 1. Fare clic sul pulsante **+/Crea nuovo servizio** nell'angolo superiore sinistro del portale di Azure.
 2. Selezionare **Calcolo** e quindi **Ubuntu Server 16.04 LTS**.
@@ -61,21 +61,21 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 5. Per selezionare un nuovo **Gruppo di risorse** in cui creare la macchina virtuale, scegliere **Crea nuovo**. Al termine fare clic su **OK**.
 6. Selezionare la dimensione della macchina virtuale. Per visualizzare altre dimensioni, selezionare **View all** (Visualizza tutto) o modificare il filtro Tipo di disco supportato. Nel pannello delle impostazioni mantenere le impostazioni predefinite e fare clic su **OK**.
 
-## <a name="create-a-user-assigned-msi"></a>Creare un file MSI assegnati dall'utente
+## <a name="create-a-user-assigned-msi"></a>Creare un'identità del servizio gestito assegnata dall'utente
 
-1. Se si utilizza la console CLI (invece di una sessione della Shell di Cloud di Azure), eseguire l'accesso a Azure. Utilizzare un account che viene associato alla sottoscrizione di Azure in cui si desidera creare il nuovo file MSI:
+1. Se si usa la console dell'interfaccia della riga di comando invece di una sessione di Azure Cloud Shell, eseguire l'accesso ad Azure. Usare un account associato alla sottoscrizione di Azure in cui si desidera creare una nuova identità del servizio gestito:
 
     ```azurecli
     az login
     ```
 
-2. Creare un file MSI assegnati dall'utente tramite [identità az creare](/cli/azure/identity#az_identity_create). Il `-g` parametro specifica il gruppo di risorse in cui viene creato il file MSI, e `-n` parametro specifica il nome. Assicurarsi di sostituire il `<RESOURCE GROUP>` e `<MSI NAME>` i valori dei parametri con valori personalizzati:
+2. Creare un'identità del servizio gestito assegnata dall'utente tramite [az identity create](/cli/azure/identity#az_identity_create). Il parametro `-g` specifica il gruppo di risorse in cui viene creata l'identità del servizio gestito, mentre il parametro `-n` specifica il nome. Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<MSI NAME>` con valori personalizzati:
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
 
-    La risposta contiene i dettagli per il file MSI assegnati dall'utente creato, in modo analogo all'esempio seguente. Si noti il `id` valore per il file MSI, perché verrà usato nel passaggio successivo:
+    La risposta contiene i dettagli relativi all'identità del servizio gestito assegnata dall'utente creata ed è simile all'esempio seguente. Prendere nota del valore della proprietà `id` dell'identità del servizio gestito perché verrà usato nel passaggio successivo:
 
     ```json
     {
@@ -92,23 +92,23 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
     }
     ```
 
-## <a name="assign-your-user-assigned-msi-to-your-linux-vm"></a>Assegnare MSI assegnati dall'utente per le VM Linux
+## <a name="assign-your-user-assigned-msi-to-your-linux-vm"></a>Assegnare l'identità del servizio gestito assegnata dall'utente alla macchina virtuale Linux in uso
 
-A differenza di un file MSI assegnato dal sistema, un file MSI assegnati dall'utente può essere utilizzato dai client su più risorse di Azure. Per questa esercitazione, vengono assegnati a una singola macchina virtuale. È inoltre possibile assegnare più di una macchina virtuale.
+A differenza di un'identità del servizio gestito assegnata dal sistema, un'identità del servizio gestito assegnata dall'utente può essere usata dai client in più risorse di Azure. Ai fini della presente esercitazione assegnare tale entità a una singola macchina virtuale. È anche possibile assegnarla a più di una macchina virtuale.
 
-Assegnare il file MSI assegnati dall'utente per le VM Linux utilizzando [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Assicurarsi di sostituire il `<RESOURCE GROUP>` e `<VM NAME>` i valori dei parametri con valori personalizzati. Utilizzare il `id` proprietà restituita nel passaggio precedente per il `--identities` valore del parametro:
+Assegnare l'identità del servizio gestito assegnata dall'utente alla macchina virtuale Linux tramite [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<VM NAME>` con valori personalizzati. Usare la proprietà `id` restituita nel passaggio precedente per il valore del parametro `--identities`:
 
 ```azurecli-interactive
-az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> -–identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
+az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
 ```
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione 
 
-Se si dispone già di uno, creare un account di archiviazione. È anche possibile ignorare questo passaggio e utilizzare un account di archiviazione esistente, se si preferisce. 
+Se non ne è già disponibile uno, creare un account di archiviazione. È anche possibile ignorare questo passaggio e usare un account di archiviazione esistente, se si preferisce. 
 
 1. Fare clic sul pulsante **+/Crea nuovo servizio** nell'angolo superiore sinistro del portale di Azure.
-2. Fare clic su **archiviazione**, quindi **Account di archiviazione**, e viene visualizzato un nuovo pannello "Creare account di archiviazione".
-3. Immettere un **nome** per l'account di archiviazione, si utilizza in un secondo momento.  
+2. Fare clic su **Archiviazione** e quindi su **Account di archiviazione**. Viene visualizzato un nuovo pannello "Crea account di archiviazione".
+3. Immettere un **nome** per l'account di archiviazione, che verrà usato in un secondo momento.  
 4. **Modello di distribuzione** e **Tipologia account** devono essere impostati su "Gestione di risorse" e "Utilizzo generico". 
 5. Verificare che le impostazioni in **Sottoscrizione** e **Gruppo di risorse** corrispondano a quelle specificate al momento della creazione della macchina virtuale nel passaggio precedente.
 6. Fare clic su **Crea**.
@@ -117,30 +117,30 @@ Se si dispone già di uno, creare un account di archiviazione. È anche possibil
 
 ## <a name="create-a-blob-container-in-the-storage-account"></a>Creare un contenitore BLOB nell'account di archiviazione
 
-Poiché i file richiedono l'archiviazione blob, è necessario creare un contenitore blob in cui archiviare il file. Quindi caricare e scaricare un file per il contenitore blob, nel nuovo account di archiviazione.
+Poiché i file richiedono l'archiviazione BLOB, è necessario creare un contenitore BLOB in cui archiviare il file. Nel contenitore BLOB caricare e scaricare quindi un file con il nuovo account di archiviazione.
 
 1. Tornare all'account di archiviazione appena creato.
 2. Fare clic sul collegamento **Contenitori** a sinistra, in "Servizio BLOB".
 3. Fare clic su **+ Contenitore** nella parte superiore della pagina e verrà visualizzato il pannello "Nuovo contenitore".
-4. Assegnare un nome al contenitore, selezionare un livello di accesso, quindi fare clic su **OK**. Il nome specificato viene utilizzato anche in un secondo momento nell'esercitazione. 
+4. Assegnare un nome al contenitore, selezionare un livello di accesso, quindi fare clic su **OK**. Il nome specificato verrà usato più avanti nell'esercitazione. 
 
     ![Creare un contenitore di archiviazione](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-5. Caricare un file per il contenitore appena creato facendo clic sul nome del contenitore, quindi **caricare**, quindi selezionare un file, quindi fare clic su **caricare**.
+5. Per caricare un file nel nuovo contenitore creato, fare clic sul nome del contenitore, scegliere **Carica**, selezionare un file e quindi fare clic su **Carica**.
 
-    ![Caricare file di testo](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
+    ![Caricare un file di testo](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
-## <a name="grant-your-user-assigned-msi-access-to-an-azure-storage-container"></a>Concedere all'utente assegnato MSI l'accesso a un contenitore di archiviazione di Azure
+## <a name="grant-your-user-assigned-msi-access-to-an-azure-storage-container"></a>Concedere all'identità del servizio gestito assegnata dall'utente l'accesso a un contenitore di Archiviazione di Azure
 
-Utilizzando un file MSI, il codice può ottenere i token di accesso per l'autenticazione a risorse che supportano l'autenticazione di Azure AD. In questa esercitazione, utilizzare l'archiviazione di Azure.
+Usando un'identità del servizio gestito, il codice può ottenere i token di accesso per autenticarsi alle risorse che supportano l'autenticazione di Azure AD. In questa esercitazione si userà Archiviazione di Azure.
 
-Innanzitutto si concede l'accesso di identità MSI a un contenitore di archiviazione di Azure. In questo caso, utilizzare il contenitore creato in precedenza. Aggiornare i valori per `<MSI CLIENTID>`, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>`, e `<CONTAINER NAME>` come appropriato per l'ambiente. Sostituire `<CLIENT ID>` con il `clientId` restituito dalla proprietà di `az identity create` comando [creare un utente assegnato MSI](#create-a-user-assigned-msi):
+Concedere all'identità del servizio gestito l'accesso a un contenitore di Archiviazione di Azure. In questo caso usare il contenitore creato in precedenza. Aggiornare i valori per `<MSI PRINCIPALID>`, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>` e `<CONTAINER NAME>` in base all'ambiente in uso. Sostituire `<CLIENT ID>` con la proprietà `clientId` restituita dal comando `az identity create` in [Creare un'identità del servizio gestito assegnata dall'utente](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
-az role assignment create --assignee <MSI CLIENTID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/<CONTAINER NAME>"
+az role assignment create --assignee <MSI PRINCIPALID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
 ```
 
-La risposta include i dettagli per l'assegnazione di ruolo creato:
+La risposta include i dettagli relativi all'assegnazione di ruolo creata:
 
 ```
 {
@@ -156,24 +156,24 @@ La risposta include i dettagli per l'assegnazione di ruolo creato:
 }
 ```
 
-## <a name="get-an-access-token-using-the-user-assigned-msis-identity-and-use-it-to-call-azure-storage"></a>Ottenere un token di accesso utilizzando l'identità del MSI assegnati dall'utente e utilizzarlo per chiamare l'archiviazione di Azure
+## <a name="get-an-access-token-using-the-user-assigned-msis-identity-and-use-it-to-call-azure-storage"></a>Ottenere un token di accesso mediante l'identità del servizio gestito assegnata dall'utente e usarlo per eseguire una chiamata ad Archiviazione di Azure
 
-Per il resto dell'esercitazione, è necessario per la macchina virtuale creata in precedenza.
+Il resto dell'esercitazione prevede che le operazioni vengano svolte dalla macchina virtuale creata in precedenza.
 
 Per completare questi passaggi, è necessario disporre di un client SSH. Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about). Per richiedere assistenza nella configurazione delle chiavi del client SSH, vedere [Come usare le chiavi SSH con Windows in Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) o [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. Nel portale di Azure passare a **Macchine virtuali**, selezionare la macchina virtuale Linux e quindi nella parte superiore della pagina **Panoramica** fare clic su **Connetti**. Copiare la stringa di connessione alla macchina virtuale.
 2. **Connettersi** alla macchina virtuale usando un client SSH di propria scelta. 
-3. Nella finestra terminal utilizzando CURL, effettuare una richiesta all'endpoint locale MSI per ottenere un accesso token per l'archiviazione di Azure.
+3. Nella finestra terminale usare CURL per eseguire una richiesta all'endpoint locale dell'identità del servizio gestito per ottenere un token di accesso per Archiviazione di Azure.
 
-   La richiesta CURL per acquisire un token di accesso viene visualizzata nell'esempio seguente. Assicurarsi di sostituire `<CLIENT ID>` con il `clientId` restituito dalla proprietà di `az identity create` comando [creare un utente assegnato MSI](#create-a-user-assigned-msi):
+   La richiesta CURL per acquisire un token di accesso viene visualizzata nell'esempio seguente. Sostituire `<CLIENT ID>` con la proprietà `clientId` restituita dal comando `az identity create` in [Creare un'identità del servizio gestito assegnata dall'utente](#create-a-user-assigned-msi):
 
    ```bash
    curl -H Metadata:true "http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fstorage.azure.com/&client_id=<CLIENT ID>"
    ```
 
    > [!NOTE]
-   > Nella richiesta precedente, il valore di `resource` parametro deve essere una corrispondenza esatta per le azioni previste da Azure AD. Quando si utilizza l'ID di risorsa di archiviazione di Azure, è necessario includere la barra finale nell'URI.
+   > Nella richiesta precedente il valore del parametro `resource` deve corrispondere esattamente a quello previsto da Azure AD. Quando si usa l'ID risorsa di Archiviazione di Azure, è necessario includere la barra finale nell'URI.
    > Nella risposta seguente l'elemento access_token è stato abbreviato per comodità.
 
    ```bash
@@ -186,10 +186,10 @@ Per completare questi passaggi, è necessario disporre di un client SSH. Se si u
    "token_type":"Bearer"}
    ```
 
-4. Ora è possibile utilizzare il token di accesso per accedere all'archiviazione di Azure, ad esempio per leggere il contenuto del file di esempio che è stato caricato in precedenza al contenitore. Sostituire i valori di `<STORAGE ACCOUNT>`, `<CONTAINER NAME>`, e `<FILE NAME>` con i valori specificati in precedenza, e `<ACCESS TOKEN>` con il token restituito nel passaggio precedente.
+4. A questo punto usare il token di accesso per accedere ad Archiviazione di Azure, ad esempio per leggere il contenuto del file di esempio caricato in precedenza nel contenitore. Sostituire i valori di `<STORAGE ACCOUNT>`, `<CONTAINER NAME>` e `<FILE NAME>` con i valori specificati in precedenza, e `<ACCESS TOKEN>` con il token restituito nel passaggio precedente.
 
    ```bash
-   curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME>?api-version=2017-11-09 -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
 
    La risposta contiene il contenuto del file:

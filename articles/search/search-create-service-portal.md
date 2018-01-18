@@ -13,15 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 11/07/2017
 ms.author: heidist
-ms.openlocfilehash: eaf317b42026298cc42edcc907bc48169f869460
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b31844dd0dad1168b12d91ce536589099ab16a7e
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Creare un servizio di Ricerca di Azure nel portale
 
-Informazioni su come creare o effettuare il provisioning di un servizio Ricerca di Azure nel portale. Per istruzioni su PowerShell vedere [Gestire il servizio Ricerca di Azure con PowerShell](search-manage-powershell.md).
+Informazioni su come creare o effettuare il provisioning di un servizio Ricerca di Azure nel portale. 
+
+Se si preferisce PowerShell, usare il [modello di servizio](https://azure.microsoft.com/resources/templates/101-azure-search-create/) di Azure Resource Manager. Per informazioni su come iniziare, vedere [Gestire il servizio Ricerca di Azure con PowerShell](search-manage-powershell.md).
 
 ## <a name="subscribe-free-or-paid"></a>Sottoscrizione gratuita o a pagamento
 
@@ -42,7 +44,7 @@ Il nome del servizio fa parte dell'endpoint dell'URL in cui vengono eseguite le 
 
 Requisiti per i nomi di servizio:
    * Deve essere univoco all'interno dello spazio dei nomi search.windows.net
-   * Deve avere una lunghezza compresa tra 2 e 60 caratteri
+   * lunghezza compresa tra 2 e 60 caratteri
    * È possibile usare lettere minuscole, cifre o trattini ("-")
    * Non può contenere un trattino ("-") nei primi 2 caratteri o nell'ultimo carattere
    * Non deve contenere trattini consecutivi ("--")

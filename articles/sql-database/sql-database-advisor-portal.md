@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 3c621fc557ed466ddf2b514136a32d98be454325
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2b725c60dbcb9737b00ffd5fb43273b26dda1ea8
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Trovare e applicare raccomandazioni per le prestazioni
 
@@ -91,6 +91,10 @@ Se si vuole, è possibile aggiungere nuovamente gli elementi ignorati all'elenco
 2. Selezionare un elemento ignorato nell'elenco per visualizzarne i dettagli.
 3. Facoltativamente, fare clic su **Annulla rimozione** per aggiungere nuovamente l'indice all'elenco principale di **Raccomandazioni**.
 
+> [!NOTE]
+> Se è abilitata l'[ottimizzazione automatica](sql-database-automatic-tuning.md) del database SQL e se una raccomandazione è stata rimossa manualmente dall'elenco, tale raccomandazione non verrà mai applicata automaticamente. La rimozione di una raccomandazione è un modo pratico per gli utenti di abilitare l'ottimizzazione automatica nei casi che richiedono che non venga applicata una raccomandazione specifica.
+> Tale operazione può essere annullata aggiungendo nuovamente le raccomandazioni rimosse all'elenco selezionando l'opzione Annulla rimozione.
+> 
 
 ### <a name="enable-automatic-tuning"></a>Abilitare l'ottimizzazione automatica
 È possibile impostare il database SQL di Azure in modo che implementi automaticamente le raccomandazioni. Man mano che le raccomandazioni vengono rese disponibili, verranno applicate automaticamente. Come per tutte le raccomandazioni gestite dal servizio, se l'impatto sulle prestazioni è negativo le raccomandazioni verranno annullate.
@@ -121,7 +125,7 @@ L'applicazione di un'indicazione potrebbe non avvenire in tempo reale. Il portal
 | In sospeso |Il comando di applicazione della raccomandazione è stato ricevuto ed è pianificato per l'esecuzione. |
 | In esecuzione |La raccomandazione viene applicata. |
 | Verifica |La raccomandazione è stata applicata e il servizio sta valutando i vantaggi. |
-| Operazione completata |La raccomandazione è stata applicata e i vantaggi sono stati misurati. |
+| Operazione riuscita |La raccomandazione è stata applicata e i vantaggi sono stati misurati. |
 | Errore |Si è verificato un errore durante il processo di applicazione della raccomandazione. Può trattarsi di un problema temporaneo o eventualmente di una modifica dello schema della tabella e lo script non è più valido. |
 | Ripristino |La raccomandazione è stata applicata, ma è stata considerata non efficiente e verrà ripristinata automaticamente. |
 | Ripristinato |La raccomandazione è stata ripristinata. |

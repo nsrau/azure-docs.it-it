@@ -1,6 +1,6 @@
 ---
-title: Risposte agli avvisi in Log Analytics di OMS | Documentazione Microsoft
-description: Gli avvisi in Log Analytics identificano le informazioni importanti nel repository OMS e possono notificare i problemi all'utente in modo proattivo o richiamare le azioni per tentare di correggerle.  Questo articolo descrive come creare una regola di avviso e include i dettagli relativi alle diverse azioni che possono attivare.
+title: Risposte agli avvisi in Log Analytics di Azure | Documentazione Microsoft
+description: Gli avvisi in Log Analytics identificano le informazioni importanti nell'area di lavoro di Azure e possono notificare i problemi all'utente in modo proattivo o richiamare le azioni per tentare di correggerle.  Questo articolo descrive come creare una regola di avviso e include i dettagli relativi alle diverse azioni che possono attivare.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2017
+ms.date: 01/08/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d936cf467ee7043b171cfc845f247f891f52f599
-ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
+ms.openlocfilehash: e80481f074bc196caae7c03f54134eaef0fb46d5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Aggiungere azioni alle regole di avviso in Log Analytics
 Quando [viene creato un avviso in Log Analytics](log-analytics-alerts.md), è possibile scegliere di [configurare la regola di avviso](log-analytics-alerts.md) per eseguire una o più azioni.  Questo articolo descrive le diverse azioni disponibili e offre informazioni sulla configurazione di ogni tipologia di azione.
@@ -71,7 +71,7 @@ I webhook includono un URL e un payload in fermato JSON che corrisponde ai dati 
 | SearchIntervalStartTimeUtc |#searchintervalstarttimeutc |Ora di inizio per la query in formato UTC. |
 | SearchQuery |#searchquery |Query di ricerca nei log usata dalla regola di avviso. |
 | SearchResults |Vedere di seguito |Record restituiti dalla query in formato JSON.  Limitati ai primi 5.000 record. |
-| WorkspaceID |#workspaceid |ID dell'aea di lavoro di OMS. |
+| WorkspaceID |#workspaceid |ID dell'area di lavoro di Log Analytics. |
 
 Ad esempio, è possibile specificare il payload personalizzato seguente che include un singolo parametro denominato *text*.  Il servizio chiamato da questo webhook si aspetta questo parametro.
 
@@ -97,11 +97,11 @@ Ad esempio, per creare un payload personalizzato che include solo il nome dell'a
     }
 
 
-Per un esempio completo di creazione di una regola di avviso con un webhook per avviare un servizio esterno, vedere l'articolo su come [creare un'azione webhook di avviso in Log Analytics di OMS per inviare messaggi a Slack](log-analytics-alerts-webhooks.md).
+Per un esempio completo di creazione di una regola di avviso con un webhook per avviare un servizio esterno, vedere l'articolo [Creare un'azione di avviso webhook in Log Analytics di OMS per inviare messaggi a Slack](log-analytics-alerts-webhooks.md).
 
 
 ## <a name="runbook-actions"></a>Azioni runbook
-Le azioni runbook avviano un runbook in Automazione di Azure.  Per usare questo tipo di azione, è necessario che la [soluzione di automazione](log-analytics-add-solutions.md) sia installata e configurata nell'area di lavoro di OMS.  È possibile selezionare i runbook nell'account di automazione che è stato configurato nella soluzione di automazione.
+Le azioni runbook avviano un runbook in Automazione di Azure.  Per usare questo tipo di azione, è necessario che la [soluzione di automazione](log-analytics-add-solutions.md) sia installata e configurata nell'area di lavoro di Log Analytics.  È possibile selezionare i runbook nell'account di automazione che è stato configurato nella soluzione di automazione.
 
 Le azioni runbook includono le proprietà elencate nella tabella seguente.
 
@@ -117,11 +117,11 @@ Non è possibile popolare direttamente alcun parametro del runbook, ma il [param
 >[!NOTE]
 > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), il payload del runbook è stato modificato.  Vedere [API REST di Azure Log Analytics](https://aka.ms/loganalyticsapiresponse) per informazioni dettagliate sul formato.  Nella sezione [Esempi](#sample-payload) viene illustrato un esempio.  
 
-| Nodo | Description |
+| Nodo | Descrizione |
 |:--- |:--- |
 | id |Percorso e GUID della ricerca. |
 | __metadata |Informazioni sull'avviso, inclusi il numero di record e lo stato dei risultati della ricerca. |
-| value |Voce separata per ogni record nei risultati della ricerca.  I dettagli della voce corrisponderanno alle proprietà e ai valori del record. |
+| valore |Voce separata per ogni record nei risultati della ricerca.  I dettagli della voce corrisponderanno alle proprietà e ai valori del record. |
 
 Ad esempio, i runbook seguenti estraggono i record restituiti dalla ricerca nel log e assegnano proprietà diverse in base al tipo di ogni record.  Si noti che il runbook converte prima di tutto **RequestBody** da JSON, in modo che possa essere usato come oggetto in PowerShell.
 

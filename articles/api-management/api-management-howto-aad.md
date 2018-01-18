@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 3faa6c1867808436a66a2b33ea1a9d79ede2c8fb
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 45c8632f4e03c86cf4e32c6d1151977792f32add
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/13/2018
 ---
 > [!WARNING]
-> L'integrazione di Azure Active Directory è disponibile solo nei livelli [Developer e Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/).
+> L'integrazione di Azure Active Directory è disponibile solo nei livelli [Developer, Standard e Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/).
 
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>Come autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
 ## <a name="overview"></a>Panoramica
@@ -86,7 +86,7 @@ Selezionare l'elenco a discesa **Autorizzazioni delegate** e quindi **Abilita l'
 
 Copiare l' **ID client** negli Appunti.
 
-![ID client][api-management-aad-app-client-id]
+![Client Id][api-management-aad-app-client-id]
 
 Tornare al portale di pubblicazione e incollare l' **ID client** copiato dalla configurazione dell'applicazione di Azure Active Directory.
 
@@ -121,11 +121,11 @@ Al termine del salvataggio delle modifiche, gli utenti nell'istanza di Azure Act
 
 Nella sezione **Tenant consentiti** si possono specificare più domini. Per consentire a un utente di accedere da un dominio diverso da quello originale in cui è stata registrata l'applicazione, un amministratore globale dell'altro dominio deve concedere l'autorizzazione che permette all'applicazione di accedere ai dati della directory. Per concedere l'autorizzazione, l'amministratore globale deve accedere all'`https://<URL of your developer portal>/aadadminconsent`, ad esempio https://contoso.portal.azure-api.net/aadadminconsent, digitare il nome di dominio del tenant di Active Directory a cui consentire l'accesso e fare clic su Invia. Nell'esempio seguente, un amministratore globale di `miaoaad.onmicrosoft.com` tenta di concedere l'autorizzazione a questo portale per sviluppatori specifico. 
 
-![autorizzazioni][api-management-aad-consent]
+![Autorizzazioni][api-management-aad-consent]
 
 Nella schermata successiva all'amministratore globale verrà richiesto di confermare l'autorizzazione. 
 
-![autorizzazioni][api-management-permissions-form]
+![Autorizzazioni][api-management-permissions-form]
 
 > Se un amministratore non globale cerca di accedere prima che vengano concesse le autorizzazioni da un amministratore globale, il tentativo di accesso non riesce e viene visualizzata una schermata di errore.
 > 

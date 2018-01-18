@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2017
 ms.author: tomfitz
-ms.openlocfilehash: f7b2a0de82cfd8fd489387876034487beb49cfd4
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.openlocfilehash: 48ba938db992ce192d8afb51365d87fba4422590
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse
 
-In genere, si distribuisce tutte le risorse nel modello a un singolo [gruppo di risorse](resource-group-overview.md). ma in alcuni scenari può essere preferibile distribuire insieme un set di risorse, inserendole tuttavia in gruppi di sottoscrizioni e risorse diversi. Potrebbe essere necessario, ad esempio, distribuire la macchina virtuale di backup per Azure Site Recovery in un gruppo di risorse e in una posizione separati. Resource Manager consente di usare modelli annidati per specificare come destinazione gruppi di sottoscrizioni e risorse diversi da quello usato per il modello padre.
+In genere si distribuiscono tutte le risorse del modello in un unico [gruppo di risorse](resource-group-overview.md). ma in alcuni scenari può essere preferibile distribuire insieme un set di risorse, inserendole tuttavia in gruppi di sottoscrizioni e risorse diversi. Potrebbe essere necessario, ad esempio, distribuire la macchina virtuale di backup per Azure Site Recovery in un gruppo di risorse e in una posizione separati. Resource Manager consente di usare modelli annidati per specificare come destinazione gruppi di sottoscrizioni e risorse diversi da quello usato per il modello padre.
 
 ## <a name="specify-a-subscription-and-resource-group"></a>Specificare un gruppo di sottoscrizioni e risorse
 
-Per indirizzare una risorsa diversa, utilizzare un modello annidato o collegato. Il tipo di risorsa `Microsoft.Resources/deployments` fornisce parametri per `subscriptionId` e `resourceGroup`. Queste proprietà consentono di specificare un gruppo di sottoscrizioni e risorse diverso per la distribuzione nidificata. Tutti i gruppi di risorse devono esistere prima di eseguire la distribuzione. Se non si specifica un ID sottoscrizione o un gruppo di risorse, viene usato il gruppo di sottoscrizioni e risorse del modello padre.
+Per specificare come destinazione una risorsa diversa, usare un modello annidato o collegato. Il tipo di risorsa `Microsoft.Resources/deployments` fornisce parametri per `subscriptionId` e `resourceGroup`. Queste proprietà consentono di specificare un gruppo di sottoscrizioni e risorse diverso per la distribuzione nidificata. Tutti i gruppi di risorse devono esistere prima di eseguire la distribuzione. Se non si specifica un ID sottoscrizione o un gruppo di risorse, viene usato il gruppo di sottoscrizioni e risorse del modello padre.
 
-Per specificare un gruppo di risorse diverso e una sottoscrizione, utilizzare:
+Per specificare un gruppo di risorse e una sottoscrizione differenti, usare:
 
 ```json
 "resources": [
@@ -42,7 +42,7 @@ Per specificare un gruppo di risorse diverso e una sottoscrizione, utilizzare:
 ]
 ```
 
-Se i gruppi di risorse si trovano nella stessa sottoscrizione, è possibile rimuovere il **subscriptionId** valore.
+Se i gruppi di risorse si trovano nella stessa sottoscrizione, è possibile rimuovere il valore **subscriptionId**.
 
 L'esempio seguente distribuisce due account di archiviazione, uno nel gruppo di risorse specificato durante la distribuzione e uno in un gruppo di risorse specificato nel parametro `secondResourceGroup`:
 
@@ -121,7 +121,7 @@ L'esempio seguente distribuisce due account di archiviazione, uno nel gruppo di 
 
 Se si imposta `resourceGroup` sul nome di un gruppo di risorse che non esiste, la distribuzione ha esito negativo.
 
-Per distribuire il modello di esempio, usare una versione di Azure PowerShell o dell'interfaccia della riga di comando di Azure a partire da maggio 2017.
+Per distribuire il modello di esempio, usare Azure PowerShell 4.0.0 o versione successiva o l'interfaccia della riga di comando di Azure 2.0.0 o versione successiva.
 
 ## <a name="use-the-resourcegroup-function"></a>Usare la funzione resourceGroup()
 
@@ -161,16 +161,16 @@ Se si crea un collegamento a un modello separato, la funzione resourceGroup() ne
 
 ## <a name="example-templates"></a>Modelli di esempio
 
-I modelli seguenti vengono illustrate più distribuzioni del gruppo di risorse. Script per distribuire i modelli vengono visualizzati dopo la tabella.
+I modelli seguenti mostrano distribuzioni tra più gruppi di risorse. Dopo la tabella sono mostrati script per distribuire i modelli.
 
-|Modello  |DESCRIZIONE  |
+|Modello  |Descrizione  |
 |---------|---------|
-|[Tra il modello di sottoscrizione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) |Distribuisce un account di archiviazione per un gruppo di risorse e un account di archiviazione in un secondo gruppo di risorse. Includere un valore per l'ID sottoscrizione quando il secondo gruppo di risorse è in una sottoscrizione diversa. |
-|[Tra il modello di proprietà gruppo di risorse](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) |Di seguito viene illustrato come la `resourceGroup()` funzione viene risolta. Non è possibile distribuire le risorse. |
+|[Modello tra più sottoscrizioni](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) |Distribuisce un account di archiviazione in un gruppo di risorse e un account di archiviazione in un secondo gruppo di risorse. Includere un valore per l'ID sottoscrizione quando il secondo gruppo di risorse è in una sottoscrizione diversa. |
+|[Modello di proprietà a più gruppi di risorse](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) |Mostra in che modo si risolve la funzione `resourceGroup()`. Non distribuisce alcuna risorsa. |
 
 ### <a name="powershell"></a>PowerShell
 
-Per PowerShell, per distribuire due account di archiviazione in due gruppi di risorse di **stessa sottoscrizione**, utilizzare:
+Per PowerShell, per distribuire due account di archiviazione in due gruppi di risorse nella **stessa sottoscrizione**, usare:
 
 ```powershell
 $firstRG = "primarygroup"
@@ -187,7 +187,7 @@ New-AzureRmResourceGroupDeployment `
   -secondStorageLocation eastus
 ```
 
-Per PowerShell, per distribuire due account di archiviazione **due sottoscrizioni**, utilizzare:
+Per PowerShell, per distribuire due account di archiviazione in **due sottoscrizioni**, usare:
 
 ```powershell
 $firstRG = "primarygroup"
@@ -211,7 +211,7 @@ New-AzureRmResourceGroupDeployment `
   -secondSubscriptionID $secondSub
 ```
 
-Per PowerShell, per testare come il **oggetto gruppo di risorse** risolve per l'utilizzo del modello padre modello inline e modello collegato:
+Per PowerShell, per testare in che modo l'**oggetto gruppo di risorse** si risolve per il modello padre, modello inline e modello collegato, usare:
 
 ```powershell
 New-AzureRmResourceGroup -Name parentGroup -Location southcentralus
@@ -225,7 +225,7 @@ New-AzureRmResourceGroupDeployment `
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Per l'interfaccia CLI di Azure, per distribuire due account di archiviazione in due gruppi di risorse di **stessa sottoscrizione**, utilizzare:
+Per l'interfaccia della riga di comando di Azure, per distribuire due account di archiviazione in due gruppi di risorse nella **stessa sottoscrizione**, usare:
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -240,7 +240,7 @@ az group deployment create \
   --parameters storagePrefix=tfstorage secondResourceGroup=$secondRG secondStorageLocation=eastus
 ```
 
-Per l'interfaccia CLI di Azure, per distribuire due account di archiviazione **due sottoscrizioni**, utilizzare:
+Per l'interfaccia della riga di comando di Azure, per distribuire due account di archiviazione in **due sottoscrizioni**, usare:
 
 ```azurecli-interactive
 firstRG="primarygroup"
@@ -262,7 +262,7 @@ az group deployment create \
   --parameters storagePrefix=storage secondResourceGroup=$secondRG secondStorageLocation=eastus secondSubscriptionID=$secondSub
 ```
 
-Per CLI di Azure, per testare come il **oggetto gruppo di risorse** risolve per l'utilizzo del modello padre modello inline e modello collegato:
+Per l'interfaccia della riga di comando di Azure, per testare in che modo l'**oggetto gruppo di risorse** si risolve per il modello padre, modello inline e modello collegato, usare:
 
 ```azurecli-interactive
 az group create --name parentGroup --location southcentralus

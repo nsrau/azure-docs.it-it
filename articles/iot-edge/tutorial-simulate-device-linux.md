@@ -7,16 +7,16 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
-ms.date: 10/16/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 327a959ad97897fd19f45a0599f37492938df104
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 55770c92f5d5959e83066b425bc6ccf2b9dcc62e
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux---preview"></a>Distribuire Azure IoT Edge in un dispositivo simulato in Linux: anteprima
+# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Distribuire Azure IoT Edge in un dispositivo simulato in Linux o macOS: anteprima
 
 Azure IoT Edge consente di eseguire operazioni di analisi ed elaborazione dei dati direttamente nei dispositivi, invece di dover eseguire il push di tutti i dati nel cloud. Le esercitazioni di IoT Edge spiegano come distribuire i diversi tipi di moduli, compilati da servizi di Azure o da codice personalizzato. Per eseguire i test, è però necessario un dispositivo. 
 
@@ -29,14 +29,18 @@ In questa esercitazione si apprenderà come:
 
 ![Architettura dell'esercitazione][2]
 
-Il dispositivo simulato creato in questa esercitazione è un monitor che genera i dati relativi a temperatura, umidità e pressione. Le altre esercitazioni di Azure IoT Edge si basano sulle operazioni eseguite in questa esercitazione e consentono di distribuire moduli che analizzano i dati per ottenere informazioni aziendali accurate. 
+Il dispositivo simulato creato in questa esercitazione è un monitor che genera i dati relativi a temperatura, umidità e pressione. Le altre esercitazioni di Azure IoT Edge si basano sulle operazioni eseguite qui tramite la distribuzione di moduli che consentono di analizzare i dati per ottenere informazioni aziendali accurate. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa esercitazione presuppone l'uso di un computer o di una macchina virtuale che esegue Linux per simulare un dispositivo IoT. I servizi seguenti sono necessari per distribuire correttamente un dispositivo IoT Edge:
+In questa esercitazione viene usato un computer o una macchina virtuale come un dispositivo IoT. I servizi seguenti sono necessari per convertire il computer in uso in un dispositivo IoT Edge:
 
-- [Installare Docker per Linux][lnk-docker-ubuntu] e assicurarsi che sia in esecuzione. 
-- Nella maggior parte delle distribuzioni di Linux, inclusa Ubuntu, Python 2.7 è già installato. Usare il comando seguente per assicurarsi che pip sia installato: `sudo apt-get install python-pip`.
+* Pip di Python per installare il runtime di IoT Edge.
+   * Linux: `sudo apt-get install python-pip`.
+   * MacOS: `sudo easy_install pip`.
+* Docker, per eseguire i moduli IoT Edge
+   * [Installare Docker per Linux][lnk-docker-ubuntu] e assicurarsi che sia in esecuzione. 
+   * [Installare Docker per Mac][lnk-docker-mac] e assicurarsi che sia in esecuzione. 
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -98,7 +102,7 @@ Aprire il prompt dei comandi nel computer eseguendo ancora il dispositivo simula
 sudo docker ps
 ```
 
-![Visualizzazione di tre moduli nel dispositivo](./media/tutorial-simulate-device-linux/docker-ps2.png)
+![Visualizzare tre moduli nel dispositivo](./media/tutorial-simulate-device-linux/docker-ps2.png)
 
 Visualizzare i messaggi inviati dal modulo tempSensor al cloud:
 
@@ -106,7 +110,7 @@ Visualizzare i messaggi inviati dal modulo tempSensor al cloud:
 sudo docker logs -f tempSensor
 ```
 
-![Visualizzazione dei dati dal modulo](./media/tutorial-simulate-device-linux/docker-logs.png)
+![Visualizzare i dati dal modulo](./media/tutorial-simulate-device-linux/docker-logs.png)
 
 È anche possibile visualizzare i dati di telemetria inviati dal dispositivo tramite lo [strumento di esplorazione dell'hub IoT][lnk-iothub-explorer]. 
 
@@ -114,7 +118,7 @@ sudo docker logs -f tempSensor
 
 In questa esercitazione è stato creato un nuovo dispositivo IoT Edge ed è stata usata l'interfaccia cloud di Azure IoT Edge per distribuire il codice nel dispositivo. A questo punto è disponibile un dispositivo simulato che genera dati non elaborati sul proprio ambiente. 
 
-Questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni su IoT Edge. È possibile continuare con una delle altre esercitazioni per ottenere informazioni sui modi in cui Azure IoT Edge può contribuire alla trasformazione dei dati in informazioni aziendali dettagliate in un dispositivo Edge.
+Questa esercitazione costituisce un prerequisito per tutte le altre esercitazioni su IoT Edge. È possibile continuare con una delle altre esercitazioni per ottenere informazioni sui modi in cui Azure IoT Edge può contribuire alla trasformazione dei dati in informazioni aziendali dettagliate nei dispositivi perimetrali.
 
 > [!div class="nextstepaction"]
 > [Sviluppare e distribuire il codice C# come modulo](tutorial-csharp-module.md)
@@ -130,4 +134,5 @@ Questa esercitazione costituisce un prerequisito per tutte le altre esercitazion
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer

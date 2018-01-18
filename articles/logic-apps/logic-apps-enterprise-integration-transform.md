@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f09819a1bfd380cd826a478471e673b6d5ff9ee7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f4ca7004432d28233888483424164456b008e992
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Enterprise Integration con trasformazioni XML
 ## <a name="overview"></a>Panoramica
@@ -72,6 +72,28 @@ A questo punto, la configurazione della mappa è completa. In un'applicazione re
 * Usare la funzione Mappa di test per aggiungere un messaggio XML di esempio. Con un semplice clic, è possibile testare la mappa creata e visualizzare l'output generato.  
 * Caricare le mappe esistenti  
 * Include il supporto per il formato XML.
+
+## <a name="adanced-features"></a>Funzionalità avanzate
+È possibile accedere alle funzionalità seguenti solo dalla visualizzazione codice.
+
+### <a name="byte-order-mark"></a>Byte order mark
+Per impostazione predefinita, la risposta ottenuta dalla trasformazione inizierà con il byte order mark (BOM). Per disabilitare questa funzionalità, specificare `disableByteOrderMark` per la proprietà `transformOptions`:
+
+````json
+"Transform_XML": {
+    "inputs": {
+        "content": "@{triggerBody()}",
+        "integrationAccount": {
+            "map": {
+                "name": "TestMap"
+            }
+        },
+        "transformOptions": "disableByteOrderMark"
+    },
+    "runAfter": {},
+    "type": "Xslt"
+}
+````
 
 ## <a name="learn-more"></a>Altre informazioni
 * [Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")  

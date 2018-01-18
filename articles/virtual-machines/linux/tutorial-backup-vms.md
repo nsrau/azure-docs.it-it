@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0e659c1906c99415ab1b53785a606330ef9068c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2eb0958169b175813b0dca775e9250da1cb364d4
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Eseguire il backup di macchine virtuali Linux in Azure
 
@@ -62,7 +62,7 @@ Il primo backup richiede circa 20 minuti. Al termine del backup, procedere con l
 
 ## <a name="restore-a-file"></a>Ripristinare un file
 
-Se accidentalmente si elimina o si apportano modifiche a un file, è possibile usare Ripristino file per ripristinare il file dall'insieme di credenziali di backup. Ripristino file usa uno script eseguito nella macchina virtuale, per montare il punto di recupero come unità locale. Queste unità rimarranno montate per 12 ore in modo che sia possibile copiare i file dal punto di recupero e ripristinarli nella macchina virtuale.  
+Se accidentalmente si elimina o si apportano modifiche a un file, è possibile usare Ripristino file per ripristinare il file dall'insieme di credenziali di backup. Ripristino file usa uno script eseguito nella VM per montare il punto di recupero come un'unità locale. Queste unità rimarranno montate per 12 ore in modo che sia possibile copiare i file dal punto di recupero e ripristinarli nella macchina virtuale.  
 
 Questo esempio illustra come ripristinare la pagina Web di nginx predefinita /var/www/html/index.nginx-debian.html. L'indirizzo IP pubblico della macchina virtuale in questo esempio è *13.69.75.209*. È possibile trovare l'indirizzo IP della macchina virtuale tramite:
 
@@ -157,12 +157,12 @@ Questo esempio illustra come ripristinare la pagina Web di nginx predefinita /va
 
     ![Pagina Web di nginx predefinita](./media/tutorial-backup-vms/nginx-working.png)
 
-18. Nel computer locale tornare alla scheda del browser per il portale di Azure e in **Passaggio 3: Smontare i dischi dopo il ripristino** fare clic sul pulsante **Smontare i dischi**. Se si dimentica di eseguire questo passaggio, la connessione per il punto di montaggio viene chiusa automaticamente dopo 12 ore. Trascorse le 12 ore, è necessario scaricare un nuovo script per creare un nuovo punto di montaggio.
+18. Nel computer locale tornare alla scheda del browser per il portale di Azure e in **Passaggio 3: Smontare i dischi dopo il ripristino** fare clic sul pulsante **Smontare i dischi**. Se si dimentica di eseguire questo passaggio, la connessione al punto di montaggio viene chiusa automaticamente dopo 12 ore. Trascorse le 12 ore, è necessario scaricare un nuovo script per creare un nuovo punto di montaggio.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Creare un backup di una macchina virtuale

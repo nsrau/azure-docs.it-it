@@ -1,6 +1,6 @@
 ---
 title: 'Backup di Azure: backup coerente con le applicazioni di VM Linux | Microsoft Docs'
-description: Usare gli script per garantire backup coerenti con l'applicazione in Azure, per le macchine virtuali Linux. Gli script si applicano solo alle VM Linux in una distribuzione di Resource Manager, non si applicano alle VM di Windows o alle distribuzioni di Service Manager. In questo articolo vengono illustrati i passaggi per configurare gli script, inclusa la risoluzione dei problemi.
+description: In Azure creare backup coerenti con le applicazioni per le macchine virtuali Linux. In questo articolo viene illustrata la configurazione di framework di script per eseguire il backup di macchine virtuali Linux distribuite in Azure. In questo articolo sono incluse anche le informazioni sulla risoluzione dei problemi.
 services: backup
 documentationcenter: dev-center-name
 author: anuragmehrotra
@@ -12,33 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 4/12/2017
+ms.date: 1/12/2018
 ms.author: anuragm;markgal
-ms.openlocfilehash: 378c65bec8fd1f880ed459e76f5e4b5d85e49d2a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2437b4cd90deda3e7239d87837a47a072f52835
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="application-consistent-backup-of-azure-linux-vms-preview"></a>Backup coerente con le applicazioni di VM Linux di Azure (anteprima)
+# <a name="application-consistent-backup-of-azure-linux-vms"></a>Backup coerente con le applicazioni per macchine virtuali Linux in Azure
 
-Questo articolo illustra il framework degli script di pre e post-backup di Linux e il relativo uso per eseguire backup coerenti con le applicazioni di VM Linux di Azure.
-
-> [!Note]
-> Il framework degli script di pre e post-backup è supportato solo per le macchine virtuali Linux distribuite di Azure Resource Manager. Gli script per la coerenza con l'applicazione non sono supportati per le macchine virtuali distribuite di Service Manager o le macchine virtuali di Windows.
->
+Quando viene eseguito il backup di snapshot delle macchine virtuali, la coerenza a livello di applicazioni fa riferimento al fatto che le applicazioni vengono avviate all'avvio delle macchine virtuali dopo il ripristino. È pertanto evidente che la coerenza con le applicazioni è un fattore estremamente importante. Per garantire che le macchine virtuali Linux siano coerenti a livello di applicazioni, è possibile usare il framework di script di pre-backup e script di post-backup Linux per eseguire backup coerenti con le applicazioni. Il framework degli script di pre e post-backup è supportato per le macchine virtuali Linux distribuite di Azure Resource Manager. Gli script per la coerenza con le applicazioni non sono supportati per le macchine virtuali distribuite di Service Manager o le macchine virtuali di Windows.
 
 ## <a name="how-the-framework-works"></a>Come funziona il framework
 
-Il framework offre un'opzione per eseguire script di pre e post-backup durante la creazione di snapshot delle macchine virtuali. Gli script pre-backup vengono eseguiti immediatamente prima della creazione dello snapshot della macchina virtuale e gli script post-backup vengono eseguiti immediatamente dopo la creazione dello snapshot della macchina virtuale. Questo offre la flessibilità di controllare l'applicazione e l'ambiente quando si creano snapshot delle macchine virtuali.
+Il framework offre un'opzione per eseguire script di pre e post-backup durante la creazione di snapshot delle macchine virtuali. Gli script pre-backup vengono eseguiti immediatamente prima della creazione dello snapshot della macchina virtuale e gli script post-backup vengono eseguiti immediatamente dopo la creazione dello snapshot della macchina virtuale. Gli script di pre e post-backup offrono la flessibilità necessaria per controllare l'applicazione e l'ambiente quando si creano snapshot delle macchine virtuali.
 
-In questo scenario, è importante assicurare backup coerenti con le applicazioni delle macchine virtuali. Lo script di pre-backup può richiamare API native delle applicazioni per disattivare gli I/O e scaricare sul disco il contenuto in memoria. Ciò garantisce che lo snapshot sia coerente con le applicazioni (ossia, che l'applicazione venga avviata quando viene avviata la macchina virtuale dopo il ripristino). Lo script di post-backup può essere utilizzato per sbloccare gli I/O. Consente questo mediante le API native delle applicazioni, in modo che l'applicazione possa riprendere le normali operazioni successivamente allo snapshot della macchina virtuale.
+Gli script di pre-backup richiamano API native delle applicazioni per disattivare gli I/O e scaricano sul disco il contenuto in memoria. Queste azioni garantiscono la coerenza dello snapshot con le applicazioni. Gli script di post-backup usano API native delle applicazioni native per sbloccare gli I/O e ciò consente all'applicazione di riprendere le normali operazioni dopo la creazione dello snapshot della macchina virtuale.
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>Passaggi per configurare gli script di pre e post-backup
 
 1. Accedere come utente root alla macchina virtuale Linux VM di cui si vuole eseguire il backup.
 
-2. Scaricare **VMSnapshotScriptPluginConfig.json** da [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) e quindi copiarlo nella cartella **/etc/azure** in tutte le macchine virtuali di cui si intende eseguire il backup. Creare la directory **/etc/azure** se non esiste già.
+2. Da [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) scaricare **VMSnapshotScriptPluginConfig.json** e copiarlo nella cartella **/etc/azure** per tutte le macchine virtuali di cui si desidera eseguire il backup. Se la cartella **/etc/azure** non esiste, crearla.
 
 3. Copiare lo script di pre-backup e lo script di post-backup per l'applicazione su tutte le macchine virtuali di cui eseguire il backup. È possibile copiare gli script in qualsiasi posizione nella macchina virtuale. Assicurarsi di aggiornare il percorso completo del file di script nel file **VMSnapshotScriptPluginConfig.json**.
 
@@ -51,20 +47,20 @@ In questo scenario, è importante assicurare backup coerenti con le applicazioni
    - **Script di post-backup**: autorizzazione "700". Ad esempio, solo l'utente "root" deve avere le autorizzazioni di "lettura", "scrittura" ed "esecuzione" per questo file.
 
    > [!Important]
-   > Il framework offre notevoli potenzialità agli utenti. È importante assicurare che solo l'utente "root" abbia accesso ai file di script e JSON critici.
-   > Se i requisiti precedenti non sono soddisfatti, lo script non viene eseguito. In questo modo si genera un backup coerente con file system e arresto anomalo.
+   > Il framework offre notevoli potenzialità agli utenti. Controllare il framework e assicurarsi che solo l'utente "root" abbia accesso ai file di script e JSON critici.
+   > Se i requisiti non vengono soddisfatti, lo script non viene eseguito e pertanto si verificherà un arresto anomalo del file system e verrà creato un backup non coerente.
    >
 
 5. Configurare **VMSnapshotScriptPluginConfig.json** come illustrato di seguito:
-    - **pluginName**: lasciare invariato il campo, altrimenti gli script potrebbero non funzionare come previsto.
+    - **pluginName**: lasciare invariato il campo. In caso contrario, gli script potrebbero non funzionare come previsto.
 
     - **preScriptLocation**: specificare il percorso completo dello script di pre-backup nella VM di cui si eseguirà il backup.
 
     - **postScriptLocation**: specificare il percorso completo dello script di post-backup nella VM di cui si eseguirà il backup.
 
-    - **preScriptParams**: specificare i parametri facoltativi da passare allo script di pre-backup. Tutti i parametri devono essere racchiusi tra virgolette e, se sono presenti più parametri, devono essere separati da virgole.
+    - **preScriptParams**: specificare i parametri facoltativi da passare allo script di pre-backup. Tutti i parametri devono essere racchiusi tra virgolette. Se si usano più parametri, separare i parametri con una virgola.
 
-    - **postScriptParams**: specificare i parametri facoltativi da passare allo script di post-backup. Tutti i parametri devono essere racchiusi tra virgolette e, se sono presenti più parametri, devono essere separati da virgole.
+    - **postScriptParams**: specificare i parametri facoltativi da passare allo script di post-backup. Tutti i parametri devono essere racchiusi tra virgolette. Se si usano più parametri, separare i parametri con una virgola.
 
     - **preScriptNoOfRetries**: impostare il numero di volte in cui lo script di pre-backup deve essere ritentato se è presente un errore prima di terminare. Zero indica un solo tentativo, senza alcun nuovo tentativo in caso di errore.
 
@@ -78,11 +74,11 @@ In questo scenario, è importante assicurare backup coerenti con le applicazioni
 
 6. Il framework di script è ora configurato. Se il backup della macchina virtuale è già configurato, il backup successivo richiamerà gli script e attiverà backup coerenti con le applicazioni. Se il backup della macchina virtuale non è configurato, configurarlo facendo riferimento a [Backup di macchine virtuali di Azure in insiemi di credenziali di Servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Accertarsi di aggiungere le funzioni di log appropriate negli script di pre e post-backup e controllare i log di script per risolvere eventuali problemi degli script. Se continuano a verificarsi problemi durante l'esecuzione degli script, vedere la tabella seguente per altre informazioni.
 
-| Errore | Messaggio di errore | Azione consigliata |
+| Tipi di errore | Messaggio di errore | Azione consigliata |
 | ------------------------ | -------------- | ------------------ |
 | Pre-ScriptExecutionFailed |Lo script di pre-backup ha restituito un errore perciò il backup potrebbe non essere coerente con le applicazioni.   | Controllare i log di errore dello script per risolvere il problema.|  
 |   Post-ScriptExecutionFailed |    Lo script di post-backup ha restituito un errore che potrebbe compromettere lo stato dell'applicazione. |    Controllare i log di errore dello script per risolvere il problema e verificare lo stato dell'applicazione. |

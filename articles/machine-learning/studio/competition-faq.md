@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: haining;garye
-ms.openlocfilehash: 848d0a0882d538cadadf3172a20e628799488042
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: f7c839a8471dc54daebc47d0bb5a450358f5250d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Domande frequenti sui concorsi Microsoft Cortana Intelligence
 **Informazioni sui concorsi Cortana Intelligence**
 
-I concorsi Microsoft Cortana Intelligence riuniscono una community globale di appassionati per risolvere insieme alcuni dei problemi di analisi scientifica dei dati più complessi del mondo. I concorsi Cortana Intelligence consentono agli appassionati di tutto il mondo di competere e compilare modelli di analisi scientifica dei dati estremamente accurati e intelligenti. I concorsi ospitati si basano su set di dati univoci che vengono messi a disposizione del pubblico per la prima volta. I partecipanti possono vincere premi o il riconoscimento nella classifica pubblica dei migliori 10. Fare clic [qui](http://aka.ms/CIComp) per accedere alla home page dei concorsi.
+I concorsi Microsoft Cortana Intelligence riuniscono una community globale di appassionati per risolvere insieme alcuni dei problemi di analisi scientifica dei dati più complessi del mondo. I concorsi Cortana Intelligence consentono agli appassionati di tutto il mondo di competere e compilare modelli di analisi scientifica dei dati estremamente accurati e intelligenti. I concorsi ospitati si basano su set di dati univoci che vengono messi a disposizione del pubblico per la prima volta. I partecipanti possono vincere premi o il riconoscimento nella classifica pubblica dei migliori 10. È possibile accedere alla home page dei concorsi all'indirizzo [aka.ms/CIComp](http://aka.ms/CIComp).
 
 **Con quale frequenza Microsoft lancerà nuovi concorsi?**
 
@@ -31,25 +31,25 @@ I concorsi Microsoft verranno lanciati a intervalli regolari, ogni 8-12 settiman
 
 **Dove è possibile porre domande generali relative all’analisi scientifica dei dati?**
 
-È possibile consultare il [forum di Microsoft Azure Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
+Per domande di carattere generale, è possibile usare il [forum di Microsoft Azure Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
 
 **Come si partecipa a una competizione?**
 
-Accedere alla home page dei [concorsi](https://gallery.cortanaintelligence.com/competitions) di [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) o andare all'indirizzo [http://aka.ms/CIComp](http://aka.ms/CIComp). La home page elenca tutti i concorsi attualmente aperti. Nella pagina di iscrizione di ogni concorso sono riportate istruzioni dettagliate, le modalità di partecipazione, i premi e la durata.
+Accedere alla home page dei [concorsi](https://gallery.cortanaintelligence.com/competitions) di [Raccolta di intelligenza artificiale per Azure](https://gallery.cortanaintelligence.com/) o andare all'indirizzo [http://aka.ms/CIComp](http://aka.ms/CIComp). La home page elenca tutti i concorsi attualmente aperti. Nella pagina di iscrizione di ogni concorso sono riportate istruzioni dettagliate, le modalità di partecipazione, i premi e la durata.
 
-1. Trovare il concorso a cui si vuole partecipare, leggere tutte le istruzioni e guardare il video di esercitazione, fare clic sul pulsante **Enter Competition** (Accedi al concorso) per copiare l'esperimento iniziale nell'area di lavoro di Azure Machine Learning esistente. Creare prima di tutto un accesso a un'area di lavoro, se non è già disponibile. Eseguire l'esperimento iniziale, osservare le metriche delle prestazioni e usare la propria creatività per migliorare le prestazioni del modello. È probabile che la maggior parte del tempo verrà dedicata a questo passaggio.   
+1. Individuare il concorso a cui si vuole partecipare, leggere tutte le istruzioni e guardare il video di esercitazione. Quindi fare clic sul pulsante **Enter Competition** (Partecipa al concorso) e copiare l'esperimento Starter nell'area di lavoro di Azure Machine Learning esistente. Creare prima di tutto un accesso a un'area di lavoro, se non è già disponibile. Eseguire l'esperimento iniziale, osservare le metriche delle prestazioni e usare la propria creatività per migliorare le prestazioni del modello. È probabile che la maggior parte del tempo verrà dedicata a questo passaggio.   
 
 2. Creare un esperimento predittivo con il modello con training a partire dall'esperimento iniziale. Modificare con attenzione gli schemi di input e di output del servizio Web per fare in modo che siano conformi ai requisiti specificati nella documentazione del concorso. Il documento dell'esercitazione contiene in genere istruzioni dettagliate a questo proposito. Se disponibile, è anche possibile guardare il video dell'esercitazione.   
 
 3. Distribuire un servizio Web a partire dall'esperimento predittivo. Testare il servizio Web usando il pulsante **Test** o il modello di Excel creato automaticamente per verificarne il funzionamento.   
 
-4. Inviare il servizio Web come contributo al concorso. Il punteggio pubblico sarà disponibile nella pagina del concorso della raccolta Cortana Intelligence. I migliori potranno entrare nella classifica ufficiale.  
+4. Inviare il proprio servizio Web come contributo al concorso. Il punteggio pubblico sarà disponibile nella pagina del concorso della Raccolta di intelligenza artificiale per Azure. I migliori potranno entrare nella classifica ufficiale.  
 
-Dopo avere inviato il contributo al concorso, è possibile tornare all'esperimento iniziale copiato, eseguire l'iterazione, aggiornare l'esperimento predittivo, aggiornare il servizio Web e inviare un nuovo contributo.   
+Dopo aver inviato correttamente un contributo, è possibile tornare all'esperimento Starter copiato. Quindi eseguire l'iterazione e aggiornare l'esperimento predittivo, aggiornare il servizio Web e inviare un nuovo contributo.   
 
 **È possibile usare strumenti open source per partecipare a questi concorsi?**
 
-I partecipanti al concorso usano Azure Machine Learning Studio, un servizio basato sul cloud nella suite Cortana Intelligence, per sviluppare i modelli di analisi scientifica dei dati e creare i contributi con cui concorrere. Machine Learning Studio offre un'interfaccia utente grafica per la costruzione di esperimenti di apprendimento automatico e permette anche di usare i propri script R e/o Python per l'esecuzione nativa. I runtime di Python e R in Studio includono un set completo di pacchetti R o Python open source e permettono anche di importare pacchetti personalizzati come parte dell'esperimento. Studio include un servizio Jupyter Notebook predefinito per l'esplorazione libera dei dati. Naturalmente, è sempre possibile scaricare i set di dati usati nel concorso ed esplorarli con lo strumento preferito all'esterno di Machine Learning Studio. 
+I partecipanti al concorso usano Azure Machine Learning Studio, un servizio basato su cloud nella suite Cortana Intelligence, per sviluppare i modelli di analisi scientifica dei dati e creare i contributi con cui concorrere. Machine Learning Studio offre un'interfaccia utente grafica per la costruzione di esperimenti di apprendimento automatico e permette anche di usare i propri script R e/o Python per l'esecuzione nativa. I runtime di R e Python in Studio includono un set completo di pacchetti R/Python open source. Come parte dell'esperimento è anche possibile importare pacchetti personali. Studio include un servizio Jupyter Notebook predefinito per l'esplorazione libera dei dati. Naturalmente, è sempre possibile scaricare i set di dati usati nel concorso ed esplorarli con lo strumento preferito all'esterno di Machine Learning Studio. 
 
 **La competizione è riservata ai data scientist?**
 
@@ -78,7 +78,7 @@ Di seguito è illustrato ciò che accade:
 * L'intero set di dati usato per il concorso viene suddiviso in modo casuale con una stratificazione in dati di training e il resto in dati di test. La suddivisione casuale è stratificata per garantire la coerenza delle distribuzioni di etichette dei dati di training e di test.
 * I dati di training vengono caricati e forniti come parte dell’esperimento iniziale nella configurazione del modulo Importazione dei dati.
 * I dati di test vengono suddivisi ulteriormente in dati di test pubblici e privati, usando la stessa stratificazione.
-* I dati di test pubblici vengono usati per il round iniziale di assegnazione dei punteggi. Il risultato è il punteggio pubblico, che viene visualizzato nella cronologia degli invii in seguito all'invio del contributo. Questo punteggio viene calcolato per ogni contributo inviato. Questo punteggio pubblico viene usato per il posizionamento del concorrente nella classifica pubblica.
+* I dati di test pubblici vengono usati per il round iniziale di assegnazione dei punteggi. Il risultato è chiamato punteggio pubblico. È ciò che si vede nella cronologia di invio quando si invia il contributo. Questo punteggio viene calcolato per ogni contributo inviato. Questo punteggio pubblico viene usato per il posizionamento del concorrente nella classifica pubblica.
 * I dati di test privati vengono usati per il round finale di assegnazione dei punteggi dopo la conclusione del concorso. Questo è il punteggio privato. 
 * Per ogni partecipante viene selezionato automaticamente un numero fisso di contributi con i punteggi pubblici più alti, per il round di assegnazione del punteggio privato. Questo numero può variare a seconda del concorso. Il contributo con il punteggio privato più alto viene quindi selezionato per la classificazione finale, che determina i vincitori.  
 

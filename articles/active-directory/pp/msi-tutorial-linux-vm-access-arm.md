@@ -1,6 +1,6 @@
 ---
-title: Utilizzare un file MSI di VM Linux assegnati dall'utente per accedere a Gestione risorse di Azure
-description: "Un'esercitazione che illustra il processo di utilizzo di un User-Assigned gestiti servizio identità (MSI) in una VM Linux, per accedere a Gestione risorse di Azure."
+title: "Usare un'identità del servizio gestito assegnata dall'utente di macchina virtuale di Linux per accedere ad Azure Resource Manager"
+description: "Questa esercitazione illustra come usare un'identità del servizio gestito assegnata dall'utente su una macchina virtuale Linux per accedere ad Azure Resource Manager."
 services: active-directory
 documentationcenter: 
 author: bryanLa
@@ -14,27 +14,27 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: arluca
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a51d0bdf092893288f2e1cc31a4dcc4117b041c2
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: bebdccb616a4677fdf36ac257ac36f1827958af7
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>Utilizzare un utente assegnato gestiti servizio identità (MSI) in una VM Linux, per accedere a Gestione risorse di Azure
+# <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-resource-manager"></a>Usare un'identità del servizio gestito assegnata dall'utente su una macchina virtuale Linux per accedere ad Azure Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-In questa esercitazione viene illustrato come creare un utente assegnato gestiti servizio identità (MSI), assegnarla a una macchina virtuale Linux (VM) e quindi utilizzare tale identità per accedere all'API di gestione risorse di Azure. 
+Questa esercitazione illustra come creare un'identità del servizio gestito, assegnarla a una macchina virtuale Linux e quindi usare tale identità per accedere all'API Azure Resource Manager. 
 
-Identità del servizio gestito vengono gestite automaticamente da Azure. Consentono l'autenticazione ai servizi che supportano l'autenticazione di Azure AD, senza la necessità di incorporare le credenziali nel codice.
+Le identità del servizio gestito vengono gestite automaticamente da Azure. Tali identità consentono di eseguire l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza la necessità di incorporare le credenziali nel codice.
 
 Si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare un file MSI assegnati dall'utente
-> * Assegnare il file MSI in una macchina virtuale Linux 
-> * Concedere l'accesso MSI a un gruppo di risorse di gestione risorse di Azure 
-> * Ottenere un token di accesso usando il file MSI e utilizzarlo per chiamare Gestione risorse di Azure 
+> * Creare un'identità del servizio gestito assegnata dall'utente
+> * Assegnare l'identità del servizio gestito a una macchina virtuale Linux 
+> * Concedere all'identità del servizio gestito l'accesso a un gruppo di risorse in Azure Resource Manager 
+> * Ottenere un token di accesso usando l'identità del servizio gestito e usarlo per chiamare Azure Resource Manager 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -42,10 +42,10 @@ Si apprenderà come:
 
 [!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
 
-Per eseguire gli esempi di script CLI in questa esercitazione, sono disponibili due opzioni:
+Per eseguire gli esempi di script dell'interfaccia della riga di comando in questa esercitazione sono disponibili due opzioni:
 
-- Utilizzare [Azure Cloud Shell](~/articles/cloud-shell/overview.md) dal portale di Azure o tramite il pulsante "Provalo", si trova nell'angolo superiore destro di ogni blocco di codice.
-- [Installare la versione più recente di CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 o versione successiva) se si preferisce utilizzare una console locale di CLI.
+- Usare [Azure Cloud Shell](~/articles/cloud-shell/overview.md) tramite il portale di Azure o il pulsante "Prova", che si trova nell'angolo in alto a destra di ogni blocco di codice.
+- [Installare la versione più recente dell'interfaccia della riga di comando 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -53,7 +53,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Creare una macchina virtuale Linux in un nuovo gruppo di risorse
 
-Per questa esercitazione, è innanzitutto necessario creare una nuova VM Linux. È inoltre possibile scegliere di utilizzare una macchina virtuale esistente.
+Per questa esercitazione, è innanzitutto necessario creare una nuova macchina virtuale Linux. È anche possibile scegliere di usare una macchina virtuale esistente.
 
 1. Fare clic sul pulsante **Nuovo** nell'angolo superiore sinistro del portale di Azure.
 2. Selezionare **Calcolo** e quindi **Ubuntu Server 16.04 LTS**.
@@ -65,21 +65,21 @@ Per questa esercitazione, è innanzitutto necessario creare una nuova VM Linux. 
 5. Per selezionare un nuovo **Gruppo di risorse** in cui creare la macchina virtuale, scegliere **Crea nuovo**. Al termine fare clic su **OK**.
 6. Selezionare la dimensione della macchina virtuale. Per visualizzare altre dimensioni, selezionare **View all** (Visualizza tutto) o modificare il filtro Tipo di disco supportato. Nel pannello delle impostazioni mantenere le impostazioni predefinite e fare clic su **OK**.
 
-## <a name="create-a-user-assigned-msi"></a>Creare un file MSI assegnati dall'utente
+## <a name="create-a-user-assigned-msi"></a>Creare un'identità del servizio gestito assegnata dall'utente
 
-1. Se si utilizza la console CLI (invece di una sessione della Shell di Cloud di Azure), eseguire l'accesso a Azure. Utilizzare un account che viene associato alla sottoscrizione di Azure in cui si desidera creare il nuovo file MSI:
+1. Se si usa la console dell'interfaccia della riga di comando invece di una sessione di Azure Cloud Shell, eseguire l'accesso ad Azure. Usare un account associato alla sottoscrizione di Azure in cui si desidera creare una nuova identità del servizio gestito:
 
     ```azurecli
     az login
     ```
 
-2. Creare un file MSI assegnati dall'utente tramite [identità az creare](/cli/azure/identity#az_identity_create). Il `-g` parametro specifica il gruppo di risorse in cui viene creato il file MSI, e `-n` parametro specifica il nome. Assicurarsi di sostituire il `<RESOURCE GROUP>` e `<MSI NAME>` i valori dei parametri con valori personalizzati:
+2. Creare un'identità del servizio gestito assegnata dall'utente tramite [az identity create](/cli/azure/identity#az_identity_create). Il parametro `-g` specifica il gruppo di risorse in cui viene creata l'identità del servizio gestito, mentre il parametro `-n` ne specifica il nome. Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<MSI NAME>` con valori personalizzati:
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
 
-    La risposta contiene i dettagli per il file MSI assegnati dall'utente creato, in modo analogo all'esempio seguente. Si noti il `id` valore per il file MSI, perché verrà usato nel passaggio successivo:
+    La risposta contiene i dettagli relativi all'identità del servizio gestito assegnata dall'utente creata ed è simile all'esempio seguente. Prendere nota del valore della proprietà `id` dell'identità del servizio gestito perché verrà usato nel passaggio successivo:
 
     ```json
     {
@@ -96,27 +96,27 @@ Per questa esercitazione, è innanzitutto necessario creare una nuova VM Linux. 
     }
     ```
 
-## <a name="assign-your-user-assigned-msi-to-your-linux-vm"></a>Assegnare MSI assegnati dall'utente per le VM Linux
+## <a name="assign-your-user-assigned-msi-to-your-linux-vm"></a>Assegnare l'identità del servizio gestito assegnata dall'utente alla macchina virtuale Linux in uso
 
-A differenza di un file MSI assegnato dal sistema, un file MSI assegnati dall'utente può essere utilizzato dai client su più risorse di Azure. Per questa esercitazione, vengono assegnati a una singola macchina virtuale. È inoltre possibile assegnare più di una macchina virtuale.
+A differenza di un'identità del servizio gestito assegnata dal sistema, un'identità del servizio gestito assegnata dall'utente può essere usata dai client in più risorse di Azure. Ai fini della presente esercitazione assegnare tale entità a una singola macchina virtuale. È anche possibile assegnarla a più di una macchina virtuale.
 
-Assegnare il file MSI assegnati dall'utente per le VM Linux utilizzando [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Assicurarsi di sostituire il `<RESOURCE GROUP>` e `<VM NAME>` i valori dei parametri con valori personalizzati. Utilizzare il `id` proprietà restituita nel passaggio precedente per il `--identities` valore del parametro:
+Assegnare l'identità del servizio gestito assegnata dall'utente alla macchina virtuale Linux tramite [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<VM NAME>` con valori personalizzati. Usare la proprietà `id` restituita nel passaggio precedente per il valore del parametro `--identities`:
 
 ```azurecli-interactive
-az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> -–identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
+az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"
 ```
 
-## <a name="grant-your-user-assigned-msi-access-to-a-resource-group-in-azure-resource-manager"></a>Concedere l'accesso MSI utente assegnato a un gruppo di risorse di gestione risorse di Azure 
+## <a name="grant-your-user-assigned-msi-access-to-a-resource-group-in-azure-resource-manager"></a>Concedere all'identità del servizio gestito a un gruppo di risorse in Azure Resource Manager 
 
-MSI fornisce il codice con un token di accesso per l'autenticazione alla risorsa API che supportano l'autenticazione di Azure AD. In questa esercitazione, il codice accede l'API di gestione risorse di Azure. 
+L'identità del servizio gestito contiene un token di accesso per il codice in uso per l'autenticazione alle API della risorsa supportano l'autenticazione di Azure AD. In questa esercitazione il codice accede l'API di Azure Resource Manager. 
 
-Il codice può accedere tramite l'API, è necessario concedere l'accesso di identità del file MSI a una risorsa di gestione risorse di Azure. In questo caso, il gruppo di risorse in cui è contenuta la macchina virtuale. Sostituire i valori dei parametri `<CLIENT ID>`, `<SUBSCRIPTION ID>` e `<RESOURCE GROUP>` con i valori desiderati. Sostituire `<CLIENT ID>` con il `clientId` restituito dalla proprietà di `az identity create` comando [creare un utente assegnato MSI](#create-a-user-assigned-msi): 
+Prima che il codice possa accedere all'API, è necessario concedere all'identità del servizio gestito l'accesso a una risorsa in Azure Resource Manager. In questo caso si tratta del gruppo di risorse in cui è contenuta la macchina virtuale. Sostituire i valori dei parametri `<CLIENT ID>`, `<SUBSCRIPTION ID>` e `<RESOURCE GROUP>` con i valori desiderati. Sostituire `<CLIENT ID>` con la proprietà `clientId` restituita dal comando `az identity create` in [Creare un'identità del servizio gestito assegnata dall'utente](#create-a-user-assigned-msi): 
 
 ```azurecli-interactive
 az role assignment create --assignee <CLIENT ID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP> "
 ```
 
-La risposta contiene i dettagli per l'assegnazione di ruolo creato, in modo analogo all'esempio seguente:
+La risposta contiene i dettagli per l'assegnazione di ruolo creata, in modo analogo all'esempio seguente:
 
 ```json
 {
@@ -143,14 +143,14 @@ Per completare questi passaggi, è necessario disporre di un client SSH. Se si u
 2. **Connettersi** alla macchina virtuale usando un client SSH di propria scelta.  
 3. Nella finestra terminale usare CURL per fare una richiesta all'endpoint locale di Identità del servizio gestito per ottenere un token di accesso per Azure Resource Manager.  
 
-   La richiesta CURL per acquisire un token di accesso viene visualizzata nell'esempio seguente. Assicurarsi di sostituire `<CLIENT ID>` con il `clientId` restituito dalla proprietà di `az identity create` comando [creare un utente assegnato MSI](#create-a-user-assigned-msi): 
+   La richiesta CURL per acquisire un token di accesso viene visualizzata nell'esempio seguente. Sostituire `<CLIENT ID>` con la proprietà `clientId` restituita dal comando `az identity create` in [Creare un'identità del servizio gestito assegnata dall'utente](#create-a-user-assigned-msi): 
     
    ```bash
    curl -H Metadata:true "http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<CLIENT ID>"   
    ```
     
     > [!NOTE]
-    > Il valore di `resource` parametro deve essere una corrispondenza esatta per le azioni previste da Azure AD. Quando si utilizza l'ID di risorsa di gestione delle risorse, è necessario includere la barra finale nell'URI. 
+    > Il valore del parametro `resource` deve corrispondere esattamente a quello previsto da Azure AD. Quando si usa l'ID risorsa di Gestione risorse, è necessario includere la barra finale nell'URI. 
     
     La risposta include il token di accesso necessario per accedere ad Azure Resource Manager. 
     
@@ -168,16 +168,16 @@ Per completare questi passaggi, è necessario disporre di un client SSH. Se si u
     } 
     ```
 
-4. Ora utilizzare il token di accesso per accedere a Gestione risorse di Azure e leggere le proprietà del gruppo di risorse a cui si concesse in precedenza l'accesso MSI assegnati dall'utente. Assicurarsi di sostituire `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` con i valori specificati in precedenza, e `<ACCESS TOKEN>` con il token restituito nel passaggio precedente.
+4. Usare ora il token di accesso per accedere ad Azure Resource Manager e leggere le proprietà del gruppo di risorse a cui in precedenza è stato concesso l'accesso per l'identità del servizio gestito assegnata dall'utente. Verificare di sostituire `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` con i valori specificati in precedenza e `<ACCESS TOKEN>` con il token restituito nel passaggio precedente.
 
     > [!NOTE]
-    > L'URL è tra maiuscole e minuscole, pertanto assicurarsi di utilizzare lo stesso esatto case utilizzato in precedenza quando è denominato gruppo di risorse e "G" maiuscola in `resourceGroups`.  
+    > L'URL rispetta la distinzione tra maiuscole e minuscole, pertanto usare la stessa combinazione usata in precedenza quando al gruppo di risorse è stato assegnato il nome e il carattere "G" maiuscolo in `resourceGroups`.  
 
     ```bash 
     curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
 
-    La risposta contiene le informazioni gruppo di risorse specifiche, simile all'esempio seguente: 
+    La risposta contiene le informazioni sul gruppo di risorse specifico, in modo analogo all'esempio seguente: 
 
     ```bash
     {

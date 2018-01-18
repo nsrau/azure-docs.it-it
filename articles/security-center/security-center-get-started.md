@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva per il Centro sicurezza di Azure | Documentazione Microsoft
-description: Questo documento consente di iniziare a usare rapidamente il Centro sicurezza di Azure illustrando i componenti di monitoraggio della sicurezza e gestione dei criteri e fornendo un collegamento ai passaggi successivi.
+title: Guida introduttiva di Centro sicurezza di Azure - Caricamento della sottoscrizione di Azure al livello Standard del Centro sicurezza di Azure | Microsoft Docs
+description: Questa Guida introduttiva illustra come eseguire l'aggiornamento al piano tariffario Standard del Centro sicurezza per aumentare la sicurezza.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,125 +12,109 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 01/07/2018
 ms.author: terrylan
-ms.openlocfilehash: c28f92af96f31d1c386cf072f83fc142b9a7f588
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac4e3b36b08223f7e3b54850ed53a8185e85f0d2
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="azure-security-center-quick-start-guide"></a>Guida introduttiva per il Centro sicurezza di Azure
-Questo documento consente di iniziare a usare rapidamente il Centro sicurezza di Azure illustrando i componenti di monitoraggio della sicurezza e gestione dei criteri del Centro sicurezza.
+# <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Guida introduttiva: Caricamento della sottoscrizione di Azure al livello Standard del Centro di sicurezza
+Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione dalle minacce per carichi di lavoro cloud ibridi. Mentre il livello gratuito offre sicurezza limitata delle risorse di Azure, il livello Standard estende le funzionalità in locale e in altri ambienti cloud. Il livello Standard del Centro sicurezza consente di individuare e risolvere le vulnerabilità di sicurezza, di applicare i controlli su applicazioni e accessi per bloccare le attività dannose, di rilevare le minacce usando funzioni di analisi e di intelligenza e di rispondere rapidamente in caso di attacco. È possibile provare gratuitamente il livello Standard del Centro sicurezza per i primi 60 giorni.
+
+Questo articolo descrive come eseguire l'aggiornamento al livello Standard per aumentare la sicurezza e come installare Microsoft Monitoring Agent nelle macchine virtuali per monitorare le vulnerabilità di sicurezza e le minacce.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
-Il livello gratuito del Centro sicurezza viene abilitato automaticamente in tutte le sottoscrizioni di Azure e offre criteri di sicurezza, valutazione continua della sicurezza e raccomandazioni sulla sicurezza utili per proteggere le risorse di Azure.
+Per aggiornare una sottoscrizione al livello Standard, è necessario disporre del ruolo di proprietario della sottoscrizione, collaboratore alla sottoscrizione o amministratore della sicurezza.
 
-È possibile accedere al Centro sicurezza tramite il [portale di Azure](https://azure.microsoft.com/features/azure-portal/). Per altre informazioni sul portale di Azure, vedere la [documentazione sul portale](https://azure.microsoft.com/documentation/services/azure-portal/).
+## <a name="enable-your-azure-subscription"></a>Abilitare la sottoscrizione di Azure
 
-## <a name="permissions"></a>Autorizzazioni
-In Centro sicurezza gli utenti possono visualizzare solo informazioni relative a una risorsa quando dispongono del ruolo di proprietario, collaboratore o lettore per la sottoscrizione o il gruppo di risorse cui tali risorse appartengono. Per altre informazioni sui ruoli e sulle azioni consentite in Centro sicurezza, vedere [Permissions in Azure Security Center](security-center-permissions.md) (Autorizzazioni in Centro sicurezza di Azure).
+1. Accedere al [portale di Azure](https://azure.microsoft.com/features/azure-portal/).
+2. Scegliere **Centro sicurezza** dal menu **Microsoft Azure**. Viene visualizzato **Centro sicurezza - Panoramica**.
 
-## <a name="data-collection"></a>Raccolta dei dati
-Il Centro sicurezza raccoglie i dati delle macchine virtuali di Azure e dei computer che non hanno Azure per monitorare le minacce e le vulnerabilità della sicurezza. I dati vengono raccolti tramite Microsoft Monitoring Agent, che legge diverse configurazioni correlate alla sicurezza oltre ai registri eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi. Il Centro sicurezza effettua il provisioning di Microsoft Monitoring Agent in tutte le macchine virtuali di Azure supportate esistenti e in quelle nuove che vengono create. Vedere [Abilitare la raccolta dati](security-center-enable-data-collection.md) per altre informazioni sul funzionamento della raccolta dati.
+ ![Panoramica del Centro sicurezza di Azure][2]
 
-Il provisioning automatico è fortemente consigliato ed è obbligatorio per le sottoscrizioni del livello Standard del Centro sicurezza. La disabilitazione automatica del provisioning limita il monitoraggio delle risorse.
+**Centro di sicurezza - Panoramica** offre una visualizzazione unificata del comportamento di sicurezza dei carichi di lavoro di cloud ibrido, consentendo all'utente di individuarne e valutarne la sicurezza e di identificare e ridurre i rischi. Il Centro sicurezza abilita automaticamente una sottoscrizione Azure non caricata in precedenza dall'utente o da un altro utente della sottoscrizione al livello gratuito.
 
-Per altre informazioni sui piani tariffari gratuito e standard vedere [Prezzi del Centro sicurezza](security-center-pricing.md).
+Per visualizzare e filtrare l'elenco delle sottoscrizioni, fare clic sulla voce di menu **Sottoscrizioni**. Nel Centro sicurezza verrà iniziata la valutazione di sicurezza di tali sottoscrizioni per identificare le vulnerabilità. Per personalizzare i tipi delle valutazioni, è possibile modificare i criteri di sicurezza. Un criterio di sicurezza definisce la configurazione specifica dei carichi di lavoro e contribuisce ad assicurare la conformità ai requisiti aziendali o normativi per la sicurezza.
 
-I passaggi seguenti descrivono come accedere al Centro sicurezza e usarne i componenti.
+Dopo pochi minuti dal primo avvio del Centro di sicurezza, è possibile visualizzare gli elementi seguenti:
 
-> [!NOTE]
-> Questo articolo introduce il servizio usando una distribuzione di esempio. Non si tratta di una guida dettagliata.
+- **Raccomandazioni** per individuare i modi per migliorare la sicurezza delle sottoscrizioni di Azure. Fare clic sul riquadro **Raccomandazioni** per visualizzare un elenco di consigli con priorità.
+- Una serie di risorse nei riquadri **Calcolo**, **Rete**, **Archiviazione e dati** e **Applicazioni** valutate dal Centro sicurezza con le condizioni di sicurezza di ognuna.
+
+Per sfruttare al meglio il Centro sicurezza, è necessario completare i passaggi seguenti per eseguire l'aggiornamento al livello Standard e installare Microsoft Monitoring Agent.
+
+## <a name="upgrade-to-the-standard-tier"></a>Eseguire l'aggiornamento al livello Standard
+Ai fini della Guida introduttiva e delle esercitazioni per il Centro di sicurezza è necessario eseguire l'aggiornamento al livello Standard. I primi 60 giorni sono gratuiti ed è possibile tornare al livello gratuito in qualsiasi momento.
+
+1. Selezionare **Onboarding nella sicurezza avanzata** nel menu principale del Centro sicurezza.
+
+2. In **Onboarding nella sicurezza avanzata** il Centro sicurezza di Azure elenca tutte le sottoscrizioni e i carichi di lavoro idonei per il caricamento. Selezionare una sottoscrizione nell'elenco.
+
+  ![Selezionare una sottoscrizione][4]
+
+3. L'opzione **Criteri di sicurezza** offre informazioni sui gruppi di risorse contenuti nella sottoscrizione. Viene inoltre visualizzata la finestra **Prezzi**.
+4. In **Prezzi** selezionare **Standard** per eseguire l'aggiornamento da gratuito a standard e quindi fare clic su **Salva**.
+
+  ![Selezionare Standard][5]
+
+Ora che è stato eseguito l'aggiornamento al livello Standard, si dispone di accesso alle funzionalità aggiuntive del Centro sicurezza, ad esempio **controlli adattivi sulle applicazioni**, **accesso Just-In-Time alle macchine virtuali**, **avvisi di sicurezza**, **funzioni intelligenti contro le minacce**, **playbook di automazione** e altro ancora. Si noti che gli avvisi di sicurezza verranno visualizzata solo quando il Centro sicurezza rileva attività dannose.
+
+  ![Avvisi di sicurezza][7]
+
+## <a name="automate-data-collection"></a>Automatizzare la raccolta dei dati
+Il Centro sicurezza raccoglie i dati delle macchine virtuali di Azure e dei computer senza Azure per monitorare le minacce e le vulnerabilità della sicurezza. I dati vengono raccolti tramite Microsoft Monitoring Agent, che legge diverse configurazioni correlate alla sicurezza oltre ai registri eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi. Per impostazione predefinita, il Centro sicurezza crea una nuova area di lavoro per l'utente.
+
+Dopo aver abilitato il provisioning automatico, il Centro sicurezza installa Microsoft Monitoring Agent in tutte le macchine virtuali di Azure supportate e in quelle nuove che vengono create. È consigliabile abilitare il provisioning automatico.
+
+Per abilitare il provisioning automatico di Microsoft Monitoring Agent:
+
+1. selezionare **Criteri di sicurezza** nel menu principale Centro sicurezza.
+2. Selezionare la sottoscrizione.
+3. In **Criteri di sicurezza** selezionare **Raccolta dati**.
+4. In **Raccolta dati** selezionare l'opzione di attivazione**per** abilitare il provisioning automatico.
+5. Selezionare **Salva**.
+
+  ![Abilitare il provisioning automatico][6]
+
+Grazie a queste nuove informazioni sulle macchine virtuali di Azure, il Centro sicurezza può offrire indicazioni aggiuntive correlate allo stato di aggiornamento del sistema, alle configurazioni di sicurezza del sistema operativo e alla protezione di endpoint, nonché generare avvisi di sicurezza aggiuntivi.
+
+  ![Raccomandazioni][8]
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+Altre guide introduttive ed esercitazioni della raccolta si basano su questa. Se si prevede di usare le guide introduttive e le esercitazioni successive, continuare a eseguire il livello Standard e tenere abilitato il provisioning automatico. Se non si intende proseguire oppure si vuole tornare al livello gratuito:
+
+1. Tornare al menu principale del Centro sicurezza e selezionare **Criteri di sicurezza**.
+2. Selezionare la sottoscrizione o i criteri per i quali si vuole tornare al livello gratuito. Viene visualizzata la finestra **Criteri di sicurezza**.
+3. In **COMPONENTI DEI CRITERI** selezionare **Piano tariffario**.
+4. Selezionare **Gratuito** per modificare il livello della sottoscrizione da Standard a Gratuito.
+5. Selezionare **Salva**.
+
+Se si vuole disabilitare il provisioning automatico:
+
+1. Tornare al menu principale del Centro sicurezza e selezionare **Criteri di sicurezza**.
+2. Selezionare la sottoscrizione per cui si desidera disabilitare il provisioning automatico.
+3. In **Criteri di sicurezza - Raccolta dati** selezionare **No** in **Onboarding** per disabilitare il provisioning automatico.
+4. Selezionare **Salva**.
+
+>[!NOTE]
+> La disabilitazione del provisioning automatico non rimuove Microsoft Monitoring Agent dalle macchine virtuali di Azure in cui è stato eseguito il provisioning dell'agente. La disabilitazione automatica del provisioning limita il monitoraggio delle risorse.
 >
->
-
-## <a name="access-security-center"></a>Accedere al Centro sicurezza
-Nel portale seguire questa procedura per accedere al Centro sicurezza:
-
-1. Scegliere **Centro sicurezza** dal menu **Microsoft Azure**.
-
-   ![Menu di Azure][1]
-2. Se si accede al Centro sicurezza per la prima volta, verrà visualizzato il pannello **iniziale**. Selezionare **Avvia il Centro sicurezza** per aprire il **Centro sicurezza**.
-   ![Schermata iniziale][10]
-3. Dopo aver avviato il Centro sicurezza dal pannello iniziale o aver selezionato Centro sicurezza dal menu Microsoft Azure, si aprirà il **Centro sicurezza**. Per semplificare l'accesso al pannello **Centro sicurezza** in futuro, selezionare l'opzione **Aggiungi pannello al dashboard** (in alto a destra).
-   ![Opzione Aggiungi pannello al dashboard][2]
-
-## <a name="use-security-center"></a>Usare il Centro sicurezza
-È possibile configurare criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure. Configurare i criteri di sicurezza per la sottoscrizione:
-
-1. Scegliere **Criteri di sicurezza** dal menu principale del Centro sicurezza.
-2. In **Centro sicurezza - Criteri di sicurezza** selezionare una sottoscrizione.
-3. In **Criteri di sicurezza - Raccolta dati** viene attivato **Provisioning automatico**. Il Centro sicurezza effettua il provisioning di Microsoft Monitoring Agent in tutte le macchine virtuali di Azure supportate esistenti e in quelle nuove che vengono create.
-
-    ![Criteri di sicurezza][12]
-
-4. Nel pannello **Criteri di sicurezza** selezionare il componente dei criteri **Criteri di sicurezza**.
-
-     ![Criteri di sicurezza][11]
-
-5. In **Mostra raccomandazioni per** attivare le raccomandazioni da visualizzare nell'ambito dei criteri di sicurezza. Esempi:
-
-   * Impostando **Aggiornamenti del sistema** su **On** (Attivo), tutte le macchine virtuali supportate verranno analizzate per rilevare gli aggiornamenti del sistema operativo mancanti.
-   * Impostando **Vulnerabilità del sistema operativo** su **On** (Attivo), tutte le macchine virtuali supportate verranno analizzate per identificare le configurazioni del sistema operativo che possono esporre la macchina virtuale ad attacchi.
-
-6. Selezionare **Salva**.
-
-### <a name="view-recommendations"></a>Visualizzare raccomandazioni
-1. Tornare al pannello **Centro sicurezza** e selezionare il riquadro **Raccomandazioni**. Il Centro sicurezza analizza periodicamente lo stato di sicurezza delle risorse di Azure. Quando identifica potenziali vulnerabilità della sicurezza, il Centro sicurezza indica raccomandazioni nel pannello **Raccomandazioni**.
-   ![Raccomandazioni nel Centro sicurezza di Azure][5]
-2. Selezionare una raccomandazione nel pannello **Raccomandazioni** per visualizzare altre informazioni e/o intervenire per risolvere il problema.
-
-### <a name="view-the-security-state-of-your-resources"></a>Visualizzare lo stato di sicurezza delle risorse
-1. Tornare al pannello **Centro sicurezza PC** . La sezione **Prevenzione** del dashboard contiene indicatori dello stato di sicurezza per macchine virtuali, rete, dati e applicazioni.
-2. Selezionare **Calcolo** per visualizzare altre informazioni. Viene visualizzato il pannello **Calcolo** con tre schede:
-
-  - **Panoramica**: contiene consigli sul monitoraggio e sulle macchine virtuali.
-  - **VM e computer**: elenca lo stato di sicurezza corrente di tutte le VM e di tutti i computer.
-  - **Servizi cloud**: elenca di tutti i ruoli Web e di lavoro monitorati dal Centro sicurezza.
-
-    ![Integrità della sicurezza delle risorse di calcolo][6]
-
-3. Nella scheda **Panoramica** selezionare una raccomandazione per visualizzare altre informazioni e/o intervenire per configurare i controlli necessari.
-4. Nella scheda **VM e computer** selezionare una risorsa per visualizzare altri dettagli.
-
-### <a name="view-security-alerts"></a>Visualizzare avvisi di sicurezza
-1. Tornare al pannello **Centro sicurezza** e selezionare il riquadro **Avvisi di sicurezza**. Nel pannello **Avvisi di sicurezza** verrà visualizzato un elenco di avvisi. Gli avvisi vengono generati dall'analisi dei log di sicurezza e dell'attività di rete effettuata dal Centro sicurezza. Sono inclusi gli avvisi generati da soluzioni partner integrate.
-   ![Avvisi di sicurezza nel Centro sicurezza di Azure][7]
-
-2. Selezionare un avviso per visualizzare informazioni aggiuntive. In questo esempio verrà selezionato **Modified system binary discovered in dump filter** (Individuato file binario di sistema modificato nel filtro di dump). Si apriranno pannelli con altri dettagli dell'avviso.
-   ![Dettagli degli avvisi di sicurezza nel Centro sicurezza di Azure][8]
-
-### <a name="view-the-health-of-your-partner-solutions"></a>Visualizzare l'integrità delle soluzioni partner
-1. Tornare al pannello **Centro sicurezza PC** . Il riquadro **Soluzioni di sicurezza** consente di monitorare a colpo d'occhio lo stato di integrità delle soluzioni dei partner integrate nella sottoscrizione di Azure.
-2. Selezionare il riquadro **Soluzioni di sicurezza**. Verrà visualizzato un pannello con un elenco di soluzioni dei partner connesse al Centro sicurezza.
-   ![soluzioni partner][9]
-3. Selezionare una soluzione dei partner. Verrà visualizzato un pannello con lo stato della soluzione partner e le risorse associate alla soluzione. Selezionare **Console della soluzione** per aprire l'esperienza di gestione dei partner per questa soluzione.
-
-   ![Soluzioni partner][13]
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo sono stati presentati i componenti di monitoraggio della sicurezza e di gestione dei criteri del Centro sicurezza. Dopo aver acquisito familiarità con il Centro sicurezza, provare a eseguire questi passaggi:
+In questa Guida rapida è stato eseguito l'aggiornamento al livello Standard ed è stato eseguito il provisioning di Microsoft Monitoring Agent per la gestione unificata della sicurezza e della protezione dalle minacce per i carichi di lavoro di cloud ibrido. Per altre informazioni su come usare il Centro sicurezza, continuare con le indicazioni presenti nella Guida introduttiva per l'onboarding di computer Windows in locale o in altri ambienti cloud.
 
-* Per configurare un criterio di sicurezza per la sottoscrizione di Azure, vedere [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md).
-* Per usare le raccomandazioni nel Centro sicurezza per proteggere le risorse di Azure, vedere [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
-* Per riesaminare e gestire gli avvisi di sicurezza correnti, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).
-- Per altre informazioni sull'integrazione con i partner per migliorare la sicurezza complessiva, vedere [Integrazione di partner e soluzioni](security-center-partner-integration.md).
-- Per informazioni sulla gestione e la protezione dei dati nel Centro sicurezza, vedere [Sicurezza dei dati nel Centro sicurezza di Azure](security-center-data-security.md).
-* Altre informazioni sulle [funzionalità avanzate di rilevamento delle minacce](security-center-detection-capabilities.md) incluse con il [livello Standard](security-center-pricing.md) del Centro sicurezza. Il livello Standard è gratuito per i primi 60 giorni.
-* In caso di domande sull'uso del Centro sicurezza, vedere [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md).
+> [!div class="nextstepaction"]
+> [Guida introduttiva: Onboarding di computer Windows in Centro sicurezza](quick-onboard-windows-computer.md)
 
 <!--Image references-->
-[1]: ./media/security-center-get-started/azure-menu.png
-[2]: ./media/security-center-get-started/security-center-pin.png
-[5]: ./media/security-center-get-started/recommendations.png
-[6]: ./media/security-center-get-started/resources-health.png
-[7]: ./media/security-center-get-started/security-alert.png
-[8]: ./media/security-center-get-started/security-alert-detail.png
-[9]: ./media/security-center-get-started/partner-solutions.png
-[10]: ./media/security-center-get-started/welcome.png
-[11]: ./media/security-center-get-started/show-recommendations-for.png
-[12]: ./media/security-center-get-started/automatic-provisioning.png
-[13]: ./media/security-center-get-started/partner-solutions-detail.png
+[2]: ./media/security-center-get-started/overview.png
+[4]: ./media/security-center-get-started/onboarding.png
+[5]: ./media/security-center-get-started/pricing.png
+[6]: ./media/security-center-get-started/enable-automatic-provisioning.png
+[7]: ./media/security-center-get-started/security-alerts.png
+[8]: ./media/security-center-get-started/recommendations.png

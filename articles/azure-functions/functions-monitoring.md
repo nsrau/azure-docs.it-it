@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
-ms.translationtype: MT
+ms.openlocfilehash: 6f38fe1e99c734bf09a403ea93b6487a71110cac
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="monitor-azure-functions"></a>Monitorare Funzioni di Azure
 
@@ -37,7 +37,7 @@ Affinché un'app per le funzioni invii dati ad Application Insights, è necessar
 
 * [Creare un'istanza di Application Insights collegata quando si crea l'app per le funzioni](#new-function-app).
 * [Connettere un'istanza di Application Insights a un'app per le funzioni esistente](#existing-function-app).
- 
+
 ### <a name="new-function-app"></a>Nuova app per le funzioni
 
 Abilitare Application Insights nella pagina **Crea** dell'app per le funzioni:
@@ -65,6 +65,14 @@ Ottenere la chiave di strumentazione e salvarla in un'app per le funzioni:
    ![Aggiungere la chiave di strumentazione alle impostazioni dell'app](media/functions-monitoring/add-ai-key.png)
 
 1. Fare clic su **Save**.
+
+## <a name="disable-built-in-logging"></a>Disabilitare la registrazione predefinita
+
+Se si abilita Application Insights, è consigliabile disabilitare la [registrazione predefinita che usa Archiviazione di Azure](#logging-to-storage). La registrazione predefinita risulta utile per i test con i carichi di lavoro leggeri, ma non è destinata all'uso in ambienti di produzione con carichi elevati. Per il monitoraggio della produzione, è consigliabile usare Application Insights. Se la registrazione predefinita viene usata in ambienti di produzione, è possibile che il record di registrazione non sia completo a causa delle limitazioni a livello di Archiviazione di Azure.
+
+Per disabilitare la registrazione predefinita, eliminare l'impostazione app `AzureWebJobsDashboard`. Per informazioni su come eliminare le impostazioni app nel portale di Azure, vedere la sezione relativa alle **impostazioni dell'applicazione** in [Come gestire un'app per le funzioni nel portale di Azure](functions-how-to-use-azure-function-app-settings.md#settings).
+
+Quando si abilita Application Insights e si disabilita la registrazione predefinita, la scheda **Monitoraggio** per una funzione nel portale di Azure consente di passare ad Application Insights.
 
 ## <a name="view-telemetry-data"></a>Visualizzare i dati di telemetria
 
@@ -464,58 +472,41 @@ Per segnalare un problema con l'integrazione di Application Insights in Funzioni
 
 ## <a name="monitoring-without-application-insights"></a>Monitoraggio senza Application Insights
 
-Si consiglia di usare Application Insights per monitorare le funzioni perché offre un numero maggiore di dati e modalità di analisi dei dati migliori. Ma è anche possibile trovare dati di telemetria e di registrazione nelle pagine del portale di Azure per un'app per le funzioni. 
+Si consiglia di usare Application Insights per monitorare le funzioni perché offre un numero maggiore di dati e modalità di analisi dei dati migliori. Ma è anche possibile trovare dati di telemetria e registrazione nelle pagine del portale di Azure per un'app per le funzioni.
 
-Selezionare la scheda **Monitoraggio** per una funzione per ottenere un elenco di esecuzioni della funzione. Selezionare l'esecuzione della funzione per esaminare la durata, i dati di input, gli errori e i file di log associati.
+### <a name="logging-to-storage"></a>Registrazione per l'archiviazione
 
-> [!IMPORTANT]
-> Quando si usa il [piano di hosting a consumo](functions-overview.md#pricing) per Funzioni di Azure, il riquadro **Monitoraggio** nell'app per le funzioni non mostra alcun dato. Ciò avviene perché la piattaforma ridimensiona e gestisce automaticamente le istanze di calcolo. Queste metriche non sono quindi significative per un piano a consumo.
+La registrazione predefinita usa l'account di archiviazione specificato dalla stringa di connessione nell'impostazione app `AzureWebJobsDashboard`. Se questa impostazione app viene configurata, è possibile visualizzare i dati di registrazione nel portale di Azure. Nella pagina di un'app per le funzioni selezionare la scheda **Monitoraggio** per ottenere un elenco di esecuzioni della funzione. Selezionare l'esecuzione della funzione per esaminare la durata, i dati di input, gli errori e i file di log associati.
+
+Se si usa Application Insights ed è stata disabilitata la [registrazione predefiniti](#disable-built-in-logging), la scheda **Monitoraggio** consente di passare ad Application Insights.
 
 ### <a name="real-time-monitoring"></a>Monitoraggio in tempo reale
 
-Il monitoraggio in tempo reale è disponibile facendo clic su **flusso eventi live** nella scheda **Monitoraggio** della funzione. Il flusso eventi live viene visualizzato in un grafico in una nuova scheda nel browser.
+È possibile trasmettere in streaming i file di log a una sessione della riga di comando su una workstation locale usando l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview).  
 
-> [!NOTE]
-> A causa di un problema noto, è possibile che il popolamento dei dati abbia esito negativo. Potrebbe essere necessario chiudere la scheda del browser che include il flusso eventi live e quindi fare di nuovo clic su **flusso eventi live** per consentire il popolamento corretto dei dati del flusso di eventi. 
-
-Queste statistiche sono in tempo reale, ma la creazione effettiva dei grafici relativi ai dati dell'esecuzione potrebbe comportare circa 10 secondi di latenza.
-
-### <a name="monitor-log-files-from-a-command-line"></a>Monitorare i file di log da una riga di comando
-
-È possibile trasmettere in streaming i file di log a una sessione della riga di comando su una workstation locale usando l'interfaccia della riga di comando di Azure 1.0 o PowerShell.
-
-### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Monitorare i file di log dell'app per le funzioni con l'interfaccia della riga di comando di Azure 1.0
-
-Per iniziare, [installare l'interfaccia della riga di comando di Azure 1.0](../cli-install-nodejs.md) e [accedere ad Azure](/cli/azure/authenticate-azure-cli).
-
-Usare i comandi seguenti per abilitare la modalità classica di Gestione servizi, scegliere la sottoscrizione e trasmettere in streaming i file di log:
+Per l'interfaccia della riga di comando di Azure 2.0 usare i comandi seguenti per eseguire l'accesso, scegliere la sottoscrizione e trasmettere in streaming i file di log:
 
 ```
-azure config mode asm
-azure account list
-azure account set <subscriptionNameOrId>
-azure site log tail -v <function app name>
+az login
+az account list
+az account set <subscriptionNameOrId>
+az appservice web log tail --resource-group <resource group name> --name <function app name>
 ```
 
-### <a name="monitor-function-app-log-files-with-powershell"></a>Monitorare i file di log delle app per le funzioni tramite PowerShell
-
-Per iniziare, [installare e configurare Azure PowerShell](/powershell/azure/overview).
-
-Usare i comandi seguenti per aggiungere l'account di Azure, scegliere la sottoscrizione e trasmettere in streaming i file di log:
+Per Azure PowerShell usare i comandi seguenti per aggiungere l'account di Azure, scegliere la sottoscrizione e trasmettere in streaming i file di log:
 
 ```
 PS C:\> Add-AzureAccount
 PS C:\> Get-AzureSubscription
-PS C:\> Get-AzureSubscription -SubscriptionName "MyFunctionAppSubscription" | Select-AzureSubscription
-PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
+PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription
+PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-Per altre informazioni, vedere [Procedura: Eseguire lo streaming dei log per le app Web](../app-service/web-sites-enable-diagnostic-log.md#streamlogs). 
+Per altre informazioni, vedere [Procedura: Eseguire lo streaming dei log](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Altre informazioni su Application Insights](https://docs.microsoft.com/azure/application-insights/)
+Per altre informazioni, vedere le seguenti risorse:
 
-> [!div class="nextstepaction"]
-> [Altre informazioni sul framework di registrazione che usa Funzioni](https://docs.microsoft.com/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)
+* [Application Insights](/azure/application-insights/)
+* [Registrazione di ASP.NET Core](/aspnet/core/fundamentals/logging/)

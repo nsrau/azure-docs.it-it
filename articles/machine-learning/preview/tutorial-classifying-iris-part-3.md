@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 11/29/2017
-ms.openlocfilehash: 0a83c1a74b4a0ee15cbcb082b9d6b9cfd3d81d09
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: b8e245f13af1dd011a92bbf0584b1689a1a0399f
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="classify-iris-part-3-deploy-a-model"></a>Classificare i dati Iris - Parte 3: Distribuire un modello
 I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata end-to-end per i data scientist professionisti. Consente ai data scientist di preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
@@ -162,7 +162,7 @@ Usare la distribuzione in _modalità locale_ per l'esecuzione in contenitori Doc
    Nella terza riga dell'output viene visualizzato **"registrationState": "Registering"**. Attendere alcuni istanti e ripetere il comando **show** fino a quando l'output non conterrà **"registrationState": "Registered"**.
 
    >[!NOTE] 
-   Se si distribuisce in un cluster ACS, è necessario registrare il **Microsoft.ContainerService** provider di risorse nonché utilizzando lo stesso approccio esatto.
+   In caso di distribuzione in un cluster ACS, è necessario registrare il provider di risorse **Microsoft.ContainerService** e usare l'approccio basato sul nome esatto.
 
 3. Creare l'ambiente. Questo passaggio deve essere eseguito una sola volta per ambiente, ad esempio una volta per l'ambiente di sviluppo e una per l'ambiente di produzione. Per questo primo ambiente usare la _modalità locale_. È possibile provare l'opzione `-c` o `--cluster` nel comando seguente per configurare un ambiente in _modalità cluster_ in un secondo momento.
 
@@ -209,7 +209,7 @@ A questo punto è possibile creare il servizio Web in tempo reale.
 1. Usare il comando seguente per creare un servizio Web in tempo reale:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c amlconfig\conda_dependencies.yml
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
    ```
    Viene generato un ID servizio Web che può essere usato in un secondo momento.
 

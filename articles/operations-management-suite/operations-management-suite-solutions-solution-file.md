@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2017
+ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee3462c13101d18921dc488b08c79e1e4e02ff3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ace3042cc00cedd005955cdfb82c557fd4a8fb2
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Creazione di una soluzione di gestione in Operations Management Suite (OMS) (anteprima)
 > [!NOTE]
@@ -74,7 +74,7 @@ La tabella seguente descrive gli attributi di un parametro.
 | type |Tipo di dati per il parametro. Il controllo di input visualizzato per l'utente dipende dal tipo di dati.<br><br>bool - Casella di riepilogo a discesa<br>string - Casella di testo<br>int - Casella di testo<br>securestring - Campo della password<br> |
 | category |Categoria facoltativa per il parametro.  I parametri della stessa categoria vengono raggruppati insieme. |
 | control |Funzionalità aggiuntiva per i parametri di stringa.<br><br>datetime - Viene visualizzato un controllo Datetime.<br>guid - Il valore Guid viene generato automaticamente e il parametro non viene visualizzato. |
-| description |Descrizione facoltativa del parametro.  Viene visualizzata in un fumetto di informazioni accanto al parametro. |
+| descrizione |Descrizione facoltativa del parametro.  Viene visualizzata in un fumetto di informazioni accanto al parametro. |
 
 ### <a name="standard-parameters"></a>Parametri standard
 La tabella seguente elenca i parametri standard per tutte le soluzioni di gestione.  Quando la soluzione viene installata da Azure Marketplace o dai modelli di avvio rapido, questi valori vengono popolati automaticamente per l'utente senza che venga chiesto di immetterli.  L'utente deve fornire i valori se la soluzione viene installata con un altro metodo.
@@ -86,12 +86,12 @@ La tabella seguente elenca i parametri standard per tutte le soluzioni di gestio
 
 | Parametro | Tipo | Descrizione |
 |:--- |:--- |:--- |
-| accountName |string |Nome dell'account di Automazione di Azure. |
-| pricingTier |string |Piano tariffario dell'area di lavoro di Log Analytics e dell'account di Automazione di Azure. |
-| regionId |string |Area dell'account di Automazione di Azure. |
-| solutionName |string |Nome della soluzione.  Se si distribuisce la soluzione tramite modelli di avvio rapido, è necessario definire solutionName come un parametro, in modo da poter definire una stringa anziché richiedere all'utente di specificarne una. |
-| workspaceName |string |Nome dell'area di lavoro di Log Analytics. |
-| workspaceRegionId |string |Area dell'area di lavoro di Log Analytics. |
+| accountName |stringa |Nome dell'account di Automazione di Azure. |
+| pricingTier |stringa |Piano tariffario dell'area di lavoro di Log Analytics e dell'account di Automazione di Azure. |
+| regionId |stringa |Area dell'account di Automazione di Azure. |
+| solutionName |stringa |Nome della soluzione.  Se si distribuisce la soluzione tramite modelli di avvio rapido, è necessario definire solutionName come un parametro, in modo da poter definire una stringa anziché richiedere all'utente di specificarne una. |
+| workspaceName |stringa |Nome dell'area di lavoro di Log Analytics. |
+| workspaceRegionId |stringa |Area dell'area di lavoro di Log Analytics. |
 
 
 Di seguito viene mostrata la struttura dei parametri standard, che è possibile copiare e incollare nel file della soluzione.  
@@ -132,7 +132,7 @@ Di seguito viene mostrata la struttura dei parametri standard, che è possibile 
 
 Per fare riferimento ai valori di parametro negli altri elementi della soluzione si usa la sintassi **parameters('nome parametro')**.  Per accedere, ad esempio, al nome dell'area di lavoro, usare **parameters('workspaceName')**
 
-## <a name="variables"></a>Variabili
+## <a name="variables"></a>variables
 Le [variabili](../azure-resource-manager/resource-group-authoring-templates.md#variables) sono valori che verranno usati nella parte rimanente della soluzione di gestione.  Questi valori non sono esposti all'utente che esegue l'installazione della soluzione.  La loro funzione è quella di offrire all'autore un'unica posizione in cui gestire i valori che possono essere usati più volte all'interno della soluzione. È consigliabile inserire eventuali valori specifici della soluzione in variabili anziché impostarli come hardcoded nell'elemento **resources**.  In questo modo, il codice risulta più leggibile ed è possibile modificare facilmente questi valori nelle versioni successive.
 
 Di seguito è riportato un esempio di elemento **variables** con i parametri tipici usati nelle soluzioni.
@@ -176,7 +176,7 @@ Per ogni soluzione è necessario specificare una risorsa nell'elemento **resourc
 
 
     {
-      "name": "[concat(variables('Solution').Name, '[' ,parameters('workspacename'), ']')]",
+      "name": "[concat(variables('Solution').Name, '[' ,parameters('workspaceName'), ']')]",
       "location": "[parameters('workspaceRegionId')]",
       "tags": { },
       "type": "Microsoft.OperationsManagement/solutions",
@@ -185,7 +185,7 @@ Per ogni soluzione è necessario specificare una risorsa nell'elemento **resourc
         <list-of-resources>
       ],
       "properties": {
-        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspacename'))]",
+        "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName'))]",
         "referencedResources": [
             <list-of-referenced-resources>
         ],
@@ -211,7 +211,7 @@ La risorsa soluzione deve avere una [dipendenza](../azure-resource-manager/resou
 ### <a name="properties"></a>Proprietà
 La risorsa della soluzione ha le proprietà descritte nella tabella seguente.  Sono incluse le risorse cui viene fatto riferimento dalla soluzione e incluse nella soluzione che definisce come viene gestita la risorsa dopo l'installazione della soluzione.  Ogni risorsa nella soluzione deve essere presente nella proprietà **referencedResources** o **containedResources**.
 
-| Proprietà | Description |
+| Proprietà | Descrizione |
 |:--- |:--- |
 | workspaceResourceId |ID dell'area di lavoro Log Analytics nel formato *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Nome area di lavoro\>*. |
 | referencedResources |Elenco delle risorse nella soluzione che non devono essere rimosse quando la soluzione viene rimossa. |
@@ -224,7 +224,7 @@ L'entità **plan** della risorsa soluzione ha le proprietà descritte nella tabe
 
 | Proprietà | Descrizione |
 |:--- |:--- |
-| name |Nome della soluzione. |
+| nome |Nome della soluzione. |
 | version |Versione della soluzione determinata dall'autore. |
 | product |Stringa univoca che identifica la soluzione. |
 | publisher |Autore della soluzione. |

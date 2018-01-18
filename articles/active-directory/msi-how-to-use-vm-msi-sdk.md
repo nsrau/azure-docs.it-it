@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: bryanla
-ms.openlocfilehash: 46fd75668999537dfbc9fd82c1f166e126b6f547
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 6c9bd57080c95e4aad45515a0814471194261286
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-with-azure-sdks"></a>Come usare un'identità del servizio gestito di una macchina virtuale di Azure con Azure SDK 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)] Questo articolo fornisce un elenco di esempi di SDK, che illustrano l'uso del supporto di Azure SDK per l'identità del servizio gestito.
+[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+Questo articolo fornisce un elenco di esempi di SDK, che illustrano l'uso del supporto di Azure SDK per l'identità del servizio gestito.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,7 +41,7 @@ ms.lasthandoff: 12/11/2017
 | Python          | [Use MSI to authenticate simply from inside a VM](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) (Usare l'identità del servizio gestito per eseguire in modo semplice l'autenticazione in una macchina virtuale) |
 | Ruby            | [Manage resources from an MSI-enabled VM](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) (Gestire le risorse da una macchina virtuale abilitata per l'identità del servizio gestito) |
 
-## <a name="related-content"></a>Contenuti correlati
+## <a name="related-content"></a>Contenuto correlato
 
 - Vedere [Azure SDK](https://azure.microsoft.com/downloads/) per l'elenco completo delle risorse di Azure SDK, inclusi i download di librerie, la documentazione e altro ancora.
 - Per abilitare l'identità del servizio gestito in una macchina virtuale di Azure, vedere [Configurare un'identità del servizio gestito della macchina virtuale tramite il portale di Azure](msi-qs-configure-portal-windows-vm.md).

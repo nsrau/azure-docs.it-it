@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: f45da151472efb4cc6297b005d5bc3844d664928
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 9274e2807beeb0fd517ba1e848cfc26db1c57655
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Come scalare la codifica con .NET SDK
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 01/05/2018
 
 ## <a name="overview"></a>Panoramica
 > [!IMPORTANT]
-> Assicurarsi di esaminare il [Panoramica](media-services-scale-media-processing-overview.md) per ottenere ulteriori informazioni sulla scalabilità elaborazione multimediale.
+> Per altre informazioni sul ridimensionamento dell'elaborazione multimediale, vedere questo argomento di [panoramica](media-services-scale-media-processing-overview.md).
 > 
 > 
 
@@ -54,9 +54,6 @@ Per cambiare il tipo di unità riservata e il numero di unità riservate di codi
 
 ## <a name="opening-a-support-ticket"></a>Apertura di un ticket di supporto
 Per impostazione predefinita, ogni account di Media Services può includere fino a 25 unità di codifica riservate e cinque unità riservate di streaming on demand. È possibile richiedere l'applicazione di un limite superiore mediante l'apertura di un ticket di supporto.
-
-### <a name="open-a-support-ticket"></a>Aprire un ticket di supporto
-Nel portale di Azure, passare a [Guida e supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Se non è stato effettuato l'accesso ad Azure, viene chiesto di immettere le credenziali.
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 01/05/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: af755683ba2e62f01b175b8eb53a34dfd6013e9e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 0812719ddee8c0ff0c2fa9256c2819611692dfe5
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Che cosa sono le password per le app in Azure Multi-Factor Authentication?
 Alcune applicazioni non basate su browser, come il client di posta elettronica di Apple, utilizzano Exchange Active Sync e attualmente non supportano l'autenticazione a più fattori. L’autenticazione a più fattori viene abilitata per singolo utente.  Ciò significa che l'utente non può usare l'autenticazione a più fattori se:
@@ -40,46 +40,37 @@ Dopo avere creato una password dell'app, è possibile usarla al posto della pass
 Informazioni importanti sulle password di app:
 
 * La password per l'app non viene creata dall'utente, Vengono generate automaticamente.
-* Al momento esiste un limite di 40 password per utente. 
+* Al momento esiste un limite di 40 password per utente.
 * Se si tenta di creare una password di app dopo avere raggiunto il limite, sarà necessario eliminare una delle password di app esistenti prima di crearne una nuova.
-* Usare una sola password per dispositivo, non per applicazione. Ad esempio, è possibile creare una sola password per il computer portatile e usarla per tutte le applicazioni su tale computer. Quindi, creare una seconda password per le app da usare per tutte le app sul desktop. 
+* Usare una sola password per dispositivo, non per applicazione. Ad esempio, è possibile creare una sola password per il computer portatile e usarla per tutte le applicazioni su tale computer. Quindi, creare una seconda password per le app da usare per tutte le app sul desktop.
 * La prima volta che si esegue la registrazione per la verifica in due passaggi viene comunicata una sola password per le app.  Se sono necessarie password aggiuntive, è possibile crearle.
 
 
 
 ## <a name="creating-and-deleting-app-passwords"></a>Creazione ed eliminazione delle password di app
-Durante l'accesso iniziale, viene fornita una password dell'app che è possibile usare.  È possibile anche creare ed eliminare le password per le app in un secondo momento. La procedura di eliminazione delle password di app dipende dalla modalità di utilizzo dell'autenticazione a più fattori. Rispondere alle domande seguenti per determinare il luogo in cui è possibile gestire le password per le app: 
+Durante l'accesso iniziale, viene fornita una password dell'app che è possibile usare.  È possibile anche creare ed eliminare le password per le app in un secondo momento. La procedura di eliminazione delle password di app dipende dalla modalità di utilizzo dell'autenticazione a più fattori. Rispondere alle domande seguenti per determinare il luogo in cui è possibile gestire le password per le app:
 
 1. La verifica in due passaggi viene usata per l'account Microsoft personale? Se sì, è consigliabile consultare l'articolo [Password per app e verifica in due passaggi](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) per avere altre informazioni. Altrimenti passare alla seconda domanda.
 
-2. Pertanto, la verifica in due passaggi viene usata per un account aziendale o dell'istituto di istruzione. È usata per accedere alle applicazioni di Office 365? Se sì, è consigliabile consultare [Creare una password dell'app per Office 365](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183) per avere maggiori informazioni. Altrimenti passare alla terza domanda. 
+2. Pertanto, la verifica in due passaggi viene usata per un account aziendale o dell'istituto di istruzione. È usata per accedere alle applicazioni di Office 365? Se sì, è consigliabile consultare [Creare una password dell'app per Office 365](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183) per avere maggiori informazioni. Altrimenti passare alla terza domanda.
 
 3. La verifica in due passaggi viene usata con Microsoft Azure? Se sì, passare alla sezione [Gestione delle password per le app nel Portale di Azure](#manage-app-passwords-in-the-Azure-portal) di questo articolo. Altrimenti passare alla quarta domanda.
 
-4. Non si è sicuri su dove venga usata la verifica in due passaggi? Passare alla sezione [Gestione delle password per le app nel Portale MyApps](#manage-app-passwords-with-the-myapps-portal) di questo articolo. 
+4. Non si è sicuri su dove venga usata la verifica in due passaggi? Passare alla sezione [Gestione delle password per le app nel Portale MyApps](#manage-app-passwords-with-the-myapps-portal) di questo articolo.
 
 
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Gestione delle password per le app nel Portale di Azure
 Se si usa la verifica in due passaggi con Azure, è consigliabile creare password per le app tramite il Portale di Azure.
 
 ### <a name="to-create-app-passwords-in-the-azure-portal"></a>Per creare password per le app nel portale di Azure
-1. Accedere al portale di Microsoft Azure classico.
-2. Nella parte superiore fare clic con il pulsante destro del mouse sul nome utente, quindi scegliere Verifica aggiuntiva di sicurezza.
-3. Nella parte superiore della pagina di verifica selezionare le password dell'app.
-4. Fare clic su **Crea**.
-5. Immettere un nome per la password dell'app e quindi fare clic su **Avanti**
+1. Accedere al portale di Azure.
+2. Nella parte superiore fare clic sul nome utente e selezionare **Cambia password**.
+3. Nella parte superiore della pagina di verifica selezionare **Password dell'app**.
+4. Selezionare **Create**.
+5. Immettere un nome per la password dell'app e selezionare **Avanti**.
 6. Copiare la password per l'app negli Appunti, quindi incollarla nell'app.
-   
+
    ![Cloud](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
-
-
-### <a name="to-delete-app-passwords-in-the-azure-portal"></a>Per eliminare password per le app nel portale di Azure
-1. Accedere al portale di Microsoft Azure classico.
-2. Nella parte superiore fare clic con il pulsante destro del mouse sul nome utente, quindi scegliere Verifica aggiuntiva di sicurezza.
-3. Nella parte superiore, accanto alla verifica aggiuntiva di sicurezza, fare clic su **Password dell'app.**
-4. Accanto alla password dell’app che si desidera rimuovere, selezionare **Elimina**.
-5. Confermare l'eliminazione facendo clic su **Sì**.
-6. Dopo che la password dell’app è stata eliminata, è possibile fare clic su **Chiudi**.
 
 
 ## <a name="manage-app-passwords-with-the-myapps-portal"></a>Gestione delle password per le app nel portale MyApps.
@@ -99,7 +90,7 @@ Se non si è certi di come utilizzare Multi-Factor Authentication, è sempre pos
 7. Copiare la password per l'app negli Appunti, quindi incollarla nell'app.
    ![Creare una password di app](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
-### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Per eliminare una password di app tramite il portale Myapps
+### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Per eliminare una password di app tramite il portale MyApps
 1. Effettuare l'accesso ad [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Nella parte superiore selezionare il profilo.
 3. Selezionare **Verifica aggiuntiva di sicurezza**.
@@ -121,4 +112,4 @@ Se non si è certi di come utilizzare Multi-Factor Authentication, è sempre pos
 
 - [Gestire le impostazioni della verifica in due passaggi](multi-factor-authentication-end-user-manage-settings.md)
 
-- Provare l'[app Microsoft Authenticator](microsoft-authenticator-app-how-to.md) per verificare gli accessi con le notifiche delle app, invece di ricevere messaggi o chiamate. 
+- Provare l'[app Microsoft Authenticator](microsoft-authenticator-app-how-to.md) per verificare gli accessi con le notifiche delle app, invece di ricevere messaggi o chiamate.

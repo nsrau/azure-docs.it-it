@@ -6,14 +6,14 @@ keywords: modifica, rilevamento, automazione
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 12/14/2017
-ms.topic: hero-article
+ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ae9ac6baaaeca418fcd3478145c50d1fa7917d7e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 0aefa175d676bd7e98841d3a1e9ff5a8c90b7deb
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Risolvere i problemi delle modifiche nell'ambiente
 
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > * Attivare un evento
 > * Visualizzare le modifiche
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, sono necessari:
 
@@ -158,7 +158,7 @@ Dopo avere abilitato la soluzione Rilevamento modifiche e inventario, è possibi
 
 Dalla VM selezionare **Rilevamento modifiche** in **OPERAZIONI**.
 
-![Creazione di un avviso nel portale di OMS classico](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
+![Schermata che mostra l'elenco delle modifiche alla VM](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
 
 Il grafico mostra le modifiche nel tempo.
 Dopo aver aggiunto una connessione al log attività, il grafico a linee nella parte superiore visualizza gli eventi del log attività di Azure.

@@ -1,6 +1,6 @@
 ---
-title: Riconfigurare un'integrazione di Azure-SSIS runtime | Documenti Microsoft
-description: "Informazioni su come riconfigurare un runtime di integrazione di Azure SSIS nella Data Factory di Azure dopo che è stato già effettuato il provisioning."
+title: Riconfigurare il runtime di integrazione SSIS di Azure | Microsoft Docs
+description: "Informazioni su come riconfigurare un runtime di integrazione SSIS di Azure nella Azure Data Factory dopo che è stato già effettuato il provisioning."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -13,40 +13,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: spelluru
-ms.openlocfilehash: 19a81917ade977a0d04934b77e8213ef6d9e0f12
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: c1743a0d06f911122ed0aba586aec837f81c578c
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="reconfigure-an-azure-ssis-integration-runtime"></a>Riconfigurare un'integrazione di Azure-SSIS runtime
-L’articolo [Creare un runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md) illustra come creare un runtime di integrazione SSIS di Azure usando Azure Data Factory. Questo articolo fornisce informazioni su come riconfigurare un runtime di integrazione di Azure SSIS esistenti.  
+# <a name="manage-an-azure-ssis-integration-runtime"></a>Gestire un runtime di integrazione SSIS di Azure
+L'articolo [Creare un runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md) illustra come creare un runtime di integrazione SSIS di Azure usando Azure Data Factory. Questo articolo fornisce informazioni su come riconfigurare un runtime di integrazione SSIS di Azure esistente.  
 
 > [!NOTE]
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione su Data Factory versione 1](v1/data-factory-introduction.md).
 
 Dopo il provisioning e l’avvio di un'istanza di runtime di integrazione SSIS di Azure, è possibile riconfigurarlo eseguendo una sequenza di cmdlet PowerShell `Stop` - `Set` - `Start` consecutivamente. Ad esempio, lo script di PowerShell seguente modifica il numero di nodi allocato per l'istanza di runtime di integrazione SSIS di Azure a 5.
 
-## <a name="stop-azure-ssis-ir"></a>Arrestare IR Azure SSIS
-In primo luogo, arrestare il runtime di integrazione di Azure SSIS utilizzando il [Stop AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/stop-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet. Questo comando rilascia tutti i nodi e arresta la fatturazione.
+## <a name="reconfigure-an-azure-ssis-ir"></a>Riconfigurare un runtime di integrazione SSIS di Azure
 
-```powershell
-Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
-```
+1. In primo luogo arrestare il runtime di integrazione SSIS di Azure tramite il cmdlet [Stop-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/stop-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1). Questo comando rilascia tutti i nodi e arresta la fatturazione.
 
-## <a name="reconfigure-azure-ssis-ir"></a>Riconfigurare IR Azure SSIS
-Riconfigurare il IR Azure SSIS utilizzando il [Set AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet. Il seguente comando di esempio consente una scalabilità orizzontale un runtime di integrazione di Azure SSIS per cinque nodi.
+    ```powershell
+    Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
+    ```
+2. Riconfigurare quindi il runtime di integrazione SSIS di Azure tramite il cmdlet [Set-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1). Il comando di esempio seguente consente applicare la scalabilità orizzontale a un runtime di integrazione SSIS di Azure per ottenere cinque nodi.
 
-```powershell
-Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -NodeCount 5
-```  
+    ```powershell
+    Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -NodeCount 5
+    ```  
+3. Avviare quindi il runtime di integrazione SSIS di Azure tramite il cmdlet [Start-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1). Questo comando alloca tutti i nodi per i pacchetti SSIS in esecuzione.   
 
-## <a name="start-azure-ssis-ir"></a>Avviare IR Azure SSIS
-Quindi, avviare il runtime di integrazione di Azure SSIS usando il [inizio AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet. Questo comando esegue l'allocazione di tutti i nodi per l'esecuzione di pacchetti SSIS.   
+    ```powershell
+    Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
+    ```
 
-```powershell
-Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
-```
+## <a name="delete-an-azure-ssis-ir"></a>Eliminare un runtime di integrazione SSIS di Azure
+1. In primo luogo elencare tutti i runtime di integrazione SSIS di Azure esistenti nella data factory.
+
+    ```powershell
+    Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName -Status
+    ```
+2. Arrestare quindi tutti i runtime di integrazione SSIS di Azure esistenti nella data factory.
+
+    ```powershell
+    Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
+    ```
+3. Rimuovere tutti i runtime di integrazione SSIS di Azure esistenti nella data factory singolarmente.
+
+    ```powershell
+    Remove-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
+    ```
+4. Rimuovere infine la data factory.
+
+    ```powershell
+    Remove-AzureRmDataFactoryV2 -Name $DataFactoryName -ResourceGroupName $ResourceGroupName -Force
+    ```
+5. Se è stato creato un nuovo gruppo di risorse, rimuovere il gruppo di risorse.
+
+    ```powershell
+    Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force 
+    ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sui runtime SSIS di Azure, vedere gli argomenti seguenti: 

@@ -101,6 +101,10 @@ Attualmente Azure Managed Disks supporta solo dischi gestiti per l'archiviazione
 
 di serie Questa funzionalità non è attualmente supportata. 
 
+**È possibile interrompe un lease sul disco?**
+
+di serie Questa funzionalità non è supportata attualmente in quanto è presente un lease per impedire l'eliminazione accidentale quando il disco è in uso.
+
 **È possibile modificare la proprietà del nome del computer quando si usa un disco del sistema operativo specializzato (non preparato con Utilità preparazione sistema o generalizzato) per il provisioning di una VM?**
 
 di serie Non è possibile aggiornare la proprietà del nome del computer. La nuova VM eredita la proprietà dalla VM padre usata per creare il disco del sistema operativo. 
@@ -137,7 +141,7 @@ Sì, è possibile scegliere di eseguire il failover su una macchina virtuale con
 
 **La migrazione su macchine virtuali di Azure protette da Azure Site Recovery (ASR) tramite la replica da Azure ad Azure ha qualche ripercussione?**
 
-Sì. La protezione tramite Azure Site Recovery (ASR) da Azure ad Azure non è supportata per le macchine virtuali con Managed Disks. Saranno devono essere supportati da Q1 CY2018 fine. 
+Sì. La protezione tramite Azure Site Recovery (ASR) da Azure ad Azure non è supportata per le macchine virtuali con Managed Disks. Sarà supportata entro la fine del primo trimestre del 2018. 
 
 **È possibile eseguire la migrazione di macchine virtuali con dischi non gestiti ubicati in account di archiviazione che sono o sono stati crittografati in precedenza in VM con dischi gestiti?**
 

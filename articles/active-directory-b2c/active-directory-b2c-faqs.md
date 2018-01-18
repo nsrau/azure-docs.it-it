@@ -1,6 +1,6 @@
 ---
-title: 'Domande frequenti: Azure Active Directory B2C'
-description: Domande frequenti (FAQ) Azure Active Directory B2C
+title: Domande frequenti su Azure Active Directory B2C
+description: Domande frequenti (FAQ) su Azure Active Directory B2C
 services: active-directory-b2c
 author: PatAltimore
 manager: mtillman
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 81da88c895bdd3407d8ddd51124afc405b774cb9
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 38f33f2a5d0bba4686cfeef121f2087326e1897d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: domande frequenti 
 Questa pagina include le risposte alle domande frequenti relative ad Azure Active Directory (Azure AD) B2C. Controllarla costantemente per eventuali aggiornamenti.
@@ -63,9 +63,9 @@ Prima di aprire "Azure AD B2C" nel menu sul lato sinistro del portale di Azure, 
 
     ![Screenshot di un messaggio di posta elettronica di verifica personalizzato](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
-La firma del messaggio di posta elettronica contiene il nome del tenant Azure Active Directory B2C fornito al momento della creazione del tenant di Azure Active Directory B2C. È possibile modificare il nome seguendo queste istruzioni:
+La firma della posta elettronica contiene il nome del tenant di Azure AD B2C fornito al momento della creazione del tenant di Azure AD B2C. È possibile modificare il nome seguendo queste istruzioni:
 
-1. Accedi al [portale di Azure](https://portal.azure.com/) come amministratore globale.
+1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale.
 1. Aprire il pannello **Azure Active Directory**.
 1. Fare clic sulla scheda **Proprietà**.
 1. Modificare il valore del campo **Nome**.
@@ -105,20 +105,20 @@ No, Azure AD B2C non supporta lo stesso set di report di Azure AD Premium. Esist
 Sì.  Altre informazioni sulla [personalizzazione della lingua](active-directory-b2c-reference-language-customization.md) che è in anteprima pubblica.  Offriamo traduzioni per 36 lingue ed è possibile eseguire l'override di qualsiasi stringa in base alle esigenze.
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-loginmicrosoftonlinecom-to-logincontosocom"></a>È possibile usare l'URL personale nelle pagine di iscrizione e accesso servite da Azure AD B2C? È ad esempio possibile sostituire l'URL login.microsoftonline.com con login.contoso.com?
-No, per il momento. Questa funzionalità verrà implementata in futuro. La verifica del dominio nella scheda **Domini** nel portale di Azure classico non raggiungere questo obiettivo.
+No, per il momento. Questa funzionalità verrà implementata in futuro. Questo non si ottiene verificando il dominio nella scheda **Domini** nel portale di Azure.
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Come si elimina il tenant di Azure AD B2C?
 Attenersi a questa procedura per eliminare il tenant di Azure AD B2C:
 
 1. Seguire questa procedura per [passare alle impostazioni di Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) nel portale di Azure.
 1. Passare ad **Applicazioni**, **Provider di identità** e **Tutti i criteri** ed eliminare tutte le voci rispettivamente visualizzate.
-1. Ora Accedi al [portale di Azure](https://portal.azure.com/) come amministratore della sottoscrizione. Usare lo stesso account aziendale o dell'istituto d'istruzione o lo stesso account Microsoft usato per l'iscrizione ad Azure.
-1. Opzione per il tenant di Azure Active Directory B2C si desidera eliminare.
-2. Passare al menu di Active Directory a sinistra.
+1. Ora accedere al [portale di Azure](https://portal.azure.com/) come amministratore della sottoscrizione. Usare lo stesso account aziendale o dell'istituto d'istruzione o lo stesso account Microsoft usato per l'iscrizione ad Azure.
+1. Passare al tenant di Azure AD B2C che si vuole eliminare.
+2. Passare al menu Active Directory a sinistra.
 3. Selezionare **Utenti e gruppi**.
 4. Selezionare un utente alla volta, escludendo l'amministratore della sottoscrizione con il quale si è connessi attualmente. Fare clic su **Elimina** nella parte inferiore della pagina, quindi su **SÌ** quando richiesto.
-5. Fare clic su di **registrazioni di App**.
-6. Selezionare l'applicazione denominata **b2c-estensioni-app**. Fare clic su **eliminare** e fare clic su **Sì** quando richiesto.
+5. Fare clic su **Registrazioni per l'app**.
+6. Selezionare l'applicazione denominata **b2c-extensions-app**. Fare clic su **Elimina** e fare clic su **SÌ** quando richiesto.
 7. Selezionare **Panoramica**.
 8. Fare clic su **Elimina directory**. Seguire le istruzioni sullo schermo per completare il processo.
 

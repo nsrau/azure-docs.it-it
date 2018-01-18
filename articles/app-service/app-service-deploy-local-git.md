@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: ed0239df7bf1e4d37987aaa929d0c67bec595b30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19681564ef48649d4d44da1d0a2a65044f494ce4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Distribuzione dell'archivio Git locale nel servizio app di Azure
 Questa esercitazione illustra come distribuire l'applicazione nelle [app Web di Azure](app-service-web-overview.md) da un repository Git nel computer locale. Il servizio app supporta questo approccio tramite l'opzione di distribuzione **Archivio Git locale** del [portale di Azure].  
@@ -72,7 +72,7 @@ Eseguire la procedura seguente per abilitare un repository Git per l'app del ser
 2. Nel pannello dell'app del servizio app fare clic su **Impostazioni > Origine distribuzione**. Fare clic su **Scegliere l'origine**, quindi su **Repository Git locale** e infine su **OK**.  
    
     ![Repository Git locale](./media/app-service-deploy-local-git/local_git_selection.png)
-3. Se si tratta della prima impostazione di un repository in Azure, è necessario creare le credenziali di accesso, che verranno usate per accedere al repository di Azure e per effettuare il push delle modifiche dal repository Git locale. Dal pannello dell'app fare clic su **Impostazioni > Credenziali per la distribuzione**, quindi configurare il nome utente e la password per la distribuzione. Al termine, fare clic su **Salva**.
+3. Se si tratta della prima impostazione di un repository in Azure, è necessario creare le credenziali di accesso, che verranno usate per accedere al repository di Azure e per effettuare il push delle modifiche dal repository Git locale. Dal pannello dell'app fare clic su **Sviluppo > Credenziali per la distribuzione**, quindi configurare il nome utente e la password per la distribuzione. Al termine, fare clic su **Salva**.
    
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
@@ -125,7 +125,7 @@ Di seguito sono riportati gli errori o i problemi che si verificano comunemente 
 
 **Causa**: questo errore può verificarsi se non si specifica un ramo quando si effettua un'operazione push in Git e non è stato impostato il valore push.default usato da Git.
 
-**Soluzione**: ripetere l'operazione push, specificando il ramo master. Ad esempio:
+**Soluzione**: ripetere l'operazione push, specificando il ramo master. Ad esempio: 
 
 ```bash  
 git push azure master
@@ -135,7 +135,7 @@ git push azure master
 
 **Causa**: questo errore può verificarsi se si tenta di effettuare il push in un ramo diverso dal master nel repository remoto 'azure'.
 
-**Soluzione**: ripetere l'operazione push, specificando il ramo master. Ad esempio:
+**Soluzione**: ripetere l'operazione push, specificando il ramo master. Ad esempio: 
 
 ```bash  
 git push azure master
@@ -162,7 +162,7 @@ git config --global http.postBuffer 524288000
   
   * npm ERR! Si è verificato un errore di \`cmd "/c" "node-gyp rebuild"\` con 1
     
-      OPPURE
+      Oppure
   * npm ERR! [modulename@version] preinstall: \`make || gmake\`
 
 ## <a name="additional-resources"></a>Risorse aggiuntive

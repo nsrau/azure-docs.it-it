@@ -8,40 +8,39 @@ ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
 ms.custom: mvc
-ms.openlocfilehash: ea57fa35f09299f95cdfd3c11b44657d35972295
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: a80ae99c2ada00885019ee93e4ef36821340d3a5
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/13/2018
 ---
-# <a name="search-semi-structured-data-in-cloud-storage"></a>Cercare dati semistrutturati nell'archiviazione cloud
+# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Parte 2: Cercare dati semistrutturati nell'archiviazione cloud
 
-In questa serie di esercitazioni in due parti, si scoprirà come eseguire la ricerca di dati semistrutturati e non strutturati tramite la ricerca di Azure. In questa esercitazione viene illustrato come eseguire una ricerca di dati semistrutturati, ad esempio JSON, archiviati in BLOB di Azure. I dati semistrutturati contengono tag o contrassegni che separano il contenuto all'interno dei dati, diversamente dai dati non strutturati che non hanno una struttura formale basata su un modello di dati, come uno schema di database relazionale.
+In una serie di esercitazioni in due parti si scoprirà come eseguire la ricerca di dati semistrutturati e non strutturati tramite la ricerca di Azure. Durante la [parte 1](../storage/blobs/storage-unstructured-search.md) è stata illustrata la procedura dettagliata per la ricerca di dati non strutturati e sono stati forniti i requisiti importanti per questa esercitazione, ad esempio la creazione di account di archiviazione. 
 
-In questa parte vengono illustrate le procedure per le attività seguenti:
+Nella seconda parte vengono descritti in dettaglio i dati semistrutturati, ad esempio JSON, archiviati in BLOB di Azure. I dati semistrutturati contengono tag o contrassegni che separano il contenuto all'interno dei dati, si differenziano dai tra dati non strutturati che devono essere indicizzati in modo olistico e dai dati strutturati formalmente in modo conforme a un modello di dati, ad esempio uno schema di database relazionale, che può essere sottoposto alla ricerca per indicizzazione per campi.
+
+Nella parte 2 si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare e popolare un indice all'interno di un servizio di ricerca di Azure
-> * Usare il servizio Ricerca di Azure per eseguire una ricerca nell'indice
+> * Configurare un'origine dati di Ricerca di Azure per un contenitore BLOB di Azure
+> * Creare e popolare un indicizzatore e un indice di Ricerca di Azure per effettuare una ricerca per indicizzazione nel contenitore ed estrarre i contenuti disponibili per la ricerca
+> * Eseguire una ricerca nell'indice che appena creato
 
 > [!NOTE]
-> "Il supporto di matrici JSON è una funzionalità in anteprima di Ricerca di Azure. Non è attualmente disponibile nel portale. Per questo motivo, si usano l'API REST in anteprima che fornisce questa funzionalità e uno strumento client REST per chiamare l'API."
+> Questa esercitazione si basa sul supporto della matrice JSON, che è attualmente una anteprima funzionalità di Ricerca di Azure. Non è disponibile nel portale di Azure. Per questo motivo, si usano l'API REST in anteprima che fornisce questa funzionalità e uno strumento client REST per chiamare l'API.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa esercitazione:
-* Completare l'[esercitazione precedente](../storage/blobs/storage-unstructured-search.md)
-    * Questa esercitazione usa l'account di archiviazione e il servizio di ricerca creati nell'esercitazione precedente
-* Installare un client REST e raccogliere informazioni su come costruire una richiesta HTTP
+* Completamento dell'[esercitazione precedente](../storage/blobs/storage-unstructured-search.md), durante la quale vengono forniti l'account di archiviazione e il servizio di ricerca.
 
+* Installazione di un client REST e raccolta di informazioni su come costruire una richiesta HTTP. Per gli scopi di questa esercitazione viene usato [Postman](https://www.getpostman.com/). Ritenersi liberi di usare un altro client REST con cui si ha già familiarità.
 
-## <a name="set-up-the-rest-client"></a>Configurare il client REST
+## <a name="set-up-postman"></a>Impostare Postman
 
-Per completare l'esercitazione, è necessario un client REST. Per gli scopi di questa esercitazione viene usato [Postman](https://www.getpostman.com/). Ritenersi liberi di usare un altro client REST con cui si ha già familiarità.
+Avviare Postman e configurare una richiesta HTTP. Se non si ha familiarità con questo strumento, vedere [Esplorare le API REST di Ricerca di Azure con Fiddler o Postman](search-fiddler.md) per altre informazioni.
 
-Dopo aver installato Postman, avviarlo.
-
-Se questa è la prima volta che si eseguono chiamate REST in Azure, di seguito viene fornita una breve introduzione dei componenti importanti per questa esercitazione: il metodo di richiesta per ogni chiamata in questa esercitazione è "POST". Le chiavi di intestazione sono "Content-type" e "api-key". I valori delle chiavi di intestazione sono rispettivamente "application/json" e la chiave di amministrazione, ovvero un segnaposto per la chiave primaria di ricerca. Il corpo è l'area in cui si posiziona il contenuto effettivo della chiamata. A seconda del client in uso, la procedura per la creazione della query potrebbe essere leggermente diversa, ma questi sono i criteri di base.
+Il metodo di richiesta per ogni chiamata in questa esercitazione è "POST". Le chiavi di intestazione sono "Content-type" e "api-key". I valori delle chiavi di intestazione sono rispettivamente "application/json" e la chiave di amministrazione, ovvero un segnaposto per la chiave primaria di ricerca. Il corpo è l'area in cui si posiziona il contenuto effettivo della chiamata. A seconda del client in uso, la procedura per la creazione della query potrebbe essere leggermente diversa, ma questi sono i criteri di base.
 
   ![Ricerca su dati semistrutturati](media/search-semi-structured-data/postmanoverview.png)
 

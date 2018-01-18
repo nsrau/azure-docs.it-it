@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/05/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 166a04fa18a57b239c195cbdd7b53a3baafbad65
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
-ms.translationtype: MT
+ms.openlocfilehash: 55ca5ada0db30440e4599c77b7a6834ef671c7a4
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Che cosa sono le password per le app in Azure Multi-Factor Authentication?
-Alcune applicazioni non basate su browser, come il client di posta elettronica di Apple, utilizzano Exchange Active Sync e attualmente non supportano l'autenticazione a più fattori. L’autenticazione a più fattori viene abilitata per singolo utente. Questo implica che, se un utente è stato abilitato per l'autenticazione a più fattori e tenta di utilizzare applicazioni non basate su browser, non potrà farlo. La password dell’app consente tale operazione. Se si applica l'autenticazione a più fattori tramite criteri di accesso condizionale e non tramite l'autenticazione a più fattori per utente, è possibile creare password di app. Le applicazioni che utilizzano criteri di accesso condizionale per controllare l'accesso non è necessitino password di app.
+Alcune applicazioni non basate su browser, come il client di posta elettronica di Apple, utilizzano Exchange Active Sync e attualmente non supportano l'autenticazione a più fattori. L’autenticazione a più fattori viene abilitata per singolo utente. Questo implica che, se un utente è stato abilitato per l'autenticazione a più fattori e tenta di utilizzare applicazioni non basate su browser, non potrà farlo. La password dell’app consente tale operazione. Se si applica Multi-Factor Authentication tramite criteri di accesso condizionale e non tramite Multi-Factor Authentication per utente, è possibile creare password di app. Le applicazioni che usano criteri di accesso condizionale per controllare l'accesso non hanno bisogno di password di app.
 
 Dopo aver creato una password dell’app, è possibile utilizzarla al posto della password originale con le applicazioni non basate su browser. Questo avviene perché quando ci si registra per la verifica in due passaggi, si indica a Microsoft di non consentire l'accesso con la password a un utente che non possa eseguire anche la seconda verifica. Il client di posta elettronica di Apple sul telefono non può accedere perché per questo client non è possibile richiedere la verifica in due passaggi. La soluzione al problema consiste nel creare una password per l'app più sicura che non venga usata quotidianamente, ma solo per le app che non supportano la verifica in due passaggi. Usare la password per l'app per ignorare l’autenticazione a più fattori e proseguire.
 
@@ -55,24 +55,6 @@ Durante l'accesso iniziale, viene fornita una password dell’app che è possibi
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Gestione delle password per le app nel Portale di Azure
 Se si usa la verifica in due passaggi con Azure, è consigliabile creare password per le app tramite il Portale di Azure.
 
-### <a name="to-create-app-passwords-in-the-azure-portal"></a>Per creare password per le app nel portale di Azure
-1. Accedere al portale di Microsoft Azure classico.
-2. Nella parte superiore fare clic con il pulsante destro del mouse sul nome utente, quindi scegliere Verifica aggiuntiva di sicurezza.
-3. Nella parte superiore della pagina di verifica selezionare le password dell'app.
-4. Fare clic su **Crea**.
-5. Immettere un nome per la password dell'app e quindi fare clic su **Avanti**
-6. Copiare la password per l'app negli Appunti, quindi incollarla nell'app.
-
-   ![Cloud](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
-
-
-### <a name="to-delete-app-passwords-in-the-azure-portal"></a>Per eliminare password per le app nel portale di Azure
-1. Accedere al portale di Microsoft Azure classico.
-2. Nella parte superiore fare clic con il pulsante destro del mouse sul nome utente, quindi scegliere Verifica aggiuntiva di sicurezza.
-3. Nella parte superiore, accanto alla verifica aggiuntiva di sicurezza, fare clic su **Password dell'app.**
-4. Accanto alla password dell’app che si desidera rimuovere, selezionare **Elimina**.
-5. Confermare l'eliminazione facendo clic su **Sì**.
-6. Dopo che la password dell’app è stata eliminata, è possibile fare clic su **Chiudi**.
 
 
 ## <a name="manage-app-passwords-with-the-myapps-portal"></a>Gestione delle password per le app nel portale MyApps.
@@ -92,7 +74,7 @@ Se non si è certi di come utilizzare Multi-Factor Authentication, è sempre pos
 7. Copiare la password per l'app negli Appunti, quindi incollarla nell'app.
    ![Creare una password di app](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
-### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Per eliminare una password di app tramite il portale Myapps
+### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Per eliminare una password di app tramite il portale MyApps
 1. Effettuare l'accesso ad [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Nella parte superiore selezionare il profilo.
 3. Selezionare **Verifica aggiuntiva di sicurezza**.

@@ -1,6 +1,6 @@
 ---
 title: Guida di riferimento a Funzioni di Azure per sviluppatori di script C#
-description: Imparare a sviluppare le funzioni di Azure tramite script c#.
+description: Informazioni su come sviluppare Funzioni di Azure usando script C#.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -15,33 +15,33 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 855a03c504667b7141b51ce0470b66a5297c0583
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5a4fc57606b0cf09f8d20710e3c83637283014ba
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="azure-functions-c-script-csx-developer-reference"></a>Riferimenti per sviluppatori Azure funzioni c# script (con estensione csx)
+# <a name="azure-functions-c-script-csx-developer-reference"></a>Guida di riferimento a Funzioni di Azure per sviluppatori di script C# (.csx)
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-In questo articolo viene fornita un'introduzione allo sviluppo di funzioni di Azure tramite script c# (*csx*).
+Questo articolo riporta un'introduzione allo sviluppo di Funzioni di Azure tramite script C# (*.csx*).
 
-Funzioni di Azure supporta i linguaggi c# e script c# linguaggi di programmazione. Se si sta cercando informazioni aggiuntive [utilizzando c# in un progetto di libreria di classi di Visual Studio](functions-develop-vs.md), vedere [di riferimento per sviluppatori c#](functions-dotnet-class-library.md).
+Funzioni di Azure supporta i linguaggi di programmazione C# e script C# . Per materiale sussidiario sull'[uso di C# in un progetto di libreria di classi di Visual Studio](functions-develop-vs.md), vedere [Informazioni di riferimento per sviluppatori C#](functions-dotnet-class-library.md).
 
-Questo articolo si presuppone che sia già stata letta la [Guida per sviluppatori di Azure funzioni](functions-reference.md).
+Questo articolo presuppone che l'utente abbia già letto il [Manuale dello sviluppatore di Funzioni di Azure](functions-reference.md).
 
 ## <a name="how-csx-works"></a>Funzionamento di CSX
 
-L'esperienza di script c# per le funzioni di Azure si basa sul [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction). I dati vengono trasmessi alla funzione C# tramite argomenti del metodo. I nomi di argomento specificati un `function.json` file e sono predefiniti nomi per l'accesso alle operazioni come il funzione logger e token di annullamento.
+L'esperienza con gli script C# per Funzioni di Azure si basa su [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction). I dati vengono trasmessi alla funzione C# tramite argomenti del metodo. I nomi di argomento sono specificati in un file `function.json` e sono disponibili nomi predefiniti per l'accesso a elementi quali il logger delle funzioni e i token di annullamento.
 
-Il *csx* formato consente di scrivere meno boilerplate"" e concentrarsi sulla scrittura solo una funzione c#. Anziché eseguire il wrapping di tutti gli elementi in un spazio dei nomi e classe, definire semplicemente un metodo `Run`. Includere tutti i riferimenti ad assembly e gli spazi dei nomi all'inizio del file come di consueto.
+Il formato *.csx* consente di scrivere meno "boilerplate" e di concentrarsi solo sulla scrittura della funzione C#. Anziché eseguire il wrapping di tutti gli elementi in un spazio dei nomi e classe, definire semplicemente un metodo `Run`. Includere tutti i riferimenti ad assembly e gli spazi dei nomi all'inizio del file come di consueto.
 
-Un'app di funzione *csx* i file vengono compilati quando viene inizializzata un'istanza. Questa fase di compilazione significa operazioni quali l'avvio a freddo potrebbe richiedere più tempo per funzioni di script c# rispetto alle librerie di classi c#. Questo passaggio di compilazione è anche perché le funzioni di script c# sono modificabili nel portale di Azure, mentre non sono librerie di classi c#.
+I file con estensione *.csx* di un'app per le funzioni vengono compilati quando viene inizializzata un'istanza. Questo passaggio di compilazione implica che operazioni quali l'avvio a freddo potrebbero richiedere più tempo per le funzioni script C# rispetto alle librerie di classi C#. Questo passaggio di compilazione è anche il motivo per cui le funzioni script C# sono modificabili nel portale di Azure, mentre le librerie di classi C# non lo sono.
 
 ## <a name="binding-to-arguments"></a>Associazione agli argomenti
 
-Dati di input o outpui sono associati a un parametro funzione di script c# tramite la `name` proprietà il *function.json* file di configurazione. Nell'esempio seguente un *function.json* file e *run.csx* file per una funzione di attivazione coda. Il nome del parametro che riceve dati dal messaggio della coda è `myQueueItem` perché è il valore di `name` proprietà.
+I dati di input o output sono associati a un parametro di una funzione script C# tramite la proprietà `name` nel file di configurazione *function.json*. L'esempio seguente mostra un file *function.json* e un file *run.csx* per una funzione attivata dalla coda. Il parametro che riceve i dati dal messaggio della coda è denominato `myQueueItem` perché questo è il valore della proprietà `name`.
 
 ```json
 {
@@ -70,19 +70,19 @@ public static void Run(CloudQueueMessage myQueueItem, TraceWriter log)
 }
 ```
 
-Il `#r` viene illustrata l'istruzione [più avanti in questo articolo](#referencing-external-assemblies).
+L'istruzione `#r` è spiegata [più avanti in questo articolo](#referencing-external-assemblies).
 
 ## <a name="supported-types-for-bindings"></a>Tipi supportati per le associazioni
 
-Ogni associazione dispone di propri tipi supportati. ad esempio, è possibile utilizzare un trigger di blob con un parametro di stringa, un parametro POCO, un `CloudBlockBlob` parametro oppure uno dei molti altri tipi supportati. Il [articolo di riferimento dell'associazione per le associazioni di blob](functions-bindings-storage-blob.md#trigger---usage) supportati Elenca tutti i tipi di parametro per i trigger di blob. Per ulteriori informazioni, vedere [trigger e le associazioni](functions-triggers-bindings.md) e [documenti di riferimento dell'associazione per ogni tipo di associazione](functions-triggers-bindings.md#next-steps).
+Ogni associazione supporta determinati tipi. Ad esempio è possibile usare un trigger di BLOB con un parametro stringa, un parametro POCO, un parametro `CloudBlockBlob` o uno dei molti altri tipi supportati. L'[articolo di riferimento sull'associazione relativo alle associazioni BLOB](functions-bindings-storage-blob.md#trigger---usage) elenca tutti i tipi di parametri supportati per i trigger di BLOB. Per altre informazioni, vedere [Trigger e associazioni](functions-triggers-bindings.md) e i [documenti di riferimento sull'associazione per ogni tipo di associazione](functions-triggers-bindings.md#next-steps).
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-## <a name="referencing-custom-classes"></a>Fa riferimento alle classi personalizzate
+## <a name="referencing-custom-classes"></a>Riferimento a classi personalizzate
 
-Se è necessario utilizzare una classe di oggetti poco (Plain Old CLR Object) personalizzata, è possibile includere la definizione di classe all'interno dello stesso file o inserirlo in un file separato.
+Se è necessario usare una classe Plain Old CLR Object (POCO) personalizzata, è possibile includere la definizione della classe all'interno dello stesso file o inserirla in un file separato.
 
-Nell'esempio seguente un *run.csx* esempio che include una definizione di classe POCO.
+Di seguito è riportato un esempio *run.csx* che include una definizione di classe POCO.
 
 ```csharp
 public static void Run(string myBlob, out MyClass myQueueItem)
@@ -97,7 +97,7 @@ public class MyClass
 }
 ```
 
-Una classe POCO deve avere un getter e setter definiti per ogni proprietà.
+Una classe POCO deve avere un metodo Get e un metodo Set definiti per ogni proprietà.
 
 ## <a name="reusing-csx-code"></a>Riutilizzo del codice CSX
 
@@ -124,7 +124,7 @@ public static void MyLogger(TraceWriter log, string logtext)
 }
 ```
 
-Utilizzando un oggetto condiviso *csx* file è un modello comune per tipizzare thet dati passati tra le funzioni in base utilizzando un oggetto POCO. Nell'esempio semplificato seguente, un trigger HTTP e un trigger della coda condividono un oggetto POCO denominato `Order` per tipizzare fortemente i dati dell'ordine:
+L'uso di un file con estensione *.csx* condiviso è una prassi comune quando si vuole tipizzare fortemente i dati passati tra le funzioni usando un oggetto POCO. Nell'esempio semplificato seguente, un trigger HTTP e un trigger della coda condividono un oggetto POCO denominato `Order` per tipizzare fortemente i dati dell'ordine:
 
 File *run.csx* di esempio per il trigger HTTP:
 
@@ -195,9 +195,9 @@ public class Order
 * `#load "loadedfiles\mylogger.csx"` carica un file che si trova in una sottocartella della cartella della funzione.
 * `#load "..\shared\mylogger.csx"` carica un file che si trova in una cartella allo stesso livello della cartella della funzione, ovvero direttamente in *wwwroot*.
 
-Il `#load` direttiva funziona solo con *csx* file, non con *cs* file.
+La direttiva `#load` è compatibile solo con i file con estensione *.csx* e non lo è con i file con estensione *.cs*.
 
-## <a name="binding-to-method-return-value"></a>Associazione al valore restituito (metodo)
+## <a name="binding-to-method-return-value"></a>Associazione al valore restituito dal metodo
 
 È possibile usare un valore restituito del metodo per un'associazione di output, usando il nome `$return` in *function.json*:
 
@@ -246,7 +246,7 @@ public static void Run(string myBlob, TraceWriter log)
 ```
 
 > [!NOTE]
-> Per informazioni su un framework di registrazione più recenti che è possibile utilizzare invece di `TraceWriter`, vedere [scrittura registra in c# le funzioni](functions-monitoring.md#write-logs-in-c-functions) nel **monitoraggio Azure funzioni** articolo.
+> Per informazioni su un framework di registrazione più recente che è possibile usare invece di `TraceWriter`, vedere [Scrivere i log nelle funzioni C#](functions-monitoring.md#write-logs-in-c-functions) nell'articolo **Monitorare Funzioni di Azure**.
 
 ## <a name="async"></a>Async
 
@@ -264,7 +264,7 @@ public async static Task ProcessQueueMessageAsync(
 
 ## <a name="cancellation-tokens"></a>Token di annullamento
 
-Alcune operazioni richiedono l'arresto normale. Anche se è sempre consigliabile scrivere il codice in grado di gestire un arresto anomalo, nei casi in cui si desidera gestire le richieste di arresto, definire un [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) digitato l'argomento.  È fornito un `CancellationToken` per segnalare che viene avviato un arresto dell'host.
+Alcune operazioni richiedono l'arresto normale. Mentre è sempre preferibile scrivere il codice per la gestione degli arresti anomali, quando si vuole gestire le richieste di arresto definire un argomento tipizzato [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx).  È fornito un `CancellationToken` per segnalare che viene avviato un arresto dell'host.
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -339,9 +339,9 @@ Gli assembly seguenti vengono aggiunti automaticamente dall'ambiente di hosting 
 
 Per fare riferimento a un assembly personalizzato, è possibile usare un assembly *condiviso* o un assembly *privato*:
 - Gli assembly condivisi sono condivisi da tutte le funzioni all'interno di un'app di funzione. Per fare riferimento a un assembly personalizzato, caricare l'assembly nell'app di funzione, ad esempio una cartella `bin` nella radice dell'app per le funzioni. 
-- Gli assembly privati fanno parte del contesto di una funzione specificata e supportano il caricamento laterale di versioni diverse. Gli assembly privati devono essere caricati in una cartella `bin` nella directory di funzione. Riferimento agli assembly utilizzando il nome del file, ad esempio `#r "MyAssembly.dll"`. 
+- Gli assembly privati fanno parte del contesto di una funzione specificata e supportano il caricamento laterale di versioni diverse. Gli assembly privati devono essere caricati in una cartella `bin` nella directory di funzione. Fare riferimento agli assembly usando il nome del file, ad esempio `#r "MyAssembly.dll"`. 
 
-Per informazioni su come caricare i file nella cartella di funzione, vedere la sezione su [pacchetto gestione](#using-nuget-packages).
+Per informazioni su come caricare i file nella cartella della funzione, vedere la sezione sulla [gestione dei pacchetti](#using-nuget-packages).
 
 ### <a name="watched-directories"></a>Directory controllate
 
@@ -363,11 +363,11 @@ Per usare i pacchetti NuGet in una funzione C#, caricare un file *project.json* 
 }
 ```
 
-In Azure le funzioni di 1. x, solo .NET Framework 4.6 è supportato, quindi assicurarsi che il *Project* file specifica `net46` come illustrato di seguito.
+In Funzioni di Azure 1.x è supportato solo .NET Framework 4.6, perciò verificare che nel file *project.json* sia specificato `net46` come illustrato qui.
 
-Quando si carica un file *project.json* , il runtime ottiene i pacchetti e aggiunge automaticamente riferimenti agli assembly dei pacchetti. Non è necessario aggiungere direttive `#r "AssemblyName"` . Per utilizzare i tipi definiti nei pacchetti NuGet; è sufficiente aggiungere obbligatorio `using` istruzioni per il *run.csx* file. 
+Quando si carica un file *project.json* , il runtime ottiene i pacchetti e aggiunge automaticamente riferimenti agli assembly dei pacchetti. Non è necessario aggiungere direttive `#r "AssemblyName"` . Per usare i tipi definiti nei pacchetti NuGet è sufficiente aggiungere le istruzioni `using` necessarie al file *run.csx*. 
 
-Nel runtime di Funzioni NuGet ripristina le operazioni confrontando `project.json` e `project.lock.json`. Se gli indicatori di data e ora dei file **non** corrispondono, NuGet esegue un ripristino e aggiorna i pacchetti. In caso contrario, NuGet **non** esegue alcun ripristino. Pertanto, `project.lock.json` non devono essere distribuiti, come fa a ignorare ripristino del pacchetto NuGet. Per evitare la distribuzione del file di blocco, aggiungere `project.lock.json` al `.gitignore` file.
+Nel runtime di Funzioni NuGet ripristina le operazioni confrontando `project.json` e `project.lock.json`. Se gli indicatori di data e ora dei file **non** corrispondono, NuGet esegue un ripristino e aggiorna i pacchetti. In caso contrario, NuGet **non** esegue alcun ripristino. Pertanto, `project.lock.json` non deve essere distribuito, in quanto induce NuGet a saltare il ripristino del pacchetto. Per evitare la distribuzione del file di blocco, aggiungere `project.lock.json` al `.gitignore` file.
 
 Per usare un feed NuGet personalizzato, specificare il feed in un *Nuget.Config* nella radice dell'app per le funzioni. Per altre informazioni, vedere [Configuring NuGet behavior](/nuget/consume-packages/configuring-nuget-behavior) (Configurazione del comportamento di NuGet).
 
@@ -417,7 +417,7 @@ public static string GetEnvironmentVariable(string name)
 
 ## <a name="binding-at-runtime"></a>Associazione in fase di esecuzione
 
-In C# e altri linguaggi .NET, è possibile usare un metodo di associazione [imperativa](https://en.wikipedia.org/wiki/Imperative_programming) anziché [ *dichiarativa* ](https://en.wikipedia.org/wiki/Declarative_programming) in *function.json*. L'associazione imperativa è utile quando i parametri di associazione devono essere calcolati in fase di runtime invece che in fase di progettazione. Con questo modello, è possibile associare a supportati input e output associazioni il volo nel codice di funzione.
+In C# e altri linguaggi .NET, è possibile usare un metodo di associazione [imperativa](https://en.wikipedia.org/wiki/Imperative_programming) anziché [ *dichiarativa* ](https://en.wikipedia.org/wiki/Declarative_programming) in *function.json*. L'associazione imperativa è utile quando i parametri di associazione devono essere calcolati in fase di runtime invece che in fase di progettazione. Con questo modello è possibile associare rapidamente i dati ad associazioni di input e output supportate nel codice della funzione.
 
 Definire un'associazione imperativa, come segue:
 
@@ -432,11 +432,11 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute`è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output che è supportato dal tipo di associazione. `T`non può essere un `out` tipo di parametro (ad esempio `out JObject`). L'associazione di output della tabella App per dispositivi mobili, ad esempio, supporta[ sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) per `T`.
+`BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. L'associazione di output della tabella App per dispositivi mobili, ad esempio, supporta[ sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) per `T`.
 
-### <a name="single-attribute-example"></a>Esempio di attributo singolo
+### <a name="single-attribute-example"></a>Esempio con un solo attributo
 
-L'esempio di codice seguente crea un [associazione di output del BLOB di archiviazione](functions-bindings-storage-blob.md#input--output) con percorso del BLOB definito in fase di esecuzione, quindi scrive una stringa per il BLOB.
+L'esempio di codice seguente crea un [associazione di output del BLOB di archiviazione](functions-bindings-storage-blob.md#output) con percorso del BLOB definito in fase di esecuzione, quindi scrive una stringa per il BLOB.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -453,9 +453,9 @@ public static async Task Run(string input, Binder binder)
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) definisce l'associazione di input o output del [BLOB di archiviazione](functions-bindings-storage-blob.md) e [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) è un tipo di associazione di output supportato.
 
-### <a name="multiple-attribute-example"></a>Esempio di attributo multipli
+### <a name="multiple-attribute-example"></a>Esempio con più attributi
 
-Nell'esempio precedente si ottiene l'impostazione dell'app per la stringa di connessione di funzione dell'applicazione principale Storage account (ovvero `AzureWebJobsStorage`). È possibile specificare un'impostazione app personalizzata da usare per l'account di archiviazione aggiungendo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando la matrice di attributi in `BindAsync<T>()`. Utilizzare un `Binder` parametro, non `IBinder`.  Ad esempio: 
+L'esempio precedente ottiene l'impostazione dell'app per la stringa di connessione dell'account di archiviazione principale dell'app, ovvero `AzureWebJobsStorage`. È possibile specificare un'impostazione app personalizzata da usare per l'account di archiviazione aggiungendo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando la matrice di attributi in `BindAsync<T>()`. Usare un parametro `Binder` e non `IBinder`.  Ad esempio: 
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -494,7 +494,7 @@ Nella tabella seguente vengono elencati gli attributi .NET per ogni tipo di asso
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Ulteriori informazioni sui trigger e associazioni](functions-triggers-bindings.md)
+> [Altre informazioni sui trigger e le associazioni](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Altre informazioni sulle procedure consigliate per le funzioni di Azure](functions-best-practices.md)
+> [Altre informazioni sulle procedure consigliate per Funzioni di Azure](functions-best-practices.md)

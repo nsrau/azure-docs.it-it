@@ -3,7 +3,7 @@ title: Le differenze e le considerazioni per le macchine virtuali nello Stack di
 description: Informazioni sulle considerazioni e le differenze quando si lavora con le macchine virtuali nello Stack di Azure.
 services: azure-stack
 documentationcenter: 
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: mabrigg
-ms.openlocfilehash: 8367f7897581ff9599b763c7a39232bbe6860b8f
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.date: 11/17/2018
+ms.author: brenduns
+ms.openlocfilehash: 6eafa2a5058ef1309cbf50be069ea1bb12f7e5b9
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considerazioni per le macchine virtuali in Azure Stack
 
@@ -59,7 +59,7 @@ Dimensioni delle macchine virtuali e le relative quantità di risorse associati 
 
 ## <a name="virtual-machine-extensions"></a>Estensioni macchina virtuale
 
- Il Kit di sviluppo dello Stack di Azure supporta le seguenti versioni di estensione di macchina virtuale:
+ Lo Stack di Azure supporta le seguenti versioni di estensione di macchina virtuale:
 
 ![Estensioni di VM](media/azure-stack-vm-considerations/vm-extensions.png)
 
@@ -75,7 +75,7 @@ Get-AzureRmVmImagePublisher -Location local | `
 
 ## <a name="api-versions"></a>Versioni dell'API
 
-Funzionalità delle macchine virtuali nel Kit di sviluppo dello Stack di Azure supportano le versioni di API seguenti:
+Funzionalità delle macchine virtuali nello Stack di Azure supporta le versioni API seguenti:
 
 ![Tipi di risorsa di macchina virtuale](media/azure-stack-vm-considerations/vm-resoource-types.png)
 

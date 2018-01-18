@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulla fattura per Azure | Microsoft Docs
+title: Informazioni sulla fattura per Azure
 description: Informazioni su come leggere e comprendere l'utilizzo e la fattura per la sottoscrizione di Azure
 services: 
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: ade40f8937d56cc561741e251095c4f14b4bb304
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: be15c74456b0cec64455f03dd72b8b64eef2bd5d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprendere la fattura per Microsoft Azure
 Per comprendere la fattura di Azure, confrontare la fattura con il file dei dettagli di utilizzo giornaliero e con i report di gestione dei costi nel portale di Azure.
@@ -34,9 +34,8 @@ Per una spiegazione dettagliata dei termini e delle descrizioni nella fattura e 
 Per informazioni sui report di gestione dei costi, vedere [Gestione dei costi del Portale di Azure](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
 ## <a name="charges"></a>Come posso assicurarmi che gli addebiti nella fattura siano corretti?
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/3YegFD769Pk" frameborder="0" allowfullscreen></iframe>
-</div>
+
+>[!VIDEO https://www.youtube.com/embed/3YegFD769Pk]
 
 Se nella fattura è presente un addebito su cui si vogliono ricevere altre informazioni, sono disponibili due opzioni.
 
@@ -49,8 +48,8 @@ Gli addebiti relativi all'utilizzo vengono visualizzati a livello di contatore. 
  | Fattura (PDF) | Dettagli di utilizzo (CSV)|
  | --- | --- |
 |Ciclo di fatturazione | Periodo di fatturazione |
- |NOME |Categoria misuratore |
- |type |Sottocategoria contatore |
+ |Nome |Categoria misuratore |
+ |Tipo |Sottocategoria contatore |
  |Risorsa |Nome misuratore |
  |Region |Area misuratore |
  |Consumato |Quantità consumata |
@@ -107,6 +106,6 @@ Se si [paga tramite fattura](billing-how-to-pay-by-invoice.md), inviare il pagam
 - [Impostare avvisi di fatturazione](billing-set-up-alerts.md).
 - [Controllare regolarmente utilizzo e costi nel portale di Azure](billing-getting-started.md#costs).
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
+## <a name="need-help-contact-support"></a>Serve aiuto? Contattare il supporto tecnico.
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: ab675207094bc8ee317573192c33c20039780fe2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: e885a482edcba48c18e425c54f4acc28ee650ddd
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-reliable-services"></a>Introduzione a Reliable Services
 > [!div class="op_single_selector"]
@@ -161,11 +161,11 @@ Service Fabric introduce un nuovo tipo di servizio con stato. Un servizio con st
 
 Per convertire un valore del contatore da senza stato a elevata disponibilità e persistenza anche quando il servizio viene spostato o riavviato, è necessario un servizio con stato.
 
-Nella stessa directory dell'applicazione HelloWorld, è possibile aggiungere un nuovo servizio eseguendo il `yo azuresfjava:AddService` comando. Scegliere "Affidabile con stato servizio" per il framework e denominare il servizio "HelloWorldStateful". 
+Nella stessa directory dell'applicazione HelloWorld è possibile aggiungere un nuovo servizio eseguendo il comando `yo azuresfjava:AddService`. Specificare il "Servizio Reliable con stato" per il framework e assegnare al servizio il nome "HelloWorldStateful". 
 
-A questo punto l'applicazione deve disporre di due servizi: il servizio senza stato HelloWorld e le informazioni sullo stato del servizio HelloWorldStateful.
+A questo punto l'applicazione ha due servizi: il servizio senza stato HelloWorld e il servizio con stato HelloWorldStateful.
 
-Un servizio con stato ha gli stessi punti di ingresso di un servizio senza stato. La differenza principale è la disponibilità di un provider di stato che è possibile archiviare lo stato in modo affidabile. Infrastruttura del servizio viene fornito con un'implementazione del provider di stata chiamata raccolte affidabili, che consente di creare strutture di dati replicati tramite il gestore degli stati affidabile. Un servizio Reliable Services con stato usa questo provider di stato per impostazione predefinita.
+Un servizio con stato ha gli stessi punti di ingresso di un servizio senza stato. La differenza principale è data dalla disponibilità di un provider di stato che può archiviare lo stato in modo affidabile. Service Fabric include un'implementazione del provider di stato denominata Reliable Collections, che permette di creare strutture di dati replicate tramite Reliable State Manager. Un servizio Reliable Services con stato usa questo provider di stato per impostazione predefinita.
 
 Aprire HelloWorldStateful.java in **HelloWorldStateful -> src**, che contiene il metodo RunAsync seguente:
 
@@ -200,16 +200,16 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) è un'implementazione di dizionario che è possibile utilizzare per archiviare in modo affidabile lo stato del servizio. Con Service Fabric e Hashmaps affidabile, è possibile archiviare i dati direttamente nel servizio senza la necessità di un archivio permanente esterno. Hashmaps affidabile rendere i dati a disponibilità elevata. A tale scopo, Service Fabric crea e gestisce automaticamente più *repliche* del servizio. Offre anche un'API che consente di evitare le complessità di gestione di tali repliche e delle relative transizioni di stato.
+[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) è un'implementazione di dizionario che permette di archiviare in modo affidabile lo stato nel servizio. Grazie a Service Fabric e a Reliable Hashmaps, è possibile archiviare i dati direttamente nel servizio, senza la necessità di un archivio esterno persistente. Reliable Hashmaps garantisce la disponibilità elevata dei dati. A tale scopo, Service Fabric crea e gestisce automaticamente più *repliche* del servizio. Offre anche un'API che consente di evitare le complessità di gestione di tali repliche e delle relative transizioni di stato.
 
-Affidabile raccolte è possono archiviare qualsiasi tipo di linguaggio, inclusi i tipi personalizzati, con un paio di aspetti:
+Le raccolte Reliable Collections possono archiviare qualsiasi tipo Java, inclusi quelli personalizzati, con alcuni avvertimenti:
 
-* Service Fabric rende lo stato a disponibilità elevata *replica* lo stato tra nodi e mappa di hash affidabile memorizza i dati sul disco locale in ogni replica. Ciò significa che tutto ciò che viene archiviato in Hashmaps affidabile devono essere *serializzabile*. 
-* Quando si esegue il commit delle transazioni su Hashmaps affidabile, gli oggetti vengono replicati per la disponibilità elevata. Gli oggetti archiviati in Hashmaps affidabile vengono mantenuti nella memoria locale del servizio. Ciò significa che è presente un riferimento locale all'oggetto.
+* Service Fabric garantisce la disponibilità elevata dello stato *replicando* lo stato nei nodi, mentre Reliable Hashmaps archivia i dati nel disco locale a ogni replica. Questo significa che tutti gli elementi archiviati in Reliable Hashmaps devono essere *serializzabili*. 
+* Quando si esegue il commit di transazioni in Reliable Hashmaps, gli oggetti vengono replicati per assicurare disponibilità elevata. Gli oggetti archiviati in Reliable Hashmaps vengono conservati nella memoria locale del servizio. Ciò significa che è presente un riferimento locale all'oggetto.
   
    È importante non apportare modifiche alle istanze locali degli oggetti senza prima eseguire un'operazione di aggiornamento sulla raccolta Reliable Collections in una transazione. Le modifiche apportate alle istanze locali di oggetti, infatti, non vengono replicate automaticamente. È necessario inserire nuovamente l'oggetto nel dizionario oppure usare uno dei metodi di *aggiornamento* nel dizionario.
 
-Il gestore degli stati affidabile gestisce Hashmaps affidabile per l'utente. In qualunque momento e in qualsiasi posizione del servizio è possibile chiedere a Reliable State Manager una raccolta Reliable Collections indicandone il nome. Reliable State Manager restituirà un riferimento. Non si consiglia di salvare riferimenti alle istanze di raccolte Reliable Collections in proprietà o variabili membri di classe. Prestare particolare attenzione per assicurarsi che il riferimento sia sempre impostato su un'istanza durante il ciclo di vita del servizio. Reliable State Manager gestisce queste operazioni automaticamente ed è ottimizzato per le visite ripetute.
+Reliable State Manager gestisce automaticamente Reliable Hashmaps. In qualunque momento e in qualsiasi posizione del servizio è possibile chiedere a Reliable State Manager una raccolta Reliable Collections indicandone il nome. Reliable State Manager restituirà un riferimento. Non si consiglia di salvare riferimenti alle istanze di raccolte Reliable Collections in proprietà o variabili membri di classe. Prestare particolare attenzione per assicurarsi che il riferimento sia sempre impostato su un'istanza durante il ciclo di vita del servizio. Reliable State Manager gestisce queste operazioni automaticamente ed è ottimizzato per le visite ripetute.
 
 
 ### <a name="transactional-and-asynchronous-operations"></a>Operazioni transazionali e asincrone
@@ -230,9 +230,9 @@ return map.computeAsync(tx, "counter", (k, v) -> {
 });
 ```
 
-Operazioni su Hashmaps affidabili sono asincrone. Questo avviene perché le operazioni di scrittura sulle raccolte Reliable Collections eseguono operazioni di I/O per replicare e rendere persistenti i dati su disco.
+Le operazioni su Reliable Hashmaps sono asincrone. Questo avviene perché le operazioni di scrittura sulle raccolte Reliable Collections eseguono operazioni di I/O per replicare e rendere persistenti i dati su disco.
 
-Operazioni mappa di hash affidabili sono *transazionale*, in modo che è possibile mantenere lo stato coerente tra più affidabile Hashmaps e operazioni. Ad esempio, è possibile ottenere un elemento di lavoro da un dizionario affidabile, eseguire un'operazione su di esso e salvare il risultato in anoter affidabile mappa di hash, tutti in un'unica transazione. Questa viene considerata come un'operazione atomica e garantisce la riuscita o il rollback dell'intera operazione. Se si verifica un errore dopo aver rimosso l'elemento dalla coda ma prima di aver salvato il risultato, viene eseguito il rollback dell'intera transazione e l'elemento rimane nella coda per l'elaborazione.
+Le operazioni su Reliable Hashmaps sono *transazionali* e consentono di mantenere lo stato coerente tra più Reliable Hashmaps e operazioni. Ad esempio, è possibile ottenere un elemento di lavoro da un oggetto Reliable Dictionary, eseguire un'operazione su tale elemento e salvare il risultato in un altro oggetto Reliable Hashmap, il tutto all'interno di una singola transazione. Questa viene considerata come un'operazione atomica e garantisce la riuscita o il rollback dell'intera operazione. Se si verifica un errore dopo aver rimosso l'elemento dalla coda ma prima di aver salvato il risultato, viene eseguito il rollback dell'intera transazione e l'elemento rimane nella coda per l'elaborazione.
 
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione

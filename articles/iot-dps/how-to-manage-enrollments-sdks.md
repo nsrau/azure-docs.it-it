@@ -1,6 +1,6 @@
 ---
-title: Gestire le registrazioni dei dispositivi con gli SDK servizio di Provisioning del dispositivo di Azure | Documenti Microsoft
-description: Come gestire le registrazioni dei dispositivi in IoT Hub dispositivo servizio di Provisioning con il SDK del servizio
+title: Gestire le registrazioni dei dispositivi tramite gli SDK del servizio Device Provisioning di Azure | Microsoft Docs
+description: Come gestire le registrazioni dei dispositivi nel servizio Device Provisioning dell'hub IoT tramite gli SDK del servizio
 services: iot-dps
 keywords: 
 author: yzhong94
@@ -12,86 +12,86 @@ documentationcenter:
 manager: arjmands
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 82da49924e71a38ca557f244f2830e1da45826b1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: a3d763009c7a7f45ddce96732977a79567f7ef44
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Come gestire le registrazioni dei dispositivi con gli SDK servizio di Provisioning del dispositivo di Azure
-Oggetto *la registrazione del dispositivo* crea un record di un singolo dispositivo o un gruppo di dispositivi a un certo punto può registrare con il servizio di Provisioning di dispositivi. Il record di registrazione contiene la configurazione iniziale desiderata per i dispositivi come parte della registrazione, incluso l'hub IoT desiderato. In questo articolo viene illustrato come gestire le registrazioni dei dispositivi per il servizio di provisioning a livello di programmazione utilizzando Azure IoT Provisioning del servizio SDK.  il SDK sono disponibili su GitHub nello stesso repository come IoT di Azure SDK.
+# <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Come gestire le registrazioni dei dispositivi con gli SDK del servizio Device Provisioning di Azure
+La *registrazione dei dispositivi* crea un record di un singolo dispositivo o di un gruppo di dispositivi registrato in un dato punto con il servizio Device Provisioning. Il record di registrazione contiene la configurazione iniziale desiderata per i dispositivi come parte della registrazione, incluso l'hub IoT desiderato. In questo articolo viene illustrato come gestire le registrazioni dei dispositivi per il servizio di provisioning a livello di programmazione tramite gli SDK del servizio di provisioning di Azure IoT.  Gli SDK sono disponibili su GitHub nello stesso repository degli SDK di Azure IoT.
 
 ## <a name="samples"></a>Esempi
-Questo articolo vengono descritti i concetti di alto livelli per la gestione delle registrazioni dei dispositivi per il servizio di provisioning a livello di programmazione utilizzando Azure IoT Provisioning del servizio SDK.  Chiamate API esatte potrebbero essere diverse a causa delle differenze di lingua.  Vedere gli esempi che vengono forniti in GitHub per informazioni dettagliate:
-* [Esempi di Client del servizio di Provisioning Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
-* [Esempi di Provisioning Client del servizio di Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
+In questo articolo vengono analizzati i concetti fondamentali relativi alla gestione delle registrazioni dei dispositivi per il servizio di provisioning a livello di programmazione tramite gli SDK del servizio di provisioning di Azure IoT.  Le chiamate API possono essere diverse a seconda dei diversi linguaggi.  Per i dettagli fare riferimento agli esempi disponibili su GitHub:
+* [Esempi client del servizio di provisioning per Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
+* [Esempi client del servizio di provisioning per Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Stringa di connessione da un'istanza del servizio di Provisioning di dispositivi
-* Elementi di sicurezza di dispositivi:
-    * [**TPM**](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security):
-        * Registrazione di singoli: ID di registrazione e la chiave di verifica dell'autenticità TPM da un dispositivo fisico o da TPM simulatore.
-        * Gruppo di registrazione non è applicabile per l'attestazione TPM.
-    * [**X. 509**](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security):
-        * Registrazione di singoli: il [certificato foglia](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#leaf-certificate) dal dispositivo fisico o dall'emulatore di lancio dei dadi.
-        * Gruppo di registrazione: il [certificato radice](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) o [certificato intermedio](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate), utilizzato per produrre certificato del dispositivo in un dispositivo fisico.  Può anche essere generato dall'emulatore di lancio dei dadi.
+* Stringa di connessione da un'istanza del servizio Device Provisioning
+* Elementi di sicurezza dei dispositivi:
+    * [**TPM**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
+        * Registrazione singola: ID registrazione e chiave di verifica dell'autenticità del TPM da un dispositivo fisico o da un simulatore TPM.
+        * Il gruppo di registrazioni non è valido per l'attestazione TPM.
+    * [**X.509**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
+        * Registrazione singola: [certificato foglia](https://docs.microsoft.com/azure/iot-dps/concepts-security#leaf-certificate) dal dispositivo fisico o dall'emulatore DICE.
+        * Gruppo di registrazioni: [certificato radice](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) o [certificato intermedio](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), usato per generare il certificato del dispositivo in un dispositivo fisico.  Può anche essere generato dall'emulatore DICE.
 
 ## <a name="create-a-device-enrollment"></a>Creare una registrazione dei dispositivi
 
 Esistono due modi per registrare i dispositivi con il servizio di provisioning:
 
-* Un **gruppo registrazione** è una voce per un gruppo di dispositivi che condividono un meccanismo di attestazione comuni dei certificati x. 509, firmato dal [certificato radice](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#root-certificate) o [certificato intermedio ](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-security#intermediate-certificate). È consigliabile usare un gruppo di registrazione per un numero elevato di dispositivi che condividono una configurazione iniziale desiderata o per i dispositivi destinati allo stesso tenant. Si noti che è possibile registrare solo i dispositivi che usano il meccanismo di attestazione X.509 come *gruppi di registrazione*. 
+* Un **gruppo di registrazioni** è una voce relativa a un gruppo di dispositivi che condividono un meccanismo di attestazione comune dei certificati X.509, firmato mediante il [certificato radice](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) o il [certificato intermedio](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate). È consigliabile usare un gruppo di registrazione per un numero elevato di dispositivi che condividono una configurazione iniziale desiderata o per i dispositivi destinati allo stesso tenant. Si noti che è possibile registrare solo i dispositivi che usano il meccanismo di attestazione X.509 come *gruppi di registrazione*. 
 
-    È possibile creare un gruppo di registrazione con il SDK di questo flusso di lavoro seguente:
+    È possibile creare un gruppo di registrazioni con gli SDK attenendosi al flusso di lavoro seguente:
 
-    1. Per il gruppo di registrazione, il meccanismo di attestazione Usa certificato x. 509.  Chiamare l'API del servizio SDK ```X509Attestation.createFromRootCertificate``` con il certificato radice per creare l'attestazione per la registrazione.  Certificato x. 509 viene fornito in un file PEM o sotto forma di stringa.
-    1. Creare un nuovo ```EnrollmentGroup``` utilizzando variabili di ```attestation``` creato e univoco ```enrollmentGroupId```.  Facoltativamente, è possibile impostare parametri come ```Device ID```, ```IoTHubHostName```, ```ProvisioningStatus```.
-    2. Chiamare l'API del servizio SDK ```createOrUpdateEnrollmentGroup``` nell'applicazione back-end con ```EnrollmentGroup``` per creare un gruppo di registrazione.
+    1. Per il gruppo di registrazioni, il meccanismo di attestazione usa il certificato X.509.  Chiamare l'API dell'SDK del servizio ```X509Attestation.createFromRootCertificate``` con il certificato radice per creare l'attestazione per la registrazione.  Il certificato X.509 viene fornito in un file con estensione pem o sotto forma di stringa.
+    1. Creare una nuova variabile ```EnrollmentGroup``` tramite il valore del parametro ```attestation``` creato e un valore univoco del parametro ```enrollmentGroupId```.  Facoltativamente, è possibile impostare parametri quali, ad esempio, ```Device ID```, ```IoTHubHostName```, ```ProvisioningStatus```.
+    2. Chiamare l'API dell'SDK del servizio ```createOrUpdateEnrollmentGroup``` nell'applicazione back-end tramite ```EnrollmentGroup``` per creare un gruppo di registrazioni.
 
 * Una **registrazione individuale** è una voce per un singolo dispositivo che esegue la registrazione. Le registrazioni individuali possono usare certificati X.509 o token di firma di accesso condiviso (in un TPM reale o virtuale) come meccanismo di attestazione. È consigliabile usare le registrazioni individuali per i dispositivi che richiedono configurazioni iniziali univoche oppure per i dispositivi che possono usare solo token di firma di accesso condiviso tramite TPM o TPM virtuale come meccanismo di attestazione. In caso di registrazione individuale è possibile specificare l'ID dispositivo hub IoT desiderato.
 
-    È possibile creare una registrazione singoli con il SDK di questo flusso di lavoro seguente:
+    È possibile creare una registrazione singola con gli SDK attenendosi al flusso di lavoro seguente:
     
-    1. Scegliere il ```attestation``` meccanismo, che può essere TPM o x. 509.
-        1. **TPM**: usando la chiave di verifica dell'autenticità da un dispositivo fisico o da simulatore TPM come input, è possibile chiamare l'API del servizio SDK ```TpmAttestation``` per creare l'attestazione per la registrazione. 
-        2. **X. 509**: utilizzando il certificato client come input, è possibile chiamare l'API del servizio SDK ```X509Attestation.createFromClientCertificate``` per creare l'attestazione per la registrazione.
-    2. Creare un nuovo ```IndividualEnrollment``` variabile con il ```attestation``` creato e univoco ```registrationId``` come input, che nel dispositivo o generati dal simulatore TPM.  Facoltativamente, è possibile impostare parametri come ```Device ID```, ```IoTHubHostName```, ```ProvisioningStatus```.
-    3. Chiamare l'API del servizio SDK ```createOrUpdateIndividualEnrollment``` nell'applicazione back-end con ```IndividualEnrollment``` per creare una registrazione singoli.
+    1. Scegliere il meccanismo per ```attestation```, che può essere TPM o X.509.
+        1. **TPM**: usando la chiave di verifica dell'autenticità da un dispositivo fisico o da simulatore TPM come input, è possibile chiamare l'API dell'SDK del servizio ```TpmAttestation``` per creare l'attestazione per la registrazione. 
+        2. **X.509**: usando il certificato client come input, è possibile chiamare l'API dell'SDK del servizio ```X509Attestation.createFromClientCertificate``` per creare l'attestazione per la registrazione.
+    2. Creare una nuova variabile ```IndividualEnrollment``` usando il valore del parametro ```attestation``` creato e un valore univoco del parametro ```registrationId``` come input, disponibile nel dispositivo o generato dal simulatore TPM.  Facoltativamente, è possibile impostare parametri quali, ad esempio, ```Device ID```, ```IoTHubHostName```, ```ProvisioningStatus```.
+    3. Chiamare l'API dell'SDK del servizio ```createOrUpdateIndividualEnrollment``` nell'applicazione back-end tramite ```IndividualEnrollment``` per creare una registrazione singola.
 
-Dopo avere creato una registrazione, il servizio di Provisioning di dispositivi restituirà un risultato di registrazione.
+Dopo avere creato una registrazione, il servizio Device Provisioning restituirà un risultato di registrazione.
 
-Questo flusso di lavoro viene illustrata la [esempi](#samples).
+Questo flusso di lavoro viene illustrato negli [esempi](#samples).
 
 ## <a name="update-an-enrollment-entry"></a>Aggiornare una voce di registrazione
 
-Dopo aver creato una voce di registrazione, si desidera aggiornare la registrazione.  Potenziali scenari includono l'aggiornamento della proprietà desiderata, aggiornando il metodo di attestazione o revoca dell'accesso al dispositivo.  Sono disponibili diverse API per la registrazione di singoli e registrazione di gruppo, ma nessuna distinzione per il meccanismo di attestazione.
+Dopo aver creato una voce di registrazione, potrebbe essere necessario aggiornare la registrazione.  I potenziali scenari includono l'aggiornamento della proprietà desiderata, l'aggiornamento del metodo di attestazione o la revoca dell'accesso al dispositivo.  Sono disponibili diverse API per la registrazione singola e di gruppo, ma esiste alcuna distinzione per il meccanismo di attestazione.
 
-È possibile aggiornare una voce di registrazione seguenti questo flusso di lavoro:
-* **Registrazione di singoli**:
-    1. Ottenere la registrazione più recente dal servizio di provisioning prima con API SDK del servizio ```getIndividualEnrollment```.
-    2. Modificare il parametro della registrazione più recente in base alle esigenze. 
-    3. Tramite la registrazione più recente, chiamare l'API SDK del servizio ```createOrUpdateIndividualEnrollment``` per aggiornare la voce di registrazione.
+È possibile aggiornare una voce di registrazione attenendosi al flusso di lavoro seguente:
+* **Registrazione singola**:
+    1. Ottenere la registrazione più recente dal servizio di provisioning prima con l'API dell'SDK del servizio ```getIndividualEnrollment```.
+    2. Modificare il parametro della registrazione più recente, se necessario. 
+    3. Tramite la registrazione più recente chiamare l'API dell'SDK del servizio ```createOrUpdateIndividualEnrollment``` per aggiornare la voce di registrazione.
 * **Registrazione di gruppo**:
-    1. Ottenere la registrazione più recente dal servizio di provisioning prima con API SDK del servizio ```getEnrollmentGroup```.
-    2. Modificare il parametro della registrazione più recente in base alle esigenze.
-    3. Tramite la registrazione più recente, chiamare l'API SDK del servizio ```createOrUpdateEnrollmentGroup``` per aggiornare la voce di registrazione.
+    1. Ottenere la registrazione più recente dal servizio di provisioning prima con l'API dell'SDK del servizio ```getEnrollmentGroup```.
+    2. Modificare il parametro della registrazione più recente, se necessario.
+    3. Tramite la registrazione più recente chiamare l'API dell'SDK del servizio ```createOrUpdateEnrollmentGroup``` per aggiornare la voce di registrazione.
 
-Questo flusso di lavoro viene illustrata la [esempi](#samples).
+Questo flusso di lavoro viene illustrato negli [esempi](#samples).
 
 ## <a name="remove-an-enrollment-entry"></a>Rimuovere una voce di registrazione
 
-* **Registrazione di singoli** può essere eliminato chiamando l'API del servizio SDK ```deleteIndividualEnrollment``` utilizzando ```registrationId```.
-* **Registrazione di gruppo** può essere eliminato chiamando l'API del servizio SDK ```deleteEnrollmentGroup``` utilizzando ```enrollmentGroupId```.
+* La **registrazione singola** può essere eliminata chiamando l'API dell'SDK del servizio ```deleteIndividualEnrollment``` tramite ```registrationId```.
+* La **registrazione di gruppo** può essere eliminata chiamando l'API dell'SDK del servizio ```deleteEnrollmentGroup``` tramite ```enrollmentGroupId```.
 
-Questo flusso di lavoro viene illustrata la [esempi](#samples).
+Questo flusso di lavoro viene illustrato negli [esempi](#samples).
 
-## <a name="bulk-operation-on-individual-enrollments"></a>Operazione BULK sulle registrazioni dei singoli
+## <a name="bulk-operation-on-individual-enrollments"></a>Operazione in blocco sulle registrazioni singole
 
-È possibile eseguire l'operazione bulk per creare, aggiornare o rimuovere più iscrizioni singoli seguenti questo flusso di lavoro:
+È possibile eseguire un'operazione in blocco per creare, aggiornare o rimuovere più iscrizioni singole attenendosi al flusso di lavoro seguente:
 
-1. Creare una variabile che contiene più ```IndividualEnrollment```.  Implementazione di questa variabile è diverso per ogni lingua.  Esaminare l'esempio di operazione bulk su GitHub per informazioni dettagliate.
-2. Chiamare l'API del servizio SDK ```runBulkOperation``` con un ```BulkOperationMode``` per l'operazione desiderata e la variabile per le registrazioni dei singoli. Sono supportate quattro modalità: creare, aggiornare, updateIfMatchEtag ed eliminare.
+1. Creare una variabile che contiene più ```IndividualEnrollment```.  L'implementazione di questa variabile è diversa per ciascun linguaggio.  Esaminare l'esempio di operazione in blocco disponibile su GitHub per informazioni dettagliate.
+2. Chiamare l'API dell'SDK del servizio ```runBulkOperation``` con un valore per ```BulkOperationMode``` per l'operazione desiderata e la variabile in uso per le registrazioni singole. Sono supportate quattro modalità: create, update, updateIfMatchEtag e delete.
 
-Dopo aver correttamente eseguito un'operazione, il servizio di Provisioning di dispositivi restituirà un risultato dell'operazione bulk.
+Dopo aver eseguito correttamente un'operazione, il servizio Device Provisioning restituirà un risultato per l'operazione in blocco.
 
-Questo flusso di lavoro viene illustrata la [esempi](#samples).
+Questo flusso di lavoro viene illustrato negli [esempi](#samples).

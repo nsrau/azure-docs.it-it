@@ -1,6 +1,6 @@
 ---
-title: 'Script di Azure PowerShell di esempio: eseguire la migrazione di BLOB tra account di archiviazione tramite AzCopy in Windows | Documenti Microsoft'
-description: Utilizza AzCopy, copia il contenuto di Blob di un Account di archiviazione di Azure a un altro.
+title: Esempio di script di Azure PowerShell - Eseguire la migrazione di oggetti BLOB tra account di archiviazione tramite AzCopy in Windows | Microsoft Docs
+description: Tramite AzCopy copia il contenuto degli oggetti BLOB da un account di Archiviazione di Azure a un altro.
 services: storage
 documentationcenter: na
 author: roygara
@@ -13,27 +13,27 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 1/3/2018
 ms.author: v-rogara
-ms.openlocfilehash: 5fb3771b591e92b1c55f4f9748a2e16b46ccdae2
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 0902792b2367aa56285e7e074e184ffa35fca466
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Eseguire la migrazione di BLOB tra account di archiviazione tramite AzCopy in Windows
+# <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Eseguire la migrazione di oggetti BLOB tra account di archiviazione tramite AzCopy in Windows
 
-In questo esempio copia tutti gli oggetti blob da un account di archiviazione di origine fornito dall'utente a un account di archiviazione di destinazione fornito dall'utente. 
+In questo esempio vengono copiati tutti gli oggetti BLOB da un account di archiviazione di origine fornito dall'utente a un account di archiviazione di destinazione fornito dall'utente. 
 
-Questa operazione viene eseguita apportando usano il `Get-AzureStorageContainer` comando, che elenca tutti i contenitori di un account di archiviazione. L'esempio genera quindi i comandi di AzCopy, la copia di ogni contenitore dall'account di archiviazione di origine per l'account di archiviazione di destinazione. Se si verificano problemi, l'esempio tentativi $retryTimes (impostazione predefinita è 3 e può essere modificata con la `-RetryTimes` parametro). Se l'errore si verifica ogni nuovo tentativo, l'utente può rieseguire lo script, fornendo il codice di esempio con l'ultimo contenitore sono stati copiati correttamente tramite il `-LastSuccessContainerName` parametro. L'esempio continua quindi la copia di contenitori da tale punto.
+Questa operazione viene eseguita mediante il comando `Get-AzureStorageContainer`, che elenca tutti i contenitori di un account di archiviazione. L'esempio genera quindi i comandi AzCopy, che eseguono la copia di ogni contenitore dall'account di archiviazione di origine all'account di archiviazione di destinazione. Se si verificano problemi, l'esempio esegue il numero di tentativi definito dal parametro $retryTimes (l'impostazione predefinita è 3 ma il valore può essere modificato mediante il parametro `-RetryTimes`). Se l'errore si verifica a ogni nuovo tentativo, l'utente può rieseguire lo script fornendo il codice di esempio con l'ultimo contenitore copiato correttamente tramite il parametro `-LastSuccessContainerName`. L'esempio continua quindi la copia dei contenitori da tale punto.
 
-In questo esempio richiede la versione del modulo di archiviazione di Azure PowerShell **4.0.2** o versione successiva. È possibile controllare la versione installata utilizzando `Get-Module -ListAvailable Azure.storage`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Per questo esempio è necessario disporre del modulo di archiviazione di Azure PowerShell **4.0.2** o versioni successive. È possibile controllare la versione installata tramite `Get-Module -ListAvailable Azure.storage`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-In questo esempio richiede anche la versione più recente di [AzCopy in Windows](http://aka.ms/downloadazcopy). La directory di installazione predefinita è`C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`
+Questo esempio richiede inoltre la versione più recente di[AzCopy in Windows](http://aka.ms/downloadazcopy). La directory di installazione predefinita è `C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`.
 
-In questo esempio accetta un nome di account di archiviazione di origine e chiave, un nome di account di archiviazione di destinazione e chiave e l'intero percorso di AzCopy.exe (se non è installato nella directory predefinita).
+Questo esempio usa un nome e una chiave dell'account di archiviazione di origine, un nome e una chiave dell'account di archiviazione di destinazione e il percorso intero di AzCopy.exe (se non è installato nella directory predefinita).
 
-Di seguito è riportati esempi di input per questo esempio:
+Di seguito sono riportati alcuni esempi di input per questo esempio:
 
 Se AzCopy è installato nella directory predefinita:
 ```PowerShell
@@ -53,7 +53,7 @@ DestStorageAccountKey: ExampleTargetStorageAccountKey
 AzCopyPath: C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\AzCopy.exe
 ```
 
-Se si verifica un errore e rieseguire l'esempio da un determinato contenitore: 
+Se si verifica un errore e se è necessario rieseguire l'esempio da un contenitore specifico: 
 
 `.\copyScript.ps1 -LastSuccessContainerName myContainerName`
 
@@ -62,7 +62,7 @@ Se si verifica un errore e rieseguire l'esempio da un determinato contenitore:
 ```Powershell
 # Run the script in a new open Powershell window, which has not run other cmdlets, or AzCopy performance could suffer .
 # Install Azure PowerShell before runing the script: https://github.com/Azure/azure-powershell/releases
-# Install AzCopy before runing the script: https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy
+# Install AzCopy before runing the script: https://docs.microsoft.com/azure/storage/common/storage-use-azcopy
 # Do not modify the Source or Destination accounts while the script is running
 
  param (
@@ -285,12 +285,12 @@ else
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
-Questo script utilizza i comandi seguenti per copiare i dati da un account di archiviazione a un altro. Ogni elemento della tabella include collegamenti alla documentazione specifica del comando.
+Questo script usa i comandi seguenti per copiare i dati da un account di archiviazione a un altro. Ogni elemento della tabella include collegamenti alla documentazione specifica del comando.
 
 | Comando | Note |
 |---|---|
-| [Get-AzureStorageContainer](/powershell/module/azure.storage/Get-AzureStorageContainer) | Restituisce i contenitori associati a questo account di archiviazione. |
-| [New-AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | Crea un contesto di archiviazione di Azure. |
+| [Get-AzureStorageContainer](/powershell/module/azure.storage/Get-AzureStorageContainer) | Restituisce i contenitori associati all'account di archiviazione corrente. |
+| [New-AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | Crea un contesto di Archiviazione di Azure. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 23c99031ae3146a83867d10bd97d4eee8878188a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f581be0abaff542285abc0d4c2f4bffe7281d20
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Gestione di eventi esterni in Funzioni permanenti (Funzioni di Azure)
 
@@ -26,7 +26,7 @@ Le funzioni di orchestrazione possono rimanere in attesa e in ascolto di eventi 
 
 ## <a name="wait-for-events"></a>Attendere eventi
 
-Il metodo [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) consente a una funzione dell'agente di orchestrazione di rimanere in attesa e in ascolto di un evento esterno in modalità asincrona. Il chiamante dichiara il *nome* dell'evento e la *forma dei dati* che prevede di ricevere.
+Il metodo [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) consente a una funzione dell'agente di orchestrazione di rimanere in attesa e in ascolto di un evento esterno in modalità asincrona. La funzione di orchestrazione in ascolto dichiara il *nome* dell'evento e la *forma dei dati* che si aspetta di ricevere.
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -45,7 +45,7 @@ public static async Task Run(
 }
 ```
 
-Nell'esempio precedente è in attesa di un singolo evento ed esegue l'azione alla ricezione.
+Nell'esempio precedente è in attesa di un singolo evento specifico ed esegue l'azione quando lo riceve.
 
 È possibile rimanere in ascolto di più eventi in modo simultaneo, come nell'esempio seguente, che è in attesa di una delle tre notifiche degli eventi possibili.
 
@@ -97,7 +97,7 @@ public static async Task Run(
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) attende l'input per un tempo indefinito.  È possibile scaricare l'app per le funzioni in modo sicuro durante l'attesa. Se e quando si riceve un evento per questa istanza di orchestrazione,l'app viene riattivata automaticamente ed elabora immediatamente l'evento.
 
 > [!NOTE]
-> Non vengono addebitati costi mentre la funzione dell'agente di orchestrazione è in attesa di un'attività da `WaitForExternalEvent`, indipendentemente dal tempo di attesa.
+> Se l'app per le funzioni usa il piano a consumo, non vengono addebitati costi mentre la funzione dell'agente di orchestrazione è in attesa di un'attività da `WaitForExternalEvent`, indipendentemente dal tempo di attesa.
 
 Se il payload dell'evento non può essere convertito nel tipo previsto `T`, viene generata un'eccezione.
 

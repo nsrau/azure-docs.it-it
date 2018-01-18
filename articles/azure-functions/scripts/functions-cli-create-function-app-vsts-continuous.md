@@ -1,32 +1,32 @@
 ---
-title: Creare un'app per le funzioni e distribuire codice di funzione da Visual Studio Team Services | Documentazione Microsoft
+title: Creare una funzione in Azure distribuita da Visual Studio Team Services | Microsoft Docs
 description: Creare un'app per le funzioni e distribuire codice di funzione da Visual Studio Team Services
 services: functions
 keywords: 
 author: syntaxc4
 ms.author: cfowler
-ms.date: 04/28/2017
+ms.date: 01/09/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: 15d4001e656c456c2fbe3b3d63cdd094498940c8
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
-ms.translationtype: MT
+ms.openlocfilehash: bf9428f23e851bae3485ec3d724dfb9ccd2af4c1
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/10/2018
 ---
-# <a name="create-an-app-service"></a>Creare un servizio app
+# <a name="create-a-function-in-azure-that-is-deployed-from-visual-studio-team-services"></a>Creare una funzione in Azure distribuita da Visual Studio Team Services
 
-In questo scenario, informazioni su come creare un'app di funzione che usa il [piano il consumo](../functions-scale.md#consumption-plan) e si configura la distribuzione continua da un repository di Visual Studio Team Services (VSTS). Per questo esempio è necessario:
+Questo argomento illustra come usare Funzioni di Azure per creare un'app per le funzioni [senza server](https://azure.microsoft.com/overview/serverless-computing/) che usa il [piano a consumo](../functions-scale.md#consumption-plan). L'app per le funzioni, che è un contenitore per le funzioni, viene distribuita in modo continuo da un repository di Visual Studio Team Services (VSTS). Per completare questo argomento sono necessari:
 
-* Archivio VSTS contenente il codice di funzione per il quale si hanno autorizzazioni amministrative.
-* [Token di accesso personale](https://help.github.com/articles/creating-an-access-token-for-command-line-use) per il proprio account GitHub.
+* Un repository di Visual Studio Team Services che contiene il progetto dell'app per le funzioni e per cui si dispone di autorizzazioni amministrative.
+* Un [token di accesso personale](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) per accedere al repository di Visual Studio Team Services.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e utilizzare l'interfaccia CLI in locale, è necessario essere in esecuzione l'interfaccia CLI di Azure versione 2.0 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Se si preferisce usare l'interfaccia della riga di comando di Azure in locale, è necessario installare e usare la versione 2.0 o una versione successiva. Per determinare la versione dell'interfaccia della riga di comando di Azure, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -38,7 +38,7 @@ Questo esempio crea un'app per le funzioni di Azure e distribuisce il codice di 
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
-Questo script usa i comandi seguenti per creare un gruppo di risorse, l'App Web, il DocumentDB e tutte le risorse correlate. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
+Questo script usa i comandi seguenti per creare un gruppo di risorse, un account di archiviazione, un'app per le funzioni e tutte le risorse correlate. Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
 | Comando | Note |
 |---|---|

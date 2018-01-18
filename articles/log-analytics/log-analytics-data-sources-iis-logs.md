@@ -1,6 +1,6 @@
 ---
-title: Log IIS in Log Analytics | Documentazione Microsoft
-description: "Internet Information Services (IIS) archivia le attività dell'utente in file log che possono essere raccolti da Log Analytics.  Questo articolo descrive come configurare una raccolta di log di IIS e i dettagli dei record creati nel repository OMS."
+title: Log IIS in Azure Log Analytics | Microsoft Docs
+description: "Internet Information Services (IIS) archivia le attività dell'utente in file log che possono essere raccolti da Log Analytics.  Questo articolo descrive come configurare una raccolta di log di IIS e i dettagli dei record creati nell'area di lavoro di Log Analytics."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 01/07/2018
 ms.author: bwren
-ms.openlocfilehash: 20155e7f0ad817993b5926a1a83b8683ab124075
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: b8ce4e6fe6e12aa3edb81abad1589924e3e121e4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="iis-logs-in-log-analytics"></a>Log di IIS in Log Analytics
 Internet Information Services (IIS) archivia le attività dell'utente in file log che possono essere raccolti da Log Analytics.  
@@ -78,5 +78,5 @@ La tabella seguente mostra alcuni esempi di query nei log che recuperano i recor
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Configurare Log Analytics per raccogliere altre [origini dati](log-analytics-data-sources.md) per l'analisi.
-* Informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.
+* Altre informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.
 * Configurare gli avvisi di Log Analytics per notificare in modo proattivo le condizioni importanti riscontrate nei log di IIS.

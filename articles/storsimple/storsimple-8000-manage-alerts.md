@@ -4,7 +4,7 @@ description: "Vengono descritte le condizioni di avviso StorSimple e la loro gra
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/22/2017
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: b7f9a2b7eb3dbf4cc97fac9a410359e068e67eb1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e86b6af562208e51e36b4679fd088ea399ce70b8
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare e gestire gli avvisi di StorSimple
 
@@ -35,7 +35,7 @@ In questa esercitazione vengono descritte le condizioni di avviso comuni e i liv
 Il dispositivo StorSimple genera avvisi in risposta a una varietà di condizioni. Di seguito sono indicati i tipi più comuni delle condizioni di avviso:
 
 * **Problemi hardware** : questi avvisi offrono informazioni sull'integrità dell'hardware. Consentono di sapere se sono necessari aggiornamenti del firmware, se un'interfaccia di rete presenta problemi oppure se si è verificato un problema con una delle unità dati.
-* **Problemi di connettività** : questi avvisi vengono generati in caso di difficoltà di trasferimento dei dati. Possono verificarsi problemi di comunicazione durante il trasferimento dei dati da un account di archiviazione di Azure e viceversa oppure a causa della mancanza di connettività tra i dispositivi e il servizio Gestione dispositivi StorSimple. I problemi di comunicazione sono tra i più difficili da risolvere poiché sono presenti numerosi punti di errore. Verificare sempre che la connettività di rete e l'accesso a Internet siano disponibili prima di proseguire con la risoluzione dei problemi più avanzati. Per informazioni sulla risoluzione dei problemi, vedere [Risoluzione dei problemi con il cmdlet Test-Connection](storsimple-troubleshoot-deployment.md).
+* **Problemi di connettività** : questi avvisi vengono generati in caso di difficoltà di trasferimento dei dati. Possono verificarsi problemi di comunicazione durante il trasferimento dei dati da un account di archiviazione di Azure e viceversa oppure a causa della mancanza di connettività tra i dispositivi e il servizio Gestione dispositivi StorSimple. I problemi di comunicazione sono tra i più difficili da risolvere poiché sono presenti numerosi punti di errore. Verificare sempre che la connettività di rete e l'accesso a Internet siano disponibili prima di proseguire con la risoluzione dei problemi più avanzati. Per informazioni sulla risoluzione dei problemi, vedere [Risoluzione dei problemi con il cmdlet Test-Connection](storsimple-8000-troubleshoot-deployment.md).
 * **Problemi di prestazioni** : questi avvisi vengono generati quando le prestazioni del sistema non sono ottimali, ad esempio in presenza di un forte carico.
 
 Inoltre, possono essere generati avvisi relativi a sicurezza, aggiornamenti o errori di processi.
@@ -130,7 +130,7 @@ Nelle tabelle seguenti sono elencati alcuni degli avvisi di Microsoft Azure Stor
 
 ### <a name="cloud-connectivity-alerts"></a>Avvisi di connettività cloud
 
-| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Non è possibile stabilire la connessione a <*nome credenziali cloud*>. |Impossibile connettersi all'account di archiviazione. |Potrebbe essersi verificato un problema di connettività con il dispositivo. Eseguire il cmdlet `Test-HcsmConnection` dall'interfaccia di Windows PowerShell per StorSimple nel dispositivo per identificare e risolvere il problema. Se le impostazioni sono corrette, il problema potrebbe essere relativo alle credenziali dell'account di archiviazione per cui è stato generato l'avviso. In questo caso, usare il cmdlet `Test-HcsStorageAccountCredential` per determinare se sono presenti problemi che possono essere risolti.<ul><li>Verificare le impostazioni di rete.</li><li>Verificare le credenziali dell'account di archiviazione.</li></ul> |
 | Nessun heartbeat ricevuto dal dispositivo negli ultimi <*numero*> minuti. |Impossibile connettersi al dispositivo. |Potrebbe essersi verificato un problema di connettività con il dispositivo. Usare il cmdlet `Test-HcsmConnection` dall'interfaccia di Windows PowerShell per StorSimple nel dispositivo per identificare e risolvere il problema o contattare l'amministratore di rete. |
@@ -149,7 +149,7 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 
 ### <a name="cluster-alerts"></a>Avvisi di cluster
 
-| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Failover del dispositivo su <*nome dispositivo*>. |Il dispositivo è in modalità di manutenzione. |Failover del dispositivo a causa dell'ingresso o dell'uscita dalla modalità manutenzione. Si tratta di un comportamento normale e non è richiesto alcun intervento. Dopo avere confermato la ricezione dell'avviso, cancellarlo dalla pagina degli avvisi. |
 | Failover del dispositivo su <*nome dispositivo*>. |Il software o il firmware del dispositivo è stato appena aggiornato. |Failover del cluster a causa di un aggiornamento. Si tratta di un comportamento normale e non è richiesto alcun intervento. Dopo avere confermato la ricezione dell'avviso, cancellarlo dalla pagina degli avvisi. |
@@ -163,20 +163,20 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 
 ### <a name="disaster-recovery-alerts"></a>Avvisi di ripristino di emergenza
 
-| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Non è possibile ripristinare tutte le impostazioni per questo servizio. I dati di configurazione del dispositivo si trovano in uno stato incoerente per alcuni dispositivi. |Incoerenza dei dati rilevata dopo il ripristino di emergenza. |I dati crittografati del servizio non sono sincronizzati con quelli sul dispositivo. Autorizzare il dispositivo <*nome dispositivo*> da Gestione dispositivi StorSimple per avviare il processo di sincronizzazione. Usare l'interfaccia di Windows PowerShell per StorSimple per eseguire il cmdlet `Restore-HcsmEncryptedServiceData` sul dispositivo <*nome dispositivo*>, fornire la vecchia password come input per questo cmdlet per ripristinare il profilo di sicurezza. Eseguire quindi il cmdlet `Invoke-HcsmServiceDataEncryptionKeyChange` per aggiornare la chiave DEK del servizio. Dopo avere eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi. |
 
 ### <a name="hardware-alerts"></a>Avvisi di hardware
 
-| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Lo stato del componente hardware <*ID componente*> è segnalato come <*stato*>. | |Le condizioni temporanee possono talvolta provocare questi avvisi. In tal caso, l'avviso viene cancellato automaticamente dopo un periodo di tempo. Se il problema persiste, contattare il supporto tecnico Microsoft. |
 | Malfunzionamento del controller passivo. |Il controller passivo (secondario) non funziona. |Il dispositivo è operativo, ma uno dei controller non funziona correttamente. Provare a riavviare il controller. Se il problema persiste, contattare il supporto tecnico Microsoft. |
 
 ### <a name="job-failure-alerts"></a>Avvisi di errore di processo
 
-| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Backup di <*ID gruppo di volumi di origine*> non riuscito. |Il processo di backup non è riuscito. |Alcuni problemi di connettività potrebbero impedire il corretto completamento dell'operazione di backup. Se non si rilevano problemi di connettività, è possibile che sia stato raggiunto il numero massimo di backup consentiti. Eliminare i backup non più necessari e ripetere l'operazione. Dopo avere eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi. |
 | Clonazione di <*ID elemento backup di origine*> a <*numeri di serie volume di destinazione*> non riuscita. |Il processo di clonazione non è riuscito. |Aggiornare l'elenco dei backup per verificare che il backup sia ancora valido. Se il backup è valido è possibile che problemi di connettività cloud impediscano il corretto completamento dell'operazione di clonazione. Se non si rilevano problemi di connettività, è possibile che sia stato raggiunto il limite di archiviazione. Eliminare i backup non più necessari e ripetere l'operazione. Dopo avere eseguito l'operazione appropriata per risolvere il problema, cancellare questo avviso dalla pagina degli avvisi. |
@@ -184,34 +184,34 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 
 ### <a name="locally-pinned-volume-alerts"></a>Avvisi sul volume aggiunto in locale
 
-| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Creazione del volume locale <*nome volume*> non riuscita. |Il processo di creazione del volume non è riuscito. <*Messaggio di errore corrispondente al codice di errore non riuscito*>. |Alcuni problemi di connettività potrebbero impedire il corretto completamento dell'operazione di creazione dello spazio. Per i volumi aggiunti in locale viene effettuato il thick provisioning e il processo di creazione dello spazio comporta la distribuzione dei volumi a livelli nel cloud. Se non esistono problemi di connettività, è possibile che lo spazio locale sul dispositivo sia stato esaurito. Determinare se lo spazio sul dispositivo è sufficiente prima di riprovare questa operazione. |
 | Espansione del volume locale <*nome volume*> non riuscita. |Il processo di modifica del volume non è riuscito. <*Messaggio di errore corrispondente al codice di errore non riuscito*>. |Alcuni problemi di connettività potrebbero impedire il corretto completamento dell'operazione di espansione del volume. Per i volumi aggiunti in locale viene effettuato il thick provisioning e il processo di estensione dello spazio esistente comporta la distribuzione dei volumi a livelli nel cloud. Se non esistono problemi di connettività, è possibile che lo spazio locale sul dispositivo sia stato esaurito. Determinare se lo spazio sul dispositivo è sufficiente prima di riprovare questa operazione. |
-| Conversione del volume <*nome volume*> non riuscita. |Il processo di conversione del volume per convertire il tipo di volume da aggiunto in locale a volume a livelli non è riuscito. |La conversione del volume dal tipo aggiunto in locale a quello a livelli non può essere completata. Assicurarsi che non esistano problemi di connettività che impediscono il completamento dell'operazione. Per informazioni sulla risoluzione dei problemi, vedere [Risoluzione dei problemi con il cmdlet Test-HcsmConnection](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Il volume originale aggiunto in locale ora è contrassegnato come volume a livelli perché alcuni dati del volume aggiunto in locale sono stati distribuiti nel cloud durante la conversione. Il volume a livelli risultante occupa ancora spazio locale sul dispositivo che non può essere recuperato per i futuri volumi locali.<br>Risolvere eventuali problemi di connettività, cancellare l'avviso e riconvertire il volume nel tipo di volume originale aggiunto in locale per assicurarsi che tutti i dati siano resi nuovamente disponibili in locale. |
-| Conversione del volume <*nome volume*> non riuscita. |Il processo di conversione del volume per convertire il tipo di volume da a livelli ad aggiunto in locale non è riuscito. |La conversione del volume dal tipo a livelli a quello aggiunto in locale non può essere completata. Assicurarsi che non esistano problemi di connettività che impediscono il completamento dell'operazione. Per informazioni sulla risoluzione dei problemi, vedere [Risoluzione dei problemi con il cmdlet Test-HcsmConnection](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Il volume a livelli originale ora contrassegnato come volume aggiunto in locale come parte del processo di conversione continua a disporre di dati nel cloud, mentre lo spazio con thick provisioning sul dispositivo per questo volume non può più essere recuperato per i volumi locali futuri.<br>Risolvere eventuali problemi di connettività, cancellare l'avviso e riconvertire questo volume nel tipo di volume originale a livelli per assicurarsi che lo spazio locale di cui è stato eseguito il thick provisioning sul dispositivo possa essere recuperato. |
+| Conversione del volume <*nome volume*> non riuscita. |Il processo di conversione del volume per convertire il tipo di volume da aggiunto in locale a volume a livelli non è riuscito. |La conversione del volume dal tipo aggiunto in locale a quello a livelli non può essere completata. Assicurarsi che non esistano problemi di connettività che impediscono il completamento dell'operazione. Per informazioni sulla risoluzione dei problemi, vedere [Risoluzione dei problemi con il cmdlet Test-HcsmConnection](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Il volume originale aggiunto in locale ora è contrassegnato come volume a livelli perché alcuni dati del volume aggiunto in locale sono stati distribuiti nel cloud durante la conversione. Il volume a livelli risultante occupa ancora spazio locale sul dispositivo che non può essere recuperato per i futuri volumi locali.<br>Risolvere eventuali problemi di connettività, cancellare l'avviso e riconvertire il volume nel tipo di volume originale aggiunto in locale per assicurarsi che tutti i dati siano resi nuovamente disponibili in locale. |
+| Conversione del volume <*nome volume*> non riuscita. |Il processo di conversione del volume per convertire il tipo di volume da a livelli ad aggiunto in locale non è riuscito. |La conversione del volume dal tipo a livelli a quello aggiunto in locale non può essere completata. Assicurarsi che non esistano problemi di connettività che impediscono il completamento dell'operazione. Per informazioni sulla risoluzione dei problemi, vedere [Risoluzione dei problemi con il cmdlet Test-HcsmConnection](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Il volume a livelli originale ora contrassegnato come volume aggiunto in locale come parte del processo di conversione continua a disporre di dati nel cloud, mentre lo spazio con thick provisioning sul dispositivo per questo volume non può più essere recuperato per i volumi locali futuri.<br>Risolvere eventuali problemi di connettività, cancellare l'avviso e riconvertire questo volume nel tipo di volume originale a livelli per assicurarsi che lo spazio locale di cui è stato eseguito il thick provisioning sul dispositivo possa essere recuperato. |
 | Consumo di spazio locale quasi esaurito per gli snapshot locali di <*nome gruppo di volumi*> |Gli snapshot locali per i criteri di backup potrebbero esaurire velocemente lo spazio ed essere invalidati per evitare errori di scrittura nell'host. |I frequenti snapshot locali insieme a una varianza dati elevata nei volumi associati a questo gruppo di criteri di backup causano il rapido consumo dello spazio locale sul dispositivo. Eliminare gli snapshot locali che non sono più necessari. Aggiornare anche le pianificazioni degli snapshot locali per questi criteri di backup in modo che gli snapshot locali vengano creati meno di frequente ed essere così certi che gli snapshot cloud vengano creati periodicamente. Se queste azioni non vengono eseguite, lo spazio per questi snapshot potrebbe esaurirsi in poco tempo e il sistema li eliminerà automaticamente per assicurare che le scritture nell'host continuino a essere elaborate senza problemi. |
 | Snapshot locali per <*nome gruppo di volumi*> invalidati. |Gli snapshot locali per <*nome gruppo di volumi*> sono stati invalidati e quindi eliminati perché hanno superato la quantità di spazio locale sul dispositivo. |Per essere certi che questo problema non si verifichi ancora in futuro, esaminare le pianificazioni degli snapshot locali per questi criteri di backup ed eliminare gli snapshot locali che non sono più necessari. I frequenti snapshot locali insieme a una varianza dati elevata nei volumi associati a questo gruppo di criteri di backup possono causare il rapido consumo dello spazio locale sul dispositivo. |
 | Ripristino di <*ID elementi di backup di origine*> non riuscito. |Il processo di ripristino non è riuscito. |Se in questi criteri di backup è presente un volume aggiunto in locale o una combinazione di volumi aggiunti in locale e a livelli, aggiornare l'elenco dei backup per verificare che il backup sia ancora valido. Se il backup è valido è possibile che problemi di connettività cloud impediscano il corretto completamento dell'operazione di ripristino. I volumi aggiunti in locale ripristinati nell'ambito di questo gruppo di snapshot non contengono tutti i dati scaricati nel dispositivo e, se in questo gruppo di snapshot è presente una combinazione di volumi a livelli e aggiunti in locale, non saranno sincronizzati tra loro. Per completare l'operazione di ripristino, portare offline i volumi di questo gruppo nell'host e ripetere l'operazione di ripristino. Si noti che eventuali modifiche eseguite sui dati del volume durante il processo di ripristino andranno perse. |
 
 ### <a name="networking-alerts"></a>Avvisi di rete
 
-| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Impossibile avviare i servizi StorSimple. |Errore di percorso dati |Se il problema persiste, contattare il supporto tecnico Microsoft. |
-| Indirizzo IP duplicato rilevato per "Data0". | |Il sistema ha rilevato un conflitto per l'indirizzo IP "10.0.0.1". La risorsa di rete "Data0" sul dispositivo *<device1>* è offline. Assicurarsi che questo indirizzo IP non venga usato da nessuna altra entità nella rete. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Per risolvere il problema, contattare l'amministratore di rete. Se il problema persiste, contattare il supporto tecnico Microsoft. |
-| L'indirizzo IPv4 (o IPv6) per "Data0" è offline. | |La risorsa di rete "Data0" con indirizzo IP "10.0.0.1." e prefisso di lunghezza "22" sul dispositivo *<device1>* è offline. Verificare che le porte di commutazione a cui questa interfaccia è connessa siano operative. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Indirizzo IP duplicato rilevato per "Data0". | |Il sistema ha rilevato un conflitto per l'indirizzo IP "10.0.0.1". La risorsa di rete "Data0" sul dispositivo *<device1>* è offline. Assicurarsi che questo indirizzo IP non venga usato da nessuna altra entità nella rete. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Per risolvere il problema, contattare l'amministratore di rete. Se il problema persiste, contattare il supporto tecnico Microsoft. |
+| L'indirizzo IPv4 (o IPv6) per "Data0" è offline. | |La risorsa di rete "Data0" con indirizzo IP "10.0.0.1." e prefisso di lunghezza "22" sul dispositivo *<device1>* è offline. Verificare che le porte di commutazione a cui questa interfaccia è connessa siano operative. Per risolvere i problemi di rete, vedere [Risoluzione dei problemi con il cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
 | Impossibile connettersi al servizio di autenticazione. |Errore di percorso dati |L'URL usato per l'autenticazione non è raggiungibile. Verificare che nelle regole del firewall siano inclusi i modelli di URL specificati per il dispositivo StorSimple. Per altre informazioni sui modelli di URL disponibili nel portale di Azure, visitare https://aka.ms/ss-8000-network-reqs. Se si usa Azure per enti pubblici, passare ai modelli di URL disponibili in https://aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Avvisi di prestazioni
 
-| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
-| Il carico del dispositivo ha superato <*soglia*>. |Tempi di risposta più lenti del previsto. |Il dispositivo segnala un carico di input/output eccessivo e potrebbe non funzionare come previsto. Verificare i carichi di lavoro collegati al dispositivo e determinare se alcuni di loro non sono più necessari o possono essere spostati in un altro dispositivo.| Impossibile avviare i servizi StorSimple. |Errore di percorso dati |Se il problema persiste, contattare il supporto tecnico Microsoft. |Per comprendere lo stato corrente, vedere [Usare il servizio Gestione dispositivi StorSimple per monitorare il dispositivo](storsimple-monitor-device.md) |
+| Il carico del dispositivo ha superato <*soglia*>. |Tempi di risposta più lenti del previsto. |Il dispositivo segnala un carico di input/output eccessivo e potrebbe non funzionare come previsto. Verificare i carichi di lavoro collegati al dispositivo e determinare se alcuni di loro non sono più necessari o possono essere spostati in un altro dispositivo.| Impossibile avviare i servizi StorSimple. |Errore di percorso dati |Se il problema persiste, contattare il supporto tecnico Microsoft. |Per comprendere lo stato corrente, vedere [Usare il servizio Gestione dispositivi StorSimple per monitorare il dispositivo](storsimple-8000-monitor-device.md) |
 
 ### <a name="security-alerts"></a>Avvisi di sicurezza
 
-| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | La sessione del supporto tecnico Microsoft è stata avviata. |Sessione di supporto per l'accesso di terze parti. |Verificare che l'accesso sia autorizzato. Dopo avere eseguito l'azione appropriata, cancellare questo avviso dalla pagina degli avvisi. |
 | La password per <*elemento*> scadrà tra <*periodo di tempo*>. |La scadenza della password è prossima. |Modificare la password prima della scadenza. |
@@ -221,11 +221,11 @@ Se la connettività cloud non riesce sul dispositivo StorSimple di produzione, q
 
 ### <a name="support-package-alerts"></a>Avvisi del pacchetto per il supporto
 
-| Testo dell'avviso | Evento | Ulteriori informazioni/Azioni consigliate |
+| Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Creazione del pacchetto per il supporto non riuscita. |StorSimple: impossibile generare il pacchetto. |Ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico Microsoft. Dopo avere risolto il problema, cancellare questo avviso dalla pagina degli avvisi. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni su [Errori di StorSimple e risoluzione dei problemi relativi a un dispositivo operativo](storsimple-troubleshoot-operational-device.md).
+Altre informazioni su [Errori di StorSimple e risoluzione dei problemi relativi alla distribuzione in dispositivi](storsimple-8000-troubleshoot-deployment.md).
 

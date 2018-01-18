@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: 54bf10acfb885042278c4457a70ec86248c96c1c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: d389a44ce38d84e510060f3b0a53cda58513dee5
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Aggiungere Google+ come provider di identità OAuth2 tramite criteri personalizzati
 
@@ -175,7 +175,7 @@ Il provider di identità è stato configurato,  ma non è disponibile in nessuna
 1.  Aprire il file di base dei criteri, ad esempio TrustFrameworkBase.xml.
 2.  Trovare l'elemento `<UserJourneys>` e copiare l'intero contenuto del nodo `<UserJourneys>`.
 3.  Aprire il file di estensione, ad esempio TrustFrameworkExtensions.xml, e trovare l'elemento `<UserJourneys>`. Se l'elemento non esiste, aggiungerne uno.
-4.  Incollare l'intero contenuto del nodo `<UserJournesy>` copiato come figlio dell'elemento `<UserJourneys>`.
+4.  Incollare l'intero contenuto del nodo `<UserJourney>` copiato come figlio dell'elemento `<UserJourneys>`.
 
 ### <a name="display-the-button"></a>Visualizzare il pulsante
 L'elemento `<ClaimsProviderSelections>` definisce l'elenco delle opzioni di selezione del provider di attestazioni e il relativo ordine.  L'elemento `<ClaimsProviderSelection>` è analogo a un pulsante del provider di identità in una pagina di registrazione/accesso. Se si aggiunge un elemento `<ClaimsProviderSelection>` per l'account Google+, viene visualizzato un nuovo pulsante quando un utente apre la pagina. Per aggiungere questo elemento:
@@ -243,6 +243,14 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 ```xml
 <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
 ```
+
+### <a name="upload-the-policy-to-your-tenant"></a>Caricare i criteri nel tenant
+1.  Nel [portale di Azure](https://portal.azure.com) passare al [contesto del tenant di Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e aprire il pannello **Azure AD B2C**.
+2.  Fare clic su **Framework dell'esperienza di gestione delle identità**.
+3.  Aprire il pannello **Tutti i criteri**.
+4.  Selezionare **Carica criteri**.
+5.  Selezionare la casella **Sovrascrivi il criterio se esistente**.
+6.  **Caricare** TrustFrameworkExtensions.xml e assicurarsi che non presenti errori di convalida.
 
 ### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>Testare i criteri Profile-Edit personalizzati tramite Esegui adesso
 

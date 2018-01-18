@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 64e8d4a88ea78e0de065e5a2c12dba4885e08bad
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 9a3aa1680ada03e4472db3a198a3b806511671ed
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso di Axinom per fornire licenze Widevine ai Servizi multimediali di Azure
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Questo articolo illustra come integrare e testare il server licenze Widevine ges
 * Generazione di un token JWT per soddisfare i requisiti del server licenze.
 * Sviluppo di un'app Azure Media Player che gestisce l'acquisizione di licenze con l'autenticazione con token JWT.
 
-Il sistema completo e il flusso di chiavi simmetriche, ID della chiave, semi chiave, token JTW e relative attestazioni può essere descritto in modo ottimale tramite il diagramma seguente.
+Il sistema completo e il flusso di chiavi simmetriche, ID della chiave, semi chiave, token JTW e relative attestazioni può essere descritto in modo ottimale tramite il diagramma seguente:
 
 ![DASH e CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
@@ -47,7 +47,7 @@ Per configurare la protezione dinamica e i criteri di distribuzione delle chiavi
 
 È possibile configurare la protezione CENC dinamica con DRM multiplo per lo streaming DASH in modo che includa gli elementi seguenti:
 
-1. Protezione PlayReady per Microsoft Edge e IE11, che potrebbero presentare restrizioni relative all'autorizzazione con token. I criteri con restrizione token devono essere associati a un token emesso da un servizio token di sicurezza, ad esempio Azure Active Directory.
+1. Protezione PlayReady per Microsoft Edge e IE11, che potrebbe presentare restrizioni relative all'autorizzazione con token. I criteri con restrizione token devono essere associati a un token emesso da un servizio token di sicurezza, ad esempio Azure Active Directory.
 2. Protezione Widevine per Chrome. Può richiedere l'autenticazione con token tramite token emessi da un altro servizio token di sicurezza. 
 
 Per informazioni sui motivi per cui non è possibile usare Azure Active Directory come servizio token di sicurezza per il server licenze Widevine di Axinom, vedere [Generazione di token JWT](media-services-axinom-integration.md#jwt-token-generation) .
@@ -65,14 +65,14 @@ Il server licenze Widevine fornito da Axinom richiede l'autenticazione tramite t
 
 Il resto del codice di Azure Media Player è un'API di Azure Media Player standard, come illustrato in [questo](http://amp.azure.net/libs/amp/latest/docs/)documento su Azure Media Player.
 
-Si noti che il codice javascript precedente per la configurazione dell'intestazione di autorizzazione personalizzata costituisce ancora un approccio a breve termine, prima del rilascio dell'approccio ufficiale a lungo termine in Azure Media Player.
+Il codice javascript precedente per la configurazione dell'intestazione di autorizzazione personalizzata costituisce ancora un approccio a breve termine, prima del rilascio dell'approccio ufficiale a lungo termine in Azure Media Player.
 
 ## <a name="jwt-token-generation"></a>Generazione di token JWT
 Il server licenze Axinom Widevine per il test richiede l'autenticazione tramite token JWT. Una delle attestazioni nel token JWT, inoltre, è di tipo oggetto complesso, invece di tipo di dati primitivi.
 
 Sfortunatamente, Azure AD può emettere solo token JWT con tipi primitivi. Analogamente, l'API .NET Framework (System.IdentityModel.Tokens.SecurityTokenHandler e JwtPayload) consente solo di inserire tipi di oggetto complessi come attestazioni. Le attestazioni vengono tuttavia serializzate comunque come stringa. Non è quindi possibile usarle per generare il token JWT per la richiesta di licenza Widevine.
 
-Il [pacchetto NuGet JWT](https://www.nuget.org/packages/JWT) di John Sheehan soddisfa le esigenze specifiche, quindi verrà usato.
+Il [pacchetto NuGet JWT](https://www.nuget.org/packages/JWT) di John Sheehan soddisfa le esigenze specifiche, perciò verrà usato questo.
 
 Il codice seguente consente di generare il token JWT con le attestazioni necessarie, in base a quanto richiesto dal server licenze Axinom Widevine per i test:
 
@@ -136,12 +136,12 @@ Server licenze Axinom Widevine
 
 ### <a name="considerations"></a>Considerazioni
 1. Anche se il servizio di distribuzione licenze PlayReady dei Servizi multimediali di Azure richiede il prefisso "Bearer=" per il token di autenticazione, il server licenze Axinom Widevine non lo usa.
-2. La chiave di comunicazione Axinom viene usata come chiave di firma. Si noti che la chiave è una stringa esadecimale, ma deve essere considerata come una serie di byte, non una stringa, durante la codifica. Questo risultato viene ottenuto tramite il metodo ConvertHexStringToByteArray.
+2. La chiave di comunicazione Axinom viene usata come chiave di firma. La chiave è una stringa esadecimale, ma deve essere considerata come una serie di byte, non una stringa, durante la codifica. Questo risultato viene ottenuto tramite il metodo ConvertHexStringToByteArray.
 
 ## <a name="retrieving-key-id"></a>Recupero dell'ID chiave
 Come si può notare, l'ID chiave è necessario nel codice per la generazione di un token JWT. Poiché il token JWT deve essere pronto prima di caricare il lettore di Azure Media Player, è necessario recuperare l'ID chiave per generare il token JWT.
 
-È ovviamente possibile ottenere l'ID chiave in molti modi. Ad esempio, è possibile archiviare l'ID chiave insieme ai metadati dei contenuti in un database. In alternativa, è possibile recuperare l'ID chiave dal file DASH MPD (Media Presentation Description), usando il codice seguente.
+Naturalmente è possibile ottenere l'ID chiave in molti modi. Ad esempio, è possibile archiviare l'ID chiave insieme ai metadati dei contenuti in un database. In alternativa, è possibile recuperare l'ID chiave dal file DASH MPD (Media Presentation Description), usando il codice seguente.
 
     //get key_id from DASH MPD
     public static string GetKeyID(string dashUrl)
@@ -174,7 +174,7 @@ Come si può notare, l'ID chiave è necessario nel codice per la generazione di 
         return key_id;
     }
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 La recente aggiunta del supporto per Widevine nella protezione del contenuto di Servizi multimediali di Azure e in Azure Media Player consente di implementare lo streaming di DASH + DRM multi-native (PlayReady + Widevine) con il server licenze PlayReady nei Servizi multimediali di Azure e un server licenze Widevine di Axinom per i browser moderni seguenti:
 
 * Chrome

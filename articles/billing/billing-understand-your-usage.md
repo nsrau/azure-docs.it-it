@@ -1,5 +1,5 @@
 ---
-title: Comprendere il file di utilizzo dettagliato di Azure | Microsoft Docs
+title: Comprendere il file di utilizzo dettagliato di Azure
 description: Informazioni su come leggere e comprendere le sezioni del file CSV di utilizzo dettagliato relativo alla sottoscrizione di Azure
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: a99e0dfea16f9fe9776d24fc94eac9ee18c7b2b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 999f24b5a5c1bd5d259b785f9107697d2928b4eb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Comprendere i dettagli degli addebiti basati sui dati di utilizzo dettagliato di Microsoft Azure 
+
 Il file CSV con gli addebiti basati sull'utilizzo dettagliato contiene gli addebiti sia a livello giornaliero sia a livello di contatore per il periodo di fatturazione corrente. 
 
 Per ottenere questo file con i dati di utilizzo dettagliato, vedere [Come ottenere la fattura e i dati di utilizzo giornalieri di Azure](billing-download-azure-invoice-daily-usage-date.md).
@@ -28,15 +29,14 @@ Per ottenere questo file con i dati di utilizzo dettagliato, vedere [Come ottene
 
 Gli addebiti in base all'utilizzo corrispondono agli addebiti **mensili** totali per una sottoscrizione e non tengono in considerazione eventuali accrediti o sconti applicabili.
 
-
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/p13S350M2Vk" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/p13S350M2Vk]
 
 ## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>Termini e descrizioni relativi al file di utilizzo dettagliato
+
 Le sezioni seguenti descrivono i termini più importanti presenti nella versione 2 del file di utilizzo dettagliato.
 
 ### <a name="statement"></a>Istruzione
+
 Nella sezione superiore del file CSV di utilizzo dettagliato sono riportati i servizi usati durante il periodo di fatturazione mensile. La tabella seguente elenca i termini e le descrizioni mostrate in questa sezione.
 
 | Termine | Descrizione |
@@ -87,5 +87,5 @@ Se nel file di utilizzo dettagliato è presente un addebito su cui si vogliono r
 ## <a name="external"></a>A cosa si riferiscono gli addebiti per servizi esterni?
 I servizi esterni, noti anche come ordini Marketplace, sono erogati da fornitori di servizi indipendenti e vengono fatturati separatamente. Questi addebiti non compaiono nella fattura di Azure. Per altre informazioni, vedere [Informazioni sugli addebiti per i servizi esterni](billing-understand-your-azure-marketplace-charges.md).
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
+## <a name="need-help-contact-support"></a>Serve aiuto? Contattare il supporto tecnico.
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?) per ottenere una rapida risoluzione del problema.
