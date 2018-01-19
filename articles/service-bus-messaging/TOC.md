@@ -21,7 +21,6 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Compilare un'applicazione bus di servizio multilivello](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # Procedure
 ## Pianificare e progettare
@@ -29,6 +28,7 @@
 ### [Controllo degli accessi in base al ruolo (anteprima)](service-bus-role-based-access-control.md)
 ### [Messaggistica Premium](service-bus-premium-messaging.md)
 ### [Confronto tra code di Azure e code del bus di servizio](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+### [Compilare un'applicazione bus di servizio multilivello](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Ottimizzare le prestazioni](service-bus-performance-improvements.md)
 ### [Ripristino di emergenza geografico e replica geografica](service-bus-geo-dr.md)
 ### [Messaggistica asincrona e disponibilità elevata](service-bus-async-messaging.md)
@@ -79,7 +79,7 @@
 #### 
 ### [Uso di Azure PowerShell per il provisioning delle entità](service-bus-manage-with-ps.md)
 
-# Riferimento
+# riferimento
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
