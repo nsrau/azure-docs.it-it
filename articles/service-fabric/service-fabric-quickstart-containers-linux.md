@@ -2,24 +2,24 @@
 title: Creare un'applicazione contenitore di Azure Service Fabric in Linux | Microsoft Docs
 description: Creare la prima applicazione contenitore Linux in Azure Service Fabric.  Compilare un'immagine Docker con l'applicazione, eseguire il push dell'immagine in un registro contenitori e compilare e distribuire un'applicazione contenitore di Service Fabric.
 services: service-fabric
-documentationcenter: .net
-author: rwike77
+documentationcenter: linux
+author: suhuruli
 manager: timlt
 editor: 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: dotNet
+ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
-ms.author: ryanwi
+ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a3fa592e08ab05dfc56cf0c0c13eb6a64a7e2052
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 23cc9ce855eeba9e9a365e42beeee01b09f0fee3
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Distribuire un'applicazione contenitore Linux di Azure Service Fabric in Azure
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili. 
@@ -66,30 +66,41 @@ Per informazioni sulla creazione di un cluster, vedere l'articolo su come [crear
 > Il servizio front-end Web è configurato per l'ascolto del traffico in ingresso sulla porta 80. Assicurarsi che tale porta sia aperta nel cluster. Se si usa un party cluster, questa porta è aperta.
 >
 
-### <a name="deploy-the-application-manifests"></a>Distribuire i manifesti dell'applicazione 
+### <a name="install-service-fabric-command-line-interface-and-connect-to-your-cluster"></a>Installare l'interfaccia della riga di comando di Service Fabric e connettersi al cluster
 Installare l'[interfaccia della riga di comando di Service Fabric (sfctl)](service-fabric-cli.md) nell'ambiente dell'interfaccia della riga di comando
 
 ```azurecli-interactive
 pip3 install --user sfctl 
 export PATH=$PATH:~/.local/bin
 ```
+
 Connettersi al cluster di Service Fabric in Azure con l'interfaccia della riga di comando di Azure. L'endpoint è l'endpoint di gestione del cluster, ad esempio `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
 ```azurecli-interactive
 sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
 ```
 
+### <a name="deploy-the-service-fabric-application"></a>Distribuire l'applicazione Service Fabric 
+Le applicazioni contenitore Service Fabric possono essere distribuite usando il pacchetto dell'applicazione Service Fabric descritto oppure Docker Compose. 
+
+#### <a name="deploy-using-service-fabric-application-package"></a>Eseguire la distribuzione usando il pacchetto dell'applicazione Service Fabric
 Usare lo script di installazione messo a disposizione per copiare la definizione dell'applicazione di voto nel cluster, registrare il tipo di applicazione e creare un'istanza dell'applicazione.
 
 ```azurecli-interactive
 ./install.sh
 ```
 
+#### <a name="deploy-the-application-using-docker-compose"></a>Eseguire la distribuzione dell'applicazione usando Docker Compose
+Distribuire e installare l'applicazione nel cluster di Service Fabric usando Docker Compose con il comando seguente.
+```azurecli-interactive
+sfctl compose create --deployment-name TestApp --file-path docker-compose.yml
+```
+
 Aprire un browser e passare a Service Fabric Explorer all'indirizzo http://\<my-azure-service-fabric-cluster-url>:19080/Explorer, ad esempio `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. Espandere il nodo Applicazioni, in cui sarà ora presente una voce per il tipo dell'applicazione di voto e l'istanza creata.
 
 ![Service Fabric Explorer][sfx]
 
-Connettersi al contenitore in esecuzione.  Aprire un Web browser puntando all'URL del cluster, ad esempio `http://linh1x87d1d.westus.cloudapp.azure.com:80`. Nel browser verrà visualizzata l'applicazione di voto.
+Connettersi al contenitore in esecuzione.  Aprire un Web browser con l'URL del cluster, ad esempio `http://linh1x87d1d.westus.cloudapp.azure.com:80`. Nel browser verrà visualizzata l'applicazione di voto.
 
 ![quickstartpic][quickstartpic]
 

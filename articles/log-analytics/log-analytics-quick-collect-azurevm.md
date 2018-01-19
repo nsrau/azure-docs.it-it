@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/28/2017
+ms.date: 01/04/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 60e90fbce525f4328671ecded9ad96583c4c3c9e
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5ce4e530dde0f7a050e3b43f469154d679f25a34
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Raccogliere dati sulle macchine virtuali di Azure
 [Azure Log Analytics](log-analytics-overview.md) può raccogliere i dati direttamente dalle macchine virtuali di Azure e da altre risorse dell'ambiente in un unico archivio per analisi dettagliate e per la correlazione.  Questa guida introduttiva illustra come configurare e raccogliere dati dalle VM Linux o Windows di Azure in pochi semplici passaggi.  
@@ -30,7 +30,7 @@ Questa guida introduttiva presuppone che esista già una macchina virtuale di Az
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Creare un'area di lavoro
-1. Nel portale di Azure fare clic su **Altri servizi** nell'angolo in basso a sinistra. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.<br> ![Portale di Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
+1. Nel portale di Azure fare clic su **Altri servizi** nell'angolo in basso a sinistra. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.<br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br>  
 2. Fare clic su **Crea** e quindi selezionare le opzioni per gli elementi seguenti:
 
   * Specificare un nome per la nuova **area di lavoro di OMS**, ad esempio *DefaultLAWorkspace*. 
@@ -50,7 +50,7 @@ Per le macchine virtuali Windows e Linux già distribuite in Azure, si installa 
 >[!NOTE]
 >L'agente OMS per Linux non può essere configurato per inviare report a più di un'area di lavoro di Log Analytics. 
 
-Nella parte superiore della pagina delle risorse di Log Analytics nel portale si noterà il banner che invita a eseguire l'aggiornamento.  L'aggiornamento non è necessario ai fini di questa guida introduttiva.<br>
+Se è stata creata un'area di lavoro nel cloud Azure per enti pubblici, nella parte superiore della pagina delle risorse di Log Analytics nel portale si noterà il banner che invita a eseguire l'aggiornamento.  L'aggiornamento non è necessario ai fini di questa guida introduttiva.<br>
 
 ![Avviso di aggiornamento di Log Analytics nel portale di Azure](media/log-analytics-quick-collect-azurevm/log-analytics-portal-upgradebanner.png).    
 1. Nel portale di Azure fare clic su **Altri servizi** nell'angolo in basso a sinistra. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
@@ -87,7 +87,13 @@ Log Analytics può raccogliere gli eventi dai registri eventi di Windows o da Sy
 Ora che la raccolta di dati è stata abilitata, verrà eseguito un semplice esempio di ricerca log per visualizzare alcuni dati dalle VM di destinazione.  
 
 1. Nel portale di Azure passare a Log Analytics e selezionare l'area di lavoro creata prima.
-2. Fare clic sul riquadro **Ricerca log** e nel riquadro Ricerca log digitare `Type=Perf` nel campo della query e quindi premere INVIO o fare clic sul pulsante della ricerca a destra del campo della query.<br> ![Esempio di query di ricerca log di Log Analytics](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-queryexample.png)<br> La query nella figura seguente, ad esempio, ha restituito 78.000 record relativi alle prestazioni.  I risultati effettivi saranno molti di meno.<br> ![Risultato della ricerca log di Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
+2. Fare clic sul riquadro **Ricerca log** e nel riquadro Ricerca log digitare `Perf` nel campo della query e quindi premere INVIO o fare clic sul pulsante della ricerca a destra del campo della query.<br> ![Esempio di query di ricerca log di Log Analytics](./media/log-analytics-quick-collect-azurevm/log-analytics-portal-perf-query.png)<br> 
+
+   >[!NOTE]
+   >Se l'area di lavoro viene creata nel cloud Azure per enti pubblici, si userà la query `Type=Perf`.  
+   >
+
+La query nella figura seguente, ad esempio, ha restituito 78.000 record relativi alle prestazioni.  I risultati effettivi saranno molti di meno.<br> ![Risultato della ricerca log di Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Quando non è più necessaria, eliminare l'area di lavoro di Log Analytics. A questo scopo, selezionare l'area di lavoro di Log Analytics creata prima e nella pagina delle risorse fare clic su **Elimina**.<br> ![Eliminare la risorsa Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)

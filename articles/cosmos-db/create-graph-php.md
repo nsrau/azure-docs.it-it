@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 75be5be0bef4dd07c8560076f47055105a70ee05
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3f80e682a89dcf6b5d3d5d6f2f15c4eeab2046e7
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: Creare un database di grafi con PHP e il portale di Azure
 
@@ -37,7 +37,7 @@ Eseguire anche queste operazioni:
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
-Prima di potere creare un database a grafo, è necessario creare un account database Gremlin (grafo) con Azure Cosmos DB.
+Prima di potere creare un database a grafo, è necessario creare un account di database Gremlin (Graph) con Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
@@ -137,7 +137,9 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
     ]);
     ```
 
-3. Modificare il parametro `username` nell'oggetto Connection con il nome del database e del grafo. Se sono stati usati i valori consigliati `sample-database` e `sample-graph`, l'output sarà simile al seguente:
+3. Se l'account di database Graph è stato creato il 20 dicembre 2017 o successivamente, sostituire `graphs.azure.com` nel nome host con `gremlin.cosmosdb.azure.com`.
+
+4. Modificare il parametro `username` nell'oggetto Connection con il nome del database e del grafo. Se sono stati usati i valori consigliati `sample-database` e `sample-graph`, l'output sarà simile al seguente:
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
@@ -155,7 +157,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
     ]);
     ```
 
-4. Nel portale di Azure usare il pulsante Copia per copiare la CHIAVE PRIMARIA e incollarla su `your_primary_key` nel parametro password.
+5. Nel portale di Azure usare il pulsante Copia per copiare la CHIAVE PRIMARIA e incollarla su `your_primary_key` nel parametro password.
 
     L'inizializzazione dell'oggetto Connection dovrebbe ora essere simile all'output seguente:
 
@@ -171,7 +173,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
     ]);
     ```
 
-5. Salvare il file.`connect.php`
+6. Salvare il file.`connect.php`
 
 ## <a name="run-the-console-app"></a>Eseguire l'app console
 

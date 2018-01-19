@@ -9,17 +9,17 @@ ms.topic: quickstart
 ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 3d8516c0f3f6cc8185b16f4cdabcc391e31cc605
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 18a342fed7e99e82082764d6f5a3429a3ce794b7
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Creare il primo contenitore in Istanze di contenitore di Azure
 
 Istanze di contenitore di Azure semplifica la creazione e gestione di contenitori Docker in Azure, senza dover eseguire il provisioning di macchine virtuali o di adottare un servizio di livello superiore.
 
-In questa guida introduttiva viene descritta la procedura per creare un contenitore di Windows in Azure ed esporlo a Internet con un indirizzo IP pubblico. Per completare questa operazione, è sufficiente un solo comando. Entro pochi minuti sarà possibile visualizzare l'applicazione in esecuzione nel browser:
+In questa guida introduttiva viene descritta la procedura per creare un contenitore di Windows in Azure ed esporlo a Internet con un indirizzo IP pubblico. Per completare questa operazione, è sufficiente un solo comando. Entro pochi minuti sarà possibile vedere l'applicazione in esecuzione nel browser:
 
 ![App distribuita usando Istanze di contenitore di Azure visualizzata nel browser][qs-powershell-01]
 
@@ -29,7 +29,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 3.6 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
 
-## <a name="create-resource-group"></a>Creare un gruppo di risorse
+## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
 Creare un gruppo di risorse di Azure con [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
@@ -39,7 +39,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Creare un contenitore
 
-È possibile creare un contenitore specificando un nome, un'immagine Docker e un gruppo di risorse di Azure nel cmdlet [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. È facoltativamente possibile esporre il contenitore a Internet con un indirizzo IP pubblico. In questo caso, si userà un contenitore Nano Server di Windows in cui viene eseguito Internet Information Services (IIS).
+È possibile creare un contenitore specificando un nome, un'immagine Docker e un gruppo di risorse di Azure nel cmdlet [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. È facoltativamente possibile esporre il contenitore a Internet con un indirizzo IP pubblico. In questo caso, si userà un contenitore Nano Server che esegue Internet Information Services (IIS).
 
  ```azurepowershell-interactive
 New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public

@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 83666edc75a6c75fd2361e79192f9717d69fd746
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 01e539856adbdcf02dc4e49087a3ab71b328db5a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-container-instances"></a>Istanze di contenitore di Azure
 
@@ -43,7 +43,9 @@ Per recuperare e rendere persistente lo stato con Istanze di contenitore di Azur
 
 ## <a name="linux-and-windows-containers"></a>Contenitori Linux e Windows
 
-Istanze di contenitore di Azure permette di pianificare i contenitori Windows e Linux con la stessa API. È sufficiente indicare il tipo di sistema operativo di base. Tutti gli altri elementi sono identici.
+Istanze di contenitore di Azure permette di pianificare i contenitori Windows e Linux con la stessa API. È sufficiente specificare il tipo di sistema operativo quando si creano i [gruppi di contenitori](container-instances-container-groups.md).
+
+Alcune funzionalità attualmente sono limitate ai contenitori Linux. Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quote e aree disponibili per Istanze di contenitore di Azure](container-instances-quotas.md).
 
 ## <a name="co-scheduled-groups"></a>Gruppi con pianificazione condivisa
 

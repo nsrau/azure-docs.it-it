@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9b4b54c3a4cf0ed4350f570259f6997e4398682b
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 6871f174eb9bae57d9b4767520d0fb2d8d9631d3
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="an-introduction-to-azure-location-based-services-preview"></a>Introduzione a Servizi Location Based di Azure (anteprima)
 Servizi Location Based di Azure è un portfolio di servizi geospaziali che include API di servizi per mappe, ricerca, pianificazione del percorso, informazioni sul traffico e fusi orari. Il portfolio di servizi conformi con Azure OneAPI consente di usare strumenti di sviluppo già noti per sviluppare e ridimensionare rapidamente soluzioni che integrano informazioni sulla posizione nelle soluzioni di Azure. Servizi Location Based di Azure offre agli sviluppatori di qualsiasi settore potenti funzionalità geospaziali che includono dati delle mappe aggiornati, indispensabili per fornire il contesto geografico alle applicazioni Web e per dispositivi mobili. Questi servizi sono costituiti da un set di API REST conforme con Azure OneAPI, accompagnato da un controllo JavaScript basato sul Web, che rende lo sviluppo estremamente semplice, flessibile e compatibile con più supporti. 
@@ -61,9 +61,23 @@ Servizi Location Based di Azure include cinque servizi principali per fornire su
 
 ![Informazioni sul traffico di Servizi Location Based di Azure](media/about-location-based-services/Introduction_Traffic.png)
 
-Servizi Location Based di Azure è stato progettato per la mobilità e può essere usato per applicazioni multipiattaforma poiché il modello di programmazione è indipendente dalla piattaforma e supporta l'output JSON tramite le API REST. Questo portfolio di servizi offre inoltre un pratico controllo mappa JavaScript con un modello di programmazione semplice per sviluppare applicazioni Web e per dispositivi mobili in modo rapido e intuitivo. 
+Servizi Location Based di Azure è stato progettato per la mobilità e può essere usato per applicazioni multipiattaforma poiché il modello di programmazione è indipendente dalla piattaforma e supporta l'output JSON tramite le API REST. Servizi Location Based di Azure offre inoltre un pratico controllo mappa JavaScript con un semplice modello di programmazione per sviluppare applicazioni Web e per dispositivi mobili in modo rapido e intuitivo. 
 
 Per Servizi Location Based di Azure viene usato uno schema di autenticazione basato su chiavi. Pertanto, per accedere ai servizi, è sufficiente passare al [portale di Azure](http://portal.azure.com) e creare uno specifico account, che viene fornito con due chiavi pre-generate automaticamente. È possibile iniziare a integrare queste funzionalità sulla posizione direttamente nelle applicazioni usando una delle proprie chiavi nelle richieste inviate a Servizi Location Based di Azure.
+
+**Relazione con Bing Mappe** - Si noti che la soluzione Servizi Location Based di Azure descritta in questo documento è diversa da Bing Mappe.  Anche se queste soluzioni condividono molte funzionalità, si tratta di due servizi diversi e non correlati.  La disponibilità di questo nuovo servizio di Azure, che verrà gestito separatamente, non ha alcun impatto sull'offerta o sugli sviluppi futuri di Bing Mappe.
+
+L'obiettivo di Microsoft è quello di offrire alla community di sviluppatori la possibilità di scegliere tra servizi di posizione diversi.  Di seguito vengono fornite alcune indicazioni rapide per gli sviluppatori in merito al servizio da scegliere in base ai diversi casi d'uso e alle esigenze dei clienti.  Le indicazioni fornite fanno riferimento alla versione di anteprima di Servizi Location Based di Azure e verranno aggiornate quando il servizio sarà disponibile a livello generale, più avanti nel 2018.
+
+| Criteri del cliente | Usare Servizi Location Based di Azure quando… | Usare Bing Mappe quando… |
+| ------------- | ------------- | ------------- |
+| Ambiente di sviluppo | Si crea una soluzione all'interno di altri servizi di Azure o sfruttando tali servizi | Si usa un ambiente cloud di terze parti o un altro ambiente di sviluppo |
+| Fase di sviluppo  | Poiché Servizi Location Based di Azure è attualmente disponibile in versione di anteprima pubblica, è ottimizzato per i test iniziali e lo sviluppo di un modello di verifica | È necessario un contratto di servizio di livello aziendale per un ambiente di produzione |
+| Opzioni di prezzo | Sono sufficienti opzioni di prezzo preliminari per lo sviluppo | Sono necessari prezzi di livello enterprise personalizzati |
+| Ambiente del caso d'uso | È necessario l'uso nei veicoli | Non è necessario l'uso nei veicoli |
+| Copertura geografica | Non è necessaria la copertura delle mappe di India, Cina, Giappone e Corea del Sud | È necessaria la copertura delle mappe di India, Cina, Giappone e Corea del Sud |
+| Contenuto delle mappe | Sono sufficienti mappe di superficie standard | Sono necessarie immagini satellitari, aeree e delle strade |
+| Fonte delle mappe sottostante | Si preferiscono i dati delle mappe TomTom | Si preferiscono i dati delle mappe HERE |
 
 Eseguendo l'iscrizione si otterrà [subito un account Servizi Location Based di Azure](http://aka.ms/azurelbsportal)
 

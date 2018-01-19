@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: e90879c70e47d2bc5034b4fbf2b0ed7172fe131e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b28300c4ed0a0c6f35bf49808b8ed12d4e180610
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Creare un database a grafo con Java e il portale di Azure
 
@@ -42,7 +42,7 @@ Eseguire anche queste operazioni:
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 
-Prima di potere creare un database a grafo, è necessario creare un account database Gremlin (grafo) con Azure Cosmos DB.
+Prima di potere creare un database a grafo, è necessario creare un account di database Gremlin (Graph) con Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
@@ -129,13 +129,19 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
     `hosts: [test-graph.graphs.azure.com]`
 
-3. Nel portale di Azure usare il pulsante Copia per copiare la CHIAVE PRIMARIA e incollarla su `$masterKey$` in `password: $masterKey$`.
+3. Sostituire `graphs` con `gremlin.cosmosdb` nel valore di `endpoint`. Se l'account di database Graph è stato creato prima del 20 dicembre 2017, non apportare modifiche al valore dell'endpoint e continuare con il passaggio successivo.
+
+    Il valore dell'endpoint dovrebbe ora essere simile all'output seguente:
+
+    `"endpoint": "https://testgraphacct.gremlin.cosmosdb.azure.com:443/"`
+
+4. Nel portale di Azure usare il pulsante Copia per copiare la CHIAVE PRIMARIA e incollarla su `$masterKey$` in `password: $masterKey$`.
 
     La riga 4 del file remote.yaml si presenta ora nel modo seguente: 
 
     `password: 2Ggkr662ifxz2Mg==`
 
-4. Modificare la riga 3 di remote.yaml da
+5. Modificare la riga 3 di remote.yaml da
 
     `username: /dbs/$database$/colls/$collection$`
 
@@ -143,7 +149,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
     `username: /dbs/sample-database/colls/sample-graph`
 
-5. Salvare il file remote.yaml.
+6. Salvare il file remote.yaml.
 
 ## <a name="run-the-console-app"></a>Eseguire l'app console
 

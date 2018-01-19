@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6ac6ed21f3cf363137381b82835a11d0920aee3b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c587a2ba10606a08aec7a75e4bdc6fe5cc297be9
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Creare una macchina virtuale Linux con il portale di Azure
 
@@ -32,11 +32,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per completare questa guida introduttiva è necessaria una coppia di chiavi SSH. Se è già disponibile una coppia di chiavi SSH, questo passaggio può essere ignorato.
 
-In una shell Bash eseguire questo comando e attenersi alle indicazioni visualizzate. L'output del comando include il nome del file di chiave pubblica. Copiare il contenuto del file di chiave pubblica negli Appunti.
+In una shell Bash eseguire questo comando e attenersi alle indicazioni visualizzate. L'output del comando include il nome del file di chiave pubblica. Copiare il contenuto del file di chiave pubblica (`cat ~/.ssh/id_rsa.pub`) negli Appunti. Se si usa il sottosistema Windows per Linux, assicurarsi di non copiare i caratteri di interruzione di riga dall'output. Annotare il nome del file di chiave privata per usarlo in un secondo momento.
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
+
+Altre informazioni dettagliate su questo processo sono disponibili [qui](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure 
 
@@ -102,7 +104,7 @@ Un gruppo di sicurezza di rete (NSG) consente il traffico in ingresso e in uscit
 2. Selezionare il **gruppo di sicurezza di rete**. Il gruppo di sicurezza di rete può essere identificato tramite la colonna **Tipo**. 
 3. Nel menu a sinistra fare clic su **Regole di sicurezza in ingresso** in Impostazioni.
 4. Fare clic su **Aggiungi**.
-5. In **Nome** digitare **http**. Assicurarsi che l'opzione **Intervallo di porte** sia impostata su 80 e l'opzione **Azione** sia impostata su **Consenti**. 
+5. In **Nome** digitare **http**. Assicurarsi che l'opzione **Intervallo di porte di origine** sia impostata su `*`, che l'opzione **Intervallo di porte di destinazione** sia impostata su *80* e che l'opzione **Azione** sia impostata su *Consenti*. 
 6. Fare clic su **OK**.
 
 
