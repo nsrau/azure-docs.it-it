@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 6ba6bed8321e1ffde8bc8959443682725da36827
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: cd14f0e5259e5c0b6cbf11790bbdf08164267ffa
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="planning-considerations-for-azure-stack-integrated-systems"></a>Considerazioni sulla pianificazione per Azure Stack integrati sistemi
 Se si è interessati in un sistema integrato dello Stack di Azure, è necessario comprendere alcune delle principali considerazioni sulla pianificazione per la distribuzione e sulle modalità di integrazione di sistema nel Data Center. In questo articolo fornisce una panoramica generale di queste considerazioni consentono di prendere decisioni importanti infrastruttura per il sistema a più nodi di Azure Stack. La comprensione di queste considerazioni è utile quando si distribuiscono dello Stack di Azure al Data Center funziona con il fornitore dell'hardware OEM.  
@@ -31,12 +31,12 @@ Per distribuire Azure Stack esistono una serie di decisioni che è necessario ap
 
 Le informazioni necessarie intervalli in rete, sicurezza e informazioni di identità con molti importanti decisioni che potrebbero richiedere informazioni da molte aree diverse e responsabili delle decisioni. Di conseguenza, potrebbe essere necessario inserire utenti da più team all'interno dell'organizzazione per assicurarsi di disporre di tutte le informazioni necessarie pronte prima di inizia la distribuzione. Questo consente di comunicare con il fornitore dell'hardware durante la raccolta di queste informazioni, come potrebbero avere consigli utili per prendere le decisioni.
 
-Durante la ricerca e raccogliere le informazioni necessarie, potrebbe essere necessario apportare alcune modifiche di configurazione della pre-distribuzione nell'ambiente di rete. Ad esempio riservando spazi degli indirizzi IP per la soluzione di Stack di Azure, configurare i router, commutatori e i firewall per preparare per la connettività per le nuove opzioni della soluzione Azure Stack. Assicurarsi di avere l'esperto di area di interesse inline fino a utili per la pianificazione.
+Durante la ricerca e raccogliere le informazioni necessarie, potrebbe essere necessario apportare alcune modifiche di configurazione della pre-distribuzione nell'ambiente di rete. Potrebbe trattarsi di prenotazione di spazi degli indirizzi IP per la soluzione Azure Stack e la configurazione del router, commutatori e firewall per preparare per la connettività per le nuove opzioni della soluzione Azure Stack. Assicurarsi di avere l'esperto di area soggetto allineate e coinvolti durante tutto il progetto di distribuzione per semplificare la pianificazione.
 
 ## <a name="management-considerations"></a>Considerazioni sulla gestione
 Stack di Azure è un sistema bloccato, in cui l'infrastruttura è bloccato da delle autorizzazioni e prospettiva di rete. Gli elenchi di controllo di accesso (ACL) di rete vengono applicati per bloccare tutto il traffico in ingresso non autorizzato e a tutte le comunicazioni non necessarie tra i componenti dell'infrastruttura. Questo rende difficile per gli utenti non autorizzati di accedere al sistema.
 
-Per gestione quotidiana e le operazioni, non è disponibile alcun accesso amministratore senza restrizioni all'infrastruttura. Gli operatori di Azure Stack devono gestire il sistema tramite il portale dell'amministratore o tramite Azure Resource Manager (tramite PowerShell o l'API REST). Non è possibile accedere al sistema tramite altri strumenti di gestione, ad esempio gestione di Hyper-V o gestione Cluster di Failover. Per proteggere il sistema, è Impossibile installare il software di terze parti (ad esempio, gli agenti) all'interno dei componenti dell'infrastruttura di Azure Stack. Interoperabilità con il software di gestione e sicurezza esterno avviene tramite PowerShell o l'API REST.
+Per gestione quotidiana e le operazioni, non è disponibile alcun accesso amministratore senza restrizioni all'infrastruttura. Gli operatori di Azure Stack devono gestire il sistema tramite il portale dell'amministratore o tramite Azure Resource Manager (tramite l'interfaccia CLI di Azure, PowerShell o l'API REST). Non è possibile accedere al sistema tramite altri strumenti di gestione, ad esempio gestione di Hyper-V o gestione Cluster di Failover. Per proteggere il sistema, è Impossibile installare il software di terze parti (ad esempio, gli agenti) all'interno dei componenti dell'infrastruttura di Azure Stack. Interoperabilità con software di protezione e gestione esterne avviene tramite CLI di Azure, PowerShell o l'API REST.
 
 Quando un livello di accesso è necessaria per la risoluzione dei problemi non vengono risolti tramite i passaggi di mediazione avviso, è necessario collaborare con il supporto. Tramite il supporto, è disponibile un metodo per fornire l'accesso temporaneo amministratore completo al sistema per eseguire operazioni più avanzate. 
 
@@ -93,9 +93,9 @@ Per ulteriori informazioni su quali infrastruttura a chiave pubblica per distrib
 
 
 ## <a name="time-synchronization"></a>Sincronizzazione degli orari
-È necessario scegliere un'ora specifica server con viene utilizzato per sincronizzare dello Stack di Azure.  Symbolization tempo è fondamentale dello Stack di Azure e i relativi ruoli di infrastruttura, perché è usato per generare il ticket Kerberos che vengono utilizzati per autenticare i servizi interni tra loro.
+È necessario scegliere un'ora specifica server con viene utilizzato per sincronizzare dello Stack di Azure.  Sincronizzazione dell'ora è fondamentale dello Stack di Azure e i relativi ruoli di infrastruttura, perché è usato per generare il ticket Kerberos che vengono utilizzati per autenticare i servizi interni tra loro.
 
-È necessario specificare che un indirizzo IP per server di sincronizzazione, anche se la maggior parte dei componenti dell'infrastruttura possono risolvere un URL, alcuni può supportare solo gli indirizzi IP. Se si sono usando l'opzione di distribuzione disconnesso, è necessario specificare un server nella rete aziendale a cui si è assicurarsi che sia raggiungibile dalla rete dell'infrastruttura nello Stack di Azure.
+È necessario specificare un indirizzo IP per server di sincronizzazione, come anche se la maggior parte dei componenti dell'infrastruttura è possibile risolvere un URL, alcuni può supportare solo gli indirizzi IP. Se si sono usando l'opzione di distribuzione disconnesso, è necessario specificare un server nella rete aziendale a cui si è assicurarsi che sia raggiungibile dalla rete dell'infrastruttura nello Stack di Azure. Tale operazione potrebbe richiedere ulteriori considerazioni durante la pianificazione della parte di integrazione di rete del progetto di distribuzione.
 
 
 ## <a name="network-connectivity"></a>Connettività di rete
@@ -123,28 +123,28 @@ L'infrastruttura di rete per lo Stack di Azure è costituita da più reti logich
 Questa rete è dedicata per tutti i baseboard management controller (noto anche come servizio processori, ad esempio, iDRAC, iLO, iBMC, ecc.) la connessione alla rete di gestione. Se presente, l'host del ciclo di vita di hardware (HLH) si trovino su questa rete e può costituire software specifico OEM per la manutenzione dell'hardware e/o di monitoraggio. 
 
 #### <a name="private-network"></a>Rete privata
-Questo /24 254 host della rete IP) (è privato per l'area dello Stack di Azure (non superare i dispositivi a sensore bordo dell'area dello Stack di Azure) ed è suddivisa in due subnet:
+Questo /24 (254 host IP) rete è privata per l'area dello Stack di Azure (non superare i dispositivi a sensore bordo dell'area dello Stack di Azure) ed è suddivisa in due subnet:
 
-- **Rete di archiviazione**. Migrazione in tempo reale un /25 126 host della rete IP) (utilizzata per supportare l'utilizzo di traffico di archiviazione diretta di spazi e Server Message Block (SMB) e la macchina virtuale. 
-- **Rete IP virtuale interna**. A/25 dedicata all'interno solo per gli indirizzi VIP per il bilanciamento del carico software di rete.
+- **Rete di archiviazione**. Un /25 (host 126 gli indirizzi IP) utilizzata per supportare l'utilizzo di spazi di archiviazione è diretta (S2D) e il traffico di archiviazione Server Message Block (SMB) e migrazione in tempo reale della macchina virtuale di rete. 
+- **Rete IP virtuale interna**. A/25 dedicata all'interno solo per gli indirizzi VIP per il software carico bilanciamento di rete.
 
 #### <a name="azure-stack-infrastructure-network"></a>Rete infrastruttura di Azure Stack
-Questo/24 rete dedicato per i componenti interni dello Stack di Azure in modo che possano comunicare e scambiare dati tra loro. Questa subnet richiede gli indirizzi IP instradabili, ma è privata per la soluzione tramite elenchi di controllo di accesso (ACL), non è previsto l'indirizzamento oltre le opzioni di bordo, ad eccezione di un intervallo molto piccolo uguali a quelle di un /27 rete utilizzata da alcune di queste servizi quando richiedono l'accesso alle risorse esterne e/o internet. 
+Questo/24 rete dedicato per i componenti interni dello Stack di Azure in modo che possano comunicare e scambiare dati tra loro. Questa subnet richiede gli indirizzi IP instradabili, ma è privata per la soluzione tramite elenchi di controllo di accesso (ACL).  Non è previsto l'indirizzamento oltre le opzioni di bordo, ad eccezione di un intervallo molto piccolo uguali a quelle di un /27 rete, che verrà usati da alcuni di questi servizi quando richiedono l'accesso alle risorse esterne e/o internet. 
 
 #### <a name="public-infrastructure-network"></a>Rete pubblica infrastruttura
-Questo/27 rete è molto piccolo compresi tra la subnet dell'infrastruttura Azure Stack indicato in precedenza, non richiede indirizzi IP pubblici, ma richiede l'accesso a internet tramite un dispositivo NAT o un Proxy trasparente. Questa rete verrà allocata per l'emergenza ripristino Console di sistema (ERCS), la VM ERCS richiede l'accesso a internet durante la registrazione in Azure e deve essere instradabile alla rete di gestione per la risoluzione dei problemi.
+Questo/27 rete è molto piccolo compresi tra la subnet dell'infrastruttura Azure Stack indicato in precedenza, non richiede indirizzi IP pubblici, ma richiede l'accesso a internet tramite un dispositivo NAT o un Proxy trasparente. Questa rete verrà allocata per l'emergenza ripristino Console di sistema (ERCS). La VM ERCS richiede l'accesso a internet durante la registrazione in Azure e deve essere instradabile alla rete di gestione per la risoluzione dei problemi.
 
 #### <a name="public-vip-network"></a>Rete pubblica di indirizzi VIP
 Rete pubblica VIP viene assegnata al controller di rete nello Stack di Azure. Non è una rete logica del commutatore. Il SLB utilizza il pool di indirizzi e assegna/32 di reti per carichi di lavoro tenant. Nella tabella di routing di commutatore, questi indirizzi IP di 32 vengono annunciate come non disponibili tramite il protocollo BGP. Questa rete contiene gli indirizzi IP pubblici o esterni accessibili. L'infrastruttura di Azure Stack utilizza almeno 8 indirizzi da questa rete VIP pubblico, mentre il resto viene utilizzato da macchine virtuali tenant. Le dimensioni della subnet di rete possono variare da un minimo di /26 (64 host) a un massimo di /22 (1022 host), è consigliabile pianificare un /24 rete.
 
 #### <a name="switch-infrastructure-network"></a>Rete infrastruttura commutatore
-Questo/26 rete è la subnet contenente subnet di /30 IP instradabile Point to Point (IP host 2) e i loopback di cui dedicati/32 subnet per in banda passare gestione e l'ID del router BGP. Questo intervallo di indirizzi IP deve essere instradabile dall'esterno della soluzione dello Stack di Azure al Data Center, possono essere indirizzi IP pubblici o privati.
+Questo/26 rete è la subnet contenente subnet di /30 IP instradabile Point to Point (IP host 2) e i loopback di cui dedicati/32 subnet per in banda passare gestione e l'ID del router BGP. Questo intervallo di indirizzi IP deve essere instradabile dall'esterno della soluzione dello Stack di Azure al Data Center e possono essere indirizzi IP pubblici o privati. Ad esempio, all'interno di uno con multi-tenant Provider di servizi scenario che indirizzi IP pubblici possono essere necessari, mentre all'interno di una distribuzione aziendale assolutamente controllata, indirizzi IP privati possono essere preferito.
 
 #### <a name="switch-management-network"></a>Rete di gestione commutatore
 Questo /29 (host 6 indirizzi IP) rete dedicata per le porte di gestione delle opzioni di connessione. Consente l'accesso fuori banda per la distribuzione, gestione e risoluzione dei problemi. Viene calcolato dalla rete dell'infrastruttura commutatore indicata in precedenza.
 
 ### <a name="transparent-proxy"></a>PROXY TRASPARENTI
-La soluzione di Stack di Azure non supporta proxy web normale. Se il Data Center richiede tutto il traffico di usare un proxy, è necessario configurare un proxy trasparente per l'elaborazione di tutto il traffico dal rack da gestire in base ai criteri, separare il traffico tra le aree della rete. Un proxy trasparente (noto anche come un'intercettazione inline o proxy forzato) intercetta le normali comunicazioni nel livello rete senza richiedere alcuna configurazione speciale client. I client non devono essere consapevoli dell'esistenza del proxy.
+La soluzione di Stack di Azure non supporta proxy web normale. Se il Data Center richiede tutto il traffico di usare un proxy, è necessario configurare un proxy trasparente per l'elaborazione di tutto il traffico dal rack da gestire in base ai criteri, separare il traffico tra le aree della rete. Un proxy trasparente (noto anche come un'intercettazione inline o proxy forzato) intercetta le normali comunicazioni nel livello rete senza richiedere alcuna configurazione speciale client. Client non devono essere consapevoli dell'esistenza del proxy.
 
 ### <a name="publish-azure-stack-services"></a>La pubblicazione dei servizi Azure Stack
 
@@ -203,7 +203,7 @@ Il diagramma seguente mostra ExpressRoute per uno scenario di multi-tenant.
 ## <a name="external-monitoring"></a>Monitoraggio esterno
 Per ottenere una singola visualizzazione di tutti gli avvisi dai dispositivi e la distribuzione di Azure Stack e integrare gli avvisi in IT servizio Gestione flussi di lavoro esistenti per la creazione di ticket, è possibile integrare Azure Stack con Data Center esterno soluzioni di monitoraggio.
 
-Inclusi nella soluzione Azure Stack, l'host del ciclo di vita di hardware è un computer all'esterno dello Stack di Azure che esegue gli strumenti di gestione fornito dal fornitore OEM per hardware. È possibile utilizzare questi strumenti o altre soluzioni che integrano direttamente con le soluzioni di monitoraggio esistenti nel Data Center.
+Inclusi nella soluzione Azure Stack, l'host del ciclo di vita di hardware (HLH) è un computer all'esterno dello Stack di Azure che esegue gli strumenti di gestione fornito dal fornitore OEM per hardware. È possibile utilizzare questi strumenti o altre soluzioni che integrano direttamente con le soluzioni di monitoraggio esistenti nel Data Center.
 
 La tabella seguente riepiloga l'elenco delle opzioni disponibili.
 

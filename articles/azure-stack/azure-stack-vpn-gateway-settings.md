@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/01/2017
+ms.date: 01/18/2018
 ms.author: brenduns
-ms.openlocfilehash: 1276310a35d0d69a4111a58b9675f15bb5285a08
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1eba5df93b461eb22ab8341b4498682957c9298a
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Impostazioni di configurazione di gateway VPN di Azure Stack
 
@@ -160,7 +160,7 @@ A differenza di Azure, che supporta più offerte come un iniziatore e rispondito
 |Versione IKE |IKEv2 |
 |Crittografia e hash algoritmi (crittografia)     | GCMAES256|
 |Crittografia e hash algoritmi (autenticazione) | GCMAES256|
-|Durata dell'associazione di sicurezza (tempo)  | 3.600 secondi |
+|Durata dell'associazione di sicurezza (tempo)  | 14400 secondi |
 |Durata dell'associazione di sicurezza (byte) | 819,200       |
 |Perfect Forward Secrecy (PFS) |PFS2048 |
 |Rilevamento peer inattivo | Supportato|  
