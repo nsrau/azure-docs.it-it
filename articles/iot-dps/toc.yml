@@ -77,6 +77,8 @@
       href: use-hsm-with-sdk.md
     - name: Controllare l'accesso al servizio di provisioning
       href: how-to-control-access.md
+    - name: Usare l'interfaccia della riga di comando di Azure per gestire il servizio Device Provisioning
+      href: how-to-manage-dps-with-cli.md
 - name: riferimento
   items:
     - name: REST
