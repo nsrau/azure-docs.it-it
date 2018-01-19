@@ -19,5 +19,5 @@ Per connettersi al motore di database di SQL Server da un altro computer, è nec
 3. Nella casella **Autenticazione** selezionare **Autenticazione di SQL Server**.
 4. Nella casella **Account di accesso** digitare il nome di un account di accesso creato in una delle attività precedenti.
 5. Nella casella **Password** digitare la password dell'account di accesso creato in una delle attività precedenti.
-6. Fare clic su **Connect**.
+6. Fare clic su **Connetti**.
 

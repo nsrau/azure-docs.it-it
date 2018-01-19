@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: ponatara
 ms.openlocfilehash: 7658bedc0bd5c4a289f3271504a006ba54c783b6
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Replicare le macchine virtuali di Azure in un'altra area dopo la migrazione ad Azure usando Azure Site Recovery
 
@@ -101,5 +101,5 @@ Dopo avere disinstallato il servizio Mobility, riavviare la macchina virtuale pr
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Iniziare a proteggere i carichi di lavoro [replicando le macchine virtuali di Azure](azure-to-azure-quickstart.md).
+- Iniziare a proteggere i carichi di lavoro [eseguendo la replica di macchine virtuali di Azure](azure-to-azure-quickstart.md).
 - Altre informazioni sulle [indicazioni di connettività di rete per la replica delle macchine virtuali di Azure](site-recovery-azure-to-azure-networking-guidance.md).

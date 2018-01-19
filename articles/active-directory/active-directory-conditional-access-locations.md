@@ -17,10 +17,10 @@ ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: 47b4d70c991bd618ea4ea6e5d2fd1dea86911798
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Condizioni della posizione nell'accesso condizionale di Azure Active Directory 
 
@@ -28,7 +28,7 @@ Con l'[accesso condizionale di Azure Active Directory (Azure AD)](active-directo
 
 Questo articolo fornisce le informazioni necessarie per configurare la condizione della posizione. 
 
-## <a name="locations"></a>Posizioni
+## <a name="locations"></a>Località
 
 Azure AD consente l'accesso Single Sign-On ai dispositivi, alle app e ai servizi da qualsiasi posizione della rete pubblica Internet. Con la condizione della posizione, è possibile controllare l'accesso alle app cloud in base al percorso di rete dell'utente. Casi d'uso comuni per la condizione della posizione:
 
@@ -45,7 +45,7 @@ Con le posizioni specifiche è possibile creare raggruppamenti logici di interva
 
  Una posizione specifica ha le caratteristiche seguenti:
 
-![Posizioni](./media/active-directory-conditional-access-locations/42.png)
+![Località](./media/active-directory-conditional-access-locations/42.png)
 
 - **Nome**: nome visualizzato di una posizione specifica.
 
@@ -57,7 +57,7 @@ Con le posizioni specifiche è possibile creare raggruppamenti logici di interva
 
 - **Includi aree sconosciute**: alcuni indirizzi IP non sono associati a un paese specifico. Questa opzione consente di scegliere se questi indirizzi IP devono essere inclusi nella posizione specifica. È possibile controllare quando applicare i criteri che usano la posizione specifica alle posizioni sconosciute.
 
-Il numero di posizioni specifiche che è possibile configurare è limitato dalle dimensioni dell'oggetto correlato in Azure AD. È possibile configurare:
+Il numero di località denominate che è possibile configurare è limitato dalle dimensioni dell'oggetto correlato in Azure AD. È possibile configurare:
 
 - Una posizione specifica con un massimo di 1200 intervalli IP.
 
@@ -92,17 +92,17 @@ Se entrambi i passaggi danno esito negativo, l'utente non viene più considerato
 
 Quando si configura la condizione per la posizione, è possibile distinguere tra:
 
-- Tutte le località 
-- Tutte le posizioni attendibili
-- Località selezionate
+- Qualsiasi località 
+- Tutte le località attendibili
+- Le località selezionate
 
 ![Località](./media/active-directory-conditional-access-locations/01.png)
 
-### <a name="any-location"></a>Tutte le località
+### <a name="any-location"></a>Qualsiasi località
 
 Per impostazione predefinita, la selezione di **Tutte le località** fa in modo che i criteri vengano applicati a tutti gli indirizzi IP, cioè qualsiasi indirizzo su Internet. Questa impostazione non è limitata agli indirizzi IP configurati come posizione specifica. Quando si seleziona **Tutte le località**, è comunque possibile escludere percorsi specifici dai criteri. Ad esempio, è possibile applicare dei criteri a tutte le posizioni tranne che ai percorsi attendibili per impostare l'ambito per tutte le posizioni ad eccezione della rete aziendale.
 
-### <a name="all-trusted-locations"></a>Tutte le posizioni attendibili
+### <a name="all-trusted-locations"></a>Tutte le località attendibili
 
 Questa opzione si applica a:
 
@@ -110,7 +110,7 @@ Questa opzione si applica a:
 - Gli **indirizzi IP attendibili MFA** (se configurati)
 
 
-### <a name="selected-locations"></a>Località selezionate
+### <a name="selected-locations"></a>Le località selezionate
 
 Con questa opzione è possibile selezionare una o più posizioni specifiche. Per applicare criteri con questa impostazione, un utente deve connettersi da una delle posizioni selezionate. Quando si fa clic su **Seleziona** si apre il controllo di selezione delle reti denominate che mostra l'elenco delle reti denominate. L'elenco indica anche se il percorso di rete è stato contrassegnato come attendibile. La posizione specifica denominata **Indirizzi IP attendibili MFA** viene usata per includere le impostazioni IP che possono essere configurate nella pagina di impostazione del servizio di autenticazione a più fattori.
 
