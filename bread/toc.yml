@@ -12,7 +12,7 @@
         - name: Connect Health
           tocHref: /azure/active-directory/connect-health/
           topicHref: /azure/active-directory/connect-health/
-        - name: Sviluppare
+        - name: Sviluppo
           tocHref: /azure/active-directory/develop/
           topicHref: /azure/active-directory/develop/
         - name: Privileged Identity Management
@@ -187,10 +187,10 @@
     - name: Data factory
       tocHref: /azure/data-factory/
       topicHref: /azure/data-factory/
-    - name: Analisi Data Lake
+    - name: Data Lake Analytics
       tocHref: /azure/data-lake-analytics/
       topicHref: /azure/data-lake-analytics/
-    - name: Data Lake Store
+    - name: Archivio Data Lake
       tocHref: /azure/data-lake-store/
       topicHref: /azure/data-lake-store/
     - name: Devtest Lab
@@ -218,7 +218,7 @@
         - name: Hadoop
           tocHref: /azure/hdinsight/hadoop
           topicHref: /azure/hdinsight/hadoop/apache-hadoop-introduction
-        - name: HBase
+        - name: hbase
           tocHref: /azure/hdinsight/hbase
           topicHref: /azure/hdinsight/hbase/apache-hbase-overview
         - name: Interactive Query
@@ -239,13 +239,16 @@
         - name: Storm
           tocHref: /azure/hdinsight/storm
           topicHref: /azure/hdinsight/storm/apache-storm-overview
+    - name: IoT Edge
+      tocHref: /azure/iot-edge/
+      topicHref: /azure/iot-edge/
     - name: Hub IoT
       tocHref: /azure/iot-hub/
       topicHref: /azure/iot-hub/
     - name: IoT Suite
       tocHref: /azure/iot-suite/
       topicHref: /azure/iot-suite/
-    - name: Insieme di credenziali delle chiavi
+    - name: Insieme di credenziali di chiave
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
     - name: Bilanciamento del carico
@@ -405,19 +408,19 @@
         - name: File
           tocHref: /azure/storage/files/
           topicHref: /azure/storage/files/storage-files-introduction
-        - name: Code
+        - name: Queues
           tocHref: /azure/storage/queues/
           topicHref: /azure/storage/queues/storage-queues-introduction
     - name: StorSimple
       tocHref: /azure/storsimple/
       topicHref: /azure/storsimple/
-    - name: Analisi di flusso
+    - name: Analisi dei flussi
       tocHref: /azure/stream-analytics/
       topicHref: /azure/stream-analytics/
     - name: Time Series Insights
       tocHref: /azure/time-series-insights/
       topicHref: /azure/time-series-insights/
-    - name: Gestione traffico
+    - name: servizio Gestione traffico
       tocHref: /azure/traffic-manager/
       topicHref: /azure/traffic-manager/
     - name: Set di scalabilità di macchine virtuali

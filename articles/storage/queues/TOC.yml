@@ -2,11 +2,11 @@
   items:
     - name: Introduzione alle code
       href: storage-queues-introduction.md
-- name: Introduzione
+- name: Attività iniziali
   items:
     - name: Creare un account di archiviazione
       href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Sviluppare
+    - name: Sviluppo
       items:
         - name: .NET
           href: storage-dotnet-how-to-use-queues.md
@@ -40,7 +40,7 @@
           href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Indicazioni sul ripristino di emergenza
           href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Sviluppare
+    - name: Sviluppo
       items:
         - name: Esempi
           items:
@@ -68,7 +68,7 @@
           href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Configurare i firewall e le reti virtuali
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Crittografia lato client
+        - name: crittografia lato client
           items:
             - name: .NET
               href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
@@ -160,7 +160,7 @@
       href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
     - name: Video
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
-    - name: Azure Storage Explorer
+    - name: Esplora archivi Azure
       items:
         - name: Storage Explorer
           href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
