@@ -128,6 +128,8 @@
           href: azure-stack-manage-storage-shares.md
         - name: Gestire macchine virtuali di Windows Azure Pack
           href: azure-stack-manage-windows-azure-pack.md
+        - name: Avviare e arrestare Azure Stack
+          href: azure-stack-start-and-stop.md
         - name: Sostituire l'hardware
           items:
             - name: Azioni del nodo
