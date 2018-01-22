@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: d00c6e0acf437d2bfc3c27e948f4646a6685b08f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad31e869d998d29d403ff97c17150c5078ce856d
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Accedere a Insieme di credenziali delle chiavi di Azure protetto da firewall
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>D: L'applicazione client dell'insieme di credenziali delle chiavi deve essere protetta da firewall. Quali porte, host o indirizzi IP è necessario aprire per consentire l'accesso a un insieme di credenziali delle chiavi?
@@ -33,13 +33,13 @@ Esistono alcune varianti a seconda della configurazione e dell'ambiente.
 ## <a name="ports"></a>Porte
 Tutto il traffico verso un insieme di credenziali delle chiavi per tutte e tre le funzioni (autenticazione, gestione e accesso al piano dati) passa per la porta HTTPS 443. Verrà tuttavia generato occasionalmente traffico HTTP (porta 80) per CRL. I client che supportano OCSP non devono raggiungere CRL, ma possono in alcuni casi raggiungere [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl).  
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 Le applicazioni client dell'insieme di credenziali delle chiavi dovrà accedere agli endpoint di Azure Active Directory per l'autenticazione. L'endpoint usato dipende dalla configurazione del tenant di Azure AD, dal tipo di entità (entità utente o entità servizio) e dal tipo di account, ad esempio account Microsoft o account aziendale o dell'istituto di istruzione.  
 
 | Tipo di entità | Endpoint:porta |
 | --- | --- |
-| Utente che usa un account Microsoft<br> (ad esempio, user@hotmail.com) |**Globale:**<br> login.microsoftonline.com:443<br><br> **Azure per la Cina:**<br> login.chinacloudapi.cn:443<br><br>**Azure per enti pubblici statunitensi:**<br> login-us.microsoftonline.com:443<br><br>**Azure per la Germania:**<br> login.microsoftonline.de:443<br><br> e <br>login.live.com:443 |
-| Utente o entità servizio che usa un account aziendale o dell'istituto di istruzione con Azure AD (ad esempio, user@contoso.com) |**Globale:**<br> login.microsoftonline.com:443<br><br> **Azure per la Cina:**<br> login.chinacloudapi.cn:443<br><br>**Azure per enti pubblici statunitensi:**<br> login-us.microsoftonline.com:443<br><br>**Azure per la Germania:**<br> login.microsoftonline.de:443 |
+| Utente che usa un account Microsoft<br> (ad esempio, user@hotmail.com) |**Globale:**<br> login.microsoftonline.com:443<br><br> **Azure per la Cina:**<br> login.chinacloudapi.cn:443<br><br>**Azure per enti pubblici statunitensi:**<br> login.microsoftonline.us:443<br><br>**Azure per la Germania:**<br> login.microsoftonline.de:443<br><br> e <br>login.live.com:443 |
+| Utente o entità servizio che usa un account aziendale o dell'istituto di istruzione con Azure AD (ad esempio, user@contoso.com) |**Globale:**<br> login.microsoftonline.com:443<br><br> **Azure per la Cina:**<br> login.chinacloudapi.cn:443<br><br>**Azure per enti pubblici statunitensi:**<br> login.microsoftonline.us:443<br><br>**Azure per la Germania:**<br> login.microsoftonline.de:443 |
 | Utente o entità servizio che usa un account aziendale o dell'istituto di istruzione oltre ad Active Directory Federation Services (AD FS) o un altro endpoint federato (ad esempio, user@contoso.com) |Tutti gli endpoint per un account aziendale o dell'istituto di istruzione oltre ad AD FS o altri endpoint federati |
 
 Esistono altri possibili scenari complessi. Per altre informazioni, vedere [Azure Active Directory Authentication Flow](/documentation/articles/active-directory-authentication-scenarios/) (Flussi di autenticazione di Azure Active Directory), [Integrazione di applicazioni con Azure Active Directory](/documentation/articles/active-directory-integrating-applications/) e [Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx) (Protocolli di autenticazione di Active Directory Authentication).  

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: b8f0f899dff0f9e238017cb77126b3ca1275f3cd
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: be84f68a044a73673e991f04c7fe36a7787b9c3c
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Archivio BLOB di Azure: livelli di archiviazione ad accesso frequente, ad accesso sporadico e archivio
 
@@ -133,7 +133,7 @@ Questa sezione presenta gli scenari seguenti usando il portale di Azure:
 
 5. Fare clic su Salva nella parte superiore del pannello.
 
-## <a name="faq"></a>domande frequenti
+## <a name="faq"></a>Domande frequenti
 
 **È consigliabile usare gli account di archiviazione BLOB o per utilizzo generico v2 se si vuole suddividere in livelli i dati?**
 
@@ -151,7 +151,7 @@ Sì, è possibile modificare il livello di archiviazione predefinito impostando 
 
 **È possibile impostare il livello di accesso all'account predefinito su archivio?**
 
-No. Solo i livelli di archiviazione ad accesso sporadico e ad accesso frequente possono essere impostati come livello di accesso all'account predefinito. L'archivio può essere impostato solo a livello di oggetto.
+di serie Solo i livelli di archiviazione ad accesso sporadico e ad accesso frequente possono essere impostati come livello di accesso all'account predefinito. L'archivio può essere impostato solo a livello di oggetto.
 
 **In quali aree sono disponibili i livelli di archiviazione ad accesso frequente, ad accesso sporadico e archivio?**
 
@@ -189,7 +189,7 @@ L'archiviazione dati e gli altri limiti vengono impostati a livello di account e
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-### <a name="evaluate-hot-cool-and-archvie-in-gpv2-blob-storage-accounts"></a>Valutare accesso frequente, accesso sporadico e archivio negli account di archiviazione BLOB per utilizzo generico v2
+### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>Valutare accesso frequente, accesso sporadico e archiviazione negli account di archiviazione BLOB per utilizzo generico v2
 
 [Controllare la disponibilità di accesso frequente, accesso sporadico e archivio in base all'area](https://azure.microsoft.com/regions/#services)
 

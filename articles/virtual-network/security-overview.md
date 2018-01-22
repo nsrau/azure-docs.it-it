@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: c3cba0c9ba38e7b0539fde7dc6460c76a47a19d6
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 142b9e052e09f88826ae8ea3866316444a5d7acc
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="network-security"></a>Sicurezza di rete
 
@@ -48,7 +48,7 @@ Un gruppo di sicurezza di rete può contenere zero regole o il numero di regole 
 
 |Proprietà  |Spiegazione  |
 |---------|---------|
-|Nome|Nome univoco all'interno del gruppo di sicurezza di rete.|
+|NOME|Nome univoco all'interno del gruppo di sicurezza di rete.|
 |Priorità | Numero compreso tra 100 e 4096. Le regole vengono elaborate in ordine di priorità. I numeri più bassi vengono elaborati prima di quelli più elevati perché hanno priorità più alta. Quando il traffico corrisponde a una regola, l'elaborazione viene interrotta. Di conseguenza, le regole con priorità più bassa (numeri più elevati) che hanno gli stessi attributi di regole con priorità più elevata non vengono elaborate.|
 |Origine o destinazione| Singolo indirizzo IP, blocco CIDR (ad esempio 10.0.0.0/24), tag di servizio o gruppo di sicurezza delle applicazioni oppure uno qualsiasi. Per altre informazioni, vedere [Tag di servizio](#service-tags) e [Gruppi di sicurezza delle applicazioni](#application-security-groups). Specificando un intervallo, un tag di servizio o un gruppo di sicurezza delle applicazioni è possibile creare un minor numero di regole di sicurezza. La possibilità di specificare più intervalli e indirizzi IP singoli in una regola è detta regola di sicurezza ottimizzata. Non si possono specificare più tag di servizio o gruppi di applicazioni. Vedere altre informazioni sulle [regole di sicurezza ottimizzate](#augmented-security-rules). È possibile creare regole di sicurezza ottimizzate solo in gruppi di sicurezza di rete creati tramite il modello di distribuzione Resource Manager. Non si possono specificare più indirizzi IP e intervalli di indirizzi IP nei gruppi di sicurezza di rete creati tramite il modello di distribuzione classica.|
 |Protocollo     | TCP, UDP o Qualsiasi, che include TCP, UDP e ICMP. Non è possibile specificare solo ICMP. Se è necessario ICMP, si deve usare Qualsiasi. |
@@ -74,13 +74,13 @@ Se a una subnet o un'interfaccia di rete non è associato un gruppo di sicurezza
 
 |Priorità|Sorgente|Porte di origine|Destination|Porte di destinazione|Protocollo|Accesso|
 |---|---|---|---|---|---|---|
-|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Tutti|Consenti|
+|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Tutti|CONSENTI|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
 |Priorità|Sorgente|Porte di origine|Destination|Porte di destinazione|Protocollo|Accesso|
 |---|---|---|---|---|---|---|
-|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Tutti|Consenti|
+|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Tutti|CONSENTI|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
@@ -94,13 +94,13 @@ Se a una subnet o un'interfaccia di rete non è associato un gruppo di sicurezza
 
 |Priorità|Sorgente|Porte di origine| Destination | Porte di destinazione | Protocollo | Accesso |
 |---|---|---|---|---|---|---|
-| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Tutti | Consenti |
+| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Tutti | CONSENTI |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
 |Priorità|Sorgente|Porte di origine| Destination | Porte di destinazione | Protocollo | Accesso |
 |---|---|---|---|---|---|---|
-| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Tutti | Consenti |
+| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Tutti | CONSENTI |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
@@ -116,12 +116,12 @@ Non è possibile rimuovere le regole predefinite, ma è possibile eseguirne l'ov
 
  Un tag di servizio rappresenta un gruppo di prefissi di indirizzo IP che consente di ridurre al minimo la complessità nella creazione di regole di sicurezza. Non è possibile creare tag di servizio personalizzati, né specificare gli indirizzi IP inclusi in un tag. I prefissi di indirizzo inclusi nel tag di servizio sono gestiti da Microsoft, che aggiorna automaticamente il tag in caso di modifica degli indirizzi. È possibile usare tag di servizio invece di indirizzi IP specifici nella creazione di regole di sicurezza. Nella definizione delle regole di sicurezza possono essere usati i tag di servizio seguenti. I nomi variano leggermente a seconda del [modello di distribuzione di Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-* **VirtualNetwork** (*Resource Manager*) o *VIRTUAL_NETWORK** (distribuzione classica): questo tag include lo spazio indirizzi della rete virtuale (tutti gli intervalli CIDR definiti per la rete virtuale), tutti gli spazi indirizzi locali connessi e le reti virtuali [con peering](virtual-network-peering-overview.md) o una rete virtuale connessa a un [gateway di rete virtuale](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* **VirtualNetwork** (*Resource Manager) (**VIRTUAL_NETWORK** per la distribuzione classica): questo tag include lo spazio indirizzi della rete virtuale (tutti gli intervalli CIDR definiti per la rete virtuale), tutti gli spazi indirizzi locali connessi e le reti virtuali [con peering](virtual-network-peering-overview.md) o una rete virtuale connessa a un [gateway di rete virtuale](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * **AzureLoadBalancer** (Resource Manager) o **AZURE_LOADBALANCER** (distribuzione classica): questo tag identifica il servizio di bilanciamento del carico dell'infrastruttura di Azure. Viene convertito in un [indirizzo IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) da cui hanno origine i probe di integrità di Azure. Se non si usa Azure Load Balancer, è possibile eseguire l'override di questa regola.
 * **Internet** (Resource Manager) o **INTERNET** (distribuzione classica): questo tag identifica lo spazio indirizzi IP esterno alla rete virtuale e raggiungibile tramite Internet pubblico. L'intervallo degli indirizzi include lo [spazio degli IP pubblici appartenenti ad Azure](https://www.microsoft.com/download/details.aspx?id=41653).
-* **AzureTrafficManager** (solo Resource Manager): questo tag identifica lo spazio indirizzi IP per il servizio Gestione traffico di Azure. Questo tag è disponibile in anteprima. Le funzionalità in anteprima non offrono lo stesso livello di disponibilità e affidabilità delle funzionalità in versione di disponibilità generale.
-* **Storage** (solo Resource Manager): questo tag identifica lo spazio indirizzi IP per il servizio Archiviazione di Azure. Se si specifica *Storage* come valore, verrà consentito o impedito il traffico verso il servizio di archiviazione. Se si vuole consentire l'accesso al servizio di archiviazione solo in una determinata [area](https://azure.microsoft.com/regions), è possibile specificare tale area. Se ad esempio si vuole consentire l'accesso ad Archiviazione di Azure solo nell'area Stati Uniti orientali, è possibile specificare *Storage.EastUS* come tag di servizio. Il tag rappresenta il servizio, ma non istanze specifiche del servizio. Ad esempio, il tag rappresenta il servizio Archiviazione di Azure, ma non uno specifico account di archiviazione di Azure. Questo tag è disponibile in anteprima. Le funzionalità in anteprima non offrono lo stesso livello di disponibilità e affidabilità delle funzionalità in versione di disponibilità generale.
-* **Sql** (solo Resource Manager): questo tag identifica i prefissi di indirizzo dei servizi Database SQL di Azure e Azure SQL Data Warehouse. Se si specifica *Sql* come valore, verrà consentito o impedito il traffico verso SQL. Se si vuole consentire l'accesso a SQL solo in una determinata [area](https://azure.microsoft.com/regions), è possibile specificare tale area. Se ad esempio si vuole consentire l'accesso a Database SQL di Azure solo nell'area Stati Uniti orientali, è possibile specificare *Sql.EastUS* come tag di servizio. Il tag rappresenta il servizio, ma non istanze specifiche del servizio. Ad esempio, il tag rappresenta il servizio Database SQL di Azure, ma non uno specifico server o database SQL. Questo tag è disponibile in anteprima. Le funzionalità in anteprima non offrono lo stesso livello di disponibilità e affidabilità delle funzionalità in versione di disponibilità generale.
+* **AzureTrafficManager** (solo Resource Manager): questo tag identifica lo spazio indirizzi IP per il servizio Gestione traffico di Azure.
+* **Storage** (solo Resource Manager): questo tag identifica lo spazio indirizzi IP per il servizio Archiviazione di Azure. Se si specifica *Storage* come valore, verrà consentito o impedito il traffico verso il servizio di archiviazione. Se si vuole consentire l'accesso al servizio di archiviazione solo in una determinata [area](https://azure.microsoft.com/regions), è possibile specificare tale area. Se ad esempio si vuole consentire l'accesso ad Archiviazione di Azure solo nell'area Stati Uniti orientali, è possibile specificare *Storage.EastUS* come tag di servizio. Il tag rappresenta il servizio, ma non istanze specifiche del servizio. Ad esempio, il tag rappresenta il servizio Archiviazione di Azure, ma non uno specifico account di archiviazione di Azure.
+* **Sql** (solo Resource Manager): questo tag identifica i prefissi di indirizzo dei servizi Database SQL di Azure e Azure SQL Data Warehouse. Se si specifica *Sql* come valore, verrà consentito o impedito il traffico verso SQL. Se si vuole consentire l'accesso a SQL solo in una determinata [area](https://azure.microsoft.com/regions), è possibile specificare tale area. Se ad esempio si vuole consentire l'accesso a Database SQL di Azure solo nell'area Stati Uniti orientali, è possibile specificare *Sql.EastUS* come tag di servizio. Il tag rappresenta il servizio, ma non istanze specifiche del servizio. Ad esempio, il tag rappresenta il servizio Database SQL di Azure, ma non uno specifico server o database SQL.
 
 > [!NOTE]
 > Se si implementa un [endpoint servizio di rete virtuale](virtual-network-service-endpoints-overview.md) per un servizio come Archiviazione di Azure o Database SQL di Azure, Azure aggiunge una route a una subnet di rete virtuale per il servizio. I prefissi di indirizzo nella route sono gli stessi prefissi di indirizzo o intervalli CIDR del tag di servizio corrispondente.
