@@ -63,7 +63,7 @@
           href: automation-runbook-output-and-messages.md
         - name: Integrazione del controllo del codice sorgente
           href: automation-source-control-integration.md
-    - name: Automazione
+    - name: Automatizzare
       items:
         - name: Avviare un runbook
           href: automation-starting-a-runbook.md
@@ -99,7 +99,7 @@
       items:
         - name: Panoramica di DSC (Desired State Configuration)
           href: automation-dsc-overview.md
-        - name: introduttiva
+        - name: Introduzione
           href: automation-dsc-getting-started.md
         - name: Configurare i server allo stato desiderato e gestire la deviazione con Automazione di Azure
           href: tutorial-configure-servers-desired-state.md
@@ -115,7 +115,7 @@
       items:
         - name: Certificati
           href: automation-certificates.md
-        - name: Connessioni
+        - name: connessioni
           href: automation-connections.md
         - name: Credenziali
           href: automation-credentials.md
@@ -131,10 +131,10 @@
       items:
         - name: raccolta di runbook
           href: automation-runbook-gallery.md
+        - name: Avviare un runbook da avvisi di Azure
+          href: automation-create-alert-triggered-runbook.md
         - name: Creare una VM Amazon Web Services
           href: automation-scenario-aws-deployment.md
-        - name: Correggere gli avvisi delle VM di Azure
-          href: automation-azure-vm-alert-integration.md
         - name: Avviare/arrestare una VM con tag JSON
           href: automation-scenario-start-stop-vm-wjson-tags.md
         - name: Rimuovere un gruppo di risorse
@@ -175,7 +175,7 @@
           href: automation-orchestrator-migration.md
         - name: Spostare l'account di Automazione
           href: automation-migrate-account-subscription.md
-    - name: Risoluzione dei problemi
+    - name: Risolvere problemi
       items:
         - name: Risoluzione dei problemi comuni
           href: automation-troubleshooting-automation-errors.md

@@ -369,6 +369,8 @@
           href: copy-files-to-linux-vm-using-scp.md
         - name: Eseguire la migrazione ad Archiviazione Premium con Azure Site Recovery
           href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: Trovare dischi non collegati
+          href: find-unattached-disks.md
         - name: Usare Archiviazione file
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Eseguire la distribuzione di dischi con un modello
@@ -472,7 +474,7 @@
               href: troubleshoot-recovery-disks.md
             - name: Portale di Azure
               href: troubleshoot-recovery-disks-portal.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/vm

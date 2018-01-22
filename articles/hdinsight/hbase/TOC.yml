@@ -43,6 +43,11 @@
           href: apache-hbase-phoenix-squirrel-linux.md
         - name: Usare Phoenix Query Server REST SDK
           href: apache-hbase-using-phoenix-query-server-rest-sdk.md
+    - name: Analizzare Big Data
+      items:
+        - name: Usare Spark per leggere e scrivere dati HBase
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
     - name: Estendere i cluster
       items:
         - name: Personalizzare i cluster usando bootstrap
@@ -233,7 +238,7 @@
         - name: Monitorare le prestazioni di un cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Riferimento
+- name: Riferimenti
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

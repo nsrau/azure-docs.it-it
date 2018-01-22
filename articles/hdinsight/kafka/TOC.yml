@@ -45,6 +45,10 @@
           maintainContext: true
     - name: Sviluppo
       items:
+        - name: Uso di API per producer e consumer Kafka
+          href: apache-kafka-producer-consumer-api.md
+        - name: Uso di API Kafka Streams
+          href: apache-kafka-streams-api.md
         - name: Usare nodi perimetrali vuoti
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
@@ -202,7 +206,7 @@
         - name: Monitorare le prestazioni di un cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

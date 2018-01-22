@@ -286,6 +286,8 @@
           href: convert-disk-storage.md
         - name: Eseguire la migrazione ad Archiviazione Premium con Azure Site Recovery
           href: migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: Trovare dischi non collegati
+          href: find-unattached-disks.md
         - name: Usare Archiviazione file
           href: mount-azure-file-storage.md
         - name: Eseguire la distribuzione di dischi con un modello
@@ -418,7 +420,7 @@
           href: performance-diagnostics-vm-extension.md
         - name: Usare la virtualizzazione annidata
           href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: Riferimento
+- name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/vm

@@ -352,6 +352,8 @@
               href: secure-access-to-data.md
     - name: Integrare
       items:
+        - name: Implementare un'architettura lambda con HDInsight
+          href: lambda-architecture.md
         - name: Connettersi a Spark
           href: spark-connector.md
         - name: Connettersi a Spark GraphX
@@ -380,7 +382,7 @@
           href: odbc-driver.md
         - name: Usare Spring Boot Starter con le API SQL
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'

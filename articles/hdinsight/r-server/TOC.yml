@@ -44,6 +44,8 @@
         - name: Strumenti per VSCode
           href: ../hdinsight-for-vscode.md
           maintainContext: true
+        - name: Inviare processi da R Tools per Visual Studio
+          href: r-server-submit-jobs-r-tools-vs.md
     - name: Estendere i cluster
       items:
         - name: Personalizzare i cluster usando bootstrap
@@ -269,7 +271,7 @@
         - name: Monitorare le prestazioni di un cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Riferimento
+- name: riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

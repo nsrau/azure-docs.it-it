@@ -115,6 +115,9 @@
           href: apache-spark-microsoft-cognitive-toolkit.md
     - name: Analizzare Big Data
       items:
+        - name: Usare Spark per leggere e scrivere dati HBase
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
         - name: Analizzare i log di Application Insights Telemetry
           href: apache-spark-analyze-application-insight-logs.md
     - name: Estendere i cluster
@@ -178,6 +181,8 @@
           maintainContext: true
     - name: Gestisci
       items:
+        - name: Ottimizzare i processi Spark
+          href: apache-spark-perf.md
         - name: Pianificazione della capacità dei cluster
           href: ../hdinsight-capacity-planning.md
           maintainContext: true

@@ -52,9 +52,15 @@
     - name: 2 - Configurare il dispositivo
       href: tutorial-set-up-device.md
     - name: 3 - Effettuare il provisioning di un dispositivo in un hub IoT
-      href: tutorial-provision-device-to-hub.md
+      items:
+        - name: C
+          href: tutorial-provision-device-to-hub.md
+        - name: 'C#'
+          href: tutorial-net-provision-device-to-hub.md
     - name: 4 - Effettuare il provisioning di dispositivi in più hub
       href: tutorial-provision-multiple-hubs.md
+    - name: 5 - Eseguire il provisioning delle registrazioni di gruppo
+      href: tutorial-group-enrollments.md
 - name: Concetti
   items:
     - name: Concetti relativi ai dispositivi
@@ -73,6 +79,8 @@
           href: how-to-manage-enrollments-sdks.md
     - name: Revocare l'accesso ai dispositivi
       href: how-to-revoke-device-access-portal.md
+    - name: Annullare il provisioning dei dispositivi
+      href: how-to-unprovision-devices.md
     - name: Usare il modulo di protezione hardware con SDK
       href: use-hsm-with-sdk.md
     - name: Controllare l'accesso al servizio di provisioning
