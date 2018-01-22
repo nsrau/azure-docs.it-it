@@ -9,7 +9,7 @@
 >
 > E quindi passare direttamente al [passaggio di configurazione](#create-an-application-express) per configurare l'esempio di codice prima di eseguirlo.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per eseguire l'installazione guidata, è necessario un server Web locale, ad esempio [Python http.server](https://www.python.org/downloads/), [http-server](https://www.npmjs.com/package/http-server/), [.NET Core](https://www.microsoft.com/net/core) o l'integrazione di IIS Express con [Visual Studio 2017](https://www.visualstudio.com/downloads/). 
 
 Le istruzioni di questa guida sono basate su Python e Visual Studio 2017, ma è possibile usare qualsiasi altro ambiente di sviluppo o server Web.

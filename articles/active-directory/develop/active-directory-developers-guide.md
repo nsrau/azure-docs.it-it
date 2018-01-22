@@ -15,10 +15,10 @@ ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: 89a232af6387f6403e6e341cced16d06e9979dae
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory per sviluppatori
 Azure Active Directory (Azure AD) è un servizio cloud di gestione delle identità con il quale gli sviluppatori possono consentire l'accesso sicuro agli utenti con un account Microsoft aziendale o dell'istituto di istruzione. Questa documentazione illustra come aggiungere il supporto di Azure AD all'applicazione tramite protocolli standard di settore: OAuth2.0 e OpenID Connect.
