@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.openlocfilehash: 8c023eda179ace41a082bf4a4fadc281c14db7ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 381947a5c936b2bbcae1cf61cdd36eb1653be30b
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Introduzione a nomi IDN per Azure Stack
 
@@ -30,7 +30,7 @@ Consente inoltre di registrare i nomi di rete virtuale interna. In questo modo, 
 Si tratta di qualcosa che è sempre stato presente in Azure, ma è disponibile in Windows Server 2016 e Stack di Azure.
 
 ## <a name="what-does-idns-do"></a>Scopo di nomi IDN
-Con nomi IDN nello Stack di Azure, sono disponibili le seguenti funzionalità, senza dover specificare voci dei server DNS personalizzate.
+Con nomi IDN nello Stack di Azure, sono disponibili le seguenti funzionalità, senza dover specificare voci dei server DNS personalizzate:
 
 * Condiviso di servizi di risoluzione DNS per i carichi di lavoro tenant.
 * Servizio DNS autorevole per la risoluzione dei nomi e la registrazione DNS nella rete virtuale del tenant.
@@ -47,7 +47,7 @@ In Azure, è possibile specificare un'etichetta del nome DNS che può essere ass
 
 Nell'immagine precedente, Azure creerà un"record" in DNS per l'etichetta del nome DNS specificato nella zona **westus.cloudapp.azure.com**. Il prefisso e il suffisso insieme costituiscono un dominio nome (completo) che può essere risolto da un punto qualsiasi sulla rete Internet pubblica.
 
-Stack di Azure supporta solo i nomi IDN per la registrazione del nome interno, in modo non è possibile eseguire le operazioni seguenti.
+Stack di Azure supporta solo i nomi IDN per la registrazione del nome interno, pertanto non è possibile eseguire le operazioni seguenti:
 
 * Creare un record DNS in una zona DNS ospitato esistente (ad esempio, local.azurestack.external).
 * Creare una zona DNS (ad esempio, Contoso.com).
