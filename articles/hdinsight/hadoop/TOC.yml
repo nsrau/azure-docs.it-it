@@ -4,6 +4,9 @@
   items:
     - name: Panoramica
       href: apache-hadoop-introduction.md
+    - name: Architettura Hadoop in HDInsight
+      href: ../hdinsight-hadoop-architecture.md
+      maintainContext: true
     - name: Componenti Hadoop in HDInsight
       href: ../hdinsight-component-versioning.md
       maintainContext: true
@@ -153,6 +156,12 @@
           maintainContext: true
         - name: Analisi avanzate per HDInsight
           href: apache-hadoop-deep-dive-advanced-analytics.md
+        - name: Machine Learning in HDInsight
+          href: ../hdinsight-machine-learning-overview.md
+          maintainContext: true
+        - name: Streaming su larga scala in HDInsight
+          href: ../hdinsight-streaming-at-scale-overview.md
+          maintainContext: true
     - name: Estendere i cluster
       items:
         - name: Personalizzare i cluster usando bootstrap
@@ -400,7 +409,7 @@
           maintainContext: true
         - name: Analizzare i log di Hadoop
           href: apache-hadoop-debug-jobs.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

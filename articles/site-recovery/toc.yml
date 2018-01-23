@@ -265,7 +265,7 @@
           href: site-recovery-manage-registration-and-protection.md
         - name: Eliminare un insieme di credenziali
           href: delete-vault.md
-    - name: Risolvere problemi
+    - name: Monitorare e risolvere i problemi
       items:
         - name: Problemi di replica da Azure ad Azure
           href: site-recovery-azure-to-azure-troubleshoot-errors.md
@@ -275,9 +275,9 @@
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Problemi del failover in Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
-        - name: Raccogliere i log e risolvere i problemi locali
-          href: site-recovery-monitoring-and-troubleshooting.md
-- name: riferimento
+        - name: Monitorare Azure Site Recovery
+          href: site-recovery-monitor-and-troubleshoot.md
+- name: Riferimenti
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.recoveryservices.siterecovery

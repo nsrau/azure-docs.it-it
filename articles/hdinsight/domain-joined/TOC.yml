@@ -10,6 +10,9 @@
       href: apache-domain-joined-configure.md
     - name: Configurare cluster aggiunti al dominio con Azure Active Directory Domain Services
       href: apache-domain-joined-configure-using-azure-adds.md
+    - name: Sincronizzare gli utenti di Azure AD con un cluster HDInsight
+      href: ../hdinsight-sync-aad-users-to-cluster.md
+      maintainContext: true
     - name: Configurare criteri Hive
       href: apache-domain-joined-run-hive.md
       maintainContext: true
@@ -46,7 +49,7 @@
     - name: Monitorare le prestazioni di un cluster
       href: ../hdinsight-key-scenarios-to-monitor.md
       maintainContext: true
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
