@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
 ms.openlocfilehash: a6627ab6febc763ae3f1cd464f26ad641f7c717d
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Funzionalità e strumenti per Bash in Azure Cloud Shell
 
@@ -74,4 +74,4 @@ I file all'esterno di `$Home` e lo stato della macchina non sono persistenti tra
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Avvio rapido di Bash in Cloud Shell](quickstart.md) <br>
-[Informazioni su CLI di Azure 2.0](https://docs.microsoft.com/cli/azure/)
+[Informazioni sull'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/)
