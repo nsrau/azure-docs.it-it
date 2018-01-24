@@ -75,10 +75,12 @@
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.JS](iot-hub-node-node-process-d2c.md)
+#### [Python](iot-hub-python-python-process-d2c.md)
 ### Inviare messaggi da cloud a dispositivo
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
-#### [Node.JS](iot-hub-node-node-c2d.md)
+#### [Node.js](iot-hub-node-node-c2d.md)
+#### [Python](iot-hub-python-python-c2d.md)
 ### Caricare file da dispositivi
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -88,11 +90,13 @@
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-twin-getstarted.md)
 #### [Back-end .NET/Dispositivo .NET](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Back-end Java/Dispositivo Java](iot-hub-java-java-twin-getstarted.md)
+#### [Back-end Python/Dispositivo Python](iot-hub-python-twin-getstarted.md)
 ### Usare metodi diretti
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-direct-methods.md)
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-direct-methods.md)
 #### [Back-end .NET/Dispositivo .NET](iot-hub-csharp-csharp-direct-methods.md)
 #### [Back-end Java/Dispositivo Java](iot-hub-java-java-direct-methods.md)
+#### [Back-end Python/Dispositivo Python](iot-hub-python-python-direct-methods.md)
 ### Introduzione alla gestione dei dispositivi
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-device-management-get-started.md)
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-device-management-get-started.md)

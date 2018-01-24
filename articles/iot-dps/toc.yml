@@ -87,6 +87,8 @@
       href: how-to-control-access.md
     - name: Usare l'interfaccia della riga di comando di Azure per gestire il servizio Device Provisioning
       href: how-to-manage-dps-with-cli.md
+    - name: Usare gli strumenti SDK per lo sviluppo
+      href: how-to-use-sdk-tools.md
 - name: riferimento
   items:
     - name: REST

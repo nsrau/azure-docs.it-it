@@ -4,11 +4,11 @@ hide_bc: True
 title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
 featureFlags: clicktale
-ms.openlocfilehash: 301a88918d96d94a8e3878cd5d8d33cbabcffdc1
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2cc74958c62ed99c75e848094e9da40fb21dddd3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1047,7 +1047,7 @@ ms.lasthandoff: 01/18/2018
                                                 <img src="media/index/LogicApp.svg" alt="" />
                                                 <p>App per la logica</p>
                                             </a>
-                                        </li>                                        
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -1303,7 +1303,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Set di scalabilità di macchine virtuali</h3>
-                                                    <p>Gestire e ridimensionare da decine a migliaia di macchine virtuali Linux e Windows</p>
+                                                    <p>Gestire e creare fino a migliaia di macchine virtuali Linux e Windows</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1341,7 +1341,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Servizio app</h3>
-                                                    <p>Distribuire app Web in Linux usando i contenitori</p>
+                                                    <p>Creare rapidamente app cloud potenti per il Web e per i dispositivi mobili</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1379,7 +1379,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Servizio contenitore di Azure</h3>
-                                                    <p>Eseguire applicazioni in contenitori scalabili con Kubernetes</p>
+                                                    <p>Semplificare la distribuzione, la gestione e le operazioni di Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1536,8 +1536,7 @@ ms.lasthandoff: 01/18/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>gateway applicazione</h3>
-                                                    <p>
-Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico HTTP e controllo della distribuzione incorporati </p>
+                                                    <p>Creare front-end Web sicuri, scalabili e a disponibilità elevata in Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1594,7 +1593,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Rete per la distribuzione di contenuti (CDN)</h3>
-                                                    <p>Distribuire contenuti agli utenti finali tramite una solida rete di data center globali</p>
+                                                    <p>Assicurare la distribuzione di contenuti sicura e affidabile con ampia copertura globale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1670,7 +1669,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Network Watcher</h3>
-                                                    <p>Monitorare e diagnosticare le condizioni a livello di scenario di rete</p>
+                                                    <p>Soluzione di monitoraggio e diagnostica delle prestazioni di rete</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1713,7 +1712,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Archiviazione BLOB</h3>
-                                                    <p>Archiviazione di oggetti a scalabilità molto elevata per dati non strutturati</p>
+                                                    <p>Archiviazione di oggetti basata su REST per dati non strutturati</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1732,7 +1731,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Archiviazione su disco</h3>
-                                                    <p>Archiviazione su disco per le VM</p>
+                                                    <p>Opzioni su disco persistenti e sicure che supportano le macchine virtuali</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1751,7 +1750,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Archiviazione di accodamento</h3>
-                                                    <p>Code durevoli per servizi cloud di volume elevato</p>
+                                                    <p>Scalabilità efficace delle app in base al traffico</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1770,7 +1769,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Archiviazione file</h3>
-                                                    <p>Semplice file system multipiattaforma distribuito</p>
+                                                    <p>Condivisioni file che usano il protocollo SMB 3.0 standard</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1808,7 +1807,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>Archiviazione cloud ibrida per le organizzazioni, con miglioramento della sicurezza dei dati</p>
+                                                    <p>Riduzione dei costi con una soluzione di archiviazione cloud ibrida aziendale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1846,7 +1845,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
-                                                    <p>Orchestrare il ripristino di emergenza di macchine virtuali di Azure, macchine virtuali locali e server fisici</p>
+                                                    <p>Orchestrare la protezione e il ripristino di cloud privati</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1927,7 +1926,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>App per le API</h3>
-                                                    <p>Creare e usare facilmente API cloud</p>
+                                                    <p>Compilare e usare facilmente API cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1946,7 +1945,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Rete per la distribuzione di contenuti (CDN)</h3>
-                                                    <p>Distribuire contenuti agli utenti finali tramite una solida rete di data center globali </p>
+                                                    <p>Assicurare la distribuzione di contenuti sicura e affidabile con ampia copertura globale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2022,7 +2021,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Hub di notifica</h3>
-                                                    <p>Un motore di notifica push scalabile, per inviare rapidamente milioni di messaggi</p>
+                                                    <p>Inviare notifiche push a qualsiasi piattaforma da qualunque back-end</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2046,7 +2045,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Servizio contenitore di Azure</h3>
-                                                    <p>Eseguire applicazioni in contenitori scalabili con Kubernetes</p>
+                                                    <p>Semplificare la distribuzione, la gestione e le operazioni di Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2165,7 +2164,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Database SQL</h3>
-                                                    <p>Database relazionale gestito distribuito come servizio</p>
+                                                    <p>Database SQL relazionale gestito distribuito come servizio</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2279,7 +2278,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Archiviazione tabelle</h3>
-                                                    <p>Database multimodello distribuito a livello globale a qualsiasi livello di scalabilità</p>
+                                                    <p>Archivio chiave-valore NoSQL con set di dati semistrutturati</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2298,7 +2297,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cache Redis</h3>
-                                                    <p>Accesso a dati con bassa latenza e velocità effettiva elevata per creare applicazioni scalabili/veloci</p>
+                                                    <p>Integrare nelle applicazioni bassa latenza e velocità effettiva elevata</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2398,7 +2397,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Analysis Services</h3>
-                                                    <p>Modellazione di dati di livello aziendale sul cloud</p>
+                                                    <p>Motore di analisi di livello aziendale distribuito come servizio</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2474,7 +2473,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning Studio</h3>
-                                                    <p>Potenti strumenti di analisi predittiva basata sul cloud per la manutenzione predittiva</p>
+                                                    <p>Compilare, distribuire e gestire con facilità le soluzioni analitiche predittive</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2493,7 +2492,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Catalog</h3>
-                                                    <p>Individuazione self-service di origini dati nell'intera organizzazione</p>
+                                                    <p>Realizzare valore maggiore dagli asset di dati aziendali</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2558,7 +2557,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Servizi di Machine Learning</h3>
-                                                    <p>Potenti strumenti di analisi predittiva basata sul cloud per la manutenzione predittiva</p>
+                                                    <p>Rendere disponibile l'intelligenza artificiale per tutti, con una piattaforma attendibile, scalabile ed end-to-end con gestione di modelli e sperimentazioni</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2834,7 +2833,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Edge</h3>
-                                                    <p>Estendere l'intelligence per il cloud ai dispositivi perimetrali</p>
+                                                    <p>Estendere l'intelligence dal cloud ai dispositivi perimetrali</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2872,13 +2871,13 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Servizi Location Based di Azure</h3>
-                                                    <p>Mappe, indicazioni stradali, ricerca e altri avanzati servizi geospaziali</p>
+                                                    <p>Le API semplici e sicure per la posizione forniscono contesto geospaziale per i dati</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href="/azure/event-hubs/">
                                     <div class="cardSize">
@@ -2929,7 +2928,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Servizi di Machine Learning</h3>
-                                                    <p>Potenti strumenti di analisi predittiva basata sul cloud per la manutenzione predittiva</p>
+                                                    <p>Rendere disponibile l'intelligenza artificiale per tutti, con una piattaforma attendibile, scalabile ed end-to-end con gestione di modelli e sperimentazioni</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2948,7 +2947,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Hub di notifica</h3>
-                                                    <p>Un motore di notifica push scalabile, per inviare rapidamente milioni di messaggi</p>
+                                                    <p>Inviare notifiche push a qualsiasi piattaforma da qualunque back-end</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3030,7 +3029,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3105,7 +3104,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>StorSimple</h3>
-                                                    <p>Archiviazione cloud ibrida per le organizzazioni, con miglioramento della sicurezza dei dati</p>
+                                                    <p>Riduzione dei costi con una soluzione di archiviazione cloud ibrida aziendale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3143,7 +3142,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Catalog</h3>
-                                                    <p>Individuazione self-service di origini dati nell'intera organizzazione</p>
+                                                    <p>Realizzare valore maggiore dagli asset di dati aziendali</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3224,7 +3223,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Centro sicurezza</h3>
-                                                    <p>Impedire e rilevare le minacce e rispondere con visibilità maggiore</p>
+                                                    <p>Centralizzare la gestione della sicurezza e abilitare la protezione avanzata dalle minacce nei carichi di lavoro cloud ibridi</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3262,7 +3261,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Insieme di credenziali di chiave</h3>
-                                                    <p>Informazioni su come gestire segreti e chiavi crittografiche</p>
+                                                    <p>Controllare e proteggere chiavi e altri dati segreti</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3338,7 +3337,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Multi-Factor Authentication</h3>
-                                                    <p>Protezione dell'accesso ai dati e alle app grazie a un livello aggiuntivo di autenticazione</p>
+                                                    <p>Aggiungere sicurezza per dati e app senza complicazioni aggiuntive per gli utenti</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3500,7 +3499,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Criteri di Azure</h3>
-                                                    <p>Creare, assegnare e gestire le definizioni dei criteri </p>
+                                                    <p>Implementare la governance e gli standard aziendali su larga scala per le risorse di Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3519,7 +3518,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Gestione dei costi di Azure</h3>
-                                                    <p>Tenere traccia dell'utilizzo del cloud e delle spese</p>
+                                                    <p>Ottimizzare la spesa per il cloud, sfruttando al massimo le potenzialità del cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3576,7 +3575,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Log Analytics</h3>
-                                                    <p>Informazioni su come trasformare dati dei computer in informazioni operative</p>
+                                                    <p>Raccogliere, cercare e visualizzare i dati dei computer in locale e nel cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3690,7 +3689,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Advisor</h3>
-                                                    <p>Migliorare l'efficacia in termini di costi, le prestazioni, la disponibilità elevata e la sicurezza delle risorse di Azure</p>
+                                                    <p>Motore personalizzato di raccomandazione di procedure consigliate per Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3709,7 +3708,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Integrità del servizio di Azure</h3>
-                                                    <p>Fornisce indicazioni personalizzate e supporto tecnico in caso di impatto dei problemi dei servizi di Azure sulle attività dell'utente.</p>
+                                                    <p>Ottenere indicazioni personalizzate e supporto tecnico in caso di impatto dei problemi dei servizi di Azure sulle attività dell'utente</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3728,7 +3727,7 @@ Servizio di bilanciamento del carico di livello 7 con bilanciamento del carico H
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Applicazioni gestite</h3>
-                                                    <p>Gestire soluzioni distribuite per i clienti</p>
+                                                    <p>Semplificare la gestione delle offerte cloud</p>
                                                 </div>
                                             </div>
                                         </div>
