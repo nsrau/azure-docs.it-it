@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: mabrigg
-ms.openlocfilehash: 09c22b22b49664a55b8a9e77936df3b1362d5b88
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 9bbfffe15dc23d5d7d7b17aa4c79edc8a2aaab8c
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="start-and-stop-azure-stack"></a>Avviare e arrestare Azure Stack
 
@@ -41,6 +41,15 @@ Arresto dello Stack di Azure con i passaggi seguenti:
 > [!Note]  
 > È possibile verificare lo stato di alimentazione di un nodo fisico seguendo le istruzioni da Original Equipment Manufacturer (OEM) che ha fornito l'hardware di Azure Stack. 
 
+## <a name="start-azure-stack"></a>Avviare dello Stack di Azure 
+
+Avviare dello Stack di Azure con i passaggi seguenti. Seguire questi passaggi indipendentemente dalla modalità di arresto dello Stack di Azure.
+
+1. Risparmio energia in ogni nodo fisico Stack Azure nell'ambiente in uso. Verificare la potenza nelle istruzioni per i nodi fisici seguendo le istruzioni da Original Equipment Manufacturer (OEM) che ha fornito l'hardware per lo Stack di Azure.
+
+2. Attendere fino all'avvio di servizi di infrastruttura di Azure Stack. Servizi di infrastruttura di Azure Stack possono richiedere due ore per terminare il processo di avvio. È possibile verificare lo stato di inizio dello Stack di Azure con il [ **Get ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack).
+
+
 ## <a name="get-the-startup-status-for-azure-stack"></a>Ottenere lo stato di avvio per lo Stack di Azure
 
 Ottenere l'avvio della routine di avvio dello Stack di Azure con i passaggi seguenti:
@@ -52,14 +61,6 @@ Ottenere l'avvio della routine di avvio dello Stack di Azure con i passaggi segu
     ```powershell
       Get-ActionStatus Start-AzureStack
     ```
-
-## <a name="start-azure-stack"></a>Avviare dello Stack di Azure 
-
-Avviare dello Stack di Azure con i passaggi seguenti. Seguire questi passaggi indipendentemente dalla modalità di arresto dello Stack di Azure.
-
-1. Risparmio energia in ogni nodo fisico Stack Azure nell'ambiente in uso. Verificare la potenza nelle istruzioni per i nodi fisici seguendo le istruzioni da Original Equipment Manufacturer (OEM) che ha fornito l'hardware per lo Stack di Azure.
-
-2. Attendere fino all'avvio di servizi di infrastruttura di Azure Stack. Servizi di infrastruttura di Azure Stack possono richiedere due ore per terminare il processo di avvio. È possibile verificare lo stato di inizio dello Stack di Azure con il [ **Get ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack).
 
 ## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Risoluzione dei problemi di avvio e arresto dello Stack di Azure
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 1/23/2018
 ms.author: mabrigg
-ms.openlocfilehash: f88ac4da58279ea9642bd93ac5f971d8047e310b
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: b0b0a4af1d852de516d387697afb2760b967db43
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>Aggiungere l'immagine di macchina virtuale di Windows Server 2016 a Stack Azure Marketplace
 
@@ -135,19 +135,23 @@ Eseguire i seguenti prerequisiti, tramite il [kit di sviluppo](azure-stack-conne
 
 Per assicurarsi che l'immagine di macchina virtuale di Windows Server 2016 include l'aggiornamento cumulativo più recente, includere il `IncludeLatestCU` parametro quando si esegue il `New-AzsServer2016VMImage` cmdlet. Per informazioni sui parametri consentiti per il `New-AzsServer2016VMImage` cmdlet, vedere [parametri](#parameters). Sono necessari circa un'ora per pubblicare l'immagine in Azure Marketplace dello Stack. 
 
-## <a name="parameters"></a>Parametri
+## <a name="parameters-for-new-azsserver2016vmimage"></a>Parametri per la nuova AzsServer2016VMImage
 
-|Parametri di nuovo AzsServer2016VMImage|Obbligatorio|Descrizione|
-|-----|-----|------|
-|ISOPath|Sì|Il percorso completo per Windows Server 2016 ISO scaricata.|
-|net35|No|Installa il runtime di .NET 3.5 dell'immagine di Windows Server 2016. Per impostazione predefinita, questo valore è impostato su **true**.|
-|Versione|No|Specifica **Core**, **completo**, o **entrambi** immagini di Windows Server 2016. Per impostazione predefinita, questo valore è impostato su **completo**.|
-|VHDSizeInMB|No|Imposta le dimensioni (in MB) dell'immagine del disco rigido virtuale da aggiungere all'ambiente dello Stack di Azure. Per impostazione predefinita, questo valore è impostato su 40,960 MB.|
-|CreateGalleryItem|No|Specifica se è necessario creare un elemento del Marketplace per l'immagine di Windows Server 2016. Per impostazione predefinita, questo valore è impostato su **true**.|
-|località |No |Specifica il percorso in cui deve essere pubblicata l'immagine di Windows Server 2016.|
-|IncludeLatestCU|No|Si applica l'aggiornamento cumulativo più recente di Windows Server 2016 per il nuovo disco rigido virtuale (. controllare lo script per assicurarsi che sia associato per l'aggiornamento più recente o utilizzare una delle due opzioni). |
-|CUUri |No |Aggiornamento cumulativo di Windows Server 2016 set per l'esecuzione da un URI specifico. |
-|CUPath |No |Aggiornamento cumulativo di Windows Server 2016 set per l'esecuzione da un percorso locale. Questa opzione è utile se è stata distribuita l'istanza dello Stack di Azure in un ambiente disconnesso.|
+### <a name="new-azsserver2016vmimage"></a>New-AzsServer2016VMImage 
+
+Crea e carica un nuovo Server 2016 Core e, o un'immagine completa e crea un elemento del marketplace per tale.
+
+| Parametri | Obbligatoria | Esempio | DESCRIZIONE |
+|-----|-----|------|---- |
+|ISOPath|Sì| N:\ISO\en_windows_16_x64_dvd | Il percorso completo per Windows Server 2016 ISO scaricata.|
+|Net35|No | True  | Installa il runtime di .NET 3.5 dell'immagine di Windows Server 2016. Per impostazione predefinita, questo valore è impostato su **true**.|
+|Version|No | Completa |  Specifica **Core**, **completo**, o **entrambi** immagini di Windows Server 2016. Per impostazione predefinita, questo valore è impostato su **completo**.|
+|VHDSizeInMB|No | 40,960 | Imposta le dimensioni (in MB) dell'immagine del disco rigido virtuale da aggiungere all'ambiente dello Stack di Azure. Per impostazione predefinita, questo valore è impostato su 40,960 MB.|
+|CreateGalleryItem|No | True  | Specifica se è necessario creare un elemento del Marketplace per l'immagine di Windows Server 2016. Per impostazione predefinita, questo valore è impostato su **true**.|
+|location |No  | D:\ | Specifica il percorso in cui deve essere pubblicata l'immagine di Windows Server 2016.|
+|IncludeLatestCU|No | False | Si applica l'aggiornamento cumulativo più recente di Windows Server 2016 per il nuovo disco rigido virtuale. Controllare lo script per assicurarsi che sia associato per l'aggiornamento più recente o utilizzare una delle due opzioni. |
+|CUUri |No  | https://yourupdateserver/winservupdate2016 | Aggiornamento cumulativo di Windows Server 2016 set per l'esecuzione da un URI specifico. |
+|CUPath |No  | C:\winservupdate2016 | Aggiornamento cumulativo di Windows Server 2016 set per l'esecuzione da un percorso locale. Questa opzione è utile se è stata distribuita l'istanza dello Stack di Azure in un ambiente disconnesso.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
