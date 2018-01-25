@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 9b00faa06684be353cfcf5f67f182a56511210c5
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d29f2d180df93f45202e881336e492c45587b276
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure (anteprima)
 Archiviazione di Azure offre un modello di sicurezza a più livelli che consente di proteggere gli account di archiviazione per un set specifico di reti autorizzate.  Quando si configurano le regole di rete, solo le applicazioni delle reti consentite possono accedere a un account di archiviazione.  Quando le applicazioni eseguono chiamate da una rete autorizzata devono comunque avere l'autorizzazione necessaria (una chiave di accesso o un token di firma di accesso condiviso validi) per accedere all'account di archiviazione.
@@ -300,7 +300,6 @@ Quando è abilitata l'eccezione "Servizi Microsoft attendibili" i servizi seguen
 |Azure DevTest Labs|Microsoft.DevTestLab|Creazione di immagini personalizzate e installazione di artefatti.  [Altre informazioni](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
 |Griglia di eventi di Azure|Microsoft.EventGrid|Abilitare la pubblicazione di eventi di Archiviazione BLOB.  [Altre informazioni](https://docs.microsoft.com/azure/event-grid/overview).|
 |Hub eventi di Azure|Microsoft.EventHub|Archiviare dati con Acquisizione di Hub eventi.  [Altre informazioni](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
-|HDInsight di Azure|Microsoft.HDInsight|Provisioning e installazione di cluster.  [Altre informazioni](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Rete di Azure|Microsoft.Networking|Archiviare e analizzare i log di traffico di rete.  [Altre informazioni](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
 ||||
 

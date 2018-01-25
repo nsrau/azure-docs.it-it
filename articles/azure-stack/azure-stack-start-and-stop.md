@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: mabrigg
-ms.openlocfilehash: 9bbfffe15dc23d5d7d7b17aa4c79edc8a2aaab8c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 98bf75f5883b734c785ed1a3ed924afca1737c56
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="start-and-stop-azure-stack"></a>Avviare e arrestare Azure Stack
 
@@ -64,7 +64,7 @@ Ottenere l'avvio della routine di avvio dello Stack di Azure con i passaggi segu
 
 ## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Risoluzione dei problemi di avvio e arresto dello Stack di Azure
 
-Se i servizi di infrastruttura e del tenant non avviare dopo lo spegnimento nell'ambiente dello Stack di Azure, eseguire la procedura seguente. 
+Se i servizi di infrastruttura e del tenant non avviare 2 ore dopo il risparmio di energia nell'ambiente dello Stack di Azure, eseguire la procedura seguente. 
 
 1. Aprire una sessione di Endpoint con privilegi da un computer con accesso alla rete per le macchine virtuali di Azure Stack ERCS.
 
