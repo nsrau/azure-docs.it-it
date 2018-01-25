@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/16/2018
 ms.author: magoedte;banders
-ms.openlocfilehash: 331cc9d27dd416900e0145f3e453dfd3bfcfbcb5
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: b7cb178a24b043fe2c884ef0e4b3ad14ca0d73e4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Soluzione Wire Data 2.0 (anteprima) in Log Analytics
 
@@ -80,7 +80,7 @@ Per un utente di System Center Operations Manager con un gruppo di gestione conn
 
 Se si usa l'agente diretto, è necessario configurare l'agente OMS in modo che si connetta a Log Analytics o al gateway OMS. È possibile scaricare il gateway OMS dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=52666).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - È necessaria la soluzione [Insight & Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing) offerta.
 - Se si usa la versione precedente della soluzione Wire Data, prima di tutto è necessario rimuoverla. Tutti i dati acquisiti tramite la soluzione Wire Data originale, tuttavia, saranno ancora disponibili in Wire Data 2.0 e nella ricerca log.
@@ -374,9 +374,6 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
 - Se si vogliono visualizzare i dati in transito per una soluzione specifica, è necessario che la soluzione sia già stata aggiunta all'area di lavoro.
 
 Dopo l'installazione degli agenti e della soluzione, nell'area di lavoro verrà visualizzato il riquadro Wire Data 2.0.
-
-> [!NOTE]
-> Attualmente, per visualizzare i dati in transito è necessario usare il portale di OMS. Non è possibile usare il portale di Azure a tale scopo.
 
 ![Riquadro Wire Data](./media/log-analytics-wire-data/wire-data-tile.png)
 

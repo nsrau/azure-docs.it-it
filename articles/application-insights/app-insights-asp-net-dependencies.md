@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: fe02adafbf96df22462683c69813b05c182d3106
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 060f1c9d2c74ed45e8077ec99503a1d7b885d325
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Impostare Application Insights: tenere traccia delle dipendenze
 Una *dipendenza* è un componente esterno chiamato dall'app. In genere è un servizio chiamato con il protocollo HTTP, oppure un database o un file system. [Application Insights](app-insights-overview.md) misura per quanto tempo l'applicazione attende le dipendenze e la frequenza con la quale una chiamata alle dipendenze non riesce. È possibile esaminare chiamate specifiche e correlarle a richieste ed eccezioni.
@@ -62,7 +62,7 @@ La mappa delle applicazioni funge da strumento visivo per individuare le dipende
 * **Passare dalle caselle** alla dipendenza pertinente e ad altri grafici.
 * **Aggiungere la mappa** al [dashboard](app-insights-dashboards.md), dove sarà completamente funzionale.
 
-[Altre informazioni](app-insights-app-map.md)
+[Altre informazioni](app-insights-app-map.md).
 
 ## <a name="performance-and-failure-blades"></a>Pannelli Prestazioni ed Errori
 Il pannello Prestazioni visualizza la durata delle chiamate alle dipendenze effettuate dall'app server. Sono presenti un grafico di riepilogo e una tabella segmentata per chiamata.
@@ -178,7 +178,7 @@ Il modulo standard per il rilevamento delle dipendenze rileva automaticamente le
 
 Ad esempio, se si compila il codice con un assembly non scritto personalmente, sarà possibile misurare il tempo necessario per tutte le chiamate all'assembly, per individuare il contributo dell'assembly ai tempi di risposta. Per visualizzare i dati nei grafici relativi alle dipendenze in Application Insights, inviarli mediante `TrackDependency`.
 
-```C#
+```csharp
 
             var startTime = DateTime.UtcNow;
             var timer = System.Diagnostics.Stopwatch.StartNew();
@@ -195,7 +195,7 @@ Ad esempio, se si compila il codice con un assembly non scritto personalmente, s
 
 Per disattivare il modulo standard per il rilevamento delle dipendenze, rimuovere il riferimento a DependencyTrackingTelemetryModule in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 *Il flag di operazione riuscita della dipendenza visualizza sempre true o false.*
 
 *Query SQL no visualizzate completamente.*

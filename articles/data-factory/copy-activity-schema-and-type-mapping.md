@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 459c792028d3eede059814324597811b24e65ac2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1fde0abd2f5fa8e36c71707d14cd5afeb3a0d2d
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mapping dello schema nell'attività di copia
 Questo articolo illustra come l'attività di copia di Azure Data Factory esegue il mapping dello schema e il mapping dei tipi di dati dai dati di origine ai dati sink quando viene eseguita la copia dei dati.
@@ -151,8 +151,8 @@ L'attività di copia esegue il mapping dei tipi di origine ai tipi sink con il m
 Data Factory supporta i seguenti tipi di dati provvisori. È possibile specificare i valori seguenti quando si forniscono informazioni sul tipo nella configurazione della [struttura del set di dati](concepts-datasets-linked-services.md#dataset-structure):
 
 * Byte[]
-* Boolean
-* Datetime
+* boolean
+* DateTime
 * Datetimeoffset
 * Decimal
 * Double
@@ -161,7 +161,7 @@ Data Factory supporta i seguenti tipi di dati provvisori. È possibile specifica
 * Int32
 * Int64
 * Single
-* String
+* string
 * TimeSpan
 
 ### <a name="explicit-data-type-conversion"></a>Esempio di conversione esplicita dei tipi di dati

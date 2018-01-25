@@ -1,5 +1,5 @@
 ---
-title: "Guida alle prestazioni dell'attività di copia e all'ottimizzazione in Azure Data Factory | Microsoft Docs"
+title: "Guida alle prestazioni e all'ottimizzazione dell'attività di copia in Azure Data Factory | Microsoft Docs"
 description: "Informazioni sui fattori principali che influiscono sulle prestazioni dello spostamento di dati in Azure Data Factory quando si usa l'attività di copia."
 services: data-factory
 documentationcenter: 
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 841e053418dedb6b41262d1277ab4bdc9d4800c6
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 53f2b59e57d49a409552aebbdb1b0e81ccd5200c
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -134,7 +134,7 @@ Per ogni esecuzione dell'attività di copia, Data Factory determina il numero di
 | Scenario di copia | Numero predefinito di copie parallele determinato dal servizio |
 | --- | --- |
 | Copiare dati tra archivi basati su file |Tra 1 e 64. Dipende dalle dimensioni dei file e dal numero di unità di spostamento dati cloud usate per copiare dati tra due archivi dati cloud oppure dalla configurazione fisica del computer del runtime di integrazione self-hosted. |
-| Copiare i dati da qualsiasi archivio dati di origine in un'archiviazione tabelle di Azure |4 |
+| Copiare dati da qualsiasi archivio dati di origine in un'archiviazione tabelle di Azure |4 |
 | Tutti gli altri scenari di copia |1 |
 
 In genere, il comportamento predefinito dovrebbe garantire la velocità effettiva migliore. Tuttavia, per controllare il carico sui computer che ospitano gli archivi dati o per ottimizzare le prestazioni di copia, è possibile scegliere di ignorare il valore predefinito e specificare un valore per la proprietà **parallelCopies** . Il valore deve essere un numero intero maggiore o uguale a 1. Per garantire prestazioni ottimali in fase di esecuzione, l'attività di copia usa un valore minore o uguale al valore configurato.
@@ -162,7 +162,7 @@ In genere, il comportamento predefinito dovrebbe garantire la velocità effettiv
 Punti da notare:
 
 * Quando si copiano i dati tra archivi basati su file, **parallelCopies** determina il parallelismo a livello di file. La suddivisione in blocchi all'interno di un singolo file si verificherebbe sottotraccia in modo automatico e trasparente; tale operazione è pensata per usare la dimensione di blocco più appropriata per un tipo di archivio dati di origine specificato al fine di caricare i dati in maniera parallela e ortogonale a parallelCopies. Il numero effettivo di copie parallele usate dal servizio di spostamento dati per l'operazione di copia in fase di esecuzione non è maggiore del numero di file disponibili. Se il comportamento di copia è **mergeFile**, l'attività di copia non può usare il parallelismo a livello di file.
-* Quando si specifica un valore per la proprietà **parallelCopies**, prendere in considerazione l'aumento del carico per gli archivi dati sink e di origine e per il runtime di integrazione self-hosted se l'attività di copia ne viene ottimizzata, ad esempio se si tratta di una copia ibrida. Questo avviene soprattutto quando ci sono più attività o esecuzioni simultanee delle stesse attività che vengono eseguite con lo stesso archivio dati. Se si nota un sovraccarico dell'archivio dati o del runtime di integrazione self-hosted, diminuire il valore di **parallelCopies** per alleggerirlo.
+* Quando si specifica un valore per la proprietà **parallelCopies**, prendere in considerazione l'aumento del carico per gli archivi dati sink e di origine e per il runtime di integrazione self-hosted se l'attività di copia viene ottimizzata da quest'ultimo, ad esempio se si tratta di una copia ibrida. Questo avviene soprattutto quando ci sono più attività o esecuzioni simultanee delle stesse attività che vengono eseguite con lo stesso archivio dati. Se si nota un sovraccarico dell'archivio dati o del runtime di integrazione self-hosted, diminuire il valore di **parallelCopies** per alleggerirlo.
 * Quando si copiano dati da archivi non basati su file in archivi basati su file, il servizio di spostamento dati ignora la proprietà **parallelCopies** . Anche se viene specificato, in questo caso il parallelismo non viene applicato.
 * Il valore **parallelCopies** è ortogonale a **cloudDataMovementUnits**. Il primo viene conteggiato tra tutte le unità di spostamento dati sul cloud.
 
@@ -176,7 +176,7 @@ Quando si copiano dati da un archivio dati di origine a un archivio dati sink, �
 
 ### <a name="how-staged-copy-works"></a>Come funziona la copia di staging
 
-Quando si attiva la funzionalità di staging, i dati vengono prima copiati dall'archivio dati di origine nell'archiviazione BLOB di staging personale. Successivamente, vengono copiati dall'archivio dati di staging nell'archivio dati sink. Data Factory gestisce automaticamente il flusso in due fasi ed elimina i dati temporanei dall'archivio di staging al termine dello spostamento dati.
+Quando si attiva la funzionalità di staging, i dati vengono prima copiati dall'archivio dati di origine nell'archivio BLOB di staging personale. Successivamente, vengono copiati dall'archivio dati di staging nell'archivio dati sink. Data Factory gestisce automaticamente il flusso in due fasi ed elimina i dati temporanei dall'archivio di staging al termine dello spostamento dati.
 
 ![copia di staging](media/copy-activity-performance/staged-copy.png)
 
@@ -225,7 +225,7 @@ Di seguito è riportata una definizione di esempio di attività di copia con le 
 ]
 ```
 
-### <a name="staged-copy-billing-impact"></a>Impatto della fatturazione della copia di staging
+### <a name="staged-copy-billing-impact"></a>Impatto della copia di staging sulla fatturazione
 
 I costi addebitati si basano su due passaggi: durata della copia e tipo di copia.
 
@@ -261,7 +261,7 @@ Se l'attività di copia viene eseguita in un runtime di integrazione self-hosted
 
 **Configurazione**: è consigliabile usare un computer dedicato per ospitare il runtime di integrazione. Vedere [Considerazioni sull'uso del runtime di integrazione self-hosted](concepts-integration-runtime.md).
 
-**Scalabilità orizzontale**: un singolo runtime di integrazione self-hosted logico con uno o più nodi può consentire più esecuzioni di attività di copia contemporaneamente. Se si hanno necessità complesse di spostamento di dati ibridi, con un numero elevato di esecuzioni di attività di copia simultanee o con un volume elevato di dati da copiare, prendere in considerazione la possibilità di [scalare orizzontalmente il runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md#high-availability-and-scalability) in modo da utilizzare al meglio la risorsa o effettuare il provisioning di più risorse a supporto della copia.
+**Scalabilità orizzontale**: un singolo runtime di integrazione self-hosted logico con uno o più nodi può consentire più esecuzioni di attività di copia contemporaneamente. Se si hanno necessità complesse di spostamento di dati ibridi, con un numero elevato di esecuzioni di attività di copia simultanee o con un volume elevato di dati da copiare, prendere in considerazione la possibilità di [aumentare il numero di istanze del runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md#high-availability-and-scalability) in modo da utilizzare al meglio la risorsa o effettuare il provisioning di più risorse a supporto della copia.
 
 ## <a name="considerations-for-the-source"></a>Considerazioni sull'origine
 
@@ -351,7 +351,7 @@ Informazioni sul [mapping dello schema dell'attività di copia](copy-activity-sc
 
 ## <a name="other-considerations"></a>Altre considerazioni
 
-Se i dati da copiare sono di grandi dimensioni, è possibile modificare la logica di business per partizionare ulteriormente i dati e pianificare l'attività di copia in modo che venga eseguita più frequentemente per ridurre le dimensioni dei dati per ogni esecuzione dell'attività di copia.
+Se i dati da copiare sono di grandi dimensioni, è possibile modificare la logica di business per partizionare ulteriormente i dati e pianificare l'attività di copia in modo che venga eseguita più frequentemente, riducendo così le dimensioni dei dati per ogni esecuzione dell'attività di copia.
 
 Prestare attenzione al numero di set di dati e di attività di copia che richiedono la connessione di Data Factory allo stesso archivio dati nello stesso momento. Molti processi di copia simultanei possono limitare un archivio dati e causare un peggioramento delle prestazioni, nuovi tentativi interni dei processi di copia e, in alcuni casi, errori di esecuzione.
 

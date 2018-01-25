@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: fda3c7a9a369eec1b9033ee7077a5f3770647c9f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 195a1a4810de478b77538716fa8d1362428864d8
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway di gestione dati: disponibilità elevata e scalabilità (anteprima)
 > [!NOTE]
@@ -43,7 +43,7 @@ Questo articolo consente di configurare una soluzione di disponibilità elevata 
 
 Usando il portale di Azure, è possibile monitorare lo stato di questi nodi, per poter decidere se aggiungere o rimuovere un nodo dal gateway logico. 
 
-## <a name="architecture"></a>Architettura 
+## <a name="architecture"></a>Architecture 
 Il diagramma seguente offre una panoramica dell'architettura della funzionalità di scalabilità e disponibilità del gateway di gestione dati: 
 
 ![Gateway di gestione dati: disponibilità elevata e scalabilità](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-high-availability-and-scalability.png)
@@ -166,7 +166,7 @@ Ecco i requisiti per il certificato TLS/SSL usato per proteggere le comunicazion
 > [!NOTE]
 > L'applicazione di gestione delle credenziali viene usata durante l'impostazione sicura delle credenziali tramite Copia guidata nel portale di Azure. Può inoltre essere attivata da qualsiasi computer all'interno della stessa rete dell'archivio dati locale/privato.
 - I certificati con caratteri jolly sono supportati. Se il nome FQDN è **node1.domain.contoso.com**, è possibile usare ***.domain.contoso.com** come nome del soggetto del certificato.
-- I certificati SAN non sono consigliati poiché verrà usato solo l'ultimo elemento dei nomi alternativi dei soggetti, mentre tutti gli altri verranno ignorati a causa della limitazione attuale. Ad esempio, se si dispone di un certificato SAN i cui nomi alternativi dei soggetti sono **node1.domain.contoso.com** e **node2.domain.contoso.com**, è possibile usare solo questo certificato nel computer il cui nome di dominio completo è **node2.domain.contoso.com**.
+- I certificati SAN non sono consigliati poiché verrà usato solo l'ultimo elemento dei nomi alternativi dei soggetti, mentre tutti gli altri verranno ignorati a causa della limitazione attuale. ad esempio se si dispone di un certificato SAN i cui nomi alternativi dei soggetti sono **node1.domain.contoso.com** e **node2.domain.contoso.com**, è possibile usare solo questo certificato nel computer il cui nome di dominio completo è **node2.domain.contoso.com**.
 - Deve supportare tutte le dimensioni chiave supportate da Windows Server 2012 R2 per i certificati SSL.
 - Non sono supportati i certificati che usano chiavi CNG. Non sono supportati i certificati che usano chiavi CNG.
 
@@ -184,11 +184,11 @@ Nel portale di Azure è possibile visualizzare lo snapshot in tempo quasi reale 
 
 È possibile abilitare **Impostazioni avanzate** nella pagina **Gateway** per visualizzare le metriche avanzate, ad esempio **Rete (in/out)**, **Ruolo e Stato delle credenziali**, utile nel debug dei problemi del gateway, e **Processi simultanei (in esecuzione/limite)** che può essere modificata/cambiata in base alle esigenze durante l'ottimizzazione delle prestazioni. La tabella seguente contiene le descrizioni delle colonne dell'elenco **Nodi del gateway**:  
 
-Proprietà monitoraggio | Descrizione
+Proprietà monitoraggio | DESCRIZIONE
 :------------------ | :---------- 
-Nome | Nome del gateway logico e nodi associati al gateway.  
+NOME | Nome del gateway logico e nodi associati al gateway.  
 Status | Stato del gateway logico e dei nodi del gateway. Esempio: Online/Offline/Limitato e così via. Per informazioni su questi stati, vedere la sezione [Stato del gateway](#gateway-status). 
-Versione | Indica la versione del gateway logico e di ogni nodo del gateway. La versione del gateway logico viene determinata in base alla versione della maggior parte dei nodi del gruppo. Se nella configurazione del gateway logico sono presenti nodi con versioni diverse, solo i nodi con lo stesso numero di versione del gateway logico funzionano correttamente. Gli altri sono in modalità limitata e devono essere aggiornati manualmente (solo se l'aggiornamento automatico non riesce). 
+Version | Indica la versione del gateway logico e di ogni nodo del gateway. La versione del gateway logico viene determinata in base alla versione della maggior parte dei nodi del gruppo. Se nella configurazione del gateway logico sono presenti nodi con versioni diverse, solo i nodi con lo stesso numero di versione del gateway logico funzionano correttamente. Gli altri sono in modalità limitata e devono essere aggiornati manualmente (solo se l'aggiornamento automatico non riesce). 
 Memoria disponibile | Memoria disponibile in un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 
 Uso della CPU | Utilizzo della CPU di un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 
 Rete (in/out) | Utilizzo della rete da parte di un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 

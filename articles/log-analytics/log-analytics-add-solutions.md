@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 01/23/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ba1bb02c27fa040cc2daef4baf5c9ecc827d323
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d951387882a5a8f5e0ebdc01841bb8384e4848ee
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Aggiungere soluzioni di gestione di Log Analytics di Azure all'area di lavoro
 
@@ -89,7 +89,7 @@ Tutte le soluzioni della tabella seguente sono disponibili nel portale di Azure 
 | [Capacità e prestazioni (anteprima)](log-analytics-capacity.md)                                                   | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)   | |
 | [Rilevamento delle modifiche](log-analytics-change-tracking.md)                                       | <ul><li>Automation & Control</li></ul>                                  | Gratuito<br> Per&nbsp;nodo&nbsp;(OMS)                                                                         | È necessario che l'area di lavoro di Log Analytics sia collegata a un account di Automazione |
 | [Contenitori](log-analytics-containers.md)                                                 | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)   | |
-| [IT Service Management Connector (anteprima)](log-analytics-itsmc-overview.md)                                              | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Per&nbsp;nodo&nbsp;(OMS)     | |
+| [IT Service Management Connector](log-analytics-itsmc-overview.md)                                                | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Per&nbsp;nodo&nbsp;(OMS)     | |
 | Monitoraggio per HDInsight HBase <br>(Anteprima)                                                  | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)   | |
 | [Analisi dell'insieme di credenziali delle chiavi](log-analytics-azure-key-vault.md)                   | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)   | |
 | [App per la logica B2B](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)                    | <ul><li>Insight&nbsp;&&nbsp;Analytics</li><li>Log Analytics</li></ul>   | Gratuito<br> Standard<br> Premium&nbsp;(OMS)<br> Per&nbsp;GB&nbsp;(autonomo)<br> Per&nbsp;nodo&nbsp;(OMS)   | Non disponibile per essere aggiunto dal portale di Azure/marketplace. |
@@ -162,7 +162,7 @@ L'agente Windows per Log Analytics e l'agente System Center Operations Manager s
 | System Center Operations Manager Assessment (anteprima) | Windows | &#8226; | &#8226; |   |   | &#8226; | 7 giorni |
 | Upgrade Analytics (anteprima) | Windows | &#8226; |   |   |   |   | 2 giorni |
 | VMware Monitoring (anteprima) | Linux | &#8226; |   |   |   |   | 3 minuti |
-| Trasferimento dati |Windows (2012 R2 / 8.1 o versioni successive) |&#8226; |&#8226; |  |  |  | 1 minuto |
+| Trasferimento dati |Windows (2012 R2/8.1 o versioni successive) |&#8226; |&#8226; |  |  |  | 1 minuto |
 
 
 ### <a name="automation--control"></a>Automation & Control
@@ -170,15 +170,15 @@ L'agente Windows per Log Analytics e l'agente System Center Operations Manager s
 | Soluzione di gestione | Piattaforma | Microsoft Monitoring Agent | Agente di Operations Manager | Archiviazione di Azure | È necessario Operations Manager? | Dati dell'agente Operations Manager inviati con il gruppo di gestione | Frequenza della raccolta |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Ruolo di lavoro ibrido di Automazione | Windows | &#8226; | &#8226; |   |   |   | n/d |
-| Change Tracking |Windows |&#8226; |&#8226; |  |  |&#8226; |ogni ora |
-| Change Tracking |Linux |&#8226; |  |  |  |  |ogni ora |
+| Change Tracking |Windows |&#8226; |&#8226; |  |  |&#8226; |Ogni ora |
+| Change Tracking |Linux |&#8226; |  |  |  |  |Ogni ora |
 | Gestione degli aggiornamenti | Windows |&#8226; |&#8226; |  |  |&#8226; |almeno 2 volte al giorno e 15 minuti dopo l'installazione di un aggiornamento |
 
 ### <a name="security--compliance"></a>Sicurezza e conformità
 
 | Soluzione di gestione | Piattaforma | Microsoft Monitoring Agent | Agente di Operations Manager | Archiviazione di Azure | È necessario Operations Manager? | Dati dell'agente Operations Manager inviati con il gruppo di gestione | Frequenza della raccolta |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Antimalware Assessment |Windows |&#8226; |&#8226; |  |  |&#8226; |ogni ora |
+| Antimalware Assessment |Windows |&#8226; |&#8226; |  |  |&#8226; |Ogni ora |
 | Security and Audit<sup>1</sup> | Windows e Linux | parziale | parziale | parziale |   | parziale | variabile |
 
 <sup>1</sup>La soluzione Sicurezza e controllo può raccogliere log da agenti Windows, Operations Manager e Linux. Vedere la tabella [Origini dati](#data-sources) per informazioni sulla raccolta dati relativa a:
@@ -207,7 +207,7 @@ L'agente Windows per Log Analytics e l'agente System Center Operations Manager s
 | Log di diagnostica di Azure |Windows |  |  |  |  |  |su notifica |
 | Metrica di diagnostica di Azure |Windows |  |  |  |  |  |su notifica |
 | ETW |Windows |  |  |&#8226; |  |  |5 minuti |
-| Log di IIS |Windows |&#8226; |&#8226; |&#8226; |  |  |5 minuti |
+| log di IIS |Windows |&#8226; |&#8226; |&#8226; |  |  |5 minuti |
 | Contatori delle prestazioni |Windows |&#8226; |&#8226; |  |  |  |come pianificato, almeno 10 secondi |
 | Contatori delle prestazioni |Linux |&#8226; |  |  |  |  |come pianificato, almeno 10 secondi |
 | syslog |Linux |&#8226; |  |  |  |  |dall'Archiviazione di Azure: 10 minuti; dall'agente: all'arrivo |

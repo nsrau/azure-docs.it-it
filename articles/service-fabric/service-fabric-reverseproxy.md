@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 7f29860519d4dce76f0b7f866852484b93ce7b02
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 55b201842503a879725fa77328a72c83fe0bbade
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverso in Azure Service Fabric
 Il proxy inverso integrato in Azure Service Fabric consente ai microservizi in esecuzione in un cluster di Service Fabric di rilevare e comunicare con altri servizi che hanno endpoint HTTP.
@@ -39,11 +39,13 @@ Il proxy inverso espone uno o più endpoint nel nodo locale che i servizi client
 
 ![Comunicazione interna][1]
 
+> [!NOTE]
 > **Piattaforme supportate**
 >
 > Il proxy inverso in Service Fabric supporta attualmente le piattaforme seguenti
 > * *Cluster Windows*: Windows 8 e versioni successive o Windows Server 2012 e versioni successive
 > * *Cluster Linux*: il proxy inverso non è attualmente disponibile per i cluster Linux
+>
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>Raggiungere i microservizi dall'esterno del cluster
 Il modello di comunicazione esterna predefinito per i microservizi è un modello di consenso esplicito nei casi in cui non è possibile accedere direttamente a ogni servizio dai client esterni. Il servizio [Azure Load Balancer](../load-balancer/load-balancer-overview.md) è un limite di rete tra microservizi e client esterni che esegue la conversione degli indirizzi di rete e inoltra le richieste esterne agli endpoint IP:port interni. Per rendere un endpoint del microservizio direttamente accessibile ai client esterni, è prima di tutto necessario configurare il servizio Load Balancer per l'inoltro del traffico a ogni porta usata dal servizio nel cluster. La maggior parte dei microservizi, in particolare i microservizi con stato, non è inoltre presente in tutti i nodi del cluster. I microservizi possono spostarsi tra i nodi in caso di failover. In questi casi, il servizio Load Balancer non può determinare in modo efficace la posizione del nodo di destinazione delle repliche a cui deve inoltrare il traffico.

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 4ab0ddcc3a42ab4ebb7c9555f57bc2533989b071
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 7f494cff1e8dc57a41467cd722fdf224e10c9dec
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ In particolare, il connettore SAP Business Warehouse supporta:
 - La copia di dati da **InfoCube e QueryCube** (incluse query BEx) tramite query MDX.
 - La copia di dati usando l'autenticazione di base.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per usare il connettore SAP Business Warehouse, è necessario:
 
@@ -49,7 +49,7 @@ Per usare il connettore SAP Business Warehouse, è necessario:
 > [!TIP]
 > Inserire le DLL estratte dall'SDK di NetWeaver RFC nella cartella system32.
 
-## <a name="getting-started"></a>Attività iniziali
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -59,7 +59,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di SAP Business Warehouse (BW) sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **SapBw** | Sì |
 | server | Nome del server in cui si trova l'istanza di SAP BW. | Sì |
@@ -124,7 +124,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da SAP BW, impostare il tipo di origine nell'attività di copia su **RelationalSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **RelationalSource** | Sì |
 | query | Specifica la query MDX che consente di leggere i dati dall'istanza di SAP BW. | Sì |
@@ -168,27 +168,27 @@ Quando si copiano dati da SAP BW, vengono usati i mapping seguenti tra i tipi di
 | Tipo di dati di SAP BW | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
 | ACCP | int |
-| CHAR | Stringa |
-| CLNT | Stringa |
+| CHAR | string |
+| CLNT | string |
 | CURR | Decimale |
-| CUKY | Stringa |
+| CUKY | string |
 | DEC | Decimal |
-| FLTP | A due righe |
+| FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | int |
-| LANG | Stringa |
-| LCHR | Stringa |
+| LANG | string |
+| LCHR | string |
 | LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| STRING | Stringa |
-| UNITÀ | Stringa |
-| DATS | Stringa |
-| NUMC | Stringa |
-| TIMS | Stringa |
+| STRING | string |
+| UNITÀ | string |
+| DATS | string |
+| NUMC | string |
+| TIMS | string |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

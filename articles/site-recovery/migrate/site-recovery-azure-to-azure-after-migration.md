@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: ponatara
-ms.openlocfilehash: 2943d33744a29da7ffd1f1544fc81696195ecce1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: d31eae21a246be97f0b50b9b773fcc63dfcbd084
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>Replicare le macchine virtuali di Azure in un'altra area dopo la migrazione ad Azure usando Azure Site Recovery
 
@@ -51,7 +51,7 @@ Dopo la migrazione, non è necessario eseguire il commit di un failover né elim
 2. L'azione **Completa la migrazione** conclude il processo di migrazione, rimuove la replica per la macchina e interrompe la fatturazione relativa di Site Recovery.
 
 ### <a name="step-2-install-the-azure-vm-agent-on-the-virtual-machine"></a>Passaggio 2: installare l'agente di macchine virtuali di Azure nella macchina virtuale
-L'[agente di macchine virtuali](../../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) di Azure deve essere installato nella macchina virtuale affinché l'estensione Site Recovery funzioni e ai fini della protezione della macchina virtuale.
+L'[agente di macchine virtuali](../../virtual-machines/windows/agent-user-guide.md) di Azure deve essere installato nella macchina virtuale affinché l'estensione Site Recovery funzioni e ai fini della protezione della macchina virtuale.
 
 >[!IMPORTANT]
 >A partire dalla versione 9.7.0.0, nelle macchine virtuali di Windows il programma di installazione del servizio Mobility installa anche l'agente di macchine virtuali di Azure più recente. Durante la migrazione, la macchina virtuale soddisfa i prerequisiti di installazione dell'agente per l'uso di qualsiasi estensione della macchina virtuale, incluso Site Recovery. L'agente di macchine virtuali di Azure deve essere installato manualmente solo se il servizio Mobility installato nella macchina migrata è della versione 9.6 o precedente.

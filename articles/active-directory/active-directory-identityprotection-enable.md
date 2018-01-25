@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f68c37c4ceeec9a3447ba224fb051ea786de9997
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 39bdc17e63d382775db17097556c15dc00c3785b
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="enabling-azure-active-directory-identity-protection"></a>Abilitazione di Azure Active Directory Identity Protection
 Azure Active Directory Identity Protection è una nuova funzionalità che offre una vista consolidata delle attività di accesso sospette e delle potenziali vulnerabilità e che contribuisce a proteggere l'azienda con notifiche, raccomandazioni sulla risoluzione dei problemi e criteri basati sui rischi. 
@@ -43,6 +43,6 @@ Questo argomento illustra come abilitare Azure Active Directory Identity Protect
    
     ![Creare](./media/active-directory-identityprotection-enable/04.png "Creare")
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 

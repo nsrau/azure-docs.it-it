@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: bd16dd889cbe0f05d7e60f444c6c5fa2e65f64a4
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 422c19dfa9a204d98a898f76bc1af92a05c054d0
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-replica"></a>sfctl replica
 Consente di gestire le repliche che appartengono alle partizioni del servizio.
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|Descrizione|
+|Comando|DESCRIZIONE|
 | --- | --- |
 |    deployed  | Recupera i dettagli della replica distribuita in un nodo di Service Fabric.|
 |    deployed-list| Recupera l'elenco della replica distribuita in un nodo di Service Fabric.|
@@ -44,7 +44,7 @@ Recupera i dettagli della replica distribuita in un nodo di Service Fabric. Le i
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --node-name [Obbligatorio]| Il nome del nodo.|
 | --partition-id [Obbligatorio]| L'identità della partizione.|
@@ -55,8 +55,8 @@ Recupera i dettagli della replica distribuita in un nodo di Service Fabric. Le i
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug.|
-| --help -h             | Mostra questo messaggio della Guida ed esce.|
+| --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
+| --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose             | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
@@ -68,7 +68,7 @@ Recupera l'integrità di una replica di Service Fabric. Usare EventsHealthStateF
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --partition-id [Obbligatorio]| L'identità della partizione.|
 | --replica-id [Obbligatorio]| Identificatore della replica.|
@@ -79,8 +79,8 @@ Recupera l'integrità di una replica di Service Fabric. Usare EventsHealthStateF
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug                  | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug.|
-| --help -h                | Mostra questo messaggio della Guida ed esce.|
+| --debug                  | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
+| --help -h                | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o              | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query                  | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose                | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
@@ -92,7 +92,7 @@ La risposta include l'ID, il ruolo, lo stato, l'integrità, il nome del nodo, il
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --partition-id [Obbligatorio]| L'identità della partizione.|
 | --replica-id [Obbligatorio]| Identificatore della replica.|
@@ -103,8 +103,8 @@ La risposta include l'ID, il ruolo, lo stato, l'integrità, il nome del nodo, il
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug.|
-| --help -h             | Mostra questo messaggio della Guida ed esce.|
+| --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
+| --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose             | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
@@ -117,7 +117,7 @@ La risposta include l'ID, il ruolo, lo stato, l'integrità, il nome del nodo, il
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --partition-id [Obbligatorio]| L'identità della partizione.|
 | --continuation-token  | Il parametro del token di continuazione viene usato per ottenere il set di risultati successivo. Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati dal sistema non rientrano in una singola risposta. Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL.|
@@ -127,8 +127,8 @@ La risposta include l'ID, il ruolo, lo stato, l'integrità, il nome del nodo, il
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug.|
-| --help -h             | Mostra questo messaggio della Guida ed esce.|
+| --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
+| --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose             | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
@@ -140,7 +140,7 @@ Questa API consente di simulare un errore di replica di Service Fabric rimuovend
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --node-name [Obbligatorio]| Il nome del nodo.|
 | --partition-id [Obbligatorio]| L'identità della partizione.|
@@ -152,8 +152,8 @@ Questa API consente di simulare un errore di replica di Service Fabric rimuovend
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug.|
-| --help -h             | Mostra questo messaggio della Guida ed esce.|
+| --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
+| --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose             | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
@@ -165,7 +165,7 @@ Riavvia una replica del servizio di un servizio persistente in esecuzione in un 
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --node-name [Obbligatorio]| Il nome del nodo.|
 | --partition-id [Obbligatorio]| L'identità della partizione.|
@@ -176,8 +176,8 @@ Riavvia una replica del servizio di un servizio persistente in esecuzione in un 
 
 |Argomento|Descrizione|
 | --- | --- |
-| --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i log di debug.|
-| --help -h             | Mostra questo messaggio della Guida ed esce.|
+| --debug               | Aumenta il livello di dettaglio di registrazione per mostrare tutti i registri di debug.|
+| --help -h             | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o           | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query               | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
 | --verbose             | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|

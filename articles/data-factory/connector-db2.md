@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 
 ms.author: jingwang
-ms.openlocfilehash: 23bc0ba87abbac0f83e3e5ac9d1049bbf42707c9
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: a96de1814afc7947205a0dc7ed005f7cadff20bc
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiare dati da DB2 usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,11 +48,11 @@ In particolare, il connettore DB2 supporta le piattaforme e le versioni di IBM D
 > - DB2 per i (AS400): consente all'utente esperto di creare una raccolta per l'utente di accesso prima di usare l'attività di copia. Comando: `create collection <username>`
 > - DB2 per z/OS o LUW: usare un account con privilegi elevati (utente esperto o amministratore con autorità di pacchetto e autorizzazioni BIND, BINDADD, GRANT EXECUTE TO PUBLIC), per eseguire una volta l'attività di copia. Il pacchetto necessario viene quindi creato automaticamente durante la copia. In seguito è possibile tornare a essere un utente normale per le successive esecuzioni delle operazioni di copia.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per copiare dati da un database DB2 non accessibile pubblicamente, è necessario configurare un runtime di integrazione self-hosted. Per altre informazioni sui runtime di integrazione self-hosted, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md). Il runtime di integrazione offre un driver per DB2 integrato e non è quindi necessario installare manualmente alcun driver quando si copiano dati da/in DB2.
 
-## <a name="getting-started"></a>Attività iniziali
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -62,16 +62,16 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di DB2 sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Db2** | Sì |
 | server |Nome del server DB2. |Sì |
 | database |Nome del database DB2. |Sì |
-| schema |Nome dello schema nel database. Il nome dello schema fa distinzione tra maiuscole e minuscole. |No |
+| schema |Nome dello schema nel database. Il nome dello schema fa distinzione tra maiuscole e minuscole. |No  |
 | authenticationType |Tipo di autenticazione usato per connettersi al database DB2.<br/>Il valore consentito è: **Di base**. |Sì |
-| nome utente |Specificare il nome utente per la connessione al database DB2. |Sì |
+| username |Specificare il nome utente per la connessione al database DB2. |Sì |
 | password |Specificare la password per l'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString. |Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
 **Esempio:**
 
@@ -104,7 +104,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da DB2, impostare la proprietà type del set di dati su **RelationalTable**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **RelationalTable** | Sì |
 | tableName | Nome della tabella nel database DB2. | No (se nell'origine dell'attività è specificato "query") |
@@ -134,7 +134,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da DB2, impostare il tipo di origine nell'attività di copia su **RelationalSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **RelationalSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | No (se nel set di dati è specificato "tableName") |
@@ -178,30 +178,30 @@ Quando si copiano dati da DB2, vengono usati i mapping seguenti tra i tipi di da
 | Tipo di database DB2 | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
 | BigInt |Int64 |
-| Binario |Byte[] |
+| Binary |Byte[] |
 | BLOB |Byte[] |
-| Char |Stringa |
-| Clob |Stringa |
+| Char |string |
+| Clob |string |
 | Data |DateTime |
-| DB2DynArray |Stringa |
-| DbClob |Stringa |
+| DB2DynArray |string |
+| DbClob |string |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| A due righe |A due righe |
-| Float |A due righe |
-| Graphic |Stringa |
+| Double |Double |
+| Float |Double |
+| Graphic |string |
 | Integer |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |Stringa |
-| LongVarGraphic |Stringa |
+| LongVarChar |string |
+| LongVarGraphic |string |
 | Numeric |Decimal |
-| Real |Singola |
+| Real |Single |
 | SmallInt |Int16 |
-| Ora |Intervallo di tempo |
-| Timestamp |Data/Ora |
+| Tempo |Intervallo di tempo |
+| Timestamp |Datetime |
 | VarBinary |Byte[] |
-| VarChar |Stringa |
-| VarGraphic |Stringa |
+| VarChar |string |
+| VarGraphic |string |
 | xml |Byte[] |
 
 

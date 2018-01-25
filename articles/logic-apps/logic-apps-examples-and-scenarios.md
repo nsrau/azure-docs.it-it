@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 09/13/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5b2b82d90dee41e80233e5f52c960be23d89ee3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b88d0c1ccb7a729c95299bcdc3cba5fd73fcdeac
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Scenari comuni, esempi, esercitazioni e procedure dettagliate per le app per la logica di Azure
 
-[Le app per la logica di Azure](../logic-apps/logic-apps-what-are-logic-apps.md) consentono di orchestrare e integrare servizi diversi fornendo [connettori pronti all'uso da 100+](../connectors/apis-list.md), andando dal Server SQL o SAP in locale ai servizi cognitivi Microsoft. Il servizio delle App per la logica è "senza server", quindi non è necessario preoccuparsi per la scala o le istanze. È necessario solo definire il flusso di lavoro con un trigger e le azioni eseguite dal flusso di lavoro. La piattaforma sottostante gestisce scalabilità, disponibilità e prestazioni. Le app per la logica sono particolarmente utili per i casi d'uso e gli scenari in cui è necessario coordinare più azioni tra più sistemi.
+[Le app per la logica di Azure](../logic-apps/logic-apps-overview.md) consentono di orchestrare e integrare servizi diversi fornendo [connettori pronti all'uso da 100+](../connectors/apis-list.md), andando dal Server SQL o SAP in locale ai servizi cognitivi Microsoft. Il servizio delle App per la logica è "senza server", quindi non è necessario preoccuparsi per la scala o le istanze. È necessario solo definire il flusso di lavoro con un trigger e le azioni eseguite dal flusso di lavoro. La piattaforma sottostante gestisce scalabilità, disponibilità e prestazioni. Le app per la logica sono particolarmente utili per i casi d'uso e gli scenari in cui è necessario coordinare più azioni tra più sistemi.
 
-Per fornire maggiori informazioni sui numerosi modelli e sulle funzionalità supportate dalle [app per la logica di Azure](../logic-apps/logic-apps-what-are-logic-apps.md), di seguito sono elencati alcuni esempi e scenari comuni.
+Per fornire maggiori informazioni sui numerosi modelli e sulle funzionalità supportate dalle [app per la logica di Azure](../logic-apps/logic-apps-overview.md), di seguito sono elencati alcuni esempi e scenari comuni.
 
 ## <a name="popular-starting-points-for-logic-app-workflows"></a>Punti iniziali generali per i flussi di lavoro dell'app per la logica
 
-Ogni app per la logica inizia con un [*trigger*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) e un solo trigger, che avvia il flusso di lavoro dell'app per la logica e passa tutti i dati come parte del trigger. Alcuni connettori forniscono trigger, che sono disponibili sotto questi tipi:
+Ogni app per la logica inizia con un [*trigger*](../logic-apps/logic-apps-overview.md#logic-app-concepts) e un solo trigger, che avvia il flusso di lavoro dell'app per la logica e passa tutti i dati come parte del trigger. Alcuni connettori forniscono trigger, che sono disponibili sotto questi tipi:
 
 * *Trigger di polling*: controlla periodicamente un endpoint del servizio per i nuovi dati. In presenza di nuovi dati, il trigger crea ed esegue una nuova istanza del flusso di lavoro con i dati come input.
 

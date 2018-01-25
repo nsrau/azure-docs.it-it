@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7612eda8e40cb0ff2b205c2dfe11c2bba1b05b6a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c309debf53cc22d102de740ffd2907257b9821d2
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività Pig in Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -82,17 +82,17 @@ L'attività Pig di HDInsight in una [pipeline](data-factory-create-pipelines.md)
 }
 ```
 ## <a name="syntax-details"></a>Dettagli sintassi
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 | --- | --- | --- |
 | name |Nome dell'attività |Sì |
-| Descrizione |Testo descrittivo per lo scopo dell'attività |No |
+| description |Testo descrittivo per lo scopo dell'attività |No  |
 | type |HDInsightPig |Sì |
-| inputs |Uno o più input usati dall'attività Pig |No |
+| inputs |Uno o più input usati dall'attività Pig |No  |
 | outputs |Uno o più input prodotti dall'attività Pig |Sì |
 | linkedServiceName |Riferimento al cluster HDInsight registrato come servizio collegato in Data factory |Sì |
-| script |Specificare lo script Pig inline |No |
-| script path |Archiviare lo script Pig in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Il nome del file distingue tra maiuscole e minuscole. |No |
-| defines |Specificare i parametri come coppie chiave/valore per fare riferimento ad essi nello script Pig |No |
+| script |Specificare lo script Pig inline |No  |
+| script path |Archiviare lo script Pig in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Il nome del file distingue tra maiuscole e minuscole. |No  |
+| defines |Specificare i parametri come coppie chiave/valore per fare riferimento ad essi nello script Pig |No  |
 
 ## <a name="example"></a>Esempio
 Si prenda ad esempio l'analisi di log di giochi, in cui si desidera verificare il tempo che i giocatori hanno dedicato a giocare alle partite avviate dalla società.

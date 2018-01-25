@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 3ebcb5b3b4a84f7a5c25caa3f6b245f97bc8049f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 7775bad1503e62e1887e6d85f67c3107f48866bf
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="cloud-app-discovery-security-and-privacy-considerations"></a>Considerazioni sulla sicurezza e sulla privacy in Cloud App Discovery
 Questo argomento descrive le modalità di raccolta, elaborazione e protezione dei dati in Azure Active Directory Cloud App Discovery. Microsoft si impegna a proteggere la privacy e i dati degli utenti e si avvale di procedure estremamente sicure per la gestione dei servizi e del ciclo di vita di sviluppo software. La sicurezza e la protezione dei dati sono altamente prioritarie per Microsoft.

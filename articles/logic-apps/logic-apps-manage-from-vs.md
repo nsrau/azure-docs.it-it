@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 12/19/2016
 ms.author: LADocs; klam
-ms.openlocfilehash: a5bf24de1a7a2b6d4c1ae6416c95d83ef7506da3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34ce65ec272c9fe5be8f95371179de092c5df2f3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="manage-your-logic-apps-with-visual-studio-cloud-explorer"></a>Gestire le app per la logica con Visual Studio Cloud Explorer
 
@@ -27,7 +27,7 @@ Sebbene il [portale di Azure](https://portal.azure.com/) rappresenti un ottimo m
 
 Prima di poter accedere alle app per la logica e gestirle in Visual Studio, installare e configurare questi strumenti di Visual Studio per App per la logica di Azure. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * [Visual Studio 2015 o Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * [Versione più recente di Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 o versione successiva)
@@ -85,7 +85,7 @@ Per visualizzare la cronologia di esecuzione di un'istanza ed esaminare i risult
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare la prima app per la logica](logic-apps-create-a-logic-app.md)
+* [Creare la prima app per la logica](quickstart-create-first-logic-app-workflow.md)
 * [Progettare, compilare e distribuire app per la logica in Visual Studio](logic-apps-deploy-from-vs.md)
 * [Visualizzare esempi e scenari comuni](logic-apps-examples-and-scenarios.md)
 * [Video: Automate business processes with Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) (Automatizzare i processi aziendali con App per la logica di Azure)

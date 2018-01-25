@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/21/2017
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f31487c5b5d8b888c7eb58aea2e42199b1614af8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: c780efe92ec69ff692b42a586f55a1036d2ec952
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Introduzione all'accesso condizionale in Azure Active Directory
 
@@ -33,7 +33,7 @@ Questo argomento fornisce istruzioni per testare un accesso condizionale in base
 In molte organizzazioni è necessaria solo l'autenticazione a più fattori per l'accesso alle app che non viene eseguito dalla Intranet aziendale. Azure Active Directory permette di ottenere facilmente questo risultato mediante la configurazione di criteri di accesso condizionale basati sulla località. Questo argomento fornisce istruzioni dettagliate per la configurazione di criteri correlati, che fanno uso di [indirizzi IP attendibili](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) per distinguere tra i tentativi di accesso eseguiti dalla Intranet aziendale e da tutte le altre località.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Lo scenario descritto in questo argomento presuppone che si abbia familiarità con i concetti illustrati in [Accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 

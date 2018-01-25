@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4241aedebd388f24834e573fac7a8a61371e728a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e72cdee5b164fcd4944f4f1f95ff22bb5ceba6a4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory: esempi
 > [!NOTE]
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/03/2017
 ## <a name="samples-on-github"></a>Esempi in GitHub
 Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-datafactory) include alcuni esempi che permettono di acquisire rapidamente familiarità con il servizio Azure Data Factory (o) modificare gli script e usarlo nella propria applicazione. La cartella Samples\JSON include frammenti di codice JSON per scenari comuni.
 
-| Esempio | Descrizione |
+| Esempio | DESCRIZIONE |
 |:--- |:--- |
 | [Procedura dettagliata di Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |Questo esempio fornisce una procedura dettagliata end-to-end per l'elaborazione dei file di log mediante Azure Data Factory allo scopo di trasformare i dati da file di log in informazioni. <br/><br/>In questa procedura dettagliata la pipeline di Data Factory raccoglie log di esempio, elabora e arricchisce i dati dei log con dati di riferimento e trasforma i dati per valutare l'efficacia di una campagna di marketing lanciata di recente. |
 | [Esempi JSON](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) |Questo esempio fornisce esempi JSON relativi a scenari comuni. |
@@ -49,7 +49,7 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
 ## <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 È possibile trovare i seguenti modelli di Azure Resource Manager per Data Factory in GitHub.
 
-| Modello | Description |
+| Modello | DESCRIZIONE |
 | --- | --- |
 | [Copiare i dati dall'archiviazione BLOB di Azure al Database SQL di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |La distribuzione di questo modello consente di creare una data factory di Azure con una pipeline che copia dati dall'archiviazione BLOB di Azure specificata al database SQL di Azure |
 | [Copiare da Salesforce all'archiviazione BLOB di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |La distribuzione di questo modello consente di creare una data factory di Azure con una pipeline che copia dati dall'account Salesforce specificato all'archiviazione BLOB di Azure. |
@@ -71,14 +71,14 @@ Il [repository Azure-DataFactory di GitHub](https://github.com/azure/azure-dataf
 5. Dopo avere specificato le impostazioni di configurazione, fare clic su **Crea** per creare/distribuire le pipeline di esempio e i servizi collegati o le tabelle usati dalle pipeline.
 6. Lo stato della distribuzione sarà visualizzato sul riquadro dell'esempio selezionato in precedenza nel pannello **Pipeline di esempio** .
 
-    ![Deployment Status](./media/data-factory-samples/DeploymentStatus.png)
+    ![Stato della distribuzione](./media/data-factory-samples/DeploymentStatus.png)
 7. Quando viene visualizzato il messaggio **Distribuzione riuscita** nel riquadro relativo all'esempio, chiudere il pannello **Pipeline di esempio**.  
 8. Nel pannello **DATA FACTORY** si potrà notare che i servizi collegati, i set di dati e le pipeline vengono aggiunti alla data factory.  
 
     ![Pannello Data factory](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
 ## <a name="samples-in-visual-studio"></a>Esempi in Visual Studio
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 È necessario disporre dei seguenti prodotti installati nel computer in uso:
 
 * Visual Studio 2013 o Visual Studio 2015
