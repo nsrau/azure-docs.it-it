@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 7dc149f55c2caf4c3ab3a4782fd71affde0694ca
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a55d6dc212da05d7c14679579258e28921fecdc8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Uso di più file di input e proprietà del componente con il codificatore Premium
 ## <a name="overview"></a>Panoramica
@@ -47,7 +47,7 @@ La stringa di configurazione da impostare nell'attività di codifica usa un docu
 
 Di seguito è riportato il codice C# che legge la configurazione XML da un file, la aggiorna con il nome di file video corretto e la passa all'attività di un processo:
 
-```c#
+```csharp
 string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRuntime.xml").Replace("VideoFileName", myVideoFileName);
 
 // Declare a new job.
@@ -415,7 +415,7 @@ Incollare quindi i dati XML seguenti. È necessario specificare il nome del file
 
 Se si usa .NET SDK per creare ed eseguire l'attività, questi dati XML devono essere passati come stringa di configurazione.
 
-```c#
+```csharp
 public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string configuration, TaskOptions options);
 ```
 
@@ -464,7 +464,7 @@ Per effettuare la codifica, seguire questa procedura:
 
 * L'asset codificato conterrà tracce audio in più lingue e tali tracce saranno selezionabili in Azure Media Player.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Introduzione alla codifica Premium in Servizi multimediali di Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [Come usare la codifica Premium in Servizi multimediali di Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Codifica di contenuti su richiesta con Servizi multimediali di Azure](media-services-encode-asset.md#media-encoder-premium-workflow)
@@ -472,7 +472,7 @@ Per effettuare la codifica, seguire questa procedura:
 * [File del flusso di lavoro di esempio](https://github.com/Azure/azure-media-services-samples)
 * [Strumento di esplorazione di Servizi multimediali di Azure](http://aka.ms/amse)
 
-## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Media Services
+## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti

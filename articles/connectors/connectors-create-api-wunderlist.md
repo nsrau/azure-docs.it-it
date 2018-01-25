@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 899110992cc52ca5edf1706320fd5570473de784
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3657955ca4280fecd3a0fb1ea64b90e0a5c5c765
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-wunderlist-connector"></a>Introduzione al connettore Wunderlist
 Wunderlist fornisce un elenco di attività e uno strumento di gestione attività per aiutare le persone a portare a termine ciò che devono fare.  Che si tratti di condividere una lista della spesa con un familiare, lavorare a un progetto o pianificare una vacanza, Wunderlist consente di acquisire, condividere e completare le attività da svolgere in modo semplice. Wunderlist esegue immediatamente la sincronizzazione tra il telefono, il tablet e il computer, per consentire l'accesso a tutte le attività da qualsiasi posizione.
 
-Creare prima di tutto un'app per la logica. Vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
+Creare prima di tutto un'app per la logica. Vedere [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-wunderlist"></a>Creare una connessione a Wunderlist
 Per creare app per la logica con Wunderlist, è prima necessario creare una **connessione** e quindi fornire i dettagli per le proprietà seguenti:
 
-| Proprietà | Obbligatorio | Descrizione |
+| Proprietà | Obbligatoria | DESCRIZIONE |
 | --- | --- | --- |
-| Token |Sì |Fornisce le credenziali di Wunderlist |
+| token |Sì |Fornisce le credenziali di Wunderlist |
 
 Dopo aver creato la connessione, è possibile usarla per eseguire le azioni e restare in ascolto dei trigger.
 

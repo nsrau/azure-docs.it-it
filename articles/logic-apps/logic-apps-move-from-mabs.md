@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.openlocfilehash: df26e4669158e5aa9e3b9a7af888d0dbbba273dd
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 01c5376ac5ba9125eede9deb5ee0a7a006a91bb4
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="move-from-biztalk-services-to-logic-apps"></a>Spostare da Servizi BizTalk ad App per la logica
 
@@ -126,6 +126,6 @@ App per la logica offre funzionalità di monitoraggio e rilevamento più avanzat
 Per ottenere una disponibilità elevata in Servizi BizTalk, è possibile usare più istanze di una determinata area per condividere il carico di elaborazione. Con le app per la logica, la disponibilità elevata in un'area è incorporata senza alcun costo aggiuntivo. Per il ripristino di emergenza al di fuori dell'area per l'elaborazione B2B in Servizi BizTalk, è necessario un processo di backup e ripristino. App per la logica offre una [capacità DR](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md) attiva/passiva per diverse aree, che consente la sincronizzazione dei dati B2B tra account di integrazione in aree diverse al fine di facilitare la continuità aziendale.
 
 ## <a name="next"></a>Avanti
-* [Informazioni sulle app per la logica](logic-apps-what-are-logic-apps.md)
-* [Creare la prima app per la logica](logic-apps-create-a-logic-app.md), oppure iniziare rapidamente usando un [modello predefinito](logic-apps-create-logic-apps-from-templates.md)  
+* [Informazioni sulle app per la logica](logic-apps-overview.md)
+* [Creare la prima app per la logica](quickstart-create-first-logic-app-workflow.md), oppure iniziare rapidamente usando un [modello predefinito](logic-apps-create-logic-apps-from-templates.md)  
 * [Visualizzare tutti i connettori disponibili](../connectors/apis-list.md) che è possibile usare in un'app per la logica

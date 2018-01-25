@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: c066a10b33e172eb5f16eede43ec407794000c90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 05d6efa3f48c9b0b8c21badd96a0e13a63542b30
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-google-drive-connector"></a>Introduzione all'API Google Drive
 Connettersi a Google Drive per creare file, recuperare righe e così via. Con Google Drive è possibile: 
@@ -28,7 +28,7 @@ Connettersi a Google Drive per creare file, recuperare righe e così via. Con Go
 * Creare il flusso aziendale in base ai dati ottenuti dalla ricerca. 
 * Usare azioni per cercare immagini, notizie e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. È ad esempio possibile cercare un video e quindi usare Twitter per pubblicarlo in un feed Twitter.
 
-Per iniziare subito a creare un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
+Per iniziare subito a creare un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-the-connection-to-google-drive"></a>Creare una connessione a Google Drive
 Quando si aggiunge questo connettore alle app per la logica, è necessario autorizzare le app per la logica per la connessione a Google Drive.

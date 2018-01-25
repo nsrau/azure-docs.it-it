@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 56471d8ef68eacacb3ecebad5056d7e7a9f3ca40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24bd0e8eff616920dba0eb5353f983444e3161cd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-session-management--articles"></a>Infrastruttura di sicurezza: gestione della sessione - Articoli 
 | Prodotto o servizio | Articolo |
@@ -43,13 +43,13 @@ ms.lasthandoff: 10/11/2017
 | **Passaggi** | Se l'applicazione si basa su un token di accesso rilasciato da Azure AD, il gestore eventi di disconnessione eseguirà la chiamata. |
 
 ### <a name="example"></a>Esempio
-```C#
+```csharp
 HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationDefaults.AuthenticationType, CookieAuthenticationDefaults.AuthenticationType)
 ```
 
 ### <a name="example"></a>Esempio
 Eliminerà anche definitivamente la sessione dell'utente chiamando il metodo Session.Abandon(). Il metodo seguente illustra l'implementazione sicura della disconnessione utente:
-```C#
+```csharp
     [HttpPost]
         [ValidateAntiForgeryToken]
         public void LogOff()
@@ -79,7 +79,7 @@ Eliminerà anche definitivamente la sessione dell'utente chiamando il metodo Ses
 
 ## <a id="resource-tokens"></a>Usare durate minime per i token delle risorse generati
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure DocumentDB | 
 | **Fase SDL**               | Compilare |  
@@ -100,7 +100,7 @@ Eliminerà anche definitivamente la sessione dell'utente chiamando il metodo Ses
 | **Passaggi** | Se l'applicazione si basa sul token del servizio token di sicurezza rilasciato da AD FS, il gestore eventi di disconnessione chiamerà il metodo WSFederationAuthenticationModule.FederatedSignOut() per disconnettere l'utente. Verrà anche eliminata definitivamente la sessione corrente e il valore del token della sessione verrà reimpostato e reso null.|
 
 ### <a name="example"></a>Esempio
-```C#
+```csharp
         [HttpPost, ValidateAntiForgeryToken]
         [Authorization]
         public ActionResult SignOut(string redirectUrl)
@@ -160,7 +160,7 @@ Eliminerà anche definitivamente la sessione dell'utente chiamando il metodo Ses
 | **Passaggi** | I cookie in genere sono accessibili solo per il dominio per il cui ambito sono stati definiti. La definizione di "dominio" purtroppo non include il protocollo, quindi i cookie creati tramite HTTPS sono accessibile tramite HTTP. L'attributo "secure" indica al browser che il cookie deve essere disponibile solo tramite HTTPS. Assicurarsi che tutti i cookie impostati tramite HTTPS usino l'attributo **secure**. Il requisito può essere applicato nel file web.config impostando l'attributo requireSSL su true. Si tratta dell'approccio da preferire perché applicherà l'attributo **secure** per tutti i cookie correnti e futuri senza dover apportare altre modifiche al codice.|
 
 ### <a name="example"></a>Esempio
-```C#
+```csharp
 <configuration>
   <system.web>
     <httpCookies requireSSL="true"/>
@@ -169,7 +169,7 @@ Eliminerà anche definitivamente la sessione dell'utente chiamando il metodo Ses
 ```
 L'impostazione viene applicata anche se viene usato HTTP per accedere all'applicazione. Se viene usato HTTP per accedere all'applicazione, l'impostazione interrompe l'applicazione perché i cookie vengono impostati con l'attributo secure e il browser non li invierà di nuovo all'applicazione.
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -179,7 +179,7 @@ L'impostazione viene applicata anche se viene usato HTTP per accedere all'applic
 | **Passaggi** | Quando l'applicazione Web è la relying party e l'IdP è il server AD FS, l'attributo secure del token FedAuth può essere configurato impostando requireSSL su True nella sezione `system.identityModel.services` di web.config:|
 
 ### <a name="example"></a>Esempio
-```C#
+```csharp
   <system.identityModel.services>
     <federationConfiguration>
       <!-- Set requireSsl=true; domain=application domain name used by FedAuth cookies (Ex: .gdinfra.com); -->
@@ -254,7 +254,7 @@ La configurazione seguente illustra la configurazione corretta:
 
 ## <a id="csrf-asp"></a>Mitigare il rischio di attacchi basati su richieste intersito false nelle pagine Web ASP.NET
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -273,7 +273,7 @@ La configurazione seguente illustra la configurazione corretta:
 | **Passaggi** | Form ASP.NET MVC e contro le richieste intersito: usare il metodo helper `AntiForgeryToken` in Views. Inserire `Html.AntiForgeryToken()` nel form, ad esempio,|
 
 ### <a name="example"></a>Esempio
-```C#
+```csharp
 @using (Html.BeginForm("UserProfile", "SubmitUpdate")) { 
     @Html.ValidationSummary(true) 
     @Html.AntiForgeryToken()
@@ -281,7 +281,7 @@ La configurazione seguente illustra la configurazione corretta:
 ```
 
 ### <a name="example"></a>Esempio
-```C#
+```csharp
 <form action="/UserProfile/SubmitUpdate" method="post">
     <input name="__RequestVerificationToken" type="hidden" value="saTFWpkKN0BYazFtN6c4YbZAmsEwG0srqlUqqloi/fVgeV2ciIFVmelvzwRZpArs" />
     <!-- rest of form goes here -->
@@ -289,7 +289,7 @@ La configurazione seguente illustra la configurazione corretta:
 ```
 
 ### <a name="example"></a>Esempio
-Html.AntiForgeryToken() assegna contemporaneamente al visitatore un cookie denominato __RequestVerificationToken, con lo stesso valore del valore nascosto casuale illustrato sopra. Per convalidare un post del form in ingresso, aggiungere quindi il filtro [ValidateAntiForgeryToken] al metodo azione di destinazione. ad esempio:
+Html.AntiForgeryToken() assegna contemporaneamente al visitatore un cookie denominato __RequestVerificationToken, con lo stesso valore del valore nascosto casuale illustrato sopra. Per convalidare un post del form in ingresso, aggiungere quindi il filtro [ValidateAntiForgeryToken] al metodo azione di destinazione. Ad esempio: 
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()
@@ -304,7 +304,7 @@ Filtro di autorizzazione che controlla che:
 
 ### <a name="example"></a>Esempio
 Prevenzione di richieste intersito false e AJAX: il token del form può rappresentare un problema per le richieste AJAX, perché una richiesta AJAX potrebbe inviare dati JSON, non dati in formato HTML. Una soluzione consiste nell'inviare i token in un'intestazione HTTP personalizzata. Il codice seguente usa la sintassi Razor per generare i token e quindi li aggiunge a una richiesta AJAX. 
-```C#
+```csharp
 <script>
     @functions{
         public string TokenHeaderValue()
@@ -329,7 +329,7 @@ Prevenzione di richieste intersito false e AJAX: il token del form può rapprese
 
 ### <a name="example"></a>Esempio
 Quando si elabora la richiesta, estrarre i token dall'intestazione della richiesta. Chiamare quindi il metodo AntiForgery.Validate per convalidare i token. Il metodo Validate genera un'eccezione se i token non sono validi.
-```C#
+```csharp
 void ValidateRequestHeader(HttpRequestMessage request)
 {
     string cookieToken = "";
@@ -360,7 +360,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 
 ### <a name="example"></a>Esempio
 Ecco il codice che è necessario avere in tutte le pagine:
-```C#
+```csharp
 void Page_Init (object sender, EventArgs e) {
    ViewStateUserKey = Session.SessionID;
    :
@@ -369,7 +369,7 @@ void Page_Init (object sender, EventArgs e) {
 
 ## <a id="inactivity-lifetime"></a>Configurare una sessione per la durata dell'inattività
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -428,13 +428,13 @@ void Page_Init (object sender, EventArgs e) {
 
 ### <a name="example"></a>Esempio
 Anche la durata del token dell'attestazione SAML rilasciato da AD FS deve essere impostato su 15 minuti, eseguendo il comando di PowerShell seguente nel server AD FS:
-```C#
+```csharp
 Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProviderName @(“Active Directory”) -TokenLifetime 15 -AlwaysRequireAuthentication $true
 ```
 
 ## <a id="proper-app-logout"></a>Implementare la disconnessione appropriata dall'applicazione
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -488,7 +488,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 
 ### <a name="example"></a>Esempio
 Quando si elabora la richiesta, estrarre i token dall'intestazione della richiesta. Chiamare quindi il metodo AntiForgery.Validate per convalidare i token. Il metodo Validate genera un'eccezione se i token non sono validi.
-```C#
+```csharp
 void ValidateRequestHeader(HttpRequestMessage request)
 {
     string cookieToken = "";
@@ -510,7 +510,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 
 ### <a name="example"></a>Esempio
 Form ASP.NET MVC e contro le richieste intersito: usare il metodo helper AntiForgeryToken in Views. Inserire Html.AntiForgeryToken() nel form, ad esempio,
-```C#
+```csharp
 @using (Html.BeginForm("UserProfile", "SubmitUpdate")) { 
     @Html.ValidationSummary(true) 
     @Html.AntiForgeryToken()
@@ -520,7 +520,7 @@ Form ASP.NET MVC e contro le richieste intersito: usare il metodo helper AntiFor
 
 ### <a name="example"></a>Esempio
 Nell'esempio precedente verrà generato un output simile al seguente:
-```C#
+```csharp
 <form action="/UserProfile/SubmitUpdate" method="post">
     <input name="__RequestVerificationToken" type="hidden" value="saTFWpkKN0BYazFtN6c4YbZAmsEwG0srqlUqqloi/fVgeV2ciIFVmelvzwRZpArs" />
     <!-- rest of form goes here -->
@@ -528,7 +528,7 @@ Nell'esempio precedente verrà generato un output simile al seguente:
 ```
 
 ### <a name="example"></a>Esempio
-Html.AntiForgeryToken() assegna contemporaneamente al visitatore un cookie denominato __RequestVerificationToken, con lo stesso valore del valore nascosto casuale illustrato sopra. Per convalidare un post del form in ingresso, aggiungere quindi il filtro [ValidateAntiForgeryToken] al metodo azione di destinazione. ad esempio:
+Html.AntiForgeryToken() assegna contemporaneamente al visitatore un cookie denominato __RequestVerificationToken, con lo stesso valore del valore nascosto casuale illustrato sopra. Per convalidare un post del form in ingresso, aggiungere quindi il filtro [ValidateAntiForgeryToken] al metodo azione di destinazione. Ad esempio: 
 ```
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 114666d0c173786373e3bdd025027eb217922749
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f3de9ba6615a9b2232cca237a822b308d89426d
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Infrastruttura di sicurezza: gestione della configurazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="example"></a>Esempio
 Criteri di esempio: 
-```C#
+```csharp
 Content-Security-Policy: default-src 'self'; script-src 'self' www.google-analytics.com 
 ```
 Questi criteri consentono il caricamento degli script solo dal server dell'applicazione Web e dal server Google Analytics. Gli script caricati da altri siti verranno rifiutati. Quando CSP viene abilitato in un sito Web, le funzionalità seguenti vengono automaticamente disabilitate per mitigare gli attacchi XSS. 
@@ -67,7 +67,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="xss-filter"></a>Abilitare il filtro XSS del browser
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -89,7 +89,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="js-trusted"></a>Accedere a contenuto JavaScript di terze parti solo da origini attendibili
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -111,7 +111,7 @@ Example: var str="alert(1)"; eval(str);
 
 ### <a name="example"></a>Esempio
 L'intestazione X-FRAME-OPTIONS può essere impostata tramite file web.config IIS. Frammento di codice di Web.config che non devono mai essere inseriti in un frame: 
-```C#
+```csharp
     <system.webServer>
         <httpProtocol>
             <customHeader>
@@ -123,7 +123,7 @@ L'intestazione X-FRAME-OPTIONS può essere impostata tramite file web.config IIS
 
 ### <a name="example"></a>Esempio
 Codice di Web.config per siti che devono essere inseriti in un frame solo dalle pagine nello stesso dominio: 
-```C#
+```csharp
     <system.webServer>
         <httpProtocol>
             <customHeader>
@@ -135,7 +135,7 @@ Codice di Web.config per siti che devono essere inseriti in un frame solo dalle 
 
 ## <a id="cors-aspnet"></a>Assicurarsi che siano consentite solo origini attendibili se CORS è abilitato nelle applicazioni Web ASP.NET
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -158,7 +158,7 @@ Se è disponibile l'accesso a Web.config, CORS può essere aggiunto tramite il c
 
 ### <a name="example"></a>Esempio
 Se non è disponibile l'accesso a Web.config, CORS può essere configurato aggiungendo il codice CSharp seguente: 
-```C#
+```csharp
 HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example.com")
 ```
 
@@ -226,7 +226,7 @@ Aggiungere l'intestazione nel file web.config se l'applicazione è ospitata da I
 
 ### <a name="example"></a>Esempio
 Aggiungere l'intestazione tramite Application\_BeginRequest globale. 
-```C#
+```csharp
 void Application_BeginRequest(object sender, EventArgs e)
 {
 this.Response.Headers["X-Content-Type-Options"] = "nosniff";
@@ -235,7 +235,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ### <a name="example"></a>Esempio
 Implementare un modulo HTTP personalizzato. 
-```C#
+```csharp
 public class XContentTypeOptionsModule : IHttpModule
 {
 #region IHttpModule Members
@@ -262,7 +262,7 @@ application.Response.Headers.Add("X-Content-Type-Options ", "nosniff");
 ### <a name="example"></a>Esempio
 È possibile abilitare l'intestazione necessaria solo per pagine specifiche aggiungendola a singole risposte: 
 
-```C#
+```csharp
 this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 ```
 
@@ -279,7 +279,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a id="firewall-db"></a>Configurare Windows Firewall per l'accesso al motore di database
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -290,7 +290,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a id="cors-api"></a>Assicurarsi che siano consentite solo origini attendibili se CORS è abilitato nell'API Web ASP.NET
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase SDL**               | Compilare |  
@@ -301,7 +301,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ### <a name="example"></a>Esempio
 In App_Start/WebApiConfig.cs aggiungere il codice seguente al metodo WebApiConfig.Register. 
-```C#
+```csharp
 using System.Web.Http;
 namespace WebService
 {
@@ -325,7 +325,7 @@ namespace WebService
 ### <a name="example"></a>Esempio
 L'attributo EnableCors può essere applicato ai metodi di azione in un controller, come segue: 
 
-```C#
+```csharp
 public class ResourcesController : ApiController
 {
   [EnableCors("http://localhost:55912", // Origin
@@ -365,7 +365,7 @@ Si noti che è fondamentale assicurarsi che l'elenco di origini nell'attributo E
 
 ### <a name="example"></a>Esempio
 Per disabilitare CORS in un determinato metodo di una classe, l'attributo DisableCors può essere usato come illustrato sotto: 
-```C#
+```csharp
 [EnableCors("http://example.com", "Accept, Origin, Content-Type", "POST")]
 public class ResourcesController : ApiController
 {
@@ -399,7 +399,7 @@ public class ResourcesController : ApiController
 
 ### <a name="example"></a>Esempio
 Il primo consiste nel chiamare UseCors con un operatore lambda. L'operatore lambda accetta un oggetto CorsPolicyBuilder: 
-```C#
+```csharp
 public void Configure(IApplicationBuilder app)
 {
     app.UseCors(builder =>
@@ -411,7 +411,7 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="example"></a>Esempio
 Il secondo consiste nel definire uno più criteri CORS denominati e quindi nel selezionare i criteri per nome in fase di esecuzione. 
-```C#
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddCors(options =>
@@ -434,7 +434,7 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="example"></a>Esempio
 Per azione: per specificare un criterio CORS per un'azione specifica, aggiungere l'attributo [EnableCors] all'azione. Specificare il nome del criterio. 
-```C#
+```csharp
 public class HomeController : Controller
 {
     [EnableCors("AllowSpecificOrigin")] 
@@ -446,7 +446,7 @@ public class HomeController : Controller
 
 ### <a name="example"></a>Esempio
 Per controller: 
-```C#
+```csharp
 [EnableCors("AllowSpecificOrigin")]
 public class HomeController : Controller
 {
@@ -454,7 +454,7 @@ public class HomeController : Controller
 
 ### <a name="example"></a>Esempio
 A livello globale: 
-```C#
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddMvc();
@@ -468,7 +468,7 @@ Si noti che è fondamentale assicurarsi che l'elenco di origini nell'attributo E
 
 ### <a name="example"></a>Esempio
 Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableCors]. 
-```C#
+```csharp
 [DisableCors]
     public IActionResult About()
     {
@@ -489,7 +489,7 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 
 ## <a id="admin-strong"></a>Assicurarsi che tutte le interfacce amministrative siano protette con credenziali sicure
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase SDL**               | Distribuzione |  
@@ -500,7 +500,7 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 
 ## <a id="unknown-exe"></a>Assicurarsi che un codice sconosciuto non possa essere eseguito sui dispositivi
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase SDL**               | Compilare |  
@@ -511,7 +511,7 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 
 ## <a id="partition-iot"></a>Crittografare il sistema operativo e altre partizioni del dispositivo IoT con bit-locker
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase SDL**               | Compilare |  
@@ -555,7 +555,7 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 
 ## <a id="cloud-firmware"></a>Assicurarsi che il gateway nel cloud implementi un processo per mantenere aggiornato il firmware dei dispositivi connessi
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway IoT cloud | 
 | **Fase SDL**               | Compilare |  
@@ -566,7 +566,7 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 
 ## <a id="controls-policies"></a>Assicurarsi che i dispositivi abbiano i controlli di sicurezza degli endpoint configurati in base ai criteri organizzativi
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust dei computer | 
 | **Fase SDL**               | Distribuzione |  
@@ -577,7 +577,7 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 
 ## <a id="secure-keys"></a>Assicurare una gestione sicura delle chiavi di accesso alle risorse di archiviazione di Azure
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Archiviazione di Azure | 
 | **Fase SDL**               | Distribuzione |  
@@ -588,7 +588,7 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 
 ## <a id="cors-storage"></a>Assicurarsi che siano consentite solo origini attendibili se CORS è abilitato in Archiviazione di Azure
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Archiviazione di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -599,7 +599,7 @@ Per disabilitare CORS per un controller o un'azione, usare l'attributo [DisableC
 
 ## <a id="throttling"></a>Abilitare la funzionalità di limitazione dei servizi di WCF
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  

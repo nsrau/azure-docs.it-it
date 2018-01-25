@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 95c2f4fe40590a8d809f634fb5b2c92d07421bb0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 099e3c259f0b63e4376847727eb8e185aeb37380
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Creare una rete virtuale (classica) con più subnet
 
@@ -36,7 +36,7 @@ Altre informazioni su tutte le impostazioni relative alla [rete virtuale](virtua
 
 Si crea una rete virtuale (classica) usando il [portale di Azure](#portal), l'[interfaccia della riga di comando di Azure 1.0 ](#azure-cli) o [Azure PowerShell](#powershell).
 
-## <a name="portal"></a>di Microsoft Azure
+## <a name="portal"></a>Portale
 
 1. In un browser Internet passare al [Portale di Azure](https://portal.azure.com). Accedere usando l'[account Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Se non si ha un account Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p).
 2. Fare clic su **+Nuovo** nel portale.
@@ -46,7 +46,7 @@ Si crea una rete virtuale (classica) usando il [portale di Azure](#portal), l'[i
 
     |Impostazione|Valore|
     |---|---|
-    |Nome|myVnet|
+    |NOME|myVnet|
     |Spazio degli indirizzi|10.0.0.0/16|
     |Nome della subnet|Pubblico|
     |Intervallo di indirizzi subnet|10.0.0.0/24|
@@ -163,6 +163,6 @@ Si crea una rete virtuale (classica) usando il [portale di Azure](#portal), l'[i
 
 - Per informazioni sulle impostazioni delle reti virtuali e delle subnet, vedere [Gestire le reti virtuali](virtual-network-manage-network.md) e [Gestire le subnet di rete virtuali](virtual-network-manage-subnet.md). In un ambiente di produzione sono disponibili varie opzioni per l'uso di reti virtuali e subnet per soddisfare requisiti diversi.
 - Per filtrare il traffico delle subnet in ingresso e in uscita, creare e applicare [gruppi di sicurezza di rete](virtual-networks-nsg.md) alle subnet.
-- Creare una macchina virtuale [Windows](../virtual-machines/windows/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e quindi connetterla a una rete virtuale esistente.
+- Creare una macchina virtuale [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e quindi connetterla a una rete virtuale esistente.
 - Per connettere due reti virtuali nella stessa località di Azure, creare un [peering reti virtuali](create-peering-different-deployment-models.md) tra due reti virtuali. È possibile connettere una rete virtuale (Gestione risorse) a una rete virtuale (classica), ma non è possibile creare un peering tra due reti virtuali (classica).
 - Connettere la rete virtuale a una rete locale tramite un [Gateway VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o un circuito [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

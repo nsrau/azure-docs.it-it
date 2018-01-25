@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 960365d4dc842cf5ce5587599a155861390ebb26
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: ddbd27bd832c6fc3c7a0274095d6d203ecf1092a
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copiare i dati da MongoDB con Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,11 +39,11 @@ In particolare, il connettore MongoDB supporta:
 - MongoDB **versioni 2.4, 2.6, 3.0 e 3.2**.
 - La copia dei dati usando l'autenticazione **Di base** o **Anonima**.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per copiare i dati da un database MongoDB non accessibile pubblicamente, è necessario configurare un runtime di integrazione self-hosted. Per i dettagli, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md). Il runtime di integrazione offre un driver per MongoDB integrato e non è quindi necessario installare manualmente alcun driver quando si copiano dati da/in MongoDB.
 
-## <a name="getting-started"></a>Attività iniziali
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -53,17 +53,17 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di MongoDB sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type |La proprietà type deve essere impostata su **MongoDb** |Sì |
 | server |Indirizzo IP o nome host del server MongoDB. |Sì |
 | port |Porta TCP che il server MongoDB usa per ascoltare le connessioni client. |No (il valore predefinito è 27017) |
 | databaseName |Nome del database MongoDB a cui si vuole accedere. |Sì |
 | authenticationType | Tipo di autenticazione usato per connettersi al database MongoDB.<br/>I valori consentiti sono: **Di base** e **Anonima**. |Sì |
-| nome utente |Account utente per accedere a MongoDB. |Sì (se si usa l'autenticazione di base). |
+| username |Account utente per accedere a MongoDB. |Sì (se si usa l'autenticazione di base). |
 | password |Password per l'utente. Contrassegnare questo campo come SecureString. |Sì (se si usa l'autenticazione di base). |
 | authSource |Nome del database MongoDB che si vuole usare per controllare le credenziali di autenticazione. |di serie Per l'autenticazione di base il valore predefinito usa l'account di amministrazione e il database specificati usando la proprietà databaseName. |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
 **Esempio:**
 
@@ -96,7 +96,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da MongoDB, impostare la proprietà type del set di dati su **MongoDbCollection**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **MongoDbCollection** | Sì |
 | collectionName |Nome della raccolta nel database MongoDB. |Sì |
@@ -127,7 +127,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da MongoDB, impostare il tipo di origine nell'attività di copia su **MongoDbSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **MongoDbSource** | Sì |
 | query |Usare la query SQL-92 personalizzata per leggere i dati. Ad esempio: selezionare * da MyTable. |No (se "collectionName" nel set di dati è specificato) |
@@ -177,15 +177,15 @@ Quando si copiano dati da MongoDB, vengono usati i mapping seguenti tra i tipi d
 
 | Tipo di dati di MongoDB | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
-| Binario |Byte[] |
-| Booleano |Booleano |
-| Data |Data/Ora |
-| NumberDouble |A due righe |
+| Binary |Byte[] |
+| boolean |boolean |
+| Data |Datetime |
+| NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |Stringa |
-| Stringa |Stringa |
-| UUID |GUID |
+| ObjectID |string |
+| string |string |
+| UUID |Guid |
 | Oggetto |Rinormalizzato in colonne rese flat con "_" come separatore annidato |
 
 > [!NOTE]
@@ -226,7 +226,7 @@ Le tabelle seguenti illustrano le tabelle virtuali che rappresentano le matrici 
 
 **Tabella "ExampleTable_Invoices":**
 
-| _id | ExampleTable_Invoices_dim1_idx | invoice_id | elemento | price | Discount |
+| _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | price | Discount |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |toaster |456 |0,2 |
 | 1111 |1 |124 |oven |1235 |0,2 |

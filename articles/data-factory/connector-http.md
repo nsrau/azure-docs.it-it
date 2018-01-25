@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: cdf4e808045bb649b3a2406e8f7c1ef30e34fe7b
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 232b9bed1ea719dfb76d639bc8d5274551cdab6f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copiare dati da un endpoint HTTP usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ In particolare, il connettore HTTP supporta:
 
 La differenza tra questo connettore e [il connettore della tabella Web](connector-web-table.md) è che quest'ultimo viene usato per estrarre il contenuto di una tabella da una pagina Web HTML.
 
-## <a name="getting-started"></a>Attività iniziali
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -51,19 +51,19 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato HTTP sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **HttpServer**. | Sì |
-| url | URL di base al server Web | Sì |
+| URL | URL di base al server Web | Sì |
 | enableServerCertificateValidation | Specificare se abilitare la convalida del certificato SSL del server quando si esegue la connessione all'endpoint HTTP. | No, il valore predefinito è true |
 | authenticationType | Specifica il tipo di autenticazione. I valori consentiti sono: **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Fare riferimento alle sezioni sotto questa tabella per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Usando l'autenticazione Basic, Digest o Windows
 
 Impostare la proprietà "authenticationType" su **Base**, **Digest** o **Windows** e specificare le proprietà seguenti insieme alle proprietà generiche descritte nella precedente sezione:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | userName | Nome utente per accedere all'endpoint HTTP. | Sì |
 | password | Password per l'utente (userName). Contrassegnare questo campo come SecureString. | Sì |
@@ -96,11 +96,11 @@ Impostare la proprietà "authenticationType" su **Base**, **Digest** o **Windows
 
 Per usare l'autenticazione ClientCertificate impostare la proprietà "authenticationType" su **ClientCertificate** e specificare le proprietà seguenti insieme alle proprietà generiche descritte nella precedente sezione:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | embeddedCertData | Dati del certificato con codifica Base64. | Specificare `embeddedCertData` o `certThumbprint`. |
 | certThumbprint | Identificazione personale del certificato installato nell'archivio certificati del computer per il runtime di integrazione self-hosted. Si applica solo quando in connectVia viene specificato il tipo di runtime di integrazione self-hosted. | Specificare `embeddedCertData` o `certThumbprint`. |
-| password | Password associata al certificato. Contrassegnare questo campo come SecureString. | No |
+| password | Password associata al certificato. Contrassegnare questo campo come SecureString. | No  |
 
 Se si usa "certThumbprint" per l'autenticazione e il certificato è installato nell'archivio personale del computer locale, è necessario concedere l'autorizzazione di lettura al runtime di integrazione self-hosted:
 
@@ -159,15 +159,15 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da HTTP, impostare la proprietà type del set di dati su **HttpFile**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su **HttpFile** | Sì |
-| relativeUrl | URL relativo della risorsa che contiene i dati. Quando questa proprietà non è specificata, viene usato solo l'URL specificato nella definizione del servizio collegato. | No |
-| requestMethod | Metodo HTTP.<br/>I valori consentiti sono **Get**, come valore predefinito, o **Post**. | No |
-| additionalHeaders | Intestazioni richiesta HTTP aggiuntive. | No |
-| requestBody | Il corpo della richiesta HTTP. | No |
-| formato | Se si desidera **recuperare dati dall'endpoint HTTP così com'è**, senza analizzarli e copiarli in un archivio basato su file, ignorare la sezione del formato sia per le definizioni di input che di output.<br/><br/>Se si desidera analizzare i contenuti della risposta HTTP durante la copia, sono supportati i tipi di formato file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [Json Format](supported-file-formats-and-compression-codecs.md#json-format) (Formato JSON), [Text Format](supported-file-formats-and-compression-codecs.md#text-format) (Formato testo), [Avro Format](supported-file-formats-and-compression-codecs.md#avro-format) (Formato Avro), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format) (Formato Orc) e [Parquet Format](supported-file-formats-and-compression-codecs.md#parquet-format) (Formato Parquet). |No |
-| compressione | Specificare il tipo e il livello di compressione dei dati. Per altre informazioni, vedere l'articolo sui [formati di file supportati e i codec di compressione](supported-file-formats-and-compression-codecs.md#compression-support).<br/>I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>I livelli supportati sono **Ottimale** e **Più veloce**. |No |
+| relativeUrl | URL relativo della risorsa che contiene i dati. Quando questa proprietà non è specificata, viene usato solo l'URL specificato nella definizione del servizio collegato. | No  |
+| requestMethod | Metodo HTTP.<br/>I valori consentiti sono **Get**, come valore predefinito, o **Post**. | No  |
+| additionalHeaders | Intestazioni richiesta HTTP aggiuntive. | No  |
+| requestBody | Il corpo della richiesta HTTP. | No  |
+| format | Se si desidera **recuperare dati dall'endpoint HTTP così com'è**, senza analizzarli e copiarli in un archivio basato su file, ignorare la sezione del formato sia per le definizioni di input che di output.<br/><br/>Se si desidera analizzare i contenuti della risposta HTTP durante la copia, sono supportati i tipi di formato file seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Impostare la proprietà **type** nell'area format su uno di questi valori. Per altre informazioni, vedere le sezioni [Json Format](supported-file-formats-and-compression-codecs.md#json-format) (Formato JSON), [Text Format](supported-file-formats-and-compression-codecs.md#text-format) (Formato testo), [Avro Format](supported-file-formats-and-compression-codecs.md#avro-format) (Formato Avro), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format) (Formato Orc) e [Parquet Format](supported-file-formats-and-compression-codecs.md#parquet-format) (Formato Parquet). |No  |
+| compressione | Specificare il tipo e il livello di compressione dei dati. Per altre informazioni, vedere l'articolo sui [formati di file supportati e i codec di compressione](supported-file-formats-and-compression-codecs.md#compression-support).<br/>I tipi supportati sono **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>I livelli supportati sono **Ottimale** e **Più veloce**. |No  |
 
 **Esempio 1: uso del metodo Get, per impostazione predefinita**
 
@@ -216,10 +216,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da un database HTTP, impostare il tipo di origine nell'attività di copia su **HttpSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **HttpSource** | Sì |
-| httpRequestTimeout | Il timeout (TimeSpan) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta stessa.<br/> Il valore predefinito è 00:01:40  | No |
+| httpRequestTimeout | Il timeout (TimeSpan) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta stessa.<br/> Il valore predefinito è 00:01:40  | No  |
 
 **Esempio:**
 

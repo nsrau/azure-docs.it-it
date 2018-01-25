@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: asaxton
-ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a010e60df2d86d2b1cc923b427aa7d7452f58089
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence in Macchine virtuali di Azure
 > [!IMPORTANT] 
@@ -78,10 +78,10 @@ La tabella seguente riepiloga le funzionalità di Business Intelligence installa
 | Funzionalità SQL Server BI | Installato nell'immagine della raccolta | Note |
 | --- | --- | --- |
 | **Modalità nativa di Reporting Services** |Sì |Installata ma richiede la configurazione, inclusi l'URL di gestione report. Vedere la sezione [Configurare Reporting Services](#configure-reporting-services). |
-| **Modalità SharePoint di Reporting Services** |No |L'immagine della raccolta macchine virtuali di Microsoft Azure non include SharePoint o i suoi file di installazione. <sup>1</sup> |
+| **Modalità SharePoint di Reporting Services** |No  |L'immagine della raccolta macchine virtuali di Microsoft Azure non include SharePoint o i suoi file di installazione. <sup>1</sup> |
 | **Modalità multidimensionale e di Data mining di Analysis Services (OLAP)** |Sì |Installata e configurata come istanza di Analysis Services predefinita |
-| **Modalità tabulare di Analysis Services** |No |Supportata nelle immagini di SQL Server 2012, 2014 e 2016 ma non è installata per impostazione predefinita. Installare un'altra istanza di Analysis Services. Vedere la sezione Installare altri servizi e funzionalità di SQL Server in questo argomento. |
-| **Analysis Services Power Pivot per SharePoint** |No |L'immagine della raccolta macchine virtuali di Microsoft Azure non include SharePoint o i suoi file di installazione. <sup>1</sup> |
+| **Modalità tabulare di Analysis Services** |No  |Supportata nelle immagini di SQL Server 2012, 2014 e 2016 ma non è installata per impostazione predefinita. Installare un'altra istanza di Analysis Services. Vedere la sezione Installare altri servizi e funzionalità di SQL Server in questo argomento. |
+| **Analysis Services Power Pivot per SharePoint** |No  |L'immagine della raccolta macchine virtuali di Microsoft Azure non include SharePoint o i suoi file di installazione. <sup>1</sup> |
 
 <sup>1</sup> Per altre informazioni su SharePoint e le macchine virtuali di Azure, vedere gli articoli [Microsoft Azure Architectures for SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) (Architetture di Microsoft Azure per SharePoint 2013) e [SharePoint Deployment on Microsoft Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598)(Distribuzione di SharePoint in macchine virtuali di Microsoft Azure).
 
@@ -98,7 +98,7 @@ La tabella seguente riepiloga le funzionalità di Business Intelligence installa
   * Il criterio di memorizzazione nella cache per l'unità predefinita **C**: non è ottimale per l'uso dei dati.
   * L'unità **D**: è un'unità temporanea usata principalmente per il file di paging. L'unità **D**: infatti non è permanente e non viene salvata nell'archiviazione BLOB. Le attività di gestione, ad esempio la modifica delle dimensioni della macchina virtuale, reimpostano l'unità **D**:. È consigliabile **NON** usare l'unità **D**: per i file di database, incluso tempdb.
     
-    Per altre informazioni su come creare e collegare dischi, vedere [Come collegare un disco dati a una macchina virtuale Windows](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+    Per altre informazioni su come creare e collegare dischi, vedere [Come collegare un disco dati a una macchina virtuale Windows](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Arrestare o disinstallare i servizi che non si intende utilizzare. Ad esempio se la macchina virtuale viene utilizzata solo per Reporting Services, arrestare o disinstallare Analysis Services e SQL Server Integration Services. L'immagine seguente è un esempio dei servizi che vengono avviati per impostazione predefinita.
   
     ![Servizi di SQL Server](./media/virtual-machines-windows-classic-ps-sql-bi/IC650107.gif)
@@ -223,7 +223,7 @@ Se si desidera connettersi al portale Web o a Gestione report per le versioni 20
 
 1. Creare un endpoint per la macchina virtuale sulla Porta TCP 80. Per ulteriori informazioni vedere la sezione [Endpoint della macchina virtuale e porte del Firewall](#virtual-machine-endpoints-and-firewall-ports) in questo documento.
 2. Aprire la porta 80 nel firewall della macchina virtuale.
-3. Passare al portale Web o a Gestione report usando il **nome DNS** della macchina virtuale di Azure come nome del server nell'URL. ad esempio:
+3. Passare al portale Web o a Gestione report usando il **nome DNS** della macchina virtuale di Azure come nome del server nell'URL. Ad esempio: 
    
     **Server di report**: http://uebi.cloudapp.net/reportserver **Portale Web**: http://uebi.cloudapp.net/reports
    
@@ -316,7 +316,7 @@ Questa sezione riepiloga gli endpoint della macchina virtuale di Microsoft Azure
   * Creare endpoint della macchina virtuale per le porte indicate (*).
 * Se la macchina virtuale è stata aggiunta a un dominio utilizzando un tunnel VPN, ad esempio le funzionalità di rete virtuale di Azure, gli endpoint non sono necessari. Tuttavia è possibile aprire le porte nel firewall della macchina virtuale.
   
-  | Porta | Tipo | Descrizione |
+  | Porta | type | DESCRIZIONE |
   | --- | --- | --- |
   | **80** |TCP |Accesso remoto al server di report (*). |
   | **1433** |TCP |SQL Server Management Studio (*). |
@@ -339,7 +339,7 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 * [Panoramica di SQL Server in Macchine virtuali di Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Macchine virtuali](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Provisioning di una macchina virtuale di SQL Server in Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md)
-* [Come collegare un disco dati a una macchina virtuale](../classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Come collegare un disco dati a una macchina virtuale](../classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Migrazione di un database a SQL Server su una macchina virtuale di Azure](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 * [Determinare la modalità Server di un'istanza di Analysis Services](https://msdn.microsoft.com/library/gg471594.aspx)
 * [Modellazione multidimensionale (esercitazione AdventureWorks)](https://technet.microsoft.com/library/ms170208.aspx)

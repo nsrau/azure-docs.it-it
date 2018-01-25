@@ -11,15 +11,15 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: df1e19b772b41064aff1f345dee93813f0c21c73
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: e31f30e46c3a49ff9eca72cb82c16acb731427bf
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Monitorare le modifiche a una macchina virtuale con Griglia di eventi di Azure e app per la logica
 
-È possibile avviare un [flusso di lavoro di app per la logica](../logic-apps/logic-apps-what-are-logic-apps.md) automatizzato quando si verificano determinati eventi in risorse di Azure o in risorse di terze parti. Le risorse possono pubblicare questi eventi nel servizio [Griglia di eventi di Azure](../event-grid/overview.md), che a sua volta esegue il push degli eventi ai sottoscrittori che hanno code, webhook o [hub eventi](../event-hubs/event-hubs-what-is-event-hubs.md) come endpoint. Le app per la logica dei sottoscrittori possono quindi attendere gli eventi da Griglia di eventi prima di eseguire i flussi di lavoro automatizzati per l'esecuzione di determinate attività, senza bisogno di scrivere codice.
+È possibile avviare un [flusso di lavoro di app per la logica](../logic-apps/logic-apps-overview.md) automatizzato quando si verificano determinati eventi in risorse di Azure o in risorse di terze parti. Le risorse possono pubblicare questi eventi nel servizio [Griglia di eventi di Azure](../event-grid/overview.md), che a sua volta esegue il push degli eventi ai sottoscrittori che hanno code, webhook o [hub eventi](../event-hubs/event-hubs-what-is-event-hubs.md) come endpoint. Le app per la logica dei sottoscrittori possono quindi attendere gli eventi da Griglia di eventi prima di eseguire i flussi di lavoro automatizzati per l'esecuzione di determinate attività, senza bisogno di scrivere codice.
 
 Di seguito sono elencati alcuni esempi di eventi che le risorse di pubblicazione possono inviare ai sottoscrittori tramite il servizio Griglia di eventi di Azure:
 
@@ -39,7 +39,7 @@ In questa esercitazione si apprenderà come:
 > * Aggiungere una condizione che controlli in modo specifico le modifiche apportate a una macchina virtuale.
 > * Inviare un messaggio di posta elettronica quando viene apportata una modifica alla macchina virtuale.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Un account di posta elettronica di [un provider di posta elettronica supportato da App per la logica di Azure](../connectors/apis-list.md), come Office 365 Outlook, Outlook.com o Gmail, per l'invio di notifiche. In questa esercitazione viene usato Office 365 Outlook.
 
@@ -79,7 +79,7 @@ Per prima cosa, creare un'app per la logica e aggiungere un trigger di Griglia d
 
    ![Selezionare il modello dell'app per la logica](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
-   Progettazione app per la logica mostra ora i [*connettori*](../connectors/apis-list.md) e i [*trigger*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) che è possibile usare per avviare l'app per la logica e anche le azioni che è possibile aggiungere dopo un trigger per l'esecuzione di attività. Un trigger è un evento che crea un'istanza dell'app per la logica e avvia il flusso di lavoro dell'app per la logica. 
+   Progettazione app per la logica mostra ora i [*connettori*](../connectors/apis-list.md) e i [*trigger*](../logic-apps/logic-apps-overview.md#logic-app-concepts) che è possibile usare per avviare l'app per la logica e anche le azioni che è possibile aggiungere dopo un trigger per l'esecuzione di attività. Un trigger è un evento che crea un'istanza dell'app per la logica e avvia il flusso di lavoro dell'app per la logica. 
    Come primo elemento, all'app per la logica deve essere associato un trigger.
 
 6. Nella casella di ricerca digitare "event grid" (griglia di eventi) come filtro. Selezionare questo trigger: **Azure Event Grid - On a resource event** (Griglia di eventi di Azure - Per un evento della risorsa)
@@ -97,7 +97,7 @@ Per prima cosa, creare un'app per la logica e aggiungere un trigger di Griglia d
 
    ![Specificare i dettagli della sottoscrizione eventi](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details-generic.png)
 
-   | Impostazione | Valore consigliato | Descrizione | 
+   | Impostazione | Valore consigliato | DESCRIZIONE | 
    | ------- | --------------- | ----------- | 
    | **Sottoscrizione** | *{sottoscrizione-Azure-macchina-virtuale}* | Selezionare la sottoscrizione di Azure dell'editore di eventi. Per questa esercitazione, selezionare la sottoscrizione di Azure per la macchina virtuale. | 
    | **Tipo di risorsa** | Microsoft.Resources.resourceGroups | Selezionare il tipo di risorsa dell'editore di eventi. Per questa esercitazione selezionare il valore specificato in modo che l'app per la logica monitori solo i gruppi di risorse. | 
@@ -154,13 +154,13 @@ Immettere questa espressione:
 
 ## <a name="send-email-when-your-virtual-machine-changes"></a>Inviare un messaggio di posta elettronica quando viene apportata una modifica alla macchina virtuale
 
-Aggiungere ora un'[*azione* ](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) che consenta di ricevere un messaggio di posta elettronica quando viene soddisfatta la condizione specificata.
+Aggiungere ora un'[*azione* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) che consenta di ricevere un messaggio di posta elettronica quando viene soddisfatta la condizione specificata.
 
 1. Nella casella **Se vero** della condizione scegliere **Aggiungi un'azione**.
 
    ![Aggiungere un'azione se la condizione viene soddisfatta](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-2.png)
 
-2. Nella casella di ricerca digitare "email" come filtro. Selezionare il connettore corrispondente al provider di posta elettronica in uso. Selezionare quindi l'azione di invio di un messaggio di posta elettronica relativa al connettore selezionato. ad esempio: 
+2. Nella casella di ricerca digitare "email" come filtro. Selezionare il connettore corrispondente al provider di posta elettronica in uso. Selezionare quindi l'azione di invio di un messaggio di posta elettronica relativa al connettore selezionato. Ad esempio:  
 
    * Per un account aziendale o dell'istituto di istruzione di Azure, selezionare il connettore Office 365 Outlook. 
    * Per gli account Microsoft personali, selezionare il connettore Outlook.com. 
@@ -180,7 +180,7 @@ Aggiungere ora un'[*azione* ](../logic-apps/logic-apps-what-are-logic-apps.md#lo
    > [!TIP]
    > Per selezionare i campi disponibili nel flusso di lavoro, fare clic in una casella di modifica in modo che venga aperto l'elenco **Contenuto dinamico** oppure scegliere **Aggiungi contenuto dinamico**. Per altri campi, scegliere **Altro** per ogni sezione nell'elenco. Per chiudere l'elenco **Contenuto dinamico** scegliere **Aggiungi contenuto dinamico**.
 
-   | Impostazione | Valore consigliato | Descrizione | 
+   | Impostazione | Valore consigliato | DESCRIZIONE | 
    | ------- | --------------- | ----------- | 
    | **To** | *{indirizzo-postaelettronica-destinatario}* |Immettere l'indirizzo di posta elettronica del destinatario. AI fini del test delle app è possibile indicare il proprio indirizzo di posta elettronica. | 
    | **Oggetto** | Risorse aggiornate: **Oggetto**| Immettere il contenuto per l'oggetto del messaggio di posta elettronica. Per questa esercitazione, immettere il testo suggerito e selezionare il campo **Oggetto** dell'evento. In questo caso, l'oggetto del messaggio di posta elettronica include il nome per la risorsa aggiornata (macchina virtuale). | 
@@ -211,7 +211,7 @@ Aggiungere ora un'[*azione* ](../logic-apps/logic-apps-what-are-logic-apps.md#lo
 
    È possibile, ad esempio, ridimensionare la macchina virtuale nel portale di Azure o [ridimensionare la macchina virtuale con Azure PowerShell](../virtual-machines/windows/resize-vm.md). 
 
-   Dopo alcuni istanti, si dovrebbe ricevere un messaggio di posta elettronica. ad esempio:
+   Dopo alcuni istanti, si dovrebbe ricevere un messaggio di posta elettronica. Ad esempio: 
 
    ![Messaggio di posta elettronica sull'aggiornamento della macchina virtuale](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
 

@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/06/2017
+ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: a8990d68b327e5688c7078a6b1a9d41ad0600a67
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: c14927f82ca01320206ccec83216777b7d1b8708
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="storsimple-security-and-data-protection"></a>Sicurezza e protezione dei dati di StorSimple
 
@@ -155,7 +155,7 @@ La chiave DEK del servizio viene generata solo nel primo dispositivo registrato 
 > [!IMPORTANT]
 > È molto importante creare una copia di questa chiave e salvarla in una posizione sicura. Si consiglia di archiviare una copia della chiave DEK del servizio in modo che sia accessibile a una persona autorizzata e possa essere facilmente comunicata all'amministratore del dispositivo.
 > 
-> Se si perde la chiave DEK del servizio, il personale di supporto Microsoft può aiutare a recuperarla purché almeno un dispositivo sia online. È consigliabile modificare la chiave DEK del servizio dopo averla recuperata. Per istruzioni, vedere [Modificare la chiave DEK del servizio](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
+> Se si perde la chiave DEK del servizio, il personale di supporto Microsoft può aiutare a recuperarla purché almeno un dispositivo sia online. È consigliabile modificare la chiave DEK del servizio dopo averla recuperata.
 
 Per modificare la chiave DEK del servizio e il corrispondente certificato di crittografia dei dati, seguire la procedura in [Modificare la chiave DEK del servizio per il servizio Gestione dispositivi di StorSimple](storsimple-8000-manage-service.md#change-the-service-data-encryption-key). Per modificare le chiavi di crittografia, è necessario che ogni dispositivo venga aggiornato con la nuova chiave. Quindi, è consigliabile modificare la chiave quando tutti i dispositivi sono online. Se i dispositivi sono offline, le rispettive chiavi possono essere modificate in un altro momento. I dispositivi con chiavi scadute potranno ancora eseguire i backup, ma non potranno ripristinare i dati finché le chiavi non verranno aggiornate.
 

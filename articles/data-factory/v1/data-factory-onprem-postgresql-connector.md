@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 46a72a15ba35119ecb5640cb0b22cd2a0fc56a27
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 4cec177456b007fd7c6721380c00a622b43af677
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Spostare i dati da PostgreSQL mediante Data factory di Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 È possibile copiare dati da un archivio dati PostgreSQL locale a qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere gli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory supporta attualmente lo spostamento di dati da un database PostgreSQL ad altri archivi dati, ma non da altri archivi dati a un database PostgreSQL. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Data factory supporta la connessione a origini PostgreSQL locali tramite il Gateway di gestione dati. Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway.
 
@@ -73,15 +73,15 @@ Nelle sezioni seguenti sono disponibili le informazioni dettagliate sulle propri
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato PostgreSQL.
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 | --- | --- | --- |
 | type |La proprietà type deve essere impostata su: **OnPremisesPostgreSql** |Sì |
 | server |Nome del server PostgreSQL. |Sì |
 | database |Nome del database PostgreSQL. |Sì |
-| schema |Nome dello schema nel database. Il nome dello schema fa distinzione tra maiuscole e minuscole. |No |
+| schema |Nome dello schema nel database. Il nome dello schema fa distinzione tra maiuscole e minuscole. |No  |
 | authenticationType |Tipo di autenticazione usato per connettersi al database PostgreSQL. I valori possibili sono: anonima, di base e Windows. |Sì |
-| username |Specificare il nome utente se si usa l'autenticazione di base o Windows. |No |
-| password |Specificare la password per l'account utente specificato per il nome utente. |No |
+| username |Specificare il nome utente se si usa l'autenticazione di base o Windows. |No  |
+| password |Specificare la password per l'account utente specificato per il nome utente. |No  |
 | gatewayName |Nome del gateway che il servizio Data factory deve usare per connettersi al database PostgreSQL locale. |Sì |
 
 ## <a name="dataset-properties"></a>Proprietà dei set di dati
@@ -89,7 +89,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione typeProperties è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **RelationalTable** (che include il set di dati PostgreSQL) presenta le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 | --- | --- | --- |
 | tableName |Nome della tabella nell'istanza del database PostgreSQL a cui fa riferimento il servizio collegato. La proprietà tableName fa distinzione tra maiuscole e minuscole. |No (se la **query** di **RelationalSource** è specificata) |
 
@@ -100,7 +100,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 
 Se l'origine è di tipo **RelationalSource** (che comprende PostgreSQL), sono disponibili le proprietà seguenti nella sezione typeProperties:
 
-| Proprietà | Descrizione | Valori consentiti | Obbligatorio |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: `"query": "select * from \"MySchema\".\"MyTable\""`. |No (se **tableName** di **set di dati** è specificato) |
 
@@ -117,7 +117,7 @@ Questo esempio fornisce le definizioni JSON di esempio da usare per creare una p
 > [!IMPORTANT]
 > Questo esempio fornisce frammenti di codice JSON. Non include istruzioni dettagliate per la creazione della data factory. Le istruzioni dettagliate sono disponibili nell'articolo [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md) .
 
-L'esempio include le entità di Data factory seguenti:
+L'esempio include le entità di Data Factory seguenti:
 
 1. Un servizio collegato di tipo [OnPremisesPostgreSql](data-factory-onprem-postgresql-connector.md#linked-service-properties).
 2. Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
@@ -307,7 +307,7 @@ Quando si spostano i dati in PostgreSQL vengono usati i mapping seguenti dal tip
 
 | Tipo di database PostgreSQL | Alias PostgresSQL | Tipo di .NET Framework |
 | --- | --- | --- |
-| abstime | |Datetime | &nbsp;
+| abstime | |DateTime | &nbsp;
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte[], String | &nbsp;
@@ -315,28 +315,28 @@ Quando si spostano i dati in PostgreSQL vengono usati i mapping seguenti dal tip
 | boolean |bool |boolean |
 | box | |Byte[], String |&nbsp;
 | bytea | |Byte[], String |&nbsp;
-| carattere [(n)] |char [(n)] |String |
-| variante carattere [(n)] |varchar [(n)] |String |
-| cid | |String |&nbsp;
-| cidr | |String |&nbsp;
+| carattere [(n)] |char [(n)] |string |
+| variante carattere [(n)] |varchar [(n)] |string |
+| cid | |string |&nbsp;
+| cidr | |string |&nbsp;
 | circle | |Byte[], String |&nbsp;
-| date | |Datetime |&nbsp;
-| daterange | |String |&nbsp;
+| date | |DateTime |&nbsp;
+| daterange | |string |&nbsp;
 | double precision |float8 |Double |
 | inet | |Byte[], String |&nbsp;
-| intarry | |String |&nbsp;
-| int4range | |String |&nbsp;
-| int8range | |String |&nbsp;
-| integer |int, int4 |Int32 |
+| intarry | |string |&nbsp;
+| int4range | |string |&nbsp;
+| int8range | |string |&nbsp;
+| numero intero |int, int4 |Int32 |
 | intervallo [campi] [(p)] | |TimeSpan |&nbsp;
-| json | |String |&nbsp;
+| json | |string |&nbsp;
 | jsonb | |Byte[] |&nbsp;
 | line | |Byte[], String |&nbsp;
 | lseg | |Byte[], String |&nbsp;
 | macaddr | |Byte[], String |&nbsp;
 | money | |Decimal |&nbsp;
 | numerico [(p, s)] |decimale [(p, s)] |Decimal |
-| numrange | |String |&nbsp;
+| numrange | |string |&nbsp;
 | oid | |Int32 |&nbsp;
 | path | |Byte[], String |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
@@ -346,7 +346,7 @@ Quando si spostano i dati in PostgreSQL vengono usati i mapping seguenti dal tip
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
-| text | |String |&nbsp;
+| text | |string |&nbsp;
 
 ## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink
 Per informazioni sul mapping delle colonne del set di dati di origine alle colonne del set di dati del sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).

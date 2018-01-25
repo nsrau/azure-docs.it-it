@@ -4,7 +4,7 @@ description: "Questo argomento consiglia l'utilizzo della funzionalità Cestino 
 services: active-directory
 keywords: Cestino di Active Directory, eliminazione accidentale, ancoraggio di origine
 documentationcenter: 
-author: cychua
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: afec4207-74f7-4cdd-b13a-574af5223a90
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 36a9b5a50a18b73626b0c6e03ed258e387d5c20b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 45bff0585eb6f1990a7300ae3d16632eab78a83c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Servizio di sincronizzazione Azure AD Connect: abilitare il Cestino di Active Directory
 È consigliabile abilitare la funzionalità Cestino di Active Directory per le Active Directory locali che vengono sincronizzate con Azure AD. 

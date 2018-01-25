@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 185780da206e4d0ed0d8e5f8b24a546e3d9b3800
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: f59c9e2c523db319565c1cca13eb85f809b2bdd6
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="calling-a-web-api-from-a-net-web-app"></a>Chiamare un'API Web da un'applicazione Web .NET
 Con l'endpoint v2.0 è possibile aggiungere rapidamente l'autenticazione alle app Web e alle API Web con supporto per account Microsoft personali, aziendali o dell'istituto di istruzione.  Di seguito viene creata un'app Web MVC che consente agli utenti di accedere tramite OpenID Connect e con l'aiuto del middleware OWIN di Microsoft.  L'applicazione Web otterrà i token di accesso OAuth 2.0 per un'api Web protetta da OAuth 2.0 che consente di creare, leggere ed eliminare le voci dell'elenco attività di un determinato utente.
@@ -68,7 +68,7 @@ Configurare il middleware OWIN per l'uso del [protocollo di autenticazione OpenI
 * Aprire il file `App_Start\Startup.Auth.cs` e aggiungere istruzioni `using` per le librerie indicate in precedenza.
 * Nello stesso file, implementare il metodo `ConfigureAuth(...)` .  I parametri forniti in `OpenIDConnectAuthenticationOptions` fungeranno da coordinate per consentire all'app di comunicare con Azure AD.
 
-```C#
+```csharp
 public void ConfigureAuth(IAppBuilder app)
 {
     app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -116,7 +116,7 @@ Nella notifica `AuthorizationCodeReceived` si desidera usare [OAuth 2.0 in paral
 * Aggiungere quindi un'altra istruzione `using`al file `App_Start\Startup.Auth.cs` per MSAL.
 * Aggiungere ora un nuovo metodo, il gestore eventi `OnAuthorizationCodeReceived`.  Questo gestore userà MSAL per acquisire un token di accesso per l'API To Do List e archivierà il token nella cache dei token di MSAL per usi successivi:
 
-```C#
+```csharp
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
 {
         string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
@@ -144,7 +144,7 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
     `using Microsoft.Identity.Client;`
 * Nell'azione `Index` usare il metodo `AcquireTokenSilentAsync` di MSAL per ottenere un token di accesso da usare per leggere i dati dal servizio To Do List:
 
-```C#
+```csharp
 // ...
 string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
 string tenantID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
@@ -160,7 +160,7 @@ result = await app.AcquireTokenSilentAsync(new string[] { Startup.clientId });
 * L'esempio aggiunge quindi il token risultante alla richiesta HTTP GET come intestazione `Authorization`, usata dal servizio To Do List per autenticare la richiesta.
 * Se il servizio To Do List restituisce una risposta `401 Unauthorized`, significa che i token di accesso in MSAL per qualche motivo non sono più validi.  In questo caso, è consigliabile eliminare tutti i token di accesso dalla cache MSAL e visualizzare all'utente un messaggio che comunica che potrebbe essere necessario eseguire un nuovo accesso. In questo modo verrà riavviato il flusso di acquisizione dei token.
 
-```C#
+```csharp
 // ...
 // If the call failed with access denied, then drop the current access token from the cache,
 // and show the user an error indicating they might need to sign-in again.
@@ -175,7 +175,7 @@ if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
 
 * Analogamente, se per qualsiasi motivo MSAL non riesce a restituire un token di accesso, è consigliabile chiedere all'utente di eseguire di nuovo l'accesso.  Questo è semplice quanto individuare eventuali `MSALException`:
 
-```C#
+```csharp
 // ...
 catch (MsalException ee)
 {
@@ -191,7 +191,7 @@ Infine compilare ed eseguire l'app.  Accedere con un account Microsoft o con un 
 
 Come riferimento, viene fornito l'esempio completato (senza i valori di configurazione) [qui](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip).  
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Per altre risorse, vedere:
 
 * [Guida per sviluppatori v2.0 >>](active-directory-appmodel-v2-overview.md)

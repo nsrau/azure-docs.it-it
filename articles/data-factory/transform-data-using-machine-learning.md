@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
+ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: 413f12d301a0e2c47048d23b2d4fb7de6423256d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa493a6d7b4cf775f64b87c1d5cc21ff4a138609
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -131,15 +131,15 @@ Il frammento JSON seguente definisce un'attività di esecuzione batch di Azure M
 
 
 
-| Proprietà          | Descrizione                              | Obbligatorio |
+| Proprietà          | DESCRIZIONE                              | Obbligatoria |
 | :---------------- | :--------------------------------------- | :------- |
 | name              | Nome dell'attività nella pipeline     | Sì      |
-| Descrizione       | Testo che descrive l'attività.  | No       |
+| description       | Testo che descrive l'attività.  | No        |
 | type              | Per l'attività U-SQL di Data Lake Analytics, il tipo di attività è **AzureMLBatchExecution**. | Sì      |
 | linkedServiceName | Servizi collegati al servizio collegato di Azure Machine Learning. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md). | Sì      |
-| webServiceInputs  | Coppie valore, chiave, che eseguono il mapping dei nomi di input dei servizi Web di Azure Machine Learning. La chiave deve corrispondere ai parametri di input definiti nel servizio Web pubblicato di Azure Machine Learning. Il valore è una coppia di proprietà FilePath e dei servizi collegati di archiviazione di Azure che specifica i percorsi BLOB di input. | No       |
-| webServiceOutputs | Coppie valore, chiave, che eseguono il mapping dei nomi di output dei servizi Web di Azure Machine Learning. La chiave deve corrispondere ai parametri di output definiti nel servizio Web pubblicato di Azure Machine Learning. Il valore è una coppia di proprietà FilePath e dei servizi collegati di archiviazione di Azure che specifica i percorsi BLOB di output. | No       |
-| globalParameters  | Coppie di valore, chiave da passare all'endpoint del servizio esecuzione batch di Azure Machine Learning. Le chiavi devono corrispondere ai nomi dei parametri dei servizi Web definiti nel servizio Web pubblicato di Azure Machine Learning. I valori vengono passati nella proprietà GlobalParameters della richiesta di esecuzione batch di Azure Machine Learning | No       |
+| webServiceInputs  | Coppie valore, chiave, che eseguono il mapping dei nomi di input dei servizi Web di Azure Machine Learning. La chiave deve corrispondere ai parametri di input definiti nel servizio Web pubblicato di Azure Machine Learning. Il valore è una coppia di proprietà FilePath e dei servizi collegati di archiviazione di Azure che specifica i percorsi BLOB di input. | No        |
+| webServiceOutputs | Coppie valore, chiave, che eseguono il mapping dei nomi di output dei servizi Web di Azure Machine Learning. La chiave deve corrispondere ai parametri di output definiti nel servizio Web pubblicato di Azure Machine Learning. Il valore è una coppia di proprietà FilePath e dei servizi collegati di archiviazione di Azure che specifica i percorsi BLOB di output. | No        |
+| globalParameters  | Coppie di valore, chiave da passare all'endpoint del servizio esecuzione batch di Azure Machine Learning. Le chiavi devono corrispondere ai nomi dei parametri dei servizi Web definiti nel servizio Web pubblicato di Azure Machine Learning. I valori vengono passati nella proprietà GlobalParameters della richiesta di esecuzione batch di Azure Machine Learning | No        |
 
 ### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Scenario 1: Esperimenti di uso degli input/output del servizio Web che fanno riferimento ai dati presenti nell'archiviazione BLOB di Azure
 

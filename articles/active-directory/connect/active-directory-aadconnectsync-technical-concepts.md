@@ -3,7 +3,7 @@ title: 'Servizio di sincronizzazione Azure AD Connect: Concetti tecnici | Docume
 description: Illustra i concetti tecnici del servizio di sincronizzazione Azure AD Connect.
 services: active-directory
 documentationcenter: 
-author: MarkusVi
+author: billmath
 manager: mtillman
 editor: 
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 01/15/2018
 ms.author: markvi;andkjell
-ms.openlocfilehash: c852e33621ba7f4280858f3990380b518535b514
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 2cb5143729fa92d12b21701e62416bced31c1fc7
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Servizio di sincronizzazione Azure AD Connect: Concetti tecnici
 Questo articolo è un riepilogo dell'argomento [Informazioni sull'architettura](active-directory-aadconnectsync-technical-concepts.md).

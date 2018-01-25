@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 3a2e8803d51d81ab0eda3dc814d01822e17bc14e
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Creare ricerche log in Azure Log Analytics tramite il portale per la ricerca log
 
@@ -30,18 +30,18 @@ Questo articolo include un'esercitazione che descrive come creare ricerche log e
 
 Per creare ricerche nel portale Advanced Analytics anziché nel portale per la ricerca log, vedere [Getting Started with the Analytics Portal](https://go.microsoft.com/fwlink/?linkid=856587) (Introduzione al portale di Analytics).  Entrambi i portali utilizzano lo stesso linguaggio di query per accedere agli stessi dati nell'area di lavoro di Log Analytics.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 In questa esercitazione si presuppone che sia già disponibile un'area di lavoro di Log Analytics con almeno un'origine connessa che genera dati analizzabili tramite le query.  
 
 - Se l'area di lavoro non è disponibile, è possibile crearne una gratuitamente seguendo la procedura in [Introduzione a un'area di lavoro di Log Analytics](log-analytics-get-started.md).
 - Connettere almeno un [agente Windows](log-analytics-windows-agent.md) o un [agente Linux](log-analytics-linux-agents.md) all'area di lavoro.  
 
 ## <a name="open-the-log-search-portal"></a>Aprire il portale per la ricerca log
-Per iniziare, aprire il portale per la ricerca log.  È possibile accedervi dal portale di Azure o dal portale di OMS.
+Per iniziare, aprire il portale per la ricerca log. 
 
 1. Aprire il Portale di Azure.
 2. Passare a Log Analytics e selezionare l'area di lavoro.
-3. Selezionare **Ricerca log** per rimanere nel portale di Azure o avviare il portale di OMS selezionando **Portale di OMS** e facendo quindi clic sul pulsante Ricerca log.
+3. Selezionare **Ricerca log**.
 
 ![Pulsante di ricerca log](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 

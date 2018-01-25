@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2017
+ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 99182b2ed91f6d60f499be0078077bf52fe8b366
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20f3d4bb876a46b67385dd4435296e149641149e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Attività Get Metadata in Azure Data Factory
 Questa attività può essere usata per recuperare i metadati di tutti i dati in Azure Data Factory. Questa attività è supportata solo per data factory con la versione 2. Può essere usata negli scenari seguenti:
@@ -94,10 +94,10 @@ Nell'esempio seguente, l'attività GetMetadata restituisce i metadati relativi a
 ## <a name="type-properties"></a>Proprietà del tipo
 Attualmente l'attività GetMetadata può recuperare i tipi di informazioni seguenti dei metadati da un set di dati di archiviazione di Azure.
 
-Proprietà | Descrizione | Valori consentiti | Obbligatorio
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
-fieldList | Elenca i tipi di informazioni dei metadati necessarie.  | <ul><li>size</li><li>structure</li><li>LastModified</li></ul> |    No<br/>Se è vuota, l'attività restituisce tutte e 3 le informazioni dei metadati supportate. 
-attività | Set di dati di riferimento la cui attività dei metadati deve essere recuperata dall'attività GetMetadata. <br/><br/>Il tipo di set di dati attualmente supportato è BLOB di Azure. Il set di dati include le due proprietà secondarie seguenti: <ul><li><b>referenceName</b>: riferimento a un set di dati BLOB di Azure esistente</li><li><b>type</b>: poiché si fa riferimento al set di dati, è di tipo "DatasetReference"</li></ul> |    <ul><li>String</li><li>DatasetReference</li></ul> | Sì
+fieldList | Elenca i tipi di informazioni dei metadati necessarie.  | <ul><li>size</li><li>structure</li><li>LastModified</li></ul> |    No <br/>Se è vuota, l'attività restituisce tutte e 3 le informazioni dei metadati supportate. 
+dataset | Set di dati di riferimento la cui attività dei metadati deve essere recuperata dall'attività GetMetadata. <br/><br/>Il tipo di set di dati attualmente supportato è BLOB di Azure. Il set di dati include le due proprietà secondarie seguenti: <ul><li><b>referenceName</b>: riferimento a un set di dati BLOB di Azure esistente</li><li><b>type</b>: poiché si fa riferimento al set di dati, è di tipo "DatasetReference"</li></ul> |    <ul><li>string</li><li>DatasetReference</li></ul> | Sì
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere altre attività del flusso di controllo supportate da Data Factory: 

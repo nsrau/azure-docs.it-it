@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 3010c298cf227c761288365e3663ffe3fb67d863
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e35ac70125bc640114a4492498b12ea96800d42
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Creare, eliminare e gestire distribuzioni Docker Compose.
@@ -40,7 +40,7 @@ Crea una distribuzione di composizione di Service Fabric.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --file-path [Obbligatorio]| Percorso al file di destinazione Docker Compose.|
  |   --deployment-name [Obbligatorio]| Nome della distribuzione.|
@@ -57,7 +57,7 @@ Crea una distribuzione di composizione di Service Fabric.
 | --help -h               | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o             | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito:             json.|
 | --query                 | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
-| --verbose               | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
+| --verbose               | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-compose-list"></a>sfctl compose list
 Mostra l'elenco di distribuzioni di composizione create nel cluster di Service Fabric.
@@ -66,7 +66,7 @@ Mostra lo stato delle distribuzioni di composizione che sono stati creati oppure
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --continuation-token| Il parametro del token di continuazione viene utilizzato per ottenere il set di risultati successivo. Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati dal sistema non rientrano in una singola risposta.      Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL.|
 | --max-results    | Il numero massimo di risultati che devono essere restituiti come parte delle query di paging.      Questo parametro definisce il limite massimo di risultati restituiti.      Se non rientrano nel messaggio in base ai limiti di dimensione massima per i messaggi definiti nella configurazione, i risultati restituiti possono essere pari a un numero minore rispetto al numero massimo di risultati specificato. Se questo parametro è uguale a zero o non specificato, le query di paging includono il numero massimo di risultati possibili che rientrano nel messaggio restituito.|
@@ -80,7 +80,7 @@ Mostra lo stato delle distribuzioni di composizione che sono stati creati oppure
 | --help -h        | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o      | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query          | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
-| --verbose        | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
+| --verbose        | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-compose-remove"></a>sfctl compose remove
 Elimina una distribuzione di composizione Service Fabric esistente dal cluster.
@@ -89,7 +89,7 @@ Elimina una distribuzione di composizione Service Fabric esistente dal cluster.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --deployment-name [Obbligatorio]| L'identità della distribuzione. Si tratta in genere del nome completo dell'applicazione senza lo schema URI 'fabric:'.|
 | --timeout -t            | Timeout del server in secondi.  Predefinito: 60.|
@@ -102,7 +102,7 @@ Elimina una distribuzione di composizione Service Fabric esistente dal cluster.
 | --help -h               | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o             | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito:             json.|
 | --query                 | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
-| --verbose               | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
+| --verbose               | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-compose-status"></a>sfctl compose status
 Mostra informazioni su una distribuzione di composizione Service Fabric.
@@ -111,7 +111,7 @@ Restituisce lo stato di distribuzione di composizione che è stato creato o è i
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --deployment-name [Obbligatorio]| L'identità della distribuzione. |
 | --timeout -t            | Timeout del server in secondi.  Predefinito: 60.|
@@ -124,7 +124,7 @@ Restituisce lo stato di distribuzione di composizione che è stato creato o è i
 | --help -h               | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o             | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito:             json.|
 | --query                 | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
-| --verbose               | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
+| --verbose               | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-compose-upgrade"></a>sfctl compose upgrade
 Avvia l'aggiornamento di una distribuzione di composizione nel cluster di Service Fabric.
@@ -132,7 +132,7 @@ Avvia l'aggiornamento di una distribuzione di composizione nel cluster di Servic
 Convalida i parametri di aggiornamento forniti e avvia l'aggiornamento della distribuzione.
 
 ### <a name="arguments"></a>Argomenti
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 |    --file-path        [Obbligatorio]| Percorso al file di destinazione Docker Compose.|
 |    --deployment-name [Obbligatorio]| Nome della distribuzione.|

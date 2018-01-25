@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 2a8b883975ed0c0a2a6ee9a2a7ad0c0b1e938fd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec7fe2adfb89edd635adcf247eea0b98f7007b1b
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Creare API personalizzate che è possibile chiamare da flussi di lavoro di app per la logica
 
@@ -31,7 +31,7 @@ Sebbene le app per la logica di Azure offrano [più di 100 connettori incorporat
 
 In pratica, i connettori sono API Web che usano REST per le interfacce collegabili, il [formato dei metadati Swagger](http://swagger.io/specification/) per la documentazione e JSON come formato di scambio di dati. Poiché i connettori sono API REST che comunicano attraverso endpoint HTTP, è possibile usare qualsiasi linguaggio, ad esempio .NET, Java o Node.js, per la creazione dei connettori. È anche possibile ospitare le API nel [servizio app di Azure](../app-service/app-service-web-overview.md), una soluzione PaaS (platform-as-a-service) che offre uno dei modi più efficaci, semplici e scalabili per ospitare le API. 
 
-Per consentire alle API personalizzate di funzionare con le app per la logica, l'API può rendere disponibili [*azioni*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) che eseguono attività specifiche nei flussi di lavoro delle app per la logica. L'API può anche agire come un [*trigger*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) che avvia un flusso di lavoro di app per la logica quando nuovi dati o un evento soddisfano una condizione specificata. Questo argomento descrive i modelli comuni che è possibile seguire per la creazione di azioni e trigger nell'API, in base al comportamento previsto per l'API.
+Per consentire alle API personalizzate di funzionare con le app per la logica, l'API può rendere disponibili [*azioni*](./logic-apps-overview.md#logic-app-concepts) che eseguono attività specifiche nei flussi di lavoro delle app per la logica. L'API può anche agire come un [*trigger*](./logic-apps-overview.md#logic-app-concepts) che avvia un flusso di lavoro di app per la logica quando nuovi dati o un evento soddisfano una condizione specificata. Questo argomento descrive i modelli comuni che è possibile seguire per la creazione di azioni e trigger nell'API, in base al comportamento previsto per l'API.
 
 È possibile ospitare le API in [Servizio app di Azure](../app-service/app-service-web-overview.md), una soluzione PaaS (Platform-as-a-Service, piattaforma distribuita come servizio) che offre hosting di API semplice e altamente scalabile.
 
@@ -40,7 +40,7 @@ Per consentire alle API personalizzate di funzionare con le app per la logica, l
 > 
 > * [ASP.NET](../app-service/app-service-web-get-started-dotnet.md). 
 > * [Java](../app-service/app-service-web-get-started-java.md)
-> * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
+> * [Node.JS](../app-service/app-service-web-get-started-nodejs.md)
 > * [PHP](../app-service/app-service-web-get-started-php.md)
 > * [Python](../app-service/app-service-web-get-started-python.md)
 >
@@ -73,7 +73,7 @@ Molte librerie, ad esempio [Swashbuckle](https://github.com/domaindrivendev/Swas
 
 ## <a name="action-patterns"></a>Modelli di azione
 
-Affinché le app per la logica eseguano le attività, l'API personalizzata deve specificare delle [*azioni*](./logic-apps-what-are-logic-apps.md#logic-app-concepts). Ogni operazione dell'API è mappata a un'azione. Un'azione di base è un controller che accetta le richieste HTTP e restituisce risposte HTTP. Un'app per la logica, ad esempio, invia una richiesta HTTP all'app Web o all'app per le API. L'app restituisce una risposta HTTP, insieme a contenuto che l'app per la logica è in grado di elaborare.
+Affinché le app per la logica eseguano le attività, l'API personalizzata deve specificare delle [*azioni*](./logic-apps-overview.md#logic-app-concepts). Ogni operazione dell'API è mappata a un'azione. Un'azione di base è un controller che accetta le richieste HTTP e restituisce risposte HTTP. Un'app per la logica, ad esempio, invia una richiesta HTTP all'app Web o all'app per le API. L'app restituisce una risposta HTTP, insieme a contenuto che l'app per la logica è in grado di elaborare.
 
 Per un'azione standard, è possibile scrivere un metodo di richiesta HTTP nell'API e descrivere tale metodo in un file Swagger. È quindi possibile chiamare l'API direttamente con un'[azione HTTP](../connectors/connectors-native-http.md) o un'azione [HTTP + Swagger](../connectors/connectors-native-http-swagger.md). Per impostazione predefinita, le risposte devono essere restituite entro il [limite di timeout della richiesta](./logic-apps-limits-and-config.md). 
 
@@ -153,7 +153,7 @@ Per questo modello, configurare due endpoint sul controller: `subscribe` e `unsu
 
 ## <a name="trigger-patterns"></a>Modelli di trigger
 
-L'API personalizzata può anche agire come un [*trigger*](./logic-apps-what-are-logic-apps.md#logic-app-concepts) che avvia un'app per la logica quando nuovi dati o un evento soddisfano una condizione specificata. Questo trigger può verificare regolarmente, o attendere e restare in ascolto, la presenza di nuovi dati o eventi presso l'endpoint servizio. Se nuovi dati o eventi soddisfano la condizione specificata, il trigger viene attivato e avvia l'app per la logica, che è in ascolto di quel trigger. Per avviare l'app per la logica in questo modo, l'API può seguire il modello di [*trigger di polling*](#polling-triggers) o [*trigger webhook*](#webhook-triggers). Questi modelli sono simili alle loro controparti per le [azioni di polling](#async-pattern) e le [azioni webhook](#webhook-actions). Vedere anche le informazioni sulla [misurazione dell'utilizzo per i trigger](logic-apps-pricing.md).
+L'API personalizzata può anche agire come un [*trigger*](./logic-apps-overview.md#logic-app-concepts) che avvia un'app per la logica quando nuovi dati o un evento soddisfano una condizione specificata. Questo trigger può verificare regolarmente, o attendere e restare in ascolto, la presenza di nuovi dati o eventi presso l'endpoint servizio. Se nuovi dati o eventi soddisfano la condizione specificata, il trigger viene attivato e avvia l'app per la logica, che è in ascolto di quel trigger. Per avviare l'app per la logica in questo modo, l'API può seguire il modello di [*trigger di polling*](#polling-triggers) o [*trigger webhook*](#webhook-triggers). Questi modelli sono simili alle loro controparti per le [azioni di polling](#async-pattern) e le [azioni webhook](#webhook-actions). Vedere anche le informazioni sulla [misurazione dell'utilizzo per i trigger](logic-apps-pricing.md).
 
 <a name="polling-triggers"></a>
 
@@ -178,7 +178,7 @@ Ad esempio, per verificare periodicamente se nel servizio sono presenti nuovi fi
 
 | La richiesta include `triggerState`? | Risposta dell'API | 
 | -------------------------------- | -------------| 
-| No | Restituire uno stato HTTP `202 ACCEPTED` oltre a un'intestazione `location` con `triggerState` impostato sull'ora corrente e l'intervallo `retry-after` su 15 secondi. | 
+| No  | Restituire uno stato HTTP `202 ACCEPTED` oltre a un'intestazione `location` con `triggerState` impostato sull'ora corrente e l'intervallo `retry-after` su 15 secondi. | 
 | Sì | Verificare se nel servizio sono presenti file aggiunti dopo `DateTime` per `triggerState`. | 
 ||| 
 

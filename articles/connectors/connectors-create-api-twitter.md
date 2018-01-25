@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: be8163043535833ce45b3d50939a537406cf8152
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 065de976118e7be67ef8a515e39c04cfd74b5b43
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-twitter-connector"></a>Introduzione al connettore Twitter
 Con il connettore Twitter è possibile:
@@ -28,7 +28,7 @@ Con il connettore Twitter è possibile:
 * Accedere a timeline, amici e follower
 * Eseguire le altre azioni e trigger descritti di seguito  
 
-Per usare [qualsiasi connettore](apis-list.md), è necessario innanzitutto creare un'app per la logica. Come prima operazione [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).  
+Per usare [qualsiasi connettore](apis-list.md), è necessario innanzitutto creare un'app per la logica. Come prima operazione [creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).  
 
 ## <a name="connect-to-twitter"></a>Connettersi a Twitter
 Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una *connessione* al servizio. Una [connessione](connectors-overview.md) fornisce la connettività tra un'app per la logica e un altro servizio.  
@@ -39,7 +39,7 @@ Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario c
 > 
 
 ## <a name="use-a-twitter-trigger"></a>Usare un trigger di Twitter
-Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
+Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
 Questo esempio illustra come usare il trigger **Quando viene pubblicato un nuovo tweet** per cercare #Seattle e, se viene individuato, aggiornare un file in Dropbox con il testo del tweet. In un esempio riguardante un'organizzazione si potrebbe cercare il nome dell'azienda e aggiornare un database SQL con il testo del tweet.
 
@@ -80,7 +80,7 @@ Poiché si è interessati esclusivamente ai tweet degli utenti con più di 50 fo
    ![Immagine di condizione Twitter 8](../../includes/media/connectors-create-api-twitter/condition-8.png)   
 
 ## <a name="use-a-twitter-action"></a>Usare un'azione di Twitter
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
 
 Dopo aver aggiunto un trigger, seguire questi passaggi per aggiungere un'azione che pubblicherà un nuovo tweet con il contenuto dei tweet individuati dal trigger. Ai fini di questa procedura dettagliata verranno pubblicati solo i tweet degli utenti con più di 50 follower.  
 
@@ -104,5 +104,5 @@ Nel passaggio successivo si aggiungerà un'azione di Twitter che pubblicherà un
 Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/twitterconnector/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
+[Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
