@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: fbf538383a96fc1789f54994c1c4a1c1d9f96bec
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 74f96d2712c28c8b49e0b92ee88e560193428836
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Esercitazione: Usare l'API REST per creare una pipeline di Azure Data Factory per copiare dati 
 > [!div class="op_single_selector"]
 > * [Panoramica e prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
-> * [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modello di Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -48,7 +48,7 @@ Una pipeline può includere più attività ed è possibile concatenarne due, ovv
 >  
 > La pipeline di dati in questa esercitazione copia i dati da un archivio dati di origine a un archivio dati di destinazione. Per un'esercitazione su come trasformare i dati usando Azure Data Factory, vedere [Esercitazione: Creare una pipeline per trasformare i dati usando un cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * Vedere [Panoramica dell'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) ed eseguire i passaggi relativi ai **prerequisiti** .
 * Installare [Curl](https://curl.haxx.se/dlwiz/) nel computer. Lo strumento Curl viene usato insieme ai comandi REST per creare una data factory. 
 * Seguire le istruzioni disponibili in [questo articolo](../../azure-resource-manager/resource-group-create-service-principal-portal.md) per: 
@@ -176,7 +176,7 @@ Per informazioni dettagliate sulle proprietà JSON, vedere la sezione relativa a
 
 La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | type | La proprietà type è impostata su **AzureBlob** perché i dati risiedono in un archivio BLOB di Azure. |
 | linkedServiceName | Fa riferimento all'oggetto **AzureStorageLinkedService** creato in precedenza. |
@@ -219,7 +219,7 @@ Per altre informazioni su queste proprietà JSON, vedere l'articolo relativo al 
 ```
 La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | type | La proprietà type viene impostata su **AzureSqlTable** perché i dati vengono copiati in una tabella in un database SQL di Azure. |
 | linkedServiceName | Fa riferimento all'oggetto **AzureSqlLinkedService** creato in precedenza. |
@@ -356,7 +356,7 @@ Tenere presente quanto segue:
   2. Nel primo comando in cui viene assegnato un valore alla variabile **$cmd** sostituire ADFCopyTutorialDF con il nuovo nome ed eseguire il comando. 
   3. Eseguire i due comandi seguenti per richiamare l'API REST per creare la data factory e stampare i risultati dell'operazione. 
      
-     Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere l'argomento [Azure Data Factory - Regole di denominazione](data-factory-naming-rules.md) .
+     Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md) .
 * Per creare istanze di data factory, è necessario essere un collaboratore/amministratore della sottoscrizione di Azure.
 * Il nome della data factory può essere registrato come nome DNS in futuro e quindi divenire visibile pubblicamente.
 * Se viene visualizzato l'errore "**La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory**", eseguire una di queste operazioni e provare a ripetere la pubblicazione: 
@@ -375,7 +375,7 @@ Tenere presente quanto segue:
 
 Prima di creare una pipeline è necessario creare alcune entità di Data factory. Prima di tutto, creare i servizi collegati per collegare gli archivi dati di origine e di destinazione al proprio archivio dati. Quindi, definire i set di dati di input e di output per rappresentare i dati in archivi dati collegati. Infine, creare la pipeline con un'attività che usa questi set di dati.
 
-## <a name="create-linked-services"></a>Creazione di servizi collegati
+## <a name="create-linked-services"></a>Creare servizi collegati
 Si creano servizi collegati in una data factory per collegare gli archivi dati e i servizi di calcolo alla data factory. In questa esercitazione non si usano servizi di calcolo come Azure HDInsight o Azure Data Lake Analytics, ma due archivi dati di tipo Archiviazione di Azure (origine) e database SQL di Azure (destinazione). Si creano quindi due servizi collegati denominati AzureStorageLinkedService e AzureSqlLinkedService di tipo AzureStorage e AzureSqlDatabase.  
 
 AzureStorageLinkedService collega l'account di archiviazione di Azure alla data factory. L'account di archiviazione è quello in cui, come parte dei [prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), è stato creato un contenitore e sono stati caricati i dati.   
@@ -486,7 +486,7 @@ Attualmente, è il set di dati di output a determinare la pianificazione. In que
     Write-Host $results
     ```
 
-**Congratulazioni.** È stata creata una data factory di Azure con una pipeline che copia dati da un archivio BLOB di Azure al database SQL di Azure.
+**Congratulazioni** È stata creata una data factory di Azure con una pipeline che copia dati da un archivio BLOB di Azure al database SQL di Azure.
 
 ## <a name="monitor-pipeline"></a>Monitorare la pipeline
 In questo passaggio viene usata l'API REST di Azure Data Factory per monitorare le sezioni prodotte dalla pipeline.
@@ -518,7 +518,7 @@ Eseguire Invoke-Command e il comando successivo fino a quando lo stato di una se
 
 Per ogni sezione vengono copiate due righe di dati dal file di origine nella tabella emp del database SQL di Azure. Nella tabella emp vengono quindi visualizzati 24 nuovi record quando tutte le sezioni sono state elaborate correttamente e hanno stato Pronta. 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 In questa esercitazione è stata usata l'API REST per creare una data factory di Azure per copiare dati da un BLOB di Azure a un database SQL Azure. Ecco i passaggi generali eseguiti in questa esercitazione:  
 
 1. Creare un'istanza di Azure **Data Factory**.

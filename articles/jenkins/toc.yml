@@ -40,6 +40,9 @@
       maintainContext: true
     - name: Usare Jenkins con Visual Studio Team Services
       href: 'https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins'
+    - name: Distribuire app di Service Fabric
+      href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
+      maintainContext: true
 - name: Esempi
   items:
     - name: Processi e script di esempio
@@ -50,6 +53,8 @@
       items:
         - name: Plug-in Servizio app di Azure
           href: 'https://plugins.jenkins.io/azure-app-service'
+        - name: Plug-in di Azure AD
+          href: 'https://plugins.jenkins.io/azure-ad'
         - name: Plug-in degli Agenti del servizio contenitore di Azure
           href: 'https://plugins.jenkins.io/azure-container-agents'
         - name: Plug-in del servizio contenitore di Azure
@@ -58,10 +63,14 @@
           href: 'https://plugins.jenkins.io/azure-credentials'
         - name: Plug-in di Funzioni di Azure
           href: 'https://plugins.jenkins.io/azure-function'
+        - name: Plug-in di Azure Service Fabric
+          href: 'https://plugins.jenkins.io/service-fabric'
         - name: Plug-in di Archiviazione di Azure
           href: 'https://plugins.jenkins.io/windows-azure-storage'
         - name: Plug-in di Agenti di macchine virtuali di Azure
           href: 'https://plugins.jenkins.io/azure-vm-agents'
+        - name: Plug-in di set di scalabilità di macchine virtuali di Azure
+          href: 'https://plugins.jenkins.io/azure-vmss'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Home page di Jenkins

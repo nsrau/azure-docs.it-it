@@ -4,7 +4,7 @@ description: Configurare le pagine Web per inviare le Misurazioni utente reale a
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: 
 ms.assetid: 
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.openlocfilehash: ce5d333ad5d339b64d1fc1d081651052f71a8b67
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f4088cf4470b1f9fa22c4ec83a9f92657032734
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Come inviare le Misurazioni utente reale a Gestione traffico di Azure usando le pagine Web
 
@@ -61,7 +61,7 @@ Dopo aver ottenuto la chiave RUM, il passaggio successivo consiste nell'incorpor
 1.  Aprire il file HTML in un editor di testo
 2.  Incollare il codice JavaScript copiato nel passaggio precedente nella sezione BODY del codice HTML (il codice copiato è sulle righe 8 e 9, vedere la figura 3).
  
-    ![Incorporare il codice JavaScript nella pagina Web per le Misurazioni utente reale](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)  
+    ![Incorporare il codice JavaScript nella pagina Web per le Misurazioni utente reale](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
 
     **Figura 3: HTML semplice con codice JavaScript delle Misurazioni utente reale incorporato**
 

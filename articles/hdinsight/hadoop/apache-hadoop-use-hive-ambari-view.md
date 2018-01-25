@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 01/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 8293da8c77725d051f295826d9a78bf81055dcb3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5f66e60249af489e695029cbb072f3cc881bb039
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Usare la vista Hive di Ambari con Hadoop in HDInsight
 
@@ -31,7 +31,7 @@ Informazioni su come eseguire query Hive usando la vista Hive di Ambari. Ambari 
 > [!NOTE]
 > Ambari include numerose funzionalità non illustrate in questo documento. Per altre informazioni, vedere [Gestire i cluster HDInsight usando l'interfaccia utente Web di Ambari](../hdinsight-hadoop-manage-ambari.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Un cluster HDInsight basato su Linux. Per informazioni su come creare un cluster, vedere [Introduzione all'uso di Hadoop in HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
@@ -69,7 +69,7 @@ Per eseguire una query Hive, seguire questa procedura dalla vista di Hive.
     SELECT t4 AS sev, COUNT(*) AS cnt FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;
     ```
 
-    Di seguito sono elencate le istruzioni che eseguono queste azioni:
+    Le istruzioni eseguono queste azioni:
 
    * `DROP TABLE`: elimina la tabella e il file di dati, qualora la tabella esista già.
 
@@ -109,7 +109,7 @@ Per eseguire una query Hive, seguire questa procedura dalla vista di Hive.
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
     ```
 
-  Di seguito sono elencate le istruzioni che eseguono queste azioni:
+  Le istruzioni eseguono queste azioni:
 
    * **CREATE TABLE IF NOT EXISTS**: crea una tabella, se non esiste già. Poiché non viene usata la parola chiave **EXTERNAL**, viene creata una tabella interna. Una tabella interna verrà archiviata nel data warehouse di Hive e gestita completamente da Hive. A differenza delle tabelle esterne, se si elimina una tabella interna vengono eliminati anche i dati sottostanti.
 
@@ -179,7 +179,7 @@ add jar /myudfs.jar;
 create temporary function myawesomeudf as 'com.myudfs.Awesome';
 ```
 
-Si potrà quindi usare la funzione definita dall'utente nella query, ad esempio `SELECT myawesomeudf(name) FROM people;`.
+Si potrà quindi usare la funzione definita dall'utente nella query, Ad esempio, `SELECT myawesomeudf(name) FROM people;`.
 
 Per altre informazioni sull'uso di funzioni definite dall'utente con Hive in HDInsight, vedere gli articoli seguenti:
 

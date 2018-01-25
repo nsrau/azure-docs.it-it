@@ -15,23 +15,23 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: e7f5cf483d22e4c60dedbe5176ceb0bc8b2b6e66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 614e07ad9fcbe9ad3684ed977f7ffa36e727dddc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="design-build-and-deploy-azure-logic-apps-in-visual-studio"></a>Progettare, compilare e distribuire app per la logica di Azure in Visual Studio
 
 Anche se il [portale di Azure](https://portal.azure.com/) è uno strumento eccellente per la creazione e la gestione delle app per la logica di Azure, è possibile usare Visual Studio per progettarle, compilarle e distribuirle. Visual Studio offre strumenti avanzati, come la finestra di progettazione di app per la logica, per creare app per la logica, configurare i modelli di distribuzione e automazione e distribuirli in qualsiasi ambiente. 
 
-Per un'introduzione alle app per la logica di Azure, imparare a [creare la prima app per la logica nel Portale di Azure](logic-apps-create-a-logic-app.md).
+Per un'introduzione alle app per la logica di Azure, imparare a [creare la prima app per la logica nel Portale di Azure](quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="installation-steps"></a>Procedura di installazione
 
 Per installare e configurare gli strumenti di Visual Studio per le app per la logica di Azure, seguire questi passaggi.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) o Visual Studio 2015
 * [Versione più recente di Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 o versione successiva)

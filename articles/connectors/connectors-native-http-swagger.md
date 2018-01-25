@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 3e9229d94e96aad7b769d0e55d208d856e3b80bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0487dbedddee684c75420bd66effe2c963a18624
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>Introduzione all'azione HTTP + Swagger
 
 È possibile creare un connettore di prima classe a qualsiasi endpoint REST tramite un [documento di Swagger](https://swagger.io) quando si usa l'azione HTTP + Swagger nel flusso di lavoro dell'app per la logica. È anche possibile estendere app per la logica per chiamare qualsiasi endpoint REST con un'eccellente esperienza di progettazione delle app per la logica.
 
-Per informazioni su come creare app per la logica con i connettori, consultare [Creare una nuova app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
+Per informazioni su come creare app per la logica con i connettori, consultare [Creare una nuova app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>Usare HTTP + Swagger come trigger o azione
 
@@ -77,14 +77,14 @@ Di seguito sono riportati i dettagli per i trigger e le azioni supportati da que
 ## <a name="http--swagger-triggers"></a>Trigger HTTP + Swagger
 Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger.](connectors-overview.md) Il connettore HTTP + Swagger supporta un solo trigger.
 
-| Trigger | Descrizione |
+| Trigger | DESCRIZIONE |
 | --- | --- |
 | HTTP + Swagger |Esegue una chiamata HTTP e restituisce il contenuto della risposta |
 
 ## <a name="http--swagger-actions"></a>Azioni HTTP + Swagger
 Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Ulteriori informazioni sulle azioni.](connectors-overview.md) Il connettore HTTP + Swagger supporta una sola azione possibile.
 
-| Azione | Descrizione |
+| Azione | DESCRIZIONE |
 | --- | --- |
 | HTTP + Swagger |Esegue una chiamata HTTP e restituisce il contenuto della risposta |
 
@@ -95,19 +95,19 @@ Il connettore HTTP + Swagger include una sola azione possibile. Di seguito sono 
 Eseguire una richiesta HTTP in uscita con l'assistenza dei metadati Swagger.
 L'asterisco (*) indica un campo obbligatorio.
 
-| Nome visualizzato | Nome proprietà | Descrizione |
+| Nome visualizzato | Nome proprietà | DESCRIZIONE |
 | --- | --- | --- |
 | Metodo* |statico |Verbo HTTP da usare. |
 | URI* |Uri |URI per la richiesta HTTP. |
-| Headers |Headers |Un oggetto JSON delle intestazioni HTTP da includere. |
+| Headers |headers |Un oggetto JSON delle intestazioni HTTP da includere. |
 | Corpo |Corpo |Il corpo della richiesta HTTP. |
-| Autenticazione |Autenticazione |Autenticazione da usare per la richiesta. Per altre informazioni, vedere il [connettore HTTP](connectors-native-http.md#authentication). |
+| Authentication |Autenticazione |Autenticazione da usare per la richiesta. Per altre informazioni, vedere il [connettore HTTP](connectors-native-http.md#authentication). |
 
 **Dettagli dell'output**
 
 Risposta HTTP
 
-| Nome proprietà | Tipo di dati | Descrizione |
+| Nome proprietà | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | headers |object |Intestazioni della risposta |
 | Corpo |object |Oggetto della risposta |
@@ -116,7 +116,7 @@ Risposta HTTP
 ### <a name="http-responses"></a>Risposte HTTP
 Quando si eseguono chiamate a varie azioni, è possibile ottenere determinate risposte. Di seguito è riportata una tabella contenente le risposte e le descrizioni corrispondenti.
 
-| Nome | Descrizione |
+| NOME | DESCRIZIONE |
 | --- | --- |
 | 200 |OK |
 | 202 |Accepted |
@@ -129,5 +129,5 @@ Quando si eseguono chiamate a varie azioni, è possibile ottenere determinate ri
 - - -
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Trovare altri connettori](apis-list.md)

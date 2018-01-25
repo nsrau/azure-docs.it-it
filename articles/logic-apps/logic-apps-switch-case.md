@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: LADocs; deli
-ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a459fb131cb9f917f2b0cf79679b04da48d76c42
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Eseguire diverse azioni in app per la logica con un'istruzione switch
 
@@ -31,10 +31,10 @@ Durante la creazione di un flusso di lavoro, è spesso necessario eseguire diver
 > Come tutti i linguaggi di programmazione, le istruzioni switch supportano solo gli operatori di uguaglianza. Se sono necessari altri operatori relazionali, ad esempio "maggiore di", usare un'istruzione di condizione.
 > Per garantire il comportamento di esecuzione deterministico, i casi devono contenere un valore univoco e statico anziché un token dinamico o un'espressione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Una sottoscrizione di Azure attiva. Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) o provare l'[App per la logica gratuita](https://tryappservice.azure.com/).
-- [Conoscenze di base di app per la logica](logic-apps-what-are-logic-apps.md)
+- [Conoscenze di base di app per la logica](logic-apps-overview.md)
 
 ## <a name="add-a-switch-statement-to-your-workflow"></a>Aggiungere un'istruzione switch al flusso di lavoro
 

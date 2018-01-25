@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
-ms.openlocfilehash: 2ca27fb8269d1796fb1181fc4d0a8744a592d548
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7f31c2c17d326d58ede0bb00cdc0f701069ea14
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Monitorare, ricevere e inviare eventi con il connettore di Hub eventi
 
@@ -30,7 +30,7 @@ Per configurare il monitoraggio degli eventi in modo che un'app per la logica po
 
 * È necessario avere uno [spazio dei nomi di Hub eventi e un hub eventi](../event-hubs/event-hubs-create.md) in Azure. Leggere le informazioni su [come creare uno spazio dei nomi di Hub eventi e un hub eventi](../event-hubs/event-hubs-create.md). 
 
-* Per usare [qualsiasi connettore](https://docs.microsoft.com/azure/connectors/apis-list) nell'app per la logica, è prima necessario creare un'app per la logica. Leggere le informazioni su [come creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
+* Per usare [qualsiasi connettore](https://docs.microsoft.com/azure/connectors/apis-list) nell'app per la logica, è prima necessario creare un'app per la logica. Leggere le informazioni su [come creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="permissions-connection-string"></a>
 ## <a name="check-event-hubs-namespace-permissions-and-find-the-connection-string"></a>Controllare le autorizzazioni dello spazio dei nomi di Hub eventi e trovare la stringa di connessione
@@ -64,7 +64,7 @@ Per controllare le autorizzazioni e ottenere la stringa di connessione, seguire 
 
 ## <a name="start-workflow-when-your-event-hub-receives-new-events"></a>Avviare il flusso di lavoro quando l'hub eventi riceve nuovi eventi
 
-Un [*trigger*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) è un evento che avvia un flusso di lavoro nell'app per la logica. Per avviare un flusso di lavoro quando nuovi eventi vengono inviati all'hub eventi, seguire questa procedura per l'aggiunta del trigger che rileva questo evento.
+Un [*trigger*](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un evento che avvia un flusso di lavoro nell'app per la logica. Per avviare un flusso di lavoro quando nuovi eventi vengono inviati all'hub eventi, seguire questa procedura per l'aggiunta del trigger che rileva questo evento.
 
 1.  Nel [portale di Azure](https://portal.azure.com "portale di Azure") passare all'app per la logica esistente o creare un'app per la logica vuota.
 
@@ -94,7 +94,7 @@ Un [*trigger*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concept
 
 ## <a name="send-events-to-your-event-hub-from-your-logic-app"></a>Inviare eventi all'hub eventi dall'app per la logica
 
-Un'[*azione*](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) è un'attività eseguita dal flusso di lavoro dell'app per la logica. Dopo avere aggiunto un trigger all'app per la logica, è possibile aggiungere un'azione per eseguire operazioni con i dati generati da tale trigger. Per inviare un evento all'hub eventi dall'app per la logica, seguire questa procedura.
+Un'[*azione*](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un'attività eseguita dal flusso di lavoro dell'app per la logica. Dopo avere aggiunto un trigger all'app per la logica, è possibile aggiungere un'azione per eseguire operazioni con i dati generati da tale trigger. Per inviare un evento all'hub eventi dall'app per la logica, seguire questa procedura.
 
 1.  Nella finestra di progettazione dell'app per la logica scegliere **Nuovo passaggio** > **Aggiungi un'azione** sotto il trigger dell'app per la logica.
 

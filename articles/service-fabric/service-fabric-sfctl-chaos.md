@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 336e74d8f69cb04e6bd0e85fc68ba38b218fabae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbea84511c37cf52c3d98f0247e5ce3c0b2a05c3
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Consente di avviare, arrestare e creare report nel servizio di test chaos.
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|Descrizione|
+|Comando|DESCRIZIONE|
 | --- | --- |
 |    report| Recupera il segmento successivo del report di Chaos in base al token di continuazione passato o all'intervallo di tempo passato.|
 |    start | Se Chaos non è già in esecuzione nel cluster, lo avvia con i parametri di Chaos specificati.|
@@ -39,7 +39,7 @@ Recupera il segmento successivo del report di Chaos in base al token di continua
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --continuation-token| Il parametro del token di continuazione viene utilizzato per ottenere il set di risultati successivo. Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati dal sistema non rientrano in una singola risposta. Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL.|
 | --end-time-utc   | Numero di tick che rappresenta l'ora di fine dell'intervallo di tempo per cui verrà generato un report di Chaos. Per informazioni dettagliate sui tick, vedere [Proprietà DateTime.Ticks](https://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29).|
@@ -61,7 +61,7 @@ Se Chaos non è già in esecuzione nel cluster, lo avvia con i parametri di Chao
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --app-type-health-policy-map  | Elenco con codifica JSON con una percentuale massima di applicazioni non integre per tipi di applicazione specifici. Ogni voce specifica come chiave il nome del tipo di applicazione e come valore un valore intero che rappresenta la percentuale MaxPercentUnhealthyApplications usata per valutare le applicazioni del tipo di applicazione specificato.|
 | --disable-move-replica-faults | Disabilita lo spostamento primario e sposta gli errori secondari.|
@@ -92,7 +92,7 @@ Arresta la pianificazione di altri errori di Chaos. Tuttavia, gli errori in tran
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --timeout -t| Timeout del server in secondi.  Predefinito: 60.|
 

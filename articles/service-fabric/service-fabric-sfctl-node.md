@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 76037c7b4a2f7ada314a9360e3990245e6fbc06c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b94c5a7d6c3c74e1dd66559dea288238c35d664c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-node"></a>sfctl node
 Consente di gestire i nodi che formano un cluster.
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|Descrizione|
+|Comando|DESCRIZIONE|
 | --- | --- |
 |    disable       | Disattiva un nodo del cluster di Service Fabric con lo scopo di disattivazione specificato.|
 |    enable        | Attiva un nodo del cluster di Service Fabric che è attualmente disattivato.|
@@ -47,7 +47,7 @@ Disattiva un nodo del cluster di Service Fabric con lo scopo di disattivazione s
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --node-name [Required]| Il nome del nodo.|
 | --deactivation-intent | Viene descritto lo scopo o il motivo per la disattivazione del nodo. I valori possibili sono i seguenti. - Pause - Indica che il nodo deve essere arrestato. Il valore è uguale a 1. -Restart - Indica che lo scopo è il riavvio del nodo dopo un breve periodo di tempo. Il valore è 2. -RemoveData - Indica che lo scopo per il nodo è la rimozione dei dati. Il valore è 3. .|
@@ -61,7 +61,7 @@ Disattiva un nodo del cluster di Service Fabric con lo scopo di disattivazione s
 | --help -h          | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o        | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query            | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
-| --verbose          | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
+| --verbose          | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-node-enable"></a>sfctl node enable
 Attiva un nodo del cluster di Service Fabric che è attualmente disattivato.
@@ -70,7 +70,7 @@ Attiva un nodo del cluster di Service Fabric che è attualmente disattivato. Una
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --node-name [Required]| Il nome del nodo.|
 | --timeout -t       | Timeout del server in secondi.  Predefinito: 60.|
@@ -83,7 +83,7 @@ Attiva un nodo del cluster di Service Fabric che è attualmente disattivato. Una
 | --help -h          | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o        | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query            | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
-| --verbose          | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
+| --verbose          | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-node-health"></a>sfctl node health
 Mostra l'integrità di un nodo di Service Fabric.
@@ -92,10 +92,10 @@ Mostra l'integrità di un nodo di Service Fabric. Utilizzare EventsHealthStateFi
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --node-name [Obbligatorio]| Il nome del nodo.|
-| --events-health-state-filter| Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono utilizzati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti utilizzando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4). - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero. -None - Il filtro non corrisponde ad alcun valore di stato di integrità. Utilizzato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1. -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2. -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4. - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8. -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535.|
+| --events-health-state-filter| Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono utilizzati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti utilizzando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4). - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore è zero. -None - Il filtro non corrisponde ad alcun valore di stato di integrità. Utilizzato per non restituire alcun risultato in un determinato insieme di stati. Il valore è 1. -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2. -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4. - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8. -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535.|
 | --timeout -t             | Timeout del server in secondi.  Predefinito: 60.|
 
 ### <a name="global-arguments"></a>Argomenti globali
@@ -106,7 +106,7 @@ Mostra l'integrità di un nodo di Service Fabric. Utilizzare EventsHealthStateFi
 | --help -h                | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o              | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query                  | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
-| --verbose                | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
+| --verbose                | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-node-info"></a>sfctl node info
 Mostra l'elenco dei nodi del cluster di Service Fabric.
@@ -115,7 +115,7 @@ Mostra le informazioni su un nodo specifico del cluster di Service Fabric. La ri
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --node-name [Required]| Il nome del nodo.|
 | --timeout -t       | Timeout del server in secondi.  Predefinito: 60.|
@@ -128,7 +128,7 @@ Mostra le informazioni su un nodo specifico del cluster di Service Fabric. La ri
 | --help -h          | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o        | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query            | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
-| --verbose          | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
+| --verbose          | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-node-list"></a>sfctl node list
 Mostra l'elenco dei nodi del cluster di Service Fabric.
@@ -137,7 +137,7 @@ L'endpoint dei nodi restituisce informazioni sui nodi nel cluster di Service Fab
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --continuation-token| Il parametro del token di continuazione viene utilizzato per ottenere il set di risultati successivo. Un token di continuazione con un valore non vuoto è incluso nella risposta dell'API quando i risultati dal sistema non rientrano in una singola risposta.      Quando questo valore viene passato alla successiva chiamata API, l'API restituisce il set di risultati successivo. Se non sono presenti altri risultati, il token di continuazione non contiene alcun valore. Il valore di questo parametro non deve essere codificato in URL.|
 | --node-status-filter| Consente di filtrare i nodi in base allo stato del nodo. Vengono restituiti solo i nodi che corrispondono al valore di filtro specificato. Il valore del filtro può essere uno dei seguenti. - default - Questo valore di filtro ricerca le corrispondenze di tutti i nodi eccetto quelli con stato Sconosciuto o Rimosso. -all - Questo valore di filtro ricerca le corrispondenze di tutti i nodi. - up - Questo valore di filtro ricerca le corrispondenze dei nodi attivi. - down - Questo valore di filtro ricerca le corrispondenze dei nodi disattivi. - enabling - Questo valore di filtro ricerca le corrispondenze in fase di abilitazione, il cui stato corrisponde ad Abilitazione in corso. - disabling - Questo valore di filtro ricerca le corrispondenze in fase di abilitazione, il cui stato corrisponde ad Disabilitazione in corso. - disabled - Questo valore di filtro ricerca le corrispondenze dei nodi disabilitati. -unknown - Questo valore di filtro ricerca le corrispondenze dei nodi il cui stato è sconosciuto. Un nodo può essere in stato sconosciuto se Service Fabric non dispone di informazioni autorevoli su tale nodo. Questa situazione può verificarsi se il sistema rileva un nodo in runtime. - removed - Questo valore di filtro ricerca le corrispondenze dei nodi il cui stato è rimosso. Questi sono i nodi che vengono rimossi dal cluster utilizzando l'API RemoveNodeState. .      Valore predefinito: default.|
@@ -151,7 +151,7 @@ L'endpoint dei nodi restituisce informazioni sui nodi nel cluster di Service Fab
 | --help -h        | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o      | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query          | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
-| --verbose        | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
+| --verbose        | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-node-load"></a>sfctl node load
 Mostra le informazioni sul caricamento di un nodo di Service Fabric.
@@ -160,7 +160,7 @@ Mostra le informazioni sul caricamento di un nodo di Service Fabric.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --node-name [Required]| Il nome del nodo.|
 | --timeout -t       | Timeout del server in secondi.  Predefinito: 60.|
@@ -173,7 +173,7 @@ Mostra le informazioni sul caricamento di un nodo di Service Fabric.
 | --help -h          | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o        | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query            | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
-| --verbose          | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
+| --verbose          | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-node-restart"></a>sfctl node restart
 Riavvia un nodo del cluster di Service Fabric.
@@ -182,7 +182,7 @@ Riavvia un nodo del cluster di Service Fabric che è già stato avviato.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --node-name [Required]| Il nome del nodo.|
 | --create-fabric-dump  | Specificare True per creare un dump del processo del nodo di infrastruttura. Questo valore fa distinzione tra maiuscole e minuscole.  Valore predefinito: False.|
@@ -197,7 +197,7 @@ Riavvia un nodo del cluster di Service Fabric che è già stato avviato.
 | --help -h          | Mostra questo messaggio della Guida e l'uscita.|
 | --output -o        | Formato di output.  Valori consentiti: json, jsonc, tabella, tsv.  Predefinito: json.|
 | --query            | Stringa di query JMESPath. Per maggiori informazioni ed esempi, vedere http://jmespath.org/.|
-| --verbose          | Aumenta il livello di dettaglio di registrazione. Utilizzare --debug per i log di debug completi.|
+| --verbose          | Aumenta il livello di dettaglio di registrazione. Usare --debug per i log di debug completi.|
 
 ## <a name="sfctl-node-transition"></a>sfctl node transition
 Avvia o arresta un nodo del cluster.
@@ -207,7 +207,7 @@ Per avviare un nodo, passare a "Start" per il parametro NodeTransitionType. Per 
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --node-instance-id         [Obbligatorio]| L'ID di istanza del nodo di destinazione. Ciò può essere determinato tramite l'API GetNodeInfo.|
 | --node-name                [Obbligatorio]| Il nome del nodo.|

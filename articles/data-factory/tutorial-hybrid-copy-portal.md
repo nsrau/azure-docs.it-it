@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 7b734a76545dbcbddac3c7ad7beae60d662a9129
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 64cd758e2f40ff2b18abbff1194a7e57389d8a54
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Esercitazione: Copiare dati da un database di SQL Server locale all'archivio BLOB di Azure
 In questa esercitazione si usa l'interfaccia utente di Azure Data Factory per creare una pipeline di Data Factory che copia i dati da un database di SQL Server locale a un archivio BLOB di Azure. Si crea e si usa un runtime di integrazione self-hosted, che sposta i dati tra gli archivi dati locali e cloud. 
@@ -191,7 +191,7 @@ In questo passaggio viene creata una data factory e viene avviata l'interfaccia 
 11. Nella finestra **Installazione rapida di Integration Runtime (self-hosted)** fare clic su **Chiudi**. 
 
    ![Installazione del runtime di integrazione completata](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
-12. Nel Web browser fare clic su **Fine** nella finestra **Integration Runtime Setup** (Installazione runtime di integrazione). Verrà visualizzata di nuovo la finestra **New Linked Service** (Nuovo servizio collegato).
+12. Nel Web browser fare clic su **Fine** nella finestra **Integration Runtime Setup** (Installazione runtime di integrazione). 
 
    ![Installazione del runtime di integrazione: fine](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
 13. Nella finestra **New Linked Service** (Nuovo servizio collegato) seguire questa procedura:

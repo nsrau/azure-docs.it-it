@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 0bab180fe726eeece9d03883889253825b5e9560
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 96ac8ce81087717f05ae6480a8f875079139b7b6
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importare un'app per la logica come API
 
@@ -30,10 +30,10 @@ In questo articolo viene spiegato come:
 > * Testare l'API nel portale di Azure
 > * Testare l'API nel portale per sviluppatori
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 + Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
-+ Verificare che nella sottoscrizione sia disponibile un'app per la logica. Per altre informazioni, vedere l'articolo su come [creare la prima app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
++ Verificare che nella sottoscrizione sia disponibile un'app per la logica. Per altre informazioni, vedere l'articolo su come [creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -54,7 +54,7 @@ In questo articolo viene spiegato come:
 
     * **Starter**
     * **Illimitato**   
-7. Selezionare **Crea**.
+7. Selezionare **Create**.
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testare la nuova API di Gestione API nel portale di Azure
 

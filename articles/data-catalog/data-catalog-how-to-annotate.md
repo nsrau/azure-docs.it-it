@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 011f4396b11cc43ba36dd678cd4ec0f5d5daa81a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f9dd68380773e3cdb93cf1033ccd1b55d9f69305
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-annotate-data-sources"></a>Come annotare le origini dati
 ## <a name="introduction"></a>Introduzione
@@ -43,7 +43,7 @@ Data Catalog supporta i tipi di annotazione seguenti:
 | Annotazione | Note |
 | --- | --- |
 | Nome descrittivo |È possibile fornire nomi descrittivi a livello di asset di dati, per rendere le risorse di dati più facilmente comprensibili. I nomi descrittivi sono particolarmente utili quando il nome dell'oggetto sottostante è di difficile interpretazione, abbreviato o non significativo per gli utenti. |
-| Descrizione |È possibile fornire descrizioni a livello asset di dati e attributo / colonna. Le descrizioni sono annotazioni di testo breve in formato libero che descrivono la prospettiva dell’utente sull’asset dati o sul relativo utilizzo. |
+| DESCRIZIONE |È possibile fornire descrizioni a livello asset di dati e attributo / colonna. Le descrizioni sono annotazioni di testo breve in formato libero che descrivono la prospettiva dell’utente sull’asset dati o sul relativo utilizzo. |
 | Tag (tag utente) |I tag possono essere forniti a livello asset di dati e attributo / colonna. I tag utente sono etichette definite dall'utente che possono essere usate per definire categorie di asset di dati o attributi. |
 | Tag (tag glossario) |I tag possono essere forniti a livello asset di dati e attributo / colonna. I tag di glossario sono termini di glossario definiti a livello centrale che possono essere usati per definire categorie di asset di dati o attributi tramite una tassonomia aziendale comune. Per altre informazioni, vedere [Come configurare il glossario aziendale per l'assegnazione di tag regolamentata](data-catalog-how-to-business-glossary.md) |
 | Esperti |Gli esperti possono essere forniti a livello di asset di dati. Gli esperti identificano utenti o gruppi con prospettive da esperti sui dati e possono fungere come punto di contatto per gli utenti che individuano le origini dei dati registrati e hanno domande le cui risposte non vengono fornite dalle annotazioni esistenti. |
@@ -63,8 +63,8 @@ Quando si selezionano più tabelle e viste, nel portale di Data Catalog verranno
 ## <a name="annotations-and-discovery"></a>Individuazione e annotazioni
 Così come i metadati estratti dall'origine dati durante la registrazione vengono aggiunti all'indice di ricerca di Data Catalog, anche i metadati forniti dagli utenti vengono indicizzati. Ciò significa che le annotazioni non facilitano soltanto la comprensione dei dati individuati dagli utenti ma che esse rendono anche più semplice individuare gli asset di dati con annotazioni tramite ricerche effettuate utilizzando termini conosciuti dagli utenti stessi.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 La registrazione di un'origine dati in Data Catalog rende individuabili tali dati copiando i metadati strutturali e descrittivi dall'origine dati al servizio Catalog. Dopo la registrazione di un'origine dati, gli utenti possono specificare annotazioni per facilitare l'individuazione e la comprensione dal portale di Data Catalog.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 * [Introduzione ad Azure Data Catalog](data-catalog-get-started.md) .

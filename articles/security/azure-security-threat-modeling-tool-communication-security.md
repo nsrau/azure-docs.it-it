@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 68bf128824a40afb25b3e088965f38a4cb4d1332
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71bbe53595f2afab50d6220f335d615ada957a85
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Infrastruttura di sicurezza: sicurezza della comunicazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
 | --------------- | ------- |
 | **Hub eventi di Azure** | <ul><li>[Proteggere la comunicazione con l'hub eventi con SSL/TLS](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Verificare i privilegi dell'account del servizio e controllare che le pagine ASP.NET o i servizi personalizzati rispettino la sicurezza di CRM](#priv-aspnet)</li></ul> |
-| **Data factory di Azure** | <ul><li>[Usare il gateway di gestione dati nella connessione dell'istanza locale di SQL Server ad Azure Data Factory](#sqlserver-factory)</li></ul> |
+| **Azure Data Factory** | <ul><li>[Usare il gateway di gestione dati nella connessione dell'istanza locale di SQL Server ad Azure Data Factory](#sqlserver-factory)</li></ul> |
 | **Identity Server** | <ul><li>[Verificare che tutto il traffico verso Identity Server venga gestito su connessione HTTPS](#identity-https)</li></ul> |
 | **Applicazione Web** | <ul><li>[Verificare i certificati X.509 usati per autenticare le connessioni SSL, TLS e DTLS](#x509-ssltls)</li><li>[Configurare il certificato SSL per un dominio personalizzato nel servizio app di Azure](#ssl-appservice)</li><li>[Forzare tutto il traffico verso il servizio app di Azure su una connessione HTTPS](#appservice-https)</li><li>[Abilitare HTTP Strict Transport Security (HSTS)](#http-hsts)</li></ul> |
 | **Database** | <ul><li>[Verificare la crittografia della connessione e la convalida dei certificati di SQL Server](#sqlserver-validation)</li><li>[Forzare la comunicazione crittografata con SQL Server](#encrypted-sqlserver)</li></ul> |
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="sqlserver-factory"></a>Usare il gateway di gestione dati nella connessione dell'istanza locale di SQL Server ad Azure Data Factory
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Data factory di Azure | 
 | **Fase SDL**               | Distribuzione |  
@@ -105,7 +105,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="appservice-https"></a>Forzare tutto il traffico verso il servizio app di Azure su una connessione HTTPS
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -160,7 +160,7 @@ Il funzionamento di questa regola prevede la restituzione di un codice di stato 
 
 ## <a id="encrypted-sqlserver"></a>Forzare la comunicazione crittografata con SQL Server
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -204,7 +204,7 @@ Il funzionamento di questa regola prevede la restituzione di un codice di stato 
 
 ## <a id="cert-pinning"></a>Implementare l'associazione del certificato
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Archiviazione di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -214,7 +214,7 @@ Il funzionamento di questa regola prevede la restituzione di un codice di stato 
 | **Passaggi** | <p>L'associazione del certificato protegge da attacchi man-in-the-middle. L'associazione è il processo con cui un host viene associato alla chiave pubblica o al certificato X509 previsto. Quando per un host è noto o visibile un certificato o una chiave pubblica, questo viene associato all'host. </p><p>Di conseguenza, quando un antagonista tenta un attacco man-in-the-middle SSL, durante l'handshake SSL la chiave del server dell'utente malintenzionato sarà diversa dalla chiave del certificato associato e la richiesta verrà rimossa, impedendo così l'attacco man-in-the-middle. L'associazione del certificato può essere ottenuta implementando il delegato `ServerCertificateValidationCallback` di ServicePointManager.</p>|
 
 ### <a name="example"></a>Esempio
-```C#
+```csharp
 using System;
 using System.Net;
 using System.Net.Security;
@@ -321,7 +321,7 @@ string GetData(int value);
 
 ## <a id="least-account-wcf"></a>WCF: usare un account con privilegi minimi per eseguire il servizio WCF
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  
@@ -343,7 +343,7 @@ string GetData(int value);
 
 ### <a name="example"></a>Esempio 
 Il codice seguente illustra un filtro di autenticazione di API Web che verifica la presenza di SSL: 
-```C#
+```csharp
 public class RequireHttpsAttribute : AuthorizationFilterAttribute
 {
     public override void OnAuthorization(HttpActionContext actionContext)
@@ -363,7 +363,7 @@ public class RequireHttpsAttribute : AuthorizationFilterAttribute
 }
 ```
 Aggiungere questo filtro a tutte le azioni di API Web che richiedono SSL: 
-```C#
+```csharp
 public class ValuesController : ApiController
 {
     [RequireHttps]
@@ -397,7 +397,7 @@ Si noti che Redis è progettato per essere accessibile da client attendibili all
 
 ## <a id="device-cloud"></a>Proteggere la comunicazione da dispositivo a gateway nel cloud con SSL/TLS
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway IoT cloud | 
 | **Fase SDL**               | Compilare |  

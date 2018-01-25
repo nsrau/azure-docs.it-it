@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/04/2017
 ms.author: larryfr
-ms.openlocfilehash: b05dbdcec3cfb5c78115061567bb6229623cd0ff
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: b451a80934a19f8a38ab9e8ace358674827aefa0
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Esecuzione di query Hive con Hadoop in HDInsight tramite REST
 
@@ -50,7 +50,9 @@ Informazioni su come usare l'API REST WebHCat per eseguire query Hive con Hadoop
 
     Si riceverà un messaggio simile al testo seguente:
 
-        {"status":"ok","version":"v1"}
+    ```json
+    {"status":"ok","version":"v1"}
+    ```
 
     I parametri usati in questo comando sono i seguenti:
 
@@ -65,7 +67,9 @@ Informazioni su come usare l'API REST WebHCat per eseguire query Hive con Hadoop
 
     Questa richiesta restituisce una risposta simile al testo seguente:
 
+    ```json
         {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+    ```
 
 2. Usare quanto segue per creare una tabella denominata **log4jLogs**:
 
@@ -105,7 +109,9 @@ Informazioni su come usare l'API REST WebHCat per eseguire query Hive con Hadoop
 
    Questo comando resituisce un'ID del comando che può essere usata per controllare lo stato del processo.
 
+    ```json
        {"id":"job_1415651640909_0026"}
+    ```
 
 3. Per verificare lo stato del processo, usare il seguente comando:
 

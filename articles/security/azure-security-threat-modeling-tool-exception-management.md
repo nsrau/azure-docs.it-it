@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: bbf357b902474a1812eb7a5a2c914d0c8b91934b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a8e0154faccca356c7fb8ce93e43ce67cc0aae2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Infrastruttura di sicurezza: gestione delle eccezioni | soluzioni di prevenzione 
 | Prodotto o servizio | Articolo |
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="servicedebug"></a>WCF - non includere il nodo serviceDebug nel file di configurazione
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  
@@ -64,7 +64,7 @@ Disabilitare le informazioni di debug nel servizio. È possibile eseguire questa
 
 ## <a id="exception"></a>Assicurare una gestione appropriata delle eccezioni in API Web ASP.NET
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase SDL**               | Compilare |  
@@ -75,7 +75,7 @@ Disabilitare le informazioni di debug nel servizio. È possibile eseguire questa
 
 ### <a name="example"></a>Esempio
 Per controllare il codice di stato restituito dall'API, è possibile usare `HttpResponseException` come illustrato di seguito: 
-```C#
+```csharp
 public Product GetProduct(int id)
 {
     Product item = repository.Get(id);
@@ -89,7 +89,7 @@ public Product GetProduct(int id)
 
 ### <a name="example"></a>Esempio
 Per controllare ulteriormente la risposta di eccezione, è possibile usare la classe `HttpResponseMessage` come illustrato di seguito: 
-```C#
+```csharp
 public Product GetProduct(int id)
 {
     Product item = repository.Get(id);
@@ -109,7 +109,7 @@ Per intercettare le eccezioni non gestite che non sono del tipo `HttpResponseExc
 
 ### <a name="example"></a>Esempio
 Ecco un filtro che converte le eccezioni `NotImplementedException` nel codice di stato HTTP `501, Not Implemented`: 
-```C#
+```csharp
 namespace ProductStore.Filters
 {
     using System;
@@ -137,7 +137,7 @@ Esistono diversi modi per registrare un filtro eccezioni API Web:
 
 ### <a name="example"></a>Esempio
 Per applicare il filtro a un'azione specifica, aggiungere il filtro come attributo per l'azione: 
-```C#
+```csharp
 public class ProductsController : ApiController
 {
     [NotImplExceptionFilter]
@@ -150,7 +150,7 @@ public class ProductsController : ApiController
 ### <a name="example"></a>Esempio
 Per applicare il filtro a tutte le azioni in un `controller`, aggiungere il filtro come attributo per la classe `controller`: 
 
-```C#
+```csharp
 [NotImplExceptionFilter]
 public class ProductsController : ApiController
 {
@@ -160,14 +160,14 @@ public class ProductsController : ApiController
 
 ### <a name="example"></a>Esempio
 Per applicare il filtro a livello globale per tutti i controller API Web, aggiungere un'istanza del filtro alla raccolta `GlobalConfiguration.Configuration.Filters`. I filtri eccezioni in questa raccolta si applicano a qualsiasi azione del controller API Web. 
-```C#
+```csharp
 GlobalConfiguration.Configuration.Filters.Add(
     new ProductStore.NotImplExceptionFilterAttribute());
 ```
 
 ### <a name="example"></a>Esempio
 Per la convalida del modello, lo stato del modello può essere passato al metodo CreateErrorResponse come illustrato di seguito: 
-```C#
+```csharp
 public HttpResponseMessage PostProduct(Product item)
 {
     if (!ModelState.IsValid)
@@ -204,7 +204,7 @@ Controllare i collegamenti nella sezione Riferimenti per altre informazioni sull
 
 ## <a id="deployment"></a>Impostare il metodo di distribuzione al dettaglio in IIS
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Distribuzione |  
@@ -225,7 +225,7 @@ Controllare i collegamenti nella sezione Riferimenti per altre informazioni sull
 | **Passaggi** | L'applicazione deve avere esito negativo in modo sicuro. Per qualsiasi metodo che restituisce un valore booleano, in base al quale vengono prese determinate decisioni, è necessario creare con attenzione un blocco delle eccezioni. Esistono molti errori logici che causano problemi di sicurezza quando il blocco delle eccezioni è scritto senza fare attenzione.|
 
 ### <a name="example"></a>Esempio
-```C#
+```csharp
         public static bool ValidateDomain(string pathToValidate, Uri currentUrl)
         {
             try

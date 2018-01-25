@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: 197ecff6728a7a2ce78cc6ca2861a10222a6b56b
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: cf98bb7fab4942955287e8e211e98b9da59472f6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
 Questo articolo è valido per la versione 2 del servizio Azure Data Factory. Contiene le risposte alle domande frequenti su Data Factory.  
@@ -164,7 +164,7 @@ Per le informazioni più aggiornate su Azure Data Factory, andare ai siti seguen
 ## <a name="technical-deep-dive"></a>Approfondimento tecnico 
 
 ### <a name="can-version-1-and-version-2-pipelines-run-side-by-side"></a>Le pipeline versione 1 e versione 2 possono essere eseguite contemporaneamente?
-No. Le data factory versione 1 e versione 2 non possono contenere entità (ad esempio, servizi collegati, set di dati o pipeline) dell'altra versione.   
+di serie Le data factory versione 1 e versione 2 non possono contenere entità (ad esempio, servizi collegati, set di dati o pipeline) dell'altra versione.   
 
 ### <a name="do-i-still-need-to-define-data-sets-in-version-2"></a>È necessario definire i set di dati nella versione 2?
 Un set di dati non è più un'entità obbligatoria per la maggior parte delle attività. È necessario per le attività di copia, apprendimento automatico, ricerca, convalida e attività personalizzate che usano lo schema e altre informazioni sui metadati del set di dati per la trasformazione. Le altre attività non richiedono più i set di dati.

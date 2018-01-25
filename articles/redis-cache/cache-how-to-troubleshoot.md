@@ -3,8 +3,8 @@ title: Come risolvere i problemi di Cache Redis di Azure | Microsoft Docs
 description: Informazioni su come risolvere problemi comuni di Cache Redis di Azure.
 services: redis-cache
 documentationcenter: 
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: 
 ms.assetid: 928b9b9c-d64f-4252-884f-af7ba8309af6
 ms.service: cache
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: sdanie
-ms.openlocfilehash: 2e9d1b644f1e80c7d916a261a6c47fcc11a1ffe0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: a88adc300e52c74f2a1fcd2e546ab879000d877e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-troubleshoot-azure-redis-cache"></a>Come risolvere i problemi di Cache Redis di Azure
 Questo articolo include indicazioni per la risoluzione delle categorie seguenti di problemi di Cache Redis di Azure.
@@ -189,12 +189,12 @@ Questo messaggio di errore contiene metriche che consentono di trovare la causa 
 | qs |67 delle operazioni in corso sono state inviate al server, ma non è ancora disponibile una risposta. La risposta può essere `Not yet sent by the server` o `sent by the server but not yet processed by the client.` |
 | qc |0 delle operazioni in corso hanno avuto risposta, ma non sono ancora state contrassegnate come completate perché sono in attesa del ciclo di completamento. |
 | wr |C'è un writer attivo (che significa che le 6 richieste non inviate non verranno ignorate). Vengono indicati i byte per writer attivo. |
-| iniziare |Non ci sono lettori attivi e sono disponibili zero byte da leggere nella scheda di interfaccia di rete. Vengono indicati i byte per lettore attivo. |
+| in |Non ci sono lettori attivi e sono disponibili zero byte da leggere nella scheda di interfaccia di rete. Vengono indicati i byte per lettore attivo. |
 
 ### <a name="steps-to-investigate"></a>Passaggi di verifica
 1. Come procedura consigliata, verificare di usare il modello seguente per connettersi quando si usa il client StackExchange.Redis.
 
-    ```c#
+    ```csharp
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
         return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");

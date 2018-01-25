@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 66649bb6ae317eb227dcdf45aa084905967c117f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c1f485812918397b5b52e650611032c9058e3ee
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-service"></a>sfctl service
 Creare, eliminare e gestire servizi, tipi di servizio e pacchetti di servizi.
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|Descrizione|
+|Comando|DESCRIZIONE|
 | --- | --- |
 |    app-name       | Mostra il nome dell'applicazione Service Fabric per un servizio.|
 |    code-package-list | Mostra l'elenco di pacchetti di codice distribuiti in un nodo di Service Fabric.|
@@ -54,7 +54,7 @@ Crea il servizio Service Fabric specificato dalla descrizione.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --app-id       [obbligatorio]| Identità dell'applicazione padre. Si tratta in genere dell'ID completo dell'applicazione senza lo schema URI "fabric:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "~". Ad esempio, se il nome dell'applicazione è "fabric://myapp/app1", l'identità dell'applicazione sarà "myapp~app1" in 6.0+ e "myapp/app1" nelle versioni precedenti.|
 | --name         [obbligatorio]| Nome del servizio. Deve trattarsi di un elemento figlio dell'ID dell'applicazione.           Corrisponde al nome intero, incluso l'URI `fabric:`. Ad esempio, il servizio `fabric:/A/B` è un elemento figlio dell'applicazione `fabric:/A`.|
@@ -102,7 +102,7 @@ Elimina un servizio Service Fabric esistente. Prima di poter essere eliminato, u
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --service-id [obbligatorio]| L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI 'fabric:'. A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "~". Ad esempio, se il nome del servizio è "fabric://myapp/app1/svc1", l'identità del servizio sarà "myapp~app1~svc1" in 6.0+ e "myapp/app1/svc1" nelle versioni precedenti.|
 | --force-remove      | Consente di rimuovere un servizio o applicazione di Service Fabric in modo forzato senza passare attraverso la sequenza di arresto normale. Questo parametro può essere usato per eliminare in modo forzato un'applicazione o un servizio la cui eliminazione sta scadendo a causa di problemi nel codice del servizio che impediscono la normale chiusura delle repliche.|
@@ -125,7 +125,7 @@ Mostra la descrizione di un servizio di Service Fabric esistente. Prima di poter
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --service-id [obbligatorio]| L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI 'fabric:'. A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "~". Ad esempio, se il nome del servizio è "fabric://myapp/app1/svc1", l'identità del servizio sarà "myapp~app1~svc1" in 6.0+ e "myapp/app1/svc1" nelle versioni precedenti.|
 | --timeout -t        | Timeout del server in secondi.  Predefinito: 60.|
@@ -147,7 +147,7 @@ Mostra le informazioni di integrità del servizio specificato. Usare EventsHealt
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --service-id          [obbligatorio]| L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI "fabric:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "~". Ad esempio, se il nome del servizio è "fabric://myapp/app1/svc1", l'identità del servizio sarà "myapp~app1~svc1" in 6.0+ e "myapp/app1/svc1" nelle versioni precedenti.|
 | --events-health-state-filter | Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4). - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero. - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1. -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2. -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4. - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8. -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535.|
@@ -243,7 +243,7 @@ Indica al cluster di Service Fabric che deve tentare di ripristinare il servizio
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --service-id [obbligatorio]| L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI 'fabric:'. A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "~". Ad esempio, se il nome del servizio è "fabric://myapp/app1/svc1", l'identità del servizio sarà "myapp~app1~svc1" in 6.0+ e "myapp/app1/svc1" nelle versioni precedenti.|
 | --timeout -t        | Timeout del server in secondi.  Predefinito: 60.|
@@ -265,7 +265,7 @@ Consente di risolvere una partizione del servizio Service Fabric per ottenere gl
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --service-id [obbligatorio]| L'identità del servizio. Si tratta in genere del nome completo del servizio senza lo schema URI 'fabric:'. A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "~". Ad esempio, se il nome del servizio è "fabric://myapp/app1/svc1", l'identità del servizio sarà "myapp~app1~svc1" in 6.0+ e "myapp/app1/svc1" nelle versioni precedenti.|
 | --partition-key-type| Tipo di chiave per la partizione. Questo parametro è obbligatorio se lo schema di partizione per il servizio è Int64Range o Named. I valori possibili sono i seguenti. -None (1) - Indica che il parametro PartitionKeyValue non è specificato. È valido per le partizioni con schema di partizionamento Singleton. Si tratta del valore predefinito. Il valore è uguale a 1. -Int64Range (2) - indica che il parametro PartitionKeyValue è una chiave di partizione int64. È valido per le partizioni con schema di partizionamento Int64Range. Il valore è 2. - Named (3) - Indica che il parametro PartitionKeyValue è un nome della partizione. È valido per le partizioni con schema di partizionamento Named. Il valore è 3.|
@@ -288,7 +288,7 @@ Aggiorna il servizio specificato usando la descrizione di aggiornamento specific
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --service-id   [obbligatorio]| Servizio di destinazione da aggiornare. Si tratta in genere dell'ID completo del servizio senza lo schema URI "fabric:". A partire dalla versione 6.0, i nomi gerarchici sono delimitati con il carattere "~". Ad esempio, se il nome del servizio è "fabric://myapp/app1/svc1", l'identità del servizio sarà "myapp~app1~svc1" in 6.0+ e "myapp/app1/svc1" nelle versioni precedenti.|
 | --constraints         | Vincoli di posizionamento sotto forma di stringa. I vincoli di posizionamento sono espressioni booleane nelle proprietà del nodo e consentono di limitare un servizio a nodi specifici in base ai requisiti del servizio. Ad esempio, per inserire un servizio nei nodi in cui NodeType è blu, specificare quanto segue: "NodeColor == blue".|

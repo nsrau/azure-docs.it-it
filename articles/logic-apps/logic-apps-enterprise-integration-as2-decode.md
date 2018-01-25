@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: a7920b2509fe368c6f7d55e17fe0bf0020c4562c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4acae9f1837069c494985ff1456979490485f609
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Messaggi Decode AS2 in App per la logica di Azure con Enterprise Integration Pack 
 
@@ -35,7 +35,7 @@ Sono necessari gli elementi seguenti:
 
 ## <a name="decode-as2-messages"></a>Decodificare i messaggi AS2
 
-1. [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
+1. [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 2. Il connettore di messaggi Decode AS2 non dispone di trigger, pertanto è necessario aggiungerne uno per avviare l'app per la logica, ad esempio un trigger di richiesta. In Progettazione app per la logica aggiungere un trigger e un'azione all'app per la logica.
 
@@ -62,7 +62,7 @@ Sono necessari gli elementi seguenti:
    
     ![connessione di integrazione creata](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage4.png) 
 
-    ad esempio:
+    Ad esempio: 
 
     ![Selezionare Corpo e Intestazioni dagli output della richiesta](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 

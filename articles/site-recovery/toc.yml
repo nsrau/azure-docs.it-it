@@ -251,8 +251,6 @@
           href: 'site-recovery-workload.md#workload-summary'
     - name: Gestisci
       items:
-        - name: Eseguire l'aggiornamento a un insieme di credenziali di Servizi di ripristino
-          href: upgrade-site-recovery-vaults.md
         - name: Gestire server di elaborazione in Azure
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
         - name: Gestire il server di configurazione
@@ -277,7 +275,7 @@
           href: site-recovery-failover-to-azure-troubleshoot.md
         - name: Monitorare Azure Site Recovery
           href: site-recovery-monitor-and-troubleshoot.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.recoveryservices.siterecovery

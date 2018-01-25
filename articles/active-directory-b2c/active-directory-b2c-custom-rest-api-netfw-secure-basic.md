@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: d65d94bb5c807abfd6cbb1fae786a02f179e93d6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 0d4594f5e7c0a13d50993dd42d4780c1ba703140
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Proteggere i servizi RESTful tramite l'autenticazione di base HTTP
 In un [articolo correlato relativo ad Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md) è stato creato un servizio RESTful (API Web) integrato nei percorsi utente di Azure Active Directory B2C (Azure AD B2C) senza autenticazione. 
@@ -27,7 +27,7 @@ Questo articolo illustra come aggiungere l'autenticazione di base HTTP al serviz
 
 Per altre informazioni, vedere [Basic authentication in ASP.NET web API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication) (Autenticazione di base nell'API Web ASP.NET).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Completare i passaggi nell'articolo [Integrare scambi di attestazioni API REST nei percorsi utente di Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md).
 
 ## <a name="step-1-add-authentication-support"></a>Passaggio 1: Aggiungere il supporto per l'autenticazione
@@ -76,7 +76,7 @@ Aggiungere la classe `ClientAuthMiddleware.cs` nella cartella *App_Start*. A tal
 
 3. Aprire il file *App_Start\ClientAuthMiddleware.cs* e sostituire il contenuto del file con il codice seguente:
 
-    ```C#
+    ```csharp
     
     using Microsoft.Owin;
     using System;
@@ -194,7 +194,7 @@ Aggiungere una classe di avvio OWIN denominata `Startup.cs` all'API. A tale scop
 
 2. Aprire il file *Startup.cs* e sostituire il contenuto del file con il codice seguente:
 
-    ```C#
+    ```csharp
     using Microsoft.Owin;
     using Owin;
     

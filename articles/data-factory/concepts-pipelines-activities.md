@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 4214bc2a58a1ce6d0d329010ec7775a343e9d782
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: f5384b4fa0a1baaafd8b2dbf3ed4d7776f4d80ea
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipeline e attività in Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -68,7 +68,7 @@ Per altre informazioni, vedere l'articolo [Attività di trasformazione dei dati]
 ## <a name="control-activities"></a>Attività di controllo
 Sono supportate le seguenti attività del flusso di controllo:
 
-Attività di controllo | Descrizione
+Attività di controllo | DESCRIZIONE
 ---------------- | -----------
 [Attività ExecutePipeline](control-flow-execute-pipeline-activity.md) | L'attività di esecuzione pipeline consente a una pipeline di Data Factory di richiamare un'altra pipeline.
 [ForEachActivity](control-flow-for-each-activity.md) | L'attività ForEach definisce un flusso di controllo ripetuto nella pipeline. Questa attività viene usata per eseguire l'iterazione su una raccolta ed esegue attività specificate in un ciclo. L'implementazione di cicli di questa attività è simile alla struttura di esecuzione cicli Foreach nei linguaggi di programmazione.
@@ -97,12 +97,12 @@ Ecco come una pipeline viene definita in formato JSON:
 }
 ```
 
-Tag | Descrizione | Tipo | Obbligatorio
+Tag | DESCRIZIONE | type | Obbligatoria
 --- | ----------- | ---- | --------
-name | Nome della pipeline. Specificare un nome che rappresenti l'azione eseguita dalla pipeline. <br/><ul><li>Numero massimo di caratteri: 260</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (_)</li><li>•   Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\"</li></ul> | String | Sì
-Descrizione | Specificare il testo descrittivo che illustra lo scopo della pipeline. | String | No
+name | Nome della pipeline. Specificare un nome che rappresenti l'azione eseguita dalla pipeline. <br/><ul><li>Numero massimo di caratteri: 260</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (_)</li><li>•   Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\"</li></ul> | string | Sì
+description | Specificare il testo descrittivo che illustra lo scopo della pipeline. | string | No 
 attività | Nella sezione delle **attività** possono essere definite una o più attività. Vedere la sezione relativa al formato [JSON delle attività](#activity-json) per informazioni dettagliate sull'elemento JSON delle attività. | Array | Sì
-parameters | La sezione **parameters** può avere uno o più parametri definiti all'interno della pipeline, assicurando la flessibilità per il riutilizzo della pipeline. | Elenco | No
+Parametri | La sezione **parameters** può avere uno o più parametri definiti all'interno della pipeline, assicurando la flessibilità per il riutilizzo della pipeline. | Elenco | No 
 
 ## <a name="activity-json"></a>Attività JSON
 Nella sezione delle **attività** possono essere definite una o più attività. Esistono due tipi principali di attività: attività di esecuzione e di controllo.
@@ -130,15 +130,15 @@ Includono le [attività di spostamento dei dati](#data-movement-activities) e di
 
 La tabella seguente descrive le proprietà all'interno della definizione JSON dell'attività:
 
-Tag | Descrizione | Obbligatorio
+Tag | DESCRIZIONE | Obbligatoria
 --- | ----------- | ---------
 name | Nome dell'attività. Specificare un nome che rappresenti l'azione eseguita dall'attività. <br/><ul><li>Numero massimo di caratteri: 260</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (_)</li><li>Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" | Sì</li></ul>
-Descrizione | Testo descrittivo per il tipo o lo scopo dell'attività | Sì
+description | Testo descrittivo per il tipo o lo scopo dell'attività | Sì
 type | Tipo di attività. Per informazioni sui diversi tipi di attività, vedere le sezioni [Attività di spostamento dei dati](#data-movement-activities), [Attività di trasformazione dei dati](#data-transformation-activities) e [Attività di controllo](#control-activities). | Sì
 linkedServiceName | Nome del servizio collegato usato dall'attività.<br/><br/>Per un'attività può essere necessario specificare il servizio collegato che collega all'ambiente di calcolo richiesto. | Sì per l'attività HDInsight, l'attività di assegnazione di punteggio Batch di Azure Machine Learning e l'attività stored procedure. <br/><br/>No per tutto il resto
-typeProperties | Le proprietà nella sezione typeProperties dipendono da ogni tipo di attività. Per visualizzare le proprietà del tipo per un'attività, fare clic sui collegamenti all'attività nella sezione precedente. | No
-policy | Criteri che influiscono sul comportamento di runtime dell'attività. Questa proprietà include il comportamento di timeout e ripetizione. Se queste impostazioni non vengono specificate, vengono usati i valori predefiniti. Per altre informazioni, vedere la sezione [Criteri di attività](#activity-policy). | No
-dependsOn | Questa proprietà viene usata per definire le dipendenze delle attività e come le attività successive dipendono dalle attività precedenti. Per altre informazioni, vedere [Dipendenza delle attività](#activity-dependency). | No
+typeProperties | Le proprietà nella sezione typeProperties dipendono da ogni tipo di attività. Per visualizzare le proprietà del tipo per un'attività, fare clic sui collegamenti all'attività nella sezione precedente. | No 
+policy | Criteri che influiscono sul comportamento di runtime dell'attività. Questa proprietà include il comportamento di timeout e ripetizione. Se queste impostazioni non vengono specificate, vengono usati i valori predefiniti. Per altre informazioni, vedere la sezione [Criteri di attività](#activity-policy). | No 
+dependsOn | Questa proprietà viene usata per definire le dipendenze delle attività e come le attività successive dipendono dalle attività precedenti. Per altre informazioni, vedere [Dipendenza delle attività](#activity-dependency). | No 
 
 ### <a name="activity-policy"></a>Criteri di attività
 Criteri che influiscono sul comportamento runtime di un'attività, offrendo le opzioni di configurabilità. I criteri delle attività sono disponibili solo per le attività di esecuzione. 
@@ -169,11 +169,11 @@ Criteri che influiscono sul comportamento runtime di un'attività, offrendo le o
     }
 }
 ```
-Nome JSON | Descrizione | Valori consentiti | Obbligatorio
+Nome JSON | DESCRIZIONE | Valori consentiti | Obbligatoria
 --------- | ----------- | -------------- | --------
-timeout | Specifica il timeout per l'attività da eseguire. | TimeSpan | No. Il timeout predefinito è 7 giorni.
-retry | Numero massimo di tentativi | Integer | No. Il valore predefinito è 0
-retryIntervalInSeconds | Il ritardo tra tentativi di ripetizione espresso in secondi | Integer | No. Il valore predefinito è 20 secondi.
+timeout | Specifica il timeout per l'attività da eseguire. | TimeSpan | di serie Il timeout predefinito è 7 giorni.
+retry | Numero massimo di tentativi | Integer | di serie Il valore predefinito è 0
+retryIntervalInSeconds | Il ritardo tra tentativi di ripetizione espresso in secondi | Integer | di serie Il valore predefinito è 20 secondi.
 
 ### <a name="control-activity"></a>Attività di controllo
 Le attività di controllo presentano la seguente struttura di primo livello:
@@ -192,13 +192,13 @@ Le attività di controllo presentano la seguente struttura di primo livello:
 }
 ```
 
-Tag | Descrizione | Obbligatorio
+Tag | DESCRIZIONE | Obbligatoria
 --- | ----------- | --------
 name | Nome dell'attività. Specificare un nome che rappresenti l'azione eseguita dall'attività.<br/><ul><li>Numero massimo di caratteri: 260</li><li>Deve iniziare con una lettera, un numero o un carattere di sottolineatura (_)</li><li>Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" | Sì</li><ul> 
-Descrizione | Testo descrittivo per il tipo o lo scopo dell'attività | Sì
+description | Testo descrittivo per il tipo o lo scopo dell'attività | Sì
 type | Tipo di attività. Per informazioni sui diversi tipi di attività, vedere le sezioni [Attività di spostamento dei dati](#data-movement-activities), [Attività di trasformazione dei dati](#data-transformation-activities) e [Attività di controllo](#control-activities). | Sì
-typeProperties | Le proprietà nella sezione typeProperties dipendono da ogni tipo di attività. Per visualizzare le proprietà del tipo per un'attività, fare clic sui collegamenti all'attività nella sezione precedente. | No
-dependsOn | Questa proprietà viene usata per definire la dipendenza delle attività e come le attività successive dipendono dalle attività precedenti. Per altre informazioni, vedere la [Dipendenza delle attività](#activity-dependency). | No
+typeProperties | Le proprietà nella sezione typeProperties dipendono da ogni tipo di attività. Per visualizzare le proprietà del tipo per un'attività, fare clic sui collegamenti all'attività nella sezione precedente. | No 
+dependsOn | Questa proprietà viene usata per definire la dipendenza delle attività e come le attività successive dipendono dalle attività precedenti. Per altre informazioni, vedere la [Dipendenza delle attività](#activity-dependency). | No 
 
 ### <a name="activity-dependency"></a>Dipendenza di attività
 La dipendenza delle attività definisce in che modo le attività successive dipendono dalle attività precedenti, determinando la condizione dell'eventuale esecuzione dell'attività successiva. Un'attività può dipendere da una o più attività precedenti con condizioni di dipendenza diverse. 

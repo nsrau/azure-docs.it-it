@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 835f1804b204b988b86b13f48cd9143f6bc81cee
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 49fb249b6ff1169527829c77a6539926ec99b912
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Esercitazione: Creare una data factory con Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Panoramica e prerequisiti](data-factory-build-your-first-pipeline.md)
-> * [Portale di Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modello di Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -59,7 +59,7 @@ Di seguito sono elencati i passaggi da eseguire nell'ambito di questa procedura 
 4. Creare una data factory denominata **DataFactoryUsingVS**. Distribuire la data factory e tutte le entità di Data Factory, ovvero i servizi collegati, le tabelle e la pipeline.
 5. Dopo la pubblicazione, si useranno i pannelli del portale e l'app di monitoraggio e gestione di Azure per monitorare la pipeline. 
   
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 1. Vedere la [panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md) ed eseguire i passaggi relativi ai **prerequisiti** . È anche possibile selezionare l'opzione **Panoramica e prerequisiti** nell'elenco a discesa in alto per passare a tale articolo. Dopo aver completato i prerequisiti, tornare a questo articolo selezionando l'opzione **Visual Studio** nell'elenco a discesa.
 2. Per creare istanze di data factory, è necessario essere membri del ruolo [Collaboratore Data factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) a livello di sottoscrizione/gruppo di risorse.  
 3. È necessario disporre dei seguenti prodotti installati nel computer in uso:
@@ -76,9 +76,9 @@ Verrà ora usato Visual Studio per creare una data factory di Azure.
     ![Finestra di dialogo Nuovo progetto](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
 3. Immettere un **nome** per il progetto, un **percorso** e un nome per la **soluzione** e fare clic su **OK**.
 
-    ![Esplora soluzioni](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
+    ![Controllers\HomeController.cs](./media/data-factory-build-your-first-pipeline-using-vs/solution-explorer.png)
 
-### <a name="create-linked-services"></a>Creazione di servizi collegati
+### <a name="create-linked-services"></a>Creare servizi collegati
 In questo passaggio si creano due servizi collegati: **Archiviazione di Azure** e **HDInsight su richiesta**. 
 
 Il servizio collegato Archiviazione di Azure collega l'account di archiviazione di Azure alla data factory fornendo le informazioni di connessione. Il servizio Data Factory usa la stringa di connessione dell'impostazione del servizio collegato per connettersi alla risorsa di archiviazione di Azure in fase di esecuzione. Tale risorsa di archiviazione contiene i dati di input e di output per la pipeline e il file di script Hive usato dall'attività Hive. 
@@ -119,7 +119,7 @@ Con il servizio collegato HDInsight su richiesta, il cluster HDInsight viene cre
 
     La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
 
-    Proprietà | Descrizione
+    Proprietà | DESCRIZIONE
     -------- | ----------- 
     ClusterSize | Specifica le dimensioni del cluster Hadoop HDInsight.
     TimeToLive | Specifica il tempo di inattività del cluster HDInsight, prima che sia eliminato.
@@ -168,7 +168,7 @@ In questo passaggio vengono creati set di dati per rappresentare i dati di input
 
     La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
 
-    Proprietà | Descrizione |
+    Proprietà | DESCRIZIONE |
     -------- | ----------- |
     type |La proprietà type è impostata su **AzureBlob** perché i dati risiedono nell'archivio BLOB di Azure.
     linkedServiceName | Fa riferimento all'oggetto AzureStorageLinkedService1 creato in precedenza.
@@ -312,7 +312,7 @@ In questo passaggio si pubblicano le entità della data factory (servizi collega
    6. Fare clic su **Avanti** per passare alla pagina **Pubblica elementi**. Premere **TAB** per uscire dal campo Nome se il pulsante **Avanti** è disabilitato.
 
     > [!IMPORTANT]
-    > Se al momento della pubblicazione viene visualizzato l'errore **Il nome "DataFactoryUsingVS" per la data factory non è disponibile**, modificare il nome (ad esempio in nomeutenteDataFactoryUsingVS). Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere l'argomento [Azure Data Factory - Regole di denominazione](data-factory-naming-rules.md) .   
+    > Se al momento della pubblicazione viene visualizzato l'errore **Il nome "DataFactoryUsingVS" per la data factory non è disponibile**, modificare il nome (ad esempio in nomeutenteDataFactoryUsingVS). Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md) .   
 1. Nella pagina **Pubblica elementi** assicurarsi che tutte le data factory siano selezionate e fare clic su **Avanti** per passare alla pagina **Riepilogo**.
 
     ![Pagina Publish Items (Pubblica elementi)](media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png)     
@@ -545,7 +545,7 @@ Al momento della distribuzione, i valori del file di configurazione vengono usat
 ## <a name="use-azure-key-vault"></a>Usare l'Insieme di credenziali delle chiavi di Azure
 Non è consigliabile ed è spesso contrario ai criteri di sicurezza eseguire il commit di dati sensibili come le stringhe di connessione nel repository del codice. Per altre informazioni sull'archiviazione di informazioni riservate in Azure Key Vault e sul relativo uso durante la pubblicazione di entità di Data Factory, vedere l'esempio di [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish) in GitHub. L'estensione Secure Publish per Visual Studio permette di archiviare i segreti in Key Vault, mentre in servizi collegati o configurazioni di distribuzione vengono specificati solo riferimenti a tali segreti. I riferimenti vengono risolti quando si pubblicano entità di Data Factory di Azure. È possibile eseguire il commit di questi file al repository di origine senza esporre i segreti.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 In questa esercitazione è stata creata un'istanza di Azure Data Factory per elaborare i dati eseguendo lo script Hive in un cluster Hadoop di HDInsight. È stato usato l'editor di Data Factory nel portale di Azure per eseguire questa procedura:  
 
 1. Creare un'istanza di Azure **Data Factory**.
@@ -562,7 +562,7 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 
 
 ## <a name="see-also"></a>Vedere anche
-| Argomento | Descrizione |
+| Argomento | DESCRIZIONE |
 |:--- |:--- |
 | [Pipeline](data-factory-create-pipelines.md) |Questo articolo contiene informazioni sulle pipeline e sulle attività in Azure Data Factory e su come usarle per costruire flussi di lavoro basati sui dati per lo scenario o l'azienda. |
 | [Set di dati](data-factory-create-datasets.md) |Questo articolo fornisce informazioni sui set di dati in Azure Data Factory. |

@@ -5,16 +5,16 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders; nini
-ms.date: 11/06/2017
+ms.date: 01/17/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 8ffa4c22c39bcd241b36b55bbcba24ac3f75fff2
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 37fdb8156e4507046a574ba681e2ea3f6909c4a6
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-is-azure-policy"></a>Informazioni su Criteri di Azure
 
@@ -38,7 +38,7 @@ Queste autorizzazioni non sono incluse nel ruolo di **collaboratore**.
 
 Ogni definizione di criteri include condizioni da cui ne dipende l'applicazione. Dispone inoltre di un'azione associata che viene eseguita se vengono soddisfatte le condizioni.
 
-In Criteri di Azure sono disponibili alcuni criteri predefiniti, ad esempio:
+In Criteri di Azure sono disponibili alcuni criteri predefiniti, Ad esempio: 
 
 - **Require SQL Server 12.0** (Richiedi SQL Server 12.0). Questa definizione di criteri contiene condizioni/regole per garantire che in tutte le istanze di SQL Server venga usata la versione 12.0. L'azione consiste nel rifiutare tutti i server che non soddisfano tali criteri.
 - **Allowed Storage Account SKUs** (SKU di account di archiviazione consentiti). Questa definizione di criteri contiene un set di condizioni/regole per determinare se un account di archiviazione in fase di distribuzione rientra in un set di dimensioni di SKU. L'azione consiste nel rifiutare tutti i server che non rispettano il set delle dimensioni di SKU definite.
@@ -93,10 +93,10 @@ Analogamente ai parametri dei criteri, i parametri delle iniziative consentono d
 
 Si consideri ad esempio uno scenario con una definizione di iniziativa, **initiativeC**, che include due definizioni di criteri, ognuna con un parametro definito:
 
-| Criteri | Nome del parametro |Tipo di parametro  |Nota |
+| Criterio | Nome del parametro |Tipo di parametro  |Note |
 |---|---|---|---|
 | policyA | allowedLocations | array  |Questo parametro prevede come valore un elenco di stringhe, perché il parametro è stato definito come di tipo matrice |
-| policyB | allowedSingleLocation |string |Questo parametro prevede come valore una parola, perché il parametro è stato definito come di tipo stringa |
+| policyB | allowedSingleLocation |stringa |Questo parametro prevede come valore una parola, perché il parametro è stato definito come di tipo stringa |
 
 In questo scenario, per la definizione dei parametri dell'iniziativa **initiativeC** sono disponibili tre opzioni:
 

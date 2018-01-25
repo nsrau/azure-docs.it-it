@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 8f586c12ce1d24cfccbd6804e80dae51f6adf085
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 905a2bf1b42819a531bc4b16dd1e6f5539e80068
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Copiare dati da Teradata usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,14 +38,14 @@ In particolare, il connettore Teradata supporta:
 - Teradata **versione 12 e successive**.
 - La copia di dati usando l'autenticazione **Di base** o **Windows**.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per usare questo connettore Teradata, è necessario:
 
 - Configurare un runtime di integrazione self-hosted. Per i dettagli, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md).
 - Installare il [provider di dati .NET per Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) versione 14 o successiva nel computer del runtime di integrazione.
 
-## <a name="getting-started"></a>Attività iniziali
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -55,12 +55,12 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Teradata sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Teradata** | Sì |
 | server | Nome del server Teradata. | Sì |
 | authenticationType | Tipo di autenticazione usato per connettersi al database Teradata.<br/>I valori consentiti sono: **Di base** e **Windows**. | Sì |
-| nome utente | Specificare il nome utente per la connessione al database Teradata. | Sì |
+| username | Specificare il nome utente per la connessione al database Teradata. | Sì |
 | password | Specificare la password per l'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString. | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
 
@@ -94,7 +94,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Teradata, impostare la proprietà type del set di dati su **RelationalTable**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **RelationalTable** | Sì |
 | tableName | Nome della tabella nel database Teradata. | No (se nell'origine dell'attività è specificato "query") |
@@ -123,7 +123,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Teradata, impostare il tipo di origine nell'attività di copia su **RelationalSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **RelationalSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
@@ -170,12 +170,12 @@ Quando si copiano dati da Teradata, vengono usati i mapping seguenti tra i tipi 
 | BLOB |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| Char |Stringa |
-| Clob |Stringa |
-| Data |Data/Ora |
+| Char |string |
+| Clob |string |
+| Data |Datetime |
 | Decimal |Decimal |
-| A due righe |A due righe |
-| Graphic |Stringa |
+| Double |Double |
+| Graphic |string |
 | Integer |Int32 |
 | Interval Day |Intervallo di tempo |
 | Interval Day To Hour |Intervallo di tempo |
@@ -186,25 +186,25 @@ Quando si copiano dati da Teradata, vengono usati i mapping seguenti tra i tipi 
 | Intervallo - da ora a secondo |Intervallo di tempo |
 | Interval Minute |Intervallo di tempo |
 | Interval Minute To Second |Intervallo di tempo |
-| Interval Month |Stringa |
+| Interval Month |string |
 | Interval Second |Intervallo di tempo |
-| Interval Year |Stringa |
-| Interval Year To Month |Stringa |
-| Numero |A due righe |
-| Period(Date) |Stringa |
-| Period(Time) |Stringa |
-| Period(Time With Time Zone) |Stringa |
-| Period(Timestamp) |Stringa |
-| Period(Timestamp With Time Zone) |Stringa |
+| Interval Year |string |
+| Interval Year To Month |string |
+| Number |Double |
+| Period(Date) |string |
+| Period(Time) |string |
+| Period(Time With Time Zone) |string |
+| Period(Timestamp) |string |
+| Period(Timestamp With Time Zone) |string |
 | SmallInt |Int16 |
-| Ora |Intervallo di tempo |
-| Time With Time Zone |Stringa |
-| Timestamp |Data/Ora |
+| Tempo |Intervallo di tempo |
+| Time With Time Zone |string |
+| Timestamp |Datetime |
 | Timestamp With Time Zone |DateTimeOffset |
 | VarByte |Byte[] |
-| VarChar |Stringa |
-| VarGraphic |Stringa |
-| xml |Stringa |
+| VarChar |string |
+| VarGraphic |string |
+| xml |string |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

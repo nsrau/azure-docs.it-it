@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: e45b07d709927af64cfba28dfb0d8ee9cb8893b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 58210db585befd7ce915d4579d4d0303eb15bff3
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Introduzione ai componenti di richiesta e risposta
 Con i componenti di richiesta e risposta in un'app per la logica è possibile rispondere in tempo reale agli eventi.
@@ -30,7 +30,7 @@ Ad esempio, è possibile:
 * Attivare un'app per la logica da un evento webhook esterno.
 * Chiamare un'app per la logica con un'azione di richiesta e risposta dall'interno di un'altra app per la logica.
 
-Per informazioni su come iniziare a usare le azioni di richiesta e risposta in un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
+Per informazioni su come iniziare a usare le azioni di richiesta e risposta in un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-request-trigger"></a>Usare il trigger di richiesta HTTP
 Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](connectors-overview.md).
@@ -67,14 +67,14 @@ Ecco come aggiungere un'azione di risposta HTTP:
 ## <a name="request-trigger"></a>Trigger di richiesta
 Ecco i dettagli per il trigger supportato da questo connettore. È disponibile un solo trigger di richiesta.
 
-| Trigger | Descrizione |
+| Trigger | DESCRIZIONE |
 | --- | --- |
 | Richiesta |Si verifica quando viene ricevuta una richiesta HTTP |
 
 ## <a name="response-action"></a>Azione di risposta
 Ecco i dettagli per l'azione supportata da questo connettore. Esiste una sola azione di risposta che può essere usata solo quando è accompagnata da un trigger di richiesta.
 
-| Azione | Descrizione |
+| Azione | DESCRIZIONE |
 | --- | --- |
 | response |Restituisce una risposta alla richiesta HTTP correlata |
 
@@ -84,7 +84,7 @@ Le tabelle seguenti descrivono i campi di input per il trigger e l'azione e i co
 #### <a name="request-trigger"></a>Trigger di richiesta
 Di seguito è riportato un campo di input per il trigger da una richiesta HTTP in ingresso.
 
-| Nome visualizzato | Nome proprietà | Descrizione |
+| Nome visualizzato | Nome proprietà | DESCRIZIONE |
 | --- | --- | --- |
 | Schema JSON |schema |Lo schema JSON del corpo della richiesta HTTP |
 
@@ -94,7 +94,7 @@ Di seguito è riportato un campo di input per il trigger da una richiesta HTTP i
 
 Di seguito sono indicati i dettagli di output per la richiesta.
 
-| Nome proprietà | Tipo di dati | Descrizione |
+| Nome proprietà | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | headers |object |Intestazioni della richiesta |
 | Corpo |object |Oggetto della richiesta |
@@ -102,12 +102,12 @@ Di seguito sono indicati i dettagli di output per la richiesta.
 #### <a name="response-action"></a>Azione di risposta
 Di seguito sono riportati i campi di input per l'azione di risposta HTTP. Un asterisco (*) indica che è un campo obbligatorio.
 
-| Nome visualizzato | Nome proprietà | Descrizione |
+| Nome visualizzato | Nome proprietà | DESCRIZIONE |
 | --- | --- | --- |
 | Codice di stato* |statusCode |Il codice di stato HTTP |
-| Headers |Headers |Un oggetto JSON delle intestazioni HTTP da includere |
+| Headers |headers |Un oggetto JSON delle intestazioni HTTP da includere |
 | Corpo |Corpo |Il corpo della risposta |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
+Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
 

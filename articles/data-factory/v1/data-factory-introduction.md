@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/15/2017
+ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6205f64f11d9029adf1f7f96baf780b82738a44a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: bcd0535c689bfda02b3c100b4ae3ab8bacb932e3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introduzione a Data factory di Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -102,7 +102,7 @@ Per altre informazioni, vedere [Spostare dati con l'attività di copia](data-fac
 ### <a name="custom-net-activities"></a>Attività .NET personalizzate
 Creare un'attività .NET personalizzata se è necessario spostare dati da o verso un archivio dati che non è supportato dall'attività di copia oppure se è necessario trasformare i dati usando la propria logica. Per informazioni dettagliate su come creare e usare un'attività personalizzata, vedere [Usare attività personalizzate in una pipeline di Azure Data Factory](data-factory-use-custom-activities.md).
 
-### <a name="datasets"></a>DATASETS
+### <a name="datasets"></a>Set di dati
 Un'attività accetta zero o più set di dati come input e uno o più set di dati come output. I set di dati rappresentano le strutture dei dati negli archivi dati. Queste strutture puntano o fanno riferimento ai dati che si vuole usare nelle attività (ad esempio, input o output). 
 
 Un set di dati BLOB di Azure, ad esempio, specifica il contenitore BLOB e la cartella nell'archivio BLOB di Azure da cui la pipeline dovrà leggere i dati. Il set di dati della tabella SQL di Azure specifica invece la tabella in cui l'attività scriverà i dati di output. 
@@ -143,7 +143,7 @@ Si supponga ad esempio che gli ambienti di calcolo, come un cluster Azure HDInsi
 
 Per informazioni su come creare data factory con pipeline di dati, seguire le istruzioni dettagliate disponibili nelle esercitazioni seguenti:
 
-| Esercitazione | Descrizione |
+| Esercitazione | DESCRIZIONE |
 | --- | --- |
 | [Spostare dati tra due archivi dati cloud](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Creare una data factory con una pipeline per spostare i dati dall'archivio BLOB a un database SQL. |
 | [Trasformare i dati usando cluster Hadoop](data-factory-build-your-first-pipeline.md) |Compilare la prima istanza di Azure Data Factory con una pipeline di dati che elabora i dati eseguendo uno script Hive in un cluster Azure HDInsight (Hadoop). |

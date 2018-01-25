@@ -2,15 +2,15 @@
 ms.assetid: 
 title: Guida alla limitazione delle richieste per Azure Key Vault | Microsoft Docs
 ms.service: key-vault
-author: BrucePerlerMS
-ms.author: bruceper
+author: lleonard-msft
+ms.author: alleonar
 manager: mbaldwin
 ms.date: 06/21/2017
-ms.openlocfilehash: fe700e22c5323c2a0bdc315e349cd119798bcf40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc39a5ee466d2e1661281a32010c3d3201c4a0af
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Guida alla limitazione delle richieste per Azure Key Vault
 
@@ -47,7 +47,7 @@ Quando si genera il codice di errore HTTP 429, iniziare a limitare le richieste 
 
 A questo punto, il codice di risposta HTTP 429 dovrebbe non essere più visualizzato.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 Per un approfondimento sulla limitazione delle richieste nel cloud di Microsoft, vedere [Throttling Pattern](https://docs.microsoft.com/azure/architecture/patterns/throttling) (Modello di limitazione delle richieste).
 

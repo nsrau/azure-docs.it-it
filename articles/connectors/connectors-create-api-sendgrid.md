@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 9ff0591741899d65b8274fb14ab3f3c8db9abe36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0773750f24b18aa55874a215cac7ccdfc5c1182
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-sendgrid-connector"></a>Introduzione al connettore SendGrid
 Il provider di connessione SendGrid consente di inviare messaggi di posta elettronica e gestire elenchi di destinatari.
 
-Per iniziare subito a creare un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
+Per iniziare subito a creare un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-sendgrid"></a>Creare una connessione a SendGrid
 Per creare app per la logica con SendGrid, è prima necessario creare una **connessione**, quindi fornire i dettagli per le proprietà seguenti: 
 
-| Proprietà | Obbligatorio | Descrizione |
+| Proprietà | Obbligatoria | DESCRIZIONE |
 | --- | --- | --- |
 | ApiKey |Sì |Fornisce la chiave API per SendGrid |
 

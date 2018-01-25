@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: d422a07a27ffa62a673bd2d471ae4fc837251dee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3eae7a4a47680fc36849fd413b76a80865cf3c9f
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-http-action"></a>Introduzione all'azione HTTP
 
@@ -30,7 +30,7 @@ Con l'azione HTTP è possibile estendere i flussi di lavoro per l'organizzazione
 * Creare flussi di lavoro con app per la logica che si attivano (trigger) quando un sito Web gestito diventa inattivo.
 * Comunicare con qualsiasi endpoint su HTTP per estendere i flussi di lavoro ad altri servizi.
 
-Per informazioni su come iniziare a usare un'azione HTTP in un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
+Per informazioni su come iniziare a usare un'azione HTTP in un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-trigger"></a>Usare un trigger HTTP
 Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](connectors-overview.md).
@@ -93,16 +93,16 @@ Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app pe
 ## <a name="http-trigger"></a>Trigger HTTP
 Ecco i dettagli per il trigger supportato da questo connettore. Il connettore HTTP supporta un solo trigger.
 
-| Trigger | Descrizione |
+| Trigger | DESCRIZIONE |
 | --- | --- |
-| http |Esegue una chiamata HTTP e restituisce il contenuto della risposta. |
+| HTTP |Esegue una chiamata HTTP e restituisce il contenuto della risposta. |
 
 ## <a name="http-action"></a>Azione HTTP
 Ecco i dettagli per l'azione supportata da questo connettore. Il connettore HTTP supporta una sola azione possibile.
 
-| Azione | Descrizione |
+| Azione | DESCRIZIONE |
 | --- | --- |
-| http |Esegue una chiamata HTTP e restituisce il contenuto della risposta. |
+| HTTP |Esegue una chiamata HTTP e restituisce il contenuto della risposta. |
 
 ## <a name="http-details"></a>Dettagli di HTTP
 La tabella seguente descrive i campi di input obbligatori e facoltativi per l'azione e i dettagli di output corrispondenti associati all'uso dell'azione.
@@ -111,26 +111,26 @@ La tabella seguente descrive i campi di input obbligatori e facoltativi per l'az
 Di seguito sono riportati campi di input per l'azione, che esegue una richiesta HTTP in uscita.
 Un asterisco (*) indica che è un campo obbligatorio.
 
-| Nome visualizzato | Nome proprietà | Descrizione |
+| Nome visualizzato | Nome proprietà | DESCRIZIONE |
 | --- | --- | --- |
 | Metodo* |statico |Verbo HTTP da usare |
 | URI* |Uri |URI per la richiesta HTTP |
-| Headers |Headers |Un oggetto JSON delle intestazioni HTTP da includere |
+| Headers |headers |Un oggetto JSON delle intestazioni HTTP da includere |
 | Corpo |Corpo |Il corpo della richiesta HTTP |
-| Autenticazione |Autenticazione |Dettagli nella sezione [Autenticazione](#authentication) . |
+| Authentication |authentication |Dettagli nella sezione [Autenticazione](#authentication) . |
 
 <br>
 
 #### <a name="output-details"></a>Dettagli dell'output
 Di seguito sono riportati i dettagli di output per la risposta HTTP.
 
-| Nome proprietà | Tipo di dati | Descrizione |
+| Nome proprietà | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | headers |object |Intestazioni della risposta |
 | Corpo |object |Oggetto della risposta |
 | Codice di stato |int |Stato codice HTTP |
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 La funzionalità App per la logica permette di usare diversi tipi di autenticazione per gli endpoint HTTP. Questo tipo di autenticazione può essere usato con i connettori **HTTP**, **[HTTP e Swagger](connectors-native-http-swagger.md)** e **[Webhook HTTP](connectors-native-webhook.md)**. È possibile configurare i seguenti tipi di autenticazione:
 
 * [Autenticazione di base](#basic-authentication)
@@ -142,7 +142,7 @@ La funzionalità App per la logica permette di usare diversi tipi di autenticazi
 Per l'autenticazione di base è necessario l'oggetto di autenticazione seguente.
 Un asterisco (*) indica che è un campo obbligatorio.
 
-| Nome proprietà | Tipo di dati | Descrizione |
+| Nome proprietà | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | Type* |type |Tipo di autenticazione (deve essere `Basic` per l'autenticazione di base) |
 | Username* |username |Nome utente da autenticare |
@@ -152,7 +152,7 @@ Un asterisco (*) indica che è un campo obbligatorio.
 > Se si desidera usare una password che non può essere recuperata dalla definizione, usare un parametro `securestring` e la `@parameters()` 
 > [funzione di definizione del flusso di lavoro](http://aka.ms/logicappdocs).
 
-Ad esempio:
+Ad esempio: 
 
 ```javascript
 {
@@ -166,7 +166,7 @@ Ad esempio:
 
 Per l'autenticazione con certificato client è necessario l'oggetto di autenticazione seguente. Un asterisco (*) indica che è un campo obbligatorio.
 
-| Nome proprietà | Tipo di dati | Descrizione |
+| Nome proprietà | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | Type* |type |Tipo di autenticazione (deve essere `ClientCertificate` per i certificati client SSL) |
 | PFX* |pfx |Contenuto con codifica Base 64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) |
@@ -176,7 +176,7 @@ Per l'autenticazione con certificato client è necessario l'oggetto di autentica
 > Per usare un parametro che non sarà leggibile nella definizione dopo il salvataggio dell'app per la logica, è possibile usare un parametro `securestring` e la `@parameters()` 
 > [funzione di definizione del flusso di lavoro](http://aka.ms/logicappdocs).
 
-Ad esempio:
+Ad esempio: 
 
 ```javascript
 {
@@ -189,7 +189,7 @@ Ad esempio:
 #### <a name="azure-ad-oauth-authentication"></a>Autenticazione OAuth di Azure AD
 Per l'autenticazione OAuth di Azure Ad è necessario l'oggetto di autenticazione seguente. Un asterisco (*) indica che è un campo obbligatorio.
 
-| Nome proprietà | Tipo di dati | Descrizione |
+| Nome proprietà | Tipo di dati | DESCRIZIONE |
 | --- | --- | --- |
 | Type* |type |Tipo di autenticazione (deve essere `ActiveDirectoryOAuth` per OAuth di Azure AD) |
 | Tenant* |tenant |L'identificatore del tenant di Azure AD |
@@ -202,7 +202,7 @@ Per l'autenticazione OAuth di Azure Ad è necessario l'oggetto di autenticazione
 > 
 > 
 
-Ad esempio:
+Ad esempio: 
 
 ```javascript
 {
@@ -215,5 +215,5 @@ Ad esempio:
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
+Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
 

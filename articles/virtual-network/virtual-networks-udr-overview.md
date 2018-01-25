@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 8a80220879db9f0030b9f1a8494b1cc24105ef17
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 85be79261d5fc214ab4b46fa5d7b4d0a5b13db27
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -29,19 +29,19 @@ Informazioni sul modo in cui Azure instrada il traffico tra Azure, l'ambiente lo
 
 Azure crea automaticamente route di sistema e assegna le route a ogni subnet in una rete virtuale. Non è possibile creare route di sistema né rimuoverle, ma è possibile eseguire l'override di alcune route di sistema usando [route personalizzate](#custom-routes). Azure crea route di sistema predefinite per ogni subnet e aggiunge altre [route predefinite facoltative](#optional-default-routes) a subnet specifiche, oppure a ogni subnet, quando si usano funzionalità specifiche di Azure.
 
-### <a name="default"></a>Default
+### <a name="default"></a>Predefinito
 
 Ogni route contiene un prefisso degli indirizzi e il tipo di hop successivo. Quando il traffico in uscita da una subnet viene inviato a un indirizzo IP compreso nel prefisso degli indirizzi di una route, la route che contiene il prefisso è quella usata da Azure. Vedere in che modo [Azure seleziona una route](#how-azure-selects-a-route) quando più route contengono lo stesso prefisso oppure prefissi che si sovrappongono. Quando si crea una rete virtuale, Azure crea automaticamente le route di sistema predefinite seguenti per ogni subnet della rete virtuale:
 
 
 |Sorgente |Prefissi degli indirizzi                                        |Tipo hop successivo  |
 |-------|---------                                               |---------      |
-|Default|Univoco per la rete virtuale                           |Rete virtuale|
-|Default|0.0.0.0/0                                               |Internet       |
-|Default|10.0.0.0/8                                              |Nessuno           |
-|Default|172.16.0.0/12                                           |Nessuno           |
-|Default|192.168.0.0/16                                          |Nessuno           |
-|Default|100.64.0.0/10                                           |Nessuno           |
+|Predefinito|Univoco per la rete virtuale                           |Rete virtuale|
+|Predefinito|0.0.0.0/0                                               |Internet       |
+|Predefinito|10.0.0.0/8                                              |Nessuna           |
+|Predefinito|172.16.0.0/12                                           |Nessuna           |
+|Predefinito|192.168.0.0/16                                          |Nessuna           |
+|Predefinito|100.64.0.0/10                                           |Nessuna           |
 
 I tipi di hop successivi elencati nella tabella precedente rappresentano il modo in cui Azure instrada il traffico destinato al prefisso degli indirizzi elencato. Seguono le spiegazioni per i tipi di hop successivi:
 
@@ -61,9 +61,9 @@ Azure aggiunge route di sistema predefinite per diverse funzionalità di Azure, 
 
 |Sorgente                 |Prefissi degli indirizzi                       |Tipo hop successivo|Subnet nella rete virtuale alla quale viene aggiunta la route|
 |-----                  |----                                   |---------                    |--------|
-|Default                |Univoco per la rete virtuale, ad esempio 10.1.0.0/16|Peering reti virtuali                 |Tutti|
+|Predefinito                |Univoco per la rete virtuale, ad esempio 10.1.0.0/16|Peering reti virtuali                 |Tutti|
 |Gateway di rete virtuale|Prefissi annunciati dall'ambiente locale tramite BGP o configurati nel gateway di rete locale     |Gateway di rete virtuale      |Tutti|
-|Default                |Multipli                               |VirtualNetworkServiceEndpoint|Solo la subnet per la quale è abilitato un endpoint di servizio.|
+|Predefinito                |Multipli                               |VirtualNetworkServiceEndpoint|Solo la subnet per la quale è abilitato un endpoint di servizio.|
 
 - **Peering di rete virtuale**: quando si crea un peering di rete virtuale tra due reti virtuali, viene aggiunta una route per ogni intervallo di indirizzi nello spazio di indirizzi di ogni rete virtuale per la quale viene creato un peering. Vedere altre informazioni sul [peering di rete virtuale](virtual-network-peering-overview.md).  
 - **Gateway di rete virtuale**: vengono aggiunte una o più route con *Gateway di rete virtuale* elencato come tipo di hop successivo quando si aggiunge un gateway di rete virtuale a una rete virtuale. Anche l'origine è *Gateway di rete virtuale*, perché il gateway aggiunge le route alla subnet. Se il gateway di rete locale scambia route con un gateway di rete virtuale di Azure tramite Border Gateway Protocol [(BGP)](#border-gateway-protocol), viene aggiunta una route per ogni route propagata dal gateway di rete locale. È consigliabile sintetizzare le route locali negli intervalli di indirizzi più ampi possibile, in modo che venga propagato il minor numero possibile di route a un gateway di rete virtuale di Azure. Il numero di route che possono essere propagate a un gateway di rete virtuale di Azure è limitato. Per informazioni dettagliate, vedere [Limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
@@ -89,7 +89,7 @@ Le route personalizzate vengono create con route [definite dall'utente](#user-de
     > [!NOTE]
     > Distribuire un'appliance virtuale in una subnet diversa da quella in cui sono distribuite le risorse instradate attraverso l'appliance stessa. La distribuzione di un'appliance virtuale nella stessa subnet, con la successiva applicazione di una tabella di route alla subnet che instrada il traffico attraverso l'appliance, può comportare loop di routing che impediscono al traffico di uscire dalla subnet.
 
-    - L'indirizzo IP privato di un [servizio di bilanciamento del carico interno di Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Un servizio di bilanciamento del carico viene spesso usato nell'ambito di una [strategia di disponibilità elevata per le appliance virtuali di rete](/azure/architecture/reference-architectures/dmz/nva-ha.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - L'indirizzo IP privato di un [servizio di bilanciamento del carico interno di Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Un servizio di bilanciamento del carico viene spesso usato nell'ambito di una [strategia di disponibilità elevata per le appliance virtuali di rete](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     È possibile definire una route con 0.0.0.0/0 come prefisso degli indirizzi e un tipo di hop successivo Appliance virtuale, per consentire all'appliance di ispezionare il traffico e determinare se inoltrarlo o eliminarlo. Se si intende creare una route definita dall'utente che contiene il prefisso degli indirizzi 0.0.0.0/0, vedere prima [Prefisso degli indirizzi 0.0.0.0/0](#default-route).
 
@@ -110,7 +110,7 @@ Il nome visualizzato e a cui si fa riferimento per i tipi di hop successivi è d
 |Rete virtuale                 |VNetLocal                                       |VNETLocal (non disponibile nell'interfaccia della riga di comando 1.0 in modalità asm)|
 |Internet                        |Internet                                        |Internet (non disponibile nell'interfaccia della riga di comando 1.0 in modalità asm)|
 |Appliance virtuale               |VirtualAppliance                                |VirtualAppliance|
-|Nessuno                            |Nessuno                                            |Null (non disponibile nell'interfaccia della riga di comando 1.0 in modalità asm)|
+|Nessuna                            |Nessuna                                            |Null (non disponibile nell'interfaccia della riga di comando 1.0 in modalità asm)|
 |Peering di rete virtuale         |Peering reti virtuali                                    |Non applicabile|
 |Endpoint del servizio di rete virtuale|VirtualNetworkServiceEndpoint                   |Non applicabile|
 
@@ -138,7 +138,7 @@ Una tabella di route contiene ad esempio le route seguenti:
 
 |Sorgente   |Prefissi degli indirizzi  |Tipo hop successivo           |
 |---------|---------         |-------                 |
-|Default  | 0.0.0.0/0        |Internet                |
+|Predefinito  | 0.0.0.0/0        |Internet                |
 |Utente     | 0.0.0.0/0        |Gateway di rete virtuale |
 
 Quando il traffico è destinato a un indirizzo IP non compreso nei prefissi degli indirizzi di qualsiasi altra route presente nella tabella di route, Azure seleziona la route con l'origine **Utente**, perché le route definite dall'utente hanno una priorità più elevata delle route predefinite di sistema.
@@ -202,17 +202,17 @@ La tabella di route per *Subnet1* rappresentata nell'immagine contiene le route 
 
 |ID  |Sorgente |Stato  |Prefissi degli indirizzi    |Tipo hop successivo          |Indirizzo IP hop successivo|Nome route definita dall'utente| 
 |----|-------|-------|------              |-------                |--------           |--------      |
-|1   |Default|Non valido|10.0.0.0/16         |Rete virtuale        |                   |              |
+|1   |Predefinito|Non valido|10.0.0.0/16         |Rete virtuale        |                   |              |
 |2   |Utente   |Attivo |10.0.0.0/16         |Appliance virtuale      |10.0.100.4         |Within-VNet1  |
 |3   |Utente   |Attivo |10.0.0.0/24         |Rete virtuale        |                   |Within-Subnet1|
-|4   |Default|Non valido|10.1.0.0/16         |Peering reti virtuali           |                   |              |
-|5   |Default|Non valido|10.2.0.0/16         |Peering reti virtuali           |                   |              |
-|6   |Utente   |Attivo |10.1.0.0/16         |Nessuno                   |                   |ToVNet2-1-Drop|
-|7   |Utente   |Attivo |10.2.0.0/16         |Nessuno                   |                   |ToVNet2-2-Drop|
-|8   |Default|Non valido|10.10.0.0/16        |Gateway di rete virtuale|[X.X.X.X]          |              |
+|4   |Predefinito|Non valido|10.1.0.0/16         |Peering reti virtuali           |                   |              |
+|5   |Predefinito|Non valido|10.2.0.0/16         |Peering reti virtuali           |                   |              |
+|6   |Utente   |Attivo |10.1.0.0/16         |Nessuna                   |                   |ToVNet2-1-Drop|
+|7   |Utente   |Attivo |10.2.0.0/16         |Nessuna                   |                   |ToVNet2-2-Drop|
+|8   |Predefinito|Non valido|10.10.0.0/16        |Gateway di rete virtuale|[X.X.X.X]          |              |
 |9   |Utente   |Attivo |10.10.0.0/16        |Appliance virtuale      |10.0.100.4         |To-On-Prem    |
-|10  |Default|Attivo |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
-|11  |Default|Non valido|0.0.0.0/0           |Internet|              |                   |              |
+|10  |Predefinito|Attivo |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
+|11  |Predefinito|Non valido|0.0.0.0/0           |Internet|              |                   |              |
 |12  |Utente   |Attivo |0.0.0.0/0           |Appliance virtuale      |10.0.100.4         |Default-NVA   |
 
 Di seguito è riportata la spiegazione di ogni ID route:
@@ -236,15 +236,15 @@ La tabella di route per *Subnet2* rappresentata nell'immagine contiene le route 
 
 |Sorgente  |Stato  |Prefissi degli indirizzi    |Tipo hop successivo             |Indirizzo IP hop successivo|
 |------- |-------|------              |-------                   |--------           
-|Default |Attivo |10.0.0.0/16         |Rete virtuale           |                   |
-|Default |Attivo |10.1.0.0/16         |Peering reti virtuali              |                   |
-|Default |Attivo |10.2.0.0/16         |Peering reti virtuali              |                   |
-|Default |Attivo |10.10.0.0/16        |Gateway di rete virtuale   |[X.X.X.X]          |
-|Default |Attivo |0.0.0.0/0           |Internet                  |                   |
-|Default |Attivo |10.0.0.0/8          |Nessuno                      |                   |
-|Default |Attivo |100.64.0.0/10       |Nessuno                      |                   |
-|Default |Attivo |172.16.0.0/12       |Nessuno                      |                   |
-|Default |Attivo |192.168.0.0/16      |Nessuno                      |                   |
+|Predefinito |Attivo |10.0.0.0/16         |Rete virtuale           |                   |
+|Predefinito |Attivo |10.1.0.0/16         |Peering reti virtuali              |                   |
+|Predefinito |Attivo |10.2.0.0/16         |Peering reti virtuali              |                   |
+|Predefinito |Attivo |10.10.0.0/16        |Gateway di rete virtuale   |[X.X.X.X]          |
+|Predefinito |Attivo |0.0.0.0/0           |Internet                  |                   |
+|Predefinito |Attivo |10.0.0.0/8          |Nessuna                      |                   |
+|Predefinito |Attivo |100.64.0.0/10       |Nessuna                      |                   |
+|Predefinito |Attivo |172.16.0.0/12       |Nessuna                      |                   |
+|Predefinito |Attivo |192.168.0.0/16      |Nessuna                      |                   |
 
 La tabella di route per *Subnet2* contiene tutte le route predefinite create da Azure, il peering di rete virtuale facoltativo e le route facoltative del gateway di rete virtuale. Azure ha aggiunto le route facoltative a tutte le subnet della virtuale di rete quando sono stati aggiunti il gateway e il peering alla rete virtuale. Azure ha rimosso le route per i prefissi degli indirizzi 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 e 100.64.0.0/10 dalla tabella di route *Subnet1* quando la route definita dall'utente per il prefisso degli indirizzi 0.0.0.0/0 è stata aggiunta a *Subnet1*.  
 

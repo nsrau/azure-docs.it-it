@@ -2,15 +2,15 @@
 ms.assetid: 
 title: Eliminazione temporanea di Azure Key Vault | Microsoft Docs
 ms.service: key-vault
-author: BrucePerlerMS
-ms.author: bruceper
+author: lleonard-msft
+ms.author: alleonar
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: 384b65bc89401780b174c143d84b3b8f552fba3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01357e4fdb9b6f27e9baf5f5c8e4c7d6b582ad35
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Panoramica di eliminazione temporanea di Azure Key Vault
 
@@ -19,7 +19,7 @@ La funzionalità di eliminazione temporanea di Key Vault consente il ripristino 
 - Supporto per l'eliminazione reversibile di un insieme di credenziali delle chiavi
 - Supporto per l'eliminazione reversibile di oggetti di insiemi di credenziali delle chiavi (ad esempio, chiavi, segreti e certificati)
 
-## <a name="supporting-interfaces"></a>Interfacce di supporto
+## <a name="supporting-interfaces"></a>Supporto di interfacce
 
 La funzionalità di eliminazione temporanea è inizialmente disponibile attraverso le interfacce REST, .NET/C#, PowerShell e della riga di comando.
 

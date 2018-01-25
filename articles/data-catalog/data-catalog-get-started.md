@@ -13,20 +13,20 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: spelluru
-ms.openlocfilehash: a1d16cac19571c5802be081d6972e1f74f6dffe1
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d67f8871bbdd87e8a67057e6e8c5d4d770e5cad6
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Introduzione ad Azure Data Catalog
 Azure Data Catalog è un servizio cloud completamente gestito che funge da sistema di registrazione e di individuazione per asset di dati aziendali. Per una panoramica dettagliata, vedere [Definizione di Azure Data Catalog](data-catalog-what-is-data-catalog.md).
 
 Questa esercitazione consente di iniziare a usare Azure Data Catalog. In questa esercitazione verranno eseguite le procedure seguenti:
 
-| Procedura | Descrizione |
+| Procedura | DESCRIZIONE |
 |:--- |:--- |
 | [Effettuare il provisioning del catalogo dati](#provision-data-catalog) |In questa procedura si effettuerà il provisioning o la configurazione di Azure Data Catalog. Questo passaggio viene eseguito solo se il catalogo non è stato configurato in precedenza. È possibile avere solo un catalogo dati per ogni organizzazione (dominio di Microsoft Azure Active Directory), anche se all'account di Azure sono associate più sottoscrizioni. |
 | [Registrare gli asset di dati](#register-data-assets) |In questa procedura si registreranno gli asset di dati del database di esempio AdventureWorks2014 nel catalogo dati. La registrazione è il processo di estrazione dei metadati strutturali chiave, quali nomi, tipi e percorsi, dall'origine dati e di copia dei metadati nel catalogo. Le origini dati e gli asset di dati rimangono dove sono, ma i metadati vengono usati dal catalogo per renderli più facilmente individuabili e comprensibili. |
@@ -352,7 +352,7 @@ In Azure Data Catalog è possibile eliminare un singolo asset o più asset conte
 > 
 > 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 In questa esercitazione sono state analizzate le funzionalità di base di Azure Data Catalog, compresa la registrazione, l'annotazione, l'individuazione e la gestione di asset di dati aziendali. Ora che è stata completata l'esercitazione, è possibile iniziare. È possibile iniziare subito registrando le origini dati usate personalmente o dal team e invitando i colleghi a usare il catalogo.
 
 ## <a name="references"></a>Riferimenti

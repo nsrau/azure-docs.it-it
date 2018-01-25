@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 91de03f3472244341f4cf086bc8a2f56f7d2e487
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: d577db2b2f14da61baccfb6230b0c6e03a62b9b1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-data-fromto-dynamics-365dynamics-crm-using-azure-data-factory"></a>Copiare dati da/in Dynamics 365/Dynamics CRM usando Azure Data Factory
 
@@ -48,9 +48,9 @@ Per Dynamics 365 in particolare, sono supportati i tipi di applicazioni seguenti
 > [!NOTE]
 > Per usare il connettore Dynamics, archiviare la password in Azure Key Vault e consentire all'attività di copia di effettuare il pull da questa posizione quando esegue la copia dei dati. Per informazioni sulle procedure di configurazione, vedere la sezione [Proprietà del servizio collegato](#linked-service-properties).
 
-## <a name="getting-started"></a>Attività iniziali
+## <a name="getting-started"></a>Introduzione
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di Data Factory specifiche per Dynamics.
 
@@ -60,13 +60,13 @@ Per il servizio collegato di Dynamics sono supportate le proprietà seguenti:
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 e Dynamics CRM Online
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Dynamics**. | Sì |
 | deploymentType | Il tipo di distribuzione dell'istanza di Dynamics. Deve essere **"Online"** per Dynamics Online. | Sì |
 | organizationName | Il nome organizzazione dell'istanza di Dynamics. | No, deve essere specificato solo se sono presenti più istanze di Dynamics associate all'utente. |
 | authenticationType | Il tipo di autenticazione per la connessione al server Dynamics. Specificare **"Office365"** per Dynamics Online. | Sì |
-| nome utente | Specificare il nome utente per la connessione a Dynamics. | Sì |
+| username | Specificare il nome utente per la connessione a Dynamics. | Sì |
 | password | Specificare la password per l'account utente specificato per il nome utente. È necessario inserire la password in Azure Key Vault e configurarla come "AzureKeyVaultSecret". Per altre informazioni, vedere [Archiviare le credenziali nell'insieme di credenziali delle chiavi](store-credentials-in-key-vault.md). | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No per l'origine, Sì per il sink se il servizio collegato all'origine non dispone del runtime di integrazione. |
 
@@ -107,7 +107,7 @@ Per il servizio collegato di Dynamics sono supportate le proprietà seguenti:
 
 *Proprietà aggiuntive rispetto a Dynamics Online sono "hostName" e "port".*
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **Dynamics**. | Sì |
 | deploymentType | Il tipo di distribuzione dell'istanza di Dynamics. Deve essere **"OnPremisesWithIfd"** per Dynamics locale con IFD.| Sì |
@@ -160,7 +160,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da/in Dynamics, impostare la proprietà type del set di dati su **DynamicsEntity**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **DynamicsEntity** |Sì |
 | entityName | Il nome logico dell'entità da recuperare. | No per l'origine (se nell'origine dell'attività è specificato "query"), Sì per il sink |
@@ -213,7 +213,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Dynamics, impostare il tipo di origine nell'attività di copia su **DynamicsSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **DynamicsSource**  | Sì |
 | query  | FetchXML è un linguaggio di query proprietario usato in Microsoft Dynamics (Online e locale). Per altre informazioni, vedere l'esempio seguente e l'articolo [Creare query con FetchXML](https://msdn.microsoft.com/en-us/library/gg328332.aspx). | No (se nel set di dati è specificato "entityName")  |
@@ -274,7 +274,7 @@ Per copiare dati da Dynamics, impostare il tipo di origine nell'attività di cop
 
 Per copiare dati in Dynamics, impostare il tipo di sink nell'attività di copia su **DynamicsSink**. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del sink dell'attività di copia deve essere impostata su: **DynamicsSink**  | Sì |
 | writebehavior | Comportamento dell'azione di scrittura dell'operazione.<br/>Il valore consentito è: **"Upsert"**. | Sì |
@@ -327,21 +327,21 @@ Nella struttura del set di dati, configurare il tipo di dati corrispondente di D
 | Tipo di dati di Dynamics | Tipo di dati provvisori di Data Factory | Supportato come origine | Supportato come sink |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
+| AttributeTypeCode.Boolean | boolean | ✓ | ✓ |
 | AttributeType.Customer | Guid | ✓ |  |
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | String | ✓ | ✓ |
+| AttributeType.EntityName | string | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Guid | ✓ |  |
-| AttributeType.ManagedProperty | Boolean | ✓ |  |
-| AttributeType.Memo | String | ✓ | ✓ |
+| AttributeType.ManagedProperty | boolean | ✓ |  |
+| AttributeType.Memo | string | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
-| AttributeType.String | String | ✓ | ✓ |
+| AttributeType.String | string | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 

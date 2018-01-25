@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: fc5fc128efe01bd0727e3ff30d8938918e89ac3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04ea4508495b227d6ace4a3105f283c474c51d14
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-slack-connector"></a>Introduzione al connettore Slack
 Slack è uno strumento di comunicazione del team, che riunisce tutte le comunicazioni del team in un'unica posizione immediatamente disponibile e individuabile in qualsiasi luogo. 
 
-Creare prima di tutto un'app per la logica. Vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
+Creare prima di tutto un'app per la logica. Vedere [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-slack"></a>Creare una connessione a Slack
 Per usare il connettore Slack, creare prima una **connessione** , quindi specificare i dettagli di queste proprietà: 
 
-| Proprietà | Obbligatorio | Descrizione |
+| Proprietà | Obbligatoria | DESCRIZIONE |
 | --- | --- | --- |
-| Token |Sì |Fornire le credenziali di Slack |
+| token |Sì |Fornire le credenziali di Slack |
 
 Seguire questi passaggi per accedere a Slack e completare la configurazione della **connessione** Slack nell'app per la logica:
 

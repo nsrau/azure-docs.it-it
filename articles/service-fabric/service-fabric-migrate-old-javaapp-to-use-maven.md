@@ -3,7 +3,7 @@ title: 'Eseguire la migrazione da Java SDK a Maven: aggiornare applicazioni Java
 description: "Aggiornare le applicazioni Java meno recenti che usano Service Fabric Java SDK per recuperare le dipendenze Java di Service Fabric da Maven. Al termine di questa configurazione, sarà possibile eseguire la compilazione delle applicazioni Java meno recenti."
 services: service-fabric
 documentationcenter: java
-author: sayantancs
+author: rapatchi
 manager: timlt
 editor: 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
@@ -13,17 +13,17 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
-ms.author: saysa
-ms.openlocfilehash: 2123c5f26d77045bd22af56a844fdbf222930e7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rapatchi
+ms.openlocfilehash: 229a2cd7c0bb355006349e80b12b0142de6b5cda
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Aggiornare un'applicazione Java di Service Fabric precedente per recuperare le librerie Java da Maven
 I file binari Java di Service Fabric sono stati recentemente spostati da Service Fabric Java SDK all'hosting in Maven. È ora possibile usare **mavenCentral** per recuperare le dipendenze Java di Service Fabric più recenti. Questa guida introduttiva consente di aggiornare le applicazioni Java esistenti precedentemente create per l'uso con Service Fabric Java SDK, con un modello Yeoman o Eclipse, per garantirne la compatibilità con la compilazione basata su Maven.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 1. È prima di tutto necessario disinstallare l'istanza esistente di Java SDK.
 
   ```bash

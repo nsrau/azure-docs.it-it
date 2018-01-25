@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: maheshu
-ms.openlocfilehash: b35e87da943de8d47f36b6443fa62e251f742149
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: a6f0089f13de10ba8bc1f9a656a2d21f9c559047
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considerazioni sulla rete per Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Come selezionare una rete virtuale di Azure
@@ -74,15 +74,15 @@ Azure Active Directory Domain Services richiede le porte seguenti per la manuten
 * È obbligatorio consentire l'accesso a questa porta nel gruppo di sicurezza di rete. Senza l'accesso a questa porta, il dominio gestito non è sincronizzato con la directory di Azure AD. Gli utenti potrebbero non essere in grado di accedere, perché le modifiche alle password non vengono sincronizzate con il dominio gestito.
 * È possibile limitare l'accesso in ingresso a questa porta agli indirizzi IP appartenenti all'intervallo di indirizzi IP di Azure.
 
-**Porta 5986 (comunicazione remota di PowerShell)** 
+**Porta 5986 (comunicazione remota di PowerShell)**
 * Usata per eseguire attività di gestione con la comunicazione remota di PowerShell nel dominio gestito.
 * È obbligatorio consentire l'accesso attraverso questa porta nel gruppo di sicurezza di rete. Senza accesso a questa porta, il dominio gestito non può essere aggiornato né configurato e non è possibile eseguirne il monitoraggio o il backup.
-* È possibile limitare l'accesso in ingresso a questa porta agli indirizzi IP di origine seguenti: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161 
+* È possibile limitare l'accesso in ingresso a questa porta agli indirizzi IP di origine seguenti: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161
 * I controller di dominio del dominio gestito non sono in genere in ascolto su questa porta. Il servizio apre questa porta sui controller di dominio gestiti solo quando per il dominio gestito deve essere eseguita un'operazione di gestione o di manutenzione. Non appena completata l'operazione, il servizio arresta la porta sui controller di dominio gestiti.
 
-**Porta 3389 (Desktop remoto)** 
-* Usata per le connessioni Desktop remoto ai controller di dominio del dominio gestito. 
-* L'apertura di questa porta tramite il gruppo di sicurezza di rete è facoltativa. 
+**Porta 3389 (Desktop remoto)**
+* Usata per le connessioni Desktop remoto ai controller di dominio del dominio gestito.
+* L'apertura di questa porta tramite il gruppo di sicurezza di rete è facoltativa.
 * Anche questa porta resta per la maggior parte del tempo disattivata nel dominio gestito. Questo meccanismo non viene usato regolarmente poiché le attività di gestione e monitoraggio vengono eseguite usando la comunicazione remota di PowerShell. Questa porta viene usata solo nel raro caso in cui per Microsoft sia necessario connettersi in remoto al dominio gestito dell'utente per una risoluzione dei problemi avanzata. La porta viene chiusa non appena l'operazione di risoluzione dei problemi viene completata.
 
 **Porta 636 (LDAP sicuro)**
@@ -99,7 +99,7 @@ La tabella seguente illustra un gruppo di sicurezza di rete di esempio che è po
 
 Il gruppo di sicurezza di rete mostra anche come bloccare l'accesso LDAP sicuro tramite Internet. Ignorare questa regola se l'accesso LDAP sicuro al dominio gestito tramite Internet non è stato abilitato. Il gruppo di sicurezza di rete contiene alcune regole che consentono l'accesso LDAPS in ingresso sulla porta TCP 636 solo da un set specificato di indirizzi IP. La regola del gruppo di sicurezza di rete per consentire l'accesso LDAPS su Internet da indirizzi IP specificati ha una priorità superiore rispetto alla regola DenyAll del gruppo di sicurezza di rete.
 
-![Gruppo di sicurezza di rete di esempio per proteggere l'accesso LDAPS su Internet](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
+![Gruppo di sicurezza di rete di esempio per proteggere l'accesso LDAPS su Internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
 **Altre informazioni** - [Creare un gruppo di sicurezza di rete](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
@@ -126,7 +126,7 @@ Un dominio gestito di Azure AD Domain Services può essere abilitato solo in una
     ![Connettività di rete virtuale tramite peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
     [Altre informazioni: Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md)
-    
+
 * **Connessioni da rete virtuale a rete virtuale tramite connessioni VPN da sito a sito**: la connessione di una rete virtuale a un'altra rete virtuale è simile alla connessione di una rete virtuale a un percorso di sito locale. Entrambi i tipi di connettività utilizzano un gateway VPN per fornire un tunnel sicuro tramite IPsec/IKE.
 
     ![Connettività di rete virtuale tramite gateway VPN](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)

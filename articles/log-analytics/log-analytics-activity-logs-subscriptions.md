@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: d8c970b322be7f735e51c7b246b2421589c91813
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ded0b4cdcbac747d52435023a24b5719f3c58758
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Raccogliere log attività di Azure in Log Analytics tra sottoscrizioni
 
@@ -27,7 +27,7 @@ Se l'area di lavoro di Log Analytics si trova nella stessa sottoscrizione di Azu
 
 ## <a name="overview"></a>Panoramica
 
-In base alla strategia usata in questo scenario, il log attività di Azure invia eventi a un [hub eventi](../event-hubs/event-hubs-what-is-event-hubs.md), quindi l'[app per la logica](../logic-apps/logic-apps-what-are-logic-apps.md) li invia all'area di lavoro di Log Analytics. 
+In base alla strategia usata in questo scenario, il log attività di Azure invia eventi a un [hub eventi](../event-hubs/event-hubs-what-is-event-hubs.md), quindi l'[app per la logica](../logic-apps/logic-apps-overview.md) li invia all'area di lavoro di Log Analytics. 
 
 ![immagine del flusso di dati dal log attività a log analytics](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 
@@ -126,12 +126,12 @@ Per ottenere la stringa di connessione e il nome dell'hub eventi, seguire i pass
 
     ![Creare l'app per la logica](media/log-analytics-activity-logs-subscriptions/create-logic-app.png)
 
-   |Impostazione | Descrizione  |
+   |Impostazione | DESCRIZIONE  |
    |:---|:---|
-   | Nome           | Nome univoco per l'app per la logica. |
+   | NOME           | Nome univoco per l'app per la logica. |
    | Sottoscrizione   | Selezionare la sottoscrizione di Azure che conterrà l'app per la logica. |
    | Gruppo di risorse | Selezionare un gruppo di risorse di Azure esistente o crearne uno nuovo per l'app per la logica. |
-   | Percorso       | Selezionare l'area del data center per la distribuzione dell'app per la logica. |
+   | Località       | Selezionare l'area del data center per la distribuzione dell'app per la logica. |
    | Log Analytics  | Selezionare se si desidera registrare lo stato di ogni esecuzione dell'app per la logica in Log Analytics.  |
 
     
@@ -141,7 +141,7 @@ Per ottenere la stringa di connessione e il nome dell'hub eventi, seguire i pass
 
 In Progettazione app per la logica vengono ora mostrati i connettori disponibili e i relativi trigger, che è possibile usare per avviare il flusso di lavoro dell'app per la logica.
 
-<!-- Learn [how to create a logic app](../logic-apps/logic-apps-create-a-logic-app.md). -->
+<!-- Learn [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). -->
 
 ### <a name="add-event-hub-trigger"></a>Aggiungere il trigger dell'hub eventi
 
@@ -301,7 +301,7 @@ L'azione dell'[agente di raccolta dati di Azure Log Analytics](https://docs.micr
 
     ![Azione di configurazione dell'invio dei dati](media/log-analytics-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-configuration.png)
 
-   |Impostazione        | Valore           | Descrizione  |
+   |Impostazione        | Valore           | DESCRIZIONE  |
    |---------------|---------------------------|--------------|
    |JSON Request body (Corpo della richiesta JSON)  | **Output** dell'azione **Componi** | Recupera i record dal corpo dell'azione Componi. |
    | Nome log personalizzato | AzureActivity | Nome della tabella log personalizzata da creare in Log Analytics per contenere i dati importati. |

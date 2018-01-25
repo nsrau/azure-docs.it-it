@@ -3,8 +3,8 @@ title: Come configurare Cache Redis di Azure | Microsoft Docs
 description: Informazioni sulla configurazione di Redis predefinita per Cache Redis di Azure e su come configurare le istanze di Cache Redis di Azure
 services: redis-cache
 documentationcenter: na
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: tysonn
 ms.assetid: d0bf2e1f-6a26-4e62-85ba-d82b35fc5aa6
 ms.service: cache
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
-ms.author: sdanie
-ms.openlocfilehash: 0274e58eb2e83202d4dbc58da0c67d0fdde22ede
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: wesmc
+ms.openlocfilehash: a65832a30a570944ff30d02c2f173df345bde32c
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Come configurare Cache Redis di Azure
 In questo argomento viene descritto come esaminare e aggiornare la configurazione per le istanze di Cache Redis di Azure e viene illustrata la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
@@ -37,7 +37,7 @@ Le impostazioni di Cache Redis di Azure sono visualizzate e configurate nel pann
 
 È possibile visualizzare e configurare le impostazioni seguenti tramite il **menu Risorse**.
 
-* [Panoramica](#overview)
+* [Overview](#overview)
 * [Log attività](#activity-log)
 * [Controllo di accesso (IAM)](#access-control-iam)
 * [Tag](#tags)
@@ -181,7 +181,7 @@ Se durante l'uso della cache si verifica una determinata condizione, ad esempio 
 
 Per altre informazioni, vedere il pannello **Raccomandazioni** .
 
-![Consigli](./media/cache-configure/redis-cache-recommendations.png)
+![Raccomandazioni](./media/cache-configure/redis-cache-recommendations.png)
 
 È possibile monitorare le metriche nelle sezioni relative ai grafici di [Monitoraggio](cache-how-to-monitor.md#monitoring-charts) e [Utilizzo](cache-how-to-monitor.md#usage-charts) del pannello **Cache Redis**.
 
@@ -282,7 +282,7 @@ Fare clic su **Firewall** per visualizzare e configurare le regole del firewall 
 > 
 > 
 
-### <a name="properties"></a>Proprietà
+### <a name="properties"></a>Properties
 Fare clic su **Proprietà** per visualizzare le informazioni sulla cache, incluse porte ed endpoint della cache.
 
 ![Proprietà di Cache Redis](./media/cache-configure/redis-cache-properties.png)
@@ -297,7 +297,7 @@ Fare clic su **Script di automazione** per creare ed esportare un modello per le
 ## <a name="administration-settings"></a>Impostazioni di amministrazione
 Le impostazioni della sezione **Amministrazione** consentono di eseguire le attività amministrative seguenti per la cache. 
 
-![Amministrazione](./media/cache-configure/redis-cache-administration.png)
+![Administration](./media/cache-configure/redis-cache-administration.png)
 
 * [Importazione dei dati](#importexport)
 * [Esportazione dei dati](#importexport)
@@ -394,7 +394,7 @@ Le nuove istanze di Cache Redis di Azure sono configurate con i seguenti valori 
 > 
 > 
 
-| Impostazione | Valore predefinito | Descrizione |
+| Impostazione | Valore predefinito | DESCRIZIONE |
 | --- | --- | --- |
 | `databases` |16 |Il numero predefinito di database è 16, ma è possibile configurare un numero diverso in base al piano tariffario.<sup>1</sup> Il database predefinito è DB 0, ma è possibile selezionarne uno diverso in base alla connessione usando `connection.GetDatabase(dbid)` dove `dbid` è un numero compreso tra `0` e `databases - 1`. |
 | `maxclients` |Dipende dal piano tariffario<sup>2</sup> |Questo è il numero massimo consentito di client connessi contemporaneamente. Una volta raggiunto il limite, Redis chiude tutte le nuove connessioni inviando un errore di "numero massimo di client raggiunto". |

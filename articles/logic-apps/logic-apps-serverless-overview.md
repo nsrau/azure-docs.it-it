@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 6803e22a78e27c15ff4fec301cd5bdd55aacd3e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5cc6837ed0b0f4467e48c736f5d596a51a799fae
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>Panoramica dell'architettura senza server di Azure con Funzioni e App per la logica
 
@@ -41,7 +41,7 @@ Se si vuole iniziare immediatamente a usare Funzioni di Azure, passare a [Creare
 
 App per la logica di Azure consente di semplificare e implementare nel cloud flussi di lavoro e integrazioni scalabili. Offre una finestra di progettazione visiva in cui poter modellare e automatizzare il processo tramite una serie di passaggi, ovvero un flusso di lavoro.  Nei servizi cloud e locali sono disponibili [numerosi connettori](../connectors/apis-list.md) che consentono di connettere rapidamente un'app senza server ad altre API.  Un'app per la logica viene avviata con un trigger (corrispondente ad esempio all'aggiunta di un account a Dynamics CRM) e dopo l'attivazione può avviare molte azioni di combinazione, conversioni e logica condizionale.  App per la logica è la scelta ideale quando si devono coordinare varie funzioni di Azure in un processo, in particolar modo se il processo richiede l'interazione con un'API o un sistema esterno.
 
-Per iniziare ad acquisire familiarità con App per la logica, [creare una prima app per la logica](logic-apps-create-a-logic-app.md).  Per informazioni più tecniche su App per la logica, vedere [Guida di riferimento per gli sviluppatori](logic-apps-workflow-actions-triggers.md).
+Per iniziare ad acquisire familiarità con App per la logica, [creare una prima app per la logica](quickstart-create-first-logic-app-workflow.md).  Per informazioni più tecniche su App per la logica, vedere [Guida di riferimento per gli sviluppatori](logic-apps-workflow-actions-triggers.md).
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Come è possibile compilare e distribuire applicazioni senza server in Azure?
 

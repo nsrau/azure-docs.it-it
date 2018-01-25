@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 9a63a15782b85a48552fd913d5d3f8aaaae7db44
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d4f78c63117e5c54eb855178c75d6c294957f2a1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="build-a-web-service-front-end-for-your-application-using-aspnet-core"></a>Compilare un front-end di servizio Web per l'applicazione tramite ASP.NET Core
 Per impostazione predefinita, i servizi di Azure Service Fabric non forniscono un'interfaccia pubblica per il Web. Per esporre la funzionalità dell'applicazione ai client HTTP è necessario creare un progetto Web da usare come punto di ingresso per comunicare con i singoli servizi.
@@ -55,7 +55,7 @@ Ora verrà aggiunto un progetto API Web ASP.NET all'applicazione esistente.
    
     ![Scelta di un tipo di progetto ASP.NET][vs-new-aspnet-project-dialog]
    
-    Dopo la creazione del progetto API Web l'applicazione includerà due servizi. Man mano che si compila l'applicazione, si aggiungeranno altri servizi seguendo esattamente la stessa procedura e, per ogni servizio, sarà possibile eseguire in modo indipendente il controllo della versione e l'aggiornamento.
+    Dopo la creazione del progetto API Web l'applicazione includerà due servizi. Man mano che si compila l'applicazione, si aggiungeranno altri servizi seguendo esattamente la stessa procedura Per ogni servizio, sarà possibile eseguire in modo indipendente il controllo della versione e l'aggiornamento.
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 Per avere un'idea di quanto è stato fatto, verrà ora distribuita la nuova applicazione ed esaminato il comportamento predefinito del modello API Web ASP.NET Core.
@@ -71,7 +71,7 @@ Per avere un'idea di quanto è stato fatto, verrà ora distribuita la nuova appl
 ## <a name="connect-the-services"></a>Connettere i servizi
 L'infrastruttura di servizi offre la massima flessibilità nella comunicazione con Reliable Services. In una singola applicazione possono coesistere servizi accessibili tramite TCP, altri tramite un'API REST HTTP e altri ancora tramite Web Socket. Per informazioni sulle opzioni disponibili e sui compromessi necessari, vedere [Comunicazione con i servizi](service-fabric-connect-and-communicate-with-services.md). In questa esercitazione si usa il [servizio remoto di Service Fabric](service-fabric-reliable-services-communication-remoting.md) disponibile nel SDK.
 
-Nell'approccio con servizio remoto, basato sulle chiamate Remote Procedure Call o RPC, viene definita un'interfaccia da usare come contratto pubblico per il servizio e quindi si usa tale interfaccia per generare una classe proxy per l'interazione con il servizio.
+Nell'approccio con servizio remoto, basato sulle chiamate Remote Procedure Call o RPC, viene definita un'interfaccia da usare come contratto pubblico per il servizio Quindi si usa tale interfaccia per generare una classe proxy per l'interazione con il servizio.
 
 ### <a name="create-the-remoting-interface"></a>Creare l'interfaccia di comunicazione remota
 Per iniziare si crea l'interfaccia da usare come contratto tra il servizio con stato e gli altri servizi, in questo caso il progetto Web ASP.NET Core. Questa interfaccia deve essere condivisa da tutti i servizi che la usano per le chiamate RPC, pertanto va creata in un progetto Libreria di classi specifico.
@@ -91,7 +91,7 @@ Per iniziare si crea l'interfaccia da usare come contratto tra il servizio con s
 
 4. Nella libreria di classi creare un'interfaccia con un solo metodo, `GetCountAsync`, ed estendere l'interfaccia da `Microsoft.ServiceFabric.Services.Remoting.IService`. L'interfaccia di comunicazione remota deve derivare da questa interfaccia, per indicare che si tratta di un'interfaccia di comunicazione remota del servizio.
    
-    ```c#
+    ```csharp
     using Microsoft.ServiceFabric.Services.Remoting;
     using System.Threading.Tasks;
         
@@ -114,7 +114,7 @@ Dopo aver definito l'interfaccia, è ora necessario implementarla nel servizio c
     ![Aggiunta di un riferimento al progetto libreria di classi nel servizio con stato][vs-add-class-library-reference]
 2. Trovare la classe che eredita da `StatefulService`, ad esempio `MyStatefulService`, ed estenderla per implementare l'interfaccia `ICounter`.
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
    
     ...
@@ -126,7 +126,7 @@ Dopo aver definito l'interfaccia, è ora necessario implementarla nel servizio c
     ```
 3. Implementare ora il singolo metodo definito nell'interfaccia `ICounter`: `GetCountAsync`.
    
-    ```c#
+    ```csharp
     public async Task<long> GetCountAsync()
     {
         var myDictionary = 
@@ -150,7 +150,7 @@ In questo caso si sostituisce il metodo `CreateServiceReplicaListeners` esistent
 
 Il metodo di estensione `CreateServiceRemotingListener` sull'interfaccia `IService` consente di creare facilmente un `ServiceRemotingListener` con tutte le impostazioni predefinite. Per usare questo metodo di estensione verificare che sia stato importato lo spazio dei nomi `Microsoft.ServiceFabric.Services.Remoting.Runtime`. 
 
-```c#
+```csharp
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 
 ...
@@ -176,7 +176,7 @@ Il servizio con stato è ora pronto per ricevere traffico da altri servizi trami
 
 4. Nella cartella **Controller** aprire la classe `ValuesController`. Si noti che il metodo `Get` restituisce attualmente solo una matrice di stringhe hardcoded con "value1" e "value2", che corrisponde a quanto visto in precedenza nel browser. Sostituire l'implementazione con il codice seguente:
    
-    ```c#
+    ```csharp
     using MyStatefulService.Interface;
     using Microsoft.ServiceFabric.Services.Client;
     using Microsoft.ServiceFabric.Services.Remoting.Client;

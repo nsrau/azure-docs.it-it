@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/06/2017
+ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: bcf3095e8e66ea9b3c49919dadb8f7c342a49006
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 8259c1bd52cfd0641148dc09404debaf59640b45
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
 In questa esercitazione si crea una pipeline di Data Factory che illustra alcune funzionalità del flusso di controllo. La pipeline esegue una semplice copia da un contenitore nell'archivio BLOB di Azure a un altro contenitore nello stesso account di archiviazione. Se l'attività di copia ha esito positivo, si vogliono inviare i dettagli dell'operazione di copia completata (ad esempio, la quantità di dati scritti) in un messaggio di posta elettronica di operazione riuscita. Se l'attività di copia ha esito negativo, si vogliono inviare i dettagli dell'errore di copia (ad esempio, il messaggio di errore) in un messaggio di posta elettronica di operazione non riuscita. Nel corso dell'esercitazione verrà illustrato come passare i parametri.
@@ -43,7 +43,7 @@ In questa esercitazione viene usato .NET SDK. È possibile usare altri meccanism
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati di **origine**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno.
 * **Database SQL di Azure**. Usare il database come archivio dati **sink**. Se non si ha un database SQL di Azure, vedere la procedura per crearne uno nell'articolo [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md).
@@ -292,7 +292,7 @@ Nel progetto C# creare una classe denominata **EmailRequest**, che definisce le 
     }
 ```
 ## <a name="create-email-workflow-endpoints"></a>Creare gli endpoint del flusso di lavoro del messaggio di posta elettronica
-Per attivare l'invio di un messaggio di posta elettronica, usare [App per la logica](../logic-apps/logic-apps-what-are-logic-apps.md) per definire il flusso di lavoro. Per informazioni dettagliate sulla creazione di un flusso di lavoro di app per la logica, vedere l'articolo su [come creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). 
+Per attivare l'invio di un messaggio di posta elettronica, usare [App per la logica](../logic-apps/logic-apps-overview.md) per definire il flusso di lavoro. Per informazioni dettagliate sulla creazione di un flusso di lavoro di app per la logica, vedere l'articolo su [come creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 ### <a name="success-email-workflow"></a>Flusso di lavoro del messaggio di posta elettronica di operazione riuscita 
 Creare un flusso di lavoro di app per la logica denominato `CopySuccessEmail`. Definire `When an HTTP request is received` come trigger del flusso di lavoro e aggiungere un'azione `Office 365 Outlook – Send an email`.
@@ -326,7 +326,7 @@ La richiesta in Progettazione app per la logica avrà un aspetto simile al segue
 
 ![Progettazione app per la logica: richiesta](media/tutorial-control-flow/logic-app-designer-request.png)
 
-Per l'azione **Invia un messaggio di posta elettronica** personalizzare la formattazione del messaggio nel modo desiderato, utilizzando le proprietà passate nello schema JSON del corpo della richiesta. Di seguito è fornito un esempio:
+Per l'azione **Invia un messaggio di posta elettronica** personalizzare la formattazione del messaggio nel modo desiderato, utilizzando le proprietà passate nello schema JSON del corpo della richiesta. Di seguito è fornito un esempio: 
 
 ![Progettazione app per la logica: azione Invia un messaggio di posta elettronica](media/tutorial-control-flow/send-email-action.png)
 
@@ -338,7 +338,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ```
 
 ## <a name="fail-email-workflow"></a>Flusso di lavoro del messaggio di posta elettronica di operazione non riuscita 
-Clonare **CopySuccessEmail** e creare un altro flusso di lavoro di app per la logica per **CopyFailEmail**. Nel trigger di richiesta, `Request Body JSON schema` è uguale. Modificare semplicemente la formattazione del messaggio di posta elettronica, ad esempio `Subject`, per adattarlo a un messaggio di posta elettronica di operazione non riuscita. Di seguito è fornito un esempio:
+Clonare **CopySuccessEmail** e creare un altro flusso di lavoro di app per la logica per **CopyFailEmail**. Nel trigger di richiesta, `Request Body JSON schema` è uguale. Modificare semplicemente la formattazione del messaggio di posta elettronica, ad esempio `Subject`, per adattarlo a un messaggio di posta elettronica di operazione non riuscita. Di seguito è fornito un esempio: 
 
 ![Progettazione app per la logica: flusso di lavoro del messaggio di posta elettronica di operazione non riuscita](media/tutorial-control-flow/fail-email-workflow.png)
 

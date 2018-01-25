@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/02/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: bc7908868828bd1628633cf9e57f8c44f8000827
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e12669abd41f09d161fab786af29955da54a1633
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="use-the-azure-blob-storage-connector-in-a-logic-app"></a>Usare il connettore di archiviazione BLOB di Azure in un'app per la logica
 Usare il connettore di archiviazione BLOB di Azure per caricare, aggiornare, ottenere ed eliminare i BLOB nell'account di archiviazione, il tutto all'interno di un'app per la logica.  
@@ -31,9 +31,7 @@ Con Archiviazione BLOB di Azure:
 
 Questo argomento illustra come usare il connettore di archiviazione BLOB in un'app per la logica.
 
-Per altre informazioni sulle app per la logica, vedere [Cosa sono le app per la logica](../logic-apps/logic-apps-what-are-logic-apps.md) e [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
-
-Per altre informazioni sulle app per la logica, vedere [Cosa sono le app per la logica](../logic-apps/logic-apps-what-are-logic-apps.md) e [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
+Per altre informazioni sulle app per la logica, vedere [Cosa sono le app per la logica](../logic-apps/logic-apps-overview.md) e [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="connect-to-azure-blob-storage"></a>Connettersi all'archivio BLOB di Azure
 Prima che l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una *connessione* al servizio. Una connessione fornisce la connettività tra un'app per la logica e un altro servizio. Ad esempio, per connettersi a un account di archiviazione, si crea prima una *connessione* all'archivio BLOB. Per creare una connessione, immettere le credenziali usate normalmente per accedere al servizio a cui connettersi. Con Archiviazione di Azure immettere quindi le credenziali dell'account di archiviazione per creare la connessione. 
@@ -42,7 +40,7 @@ Prima che l'app per la logica possa accedere a qualsiasi servizio, è necessario
 > [!INCLUDE [Create a connection to Azure blob storage](../../includes/connectors-create-api-azureblobstorage.md)]
 
 ## <a name="use-a-trigger"></a>Usare un trigger
-Questo connettore non include trigger. Usare altri trigger per avviare l'app per la logica, come un trigger di ricorrenza, un trigger Webhook HTTP, i trigger disponibili con altri connettori e altri ancora. [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md) illustra un esempio.
+Questo connettore non include trigger. Usare altri trigger per avviare l'app per la logica, come un trigger di ricorrenza, un trigger Webhook HTTP, i trigger disponibili con altri connettori e altri ancora. [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md) illustra un esempio.
 
 ## <a name="use-an-action"></a>Usare un'azione
 Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica.
@@ -74,5 +72,5 @@ Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app pe
 Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/azureblobconnector/). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).
+[Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Esplorare gli altri connettori disponibili nelle app per la logica nell' [elenco delle API](apis-list.md).
 

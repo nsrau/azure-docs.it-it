@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 5f4f7052d48b4ca4ed91212d970551141e78e852
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6cde5b8ba8d770a07199816286b666e952394de1
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Introduzione alle azioni si ritardo e ritardo fino a
 Le azioni di ritardo e "ritardo fino a" consentono di completare scenari di flusso di lavoro.
@@ -29,7 +29,7 @@ Ad esempio, è possibile:
 * Attendere fino a un determinato giorno della settimana per inviare un aggiornamento di stato tramite posta elettronica.
 * Ritardare il flusso di lavoro fino a quando una chiamata HTTP viene completata prima di riprendere e recuperare i risultati.
 
-Per iniziare a usare un'azione di ritardo in un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
+Per iniziare a usare un'azione di ritardo in un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-delay-actions"></a>Usare le azioni di ritardo
 Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](connectors-overview.md).
@@ -52,7 +52,7 @@ Il trigger di ricorrenza ha le proprietà seguenti che possono essere configurat
 Questa azione ritarda l'esecuzione per un determinato intervallo di tempo.
 Un asterisco (*) indica che è un campo obbligatorio.
 
-| Nome visualizzato | Nome proprietà | Descrizione |
+| Nome visualizzato | Nome proprietà | DESCRIZIONE |
 | --- | --- | --- |
 | Conteggio* |count |Il numero di unità di tempo di ritardo |
 | Unità* |unit |Unità di tempo: `Second`, `Minute`, `Hour` o `Day` |
@@ -63,7 +63,7 @@ Un asterisco (*) indica che è un campo obbligatorio.
 Questa azione ritarda l'esecuzione fino a una data e ora specificate.
 Un asterisco (*) indica che è un campo obbligatorio.
 
-| Nome visualizzato | Nome proprietà | Descrizione |
+| Nome visualizzato | Nome proprietà | DESCRIZIONE |
 | --- | --- | --- |
 | Anno* |timestamp |L'anno di termine del ritardo (GMT) |
 | Mese* |timestamp |Il mese di termine del ritardo (GMT) |
@@ -72,5 +72,5 @@ Un asterisco (*) indica che è un campo obbligatorio.
 <br>
 
 ## <a name="next-steps"></a>Passaggi successivi
-Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
+Provare ora a usare la piattaforma e [creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). È possibile esplorare gli altri connettori disponibili nelle app per la logica esaminando l' [elenco di API](apis-list.md).
 

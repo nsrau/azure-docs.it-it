@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: ae53832d28af8a36e3a1dea67f6680906630a399
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 615618e0e78f97e3f41dc2c0e1ca9a6e4b1b47bf
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>Gestire gli aggiornamenti di Windows con Automazione di Azure
 
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 > * Pianificare la distribuzione degli aggiornamenti
 > * Visualizzare i risultati di una distribuzione
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione, sono necessari:
 
@@ -62,9 +62,8 @@ L'area di lavoro di [Log Analytics](../log-analytics/log-analytics-overview.md?t
 L'area di lavoro offre un'unica posizione per esaminare e analizzare i dati di più origini.
 Per eseguire altre azioni nelle macchine virtuali che richiedono gli aggiornamenti, Automazione di Azure consente di eseguire runbook nelle macchine virtuali, ad esempio il download e l'applicazione degli aggiornamenti.
 
-Il processo di convalida controlla anche se nella macchina virtuale è presente Microsoft Monitoring Agent (MMA) e un ruolo di lavoro ibrido.
-L'agente consente di comunicare con la macchina virtuale e ottenere informazioni sullo stato dell'aggiornamento.
 Il processo di convalida controlla anche se nella macchina virtuale è presente Microsoft Monitoring Agent (MMA) e un ruolo di lavoro ibrido per runbook di Automazione.
+L'agente consente di comunicare con la macchina virtuale e ottenere informazioni sullo stato dell'aggiornamento.
 
 Se non vengono soddisfatti questi prerequisiti, viene visualizzato un banner che offre l'opzione per abilitare la soluzione.
 

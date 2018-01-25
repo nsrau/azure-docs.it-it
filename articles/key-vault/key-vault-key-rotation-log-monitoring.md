@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de788fabcae501d1a388bcea6b7759c9ea269cc
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi end-to-end
 ## <a name="introduction"></a>Introduzione
@@ -416,7 +416,7 @@ A questo punto la funzione è pronta. Assicurarsi di tornare alla scheda **Svilu
 ### <a name="azure-logic-app"></a>App per la logica di Azure
 A questo punto è necessario creare un'app per la logica di Azure che seleziona gli eventi di cui la funzione effettua il push nella coda del bus di servizio, analizza il contenuto e invia un messaggio di posta elettronica in base alla soddisfazione di una condizione.
 
-Per [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md) passare a **Nuovo -> App per la logica**.
+Per [creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md) passare a **Nuovo -> App per la logica**.
 
 Dopo averla creata, passare all'app per la logica e scegliere **modifica**. Nell'editor di app per la logica scegliere **Coda del bus di servizio** e immettere le credenziali del bus di servizio per connetterlo alla coda.
 

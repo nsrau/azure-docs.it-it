@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 39cfd269ec7dd9e676a9d4296df1329dc3fbe0cc
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: de48d61af0e8056a749715343ef821cfc35cb93d
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
 In questa esercitazione si crea una pipeline di Data Factory che illustra alcune funzionalità del flusso di controllo. La pipeline esegue una semplice copia da un contenitore nell'archivio BLOB di Azure a un altro contenitore nello stesso account di archiviazione. Se l'attività di copia ha esito positivo, la pipeline invia i dettagli dell'operazione di copia completata (ad esempio, la quantità di dati scritti) in un messaggio di posta elettronica di operazione riuscita. Se l'attività di copia ha esito negativo, la pipeline invia i dettagli dell'errore di copia (ad esempio, il messaggio di errore) in un messaggio di posta elettronica di operazione non riuscita. Nel corso dell'esercitazione verrà illustrato come passare i parametri.
@@ -61,7 +61,7 @@ Questa esercitazione usa il portale di Azure. È possibile usare altri meccanism
     3. Caricare il file **input.txt** nel contenitore.
 
 ## <a name="create-email-workflow-endpoints"></a>Creare gli endpoint del flusso di lavoro del messaggio di posta elettronica
-Per attivare l'invio di un messaggio di posta elettronica dalla pipeline, usare [App per la logica](../logic-apps/logic-apps-what-are-logic-apps.md) per definire il flusso di lavoro. Per informazioni dettagliate sulla creazione di un flusso di lavoro di app per la logica, vedere l'articolo su [come creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md). 
+Per attivare l'invio di un messaggio di posta elettronica dalla pipeline, usare [App per la logica](../logic-apps/logic-apps-overview.md) per definire il flusso di lavoro. Per informazioni dettagliate sulla creazione di un flusso di lavoro di app per la logica, vedere l'articolo su [come creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 ### <a name="success-email-workflow"></a>Flusso di lavoro del messaggio di posta elettronica di operazione riuscita 
 Creare un flusso di lavoro di app per la logica denominato `CopySuccessEmail`. Definire `When an HTTP request is received` come trigger del flusso di lavoro e aggiungere un'azione `Office 365 Outlook – Send an email`.
@@ -136,7 +136,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
       
      ![Pagina Nuova data factory](./media/tutorial-control-flow-portal/new-azure-data-factory.png)
  
-   Il nome della data factory di Azure deve essere **univoco a livello globale**. Se viene visualizzato l'errore seguente, modificare il nome della data factory, ad esempio, nomeutenteADFTutorialDataFactory, e provare di nuovo a crearla. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'articolo [Data Factory - Regole di denominazione](naming-rules.md).
+   Il nome della data factory di Azure deve essere **univoco a livello globale**. Se viene visualizzato l'errore seguente, modificare il nome della data factory, ad esempio, nomeutenteADFTutorialDataFactory, e provare di nuovo a crearla. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](naming-rules.md).
   
        `Data factory name “ADFTutorialDataFactory” is not available`
 3. Selezionare la **sottoscrizione** di Azure in cui creare la data factory. 
@@ -153,7 +153,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 8. Nel dashboard viene visualizzato il riquadro seguente con lo stato: **Deploying data factory** (Distribuzione della data factory). 
 
     ![Riquadro Deploying data factory (Distribuzione della data factory)](media/tutorial-control-flow-portal/deploying-data-factory.png)
-9. Al termine della creazione verrà visualizzata la pagina **Data Factory**, come illustrato nell'immagine.
+9. Al termine della creazione verrà visualizzata la pagina **Data factory**, come illustrato nell'immagine.
    
    ![Home page di Data factory](./media/tutorial-control-flow-portal/data-factory-home-page.png)
 10. Fare clic sul riquadro **Crea e monitora** per avviare l'interfaccia utente di Azure Data Factory in una scheda separata.

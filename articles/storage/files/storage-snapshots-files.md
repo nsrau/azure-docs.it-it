@@ -3,7 +3,7 @@ title: Panoramica degli snapshot di condivisione per File di Azure (anteprima) |
 description: "Uno snapshot di condivisione è una versione di sola lettura di una condivisione di File di Azure, acquisita in un determinato momento per creare un backup della condivisione stessa."
 services: storage
 documentationcenter: .net
-author: renash
+author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 2504e180799164845a89a7f89ca6a6c61352304f
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: c309804f33fc0e5b2091e18dfe5fe3c9849a2709
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-share-snapshots-for-azure-files-preview"></a>Panoramica degli snapshot di condivisione per File di Azure (anteprima)
 File di Azure consente di acquisire snapshot di condivisione delle condivisioni file. Gli snapshot di condivisione (anteprima) acquisiscono lo stato di condivisione nel momento specifico. In questo articolo vengono descritte le funzionalità offerte dagli snapshot di condivisione e come trarne vantaggio in un caso d'uso personalizzato.
@@ -68,7 +68,7 @@ Per risparmiare spazio è possibile eliminare lo snapshot di condivisione corris
 
 Anche se gli snapshot di condivisione vengono salvati in modo incrementale, è sufficiente mantenere lo snapshot più recente per ripristinare la condivisione. Quando si elimina uno snapshot di condivisione, vengono rimossi solo i dati univoci per lo snapshot di condivisione stesso. Gli snapshot attivi contengono tutte le informazioni necessarie per trovare e ripristinare i dati (dal momento in cui è stato acquisito lo snapshot di condivisione) nel percorso originale o in uno alternativo. È possibile eseguire il ripristino a livello di elemento.
 
-Gli snapshot non vengono inclusi nel conteggio per il limite di condivisione di 5 TB. Non è previsto alcun limite per la quantità di spazio totale occupata dagli snapshot di condivisione. Continuano ad applicarsi i limiti dell'account di archiviazione.
+Gli snapshot non vengono inclusi nel conteggio per il limite di condivisione di 5 TB. Non è previsto alcun limite per la quantità di spazio totale occupata dagli snapshot di condivisione. Si applicano i limiti dell'account di archiviazione.
 
 ## <a name="limits"></a>Limiti
 

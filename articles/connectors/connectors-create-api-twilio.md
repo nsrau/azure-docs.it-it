@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/19/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: a790ac51b0fea7e3fa379d20e0e094e7ce0d7696
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 50361a3342a0d14ae02b2cb478bbb0f74b61bba0
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-twilio-connector"></a>Introduzione al connettore Twilio
 Connettersi a Twilio per inviare e ricevere messaggi SMS, MMS e IP globali. Con Twilio è possibile:
@@ -27,12 +27,12 @@ Connettersi a Twilio per inviare e ricevere messaggi SMS, MMS e IP globali. Con 
 * Creare il flusso aziendale in base ai dati ottenuti da Twilio. 
 * Usare le azioni per recuperare un messaggio, elencare i messaggi e così via. Queste azioni ottengono una risposta e quindi rendono l'output disponibile per altre azioni. Ad esempio, quando si recupera un nuovo messaggio di Twilio, è possibile usarlo come flusso di lavoro del bus di servizio. 
 
-Creare prima di tutto un'app per la logica. Vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
+Creare prima di tutto un'app per la logica. Vedere [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-twilio"></a>Creare una connessione a Twilio
 Quando si aggiunge questo connettore alle app per la logica, immettere i valori di Twilio seguenti:
 
-| Proprietà | Obbligatorio | Descrizione |
+| Proprietà | Obbligatoria | DESCRIZIONE |
 | --- | --- | --- |
 | Account ID |Sì |Immettere l'ID dell'account Twilio |
 | Access Token |Sì |Immettere Il token di accesso di Twilio |

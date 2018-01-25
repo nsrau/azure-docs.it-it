@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: a3ab4713861d4d9681ad2ac5f084255fc29462ce
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="archive-azure-monitoring-data"></a>Archiviare i dati di monitoraggio di Azure
 
@@ -66,7 +66,7 @@ Il monitoraggio dei dati nella sottoscrizione viene trasmesso all'account di arc
 
 Ora vengono configurati i dati a livello di risorsa, ovvero le metriche delle risorse e i log di diagnostica, da indirizzare all'account di archiviazione tramite la configurazione delle **impostazioni di diagnostica per le risorse**.
 
-1. Fare clic sul pulsante **Monitoraggio** nell'elenco di navigazione a sinistra, quindi su **Impostazioni di diagnostica**. Di seguito viene visualizzato un elenco di tutte le risorse nella sottoscrizione che genera dati di monitoraggio tramite Monitoraggio di Azure. Se nell'elenco non sono presenti risorse, è possibile [creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md) prima di procedere in modo da avere una risorsa per cui è possibile configurare un'impostazione di diagnostica.
+1. Fare clic sul pulsante **Monitoraggio** nell'elenco di navigazione a sinistra, quindi su **Impostazioni di diagnostica**. Di seguito viene visualizzato un elenco di tutte le risorse nella sottoscrizione che genera dati di monitoraggio tramite Monitoraggio di Azure. Se nell'elenco non sono presenti risorse, è possibile [creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md) prima di procedere in modo da avere una risorsa per cui è possibile configurare un'impostazione di diagnostica.
 
 2. Fare clic su una risorsa nell'elenco e quindi fare clic su **Attiva diagnostica**.
    
@@ -90,7 +90,7 @@ Ora vengono configurati i dati a livello di risorsa, ovvero le metriche delle ri
    
 6. Impostare il dispositivo di scorrimento **Retention (days)** (Conservazione (giorni)) su 30. Questo dispositivo di scorrimento consente di impostare un numero di giorni per conservare i dati di monitoraggio nell'account di archiviazione. Monitoraggio di Azure elimina automaticamente i dati precedenti al numero di giorni specificato. Se il valore di conservazione è zero giorni, i dati vengono conservati all'infinito.
 
-7. Fare clic su **Salva**.
+7. Fare clic su **Save**.
 
 Il monitoraggio dei dati nella risorsa viene quindi trasmesso all'account di archiviazione.
 
@@ -124,7 +124,7 @@ Il monitoraggio dei dati nella risorsa viene quindi trasmesso all'account di arc
 
 9. Nella sezione visualizzata scegliere l'account di archiviazione creato nel passaggio precedente **Creare un account di archiviazione**.
 
-10. Fare clic su **Salva**.
+10. Fare clic su **Save**.
 
 Il monitoraggio dei dati nella macchina virtuale viene quindi trasmesso all'account di archiviazione.
 

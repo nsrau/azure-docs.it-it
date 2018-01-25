@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 3a85e288fa6f7d6c7138b7fea8319bd8dee01c2c
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: e56b637858af27f9a09f70867e455d06dd122d92
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Creare un'impostazione di scalabilità automatica per le risorse di Azure in base ai dati sulle prestazioni o a una pianificazione
 
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
+## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
 Accedere al [Portale di Azure](https://portal.azure.com/).
 
@@ -43,7 +43,7 @@ Selezionare un nome per l'app, ad esempio *MyTestScaleWebApp*. Creare un nuovo g
 
 Entro pochi minuti, verrà effettuato il provisioning delle risorse. Usare l'app Web e il piano di servizio app corrispondente nella restante parte di questa esercitazione.
 
-    ![Create a new app service in the portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
+   ![Creare un nuovo servizio app nel portale](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
 ## <a name="navigate-to-autoscale-settings"></a>Passare alle impostazioni di scalabilità automatica
 1. Selezionare l'opzione **Monitoraggio** nel riquadro di navigazione a sinistra. Quando la pagina si è caricata selezionare la scheda **Scalabilità automatica**.

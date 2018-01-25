@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: d6dc1cddd6228d2841e1e77b6f2800f788e5e1bb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guida alla conversione di ruoli di lavoro e Web in servizi senza stato di Service Fabric
 Questo articolo descrive come eseguire la migrazione di ruoli di lavoro e Web di Servizi cloud a servizi senza stato di Service Fabric. Questo è il percorso di migrazione più semplice da Servizi cloud a Service Fabric per le applicazioni la cui architettura complessiva rimarrà approssimativamente la stessa.
@@ -40,7 +40,7 @@ Analogamente a un ruolo di lavoro, anche un ruolo Web rappresenta un carico di l
 
 | **Applicazione** | **Supportato** | **Percorso di migrazione** |
 | --- | --- | --- |
-| Web Form ASP.NET |No |Convertire in ASP.NET Core 1 MVC |
+| Web Form ASP.NET |No  |Convertire in ASP.NET Core 1 MVC |
 | ASP.NET MVC |Con migrazione |Eseguire l'aggiornamento ad ASP.NET Core 1 MVC |
 | API Web ASP.NET |Con migrazione |Usare un server self-hosted o ASP.NET Core 1 |
 | ASP.NET Core 1 |Sì |N/D |
@@ -56,7 +56,7 @@ Le API del servizio di Service Fabric e del ruolo di lavoro offrono punti di ing
 | Apertura del listener per le richieste client |N/D |<ul><li> `CreateServiceInstanceListener()` per servizi senza stato</li><li>`CreateServiceReplicaListener()` per servizi con stato</li></ul> |
 
 ### <a name="worker-role"></a>Istanze del ruolo di lavoro
-```C#
+```csharp
 
 using Microsoft.WindowsAzure.ServiceRuntime;
 
@@ -81,7 +81,7 @@ namespace WorkerRole1
 ```
 
 ### <a name="service-fabric-stateless-service"></a>Servizio senza stato di Service Fabric
-```C#
+```csharp
 
 using System.Collections.Generic;
 using System.Threading;
@@ -138,7 +138,7 @@ Per ognuno di questi pacchetti l'aggiornamento e il controllo delle versioni pos
 #### <a name="cloud-services"></a>Servizi cloud
 Le impostazioni di configurazione di ServiceConfiguration.*.cscfg sono accessibili tramite `RoleEnvironment`. Queste impostazioni sono disponibili globalmente per tutte le istanze del ruolo nella stessa distribuzione di Servizi cloud.
 
-```C#
+```csharp
 
 string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
@@ -149,7 +149,7 @@ Ogni servizio ha un pacchetto di configurazione individuale. Non esiste un mecca
 
 Alle impostazioni di configurazione è possibile accedere all'interno di ogni istanza del servizio tramite `CodePackageActivationContext`del servizio.
 
-```C#
+```csharp
 
 ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
@@ -170,7 +170,7 @@ using (StreamReader reader = new StreamReader(Path.Combine(configPackage.Path, "
 #### <a name="cloud-services"></a>Servizi cloud
 L'evento `RoleEnvironment.Changed` viene usato per notificare a tutte le istanze del ruolo quando si verifica una modifica nell'ambiente, ad esempio una modifica della configurazione. Viene usato per gli aggiornamenti della configurazione senza riciclare le istanze del ruolo o riavviare un processo di lavoro.
 
-```C#
+```csharp
 
 RoleEnvironment.Changed += RoleEnvironmentChanged;
 
@@ -191,7 +191,7 @@ Ognuno dei tre tipi di pacchetto in un servizio, ovvero Code, Config e Data, inc
 
 Questi eventi sono disponibili per l'utilizzo in caso di modifiche nei pacchetti del servizio senza riavviare l'istanza del servizio.
 
-```C#
+```csharp
 
 this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;

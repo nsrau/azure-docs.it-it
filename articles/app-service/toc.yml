@@ -31,6 +31,8 @@
   items:
     - name: 1 - App con DB
       items:
+        - name: .NET Core con SQL DB
+          href: app-service-web-tutorial-dotnetcore-sqldb.md
         - name: .NET con database SQL
           href: app-service-web-tutorial-dotnet-sqldatabase.md
         - name: PHP con MySQL
@@ -85,7 +87,7 @@
           href: web-sites-python-configure.md
         - name: Connettersi alle risorse locali
           href: web-sites-integrate-with-vnet.md
-    - name: Distribuzione in Azure
+    - name: Distribuisci in Azure
       items:
         - name: Distribuire l'app
           items:
@@ -223,7 +225,7 @@
           href: ../guidance/guidance-ra-app-service.md
         - name: Script di distribuzione
           href: 'https://azure.microsoft.com/documentation/scripts/'
-    - name: Risoluzione dei problemi
+    - name: risoluzione dei problemi
       items:
         - name: Risolvere i problemi con Visual Studio
           href: web-sites-dotnet-troubleshoot-visual-studio.md

@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 954d161b3fbc66f594429f33d1bb5c88c2bc83b4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7a2b2bd139443159607a0cef800737de6761e1c2
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Distribuzione di Active Directory Federation Services in Azure
 AD FS offre funzionalità di federazione delle identità e Single Sign-On (SSO) Web protette e semplificate. La federazione con Azure AD o O365 consente agli utenti di eseguire l'autenticazione con credenziali locali e accedere a tutte le risorse nel cloud. Di conseguenza, diventa importante la presenza di un'infrastruttura AD FS a disponibilità elevata per garantire l'accesso alle risorse sia in locale sia nel cloud. La distribuzione di AD FS in Azure consente di raggiungere facilmente la disponibilità elevata necessaria.
@@ -124,10 +124,10 @@ Il passaggio successivo consiste nel distribuire le macchine virtuali che ospite
 
 | Machine | Ruolo | Subnet | Set di disponibilità | Account di archiviazione | Indirizzo IP |
 |:---:|:---:|:---:|:---:|:---:|:---:|
-| contosodc1 |Controller di dominio/AD FS |INT |contosodcset |contososac1 |Static |
-| contosodc2 |Controller di dominio/AD FS |INT |contosodcset |contososac2 |Static |
-| contosowap1 |WAP |Rete perimetrale |contosowapset |contososac1 |Static |
-| contosowap2 |WAP |Rete perimetrale |contosowapset |contososac2 |Static |
+| contosodc1 |Controller di dominio/AD FS |INT |contosodcset |contososac1 |statico |
+| contosodc2 |Controller di dominio/AD FS |INT |contosodcset |contososac2 |statico |
+| contosowap1 |WAP |Rete perimetrale |contosowapset |contososac1 |statico |
+| contosowap2 |WAP |Rete perimetrale |contosowapset |contososac2 |statico |
 
 Come è possibile osservare, non sono stati specificati gruppi di sicurezza di rete. Ciò è dovuto al fatto che Azure consente di usare un gruppo di sicurezza di rete a livello di subnet. È quindi possibile controllare il traffico di rete dei computer con il singolo gruppo di sicurezza di rete associato alla subnet o alla scheda di interfaccia di rete. Per altre informazioni, vedere [Che cos'è un gruppo di sicurezza di rete](https://aka.ms/Azure/NSG).
 Se si gestisce il DNS, è consigliabile usare un indirizzo IP statico. È possibile usare il DNS di Azure e nei record DNS per il dominio fare invece riferimento ai nuovi computer con i relativi FQDN di Azure.
@@ -267,7 +267,7 @@ Seguire la stessa procedura indicata per il servizio di bilanciamento del carico
 
 In generale, per proteggere efficacemente la subnet interna sono necessarie le regole seguenti, nell'ordine indicato di seguito.
 
-| Regola | Descrizione | Flusso |
+| Regola | DESCRIZIONE | Flusso |
 |:--- |:--- |:---:|
 | AllowHTTPSFromDMZ |Consente la comunicazione HTTPS dalla rete perimetrale |In ingresso |
 | DenyInternetOutbound |Nessun accesso a Internet |In uscita |
@@ -278,14 +278,17 @@ In generale, per proteggere efficacemente la subnet interna sono necessarie le r
 
 **9.2. Proteggere la subnet perimetrale**
 
-| Regola | Descrizione | Flusso |
+| Regola | DESCRIZIONE | Flusso |
 |:--- |:--- |:---:|
 | AllowHTTPSFromInternet |Consente il traffico HTTPS da Internet alla rete perimetrale |In ingresso |
 | DenyInternetOutbound |Tutto il traffico non HTTPS verso Internet viene bloccato |In uscita |
 
 ![Regole di accesso esterno (in ingresso)](./media/active-directory-aadconnect-azure-adfs/nsg_dmz.png)
 
-[commento]: <> (![regole di accesso esterno (in ingresso)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [commento]: <> (![regole di accesso esterno (in uscita)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+<!--
+[comment]: <> (![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png))
+[comment]: <> (![EXT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
+-->
 
 > [!NOTE]
 > Se è necessaria l'autenticazione del certificato utente client (autenticazione clientTLS con i certificati utente X509), AD FS richiede l'abilitazione della porta TCP 49443 per l'accesso in ingresso.
@@ -313,9 +316,9 @@ Il modello consente di distribuire una configurazione a 6 computer, 2 per ogni c
 
 Durante la distribuzione di questo modello, è possibile usare una rete virtuale esistente o crearne una nuova. I diversi parametri disponibili per personalizzare la distribuzione sono elencati di seguito insieme alla descrizione dell'uso del parametro nel processo di distribuzione. 
 
-| Parametro | Description |
+| Parametro | DESCRIZIONE |
 |:--- |:--- |
-| Percorso |L'area in cui distribuire le risorse, ad esempio Stati Uniti orientali. |
+| Località |L'area in cui distribuire le risorse, ad esempio Stati Uniti orientali. |
 | StorageAccountType |Il tipo di account di archiviazione creato |
 | VirtualNetworkUsage |Indica se verrà creata una nuova rete virtuale o ne verrà usata una esistente |
 | VirtualNetworkName |Il nome della rete virtuale da creare, obbligatorio sia in caso di uso di una rete esistente che con una rete nuova |

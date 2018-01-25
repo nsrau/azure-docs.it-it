@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/15/2017
+ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 6589edd535b513f8d1eb47e69f4fbcdd96a2f10d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b76f3cc3d8538a50895f5be32a800cb469c81203
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Origini dati supportate in Azure Data Catalog
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Directory di Azure Data Lake Store</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -48,7 +48,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>File di Azure Data Lake Store</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -56,7 +56,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Archivio BLOB di Azure</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Power BI Desktop</td>
       <td></td>
@@ -64,7 +64,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Directory di archiviazione di Azure</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Power BI Desktop</td>
       <td></td>
@@ -72,7 +72,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Tabella di archiviazione di Azure</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>
         <font size="2">
@@ -84,7 +84,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Directory HDFS</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -92,7 +92,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>File HDFS</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -100,7 +100,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Tabella Hive</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
@@ -108,7 +108,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Vista di Hive</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
@@ -116,7 +116,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Tabella MySQL</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -124,7 +124,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Vista MySQL</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -132,7 +132,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Tabella di Database Oracle</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -140,7 +140,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Vista di Database Oracle</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -156,7 +156,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Tabella di Azure SQL Data Warehouse</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
       <td></td>
@@ -164,7 +164,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Vista di SQL Data Warehouse</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
       <td></td>
@@ -172,7 +172,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Dimensione di SQL Server Analysis Services</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -180,7 +180,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>KPI di SQL Server Analysis Services</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -188,7 +188,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Misura di SQL Server Analysis Services</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -196,7 +196,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Tabella di SQL Server Analysis Services</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
       <td></td>
@@ -204,7 +204,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Report di SQL Server Reporting Services</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Browser</td>
       <td>Solo server in modalità nativa. Modalità SharePoint non supportata.</td>
@@ -212,7 +212,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Tabella di SQL Server</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
       <td></td>
@@ -220,7 +220,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Visualizzazione SQL Server</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
       <td></td>
@@ -228,7 +228,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Tabella Teradata</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
@@ -236,7 +236,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Visualizzazione Teradata</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Excel</td>
       <td></td>
@@ -244,7 +244,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Vista di SAP HANA</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td>Power BI Desktop</td>
       <td></td>
@@ -252,7 +252,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Tabella di DB2</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -260,7 +260,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Vista di DB2</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -276,7 +276,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Directory FTP</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -284,7 +284,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>File FTP</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -332,7 +332,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Tabella di PostgreSQL</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -340,7 +340,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Vista di PostgreSQL</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -356,7 +356,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td> Oggetto Salesforce</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -372,7 +372,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Raccolta di Azure Cosmos DB</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -380,7 +380,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Tabella ODBC generica</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -388,7 +388,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Visualizzazione ODBC generica</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -396,7 +396,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Tabella Cassandra</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>Pubblicare come asset ODBC generico</td>
@@ -404,7 +404,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Vista Cassandra</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>Pubblicare come asset ODBC generico</td>
@@ -412,7 +412,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Tabella Sybase</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -420,7 +420,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Vista Sybase</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -428,7 +428,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Tabella MongoDB</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>Pubblicare come asset ODBC generico</td>
@@ -436,7 +436,7 @@ ms.lasthandoff: 11/15/2017
     <tr>
       <td>Vista MongoDB</td>
       <td>✓</td>
-      <td>✓ </td>
+      <td>✓</td>
       <td>✓</td>
       <td></td>
       <td>Pubblicare come asset ODBC generico</td>

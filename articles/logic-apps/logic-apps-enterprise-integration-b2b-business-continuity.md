@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 4896d9da456bcc17b1a4d92259ef3d57f8575d8b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ef3965adac03f21c386765a43290c93d58d1c18
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Ripristino di emergenza tra più aree delle app per la logica B2B
 
@@ -92,7 +92,7 @@ Per abilitare il ripristino di emergenza per i messaggi in ingresso, selezionare
 
 ![Selezionare le impostazioni per la verifica dei duplicati](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
-1. Creare un'[app per la logica](../logic-apps/logic-apps-create-a-logic-app.md) nell'area secondaria.    
+1. Creare un'[app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md) nell'area secondaria.    
 
 2. Cercare in **X12** e selezionare **X12 - Quando viene modificato un numero di controllo**.   
 
@@ -147,7 +147,7 @@ Per abilitare il ripristino di emergenza per i messaggi in ingresso, selezionare
 
 ![Selezionare le impostazioni per la verifica dei duplicati](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
-1. Creare un'[app per la logica](../logic-apps/logic-apps-create-a-logic-app.md) nell'area secondaria.    
+1. Creare un'[app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md) nell'area secondaria.    
 
 2. Cercare in **EDIFACT** e selezionare **EDIFACT - Quando viene modificato un numero di controllo**.
 
@@ -199,7 +199,7 @@ La continuità aziendale per i documenti che usano il protocollo AS2 si basai su
 > [!TIP]
 > È anche possibile usare [il modello di avvio rapido AS2](https://github.com/Azure/azure-quickstart-templates/pull/3302) per creare le app per la logica. La creazione degli account di integrazione primari e secondari è un prerequisito per l'uso del modello. Il modello consente di creare un'app per la logica, con un trigger e un'azione. L'app per la logica crea una connessione tra il trigger e l'account di integrazione primario e tra l'azione e l'account di integrazione secondario.
 
-1. Creare un'[app per la logica](../logic-apps/logic-apps-create-a-logic-app.md) nell'area secondaria.  
+1. Creare un'[app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md) nell'area secondaria.  
 
 2. Cercare in **AS2** e selezionare **AS2 -When a MIC value is created** (AS2 - Quando viene creato un valore MIC).   
 

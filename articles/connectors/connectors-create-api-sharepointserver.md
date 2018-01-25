@@ -15,23 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 0f3274816e279a1aa57febaa2f8294914900799a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: da863e0249cb46e4e569812a851f3199d57b2107
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="get-started-with-the-sharepoint-connector"></a>Introduzione al connettore SharePoint
 Il connettore SharePoint consente di utilizzare gli elenchi in SharePoint.
 
-Creare prima di tutto un'app per la logica. Vedere [Creare un'app per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
+Creare prima di tutto un'app per la logica. Vedere [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-sharepoint"></a>Creare una connessione a SharePoint
 Per usare il connettore SharePoint, creare prima una **connessione** , quindi indicare i dettagli di queste proprietà: 
 
-| Proprietà | Obbligatorio | Descrizione |
+| Proprietà | Obbligatoria | DESCRIZIONE |
 | --- | --- | --- |
-| Token |Sì |Fornire le credenziali di SharePoint |
+| token |Sì |Fornire le credenziali di SharePoint |
 
 Per connettersi a **SharePoint**, immettere la propria identità (nome utente e password, credenziali di smart card e così via) in SharePoint. Dopo l'autenticazione, è possibile usare il connettore SharePoint nella propria app per la logica. 
 

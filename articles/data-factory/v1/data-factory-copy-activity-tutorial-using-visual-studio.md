@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2017
+ms.date: 01/22/2018
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 320df0586d9f4391bb8ad6add80a48daa7979aa9
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4f517a4be012f88d9b7a5e19042ce22493cfe5f3
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Esercitazione: Creare una pipeline con l’attività Copia utilizzando Visual Studio
 > [!div class="op_single_selector"]
 > * [Panoramica e prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
-> * [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modello di Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -46,7 +46,7 @@ Una pipeline può includere più attività ed è possibile concatenarne due, ovv
 > [!NOTE] 
 > La pipeline di dati in questa esercitazione copia i dati da un archivio dati di origine a un archivio dati di destinazione. Per un'esercitazione su come trasformare i dati usando Azure Data Factory, vedere [Esercitazione: Creare una pipeline per trasformare i dati usando un cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 1. Vedere la [panoramica dell'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) ed eseguire i passaggi relativi ai **prerequisiti** .       
 2. Per creare istanze di data factory, è necessario essere membri del ruolo [Collaboratore Data factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) a livello di sottoscrizione/gruppo di risorse.
 3. È necessario disporre dei seguenti prodotti installati nel computer in uso: 
@@ -54,7 +54,7 @@ Una pipeline può includere più attività ed è possibile concatenarne due, ovv
    * Download di Azure SDK per Visual Studio 2013 o Visual Studio 2015. Passare alla [pagina di download di Azure](https://azure.microsoft.com/downloads/) e fare clic su **VS 2013** o **VS 2015** nella sezione **.NET**.
    * Scaricare il plug-in Azure Data Factory più recente per Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) o [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). È anche possibile aggiornare il plug-in nel modo seguente: dal menu scegliere **Strumenti** -> **Estensioni e aggiornamenti** -> **Online** -> **Visual Studio Gallery** -> **Microsoft Azure Data Factory Tools for Visual Studio** -> **Aggiorna**.
 
-## <a name="steps"></a>Passi
+## <a name="steps"></a>Passaggi
 Di seguito sono elencati i passaggi da eseguire in questa esercitazione:
 
 1. Creare **servizi collegati** nella data factory. In questo passaggio si creano due servizi collegati di tipo Archiviazione di Azure e database SQL di Azure. 
@@ -79,9 +79,9 @@ Di seguito sono elencati i passaggi da eseguire in questa esercitazione:
     ![Finestra di dialogo Nuovo progetto](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-project-dialog.png)
 3. Specificare il nome del progetto e il percorso e il nome della soluzione e quindi fare clic su **OK**.
    
-    ![Esplora soluzioni](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)    
+    ![Controllers\HomeController.cs](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)    
 
-## <a name="create-linked-services"></a>Creazione di servizi collegati
+## <a name="create-linked-services"></a>Creare servizi collegati
 Si creano servizi collegati in una data factory per collegare gli archivi dati e i servizi di calcolo alla data factory. In questa esercitazione non si usano servizi di calcolo come Azure HDInsight o Azure Data Lake Analytics, ma due archivi dati di tipo Archiviazione di Azure (origine) e database SQL di Azure (destinazione). 
 
 Di conseguenza, si creano due servizi collegati di tipo AzureStorage e AzureSqlDatabase.  
@@ -162,7 +162,7 @@ In questo contesto si usa il termine "tabelle" invece di "set di dati". Una tabe
   ``` 
     La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
 
-    | Proprietà | Descrizione |
+    | Proprietà | DESCRIZIONE |
     |:--- |:--- |
     | type | La proprietà type è impostata su **AzureBlob** perché i dati risiedono in un archivio BLOB di Azure. |
     | linkedServiceName | Fa riferimento all'oggetto **AzureStorageLinkedService** creato in precedenza. |
@@ -210,7 +210,7 @@ In questo passaggio si crea un set di dati di output denominato **OutputDataset*
     ```
     La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
 
-    | Proprietà | Descrizione |
+    | Proprietà | DESCRIZIONE |
     |:--- |:--- |
     | type | La proprietà type viene impostata su **AzureSqlTable** perché i dati vengono copiati in una tabella in un database SQL di Azure. |
     | linkedServiceName | Fa riferimento all'oggetto **AzureSqlLinkedService** creato in precedenza. |
@@ -302,7 +302,7 @@ In questo passaggio vengono pubblicate le entità di Data Factory, ovvero i serv
    2. Immettere **VSTutorialFactory** per **Nome**.  
       
       > [!IMPORTANT]
-      > È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se si riceve un messaggio di errore riguardante il nome della data factory durante la pubblicazione, è possibile modificare il nome della data factory, ad esempio, nomeutenteVSTutorialFactory, e provare di nuovo ad effettuare la pubblicazione. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere l'argomento [Azure Data Factory - Regole di denominazione](data-factory-naming-rules.md) .        
+      > È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se si riceve un messaggio di errore riguardante il nome della data factory durante la pubblicazione, è possibile modificare il nome della data factory, ad esempio, nomeutenteVSTutorialFactory, e provare di nuovo ad effettuare la pubblicazione. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md) .        
       > 
       > 
    3. Selezionare la sottoscrizione di Azure per il campo **Sottoscrizione** .
@@ -361,7 +361,7 @@ Passare alla home page della data factory:
     ![Home page di Data factory](media/data-factory-copy-activity-tutorial-using-visual-studio/data-factory-home-page.png)
 5. Per monitorare la pipeline e i set di dati creati in questa esercitazione, seguire le istruzioni riportate nella sezione su come [monitorare set di dati e pipeline](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline). Attualmente, Visual Studio non supporta il monitoraggio delle pipeline di Data Factory. 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 In questa esercitazione è stata creata una data factory di Azure per copiare dati da un BLOB di Azure a un database SQL Azure. È stato usato Visual Studio per creare la data factory, i servizi collegati, i set di dati e una pipeline. Ecco i passaggi generali eseguiti in questa esercitazione:  
 
 1. Creare un'istanza di Azure **Data Factory**.

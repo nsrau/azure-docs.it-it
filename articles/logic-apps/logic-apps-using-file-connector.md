@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: LADocs; deli
-ms.openlocfilehash: 7738b3346af49cb8aa811eb17003d1b72b1bbe46
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32ab5be41a8dee3b1f2c0b1bde076c0d1a844bdd
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="connect-to-on-premises-file-systems-from-logic-apps-with-the-file-system-connector"></a>Connettersi a file system locali dalle app per la logica con il connettore File System
 
 Per gestire i dati e accedere in modo sicuro a risorse locali, le app per la logica possono usare il gateway dati locale. Questo articolo mostra come connettersi a un file system locale tramite questo scenario di esempio di base: copiare un file caricato in Dropbox in una condivisione file e quindi inviare un messaggio di posta elettronica.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Scaricare il [gateway dati locale](https://www.microsoft.com/download/details.aspx?id=53127) più recente.
 
 * Installare e configurare il gateway dati locale più recente, versione 1.15.6150.1 o successiva. Per la procedura, vedere [Connettersi a origini dati in locale](http://aka.ms/logicapps-gateway). Prima di procedere con questi passaggi, è necessario installare il gateway in un computer locale.
 
-* Conoscenza di base di [come creare le app per la logica](../logic-apps/logic-apps-create-a-logic-app.md)
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 ## <a name="add-trigger-and-actions-for-connecting-to-your-file-system"></a>Aggiungere trigger e azioni per la connessione al file system
 
@@ -48,7 +48,7 @@ Per gestire i dati e accedere in modo sicuro a risorse locali, le app per la log
 
    ![Configurare la connessione](media/logic-apps-using-file-connector/create-file.png)
 
-   | Impostazione | Descrizione |
+   | Impostazione | DESCRIZIONE |
    | ------- | ----------- |
    | **Cartella radice** | Specificare la cartella radice per il file system. È possibile specificare una cartella locale del computer in cui è installato il gateway dati locale oppure la cartella può essere una condivisione di rete a cui il computer ha accesso. <p>**Suggerimento:** la cartella radice è la cartella padre principale, usata per i percorsi relativi per tutte le azioni correlate ai file. | 
    | **Tipo di autenticazione** | Tipo di autenticazione usato dal file system | 
@@ -85,7 +85,7 @@ Provare a esplorare altre funzionalità del connettore, ad esempio:
 - Elimina file
 - Recupera contenuto di file
 - Recupera contenuto di file tramite percorso
-- Recupera metadati di file
+- Ottenere i metadati del file
 - Recupera metadati di file tramite percorso
 - Elenca i file nella cartella radice
 - Aggiorna file

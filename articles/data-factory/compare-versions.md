@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/20/2017
+ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 8ae6c1eabf87b51dd04b6b6c9686bb89efff3bc0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 83065e6cacd784a3914cfac3ff2552a712688366
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Confrontare le versioni 1 e 2 di Azure Data Factory
 Questo articolo mette a confronto le versioni 1 e 2 di Azure Data Factory. Per un'introduzione alla versione 1, vedere [Introduzione ad Azure Data Factory](v1/data-factory-introduction.md). Per un'introduzione alla versione 2, vedere l'[introduzione a Data Factory relativa alla versione 2 (anteprima)](introduction.md).
@@ -27,7 +27,7 @@ La tabella seguente mette a confronto le funzionalità delle versioni V1 e V2.
 
 | Funzionalità | versione 1 | versione 2 | 
 | ------- | --------- | --------- | 
-| DATASETS | Vista denominata di dati che fa riferimento ai dati da usare nelle attività come input e output. I set di dati identificano i dati all'interno dei diversi archivi dati, come tabelle, file, cartelle e documenti. Un set di dati BLOB di Azure, ad esempio, specifica il contenitore BLOB e la cartella nell'archivio BLOB di Azure da cui l'attività dovrà leggere i dati.<br/><br/>La **disponibilità** definisce il modello di sezionamento dell'intervallo di elaborazione del set di dati (ad esempio ogni ora, ogni giorno e così via). | I set di dati sono analoghi nella versione V2. Non è tuttavia necessario definire pianificazioni della **disponibilità** per i set di dati. È possibile definire una risorsa trigger che può pianificare le pipeline da un paradigma di utilità di pianificazione basata sul tempo. Per altre informazioni, vedere [Trigger](concepts-pipeline-execution-triggers.md#triggers) e [Set di dati](concepts-datasets-linked-services.md). | 
+| Set di dati | Vista denominata di dati che fa riferimento ai dati da usare nelle attività come input e output. I set di dati identificano i dati all'interno dei diversi archivi dati, come tabelle, file, cartelle e documenti. Un set di dati BLOB di Azure, ad esempio, specifica il contenitore BLOB e la cartella nell'archivio BLOB di Azure da cui l'attività dovrà leggere i dati.<br/><br/>La **disponibilità** definisce il modello di sezionamento dell'intervallo di elaborazione del set di dati (ad esempio ogni ora, ogni giorno e così via). | I set di dati sono analoghi nella versione V2. Non è tuttavia necessario definire pianificazioni della **disponibilità** per i set di dati. È possibile definire una risorsa trigger che può pianificare le pipeline da un paradigma di utilità di pianificazione basata sul tempo. Per altre informazioni, vedere [Trigger](concepts-pipeline-execution-triggers.md#triggers) e [Set di dati](concepts-datasets-linked-services.md). | 
 | Servizi collegati | I servizi collegati sono simili a stringhe di connessione e definiscono le informazioni necessarie per la connessione di Data Factory a risorse esterne. | I servizi collegati sono gli stessi di Data Factory versione 1, ma con una nuova proprietà **connectVia** per l'utilizzo dell'ambiente di calcolo del runtime di integrazione di Data Factory versione 2. Per altre informazioni, vedere [Runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md) e le [proprietà del servizio collegato per l'archivio BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties). |
 | Pipeline | Una data factory può comprendere una o più pipeline. Una pipeline è un raggruppamento logico di attività che insieme eseguono un compito. Per pianificare ed eseguire le pipeline, si usano startTime, endTime e isPaused. | Le pipeline sono gruppi di attività eseguite sui dati. La pianificazione delle attività nella pipeline è tuttavia stata separata in nuove risorse trigger. È possibile pensare alle pipeline di Data Factory V2 come "unità di flusso di lavoro" che vengono pianificate separatamente tramite trigger. <br/><br/>Le pipeline non hanno "finestre" di esecuzione temporale in Data Factory V2. I concetti di startTime, endTime e isPaused di Data Factory V1 non sono più presenti in Data Factory V2. Per altre informazioni, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md) e [Pipeline e attività](concepts-pipelines-activities.md). |
 | attività | Le attività definiscono le azioni da eseguire sui dati in una pipeline. Sono supportate attività di spostamento dei dati (attività di copia) e di trasformazione dei dati (ad esempio Hive, Pig e MapReduce). | In Data Factory V2 le attività sono ancora azioni definite all'interno di una pipeline. La versione V2 introduce le nuove [attività del flusso di controllo](concepts-pipelines-activities.md#control-activities). Queste attività vengono usate in un flusso di controllo (cicli e diramazioni). Le attività di spostamento dei dati e di trasformazione dei dati supportate nella versione V1 sono supportate anche nella versione V2. Nella versione V2 è possibile definire attività di trasformazione senza usare i set di dati. |
@@ -73,7 +73,7 @@ Un caso d'uso chiave nel modello ETL è rappresentato dai "caricamenti differenz
 ### <a name="other-control-flow-activities"></a>Altre attività di flusso di controllo
 Di seguito sono riportate alcune altre attività di flusso di controllo supportate da Data Factory versione 2. 
 
-Attività di controllo | Descrizione
+Attività di controllo | DESCRIZIONE
 ---------------- | -----------
 [Attività ForEach](control-flow-for-each-activity.md) | Definisce un flusso di controllo ripetuto nella pipeline. Questa attività viene usata per scorrere una raccolta ed eseguire attività specifiche in un ciclo. L'implementazione di cicli di questa attività è simile alla struttura di esecuzione in ciclo Foreach nei linguaggi di programmazione.
 [Attività Web](control-flow-web-activity.md) | Chiama un endpoint REST personalizzato da una pipeline di Data Factory. È possibile passare set di dati e servizi collegati in modo che l'attività possa usarli e accedervi. 
@@ -128,7 +128,16 @@ Per altre informazioni, vedere [Differenza tra l'attività personalizzata nelle 
 Gli SDK aggiornati per la versione 2 non sono compatibili con i client versione 1. 
 
 ## <a name="authoring-experience"></a>Esperienza di creazione
-Con Data Factory versione 1 è possibile creare pipeline usando l'editor di Data Factory nel portale di Azure. Attualmente, Data Factory versione 2 supporta la creazione di data factory solo con metodi a livello di codice (ad esempio con .NET SDK, API REST, PowerShell e Python). Non è ancora disponibile il supporto dell'interfaccia utente.  Anche Data Factory V1 offre supporto per la creazione con SDK, REST e PowerShell.
+
+| &nbsp; | V2 | V1 |
+| ------ | -- | -- | 
+| Portale di Azure | [Sì](quickstart-create-data-factory-portal.md) | [Sì](data-factory-build-your-first-pipeline-using-editor.md) |
+| Azure PowerShell | [Sì](quickstart-create-data-factory-powershell.md) | [Sì](data-factory-build-your-first-pipeline-using-powershell.md) |
+| .NET SDK | [Sì](quickstart-create-data-factory-dot-net.md) | [Sì](data-factory-build-your-first-pipeline-using-vs.md) |
+| API REST | [Sì](quickstart-create-data-factory-rest-api.md) | [Sì](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| Python SDK | [Sì](quickstart-create-data-factory-python.md) | No  |
+| Modello di Resource Manager | [Sì](quickstart-create-data-factory-resource-manager-template.md) | [Sì](data-factory-build-your-first-pipeline-using-arm.md) | 
+
 
 ## <a name="monitoring-experience"></a>Esperienza di monitoraggio
 Nella versione V2 è anche possibile eseguire il monitoraggio di data factory con [Monitoraggio di Azure](monitor-using-azure-monitor.md). I nuovi cmdlet di PowerShell supportano il monitoraggio delle istanze di [Integration Runtime](monitor-integration-runtime.md). Sia la versione 1 che la versione 2 supportano il monitoraggio visivo tramite un'applicazione di monitoraggio che può essere avviata dal portale di Azure.

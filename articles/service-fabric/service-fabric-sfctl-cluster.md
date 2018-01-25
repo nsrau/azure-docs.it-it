@@ -9,23 +9,23 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: cli
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 09/22/2017
+ms.date: 12/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: 2af214a9aa3c67818e8ce64f204ebda32c35abc7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5eeff271fea67cd859dff598cae0010cf3b8e13f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Selezionare, gestire e usare dei cluster di Service Fabric.
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|Descrizione|
+|Comando|DESCRIZIONE|
 | --- | --- |
 |    code-versions| Mostra un elenco di versioni del codice di un'infrastruttura di cui viene effettuato il provisioning in un cluster di Service Fabric.|
 |    config-versions | Mostra un elenco di versioni di configurazione di un'infrastruttura di cui viene effettuato il provisioning in un cluster di Service Fabric.|
@@ -52,7 +52,7 @@ Mostra l'integrità di un cluster di Service Fabric. Usare EventsHealthStateFilt
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --applications-health-state-filter| Consente di filtrare gli oggetti dello stato di integrità delle applicazioni restituiti nel risultato della query sull'integrità dei cluster in base al relativo stato di integrità. I valori possibili per questo parametro includono il valore intero ottenuto da membri o operazioni bit per bit sui membri dell'enumerazione HealthStateFilter. Vengono restituite solo le applicazioni che corrispondono al filtro.  Tutte le applicazioni vengono usate per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag. Pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore indicato è 6, viene restituito lo stato di integrità delle applicazioni il cui valore di HealthState è OK (2) e Avviso (4). - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero. -None - Il filtro non corrisponde ad alcun valore di HealthState. Usato per non restituire alcun risultato in una determinata raccolta di stati. Il valore è uguale a 1. -Ok - Filtro che ricerca le corrispondenze di input con valore di HealthState Ok. Il valore è 2. -Warning - Filtro che ricerca le corrispondenze di input con valore di HealthState Avviso. Il valore è 4. - Error - Filtro che ricerca le corrispondenze di input con valore di HealthState Errore. Il valore è 8. -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di HealthState. Il valore è 65535.|
 | --events-health-state-filter   | Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno degli stati di integrità seguenti. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag. Pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore di HealthState OK (2) e Avviso (4). - Default - Valore predefinito. Consente di ricercare le corrispondenze con qualsiasi valore di HealthState. Il valore predefinito è zero. -None - Il filtro non restituisce corrispondenze ad alcun valore di HealthState. Usato per non restituire alcun risultato in una determinata raccolta di stati. Il valore è uguale a 1. -Ok - Filtro che ricerca le corrispondenze di input con valore di HealthState Ok. Il valore è 2. -Warning - Filtro che ricerca le corrispondenze di input con valore di HealthState Avviso.  Il valore è 4. - Error - Filtro che ricerca le corrispondenze di input con valore di HealthState Errore. Il valore è 8. -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di HealthState. Il valore è 65535.|
@@ -78,7 +78,7 @@ Mostra il manifesto del cluster di Service Fabric. Il manifesto del cluster cont
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | --timeout -t| Timeout del server in secondi.  Predefinito: 60.|
 
@@ -98,7 +98,7 @@ Esegue la convalida e il provisioning dei pacchetti di codici o configurazioni d
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 |--cluster-manifest-file-path| Percorso file del manifesto del cluster.|
 |    --code-file-path            | Percorso file del pacchetto di codice del cluster.|
@@ -121,7 +121,7 @@ In caso di connessione a un cluster sicuro, specificare un certificato (con este
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 | -endpoint [obbligatorio]| URL dell'endpoint del cluster, incluso la porta e il prefisso HTTP o HTTPS.|
 | --aad             | Consente di usare l'autenticazione tramite Azure Active Directory.|
@@ -147,7 +147,7 @@ Annulla il provisioning dei pacchetti di codici o configurazioni di un cluster d
 Annulla il provisioning dei pacchetti di codici o configurazioni di un cluster di Service Fabric.
 
 ### <a name="arguments"></a>Argomenti
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 |--code-version  | Versione del pacchetto di codice del cluster.|
 |    --config-version| Versione del manifesto del cluster.|
@@ -168,7 +168,7 @@ Avvia l'aggiornamento della versione codice o configurazione di un cluster di Se
 Convalida i parametri di aggiornamento forniti e avvia l'aggiornamento della versione del codice o della configurazione di un cluster di Service Fabric se i parametri sono validi.
 
 ### <a name="arguments"></a>Argomenti
-|Argomento|Descrizione|
+|Argomento|DESCRIZIONE|
 | --- | --- |
 |    --app-health-map                      | Dizionario con codifica JSON delle coppie di nomi dell'applicazione e percentuale massima di stato non integro prima che venga generato l'errore.|
  |   --app-type-health-map                 | Dizionario con codifica JSON delle coppie di nomi del tipo di applicazione e percentuale massima di stato non integro prima che venga generato l'errore.|
