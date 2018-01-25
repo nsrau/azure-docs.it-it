@@ -1,4 +1,4 @@
----
+﻿---
 title: Introduzione al linguaggio U-SQL | Microsoft Docs
 description: Informazioni sulle basi del linguaggio U-SQL.
 services: data-lake-analytics
