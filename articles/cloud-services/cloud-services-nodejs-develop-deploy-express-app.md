@@ -23,7 +23,7 @@ ms.lasthandoff: 12/07/2017
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Compilare e distribuire un'applicazione web Node.js mediante Express in un Cloud di servizi di Azure
 
 Node.js include un set minimo di funzionalità nel runtime core.
-Gli sviluppatori usano spesso moduli di terze parti per fornire funzionalità aggiuntive durante lo sviluppo di un'applicazione Node.js. In questa esercitazione si creerà una nuova applicazione usando il [Express](https://github.com/expressjs/express) modulo, che fornisce un framework MVC per la creazione di applicazioni web Node. js.
+Gli sviluppatori usano spesso moduli di terze parti per fornire funzionalità aggiuntive durante lo sviluppo di un'applicazione Node.js. In questa esercitazione si creerà una nuova applicazione usando il modulo[Express](https://github.com/expressjs/express), che fornisce un framework MVC per la creazione di applicazioni web Node.js.
 
 Di seguito è riportata una schermata dell'applicazione completata:
 
@@ -95,7 +95,7 @@ Modificare le visualizzazione in modo che il messaggio visualizzato sia "Welcome
    
        PS C:\node\expressapp\WebRole1> notepad views/index.jade
    
-   ![Contenuto del file index.jade.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
+   ![Contenuto del file index.jade](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
    Jade è il motore di visualizzazione predefinito utilizzato dalle applicazioni Express. Per altre informazioni sul motore di visualizzazione Jade, vedere [http://jade-lang.com][http://jade-lang.com].
 2. Modificare l'ultima riga di testo aggiungendo **in Azure**.
