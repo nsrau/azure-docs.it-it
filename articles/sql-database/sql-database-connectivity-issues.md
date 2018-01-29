@@ -18,7 +18,7 @@ ms.date: 11/29/2017
 ms.author: daleche
 ms.openlocfilehash: 7d393cd08ef5c20ef680e4e1ab3aded191abe932
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
 ---
@@ -431,7 +431,7 @@ public bool IsTransient(Exception ex)
 * Per ulteriori informazioni sulla risoluzione di altri problemi di connessione di Database SQL comuni, vedere [risolvere i problemi di connessione al Database SQL di Azure](sql-database-troubleshoot-common-connection-issues.md).
 * [Raccolte di connessioni per database SQL e Server SQL](sql-database-libraries.md)
 * [SQL Server pool di connessioni (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
-* [*Nuovo tentativo* è generica della libreria, scritta in Python, nuovo tentativo in corso una licenza di Apache 2.0](https://pypi.python.org/pypi/retrying) per semplificare l'attività di comportamento del nuovo tentativo di aggiunta a qualsiasi tipo.
+* [*Retrying* è una libreria generica, scritta in Python, con licenza Apache 2.0](https://pypi.python.org/pypi/retrying) per semplificare l'aggiunta di un comportamento di tipo "ritenta" a quasi qualsiasi azione.
 
 
 <!-- Link references. -->
