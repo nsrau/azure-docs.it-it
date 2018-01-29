@@ -1,6 +1,6 @@
 ---
-title: Livelli di prestazioni di Azure Cosmos DB ritirato | Documenti Microsoft
-description: Scopri i livelli delle prestazioni disponibili in precedenza in Azure Cosmos DB S1, S2 e S3.
+title: Livelli di prestazioni di Azure Cosmos DB ritirati | Microsoft Docs
+description: Informazioni sui livelli di prestazioni S1, S2 e S3 disponibili in precedenza in Azure Cosmos DB.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9ddce64b53e8c5627050ca77f11de2ba144276a1
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 4cab6297e45dc7a14826d7bb10cf22a8a300355f
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Ritiro dei livelli di prestazioni S1, S2 e S3
 
 > [!IMPORTANT] 
-> I livelli di prestazioni S1, S2 e S3 descritti in questo articolo verranno ritirati e non sono più disponibili per i nuovi account di Azure Cosmos DB.
+> I livelli di prestazioni S1, S2 e S3 descritti in questo articolo sono in fase di ritiro e non sono più disponibili per i nuovi account Azure Cosmos DB.
 >
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
@@ -46,7 +46,7 @@ Questo articolo offre una panoramica dei livelli di prestazioni S1, S2 e S3 e de
 
 ## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>Perché i livelli di prestazioni S1, S2 e S3 sono in fase di ritiro?
 
-I livelli di prestazioni S1, S2 e S3 non offrono la flessibilità che fornisce l'offerta di Azure Cosmos DB standard. Con i livelli di prestazioni S1, S2 e S3, la velocità effettiva e la capacità di archiviazione sono preimpostate e non offrono elasticità. Azure Cosmos DB offre ora la possibilità di personalizzare questi valori garantendo una flessibilità decisamente superiore per il ridimensionamento in base alle proprie esigenze.
+I livelli di prestazioni S1, S2 e S3 non offrono la stessa flessibilità fornita dall'offerta Standard di Azure Cosmos DB. Con i livelli di prestazioni S1, S2 e S3, la velocità effettiva e la capacità di archiviazione sono preimpostate e non offrono elasticità. Azure Cosmos DB offre ora la possibilità di personalizzare questi valori garantendo una flessibilità decisamente superiore per il ridimensionamento in base alle proprie esigenze.
 
 <a name="compare"></a>
 
@@ -143,11 +143,11 @@ La migrazione verrà a fine 2017. Se l'utente ha una raccolta che usa i livelli 
 
 **Per eseguire la migrazione alle raccolte a partizione singola tramite .NET SDK**
 
-Un'altra opzione per la modifica dei livelli di prestazioni delle raccolte è tramite Azure Cosmos DB SDK. Questa sezione sono disponibili solo se si modificano prestazioni di una raccolta di livello utilizzando il [API .NET di SQL](sql-api-sdk-dotnet.md), ma il processo è simile per il nostro altri SDK.
+Un'altra opzione per la modifica dei livelli di prestazioni delle raccolte è tramite Azure Cosmos DB SDK. Questa sezione illustra solo la modifica del livello di prestazioni di una raccolta tramite l'[API .NET SQL](sql-api-sdk-dotnet.md), ma il processo per gli altri SDK è simile.
 
 Di seguito è riportato un frammento di codice per modificare la velocità effettiva della raccolta a 5000 unità richiesta al secondo:
     
-```C#
+```csharp
     //Fetch the resource to be updated
     Offer offer = client.CreateOfferQuery()
                       .Where(r => r.ResourceLink == collection.SelfLink)    

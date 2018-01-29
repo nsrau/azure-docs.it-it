@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e0f4a284a46ba56ba4e3229a72e99efef0cf9dc2
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: e6dbac2f88df3b7c2e4d7f982fc9a573e3d6e62f
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Usare modelli per creare entità di Azure Data Factory
 > [!NOTE]
@@ -231,7 +231,7 @@ Per informazioni dettagliate sulle proprietà JSON per la definizione di attivit
 }
 ```
 ## <a name="parameterizing-data-factory-template"></a>Uso di parametri nel modello di Data Factory
-Per le procedure consigliate sull'applicazione di parametri, vedere [procedure consigliate per la creazione di modelli di Azure Resource Manager](../../azure-resource-manager/resource-manager-template-best-practices.md). In generale l'utilizzo dei parametri deve essere ridotto al minimo, soprattutto se è possibile usare variabili anziché parametri. Specificare i parametri solo negli scenari seguenti:
+Per le procedure consigliate sull'uso dei parametri, vedere [Procedure consigliate per la creazione di modelli di Azure Resource Manager](../../azure-resource-manager/resource-manager-template-best-practices.md). In generale l'utilizzo dei parametri deve essere ridotto al minimo, soprattutto se è possibile usare variabili anziché parametri. Specificare i parametri solo negli scenari seguenti:
 
 * Le impostazioni variano a seconda dell'ambiente, ad esempio di sviluppo, test e produzione
 * Segreti (password)

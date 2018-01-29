@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
 ms.openlocfilehash: 835f6ffce9b2e1bb4b6cfd7476bb3fdb24a4f092
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registrazione diagnostica di Azure Cosmos DB
 
@@ -30,12 +30,12 @@ Usare questa esercitazione per un'introduzione alla registrazione di Azure Cosmo
 
 ## <a name="what-is-logged"></a>Che cosa viene registrato?
 
-* Vengono registrate tutte le richieste autenticate API SQL REST, che include le richieste non riuscite a causa di autorizzazioni di accesso, gli errori di sistema o richieste non valide. Il supporto per le API MongoDB, Graph e di tabella non è attualmente disponibile.
+* Vengono registrate tutte le richieste API SQL REST autenticate, incluse le richieste non riuscite a causa di autorizzazioni di accesso, errori di sistema o richieste non valide. Il supporto per le API MongoDB, Graph e di tabella non è attualmente disponibile.
 * Operazioni nel database stesso, incluse le operazioni CRUD su tutti i documenti, i contenitori e i database.
 * Operazioni sulle chiavi di account, che includono la creazione, la modifica o l'eliminazione di queste chiavi.
 * Richieste non autenticate che generano una risposta 401. Ad esempio, richieste che non hanno un token di connessione, hanno un formato non valido, sono scadute o hanno un token non valido.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare l'esercitazione, sono necessarie le risorse seguenti:
 
 * Un account, un database e un contenitore Azure Cosmos DB esistente. Per istruzioni sulla creazione di queste risorse, vedere [Create a database account using the Azure portal](create-sql-api-dotnet.md#create-a-database-account) (Creare un account di database tramite il portale di Azure), [Esempi dell'interfaccia della riga di comando](cli-samples.md) o [Esempi di PowerShell](powershell-samples.md).
@@ -54,7 +54,7 @@ Per completare l'esercitazione, sono necessarie le risorse seguenti:
     * **Archivia in un account di archiviazione**. Per usare questa opzione, è necessario un account di archiviazione esistente a cui connettersi. Per creare un nuovo account di archiviazione nel portale, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md) e seguire le istruzioni per creare un account Resource Manager di uso generico. Tornare quindi a questa pagina del portale per selezionare l'account di archiviazione. Potrebbero essere necessari alcuni minuti per visualizzare gli account di archiviazione appena creati nel menu a discesa.
     * **Streaming in un hub eventi**. Per usare questa opzione, sono necessari uno spazio dei nomi esistente e un hub eventi a cui connettersi. Per creare uno spazio dei nomi dell'hub eventi, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il Portale di Azure](../event-hubs/event-hubs-create.md). Tornare a questa pagina del portale per selezionare lo spazio dei nomi dell'hub eventi e il nome dei criteri.
     * **Invia a Log Analytics**.     Per usare questa opzione, usare un'area di lavoro esistente o creare una nuova area di lavoro di Log Analytics seguendo la procedura per [creare una nuova area di lavoro](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) nel portale. Per altre informazioni sulla visualizzazione dei log in Log Analytics, vedere [Visualizzare i log in Log Analytics](#view-in-loganalytics).
-    * **Registra DataPlaneRequests**. Selezionare questa opzione per registrare i dati diagnostici relativi account SQL, grafico e tabella API. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
+    * **Registra DataPlaneRequests**. Selezionare questa opzione per registrare i dati di diagnostica per gli account SQL, Graph e API Tabelle. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
     * **Registra MongoRequests**. Selezionare questa opzione per registrare i dati di diagnostica per gli account per gli account API MongoDB. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
     * **Metric Requests** (Richieste Metriche). Selezionare questa opzione per archiviare i dati dettagliati in [Metriche di Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
 

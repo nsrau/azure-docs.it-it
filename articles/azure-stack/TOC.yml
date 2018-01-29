@@ -31,6 +31,42 @@
       href: azure-stack-tutorial-app-service.md
 - name: Concetti
   items:
+    - name: Integrazione di Datacenter
+      items:
+        - name: Considerazioni relative all'integrazione generale Azure Stack
+          href: azure-stack-datacenter-integration.md
+        - name: Modelli di connessione di distribuzione di Azure Stack
+          href: azure-stack-connection-models.md
+        - name: Considerazioni sulla distribuzione connesso
+          href: azure-stack-connected-deployment.md
+        - name: Considerazioni sulla distribuzione disconnesso
+          href: azure-stack-disconnected-deployment.md
+        - name: Integrazione della rete datacenter
+          items:
+            - name: Integrazione della rete
+              href: azure-stack-network.md
+            - name: Connettività di bordo
+              href: azure-stack-border-connectivity.md
+            - name: Integrazione di DNS
+              href: azure-stack-integrate-dns.md
+            - name: Integrazione con firewall
+              href: azure-stack-firewall.md
+              items:
+                - name: Pubblicare endpoint
+                  href: azure-stack-integrate-endpoints.md
+        - name: Requisiti per Azure Stack distribuzione PKI
+          href: azure-stack-pki-certs.md
+          items:
+            - name: Ottenere i certificati di infrastruttura a chiave pubblica per la distribuzione di Azure Stack
+              href: azure-stack-get-pki-certs.md
+        - name: Integrazione di identità
+          href: azure-stack-integrate-identity.md
+        - name: Registro dello Stack di Azure
+          href: azure-stack-registration.md
+        - name: Monitoraggio esterno
+          href: azure-stack-integrate-monitor.md
+        - name: Integrazione della sicurezza
+          href: azure-stack-integrate-security.md
     - name: Criteri di manutenzione
       href: azure-stack-servicing-policy.md
     - name: Funzionalità e concetti principali
@@ -59,35 +95,6 @@
           href: azure-stack-add-default-image.md
         - name: Creare una macchina virtuale di test
           href: azure-stack-provision-vm.md
-    - name: Distribuire i sistemi Azure Stack integrato
-      items:
-        - name: Considerazioni sulla pianificazione della distribuzione
-          href: azure-stack-deployment-planning.md
-        - name: Decisioni di pianificazione di distribuzione
-          href: azure-stack-deployment-decisions.md
-        - name: Distribuire connesso ad Azure
-          href: azure-stack-connected-deployment.md
-        - name: Distribuire disconnesso da Azure
-          href: azure-stack-disconnected-deployment.md
-        - name: Requisiti per Azure Stack distribuzione PKI
-          href: azure-stack-pki-certs.md
-          items:
-            - name: Ottenere i certificati di infrastruttura a chiave pubblica per la distribuzione di Azure Stack
-              href: azure-stack-get-pki-certs.md
-        - name: Registro dello Stack di Azure
-          href: azure-stack-registration.md
-    - name: Integrazione di Datacenter
-      items:
-        - name: DNS
-          href: azure-stack-integrate-dns.md
-        - name: Identità
-          href: azure-stack-integrate-identity.md
-        - name: Pubblicare endpoint
-          href: azure-stack-integrate-endpoints.md
-        - name: Monitoraggio esterno
-          href: azure-stack-integrate-monitor.md
-        - name: Sicurezza
-          href: azure-stack-integrate-security.md
     - name: Gestisci
       items:
         - name: Gestione delle aree

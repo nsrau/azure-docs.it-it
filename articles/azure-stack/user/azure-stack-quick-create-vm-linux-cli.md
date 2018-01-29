@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: ea0bc72c03c7c51f79b838493eb2f6d3efe4f8f7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 160893f5b2e9c78bd62355782c279fb08f7f6b48
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-linux-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Creare una macchina virtuale di Linux mediante Azure CLI nello Stack di Azure
 
@@ -37,7 +37,7 @@ CLI di Azure viene utilizzato per creare e gestire le risorse di Azure Stack dal
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Un gruppo di risorse è un contenitore logico in cui Stack di Azure le risorse vengono distribuite e gestite. Il kit di sviluppo o lo Stack di Azure integrato system, eseguire il [gruppo az creare](/cli/azure/group#create) comando per creare un gruppo di risorse. Sono stati assegnati valori per tutte le variabili in questo documento, è possibile utilizzarli così come sono oppure assegnare un valore diverso. Nell'esempio seguente viene creato un gruppo di risorse denominato myResourceGroup nel percorso locale.
+Un gruppo di risorse è un contenitore logico in cui Stack di Azure le risorse vengono distribuite e gestite. Il kit di sviluppo o lo Stack di Azure integrato system, eseguire il [gruppo az creare](/cli/azure/group#az_group_create) comando per creare un gruppo di risorse. Sono stati assegnati valori per tutte le variabili in questo documento, è possibile utilizzarli così come sono oppure assegnare un valore diverso. Nell'esempio seguente viene creato un gruppo di risorse denominato myResourceGroup nel percorso locale.
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -45,7 +45,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
-Creare una VM con il comando [az vm create](/cli/azure/vm#create). L'esempio seguente crea una macchina virtuale denominata myVM. L'esempio Usa Demouser per un nome utente amministrativo e Demouser@123 come password. Aggiornare i valori in modo che siano appropriati all'ambiente. Questi valori sono necessari quando ci si connette alla macchina virtuale.
+Creare una VM con il comando [az vm create](/cli/azure/vm#az_vm_create). L'esempio seguente crea una macchina virtuale denominata myVM. L'esempio Usa Demouser per un nome utente amministrativo e Demouser@123 come password. Aggiornare i valori in modo che siano appropriati all'ambiente. Questi valori sono necessari quando ci si connette alla macchina virtuale.
 
 ```cli
 az vm create \
@@ -98,7 +98,7 @@ Dopo l'installazione di NGINX e l'apertura della porta 80 nella macchina virtual
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non servono più, è possibile usare il comando [az group delete](/cli/azure/group#delete) per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
+Quando non servono più, è possibile usare il comando [az group delete](/cli/azure/group#az_group_delete) per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate.
 
 ```cli
 az group delete --name myResourceGroup

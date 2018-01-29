@@ -54,7 +54,7 @@ Il motore di database di SQL Server non può utilizzare l'Autenticazione di Wind
 5. Nella finestra di dialogo di SQL Server Management Studio fare clic su **OK** per confermare il requisito del riavvio di SQL Server.
 6. In Esplora oggetti fare clic con il pulsante destro del mouse sul server e quindi scegliere **Riavvia**. (Se SQL Server Agent è in esecuzione, anch'esso dovrà essere riavviato).
    
-    ![Riavvia](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
+    ![Riavvio](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 7. Nella finestra di dialogo di SQL Server Management Studio fare clic su **Sì** per accettare il riavvio di SQL Server.
 
 ### <a name="create-sql-server-authentication-logins"></a>Creare gli account di accesso di SQL Server

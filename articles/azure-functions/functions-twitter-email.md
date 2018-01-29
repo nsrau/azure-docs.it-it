@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 8137892c4360a6b55cfe48d62226c2421a791d5e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creare una funzione che si integra con le app per la logica di Azure
 
@@ -40,7 +40,7 @@ In questa esercitazione si apprenderà come:
 > * Connettere l'app per la logica alla funzione.
 > * Inviare un messaggio di posta elettronica in base alla risposta dalla funzione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 + Un account [Twitter](https://twitter.com/) attivo. 
 + Un account [Outlook.com](https://outlook.com/) per l'invio delle notifiche.
@@ -74,27 +74,27 @@ Le API Servizi cognitivi sono disponibili in Azure come singole risorse. Usare l
 
 [!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
-## <a name="create-the-function-app"></a>Creare l'app (funzione)
+## <a name="create-the-function-app"></a>Creare l'app per le funzioni
 
 Funzioni permette di ripartire il carico di lavoro delle attività di elaborazione in un flusso di lavoro di app per la logica. Questa esercitazione fa uso di una funzione attivata tramite HTTP per elaborare i punteggi attribuiti da Servizi cognitivi ai sentiment dei tweet e restituire un valore categoria.  
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## <a name="create-an-http-triggered-function"></a>Creare una funzione di attivazione HTTP  
+## <a name="create-an-http-triggered-function"></a>Creare una funzione attivata tramite HTTP  
 
 1. Espandere l'app per le funzioni e fare clic sul pulsante **+** accanto a **Funzioni**. Se questa è la prima funzione nell'app per le funzioni, selezionare **Funzione personalizzata**. Verrà visualizzato il set completo di modelli di funzione.
 
     ![Pagina della guida introduttiva di Funzioni nel portale di Azure](media/functions-twitter-email/add-first-function.png)
 
-2. Nel campo di ricerca, digitare `http` e quindi scegliere **c#** per il modello di trigger HTTP. 
+2. Nel campo di ricerca digitare `http` e quindi scegliere **C#** per il modello di trigger HTTP. 
 
-    ![Scegliere il trigger HTTP](./media/functions-twitter-email/select-http-trigger-portal.png)
+    ![Scegliere un trigger HTTP](./media/functions-twitter-email/select-http-trigger-portal.png)
 
-3. Digitare un **nome** per la funzione, scegliere `Function` per  **[livello di autenticazione](functions-bindings-http-webhook.md#http-auth)**, quindi selezionare **crea**. 
+3. Digitare un **Nome** per la funzione, scegliere `Function` per **[Livello autenticazione](functions-bindings-http-webhook.md#http-auth)** e quindi selezionare **Crea**. 
 
-    ![Creare la funzione di attivazione HTTP](./media/functions-twitter-email/select-http-trigger-portal-2.png)
+    ![Creare la funzione attivata tramite HTTP](./media/functions-twitter-email/select-http-trigger-portal-2.png)
 
-    Viene creata una funzione di script c# usando il modello di HTTP Trigger. Il codice viene visualizzato in una nuova finestra come `run.csx`.
+    Viene creata una funzione di script C# tramite il modello di trigger HTTP. Il codice viene visualizzato in una nuova finestra come `run.csx`.
 
 4. Sostituire il contenuto del file `run.csx` con il codice seguente e quindi fare clic su **Salva**:
 
@@ -288,5 +288,5 @@ Passare all'esercitazione successiva per imparare a creare un'API senza server p
 > [!div class="nextstepaction"] 
 > [Creare un'API senza server mediante Funzioni di Azure](functions-create-serverless-api.md)
 
-Per altre informazioni sulle app per la logica, vedere [App per la logica di Azure](../logic-apps/logic-apps-what-are-logic-apps.md).
+Per altre informazioni sulle app per la logica, vedere [App per la logica di Azure](../logic-apps/logic-apps-overview.md).
 

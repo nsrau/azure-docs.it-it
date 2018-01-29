@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: e547469dc61eddd1d772571ab0919532ac91f128
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1ac614156755b9b29db7c968c708a5cff706f7a8
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-authentication--mitigations"></a>Infrastruttura di sicurezza: autenticazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="standard-authn-web-app"></a>Valutare l'uso di un meccanismo di autenticazione standard per l'autenticazione nell'applicazione Web
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -50,7 +50,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="handle-failed-authn"></a>Gestire in modo sicuro scenari di autenticazione non riuscita mediante le applicazioni
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -94,7 +94,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="pword-account-policy"></a>Assicurarsi che vengano implementati criteri di account e password
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -105,7 +105,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="controls-username-enum"></a>Implementare controlli per prevenire l'enumerazione del nome utente
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -127,7 +127,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="aad-authn-sql"></a>Usare l'autenticazione di Azure Active Directory per la connessione al database SQL, se possibile
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -226,7 +226,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="standard-authn-id"></a>Usare scenari di autenticazione standard supportati da Identity Server
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Identity Server | 
 | **Fase SDL**               | Compilare |  
@@ -248,7 +248,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="binaries-signed"></a>Assicurarsi che i file binari dell'applicazione distribuita abbiano una firma digitale
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust dei computer | 
 | **Fase SDL**               | Distribuzione |  
@@ -259,7 +259,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a id="msmq-queues"></a>Abilitare l'autenticazione nella connessione a code MSMQ in WCF
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  
@@ -299,7 +299,7 @@ L'elemento `<netMsmqBinding/>` del file di configurazione WCF seguente indica a 
 
 ## <a id="message-none"></a>WCF: non impostare il messaggio clientCredentialType su Nessuno
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  
@@ -342,7 +342,7 @@ L'elemento `<netMsmqBinding/>` del file di configurazione WCF seguente indica a 
 
 ## <a id="authn-aad"></a>Usare scenari di autenticazione standard supportati da Azure Active Directory
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure AD | 
 | **Fase SDL**               | Compilare |  
@@ -364,7 +364,7 @@ L'elemento `<netMsmqBinding/>` del file di configurazione WCF seguente indica a 
 
 ## <a id="tokenreplaycache-adal"></a>Assicurarsi che venga usata la proprietà TokenReplayCache per impedire la riproduzione dei token di autenticazione ADAL
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure AD | 
 | **Fase SDL**               | Compilare |  
@@ -374,7 +374,7 @@ L'elemento `<netMsmqBinding/>` del file di configurazione WCF seguente indica a 
 | **Passaggi** | <p>La proprietà TokenReplayCache consente agli sviluppatori di definire una cache di riproduzione dei token, ovvero un archivio in cui salvare i token allo scopo di verificare che nessun token venga usato più di una volta.</p><p>Si tratta di una misura adatta a un tipo di attacco comune, detto attacco di riproduzione dei token, in cui un utente malintenzionato che intercetta il token inviato al momento dell'accesso potrebbe provare a inviarlo nuovamente all'app, ovvero "riprodurlo", per stabilire una nuova sessione. Ad esempio, nel flusso di concessione del codice OIDC dopo l'autenticazione dell'utente viene inviata una richiesta all'endpoint "/signin-oidc" della relying party con i parametri "id_token", "code" e "state".</p><p>La relying party convalida la richiesta e stabilisce una nuova sessione. Se un antagonista acquisisce questa richiesta e la riproduce, può stabilire una sessione ed effettuare lo spoofing dell'utente. La presenza del parametro nonce in OpenID Connect può limitare, ma non eliminare del tutto, le circostanze che permettono di mettere in atto l'attacco. Per proteggere le applicazioni, gli sviluppatori possono fornire un'implementazione di ITokenReplayCache e assegnare un'istanza a TokenReplayCache.</p>|
 
 ### <a name="example"></a>Esempio
-```C#
+```csharp
 // ITokenReplayCache defined in ADAL
 public interface ITokenReplayCache
 {
@@ -385,7 +385,7 @@ bool TryFind(string securityToken);
 
 ### <a name="example"></a>Esempio
 Di seguito è riportato un esempio di implementazione dell'interfaccia ITokenReplayCache. Personalizzare l'esempio e implementare il framework di memorizzazione nella cache specifico del progetto.
-```C#
+```csharp
 public class TokenReplayCache : ITokenReplayCache
 {
     private readonly ICacheProvider cache; // Your project-specific cache provider
@@ -409,7 +409,7 @@ public class TokenReplayCache : ITokenReplayCache
 }
 ```
 Le opzioni OIDC devono fare riferimento alla cache implementata tramite la proprietà "TokenValidationParameters", come indicato di seguito.
-```C#
+```csharp
 OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 {
     AutomaticAuthenticate = true,
@@ -436,7 +436,7 @@ Per verificare l'efficacia di questa configurazione, accedere all'applicazione l
 
 ## <a id="authn-devices-field"></a>Autenticare dispositivi che si connettono al gateway sul campo
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway IoT sul campo | 
 | **Fase SDL**               | Compilare |  
@@ -457,7 +457,7 @@ Per verificare l'efficacia di questa configurazione, accedere all'applicazione l
 | **Passaggi** | <ul><li>**Generico:** il dispositivo viene autenticato tramite Transport Layer Security (TLS) o IPSec. L'infrastruttura deve supportare l'uso di una chiave precondivisa (PSK) nei dispositivi che non riescono a gestire la crittografia asimmetrica completa. Usare Azure AD, OAuth.</li><li>**C#:** quando si crea un'istanza di DeviceClient, per impostazione predefinita il metodo Create crea un'istanza di DeviceClient che usa il protocollo AMQP per comunicare con l'hub IoT. Per usare il protocollo HTTPS, usare l'override del metodo Create che consente di specificare il protocollo. Se si usa il protocollo HTTPS, è necessario aggiungere al progetto anche il pacchetto NuGet `Microsoft.AspNet.WebApi.Client` per includere lo spazio dei nomi `System.Net.Http.Formatting`.</li></ul>|
 
 ### <a name="example"></a>Esempio
-```C#
+```csharp
 static DeviceClient deviceClient;
 
 static string deviceKey = "{device key}";
@@ -547,7 +547,7 @@ await deviceClient.SendEventAsync(message);
 
 ## <a id="authn-cred"></a>Usare credenziali di autenticazione per dispositivo
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway IoT cloud  | 
 | **Fase SDL**               | Compilare |  

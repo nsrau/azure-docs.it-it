@@ -17,15 +17,15 @@ ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
 ms.openlocfilehash: 35a74ffb6a30fe2ae7db686be5b6774800ce37b1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Configurare criteri Hive in HDInsight aggiunto al dominio
 Informazioni su come configurare i criteri di Apache Ranger per Hive. In questo articolo vengono creati due criteri di Ranger per limitare l'accesso a hivesampletable. La tabella hivesampletable è disponibile con i cluster HDInsight. Dopo aver configurato i criteri, usare Excel e il driver ODBC per connettersi alle tabelle Hive in HDInsight.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * Un cluster HDInsight aggiunto al dominio. Vedere [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md) (Configurare i cluster HDInsight aggiunti al dominio).
 * Una workstation con Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone oppure Office 2010 Professional Plus.
 
@@ -35,7 +35,7 @@ Informazioni su come configurare i criteri di Apache Ranger per Hive. In questo 
 1. Da un browser, connettersi all'interfaccia utente di amministrazione di Ranger. L'URL è https://&lt;ClusterName>.azurehdinsight.net/Ranger/.
 
    > [!NOTE]
-   > Ranger usa credenziali diverse da quelle del cluster Hadoop. Per evitare che i browser utilizzando credenziali memorizzate nella cache di Hadoop, utilizzare nuova finestra del browser InPrivate per connettersi all'interfaccia utente amministrazione cane.
+   > Ranger usa credenziali diverse da quelle del cluster Hadoop. Per evitare che i browser usino credenziali memorizzate nella cache di Hadoop, connettersi all'interfaccia utente di amministrazione di Ranger da una nuova finestra del browser InPrivate.
    >
    >
 2. Eseguire l'accesso usando il nome utente e la password di amministratore cluster:
@@ -45,10 +45,10 @@ Informazioni su come configurare i criteri di Apache Ranger per Hive. In questo 
     Attualmente, Ranger è compatibile solo con Yarn e Hive.
 
 ## <a name="create-domain-users"></a>Creazione di utenti del dominio
-In [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md#optional-create-ad-users-and-groups) (Configurare i cluster HDInsight aggiunti al dominio) sono stati creati hiveruser1 e hiveuser2. Utilizzare l'account due utente in questa esercitazione.
+In [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md#optional-create-ad-users-and-groups) (Configurare i cluster HDInsight aggiunti al dominio) sono stati creati hiveruser1 e hiveuser2. In questa esercitazione vengono usati i due account utente.
 
 ## <a name="create-ranger-policies"></a>Creazione dei criteri di Ranger
-In questa sezione è creare due criteri cane per l'accesso a hivesampletable. Vengono concesse autorizzazioni di selezione su diversi set di colonne. Entrambi gli utenti sono stati creati nella procedura [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md#optional-create-ad-users-and-groups) (Configurare i cluster HDInsight aggiunti al dominio).  Nella sezione successiva verranno verificati i due criteri in Excel.
+In questa sezione vengono creati due criteri di Ranger per accedere a hivesampletable. Vengono concesse autorizzazioni di selezione su diversi set di colonne. Entrambi gli utenti sono stati creati nella procedura [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md#optional-create-ad-users-and-groups) (Configurare i cluster HDInsight aggiunti al dominio).  Nella sezione successiva verranno verificati i due criteri in Excel.
 
 **Per creare criteri di Ranger**
 
@@ -113,17 +113,17 @@ Nell'ultima sezione, sono stati configurati due criteri.  hiveuser1 dispone dell
 
        SELECT * FROM "HIVE"."default"."hivesampletable"
 
-   In base ai criteri di Ranger che sono stati definiti, hiveuser1 dispone dell'autorizzazione di selezione su tutte le colonne.  Pertanto, la query funziona con le credenziali del hiveuser1, ma questa query non funziona con le credenziali del hiveuser2.
+   In base ai criteri di Ranger che sono stati definiti, hiveuser1 dispone dell'autorizzazione di selezione su tutte le colonne.  Questa query funziona quindi con le credenziali di hiveuser1, ma non con quelle di hiveuser2.
 
    ![Proprietà di connessione][img-hdi-simbahiveodbc-excel-connectionproperties]
 10. Fare clic su **OK** per chiudere la finestra di dialogo Proprietà connessione.
 11. Fare clic su **OK** per chiudere la finestra di dialogo **Importa dati**.  
 12. Reimmettere la password per hiveuser1, quindi fare clic su **OK**. L'importazione dei dati in Excel potrebbe richiedere alcuni secondi. Al termine, verranno visualizzate 11 colonne di dati.
 
-Per testare il secondo criterio (read-hivesampletable-devicemake), è stato creato nell'ultima sezione
+Per il test del secondo criterio (read-hivesampletable-devicemake) creato nell'ultima sezione
 
 1. Aggiungere un nuovo foglio in Excel.
-2. Seguire l'ultima procedura per importare i dati.  L'unica modifica apportata consiste nell'utilizzare le credenziali del hiveuser2 anziché del hiveuser1. L'operazione non riesce poiché hiveuser2 dispone solo dell'autorizzazione per visualizzare due colonne. Verrà visualizzato l'errore seguente:
+2. Seguire l'ultima procedura per importare i dati.  L'unica differenza è che vengono usate le credenziali di hiveuser2 anziché quelle di hiveuser1. L'esito è negativo perché hiveuser2 ha solo l'autorizzazione per visualizzare due colonne. Verrà visualizzato l'errore seguente:
 
         [Microsoft][HiveODBC] (35) Error from Hive: error code: '40000' error message: 'Error while compiling statement: FAILED: HiveAccessControlException Permission denied: user [hiveuser2] does not have [SELECT] privilege on [default/hivesampletable/clientid,country ...]'.
 3. Seguire la stessa procedura per importare i dati. Questa volta usare le credenziali di hiveuser2 e modificare l'istruzione di selezione da:
@@ -138,7 +138,7 @@ Per testare il secondo criterio (read-hivesampletable-devicemake), è stato crea
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per configurare un cluster HDInsight aggiunto al dominio, vedere [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md) (Configurare i cluster HDInsight aggiunti al dominio).
-* Per gestire un cluster HDInsight appartenenti a un dominio, vedere [cluster HDInsight Gestione dominio](apache-domain-joined-manage.md).
+* Per gestire un cluster HDInsight aggiunto al dominio, vedere [Manage Domain-joined HDInsight clusters](apache-domain-joined-manage.md) (Gestire i cluster HDInsight aggiunti al dominio).
 * Per eseguire query Hive usando SSH nei cluster HDInsight aggiunti al dominio, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 * Per connettere Hive usando JDBC, vedere [Connettersi a Hive in Azure HDInsight con il driver Hive JDBC](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md).
 * Per connettere Excel a Hadoop usando ODBC, vedere [Connettere Excel a Hadoop mediante Microsoft Hive ODBC Driver](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).

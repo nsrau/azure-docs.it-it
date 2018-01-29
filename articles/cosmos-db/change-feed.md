@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/30/2017
 ms.author: arramac
 ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Uso del supporto del feed delle modifiche in Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Il **supporto del feed di modifiche** in Azure Cosmos DB consente di creare solu
 ![Uso del feed delle modifiche di Azure Cosmos DB per agevolare le analisi in tempo reale e gli scenari di calcolo guidati dagli eventi](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> Il supporto del feed di modifiche viene fornito per tutti i modelli di dati e contenitori in Azure Cosmos DB. Tuttavia, il feed di modifica viene letto utilizzando il client SQL e serializza gli elementi in formato JSON. A causa della formattazione JSON, nei client MongoDB i documenti in formato JSON non corrisponderanno al feed di modifiche in formato JSON. 
+> Il supporto del feed di modifiche viene fornito per tutti i modelli di dati e contenitori in Azure Cosmos DB. Il feed di modifiche tuttavia viene letto usando il client SQL e serializza gli elementi in formato JSON. A causa della formattazione JSON, nei client MongoDB i documenti in formato JSON non corrisponderanno al feed di modifiche in formato JSON. 
 
 ## <a name="how-does-change-feed-work"></a>Funzionamento del feed di modifiche
 
@@ -90,9 +90,9 @@ I trigger possono essere creati nel portale di Funzioni di Azure, nel portale di
 <a id="rest-apis"></a>
 ## <a name="using-the-sdk"></a>Uso dell'SDK
 
-Il [SQL SDK](sql-api-sdk-dotnet.md) per Azure Cosmos DB offre tutte le potenzialità di leggere e gestire una modifica del feed. con tutte le responsabilità che ne derivano. Se è necessario gestire checkpoint e numeri di sequenza di documenti e avere un controllo granulare sulle chiavi di partizione, usare l'SDK può essere l'approccio ideale.
+[SQL SDK](sql-api-sdk-dotnet.md) per Azure Cosmos DB offre tutta la potenza necessaria per leggere e gestire un feed di modifiche, con tutte le responsabilità che ne derivano. Se è necessario gestire checkpoint e numeri di sequenza di documenti e avere un controllo granulare sulle chiavi di partizione, usare l'SDK può essere l'approccio ideale.
 
-In questa sezione illustra in dettaglio come usare il SDK di SQL per lavorare con una modifica del feed.
+Questa sezione illustra come usare SQL SDK per lavorare con un feed di modifiche.
 
 1. Iniziare leggendo le risorse seguenti da appconfig. Le istruzioni per recuperare l'endpoint e la chiave di autorizzazione sono disponibili in [Aggiornare la stringa di connessione](create-sql-api-dotnet.md#update-your-connection-string).
 
