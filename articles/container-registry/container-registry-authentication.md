@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc29d9a57f1dd452d2b4b77a53f52a5b66a25416
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 70758f938718aef160670bc023aff5fc0c9fb92a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Eseguire l'autenticazione con un registro contenitori Docker privato
 
@@ -45,7 +45,7 @@ I ruoli disponibili sono:
 
 Le entità servizio consentono la connettività headless a un registro in entrambi gli scenari push e pull, come i seguenti:
 
-  * *Lettore*: distribuzioni di contenitori da un registro a sistemi di orchestrazione, inclusi Kubernetes, DC/OS e Docker Swarm. È anche possibile eseguire il pull da registri contenitori a servizi di Azure correlati, ad esempio [AKS](../aks/index.yml), [Servizio app](../app-service/index.yml), [Batch](../batch/index.md), [Service Fabric](/azure/service-fabric/) e altri ancora.
+  * *Lettore*: distribuzioni di contenitori da un registro a sistemi di orchestrazione, inclusi Kubernetes, DC/OS e Docker Swarm. È anche possibile eseguire il pull da registri contenitori a servizi di Azure correlati, ad esempio [AKS](../aks/index.yml), [Servizio app](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) e altri ancora.
 
   * *Collaboratore*: soluzioni di distribuzione e integrazione continua come Visual Studio Team Services o Jenkins, che creano immagini dei contenitori e ne eseguono il push a un registro.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.openlocfilehash: 249fb4903c7b2de3ce290850a7759a4793f10aa7
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 4813276ea8180aa8bdd385da289e6073f08d400e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Aumentare o ridurre le istanze del cluster di Service Fabric con le regole di scalabilità automatica
 I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Service Fabric viene configurato come set di scalabilità di macchine virtuali distinto. Ogni tipo di nodo può quindi essere aumentato o ridotto in modo indipendente, avere diversi set di porte aperte e avere metriche per la capacità diverse. Per altre informazioni, vedere il documento sui [tipi di nodo di Service Fabric](service-fabric-cluster-nodetypes.md) . Poiché i tipi di nodi di Service Fabric nel cluster sono costituiti da set di scalabilità di macchine virtuali nel back-end, è necessario configurare regole di ridimensionamento automatico per ogni tipo di nodo o set di scalabilità di macchine virtuali.
@@ -91,7 +91,7 @@ Seguire l'esempio o le istruzioni nella [raccolta modelli di avvio rapido](https
 4. Ripetere le fasi da 1 a 3 come necessario, ma non ridurre il numero di istanze nel nodo primario a un valore inferiore a quello garantito dal livello di affidabilità. Fare riferimento ai [dettagli sui livelli di affidabilità](service-fabric-cluster-capacity.md).
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Comportamenti che è possibile osservare in Service Fabric Explorer
-Quando si aumentano le istanze di un cluster, Service Fabric Explorer riflette il numero di nodi, ovvero le istanze del set di scalabilità di macchine virtuali, che fanno parte del cluster.  Quando tuttavia si riducono le istanze di un cluster, il nodo o l'istanza della VM rimossa viene ancora visualizzata con uno stato non integro, a meno di chiamare il cmdlet [Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/mt125993.aspx) con il nome del nodo appropriato.   
+Quando si aumentano le istanze di un cluster, Service Fabric Explorer riflette il numero di nodi, ovvero le istanze del set di scalabilità di macchine virtuali, che fanno parte del cluster.  Quando tuttavia si riducono le istanze di un cluster, il nodo o l'istanza della VM rimossa viene ancora visualizzata con uno stato non integro, a meno di chiamare il cmdlet [Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) con il nome del nodo appropriato.   
 
 Ecco la spiegazione di questo comportamento.
 

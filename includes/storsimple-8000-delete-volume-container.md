@@ -1,6 +1,6 @@
-<!--author=alkohli last changed: 01/13/17-->
+<!--author=alkohli last changed: 01/23/18-->
 
-Se il contenitore del volume ha volumi associati, portarli prima offline. Seguire la procedura illustrata in [Portare un volume offline](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). Quando i volumi sono offline, è possibile eliminarli. Quando il contenitore non ha volumi associati, eliminare il contenitore del volume. Seguire questa procedura per eliminare un contenitore del volume.
+Se il contenitore del volume ha volumi associati, portarli prima offline. Seguire la procedura illustrata in [Portare un volume offline](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). Quando i volumi sono offline, è possibile eliminarli. Quando il contenitore non ha volumi associati, eliminare il contenitore del volume. Seguire questa procedura per eliminare un contenitore del volume.
 
 #### <a name="to-delete-a-volume-container"></a>Per eliminare un contenitore di volumi
 1. Passare al servizio Gestione dispositivi StorSimple e fare clic su **Dispositivi**. Selezionare e fare clic sul dispositivo e quindi andare a **Impostazioni > Gestione > Contenitori dei volumi**.

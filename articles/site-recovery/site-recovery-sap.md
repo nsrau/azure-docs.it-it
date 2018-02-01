@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 5a47acab598e113ef7ed968dd3a6429ac3bc1ec3
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 96dc9bc81b8889e2e962c9c2dbf119ee985ec2f1
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-using-azure-site-recovery"></a>Proteggere una distribuzione di applicazioni SAP NetWeaver multilivello usando Azure Site Recovery
 
@@ -32,7 +32,7 @@ Con Azure Site Recovery è possibile:
 Questo articolo descrive come proteggere le distribuzioni di applicazioni SAP NetWeaver con [Azure Site Recovery](site-recovery-overview.md). L'articolo illustra le procedure consigliate per la protezione di una distribuzione SAP NetWeaver a tre livelli in Azure tramite la replica in un altro data center di Azure usando Azure Site Recovery, le configurazioni e gli scenari supportati e come eseguire i failover, sia di test (esercitazioni sul ripristino di emergenza) che effettivi.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Prima di iniziare, è necessario comprendere i concetti illustrati di seguito:
 
 1. [Replica di una macchina virtuale in Azure](azure-to-azure-walkthrough-enable-replication.md)
@@ -81,7 +81,7 @@ Se si usa un indirizzo IP statico, è possibile specificare l'indirizzo IP per l
 Un piano di ripristino consente di definire la sequenza di failover di vari livelli in un'applicazione multilivello, conservando la coerenza dell'applicazione. Seguire la procedura descritta [qui](site-recovery-create-recovery-plans.md) durante la creazione di un piano di ripristino per un'applicazione Web multilivello.
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Aggiunta di script al piano di ripristino
-Potrebbe essere necessario eseguire alcune operazioni nelle macchine virtuali di Azure dopo il failover o il failover di test per garantire il corretto funzionamento delle applicazioni. È possibile automatizzare le operazioni successive al failover, come l'aggiornamento della voce DNS e la modifica dei binding e delle connessioni, aggiungendo gli script corrispondenti nel piano di ripristino, come illustrato in [questo articolo](site-recovery-create-recovery-plans.md#add-scripts).
+Potrebbe essere necessario eseguire alcune operazioni nelle macchine virtuali di Azure dopo il failover o il failover di test per garantire il corretto funzionamento delle applicazioni. È possibile automatizzare le operazioni successive al failover, come l'aggiornamento della voce DNS e la modifica dei binding e delle connessioni, aggiungendo gli script corrispondenti nel piano di ripristino, come illustrato in [questo articolo](site-recovery-how-to-add-vmmscript.md).
 
 ### <a name="dns-update"></a>Aggiornamento del DNS
 Se il DNS è configurato per l'aggiornamento DNS dinamico, le macchine virtuali aggiornano in genere il DNS con il nuovo indirizzo IP all'avvio. Se si vuole aggiungere un passaggio esplicito per l'aggiornamento del DNS con i nuovi indirizzi IP delle macchine virtuali, aggiungere questo [script per l'aggiornamento degli indirizzi IP nel DNS](https://aka.ms/asr-dns-update) come post-azione nei gruppi del piano di ripristino.  

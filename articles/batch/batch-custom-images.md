@@ -2,17 +2,17 @@
 title: Effettuare il provisioning dei pool di Azure Batch da immagini personalizzate | Microsoft Docs
 description: "È possibile creare un pool di Batch da un'immagine personalizzata per effettuare il provisioning dei nodi di calcolo che contengono il software e i dati necessari per l'applicazione. Le immagini personalizzate sono uno strumento efficace per configurare i nodi di calcolo per l'esecuzione dei carichi di lavoro di Batch."
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: v-dotren
-ms.openlocfilehash: d62abd673f89fd51edba721119d1680762a60c76
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.author: danlep
+ms.openlocfilehash: 63a567e9fdfef8dfceb275953cc0ac606355ea30
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>Usare un'immagine personalizzata gestita per creare un pool di macchine virtuali 
 
@@ -33,7 +33,7 @@ L'uso di un'immagine personalizzata configurata per uno scenario specifico può 
 - **Incrementare le dimensioni dei pool in base alle specifiche esigenze.** Quando per creare un pool si usa un'immagine personalizzata gestita, il pool può assumere le dimensioni desiderate. Non è necessario creare copie dei dischi rigidi virtuali del BLOB dell'immagine per adattare le dimensioni al numero di macchine virtuali. 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - **Una risorsa immagine gestita**. Per creare un pool di macchine virtuali usando un'immagine personalizzata, è necessario creare una risorsa immagine gestita nella stessa sottoscrizione di Azure e nella stessa area dell'account di Batch. Per le opzioni disponibili per la creazione di un'immagine gestita, vedere la sezione seguente.
 - **Autenticazione di Azure Active Directory (AAD)**. L'API client di Batch deve usare l'autenticazione AAD. Il supporto di Azure Batch per l'autenticazione AAD è documentato in [Autenticare le soluzioni del servizio Batch con Active Directory](batch-aad-auth.md).

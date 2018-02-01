@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: a0dd7388b3fa7517b97f4dd66eb121ebfd98d4a4
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: a2477b0a7c9c76f8ce4a183f4d699ddf4c291023
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>Generare raccomandazioni di film mediante Apache Mahout con Hadoop in HDInsight (PowerShell)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/06/2017
 
 Informazioni su come usare la libreria di Machine Learning [Apache Mahout](http://mahout.apache.org) con Azure HDInsight per generare raccomandazioni di film. L'esempio riportato in questo documento usa Azure PowerShell per eseguire i processi Mahout.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Un cluster HDInsight basato su Linux. Per informazioni su come crearne uno, vedere [Introduzione all'uso di Hadoop basato su Linux in HDInsight][getstarted].
 

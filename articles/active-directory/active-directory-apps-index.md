@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: 254f1913f1b9cb1a165d007a1f4204f7783472c1
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: eaceab7d0dba7719452000cc4e1bd19baa28af9e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Indice di articoli per la gestione di applicazioni in Azure Active Directory
 Questa pagina fornisce un elenco completo di tutti i documenti scritti sulle diverse funzionalità relative alle applicazioni in Azure Active Directory (Azure AD).
@@ -137,7 +137,7 @@ Automatizzazione delle operazioni di creazione, gestione e rimozione delle ident
 | Altre informazioni sul funzionamento e risposte alle domande comuni. |[Automatizzare il provisioning e il deprovisioning utenti in app SaaS](active-directory-saas-app-provisioning.md) |
 | Configurare il mapping delle informazioni tra Azure AD e l'app SaaS. |[Personalizzazione dei mapping degli attributi](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Scrittura di espressioni per i mapping degli attributi](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
 | Come abilitare il provisioning automatico per le app che supportano il protocollo SCIM. |[Configurare il provisioning utenti automatico per le app abilitate a SCIM](active-directory-scim-provisioning.md) |
-| Come creare report e risolvere i problemi di provisioning utenti |[Creazione di report sul provisioning utenti automatico](active-directory-saas-provisioning-reporting.md)<br><br>[Notifiche relative al provisioning](active-directory-saas-account-provisioning-notifications.md)<br><br>[Risoluzione dei problemi relativi al provisioning utenti](active-directory-application-provisioning-content-map.md) |
+| Come creare report e risolvere i problemi di provisioning utenti |[Creazione di report sul provisioning utenti automatico](active-directory-saas-provisioning-reporting.md)<br><br>[Risoluzione dei problemi relativi al provisioning utenti](active-directory-application-provisioning-content-map.md) |
 | Limitare gli utenti sottoposti a provisioning per un'applicazione in base ai valori dei rispettivi attributi. |[Filtri per la definizione dell'ambito](active-directory-saas-scoping-filters.md) |
 
 Il provisioning utenti automatico è disponibile per tutte le edizioni di Azure AD fino a un massimo di dieci app per utente. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) supporta un numero illimitato di applicazioni. Se nell'organizzazione è disponibile [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), è possibile [usare i gruppi per gestire gli utenti da sottoporre a provisioning](#managing-access-to-applications).

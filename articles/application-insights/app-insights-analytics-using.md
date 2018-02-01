@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
 ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="using-analytics-in-application-insights"></a>Uso di Analytics in Application Insights
 L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Log Analytics.
@@ -89,7 +89,7 @@ Usare l'icona del filtro per perfezionare la ricerca.
 ### <a name="group-items"></a>Raggruppare elementi
 Per ordinare più di una colonna, usare il raggruppamento. Abilitare il raggruppamento e quindi trascinare le intestazioni di colonna nello spazio sopra la tabella.
 
-![Gruppo](./media/app-insights-analytics-using/060.png)
+![Group](./media/app-insights-analytics-using/060.png)
 
 ### <a name="missing-some-results"></a>Mancano alcuni risultati?
 
@@ -99,7 +99,7 @@ Se si ritiene che non siano visualizzati tutti i risultati previsti, esistono un
 
     È possibile tuttavia modificare il filtro intervallo di tempo usando il menu a discesa.
 
-    In alternativa, è possibile ignorare l'intervallo automatico inserendo la propria clausola [`where  ... timestamp ...` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) nella query. Ad esempio:
+    In alternativa, è possibile ignorare l'intervallo automatico inserendo la propria clausola [`where  ... timestamp ...` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) nella query. Ad esempio: 
 
     `requests | where timestamp > ago('2d')`
 

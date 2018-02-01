@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 80996c8bc6e40665201057ed185700ddaeea170a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 53ba5eaf3272746bd107efbcbae4b5d5889a197f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-developers-guide"></a>Manuale dello sviluppatore di Funzioni di Azure
 In Funzioni di Azure funzioni specifiche condividono alcuni concetti tecnici e componenti di base, indipendentemente dal linguaggio o dall'associazione che vengono usati. Prima di passare all'apprendimento di dettagli specifici per un linguaggio o un'associazione, assicurarsi di leggere questa panoramica generale.
@@ -55,7 +55,7 @@ La proprietà `bindings` è quella che consente di configurare trigger e associa
 | --- | --- | --- |
 | `type` |stringa |Tipo di associazione. Ad esempio, `queueTrigger`. |
 | `direction` |'in', 'out' |Indica se l'associazione consente la ricezione di dati nella funzione o l'invio di dati dalla funzione. |
-| `name` |string |Il nome che viene usato per i dati associati nella funzione. Per C#, si tratta di un nome di argomento, per JavaScript è la chiave in un elenco di chiavi/valori. |
+| `name` |stringa |Il nome che viene usato per i dati associati nella funzione. Per C#, si tratta di un nome di argomento, per JavaScript è la chiave in un elenco di chiavi/valori. |
 
 ## <a name="function-app"></a>App per le funzioni
 Un'app per le funzioni è costituita da una o più singole funzioni che vengono gestite insieme dal servizio app di Azure. Tutte le funzioni in un'app per le funzioni condividono lo stesso piano tariffario, la stessa distribuzione continua e la stessa versione runtime. Funzioni scritte in più linguaggi possono condividere la stessa app per le funzioni. Un'app per le funzioni può essere considerata un modo per organizzare e gestire collettivamente le funzioni. 
@@ -102,7 +102,7 @@ Quando si verificano rapidamente più eventi di trigger di quanti il runtime del
 
 ## <a name="functions-runtime-versioning"></a>Controllo delle versioni del runtime di Funzioni
 
-È possibile configurare la versione del runtime di Funzioni usando le impostazioni dell'app `FUNCTIONS_EXTENSION_VERSION`. Ad esempio, il valore "~ 1" indica che l'app per le funzioni userà 1 come numero di versione principale. Le app per le funzioni vengono aggiornate a ogni nuova versione secondaria appena rilasciata. Per altre informazioni, incluso come visualizzare la versione esatta dell'app per le funzioni, vedere [Come specificare le versioni del runtime per Funzioni di Azure](functions-versions.md).
+È possibile configurare la versione del runtime di Funzioni usando le impostazioni dell'app `FUNCTIONS_EXTENSION_VERSION`. Ad esempio, il valore "~ 1" indica che l'app per le funzioni userà 1 come numero di versione principale. Le app per le funzioni vengono aggiornate a ogni nuova versione secondaria appena rilasciata. Per altre informazioni, incluso come visualizzare la versione esatta dell'app per le funzioni, vedere [Come specificare le versioni del runtime per Funzioni di Azure](set-runtime-version.md).
 
 ## <a name="repositories"></a>Repository
 Il codice di Funzioni di Azure è open source e archiviato in repository GitHub:

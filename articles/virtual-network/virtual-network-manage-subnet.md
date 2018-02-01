@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.openlocfilehash: 85ba6ef3e51c339a77eb9b4198c4f87e2a64cf09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 413ec2ef4fcc7752b95984a209818eeba535746e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Aggiungere, modificare o eliminare le subnet di rete virtuale
 
@@ -35,7 +35,7 @@ Questo articolo spiega come aggiungere, modificare ed eliminare le subnet per le
 
 Prima di iniziare le attività descritte in questo articolo, completare i prerequisiti seguenti:
 
-- Se non si ha familiarità con l'uso di reti virtuali, è consigliabile rivedere l'esercitazione [Creare la prima rete virtuale di Azure](virtual-network-get-started-vnet-subnet.md). Questa esercitazione consente di acquisire maggiore familiarità con le reti virtuali.
+- Se non si ha familiarità con l'uso di reti virtuali, è consigliabile rivedere l'esercitazione [Creare la prima rete virtuale di Azure](quick-create-portal.md). Questa esercitazione consente di acquisire maggiore familiarità con le reti virtuali.
 - Per altre informazioni sui limiti delle reti virtuali, rivedere i [limiti di Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Accedere al portale di Azure, allo strumento da riga di comando, ovvero all'interfaccia della riga di comando di Azure, oppure ad Azure PowerShell con il proprio account di Azure. Se non si ha un account di Azure, registrarsi per ottenere un [account per la versione di valutazione gratuita](https://azure.microsoft.com/free).
 - Se per completare le attività descritte in questo articolo si prevede di usare i comandi di PowerShell, è prima necessario [installare e configurare Azure PowerShell](/powershell/azureps-cmdlets-docs?toc=%2fazure%2fvirtual-network%2ftoc.json). Assicurarsi che sia installata la versione più recente dei cmdlet di Azure PowerShell. Per le informazioni della Guida sui comandi di PowerShell usati negli esempi, immettere `get-help <command> -full`.
@@ -78,7 +78,7 @@ Per aggiungere una subnet:
 3. Nel pannello **Reti virtuali** fare clic sulla rete virtuale per cui si desidera modificare l'intervallo di indirizzi di una subnet.
 4. Fare clic sulla subnet per cui si vuole modificare l'intervallo di indirizzi.
 5. Nel pannello della subnet, nella casella **Intervallo indirizzi** immettere il nuovo intervallo di indirizzi. L'intervallo deve essere univoco all'interno dello spazio di indirizzi della rete virtuale. L'intervallo non può sovrapporsi ad altri intervalli di indirizzi di subnet all'interno della rete virtuale. Lo spazio di indirizzi deve essere specificato mediante la notazione CIDR. Ad esempio, in una rete virtuale con lo spazio di indirizzi 10.0.0.0/16 è possibile definire lo spazio di indirizzi di subnet 10.0.0.0/24. L'intervallo più piccolo che è possibile specificare è /29, che fornisce otto indirizzi IP per subnet. Azure riserva il primo e l'ultimo indirizzo in ogni subnet per conformità al protocollo. Altri tre indirizzi sono riservati per l'uso da parte del servizio di Azure. Di conseguenza una subnet con l'intervallo di indirizzi /29 ha tre indirizzi IP utilizzabili. Se si prevede di connettere una rete virtuale a un gateway VPN, è necessario creare una subnet per il gateway. Altre informazioni su [considerazioni specifiche sugli intervalli di indirizzi per le subnet di gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Dopo aver creato la subnet, in determinate condizioni è possibile modificare l'intervallo di indirizzi. Per informazioni su come modificare un intervallo di indirizzi di subnet, leggere la sezione [Cambiare le impostazioni della subnet](#change-subnet) di questo articolo.
-6. Fare clic su **Salva**.
+6. Fare clic su **Save**.
 
 **Comandi**
 
@@ -107,4 +107,4 @@ Per aggiungere una subnet:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per creare una macchina virtuale in una subnet, vedere [Create a virtual network and deploy VMs in the subnet](virtual-network-get-started-vnet-subnet.md#create-vms) (Creare una rete virtuale e distribuire VM nella subnet).
+Per creare una macchina virtuale in una subnet, vedere [Create a virtual network and deploy VMs in the subnet](quick-create-portal.md#create-virtual-machines) (Creare una rete virtuale e distribuire VM nella subnet).

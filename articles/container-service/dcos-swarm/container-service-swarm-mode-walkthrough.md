@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: nepeters
 ms.custom: 
-ms.openlocfilehash: 5f325cf19afd5a5a42c09b49486c0c1d9ee15e5d
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: c2cf81729a0556484bb0eb6c93ea57f0a6208cb0
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-docker-ce-cluster"></a>Distribuire un cluster Docker CE
 
@@ -27,7 +27,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#create). Un gruppo di risorse di Azure è un gruppo logico in cui le risorse di Azure vengono distribuite e gestite.
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). Un gruppo di risorse di Azure è un gruppo logico in cui le risorse di Azure vengono distribuite e gestite.
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *ukwest*.
 
@@ -52,7 +52,7 @@ Output:
 
 ## <a name="create-docker-swarm-cluster"></a>Creare un cluster Docker Swarm
 
-Creare un cluster Docker CE nel servizio contenitore di Azure con il comando [az acs create](/cli/azure/acs#create). 
+Creare un cluster Docker CE nel servizio contenitore di Azure con il comando [az acs create](/cli/azure/acs#az_acs_create). 
 
 L'esempio seguente crea un cluster denominato *mySwarmCluster* con un nodo master Linux e tre nodi agente Linux.
 
@@ -60,7 +60,7 @@ L'esempio seguente crea un cluster denominato *mySwarmCluster* con un nodo maste
 az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-In alcuni casi la sottoscrizione di Azure ha accesso limitato alle risorse di Azure, ad esempio con una versione di valutazione gratuita limitata. Se la distribuzione non riesce a causa di core disponibili limitati, ridurre il numero di agenti predefinito aggiungendo `--agent-count 1` al comando [az acs create](/cli/azure/acs#create). 
+In alcuni casi la sottoscrizione di Azure ha accesso limitato alle risorse di Azure, ad esempio con una versione di valutazione gratuita limitata. Se la distribuzione non riesce a causa di core disponibili limitati, ridurre il numero di agenti predefinito aggiungendo `--agent-count 1` al comando [az acs create](/cli/azure/acs#az_acs_create). 
 
 Dopo alcuni minuti, il comando viene completato e restituisce le informazioni in formato JSON sul cluster.
 
@@ -152,7 +152,7 @@ Passare al nome di dominio completo del pool di agenti Swarm per testare l'appli
 ![Immagine del passaggio ad Azure Vote](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Eliminare il cluster
-Quando il cluster non è più necessario, è possibile usare il comando [az group delete](/cli/azure/group#delete) per rimuovere il gruppo di risorse, il servizio contenitore e tutte le risorse correlate.
+Quando il cluster non è più necessario, è possibile usare il comando [az group delete](/cli/azure/group#az_group_delete) per rimuovere il gruppo di risorse, il servizio contenitore e tutte le risorse correlate.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait

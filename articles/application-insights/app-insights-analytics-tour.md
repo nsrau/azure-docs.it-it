@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
 ms.openlocfilehash: 271ccc126eeb9411646b68b32fd30ce32b5eef5c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Presentazione dello strumento Analisi in Application Insights
 L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Log Analytics.

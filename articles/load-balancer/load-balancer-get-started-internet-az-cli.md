@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.openlocfilehash: 769eb86af3e0506ddf03d1ec616d5a17b7e5f714
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 180cf891611f148a1b9acd112fbcddab8eb54de3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>Creare un servizio di bilanciamento del carico pubblico standard con un front-end con ridondanza della zona usando l'interfaccia della riga di comando di Azure
 
@@ -41,7 +41,7 @@ Lo [SKU di Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) è 
 
 Prima di selezionare una zona o l'opzione con ridondanza della zona per l'indirizzo IP pubblico front-end per il servizio di bilanciamento del carico, è necessario completare i passaggi in [Eseguire la registrazione per l'anteprima di Zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
-Verificare di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e di avere eseguito l'accesso a un account Azure con [az login](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest#login).
+Verificare di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e di avere eseguito l'accesso a un account Azure con [az login](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest#az_login).
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 

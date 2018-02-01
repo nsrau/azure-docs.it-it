@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 01/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 47aabaf8512a7fffc189255212010efb5389f38a
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 4d9a87f244501b91c60a895f0e16d0c979163444
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copiare dati da Sybase usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,6 @@ Per il servizio collegato di Sybase sono supportate le proprietà seguenti:
 | type | La proprietà type deve essere impostata su: **Sybase** | Sì |
 | server | Nome del server Sybase. |Sì |
 | database | Nome del database Sybase. |Sì |
-| schema | Nome dello schema nel database. |No  |
 | authenticationType | Tipo di autenticazione usato per connettersi al database Sybase.<br/>I valori consentiti sono: **Di base** e **Windows**. |Sì |
 | username | Specificare il nome utente per la connessione al database Sybase. |Sì |
 | password | Specificare la password per l'account utente specificato per il nome utente. Contrassegnare questo campo come SecureString. |Sì |

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
 ms.openlocfilehash: d66b5aa4eb2ad90596dfe9e26bbc18996c967295
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurazione delle credenziali per la distribuzione del Servizio app di Azure
 Il [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) supporta due tipi di credenziali per la [distribuzione di GIT locale](app-service-deploy-local-git.md) e la [distribuzione FTP/S](app-service-deploy-ftp.md). Queste credenziali non corrispondono alle credenziali di Azure Active Directory.

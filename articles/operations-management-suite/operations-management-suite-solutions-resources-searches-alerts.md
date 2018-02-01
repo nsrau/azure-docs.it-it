@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2036da052e998797d860db2eadfd2ac5c968aae
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 9e25ad9b9be6d02550b4be9c09496021cd7fe2d2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Aggiunta di avvisi e di ricerche salvate di Log Analytics alla soluzione di gestione in OMS (anteprima)
 
@@ -36,7 +36,7 @@ Questo articolo presuppone che si abbia già familiarità con la [creazione di u
 
 
 ## <a name="log-analytics-workspace"></a>Area di lavoro di Log Analytics
-Tutte le risorse in Log Analytics sono contenute in un'[area di lavoro](../log-analytics/log-analytics-manage-access.md).  Come descritto in [Area di lavoro OMS e account di Automazione](operations-management-suite-solutions.md#oms-workspace-and-automation-account), l'area di lavoro non è inclusa nella soluzione di gestione, ma deve essere presente prima che la soluzione venga installata.  Se non è disponibile, l'installazione della soluzione non riesce.
+Tutte le risorse in Log Analytics sono contenute in un'[area di lavoro](../log-analytics/log-analytics-manage-access.md).  Come descritto in [Area di lavoro OMS e account di Automazione](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), l'area di lavoro non è inclusa nella soluzione di gestione, ma deve essere presente prima che la soluzione venga installata.  Se non è disponibile, l'installazione della soluzione non riesce.
 
 Il nome dell'area di lavoro è il nome di ogni risorsa di Log Analytics.  A questo scopo, nella soluzione viene usato il parametro **workspace** come nell'esempio seguente di una risorsa savedsearch.
 

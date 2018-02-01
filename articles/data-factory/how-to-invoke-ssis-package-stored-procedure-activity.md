@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: jingwang
-ms.openlocfilehash: 749deb6549e0ac90da4b44424026c897108a4bb7
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 84596041284139b8243287ba6ad719c7c8f7b47b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Chiamare un pacchetto SSIS usando l'attività stored procedure in Azure Data Factory
 Questo articolo descrive come chiamare un pacchetto SSIS da una pipeline di Azure Data Factory usando un'attività stored procedure. 
@@ -31,7 +31,7 @@ Questo articolo descrive come chiamare un pacchetto SSIS da una pipeline di Azur
 La procedura dettagliata riportata in questo articolo usa un database SQL di Azure che ospita il catalogo SSIS. È anche possibile usare un'istanza gestita di database SQL di Azure (anteprima privata).
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Creare un runtime di integrazione SSIS di Azure
-Se non è disponibile, creare un runtime di integrazione SSIS di Azure seguendo le istruzioni dettagliate riportate in [Esercitazione: Distribuire pacchetti SSIS](tutorial-deploy-ssis-packages-azure.md).
+Se non è disponibile, creare un runtime di integrazione SSIS di Azure seguendo le istruzioni dettagliate riportate in [Esercitazione: Distribuire pacchetti SSIS](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## <a name="data-factory-ui-azure-portal"></a>Interfaccia utente di Data Factory (portale di Azure)
 In questa sezione verrà usata l'interfaccia utente di Data Factory per creare una pipeline di Data Factory con un'attività stored procedure che chiama un pacchetto SSIS.

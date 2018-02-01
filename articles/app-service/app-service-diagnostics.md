@@ -14,17 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: f027e7fbc5866a85e7f55460192a1c99a71e368e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9526817ce7969edcd5e9c56ec153bb4e3ebaa501
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Panoramica della diagnostica del servizio app di Azure 
 
 Quando si esegue un'applicazione Web, si desidera essere pronti ad affrontare gli eventuali problemi che possono verificarsi, ad esempio gli errori di tipo 500 che indicano agli utenti che il sito è inattivo. La funzionalità di diagnostica del servizio app offre un'esperienza dinamica e interattiva che consente di risolvere i problemi delle app Web senza ricorrere ad alcun intervento di configurazione. Quando vengono rilevati problemi nell'app Web, la funzionalità di diagnostica del servizio app ne evidenzia la natura in modo da velocizzare l'individuazione e la risoluzione del problema. 
  
 Sebbene ciò risulti particolarmente utile quando si verificano problemi nell'app Web nelle ultime 24 ore, tutti i grafici di diagnostica saranno disponibili per l'analisi in qualsiasi momento. Altri strumenti di risoluzione dei problemi e collegamenti a documentazione e forum utili sono disponibili nella colonna a destra.
+
+## <a name="open-app-service-diagnostics"></a>Aprire la diagnostica del servizio app
+
+Per accedere alla diagnostica del servizio app, passare all'app Web del Servizio App nel [portale di Azure](https://portal.azure.com). 
+
+Nel riquadro di spostamento a sinistra fare clic su **Diagnostica e risoluzione dei problemi**.
 
 ![Home page](./media/app-service-diagnostics/Homepage1.png)
 
@@ -50,8 +56,3 @@ Se sono state richieste altre informazioni dopo aver eseguito un [controllo di i
 
 ![Report di diagnostica](./media/app-service-diagnostics/DiagnosticReport5.png)
 
-## <a name="open-app-service-diagnostics"></a>Aprire la diagnostica del servizio app
-
-Per accedere alla diagnostica del servizio app, passare all'app Web del Servizio App nel [portale di Azure](https://portal.azure.com). 
-
-Nel riquadro di spostamento a sinistra fare clic su **Diagnostica e risoluzione dei problemi**.
