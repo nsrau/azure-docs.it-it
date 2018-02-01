@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 004e7b0299763be9d31b1df22df2a423dc7c52cf
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 1903655a262583f1ba78b728bf404a81278e2275
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-api-management-faqs"></a>Domande frequenti su Gestione API di Azure
 Risposte alle domande comuni, modelli e procedure consigliate per Gestione API di Azure.
@@ -33,7 +33,6 @@ Risposte alle domande comuni, modelli e procedure consigliate per Gestione API d
 * [È possibile gestire l'istanza di Gestione API a livello di codice?](#can-i-manage-my-api-management-instance-programmatically)
 * [Come si aggiunge un utente al gruppo di amministratori?](#how-do-i-add-a-user-to-the-administrators-group)
 * [Perché il criterio da aggiungere non è disponibile nell'editor dei criteri?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
-* [Come si usa il controllo delle versioni API in Gestione API?](#how-do-i-use-api-versioning-in-api-management)
 * [Come si configurano più ambienti in una sola API?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [È possibile usare SOAP con Gestione API?](#can-i-use-soap-with-api-management)
 * [L'indirizzo IP del gateway di Gestione API è costante? Può essere usato nelle regole del firewall?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
@@ -63,7 +62,7 @@ Esistono diverse opzioni per proteggere la connessione tra il gateway di Gestion
 
 * Usare l'autenticazione HTTP di base. Per altre informazioni, vedere [Importare e pubblicare la prima API](import-and-publish.md).
 * Usare l'autenticazione reciproca SSL come descritto in [Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure](api-management-howto-mutual-certificates.md).
-* Usare gli elenchi di IP consentiti nel servizio back-end. Se si usa un'istanza di Gestione API di livello Standard o Premium, l'indirizzo IP del gateway rimane costante. È possibile impostare l'elenco elementi consentiti per autorizzare questo indirizzo IP. È possibile ottenere l'indirizzo IP dell'istanza di Gestione API nel dashboard del portale di Azure.
+* Usare gli elenchi di IP consentiti nel servizio back-end. In tutti i livelli di Gestione API l'indirizzo IP del gateway rimane invariato, con alcune [precisazioni](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). È possibile impostare l'elenco elementi consentiti per autorizzare questo indirizzo IP. È possibile ottenere l'indirizzo IP dell'istanza di Gestione API nel dashboard del portale di Azure.
 * Connettere l'istanza di Gestione API a una rete virtuale di Azure.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Come si copia l'istanza del servizio Gestione API in una nuova istanza?
@@ -97,13 +96,6 @@ Ora il nuovo collaboratore aggiunto può usare i [cmdlet](https://msdn.microsoft
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Perché il criterio da aggiungere non è disponibile nell'editor dei criteri?
 Se il criterio che si vuole aggiungere è in grigio o ombreggiato nell'editor dei criteri, assicurarsi che l'ambito del criterio sia corretto. Ogni istruzione di criterio è progettata per essere usata in ambiti e sezioni dei criteri specifici. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, vedere la sezione sull'utilizzo in [API Management policies](https://msdn.microsoft.com/library/azure/dn894080.aspx) (Criteri di Gestione API).
 
-### <a name="how-do-i-use-api-versioning-in-api-management"></a>Come si usa il controllo delle versioni API in Gestione API?
-Esistono alcune opzioni per usare il controllo delle versioni API in Gestione API:
-
-* In Gestione API è possibile configurare le API per rappresentare versioni diverse. Ad esempio, se esistono due API diverse, MyAPIv1 e MyAPIv2, uno sviluppatore può scegliere la versione che vuole usare.
-* È anche possibile configurare l'API con un URL del servizio che non include un segmento di versione, ad esempio https://my.api. Configurare quindi un segmento di versione nel modello di [URL di riscrittura](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) di ogni operazione. 
-* Per mantenere un segmento di versione "predefinito" nell'URL del servizio dell'API, in alcune operazioni specificare un criterio che usa l'[impostazione del servizio back-end](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) per modificare il percorso di richiesta del back-end.
-
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Come si configurano più ambienti in una sola API?
 Per configurare più ambienti, ad esempio un ambiente di test e un ambiente di produzione, in una sola API, esistono due opzioni. È possibile:
 
@@ -114,7 +106,7 @@ Per configurare più ambienti, ad esempio un ambiente di test e un ambiente di p
 Ora è disponibile il supporto per il [pass-through SOAP](http://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/). Gli amministratori possono importare il file WSDL del servizio SOAP e Gestione API di Azure creerà un front-end SOAP. Per i servizi SOAP sono disponibili la documentazione del portale per sviluppatori, la console di test, i criteri e l'analisi.
 
 ### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>L'indirizzo IP del gateway di Gestione API è costante? Può essere usato nelle regole del firewall?
-Con i piani Standard e Premium, l'indirizzo IP (indirizzo VIP) pubblico del tenant di Gestione API è statico per la durata del tenant, con alcune eccezioni. L'indirizzo IP viene modificato in queste circostanze:
+In tutti i livelli di Gestione API l'indirizzo IP pubblico (VIP) del tenant di Gestione API è statico per l'intero ciclo di vita del tenant, con alcune eccezioni. L'indirizzo IP viene modificato in queste circostanze:
 
 * Il servizio viene eliminato e quindi ricreato.
 * La sottoscrizione al servizio viene [sospesa](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) o [avvisata](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states), ad esempio per mancato pagamento, e quindi ripristinata.

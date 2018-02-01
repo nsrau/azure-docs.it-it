@@ -51,9 +51,23 @@ di serie È possibile usare solo il client VPN nativo in Windows per SSTP e il c
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure supporta VPN IKEv2 con Windows?
 
-Gli utenti possono connettersi ad Azure utilizzando il client VPN di Windows integrato che supporta IKEv2. Tuttavia, le connessioni IKEv2 da un dispositivo Windows non funzionano nello scenario seguente:
+IKEv2 è supportato in Windows 10 e Server 2016. Per poter usare IKEv2, è però necessario installare gli aggiornamenti e impostare in locale un valore della chiave del Registro di sistema. Le versioni del sistema operativo precedenti a Windows 10 non sono supportate e possono usare solo SSTP.
 
-  Se il dispositivo dell'utente contiene un numero elevato di certificati radice attendibili, le dimensioni del payload del messaggio durante lo scambio IKE sono elevate e ciò comporta la frammentazione del livello IP. I frammenti vengono rifiutati alla fine di Azure, che comporta l'errore di connessione. Il numero di certificati esatto in cui si verifica questo problema è difficile da stimare. Di conseguenza, il funzionamento delle connessioni IKEv2 dai dispositivi Windows non è garantito. Quando si configura sia SSTP che IKEv2 in un ambiente misto (costituito da dispositivi Windows e Mac), il profilo VPN Windows tenta sempre prima di accedere al tunnel IKEv2. Se l’esito è negativo a causa del problema descritto qui, viene utilizzato l’SSTP.
+Per preparare Windows 10 o Server 2016 per IKEv2:
+
+1. Installare l'aggiornamento.
+
+  | Versione del sistema operativo | Data | Numero/collegamento |
+  |---|---|---|---|
+  | Windows Server 2016<br>Windows 10 versione 1607 | 17 gennaio 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+  | Windows 10 versione 1703 | 17 gennaio 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+  |  |  |  |  |
+
+2. Impostare il valore della chiave del Registro di sistema. Creare o impostare su 1 la chiave REG_DWORD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload" del Registro di sistema.
+
+### <a name="what-happens-when-i-configure-both-sstp-and-ikev2-for-p2s-vpn-connections"></a>Cosa accade quando configurano sia SSTP che IKEv2 per le connessioni VPN P2S?
+
+Quando si configurano sia SSTP che IKEv2 in un ambiente misto (costituito da dispositivi Windows e Mac), il client VPN Windows proverà sempre prima ad accedere al tunnel IKEv2, ma eseguirà il fallback a SSTP se la connessione IKEv2 non riesce. MacOSX si connetterà solo tramite IKEv2.
 
 ### <a name="other-than-windows-and-mac-which-other-platforms-does-azure-support-for-p2s-vpn"></a>Oltre a Windows e Mac, quali altre piattaforme supporta Azure per VPN P2S?
 
@@ -61,4 +75,4 @@ Per VPN P2S, Azure supporta solo Windows e Mac.
 
 ### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>Si dispone già di un Gateway VPN di Azure distribuito. È possibile attivare RADIUS e/o VPN IKEv2 su di esso?
 
-Sì, è possibile abilitare queste nuove funzionalità del gateway già distribuito tramite Powershell o il portale di Azure, purché il gateway SKU che si sta utilizzando supporti RADIUS e/o IKEv2. Ad esempio, il gateway VPN SKU Basic non supporta RADIUS o IKEv2.
+Sì, è possibile abilitare queste nuove funzionalità in gateway già distribuiti, usando Powershell o il portale di Azure, purché la SKU del gateway in uso supporti RADIUS e/o IKEv2. Lo SKU Basic del gateway VPN, ad esempio, non supporta l'autenticazione RADIUS o IKEv2.

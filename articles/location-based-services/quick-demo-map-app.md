@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 0edca9e5eb709eb3e1b42b45e5a41ac7a5ba1e75
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfc31553c32ac4dbfde55aa30b33025b579f6139
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Avviare una demo di una ricerca interattiva sulla mappa con Servizi Location Based di Azure (anteprima)
 
@@ -25,7 +25,7 @@ Questo articolo illustra le funzionalità di Servizi Location Based di Azure (an
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 
-## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure.
+## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
 Accedere al [Portale di Azure](https://portal.azure.com/).
 
@@ -38,13 +38,13 @@ Accedere al [Portale di Azure](https://portal.azure.com/).
 
     ![Creare un account Servizi Location Based nel portale](./media/quick-demo-map-app/create-lbs-account.png)
 
-5. Una volta creato l'account, aprirlo e passare a **IMPOSTAZIONI**. Fare clic su **Chiavi** per ottenere le chiavi di sottoscrizione primaria e secondaria per l'account. Copiare il valore di **Chiave primaria** negli Appunti in locale per usarlo nella sezione seguente. 
+5. Una volta creato l'account, aprirlo e passare a **IMPOSTAZIONI**. Fare clic su **Chiavi** per ottenere le chiavi primaria e secondaria per l'account Servizi Location Based di Azure. Copiare il valore di **Chiave primaria** negli Appunti in locale per usarlo nella sezione seguente. 
 
 ## <a name="download-the-demo-application-for-azure-maps"></a>Scaricare l'applicazione demo per le mappe di Azure
 
 1. Scaricare o copiare il contenuto del file [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html).
 2. Salvare il contenuto del file in locale come **AzureMapDemo.html** e aprirlo in un editor di testo.
-3. Cercare la stringa **&#60;insert-key&#62;** e sostituirla con il valore di **Chiave primaria** ottenuto nella sezione precedente. 
+3. Cercare la stringa `<insert-key>` e sostituirla con il valore di **Chiave primaria** ottenuto nella sezione precedente. 
 
 
 ## <a name="launch-the-demo-application-for-azure-maps"></a>Avviare l'applicazione demo per le mappe di Azure

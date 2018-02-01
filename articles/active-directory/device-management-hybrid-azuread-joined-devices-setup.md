@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ec6489f796dab0fa24bbadf542429d4cf853c414
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: 5eb53d13ed85093616f43b79b58d43ba62ffbd67
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory
 
@@ -32,7 +32,7 @@ Se in un ambiente Active Directory locale Per aggiungere ad Azure AD i dispositi
 
 Prima di iniziare a configurare dispositivi aggiunti all'identità ibrida di Azure AD nell'ambiente, è consigliabile acquisire familiarità con gli scenari supportati e i vincoli.  
 
-Se si utilizza il [Utilità preparazione sistema (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), assicurarsi creare immagini da un'installazione di Windows che non è stato ancora registrato con Azure AD.
+Se si intende usare l'[Utilità preparazione sistema (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), creare immagini da un'installazione di Windows che non è stata ancora registrata con Azure AD.
 
 Per una migliore leggibilità delle descrizioni, in questo argomento viene usata la terminologia seguente. 
 
@@ -41,7 +41,7 @@ Per una migliore leggibilità delle descrizioni, in questo argomento viene usata
 
 ### <a name="windows-current-devices"></a>Dispositivi Windows correnti
 
-- Per i dispositivi che eseguono il sistema operativo desktop Windows, è consigliabile usare Windows 10 versione 1607 (Aggiornamento dell'anniversario di Windows 10) o successiva. 
+- Per i dispositivi che eseguono il sistema operativo desktop Windows, è supportata la versione 1607 (Aggiornamento dell'anniversario di Windows 10) o successiva. 
 - La registrazione dei dispositivi Windows correnti **è** supportata in ambienti non federati come le configurazioni con sincronizzazione dell'hash delle password.  
 
 
@@ -58,7 +58,7 @@ Per una migliore leggibilità delle descrizioni, in questo argomento viene usata
 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare ad abilitare i dispositivi aggiunti all'identità ibrida di Azure AD nell'organizzazione, è necessario assicurarsi di eseguire una versione aggiornata di Azure AD Connect.
 
@@ -67,15 +67,15 @@ Azure AD Connect:
 - Mantiene l'associazione tra l'account computer nell'istanza locale di Active Directory (AD) e l'oggetto dispositivo in Azure AD. 
 - Abilita altre funzionalità correlate al dispositivo come Windows Hello for Business.
 
-Assicurarsi che gli URL seguenti sono accessibili da computer all'interno della rete dell'organizzazione per la registrazione dei computer ad Azure AD:
+Verificare che gli URL seguenti siano accessibili dall'interno della rete aziendale per la registrazione dei computer ad Azure AD:
 
-- https://enterpriseregistration.Windows.NET
+- https://enterpriseregistration.windows.net
 
 - https://login.microsoftonline.com
 
-- https://Device.Login.microsoftonline.com
+- https://device.login.microsoftonline.com
 
-Se l'organizzazione richiede l'accesso a Internet tramite un proxy in uscita, è necessario implementare il rilevamento automatico WPAD (Web Proxy) per consentire ai computer Windows 10 per registrarsi in Azure AD.
+Se l'organizzazione richiede l'accesso a Internet tramite un proxy in uscita, è necessario implementare Web Proxy Auto-Discovery (WPAD) per consentire ai computer Windows 10 di registrarsi ad Azure AD.
 
 
 ## <a name="configuration-steps"></a>Procedura di configurazione

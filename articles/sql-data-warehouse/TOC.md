@@ -6,6 +6,10 @@
 # Guide introduttive
 
 ## [Creare e connettere - portale](create-data-warehouse-portal.md)
+## Sospendere e riprendere le risorse di calcolo
+### [di Microsoft Azure](pause-and-resume-compute-portal.md)
+### [PowerShell](pause-and-resume-compute-powershell.md)
+
 
 # Esercitazioni
 ## [1 - Caricare dati dal BLOB](load-data-from-azure-blob-storage-using-polybase.md)
@@ -115,7 +119,7 @@
 ### [Automatizzare i livelli di calcolo](manage-compute-with-azure-functions.md)
 
 
-# riferimento
+# Riferimenti
 
 
 ## T-SQL

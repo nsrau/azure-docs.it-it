@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d436e7d9046fa9c1bced890c005f98b40b372ef6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: b50d3b091848776feb33c042c2cddfcf2a598fc9
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Distribuire e usare il Registro contenitori di Azure
 
@@ -28,7 +28,7 @@ Nelle esercitazioni successive, questa istanza di Registro contenitori di Azure 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Nel [esercitazione precedente][aks-tutorial-prepare-app], un'immagine contenitore è stata creata per una semplice applicazione di Azure di voto. Se non è stato creato l'immagine di app Azure voto, tornare alla [esercitazione 1: creare le immagini contenitore][aks-tutorial-prepare-app].
+Nell'[esercitazione precedente][aks-tutorial-prepare-app] è stata creata un'immagine del contenitore per una semplice applicazione Azure Voting. Se l'immagine dell'app Azure Voting non è stata creata, tornare all'[Esercitazione 1 - Creare immagini del contenitore][aks-tutorial-prepare-app].
 
 Per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.21 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
@@ -42,7 +42,7 @@ Creare un gruppo di risorse con il comando [az group create][az-group-create]. I
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare un registro di sistema di contenitore di Azure con il [az acr creare] [ az-acr-create] comando. Il nome di un registro contenitori **deve essere univoco**.
+Creare un registro contenitori di Azure con il comando [az acr create][az-acr-create]. Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -52,7 +52,7 @@ Nella parte restante di questa esercitazione si usa `<acrName>` come segnaposto 
 
 ## <a name="container-registry-login"></a>Accesso al registro contenitori
 
-Utilizzare il [accesso acr az] [ az-acr-login] comando per accedere all'istanza del record. È necessario specificare il nome univoco assegnato al registro contenitori al momento della creazione.
+Usare il comando [az acr login][az-acr-login] per accedere all'istanza del Registro contenitori di Azure. È necessario specificare il nome univoco assegnato al registro contenitori al momento della creazione.
 
 ```azurecli
 az acr login --name <acrName>
@@ -62,7 +62,7 @@ Al termine, il comando restituisce un messaggio di accesso riuscito.
 
 ## <a name="tag-container-images"></a>Assegnare tag alle immagini del contenitore
 
-Per visualizzare un elenco di immagini corrente, utilizzare il [immagini docker] [ docker-images] comando.
+Per visualizzare un elenco di immagini correnti, usare il comando [docker images][docker-images].
 
 ```console
 docker images
@@ -91,7 +91,7 @@ Applicare ora il tag loginServer del registro contenitori all'immagine `azure-vo
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
 ```
 
-Una volta contrassegnate, eseguire [immagini docker] [ docker-images] per verificare l'operazione.
+Dopo l'assegnazione del tag, eseguire [docker images][docker-images] per verificare l'operazione.
 
 ```console
 docker images
@@ -121,7 +121,7 @@ Il completamento dell'operazione richiede alcuni minuti.
 
 ## <a name="list-images-in-registry"></a>Elencare le immagini nel registro
 
-Per restituire un elenco di immagini che sono stati inseriti nel Registro di sistema contenitore di Azure, utente di [elenco repository di az acr] [ az-acr-repository-list] comando. Aggiornare il comando con il nome dell'istanza del Registro contenitori di Azure.
+Per restituire un elenco di immagini di cui è stato eseguito il push nel Registro contenitori di Azure, usare il comando [az acr repository list][az-acr-repository-list]. Aggiornare il comando con il nome dell'istanza del Registro contenitori di Azure.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -135,7 +135,7 @@ Result
 azure-vote-front
 ```
 
-Per visualizzare i tag per un'immagine specifica, quindi utilizzare il [az acr repository Mostra-tag] [ az-acr-repository-show-tags] comando.
+Per visualizzare i tag per un'immagine specifica, usare il comando [az acr repository show-tags][az-acr-repository-show-tags].
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
@@ -163,7 +163,7 @@ In questa esercitazione è stato preparata un'istanza di Registro contenitori di
 Passare all'esercitazione successiva per informazioni sulla distribuzione di un cluster Kubernetes in Azure.
 
 > [!div class="nextstepaction"]
-> [Distribuire cluster Kubernetes][aks-tutorial-deploy-cluster]
+> [Distribuire un cluster Kubernetes][aks-tutorial-deploy-cluster]
 
 <!-- LINKS - external -->
 [docker-images]: https://docs.docker.com/engine/reference/commandline/images/

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C | Documentazione Microsoft
+title: Autenticazione, iscrizione, modifica del profilo - .NET Azure Active Directory B2C | Microsoft Docs
 description: "Come creare un'applicazione desktop di Windows con funzionalità di gestione dell'iscrizione, dell'accesso e del profilo utente usando Azure Active Directory B2C."
 services: active-directory-b2c
 documentationcenter: .net
@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
-ms.openlocfilehash: 7b6bd5c95c909cf4ed4c67cd33d09170f670c275
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: 5d4664e87ca0a45d59d976f6415fce858bc51dcd
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: creare un'app desktop di Windows
 Azure Active Directory (Azure AD) B2C consente di aggiungere funzionalità avanzate di gestione delle identità self-service all'app desktop in pochi brevi passaggi. Questo articolo descrive come creare un'app Windows Presentation Foundation (WPF) .NET "To do list" con funzionalità di gestione dell'iscrizione, dell'accesso e del profilo utente. L'app includerà il supporto per l'iscrizione e l'accesso tramite un nome utente o un indirizzo di posta elettronica. L'app includerà anche il supporto per l'iscrizione e l'accesso tramite account di social networking quali Facebook e Google.
@@ -71,7 +72,7 @@ PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ### <a name="enter-your-b2c-details"></a>Immettere le informazioni B2C
 Aprire il file `Globals.cs` e sostituire i valori della proprietà con i propri. Questa classe viene usata in tutto il progetto `TaskClient` per fare riferimento ai valori usati comunemente.
 
-```C#
+```csharp
 public static class Globals
 {
     ...
@@ -92,7 +93,7 @@ public static class Globals
 ### <a name="create-the-publicclientapplication"></a>Creare PublicClientApplication
 La classe primaria di MSAL è `PublicClientApplication`. Questa classe rappresenta l'applicazione nel sistema Azure Active Directory B2C. All'avvio dell'app, creare un'istanza di `PublicClientApplication` in `MainWindow.xaml.cs`. Questa istanza può essere usata in tutta la finestra.
 
-```C#
+```csharp
 protected async override void OnInitialized(EventArgs e)
 {
     base.OnInitialized(e);
@@ -110,7 +111,7 @@ protected async override void OnInitialized(EventArgs e)
 ### <a name="initiate-a-sign-up-flow"></a>Avvia un flusso di registrazione
 Quando l'utente sceglie di iscriversi, avviare un flusso di iscrizione che usa i criteri di iscrizione creati. Con MSAL è sufficiente chiamare `pca.AcquireTokenAsync(...)`. I parametri passati a `AcquireTokenAsync(...)` determinano quale token si riceve, i criteri usati nella richiesta di autenticazione e altro ancora.
 
-```C#
+```csharp
 private async void SignUp(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -161,7 +162,7 @@ private async void SignUp(object sender, RoutedEventArgs e)
 ### <a name="initiate-a-sign-in-flow"></a>Avvia un flusso di accesso
 È possibile avviare un flusso di accesso allo stesso modo in cui si avvia un flusso di iscrizione. Quando l'utente accede, eseguire la stessa chiamata a MSAL, questa volta usando i propri criteri di accesso:
 
-```C#
+```csharp
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
     AuthenticationResult result = null;
@@ -176,7 +177,7 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null)
 ### <a name="initiate-an-edit-profile-flow"></a>Avviare un flusso di modifica del profilo
 Anche in questo caso è possibile eseguire i criteri di modifica del profilo in modo analogo:
 
-```C#
+```csharp
 private async void EditProfile(object sender, RoutedEventArgs e)
 {
     AuthenticationResult result = null;
@@ -192,7 +193,7 @@ In tutti questi casi, MSAL restituisce un token in `AuthenticationResult` oppure
 ### <a name="check-for-tokens-on-app-start"></a>Verificare la presenza di token all'avvio dell'app
 È possibile usare MSAL anche per tenere traccia dello stato di accesso dell'utente.  In questa app si vuole che l'utente rimanga connesso anche dopo che ha chiuso e riaperto l'app.  Nuovamente all'interno dell'override `OnInitialized`, usare il metodo `AcquireTokenSilent` di MSAL per verificare la disponibilità di token memorizzati nella cache:
 
-```C#
+```csharp
 AuthenticationResult result = null;
 try
 {
@@ -231,7 +232,7 @@ catch (MsalException ex)
 ## <a name="call-the-task-api"></a>Chiamare l'API delle attività
 Finora si è usato MSAL per eseguire i criteri e ottenere i token.  Quando si vuole usare uno di questi token per chiamare l'API dell'attività, è possibile usare di nuovo il metodo `AcquireTokenSilent` di MSAL per verificare la disponibilità di token memorizzati nella cache:
 
-```C#
+```csharp
 private async void GetTodoList()
 {
     AuthenticationResult result = null;
@@ -276,7 +277,7 @@ private async void GetTodoList()
 
 Quando la chiamata a `AcquireTokenSilentAsync(...)` riesce e viene trovato un token nella cache, è possibile aggiungerlo all'intestazione `Authorization` della richiesta HTTP. L'API Web dell'attività userà questa intestazione per autenticare la richiesta di lettura dell'elenco attività dell'utente:
 
-```C#
+```csharp
     ...
     // Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
@@ -289,7 +290,7 @@ Quando la chiamata a `AcquireTokenSilentAsync(...)` riesce e viene trovato un to
 ## <a name="sign-the-user-out"></a>Disconnettere l'utente dall'app
 Infine, è possibile usare la libreria MSAL per terminare la sessione dell'utente nell'app quando l'utente seleziona **Esci**.  Quando si usa MSAL, questa operazione viene eseguita cancellando tutti i token dalla relativa cache:
 
-```C#
+```csharp
 private void SignOut(object sender, RoutedEventArgs e)
 {
     // Clear any remnants of the user's session.

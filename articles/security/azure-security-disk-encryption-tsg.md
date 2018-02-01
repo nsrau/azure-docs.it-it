@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: devtiw
-ms.openlocfilehash: 618e5e6d159a8f0d4610d6d652c21e121a93a5e0
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: c252bc6aee79ad009684f9d3e62c42529c024109
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Crittografia dischi di Azure
 
@@ -30,7 +30,7 @@ Per la crittografia del disco del sistema operativo Linux, prima di affrontare l
 
 È molto probabile che questo errore si verifichi quando si tenta di eseguire la crittografia del disco del sistema operativo in un ambiente di VM di destinazione che è stato modificato rispetto all'immagine predefinita supportata della raccolta. Di seguito sono riportati alcuni esempi di deviazioni dall'immagine supportata che possono impedire all'estensione di smontare l'unità del sistema operativo:
 - Immagini personalizzate che non corrispondono più al file system o allo schema di partizionamento supportato.
-- Installazione ed esecuzione nel sistema operativo di applicazioni di grandi dimensioni come SAP, MongoDB o Apache Cassandra prima della crittografia. L'estensione non può essere arrestata correttamente da queste applicazioni. Se le applicazioni mantengono handle di file aperti nell'unità del sistema operativo, l'unità non può essere disinstallata, causando un errore.
+- Non sono supportate l'installazione e l'esecuzione nel sistema operativo di applicazioni di grandi dimensioni come SAP, MongoDB, Apache Cassandra e Docker prima della crittografia.  Crittografia dischi di Azure non è in grado di arrestare questi processi come richiesto durante la preparazione dell'unità del sistema operativo per la crittografia dei dischi.  Se sono presenti processi ancora attivi con handle di file aperti nell'unità del sistema operativo, tale unità non può essere smontata e ciò genera un errore di crittografia dell'unità del sistema operativo. 
 - Esecuzione di script personalizzati a breve distanza di tempo dall'abilitazione della crittografia o esecuzione di qualsiasi altra modifica nella VM durante il processo di crittografia. Questo conflitto può verificarsi quando un modello di Azure Resource Manager definisce l'esecuzione simultanea di più estensioni o quando un'estensione di script personalizzati o un'altra azione viene eseguita contemporaneamente alla crittografia del disco. Il problema potrebbe essere risolto serializzando e isolando tali passaggi.
 - Mancata disabilitazione di SELinux prima dell'abilitazione della crittografia, che causa l'esito negativo del passaggio di smontaggio. È possibile riabilitare SELinux al termine della crittografia.
 - Il disco del sistema operativo usa uno schema di gestione dei volumi logici. Sebbene sia disponibile un supporto limitato per dischi dati LVM, non sono supportati dischi del sistema operativo LVM.
@@ -116,6 +116,10 @@ DISKPART> list vol
   Volume 1                      NTFS   Partition    550 MB  Healthy    System
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
+## <a name="troubleshooting-encryption-status"></a>Risoluzione dei problemi relativi allo stato della crittografia
+
+Se lo stato della crittografia previsto non corrisponde a quello segnalato nel portale, vedere l'articolo relativo alla [visualizzazione errata dello stato della crittografia nel portale di gestione di Azure](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por)
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo documento sono stati esaminati alcuni problemi comuni di Crittografia dischi di Azure ed è stato illustrato come risolverli. Per altre informazioni su questo servizio e sulle relative funzionalità, vedere gli articoli seguenti:

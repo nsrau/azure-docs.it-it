@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 5fe36241efc11cbb85231137649f7b97e23cc0a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 0956476931396c6455bf3e4fc7582da3bf3deb33
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Servizi di dominio Azure Active Directory
 Questo articolo offre suggerimenti per la risoluzione dei problemi che possono verificarsi quando si configura o si amministra Servizi di dominio di Azure Active Directory (AD).
@@ -57,9 +57,9 @@ Verificare se nella directory Azure AD è presente un'applicazione con nome "Azu
 
 Per verificare se l'applicazione è presente e per eliminarla, se esiste, seguire questa procedura:
 
-1. Passare il **applicazioni** sezione della directory di Azure AD nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/).
-2. Selezionare **tutte le applicazioni** nel **Mostra** elenco a discesa. Selezionare **qualsiasi** nel **stato applicazioni** elenco a discesa. Selezionare **qualsiasi** nel **visibilità applicazione** elenco a discesa.
-3. Tipo **sincronizzazione di servizi di dominio Active Directory di Azure** nella casella di ricerca. Se l'applicazione esiste e fare clic su di esso il **eliminare** sulla barra degli strumenti per l'eliminazione.
+1. Passare alla sezione **Applicazioni** della directory di Azure AD nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/).
+2. Selezionare **Tutte le applicazioni** nell'elenco a discesa **Mostra**. Selezionare **Qualsiasi** nell'elenco a discesa **Stato dell'applicazione**. Selezionare **Qualsiasi** nell'elenco a discesa **Visibilità applicazione**.
+3. Digitare **Azure AD Domain Services** nella casella di ricerca. Se l'applicazione esiste, selezionarla e fare clic sul pulsante **Elimina** sulla barra degli strumenti per eliminarla.
 4. Dopo avere eliminato l'applicazione, provare ad abilitare di nuovo Servizi di dominio Azure AD.
 
 ### <a name="invalid-configuration"></a>Configurazione non valida.
@@ -122,6 +122,7 @@ Verificare se è stata disabilitata un'applicazione con identificatore di applic
 
 Per risolvere questo errore, abilitare l'applicazione e quindi tentare di abilitare Domain Services per il tenant di Azure AD.
 
+
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Impossibile accedere al dominio gestito di Servizi di dominio di Azure AD
 Se uno o più utenti nel tenant di Azure AD non sono in grado di accedere al dominio gestito appena creato, seguire questa procedura di risoluzione dei problemi:
 
@@ -145,12 +146,17 @@ Se uno o più utenti nel tenant di Azure AD non sono in grado di accedere al dom
     2. net start 'Microsoft Azure AD Sync'
 * **Account solo cloud**: se l'account utente interessato è un account utente solo cloud, assicurarsi che l'utente abbia modificato la password dopo l'abilitazione di Servizi di dominio di Azure AD. Questa operazione comporta la generazione degli hash delle credenziali necessari per Servizi di dominio di Azure AD.
 
+## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Sono presenti uno o più avvisi nel dominio gestito
+
+Per informazioni su come risolvere gli avvisi nel dominio gestito, vedere [Risolvere i problemi correlati agli avvisi](active-directory-ds-troubleshoot-alerts.md).
+
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Gli utenti rimossi dal tenant di Azure AD non vengono rimossi dal dominio gestito
 Azure AD impedisce l'eliminazione accidentale di oggetti utente. Quando si elimina un account utente dal tenant di Azure AD, il corrispondente oggetto utente viene spostato nel Cestino. Quando questa operazione di eliminazione viene sincronizzata con il dominio gestito, il corrispondente account utente viene contrassegnato come disabilitato. Questa funzionalità consente di ripristinare o annullare l'eliminazione dell'account utente in un secondo tempo.
 
 L'account utente rimane nello stato disabilitato nel dominio gestito, anche se si crea nuovamente un account utente con lo stesso UPN nella directory di Azure AD. Per rimuovere l'account utente dal dominio gestito, occorre forzarne l'eliminazione dal tenant di Azure AD.
 
-Per rimuovere completamente l'account utente dal dominio gestito, eliminare in modo permanente l'utente dal tenant di Azure AD. Utilizzare il `Remove-MsolUser` cmdlet di PowerShell con il `-RemoveFromRecycleBin` opzione, come descritto in questo [articolo MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+Per rimuovere completamente l'account utente dal dominio gestito, eliminare in modo permanente l'utente dal tenant di Azure AD. Usare il cmdlet PowerShell `Remove-MsolUser` con l'opzione `-RemoveFromRecycleBin` come descritto in questo [articolo di MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 
-## <a name="contact-us"></a>Contattaci
+
+## <a name="contact-us"></a>Contatti
 Contattare il team di prodotto di Servizi di dominio Azure AD per [condividere commenti e suggerimenti o per chiedere supporto tecnico](active-directory-ds-contact-us.md).

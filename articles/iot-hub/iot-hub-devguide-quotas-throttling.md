@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulle quote e sulle limitazioni dell'hub IoT di Azure | Documentazione Microsoft
+title: Informazioni sulle quote e sulle limitazioni dell'hub IoT di Azure | Microsoft Docs
 description: 'Guida per gli sviluppatori: descrizione delle quote che si applicano all''hub IoT e del comportamento di limitazione previsto.'
 services: iot-hub
 documentationcenter: .net
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: dobett
-ms.openlocfilehash: 8ffe25f1950f8535983c2c344b5c4331b7157869
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 68a6e999ac0ffe97c08b6420dd6e71d7154b5de8
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
@@ -41,12 +41,14 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 | Inoltri dal dispositivo al cloud | Più di 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24/sec, ma si hanno almeno 100/sec tra le unità. Con nove unità S1 si otterrà 108/sec (9\*12) tra le unità. | 120/sec/unità | 6000/sec/unità |
 | Inoltri dal cloud al dispositivo | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |
 | Ricezioni dal cloud al dispositivo <br/> (solo quando il dispositivo usa HTTPS)| 16,67/sec/unità (1000/min/unità) | 16,67/sec/unità (1000/min/unità) | 833,33/sec/unità (50000/min/unità) |
-| Caricamento di file | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 83,33 notifice caricamento file/sec/unità (5000/min/unità) |
-| Metodi diretti | 20/sec/unità | 60/sec/unità | 3000/sec/unità | 
+| Caricamento di file | 1,67 notifiche caricamento file/sec/unità (100/min/unità) | 1,67 notifiche caricamento file/sec/unità (100/min/unità) | 83,33 notifiche caricamento file/sec/unità (5000/min/unità) |
+| Metodi diretti | 160 KB/sec/unità<sup>1</sup> | 480 KB/sec/unità<sup>1</sup> | 24 MB/sec/unità<sup>1</sup> | 
 | Letture del dispositivo gemello | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
 | Aggiornamenti dei dispositivi gemelli | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
 | Operazioni dei processi <br/> (creazione, aggiornamento, elenco, eliminazione) | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |
 | Velocità effettiva delle operazioni dei processi per dispositivo | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
+
+<sup>1</sup>La dimensione del contatore delle limitazioni è 8 KB
 
 È importante chiarire che la limitazione delle *connessioni del dispositivo* determina la frequenza con cui possono essere stabilite nuove connessioni del dispositivo con un hub IoT. La limitazione delle *connessioni del dispositivo* non determina il numero massimo di dispositivi connessi contemporaneamente. La limitazione dipende dal numero di unità di cui viene eseguito il provisioning per l'hub IoT.
 
@@ -75,11 +77,12 @@ L'hub IoT applica altri limiti operativi:
 | Messaggistica da dispositivo a cloud | Dimensioni massime dei messaggi 256 KB |
 | Messaggistica da cloud a dispositivo | Dimensioni massime dei messaggi 64 KB |
 | Messaggistica da cloud a dispositivo | Il numero massimo di messaggi in sospeso è 50 |
+| Metodo diretto | Dimensioni massime del payload del metodo diretto 128 MB |
 
 > [!NOTE]
 > Attualmente, il numero massimo di dispositivi che è possibile connettere a un singolo hub IoT è 500.000. Per aumentare questo limite, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
 
-## <a name="latency"></a>Latency
+## <a name="latency"></a>Latenza
 L'hub IoT punta a fornire bassa latenza per tutte le operazioni. Tuttavia, a causa delle condizioni della rete e di altri fattori imprevedibili, non può garantire una latenza massima. Quando si progetta la soluzione, è necessario:
 
 * Evitare di fare ipotesi sulla latenza massima di qualsiasi operazione dell'hub IoT.

@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi relativi al gateway di rete virtuale e alle connessioni di Azure - PowerShell | Documentazione Microsoft
-description: Questa pagina spiega come usare il cmdlet di PowerShell per risolvere i problemi in Network Watcher di Azure
+title: Risolvere i problemi relativi al gateway di rete virtuale e alle connessioni di Azure - Portale | Microsoft Docs
+description: Questa pagina spiega come usare il portale per la risoluzione dei problemi di Azure Network Watcher
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: c3fa22bd599026b0838b134e26062d9837df703e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: fb8f60eea0eaa24649f584ae4183aa8e552a433e
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Risolvere i problemi relativi al gateway di rete virtuale e alle connessioni di Azure tramite PowerShell in Network Watcher di Azure
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-network-watcher-from-azure-portal"></a>Risolvere i problemi relativi al gateway di rete virtuale e alle connessioni tramite Network Watcher dal portale di Azure
 
 > [!div class="op_single_selector"]
 > - [di Microsoft Azure](network-watcher-troubleshoot-manage-portal.md)

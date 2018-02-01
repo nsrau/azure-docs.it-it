@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 0be2391268e11593802cb0f455e8c4553f0d4731
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Risolvere i problemi di Backup di Azure relativi all'agente e/o all'estensione
 
@@ -78,7 +78,7 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>La configurazione di disco specificata non è supportata
 
 > [!NOTE]
-> È disponibile un'anteprima privata per il supporto di backup per macchine virtuali con dischi non gestiti di dimensioni superiori a 1 TB. Per informazioni dettagliate, vedere l'[anteprima privata per il supporto di backup di macchine virtuali con dischi di grandi dimensioni](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> È disponibile un'anteprima privata per il supporto di backup per macchine virtuali con dischi di dimensioni superiori a 1 TB. Per informazioni dettagliate, vedere l'[anteprima privata per il supporto di backup di macchine virtuali con dischi di grandi dimensioni](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -97,11 +97,14 @@ Per funzionare correttamente, l'estensione di backup richiede la connettività a
 
 ####  <a name="solution"></a>Soluzione
 Per risolvere il problema, provare ad applicare uno dei metodi seguenti.
-##### <a name="allow-access-to-the-azure-datacenter-ip-ranges"></a>Consentire l'accesso agli intervalli di indirizzi IP del data center di Azure
+##### <a name="allow-access-to-the-azure-storage-corresponding-to-the-region"></a>Consentire l'accesso alle risorse di archiviazione di Azure corrispondenti all'area
 
-1. Ottenere l'[elenco di indirizzi IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) a cui consentire l'accesso.
-2. Sbloccare gli indirizzi IP eseguendo il cmdlet **New-NetRoute** nella macchina virtuale di Azure in una finestra di PowerShell con privilegi elevati. Eseguire il cmdlet come amministratore.
-3. Per consentire l'accesso agli indirizzi IP, aggiungere regole al gruppo di sicurezza di rete, se disponibile.
+È possibile consentire le connessioni alle risorse di archiviazione dell'area specifica usando [tag di servizio](../virtual-network/security-overview.md#service-tags). Verificare che la regola che consente l'accesso all'account di archiviazione abbia priorità più alta rispetto alla regola che blocca l'accesso a Internet. 
+
+![NSG con i tag di archiviazione per un'area](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+> [!WARNING]
+> I tag di servizio delle risorse di archiviazione sono disponibili in anteprima solo in aree specifiche. Per un elenco delle aree, vedere i [tag di servizio per Archiviazione](../virtual-network/security-overview.md#service-tags).
 
 ##### <a name="create-a-path-for-http-traffic-to-flow"></a>Creare un percorso per il flusso del traffico HTTP
 
@@ -166,8 +169,6 @@ Le condizioni seguenti possono causare errori dell'attività di snapshot:
 | --- | --- |
 | Per la macchina virtuale è stato configurato il backup di SQL Server. | Per impostazione predefinita, il servizio Backup delle macchine virtuali esegue backup VSS completi nelle macchine virtuali Windows. Nelle macchine virtuali che eseguono server basati su SQL Server e in cui è configurato il backup di SQL Server possono verificarsi ritardi nell'esecuzione di snapshot.<br><br>Se si verificano errori di backup a causa di problemi di snapshot, configurare la chiave seguente del Registro di sistema:<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | Lo stato della macchina virtuale viene segnalato in modo non corretto perché la macchina virtuale viene arrestata in RDP. | Se si arresta la macchina virtuale in Remote Desktop Protocol (RDP), controllare il portale per determinare se lo stato della macchina virtuale è corretto. In caso contrario, arrestare la macchina virtuale nel portale tramite l'opzione **Spegni** nel dashboard della macchina virtuale. |
-| Diverse macchine virtuali dello stesso servizio cloud sono configurate per eseguire il backup nello stesso momento. | È consigliabile distribuire le pianificazione dei backup per le macchine virtuali dello stesso servizio cloud. |
-| L'esecuzione della macchina virtuale fa un uso elevato della CPU o della memoria. | Se l'esecuzione della macchina virtuale fa un uso elevato della CPU (oltre il 90%) o della memoria, l'attività di snapshot viene accodata e ritardata e infine si verifica il timeout. In una situazione di questo tipo, provare a eseguire un backup su richiesta. |
 | La macchina virtuale non riesce a ottenere l'indirizzo dell'host/infrastruttura dal DHCP. | DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle VM IaaS.  Se la macchina virtuale non riesce a ottenere l'indirizzo dell'host/infrastruttura dal DHCP, risposta 245, non è possibile scaricare o eseguire le estensioni. Se è necessario un indirizzo IP privato statico, è necessario configurarlo tramite la piattaforma. L'opzione DHCP all'interno della VM deve essere abilitata. Per altre informazioni, vedere [Impostazione di un indirizzo IP privato interno statico](../virtual-network/virtual-networks-reserved-private-ip.md). |
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>Non è possibile aggiornare o caricare l'estensione di backup
@@ -192,24 +193,6 @@ Per disinstallare l'estensione, seguire questa procedura:
 6. Fare clic su **Disinstalla**.
 
 Questa procedura reinstalla l'estensione durante il backup successivo.
-
-### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>Le VM di Azure classico possono richiedere un passaggio aggiuntivo per completare la registrazione
-L'agente nelle VM di Azure classico deve essere registrato per stabilire una connessione al servizio di backup e avviare il backup
-
-#### <a name="solution"></a>Soluzione
-
-Dopo aver installato l'agente guest della VM, avviare Azure PowerShell <br>
-1. Accedere all'account Azure usando <br>
-       `Login-AzureAsAccount`<br>
-2. Verificare se la proprietà ProvisionGuestAgent della VM è impostata su True, mediante i comandi seguenti <br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent`<br>
-3. Se la proprietà è impostata su FALSE, eseguire i comandi seguenti per impostarla su TRUE<br>
-        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
-        `$vm.VM.ProvisionGuestAgent = $true`<br>
-4. Quindi eseguire il comando seguente per aggiornare la VM <br>
-        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
-5. Tentare di avviare il backup. <br>
 
 ### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Il servizio di backup non dispone dell'autorizzazione per eliminare i vecchi punti di ripristino a causa del blocco del gruppo di risorse
 Questo problema è specifico delle VM gestite, in cui l'utente blocca il gruppo di risorse e il servizio di backup non è in grado di eliminare i punti di ripristino precedenti. Per questo motivo i nuovi backup non vengono eseguiti, in quanto esiste un limite massimo 18 punti di ripristino imposto dal back-end.

@@ -4,8 +4,8 @@ description: Esercitazione introduttiva per la soluzione IoT di Analisi di fluss
 keywords: soluzione IOT, funzioni finestra
 documentationcenter: 
 services: stream-analytics
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
 ms.service: stream-analytics
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: a93693ef7d40025fa96846594a8eb525a50b6885
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/12/2018
+ms.author: sngun
+ms.openlocfilehash: cc84a34a410a750ddf2acb8f19b3bb809d269098
+ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilare una soluzione IoT con Analisi di flusso
+
 ## <a name="introduction"></a>Introduzione
 Questa esercitazione illustra come usare Analisi di flusso di Azure per acquisire informazioni approfondite in tempo reale a partire dai dati. Gli sviluppatori possono combinare facilmente flussi di dati, come clickstream, log ed eventi generati da dispositivi, con record cronologici o dati di riferimento per ottenere informazioni aziendali approfondite. Analisi di flusso di Azure è un servizio di calcolo dei flussi in tempo reale completamente gestito, ospitato in Microsoft Azure, con caratteristiche di resilienza predefinita, bassa latenza e scalabilità che consentono la piena operatività in pochi minuti.
 
@@ -33,7 +34,7 @@ Dopo aver completato questa esercitazione, si sarà in grado di:
 * Sviluppare in tutta sicurezza soluzioni di streaming per i clienti usando Analisi di flusso.
 * Usare l'esperienza di monitoraggio e registrazione per risolvere i problemi.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare questa esercitazione, sono necessari i prerequisiti seguenti:
 
 * La versione più recente di [Azure PowerShell](/powershell/azure/overview)
@@ -54,7 +55,7 @@ Questa esercitazione utilizza due flussi di dati. Il primo flusso viene prodotto
 ### <a name="entry-data-stream"></a>Flusso di dati di ingresso
 Il flusso di dati di ingresso contiene informazioni sulle automobili che entrano nel casello.
 
-| ID casello | Tempo ingresso | Targa | Stato | Casa automobilistica | Modello | Tipo veicolo | Peso veicolo | Casello | Tag |
+| ID casello | Tempo ingresso | Targa | Stato | Assicurarsi | Modello | Tipo veicolo | Peso veicolo | Casello | Tag |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
@@ -71,7 +72,7 @@ Ecco una breve descrizione delle colonne:
 | Tempo ingresso |Data e ora (UTC) di ingresso del veicolo nel casello |
 | Targa |Numero di targa del veicolo |
 | Stato |Stato degli Stati Uniti |
-| Casa automobilistica |Il produttore dell'automobile |
+| Assicurarsi |Il produttore dell'automobile |
 | Modello |Numero di modello dell'automobile |
 | Tipo veicolo |1 per autovetture o 2 per veicoli commerciali |
 | Peso veicolo |Peso del veicolo in tonnellate, 0 per veicoli passeggeri |
@@ -175,26 +176,13 @@ Viene visualizzata anche un'altra finestra simile allo screenshot seguente. Ques
 A questo punto le risorse dovrebbero essere visibili nel portale di Azure. Passare a <https://portal.azure.com> e accedere con le credenziali del proprio account. Si noti che attualmente alcune funzionalità usano il portale classico. Questi passaggi saranno indicati con chiarezza.
 
 ### <a name="azure-event-hubs"></a>Hub eventi di Azure
-Nel portale di Azure fare clic su **Altri servizi** in basso nel riquadro di gestione a sinistra. Digitare **Hub eventi** nel campo fornito e fare clic su **Hub eventi**. Verrà avviata una nuova finestra del browser per visualizzare l'area **BUS DI SERVIZIO** nel **portale classico**. Qui è possibile esaminare l'Hub eventi creato dallo script Setup.ps1.
 
-![Bus di servizio](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image8.png)
-
-Fare clic su quello che inizia con *tolldata*. Fare clic sulla scheda **HUB EVENTI** . Vengono visualizzati due Hub eventi denominati *entry* ed *exit* creati in questo spazio dei nomi.
-
-![Scheda Hub eventi nel portale classico](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image9.png)
+Dal portale di Azure fare clic su **Altri servizi** in basso nel riquadro di gestione a sinistra. Digitare **hub eventi** nel campo disponibile. Verrà visualizzato un nuovo spazio dei nomi di Hub eventi che inizia con **tolldata**. Questo spazio dei nomi viene creato dallo script Setup.ps1. Vengono visualizzati due Hub eventi denominati **entry** ed **exit** creati in questo spazio dei nomi.
 
 ### <a name="azure-storage-container"></a>Contenitore Archiviazione di Azure
-1. Tornare alla scheda nel browser aperta al portale di Azure. Fare clic su **ARCHIVIAZIONE** sulla sinistra del portale di Azure per visualizzare il contenitore di Archiviazione di Azure usato nell'esercitazione.
-   
-    ![Voce di menu Archiviazione](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image11.png)
-2. Fare clic su quello che inizia con *tolldata*. Fare clic sulla scheda **CONTENITORI** per visualizzare il contenitore creato.
-   
-    ![Scheda Contenitori nel portale di Azure](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image10.png)
-3. Fare clic sul contenitore **tolldata** per visualizzare il file JSON caricato con i dati di registrazione del veicolo.
-   
-    ![Screenshot del file registration.json nel contenitore](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image12.png)
+Dal portale di Azure passare agli account di archiviazione. Dovrebbe essere visualizzato un account di archiviazione che inizia con **tolldata**. Fare clic sul contenitore **tolldata** per visualizzare il file JSON caricato con i dati di registrazione del veicolo.
 
-### <a name="azure-sql-database"></a>Database SQL di Azure
+### <a name="azure-sql-database"></a>database SQL di Azure
 1. Tornare al portale di Azure nella prima scheda aperta nel browser. Fare clic su **DATABASE SQL** sulla sinistra del portale di Azure per visualizzare il database SQL che verrà usato nell'esercitazione e fare clic su **tolldatadb**.
    
     ![Screenshot del database SQL creato](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image15.png)
@@ -424,7 +412,7 @@ L'area **MONITORAGGIO** contiene le statistiche relative al processo in esecuzio
 È possibile accedere a **Log attività** anche dall'area **Impostazioni** del dashboard del processo.
 
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 Questa esercitazione ha presentato il servizio Analisi di flusso di Azure. È stato illustrato come configurare input e output per il processo di Analisi di flusso. Usando lo scenario dei dati del casello, è stato possibile spiegare le tipologie più comuni di problemi che si verificano nello spazio dei dati in movimento e come risolverli con semplici query di tipo SQL in Analisi di flusso di Azure. Sono stati descritti i costrutti di estensioni SQL per l'uso di dati temporali. È stato illustrato come creare un join tra flussi di dati, come arricchire il flusso di dati con dati di riferimento statici e come aumentare il numero di istanze di una query per ottenere una maggiore produttività.
 
 Anche se questa esercitazione offre una buona introduzione, non può ritenersi completa. Per altri modelli di query che usano il linguaggio SAQL, vedere [Esempi di query per modelli di uso comune di Analisi di flusso](stream-analytics-stream-analytics-query-patterns.md).

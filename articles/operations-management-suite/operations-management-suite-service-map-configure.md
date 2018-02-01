@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: f5ffbb6c2d699da143e12c51c38cba602f5a8526
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
-ms.translationtype: MT
+ms.openlocfilehash: e23173fb6708104c39071145595e4eec3454ee76
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>Configurare Mapping dei servizi in Operations Management Suite
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che offrono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
@@ -139,7 +139,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
 ## <a name="azure-vm-extension"></a>Estensione di VM Azure
-È possibile distribuire facilmente Dependency Agent nelle macchine virtuali Azure usando un'[Estensione di VM Azure](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions).  Con l'estensione di VM Azure è possibile distribuire Dependency Agent nelle macchine virtuali usando uno script PowerShell o direttamente nel modello di Azure Resource Manager della macchina virtuale.  È disponibile un'estensione sia per Windows (DependencyAgentWindows) che per Linux (DependencyAgentLinux).  Se si esegue la distribuzione con l'estensione di VM Azure, gli agenti vengono automaticamente aggiornati alle versioni più recenti.
+È possibile distribuire facilmente Dependency Agent nelle macchine virtuali Azure usando un'[Estensione di VM Azure](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  Con l'estensione di VM Azure è possibile distribuire Dependency Agent nelle macchine virtuali usando uno script PowerShell o direttamente nel modello di Azure Resource Manager della macchina virtuale.  È disponibile un'estensione sia per Windows (DependencyAgentWindows) che per Linux (DependencyAgentLinux).  Se si esegue la distribuzione con l'estensione di VM Azure, gli agenti vengono automaticamente aggiornati alle versioni più recenti.
 
 Per distribuire l'estensione di VM Azure tramite PowerShell, è possibile usare l'esempio seguente:
 ```PowerShell
@@ -262,8 +262,8 @@ La tabella seguente elenca i codici e le risoluzioni consigliate.
 #### <a name="server-doesnt-appear-in-service-map"></a>Il server non viene visualizzato in Mapping dei servizi
 Se l'installazione di Dependency Agent è stata completata correttamente, ma nella soluzione Elenco dei servizi non viene visualizzato il server:
 * Dependency Agent è stato installato correttamente? È possibile verificarlo controllando se il servizio è installato ed è in esecuzione.<br><br>
-**Windows**: cercare il servizio denominato "Microsoft Dependency agente".<br>
-**Linux**: cercare la processo in esecuzione "microsoft dependency agent."
+**Windows**: cercare il servizio denominato "Microsoft Dependency Agent".<br>
+**Linux**: cercare il processo in esecuzione "microsoft-dependency-agent".
 
 * L'utente dispone del [piano tariffario gratuito di Log Analytics/Operations Management Suite](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? Il piano gratuito consente di avere fino a cinque server univoci dell'Elenco dei servizi. Tutti i server successivi non verranno visualizzati nell'Elenco dei servizi, anche se i primi cinque non inviano più dati.
 

@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/3/2017
+ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 3c2ea9e5872454b0bac67c39362a1f94b6fa47b8
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 7d7b81a585ba8b10c60062c5d5274c45335cab68
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparare l’ambiente per il backup di macchine virtuali distribuite con Resource Manager
 
@@ -54,7 +54,7 @@ Prima di preparare l'ambiente, assicurarsi di conoscere queste limitazioni:
 * Il backup di macchine virtuali con dischi dati di dimensioni superiori a 1023 GB non è supportato.
 
   > [!NOTE]
-  > È disponibile un'anteprima privata per il supporto di backup di VM con dischi non gestiti di dimensioni uguali o superiori a 1 TB. Per informazioni dettagliate, vedere l'[anteprima privata per il supporto di backup di VM con dischi di grandi dimensioni](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
+  > È disponibile un'anteprima privata per il supporto di backup per macchine virtuali con dischi di dimensioni superiori a 1 TB. Per informazioni dettagliate, vedere l'[anteprima privata per il supporto di backup di VM con dischi di grandi dimensioni](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
   >
 
 * Il backup di macchine virtuali con un indirizzo IP riservato e nessun endpoint definito non è supportato.
@@ -181,7 +181,7 @@ Dopo che il backup è stato abilitato, i criteri di backup verranno eseguiti com
 In caso di problemi con la registrazione della VM, vedere le informazioni seguenti relative all'installazione dell'agente di macchine virtuali e alla connettività di rete. Probabilmente le informazioni seguenti non sono necessarie se si stanno proteggendo macchine virtuali create in Azure. Se è stata eseguita la migrazione delle macchine virtuali ad Azure, tuttavia, assicurarsi che l'agente di macchine virtuali sia installato correttamente e che la VM possa comunicare con la rete virtuale.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Installare l'agente di macchine virtuali nella VM
-Per il funzionamento dell'estensione di backup, è necessario che nella VM di Azure sia installato l'[agente di macchine virtuali](../virtual-machines/windows/classic/agents-and-extensions.md#azure-vm-agents-for-windows-and-linux) di Azure. Se la VM è stata creata da Azure Marketplace, l'agente di macchine virtuali è già presente. 
+Per il funzionamento dell'estensione di backup, è necessario che nella VM di Azure sia installato l'[agente di macchine virtuali](../virtual-machines/windows/agent-user-guide.md) di Azure. Se la VM è stata creata da Azure Marketplace, l'agente di macchine virtuali è già presente. 
 
 Le informazioni seguenti riguardano le situazioni in cui *non* si usa una VM creata da Azure Marketplace, ad esempio perché è stata eseguita la migrazione di una VM da un data center locale. In tal caso, per proteggere la VM è necessario installare l'agente di macchine virtuali.
 
@@ -219,7 +219,7 @@ Per aggiungere gli intervalli IP dei data center di Azure all'elenco elementi co
 ![NSG con i tag di archiviazione per un'area](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
 > [!WARNING]
-> I tag di archiviazione sono disponibili in anteprima solo in aree specifiche. Per un elenco delle aree, vedere i [tag di servizio per Archiviazione](../virtual-network/security-overview.md#service-tags).
+> I tag di servizio delle risorse di archiviazione sono disponibili in anteprima solo in aree specifiche. Per un elenco delle aree, vedere i [tag di servizio per Archiviazione](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>Usare un proxy HTTP per i backup delle VM
 Quando si esegue il backup di una macchina virtuale, l'estensione di backup nella VM invia i comandi di gestione degli snapshot ad Archiviazione di Azure usando un'API HTTPS. Indirizzare il traffico dell'estensione di backup attraverso il proxy HTTP perché è l'unico componente configurato per l'accesso alla rete Internet pubblica.

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 010/19/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0e31d58de113f737a48b6d3091650226f04ec69a
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 708027b6cea8ac6a2fe7f713f5c6639fc6f8258a
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="about-point-to-site-vpn"></a>Informazioni sulla VPN da punto a sito
 
@@ -36,7 +36,7 @@ Per la VPN da punto a sito può essere usato uno dei protocolli seguenti:
 In presenza di un ambiente client misto con dispositivi Windows e Mac, configurare sia SSTP che IKEv2.
 
 >[!NOTE]
->IKEv2 per P2S è attualmente in anteprima ed è disponibile per il modello di distribuzione di Resource Manager.
+>IKEv2 per P2S è disponibile solo per il modello di distribuzione Resource Manager. Non è disponibile per il modello di distribuzione classica.
 >
 
 ## <a name="authentication"></a>Modalità di autenticazione del client VPN da punto a sito
@@ -57,28 +57,40 @@ L'autenticazione con un dominio di AD consente agli utenti di connettersi ad Azu
 
 Un server RADIUS può anche integrarsi con altri sistemi di identità esterni, offrendo così molte opzioni di autenticazione per le VPN da punto a sito, incluse le opzioni a più fattori.
 
->[!NOTE]
->L'autenticazione RADIUS per P2S è attualmente in fase di anteprima.
->
-
 ![point-to-site]](./media/point-to-site-about/p2s.png "Point-to-Site")
 
 ### <a name="configuration-requirements-for-client-devices"></a>Requisiti di configurazione per i dispositivi client
 
 Gli utenti usano i client VPN nativi nei dispositivi Windows e Mac per la connessione da punto a sito. Azure fornisce un file ZIP per la configurazione del client VPN contenente le impostazioni necessarie per la connessione di questi client nativi ad Azure.
 
-  * Per i dispositivi Windows, la configurazione del client VPN è costituita da un pacchetto di installazione che gli utenti installano nei propri dispositivi.
-  * Per i dispositivi Mac è costituita dal file mobileconfig che gli utenti installano nei propri dispositivi.
+* Per i dispositivi Windows, la configurazione del client VPN è costituita da un pacchetto di installazione che gli utenti installano nei propri dispositivi.
+* Per i dispositivi Mac è costituita dal file mobileconfig che gli utenti installano nei propri dispositivi.
 
 Il file ZIP fornisce anche i valori di alcune impostazioni importanti sul lato Azure che è possibile usare per creare il proprio profilo per questi dispositivi. Alcuni dei valori includono l'indirizzo del gateway VPN, i tipi di tunnel configurati, le route e il certificato radice per la convalida del gateway.
 
-### <a name="which-gateway-skus-support-p2s-vpn"></a>SKU del gateway che supportano la VPN da punto a sito
+>[!NOTE]
+>Per i client Windows, è necessario avere i diritti di amministratore nel dispositivo client per avviare la connessione VPN dal dispositivo client ad Azure.
+>
+
+### <a name="gwsku"></a>Quali SKU del gateway supportano la connessione VPN da punto a sito?
 
 [!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
 
 * Il benchmark della velocità effettiva aggregata si basa sulle misurazioni di più tunnel aggregati tramite un singolo gateway. Non è una velocità effettiva garantita, perché può variare anche in funzione delle condizioni del traffico Internet e dei comportamenti dell'applicazione.
 * Le informazioni sui prezzi sono disponibili nella pagina Prezzi 
 * Le informazioni sul contratto di servizio sono disponibili nella pagina Contratto di servizio.
+
+>[!NOTE]
+>Lo SKU Basic non supporta l'autenticazione IKEv2 o RADIUS.
+>
+
+## <a name="configure"></a>Come si configura una connessione da punto a sito?
+
+La configurazione di una connessione da punto a sito richiede alcuni passaggi specifici. Gli articoli seguenti illustrano le procedure di configurazione di una connessione da punto a sito e contengono collegamenti per la configurazione dei dispositivi client VPN:
+
+* [Configurare una connessione da punto a sito usando l'autenticazione RADIUS](point-to-site-how-to-radius-ps.md)
+
+* [Configurare una connessione da punto a sito usando l'autenticazione del certificato nativa di Azure](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ## <a name="faqcert"></a>Domande frequenti per l'autenticazione del certificato di Azure nativo
 
@@ -90,6 +102,6 @@ Il file ZIP fornisce anche i valori di alcune impostazioni importanti sul lato A
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Configurare connessioni da punto a sito - autenticazione RADIUS](point-to-site-how-to-radius-ps.md)
+* [Configurare una connessione da punto a sito usando l'autenticazione RADIUS](point-to-site-how-to-radius-ps.md)
 
-[Configurare connessioni da punto a sito - autenticazione del certificato nativa di Azure](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Configurare una connessione da punto a sito usando l'autenticazione del certificato nativa di Azure](vpn-gateway-howto-point-to-site-rm-ps.md)

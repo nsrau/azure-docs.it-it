@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 474c5a6d0e7d3647ca14cb61e7b2718c99fdfa72
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: e2eda7cee90d307d646ff68e104750c3057dcb06
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Usare i cmdlet AzureRM.RecoveryServices.Backup per eseguire il backup di macchine virtuali
 
@@ -80,7 +80,7 @@ Cmdlet          Unregister-AzureRmRecoveryServicesBackupContainer  1.4.0      Az
 Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.4.0      AzureRM.RecoveryServices.Backup
 Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
 ```
-3. Accedi a di Azure account tramite **accesso AzureRmAccount**. Questo cmdlet consente di visualizzare una pagina web viene chiesto di immettere le credenziali dell'account: 
+3. Accedere al proprio account di Azure tramite **Login-AzureRmAccount**. Questo cmdlet visualizza una pagina Web che richiede le credenziali dell'account: 
     - In alternativa, è possibile includere le credenziali dell'account come parametro nel cmdlet **Login-AzureRmAccount**, usando il parametro **-Credential**.
     - Se si è un partner CSP che opera per conto di un tenant, è necessario specificare il cliente come tenant usando l'ID tenant o il nome di dominio primario del tenant. Ad esempio: **Login-AzureRmAccount -Tenant "fabrikam.com"**
 4. Associare la sottoscrizione che si vuole usare all'account perché un account può avere molte sottoscrizioni:
@@ -96,12 +96,12 @@ Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      Az
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ```
 
-6. È possibile verificare che i provider registrati correttamente, usando i seguenti comandi:
+6. È possibile verificare che i provider siano stati registrati correttamente usando i comandi seguenti:
     ```
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace  "Microsoft.RecoveryServices"
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ``` 
-Nell'output del comando, il **RegistrationState** imposti su **registrati**. In caso contrario, solo eseguire di nuovo il  **[registro AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**  cmdlet illustrato in precedenza.
+Nell'output del comando il parametro **RegistrationState** deve essere impostato su **Registered**. In caso contrario, eseguire di nuovo il cmdlet  **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**  come illustrato in precedenza.
 
 Le attività seguenti possono essere automatizzate tramite PowerShell:
 
@@ -284,7 +284,7 @@ C'è una differenza chiave tra il ripristino di una macchina virtuale tramite il
 >
 >
 
-Per creare una macchina virtuale dal disco, vedere la sezione [Creare la macchina virtuale da dischi archiviati](backup-azure-vms-automation.md#create-a-vm-from-stored-disks). I passaggi di base per ripristinare una macchina virtuale di Azure sono:
+Per creare una macchina virtuale dal disco, vedere la sezione [Creare la macchina virtuale da dischi ripristinati](backup-azure-vms-automation.md#create-a-vm-from-restored-disks). I passaggi di base per ripristinare una macchina virtuale di Azure sono:
 
 * Selezionare la macchina virtuale
 * Scegliere un punto di ripristino

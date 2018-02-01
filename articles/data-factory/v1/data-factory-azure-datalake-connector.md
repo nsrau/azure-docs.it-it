@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cc3128d3d07210d5c8e3ebe70c6c1d8ebaa9b863
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: f4ba8288c1efd443310b4efc305c6f397c8163a0
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Copiare dati da e in Data Lake Store usando Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,9 +86,9 @@ Per usare l'autenticazione basata su entità servizio, registrare un'entità app
 
 > [!IMPORTANT]
 > Assicurarsi di concedere all'entità servizio un'autorizzazione appropriata in Azure Data Lake Store:
->- **Utilizzo archivio Data Lake come origine**, concedere almeno **lettura + Execute** dell'autorizzazione per l'elenco e copiare il contenuto di una cartella, accesso ai dati o **lettura** autorizzazione a duplicare un singolo file. Nessun requisito per il controllo di accesso a livello di account.
->- **Per utilizzare l'archivio Data Lake come sink**, concedere almeno **scrittura eseguire** autorizzazione per la creazione di elementi figlio nella cartella di accesso ai dati. E se si consente la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud) per permettere a Data Factory di rilevare l'area di Data Lake Store, concedere almeno il ruolo **Lettore** nel controllo di accesso dell'account (IAM). Se si vuole evitare questo ruolo IAM, nell'attività di copia [specificare executionLocation](data-factory-data-movement-activities.md#global) con la posizione di Data Lake Store.
->- Se si **utilizzare Copia guidata per creare pipeline**, concedere almeno **lettore** ruolo nel controllo di accesso di account (IAM). Concedere poi almeno l'autorizzazione **Lettura ed Esecuzione** alla radice di Data Lake Store ("/") e ai relativi elementi figlio. In caso contrario, potrebbe venire visualizzato il messaggio "Fornite credenziali non valide".
+>- **Per usare Data Lake Store come origine**, concedere almeno l'autorizzazione di accesso ai dati **Lettura ed esecuzione** per l'elenco e la copia del contenuto di una cartella oppure l'autorizzazione **Lettura** per la copia di un file singolo. Nessun requisito per il controllo di accesso a livello di account.
+>- **Per usare Data Lake Store come sink**, concedere almeno l'autorizzazione di accesso ai dati **Scrittura ed esecuzione** per consentire la creazione di elementi figlio nella cartella. E se si consente la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud) per permettere a Data Factory di rilevare l'area di Data Lake Store, concedere almeno il ruolo **Lettore** nel controllo di accesso dell'account (IAM). Se si vuole evitare questo ruolo IAM, nell'attività di copia [specificare executionLocation](data-factory-data-movement-activities.md#global) con la posizione di Data Lake Store.
+>- Se si usa la **copia guidata per creare pipeline**, concedere almeno il ruolo **Lettore** nel controllo di accesso dell'account (IAM). Concedere poi almeno l'autorizzazione **Lettura ed Esecuzione** alla radice di Data Lake Store ("/") e ai relativi elementi figlio. In caso contrario, potrebbe venire visualizzato il messaggio "Fornite credenziali non valide".
 
 Usare l'autenticazione basata su entità servizio specificando le proprietà seguenti:
 
@@ -125,10 +125,10 @@ In alternativa, è possibile usare l'autenticazione delle credenziali dell'utent
 | **sessionId** | ID sessione OAuth dalla sessione di autorizzazione oauth. Ogni ID di sessione è univoco e può essere usato solo una volta. Questa impostazione viene generata automaticamente quando si usa l'editor di Data Factory. | Sì |
 
 > [!IMPORTANT]
-> Assicurarsi che concedere all'utente l'autorizzazione appropriata in archivio Azure Data Lake:
->- **Utilizzo archivio Data Lake come origine**, concedere almeno **lettura + Execute** dell'autorizzazione per l'elenco e copiare il contenuto di una cartella, accesso ai dati o **lettura** autorizzazione a duplicare un singolo file. Nessun requisito per il controllo di accesso a livello di account.
->- **Per utilizzare l'archivio Data Lake come sink**, concedere almeno **scrittura eseguire** autorizzazione per la creazione di elementi figlio nella cartella di accesso ai dati. E se si consente la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud) per permettere a Data Factory di rilevare l'area di Data Lake Store, concedere almeno il ruolo **Lettore** nel controllo di accesso dell'account (IAM). Se si vuole evitare questo ruolo IAM, nell'attività di copia [specificare executionLocation](data-factory-data-movement-activities.md#global) con la posizione di Data Lake Store.
->- Se si **utilizzare Copia guidata per creare pipeline**, concedere almeno **lettore** ruolo nel controllo di accesso di account (IAM). Concedere poi almeno l'autorizzazione **Lettura ed Esecuzione** alla radice di Data Lake Store ("/") e ai relativi elementi figlio. In caso contrario, potrebbe venire visualizzato il messaggio "Fornite credenziali non valide".
+> Assicurarsi di concedere all'utente un'autorizzazione appropriata in Azure Data Lake Store:
+>- **Per usare Data Lake Store come origine**, concedere almeno l'autorizzazione di accesso ai dati **Lettura ed esecuzione** per l'elenco e la copia del contenuto di una cartella oppure l'autorizzazione **Lettura** per la copia di un file singolo. Nessun requisito per il controllo di accesso a livello di account.
+>- **Per usare Data Lake Store come sink**, concedere almeno l'autorizzazione di accesso ai dati **Scrittura ed esecuzione** per consentire la creazione di elementi figlio nella cartella. E se si consente la copia tramite runtime di integrazione di Azure (sia origine che sink sono nel cloud) per permettere a Data Factory di rilevare l'area di Data Lake Store, concedere almeno il ruolo **Lettore** nel controllo di accesso dell'account (IAM). Se si vuole evitare questo ruolo IAM, nell'attività di copia [specificare executionLocation](data-factory-data-movement-activities.md#global) con la posizione di Data Lake Store.
+>- Se si usa la **copia guidata per creare pipeline**, concedere almeno il ruolo **Lettore** nel controllo di accesso dell'account (IAM). Concedere poi almeno l'autorizzazione **Lettura ed Esecuzione** alla radice di Data Lake Store ("/") e ai relativi elementi figlio. In caso contrario, potrebbe venire visualizzato il messaggio "Fornite credenziali non valide".
 
 **Esempio: autenticazione basata su credenziali utente**
 ```json
@@ -192,29 +192,29 @@ Per informazioni dettagliate sulle classi di Data Factory usate nel codice, vede
 
 ## <a name="troubleshooting-tips"></a>Suggerimenti per la risoluzione dei problemi
 
-**Sintomo:** quando si copiano dati **in** archivio Azure Data Lake, se l'attività di copia non riesce con l'errore seguente:
+**Sintomo:** quando si copiano dati **in** Azure Data Lake Store, se l'attività di copia non riesce con l'errore seguente:
 
   ```
   Failed to detect the region for Azure Data Lake account {your account name}. Please make sure that the Resource Group name: {resource group name} and subscription ID: {subscription ID} of this Azure Data Lake Store resource are correct.
   ```
 
-**Causa radice:** 2 motivi possibili sono:
+**Causa radice:** ci sono due motivi possibili:
 
-1. Il `resourceGroupName` e/o `subscriptionId` specificato in un archivio Azure Data Lake collegato servizio non è corretto
-2. L'utente o l'entità servizio non dispone dell'autorizzazione necessaria.
+1. `resourceGroupName` e/o `subscriptionId` specificato nel servizio collegato Azure Data Lake Store non è corretto.
+2. L'utente o l'entità servizio non ha l'autorizzazione necessaria.
 
 **Risoluzione:**
 
-1. Verificare che il `subscriptionId` e `resourceGroupName` specificate nel servizio collegato `typeProperties` sono quelli a cui appartiene l'account data lake.
+1. Assicurarsi che `subscriptionId` e `resourceGroupName` specificati in `typeProperties` del servizio collegato siano effettivamente quelli a cui appartiene l'account del data lake.
 
-2. Assicurarsi concedere almeno "**lettore**" ruolo all'utente o entità servizio per l'account data lake. Ecco come fare:
+2. Assicurarsi concedere almeno il ruolo "**Lettore**" all'utente o all'entità servizio per l'account del data lake. Ecco come fare:
 
-    1. Passare al portale di Azure -> account archivio Data Lake
-    2. Fare clic su "controllo Access (IAM)" nel Pannello di archivio Data Lake
-    3. Fare clic su "Aggiungi" nel Pannello di "accesso controllo (IAM)"
-    4. Impostare "Ruolo" come "Lettura" e selezionare l'utente o l'entità di servizio che utilizzare per la copia di concedere l'accesso
+    1. Passare al portale di Azure -> account Data Lake Store personale
+    2. Fare clic su "Controllo di accesso (IAM)" nel pannello di Data Lake Store
+    3. Fare clic su "Aggiungi" nel pannello di "Controllo di accesso (IAM)"
+    4. Impostare "Ruolo" come "Lettore" e selezionare l'utente o l'entità di servizio usata per la copia per concedere l'accesso
 
-3. Se non si desidera concedere il ruolo di "Lettura" all'utente o dell'entità servizio, è alernative [in modo esplicito, specificare un percorso di esecuzione](data-factory-data-movement-activities.md#global) in activitywith copia il percorso dell'archivio Data Lake. Esempio:
+3. Se non si vuole concedere il ruolo "Lettore" all'utente o all'entità servizio, l'alternativa è [specificare un percorso di esecuzione in modo esplicito](data-factory-data-movement-activities.md#global) per l'attività di copia specificando il percorso di Data Lake Store. Esempio:
 
     ```json
     {

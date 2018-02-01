@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: c1743a0d06f911122ed0aba586aec837f81c578c
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: b4b777a858febb4b601c038508e4fc313c189ac2
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-an-azure-ssis-integration-runtime"></a>Gestire un runtime di integrazione SSIS di Azure
 L'articolo [Creare un runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md) illustra come creare un runtime di integrazione SSIS di Azure usando Azure Data Factory. Questo articolo fornisce informazioni su come riconfigurare un runtime di integrazione SSIS di Azure esistente.  
@@ -25,9 +25,28 @@ L'articolo [Creare un runtime di integrazione SSIS di Azure](create-azure-ssis-i
 > [!NOTE]
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione su Data Factory versione 1](v1/data-factory-introduction.md).
 
+
+## <a name="data-factory-ui"></a>Interfaccia utente di Data Factory 
+È possibile usare l'interfaccia utente di Data Factory per arrestare, modificare, riconfigurare o eliminare un runtime di integrazione Azure-SSIS. 
+
+1. Nell'**interfaccia utente di Data Factory** passare alla scheda **Modifica**. Per avviare l'interfaccia utente di Data Factory, fare clic su **Crea e monitora** nella home page della data factory.
+2. Nel riquadro sinistro fare clic su **Connessioni**.
+3. Nel riquadro destro passare a **Integration Runtime**. 
+4. È possibile usare i pulsanti nella colonna Azioni per **arrestare**, **modificare** o **eliminare** il runtime di integrazione. Il pulsante **Codice** nella colonna **Azioni** consente di visualizzare la definizione JSON associata al runtime di integrazione.  
+    
+    ![Azioni per il runtime di integrazione Azure-SSIS](./media/manage-azure-ssis-integration-runtime/actions-for-azure-ssis-ir.png)
+
+### <a name="to-reconfigure-an-azure-ssis-ir"></a>Per riconfigurare un runtime di integrazione Azure-SSIS
+1. Arrestare il runtime di integrazione facendo clic su **Arresto** nella colonna **Azioni**. Per aggiornare la visualizzazione elenco, fare clic su **Aggiorna** sulla barra degli strumenti. Dopo l'arresto del runtime di integrazione, la prima azione consente di avviarlo. 
+
+    ![Azioni per il runtime di integrazione Azure-SSIS dopo l'arresto](./media/manage-azure-ssis-integration-runtime/actions-after-ssis-ir-stopped.png)
+2. Per modificare o riconfigurare il runtime di integrazione, fare clic sul pulsante **Modifica** nella colonna **Azioni**. Nella finestra **Impostazione runtime di integrazione** modificare le impostazioni, ad esempio le dimensioni del nodo, il numero di nodi o il numero massimo di esecuzioni parallele per nodo. 
+3. Per riavviare il runtime di integrazione, fare clic sul pulsante **Avvia** nella colonna **Azioni**.     
+
+## <a name="azure-powershell"></a>Azure PowerShell
 Dopo il provisioning e l’avvio di un'istanza di runtime di integrazione SSIS di Azure, è possibile riconfigurarlo eseguendo una sequenza di cmdlet PowerShell `Stop` - `Set` - `Start` consecutivamente. Ad esempio, lo script di PowerShell seguente modifica il numero di nodi allocato per l'istanza di runtime di integrazione SSIS di Azure a 5.
 
-## <a name="reconfigure-an-azure-ssis-ir"></a>Riconfigurare un runtime di integrazione SSIS di Azure
+### <a name="reconfigure-an-azure-ssis-ir"></a>Riconfigurare un runtime di integrazione SSIS di Azure
 
 1. In primo luogo arrestare il runtime di integrazione SSIS di Azure tramite il cmdlet [Stop-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/stop-azurermdatafactoryv2integrationruntime?view=azurermps-4.4.1). Questo comando rilascia tutti i nodi e arresta la fatturazione.
 
@@ -45,7 +64,7 @@ Dopo il provisioning e l’avvio di un'istanza di runtime di integrazione SSIS d
     Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName
     ```
 
-## <a name="delete-an-azure-ssis-ir"></a>Eliminare un runtime di integrazione SSIS di Azure
+### <a name="delete-an-azure-ssis-ir"></a>Eliminare un runtime di integrazione SSIS di Azure
 1. In primo luogo elencare tutti i runtime di integrazione SSIS di Azure esistenti nella data factory.
 
     ```powershell

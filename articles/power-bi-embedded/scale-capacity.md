@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 09/28/2017
+ms.date: 01/19/2018
 ms.author: asaxton
-ms.openlocfilehash: e1ab6a2f52fa56f1e04c6c327796587daf43596e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7eb64cce37f2655b72ab9b5fadedf7581fe007fb
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="scale-your-power-bi-embedded-capacity"></a>Ridimensionare la capacità di Power BI Embedded
 
@@ -26,7 +26,8 @@ Questo articolo illustra come ridimensionare una capacità di Power BI Embedded 
 
 Si presuppone che sia stata creata una capacità di Power BI Embedded. In caso contrario, vedere [Create Power BI Embedded capacity in the Azure portal](create-capacity.md) (Creare capacità di Power BI Embedded nel portale di Azure) per iniziare.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+> [!NOTE]
+> Un'operazione di ridimensionamento può richiedere circa un minuto. In questo intervallo di tempo la capacità non è disponibile e potrebbe non essere possibile caricare i contenuti incorporati.
 
 ## <a name="scale-a-capacity"></a>Ridimensionare una capacità
 

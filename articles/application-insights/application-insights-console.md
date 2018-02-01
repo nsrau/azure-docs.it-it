@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights per le applicazioni Console | Documenti Microsoft
+title: Azure Application Insights per le applicazioni console | Microsoft Docs
 description: "Monitorare la disponibilità, le prestazioni e l'utilizzo delle applicazioni Web."
 services: application-insights
 documentationcenter: .net
@@ -13,51 +13,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: lmolkova
-ms.openlocfilehash: 1b6bef88d729a2febfca2bd236a5382d2c11bd69
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 57f5670eec36ff2c4332da592dd2a3eef73fdefc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="application-insights-for-net-console-applications"></a>Applicazioni console Application Insights per .NET
-[Application Insights](app-insights-overview.md) consente di monitorare l'applicazione web per la disponibilità, prestazioni e utilizzo.
+# <a name="application-insights-for-net-console-applications"></a>Application Insights per le applicazioni console .NET
+[Application Insights](app-insights-overview.md) consente di monitorare la disponibilità, le prestazioni e l'uso dell'applicazione Web.
 
-È necessaria una sottoscrizione con [Microsoft Azure](http://azure.com). Accedere con un account Microsoft, che potrebbe essere per Windows, Xbox Live o altri servizi cloud Microsoft. Se il team ha una sottoscrizione di Azure per l'organizzazione, chiedere al proprietario di aggiungere l'utente alla sottoscrizione usando il rispettivo account Microsoft.
+È necessaria una sottoscrizione a [Microsoft Azure](http://azure.com). È possibile accedere con un account Microsoft, che in genere si ottiene per Windows, XBox Live o altri servizi cloud Microsoft. Se il team ha una sottoscrizione di Azure per l'organizzazione, chiedere al proprietario di aggiungere l'utente alla sottoscrizione usando il rispettivo account Microsoft.
 
 ## <a name="getting-started"></a>Introduzione
 
 * Nel [portale di Azure](https://portal.azure.com) [creare una risorsa di Application Insights](app-insights-create-new-resource.md). Scegliere l'app ASP.NET per il tipo di applicazione.
-* Eseguire una copia della chiave di strumentazione. Trovare la chiave nell'elenco a discesa Essentials della nuova risorsa creata. 
-* Installare una versione più recente [Microsoft. applicationinsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) pacchetto.
-* Impostare la chiave di strumentazione nel codice prima di registrare qualsiasi telemetria (o variabile di ambiente APPINSIGHTS_INSTRUMENTATIONKEY set). Successivamente, deve essere in grado di controllare la telemetria manualmente e visualizzarlo nel portale di Azure
+* Eseguire una copia della chiave di strumentazione. Trovare la chiave nell'elenco a discesa Informazioni di base della nuova risorsa creata. 
+* Installare la versione più recente del pacchetto [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights).
+* Impostare la chiave di strumentazione nel codice prima di tenere traccia dei dati di telemetria oppure impostare la variabile di ambiente APPINSIGHTS_INSTRUMENTATIONKEY. A questo punto si dovrebbe essere in grado di tenere traccia dei dati di telemetria manualmente e visualizzarli nel portale di Azure.
 
-```C#
+```csharp
 TelemetryConfiguration.Active.InstrumentationKey = " *your key* ";
 var telemetryClient = new TelemetryClient();
 telemetryClient.TrackTrace("Hello World!");
 ```
 
-* Installare la versione più recente di [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) pacchetto - tiene automaticamente traccia HTTP, SQL o altre chiamate di dipendenza esterna.
+* Installare la versione più recente del pacchetto [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector), che consente di tenere automaticamente traccia delle chiamate HTTP, SQL o di altre chiamate a dipendenze esterne.
 
-È possibile inizializzare e configurare Application Insights dal codice o tramite `ApplicationInsights.config` file. Verificare che l'inizializzazione viene eseguita non appena possibile.
+È possibile inizializzare e configurare Application Insights dal codice o tramite il file `ApplicationInsights.config`. Verificare che l'inizializzazione venga eseguita non appena possibile.
 
-### <a name="using-config-file"></a>Utilizzando il file di configurazione
+### <a name="using-config-file"></a>Uso del file di configurazione
 
-Per impostazione predefinita, Application Insights SDK Cerca `ApplicationInsights.config` file nella directory di lavoro quando `TelemetryConfiguration` viene creato
+Per impostazione predefinita, Application Insights SDK cerca il file `ApplicationInsights.config` nella directory di lavoro quando `TelemetryConfiguration` viene creato.
 
-```C#
+```csharp
 TelemetryConfiguration config = TelemetryConfiguration.Active; // Read ApplicationInsights.config file if present
 ```
 
-È inoltre possibile specificare percorso al file di configurazione.
+È inoltre possibile specificare il percorso del file di configurazione.
 
-```C#
+```csharp
 TelemetryConfiguration configuration = TelemetryConfiguration.CreateFromConfiguration("ApplicationInsights.config");
 ```
 
-Per ulteriori informazioni, vedere [file di configurazione](app-insights-configuration-with-applicationinsights-config.md).
+Per altre informazioni, vedere le [informazioni di riferimento sul file di configurazione](app-insights-configuration-with-applicationinsights-config.md).
 
-È possibile che venga visualizzato un esempio completo del file di configurazione installando la versione più recente di [Microsoft.ApplicationInsights.WindowsServer](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer) pacchetto. Ecco il **minimo** configurazione per la raccolta di dipendenza che è equivalente all'esempio di codice.
+Un esempio completo del file di configurazione potrebbe essere disponibile installando la versione più recente del pacchetto [Microsoft.ApplicationInsights.WindowsServer](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer). Ecco la configurazione **minima** per la raccolta di dipendenze equivalente all'esempio di codice.
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -88,9 +88,9 @@ Per ulteriori informazioni, vedere [file di configurazione](app-insights-configu
 
 ### <a name="configuring-telemetry-collection-from-code"></a>Configurazione della raccolta di dati di telemetria dal codice
 
-* Durante l'avvio dell'applicazione, creare e configurare `DependencyTrackingTelemetryModule` istanza - deve essere singleton e deve essere mantenuto per la durata dell'applicazione.
+* Durante l'avvio dell'applicazione, creare e configurare l'istanza di `DependencyTrackingTelemetryModule`, che deve essere singleton ed essere conservata per la durata dell'applicazione.
 
-```C#
+```csharp
 var module = new DependencyTrackingTelemetryModule();
 
 // prevent Correlation Id to be sent to certain endpoints. You may add other domains as needed.
@@ -109,7 +109,7 @@ module.Initialize(configuration);
 
 * Aggiungere gli inizializzatori di telemetria comuni
 
-```C#
+```csharp
 // stamps telemetry with correlation identifiers
 TelemetryConfiguration.Active.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
 
@@ -117,11 +117,11 @@ TelemetryConfiguration.Active.TelemetryInitializers.Add(new OperationCorrelation
 TelemetryConfiguration.Active.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-* Per app di Windows di .NET Framework, è anche possibile installare e inizializzare il modulo di agente di raccolta contatore delle prestazioni, come descritto [qui](http://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+* Per l'app di Windows .NET Framework è anche possibile installare e inizializzare il modulo dell'agente di raccolta dati dei contatori delle prestazioni, come descritto [qui](http://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
 
 #### <a name="full-example"></a>Esempio completo
 
-```C#
+```csharp
 static void Main(string[] args)
 {
     TelemetryConfiguration configuration = TelemetryConfiguration.Active;
@@ -173,5 +173,5 @@ static DependencyTrackingTelemetryModule IntitializeDependencyTracking(Telemetry
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Monitoraggio dipendenze](app-insights-asp-net-dependencies.md) per verificare se altre risorse esterne, SQL o REST rallentano è.
+* [Monitoraggio delle dipendenze](app-insights-asp-net-dependencies.md) per vedere se REST, SQL o altre risorse esterne rallentano l'utente.
 * [Utilizzare l'API](app-insights-api-custom-events-metrics.md) per inviare gli eventi e le metriche per una visualizzazione più dettagliata dell'utilizzo e delle prestazioni dell'app.

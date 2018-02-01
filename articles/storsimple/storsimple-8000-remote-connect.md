@@ -4,7 +4,7 @@ description: Viene illustrato come configurare il dispositivo per la gestione re
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff76884f020a0fb8a1b48bd371c419bd65e85fd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9414d9c93fe463910ffa6fce72aada6a0d720464
+ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Connettersi in remoto al dispositivo StorSimple serie 8000
 
@@ -84,7 +84,10 @@ Eseguire le operazioni seguenti nella console seriale del dispositivo per abilit
 Eseguire le operazioni seguenti sul client per abilitare la gestione remota.
 
 #### <a name="to-prepare-the-client-for-remote-connection"></a>Per preparare il client per la connessione remota:
-1. Avviare una sessione di Windows PowerShell come amministratore.
+1. Avviare una sessione di Windows PowerShell come amministratore. Se si usa un client Windows 10, per impostazione predefinita, il servizio WinRM è impostato su manuale. Può essere necessario avviare il servizio digitando:
+
+    `Start-Service WinRM`
+    
 2. Digitare il comando seguente per aggiungere l'indirizzo IP del dispositivo StorSimple all'elenco di host attendibili del client:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
@@ -193,7 +196,7 @@ Ognuna di queste procedure è descritta di seguito.
 3. Selezionare **Colloca tutti i certificati nel seguente archivio**, quindi fare clic su **Sfoglia**. Passare all'archivio radice dell'host remoto, quindi fare clic su **Avanti**.
    
     ![Impostazione guidata del certificato 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
-4. Fare clic su **Finish**. Viene visualizzato un messaggio indicante che l'importazione è avvenuta correttamente.
+4. Fare clic su **Fine**. Viene visualizzato un messaggio indicante che l'importazione è avvenuta correttamente.
    
     ![Impostazione guidata del certificato 3](./media/storsimple-remote-connect/HCS_CertificateImportWizard3.png)
 
@@ -212,7 +215,10 @@ Utilizzare Windows PowerShell e SSL per accedere a una sessione SSAdmin sul disp
 Eseguire la procedura seguente sul computer da cui si desidera effettuare la connessione remota di Windows PowerShell.
 
 #### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-ssl"></a>Per accedere a una sessione SSAdmin sul dispositivo tramite Windows PowerShell e SSL:
-1. Avviare una sessione di Windows PowerShell come amministratore.
+1. Avviare una sessione di Windows PowerShell come amministratore. Se si usa un client Windows 10, per impostazione predefinita, il servizio WinRM è impostato su manuale. Può essere necessario avviare il servizio digitando:
+
+    `Start-Service WinRM`
+
 2. Aggiungere l'indirizzo IP del dispositivo agli host attendibili del client digitando:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
@@ -230,7 +236,7 @@ Eseguire la procedura seguente sul computer da cui si desidera effettuare la con
      `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
    
     Per il parametro -ComputerName nel cmdlet, specificare il <*numero di serie del dispositivo di destinazione*>. Questo numero di serie è stato mappato all'indirizzo IP di DATA 0 nel file hosts sull'host remoto; ad esempio, **SHX0991003G44MT** come illustrato nella figura seguente.
-5. Digitare:
+5. Digitare: 
    
      `Enter-PSSession $session`
 6. Sarà necessario attendere alcuni minuti, quindi verrà effettuata la connessione al dispositivo tramite HTTPS su SSL. Verrà visualizzato un messaggio indicante che è stata effettuata la connessione al dispositivo.
@@ -240,5 +246,5 @@ Eseguire la procedura seguente sul computer da cui si desidera effettuare la con
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Leggere ulteriori informazioni sull' [utilizzo di Windows PowerShell per amministrare il dispositivo StorSimple](storsimple-8000-windows-powershell-administration.md).
-* Altre informazioni sull'[utilizzo del servizio Gestione dispositivi StorSimple per la gestione del dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+* Altre informazioni sull'[uso del servizio Gestione dispositivi StorSimple per amministrare il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

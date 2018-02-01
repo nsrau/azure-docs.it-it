@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 9ea5be818cfc104c243ce31cc0e2d0f10135259f
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: e1d110aea526c4632219ef8fd2a9681b1b6c330f
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>Creare immagini del contenitore per Service Fabric
 
@@ -40,7 +40,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Creare ed eseguire un'applicazione di Service Fabric con i contenitori](service-fabric-tutorial-package-containers.md)
 > * [Come vengono gestiti i failover e il ridimensionamento in Service Fabric](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Configurare l'ambiente di sviluppo Linux di Service Fabric. Seguire le istruzioni [qui](service-fabric-get-started-linux.md) per configurare l'ambiente Linux. 
 - Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
@@ -58,7 +58,7 @@ git clone https://github.com/Azure-Samples/service-fabric-containers.git
 cd service-fabric-containers/Linux/container-tutorial/
 ```
 
-La soluzione contiene due cartelle e un file 'docker-compse.yml'. La cartella 'azure-vote' contiene il servizio front-end Python unitamente al Dockerfile usato per creare l'immagine. La directory 'Voting' contiene il pacchetto dell'applicazione Service Fabric che viene distribuito nel cluster. Queste directory contengono le risorse necessarie per questa esercitazione.  
+La soluzione contiene due cartelle e un file docker-compose.yml. La cartella 'azure-vote' contiene il servizio front-end Python unitamente al Dockerfile usato per creare l'immagine. La directory 'Voting' contiene il pacchetto dell'applicazione Service Fabric che viene distribuito nel cluster. Queste directory contengono le risorse necessarie per questa esercitazione.  
 
 ## <a name="create-container-images"></a>Creare immagini del contenitore
 

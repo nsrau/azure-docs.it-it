@@ -5,7 +5,7 @@ Usare altri servizi e strumenti di Azure. Dopo la connessione del dispositivo al
 | Scenario                                                   | Servizio o strumento di Azure              |
 |----------------------------------------------------------- |------------------------------------|
 | [Gestire i messaggi dell'hub IoT][Mg_IoT_Hub_Msg]                  | strumento iothub-explorer               |
-| [Gestire un dispositivo IoT][Mg_IoT_Dv]                        | strumento iothub-explorer               |
+| [Gestire un dispositivo IoT][Mg_IoT_Dv]                        | Interfaccia della riga di comando di Azure 2.0 ed estensione IoT|
 | [Salvare i messaggi dell'hub IoT nell'archiviazione di Azure][Sv_IoT_Msg_Stor]  | Archiviazione tabelle di Azure                |
 | [Visualizzare i dati dei sensori][Vis_Data_PBI]                      | Microsoft Power BI                 |
 | [Visualizzare i dati dei sensori][Vis_Data_Web]                      | App Web di Azure                      |
@@ -18,7 +18,7 @@ Dopo aver completato queste esercitazioni, è possibile esplorare ulteriormente 
 
 
 [Mg_IoT_Hub_Msg]: ../articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md
-[Mg_IoT_Dv]: ../articles/iot-hub/iot-hub-device-management-iothub-explorer.md
+[Mg_IoT_Dv]: ../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md
 [Sv_IoT_Msg_Stor]: ../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md
 [Vis_Data_Web]: ../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md
 [Vis_Data_PBI]: ../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md

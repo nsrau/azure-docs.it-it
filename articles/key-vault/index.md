@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 3267373f6db336c34d13709cc0392631531313f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 86ac748d1c4a253b26cab426a72eb9f29545d86a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="key-vault-documentation"></a>Documentazione sull'insieme di credenziali delle chiavi
 
@@ -117,7 +117,7 @@ Informazioni su come usare l'insieme di credenziali delle chiavi per proteggere 
 
 ---
  
-<h2>Riferimento</h2>
+<h2>riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -138,21 +138,10 @@ Informazioni su come usare l'insieme di credenziali delle chiavi per proteggere 
                 <div class="card">
                     <div class="cardText">
                         <h3>Lingue</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.keyvault">.NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.keyvault">Java</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Node.js</h3>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest">Gestione dell'insieme di credenziali</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest">Gestione dei contenuti dell'insieme di credenziali</a></p>
+                        <p><a href="/dotnet/api/overview/azure/key-vault">.NET</a></p>
+                        <p><a href="/java/api/overview/azure/keyvault">Java</a></p>
+                        <p><a href="/python/api/overview/azure/key-vault">Python</a></p>
+                        <p><a href="/javascript/api/overview/azure/key-vault">Node.JS</a></p>
                     </div>
                 </div>
             </div>

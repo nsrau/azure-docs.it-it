@@ -1,9 +1,17 @@
 
-**Ultimo aggiornamento del documento**: 6 gennaio, 18:30 PST.
+
+
+**Ultimo aggiornamento del documento**: 22 gennaio, 15.00 PST.
 
 La divulgazione recente di una [nuova classe di vulnerabilità della CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), definita attacchi del canale laterale per l'esecuzione speculativa, ha suscitato molte domande e richieste di chiarimenti da parte dei clienti.  
 
 L'infrastruttura che esegue Azure e isola i carichi di lavoro dei clienti gli uni da gli altri è protetta.  Gli altri clienti in esecuzione su Azure non possono quindi attaccare l'applicazione di un utente tramite queste vulnerabilità.
+
+> [!NOTE] 
+> Le misure di mitigazione dei rischi di Azure annunciate in precedenza il 3 gennaio 2018 non sono interessate dalle recenti [indicazioni aggiornate](https://newsroom.intel.com/news/root-cause-of-reboot-issue-identified-updated-guidance-for-customers-and-partners/) da Intel. Non sono previste attività di manutenzione aggiuntive sulle macchine virtuali dei clienti in seguito a queste nuove informazioni.
+>
+> Le procedure consigliate continueranno a essere aggiornato man mano che si ricevono aggiornamenti del microcodice dai fornitori di hardware. Ricontrollare in seguito per indicazioni aggiornate.
+>
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Mantenere aggiornato il sistema operativo
 
@@ -40,11 +48,6 @@ Se si usa Windows e si esegue l'hosting di codice non attendibile, è necessario
 
 ### <a name="linux"></a>Linux
 Se si usa Linux e si esegue l'hosting di codice non attendibile, è necessario aggiornare anche Linux a una versione più recente che implementa l'isolamento di tabelle di pagina del kernel che separa le tabelle di pagina usate dal kernel da quelle appartenente allo spazio utente. Queste mitigazioni richiedono un aggiornamento del sistema operativo Linux e possono essere ottenute dal provider di distribuzione, se disponibili. Il provider del sistema operativo può segnalare se le protezioni sono abilitate o disabilitate per impostazione predefinita.
-
-
-
-
-
 
 
 

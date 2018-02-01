@@ -1,6 +1,6 @@
 ---
-title: La soluzione Gestione avvisi in Operations Management Suite (OMS) | Documentazione Microsoft
-description: La soluzione Alert Management in Log Analytics consente di analizzare tutti gli avvisi nell'ambiente.  Oltre a consolidare gli avvisi generati in OMS, importa gli avvisi da gruppi di gestione di System Center Operations Manager collegati in Log Analytics.
+title: Soluzione Gestione avvisi in Azure Log Analytics | Microsoft Azure
+description: La soluzione Gestione avvisi in Log Analytics consente di analizzare tutti gli avvisi nell'ambiente.  Oltre a consolidare gli avvisi generati in Log Analytics, importa gli avvisi dai gruppi di gestione di System Center Operations Manager connessi in Log Analytics.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4ec80fccdf4521792ff6be115ec66227f0fe1ed2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: c34916913915331020d9fc9789221f790b75a070
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/22/2018
 ---
-# <a name="alert-management-solution-in-operations-management-suite-oms"></a>La soluzione Gestione avvisi in Operations Management Suite (OMS)
+# <a name="alert-management-solution-in-azure-log-analytics"></a>Soluzione Gestione avvisi in Log Analytics
 
-![Icona di Alert Management](media/log-analytics-solution-alert-management/icon.png)
+![Icona di Gestione avvisi](media/log-analytics-solution-alert-management/icon.png)
 
-La soluzione Alert Management in Log Analytics consente di analizzare tutti gli avvisi nel repository di Log Analytics.  Questi avvisi possono provenire da diverse origini, incluse le fonti [create da Log Analytics](log-analytics-alerts.md) o [importate da Nagios o Zabbix](log-analytics-linux-agents.md).  La soluzione importa anche gli avvisi da qualsiasi [gruppo di gestione di System Center Operations Manager collegato](log-analytics-om-agents.md).
+La soluzione Gestione avvisi in Log Analytics consente di analizzare tutti gli avvisi nel repository di Log Analytics.  Questi avvisi possono provenire da diverse origini, incluse le fonti [create da Log Analytics](log-analytics-alerts.md) o [importate da Nagios o Zabbix](log-analytics-linux-agents.md).  La soluzione importa anche gli avvisi da qualsiasi [gruppo di gestione di System Center Operations Manager collegato](log-analytics-om-agents.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 La soluzione funziona con i record presenti nel repository di Log Analytics con un tipo di **avviso**, pertanto è necessario eseguire qualsiasi configurazione necessaria per raccogliere questi record.
 
 - Per gli avvisi di Log Analytics, [creare regole di avviso](log-analytics-alerts.md) per creare i record degli avvisi direttamente nel repository.
@@ -34,10 +34,10 @@ La soluzione funziona con i record presenti nel repository di Log Analytics con 
 - Per gli avvisi SCOM, [connettere il gruppo di gestione Operations Manager all'area di lavoro Log Analytics](log-analytics-om-agents.md).  Tutti gli avvisi creati in System Center Operations Manager vengono importati in Log Analytics.  
 
 ## <a name="configuration"></a>Configurazione
-Aggiungere la soluzione Alert Management all'area di lavoro di OMS usando la procedura descritta in [Aggiungere soluzioni](log-analytics-add-solutions.md).  Non è richiesta alcuna ulteriore configurazione.
+Aggiungere la soluzione Gestione avvisi all'area di lavoro di Log Analytics usando la procedura descritta in [Aggiungere soluzioni](log-analytics-add-solutions.md).  Non è richiesta alcuna ulteriore configurazione.
 
 ## <a name="management-packs"></a>Management Pack
-Se il gruppo di gestione di System Center Operations Manager è connesso all'area di lavoro di OMS, in Center System Operations Manager verranno installati i Management Pack seguenti quando si aggiunge questa soluzione.  Per questi Management Pack non è richiesta alcuna configurazione o manutenzione.  
+Se il gruppo di gestione di System Center Operations Manager è connesso all'area di lavoro di Log Analytics, in Center System Operations Manager verranno installati i Management Pack seguenti quando si aggiunge questa soluzione.  Per questi Management Pack non è richiesta alcuna configurazione o manutenzione.  
 
 * Alert Management di Microsoft System Center Advisor (Microsoft.IntelligencePacks.AlertManagement)
 
@@ -59,9 +59,9 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 - I dati degli avvisi vengono inviati dal gruppo di gestione di Operation Manager a Log Analytics ogni tre minuti.  
 
 ## <a name="using-the-solution"></a>Uso della soluzione
-Quando si aggiunge la soluzione Alert Management all'area di lavoro di OMS, il riquadro **Gestione avvisi** viene aggiunto al dashboard OMS.  Il riquadro visualizza un conteggio e la rappresentazione grafica del numero di avvisi attivi generati nelle ultime 24 ore.  Non è possibile modificare questo intervallo di tempo.
+Quando si aggiunge la soluzione Gestione avvisi all'area di lavoro di Log Analytics, il riquadro **Gestione avvisi** viene aggiunto al dashboard.  Il riquadro visualizza un conteggio e la rappresentazione grafica del numero di avvisi attivi generati nelle ultime 24 ore.  Non è possibile modificare questo intervallo di tempo.
 
-![Riquadro di Alert Management](media/log-analytics-solution-alert-management/tile.png)
+![Riquadro di Gestione avvisi](media/log-analytics-solution-alert-management/tile.png)
 
 Fare clic su sul riquadro **Gestione avvisi** per aprire il **relativo** dashboard.  Il dashboard include le colonne nella tabella seguente.  Ogni colonna elenca i primi 10 avvisi per numero corrispondente ai criteri della colonna per l'ambito e l'intervallo di tempo specificati.  È possibile eseguire una ricerca di log che fornisce l'intero elenco facendo clic su **Visualizza tutto** nella parte inferiore della colonna o facendo clic sull'intestazione di colonna.
 
@@ -74,11 +74,11 @@ Fare clic su sul riquadro **Gestione avvisi** per aprire il **relativo** dashboa
 
 Se si scorre verso destra, il dashboard elenca diverse query comuni che è possibile selezionare per eseguire una [ricerca log](log-analytics-log-searches.md) per dati di avviso:
 
-![Dashboard di Alert Management](media/log-analytics-solution-alert-management/dashboard.png)
+![Dashboard di Gestione avvisi](media/log-analytics-solution-alert-management/dashboard.png)
 
 
 ## <a name="log-analytics-records"></a>Record di Log Analytics
-La soluzione Alert Management consente di analizzare qualsiasi record con un tipo di **Avviso**.  Gli avvisi creati da Log Analytics o raccolti da Nagios o Zabbix non vengono raccolti direttamente dalla soluzione.
+La soluzione Gestione avvisi consente di analizzare qualsiasi record con un tipo di **Avviso**.  Gli avvisi creati da Log Analytics o raccolti da Nagios o Zabbix non vengono raccolti direttamente dalla soluzione.
 
 La soluzione non importa avvisi da Operations Manager e crea un record corrispondente per ciascuno di essi con un tipo di **Avviso** e un SourceSystem di **OpsManager**.  Questi record includono le proprietà elencate nella tabella seguente:  
 

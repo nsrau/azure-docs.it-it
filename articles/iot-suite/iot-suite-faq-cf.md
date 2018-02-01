@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 16685787b04d26f09e2b8778faac257571162aac
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Domande frequenti sulla soluzione preconfigurata di connected factory di IoT Suite
 
@@ -42,7 +42,7 @@ OPC Unified Architecture (UA), rilasciato nel 2008, è uno standard di interoper
 
 ### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Perché Microsoft ha scelto OPC UA per la soluzione preconfigurata di connected factory?
 
-Microsoft ha scelto OPC UA perché è uno standard aperto, non proprietario, indipendente dalla piattaforma, riconosciuto nel settore e collaudato. È un requisito per le soluzioni basate sull'architettura di riferimento Industrie 4.0 (RAMI4.0) che assicurano l'interoperabilità tra un'ampia serie di processi e attrezzature di produzione. Microsoft considera richiesta dai clienti per compilare soluzioni Industrie 4.0. Il supporto per OPC UA consente di agevolare i clienti nel raggiungimento degli obiettivi e offre immediatamente valore aggiunto.
+Microsoft ha scelto OPC UA perché è uno standard aperto, non proprietario, indipendente dalla piattaforma, riconosciuto nel settore e collaudato. È un requisito per le soluzioni basate sull'architettura di riferimento Industrie 4.0 (RAMI4.0) che assicurano l'interoperabilità tra un'ampia serie di processi e attrezzature di produzione. Microsoft assiste alla crescente richiesta da parte dei clienti di creare soluzioni conformi al piano Industria 4.0. Il supporto per OPC UA consente di agevolare i clienti nel raggiungimento degli obiettivi e offre immediatamente valore aggiunto.
 
 ### <a name="how-do-i-add-a-public-ip-address-to-the-simulation-vm"></a>Come è possibile aggiungere un indirizzo IP pubblico alla macchina virtuale di simulazione?
 
@@ -117,7 +117,7 @@ La simulazione registra automaticamente i dispositivi seguenti:
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-Con lo strumento [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) o [iothub-explorer](https://github.com/azure/iothub-explorer), è possibile controllare quali dispositivi sono registrati con l'hub IoT usato dalla soluzione. Per usare questi strumenti, è necessaria la stringa di connessione per l'hub IoT della distribuzione.
+Con lo strumento [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) o con [l'estensione IoT dell'interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-iot-cli-extension) è possibile controllare quali dispositivi sono registrati nell'hub IoT usato dalla soluzione. Per usare Device Explorer, è necessaria la stringa di connessione per l'hub IoT della distribuzione. Per usare l'estensione IoT dell'interfaccia della riga di comando di Azure 2.0, è necessario il nome dell'hub IoT.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Come è possibile ottenere i dati dei log dai componenti della simulazione?
 
@@ -144,45 +144,51 @@ Esaminare i dati inviati da uno dei dispositivi di pubblicazione:
 
 Se non vengono visualizzati dati inviati all'hub IoT, si è verificato un problema con la simulazione. Come primo passaggio è consigliabile analizzare i file di log dei componenti della simulazione. Vedere [Come è possibile ottenere i dati dei log dai componenti della simulazione?](#how-can-i-get-log-data-from-the-simulation-components) Provare quindi ad arrestare e avviare la simulazione e, se non sono ancora presenti dati inviati, aggiornare la simulazione completamente. Vedere [Come è possibile aggiornare la simulazione nella VM?](#how-do-i-update-the-simulation-in-the-vm)
 
-### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Come abilitare una mappa interattiva nella soluzione factory connessi?
+### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Come è possibile abilitare una mappa interattiva nella soluzione di fabbrica connessa?
 
-Per abilitare una mappa interattiva nella soluzione factory connesso, è necessario disporre di un'API di Bing mappe esistenti per il piano dell'organizzazione. Se si dispone di un'API di Bing Maps per piano dell'organizzazione quando si distribuisce la soluzione factory connessi da www.azureiotsuite.com, la mappa interattiva è automaticamente abilitata per l'utente.
+Per abilitare una mappa interattiva nella soluzione di fabbrica connessa, è necessario avere un piano API di Bing Maps per aziende esistente.
 
-### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Creazione di un'API di Bing Maps per l'account dell'organizzazione
+Durante la distribuzione da [www.azureiotsuite.com](http://www.azureiotsuite.com), il processo verifica che la sottoscrizione includa un piano API di Bing Maps per aziende abilitato e distribuisce automaticamente una mappa interattiva nella soluzione di fabbrica connessa. In caso contrario, è possibile comunque abilitare una mappa interattiva nella distribuzione seguendo questa procedura:
 
-È possibile ottenere una liberazione *interno le transazioni di livello 1 Bing Maps per Enterprise* piano. È tuttavia possibile aggiungere solo due di questi piani per una sottoscrizione di Azure. Se non si dispone di un'API di Bing Maps per l'account dell'organizzazione, crearne una nel portale di Azure facendo **+ creare una risorsa**. Cercare quindi **API di Bing Maps per Enterprise** e seguire le istruzioni per la sua creazione.
+Quando si esegue la distribuzione usando lo script `build.ps1` disponibile nel repository GitHub della soluzione di fabbrica connessa e si dispone di un piano API di Bing Maps per aziende, impostare la variabile di ambiente `$env:MapApiQueryKey` nella finestra di compilazione sulla chiave di query del piano. La mappa interattiva viene quindi abilitata automaticamente.
+
+Se non si dispone di un piano API di Bing Maps per aziende, distribuire la soluzione di fabbrica connessa da [www.azureiotsuite.com](http://www.azureiotsuite.com) o usando lo script `build.ps1`. Aggiungere quindi un piano API di Bing Maps per aziende alla sottoscrizione, come illustrato nella sezione [Come è possibile creare un account API di Bing Maps per aziende?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Cercare la chiave di query di questo account come illustrato nella sezione [Come è possibile ottenere la chiave di query dell'API di Bing Maps per aziende?](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) e salvarla. Passare al portale di Azure e accedere alla risorsa Servizio app nella distribuzione della soluzione di fabbrica connessa. Passare a **Impostazioni dell'applicazione**, in cui si trova una sezione **Impostazioni app**. Impostare **MapApiQueryKey** sulla chiave di query ottenuta. Salvare le impostazioni e quindi passare a **Panoramica** e riavviare il servizio app.
+
+### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Come è possibile creare un account API di Bing Maps per aziende?
+
+È possibile ottenere una piano *API di Bing Maps per aziende - Transazioni interne Livello 1* gratuito. È tuttavia possibile aggiungere solo due piani di questo tipo in una sottoscrizione di Azure. Se non si dispone di un account API di Bing Maps per aziende, crearne uno nel portale di Azure facendo clic su **+ Crea una risorsa**. Cercare quindi **API di Bing Maps per aziende** e seguire le istruzioni per creare l'account.
 
 ![Chiave di Bing](media/iot-suite-faq-cf/bing.png)
 
-### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Come ottenere l'API di Bing Maps per QueryKey Enterprise
+### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Come è possibile ottenere la chiave di query di API di Bing Maps per aziende?
 
-Dopo aver creato le API di Bing Maps per piano dell'organizzazione, è possibile aggiungere un Bing Maps per la risorsa Enterprise per il gruppo di risorse della soluzione factory connesso nel portale di Azure.
+Dopo aver creato il piano API di Bing Maps per aziende, aggiungere una risorsa API di Bing Maps per aziende al gruppo di risorse della soluzione di fabbrica connessa nel portale di Azure.
 
-1. Nel portale di Azure, passare al gruppo di risorse che contiene le API di Bing Maps per piano dell'organizzazione.
+1. Nel portale di Azure passare al gruppo di risorse contenente il piano API di Bing Maps per aziende.
 
 1. Fare clic su **All Settings** (Tutte le impostazioni) e quindi su **Key Management** (Gestione chiavi).
 
-1. Esistono due chiavi: **MasterKey** e **QueryKey**. Copia il **QueryKey** valore.
+1. Sono disponibili due chiavi: **MasterKey** e **QueryKey**. Copiare il valore **QueryKey**.
 
-1. Per la chiave prelevato dal `build.ps1` script, impostare la variabile di ambiente `$env:MapApiQueryKey` nell'ambiente di PowerShell per il **QueryKey** del piano. Lo script di generazione aggiunge automaticamente il valore per le impostazioni del servizio App.
+1. Per consentire allo script `build.ps1` di prelevare la chiave, impostare la variabile di ambiente `$env:MapApiQueryKey` dell'ambiente PowerShell sul valore **QueryKey** del piano. Lo script di compilazione aggiunge quindi automaticamente il valore alle impostazioni del servizio app.
 
-1. Esecuzione locale o cloud di distribuzione utilizzando il `build.ps1` script.
+1. Eseguire una distribuzione locale o cloud usando lo script `build.ps1`.
 
-### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>Come abilitare la mappa interattiva durante il debug in locale?
+### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>Come è possibile abilitare la mappa interattiva durante il debug in locale?
 
-Per abilitare la mappa interattiva durante il debug in locale, impostare il valore dell'impostazione `MapApiQueryKey` nei file di `local.user.config` e `<yourdeploymentname>.user.config` nella radice della distribuzione per il valore di **QueryKey** copiato in precedenza.
+Per abilitare la mappa interattiva durante il debug in locale, impostare il valore di `MapApiQueryKey` nei file `local.user.config` e `<yourdeploymentname>.user.config` della radice della distribuzione sul valore di **QueryKey** copiato in precedenza.
 
-### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>Utilizzo di un'immagine diversa in home page del dashboard
+### <a name="how-do-i-use-a-different-image-at-the-home-page-of-my-dashboard"></a>Come è possibile impostare un'immagine diversa nella home page del dashboard?
 
-Per modificare l'immagine statica illustrato io home page del dashboard, sostituire l'immagine `WebApp\Content\img\world.jpg`. Quindi ricompilare e ridistribuire l'App Web.
+Per cambiare l'immagine statica visualizzata nella home page del dashboard, sostituire l'immagine `WebApp\Content\img\world.jpg` e quindi ricompilare e ridistribuire l'app Web.
 
-### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Utilizzo di dispositivi non OPC UA con factory connesso
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>Come è possibile usare dispositivi non OPC UA con la soluzione di fabbrica connessa?
 
-Per inviare i dati di telemetria da non OPC UA dispositivi a factory connessa:
+Per inviare dati di telemetria da dispositivi non OPC UA alla soluzione di fabbrica connessa:
 
-1. [Configurare una nuova stazione nella topologia factory connesso](iot-suite-connected-factory-configure.md) nel `ContosoTopologyDescription.json` file.
+1. [Configurare una nuova stazione nella topologia di fabbrica connessa](iot-suite-connected-factory-configure.md) nel file `ContosoTopologyDescription.json`.
 
-1. Inserire i dati di telemetria in formato JSON compatibile factory connessa:
+1. Inserire i dati di telemetria in formato JSON compatibile con la soluzione di fabbrica connessa:
 
     ```json
     [
@@ -198,9 +204,9 @@ Per inviare i dati di telemetria da non OPC UA dispositivi a factory connessa:
     ]
     ```
 
-1. Il formato di `<timestamp>` è:`2017-12-08T19:24:51.886753Z`
+1. Il formato di `<timestamp>` è: `2017-12-08T19:24:51.886753Z`
 
-1. Riavviare la factory connessa servizio App.
+1. Riavviare il servizio app della soluzione di fabbrica connessa.
 
 ### <a name="next-steps"></a>Passaggi successivi
 

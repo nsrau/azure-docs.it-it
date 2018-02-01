@@ -17,19 +17,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: 18f495864befafd26e7adafb5c01612222d2cfdf
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 074415ba50ecdb1799093a3ead3bdd22fd02cc15
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI usando gli strumenti di visualizzazione di dati con Azure HDInsight
 
 Informazioni sull'uso di [Microsoft Power BI](http://powerbi.microsoft.com) e [Tableau](http://www.tableau.com) per visualizzare i dati nel cluster Apache Spark in Azure HDInsight.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-* **Completare [Eseguire query interattive nei cluster Spark in HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Completare l'articolo [Eseguire query interattive nei cluster Spark in HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) e [sottoscrizione di valutazione di Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (facoltativa).
 * **Tableau**: [Tableau Desktop](http://www.tableau.com/products/desktop) e [driver ODBC di Microsoft Spark](http://go.microsoft.com/fwlink/?LinkId=616229).
 
@@ -109,7 +109,7 @@ I primi passaggi nell'uso di Spark sono la connessione al cluster in Power BI De
 
     ![Nome utente e password del cluster Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Nome utente e password del cluster Spark")
 
-    Power BI Desktop ha le informazioni necessarie per connettersi al cluster Spark e caricare dati dalla tabella `hvac`. La tabella e le relative colonne sono visualizzate nel riquadro **Campi**.  Vedere lo screenshot seguente.
+    Power BI Desktop ha le informazioni necessarie per connettersi al cluster Spark e caricare dati dalla tabella `hvac`. La tabella e le relative colonne sono visualizzate nel riquadro **Campi**.  Vedere lo screenshot seguente:
 
 6. Visualizzare la variazione tra temperatura di destinazione e temperatura effettiva per ogni edificio: 
 
@@ -212,7 +212,7 @@ L'oggetto visivo è stato aggiunto al dashboard. È possibile aggiungere altri o
 6. Fare clic sulla scheda **Sheet1** nella parte inferiore sinistra. Apportare una visualizzazione che mostra la temperatura effettiva e di destinazione media per tutti gli edifici e per ogni data. Trascinare **Date** (Data) e **Building ID** (ID compilazione) su **Columns** (Colonne) e **Actual Temp**/**Target Temp** (Temp effettiva/Temp di destinazione) su **Rows** (Righe). In **Marks** (Marcatori) selezionare **Area** per usare una mappa di area per la visualizzazione dei dati Spark.
 
      ![Aggiungere campi per la visualizzazione dei dati Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "Aggiungere campi per la visualizzazione dei dati Spark")
-7. Per impostazione predefinita, i campi di temperatura vengono visualizzati come funzione di aggregazione. Se si vuole visualizzare la media delle temperature invece, è possibile farlo dall'elenco a discesa, come illustrato nello screenshot seguente.
+7. Per impostazione predefinita, i campi di temperatura vengono visualizzati come funzione di aggregazione. Se invece si vuole visualizzare la media delle temperature, è possibile farlo dall'elenco a discesa, come illustrato nello screenshot seguente:
 
     ![Eseguire la media della temperatura per la visualizzazione dei dati Spark](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "Eseguire la media della temperatura per la visualizzazione dei dati Spark")
 

@@ -5,26 +5,23 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/11/2017
+ms.topic: tutorial
+ms.date: 01/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5810ff908d48fc4ff742d734e7c2457fdfe8cb03
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 8acc8deff8b635c97e8722d65a728aebf0e49bb3
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurare il ripristino di emergenza in Azure per le macchine virtuali VMware locali
 
-In questa esercitazione viene illustrato come configurare il ripristino di emergenza in Azure per le macchine virtuali VMware in locale che esegue Windows. In questa esercitazione si apprenderà come:
+Questa esercitazione illustra come configurare il ripristino di emergenza in Azure per VM VMware locali che eseguono Windows. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Specificare l'origine della replica e destinazione.
-> * Configurare l'ambiente di replica di origine, inclusi i componenti, il ripristino del sito locale e l'ambiente di replica di destinazione.
+> * Specificare l'origine e la destinazione della replica.
+> * Configurare l'ambiente di origine, inclusi i componenti locali di Site Recovery, e l'ambiente di destinazione della replica.
 > * Creare un criterio di replica
 > * Abilitare la replica per una macchina virtuale
 
@@ -38,123 +35,83 @@ Prima di iniziare, è utile [esaminare l'architettura](concepts-vmware-to-azure-
 
 ## <a name="select-a-replication-goal"></a>Selezionare un obiettivo di replica
 
-1. In **insiemi di credenziali di servizi di ripristino**, fare clic sul nome dell'insieme di credenziali, **ContosoVMVault**.
-2. In **Introduzione**, fare clic su Site Recovery. Quindi fare clic su **preparare l'infrastruttura**.
-3. In **obiettivi della protezione dati** > **dove sono i computer che si trovano**selezionare **locale**.
-4. In * * in cui si desidera replicare le macchine, selezionare **in Azure**.
-5. In **sono computer virtualizzati**selezionare **Sì, con VMware vSphere Hypervisor**. Fare quindi clic su **OK**.
+1. In **Insiemi di credenziali dei servizi di ripristino** fare clic sul nome dell'insieme di credenziali, **ContosoVMVault**.
+2. In **Attività iniziali** fare clic su Site Recovery. Fare quindi clic su **Preparare l'infrastruttura**.
+3. In **Obiettivo di protezione** > **Dove si trovano le macchine virtuali** selezionare **Locale**.
+4. In "In quale destinazione si vuole eseguire la replica dei computer" selezionare **In Azure**.
+5. In **I computer sono virtuali** selezionare **Sì con VMware vSphere Hypervisor**. Fare quindi clic su **OK**.
 
 ## <a name="set-up-the-source-environment"></a>Configurare l'ambiente di origine
 
-Per configurare l'ambiente di origine, aver scaricato il file di installazione unificata di Site Recovery. Eseguire il programma di installazione per installare i componenti di ripristino del sito locale, registrare i server VMware nell'insieme di credenziali e individuare le macchine virtuali locali.
-
-### <a name="verify-on-premises-site-recovery-requirements"></a>Verificare i requisiti di ripristino del sito locale
-
-Una macchina virtuale di VMware locale singolo e a disponibilità elevata, è necessario per i componenti di Site Recovery di host locale. Componenti includono il server di configurazione, un server di elaborazione e un server di destinazione master.
+Per configurare l'ambiente di origine, è necessario un singolo computer locale a disponibilità elevata per l'hosting dei componenti locali di Site Recovery. I componenti includono il server di configurazione, il server di elaborazione e il server di destinazione master.
 
 - Il server di configurazione coordina le comunicazioni tra i componenti locali e Azure e gestisce la replica dei dati.
-- Il server di elaborazione funge da gateway di replica. Riceve i dati di replica, li ottimizza attraverso la memorizzazione nella cache, la compressione e la crittografia e li invia all'archiviazione di Azure. Il server di elaborazione viene installato anche il servizio Mobility nelle macchine virtuali da replicare, ed esegue l'individuazione automatica delle macchine virtuali VMware in locale.
+- Il server di elaborazione funge da gateway di replica. Riceve i dati di replica, li ottimizza attraverso la memorizzazione nella cache, la compressione e la crittografia e li invia all'archiviazione di Azure. Il server di elaborazione installa anche il servizio Mobility nelle VM da replicare ed esegue l'individuazione automatica delle VM VMware locali.
 - Il server di destinazione master gestisce i dati di replica durante il failback da Azure.
 
-La macchina virtuale deve soddisfare i requisiti seguenti.
+Per configurare il server di configurazione come una VM VMware a disponibilità elevata, si scarica un modello OVF preparato e si importa il modello in VMware per creare la VM. Dopo aver configurato il server di configurazione, registrarlo nell'insieme di credenziali. Dopo la registrazione, Site Recovery individua le VM VMware locali.
 
-| **Requisito** | **Dettagli** |
-|-----------------|-------------|
-| Numero di core CPU| 8 |
-| RAM | 12 GB |
-| Numero di dischi | 3 - Disco del sistema operativo, disco della cache del server di elaborazione, unità di conservazione (per il failback) |
-| Spazio libero su disco (cache del server di elaborazione) | 600 GB |
-| Spazio libero su disco (disco di conservazione) | 600 GB |
-| Versione del sistema operativo | Windows Server 2012 R2 |
-| Impostazioni locali del sistema operativo | Inglese (en-us) |
-| Versione di VMware vSphere PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") |
-| Ruoli di Windows Server | Non abilitare questi ruoli: Active Directory Domain Services, Internet Information Services, Hyper-V |
-| Tipo di scheda di interfaccia di rete | VMXNET3 |
-| Tipo di indirizzo IP | statico |
-| Porte | 443 (orchestrazione del canale di controllo)<br/>9443 (trasporto dei dati)|
+### <a name="download-the-vm-template"></a>Scaricare il modello di VM
 
-Eseguire anche queste operazioni: 
-- Verificare che l'orologio di sistema nella macchina virtuale sia sincronizzato con un Server. L'orario deve essere sincronizzato entro i 15 minuti. L'installazione non riesce se è maggiore.
-l'installazione non riesce.
-- Assicurarsi che il server di configurazione macchina virtuale può accedere a questi URL:
+1. Nell'insieme di credenziali passare a **Preparare l'infrastruttura** > **Origine**.
+2. In **Prepara origine** fare clic su **+Server di configurazione**.
+3. In **Aggiungi server** verificare che **Tipo di server** contenga **Server di configurazione per VMware**.
+4. Scaricare il modello OVF (Open Virtualization Format) per il server di configurazione.
 
-    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
-    
-- Assicurarsi che le regole firewall basate sull'indirizzo IP consentano la comunicazione in Azure.
-    - Consenti il [intervalli IP Data Center di Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653), la porta 443 (HTTPS) e porta 9443 (la replica dei dati).
-    - Consentire gli intervalli di indirizzi IP per l'area di Azure della sottoscrizione e per gli Stati Uniti occidentali (usati per il controllo di accesso e la gestione delle identità).
+  > [!TIP]
+  L'ultima versione del modello del server di configurazione può essere scaricata direttamente dall'[Area download Microsoft](https://aka.ms/asrconfigurationserver).
+
+## <a name="import-the-template-in-vmware"></a>Importare il modello in VMware
+
+1. Accedere al server VMware vCenter o all'host vSphere ESXi usando il client VMWare vSphere.
+2. Dal menu **File** scegliere **Deploy OVF Template** (Distribuisci modello OVF) per avviare la relativa procedura guidata.  
+
+     ![Modello OVF](./media/tutorial-vmware-to-azure/vcenter-wizard.png)
+
+3. In **Select source** (Seleziona origine) specificare il percorso del modello OVF scaricato.
+4. In **Review details** (Verifica dettagli) fare clic su **Next** (Avanti).
+5. In **Select name and folder** (Seleziona nome e cartella) e **Select configuration** (Seleziona configurazione) accettare le impostazioni predefinite.
+6. Per prestazioni ottimali, in **Select storage** (Seleziona risorsa di archiviazione) selezionare **Thick Provision Eager Zeroed** in **Select virtual disk format** (Seleziona formato disco virtuale).
+4. Nelle restanti pagine della procedura guidata accettare le impostazioni predefinite.
+5. In **Ready to complete** (Completamento):
+  - Per configurare la VM con le impostazioni predefinite, selezionare **Power on after deployment** (Accendi al termine della distribuzione) > **Finish** (Fine).
+  - Se si vuole aggiungere un'altra interfaccia di rete, deselezionare **Power on after deployment** (Accendi al termine della distribuzione) e quindi selezionare **Finish** (Fine). Per impostazione predefinita, il modello del server di configurazione viene distribuito con una singola scheda di interfaccia di rete, ma è possibile aggiungerne altre dopo la distribuzione.
+
+  
+## <a name="add-an-additional-adapter"></a>Aggiungere un'altra scheda
+
+Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di configurazione, eseguire questa operazione prima di registrare il server nell'insieme di credenziali. L'aggiunta di altre schede non è supportata dopo la registrazione.
+
+1. Nell'inventario del client vSphere fare clic con il pulsante destro del mouse sulla VM e scegliere **Edit Settings** (Modifica impostazioni).
+2. In **Hardware** fare clic su **Add** (Aggiungi) > **Ethernet Adapter** (Scheda Ethernet). Quindi fare clic su **Next**.
+3. Selezionare un tipo di scheda e una rete. 
+4. Per connettere la scheda di interfaccia di rete virtuale all'accensione della VM, selezionare **Connect at power on** (Connetti all'accensione). Fare clic su **Next** (Avanti) > **Finish** (Fine) e quindi su **OK**.
 
 
-### <a name="download-the-site-recovery-unified-setup-file"></a>Scaricare il file di installazione unificata di Site Recovery
+## <a name="register-the-configuration-server"></a>Registrare il server di configurazione 
 
-1. Nell'insieme di credenziali > **preparare l'infrastruttura**, fare clic su **origine**.
-1. In **origine Prepare**, fare clic su **+ server di configurazione**.
-2. In **Aggiungi server** verificare che **Tipo di server** contenga **Server di configurazione**.
-3. Scaricare il file di installazione per l'Installazione unificata di Azure Site Recovery.
-4. Scaricare la chiave di registrazione dell'insieme di credenziali, che sarà necessaria quando si esegue l'Installazione unificata. La chiave è valida per cinque giorni dal momento in cui viene generata.
+1. Accendere la VM dalla console del client VMWare vSphere.
+2. La VM si avvia con la procedura di installazione di Windows Server 2016. Accettare il contratto di licenza e specificare una password amministratore.
+3. Al termine dell'installazione, accedere alla VM come amministratore.
+4. Al primo accesso verrà avviato lo strumento di configurazione di Azure Site Recovery.
+5. Specificare un nome che verrà usato per registrare il server di configurazione in Site Recovery. Quindi fare clic su **Next**.
+6. Lo strumento verifica che la VM possa connettersi ad Azure. Dopo aver stabilito la connessione, fare clic su **Accedi** per accedere alla sottoscrizione di Azure. Le credenziali devono avere accesso all'insieme di credenziali in cui si vuole registrare il server di configurazione.
+7. Lo strumento esegue alcune attività di configurazione e quindi il riavvio.
+8. Eseguire di nuovo l'accesso al computer. Verrà avviata automaticamente la procedura guidata per la gestione del server di configurazione.
 
-   ![Impostare l'origine](./media/tutorial-vmware-to-azure/source-settings.png)
+### <a name="configure-settings-and-connect-to-vmware"></a>Configurare le impostazioni e connettersi a VMware
 
-### <a name="set-up-the-configuration-server"></a>Configurare il server di configurazione
+1. Nella procedura guidata per la gestione del server di configurazione selezionare **Configura la connettività** e quindi la scheda di interfaccia di rete che riceverà il traffico di replica. Fare quindi clic su **Salva**. Questa impostazione non può essere modificata dopo che è stata configurata.
+2. In **Seleziona l'insieme di credenziali di Servizi di ripristino** selezionare la sottoscrizione di Azure e quindi il gruppo di risorse e l'insieme di credenziali pertinenti.
+3. In **Installa software di terze parti** accettare il contratto di licenza e fare clic su **Scarica e installa** per installare MySQL Server.
+4. Fare clic su **Installa VMware PowerLCI**. Prima di eseguire questa operazione, assicurarsi che tutte le finestre del browser siano chiuse. Fare quindi clic su **Continua**.
+5. In **Convalida la configurazione dell'appliance** verranno verificati i prerequisiti prima di continuare.
+6. In **Configure vCenter Server/vSphere ESXi server** (Configura server vCenter/vSphere ESXi) specificare il nome di dominio completo o l'indirizzo IP del server vCenter o dell'host vSphere in cui si trovano le VM da replicare. Specificare la porta su cui il server è in ascolto e un nome descrittivo da usare per il server VMware nell'insieme di credenziali.
+7. Specificare le credenziali che verranno usate dal server di configurazione per connettersi al server VMware. Site Recovery usa queste credenziali per individuare automaticamente le VM VMware disponibili per la replica. Fare clic su **Aggiungi** e quindi su **Continua**.
+8. In **Configura le credenziali della macchina virtuale** specificare il nome utente e la password che verranno usati per installare automaticamente il servizio Mobility nei computer quando verrà abilitata la replica. Per i computer Windows, l'account deve avere privilegi di amministratore locale nei computer da replicare. Per Linux, specificare i dettagli dell'account radice.
+9. Fare clic su **Finalizza configurazione** per completare la registrazione. 
+10. Al termine della registrazione, nel portale di Azure verificare che il server di configurazione e il server VMware siano elencati nella pagina **Origine** dell'insieme di credenziali. Fare quindi clic su **OK** per configurare le impostazioni della destinazione.
 
-1. Eseguire il file di installazione per l'Installazione unificata.
-2. In **Prima di iniziare** selezionare **Install the configuration server and process server** (Installare il server di configurazione e il server di elaborazione) e quindi fare clic su **Avanti**.
-
-3. In **Third Party Software License** (Licenza software di terze parti) fare clic su **Accetto** per scaricare e installare MySQL e quindi fare clic su **Avanti**.
-
-4. In **Registrazione** selezionare la chiave di registrazione scaricata dall'insieme di credenziali.
-
-5. In **Impostazioni Internet** specificare in che modo il provider in esecuzione nel server di configurazione si connette ad Azure Site Recovery tramite Internet.
-
-   - Per connettersi al proxy attualmente configurato nel computer, selezionare **Connetti ad Azure Site Recovery usando un server proxy**.
-   - Per fare in modo che il provider si connetta direttamente, selezionare **Connetti direttamente ad Azure Site Recovery senza server proxy**.
-   - Se per il proxy esistente è necessaria l'autenticazione o si vuole usare un proxy personalizzato per la connessione del provider, selezionare **Connect with custom proxy settings** (Connetti con le impostazioni proxy personalizzate) e specificare indirizzo, porta e credenziali.
-
-   ![Firewall](./media/tutorial-vmware-to-azure/combined-wiz4.png)
-
-6. In **Controllo dei prerequisiti** il programma di installazione esegue un controllo per assicurarsi che sia possibile eseguire l'installazione. Se viene visualizzato un avviso relativo al **Global time sync check** (Controllo della sincronizzazione ora globale), verificare che l'ora del clock di sistema, nelle impostazioni di **Data e ora**, corrisponda al fuso orario.
-
-   ![Prerequisiti](./media/tutorial-vmware-to-azure/combined-wiz5.png)
-
-7. In **MySQL Configuration** (Configurazione MySQL) creare le credenziali per l'accesso all'istanza del server MySQL che viene installata.
-
-8. In **Dettagli ambiente** selezionare **Sì** per proteggere le macchine virtuali VMware. Il programma di installazione verifica che PowerCLI 6.0 sia installato.
-
-9. In **Percorso di installazione** specificare il percorso di installazione dei file binari e di archiviazione della cache. L'unità selezionata deve avere almeno 5 GB di spazio su disco disponibile, ma è consigliabile usare un'unità cache con almeno 600 GB di spazio disponibile.
-
-10. In **Network Selection** (Selezione rete) specificare il listener, ovvero la scheda di rete e la porta SSL, in cui il server di configurazione deve inviare e ricevere i dati di replica. La porta 9443 è la porta predefinita per l'invio e la ricezione del traffico di replica, ma è possibile modificare il numero di porta in base ai requisiti dell'ambiente. Viene aperta anche la porta 443, usata per orchestrare le operazioni di replica. Non usare la porta 443 per inviare o ricevere traffico di replica.
-
-11. Esaminare le informazioni nella pagina **Riepilogo** e fare clic su **Installa**. Il programma di installazione installa il server di configurazione e registra il servizio Azure Site Recovery.
-
-    ![Summary](./media/tutorial-vmware-to-azure/combined-wiz10.png)
-
-    Al termine dell'installazione verrà generata una passphrase. Sarà necessaria quando si abilita la replica, è quindi consigliabile copiarla e conservarla in un luogo sicuro. Il server viene visualizzato nel riquadro **Impostazioni** > **Server** nell'insieme di credenziali.
-
-### <a name="configure-automatic-discovery"></a>Configurare l'individuazione automatica
-
-Per individuare le macchine virtuali, il server di configurazione deve connettersi ai server VMware locali. Ai fini di questa esercitazione, aggiungere il server vCenter o gli host vSphere usando un account con privilegi di amministratore nel server. È stato creato questo account nel [esercitazione precedente](tutorial-prepare-on-premises-vmware.md). 
-
-Per aggiungere l'account:
-
-1. Nel server di configurazione macchina virtuale, avviare **CSPSConfigtool.exe**. È disponibile come collegamento sul desktop e nella cartella *percorso di installazione*\home\svsystems\bin.
-
-2. Fare clic su **Gestisci account** > **Aggiungi account**.
-
-   ![Aggiungi account](./media/tutorial-vmware-to-azure/credentials1.png)
-
-3. In **Dettagli dell'account** aggiungere l'account che verrà usato per l'individuazione automatica.
-
-   ![Dettagli](./media/tutorial-vmware-to-azure/credentials2.png)
-
-Per aggiungere il server VMware:
-
-1. Aprire il [portale di Azure](https://portal.azure.com) e fare clic su **Tutte le risorse**.
-2. Fare clic sull'insieme di credenziali di Servizi di ripristino denominato **ContosoVMVault**.
-3. Fare clic su **Site Recovery** > **Preparare l'infrastruttura** > **Origine**
-4. Selezionare **+ vCenter**, per connettersi a un host ESXi vCenter server o vSphere.
-5. In **Aggiungi vCenter** specificare un nome descrittivo per il server. Quindi specificare l'indirizzo IP o il nome di dominio completo.
-6. Mantenere l'impostazione della porta 443, a meno che i server VMware non ascoltino le richieste su una porta diversa.
-7. Selezionare l'account da usare per la connessione al server. Fare clic su **OK**.
 
 Site Recovery si connette ai server VMware usando le impostazioni specificate e individua le VM.
 

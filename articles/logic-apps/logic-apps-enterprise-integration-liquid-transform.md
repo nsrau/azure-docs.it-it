@@ -1,6 +1,6 @@
 ---
-title: Convertire dati JSON con trasformazioni liquide - App Azure per la logica | Documenti Microsoft
-description: Creare mappe per le trasformazioni di JSON avanzate mediante App per la logica e modello liquida o trasformazioni.
+title: Convertire i dati JSON con le trasformazioni Liquid - App per la logica di Azure | Microsoft Docs
+description: Creare trasformazioni o mappe per le trasformazioni JSON avanzate usando App per la logica e un modello Liquid.
 services: logic-apps
 documentationcenter: 
 author: divyaswarnkar
@@ -14,34 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: cd177b1ebcb5d236ce265dc153ee6a02125a69df
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: c1a1a5530c19d39a8e37d122235c8340caa88570
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/20/2018
 ---
-# <a name="advanced-json-transformations-using-liquid-template"></a>Trasformazioni di JSON avanzate utilizzando il modello liquido
-Le app di logica di Azure supporta basic JSON le trasformazioni tramite azioni operazione dati native come comporre o analizzare JSON. Logica App ora supporta anche trasformazioni JSON avanzate con modelli liquide. [Liquide](https://shopify.github.io/liquid/) è un linguaggio di modello open source per le app web flessibile.
- 
-In questo articolo, imparare a usare una mappa liquida o un modello, che può supportare trasformazioni JSON più complesse, ad esempio le iterazioni, flussi di controllo, variabili e così via. È necessario definire mapping JSON con questa mappa liquida JSON e archiviare tale mappa nell'account di integrazione, prima di poter eseguire una trasformazione liquida nell'app logica.
+# <a name="perform-advanced-json-transformations-with-a-liquid-template"></a>Eseguire trasformazioni JSON avanzate con un modello Liquid
 
-## <a name="prerequisites"></a>Prerequisiti
-Di seguito sono indicati i prerequisiti per utilizzare l'azione liquida:
+App per la logica di Azure supporta trasformazioni JSON di base tramite operazioni native sui dati, come **Componi** o **Analizza JSON**. Per le trasformazioni JSON avanzate, è possibile usare modelli Liquid con le app per la logica. 
+[Liquid](https://shopify.github.io/liquid/) è un linguaggio del modello open source per app Web flessibili.
+ 
+Questo articolo illustra come usare una mappa o un modello Liquid, che supporta trasformazioni JSON più complesse, ad esempio iterazioni, flussi di controllo, variabili e così via. Prima di eseguire una trasformazione Liquid nell'app per la logica, è necessario definire il mapping da JSON a JSON con una mappa Liquid e archiviare tale mappa nell'account di integrazione.
+
+## <a name="prerequisites"></a>prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [creare un account Azure gratuito](https://azure.microsoft.com/free/). In alternativa, è possibile [iscriversi per ottenere una sottoscrizione con pagamento in base al consumo](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Conoscenza di base [come creare App per la logica](../logic-apps/logic-apps-create-a-logic-app.md).
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Un basic [Account integrazione](logic-apps-enterprise-integration-create-integration-account.md).
+* Un [account di integrazione](logic-apps-enterprise-integration-create-integration-account.md) Basic
 
 
-## <a name="create-and-add-liquid-template-or-map-to-integration-account"></a>Creare e aggiungere il modello liquido o eseguire il mapping all'account di integrazione
+## <a name="create-a-liquid-template-or-map-for-your-integration-account"></a>Creare un modello o una mappa Liquid per l'account di integrazione
 
-1. Creare il modello di esempio liquide per questo esempio. Il modello liquido definisce la modalità di trasformazione input JSON come descritto di seguito:
+1. Creare il modello Liquid per questo esempio. Il modello Liquid definisce come trasformare l'input JSON, come illustrato di seguito:
 
-   ```
+   ``` json
    {%- assign deviceList = content.devices | Split: ', ' -%}
-    {
+      {
         "fullName": "{{content.firstName | Append: ' ' | Append: content.lastName}}",
         "firstNameUpperCase": "{{content.firstName | Upcase}}",
         "phoneAreaCode": "{{content.phone | Slice: 1, 3}}",
@@ -54,65 +55,65 @@ Di seguito sono indicati i prerequisiti per utilizzare l'azione liquida:
             {%- endif -%}
         {%- endfor -%}
         ]
-    }
-    ```
-    > [!NOTE]
-    > Se si utilizza il modello liquido any [filtri](https://shopify.github.io/liquid/basics/introduction/#filters), tali filtri devono iniziare con lettere maiuscole. 
+      }
+   ```
+   > [!NOTE]
+   > Se il modello Liquid usa [filtri](https://shopify.github.io/liquid/basics/introduction/#filters), i nomi dei filtri devono iniziare con una lettera maiuscola. 
 
 2. Accedere al [portale di Azure](https://portal.azure.com).
 
-3. Nel menu principale di Azure, scegliere **tutte le risorse**. 
+3. Dal menu principale di Azure scegliere **Tutte le risorse**. 
 
-4. Nella casella di ricerca, specificare l'account di integrazione. Selezionare l'account.
+4. Nella casella di ricerca trovare e selezionare l'account di integrazione.
 
    ![Selezionare l'account di integrazione](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
 
-5.  Nel riquadro di account di integrazione, selezionare **mappe**.
+5.  Nel riquadro dell'account di integrazione selezionare **Mappe**.
 
-   ![Selezione mappe](./media/logic-apps-enterprise-integration-liquid-transform/add-maps.png)
+   ![Selezionare Mappe](./media/logic-apps-enterprise-integration-liquid-transform/add-maps.png)
 
-6. Scegliere **Aggiungi** e fornire questi dettagli per la mappa:
-  * **Nome**: il nome per la mappa, ovvero "JsontoJsonTemplate" in questo esempio.
-  * **Tipo di mappa**: il tipo per la mappa. For JSON alla trasformazione JSON, è necessario selezionare **liquide**.
-  * **Mappa**: un file di modello o una mappa liquide esistente da utilizzare per la trasformazione, ovvero "SimpleJsonToJsonTemplate.liquid" in questo esempio. È possibile utilizzare il selettore file per trovare il file.
+6. Scegliere **Aggiungi** e specificare questi dettagli per la mappa:
 
-    ![Aggiungere modello liquida](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
+   * **Nome**: nome per la mappa, ovvero "JsontoJsonTemplate" in questo esempio.
+   * **Tipo di mapping**: tipo di mappa. Per la trasformazione da JSON a JSON, è necessario selezionare **Liquid**.
+   * **Mappa**: file di mappa o modello Liquid esistente da usare per la trasformazione, ovvero "SimpleJsonToJsonTemplate.liquid" in questo esempio. Per trovare questo file, è possibile usare la selezione file.
 
+   ![Aggiungere un modello Liquid](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
     
-## <a name="add-the-liquid-action-to-transform-json-in-your-logic-app"></a>Aggiungere l'azione liquida per trasformare JSON nell'app logica
+## <a name="add-the-liquid-action-for-json-transformation"></a>Aggiungere l'azione Liquid per la trasformazione JSON
 
-1. [Creare un'app per la logica](logic-apps-create-a-logic-app.md).
+1. [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2. Aggiungere il [richiesta trigger](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) logica all'applicazione in uso.
+2. Aggiungere il [trigger di richiesta](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) all'app per la logica.
 
-3. Scegliere **+ nuovo passaggio > per aggiungere un'azione**. Cercare *liquide* nella casella di ricerca. Selezionare **liquido - trasformazione JSON in formato JSON**.
+3. Scegliere **+ Nuovo passaggio > Aggiungi un'azione**. Nella casella di ricerca immettere *liquid* e selezionare **Liquid - Trasforma JSON in JSON**.
 
-  ![Ricerca-azione-liquido](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
+   ![Trovare e selezionare l'azione Liquid](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
-4. Nel **contenuto** , quindi selezionare **corpo** da elenco di contenuto dinamico o un elenco di parametri, a seconda del valore visualizzato. 
+4. Nella casella **Contenuto** selezionare **Corpo** nell'elenco di contenuto dinamico o nell'elenco di parametri, a seconda di quale viene visualizzato.
   
-  ![Selezionare corpo](./media/logic-apps-enterprise-integration-liquid-transform/select-body.png)
+   ![Selezionare Corpo](./media/logic-apps-enterprise-integration-liquid-transform/select-body.png)
  
-5. Dal **mappa** elenco a discesa selezionare il modello liquido, ovvero JsonToJsonTemplate in questo esempio.
+5. Nell'elenco **Mappa** selezionare il modello Liquid, ovvero "JsonToJsonTemplate" in questo esempio.
 
-  ![Selezionare mappa](./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
+   ![Selezionare la mappa](./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
 
-   Se l'elenco è vuoto, l'app logica probabilmente non è collegato all'account di integrazione. Per collegare l'account di integrazione con il modello liquida o mappa logica app, seguire questi passaggi:
+   Se l'elenco è vuoto, l'app per la logica probabilmente non è collegata all'account di integrazione. 
+   Per collegare l'app per la logica all'account di integrazione che include il modello o la mappa Liquid, seguire questa procedura:
 
-   1. Nel menu app logica, selezionare **impostazioni flusso di lavoro**. 
-   2. Dal **selezionare un account di integrazione** elenco, selezionare l'account di integrazione e scegliere **salvare**.
+   1. Nel menu dell'app per la logica selezionare **Impostazioni del flusso di lavoro**.
+   2. Nell'elenco **Selezionare un account di integrazione** selezionare l'account di integrazione e scegliere **Salva**.
 
-     ![Collegamento app per la logica per l'account di integrazione](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
-
+   ![Collegare l'app per la logica all'account di integrazione](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
 ## <a name="test-your-logic-app"></a>Testare l'app per la logica
 
-   Invio dell'input JSON all'App logica da [Postman](https://www.getpostman.com/postman) o uno strumento simile. L'output JSON trasformato dall'app logica è simile al seguente:
+Inviare l'input JSON all'app per la logica da [Postman](https://www.getpostman.com/postman) o da uno strumento analogo. L'output JSON trasformato dall'app per la logica è simile al seguente:
   
-   ![Output di esempio](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
-
+![Output di esempio](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * [Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")  
 * [Altre informazioni sulle mappe](../logic-apps/logic-apps-enterprise-integration-maps.md "Informazioni sulle mappe di Enterprise Integration")  
 

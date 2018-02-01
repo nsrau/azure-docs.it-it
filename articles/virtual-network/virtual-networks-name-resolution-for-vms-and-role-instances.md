@@ -3,8 +3,8 @@ title: Risoluzione per le macchine virtuali e le istanze del ruolo
 description: 'Scenari di risoluzione dei nomi per Azure IaaS, soluzioni ibride, tra diversi servizi cloud, Active Directory e utilizzando il proprio server DNS  '
 services: virtual-network
 documentationcenter: na
-author: GarethBradshawMSFT
-manager: carmonm
+author: jimdial
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 5d73edde-979a-470a-b28c-e103fcf07e3e
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2016
-ms.author: telmos
-ms.openlocfilehash: 479cf8cf358d0b242d8ce030d8639b493e4767d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jdial
+ms.openlocfilehash: 5a298f535308cff90ddd249594b7bb5e36909867
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="name-resolution-for-vms-and-role-instances"></a>Risoluzione dei nomi per le macchine virtuali e le istanze del ruolo
 A seconda di come si usa Azure per ospitare soluzioni IaaS, PaaS e ibride, potrebbe essere necessario consentire la comunicazione tra VM e istanze del ruolo create. Nonostante questa comunicazione possa avvenire usando indirizzi IP, è molto più semplice usare nomi che possono essere facilmente ricordati e che non cambiano. 
@@ -35,6 +35,7 @@ Il tipo di risoluzione dei nomi usato dipende dal modo in cui VM e istanze del r
 | **Scenario** | **Soluzione** | **Suffisso** |
 | --- | --- | --- |
 | Risoluzione dei nomi tra istanze del ruolo o macchine virtuali situate nello stesso servizio cloud o nella stessa rete virtuale |[Risoluzione dei nomi fornita da Azure](#azure-provided-name-resolution) |nome host o nome di dominio completo |
+| Risoluzione dei nomi da un servizio app di Azure (App Web, Funzioni, Bot e così via) mediante l'integrazione della rete virtuale in istanze di ruolo o macchine virtuali situate nella stessa rete virtuale |Server DNS gestiti dal cliente che inoltrano query tra reti virtuali per la risoluzione da parte di Azure (proxy DNS).  Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-using-your-own-dns-server) |Solo nome di dominio completo |
 | Risoluzione dei nomi tra istanze del ruolo o macchine virtuali situate in diverse reti virtuali |Server DNS gestiti dal cliente che inoltrano query tra reti virtuali per la risoluzione da parte di Azure (proxy DNS).  Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-using-your-own-dns-server) |Solo nome di dominio completo |
 | Risoluzione dei nomi servizi e computer locali da istanze del ruolo o macchine virtuali in Azure |Server DNS gestiti dal cliente, ad esempio controller di dominio locale, controller di dominio di sola lettura locale o server DNS secondario sincronizzati tramite trasferimenti di zona.  Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-using-your-own-dns-server) |Solo nome di dominio completo |
 | Risoluzione di nomi host di Azure da computer locali |Inoltra le query a un server proxy DNS gestito dal cliente nella rete virtuale corrispondente. Il server proxy inoltra le query ad Azure per la risoluzione. Vedere [Risoluzione dei nomi usando il server DNS](#name-resolution-using-your-own-dns-server) |Solo nome di dominio completo |
@@ -65,7 +66,7 @@ Oltre alla risoluzione dei nomi DNS pubblici, Azure offre la risoluzione dei nom
 * Non è possibile registrare manualmente i propri record.
 * WINS e NetBIOS non sono supportati. Non è possibile visualizzare le macchine virtuali in Esplora risorse.
 * I nomi host devono essere compatibili con DNS (devono utilizzare solo 0-9, a-z e '-' e non possono iniziare o terminare con un '-'. Vedere RFC 3696 sezione 2).
-* Il traffico di query DNS è limitato per ogni VM. Questo in genere non comporta alcun impatto sulla maggior parte delle applicazioni.  Se viene osservata la limitazione delle richieste, assicurarsi che la memorizzazione nella cache sul lato client sia abilitata.  Per altre informazioni, vedere l'articolo che illustra [come usare al meglio la risoluzione dei nomi fornita da Azure](#Getting-the-most-from-Azure-provided-name-resolution).
+* Il traffico di query DNS è limitato per ogni VM. Questo in genere non comporta alcun impatto sulla maggior parte delle applicazioni.  Se viene osservata la limitazione delle richieste, assicurarsi che la memorizzazione nella cache sul lato client sia abilitata.  Per altre informazioni, vedere [Come usare al meglio la risoluzione dei nomi fornita da Azure](#Getting-the-most-from-Azure-provided-name-resolution).
 * Solo le VM nei primi 180 servizi cloud sono registrate per ogni rete virtuale in un modello di distribuzione classica. Ciò non si applica alle reti virtuali nei modelli di distribuzione di Resource Manager.
 
 ### <a name="getting-the-most-from-azure-provided-name-resolution"></a>come usare al meglio la risoluzione dei nomi fornita da Azure
@@ -75,7 +76,7 @@ Non tutte le query DNS devono essere inviate attraverso la rete.  La memorizzazi
 
 Il client DNS di Windows predefinito contiene una cache DNS incorporata.  Alcune distribuzioni di Linux non includono la memorizzazione nella cache per impostazione predefinita, è quindi consigliabile aggiungerne una a ogni VM Linux (dopo aver verificato che non sia già presente una cache locale).
 
-Sono disponibili molti pacchetti di memorizzazione nella cache DNS diversi, ad esempio dnsmasq. Di seguito è riportata la procedura per installare dnsmasq nei distro più comuni:
+Sono disponibili diversi pacchetti di memorizzazione nella cache DNS, ad esempio dnsmasq. La procedura seguente descrive come installare dnsmasq nelle distribuzioni più comuni:
 
 * **Ubuntu (usa resolvconf)**:
   * installare il pacchetto dnsmasq ("sudo apt-get install dnsmasq").
@@ -104,7 +105,7 @@ DNS è principalmente un protocollo UDP.  Poiché il protocollo UDP non garantis
 * I sistemi operativi Windows eseguono un nuovo tentativo dopo 1 secondo e ne eseguono un altro dopo 2, 4 e altri 4 secondi. 
 * La configurazione di Linux predefinita esegue il tentativo dopo 5 secondi.  È consigliabile modificare questa impostazione in modo da eseguire 5 tentativi a intervalli di 1 secondo.  
 
-Per verificare le impostazioni correnti in una macchina virtuale Linux, aprire il file 'cat /etc/resolv.conf' e osservare la riga 'options', ad esempio:
+Per verificare le impostazioni correnti in una macchina virtuale Linux, usare il comando cat /etc/resolv.conf e osservare la riga "options", ad esempio:
 
     options timeout:1 attempts:5
 

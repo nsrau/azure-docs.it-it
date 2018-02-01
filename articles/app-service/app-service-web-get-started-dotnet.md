@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 5860c88b3b6c9f6f715c8e2d8ce667189f9b4438
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: de00137be84bb6f068c2f6f50a34ec827c5326a3
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Creare un'app Web ASP.NET Core in Azure
 
@@ -174,4 +174,4 @@ Il menu a sinistra fornisce varie pagine per la configurazione dell'app.
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [ASP.NET con database SQL](app-service-web-tutorial-dotnet-sqldatabase.md)
+> [ASP.NET Core con database SQL](app-service-web-tutorial-dotnetcore-sqldb.md)

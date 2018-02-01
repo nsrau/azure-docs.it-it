@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 350ce0fd9a10d862e811dd1eaa39e0e90076e1ef
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: aad93abd6e7bdf75e6f3b4fcd02b433a1d301ebc
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-data-factory-service-identity"></a>Identità del servizio di Azure Data Factory
 
@@ -173,4 +173,4 @@ Vedere gli argomenti seguenti che presentano quando e come usare l'identità del
 - [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copiare i dati da e in Azure Data Lake Store usando l'autenticazione gestita all'identità del servizio](connector-azure-data-lake-store.md)
 
-Vedere [MSI Panoramica](~/articles/active-directory/msi-overview.md) per ulteriori informazioni sulle identità del servizio gestito, si basano le identità del servizio data factory. 
+Vedere [Panoramica dell'identità del servizio gestito](~/articles/active-directory/msi-overview.md) per altre informazioni di background sull'identità del servizio gestito, su cui si basa l'identità del servizio data factory. 

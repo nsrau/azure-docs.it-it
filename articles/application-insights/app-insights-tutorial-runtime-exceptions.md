@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: f6844dd6747854a60ff8eb8be0d913b73ca2bdb2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 115611c5d4eeffb0f0600dd0a792ee9f80247e36
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Rilevare e diagnosticare le eccezioni di runtime con Azure Application Insights
 
@@ -29,7 +29,7 @@ Azure Application Insights raccoglie i dati di telemetria dall'applicazione per 
 > * Creare un nuovo elemento di lavoro per correggere il codice non corretto
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione:
 
@@ -49,27 +49,32 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 Application Insights raccoglie gli eventuali errori nell'applicazione e consente di visualizzarne la frequenza in diverse operazioni in modo da concentrare l'attenzione su quelli con il maggiore impatto.  È quindi possibile esaminare i dettagli di tali errori per identificarne la causa radice.   
 
 1. Selezionare **Application Insights** e quindi la sottoscrizione in uso.  
-1. Per aprire il pannello **Errori**, selezionare **Errori** nel menu **Analisi** oppure fare clic sul grafico **Richieste non riuscite**.
+2. Per aprire il pannello **Errori**, selezionare **Errori** nel menu **Analisi** oppure fare clic sul grafico **Richieste non riuscite**.
 
     ![Richieste non riuscite](media/app-insights-tutorial-runtime-exceptions/failed-requests.png)
 
-2. Il pannello **Richieste non riuscite** mostra il conteggio delle richieste non riuscite e il numero di utenti interessati per ogni operazione per l'applicazione.  Ordinando queste informazioni in base all'utente è possibile identificare i problemi che influiscono maggiormente sugli utenti.  In questo esempio le operazioni **GET Employees/Create** e **GET Customers/Details** sono probabili candidati per l'analisi a causa del numero elevato di errori e degli utenti interessati.  Quando si seleziona un'operazione, nel riquadro di destra vengono mostrate ulteriori informazioni su di essa.
+3. Il pannello **Richieste non riuscite** mostra il conteggio delle richieste non riuscite e il numero di utenti interessati per ogni operazione per l'applicazione.  Ordinando queste informazioni in base all'utente è possibile identificare i problemi che influiscono maggiormente sugli utenti.  In questo esempio le operazioni **GET Employees/Create** e **GET Customers/Details** sono probabili candidati per l'analisi a causa del numero elevato di errori e degli utenti interessati.  Quando si seleziona un'operazione, nel riquadro di destra vengono mostrate ulteriori informazioni su di essa.
 
     ![Pannello Richieste non riuscite](media/app-insights-tutorial-runtime-exceptions/failed-requests-blade.png)
 
-3. Ridurre l'intervallo di tempo per ingrandire il periodo in cui la frequenza degli errori mostra un picco.
+4. Ridurre l'intervallo di tempo per ingrandire il periodo in cui la frequenza degli errori mostra un picco.
 
     ![Finestra Richieste non riuscite](media/app-insights-tutorial-runtime-exceptions/failed-requests-window.png)
 
-4. Fare clic su **Visualizza dettagli** per visualizzare i dettagli dell'operazione,  incluso un diagramma di Gantt che mostra due dipendenze non riuscite che collettivamente hanno impiegato circa metà secondo per il completamento.  È possibile ottenere maggiori informazioni sull'analisi dei problemi di prestazioni completando l'esercitazione in [Rilevare e diagnosticare i problemi di prestazioni con Azure Application Insights](app-insights-tutorial-performance.md).
+5. Fare clic su **Visualizza dettagli** per visualizzare i dettagli dell'operazione,  incluso un diagramma di Gantt che mostra due dipendenze non riuscite che collettivamente hanno impiegato circa metà secondo per il completamento.  È possibile ottenere maggiori informazioni sull'analisi dei problemi di prestazioni completando l'esercitazione in [Rilevare e diagnosticare i problemi di prestazioni con Azure Application Insights](app-insights-tutorial-performance.md).
 
     ![Dettagli delle richieste non riuscite](media/app-insights-tutorial-runtime-exceptions/failed-requests-details.png)
 
-5. I dettagli delle operazioni rivelano inoltre un'eccezione di tipo FormatException che sembra aver causato l'errore.  Fare clic sull'eccezione o sul conteggio **Primi 3 tipi di eccezione** per visualizzarne i dettagli.  Si può notare che il problema è causato da un codice postale non valido.
+6. I dettagli delle operazioni rivelano inoltre un'eccezione di tipo FormatException che sembra aver causato l'errore.  Fare clic sull'eccezione o sul conteggio **Primi 3 tipi di eccezione** per visualizzarne i dettagli.  Si può notare che il problema è causato da un codice postale non valido.
 
     ![Dettagli eccezione](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
+> [!NOTE]
+Abilitare la [versione di anteprima](app-insights-previews.md) di "Unified details: E2E Transaction Diagnostics" (Dettagli unificati: diagnostica della transazione end-to-end) per visualizzare in un'unica vista tutti i relativi dati di telemetria sul lato server come richieste, dipendenze, eccezioni, tracce, eventi e così via. 
 
+Con l'anteprima abilitata è possibile visualizzare il tempo impiegato nelle chiamate di dipendenza, insieme a eventuali errori o eccezioni in un'esperienza unificata. Per le transazioni tra componenti, il diagramma di Gantt e il riquadro dei dettagli consentono di diagnosticare rapidamente il componente, la dipendenza o l'eccezione che provoca il problema. È possibile espandere la sezione nella parte inferiore per visualizzare la sequenza temporale di tracce o eventi raccolti per il funzionamento del componente selezionato. [Altre informazioni sulla nuova esperienza](app-insights-transaction-diagnostics.md)  
+
+![Diagnostica delle transazioni](media/app-insights-tutorial-runtime-exceptions/e2e-transaction-preview.png)
 
 ## <a name="identify-failing-code"></a>Identificare il codice responsabile dell'errore
 Il debugger di snapshot raccoglie gli snapshot delle eccezioni più frequenti nell'applicazione per agevolare la diagnosi della causa radice nell'ambiente di produzione.  È possibile visualizzare gli snapshot di debug nel portale per vedere lo stack di chiamate e ispezionare le variabili in ogni stack frame di chiamate. È quindi possibile eseguire il debug del codice sorgente scaricando lo snapshot e aprendolo in Visual Studio 2017.

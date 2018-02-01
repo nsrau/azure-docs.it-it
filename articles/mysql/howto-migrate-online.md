@@ -1,6 +1,6 @@
 ---
-title: "Migrazione di tempi di inattività minimi per Database di Azure per MySQL | Documenti Microsoft"
-description: "In questo articolo viene descritto come eseguire una migrazione di tempo di inattività minimo di un database MySQL al Database di Azure per MySQL e come configurare il caricamento iniziale e la sincronizzazione dati continua dal database di origine al database di destinazione tramite replica di Attunity per Microsoft Migrazioni."
+title: "Migrazione con tempo di inattività minimo a Database di Azure per MySQL | Microsoft Docs"
+description: "Questo articolo descrive come eseguire una migrazione con tempo di inattività minimo di un database MySQL in Database di Azure per MySQL e come configurare il carico iniziale e la continua sincronizzazione dei dati dal database di origine al database di destinazione tramite Attunity Replicate for Microsoft Migrations."
 services: mysql
 author: HJToland3
 ms.author: jtoland
@@ -9,28 +9,30 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 01/04/2018
-ms.openlocfilehash: 429f5c9f939a802184a6513a63fb9115abf4b235
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: d23628fd8446f6e7e0e5ed14b98da13c09b2d592
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Migrazione di tempi di inattività minimi per Database di Azure per MySQL
-È possibile eseguire la migrazione del database MySQL esistente al Database di Azure per MySQL tramite replica di Attunity per Microsoft Migrations, un'offerta di CO-sponsorizzata, comune di Attunity e Microsoft fornito con il servizio di migrazione di Database di Azure senza costi aggiuntivi per i clienti Microsoft. Replica di Attunity per Microsoft Migrations consente inoltre di periodi di inattività minimo per la migrazione di database e il database di origine continua a essere operativi durante il processo di migrazione.
+# <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Migrazione con tempo di inattività minimo a Database di Azure per MySQL
+È possibile eseguire la migrazione di un database MySQL esistente in Database di Azure per MySQL tramite Attunity Replicate for Microsoft Migrations. Attunity Replicate è un'offerta congiunta proposta da Attunity e Microsoft. Viene fornito ai clienti Microsoft senza costi aggiuntivi insieme al servizio Migrazione del database di Azure. 
 
-Replica di Attunity è uno strumento di replica di dati che consente la sincronizzazione dei dati tra un'ampia gamma di origini e destinazioni, propagazione lo script di creazione dello schema e i dati associati a ogni tabella di database. Replica di Attunity non si propaga gli eventuali altri elementi (ad esempio, SP, trigger, funzioni, e così via) o convert, ad esempio, un codice PL/SQL ospitato in tali elementi, a T-SQL.
+Attunity Replicate contribuisce a ridurre al minimo il tempo di inattività durante le migrazioni di database e mantiene operativo il database di origine durante l'intero processo.
+
+Attunity Replicate è uno strumento di replica dei dati che consente la sincronizzazione dei dati tra un'ampia gamma di origini e destinazioni. Propaga lo script di creazione dello schema e i dati associati a ogni tabella di database. Attunity Replicate non propaga nessun altro elemento (ad esempio SP, trigger, funzioni e così via) né, ad esempio, converte in T-SQL il codice PL/SQL ospitato in tali elementi.
 
 > [!NOTE]
-> Durante la replica Attunity supporta una vasta gamma di scenari di migrazione, replica di Attunity per Microsoft Migrations è incentrata sul supporto per uno specifico sottoinsieme di coppie di origine/destinazione.
+> Anche se Attunity Replicate supporta una vasta gamma di scenari di migrazione, si incentra sul supporto di uno specifico sottoinsieme di coppie origine/destinazione.
 
-Include una panoramica del processo di esecuzione di una migrazione di tempi di inattività minimi:
+Di seguito è illustrata una panoramica del processo cui attenersi per eseguire una migrazione con tempo di inattività minimo:
 
-1. **La migrazione dello schema di origine MySQL** a un Database di Azure per il database di MySQL mediante i [MySQL Workbench](https://www.mysql.com/products/workbench/).
+* **Migrazione dello schema di origine MySQL** in un servizio di database gestito Database di Azure per MySQL tramite [MySQL Workbench](https://www.mysql.com/products/workbench/).
 
-2. **Impostazione di caricamento iniziale e la sincronizzazione dati continua dal database di origine al database di destinazione** tramite replica di Attunity per Microsoft Migrations. In questo modo riduce al minimo il tempo che il database di origine deve essere impostato come di sola lettura durante la preparazione passare alle applicazioni di database MySQL di destinazione in Azure.
+* **Impostazione del carico iniziale e della sincronizzazione continua dei dati dal database di origine al database di destinazione** tramite Attunity Replicate for Microsoft Migrations. In questo modo è possibile ridurre al minimo il tempo in cui il database di origine deve essere impostato in sola lettura durante la preparazione del trasferimento delle applicazioni nel database MySQL di destinazione in Azure.
 
-Per ulteriori informazioni su questa replica di Attunity per offerta Migrations Microsoft, è possibile visualizzare le risorse seguenti:
- - La replica di Attunity per Microsoft Migrations [pagina web](https://aka.ms/attunity-replicate).
- - [Scaricare](http://discover.attunity.com/download-replicate-microsoft-lp6657.html) Replicate di Attunity per le migrazioni da Microsoft.
- - La replica di Attunity [Community](https://microsoft.attunity.com/), con una Guida introduttiva, esercitazioni e supporto.
- - Per istruzioni dettagliate sull'utilizzo di Attunity per la migrazione da MySQL a Database di Azure per MySQL, vedere il [Guida alla migrazione di Database](https://datamigration.microsoft.com/scenario/mysql-to-azuremysql).
+Per altre informazioni sulla soluzione Attunity Replicate for Microsoft Migrations, vedere le risorse seguenti:
+ - Visitare la pagina Web di [Attunity Replicate for Microsoft Migrations](https://aka.ms/attunity-replicate).
+ - Scaricare [Attunity Replicate for Microsoft Migrations](http://discover.attunity.com/download-replicate-microsoft-lp6657.html).
+ - Accedere alla [Attunity Replicate Community](https://aka.ms/attunity-community) per una guida introduttiva, esercitazioni e supporto.
+ - Per istruzioni dettagliate sull'utilizzo di Attunity Replicate per la migrazione di un database MySQL a Database di Azure per MySQL, vedere [Guida alla migrazione di database](https://datamigration.microsoft.com/scenario/mysql-to-azuremysql).

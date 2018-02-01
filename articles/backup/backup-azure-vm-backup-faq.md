@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: f69cbbab19acbc4e71445012d262896275a7d768
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 9a08495c1b395871c04c0c2b06a6efbdb4bfeaa2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Domande sul servizio Backup delle macchine virtuali di Azure
 Questo articolo contiene risposte a domande comuni che consentiranno di comprendere rapidamente i componenti del servizio Backup delle macchine virtuali di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -68,6 +68,13 @@ Usare i dischi di ripristino per eseguire queste operazioni:
   
 ### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>È possibile usare i backup della VM con dischi non gestiti per eseguire il ripristino dopo l'aggiornamento dei dischi personali a dischi gestiti?
 Sì, è possibile usare i backup eseguiti prima di eseguire la migrazione dei dischi da non gestiti a gestiti. Per impostazione predefinita, il processo di ripristino della VM creerà una VM con dischi non gestiti. Per ripristinare i dischi e usarli per creare una VM su dischi gestiti, è possibile usare la funzionalità di ripristino dei dischi. 
+
+### <a name="what-is-the-procedure-to-restore-a-vm-to-a-restore-point-taken-before-the-conversion-from-unmanaged-to-managed-disks-was-done-for-a-vm"></a>Qual è la procedura da seguire per ripristinare una macchina virtuale in un punto di ripristino eseguito prima del passaggio da macchina virtuale con dischi non gestiti a una con dischi gestiti?
+In questo scenario, per impostazione predefinita il processo di ripristino della macchina virtuale creerà una macchina virtuale con dischi non gestiti. Per creare una macchina virtuale con dischi gestiti:
+1. [Eseguire il ripristino della macchina virtuale con dischi non gestiti](tutorial-restore-disk.md#restore-a-vm-disk)
+2. [Convertire i dischi ripristinati in dischi gestiti](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
+3. [Creare una macchina virtuale con dischi gestiti](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
+Per i cmdlet di Powershell, vedere [qui](backup-azure-vms-automation.md#restore-an-azure-vm).
 
 ## <a name="manage-vm-backups"></a>Gestire i backup delle macchine virtuali
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Cosa accade quando si modificano criteri di backup in una o più macchine virtuali?

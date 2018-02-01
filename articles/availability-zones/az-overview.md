@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/16/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: c3a1758ab965d22eabfe44a410e9f72420e0148b
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: a0e654637bc4aca4230c56cc7c1706f5cd73622e
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Panoramica di Zone di disponibilità in Azure (anteprima)
 
@@ -31,6 +31,7 @@ Le zone di disponibilità offrono protezione dagli errori a livello di data cent
 ## <a name="regions-that-support-availability-zones"></a>Aree che supportano la funzionalità Zone di disponibilità
 
 - Stati Uniti orientali 2
+- Stati Uniti centrali
 - Europa occidentale
 - Francia centrale
 
@@ -40,14 +41,15 @@ I servizi che supportano la funzionalità Zone di disponibilità sono i seguenti
 
 - Macchine virtuali Linux
 - Macchine virtuali Windows
-- Set di scalabilità di macchine virtuali di zona
+- Set di scalabilità di macchine virtuali
 - Managed Disks
 - Bilanciamento del carico
 - Indirizzo IP pubblico
+- Archiviazione con ridondanza della zona
 
 ## <a name="get-started-with-the-availability-zones-preview"></a>Introduzione all'anteprima di Zone di disponibilità
 
-L'anteprima di Zone di disponibilità è disponibile nelle aree Stati Uniti orientali 2, Europa occidentale e Francia centrale per servizi specifici di Azure. 
+L'anteprima di Zone di disponibilità è disponibile nelle aree Stati Uniti orientali 2, Stati Uniti centrali, Europa occidentale e Francia centrale per servizi specifici di Azure. 
 
 1. [Effettuare l'iscrizione all'anteprima di Zone di disponibilità](http://aka.ms/azenroll). 
 2. Accedere alla sottoscrizione di Azure.

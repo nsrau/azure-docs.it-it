@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: v-craic
-ms.openlocfilehash: d1f1b9948fb591484c107818a01e141932effbba
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: d20e92d16309f998b4979549997874a80a3ea2dd
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Creare un'immagine personalizzata da un file VHD
 
@@ -57,7 +57,16 @@ La procedura seguente illustra come creare un'immagine personalizzata da un file
 
 1. Nel menu a discesa selezionare **Disco rigido virtuale**. Questo è il disco rigido virtuale che verrà usato per creare la nuova immagine personalizzata. Se necessario, selezionare **Carica un disco rigido virtuale con PowerShell**.
 
-1. È anche possibile immettere un nome, un'offerta e un editore relativi al piano, se l'immagine usata per creare l'immagine personalizzata non è pubblicata da Microsoft.
+1. È anche possibile immettere un nome, un'offerta e un editore relativi al piano, se l'immagine usata per creare l'immagine personalizzata non è un'immagine con licenza (pubblicata da Microsoft).
+
+   - **Nome del piano:** immettere il nome dell'immagine del Marketplace (SKU) a partire dalla quale viene creata l'immagine personalizzata 
+   - **Offerta del piano:** immettere il prodotto (offerta) dell'immagine del Marketplace a partire dalla quale viene creata l'immagine personalizzata 
+   - **Editore del piano:** immettere l'editore dell'immagine del Marketplace a partire dalla quale viene creata l'immagine personalizzata
+
+   > [!NOTE]
+   > Se l'immagine che si usa per creare un'immagine personalizzata **non** è un'immagine con licenza, questi campi sono vuoti e possono essere compilati facoltativamente. Se l'immagine **è** un'immagine con licenza, i campi vengono compilati automaticamente con le informazioni del piano. Se in questo caso si tenta di modificare queste informazioni, viene visualizzato un messaggio di avviso.
+   >
+   >
 
 1. Selezionare **OK** per creare l'immagine personalizzata.
 

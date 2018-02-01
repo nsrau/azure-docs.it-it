@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 89bb5d255db9ab266d04169a3101e2b694236029
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb9a7e900c489b3d22594dfcb6e1faa736c3c490
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Esempi nelle macchine virtuali di data science (DSVM)
 
@@ -28,13 +28,13 @@ I DSVMs includono degli esempi completamente lavorati sotto forma di Jupyter Not
 > Fare riferimento alla sezione [Access Jupyter](#access-jupyter) (Accesso a Jupyter) per abilitare Jupyter Notebook sulle DSVM.
 
 ## <a name="quick-reference-of-samples"></a>Riferimento rapido agli esempi
-| Categoria di esempi | Descrizione | Località |
+| Categoria di esempi | DESCRIZIONE | Località |
 | ------------- | ------------- | ------------- |
 | Linguaggio di **R**  | Esempi in **R** che descrivono scenari come la connessione con l'archivio dati di cloud di Azure, il confronto Apri origine R e Microsoft R e l'operatività dei modelli in Microsoft R Server o SQL Server. <br/> [Schermata](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Linguaggio di **Python**  | Esempi in **Python** che descrivono scenari come la connessione con gli archivi dati di cloud di Azure e l'uso di **Azure Machine Learning**.  <br/> [Schermata](#python-language) | <br/>`~notebooks` <br/><br/>|
 | Linguaggio di **Julia**  | Esempio in **Julia** che descrive nel dettaglio il tracciamento in Julia, l'apprendimento avanzato in Julia, la chiamata di C e Python da Julia ecc. <br/> [Schermata](#julia-language) |<br/> **Windows**:<br/> `~notebooks/Julia_notebooks`<br/><br/>`~notebooks`<br/><br/> **Linux**:<br/> `~notebooks/julia`<br/><br/> |
 | **CNTK** <br/> (Microsoft Cognitive Toolkit)  | Degli esempi di apprendimento avanzato pubblicati dal team di Cognitive Toolkit in Microsoft.  <br/> [Schermata](#cntk) | <br/>**Windows**:<br/> `~notebooks/CNTK/Tutorials`<br/><br/>`~/samples/CNTK-Samples-2-0/Examples`<br/><br/> **Linux**:<br/> `~notebooks/CNTK`<br/> <br/>|
-| Notebook di **MXnet**  | Degli esempi di apprendimento avanzato che usano delle reti neurali basate su **MXnet**. Sono disponibili molti notebook che comprendono scenari che vanno dai principianti agli scenari.  <br/> [Schermata](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
+| Notebook di **MXnet**  | Esempi di apprendimento avanzato che usano reti neurali basate su **MXnet**. Sono disponibili molti notebook che comprendono scenari che vanno dai principianti agli scenari.  <br/> [Schermata](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
 | AzureML **Azure Machine Learning**  | L'interazione con **Azure Machine Learning** Studio e la creazione di endpoint del servizio web dai modelli su cui è stato localmente eseguito il training, per flussi di lavoro con punteggio basato su cloud. <br/> [Schermata](#azureml) | <br/>`~notebooks/azureml`<br/> <br/>|
 | **caffe2** | Degli esempi di apprendimento avanzato che usano reti neurali basate su **caffe2**. Sono presenti numerosi notebook progettati per consentire agli utenti di familiarizzare con caffe2 e scoprire come usarlo in modo efficace, con inclusi degli esempi come la pre-elaborazione di immagini, la creazione di set di dati, la regressione e l'uso di modelli che hanno precedentemente eseguito il training. <br/> [Schermata](#caffe2) | <br/>`~notebooks/caffe2`<br/><br/> |
 | **H2O**   | Esempi basati su Python che usano **H2O** per numerosi problemi di uno scenario reale. <br/> [Schermata](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
@@ -60,7 +60,7 @@ Una volta che il processo Jupyter è stato avviato con successo nella VM, è pos
 <br/>![Abilitare l'eccezione di Jupyter](./media/windows-jupyter-exception.png)<br/>
 Accedere con la nuova password che è stata appena impostata.
 <br/>
-**DSVM di Linux**
+**DSVM Linux**
 
 È possibile accedere a Jupyter Home nella VM visitando **`https://localhost:8000`** nel browser. Vedere la schermata per aggiungere l'eccezione e abilitare l'accesso di Jupyter tramite il browser.
 <br/>![Abilitare l'eccezione di Jupyter](./media/ubuntu-jupyter-exception.png)<br/>

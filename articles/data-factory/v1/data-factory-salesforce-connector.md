@@ -122,7 +122,7 @@ Quando si specifica la query SQL o SOQL, prestare attenzione alla differenza di 
 ### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Recupero dei record eliminati dal Cestino di Salesforce
 Per eseguire una query sui record eliminati temporaneamente dal Cestino di Salesforce, è possibile specificare **"IsDeleted = 1"** nella query. Ad esempio,
 
-* Per eseguire una query solo sui record eliminati, specificare MyTable__c **where IsDeleted= 1**"
+* Per eseguire una query solo sui record eliminati, specificare "select * from MyTable__c **where IsDeleted= 1**"
 * Per eseguire query su tutti i record inclusi quelli esistenti ed eliminati, specificare "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**"
 
 ## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>Esempio JSON: Copiare dati da Salesforce a BLOB di Azure

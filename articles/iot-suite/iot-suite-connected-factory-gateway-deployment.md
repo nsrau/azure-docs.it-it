@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/11/2017
+ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: c9854c68a95c2c1cc584503eb2f0b0dba6091016
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 4606cb676c3ab7c8c8511579f43d251ff7d2ae8a
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>Distribuire un gateway perimetrale per la soluzione preconfigurata di fabbrica connessa in Windows o Linux
 
@@ -57,7 +57,7 @@ Durante l'installazione di Docker per Windows, selezionare un'unità nel compute
 ![Installare Docker per Windows](./media/iot-suite-connected-factory-gateway-deployment/image1.png)
 
 > [!NOTE]
-> È anche possibile eseguire questo passaggio dopo aver installato Docker dalla finestra di dialogo **Impostazioni**. Fare clic con il pulsante destro del mouse sull'icona **Docker** nell'area di notifica di Windows e scegliere **Impostazioni**.
+> È anche possibile eseguire questo passaggio dopo aver installato Docker dalla finestra di dialogo **Impostazioni**. Fare clic con il pulsante destro del mouse sull'icona **Docker** nell'area di notifica di Windows e scegliere **Impostazioni**. Se nel sistema sono stati distribuiti i principali aggiornamenti di Windows, ad esempio l'aggiornamento Windows Fall Creators, annullare la condivisione delle unità e condividerle nuovamente per aggiornare i diritti di accesso.
 
 Se si usa Linux, non sono necessarie altre attività di configurazione per abilitare l'accesso al file system.
 
@@ -65,7 +65,7 @@ In Windows creare una cartella nell'unità condivisa con Docker, mentre in Linux
 
 Quando si fa riferimento a `<SharedFolder>` in un comando di Docker, assicurarsi di usare la sintassi corretta per il sistema operativo specifico. Ecco due esempi, uno per Windows e uno per Linux:
 
-- Se si usa la cartella `D:\shared` in Windows come `<SharedFolder>`, la sintassi del comando di Docker è `//d/shared`.
+- Se si usa la cartella `D:\shared` in Windows come `<SharedFolder>`, la sintassi del comando di Docker è `d:/shared`.
 
 - Se si usa la cartella `/shared` in Linux come `<SharedFolder>`, la sintassi del comando di Docker è `/shared`.
 
@@ -108,30 +108,16 @@ docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/co
 
 - `<IoTHubOwnerConnectionString>` è la stringa di connessione dei criteri di accesso condiviso **iothubowner** per il portale di Azure. Questa stringa di connessione è stata copiata in un passaggio precedente. Questa stringa di connessione è necessaria solo per la prima esecuzione del server di pubblicazione OPC. Nelle esecuzioni successive è necessario ometterla perché rappresenta un rischio per la sicurezza.
 
-- La cartella `<SharedFolder>` usata e la sua sintassi sono descritte nella sezione [Installare e configurare Docker](#install-and-configure-docker). Il server di pubblicazione OPC usa `<SharedFolder>` per leggere il file di configurazione del server di pubblicazione OPC, scrivere il file di log e rendere entrambi i file disponibili all'esterno del contenitore.
+- La cartella `<SharedFolder>` usata e la sua sintassi sono descritte nella sezione [Installare e configurare Docker](#install-and-configure-docker). Il server di pubblicazione OPC usa `<SharedFolder>` per eseguire operazioni di lettura e scrittura sul file di configurazione del server di pubblicazione OPC, scrivere il file di log e rendere entrambi i file disponibili all'esterno del contenitore.
 
-- Il server di pubblicazione OPC legge la propria configurazione dal file **publishednodes.json**, che deve essere inserito nella cartella `<SharedFolder>/docker`. Questo file di configurazione definisce i dati del nodo OPC UA in un server OPC UA specifico che deve sottoscrivere il server di pubblicazione OPC.
-
-- Ogni volta che il server OPC UA comunica al server di pubblicazione OPC una modifica dei dati, il nuovo valore viene inviato all'hub IoT. A seconda delle impostazioni di invio in batch, il server di pubblicazione OPC può accumulare i dati prima di inviarli in batch all'hub IoT.
-
-- La sintassi completa del file **publishednodes.json** è descritta nella pagina del modulo [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) in GitHub.
-
-    Il frammento di codice seguente mostra un semplice esempio di file **publishednodes.json**. L'esempio mostra come pubblicare il valore **CurrentTime** da un server OPC UA con nome host **win10pc**:
+- Il server di pubblicazione OPC legge la propria configurazione dal file **publishednodes.json**, che viene letto dalla cartella `<SharedFolder>/docker` e in questa stessa cartella viene scritto. Questo file di configurazione definisce i dati del nodo OPC UA in un server OPC UA specifico che deve sottoscrivere il server di pubblicazione OPC. La sintassi completa del file **publishednodes.json** è descritta nella pagina del modulo [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) in GitHub. Quando si aggiunge un gateway, inserire un file **publishednodes.json** vuoto nella cartella:
 
     ```json
     [
-      {
-        "EndpointUrl": "opc.tcp://win10pc:48010",
-        "OpcNodes": [
-          {
-            "ExpandedNodeId": "nsu=http://opcfoundation.org/UA/;i=2258"
-          }
-        ]
-      }
     ]
     ```
 
-    Nel file **publishednodes.json** il server OPC UA è specificato dall'URL dell'endpoint. Se si specifica il nome host usando un'etichetta di nome host invece di un indirizzo IP, ad esempio **win10pc**, come nell'esempio precedente, la risoluzione degli indirizzi di rete deve essere in grado di risolvere questa etichetta di nome host in indirizzo IP.
+- Ogni volta che il server OPC UA comunica al server di pubblicazione OPC una modifica dei dati, il nuovo valore viene inviato all'hub IoT. A seconda delle impostazioni di invio in batch, il server di pubblicazione OPC può accumulare i dati prima di inviarli in batch all'hub IoT.
 
 - Docker non supporta la risoluzione dei nomi NetBIOS, ma solo quella dei nomi DNS. Se nella rete non è presente un server DNS, è possibile usare la soluzione alternativa mostrata nell'esempio della riga di comando precedente. L'esempio precedente usa il parametro `--add-host` per aggiungere una voce nel file degli host dei contenitori. Questa voce abilita la ricerca dei nomi host per l'oggetto `<OpcServerHostname>` specifico, risolvendoli nell'indirizzo IP `<IpAddressOfOpcServerHostname>` specifico.
 
@@ -169,11 +155,16 @@ Ora è possibile connettersi al gateway dal cloud e aggiungere i server OPC UA a
 
 Per aggiungere i server OPC UA alla soluzione preconfigurata di fabbrica connessa:
 
-1. Passare alla pagina **Connettere il server OPC UA personale** nel portale della soluzione di fabbrica connessa. Seguire gli stessi passaggi della sezione precedente per stabilire una relazione di trust tra il portale della soluzione di fabbrica connessa e il server OPC UA.
+1. Passare alla pagina **Connettere il server OPC UA personale** nel portale della soluzione di fabbrica connessa.
 
-    ![Portale della soluzione](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+    1. Avviare il server OPC UA a cui connettersi. Verificare che il server OPC UA sia raggiungibile dal server di pubblicazione OPC e dal proxy OPC in esecuzione nel contenitore. Vedere i commenti precedenti sulla risoluzione dei nomi.
+    1. Immettere l'URL dell'endpoint del server OPC UA (`opc.tcp://<host>:<port>`) e fare clic su **Connetti**.
+    1. Durante la configurazione della connessione, viene stabilita una relazione di trust tra il portale della soluzione di fabbrica connessa (client OPC UA) e il server OPC UA a cui si sta tentando di eseguire la connessione. Nel dashboard della soluzione di fabbrica connessa viene visualizzato un avviso relativo all'**impossibilità di verificare il certificato del server al quale si vuole eseguire la connessione**. Quando viene visualizzato un avviso del certificato, fare clic su **Continua**.
+    1. La configurazione del certificato del server OPC UA a cui si sta tentando di eseguire la connessione risulta più complessa. Per i computer basati su server OPC UA, è possibile che sia sufficiente confermare una finestra di dialogo di avviso visualizzata nel dashboard. Per i sistemi con server OPC UA incorporati, consultare la documentazione del server OPC UA per informazioni sull'esecuzione di questa attività. Per completare questa attività, può essere necessario il certificato del client OPC UA del portale della soluzione di fabbrica connessa. Un amministratore può scaricare il certificato nella pagina **Connettere il server OPC UA personale**:
 
-1. Spostarsi nell'albero dei nodi OPC UA del server OPC UA, fare clic con il pulsante destro del mouse sui nodi OPC da inviare alla fabbrica connessa e scegliere **Pubblica**.
+        ![Portale della soluzione](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
+
+1. Passare all'albero dei nodi OPC UA del server OPC UA, fare clic con il pulsante destro del mouse sui nodi OPC di cui si vogliono inviare i valori alla soluzione di fabbrica connessa e scegliere **Pubblica**.
 
 1. I dati di telemetria ora passano dal dispositivo gateway. È possibile visualizzare i dati di telemetria nella visualizzazione **Località della fabbrica** del portale della soluzione di fabbrica connessa in **Nuova factory**.
 

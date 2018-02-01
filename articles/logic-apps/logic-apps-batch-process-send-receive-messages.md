@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: e0b7292f25a145c699dbafaf4e31e3f9d072b957
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: de519084a4f172ad984c78727123835eeb9deaef
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Inviare, ricevere ed elaborare in batch i messaggi nelle app per la logica
 
@@ -39,7 +39,7 @@ Per seguire questo esempio, è necessario disporre di questi elementi:
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [creare un account Azure gratuito](https://azure.microsoft.com/free/). In alternativa, è possibile [iscriversi per ottenere una sottoscrizione con pagamento in base al consumo](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Conoscenza di base di [come creare le app per la logica](../logic-apps/logic-apps-create-a-logic-app.md) 
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 
 * Un account di posta elettronica con un [provider di posta elettronica supportato da App per la logica di Azure](../connectors/apis-list.md)
 
@@ -83,13 +83,13 @@ Nelle app per la logica mittenti è necessario specificare dove inviare gli elem
       Se si dispone, ad esempio, di un account aziendale o dell'istituto di istruzione, selezionare il connettore Office 365 Outlook. 
       Se si dispone di un account Gmail, selezionare il connettore Gmail.
 
-   3. Selezionare questa azione per il connettore: **{*provider di posta elettronica*} - Invia messaggio di posta elettronica**,
+   3. Selezionare questa azione per il connettore: **{*provider di posta elettronica*} - Invia un messaggio di posta elettronica**
 
-      ad esempio:
+      Ad esempio: 
 
       ![Selezionare l'azione "Invia un messaggio di posta elettronica" per il provider di posta elettronica](./media/logic-apps-batch-process-send-receive-messages/add-send-email-action.png)
 
-5. Se non è stata creata prima una connessione per il provider di posta elettronica, immettere al prompt le credenziali per l'autenticazione. Leggere altre informazioni sull'[autenticazione delle credenziali di posta elettronica](../logic-apps/logic-apps-create-a-logic-app.md).
+5. Se non è stata creata prima una connessione per il provider di posta elettronica, immettere al prompt le credenziali per l'autenticazione. Leggere altre informazioni sull'[autenticazione delle credenziali di posta elettronica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 6. Impostare le proprietà per l'azione appena aggiunta.
 
