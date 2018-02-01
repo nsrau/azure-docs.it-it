@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 10/26/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a17ff3ca73a824f4aa4b45a7cae9428a0fbc96d4
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 34e26e9dfdf53536c21023b9519209c474253b25
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Creare un'app Web Python in Azure
 
@@ -29,14 +29,14 @@ Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hos
 
 È possibile eseguire queste procedure con un computer Mac, Windows o Linux. Una volta installati i prerequisiti, sono necessari circa cinque minuti per completare la procedura.
 
-## <a name="prerequisites"></a>Prerequisiti
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione:
 
 * <a href="https://git-scm.com/" target="_blank">Installare Git</a>
 * <a href="https://www.python.org/downloads/" target="_blank">Installare Python</a>
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 
@@ -150,7 +150,7 @@ Il codice di esempio Python è in esecuzione in un'app Web del servizio app di A
 
 ![App di esempio in esecuzione in Azure](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
-**Congratulazioni.** La distribuzione della prima app Python nel servizio app è stata completata.
+**Congratulazioni** La distribuzione della prima app Python nel servizio app è stata completata.
 
 ## <a name="update-and-redeploy-the-code"></a>Aggiornare e ridistribuire il codice
 

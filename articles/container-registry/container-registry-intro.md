@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 01/22/2018
 ms.author: stevelas
 ms.custom: mvc
-ms.openlocfilehash: b92fd225e32749b87a065ab9048938059c42f265
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 7d9c259e6fb48189faef2a49fdba2578c9accfe9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introduzione ai registri per contenitori Docker privati in Azure
 
@@ -25,7 +25,7 @@ Per informazioni su Docker e sui contenitori, vedere il [manuale dell'utente di 
 Effettuare il pull di immagini da un registro contenitori di Azure a varie destinazioni di distribuzione:
 
 * **Sistemi di orchestrazione scalabili** che gestiscono applicazioni in contenitori in cluster di host, quali [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) e [Kubernetes](http://kubernetes.io/docs/).
-* **Servizi di Azure** che supportano la creazione e l'esecuzione di applicazioni su vasta scala, come [Servizio contenitore](../container-service/index.yml), [Servizio app](/app-service/index.md), [Batch](../batch/index.md), [Service Fabric](/azure/service-fabric/) e altri.
+* **Servizi di Azure** che supportano la creazione e l'esecuzione di applicazioni su vasta scala, come [Servizio contenitore](../container-service/index.yml), [Servizio app](/app-service/index.md), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) e altri.
 
 Gli sviluppatori possono anche effettuare il push in un registro contenitori nell'ambito di un flusso di lavoro di sviluppo di contenitori, ad esempio specificando come destinazione un Registro di sistema del contenitore da uno strumento di distribuzione e integrazione continua, quali [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) o [Jenkins](https://jenkins.io/).
 

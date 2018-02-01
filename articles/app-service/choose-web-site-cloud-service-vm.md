@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 0dba36e5490af56debd3b64b20d39809cd5d5f81
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 627782d3d6dd9f2eeff1b79e9cf721f9a4eb4ac2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud
 ## <a name="overview"></a>Panoramica
@@ -49,7 +49,7 @@ Nella tabella seguente vengono confrontate le funzionalità del Servizio app, di
 | Hosting del livello Web o dei servizi Web di un'architettura multilivello |X |X |X |X | |
 | Hosting del livello intermedio di un'architettura multilivello |X |X |X |X |App Web del servizio app può ospitare facilmente un livello intermedio API REST e la funzionalità [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) può ospitare processi di elaborazione in background. È possibile eseguire WebJobs in un sito Web dedicato per ottenere la scalabilità indipendente per il livello. |
 | Supporto integrato di MySQL distribuito come servizio |X |X | | | |
-| Supporto per ASP.NET, ASP classico, Node.js, PHP, Python |X |X |X |X |Service Fabric supporta la creazione di un front-end Web con [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) oppure consente di distribuire qualsiasi tipo di applicazione (Node.js, Java e così via) come [eseguibile guest](../service-fabric/service-fabric-deploy-existing-app.md). |
+| Supporto per ASP.NET, ASP classico, Node.js, PHP, Python |X |X |X |X |Service Fabric supporta la creazione di un front-end Web con [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) oppure consente di distribuire qualsiasi tipo di applicazione (Node.js, Java e così via) come [eseguibile guest](../service-fabric/service-fabric-deploy-existing-app.md). |
 | Scalabilità orizzontale a più istanze senza ridistribuzione |X |X |X |X |Macchine virtuali consente la scalabilità orizzontale su più istanze; tuttavia, i servizi in esecuzione nelle macchine devono essere scritti per gestire tale scalabilità. È necessario configurare un bilanciamento del carico per instradare le richieste tra le macchine e creare un gruppo di affinità per impedire i riavvii simultanei di tutte le istanze a causa degli errori di manutenzione o hardware. |
 | Supporto per SSL |X |X |X |X |Per App Web del servizio app, SSL per i nomi di dominio personalizzati è supportato solo nella modalità Basic e Standard. Per informazioni sull'uso di SSL con app Web, vedere [Configurazione di un certificato SSL per un sito Web di Azure](app-service-web-tutorial-custom-ssl.md). |
 | Integrazione di Visual Studio |X |X |X |X | |

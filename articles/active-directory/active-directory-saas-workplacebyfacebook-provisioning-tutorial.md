@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 01/17/2018
 ms.author: jeedes
-ms.openlocfilehash: fc0d7223cdc15cd7f17a4983d2c2ac46c5d1669b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 5f1ca40b5ca490644a3af2c9d727026c1a18a2eb
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>Esercitazione: Configurazione di Workplace by Facebook per il provisioning utenti
 
 L'obiettivo di questa esercitazione è descrivere le procedure da eseguire in Workplace by Facebook e Azure AD per eseguire automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a Workplace by Facebook.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con Workplace by Facebook, sono necessari gli elementi seguenti:
 
@@ -75,7 +75,7 @@ Azure AD consente di sincronizzare automaticamente i dettagli dell'account degli
 
     ![provisioning](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. Nella sezione **Credenziali amministratore** inserire il token segreto e l'URL del tenant dell'amministratore di Workplace by Facebook.
+5. Nella sezione **Credenziali amministratore** inserire il token segreto dell'amministratore di Workplace by Facebook e impostare l'URL del tenant su `https://www.facebook.com/scim/v1/`.
 
 6. Nel portale di Azure fare clic su **Connessione di test** per verificare che Azure AD possa connettersi all'app Workplace by Facebook. Se la connessione non riesce, verificare che l'account Workplace by Facebook abbia le autorizzazioni di amministratore di team.
 
@@ -100,4 +100,3 @@ Per altre informazioni su come configurare il provisioning automatico, vedere [h
 * [Gestione del provisioning degli account utente per app aziendali](active-directory-saas-tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
 * [Configurare l'accesso Single Sign-On](active-directory-saas-workplacebyfacebook-tutorial.md)
-

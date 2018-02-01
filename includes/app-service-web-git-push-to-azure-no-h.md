@@ -1,4 +1,4 @@
-Nella finestra del terminale locale aggiungere un'istanza remota di Azure al repository Git locale. Questa istanza remota di Azure è stata creata in [Creare un'app web](#create-a-web-app).
+Nella finestra del terminale locale aggiungere un'istanza remota di Azure al repository Git locale. Sostituire _&lt;paste\_copied\_url\_here>_ con l'URL dell'istanza remota di Git salvata da [Creare un'app Web](#create).
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>

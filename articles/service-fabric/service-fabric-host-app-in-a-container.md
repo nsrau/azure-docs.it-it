@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
-ms.openlocfilehash: 31c1cee5ddc4c8893da729af884ae7b7b8a58093
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: cd1c3b063132ae549bfbf1e059667c5056c91046
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Distribuire un'applicazione .NET in un contenitore Windows in Azure Service Fabric
 
@@ -31,7 +31,7 @@ In questa esercitazione si apprenderà come:
 > * Distribuire un'applicazione esistente in un contenitore
 > * Configurare l'integrazione continua con Visual Studio e VSTS
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 1. Installare [Docker CE per Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) in modo da poter eseguire i contenitori in Windows 10.
 2. Acquisire familiarità con le informazioni riportate nella [Guida introduttiva ai contenitori di Windows 10][link-container-quickstart].
@@ -211,7 +211,7 @@ Dopo aver inserito la soluzione Fabrikam Call in un pacchetto e averla distribui
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Creare un progetto Docker in Visual Studio

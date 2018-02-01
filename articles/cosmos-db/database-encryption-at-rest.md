@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: d8967d4504a8ccabb444c7f3d5635e2d00f287c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 193dbede0655376714c6f8f12c826ba3f9bc8933
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Crittografia di dati inattivi del database in Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Il termine "crittografia di dati inattivi" denota in genere la crittografia dei 
 
 In qualità di servizio PaaS, Cosmos DB è molto facile da usare. Poiché tutti i dati utente archiviati in Cosmos DB sono crittografati sia quando sono inattivi che in transito, non è necessario intraprendere alcuna azione. In altre parole, per impostazione predefinita, la crittografia dei dati inattivi è attiva. Non è possibile attivarla o disattivarla. Tale funzionalità è offerta nel soddisfare [i contratti di servizio relativi a disponibilità e prestazioni](https://azure.microsoft.com/support/legal/sla/cosmos-db).
 
-## <a name="implement-encryption-at-rest"></a>Implementare la crittografia di dati inattivi
+## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Implementazione della crittografia dei dati inattivi per Azure Cosmos DB
 
 La crittografia dei dati inattivi viene implementata attraverso una serie di tecnologie di protezione, inclusi i sistemi di archiviazione protetta delle chiavi, le reti crittografate e le API di crittografia. I sistemi che decrittografano ed elaborano i dati devono comunicare con i sistemi di gestione delle chiavi. Il diagramma mostra come viene separata l'archiviazione dei dati crittografati e la gestione delle chiavi. 
 

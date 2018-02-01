@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 9fc92916b4164990059010645daa29e72b7143cb
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
-ms.translationtype: MT
+ms.openlocfilehash: b9ad3ceeb77a4adc2c47b262aa40a48c14423198
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="security-frame-authorization--mitigations"></a>Infrastruttura di sicurezza: autorizzazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -42,7 +42,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a id="acl-restricted-access"></a>Verificare che gli ACL appropriati siano configurati per limitare l'accesso non autorizzato ai dati nel dispositivo
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust dei computer | 
 | **Fase SDL**               | Distribuzione |  
@@ -53,7 +53,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a id="sensitive-directory"></a>Verificare che il contenuto sensibile dell'applicazione specifico dell'utente venga archiviato nella directory del profilo utente
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust dei computer | 
 | **Fase SDL**               | Distribuzione |  
@@ -64,7 +64,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a id="deployed-privileges"></a>Verificare che le applicazioni distribuite vengano eseguite con privilegi minimi
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust dei computer | 
 | **Fase SDL**               | Distribuzione |  
@@ -75,7 +75,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a id="sequential-logic"></a>Applicare l'ordine dei passaggi in sequenza durante l'elaborazione di flussi di logica di business
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -86,7 +86,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a id="rate-enumeration"></a>Implementare un meccanismo di limitazione della frequenza per impedire l'enumerazione
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -108,7 +108,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a id="logic-request-parameters"></a>Le decisioni riguardanti la logica di business e l'autorizzazione di accesso alle risorse non devono basarsi sui parametri di richiesta in ingresso
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -149,7 +149,7 @@ Ora un utente malintenzionato non può manomettere e modificare il funzionamento
 
 ## <a id="rls-tenants"></a>Implementare la sicurezza a livello di riga per impedire ai tenant di accedere ai dati degli altri tenant
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -173,7 +173,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="cloud-least-privileged"></a>Connettersi al gateway nel cloud usando token con privilegi minimi
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway IoT cloud | 
 | **Fase SDL**               | Distribuzione |  
@@ -184,7 +184,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="sendonly-sas"></a>Usare una chiave di firma di accesso condiviso per autorizzazioni di solo invio per la generazione di token di dispositivo
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub eventi di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -195,7 +195,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="access-tokens-hub"></a>Non usare token di accesso che consentono l'accesso diretto all'hub eventi
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub eventi di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -206,7 +206,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="sas-minimum-permissions"></a>Connettersi all'hub eventi tramite chiavi di firma di accesso condiviso aventi solo le autorizzazioni minime necessarie
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub eventi di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -217,18 +217,18 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="resource-docdb"></a>Usare i token delle risorse per la connessione ad Azure Cosmos DB, quando possibile
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure DocumentDB | 
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
 | **Riferimenti**              | N/D  |
-| **Passaggi** | Un token della risorsa è associato a una risorsa di autorizzazione di Azure Cosmos DB e acquisisce la relazione tra l'utente di un database e l'autorizzazione di cui dispone l'utente per una risorsa di applicazione Azure Cosmos DB specifica (ad esempio, collection, documento). Usare sempre un token di risorsa per accedere al database di Cosmos Azure se il client non può essere considerato attendibile con la gestione delle chiavi master o di sola lettura, ad esempio un'applicazione utente finale, ad esempio un client mobile o desktop. Utilizzare la chiave Master o le chiavi di sola lettura da applicazioni back-end che consente di archiviare queste chiavi in modo sicuro.|
+| **Passaggi** | Un token di risorsa è associato a una risorsa autorizzazione di Azure Cosmos DB e acquisisce la relazione tra l'utente di un database e l'autorizzazione dell'utente per una risorsa applicazione di Azure Cosmos DB specifica (ad esempio, raccolta o documento). Usare sempre un token di risorsa per accedere ad Azure Cosmos DB se il client non è attendibile per quanto riguarda la gestione delle chiavi master o di sola lettura, ad esempio un'applicazione per l'utente finale come un client desktop o mobile. Usare la chiave master o le chiavi di sola lettura di applicazioni back-end in grado di archiviare queste chiavi in modo sicuro.|
 
 ## <a id="grained-rbac"></a>Abilitare la gestione degli accessi con granularità fine per la sottoscrizione di Azure usando il controllo degli accessi in base al ruolo
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -272,7 +272,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="permission-entities"></a>Concedere l'autorizzazione con granularità fine in un intervallo di entità nell'archiviazione tabelle di Azure
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Archiviazione di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -283,7 +283,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="rbac-azure-manager"></a>Abilitare il controllo degli accessi in base al ruolo per l'account di archiviazione di Azure usando Azure Resource Manager
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Archiviazione di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -305,7 +305,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="weak-class-wcf"></a>Riferimento debole alla classe in WCF
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  
@@ -342,7 +342,7 @@ L'elemento `<behaviorExtensions/>` del file di configurazione WCF seguente indic
 
 ## <a id="wcf-authz"></a>WCF: implementare il controllo di autorizzazione
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  
@@ -390,7 +390,7 @@ return result;
 
 ## <a id="authz-aspnet"></a>Implementare il meccanismo di autorizzazione appropriato nell'API Web ASP.NET
 
-| Title                   | Dettagli      |
+| Titolo                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase SDL**               | Compilare |  
@@ -400,7 +400,7 @@ return result;
 | **Passaggi** | <p>Le informazioni sui ruoli per gli utenti dell'applicazione possono essere ottenute da attestazioni di Azure AD o AD FS se l'applicazione si basa su di essi come provider di identità. In alternativa, le informazioni possono essere fornite dall'applicazione stessa. In questi casi, l'implementazione di autorizzazione personalizzata deve convalidare le informazioni sui ruoli utente.</p><p>Le informazioni sui ruoli per gli utenti dell'applicazione possono essere ottenute da attestazioni di Azure AD o AD FS se l'applicazione si basa su di essi come provider di identità. In alternativa, le informazioni possono essere fornite dall'applicazione stessa. In questi casi, l'implementazione di autorizzazione personalizzata deve convalidare le informazioni sui ruoli utente.</p>
 
 ### <a name="example"></a>Esempio
-```C#
+```csharp
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
 public class ApiAuthorizeAttribute : System.Web.Http.AuthorizeAttribute
 {
@@ -431,7 +431,7 @@ public bool ValidateRoles(actionContext)
 }
 ```
 Tutti i controller e i metodi di azione da proteggere devono essere decorati con l'attributo indicato in precedenza.
-```C#
+```csharp
 [ApiAuthorize]
 public class CustomController : ApiController
 {

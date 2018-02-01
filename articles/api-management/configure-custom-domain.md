@@ -11,17 +11,17 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: cf8a3eb502a808945e97822e10e44d38137d1161
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: 0f1c9e8e8298647721f16962d3f6756c74f8c8ef
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurare un nome di dominio personalizzato 
 
 Quando si crea un'istanza di Gestione API (APIM), Azure la assegna a un sottodominio di azure-api.net (ad esempio `apim-service-name.azure-api.net`). È tuttavia possibile esporre gli endpoint dell'APIM usando il proprio nome di dominio, ad esempio **contoso.com**. Questa esercitazione illustra come eseguire il mapping di un nome DNS personalizzato esistente agli endpoint esposti da un'istanza di Gestione API di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 
@@ -55,7 +55,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 1. Fare clic su Applica.
 
     >[!NOTE]
-    >Il processo di assegnazione del certificato potrebbe richiedere circa 15 minuti.
+    >Il processo di assegnazione del certificato potrebbe richiedere circa 15 minuti o più, a seconda delle dimensioni della distribuzione. Developer SKU ha tempi di inattività, mentre SKU Basic e superiore non ne ha.
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 

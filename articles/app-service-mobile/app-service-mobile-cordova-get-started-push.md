@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: c4fd425ab479121fff80bb2c2eef016662ec3bfe
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: 05fa692f9331cf6b5178c3e9dca60ad2598dc609
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Aggiungere notifiche push all'app Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -79,6 +79,7 @@ Eseguire il comando seguente:
 
 2. Fare clic sulla freccia accanto all'origine dell'installazione.
 3. In **SENDER_ID** è possibile aggiungere l'ID numerico del progetto della Console per gli sviluppatori di Google, se l'ID è già disponibile. In caso contrario, immettere un valore segnaposto, ad esempio 777777.  Se la destinazione è Android, sarà possibile aggiornare questo valore nel file config.xml in un secondo momento.
+     Si noti che, a partire dalla versione 2.0.0, SENDER_ID è stato rimosso dal tempo dell'installazione; adesso google-services.json deve essere installato nella cartella radice del progetto.  Altri dettagli sono disponibili [qui.](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md)
 4. Fare clic su **Aggiungi**.
 
 Il plug-in di push è stato installato.
@@ -187,14 +188,14 @@ Aprire index.js e aggiornare il codice per usare l'ID progetto numerico.
 Prima di poter distribuire l'applicazione al dispositivo Android, è necessario abilitare il debug USB.  Sul telefono Android seguire questa procedura:
 
 1. Passare a **Settings** (Impostazioni)>**About phone** (Info sul dispositivo) e toccare **Build number** (Numero build) circa sette volte finché non sarà abilitata la modalità sviluppatore.
-2. In **impostazioni** > **opzioni per gli sviluppatori** abilitare **debug USB**, un telefono Android connettersi al computer con un cavo USB di sviluppo.
+2. Tornare in **Impostazioni** > **Opzioni per gli sviluppatori**, abilitare **USB debugging** (Debug USB), quindi connettere lo smartphone Android al PC di sviluppo con un cavo USB.
 
 Per questo test è stato usato un dispositivo Google Nexus 5X con Android 6.0 (Marshmallow).  Tuttavia, le tecniche sono comuni a qualsiasi versione moderna di Android.
 
 #### <a name="install-google-play-services"></a>Installare servizi Google Play
 Il plug-in di push si basa su servizi Google Play Android per notifiche push.
 
-1. In Visual Studio, fare clic su **strumenti** > **Android** > **Android SDK Manager**, espandere il **extra** cartella e selezionare la casella per assicurarsi che ognuno dei seguenti SDK sia installato.
+1. In Visual Studio fare clic su **Strumenti**>**Android**>**Android SDK Manager**, espandere la cartella **Funzionalità aggiuntive** e selezionare la casella per assicurarsi che tutti gli SDK seguenti siano installati.
 
    * Android 2.3 o versione successiva
    * Google Repository 27 o versione successiva

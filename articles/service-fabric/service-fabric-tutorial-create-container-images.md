@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: e1d110aea526c4632219ef8fd2a9681b1b6c330f
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: eb7a357369b605464b9986123f3c026fd1595a6f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-container-images-for-service-fabric"></a>Creare immagini del contenitore per Service Fabric
 
@@ -188,7 +188,7 @@ I comandi di esecuzione del push di docker richiedono un paio di minuti per il c
 
 ## <a name="list-images-in-registry"></a>Elencare le immagini nel registro
 
-Per restituire un elenco di immagini di cui è stato eseguito il push nel Registro contenitori di Azure, usare il comando [az acr repository list](/cli/azure/acr/repository#list). Aggiornare il comando con il nome dell'istanza del Registro contenitori di Azure.
+Per restituire un elenco di immagini di cui è stato eseguito il push nel Registro contenitori di Azure, usare il comando [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list). Aggiornare il comando con il nome dell'istanza del Registro contenitori di Azure.
 
 ```bash
 az acr repository list --name <acrName> --output table

@@ -12,17 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 01/19/2018
 ms.author: denlee
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e69edcae53b9e6614cb02932abd1e2022c558a14
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 181954e4657166db8aa94021ad093437d8c7abfd
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="Azure Cosmos DB-HDInsight"></a>Eseguire un processo Apache Hive, Pig o Hadoop usando Azure Cosmos DB e HDInsight
 Questa esercitazione illustra come eseguire processi [Apache Hive][apache-hive], [Apache Pig][apache-pig] e [Apache Hadoop][apache-hadoop] MapReduce in Azure HDInsight con il connettore Hadoop di Cosmos DB. Il connettore Hadoop di Cosmos DB consente a quest'ultimo di fungere da origine e sink per i processi Hive, Pig e MapReduce. Questa esercitazione userà Cosmos DB come origine dati e destinazione per i processi Hadoop.
+
+> [!IMPORTANT] 
+> Il connettore Spark per Azure Cosmos DB è l'opzione consigliata per collegare Azure HDInsight ad Azure Cosmos DB. Per altre informazioni vedere [Velocizzare l'analisi di Big Data in tempo reale con il connettore Spark per Azure Cosmos DB](spark-connector.md).
 
 Dopo aver completato questa esercitazione, si potrà rispondere alle domande seguenti:
 
@@ -178,7 +181,7 @@ Immettere: </br> <strong>https://portalcontent.blob.core.windows.net/scriptactio
         $clusterName = "<HDInsightClusterName>"
 2. <p>Si inizia a costruire la stringa di query. Verrà scritta una query Hive che accetta i timestamp generati dal sistema di tutti i documenti (_ts) e ID univoci (_rid) da una raccolta di Azure Cosmos DB, calcola tutti i documenti in base al minuto e quindi archivia i risultati in una nuova raccolta di Azure Cosmos DB.</p>
 
-    <p>Creare prima di tutto una tabella Hive dalla raccolta Azure Cosmos DB. Aggiungere il seguente frammento di codice nel riquadro di script di PowerShell <strong>dopo</strong> il frammento di codice da #1. Assicurarsi di includere il parametro di query facoltativa per tagliare solo TS dei documenti e RID.</p>
+    <p>Creare prima di tutto una tabella Hive dalla raccolta Azure Cosmos DB. Aggiungere il seguente frammento di codice nel riquadro di script di PowerShell <strong>dopo</strong> il frammento di codice da #1. Assicurarsi di includere il parametro di query facoltativo per ridurre i documenti semplicemente a _ts e _rid.</p>
 
    > [!NOTE]
    > **La denominazione DocumentDB.inputCollections non è stata un errore.** È effettivamente possibile aggiungere più raccolte come input: </br>
@@ -276,7 +279,7 @@ Immettere: </br> <strong>https://portalcontent.blob.core.windows.net/scriptactio
         # Provide HDInsight cluster name where you want to run the Pig job.
         $clusterName = "Azure HDInsight Cluster Name"
 2. <p>Si inizia a costruire la stringa di query. Verrà scritta una query Pig che accetta i timestamp generati dal sistema di tutti i documenti (_ts) e ID univoci (_rid) da una raccolta di Azure Cosmos DB, calcola tutti i documenti in base al minuto e quindi archivia i risultati in una nuova raccolta di Azure Cosmos DB.</p>
-    <p>In primo luogo, caricare i documenti da Cosmos DB in HDInsight. Aggiungere il seguente frammento di codice nel riquadro di script di PowerShell <strong>dopo</strong> il frammento di codice da #1. Assicurarsi di aggiungere una query per il parametro di query di DocumentDB facoltativo per tagliare i documenti per solo TS e RID.</p>
+    <p>In primo luogo, caricare i documenti da Cosmos DB in HDInsight. Aggiungere il seguente frammento di codice nel riquadro di script di PowerShell <strong>dopo</strong> il frammento di codice da #1. Assicurarsi di aggiungere una query al parametro di query DocumentDB facoltativo per ridurre i documenti semplicemente a _ts e _rid.</p>
 
    > [!NOTE]
    > È effettivamente possibile aggiungere più raccolte come input: </br>

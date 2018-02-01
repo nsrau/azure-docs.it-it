@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 222bfa1c3070fa4634cf5c48d934a6387c48a4b0
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 8794ea7d998293e7ea88ba780f67ef8a021f2298
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Creare un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure 2.0
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile ridimensionare manualmente il numero di VM nel set di scalabilità o definire regole di scalabilità automatica in base all'utilizzo delle risorse, ad esempio la CPU, alla richiesta di memoria o al traffico di rete. In questo articolo introduttivo viene creato un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure 2.0. È anche possibile creare un set di scalabilità con [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) oppure il [portale di Azure](virtual-machine-scale-sets-create-portal.md).
@@ -32,13 +32,13 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 
 ## <a name="create-a-scale-set"></a>Creare un set di scalabilità
-Per poter creare un set di scalabilità, è prima necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group#create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Per poter creare un set di scalabilità, è prima necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
-Si può ora creare un set di scalabilità di macchine virtuali con il comando [az vmss create](/cli/azure/vmss#create). Nell'esempio seguente viene creato un set di scalabilità denominato *myScaleSet* e vengono generate le chiavi SSH, se non sono presenti:
+Si può ora creare un set di scalabilità di macchine virtuali con il comando [az vmss create](/cli/azure/vmss#az_vmss_create). Nell'esempio seguente viene creato un set di scalabilità denominato *myScaleSet* e vengono generate le chiavi SSH, se non sono presenti:
 
 ```azurecli-interactive 
 az vmss create \
@@ -70,7 +70,7 @@ az vmss extension set \
 
 
 ## <a name="allow-web-traffic"></a>Consentire il traffico Web
-Per consentire al traffico di raggiungere il server Web, creare una regola del servizio di bilanciamento del carico con [az network lb rule create](/cli/azure/network/lb/rule#create). Nell'esempio seguente viene creata una regola denominata *myLoadBalancerRuleWeb*:
+Per consentire al traffico di raggiungere il server Web, creare una regola del servizio di bilanciamento del carico con [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). Nell'esempio seguente viene creata una regola denominata *myLoadBalancerRuleWeb*:
 
 ```azurecli-interactive 
 az network lb rule create \
@@ -86,7 +86,7 @@ az network lb rule create \
 
 
 ## <a name="test-your-web-server"></a>Testare il server Web
-Per vedere il server Web in azione, ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico con [az network public-ip show](/cli/azure/network/public-ip#show). Nell'esempio seguente si ottiene l'indirizzo IP per *myScaleSetLBPublicIP* creato come parte del set di scalabilità:
+Per vedere il server Web in azione, ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico con [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Nell'esempio seguente si ottiene l'indirizzo IP per *myScaleSetLBPublicIP* creato come parte del set di scalabilità:
 
 ```azurecli-interactive 
 az network public-ip show \
@@ -102,7 +102,7 @@ Immettere l'indirizzo IP pubblico del servizio di bilanciamento del carico in un
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando il gruppo di risorse, il set di scalabilità e tutte le risorse correlate non sono più necessari, è possibile usare il comando [az group delete](/cli/azure/group#delete) per rimuoverli come segue:
+Quando il gruppo di risorse, il set di scalabilità e tutte le risorse correlate non sono più necessari, è possibile usare il comando [az group delete](/cli/azure/group#az_group_delete) per rimuoverli come segue:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

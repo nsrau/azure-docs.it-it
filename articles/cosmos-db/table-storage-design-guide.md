@@ -11,14 +11,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: storage
+ms.workload: data-services
 ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: d93b6a25c1781c7d4f1f0534eda146963f439dd5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: a5511b8b2e76c6c651a8e05bda1322293601c92c
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guida alla progettazione della tabella di archiviazione di Azure: Progettazione scalabile e Tabelle ad alte prestazioni 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -251,7 +251,7 @@ Il servizio tabelle indicizza automaticamente le entità usando i valori **Parti
 Molte progettazioni devono soddisfare alcuni requisiti per abilitare la ricerca di entità in base a più criteri, ad esempio trovare le entità dipendente in base a indirizzo di posta elettronica, ID dipendente o cognome. I modelli seguenti nella sezione [Modelli di progettazione tabelle](#table-design-patterns) soddisfano questi tipi di requisito e descrivono come ovviare al fatto che il servizio tabelle non fornisca indici secondari:  
 
 * [Modello per indice secondario intrapartizione](#intra-partition-secondary-index-pattern) - Archivia più copie di ogni entità usando valori **RowKey** diversi (nella stessa partizione) per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi.  
-* [Modello tra partizionare l'indice secondario](#inter-partition-secondary-index-pattern) -archiviazione di più copie di ogni entità mediante diverse **RowKey** valori partizioni in separate o in diverse tabelle per abilitare le ricerche veloci ed efficienti e ordinamento alternativo gli ordini con diversi **RowKey** valori.  
+* [Modello per indice secondario intrapartizione](#inter-partition-secondary-index-pattern) - Archivia più copie di ogni entità usando valori **RowKey** diversi in partizioni separate o in tabelle separate per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi.  
 * [Modello per entità di indice](#index-entities-pattern) - Mantiene le entità di indice per consentire ricerche efficienti che restituiscano elenchi di entità.  
 
 ### <a name="sorting-data-in-the-table-service"></a>Ordinamento dei dati nel servizio tabelle

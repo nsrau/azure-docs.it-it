@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: f30042ad8d687db59e1aaa092c46cee371e8c7fb
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: cae3c797171c3904f100ae3cdec47a31b06d3b31
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Monitorare le data factory con Monitoraggio di Azure  
 Le applicazioni cloud sono complesse e hanno molte parti mobili. Il monitoraggio offre la possibilità di garantire il funzionamento e l'integrità dell'applicazione. Consente anche di prevenire i problemi potenziali o di risolvere quelli precedenti. Inoltre, è possibile usare i dati di monitoraggio per ottenere informazioni approfondite sull'applicazione, utili per migliorarne le prestazioni o la manutenibilità oppure per automatizzare azioni che altrimenti richiederebbero un intervento manuale.
@@ -396,7 +396,7 @@ ADFV2 genera le metriche seguenti
 | TriggerSucceededRuns | Succeeded trigger runs metrics (Metrica esecuzioni trigger riuscite)  | Conteggio    | Totale                | Esecuzioni trigger totali riuscite in un minuto   |
 | TriggerFailedRuns    | Failed trigger runs metrics (Metrica esecuzioni trigger non riuscite)     | Conteggio    | Totale                | Esecuzioni trigger totali non riuscite in un minuto      |
 
-Per le metriche di accesso, seguire le istruzioni nell'articolo - https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+Per accedere alle metriche, seguire le istruzioni contenute nell'articolo all'indirizzo https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere l'articolo [Monitor and manage pipelines programmatically (Monitorare e gestire le pipeline a livello di codice)](monitor-programmatically.md) per informazioni sul monitoraggio e sulla gestione delle pipeline. 

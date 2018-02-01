@@ -15,28 +15,28 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: d7496b0578301713ebae7381e9a54642e226eb96
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: cb9d20bcb4b863736229bb920f5d4615b2c28c94
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>Distribuire un'applicazione in un cluster di entità in Azure
 Questa esercitazione è la seconda parte di una serie e illustra come distribuire un'applicazione di Azure Service Fabric in un cluster di entità in Azure.
 
 Nella seconda parte della serie di esercitazioni si apprenderà come:
 > [!div class="checklist"]
-> * Distribuire un'applicazione in un cluster remoto usando Visual Studio
-> * Rimuovere un'applicazione da un cluster usando Service Fabric Explorer
-
-In questa serie di esercitazioni si apprenderà come:
-> [!div class="checklist"]
 > * [Creare un'applicazione di Service Fabric .NET](service-fabric-tutorial-create-dotnet-app.md)
 > * Distribuire l'applicazione in un cluster remoto
 > * [Configurare l'integrazione continua e la distribuzione continua usando Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Configurare il monitoraggio e la diagnostica per l'applicazione](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+In questa serie di esercitazioni si apprenderà come:
+> [!div class="checklist"]
+> * Distribuire un'applicazione in un cluster remoto usando Visual Studio
+> * Rimuovere un'applicazione da un cluster usando Service Fabric Explorer
+
+## <a name="prerequisites"></a>prerequisiti
 Prima di iniziare questa esercitazione:
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Installare Visual Studio 2017](https://www.visualstudio.com/) e installare i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
@@ -103,7 +103,7 @@ Per altre informazioni sul modello di applicazione in Service Fabric, vedere [Mo
 L'esercitazione è terminata.
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Distribuire un'applicazione in un cluster remoto usando Visual Studio

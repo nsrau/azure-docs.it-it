@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 355865b963c313097f7f5900007f341dba92bf67
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 88d4012145172bcd393070904980898d9923ea1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Set di scalabilità di macchine virtuali di Azure e dischi di dati collegati
 I [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/) di Azure supportano ora macchine virtuali con dischi di dati collegati. I dischi di dati possono essere definiti nel profilo di archiviazione per i set di scalabilità creati con Azure Managed Disks. In precedenza, le uniche opzioni di archivi collegati direttamente disponibili con le macchine virtuali nei set di scalabilità erano le unità del sistema operativo e le unità temporanee.
@@ -28,14 +28,14 @@ I [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/)
 >  Quando si crea un set di scalabilità con dischi di dati collegati definiti dall'utente, per usare i dischi è comunque necessario montarli e formattarli all'interno di una macchina virtuale, come per le macchine virtuali di Azure autonome. Un modo pratico per completare questo processo consiste nell'usare un'estensione di script personalizzata che chiama uno script standard per creare partizioni e formattare tutti i dischi di dati in una macchina virtuale.
 
 ## <a name="create-a-scale-set-with-attached-data-disks"></a>Creare un set di scalabilità con dischi di dati collegati
-Un modo semplice per creare un set di scalabilità con dischi collegati consiste nell'usare il comando [az vmss create](/cli/azure/vmss#create). L'esempio seguente crea un gruppo di risorse di Azure e un set di scalabilità di 10 macchine virtuali Ubuntu, ognuna con 2 dischi di dati collegati rispettivamente da 50 GB e 100 GB.
+Un modo semplice per creare un set di scalabilità con dischi collegati consiste nell'usare il comando [az vmss create](/cli/azure/vmss#az_vmss_create). L'esempio seguente crea un gruppo di risorse di Azure e un set di scalabilità di 10 macchine virtuali Ubuntu, ognuna con 2 dischi di dati collegati rispettivamente da 50 GB e 100 GB.
 
 ```bash
 az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
 
-Il comando [az vmss create](/cli/azure/vmss#create) imposta valori di configurazione predefiniti se non vengono specificati dall'utente. Per visualizzare le opzioni che possono essere sostituite provare:
+Il comando [az vmss create](/cli/azure/vmss#az_vmss_create) imposta valori di configurazione predefiniti se non vengono specificati dall'utente. Per visualizzare le opzioni che possono essere sostituite provare:
 
 ```bash
 az vmss create --help

@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 89a232af6387f6403e6e341cced16d06e9979dae
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: e1f9fbf6cb80065ea796e2d53d09f48fe57b207b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory per sviluppatori
 Azure Active Directory (Azure AD) è un servizio cloud di gestione delle identità con il quale gli sviluppatori possono consentire l'accesso sicuro agli utenti con un account Microsoft aziendale o dell'istituto di istruzione. Questa documentazione illustra come aggiungere il supporto di Azure AD all'applicazione tramite protocolli standard di settore: OAuth2.0 e OpenID Connect.
@@ -64,4 +64,4 @@ Gli articoli seguenti forniscono informazioni dettagliate su API, messaggi di pr
 > Se è necessario accedere ad account personali Microsoft, è consigliabile usare l'[endpoint di Azure AD 2.0](active-directory-appmodel-v2-overview.md). L'endpoint di Azure AD 2.0 riunisce account personali e aziendali di Microsoft (di Azure AD) in un unico sistema di autenticazione.
 
 
-[!INCLUDE  [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

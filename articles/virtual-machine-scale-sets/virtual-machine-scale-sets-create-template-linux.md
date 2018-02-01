@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
-ms.openlocfilehash: b07bdd0739dabb05ef7012051b7ac28af3aaddaf
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 16e9c0b30710d711ef2789f7781b17e72889d4da
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Creare un set di scalabilità di macchine virtuali Linux con un modello di Azure
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile ridimensionare manualmente il numero di VM nel set di scalabilità o definire regole di scalabilità automatica in base all'utilizzo delle risorse, ad esempio la CPU, alla richiesta di memoria o al traffico di rete. In questo articolo introduttivo viene creato un set di scalabilità di macchine virtuali Linux usando un modello di Azure Resource Manager. È anche possibile creare un set di scalabilità con l'[interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-create-cli.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) oppure il [portale di Azure](virtual-machine-scale-sets-create-portal.md).
@@ -135,7 +135,7 @@ Sono definiti due script in **fileUris** - *installserver.sh* e *workserver.py*.
 
 [![Distribuire il modello in Azure](media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
-È anche possibile usare l'interfaccia della riga di comando di Azure 2.0 per installare il server HTTP Python in Linux con [az group deployment create](/cli/azure/group/deployment#create) come segue:
+È anche possibile usare l'interfaccia della riga di comando di Azure 2.0 per installare il server HTTP Python in Linux con [az group deployment create](/cli/azure/group/deployment#az_group_deployment_create) come segue:
 
 ```azurecli-interactive
 # Create a resource group
@@ -151,7 +151,7 @@ Rispondere ai prompt per l'inserimento del nome del set di scalabilità, del num
 
 
 ## <a name="test-your-sample-application"></a>Testare l'applicazione di esempio
-Per vedere l'app in azione, ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico con il comando [az network public-ip list](/cli/azure/network/public-ip#show) come segue:
+Per vedere l'app in azione, ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico con il comando [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_show) come segue:
 
 ```azurecli-interactive
 az network public-ip list \
@@ -165,7 +165,7 @@ Immettere l'indirizzo IP pubblico del servizio di bilanciamento del carico in un
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando il gruppo di risorse, il set di scalabilità e tutte le risorse correlate non sono più necessari, è possibile usare il comando [az group delete](/cli/azure/group#delete) per rimuoverli come segue:
+Quando il gruppo di risorse, il set di scalabilità e tutte le risorse correlate non sono più necessari, è possibile usare il comando [az group delete](/cli/azure/group#az_group_delete) per rimuoverli come segue:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

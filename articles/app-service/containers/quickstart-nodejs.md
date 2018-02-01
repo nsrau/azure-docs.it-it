@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 3f75a49c697898ee52bcec68e520f103061752a8
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 7606a5a1bce6c8ce6974e230698e72cac77e93f7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Creare un'app Web Node.js nel Servizio app di Azure in Linux
 
@@ -33,14 +33,14 @@ Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di host
 
 È possibile eseguire queste procedure con un computer Mac, Windows o Linux.
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa guida introduttiva:
 
 * <a href="https://git-scm.com/" target="_blank">Installare Git</a>
 * <a href="https://nodejs.org/" target="_blank">Installare Node.js e NPM</a>
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 
