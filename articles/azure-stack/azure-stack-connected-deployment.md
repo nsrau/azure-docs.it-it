@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: c1a3b2107abdc3ef19a314616518c494687d81bf
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: a2d4efc3a3e1480de71528144ae3f025f4879f07
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Distribuzione di Azure connessa pianificazione decisioni per lo Stack di Azure integrati sistemi
 Dopo aver deciso [integrerà come Stack di Azure nell'ambiente cloud ibrido](azure-stack-deployment-decisions.md), quindi è possibile finalizzare le decisioni relative alla distribuzione di Azure Stack.
@@ -41,7 +41,7 @@ Quando si usa Azure AD per l'archivio di identità richiede due account di Azure
     - Come l'account di amministratore del servizio. Questo è il proprietario della sottoscrizione del provider predefinito (che è possibile modificare successivamente). Si può accedere al portale di amministrazione di Azure Stack con questo account e usarlo per creare offerte e i piani e impostare le quote di eseguire altre funzioni amministrative nello Stack di Azure.
 2. **Account di fatturazione** (obbligatorio per entrambi collegate e scollegate distribuzioni). Questo account di Azure viene utilizzato per stabilire la relazione tra il sistema integrato dello Stack di Azure e di back-end di Azure commerce fatturazione. Si tratta dell'account che verrà fatturato per gli addebiti di Stack di Azure. Questo account verrà utilizzato anche per la diffusione di marketplace e altri scenari ibridi. 
 
-### <a name="ad-fs-identity-store"></a>ARCHIVIO DI IDENTITÀ AD FS
+### <a name="ad-fs-identity-store"></a>Archivio di identità AD FS
 Scegliere questa opzione se si desidera utilizzare un archivio di identità, ad esempio Active Directory aziendale, per gli account di amministratore del servizio.  
 
 ## <a name="choose-a-billing-model"></a>Scegliere un modello di fatturazione
@@ -57,9 +57,8 @@ Se si intende utilizzare una sottoscrizione di CSP, esaminare la tabella seguent
 
 |Scenario|Opzioni di sottoscrizione e di dominio|
 |-----|-----|
-|Si è diretto o indiretto CSP Partner, e si opererà lo Stack di Azure|Utilizzare una sottoscrizione CSL (livello di servizio comune).|
-|Si è diretto o indiretto CSP Partner, e si opererà lo Stack di Azure|Nel centro di Partner, creare un tenant di Azure AD con un nome descrittivo, ad esempio <your organization>CSPAdmin e una sottoscrizione di Azure CSP associato.|
-|Si è un rivenditore di CSP indiretta, e si opererà lo Stack di Azure|Chiedere al Provider CSP indiretto per creare, utilizzando il centro di Partner, un tenant di Azure AD per l'organizzazione e una sottoscrizione di Azure CSP associato.|
+|Si è un **Partner CSP diretto** o **indiretta Provider CSP**, e si opererà lo Stack di Azure|Utilizzare una sottoscrizione CSL (livello di servizio comune).<br>     oppure<br>Creare un tenant di Azure AD con un nome descrittivo in Partner Center. Ad esempio &lt;organizzazione > CSPAdmin con una sottoscrizione di Azure CSP associata.|
+|Si è un **indiretta CSP Reseller**, e si opererà lo Stack di Azure|Chiedere al Provider CSP indiretto per creare un tenant di Azure AD dell'organizzazione con una sottoscrizione di Azure CSP associata utilizzando il centro di Partner.|
 
 ### <a name="capacity-based-billing"></a>Capacità di fatturazione in base
 Se si decide di utilizzare il modello di fatturazione di capacità, è necessario acquistare un Azure Stack capacità pianificare SKU in base alla capacità del sistema. È necessario conoscere il numero di core fisici in pila Azure acquistare la quantità corretta. 
@@ -70,3 +69,6 @@ Capacità fatturazione richiede un Enterprise Agreement (EA) per la registrazion
 - Per informazioni sui casi di utilizzo, acquisto, partner e fornitori di hardware OEM, vedere il [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) pagina del prodotto.
 - Per informazioni sulla Guida di orientamento e geografica disponibilità per lo Stack di Azure sistemi integrati, vedere il white paper: [dello Stack di Azure: un'estensione di Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Per ulteriori informazioni su Microsoft Azure Stack assemblaggio e prezzi [scaricare il PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
+
+## <a name="next-steps"></a>Passaggi successivi
+[Integrazione della rete datacenter](azure-stack-network.md)

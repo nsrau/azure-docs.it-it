@@ -12,15 +12,17 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: dc341d872a3b8943a934217ace21537f45bafd10
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-deployment-sources"></a>Configurare le origini di distribuzione
+*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+
 
 Servizio app in Azure Stack supporta la distribuzione su richiesta da più provider del controllo del codice sorgente. Questa funzionalità consente agli sviluppatori di applicazioni distribuzione diretta dal loro repository del controllo codice sorgente. Se gli utenti desiderano configurare servizio App di connettersi ai propri repository, è necessario un operatore cloud innanzitutto configurare l'integrazione tra servizio App nello Stack di Azure e il provider del controllo del codice sorgente.  
 
@@ -55,7 +57,7 @@ I provider del controllo del codice sorgente, oltre al Git locale, sono:
 8.  Passare a  **Resource Providers** (Provider di risorse) e selezionare **App Service Resource Provider Admin** (Amministrazione provider risorse servizio app).
 9. Fare clic su **Source Control Configuration** (Configurazione controllo codice sorgente).
 10. Copiare e incollare l'**ID client** e il **segreto client** nelle caselle di input corrispondenti per GitHub.
-11. Fare clic su **Salva**.
+11. Fare clic su **Save**.
 
 ## <a name="configure-bitbucket"></a>Configurare BitBucket
 
@@ -72,13 +74,13 @@ I provider del controllo del codice sorgente, oltre al Git locale, sono:
 7. Selezionare il **autorizzazioni** necessarie:
     - **Repository**: *lettura*
     - **Webhook**: *lettura e scrittura*
-8. Fare clic su **Salva**.  Verrà ora visualizzata questa nuova applicazione, insieme alla **chiave** e al **segreto** in **OAuth consumers** (Consumer OAuth).
+8. Fare clic su **Save**.  Verrà ora visualizzata questa nuova applicazione, insieme alla **chiave** e al **segreto** in **OAuth consumers** (Consumer OAuth).
     ![Elenco applicazioni BitBucket][9]
 9.  In una nuova scheda del browser o finestra Accedi al portale di amministrazione di Stack (https://adminportal.local.azurestack.external) Azure come amministratore del servizio.
 10.  Passare a  **Resource Providers** (Provider di risorse) e selezionare **App Service Resource Provider Admin** (Amministrazione provider risorse servizio app).
 11. Fare clic su **Source Control Configuration** (Configurazione controllo codice sorgente).
 12. Copiare e incollare la **chiave** nella casella di input **ID client** e **la chiave privata** nella casella di input **Segreto client** per BitBucket.
-13. Fare clic su **Salva**.
+13. Fare clic su **Save**.
 
 
 ## <a name="configure-onedrive"></a>Configurare OneDrive
@@ -100,12 +102,12 @@ I provider del controllo del codice sorgente, oltre al Git locale, sono:
     - **Files.ReadWrite.AppFolder**
     - **User.Read**  
       ![Applicazione OneDrive - Autorizzazioni di Microsoft Graph][13]
-9. Fare clic su **Salva**.
+9. Fare clic su **Save**.
 10.  In una nuova scheda del browser o finestra Accedi al portale di amministrazione di Stack (https://adminportal.local.azurestack.external) Azure come amministratore del servizio.
 11.  Passare a  **Resource Providers** (Provider di risorse) e selezionare **App Service Resource Provider Admin** (Amministrazione provider risorse servizio app).
 12. Fare clic su **Source Control Configuration** (Configurazione controllo codice sorgente).
 13. Copiare e incollare l'**ID applicazione** nella casella di input **ID client** e **la password** nella casella di input **Segreto client** per OneDrive.
-14. Fare clic su **Salva**.
+14. Fare clic su **Save**.
 
 ## <a name="configure-dropbox"></a>Configurare Dropbox
 
@@ -129,7 +131,7 @@ I provider del controllo del codice sorgente, oltre al Git locale, sono:
 10.  Passare a  **Resource Providers** (Provider di risorse) e selezionare **App Service Resource Provider Admin** (Amministrazione provider risorse servizio app).
 11. Fare clic su **Source Control Configuration** (Configurazione controllo codice sorgente).
 12. Copiare e incollare la **chiave applicazione** nella casella di input **ID client** e la **chiave privata app** nella casella di input **Segreto client** per DropBox.
-13. Fare clic su **Salva**.
+13. Fare clic su **Save**.
 
 
 <!--Image references-->

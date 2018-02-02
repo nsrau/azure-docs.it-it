@@ -12,15 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 4ad91def00ca73f91f0ffd8e57afa442a93176f6
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 93e10235e3de4ecea4d0e356bb4b52922c8afac8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Pianificazione della capacità per i ruoli server di servizio App di Azure nello Stack di Azure
+*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
 Per eseguire il provisioning di una distribuzione pronto di produzione del servizio App di Azure nello Stack di Azure, è necessario pianificare la capacità di cui si prevede che il sistema per il supporto.  Sezione vengono fornite indicazioni per il numero minimo di istanze e calcolo SKU è necessario utilizzare per la distribuzione di produzione.
 
@@ -29,9 +30,9 @@ Per eseguire il provisioning di una distribuzione pronto di produzione del servi
 | Ruolo del server di servizio App | Minimo numero consigliato di istanze | Calcolo consigliato SKU|
 | --- | --- | --- |
 | Controller | 2 | A1 |
-| Front-End | 2 | A1 |
-| gestione | 2 | A3 |
-| Autore | 2 | A1 |
+| Front-end | 2 | A1 |
+| Gestione | 2 | A3 |
+| Editore | 2 | A1 |
 | Web worker - condiviso | 2 | A1 |
 | Web worker - dedicato | 2 per ogni livello | A1 |
 

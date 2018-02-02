@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: ef8b30744c3334086680ab8c7211ad73b792c95c
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 2c013c11dea5217d564ac15a13a8d11614989057
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considerazioni relative all'integrazione di Data Center per i sistemi Azure Stack integrato
 Se si è interessati in un sistema integrato dello Stack di Azure, è necessario comprendere alcune delle principali considerazioni sulla pianificazione per la distribuzione e sulle modalità di integrazione di sistema nel Data Center. In questo articolo fornisce una panoramica generale di queste considerazioni consentono di prendere decisioni importanti infrastruttura per il sistema a più nodi di Azure Stack. La comprensione di queste considerazioni è utile quando si distribuiscono dello Stack di Azure al Data Center funziona con il fornitore dell'hardware OEM.  
@@ -27,9 +27,7 @@ Se si è interessati in un sistema integrato dello Stack di Azure, è necessario
 > [!NOTE]
 > Sistemi a più nodi di Azure Stack possono solo essere acquistati da fornitori di hardware non autorizzato. 
 
-Per distribuire Azure Stack esistono una serie di decisioni che è necessario apportare integrare correttamente Azure Stack con l'ambiente. È necessario fornire queste informazioni al provider di soluzioni durante il processo di pianificazione ed essere pronto per il fornitore dell'hardware prima di avvia la distribuzione semplificare il processo di passare rapidamente e senza problemi.
-
-Le informazioni necessarie intervalli in rete, sicurezza e informazioni di identità con molti importanti decisioni che potrebbero richiedere informazioni da molte aree diverse e responsabili delle decisioni. Di conseguenza, potrebbe essere necessario inserire utenti da più team all'interno dell'organizzazione per assicurarsi di disporre di tutte le informazioni necessarie pronte prima di inizia la distribuzione. Questo consente di comunicare con il fornitore dell'hardware durante la raccolta di queste informazioni, come potrebbero avere consigli utili per prendere le decisioni.
+Per distribuire Azure Stack, è necessario fornire informazioni sulla pianificazione per i provider di soluzioni prima dell'avvio di distribuzione semplificare il processo di passare rapidamente e senza problemi. Le informazioni necessarie intervalli in rete, sicurezza e informazioni di identità con molti importanti decisioni che potrebbero richiedere informazioni da molte aree diverse e responsabili delle decisioni. Di conseguenza, potrebbe essere necessario inserire utenti da più team all'interno dell'organizzazione per assicurarsi di disporre di tutte le informazioni necessarie pronte prima di inizia la distribuzione. Questo consente di comunicare con il fornitore dell'hardware durante la raccolta di queste informazioni, come potrebbero avere consigli utili per prendere le decisioni.
 
 Durante la ricerca e raccogliere le informazioni necessarie, potrebbe essere necessario apportare alcune modifiche di configurazione della pre-distribuzione nell'ambiente di rete. Ad esempio riservando spazi degli indirizzi IP per la soluzione di Stack di Azure, configurare i router, commutatori e i firewall per preparare per la connettività per le nuove opzioni della soluzione Azure Stack. Assicurarsi di avere l'esperto di area di interesse inline fino a utili per la pianificazione.
 
@@ -38,7 +36,7 @@ Stack di Azure è un sistema bloccato, in cui l'infrastruttura è bloccato da de
 
 Per gestione quotidiana e le operazioni, non è disponibile alcun accesso amministratore senza restrizioni all'infrastruttura. Gli operatori di Azure Stack devono gestire il sistema tramite il portale dell'amministratore o tramite Azure Resource Manager (tramite PowerShell o l'API REST). Non è possibile accedere al sistema tramite altri strumenti di gestione, ad esempio gestione di Hyper-V o gestione Cluster di Failover. Per proteggere il sistema, è Impossibile installare il software di terze parti (ad esempio, gli agenti) all'interno dei componenti dell'infrastruttura di Azure Stack. Interoperabilità con il software di gestione e sicurezza esterno avviene tramite PowerShell o l'API REST.
 
-Quando un livello di accesso è necessaria per la risoluzione dei problemi non vengono risolti tramite i passaggi di mediazione avviso, è necessario collaborare con il supporto. Tramite il supporto, è disponibile un metodo per fornire l'accesso temporaneo amministratore completo al sistema per eseguire operazioni più avanzate. 
+Quando un livello di accesso è necessaria per la risoluzione dei problemi non vengono risolti tramite i passaggi di mediazione avviso, è necessario collaborare con il supporto Microsoft. Tramite il supporto, è disponibile un metodo per fornire l'accesso temporaneo amministratore completo al sistema per eseguire operazioni più avanzate. 
 
 ## <a name="identity-considerations"></a>Considerazioni sull'identità
 
@@ -179,7 +177,10 @@ Per replicare i dati in una posizione secondaria e orchestrare il failover dell'
 > [!IMPORTANT]
 > Nella versione iniziale di sistemi integrati, è necessario supportare le tecnologie di protezione che funzionano a livello di guest di una macchina virtuale IaaS. È possibile installare gli agenti nei server di infrastruttura sottostante.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="learn-more"></a>Altre informazioni
 
 - Per informazioni sui casi di utilizzo, acquisto, partner e fornitori di hardware OEM, vedere il [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) pagina del prodotto.
 - Per informazioni sulla Guida di orientamento e geografica disponibilità per lo Stack di Azure sistemi integrati, vedere il white paper: [dello Stack di Azure: un'estensione di Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+
+## <a name="next-steps"></a>Passaggi successivi
+[Modelli di connessione di distribuzione di Azure Stack](azure-stack-connection-models.md)
