@@ -13,47 +13,65 @@ metadata:
   ms.topic: landing-page
   ms.date: 08/10/2017
   ms.author: carolz
+  ms.openlocfilehash: 494cd1b862169998a15786b70a6c7d88f830613e
+  ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 02/01/2018
 abstract:
-  description: 'Griglia di eventi di Azure è un servizio di routing di eventi intelligente completamente gestito che consente un uso degli eventi uniforme tramite un modello di pubblicazione-sottoscrizione. Usare Griglia di eventi di Azure per reagire agli eventi pertinenti nei servizi sia di Azure che non di Azure in tempo quasi reale. Informazioni su come usare Griglia di eventi di Azure con le guide introduttive, le esercitazioni e gli esempi.'
+  description: "Griglia di eventi di Azure è un servizio di routing di eventi intelligente completamente gestito che consente un uso degli eventi uniforme tramite un modello di pubblicazione-sottoscrizione. Usare Griglia di eventi di Azure per reagire agli eventi pertinenti nei servizi sia di Azure che non di Azure in tempo quasi reale. Informazioni su come usare Griglia di eventi di Azure con le guide introduttive, le esercitazioni e gli esempi."
 sections:
-  - title: Guide introduttive di 5 minuti
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: Informazioni su come creare e sottoscrivere eventi personalizzati.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Informazioni su come creare e sottoscrivere eventi personalizzati.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/event-grid/media/index/cli.svg
-            text: Interfaccia della riga di comando di Azure
-            href: /azure/event-grid/custom-event-quickstart
-          - image:
-              src: /azure/event-grid/media/index/logo_powershell.svg
-            text: Azure PowerShell
-            href: /azure/event-grid/custom-event-quickstart-powershell
-          - image:
-              src: /azure/event-grid/media/index/portal.svg
-            text: Portale di Azure
-            href: /azure/event-grid/custom-event-quickstart-portal
-  - title: Esercitazioni dettagliate
+    - image:
+        src: /azure/event-grid/media/index/cli.svg
+      text: Interfaccia della riga di comando di Azure
+      href: /azure/event-grid/custom-event-quickstart
+    - image:
+        src: /azure/event-grid/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/event-grid/custom-event-quickstart-powershell
+    - image:
+        src: /azure/event-grid/media/index/portal.svg
+      text: Portale di Azure
+      href: /azure/event-grid/custom-event-quickstart-portal
+  - type: paragraph
+    text: Informazioni su come indirizzare gli eventi di archiviazione BLOB.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Informazioni su come sviluppare applicazioni che reagiscono agli eventi.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Monitorare le modifiche alle VM con le app per la logica</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Ridimensionare le immagini caricate</a>
-          - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Integrazione di Automazione di Azure con Griglia di eventi</a>
-  - title: riferimento
+    - image:
+        src: /azure/event-grid/media/index/cli.svg
+      text: Interfaccia della riga di comando di Azure
+      href: /azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fevent-grid%2ftoc.json
+    - image:
+        src: /azure/event-grid/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fevent-grid%2ftoc.json
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: Informazioni su come sviluppare applicazioni che reagiscono agli eventi.
+  - type: list
+    style: ordered
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Riga di comando
-            html: <p><a href="/cli/azure/eventgrid">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
-          - title: API REST
-            html: <p><a href="/rest/api/eventgrid">REST</a></p>
-          - title: Schemi
-            html: <p><a href="/azure/event-grid/subscription-creation-schema ">Schema di sottoscrizione</a></p><p><a href="/azure/event-grid/event-schema">Schema di eventi</a></p>
+    - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Monitorare le modifiche alle VM con le app per la logica</a>
+    - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Ridimensionare le immagini caricate</a>
+    - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Integrazione di Automazione di Azure con Griglia di eventi</a>
+- title: riferimento
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Riga di comando
+      html: <p><a href="/cli/azure/eventgrid">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
+    - title: API REST
+      html: <p><a href="/rest/api/eventgrid">REST</a></p>
+    - title: Schemi
+      html: <p><a href="/azure/event-grid/subscription-creation-schema ">Schema di sottoscrizione</a></p><p><a href="/azure/event-grid/event-schema">Schema di eventi</a></p>

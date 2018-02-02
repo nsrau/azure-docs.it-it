@@ -15,7 +15,9 @@
 ### [Elenchi di controllo di accesso](virtual-networks-acl.md)
 
 # Attività iniziali
-## [Creare la prima rete virtuale](virtual-network-get-started-vnet-subnet.md)
+## [Creare una rete virtuale - Portale](quick-create-portal.md)
+## [Creare una rete virtuale - PowerShell](quick-create-powershell.md)
+## [Creare una rete virtuale - Interfaccia della riga di comando di Azure](quick-create-cli.md)
 
 # Procedure
 ## Pianificare e progettare

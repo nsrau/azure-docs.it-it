@@ -2,8 +2,8 @@
   href: index.yml
 - name: Panoramica
   items:
-    - name: Monitoraggio di Azure
-      href: monitoring-overview-azure-monitor.md
+    - name: Monitoraggio in Azure
+      href: monitoring-overview.md
 - name: Guide introduttive
   expanded: true
   items:
@@ -27,9 +27,9 @@
       href: monitoring-partners.md
     - name: Panoramiche aggiuntive
       items:
-        - name: Strumenti di monitoraggio in Azure
-          href: monitoring-overview.md
-        - name: Metrica
+        - name: Monitoraggio di Azure
+          href: monitoring-overview-azure-monitor.md
+        - name: Metriche
           href: monitoring-overview-metrics.md
         - name: Avvisi
           href: monitoring-overview-alerts.md
@@ -158,7 +158,7 @@
           href: azure-diagnostics-configure-application-insights.md
         - name: Inviare dati a Hub eventi
           href: azure-diagnostics-streaming-event-hubs.md
-        - name: Risoluzione dei problemi
+        - name: risoluzione dei problemi
           href: azure-diagnostics-troubleshooting.md
     - name: Creare grafici delle metriche in Esplora metriche
       href: monitoring-metric-charts.md
