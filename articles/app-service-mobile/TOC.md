@@ -22,7 +22,7 @@
 ### [Hosting ad alta densità](../app-service/environment/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Ambiente del servizio app](../app-service/environment/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## Sviluppare
+## Sviluppo
 ### Android
 #### [Abilitare la sincronizzazione offline](app-service-mobile-android-get-started-offline-data.md)
 #### [Aggiungere l'autenticazione](app-service-mobile-android-get-started-users.md)
@@ -91,7 +91,7 @@
 #### [Ridimensionamento di app in un ambiente del servizio app](../app-service/environment/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 #### [Ridimensionamento automatico e ambiente del servizio app](../app-service/environment/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## Gestire
+## Gestisci
 ### [Configurare](../app-service/web-sites-configure.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### Domini personalizzati
 #### [Acquistare e configurare domini personalizzati](../app-service/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -100,16 +100,16 @@
 
 ### [Clonare un'app esistente](../app-service/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Rete virtuale di Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Gruppi di risorse](../app-service/app-service-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Gruppi di risorse](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json#app-service-limitations)
 #### [Eseguire attività in background con Processi Web](../app-service/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-#### [Configurare](../app-service/environment/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Configura](../app-service/environment/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Impostazioni di configurazione personalizzate](../app-service/environment/app-service-app-service-environment-custom-settings.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Come controllare il traffico in ingresso](../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Panoramica dell'architettura di rete](../app-service/environment/app-service-app-service-environment-network-architecture-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Dettagli della configurazione di rete con ExpressRoute](../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## Eseguire la migrazione
+## Migrazione
 ### [Differenze tra servizio app e servizi mobili](app-service-mobile-value-prop-migration-from-mobile-services.md)
 ### [Eseguire la migrazione di un servizio mobile esistente al servizio app](app-service-mobile-migrating-from-mobile-services.md)
 ### Aggiornare un servizio mobile esistente al servizio app
@@ -117,7 +117,7 @@
 #### [Back-end Node.js](app-service-mobile-node-backend-upgrading-from-mobile-services.md)
 
 ## Proteggere
-### [Autenticazione e autorizzazione](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Authentication and authorization](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json) (Autenticazione e autorizzazione)
 ### Eseguire l'autenticazione con provider di identità
 #### [Autenticazione di Azure Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Autenticazione di Facebook](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -148,14 +148,14 @@
 ### [Esportare in PowerApps e Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Usare l'identità dei servizi gestiti](../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## Risoluzione dei problemi
+## Risolvere problemi
 ### Risoluzione dei problemi generali relativi alle app per dispositivi mobili
 #### [Back-end .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-debug-and-troubleshoot-the-net-server-sdk)
 #### [Back-end Node.js](app-service-mobile-node-backend-how-to-use-server-sdk.md#Debugging)
 ### [Abilitare la registrazione diagnostica](../app-service/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Risolvere i problemi con Visual Studio](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-# Riferimento
+# riferimento
 ## [.NET backend SDK](https://msdn.microsoft.com/library/azure/dn961176.aspx)
 ## [Node.js backend SDK](https://azure.github.io/azure-mobile-apps-node/)
 ## [Android client SDK](https://azure.github.io/azure-mobile-apps-android-client/)
