@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: c8dd2866e24faacfccff7f5f490710853f426345
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 75a8f521135757ceb99cb0086f331c35827e4800
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisiti dei certificati di infrastruttura a chiave pubblica Stack Azure
 Stack Azure dispone di una rete pubblica infrastruttura utilizzano accessibile dall'esterno indirizzi IP pubblici assegnati a un piccolo set di servizi di Azure Stack ed eventualmente macchine virtuali tenant. I certificati PKI con i nomi DNS appropriati per questi endpoint infrastruttura pubblica Azure Stack sono necessari durante la distribuzione di Azure Stack. In questo articolo contiene informazioni su:
@@ -27,6 +27,8 @@ Stack Azure dispone di una rete pubblica infrastruttura utilizzano accessibile d
 - I certificati sono necessari per distribuire Azure Stack
 - Il processo di richiesta di certificati corrispondenti a tali specifiche
 - Come preparare, convalidare e utilizzare tali certificati durante la distribuzione
+> [!NOTE]
+> Durante la distribuzione è necessario copiare i certificati per la cartella di distribuzione che corrisponde al provider di identità che si sta distribuendo contro (Azure Active Directory o AD FS). Se si utilizza un solo certificato per tutti gli endpoint, è necessario copiare il file di certificato in ogni cartella di distribuzione come descritto nelle tabelle seguenti. La struttura di cartelle è incorporata nella distribuzione macchina virtuale ed è disponibile in: C:\CloudDeployment\Setup\Certificates. 
 
 ## <a name="certificate-requirements"></a>Requisiti dei certificati
 L'elenco seguente descrive i requisiti del certificato che sono necessari per distribuire Azure Stack: 
