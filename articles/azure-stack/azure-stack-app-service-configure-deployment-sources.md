@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 3738ca8ce8dfe0e5375779e9273a3d10baf8861a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e73a607a7f8ad948ab821b0aeda164418509f076
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-deployment-sources"></a>Configurare le origini di distribuzione
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
@@ -49,8 +49,7 @@ I provider del controllo del codice sorgente, oltre al Git locale, sono:
 2. Immettere un **nome applicazione** , ad esempio - servizio App nello Stack di Azure.
 3. Immettere l'**URL della homepage**. L'URL della home page deve essere l'indirizzo del portale di Azure dello Stack. Ad esempio, https://portal.local.azurestack.external.
 4. Immettere un **la descrizione dell'applicazione**.
-5. Immettere il valore relativo all'**URL di callback autorizzazione**.  In una distribuzione di Azure Stack predefinita, l'Url è https://portal.local.azurestack.external/tokenauthorize il modulo, se si esegue in un sostituto di un dominio diverso del dominio per azurestack.local.
-    ![GitHub - registrare una nuova applicazione con i valori popolati][4]
+5. Immettere il valore relativo all'**URL di callback autorizzazione**.  In una distribuzione di Azure Stack predefinita, l'Url è in https://portal.local.azurestack.external/tokenauthorize il modulo, se si esegue in un sostituto di un dominio diverso del dominio per local.azurestack.external ![GitHub - registrare una nuova applicazione con i valori popolati][4]
 6. Fare clic su **Register application**.  Verrà ora visualizzata una pagina che elenca l'**ID client** e **il segreto client** per l'applicazione.
     ![GitHub - Registrazione applicazione completata][5]
 7.  In una nuova scheda del browser o finestra Accedi al portale di amministrazione di Stack (https://adminportal.local.azurestack.external) Azure come amministratore del servizio.

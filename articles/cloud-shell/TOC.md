@@ -1,4 +1,4 @@
-# [Panoramica](overview.md)
+# [Overview](overview.md)
 
 # Guida introduttiva
 ## [Guida introduttiva di Bash](quickstart.md)
@@ -14,14 +14,16 @@
 ## [Archiviazione persistente in PowerShell](persisting-shell-storage-powershell.md)
 ## [Uso della finestra](using-the-shell-window.md)
 
-# esempi
+# Esempi
 ## [Distribuire risorse di Azure con Terraform in Bash](example-terraform-bash.md)
+
+## [Eseguire Ansible in Bash](../ansible/ansible-run-playbook-in-cloudshell.md)
 
 # [Incorporare Cloud Shell](embed-cloud-shell.md)
 
 # [Risoluzione dei problemi](troubleshooting.md)
 
-# riferimento
+# Riferimenti
 ## [Interfaccia della riga di comando di Azure](/cli/azure)
 ## [Azure PowerShell](/powershell/azure)
 

@@ -1,7 +1,5 @@
 # Panoramica
 ## [Guida per sviluppatori](azure-developer-guide.md) 
-## [Panoramica dei servizi di Azure](../../fundamentals-introduction-to-azure.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
-## [Panoramica del portale](../../azure-portal-overview.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [SDK e strumenti](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Guida introduttiva
@@ -46,12 +44,12 @@
 ## [Panoramica di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)
 
 # Guide pratiche
-## Pianificare
+## Pianificazione
 ### [Architetture di applicazioni Web](https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/)
 ### [Architetture di VM](https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/)
 ### [Connettersi alle reti locali](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
 ### [Modelli/scenari dei microservizi](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-and-scenarios)
-## Sviluppare
+## Sviluppo
 ### [VM Linux](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-secured-vm-from-template)
 ### [VM Windows](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
 ### [App senza server](https://docs.microsoft.com/azure/azure-functions/functions-reference)
@@ -88,7 +86,7 @@
 ### [Microservizi](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)
 ### [Avvisi di fatturazione](https://docs.microsoft.com/azure/billing/billing-set-up-alerts)
 
-## Automazione
+## Automatizzare
 ### [Ridimensionare una VM Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-create-vmss)
 ### [Ridimensionare una macchina virtuale Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-create-vmss)
 
@@ -97,7 +95,7 @@
 ## SDK
 ### [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
 ### [Java](https://docs.microsoft.com/java/api/)
-### [Node.js](http://azure.github.io/azure-sdk-for-node/)
+### [Node.JS](http://azure.github.io/azure-sdk-for-node/)
 ### [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README)
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 ### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README)

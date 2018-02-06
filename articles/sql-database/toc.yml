@@ -237,6 +237,10 @@
           href: sql-database-use-batching-to-improve-performance.md
         - name: Linee guida per la connettività
           href: sql-database-connectivity-issues.md
+        - name: Panoramica dell'alias DNS
+          href: dns-alias-overview.md
+        - name: PowerShell per l'alias DNS
+          href: dns-alias-powershell.md
         - name: 'Porte: ADO.NET'
           href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: Guide alle procedure
