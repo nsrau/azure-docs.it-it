@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: laviswa
-ms.openlocfilehash: 8a8a83ca1d286b7d254c2b2271f44277e6189bf0
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 69466b15d2a37bee0353a283c9bab59563f3670e
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Query SQL per Azure Cosmos DB
 
@@ -305,7 +305,7 @@ Gli operatori binari seguenti sono attualmente supportati e possono essere usati
 <td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td>
 </tr>
 <tr>
-<td>Stringa</td>    
+<td>string</td>    
 <td>|| (concatenazione)</td>
 </tr>
 </table>  
@@ -541,22 +541,22 @@ La differenza principale tra l'uso di BETWEEN nell'API SQL e ANSI SQL consiste n
 ### <a name="logical-and-or-and-not-operators"></a>Operatori logici (AND, OR e NOT)
 Gli operatori logici funzionano con valori booleani. Le tabelle di veridicità logica per questi operatori sono illustrate di seguito.
 
-| Oppure | Vero | Falso | Undefined |
+| Oppure | True  | False | Undefined |
 | --- | --- | --- | --- |
-| Vero |Vero |Vero |Vero |
-| Falso |Vero |Falso |Undefined |
-| Undefined |Vero |Undefined |Undefined |
+| True  |True  |True  |True  |
+| False |True  |False |Undefined |
+| Undefined |True  |Undefined |Undefined |
 
-| AND | Vero | Falso | Undefined |
+| AND | True  | False | Undefined |
 | --- | --- | --- | --- |
-| Vero |Vero |Falso |Undefined |
-| Falso |Falso |Falso |Falso |
-| Undefined |Undefined |Falso |Undefined |
+| True  |True  |False |Undefined |
+| False |False |False |False |
+| Undefined |Undefined |False |Undefined |
 
 | NOT |  |
 | --- | --- |
-| Vero |Falso |
-| Falso |Vero |
+| True  |False |
+| False |True  |
 | Undefined |Undefined |
 
 ### <a name="in-keyword"></a>Parola chiave IN
@@ -926,7 +926,7 @@ La parola chiave TOP può essere usata per limitare il numero di valori restitui
 
 La tabella seguente mostra l'elenco delle funzioni di aggregazione supportate nell'API SQL. `SUM`e `AVG` vengono eseguite su valori numerici, mentre `COUNT`, `MIN` e `MAX` possono essere eseguite su numeri, stringhe, valori booleani e valori null. 
 
-| Uso | Descrizione |
+| Uso | DESCRIZIONE |
 |-------|-------------|
 | COUNT | Restituisce il numero di elementi nell'espressione. |
 | SUM   | Restituisce la somma dei valori nell'espressione. |
@@ -1404,7 +1404,7 @@ Se attualmente si usa una funzione definita dall'utente (UDF) per cui è ora dis
 Le funzioni matematiche eseguono un calcolo basato su valori di input passati come argomenti e restituiscono un valore numerico. Di seguito è riportata una tabella delle funzioni matematiche predefinite supportate.
 
 
-| Uso | Descrizione |
+| Uso | DESCRIZIONE |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [[ABS (num_expr)](#bk_abs) | Restituisce il valore assoluto (positivo) dell'espressione numerica specificata. |
 | [CEILING (num_expr)](#bk_ceiling) | Restituisce il più piccolo valore integer maggiore di o uguale all'espressione numerica specificata. |
@@ -1498,12 +1498,12 @@ Usando queste funzioni, è ora possibile eseguire query come le seguenti:
 ### <a name="string-functions"></a>Funzioni stringa
 Le funzioni scalari seguenti eseguono un'operazione su un valore di stringa di input e restituiscono una stringa, il valore numerico o booleano. Ecco una tabella di funzioni per stringhe:
 
-| Uso | Descrizione |
+| Uso | DESCRIZIONE |
 | --- | --- |
 | [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |Restituisce il numero di caratteri dell'espressione stringa specificata |
 | [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |Restituisce una stringa che rappresenta il risultato della concatenazione di due o più valori di stringa. |
 | [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) |Restituisce parte di un'espressione stringa. |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Restituisce un valore booleano che indica se la prima espressione stringa termina con il secondo. |
+| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Restituisce un valore booleano che indica se la prima espressione stringa inizia con il secondo |
 | [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |Restituisce un valore booleano che indica se la prima espressione stringa termina con il secondo. |
 | [CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |Restituisce un valore booleano che indica se la prima espressione stringa contiene il secondo. |
 | [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |Restituisce la posizione iniziale della prima occorrenza della seconda stringa di espressione all'interno della prima espressione stringa specificata oppure -1 se la stringa non viene trovata. |
@@ -1568,7 +1568,7 @@ Le funzioni stringa possono essere usate anche nella clausola WHERE per filtrare
 ### <a name="array-functions"></a>Funzioni di matrice
 Le funzioni scalari seguenti eseguono un'operazione su un valore di input di matrice e restituiscono un valore numerico, booleano o matrice. La tabella seguente include funzioni di matrice predefinite:
 
-| Uso | Descrizione |
+| Uso | DESCRIZIONE |
 | --- | --- |
 | [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Restituisce il numero di elementi dell'espressione di matrice specificato. |
 | [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |Restituisce una matrice che rappresenta il risultato della concatenazione di due o più valori della matrice. |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/21/2017
 ms.author: sujayt
-ms.openlocfilehash: 02d68d091cbbe02e1b5b628924ded1c2155f7119
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: f1175c76b3648e7bf9f1746c05b5d1d4898e7443
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Risolvere i problemi di replica delle VM da Azure ad Azure
 
@@ -109,13 +109,13 @@ Per includere nell'elenco elementi consentiti gli [URL necessari](site-recovery-
 
 **Codice errore** | **Possibili cause** | **Raccomandazioni**
 --- | --- | ---
-150039<br></br>**Messaggio**: Il disco dati di Azure (NomeDisco) (%DiskUri) con numero di unità logica (LUN) (ValoreLUN) non è stato mappato a un disco corrispondente presente all'interno della macchina virtuale con lo stesso valore LUN. | - Alla VM è stato collegato un nuovo disco dati che però non è stato inizializzato.</br></br>- Il disco dati all'interno della VM non segnala il valore LUN corretto con il quale il disco è stato collegato alla VM.| Assicurarsi che i dischi dati siano inizializzati e quindi provare a eseguire di nuovo l'operazione.</br></br>Per Windows: [Connettere e inizializzare un nuovo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).</br></br>Per Linux: [Inizializzare un nuovo disco dati in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux).
+150039<br></br>**Messaggio**: Il disco dati di Azure (NomeDisco) (%DiskUri) con numero di unità logica (LUN) (ValoreLUN) non è stato mappato a un disco corrispondente presente all'interno della macchina virtuale con lo stesso valore LUN. | - Alla VM è stato collegato un nuovo disco dati che però non è stato inizializzato.</br></br>- Il disco dati all'interno della VM non segnala il valore LUN corretto con il quale il disco è stato collegato alla VM.| Assicurarsi che i dischi dati siano inizializzati e quindi provare a eseguire di nuovo l'operazione.</br></br>Per Windows: [Connettere e inizializzare un nuovo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Per Linux: [Inizializzare un nuovo disco dati in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 ### <a name="fix-the-problem"></a>Risolvere il problema
 Assicurarsi che i dischi dati siano stati inizializzati e quindi provare a eseguire di nuovo l'operazione:
 
-- Per Windows: [Connettere e inizializzare un nuovo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-portal#option-1-attach-and-initialize-a-new-disk).
-- Per Linux: [Inizializzare un nuovo disco dati in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/classic/attach-disk#initialize-a-new-data-disk-in-linux).
+- Per Windows: [Connettere e inizializzare un nuovo disco](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).
+- Per Linux: [aggiungere un nuovo disco dati in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 Se il problema persiste, contattare il supporto tecnico.
 
@@ -131,20 +131,20 @@ Se la VM di Azure non è disponibile per la selezione quando si abilita la repli
 
 È possibile usare lo [script per la rimozione della configurazione non aggiornata di Azure Site Recovery](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) e rimuovere la configurazione dalla VM di Azure. Dopo la rimozione della configurazione non aggiornata, la VM dovrebbe essere visibile per l'abilitazione della replica.
 
-## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>Stato di provisioning della macchina virtuale non è valido (codice di errore 150019)
+## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>Lo stato di provisioning della VM non è valido (codice errore 150019)
 
-Per abilitare la replica della macchina virtuale, lo stato di provisioning deve essere **Succeeded**. Per verificare lo stato della macchina virtuale, la procedura seguente.
+Per abilitare la replica sulla VM, lo stato di provisioning deve essere **Riuscito**. Per verificare lo stato della macchina virtuale, seguire questa procedura.
 
-1.  Selezionare il **Esplora inventario risorse** da **tutti i servizi** nel portale di Azure.
-2.  Espandere il **sottoscrizioni** elenco e selezionare la sottoscrizione.
-3.  Espandere il **ResourceGroups** elenco e selezionare il gruppo di risorse della macchina virtuale.
-4.  Espandere il **risorse** elenco e selezionare la macchina virtuale
-5.  Controllare il **provisioningState** campo nella Vista istanza sul lato destro.
+1.  Selezionare **Esplora risorse** da **Tutti i servizi** nel portale di Azure.
+2.  Espandere l'elenco **Sottoscrizioni** e selezionare la sottoscrizione.
+3.  Espandere l'elenco **Gruppi di risorse** e selezionare il gruppo di risorse della VM.
+4.  Espandere l'elenco **Risorse** e selezionare la macchina virtuale
+5.  Controllare il campo **provisioningState** nella visualizzazione Istanza a destra.
 
 ### <a name="fix-the-problem"></a>Risolvere il problema
 
-- Se **provisioningState** è **Failed**, contattare il supporto tecnico con i dettagli per risolvere i problemi.
-- Se **provisioningState** è **aggiornamento**, un'altra estensione può essere distribuita. Verificare se sono presenti operazioni in corso nella macchina virtuale, attenderne il completamento e riprovare il ripristino del sito non riuscito **abilitare la replica** processo.
+- Se **provisioningState** è **Non riuscito**, contattare il supporto tecnico specificando i dettagli necessari per risolvere il problema.
+- Se **provisioningState** è **Aggiornamento**, potrebbe essere in corso la distribuzione di un'altra estensione. Controllare se sono in corso operazioni nella VM, attenderne il completamento e provare a eseguire di nuovo il processo **Abilita replica** di Site Recovery non riuscito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Replicare le macchine virtuali di Azure](azure-to-azure-quickstart.md)

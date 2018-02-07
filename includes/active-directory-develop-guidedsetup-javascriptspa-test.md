@@ -47,4 +47,4 @@ Se un'API back-end non richiede alcun ambito (opzione non consigliata), è possi
 
 <!--end-collapse-->
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

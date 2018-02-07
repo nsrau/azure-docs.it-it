@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 89cb7dc488da42724f212d13f8550064ff8b9188
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: dea6b137fb12467a881afaa9a3e6985b584f5559
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introduzione al Servizio app di Azure in Linux
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/25/2017
 
 Il Servizio app in Linux supporta diverse immagini incorporate per aumentare la produttività degli sviluppatori. Se il runtime richiesto dall'applicazione non è supportato nelle immagini incorporate, sono disponibili istruzioni su come [creare un'immagine Docker personalizzata](tutorial-custom-docker-image.md) da distribuire in app Web per contenitori.
 
-| Lingua | Versioni supportate |
+| Linguaggio | Versioni supportate |
 |---|---|
 | Node.js | 4.4, 4.5, 6.2, 6.6, 6.9-6.11, 8.0, 8.1 |
 | PHP | 5.6, 7.0 |
@@ -73,7 +73,7 @@ Alcune funzionalità, quali l'integrazione delle reti virtuali, l'autenticazione
 Il Servizio app in Linux è supportato solo nei piani di servizio app [Basic e Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) e non ha un livello [Gratuito o Condiviso](https://azure.microsoft.com/pricing/details/app-service/plans/). Di seguito sono riportate altre importanti limitazioni per il Servizio app in Linux:
 
 * In Linux, non è possibile creare l'app Web per i contenitori in un piano di servizio app che ospita già App Web non Linux.
-* Durante la creazione dell'app Web per i contenitori in un gruppo di risorse contenente App Web non Linux, è necessario creare un piano di servizio app in un'area diversa rispetto al piano di servizio app esistente.
+* Durante la creazione dell'app Web per contenitori in un gruppo di risorse contenente app Web non Linux, è necessario creare un piano di servizio app in un gruppo di risorse diverso rispetto al piano di servizio app esistente.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -92,7 +92,7 @@ Vedere i collegamenti seguenti per iniziare a usare il servizio app in Linux. È
 
 * [Come usare un'immagine Docker personalizzata per l'app Web per contenitori](quickstart-custom-docker-image.md)
 * [Uso di .NET Core nel Servizio app di Azure in Linux](quickstart-dotnetcore.md)
-* [Uso di Ruby nel Servizio app di Azure in Linux](quickstart-ruby.md)
+* [Uso di Ruby in Servizio app di Azure in Linux](quickstart-ruby.md)
 * [Azure App Service Web App for Containers FAQ (Domande frequenti sulle app Web per contenitori del servizio app di Azure)](app-service-linux-faq.md)
 * [Supporto SSH per il Servizio app di Azure in Linux](app-service-linux-ssh-support.md)
 * [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)

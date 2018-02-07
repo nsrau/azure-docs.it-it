@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 01/30/2018
 ms.author: juluk
-ms.openlocfilehash: 65a5c40ce0a4d0cfdc0a325476bea6e8ccebe8c6
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 08426b6142dd125a5981d65635ecc55336cb3d15
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitazioni di Azure Cloud Shell
 
@@ -41,7 +41,7 @@ Cloud Shell supporta le versioni più recenti di Microsoft Edge, Microsoft Inter
 
 ### <a name="copy-and-paste"></a>Copiare e incollare
 
-[!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
+[!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Per un determinato utente, può essere attiva una sola shell
 
@@ -56,7 +56,9 @@ Cloud Shell è pensato per l'uso interattivo e qualsiasi sessione non interattiv
 ### <a name="user-permissions"></a>Autorizzazioni utente
 
 Le autorizzazioni sono impostate come utenti normali senza accesso SUDO. Qualsiasi installazione esterna alla directory `$Home` non è permanente.
-Anche se alcuni comandi all'interno della directory `clouddrive`, come `git clone`, non hanno le autorizzazioni appropriate, la directory `$Home` dispone delle autorizzazioni necessarie.
+
+### <a name="clouddrive-smb-limited-permissions"></a>Autorizzazioni limitate SMB per clouddrive
+Alcuni comandi all'interno della directory `clouddrive`, ad esempio `git clone`, non hanno le autorizzazioni appropriate per eseguire operazioni di lettura/scrittura in determinati file. Se si riscontra questo problema, provare nuovamente a eseguire l'operazione dalla directory `$Home` che non ha limitazioni SMB.
 
 ### <a name="editing-bashrc"></a>Modifica di .bashrc
 

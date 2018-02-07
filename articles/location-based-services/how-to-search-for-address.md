@@ -8,19 +8,19 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: 31011dfddaa99881b58ee447502d55acad5ec940
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: cacaaab869d3a7752b5a750f01bbfbdaf79814f7
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Come trovare un indirizzo usando il servizio di ricerca di Servizi Location Based di Azure (anteprima)
 Il servizio di ricerca è un set RESTful di API progettato per gli sviluppatori che consente di cercare indirizzi, località, punti di interesse, elenchi di aziende e altre informazioni geografiche. Il servizio di ricerca assegna una coppia latitudine/longitudine a un indirizzo, una strada secondaria, una caratteristica geografica o un punto di interesse specifico. I valori di latitudine e longitudine restituiti dalle API del servizio di ricerca possono essere usati come parametri in altre istanze di Servizi Location Based di Azure come le API di itinerario e flusso di traffico.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Installare l'[app Postman](https://www.getpostman.com/apps).
+* Installare l'[app Postman](https://www.getpostman.com/apps).
 
-Account Servizi Location Based di Azure e una chiave di sottoscrizione. Per informazioni sulla creazione di un account e sul recupero di una chiave di sottoscrizione, vedere [How to manage your Azure Location Based Services account and keys](how-to-manage-account-keys.md) (Come gestire l'account Servizi Location Based di Azure e le chiavi). 
+* Disporre di un account Servizi Location Based di Azure e di una chiave. Per informazioni sulla creazione di un account e sul recupero di una chiave, vedere [Come gestire l'account e le chiavi di Servizi Location Based di Azure](how-to-manage-account-keys.md). 
 
 ## <a name="using-fuzzy-search"></a>Uso della ricerca fuzzy
 
@@ -44,7 +44,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
     | URL richiesta | https://atlas.microsoft.com/search/fuzzy/json? |
     | Authorization | No Auth (Senza autenticazione) |
 
-    L'attributo **json** nel percorso URL determina il formato della risposta. In questo articolo viene usato json per motivi di semplicità d'uso e leggibilità. È possibile trovare i formati di risposta disponibile nel **ottenere ricerca Fuzzy** definizione di [riferimento all'API funzionale di percorso basato su servizi] (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
+    L'attributo **json** nel percorso URL determina il formato della risposta. In questo articolo viene usato json per motivi di semplicità d'uso e leggibilità. I formati di risposta disponibili sono inclusi nella definizione **Get Search Fuzzy** (Richiesta GET per la ricerca fuzzy) in [Location Based Services Functional API reference] (Informazioni di riferimento sull'API funzionale di Servizi Location Based) (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
 
 3. Fare clic su **Params** (Parametri) e immettere le coppie chiave/valore seguenti da usare come parametri di query o percorso nell'URL della richiesta:
 
@@ -53,7 +53,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
     | Chiave | Valore |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *chiave di sottoscrizione* |
+    | subscription-key | \<chiave Servizi Location Based di Azure\> |
     | query | pizza |
 
 4. Fare clic su **Send** (Invia) e quindi esaminare il corpo della risposta. 
@@ -103,7 +103,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
     | Chiave | Valore |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *chiave di sottoscrizione* |
+    | subscription-key | \<chiave Servizi Location Based di Azure\> |
     | query | 400 Broad St, Seattle, WA 98109 |
     
 3. Fare clic su **Send** (Invia) e quindi esaminare il corpo della risposta. 
@@ -143,7 +143,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
     | Chiave | Valore |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *chiave di sottoscrizione* |
+    | subscription-key | \<chiave Servizi Location Based di Azure\> |
     | query | 47.59093,-122.33263 |
     
 3. Fare clic su **Send** (Invia) e quindi esaminare il corpo della risposta. 
@@ -209,7 +209,7 @@ La maggior parte delle query di ricerca restituisce per impostazione predefinita
     | Chiave | Valore |
     |------------------|-------------------------|
     | api-version | 1.0 |
-    | subscription-key | *chiave di sottoscrizione* |
+    | subscription-key | \<chiave Servizi Location Based di Azure\> |
     | query | 47.59093,-122.33263 |
     
 4. Fare clic su **Send** (Invia) e quindi esaminare il corpo della risposta. 

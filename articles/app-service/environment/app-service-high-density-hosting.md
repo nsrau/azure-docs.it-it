@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 22/01/2018
 ms.author: byvinyal
-ms.openlocfilehash: e6595c9f49e3b6303ad96c37d4ee5ebea37ce829
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ffffd3cc9f5c59f74f71d6d7d31c5ea615d11f4
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="high-density-hosting-on-azure-app-service"></a>Hosting ad alta densità nel servizio app di Azure
 Quando si usa il servizio app, l'applicazione viene distinta dalla capacità ad essa allocata in base a due concetti:
@@ -38,12 +38,12 @@ Se più app condividono un piano di servizio app, tuttavia, un'istanza dell'app 
 La scalabilità per app consente di ridimensionare un'app indipendentemente dal piano di servizio app in cui è ospitata. È così possibile configurare un piano di servizio app per offrire 10 istanze e impostare un'app in modo che usi solo cinque istanze.
 
    >[!NOTE]
-   >La scalabilità per app è disponibile solo per i piani di servizio app con SKU **Premium**
+   >La scalabilità per app è disponibile solo per i piani di servizio app per SKU **Standard**, **Premium**, **Premium V2** e **Isolated**
    >
 
 ### <a name="per-app-scaling-using-powershell"></a>Scalabilità per app tramite PowerShell
 
-È possibile creare un piano configurato come piano di *scalabilità per app* passando l'attributo ```-perSiteScaling $true``` al cmdlet ```New-AzureRmAppServicePlan```
+Creare un piano configurato come piano di *scalabilità per app* passando l'attributo ```-perSiteScaling $true``` al cmdlet ```New-AzureRmAppServicePlan```
 
 ```
 New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -71,7 +71,7 @@ $newASP
 Set-AzureRmAppServicePlan $newASP
 ```
 
-A livello di app, è necessario configurare il numero di istanze che l'app può usare nel piano di servizio app.
+A livello di app, configurare il numero di istanze che l'app può usare nel piano di servizio app.
 
 Nell'esempio seguente l'app è limitata a due istanze indipendentemente dall'aggiunta del numero di istanze al piano di servizio app sottostante.
 
@@ -154,7 +154,7 @@ Per configurare l'hosting ad alta densità per le app, seguire questa procedura:
 1. Creare un singolo piano di servizio app e ridimensionarlo in modo da usare tutta la capacità disponibile del pool di lavoro.
 1. Impostare il flag PerSiteScaling su true nel piano di servizio app.
 1. Vengono create nuove app e assegnate al piano di servizio app con la proprietà **numberOfWorkers** impostata su **1**. L'uso di questa configurazione consente di ottenere la massima densità possibile nel pool di lavoro.
-1. Il numero di ruoli di lavoro può essere configurato in modo indipendente per ogni app, per concedere risorse aggiuntive in base alle esigenze. ad esempio:
+1. Il numero di ruoli di lavoro può essere configurato in modo indipendente per ogni app, per concedere risorse aggiuntive in base alle esigenze. Ad esempio: 
     - Per un'app a utilizzo elevato è possibile impostare **numberOfWorkers** su **3** per avere una maggiore capacità di elaborazione per l'app. 
     - Per le app a basso utilizzo impostare **numberOfWorkers** su **1**.
 

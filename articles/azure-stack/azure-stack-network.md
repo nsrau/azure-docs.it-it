@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 43d79a8c14751ee25eaca7a3b50649702d159d76
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a198ff5fe7135e17301025d6a712236b76be0ede
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
-## <a name="network-connectivity"></a>Connettività di rete
+# <a name="network-connectivity"></a>Connettività di rete
 Questo articolo fornisce informazioni sull'infrastruttura di rete di Azure Stack utili per decidere come integrare più Stack di Azure nell'ambiente di rete esistente. 
 
 > [!NOTE]
@@ -62,10 +62,10 @@ Questo /24 254 host della rete IP) (è privato per l'area dello Stack di Azure (
 - **Rete IP virtuale interna**. A/25 dedicata all'interno solo per gli indirizzi VIP per il bilanciamento del carico software di rete.
 
 ### <a name="azure-stack-infrastructure-network"></a>Rete infrastruttura di Azure Stack
-Questo/24 rete dedicato per i componenti interni dello Stack di Azure in modo che possano comunicare e scambiare dati tra loro. Questa subnet richiede gli indirizzi IP instradabili, ma è privata per la soluzione tramite elenchi di controllo di accesso (ACL), non è previsto l'indirizzamento oltre le opzioni di bordo, ad eccezione di un intervallo molto piccolo uguali a quelle di un /27 rete utilizzata da alcune di queste servizi quando richiedono l'accesso alle risorse esterne e/o internet. 
+Questo/24 rete dedicato per i componenti interni dello Stack di Azure in modo che possano comunicare e scambiare dati tra loro. Questa subnet richiede gli indirizzi IP instradabili, ma è privata per la soluzione tramite elenchi di controllo di accesso (ACL). Non è previsto l'indirizzamento oltre le opzioni di bordo, ad eccezione di un intervallo di piccole dimensioni uguali a quelle di un /27 rete usata da alcuni di questi servizi quando richiedono l'accesso alle risorse esterne e/o internet. 
 
 ### <a name="public-infrastructure-network"></a>Rete pubblica infrastruttura
-Questo/27 rete è molto piccolo compresi tra la subnet dell'infrastruttura Azure Stack indicato in precedenza, non richiede indirizzi IP pubblici, ma richiede l'accesso a internet tramite un dispositivo NAT o un Proxy trasparente. Questa rete verrà allocata per l'emergenza ripristino Console di sistema (ERCS), la VM ERCS richiede l'accesso a internet durante la registrazione in Azure e deve essere instradabile alla rete di gestione per la risoluzione dei problemi.
+Questo/27 rete è compreso nell'intervallo piccola tra la subnet dell'infrastruttura Azure Stack indicata in precedenza, non richiede indirizzi IP pubblici, ma richiede l'accesso a internet tramite un dispositivo NAT o un Proxy trasparente. Questa rete verrà allocata per l'emergenza ripristino Console di sistema (ERCS), la VM ERCS richiede l'accesso a internet durante la registrazione in Azure e deve essere instradabile alla rete di gestione per la risoluzione dei problemi.
 
 ### <a name="public-vip-network"></a>Rete pubblica di indirizzi VIP
 Rete pubblica VIP viene assegnata al controller di rete nello Stack di Azure. Non è una rete logica del commutatore. Il SLB utilizza il pool di indirizzi e assegna/32 di reti per carichi di lavoro tenant. Nella tabella di routing di commutatore, questi indirizzi IP di 32 vengono annunciate come non disponibili tramite il protocollo BGP. Questa rete contiene gli indirizzi IP pubblici o esterni accessibili. L'infrastruttura di Azure Stack utilizza almeno 8 indirizzi da questa rete VIP pubblico, mentre il resto viene utilizzato da macchine virtuali tenant. Le dimensioni della subnet di rete possono variare da un minimo di /26 (64 host) a un massimo di /22 (1022 host), è consigliabile pianificare un /24 rete.
@@ -82,12 +82,7 @@ Questo /29 (host 6 indirizzi IP) rete dedicata per le porte di gestione delle op
 ### <a name="ports-and-urls"></a>Porte e gli URL
 Per rendere i servizi di Azure Stack (ad esempio i portali, Gestione risorse di Azure, DNS e così via) disponibile per le reti esterne, è necessario consentire il traffico in ingresso con questi endpoint per gli URL, porte e protocolli specifici.
  
-In una distribuzione in cui un uplink proxy trasparente a un server proxy tradizionali, è necessario consentire determinate porte e gli URL per le comunicazioni in uscita. Tra le porte e gli URL per identità, diffusione di marketplace, patch e aggiornamento, registrazione e dati di utilizzo.
-
-Per altre informazioni, vedere:
-- [Protocolli e porte in ingresso](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound)
-- [Porte in uscita e gli URL](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound)
-
+In una distribuzione in cui un uplink proxy trasparente per un server proxy tradizionali, è necessario consentire determinate porte e gli URL per entrambi [in ingresso](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) e [in uscita](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) comunicazione. Tra le porte e gli URL per identità, diffusione di marketplace, patch e aggiornamento, registrazione e dati di utilizzo.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Connettività di bordo Azure Stack](azure-stack-border-connectivity.md)
+[Connettività di bordo](azure-stack-border-connectivity.md)

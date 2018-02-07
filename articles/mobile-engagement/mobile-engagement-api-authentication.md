@@ -14,41 +14,44 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 66bcd738b86f846eae3499b289a6629323009a44
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
-ms.translationtype: MT
+ms.openlocfilehash: 574e699a1cfca2caef0cf20872570bbb8650117b
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>Eseguire l'autenticazione con le API REST di Mobile Engagement
 
 ## <a name="overview"></a>Panoramica
 
-Questo documento descrive come ottenere token per l'autenticazione con le API REST di Engagement Mobile un Oauth di Active Directory di Azure valido.
+Questo documento descrive come ottenere un token OAuth di Azure Active Directory (Azure AD) per eseguire l'autenticazione con le API REST di Mobile Engagement.
 
-Si presuppone che si dispone di una sottoscrizione Azure valida e creata un'app di Mobile Engagement usando uno del [esercitazioni per sviluppatori](mobile-engagement-windows-store-dotnet-get-started.md).
+La procedura presuppone che l'utente abbia una sottoscrizione di Azure valida e che abbia creato un'app Mobile Engagement usando una delle [esercitazioni per sviluppatori](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## <a name="authentication"></a>Authentication
 
 È necessario usare per l'autenticazione un token OAuth basato su Microsoft Azure Active Directory. 
 
-Alla richiesta di autenticazione, un'API, è inoltre necessario aggiungere un'intestazione di autorizzazione per ogni richiesta, ovvero il formato seguente:
+Per autenticare richieste API, è necessario aggiungere un'intestazione di autorizzazione a ciascuna richiesta. L'intestazione di autorizzazione è nel formato seguente:
 
     Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGmJlNmV2ZWJPamg2TTNXR1E...
 
 > [!NOTE]
-> I token di Azure Active Directory scadono entro un'ora.
+> I token di Azure Active Directory scadono in un'ora.
 > 
 > 
 
-È possibile ottenere un token in diversi modi: Poiché le API vengono chiamate da un servizio cloud, si desidera utilizzare una chiave API. Nella terminologia di Azure una chiave API è una password dell'entità servizio. La procedura seguente descrive come impostarla in modo manuale.
+È possibile ottenere un token in diversi modi: Dal momento che le API vengono chiamate da un servizio cloud, si vorrà usare una chiave API. Nella terminologia di Azure una chiave API è una password dell'entità servizio. La procedura seguente descrive come impostarla in modo manuale.
 
-### <a name="one-time-setup-using-script"></a>Installazione singola (mediante script)
+### <a name="one-time-setup-using-a-script"></a>Configurazione una tantum (mediante script)
 
-Seguire le istruzioni riportate di seguito per eseguire il programma di installazione tramite uno script di PowerShell, che accetta il tempo minimo per l'installazione, ma usa le impostazioni predefinite di massimo consentite. Facoltativamente, è anche possibile seguire le istruzioni per [l'installazione manuale](mobile-engagement-api-authentication-manual.md) per eseguire questa operazione direttamente dal portale di Azure con una configurazione più precisa.
+Per eseguire la configurazione usando uno script di PowerShell, eseguire i passaggi nelle istruzioni seguenti. Uno script di PowerShell richiede il minor tempo, ma usa le impostazioni predefinite più ammissibili. 
 
-1. Usare la versione più recente di Azure PowerShell che può essere scaricata [qui](http://aka.ms/webpi-azps). Per ulteriori informazioni sulle istruzioni di download, è possibile visualizzare questo [collegamento](/powershell/azure/overview).
-2. Dopo aver installato Azure PowerShell, usare i comandi seguenti per assicurarsi che il **modulo Azure** sia installato:
+Facoltativamente, è anche possibile seguire le istruzioni per la [configurazione manuale](mobile-engagement-api-authentication-manual.md) per eseguire questa operazione direttamente dal portale di Azure. In questo caso, si può eseguire una configurazione più precisa.
+
+1. Usare la versione più recente di Azure PowerShell che può essere scaricata [qui](http://aka.ms/webpi-azps). Per altre informazioni sulle istruzioni di download, vedere questa [panoramica](/powershell/azure/overview).
+
+2. Dopo aver installato PowerShell, usare i comandi seguenti per assicurarsi che il **modulo di Azure** sia installato:
 
     a. Assicurarsi che il modulo Azure PowerShell sia presente nell'elenco dei moduli disponibili.
 
@@ -56,44 +59,54 @@ Seguire le istruzioni riportate di seguito per eseguire il programma di installa
 
     ![Moduli di Azure disponibili][1]
 
-    b. Se non si trova il modulo PowerShell di Azure nell'elenco precedente, è necessario eseguire:
+    b. Se il modulo Azure PowerShell non è presente nell'elenco precedente, eseguire il comando seguente:
 
         Import-Module Azure
-3. Effettuare l'accesso a Gestione risorse di Azure tramite PowerShell eseguendo il comando seguente e fornire il nome utente e la password per l'account di Azure: 
+3. Accedere ad Azure Resource Manager da PowerShell eseguendo il comando seguente. Immettere nome utente e password per l'account Azure: 
 
         Login-AzureRmAccount
-4. Se si dispone di più sottoscrizioni, è consigliabile eseguire:
+4. Se si hanno più sottoscrizioni, procedere come segue:
 
-    a. Ottenere un elenco di tutte le sottoscrizioni e copiare il SubscriptionId della sottoscrizione che si desidera utilizzare. Verificare che la sottoscrizione corrisponde a quella che ha l'App Mobile Engagement, che si prevede di interagire con le API. 
+    a. Ottenere un elenco di tutte le proprie sottoscrizioni. Quindi copiare il valore **SubscriptionId** della sottoscrizione che si vuole usare. Verificare che la sottoscrizione abbia l'app Mobile Engagement. Si userà questa app per interagire con le API. 
 
         Get-AzureRmSubscription
 
-    b. Eseguire il comando seguente specificando il SubscriptionId per configurare la sottoscrizione da usare.
+    b. Eseguire il comando indicato di seguito. Fornire il **SubscriptionId** per configurare la sottoscrizione da usare:
 
         Select-AzureRmSubscription –SubscriptionId <subscriptionId>
-5. Copiare il testo per lo script [New-AzureRmServicePrincipalOwner.ps1](https://raw.githubusercontent.com/matt-gibbs/azbits/master/src/New-AzureRmServicePrincipalOwner.ps1) nel computer locale, salvarlo come cmdlet PowerShell (ad esempio `APIAuth.ps1`) ed eseguirlo `.\APIAuth.ps1`.
-6. Lo script richiederà di immettere un **principalName**. Fornire un nome adeguato da utilizzare per creare l'applicazione Active Directory (ad esempio APIAuth). 
-7. Dopo il completamento dello script, accertarsi di copiare i quattro valori seguenti che verranno visualizzati, necessari per un'autenticazione a livello di codice con AD  
+5. Copiare il testo per lo script [New-AzureRmServicePrincipalOwner.ps1](https://raw.githubusercontent.com/matt-gibbs/azbits/master/src/New-AzureRmServicePrincipalOwner.ps1) nel computer locale. Salvarlo come cmdlet di PowerShell (ad esempio `APIAuth.ps1`) ed eseguirlo.
 
-    **TenantId**, **SubscriptionId**, **ApplicationId** e **Secret**.
+         `.\APIAuth.ps1`.
 
-    TenantId sarà usato come `{TENANT_ID}`, ApplicationId come `{CLIENT_ID}` e Secret come `{CLIENT_SECRET}`.
+6. Lo script richiederà di immettere un **principalName**. Fornire un nome adeguato da usare per creare l'applicazione Active Directory (ad esempio APIAuth). 
+
+7. Al termine dell'esecuzione dello script, vengono visualizzati quattro valori. Assicurarsi di copiarli, perché sono necessari per eseguire l'autenticazione a livello di programmazione con Active Directory: 
+
+   - **TenantId**
+   - **SubscriptionId**
+   - **ApplicationId**
+   - **Segreto**
+
+   TenantId sarà usato come `{TENANT_ID}`, ApplicationId come `{CLIENT_ID}` e Secret come `{CLIENT_SECRET}`.
 
    > [!NOTE]
-   > I criteri di sicurezza predefiniti possono bloccare l'esecuzione degli script PowerShell. In questo caso, configurare temporaneamente i criteri di esecuzione in modo da consentire l'esecuzione degli script usando il comando seguente:
+   > I criteri di sicurezza predefiniti possono bloccare l'esecuzione degli script di PowerShell. In questo caso, usare il comando seguente per configurare temporaneamente i criteri di esecuzione in modo da consentire l'esecuzione degli script:
    > 
    > Set-ExecutionPolicy RemoteSigned
-8. L'insieme di cmdlet PS sarà simile al seguente.
-    ![][3]
-9. Nel portale di Azure, accedere ad Active Directory, fare clic su **registrazioni di App** e cercare l'app per assicurarsi che esista![][4]
+8. Ecco l'aspetto del set di cmdlet di PowerShell.
+    ![Cmdlet di PowerShell][3]
+9. Nel portale di Azure passare ad Active Directory, selezionare **Registrazioni per l'app** e quindi cercare l'app per verificare che esista.
+    ![Cercare l'app][4]
 
 ### <a name="steps-to-get-a-valid-token"></a>Procedura per ottenere un token valido
 
-1. Chiamare l'API con i parametri seguenti e assicurarsi di sostituire TENANT\_ID, CLIENT\_ID e CLIENT\_SECRET:
+1. Chiamare l'API con i parametri seguenti. Assicurarsi di sostituire **TENANT\_ID**, **CLIENT\_ID** e **CLIENT\_SECRET**:
    
-   * **URL della richiesta** come`https://login.microsoftonline.com/{TENANT_ID}/oauth2/token`
-   * **Intestazione Content-Type HTTP** come`application/x-www-form-urlencoded`
-   * **Corpo della richiesta HTTP** come`grant_type=client\_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F`
+   * **URL della richiesta** come `https://login.microsoftonline.com/{TENANT_ID}/oauth2/token`
+
+   * **Intestazione Content-Type HTTP** come `application/x-www-form-urlencoded`
+   
+   * **Corpo della richiesta HTTP** come `grant_type=client\_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F`
      
     Di seguito è riportata una richiesta di esempio:
     ```
@@ -112,28 +125,29 @@ Seguire le istruzioni riportate di seguito per eseguire il programma di installa
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1445395811","not_before":"144
     5391911","resource":"https://management.core.windows.net/","access_token":{ACCESS_TOKEN}}
     ```
-     Questo esempio include la codifica URL dei parametri POST. Il valore `resource` effettivo è `https://management.core.windows.net/`. Prestare attenzione anche alla codifica URL di `{CLIENT_SECRET}` perché può contenere caratteri speciali.
+     Questo esempio include la codifica URL dei parametri POST, in cui il valore `resource` effettivo è `https://management.core.windows.net/`. Prestare attenzione anche alla codifica URL di `{CLIENT_SECRET}` perché può contenere caratteri speciali.
 
      > [!NOTE]
-     > Per i test, è possibile usare uno strumento client HTTP come [Fiddler](http://www.telerik.com/fiddler) o [l'estensione Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) 
+     > Per i test, è possibile usare uno strumento client HTTP come [Fiddler](http://www.telerik.com/fiddler) o [l'estensione Chrome Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop). 
      > 
      > 
 2. Ora in ogni chiamata all'API includere l'intestazione della richiesta di autorizzazione:
    
         Authorization: Bearer {ACCESS_TOKEN}
    
-    Se viene restituito il codice di stato 401, rivedere il corpo della risposta e controllare che il token non sia scaduto. In caso affermativo, ottenere un nuovo token.
+    Se la richiesta restituisce un codice di stato 401, controllare il corpo della risposta. Potrebbe indicare che il token è scaduto. In caso affermativo, ottenere un nuovo token.
 
-## <a name="using-the-apis"></a>Uso delle API
+## <a name="use-the-apis"></a>Usare le API
 Ora che si dispone di un token valido, è possibile eseguire chiamate API.
 
-1. È necessario passare in ciascuna richiesta API un token valido e non scaduto, ottenuto nella sezione precedente.
-2. È necessario inserire alcuni parametri nella richiesta URI che identifica l'applicazione. L'URI di richiesta è simile al seguente:
+1. In ogni richiesta API, è necessario passare un token valido e non scaduto. Si è ottenuto il token non scaduto nella sezione precedente.
+
+2. Inserire alcuni parametri nell'URI della richiesta che identifica l'applicazione. L'URI della richiesta è simile al codice seguente:
    
         https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/
         providers/Microsoft.MobileEngagement/appcollections/{app-collection}/apps/{app-resource-name}/
    
-    Per ottenere i parametri, fare clic sul nome dell'applicazione e quindi su Dashboard. Verrà visualizzata una pagina simile a quella riportata di seguito, con tutti e tre i parametri.
+    Per ottenere i parametri, selezionare il nome dell'applicazione. Quindi, selezionare **Dashboard**. Viene visualizzata una pagina con tutti i tre parametri, come illustrato di seguito:
    
    * **1**`{subscription-id}`
    * **2**`{app-collection}`
@@ -141,10 +155,9 @@ Ora che si dispone di un token valido, è possibile eseguire chiamate API.
    * **4**Il nome del gruppo di risorse sarà **MobileEngagement** a meno che non ne sia stato creato uno nuovo. 
 
 > [!NOTE]
-> <br/>
+> Ignorare l'indirizzo radice dell'API, in quanto si riferisce alle API precedenti.
 > 
-> 1. Ignorare l'indirizzo radice dell'API perché riferito alle API precedenti.<br/>
-> 2. Se è stato creato l'app usando il portale di Azure è necessario utilizzare il nome di risorsa dell'applicazione che è diverso dal nome dell'applicazione stessa. Se è stato creato l'app nel portale di Azure è necessario utilizzare il nome dell'applicazione stessa (non vi è alcuna differenza tra il nome di risorsa dell'applicazione e il nome dell'App per le app create nel nuovo portale).  
+> Se l'app è stata creata usando il portale di Azure, è necessario usare il nome risorsa dell'applicazione, che è diverso dal nome dell'app stessa. Se l'app è stata creata tramite il portale di Azure, usare il nome dell'app. Il nome risorsa dell'applicazione non differisce dal nome dell'app per le applicazioni create nel nuovo portale.
 > 
 > 
 

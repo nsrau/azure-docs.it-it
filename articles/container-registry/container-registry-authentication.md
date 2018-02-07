@@ -6,14 +6,14 @@ author: stevelas
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/05/2017
+ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 278c343124e776ccaee71f472f0889e784e0e935
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 70758f938718aef160670bc023aff5fc0c9fb92a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Eseguire l'autenticazione con un registro contenitori Docker privato
 
@@ -45,7 +45,7 @@ I ruoli disponibili sono:
 
 Le entità servizio consentono la connettività headless a un registro in entrambi gli scenari push e pull, come i seguenti:
 
-  * *Lettore*: distribuzioni di contenitori da un registro a sistemi di orchestrazione, inclusi Kubernetes, DC/OS e Docker Swarm. È anche possibile eseguire il pull da registri contenitori a servizi di Azure correlati, ad esempio [AKS](../aks/index.yml), [Servizio app](../app-service/index.yml), [Batch](../batch/index.md), [Service Fabric](/azure/service-fabric/) e altri ancora.
+  * *Lettore*: distribuzioni di contenitori da un registro a sistemi di orchestrazione, inclusi Kubernetes, DC/OS e Docker Swarm. È anche possibile eseguire il pull da registri contenitori a servizi di Azure correlati, ad esempio [AKS](../aks/index.yml), [Servizio app](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) e altri ancora.
 
   * *Collaboratore*: soluzioni di distribuzione e integrazione continua come Visual Studio Team Services o Jenkins, che creano immagini dei contenitori e ne eseguono il push a un registro.
 
@@ -63,6 +63,8 @@ Dopo aver effettuato l'accesso, Docker memorizza nella cache le credenziali, cos
 
 A seconda della versione di Docker installata, è possibile che venga visualizzato un avviso di sicurezza che consiglia di usare il parametro `--password-stdin`. Sebbene il suo utilizzo non rientri nell'ambito di questo articolo, si raccomanda di seguire questa procedura consigliata. Per altre informazioni, vedere la guida comandi di [accesso di Docker](https://docs.docker.com/engine/reference/commandline/login/).
 
+Per altre informazioni su come usare un'entità servizio per l'autenticazione headless al Registro contenitori di Azure, vedere [Autenticazione al Registro contenitori di Azure con entità servizio](container-registry-auth-service-principal.md).
+
 ## <a name="admin-account"></a>Account amministratore
 
 Ogni registro contenitori include un account utente amministratore che, per impostazione predefinita, è disabilitato. È possibile abilitare l'utente amministratore e gestirne le credenziali nel [portale di Azure](container-registry-get-started-portal.md#create-a-container-registry) o usando l'interfaccia della riga di comando di Azure.
@@ -71,7 +73,7 @@ Ogni registro contenitori include un account utente amministratore che, per impo
 > L'account amministratore è pensato per consentire l'accesso al registro a un singolo utente, principalmente a scopo di test. Non è consigliabile condividere le credenziali dell'account amministratore con più utenti. Tutti gli utenti che si autenticano con l'account amministratore vengono visualizzati come un unico utente con accesso di tipo push e pull al registro. Se si modifica o si disattiva questo account, tutti gli utenti che ne usano le credenziali non potranno più accedere al registro. Negli scenari di tipo headless è consigliabile che gli utenti e le entità servizio abbiano una propria identità.
 >
 
-L'account amministratore è dotato di due password, entrambe rigenerabili. L'uso di due password consente di mantenere la connessione al registro usando una password mentre si rigenera l'altra. Se l'account amministratore è abilitato, è possibile passare il nome utente e una password al comando `docker login` per eseguire l'autenticazione di base al registro. ad esempio:
+L'account amministratore è dotato di due password, entrambe rigenerabili. L'uso di due password consente di mantenere la connessione al registro usando una password mentre si rigenera l'altra. Se l'account amministratore è abilitato, è possibile passare il nome utente e una password al comando `docker login` per eseguire l'autenticazione di base al registro. Ad esempio: 
 
 ```
 docker login myregistry.azurecr.io -u myAdminName -p myPassword1

@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 01/17/2018
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: 783a6bd8c665f1e08d94d2712a581955be8501e9
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 19641f3b1f2781cf23955743bf65172ff84fb544
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="templates-for-azure-policy"></a>Modelli per Criteri di Azure
 
@@ -55,7 +55,7 @@ La tabella seguente include i collegamenti ai modelli json per Criteri di Azure.
 | [SKU di bilanciamento del carico consentiti](scripts/allowed-lb-skus.md) | Richiede che i servizi di bilanciamento del carico usino uno SKU approvato. Si specifica una matrice di SKU consentiti. |
 | [Nessun peering reti per la rete ER](scripts/no-peering-er-net.md) | Impedisce a un peering reti di essere associato a una rete in un gruppo di risorse specificato. Usarlo per impedire la connessione con l'infrastruttura di rete gestita centrale. Si specifica il nome del gruppo di risorse per impedire l'associazione. |
 | [Nessuna tabella di route definita dall'utente](scripts/no-user-def-route-table.md)  |Impedisce che le reti virtuali vengano distribuite con una tabella di route definita dall'utente. |
-| [SKU del gateway di rete virtuale consentiti](scripts/no-user-def-route-table.md) | Richiede che i gateway di rete virtuale usino uno SKU e un tipo di gateway approvati. Si specifica una matrice di SKU approvati e una matrice di tipi di gateway approvati. |
+| [SKU del gateway di rete virtuale consentiti](scripts/allowed-vn-gate-sku.md) | Richiede che i gateway di rete virtuale usino uno SKU e un tipo di gateway approvati. Si specifica una matrice di SKU approvati e una matrice di tipi di gateway approvati. |
 | [Usare una subnet approvata per le interfacce di rete delle macchine virtuali](scripts/use-approved-subnet-vm-nics.md) | Richiede che le interfacce di rete usino una subnet approvata. Si specifica l'ID della subnet approvata. |
 | [Usare una rete virtuale approvata per le interfacce di rete delle macchine virtuali](scripts/use-approved-vnet-vm-nics.md) | Richiede che le interfacce di rete usino una rete virtuale approvata. Si specifica l'ID della rete virtuale approvata. |
 |**Tag**||

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: 2100b5d1804f81f7c5a9dacfbb133e8d14dee39e
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 6aa5d4aa032ef4dc3583bf76b9c451874b74f9a6
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiare più tabelle in blocco con Azure Data Factory
 Questa esercitazione illustra la **copia di alcune tabelle dal database SQL di Azure ad Azure SQL Data Warehouse**. È possibile applicare lo stesso modello anche in altri scenari di copia, ad esempio per la copia di tabelle da SQL Server/Oracle in database SQL di Azure/SQL Data Warehouse/archivio BLOB di Azure o la copia di percorsi diversi dall'archivio BLOB alle tabelle del database SQL di Azure.
@@ -81,7 +81,7 @@ Per il database SQL e per SQL Data Warehouse è necessario consentire ai servizi
       
      ![Pagina Nuova data factory](./media/tutorial-bulk-copy-portal/new-azure-data-factory.png)
  
-   Il nome della data factory di Azure deve essere **univoco a livello globale**. Se viene visualizzato l'errore seguente per il campo Nome, modificare il nome della data factory, ad esempio, nomeutenteADFTutorialBulkCopyDF. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'articolo [Data Factory - Regole di denominazione](naming-rules.md).
+   Il nome della data factory di Azure deve essere **univoco a livello globale**. Se viene visualizzato l'errore seguente per il campo Nome, modificare il nome della data factory, ad esempio, nomeutenteADFTutorialBulkCopyDF. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](naming-rules.md).
   
        `Data factory name “ADFTutorialBulkCopyDF” is not available`
 3. Selezionare la **sottoscrizione** di Azure in cui creare la data factory. 
@@ -98,7 +98,7 @@ Per il database SQL e per SQL Data Warehouse è necessario consentire ai servizi
 8. Nel dashboard viene visualizzato il riquadro seguente con lo stato: **Deploying data factory** (Distribuzione della data factory). 
 
     ![Riquadro Deploying data factory (Distribuzione della data factory)](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
-9. Al termine della creazione verrà visualizzata la pagina **Data Factory**, come illustrato nell'immagine.
+9. Al termine della creazione verrà visualizzata la pagina **Data factory**, come illustrato nell'immagine.
    
     ![Home page di Data factory](./media/tutorial-bulk-copy-portal/data-factory-home-page.png)
 10. Fare clic sul riquadro **Crea e monitora** per avviare l'applicazione dell'interfaccia utente di Data Factory in una scheda separata.
@@ -195,7 +195,7 @@ In questa esercitazione le tabelle SQL di origine e di destinazione non sono har
 5. Passare alla scheda **Parametri** e fare clic su **+ Nuovo**
 
     ![Pagina di connessione al set di dati di origine](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
-6. Immettere **DWTableName** per il nome del parametro. 
+6. Immettere **DWTableName** per il nome del parametro. Se si copia/incolla questo nome dalla pagina, assicurarsi che non siano presenti **spazi finali** alla fine di **DWTableName**. 
 7. Nella sezione **Parameterized properties** (Proprietà con parametri) immettere `@{dataset().DWTableName}` per la proprietà **tableName**. La proprietà **tableName** del set di dati è impostata sul valore passato come argomento per il parametro **DWTableName**. L'attività ForEach esegue l'iterazione di un elenco di tabelle e le passa una alla volta all'attività di copia. 
    
     ![Nome parametro](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)

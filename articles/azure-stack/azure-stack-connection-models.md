@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: ff56ced9f1d43780097cd65e58b492daaba9b61d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0151b64b39699e2a7a804cdc57e368fd786119a7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack ha integrato i modelli di connessione di sistemi
 Se si è interessati in un sistema integrato dello Stack di Azure, è necessario comprendere [diverse considerazioni relative all'integrazione di Data Center](azure-stack-datacenter-integration.md) per la distribuzione di Azure Stack determinare come il sistema rientra in un Data Center. Inoltre, è necessario stabilire esattamente come si integrerà Stack Azure nell'ambiente cloud ibrido. In questo articolo viene fornita una panoramica di queste decisioni principali inclusi connessione di Azure, archivio di identità, fatturazione e le decisioni del modello.
@@ -46,5 +46,7 @@ Se si decide di acquistare un sistema integrato, il fornitore dell'hardware (OEM
 Dopo aver stabilito il modello di connessione di Azure da utilizzare per la distribuzione di Azure Stack, decisioni aggiuntive e connessione dipendenti devono essere eseguite per l'archivio di identità e il metodo di fatturazione. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni, vedere [Azure connesso decisioni di distribuzione Azure Stack](azure-stack-connected-deployment.md)
-- Altre informazioni, vedere [Azure disconnesso decisioni di distribuzione Azure Stack](azure-stack-disconnected-deployment.md)
+
+[Azure connesse decisioni di distribuzione di Azure Stack](azure-stack-connected-deployment.md)
+
+[Azure disconnesso decisioni di distribuzione Azure Stack](azure-stack-disconnected-deployment.md)

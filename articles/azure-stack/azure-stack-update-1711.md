@@ -3,7 +3,7 @@ title: Aggiornamento di Azure Stack 1711 | Documenti Microsoft
 description: "Informazioni sulle novità nell'aggiornamento 1711 per Azure Stack integrate di sistemi, i problemi noti e come scaricare l'aggiornamento."
 services: azure-stack
 documentationcenter: 
-author: andredm7
+author: brenduns
 manager: femila
 editor: 
 ms.assetid: 2b66fe05-3655-4f1a-9b30-81bd64ba0013
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
-ms.author: andredm
-ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.date: 01/31/2018
+ms.author: brenduns
+ms.openlocfilehash: 3b3f6d66d8d5a095ff839195ccf718a9fa085527
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-1711-update"></a>Aggiornamento dello Stack 1711 Azure
 
@@ -62,7 +62,7 @@ Questo aggiornamento include i seguenti miglioramenti e correzioni per lo Stack 
 #### <a name="windows-server-2016-new-features-and-fixes"></a>Correzioni e nuove funzionalità di Windows Server 2016
 
 - [14 novembre 2017: KB4048953 (Build del sistema operativo 14393.1884)](https://support.microsoft.com/help/4048953)
- 
+
 ### <a name="known-issues-with-the-update-process"></a>Problemi noti con il processo di aggiornamento
 
 In questa sezione contiene i problemi noti che possono verificarsi durante l'installazione dell'aggiornamento 1711.
@@ -97,7 +97,7 @@ In questa sezione contiene i problemi noti di post-installazione con compilazion
 
    - È possibile visualizzare una riga vuota nella parte superiore dell'elenco. È comunque possibile selezionare un elemento come previsto.
    - Se l'elenco di elementi nell'elenco a discesa è breve, non sarà possibile visualizzare i nomi degli elementi.
-   - Se si dispone di più sottoscrizioni utente, l'elenco di riepilogo a discesa gruppo di risorse può essere vuoto. 
+   - Se si dispone di più sottoscrizioni utente, l'elenco di riepilogo a discesa gruppo di risorse può essere vuoto.
 
         > [!NOTE]
         > Per risolvere i problemi ultimi due, è possibile digitare il nome della sottoscrizione o del gruppo di risorse (se si conosce) oppure è possibile usare PowerShell.
@@ -118,18 +118,18 @@ In questa sezione contiene i problemi noti di post-installazione con compilazion
 - È possibile configurare una macchina virtuale set di disponibilità solo con un dominio di errore di uno e un dominio di aggiornamento di uno.
 - Non sussiste alcuna esperienza di marketplace per creare il set di scalabilità di macchine virtuali. È possibile creare un set, utilizzando un modello di scalabilità.
 - Impostazioni di scalabilità per il set di scalabilità di macchine virtuali non sono disponibili nel portale. In alternativa, è possibile utilizzare [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). A causa delle differenze di versione di PowerShell, è necessario utilizzare il `-Name` parametro anziché `-VMScaleSetName`.
- 
+
 #### <a name="networking"></a>Rete
 - Tramite il portale, è possibile creare un servizio di bilanciamento del carico con un indirizzo IP pubblico. In alternativa, è possibile utilizzare PowerShell per creare il servizio di bilanciamento del carico.
 - Quando si crea un servizio di bilanciamento del carico di rete, è necessario creare una regola di translation (NAT) indirizzo di rete. In caso contrario, si riceverà un errore quando si tenta di aggiungere una regola NAT, dopo aver creato il bilanciamento del carico.
 - Dopo aver creata e associata a tale indirizzo IP della macchina virtuale è non è possibile eliminare l'associazione di un indirizzo IP pubblico da una macchina virtuale (VM). Disassociazione verrà visualizzata a funzionare, ma l'indirizzo IP pubblico assegnato in precedenza rimane associato con la macchina virtuale originale. Questo comportamento si verifica anche se si riassegna l'indirizzo IP per una nuova macchina virtuale (conosciuta come un *scambio VIP*). Tutti i successivi tentativi di connessione attraverso il risultato di indirizzi IP in una connessione alla macchina virtuale di origine associati e non a quello nuovo. Attualmente, è necessario utilizzare solo i nuovi indirizzi IP pubblici per la creazione della nuova macchina virtuale.
 - Gli operatori di Azure Stack potrebbero non essere possibile distribuire, eliminare, modificare le reti virtuali o i gruppi di sicurezza di rete. Questo problema si verifica principalmente sui tentativi di aggiornamento successive dello stesso pacchetto. Ciò è causato da un problema di creazione di pacchetti con un aggiornamento che è attualmente in corso il controllo.
 - Bilanciamento di carico interno (ILB) gestisce correttamente gli indirizzi MAC per macchine virtuali di back-end che interrompe le istanze di Linux.
- 
-#### <a name="sqlmysql"></a>SQL o MySQL
-- È possibile richiedere un'ora prima che i tenant possono creare database in un nuovo SQL o MySQL SKU. 
+
+#### <a name="sqlmysql"></a>SQL/MySQL
+- È possibile richiedere un'ora prima che i tenant possono creare database in un nuovo SQL o MySQL SKU.
 - Creazione di elementi direttamente nel server che non vengono eseguite dal provider di risorse di hosting MySQL e SQL Server non è supportata e può comportare uno stato non corrispondente.
- 
+
 #### <a name="app-service"></a>Servizio app
 - Un utente deve registrare il provider di risorse di archiviazione prima di creare la prima funzione di Azure nella sottoscrizione.
 
@@ -149,7 +149,7 @@ Ambienti, distribuiti in Azure Active Directory Federation Services (ADFS) di **
 - **Abilitazione backup infrastruttura ASDK è solo a scopo di test.**  
   I backup di infrastruttura consente di ripristinare le soluzioni più nodi. È possibile abilitare il backup di infrastruttura in ASDK ma non è possibile testare il ripristino.
 
-Per ulteriori informazioni vedere [Backup e ripristino dei dati per lo Stack di Azure con il servizio di Backup di infrastruttura](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
+Per ulteriori informazioni, vedere [Backup e ripristino dei dati per lo Stack di Azure con il servizio di Backup di infrastruttura](azure-stack-backup-infrastructure-backup.md).
 
 ## <a name="download-the-update"></a>Scaricare l'aggiornamento
 

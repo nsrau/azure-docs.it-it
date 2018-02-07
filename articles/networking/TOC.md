@@ -1,6 +1,6 @@
 # Panoramica
 ## [Informazioni sulla rete di Azure](networking-overview.md)
-## Architettura
+## Architecture
 ### [Data center virtuali](networking-virtual-datacenter.md)
 ### [Routing asimmetrico con più percorsi di rete](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Progettazioni di reti protette](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -23,8 +23,8 @@
 ### [Connettersi all'ambiente locale: VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connettersi all'ambiente locale: rete dedicata](../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
-# Introduzione
-## [Creare la prima rete virtuale](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json)
+# Attività iniziali
+## [Creare la prima rete virtuale](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Procedure
 ## Connettività Internet
@@ -42,7 +42,7 @@
 ### [Creare una connessione VPN da punto a sito (SSTP con certificati)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Creare una connessione privata dedicata (ExpressRoute)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
-## gestione
+## Gestione
 ### [Visualizzare la topologia di rete](../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Gestire l'acquisizione pacchetti](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Determinare l'hop successivo del routing](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -56,7 +56,7 @@
 ### [Bilanciare il carico delle VM](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connettere un computer a una rete virtuale](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
-# Riferimento
+# riferimento
 ## [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/network)
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/?view=azurermps-3.8.0)
 ## [.Net](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.network?view=azuremgmtnetwork-9.1.0-preview)

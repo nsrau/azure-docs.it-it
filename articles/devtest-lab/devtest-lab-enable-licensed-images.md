@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: v-craic
-ms.openlocfilehash: 3c969495454db2cd301fc985e512531ef0d4b103
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 022b6340a8d2748624ba292fb4a28a956d28c6f9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Abilitare un'immagine concessa in licenza nel lab in Azure DevTest Labs
 
-In Azure DevTest Labs, un'immagine concessa in licenza include le condizioni, generalmente di terzi, che devono essere accettate prima che l'immagine diventi accessibile agli utenti nel lab. Le sezioni seguenti descrivono come rendere disponibili le immagini concesse in licenza per la creazione di macchine virtuali.
+In Azure DevTest Labs, un'immagine con licenza include le condizioni, in genere di terze parti, che devono essere accettate prima che l'immagine sia accessibile agli utenti nel lab. Le sezioni seguenti descrivono come rendere disponibili le immagini concesse in licenza per la creazione di macchine virtuali.
 
 ## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>Determinare se rendere disponibile agli utenti un'immagine concessa in licenza
 Il primo passaggio per consentire agli utenti di creare macchine virtuali da un'immagine concessa in licenza è assicurarsi che siano state accettate le condizioni per tale immagine. I passaggi seguenti illustrano come visualizzare lo stato dell'offerta di un'immagine concessa in licenza e, se necessario, accettare le condizioni dell'immagine.
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selezionare **Altri servizi** e quindi **DevTest Labs** dall'elenco.
+1. Selezionare **Tutti i servizi** e quindi **DevTest Labs** dall'elenco.
 
 1. Nell'elenco dei lab selezionare il lab desiderato.  
 
@@ -53,7 +53,9 @@ Per assicurarsi che un'immagine concessa in licenza sia disponibile per gli uten
 
 È possibile abilitare la distribuzione a livello di codice per un'immagine concessa in licenza seguendo questa procedura:
 
-1. Nell'elenco delle **immagini del Marketplace** nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) identificare un'immagine concessa in licenza che si vuole rendere disponibile agli utenti ma per la quale non sono state ancora accettate le condizioni. Può essere ad esempio presente una macchina virtuale di data science con lo stato **Terms accepted** (Condizioni accettate) o **Terms review needed** (Esame condizioni necessario).
+1. Nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) passare all'elenco di **immagini del Marketplace**.
+
+1. Identificare l'immagine con licenza che si vuole rendere accessibile agli utenti ma per la quale non sono stati ancora accettati i termini e le condizioni. Può essere ad esempio presente una macchina virtuale di data science con lo stato **Terms accepted** (Condizioni accettate) o **Terms review needed** (Esame condizioni necessario).
 
     ![Finestra Configura distribuzione a livello di codice](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
@@ -74,7 +76,15 @@ Per assicurarsi che un'immagine concessa in licenza sia disponibile per gli uten
    >
 
 
-1. Selezionare **Salva**. Nell'elenco delle immagini del Marketplace, l'immagine visualizza ora **Terms accepted** (Condizioni accettate) ed è a disposizione degli utenti per la creazione di macchine virtuali.
+1. Selezionare **Salva**. 
+
+    Nell'elenco delle immagini del Marketplace, l'immagine visualizza ora **Terms accepted** (Condizioni accettate) ed è a disposizione degli utenti per la creazione di macchine virtuali.
+
+> [!NOTE]
+> Gli utenti possono creare un'immagine personalizzata da un'immagine con licenza. Per altre informazioni, vedere [Creare un'immagine personalizzata da un file VHD](devtest-lab-create-template.md).
+>
+>
+
 
 ## <a name="related-blog-posts"></a>Post di blog correlati
 
@@ -83,4 +93,6 @@ Per assicurarsi che un'immagine concessa in licenza sia disponibile per gli uten
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- [Creare un'immagine personalizzata da una VM](devtest-lab-create-custom-image-from-vm-using-portal.md)
+- [Creare un'immagine personalizzata da un file VHD](devtest-lab-create-template.md)
 - [Aggiungere una macchina virtuale all'ambiente lab](devtest-lab-add-vm.md)

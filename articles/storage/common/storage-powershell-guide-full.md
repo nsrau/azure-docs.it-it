@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: robinsh
-ms.openlocfilehash: d3f70880e58a21a1ae61577b04e3155c5fec6552
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: f94febfa1610795cd46b4315bbbbe56aa2bca861
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Uso di Azure PowerShell con Archiviazione di Azure
 
@@ -133,7 +133,7 @@ Per modificare le impostazioni di un account di archiviazione, usare [Set-AzureR
 
 * I **tag** assegnati all'account di archiviazione. I tag vengono usati spesso per categorizzare le risorse a scopi di fatturazione.
 
-* Lo **SKU**, ovvero l'impostazione di replica per l'account di archiviazione, ad esempio LRS per l'archiviazione con ridondanza locale. È possibile, ad esempio, modificare Standard\_LRS in Standard\_GRS o Standard\_RAGRS. Tenere presente che non è possibile modificare Standard ZRS o Premium LRS in altri SKU o modificare altri SKU in questi. 
+* Lo **SKU**, ovvero l'impostazione di replica per l'account di archiviazione, ad esempio LRS per l'archiviazione con ridondanza locale. È possibile, ad esempio, modificare Standard\_LRS in Standard\_GRS o Standard\_RAGRS. Tenere presente che non è possibile modificare Standard \_ZRS o Premium\_ LRS in altri SKU o modificare altri SKU in questi.
 
 * Il **livello di accesso** per gli account di archiviazione BLOB. Il valore per il livello di accesso è impostato su **Frequente** o **Sporadico** e consente di ridurre al minimo i costi selezionando il livello di accesso più adatto al modo in cui viene usato l'account di archiviazione. Per altre informazioni, vedere [Livelli di archiviazione ad accesso frequente, ad accesso sporadico e archivio](../blobs/storage-blob-storage-tiers.md).
 
@@ -223,7 +223,7 @@ L'API di tabella di Azure Cosmos DB offre funzionalità Premium per l'archiviazi
 * Per altre informazioni, vedere [API di tabella di Azure Cosmos DB](../../cosmos-db/table-introduction.md). 
 * Per informazioni su come usare PowerShell per eseguire operazioni dell'API di tabella di Azure Cosmos DB, vedere [Eseguire operazioni dell'API di tabella di Azure Cosmos DB con PowerShell](../../cosmos-db/table-powershell.md).
 
-## <a name="azures-independently-deployed-clouds"></a>Cloud distribuiti in modo indipendente di Azure
+## <a name="independent-cloud-deployments-of-azure"></a>Distribuzioni cloud indipendenti di Azure
 
 La maggior parte delle persone usa il cloud pubblico di Azure per la distribuzione globale di Azure. Per motivi di sovranità e altro, sono disponibili anche alcune distribuzioni indipendenti di Microsoft Azure, denominate "ambienti". Ecco gli ambienti disponibili:
 

@@ -44,12 +44,12 @@
 ### [Connettersi a un controller di dominio personalizzato](cloud-services-connect-to-custom-domain.md)
 
 ## Gestire il servizio
-### [Attenuazione dell'esecuzione speculativa](mitigate-se.md}
 ### [Attività di gestione comuni](cloud-services-how-to-manage-portal.md)
 ### [Configurare il servizio cloud](cloud-services-how-to-configure-portal.md)
 ### [Gestire un servizio cloud con Automazione di Azure](automation-manage-cloud-services.md)
 ### [Configurare il ridimensionamento automatico](cloud-services-how-to-scale-portal.md)
 ### [Usare Python per gestire le risorse di Azure](cloud-services-python-how-to-use-service-management.md)
+### [Attenuazione dell'esecuzione speculativa](mitigate-se.md)
 
 ### [Patch per il sistema operativo guest](cloud-services-guestos-msrc-releases.md)
 ### Ritiro del sistema operativo guest

@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 01/22/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 5512be8ce5b9cf28bceb3468ec6032c0778156f4
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: d3c7cfad5ce9b25c88aa11b53194b6e06b1cc034
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtri e manifesti dinamici
-A partire dalla versione 2.17, servizi multimediali consente di definire i filtri per le risorse. I filtri sono costituiti da regole lato server che consentono ai clienti di eseguire operazioni particolari, come riprodurre solo una sezione di un video (anziché il video intero) oppure specificare solo un sottoinsieme di rendering audio e video, in modo che possa essere gestito dal dispositivo del cliente (anziché tutti i rendering associati all'asset). Il filtro degli asset viene archiviato attraverso **manifesti dinamici**creati su richiesta del cliente per trasmettere un video in streaming in base ai filtri specificati.
+A partire dalla versione 2.17, Servizi multimediali consente di definire filtri per gli asset. I filtri sono costituiti da regole lato server che consentono ai clienti di eseguire operazioni particolari, come riprodurre solo una sezione di un video (anziché il video intero) oppure specificare solo un sottoinsieme di rendering audio e video, in modo che possa essere gestito dal dispositivo del cliente (anziché tutti i rendering associati all'asset). Il filtro degli asset viene archiviato attraverso **manifesti dinamici**creati su richiesta del cliente per trasmettere un video in streaming in base ai filtri specificati.
 
-Questo argomento illustra alcuni scenari comuni in cui l'uso dei filtri può essere particolarmente vantaggioso e contiene collegamenti ad altri argomenti che illustrano come creare filtri a livello di codice. È attualmente possibile creare filtri solo con le API REST.
+Questo argomento illustra alcuni scenari comuni in cui l'uso dei filtri può essere particolarmente vantaggioso e contiene collegamenti ad altri argomenti che illustrano come creare filtri a livello di codice.
 
 ## <a name="overview"></a>Panoramica
 Quando si distribuiscono contenuti ai clienti (eventi in live streaming o video on demand), l'obiettivo è riuscire a trasmettere video di alta qualità a vari tipi di dispositivi in diverse condizioni di rete. Per raggiungere questo obiettivo, eseguire queste operazioni:
@@ -124,12 +124,12 @@ Gli asset possono includere più lingue audio, ad esempio inglese, spagnolo, fra
 ![Filtro delle tracce di lingua][language_filter]
 
 ## <a name="trimming-start-of-an-asset"></a>Trimming della parte iniziale di un asset
-Nella maggior parte degli eventi in live streaming, gli operatori eseguono alcuni test prima dell'evento effettivo. Prima dell'inizio dell'evento, ad esempio, possono includere uno slate di questo tipo: "Il programma sta per iniziare". Se il programma è l'archiviazione, i test e i dati dello slate sono inoltre archiviati e incluse nella presentazione. Queste informazioni, tuttavia, non risultano visibili ai client. Con il manifesto dinamico, è possibile creare un filtro di ora di inizio e rimuovere dal manifesto tutti i dati non desiderati.
+Nella maggior parte degli eventi in live streaming, gli operatori eseguono alcuni test prima dell'evento effettivo. Prima dell'inizio dell'evento, ad esempio, possono includere uno slate di questo tipo: "Il programma sta per iniziare". Se il programma prevede l'archiviazione, vengono archiviati e inclusi nella presentazione anche i dati del test e dello slate. Queste informazioni, tuttavia, non risultano visibili ai client. Con il manifesto dinamico, è possibile creare un filtro di ora di inizio e rimuovere dal manifesto tutti i dati non desiderati.
 
 ![Trimming della parte iniziale][trim_filter]
 
-## <a name="creating-subclips-views-from-a-live-archive"></a>Creazione di secondarie (visualizzazioni) da un archivio in tempo reale
-Molti eventi live hanno una durata molto lunga ed è possibile quindi che un archivio live includa più eventi. Al termine dell'evento in tempo reale, emittenti consigliabile suddividere l'archivio in tempo reale nella logica di programma e le sequenze di arresto. Successivamente, pubblicare separatamente, tali programmi virtuali senza registra l'elaborazione dell'archivio in tempo reale e non la creazione di asset separati (che non intervengano il vantaggio dei frammenti memorizzati nella cache esistenti CDN). Esempi di tali programmi virtuale sono i trimestri di football o gioco basket, punti di baseball professionale o singoli eventi di qualsiasi programma sportive.
+## <a name="creating-subclips-views-from-a-live-archive"></a>Creazione di sottoclip (visualizzazioni) da un archivio live
+Molti eventi live hanno una durata molto lunga ed è possibile quindi che un archivio live includa più eventi. Al termine dell'evento live, ad esempio, gli emittenti possono decidere di suddividere l'archivio live in sequenze logiche di avvio e arresto del programma. Possono quindi pubblicare separatamente questi programmi virtuali, senza dover eseguire la post-elaborazione dell'archivio live e creare asset distinti, che non traggono vantaggio dai frammenti presenti nella cache in caso di reti per la distribuzione di contenuti. Esempi di programmi virtuali di questo tipo sono, ad esempio, i tempi di una partita di calcio o di basket, gli inning del baseball o eventi singoli di un qualsiasi programma sportivo.
 
 Con il manifesto dinamico, è possibile creare filtri basati sulle ore di inizio/fine e creare visualizzazioni virtuali all'inizio dell'archivio live. 
 
@@ -140,24 +140,24 @@ Asset filtrato:
 ![Sci][skiing]
 
 ## <a name="adjusting-presentation-window-dvr"></a>Regolazione della finestra di presentazione (DVR)
-Attualmente, Servizi multimediali di Azure offre un archivio circolare la cui durata può essere configurata tra 5 minuti e 25 ore. Usando i filtri del file manifesto, è possibile creare una finestra DVR in sequenza all'inizio dell'archivio, senza dover eliminare alcun contenuto. Esistono molti scenari in cui emittenti forniscono una finestra DVR limitata per spostare il bordo in tempo reale e contemporaneamente mantenere una finestra di archiviazione più grande. Un emittente, ad esempio, può decidere di usare i dati esterni alla finestra DVR per evidenziare clip oppure fornire finestre DVR diverse per dispositivi diversi. Ad esempio, la maggior parte dei dispositivi mobili non gestire grandi windows DVR (si può avere una finestra DVR 2 minuti per i dispositivi mobili e un'ora per i client desktop).
+Attualmente, Servizi multimediali di Azure offre un archivio circolare la cui durata può essere configurata tra 5 minuti e 25 ore. Usando i filtri del file manifesto, è possibile creare una finestra DVR in sequenza all'inizio dell'archivio, senza dover eliminare alcun contenuto. Sono molti i casi in cui per un emittente può essere utile creare una finestra DVR limitata, in grado di spostarsi con il margine live, e al tempo stesso mantenere una finestra di archiviazione più grande. Un emittente, ad esempio, può decidere di usare i dati esterni alla finestra DVR per evidenziare clip oppure fornire finestre DVR diverse per dispositivi diversi. La maggior parte dei dispositivi mobili, ad esempio, non è in grado di gestire finestre DVR di grandi dimensioni (è possibile usufruire di una finestra DVR di due minuti per i dispositivi mobili e di un'ora per i client desktop).
 
 ![Finestra DVR][dvr_filter]
 
 ## <a name="adjusting-livebackoff-live-position"></a>Regolazione LiveBackoff (posizione live)
-È possibile usare i filtri del file manifesto anche per rimuovere alcuni secondi dal margine live di un programma live. Applicazione di filtri consente alle emittenti di guardare la presentazione nel punto di pubblicazione di anteprima e creare punti di inserimento dell'annuncio prima i visualizzatori di ricevano il flusso (backup-off da 30 secondi). Gli emittenti possono quindi inserire questi annunci nel proprio Framework Client in tempo per poter ricevere ed elaborare le informazioni prima dell'opportunità di annuncio.
+È possibile usare i filtri del file manifesto anche per rimuovere alcuni secondi dal margine live di un programma live. Con i filtri gli emittenti possono guardare la presentazione nel punto di pubblicazione di anteprima e creare punti di inserimento di annunci prima che i destinatari ricevano il flusso (ritardato di 30 secondi). Gli emittenti possono quindi inserire questi annunci nel proprio Framework Client in tempo per poter ricevere ed elaborare le informazioni prima dell'opportunità di annuncio.
 
-Oltre al supporto di annuncio, è possibile utilizzare l'impostazione LiveBackoff per regolare la posizione di visualizzatori, in modo che quando i client dello sfasamento e raggiunge il bordo in tempo reale possono comunque ottenere frammenti dal server anziché un HTTP 404 o errore 412.
+Oltre a fornire il supporto per gli annunci pubblicitari, l'impostazione LiveBackoff consente anche di regolare la posizione dei visualizzatori in modo che, nel momento in cui i client deviano e raggiungono il margine live, possono comunque ottenere i frammenti dal server, anziché un errore HTTP 404 o 412.
 
 ![livebackoff_filter][livebackoff_filter]
 
 ## <a name="combining-multiple-rules-in-a-single-filter"></a>Combinazione di più regole in un unico filtro
-È possibile combinare più regole di filtro in un unico filtro. Ad esempio, è possibile definire una regola di intervallo"" per rimuovere Slate da un archivio in tempo reale ed escludere anche a velocità in bit disponibili. Quando si applicano più regole di filtro, il risultato finale è l'intersezione di tutte le regole.
+È possibile combinare più regole di filtro in un unico filtro. È ad esempio possibile definire una "regola di intervallo" per rimuovere slate da un archivio live e applicare un filtro alle velocità in bit disponibili. Se si applicano più regole di filtro, il risultato finale è l'intersezione di tutte le regole.
 
 ![multiple-rules][multiple-rules]
 
 ## <a name="create-filters-programmatically"></a>Creare filtri a livello di codice
-L'articolo seguente descrive le entità di servizi multimediali che sono correlate ai filtri. L'articolo viene inoltre illustrato come creare a livello di programmazione i filtri.  
+L'articolo seguente descrive le entità di Servizi multimediali correlate ai filtri. L'articolo illustra anche come creare filtri a livello di codice.  
 
 [Creare filtri con le API REST](media-services-rest-dynamic-manifest.md).
 
@@ -166,9 +166,9 @@ L'articolo seguente descrive le entità di servizi multimediali che sono correla
 
 Lo scenario seguente illustra il motivo per cui è possibile combinare filtri:
 
-1. È necessario filtrare le qualità video per dispositivi mobili, come ad esempio  Android o iPad (per limitare le qualità video). Per rimuovere le qualità indesiderate, creare un filtro globale adatto per i profili di dispositivo. Come accennato in precedenza in questo articolo, è possono utilizzare filtri globali per tutte le attività con lo stesso account di servizi multimediali senza ulteriore associazione. 
+1. È necessario filtrare le qualità video per dispositivi mobili, come ad esempio  Android o iPad (per limitare le qualità video). Per rimuovere le qualità indesiderate, creare un filtro globale adatto per i profili del dispositivo. Come indicato in precedenza in questo articolo, i filtri globali possono essere usati per tutte le attività con lo stesso account di servizi multimediali senza altre associazioni. 
 2. Inoltre si desidera tagliare l'ora di inizio e fine di un asset. A tale scopo, è necessario creare un filtro locale, impostare l'ora di inizio e fine. 
-3. Si desidera combinare entrambi questi filtri (senza combinazione, è necessario aggiungere il filtro di qualità per il filtro di taglio che rende più difficile l'utilizzo del filtro).
+3. È necessario combinare entrambi questi filtri, in caso contrario è necessario aggiungere un filtro qualità al filtro di taglio, il che rende più difficile l'utilizzo del filtro.
 
 Per combinare i filtri, è necessario impostare i nomi dei filtri per il manifesto/playlist URL delimitati dal punto e virgola. Si supponga di disporre di un filtro denominato *MyMobileDevice* che filtra le qualità e di un altro filtro denominato *MyStartTime* per impostare una specifica ora di inizio. È possibile combinarli nel seguente modo:
 

@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 77567302c529e6e06e58534ffc9db44c9a85bdb7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9384752c7f12074aae6ff165241e954eb2a4a01e
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>Pianificare attività e flussi di lavoro regolarmente in esecuzione con le app per la logica
 
-Per pianificare attività, azioni, carichi di lavoro o processi regolarmente in esecuzione, è possibile creare un flusso di lavoro delle app per la logica che ha inizio con il [trigger](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts) **Pianificazione - Ricorrenza**. Con questo trigger è possibile impostare una data e un'ora per l'inizio della ricorrenza e una pianificazione di ricorrenza per l'esecuzione di attività, come quelle riportate in questi esempi e altre ancora:
+Per pianificare attività, azioni, carichi di lavoro o processi regolarmente in esecuzione, è possibile creare un flusso di lavoro delle app per la logica che ha inizio con il [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) **Pianificazione - Ricorrenza**. Con questo trigger è possibile impostare una data e un'ora per l'inizio della ricorrenza e una pianificazione di ricorrenza per l'esecuzione di attività, come quelle riportate in questi esempi e altre ancora:
 
 * Recupero dei dati interni: [eseguire una stored procedure SQL](../connectors/connectors-create-api-sqlazure.md) ogni giorno.
 * Recupero dei dati esterni: eseguire il pull dei bollettini meteo da NOAA ogni 15 minuti.
@@ -42,15 +42,15 @@ Questo trigger supporta numerosi criteri, tra cui:
 
 Ogni volta che viene attivato il trigger di ricorrenza, App per la logica crea ed esegue una nuova istanza del flusso di lavoro delle app per la logica.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [creare un account Azure gratuito](https://azure.microsoft.com/free/). In alternativa, è possibile [iscriversi per ottenere una sottoscrizione con pagamento in base al consumo](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Conoscenza di base di [come creare le app per la logica](../logic-apps/logic-apps-create-a-logic-app.md) 
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 
 ## <a name="add-a-recurrence-trigger-to-your-logic-app"></a>Aggiungere un trigger di ricorrenza all'app per la logica
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Creare un'app per la logica vuota o acquisire informazioni su [come creare un'app per la logica vuota](../logic-apps/logic-apps-create-a-logic-app.md).
+1. Accedere al [portale di Azure](https://portal.azure.com). Creare un'app per la logica vuota o acquisire informazioni su [come creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 2. Quando Progettazione app per la logica viene visualizzato, nella casella di ricerca immettere "ricorrenza" come filtro. Selezionare il trigger **Pianificazione - Ricorrenza**. 
 
@@ -96,15 +96,15 @@ Ogni volta che viene attivato il trigger di ricorrenza, App per la logica crea e
 
 È possibile configurare queste proprietà per il trigger di ricorrenza.
 
-| Nome | Obbligatorio | Nome proprietà | Tipo | Descrizione | 
+| NOME | Obbligatoria | Nome proprietà | type | DESCRIZIONE | 
 |----- | -------- | ------------- | ---- | ----------- | 
-| **Frequenza** | Sì | frequency | String | L'unità di tempo per la ricorrenza: **Secondo**, **Minuto**, **Ora**, **Giorno**, **Settimana** o **Mese** | 
+| **Frequenza** | Sì | frequency | string | L'unità di tempo per la ricorrenza: **Secondo**, **Minuto**, **Ora**, **Giorno**, **Settimana** o **Mese** | 
 | **Interval** | Sì | interval | Integer | Numero intero positivo che indica l'intervallo con cui viene eseguito il flusso di lavoro in base alla frequenza. <p>L'intervallo predefinito è 1. Di seguito sono riportati gli intervalli minimi e massimi: <p>- Mese: 1-16 mesi </br>- Giorno: 1-500 giorni </br>- Ora: 1-12.000 ore </br>- Minuto: 1-72.000 minuti </br>- Secondo: 1-9.999.999 secondi<p>Ad esempio, se l'intervallo è 6 e la frequenza è "Mese", la ricorrenza è ogni 6 mesi. | 
-| **Fuso orario** | No | timeZone | String | Valido solo quando si specifica un'ora di inizio, perché il trigger non accetta la [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Selezionare il fuso orario che si desidera applicare. | 
-| **Ora di inizio** | No | startTime | String | Specificare un'ora di inizio nel formato seguente: <p>AAAA-MM-GGThh:mm:ss se si seleziona un fuso orario <p>-oppure- <p>AAAA-MM-GGThh:mm:ssZ se non si seleziona un fuso orario <p>Ad esempio, per il 18 settembre 2017 alle 14:00, specificare "2017-09-18T14:00:00" e selezionare un fuso orario, ad esempio Pacifico. In alternativa, specificare "2017-09-18T14:00:00Z" senza un fuso orario. <p>**Nota:** l'ora di inizio deve seguire la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza una [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Se non si seleziona un fuso orario, è necessario aggiungere la lettera "Z" alla fine, senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. <p>Per le pianificazioni semplici l'ora di inizio è la prima occorrenza, mentre per le pianificazioni complesse il trigger non si attiva prima dell'ora di inizio. [*In quali modi posso usare la data e l'ora di inizio?*](#start-time) | 
-| **In questi giorni** | No | weekDays | Stringa o matrice di stringhe | Se si seleziona "Settimana", è possibile selezionare uno o più giorni in cui eseguire il flusso di lavoro: **Lunedì**, **Martedì**, **Mercoledì**, **Giovedì**, **Venerdì**, **Sabato** e **Domenica** | 
-| **A queste ore** | No | hours | Intero o matrice di intero | Se si seleziona "Giorno" o "Settimana", è possibile selezionare uno o più numeri interi da 0 a 23 come ore del giorno in cui si desidera eseguire il flusso di lavoro. <p>Ad esempio, se si specificano "10", "12" e "14", 10:00, 12:00 e 14:00 rappresentano gli indicatori di ora. | 
-| **A questi minuti** | No | minutes | Intero o matrice di intero | Se si seleziona "Giorno" o "Settimana", è possibile selezionare uno o più numeri interi da 0 a 59 come minuti dell'ora in cui si desidera eseguire il flusso di lavoro. <p>Ad esempio, è possibile specificare "30" come indicatore dei minuti e, usando l'esempio precedente per le ore del giorno, si otterranno le ore 10.30, 12.30 e 14.30. | 
+| **Fuso orario** | No  | timeZone | string | Valido solo quando si specifica un'ora di inizio, perché il trigger non accetta la [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Selezionare il fuso orario che si desidera applicare. | 
+| **Ora di inizio** | No  | startTime | string | Specificare un'ora di inizio nel formato seguente: <p>AAAA-MM-GGThh:mm:ss se si seleziona un fuso orario <p>-oppure- <p>AAAA-MM-GGThh:mm:ssZ se non si seleziona un fuso orario <p>Ad esempio, per il 18 settembre 2017 alle 14:00, specificare "2017-09-18T14:00:00" e selezionare un fuso orario, ad esempio Pacifico. In alternativa, specificare "2017-09-18T14:00:00Z" senza un fuso orario. <p>**Nota:** l'ora di inizio deve seguire la [specifica di data e ora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) nel [formato di data e ora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ma senza una [differenza dall'ora UTC](https://en.wikipedia.org/wiki/UTC_offset). Se non si seleziona un fuso orario, è necessario aggiungere la lettera "Z" alla fine, senza spazi. La lettera "Z" fa riferimento all'[ora nautica](https://en.wikipedia.org/wiki/Nautical_time) equivalente. <p>Per le pianificazioni semplici l'ora di inizio è la prima occorrenza, mentre per le pianificazioni complesse il trigger non si attiva prima dell'ora di inizio. [*In quali modi posso usare la data e l'ora di inizio?*](#start-time) | 
+| **In questi giorni** | No  | weekDays | Stringa o matrice di stringhe | Se si seleziona "Settimana", è possibile selezionare uno o più giorni in cui eseguire il flusso di lavoro: **Lunedì**, **Martedì**, **Mercoledì**, **Giovedì**, **Venerdì**, **Sabato** e **Domenica** | 
+| **A queste ore** | No  | hours | Intero o matrice di intero | Se si seleziona "Giorno" o "Settimana", è possibile selezionare uno o più numeri interi da 0 a 23 come ore del giorno in cui si desidera eseguire il flusso di lavoro. <p>Ad esempio, se si specificano "10", "12" e "14", 10:00, 12:00 e 14:00 rappresentano gli indicatori di ora. | 
+| **A questi minuti** | No  | minutes | Intero o matrice di intero | Se si seleziona "Giorno" o "Settimana", è possibile selezionare uno o più numeri interi da 0 a 59 come minuti dell'ora in cui si desidera eseguire il flusso di lavoro. <p>Ad esempio, è possibile specificare "30" come indicatore dei minuti e, usando l'esempio precedente per le ore del giorno, si otterranno le ore 10.30, 12.30 e 14.30. | 
 ||||| 
 
 ## <a name="json-example"></a>Esempio di JSON
@@ -140,31 +140,31 @@ Di seguito è riportato un esempio di definizione di trigger di ricorrenza:
 }
 ```
 
-## <a name="faq"></a>domande frequenti
+## <a name="faq"></a>Domande frequenti
 
 <a name="example-recurrences"></a>
 
 **D:** Quali sono altri esempi di pianificazioni di ricorrenza? </br>
 **R:** Di seguito sono riportati altri esempi:
 
-| Ricorrenza | Interval | Frequenza | Ora di inizio | In questi giorni | A queste ore | A questi minuti | Nota |
+| Ricorrenza | Interval | Frequenza | Ora di inizio | In questi giorni | A queste ore | A questi minuti | Note |
 | ---------- | -------- | --------- | ---------- | ------------- | -------------- | ---------------- | ---- |
-| Eseguire ogni 15 minuti (senza data e ora di inizio) | 15 | Minuto | {none} | {non disponibile} | {nessuna} | {nessuna} | Questa pianificazione inizia immediatamente, quindi calcola le ricorrenze future in base all'ultima esecuzione. | 
-| Eseguire ogni 15 minuti (con data e ora di inizio) | 15 | Minuto | *DataInizio*T*OraInizio*Z | {non disponibile} | {nessuna} | {nessuna} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate, quindi calcola le ricorrenze future in base all'ultima esecuzione. | 
-| Eseguire ogni ora all'inizio dell'ora (con data e ora di inizio) | 1 | Hour | *DataInizio*Thh:00:00Z | {non disponibile} | {nessuna} | {nessuna} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate. Le ricorrenze future vengono eseguite ogni ora in corrispondenza dell'indicatore dei minuti "00". <p>Se la frequenza è "Settimana" o "Mese", la pianificazione viene eseguita rispettivamente un solo giorno a settimana o un solo giorno al mese. | 
-| Eseguire ogni ora ogni giorno (senza data e ora di inizio) | 1 | Hour | {none} | {non disponibile} | {nessuna} | {nessuna} | Questa pianificazione inizia immediatamente, quindi calcola le ricorrenze future in base all'ultima esecuzione. <p>Se la frequenza è "Settimana" o "Mese", la pianificazione viene eseguita rispettivamente un solo giorno a settimana o un solo giorno al mese. | 
-| Eseguire ogni ora ogni giorno (con data e ora di inizio) | 1 | Hour | *DataInizio*T*OraInizio*Z | {non disponibile} | {nessuna} | {nessuna} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate, quindi calcola le ricorrenze future in base all'ultima esecuzione. <p>Se la frequenza è "Settimana" o "Mese", la pianificazione viene eseguita rispettivamente un solo giorno a settimana o un solo giorno al mese. | 
-| Eseguire ogni 15 minuti dopo l'ora, ogni ora (con data e ora di inizio) | 1 | Hour | *DataInizio*T00:15:00Z | {non disponibile} | {nessuna} | {nessuna} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate e viene eseguita alle ore 00:15, 1:15, 2:15 e così via. | 
+| Eseguire ogni 15 minuti (senza data e ora di inizio) | 15 | Minuto | {none} | {non disponibile} | {none} | {none} | Questa pianificazione inizia immediatamente, quindi calcola le ricorrenze future in base all'ultima esecuzione. | 
+| Eseguire ogni 15 minuti (con data e ora di inizio) | 15 | Minuto | *DataInizio*T*OraInizio*Z | {non disponibile} | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate, quindi calcola le ricorrenze future in base all'ultima esecuzione. | 
+| Eseguire ogni ora all'inizio dell'ora (con data e ora di inizio) | 1 | Hour | *DataInizio*Thh:00:00Z | {non disponibile} | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate. Le ricorrenze future vengono eseguite ogni ora in corrispondenza dell'indicatore dei minuti "00". <p>Se la frequenza è "Settimana" o "Mese", la pianificazione viene eseguita rispettivamente un solo giorno a settimana o un solo giorno al mese. | 
+| Eseguire ogni ora ogni giorno (senza data e ora di inizio) | 1 | Hour | {none} | {non disponibile} | {none} | {none} | Questa pianificazione inizia immediatamente, quindi calcola le ricorrenze future in base all'ultima esecuzione. <p>Se la frequenza è "Settimana" o "Mese", la pianificazione viene eseguita rispettivamente un solo giorno a settimana o un solo giorno al mese. | 
+| Eseguire ogni ora ogni giorno (con data e ora di inizio) | 1 | Hour | *DataInizio*T*OraInizio*Z | {non disponibile} | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate, quindi calcola le ricorrenze future in base all'ultima esecuzione. <p>Se la frequenza è "Settimana" o "Mese", la pianificazione viene eseguita rispettivamente un solo giorno a settimana o un solo giorno al mese. | 
+| Eseguire ogni 15 minuti dopo l'ora, ogni ora (con data e ora di inizio) | 1 | Hour | *DataInizio*T00:15:00Z | {non disponibile} | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate e viene eseguita alle ore 00:15, 1:15, 2:15 e così via. | 
 | Eseguire ogni 15 minuti dopo l'ora, ogni ora (senza data e ora di inizio) | 1 | Giorno | {none} | {non disponibile} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Questa pianificazione viene eseguita alle 00:15, 1:15, 2:15 e così via. Questa pianificazione è equivalente a una frequenza di "Ora" e un'ora di inizio con "15" minuti. | 
 | Eseguire ogni 15 minuti in corrispondenza dell'indicatore dei 15 minuti (senza data e ora di inizio) | 1 | Giorno | {none} | {non disponibile} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | La pianificazione non inizia fino al raggiungimento dell'indicatore di 15 minuti successivo. | 
 | Eseguire alle 8:00 ogni giorno (senza data e ora di inizio) | 1 | Giorno | {none} | {non disponibile} | 8 | {none} | Questa pianificazione viene eseguita alle 8:00 di ogni giorno, in base alla pianificazione specificata. | 
-| Eseguire alle 8:00 ogni giorno (con data e ora di inizio) | 1 | Giorno | *DataInizio*T08:00:00Z | {non disponibile} | {nessuna} | {nessuna} | Questa pianificazione viene eseguita alle 8:00 di ogni giorno, in base all'ora di inizio specificata. | 
+| Eseguire alle 8:00 ogni giorno (con data e ora di inizio) | 1 | Giorno | *DataInizio*T08:00:00Z | {non disponibile} | {none} | {none} | Questa pianificazione viene eseguita alle 8:00 di ogni giorno, in base all'ora di inizio specificata. | 
 | Eseguire alle 8:30 ogni giorno (senza data e ora di inizio) | 1 | Giorno | {none} | {non disponibile} | 8 | 30 | Questa pianificazione viene eseguita alle 8:30 di ogni giorno, in base alla pianificazione specificata. | 
-| Eseguire alle 8:30 ogni giorno (con data e ora di inizio) | 1 | Giorno | *DataInizio*T08:30:00Z | {non disponibile} | {nessuna} | {nessuna} | Questa pianificazione inizia alla data di inizio specificata alle 8:30. | 
+| Eseguire alle 8:30 ogni giorno (con data e ora di inizio) | 1 | Giorno | *DataInizio*T08:30:00Z | {non disponibile} | {none} | {none} | Questa pianificazione inizia alla data di inizio specificata alle 8:30. | 
 | Eseguire alle 8:30 e alle 16:30 ogni giorno | 1 | Giorno | {none} | {non disponibile} | 8, 16 | 30 | | 
 | Eseguire alle 8:30, alle 8:45 e alle 16:30 e alle 16:45 ogni giorno | 1 | Giorno | {none} | {non disponibile} | 8, 16 | 30, 45 | | 
 | Eseguire ogni sabato alle 17:00 (senza data e ora di inizio) | 1 | Settimana | {none} | "Sabato" | 17 | 00 | Questa pianificazione viene eseguita ogni sabato alle 17:00. | 
-| Eseguire ogni sabato alle 17:00 (con data e ora di inizio) | 1 | Settimana | *DataInizio*T17:00:00Z | "Sabato" | {nessuna} | {nessuna} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate, in questo caso il 9 settembre 2017 alle 17:00. Le ricorrenze future verranno eseguite ogni sabato alle 17:00. | 
+| Eseguire ogni sabato alle 17:00 (con data e ora di inizio) | 1 | Settimana | *DataInizio*T17:00:00Z | "Sabato" | {none} | {none} | Questa pianificazione non inizia *prima* della data e dell'ora di inizio specificate, in questo caso il 9 settembre 2017 alle 17:00. Le ricorrenze future verranno eseguite ogni sabato alle 17:00. | 
 | Eseguire ogni martedì e giovedì alle 17:00 | 1 | Settimana | {none} | "Martedì", "Giovedì" | 17 | {none} | Questa pianificazione verrà eseguita ogni martedì e giovedì alle 17:00. | 
 | Eseguire ogni ora durante le ore lavorative | 1 | Settimana | {none} | Selezionare tutti i giorni, ad eccezione di sabato e domenica. | Selezionare le ore del giorno desiderate. | Selezionare i minuti dell'ora desiderati. | Ad esempio, se le ore lavorative sono comprese tra le 8:00 e le 17:00, selezionare "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" come ore del giorno. <p>Se le ore lavorative sono comprese tra le 8:30 e le 17:30, selezionare le ore precedenti del giorno e aggiungere "30" come minuti dell'ora. | 
 | Eseguire una volta al giorno nei fine settimana | 1 | Settimana | {none} | "Sabato", "Domenica" | Selezionare le ore del giorno desiderate. | Selezionare i minuti dell'ora desiderati. | Questa pianificazione verrà eseguita ogni sabato e domenica alla pianificazione specificata. | 
@@ -175,7 +175,7 @@ Di seguito è riportato un esempio di definizione di trigger di ricorrenza:
 <a name="start-time"></a>
 
 **D:** In quali modi posso usare la data e l'ora di inizio? </br>
-**R:** Di seguito sono riportati alcuni criteri che indicano come controllare la ricorrenza con la data e l'ora di inizio e in che modo il motore App per la logica esegue queste ricorrenze:
+**R:** Di seguito sono riportati alcuni formati che indicano come controllare la ricorrenza con la data e l'ora di inizio e in che modo il motore App per la logica esegue queste ricorrenze:
 
 | Ora di inizio | Ricorrenza senza pianificazione | Ricorrenza con pianificazione | 
 | ---------- | --------------------------- | ------------------------ | 
@@ -188,7 +188,7 @@ Di seguito è riportato un esempio di definizione di trigger di ricorrenza:
 
 | Ora di inizio | Ora corrente | Ricorrenza | Pianificazione |
 | ---------- | ------------ | ---------- | -------- | 
-| 2017-09-**07**T14:00:00Z | 2017-09-**08**T13:00:00Z | Ogni 2 giorni | {nessuna} | 
+| 2017-09-**07**T14:00:00Z | 2017-09-**08**T13:00:00Z | Ogni 2 giorni | {none} | 
 ||||| 
 
 In questo scenario, il motore App per la logica calcola le esecuzioni in base all'ora di inizio, rimuove le esecuzioni precedenti e usa l'ora di inizio successiva per la prima esecuzione. Dopo la prima esecuzione, le esecuzioni future si baseranno sulla pianificazione calcolata dall'ora di inizio. Di seguito è illustrato l'aspetto di questa ricorrenza:

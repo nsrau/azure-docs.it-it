@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/08/2017
+ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: c828a7b63e70669ed38ecea898442a3978e67ba7
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 5510d64b518e4694caa8e35140907b55c01ecd8a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Esecuzione di processi Pig con .NET SDK per Hadoop in HDInsight
 
@@ -30,7 +30,7 @@ Informazioni su come usare .NET SDK per Hadoop per inviare processi Apache Pig a
 
 HDInsight .NET SDK fornisce librerie client .NET che semplificano l'utilizzo dei cluster HDInsight da .NET. Pig consente di creare operazioni MapReduce modellando una serie di trasformazioni di dati. Questo articolo illustra come usare un'applicazione di base C# per inviare un processo Pig a un cluster HDInsight.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per seguire la procedura descritta in questo articolo, sono necessari gli elementi seguenti.
 
@@ -53,7 +53,7 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
    | ------ | ------ |
    | Categoria | Templates/Visual C#/Windows |
    | Modello | Applicazione console |
-   | Nome | SubmitPigJob |
+   | NOME | SubmitPigJob |
 
 3. Fare clic su **OK** per creare il progetto.
 
@@ -70,7 +70,7 @@ HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei clus
     using Microsoft.Azure.Management.HDInsight.Job.Models;
     using Hyak.Common;
 
-    namespace SubmitHDInsightJobDotNet
+    namespace SubmitPigJob
     {
         class Program
         {

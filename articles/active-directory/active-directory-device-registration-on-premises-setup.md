@@ -1,5 +1,5 @@
 ---
-title: Configurazione dell'accesso condizionale locale con il servizio Registrazione dispositivo di Azure Active Directory | Microsoft Docs
+title: Configurare l'accesso condizionale locale in Azure Active Directory | Microsoft Docs
 description: Guida dettagliata all'abilitazione dell'accesso condizionale alle applicazioni locali usando Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 9c4b8364f88548cfc4595261302248cc2840c233
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.custom: seohack1
+ms.openlocfilehash: 466cd564f08b07d443db7cb1de59c5778682ed73
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurazione dell'accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory
 Quando si chiede agli utenti di aggiungere i dispositivi personali all'area di lavoro con il servizio Registrazione dispositivo di Azure Active Directory (Azure AD), i dispositivi possono essere contrassegnati come noti all'organizzazione. Di seguito è riportata una guida dettagliata all'abilitazione dell'accesso condizionale alle applicazioni locali con Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
@@ -69,7 +70,7 @@ Per distribuire il servizio Registrazione dispositivo di Azure Active Directory 
 ## <a name="part-1-enable-azure-active-directory-device-registration"></a>Parte 1: Abilitare Registrazione dispositivo di Azure Active Directory
 Seguire i passaggi dell'elenco di controllo per abilitare e configurare il servizio Registrazione dispositivo di Azure Active Directory.
 
-| Attività | Riferimenti | 
+| Attività | riferimento | 
 | --- | --- |
 | Abilitare Registrazione dispositivo nel tenant di Azure Active Directory per consentire l'aggiunta dei dispositivi all'area di lavoro. Per impostazione predefinita, la funzionalità Azure Multi-Factor Authentication non è abilitata per il servizio. Tuttavia, è consigliabile usare l'autenticazione a più fattori quando si registra un dispositivo. Prima di abilitare Multi-Factor Authentication nel servizio Registrazione dispositivo di Active Directory, verificare che AD FS sia configurato per un provider di autenticazione a più fattori. |[Abilitare Registrazione dispositivo di Azure Active Directory](active-directory-device-registration-get-started.md)| 
 |I dispositivi individuano il servizio Registrazione dispositivo di Azure Active Directory cercando record DNS noti. Configurare il DNS della società in modo che i dispositivi possano rilevare il servizio Registrazione dispositivo di Azure Active Directory. |[Configurare l'individuazione di Registrazione dispositivo di Azure Active Directory.](active-directory-device-registration-get-started.md)| 
@@ -104,9 +105,9 @@ La distribuzione è stata completata e ora è possibile provare alcuni scenari. 
 
 **Vedere:**
 
-- [Integrare le directory locali con Azure Active Directory](./connect/active-directory-aadconnect.md) : per esaminare informazioni concettuali.
+- [Integrare le directory locali con Azure Active Directory](./connect/active-directory-aadconnect.md) per informazioni di carattere concettuale.
 
-- [Installazione personalizzata di Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md) : per le istruzioni di installazione.
+- [Installazione personalizzata di Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md) per le istruzioni di installazione.
 
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Aggiornare lo schema di Servizi di dominio Active Directory

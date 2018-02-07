@@ -12,22 +12,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 01/19/2018
 ms.author: garye
-ms.openlocfilehash: d93c7c0bdad930bba679d705b012f1567da1da8a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.openlocfilehash: 3339d3b3bab2c0ce210950c178ef03fc6c0ecab9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Usare i set di dati di esempio in Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
 
-Quando si crea una nuova area di lavoro in Azure Machine Learning, per impostazione predefinita è inclusa una serie di set di dati e di esperimenti di esempio. Molti di questi set di dati di esempio vengono utilizzati dai modelli di esempio nel [raccolta di Azure AI](http://gallery.cortanaintelligence.com/). Altri sono inclusi come esempi di diversi tipi di dati usati in genere per l'apprendimento automatico.
+Quando si crea una nuova area di lavoro in Azure Machine Learning, per impostazione predefinita è inclusa una serie di set di dati e di esperimenti di esempio. Molti di questi set di dati di esempio vengono usati dai modelli di esempio in [Raccolta di intelligenza artificiale per Azure](http://gallery.cortanaintelligence.com/). Altri sono inclusi come esempi di diversi tipi di dati usati in genere per l'apprendimento automatico.
 
 Alcuni di questi set di dati sono disponibili nell'archivio BLOB di Azure. La tabella seguente include un collegamento diretto per questi set di dati. È possibile usare questi set di dati negli esperimenti tramite il modulo [Import Data][import-data] (Importazione dati).
 
-Il resto di questi set di dati di esempio sono disponibili nell'area di lavoro in **Saved Datasets**. È possibile trovare questo nella tavolozza modulo a sinistra dell'area di disegno esperimento in Machine Learning Studio.
+La parte rimanente di questi set di dati di esempio è disponibile nell'area di lavoro presente in **Saved Datasets** (Set di dati salvati). In particolare, è possibile trovarli nella tavolozza dei moduli a sinistra dell'area di disegno dell'esperimento in Machine Learning Studio.
 Per usare uno qualsiasi di questi set di dati in un esperimento personalizzato, trascinarlo all'area di disegno dell'esperimento.
 
 
@@ -64,7 +64,7 @@ Questo set di dati contiene una riga per ogni aeroporto degli Stati Uniti, conte
   <td>
 Informazioni sulle automobili in base a marchio e modello, inclusi il prezzo, funzionalità quali il numero di cilindri e il consumo di carburante, oltre a un punteggio relativo al rischio assicurativo.
 <p></p>
-Il punteggio di rischio è inizialmente associato a prezzo automaticamente. È quindi modificato per un rischio effettivo in un processo noto a attuari come symboling. Un valore pari a +3 indica che l'automobile è rischiosa e un valore pari a -3 indica che è probabilmente sicura.
+Il punteggio di rischio viene inizialmente associato al prezzo dell'automobile e quindi adeguato in base al rischio effettivo in un processo noto agli attuari come simbolizzazione. Un valore pari a +3 indica che l'automobile è rischiosa e un valore pari a -3 indica che è probabilmente sicura.
 <p></p>
 <b>Utilizzo:</b> prevedere il punteggio di rischio in base alle funzionalità, usando la regressione o la classificazione multivariata. 
 <p></p>
@@ -106,15 +106,6 @@ Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM m
 </tr>
 
 <tr>
-  <td>Book Reviews from Amazon</td>
-  <td>
-Revisioni di libri in Amazon, estratte dal sito Amazon dai ricercatori della University of Pennsylvania (<a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/">sentiment</a>). Vedere il documento di ricerca “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” di John Blitzer, Mark Dredze e Fernando Pereira; Association of Computational Linguistics (ACL), 2007.
-<p></p>
-Il set di dati originale ha 975.000 revisioni con classificazioni 1, 2, 3, 4 o 5. Le revisioni sono in inglese e vanno dal 1997 al 2007. Il set di dati è stato ridotto a 10.000 revisioni.
-  </td>
-</tr>
-
-<tr>
   <td>Breast cancer data</td>
   <td>
 Uno dei tre set di dati relativi al tumore fornito dall'istituto oncologico e usato spesso nella letteratura di Machine Learning. Combina informazioni diagnostiche con funzionalità relative ad analisi di laboratorio effettuate su circa 300 campioni di tessuto.
@@ -133,7 +124,7 @@ Il set di dati contiene le informazioni relative a 102.000 aree sospette (candid
 <tr>
   <td>Breast Cancer Info</td>
   <td>
-Il set di dati contiene informazioni aggiuntive su ogni area sospetta di una radiografia. Ogni esempio vengono fornite informazioni (ad esempio, etichetta, paziente ID, le coordinate della patch per l'intera immagine) sul corrispondente numero di riga nel set di dati di esempio Breast Cancer funzionalità. Per ogni paziente sono disponibili diversi esempi. Per i pazienti in cui è stato riscontrato un tumore, alcuni esempio sono positivi ed altri sono negativi. Per i pazienti sani, tutti gli esempi sono negativi. Il set di dati contiene 102.000 esempi. Al set di dati è stata applicata la compensazione: lo 0,6% dei punti è positivo, mentre il resto è negativo. Il set di dati è stato messo a disposizione da Siemens Healthcare.
+Il set di dati contiene informazioni aggiuntive su ogni area sospetta di una radiografia. Per ogni esempio vengono fornite le informazioni, ad esempio etichetta, ID paziente e coordinate della lesione in relazione all'intera immagine, sul numero di riga corrispondente nel set di dati delle caratteristiche del tumore al seno. Per ogni paziente sono disponibili diversi esempi. Per i pazienti in cui è stato riscontrato un tumore, alcuni esempio sono positivi ed altri sono negativi. Per i pazienti sani, tutti gli esempi sono negativi. Il set di dati contiene 102.000 esempi. Al set di dati è stata applicata la compensazione: lo 0,6% dei punti è positivo, mentre il resto è negativo. Il set di dati è stato messo a disposizione da Siemens Healthcare.
   </td>
 </tr>
 
@@ -168,9 +159,9 @@ Etichette dalla competizione KDD Cup 2009 di previsione delle relazioni con i cl
 </tr>
 
 <tr>
-  <td>Dati di efficienza energetica regressione</td>
+  <td>Energy-Efficiency Regression data</td>
   <td>
-Raccolta di profili energetici simulati, basati su 12 forme di edifici diverse. Edifici sono indicati da otto funzionalità. Ciò include vetro area, la distribuzione di vetro area e l'orientamento.
+Raccolta di profili energetici simulati, basati su 12 forme di edifici diverse. Gli edifici si differenziano in base a 8 caratteristiche specifiche, ad esempio il numero di finestre e la distribuzione e l'orientamento delle finestre.
 <p></p>
 <b>Utilizzo:</b> usare la regressione o la classificazione per prevedere il livello di efficienza energetica in base a una delle due risposte con valori reali. Per la classificazione a più classi, la variabile di risposta verrà arrotondata al valore Integer più vicino. 
 <p></p>
@@ -206,7 +197,7 @@ Record degli arrivi e delle partenze dei voli all'interno degli Stati Uniti da o
 <tr>
   <td>Forest fires data</td>
   <td>
-Contiene i dati meteorologici, ad esempio gli indici di temperatura e umidità e velocità del vento. I dati viene eseguiti da un'area del Portogallo verso nord-est, combinato con i record di foresta generato.
+Contiene dati climatici, ad esempio temperatura, indici di umidità e velocità del vento. Questi dati si riferiscono a un'area nella parte nordorientale del Portogallo e sono combinati con i record relativi agli incendi nei boschi.
 <p></p>
 <b>Utilizzo:</b> si tratta di un'attività di regressione complessa, il cui scopo consiste nel prevedere l'area bruciata degli incendi boschivi. 
 <p></p>
@@ -254,9 +245,9 @@ Il set di dati è una versione estesa di quello relativo ai tweet sui film. Il s
   <td>
 Questo set di dati è una versione leggermente modificata del set di dati disponibile nella raccolta StatLib della Carnegie Mellon University. Il set di dati è stato usato presso la American Statistical Association Exposition del 1983.
 <p></p>
-Gli elenchi dei dati carburante per vari automobili in chilometri al litro. Sono inoltre incluse informazioni quali il numero di cilindri, spostamento di motore, potenza, peso e l'accelerazione.
+I dati elencano il consumo di carburante per diverse automobili, in miglia per gallone, oltre a informazioni quali numero di cilindri, cilindrata, potenza, peso totale e accelerazione.
 <p></p>
-<b>Utilizzo:</b> stimare carburante, in base a tre attributi discreti multivalore e cinque gli attributi continui. 
+<b>Utilizzo:</b> prevedere il risparmio di carburante in base a tre attributi discreti multivalore e cinque attributi continui. 
 <p></p>
 <b>Ricerca correlata:</b> StatLib, Carnegie Mellon University, (1993). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science  </td>
 </tr>
@@ -307,7 +298,7 @@ Include le valutazioni assegnate dagli utenti ai ristoranti in una scala da 0 a 
 <tr>
   <td>Steel Annealing multi-class dataset</td>
   <td>
-Questo set di dati contiene una serie di record da steel annealing le versioni di valutazione. Contiene gli attributi fisici larghezza (spessore, (serpentina, foglio e così via) dell'oggetto risultante acciaio tipi.
+Questo set di dati include una serie di record relativi a tentativi di ricottura di acciaio e include gli attributi fisici (larghezza, spessore e tipo, ad esempio spirale, lamina e così via) dei tipi di acciaio risultanti.
 <p></p>
 <b>Utilizzo:</b> prevedere uno dei due attributi numerici della classe, ovvero durezza o forza. È anche possibile analizzare le correlazioni tra gli attributi.
 <p></p>
@@ -322,17 +313,17 @@ Una guida utile alle designazioni dell'acciaio è disponibile qui: <a href="http
 <tr>
   <td>Telescope data</td>
   <td>
-Record della particella gamma elevata energia aumenta con rumore di fondo, entrambi simulata mediante un processo Monte Carlo.
+Record di esplosioni di particelle gamma a energia elevata insieme alla radiazione di fondo, simulate entrambe tramite un processo Monte Carlo.
 <p></p>
-Lo scopo della simulazione è per migliorare l'accuratezza della terra senso Cherenkov gamma dispositivi. Ciò avviene usando metodi statistici per distinguere tra il segnale desiderato (Cherenkov ionizzanti docce) e il rumore di fondo (docce hadronic avviate da raggi cosmici nell'atmosfera superiore).
+Lo scopo della simulazione consiste nel migliorare la precisione dei telescopi gamma Cherenkov posizionati a terra, usando metodi statistici per rilevare la differenza tra il segnale desiderato (pioggia di radiazioni Cherenkov) e la radiazione di fondo (piogge adroniche generate da raggi cosmici nella parte superiore dell'atmosfera).
 <p></p>
 I dati sono stati pre-elaborati in modo da creare un cluster allungato il cui asse longitudinale è orientato verso il centro della fotocamera. Le caratteristiche di questa ellissi, spesso definite parametri Hillas, si trovano tra i parametri dell'immagine che possono essere usati per la discriminazione.
 <p></p>
 <b>Utilizzo:</b> prevedere se l'immagine di una pioggia rappresenta un segnale o radiazioni di fondo.
 <p></p>
-<b>Note:</b> la semplice precisione della classificazione non è significativa per questi dati, poiché la classificazione di un evento di fondo come segnale è ritenuta peggiore della classificazione di un evento di segnale come evento di fondo. Per il confronto dei classificatori diversi, il grafico ROC deve essere utilizzato. La probabilità di accettazione di un evento in background come segnale deve essere inferiore a una delle seguenti soglie: 0,01, 0,02, 0,05, 0,1 o 0,2.
+<b>Note:</b> la semplice precisione della classificazione non è significativa per questi dati, poiché la classificazione di un evento di fondo come segnale è ritenuta peggiore della classificazione di un evento di segnale come evento di fondo. Per un confronto dei diversi classificatori, è consigliabile usare il grafico ROC. La probabilità di accettazione di un evento di fondo come un segnale deve essere inferiore a una delle soglie seguenti: 0,01, 0,02, 0,05, 0,1 o 0,2.
 <p></p>
-Si noti inoltre che il numero di eventi in background (per docce hadronic h) è sottovalutato. Nelle misure reali, la classe h o rumore rappresenta la maggior parte degli eventi. 
+Si noti anche che il numero di eventi di fondo (h per piogge adroniche) è sottostimato, mentre nelle misurazioni reali la classe h o noise rappresenta la maggior parte degli eventi. 
 <p></p>
 <b>Ricerca correlata:</b> Bock, R.K. (1995). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information </td>
 </tr>
@@ -373,7 +364,7 @@ Tenere presente che per alcune società non sono stati trovati articoli, dunque 
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/direct_marketing.csv">direct_marketing.csv</a></td>
   <td>
-Il set di dati contiene i dati dei clienti e le indicazioni sulle risposte ottenute in seguito a una campagna di mailing diretto. Ogni riga rappresenta un cliente. Il set di dati contiene nove funzionalità sui dati demografici utente e il comportamento passato e tre le colonne di etichetta (visita, conversione e spesa).  Visita è una colonna di dati binari che indica che un cliente visitati dopo la campagna di marketing. Conversione indica che un cliente ha acquistato un elemento. Spesa è la quantità che è trascorso.  Il set di dati è stato messo a disposizione da Kevin Hillstrom per MineThatData E-Mail Analytics And Data Mining Challenge.
+Il set di dati contiene i dati dei clienti e le indicazioni sulle risposte ottenute in seguito a una campagna di mailing diretto. Ogni riga rappresenta un cliente. Il set di dati contiene nove caratteristiche sui dati personali degli utenti e sui comportamenti passati, oltre a tre colonne con etichetta (visita, conversione e spesa).  La visita è una colonna binaria usata per indicare che un cliente è stato visitato dopo la campagna di marketing, la conversione indica che il cliente ha effettuato un acquisto e la spesa corrisponde all'importo speso.  Il set di dati è stato messo a disposizione da Kevin Hillstrom per MineThatData E-Mail Analytics And Data Mining Challenge.
   </td>
 </tr>
 

@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 4d0cbe09b1482221f88e57eed249fc2b56eec10d
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 643262ec69fb30981b3ae5c4e26d230743b78405
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Creare un'app Web PHP nel Servizio app in Linux
 
@@ -33,14 +33,14 @@ Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di host
 
 È possibile eseguire queste procedure con un computer Mac, Windows o Linux.
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa guida introduttiva:
 
 * <a href="https://git-scm.com/" target="_blank">Installare Git</a>
 * <a href="https://php.net" target="_blank">Installare PHP</a>
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 01/30/2018
 ms.author: alfredop
-ms.openlocfilehash: 65b9ff0881e46836d9f19a04cf470835679e7b2f
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 855d74698f2109fa426d34044cbc89b83c224e6f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Domande frequenti nell'utilizzo di Azure Stack API
 Questo articolo risponde ad alcune domande frequenti sull'API di utilizzo dello Stack di Azure.
@@ -28,8 +28,8 @@ Viene segnalato l'utilizzo per i provider di risorse seguenti:
 
 | **Provider di risorse** | **ID contatore** | **Nome del misuratore** | **Unità** | **Informazioni aggiuntive** |
 | --- | --- | --- | --- | --- |
-| **Rete** |F271A8A388C44D93956A063E1D2FA80B |Utilizzo degli indirizzi IP statici |Indirizzi IP| Numero di indirizzi IP utilizzati |
-| |9E2739BA86744796B465F64674B822BA |Utilizzo degli indirizzi IP dinamici |Indirizzi IP| Numero di indirizzi IP utilizzati |
+| **Rete** |F271A8A388C44D93956A063E1D2FA80B |Utilizzo degli indirizzi IP statici |Indirizzi IP| Numero di indirizzi IP utilizzati. Se si chiama l'API di utilizzo con granularità quotidiana, il misuratore restituirà l'indirizzo IP moltiplicato per il numero di ore. |
+| |9E2739BA86744796B465F64674B822BA |Utilizzo degli indirizzi IP dinamici |Indirizzi IP| Numero di indirizzi IP utilizzati. Se si chiama l'API di utilizzo con granularità quotidiana, il misuratore restituirà l'indirizzo IP moltiplicato per il numero di ore. |
 | **Archiviazione** |B4438D5D-453B-4EE1-B42A-DC72E377F1E4 |TableCapacity |GB\*ore |Capacità totale utilizzata dalle tabelle |
 | |B5C15376-6C94-4FDD-B655-1A69D138ACA3 |PageBlobCapacity |GB\*ore |Capacità totale utilizzata dal BLOB di pagine |
 | |B03C6AE7-B080-4BFA-84A3-22C800F315C6 |QueueCapacity |GB\*ore |Capacità totale utilizzata dalla coda |
@@ -43,10 +43,10 @@ Viene segnalato l'utilizzo per i provider di risorse seguenti:
 | |EB43DD12-1AA6-4C4B-872C-FAF15A6785EA |QueueTransactions |Numero di richieste in 10, 000's |Coda le richieste del servizio (10, 000's) |
 | |E518E809-E369-4A45-9274-2017B29FFF25 |QueueDataTransIn |Dati in entrata in GB |Coda del servizio dati in arrivo in GB |
 | |DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2 |QueueDataTransOut |Uscita in GB |Coda del servizio dati in uscita in GB |
-| **Componente SQL**            | CBCFEF9A-B91F-4597-A4D3-01FE334BED82 | DatabaseSizeHourSqlMeter   | MB\*ore   | Capacità totale di database al momento della creazione, ha segnalata ogni ora.  |
-| **RP MySql**          | E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3 | DatabaseSizeHourMySqlMeter | MB\*ore    | Capacità totale di database al momento della creazione, ha segnalata ogni ora. |
-| **Calcolo** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Ore di dimensioni di macchina virtuale di base |Minuti di core virtuali | Numero di core virtuali volte minuti che è stata eseguita la macchina virtuale |
-| |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Ore di dimensioni di macchina virtuale Windows |Minuti di core virtuali | Numero di core virtuali volte minuti che è stata eseguita la macchina virtuale |
+| **Componente SQL**            | CBCFEF9A-B91F-4597-A4D3-01FE334BED82 | DatabaseSizeHourSqlMeter   | MB\*ore   | Capacità totale di database al momento della creazione. Se si chiama l'API di utilizzo con granularità quotidiana, il misuratore restituirà MB moltiplicato per il numero di ore. |
+| **RP MySql**          | E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3 | DatabaseSizeHourMySqlMeter | MB\*ore    | Capacità totale di database al momento della creazione. Se si chiama l'API di utilizzo con granularità quotidiana, il misuratore restituirà MB moltiplicato per il numero di ore. |
+| **Calcolo** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Ore di dimensioni di macchina virtuale di base |Ore core virtuale | Numero di core virtuali moltiplicato per le ore in cui che è stata eseguita la macchina virtuale |
+| |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Ore di dimensioni di macchina virtuale Windows |Ore core virtuale | Numero di core virtuali moltiplicato per ore che è stata eseguita la macchina virtuale |
 | |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |Ore di dimensioni di macchina virtuale |Ore di VM |Acquisisce una macchina virtuale di Base sia di Windows. Non viene regolato per core |
 | **Insieme di credenziali di chiave** |EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Transazioni di insieme di credenziali chiave | Numero di richieste in 10, 000's| Numero di richieste di API REST ricevute dal piano dati insieme di credenziali chiave |
 | **Servizio App** |190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  | Servizio app   | Ore core virtuale  | Numero di core virtuale utilizzato per eseguire il servizio app |

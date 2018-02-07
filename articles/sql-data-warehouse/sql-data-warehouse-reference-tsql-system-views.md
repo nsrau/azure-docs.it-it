@@ -3,7 +3,7 @@ title: Viste di sistema di SQL Data Warehouse | Documentazione Microsoft
 description: Collegamenti al contenuto relativo alle viste di sistema per SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: kevinvngo
+author: barbkess
 manager: jhubbard
 editor: 
 ms.assetid: 21ec594b-d270-4202-a8cd-bb150e5ae12c
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 07/12/2017
-ms.author: kevin;barbkess
-ms.openlocfilehash: a9327388f8789e548610a7d4f140c492afd88fef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/22/2018
+ms.author: barbkess
+ms.openlocfilehash: 9c686c9cd4f9baf4f2c13194e58aadc9ebec0a24
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="system-views"></a>Viste di sistema
 ## <a name="sql-data-warehouse-catalog-views"></a>Viste del catalogo di SQL Data Warehouse
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 * [sys.dm_pdw_sql_requests](http://msdn.microsoft.com/library/mt203889.aspx)
 * [sys.dm_pdw_sys_info](http://msdn.microsoft.com/library/mt203900.aspx)
 * [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
-* [sys.dm_pdw_waits](http://msdn.microsoft.com/library/mt203909.aspx)
+* [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 
 ## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>Viste a gestione dinamica (DMV) di SQL Server applicabili a SQL Data Warehouse
 Le DMV seguenti sono applicabili a SQL Data Warehouse, ma devono essere eseguite tramite la connessione al database **master** .
@@ -137,16 +137,14 @@ Le DMV seguenti sono applicabili a SQL Data Warehouse, ma devono essere eseguite
 ## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>Viste a gestione dinamica (DMV) di SQL Server disponibili in SQL Data Warehouse
 SQL Data Warehouse espone molte delle viste a gestione dinamica (DMV) di SQL Server. Queste viste, se sottoposte a query in SQL Data Warehouse, segnalano lo stato dei database SQL in esecuzione nelle distribuzioni.
 
-Poiché SQL Data Warehouse si basa sulla tecnologia MPP di Microsoft, sia SQL Data Warehouse che Parallel Data Warehouse (PDW) del sistema di piattaforma di analisi usano le stesse viste di sistema.
-
-Ecco perché ognuna di queste viste a gestione dinamica dispone di una colonna specifica denominata pdw_node_id. Questo è l'identificatore per il nodo di calcolo. In PDW il nodo di calcolo è un concetto più avanzato per l'architettura. In SQL Data Warehouse l'architettura si basa maggiormente sulle distribuzioni.
+SQL Data Warehouse e Parallel Data Warehouse (PDW) della piattaforma di strumenti analitici usano le stesse viste di sistema. Ogni DMV ha una colonna denominata pdw_node_id, che è l'identificatore del nodo di calcolo. 
 
 > [!NOTE]
-> Per usare queste viste, inserire 'pdw_nodes_' nel nome, come mostrato nella tabella seguente.
+> Per usare queste viste, inserire 'pdw_nodes_' nel nome, come mostrato nella tabella seguente:
 > 
 > 
 
-| Nome DMV in SQL Data Warehouse | Collegamento all'argomento Transact-SQL di SQL Server su MSDN |
+| Nome DMV in SQL Data Warehouse | Articolo Transact-SQL di SQL Server|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 

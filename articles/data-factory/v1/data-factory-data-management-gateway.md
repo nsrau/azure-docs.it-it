@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: af05f407661c2606719e733e373d0dad7bff3230
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
-ms.translationtype: MT
+ms.openlocfilehash: 0735dd186e53a72c29040fcde51ceb70024784e4
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="data-management-gateway"></a>Gateway di gestione dati
 > [!NOTE]
@@ -68,7 +68,7 @@ Di seguito sono riportati un flusso di dati generale e un riepilogo dei passaggi
 * È necessario **usare il gateway** anche se l'archivio dati è nel cloud in una **VM IaaS di Azure**.
 
 ## <a name="installation"></a>Installazione
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 * Sono supportati i **sistemi operativi** Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2. L'installazione del gateway di gestione dati nel controller di dominio al momento non è supportata.
 * È necessario .NET Framework 4.5.1 o versioni successive. Se si installa il gateway in un computer Windows 7, installare .NET Framework 4.5 o versioni successive. Per informazioni dettagliate, vedere [Requisiti di sistema di .NET Framework](https://msdn.microsoft.com/library/8z6watww.aspx) .
 * La **configurazione** consigliata per il computer gateway è di almeno 2 GHz, 4 core, 8 GB di RAM e un disco da 80 GB.
@@ -323,8 +323,8 @@ Nella pagina Impostazioni è possibile eseguire queste operazioni:
 * **Stato** dell'endpoint
 * La visualizzazione del **certificato SSL** viene usata per la comunicazione SSL tra il gateway e il portale per impostare le credenziali per le origini dati.  
 
-### <a name="remote-access-from-intranet"></a>Accesso remoto dalla rete intranet  
-Questa funzionalità verrà abilitata in futuro. Negli aggiornamenti futuri (v3.4 o versione successiva) è consentirà di abilitare o disabilitare qualsiasi connessione remota che oggi avviene utilizzando la porta 8050 (vedere la sezione precedente) durante l'utilizzo di PowerShell o Gestione credenziali dell'applicazione per la crittografia delle credenziali. 
+### <a name="remote-access-from-intranet"></a>Accesso remoto da Intranet  
+Questa funzionalità verrà abilitata in futuro. Negli aggiornamenti futuri (versione 3.4 o successiva) sarà possibile abilitare o disabilitare qualsiasi connettività remota che attualmente usa la porta 8050 (vedere la sezione precedente) durante l'uso di PowerShell o dell'applicazione Gestione credenziali per la crittografia delle credenziali. 
 
 ### <a name="diagnostics-page"></a>Pagina diagnostica
 La pagina diagnostica consente di eseguire queste operazioni:

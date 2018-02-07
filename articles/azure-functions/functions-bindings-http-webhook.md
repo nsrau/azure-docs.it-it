@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: 080712e0a6c05348e7163f3c8e2055e6ff2806b2
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: fe0958b8a548e72df17f257e5700c28d3ebae79c
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Associazioni HTTP e webhook in Funzioni di Azure
 
@@ -42,13 +42,13 @@ Per impostazione predefinita, un trigger HTTP risponde alla richiesta con un cod
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C#](#trigger---c-example)
-* [Script c# (con estensione csx)](#trigger---c-script-example)
+* [Script C# (file con estensione csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Trigger - esempio in C#
 
-Nell'esempio seguente un [funzione c#](functions-dotnet-class-library.md) che cerca un `name` parametro nella stringa di query o il corpo della richiesta HTTP.
+L'esempio seguente mostra una [funzione in C#](functions-dotnet-class-library.md) che cerca un parametro `name` nella stringa di query o nel corpo della richiesta HTTP.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -236,13 +236,13 @@ module.exports = function(context, req) {
 Vedere l'esempio specifico per ciascun linguaggio:
 
 * [C#](#webhook---c-example)
-* [Script c# (con estensione csx)](#webhook---c-script-example)
+* [Script C# (file con estensione csx)](#webhook---c-script-example)
 * [F#](#webhook---f-example)
 * [JavaScript](#webhook---javascript-example)
 
 ### <a name="webhook---c-example"></a>Webhook - esempio C#
 
-Nell'esempio seguente un [funzione c#](functions-dotnet-class-library.md) che invia un HTTP 200 in risposta a una richiesta JSON generica.
+L'esempio seguente mostra una [funzione in C#](functions-dotnet-class-library.md) che invia un codice di stato HTTP 200 in risposta a una richiesta JSON generica.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -364,7 +364,7 @@ module.exports = function (context, data) {
 
 ## <a name="trigger---attributes"></a>Trigger - attributi
 
-In [librerie di classi c#](functions-dotnet-class-library.md), utilizzare il [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) attributo, definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
+Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs), definito nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http).
 
 È possibile impostare il livello di autorizzazione e i metodi HTTP consentiti nei parametri di costruttore dell'attributo. Sono disponibili proprietà per il modello di route e il tipo di webhook. Per altre informazioni su queste impostazioni, vedere [Trigger - configurazione](#trigger---configuration). Di seguito è mostrato un attributo `HttpTrigger` in una firma del metodo:
 
@@ -377,7 +377,7 @@ public static HttpResponseMessage Run(
 }
  ```
 
-Per un esempio completo, vedere [Trigger - esempio c#](#trigger---c-example).
+Per un esempio completo, vedere [Trigger - esempio in C#](#trigger---c-example).
 
 ## <a name="trigger---configuration"></a>Trigger - configurazione
 
@@ -528,6 +528,10 @@ L'autorizzazione webhook viene gestita dal componente ricevitore dei webhook, ch
 - **Stringa di query**: il provider passa il nome della chiave nel parametro della stringa di query `clientid`, ad esempio `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
 - **Intestazione della richiesta**: il provider passa il nome della chiave nell'intestazione `x-functions-clientid`.
 
+## <a name="trigger---limits"></a>Trigger - Limiti
+
+La lunghezza della richiesta HTTP è limitata a 100 KB (102.400 byte) e la lunghezza dell'URL è limitata a 4 KB (4.096 byte). Questi limiti vengono specificati dall'elemento `httpRuntime` del [file web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) del runtime.
+
 ## <a name="trigger---hostjson-properties"></a>Trigger - proprietà di host.json
 
 Il file [host.json](functions-host-json.md) contiene le impostazioni che controllano il comportamento del trigger HTTP.
@@ -540,7 +544,7 @@ Usare l'associazione di output HTTP per rispondere al mittente della richiesta H
 
 ## <a name="output---configuration"></a>Output - configurazione
 
-C# delle librerie di classe, non sono disponibili proprietà di configurazione di associazione output specifici. Per inviare una risposta HTTP, impostare il tipo restituito della funzione su `HttpResponseMessage` o `Task<HttpResponseMessage>`.
+Per le librerie di classi C# non esistono proprietà di configurazione di binding specifiche dell'output. Per inviare una risposta HTTP, impostare il tipo restituito della funzione su `HttpResponseMessage` o `Task<HttpResponseMessage>`.
 
 Per gli altri linguaggi un binding di output HTTP è definito come un oggetto JSON nella matrice `bindings` di function.json, come illustrato nell'esempio seguente:
 

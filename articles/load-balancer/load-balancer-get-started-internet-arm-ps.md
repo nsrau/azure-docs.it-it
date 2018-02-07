@@ -1,6 +1,6 @@
 ---
-title: Creare un servizio di bilanciamento del carico con connessione Internet di Azure - PowerShell | Documentazione Microsoft
-description: Informazioni sulla creazione di un servizio di bilanciamento del carico Internet in Resource Manager con PowerShell
+title: Creare un servizio di bilanciamento del carico pubblico - PowerShell | Microsoft Docs
+description: Informazioni su come creare un servizio di bilanciamento del carico pubblico in Resource Manager con PowerShell
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d11ad8ff7f3d3357d1af276a9643b7a74e6c3f6d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 15e1c868a72a61d9721b96032d304fdec6d6e213
+ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/23/2018
 ---
-# <a name="get-started"></a>Creazione di un servizio di bilanciamento del carico per Internet in Resource Manager con PowerShell
+# <a name="get-started"></a>Creazione di un servizio di bilanciamento del carico pubblico in Resource Manager con PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portale](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -36,9 +36,9 @@ ms.lasthandoff: 12/18/2017
 
 ## <a name="deploying-the-solution-by-using-azure-powershell"></a>Distribuzione della soluzione mediante Azure PowerShell
 
-Le procedure seguenti illustrano come creare un servizio di bilanciamento del carico con connessione Internet usando Azure Resource Manager con PowerShell. Con Azure Resource Manager, ogni risorsa viene creata e configurata singolarmente e poi integrata per creare una servizio di bilanciamento del carico.
+Le procedure seguenti illustrano come creare un servizio di bilanciamento del carico pubblico usando Azure Resource Manager con PowerShell. Con Azure Resource Manager, ogni risorsa viene creata e configurata singolarmente e poi integrata per creare una servizio di bilanciamento del carico.
 
-Per distribuire un servizio di bilanciamento del carico è necessario creare e configurare gli oggetti seguenti:
+Creare e configurare gli oggetti seguenti per distribuire un servizio di bilanciamento del carico:
 
 * Configurazione IP front-end: contiene gli indirizzi IP pubblici (PIP) per il traffico di rete in ingresso.
 * Pool di indirizzi back-end: contiene le interfacce di rete (NIC) per consentire alle macchine virtuali di ricevere il traffico di rete dal servizio di bilanciamento del carico.
@@ -66,7 +66,7 @@ Assicurarsi di avere la versione di produzione più recente del modulo Azure Res
     Get-AzureRmSubscription
     ```
 
-3. Scegliere le sottoscrizioni ad Azure da usare.
+3. Scegliere quali sottoscrizioni Azure usare.
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'

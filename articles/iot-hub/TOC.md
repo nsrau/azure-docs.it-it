@@ -3,7 +3,7 @@
 ## [Che cos'è l'hub IoT di Azure?](iot-hub-what-is-iot-hub.md)
 ## [Panoramica della gestione dei dispositivi](iot-hub-device-management-overview.md)
 
-# [Introduzione](iot-hub-get-started.md)
+# [Attività iniziali](iot-hub-get-started.md)
 
 ## Configurare il dispositivo
 ### [Simulare un dispositivo sul PC](iot-hub-get-started-simulated.md)
@@ -40,10 +40,11 @@
 
 # Guide alle procedure
 ## Pianificazione
-### [Confronto tra hub IoT e Hub eventi](iot-hub-compare-event-hubs.md)
+### [Confrontare l'hub IoT e Hub eventi](iot-hub-compare-event-hubs.md)
 ### [Ridimensionare una soluzione](iot-hub-scaling.md)
 ### [Disponibilità elevata e ripristino di emergenza](iot-hub-ha-dr.md)
 ### [Supporto di protocolli aggiuntivi](iot-hub-protocol-gateway.md)
+### [Confrontare il routing di messaggi e il routing di eventi](iot-hub-event-grid-routing-comparison.md)
 ## [Sviluppo](iot-hub-how-to.md)
 ### [Guida per sviluppatori](iot-hub-devguide.md)
 #### [Device-to-cloud feature guide](iot-hub-devguide-d2c-guidance.md)
@@ -51,6 +52,7 @@
 #### [Inviare e ricevere messaggi](iot-hub-devguide-messaging.md)
 ##### [Inviare messaggi da dispositivo a cloud all'hub IoT](iot-hub-devguide-messages-d2c.md)
 ##### [Leggere messaggi da dispositivo a cloud dall'endpoint predefinito](iot-hub-devguide-messages-read-builtin.md)
+##### [Reagire agli eventi dell'hub IoT](iot-hub-event-grid.md)
 ##### [Usare endpoint personalizzati e regole di routing per i messaggi da dispositivo a cloud](iot-hub-devguide-messages-read-custom.md)
 ##### [Inviare messaggi da cloud a dispositivo dall'hub IoT](iot-hub-devguide-messages-c2d.md)
 ##### [Creare e leggere messaggi dell'hub IoT](iot-hub-devguide-messages-construct.md)
@@ -79,7 +81,7 @@
 ### Inviare messaggi da cloud a dispositivo
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
-#### [Node.js](iot-hub-node-node-c2d.md)
+#### [Node.JS](iot-hub-node-node-c2d.md)
 #### [Python](iot-hub-python-python-c2d.md)
 ### Caricare file da dispositivi
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
@@ -148,7 +150,7 @@
 #### [Introduzione alla sicurezza con certificati X.509 dell'autorità di certificazione](iot-hub-security-x509-get-started.md)
 ##### [Creare certificati - PowerShell](iot-hub-security-x509-create-certificates.md)
 
-# Riferimenti
+# riferimento
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/iot)
 ## [.NET (servizio)](/dotnet/api/microsoft.azure.devices)

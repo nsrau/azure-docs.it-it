@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/26/2016
 ms.author: magoedte
-ms.openlocfilehash: afe7043e31c05444dded089dc02689a3b0c94659
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 86d62ba7fb12b09a2c19b4689af38bb8c121880b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Gestione degli errori nei runbook grafici di Automazione di Azure
 
@@ -40,7 +40,7 @@ I runbook grafici di Automazione di Azure sono stati migliorati con la capacità
 
 Se si verifica un'attività critica che genera un'errore o un'eccezione, è importante evitare l'elaborazione dell'attività successiva del runbook e gestire l'errore in modo appropriato. Questo è essenziale soprattutto quando i runbook supportano un processo correlato alle operazioni aziendali o di servizio.
 
-Per ogni attività che può generare un errore, l'autore del runbook può aggiungere un collegamento di errore che punta a qualsiasi altra attività.  L'attività di destinazione può essere di qualsiasi tipo, incluse attività di codice, chiamata di un cmdlet, chiamata di un altro runbook e così via.
+Per ogni attività che può generare un errore, l'autore del runbook può aggiungere un collegamento di errore che punta a qualsiasi altra attività. L'attività di destinazione può essere di qualsiasi tipo, incluse attività di codice, chiamata di un cmdlet, chiamata di un altro runbook e così via.
 
 L'attività di destinazione può avere anche collegamenti in uscita, che possono essere collegamenti normali o collegamenti di errore. Ciò significa che l'autore del runbook può implementare logica complessa per la gestione degli errori senza dovere usare alcuna attività di codice. La procedura consigliata comporta la creazione di un runbook dedicato per la gestione degli errori con funzionalità comuni, ma questa operazione non è obbligatoria. La logica di gestione degli errori in un'attività di codice di PowerShell non è l'unica opzione.  
 
@@ -63,7 +63,7 @@ Dopo aver configurato tale impostazione, si creano le attività che gestiscono l
 
 Nell'esempio seguente un runbook recupera una variabile che include il nome del computer di una macchina virtuale, quindi prova ad avviare la macchina virtuale con l'attività successiva.<br><br> ![Esempio di gestione degli errori in un runbook di Automazione](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-Le attività **Get-AutomationVariable** e **Start-AzureRmVm** sono configurate per convertire le eccezioni in errori.  Se si verificano problemi nel recupero della variabile o nell'avvio della VM, vengono generati errori.<br><br> ![Impostazioni delle attività di gestione degli errori in un runbook di Automazione](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
+Le attività **Get-AutomationVariable** e **Start-AzureRmVm** sono configurate per convertire le eccezioni in errori. Se si verificano problemi nel recupero della variabile o nell'avvio della VM, vengono generati errori.<br><br> ![Impostazioni delle attività di gestione degli errori in un runbook di Automazione](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)
 
 I collegamenti di errore passano da queste attività a una singola attività di **gestione degli errori** (attività di codice). Questa attività viene configurata con una semplice espressione di PowerShell che usa la parola chiave *Throw* per arrestare l'elaborazione, insieme a *$Error.Exception.Message* per ottenere il messaggio che illustra l'eccezione corrente.<br><br> ![Esempio di codice di gestione degli errori in un runbook di Automazione](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 

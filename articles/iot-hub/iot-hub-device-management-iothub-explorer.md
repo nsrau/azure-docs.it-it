@@ -1,6 +1,6 @@
 ---
 title: Gestione dei dispositivi Azure IoT con iothub-explorer | Microsoft Docs
-description: "Usare lo strumento dell'interfaccia della riga di comando iothub-explorer per la gestione di dispositivi dell'hub IoT di Azure, con i metodi diretti e le opzioni di gestione delle proprietà desiderate nei dispositivi gemelli."
+description: "Usare lo strumento dell'interfaccia della riga di comando iothub-explorer per la gestione dei dispositivi dell'hub IoT di Azure, con opzioni di gestione come i metodi diretti e le proprietà desiderate in dispositivi gemelli."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: xshi
-ms.openlocfilehash: 5b7a5057bdfb5920fbb5759bed1f5561cfa1d7e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02d3241ae4ae515a8c2deaa14f50b5b7dbd4766f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Usare iothub-explorer per la gestione di dispositivi hub IoT di Azure
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 [iothub-explorer](https://github.com/azure/iothub-explorer) è uno strumento dell'interfaccia della riga di comando eseguito in un computer host che consente di gestire le identità dei dispositivi nel registro dell'hub IoT. Include opzioni di gestione che consentono di eseguire varie attività.
 
 | Opzione di gestione          | Attività                                                                                                                            |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+|----------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Metodi diretti             | Far eseguire un'attività al dispositivo, quale l'avvio o l'arresto dell'invio di messaggi o il riavvio del dispositivo.                                        |
 | Proprietà desiderate del dispositivo gemello    | Impostare determinati stati di un dispositivo, ad esempio impostare la luce verde per un LED o impostare l'intervallo di invio dei dati di telemetria su 30 minuti.         |
 | Proprietà segnalate del dispositivo gemello   | Ottenere lo stato restituito da un dispositivo. Ad esempio, il dispositivo segnala che il LED sta lampeggiando.                                    |
@@ -54,9 +54,9 @@ Eseguire iothub-explorer con diverse opzioni di gestione.
 ## <a name="what-you-need"></a>Elementi necessari
 
 - Completare l'esercitazione [Configurare il dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) che prevede i requisiti seguenti:
-  - Una sottoscrizione di Azure attiva.
-  - Un hub IoT di Azure nella sottoscrizione.
-  - Un'applicazione client che invia messaggi all'hub IoT di Azure.
+- Una sottoscrizione di Azure attiva.
+- Un hub IoT di Azure nella sottoscrizione.
+- Un'applicazione client che invia messaggi ad Azure IoT hub.
 - Verificare che il dispositivo sia in esecuzione con l'applicazione client durante questa esercitazione.
 - iothub-explorer, [Installare iothub-explorer](https://github.com/azure/iothub-explorer) sul computer di sviluppo.
 
@@ -82,7 +82,7 @@ Chiamare il metodo `stop` nell'app per dispositivi per interrompere l'invio di m
 iothub-explorer device-method <your device Id> stop
 ```
 
-## <a name="use-iothub-explorer-with-twins-desired-properties"></a>Usare iothub-explorer con le proprietà desiderate del dispositivo gemello
+## <a name="use-iothub-explorer-with-twins-desired-properties"></a>Usare iothub-explorer con le proprietà desiderate in dispositivi gemelli
 
 Impostare l'intervallo di proprietà desiderato su 3000 eseguendo il comando seguente:
 
@@ -92,7 +92,7 @@ iothub-explorer update-twin <your device id> {\"properties\":{\"desired\":{\"int
 
 Questa proprietà può essere letta dal dispositivo.
 
-## <a name="use-iothub-explorer-with-twins-reported-properties"></a>Usare iothub-explorer con le proprietà segnalate del dispositivo gemello
+## <a name="use-iothub-explorer-with-twins-reported-properties"></a>Usare iothub-explorer con le proprietà segnalate in dispositivi gemelli
 
 Ottenere le proprietà segnalate del dispositivo eseguendo il comando seguente:
 
@@ -114,7 +114,6 @@ Aggiungere il campo role = temperature&humidity al dispositivo eseguendo il coma
 
 ```bash
 iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&humidity\"}}"
-
 ```
 
 ## <a name="use-iothub-explorer-with-cloud-to-device-messages"></a>Usare iothub-explorer con i messaggi da cloud a dispositivo

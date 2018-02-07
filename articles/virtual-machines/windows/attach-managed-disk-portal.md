@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 1c57ea841080fd87c7014e4e4520f17ccf15b156
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 603d1c423ff2039915bdd3d5ed4a79b78d491edc
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Collegare un disco dati gestito a una macchina virtuale Windows nel portale di Azure
 
-Questo articolo illustra come collegare dischi gestiti nuovi a una macchina virtuale Windows tramite il portale di Azure. Prima di procedere, rivedere i suggerimenti seguenti:
+Questo articolo illustra come collegare dischi gestiti nuovi a una macchina virtuale Windows nel portale di Azure. Prima di procedere, rivedere i suggerimenti seguenti:
 
 * La dimensione della macchina virtuale controlla il numero di dischi dati che è possibile collegare. Per informazioni dettagliate, vedere [Dimensioni delle macchine virtuali](sizes.md).
 * Per un nuovo disco, non è necessario crearlo prima perché Azure lo crea quando lo si collega.
@@ -35,21 +35,21 @@ Questo articolo illustra come collegare dischi gestiti nuovi a una macchina virt
 ## <a name="add-a-data-disk"></a>Aggiungere un disco dati
 1. Nel menu a sinistra fare clic su **Macchine virtuali**.
 2. Selezionare la macchina virtuale dall'elenco.
-3. Nella pagina della macchina virtuale, fare clic su **dischi**.
-4. Nel **dischi** pagina, fare clic su **+ Aggiungi disco di dati**.
-5. Nell'elenco a discesa per il nuovo disco, selezionare **Crea disco**.
-6. Nel **disco gestito crea** pagina, digitare un nome per il disco e regolare le altre impostazioni in base alle esigenze. Al termine dell'operazione fare clic su **Crea**.
-7. Nel **dischi** pagina, fare clic su **salvare** per salvare la nuova configurazione del disco per la macchina virtuale.
-6. Dopo che Azure crea il disco e la collega alla macchina virtuale, il nuovo disco è elencato nelle impostazioni del disco della macchina virtuale in **dischi dati**.
+3. Nella pagina Macchine virtuali fare clic su **Dischi**.
+4. Nella pagina **Dischi** fare clic su **+ Aggiungi disco dati**.
+5. Nell'elenco a discesa per il nuovo disco selezionare **Crea disco**.
+6. Nella pagina **Crea disco gestito** digitare un nome del disco e regolare le altre impostazioni in base alle esigenze. Al termine dell'operazione fare clic su **Crea**.
+7. Nella pagina **Dischi** fare clic **Salva** per salvare la configurazione del nuovo disco della macchina virtuale.
+6. Dopo che Azure crea il disco e lo collega alla macchina virtuale, il nuovo disco viene elencato nella sezione Impostazioni disco della macchina virtuale in **Dischi dati**.
 
 
 ## <a name="initialize-a-new-data-disk"></a>Inizializzare un nuovo disco dati
 
 1. Connettersi alla macchina virtuale.
 1. Fare clic sul menu Start della macchina virtuale, digitare **diskmgmt.msc** e premere **Invio**. Viene aperto lo snap-in Gestione disco.
-2. Gestione disco riconosce che si dispone di un disco non inizializzato e **Inizializza disco** finestra popup.
+2. Gestione disco rileva la disponibilità di un nuovo disco non inizializzato; viene visualizzata la finestra **Inizializza disco**.
 3. Assicurarsi di selezionare il nuovo disco e fare clic su **OK** per l'inizializzazione.
-4. Il nuovo disco verrà visualizzato come **non allocato**. Fare clic sul disco e scegliere **Nuovo volume semplice...**. Il **semplice creazione guidata nuovo Volume** apre.
+4. Il nuovo disco verrà visualizzato come **Non allocato**. Fare clic sul disco e scegliere **Nuovo volume semplice...**. Si avvia così la **Creazione guidata nuovo volume semplice**.
 5. Esaminare la procedura guidata mantenendo tutti i valori predefiniti e al termine scegliere **Fine**.
 6. Chiudere Gestione disco.
 7. Verrà visualizzata una finestra popup che indica la necessità di formattare il nuovo disco prima di poterlo usare. Fare clic su **Formatta disco**.

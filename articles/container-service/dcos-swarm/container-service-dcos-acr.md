@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 4a3213c28f24e9d1dfc309c6d34771ccc062dae4
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 90d449de19022b3b427e3d89d5beb18bbd36c6b4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Usare Registro contenitori di Azure (ACR) con un cluster DC/OS per distribuire l'applicazione
 
@@ -33,7 +33,7 @@ Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4
 
 ## <a name="deploy-azure-container-registry"></a>Distribuire il Registro contenitori di Azure
 
-Se necessario, creare un Registro contenitori di Azure con il comando [az acr create](/cli/azure/acr#create). 
+Se necessario, creare un Registro contenitori di Azure con il comando [az acr create](/cli/azure/acr#az_acr_create). 
 
 Nell'esempio seguente viene creato un registro con un nome generato in modo casuale. Il registro viene anche configurato con un account amministratore tramite l'argomento `--admin-enabled`.
 

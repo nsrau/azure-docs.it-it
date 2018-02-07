@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 01/23/2018
 ms.author: adegeo
-ms.openlocfilehash: c63a49c65f2d8261caa534308477888c752a89da
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 3ffbdb121aa558d69547db294cad83b5d11e3f56
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Presentazione del monitoraggio del servizio cloud
 
@@ -39,7 +39,7 @@ Il monitoraggio di base non richiede un account di archiviazione.
 
 ## <a name="advanced-monitoring"></a>Monitoraggio avanzato
 
-Il monitoraggio avanzato comporta l'uso dell'estensione Diagnostica di Azure (e facoltativamente di Application Insights SDK) sul ruolo che si vuole monitorare. L'estensione di diagnostica usa un file di configurazione (per ruolo) denominato **diagnostics.wadcfgx** per configurare le metriche di diagnostica monitorate. I dati raccolti dall'estensione Diagnostica di Azure vengono archiviati in un account di Archiviazione di Azure, configurato nei file con estensione **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) e [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg). Il monitoraggio avanzato comporta perciò un costo aggiuntivo.
+Il monitoraggio avanzato comporta l'uso dell'estensione **Diagnostica di Azure** (e facoltativamente di Application Insights SDK) sul ruolo che si vuole monitorare. L'estensione di diagnostica usa un file di configurazione (per ruolo) denominato **diagnostics.wadcfgx** per configurare le metriche di diagnostica monitorate. I dati raccolti dall'estensione Diagnostica di Azure vengono archiviati in un account di Archiviazione di Azure, configurato nei file con estensione **.wadcfgx**, [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) e [.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg). Il monitoraggio avanzato comporta perciò un costo aggiuntivo.
 
 In fase di creazione, Visual Studio aggiunge a ogni ruolo l'estensione Diagnostica di Azure. Questa estensione può raccogliere i tipi di informazioni seguenti:
 
@@ -52,22 +52,24 @@ In fase di creazione, Visual Studio aggiunge a ogni ruolo l'estensione Diagnosti
 * Dump di arresto anomalo del sistema
 * Log degli errori dei clienti
 
-Tutti questi dati vengono aggregati nell'account di archiviazione, ma il portale non fornisce un modo nativo per rappresentarli graficamente. È possibile usare un altro servizio, ad esempio Application Insights, per correlare e visualizzare i dati.
+> [!IMPORTANT]
+> Tutti questi dati vengono aggregati nell'account di archiviazione, ma il portale **non** fornisce un modo nativo per rappresentarli graficamente. È consigliabile integrare un altro servizio, come ad esempio Application Insights, nell'applicazione.
 
 ### <a name="use-application-insights"></a>Usare Application Insights
 
-Quando si pubblica il servizio cloud da Visual Studio, si può scegliere di inviare i dati di diagnostica ad Application Insights. È possibile creare la risorsa Application Insights in quel momento o inviare i dati a una risorsa esistente. Il servizio cloud può essere monitorato da Application Insights in termini di disponibilità, prestazioni, errori e utilizzo. È possibile aggiungere grafici personalizzati ad Application Insights che mostrino i dati più importanti. I dati delle istanze dei ruoli possono essere raccolti con Application Insights SDK nel progetto del servizio cloud. Per altre informazioni su come integrare Application Insights, vedere [Application Insights per Servizi cloud di Azure](../application-insights/app-insights-cloudservices.md).
+Quando si pubblica il servizio cloud da Visual Studio, si può scegliere di inviare i dati di diagnostica ad Application Insights. È possibile creare la risorsa Azure Application Insights in quel momento o inviare i dati a una risorsa Azure esistente. Il servizio cloud può essere monitorato da Application Insights in termini di disponibilità, prestazioni, errori e utilizzo. È possibile aggiungere grafici personalizzati ad Application Insights che mostrino i dati più importanti. I dati delle istanze dei ruoli possono essere raccolti con Application Insights SDK nel progetto del servizio cloud. Per altre informazioni su come integrare Application Insights, vedere [Application Insights per Servizi cloud di Azure](../application-insights/app-insights-cloudservices.md).
 
 Si noti che sebbene sia possibile usare Application Insights per visualizzare i contatori delle prestazioni (e le altre impostazioni) specificati tramite l'estensione Diagnostica di Azure, per ottenere un'esperienza più completa è necessario integrare Application Insights SDK nei ruoli di lavoro e Web.
 
-
-## <a name="add-advanced-monitoring"></a>Aggiungere il monitoraggio avanzato
+## <a name="setup-diagnostics-extension"></a>Configurare l'estensione di Diagnostica
 
 In primo luogo, se non si ha già un account di archiviazione **classico**, [crearne uno](../storage/common/storage-create-storage-account.md#create-a-storage-account). Verificare che l'account di archiviazione sia creato con il **modello di distribuzione classica** specificato.
 
 Quindi passare alla risorsa **Account di archiviazione (classico)**. Selezionare **Impostazioni** > **Chiavi di accesso** e copiare il valore **Stringa di connessione primaria**. Questo valore è necessario per il servizio cloud. 
 
-Ci sono due file di configurazione che è necessario modificare per poter abilitare la diagnostica avanzata: **ServiceDefinition.csdef** e **ServiceConfiguration.cscfg**. Molto probabilmente si avranno due file con estensione **.cscfg**, uno denominato **ServiceConfiguration.cloud.cscfg** per la distribuzione in Azure e uno denominato **ServiceConfiguration.local.cscfg** usato per le distribuzioni di debug locali. Modificare entrambi.
+Ci sono due file di configurazione che è necessario modificare per poter abilitare la diagnostica avanzata: **ServiceDefinition.csdef** e **ServiceConfiguration.cscfg**.
+
+### <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
 
 Nel file **ServiceDefinition.csdef** aggiungere una nuova impostazione denominata `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` per ogni ruolo che usa la diagnostica avanzata. Visual Studio aggiunge questo valore al file quando viene creato un nuovo progetto. Se manca, è possibile aggiungerlo adesso. 
 
@@ -78,7 +80,9 @@ Nel file **ServiceDefinition.csdef** aggiungere una nuova impostazione denominat
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
 
-Questo definisce una nuova impostazione che deve essere aggiunta a ogni file **ServiceConfiguration.cscfg**. Aprire e modificare ogni file con estensione **.cscfg**. Aggiungere un'impostazione denominata `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Impostare il valore sulla **Stringa di connessione primaria** dell'account di archiviazione classico o su `UseDevelopmentStorage=true`, se si vuole usare l'archiviazione locale nel computer di sviluppo.
+Questo definisce una nuova impostazione che deve essere aggiunta a ogni file **ServiceConfiguration.cscfg**. 
+
+Molto probabilmente si avranno due file con estensione **.cscfg**, uno denominato **ServiceConfiguration.cloud.cscfg** per la distribuzione in Azure e uno denominato **ServiceConfiguration.local.cscfg** usato per le distribuzioni locali nell'ambiente emulato. Aprire e modificare ogni file con estensione **.cscfg**. Aggiungere un'impostazione denominata `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Impostare il valore sulla **Stringa di connessione primaria** dell'account di archiviazione classico. Se si vuole usare l'archiviazione locale nel computer di sviluppo, usare `UseDevelopmentStorage=true`.
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
@@ -86,10 +90,10 @@ Questo definisce una nuova impostazione che deve essere aggiunta a ogni file **S
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mystorage;AccountKey=KWwkdfmskOIS240jnBOeeXVGHT9QgKS4kIQ3wWVKzOYkfjdsjfkjdsaf+sddfwwfw+sdffsdafda/w==" />
-
-<!-- or use the local development machine for storage
+      
+      <!-- or use the local development machine for storage
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
--->
+      -->
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

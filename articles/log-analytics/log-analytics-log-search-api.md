@@ -1,6 +1,6 @@
 ---
-title: API REST di ricerca nei log di Log Analytics | Documentazione Microsoft
-description: Questa guida contiene un'esercitazione di base che descrive come usare l'API REST di ricerca di Log Analytics in Operations Management Suite (OMS) e offre esempi che indicano come usare i comandi.
+title: API REST di ricerca log di Azure Log Analytics | Microsoft Docs
+description: Questa guida contiene un'esercitazione di base che descrive come usare l'API REST di ricerca di Azure Log Analytics con esempi che indicano come usare i comandi.
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,27 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 5b51c6fcc69c8dff6579a1a1221e88822eccc1a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46c88f7cc250d4c35043039a6f0440aaac85b1c2
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-log-search-rest-api"></a>API REST di Log Analytics per la ricerca nei log
-Questa guida fornisce un'esercitazione di base, inclusi alcuni esempi, per l'uso dell'API REST di Log Analytics per la ricerca. Log Analytics fa parte di Operations Management Suite (OMS).
 
-> [!NOTE]
-> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), è consigliabile vedere la [documentazione relativa per la nuova versione dell'API di ricerca log](https://dev.loganalytics.io/).
+> [!IMPORTANT]
+> Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), è consigliabile vedere la [documentazione relativa per la nuova versione dell'API di ricerca log](https://dev.loganalytics.io/).  Questa API legacy può ancora funzionare correttamente con un'area di lavoro aggiornata, ma a breve sarà obsoleta.  Per usare la nuova API è necessario modificare le soluzioni esistenti.
 
-> [!NOTE]
-> In precedenza Log Analytics era chiamato Operational Insights e questo è il motivo per cui questo nome viene usato nel provider di risorse.
->
->
+Questa guida fornisce un'esercitazione di base, inclusi alcuni esempi, per l'uso dell'API REST di Log Analytics per la ricerca. 
+
 
 ## <a name="overview-of-the-log-search-rest-api"></a>Panoramica dell'API REST di ricerca di log
-L'API REST di ricerca di Log Analytics è RESTful e accessibile tramite l'API Azure Resource Manager. Questo articolo presenta alcuni esempi di accesso all'API tramite [ARMClient](https://github.com/projectkudu/ARMClient), uno strumento da riga di comando open source che semplifica la chiamata dell'API di Azure Resource Manager. L'uso di ARMClient è una delle numerose opzioni disponibili per accedere all'API di ricerca di Log Analytics. Un'altra possibilità è quella di usare il modulo Azure PowerShell per OperationalInsights che include cmdlet per l'accesso alla ricerca. Con questi strumenti è possibile usare l'API di Azure Resource Manager per effettuare chiamate alle aree di lavoro di OMS ed eseguire i comandi di ricerca al loro interno. L'API restituisce i risultati della ricerca in formato JSON, consentendo di usare i risultati della ricerca in molti modi diversi a livello di codice.
+L'API REST di ricerca di Log Analytics è RESTful e accessibile tramite l'API Azure Resource Manager. Questo articolo presenta alcuni esempi di accesso all'API tramite [ARMClient](https://github.com/projectkudu/ARMClient), uno strumento da riga di comando open source che semplifica la chiamata dell'API di Azure Resource Manager. L'uso di ARMClient è una delle numerose opzioni disponibili per accedere all'API di ricerca di Log Analytics. Un'altra possibilità è quella di usare il modulo Azure PowerShell per OperationalInsights che include cmdlet per l'accesso alla ricerca. Con questi strumenti è possibile usare l'API di Azure Resource Manager per effettuare chiamate alle aree di lavoro di Log Analytics ed eseguire i comandi di ricerca al loro interno. L'API restituisce i risultati della ricerca in formato JSON, consentendo di usare i risultati della ricerca in molti modi diversi a livello di codice.
 
 È possibile usare Azure Resource Manager tramite una [libreria per NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) e l'[API REST](https://msdn.microsoft.com/library/azure/mt163658.aspx). Per altre informazioni, vedere le pagine Web collegate.
 
@@ -221,7 +218,7 @@ Metodi di raccolta supportati: GET
 
 La tabella seguente descrive le proprietà disponibili.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | ID |Identificatore univoco. |
 | ETag |**Obbligatoria per l'applicazione di patch**. Aggiornata dal server a ogni scrittura. Il valore deve essere uguale al valore archiviato attuale o a "*" per effettuare l'aggiornamento. Viene restituito il codice 409 per i valori obsoleti/non validi. |

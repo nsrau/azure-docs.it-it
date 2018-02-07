@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: raynew
-ms.openlocfilehash: ceb4b13e326b24360799c1a7a25fe48f213fabd7
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1761da23c669d5370d12e5619e09b56c8b00c9a6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurare il ripristino di emergenza in Azure per server fisici locali
 
@@ -33,7 +33,7 @@ In questa esercitazione viene illustrato come configurare il ripristino di emerg
 > * Creare un criterio di replica
 > * Abilitare la replica per un server
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione:
 
@@ -64,7 +64,7 @@ Verificare che l'account di Azure disponga delle autorizzazioni per la replica d
 
 ### <a name="set-up-an-azure-network"></a>Configurare una rete di Azure
 
-Configurare una [rete di Azure](../virtual-network/virtual-network-get-started-vnet-subnet.md).
+Configurare una [rete di Azure](../virtual-network/quick-create-portal.md).
 
 - Le VM di Azure create dopo il failover verranno inserite in questa rete.
 - La rete deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.

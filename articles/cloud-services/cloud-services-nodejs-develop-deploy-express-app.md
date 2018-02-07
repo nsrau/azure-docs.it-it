@@ -1,4 +1,4 @@
----
+﻿---
 title: Compilare e distribuire un'app Node.js Express a servizi Cloud di Azure
 description: Compilare e distribuire un'applicazione di Express.js in Node.js servizi Cloud di Azure
 services: cloud-services
@@ -16,7 +16,7 @@ ms.date: 08/17/2017
 ms.author: cshoe
 ms.openlocfilehash: befca8d95880936e96d1b3618c172f87499627ed
 ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/07/2017
 ---

@@ -109,7 +109,7 @@
 #### [Configurare località denominate](active-directory-named-locations.md)
 #### [Trovare report sull'attività](active-directory-reporting-migration.md)
 #### [Usare il pacchetto di contenuto Power BI di Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)
-### Riferimenti
+### riferimento
 #### [Conservazione](active-directory-reporting-retention.md)
 #### [Latenze](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
@@ -176,6 +176,16 @@
 ##### [Aggiornare le impostazioni del Registro di sistema](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 ##### [Informazioni sulla sicurezza e sulla privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
+### [Provisioning e deprovisioning di utenti nelle app SaaS](active-directory-saas-app-provisioning.md)
+#### [Esercitazioni sull'integrazione di app](active-directory-saas-tutorial-list.md)
+#### [Automatizzare il provisioning nelle app abilitate per SCIM](active-directory-scim-provisioning.md)
+#### [Personalizzare i mapping degli attributi](active-directory-saas-customizing-attribute-mappings.md)
+#### [Scrivere espressioni per i mapping degli attributi](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+#### [Usare i filtri per la definizione dell'ambito](active-directory-saas-scoping-filters.md)
+#### [Creare report sul provisioning utenti automatico](active-directory-saas-provisioning-reporting.md)
+#### [Risolvere i problemi del provisioning utenti](active-directory-application-provisioning-content-map.md)
+
+
 
 ### [Accedere alle app in remoto con il proxy delle app](active-directory-application-proxy-get-started.md)
 #### Attività iniziali
@@ -219,7 +229,7 @@
 #### [Firma di certificati avanzata per app SAML](active-directory-enterprise-apps-advance-certificate-options.md)
 #### [Nascondere un'applicazione dall'esperienza di un utente](active-directory-coreapps-hide-third-party-app.md)
 ### [Configurare l'accelerazione automatica dell'accesso tramite i criteri HRD](active-directory-auto-acceleration-using-hrd.md)
-
+### [Eseguire la migrazione di app di AD FS in Azure AD](migrate-adfs-apps-to-azure.md)
 ### [Manage access to apps](active-directory-managing-access-to-apps.md) (Gestire l'accesso alle app)
 #### [Accesso SSO](active-directory-appssoaccess-whatis.md)
 #### [Certificati per SSO](active-directory-sso-certs.md)
@@ -264,7 +274,8 @@
 
 ## Delegare l'accesso alle risorse
 ### [Ruoli dell'amministratore](active-directory-assign-admin-roles-azure-portal.md)
-#### [Assign admin roles](active-directory-users-assign-role-azure-portal.md) (Assegnare ruoli amministrativi)
+#### [Assegnare un ruolo di amministratore a un utente](active-directory-users-assign-role-azure-portal.md)
+#### [Confrontare le autorizzazioni dei membri e degli utenti guest](users-default-permissions.md)
 ### [Unità amministrative](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md) (Configurare la durata dei token)
 ### [Gestire gli account amministrativi di accesso di emergenza](active-directory-admin-manage-emergency-access-accounts.md)
@@ -284,7 +295,7 @@
 ### [Accesso condizionale](active-directory-conditional-access-azure-portal.md)
 #### [Controlli](active-directory-conditional-access-controls.md)
 #### [Condizione relativa alla posizione](active-directory-conditional-access-locations.md)
-#### [Introduzione](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Attività iniziali](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Procedure consigliate](active-directory-conditional-access-best-practices.md)
 #### [Informazioni sui criteri relativi ai dispositivi per i servizi di Office 365](active-directory-conditional-access-device-policies.md)
 #### [Eseguire la migrazione di criteri classici](active-directory-conditional-access-migration.md)
@@ -306,7 +317,7 @@
 ### Autenticazione basata su certificati
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Introduzione](active-directory-certificate-based-authentication-get-started.md)
+#### [Attività iniziali](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Abilitazione](active-directory-identityprotection-enable.md)
@@ -321,8 +332,8 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
-## [Integrare altri servizi con Azure AD]()
-### [Abilitare l'integrazione di LinkedIn](linkedin-integration.md)
+## Integrare altri servizi con Azure AD
+### [Integrare LinkedIn con Azure AD](linkedin-integration.md)
 
 ## [Distribuire Active Directory Domain Services in macchine virtuali di Azure](virtual-networks-windows-server-active-directory-virtual-machines.md)
 ### [Windows Server Active Directory nelle VM di Azure](active-directory-deploying-ws-ad-guidelines.md)

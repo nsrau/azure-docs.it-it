@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 535ea21a2c08be5f676ee24269b323a415b92607
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f655becfac05acfacfeef12edd68b37835420bf
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="service-fabric-networking-patterns"></a>Modelli di rete di Service Fabric
 È possibile integrare il cluster di Azure Service Fabric con altre funzionalità di rete di Azure. Questo articolo illustra come creare cluster che fanno uso delle funzionalità seguenti:
@@ -36,7 +36,7 @@ Se la porta 19080 non è accessibile dal provider di risorse di Service Fabric, 
 
 ## <a name="templates"></a>Modelli
 
-Tutti i modelli di Service Fabric si trovano in [un unico file scaricabile](https://msdnshared.blob.core.windows.net/media/2016/10/SF_Networking_Templates.zip). Dovrebbe essere possibile distribuire i modelli così come sono usando i comandi di PowerShell riportati di seguito. Se si distribuisce il modello di rete virtuale di Azure esistente o il modello IP pubblico statico, leggere prima la sezione [Configurazione iniziale](#initialsetup) di questo articolo.
+Tutti i modelli di Service Fabric si trovano in [GitHub](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking). Dovrebbe essere possibile distribuire i modelli così come sono usando i comandi di PowerShell riportati di seguito. Se si distribuisce il modello di rete virtuale di Azure esistente o il modello IP pubblico statico, leggere prima la sezione [Configurazione iniziale](#initialsetup) di questo articolo.
 
 <a id="initialsetup"></a>
 ## <a name="initial-setup"></a>Configurazione iniziale
@@ -73,7 +73,7 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Modello di Service Fabric
 
-Negli esempi riportati in questo articolo viene usato il file template.json di Service Fabric. Per scaricare il modello dal portale prima di creare un cluster, è possibile usare la procedura guidata standard del portale. È anche possibile usare uno dei modelli della [raccolta modelli](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric), come il [cluster a cinque nodi di Service Fabric](https://azure.microsoft.com/en-us/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+Negli esempi riportati in questo articolo viene usato il file template.json di Service Fabric. Per scaricare il modello dal portale prima di creare un cluster, è possibile usare la procedura guidata standard del portale. È anche possibile usare uno dei [modelli di esempio](https://github.com/Azure-Samples/service-fabric-cluster-templates), come il [cluster a cinque nodi sicuro di Service Fabric](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure).
 
 <a id="existingvnet"></a>
 ## <a name="existing-virtual-network-or-subnet"></a>Rete virtuale o subnet esistente

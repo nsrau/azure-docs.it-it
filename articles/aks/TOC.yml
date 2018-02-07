@@ -57,8 +57,6 @@
           href: azure-disks-dynamic-pv.md
         - name: File di Azure - Volume permanente
           href: azure-files-dynamic-pv.md
-        - name: File di Azure - Volume
-          href: azure-files.md
 - name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
@@ -79,3 +77,5 @@
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
     - name: Video
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'
+    - name: Domande frequenti
+      href: faq.md

@@ -64,4 +64,4 @@ Per limitare l'accesso degli utenti all'applicazione, sono disponibili alcune op
 #### <a name="use-a-custom-method-to-validate-issuers"></a>Usare un metodo personalizzato per convalidare le autorità di certificazione
 È possibile implementare un metodo personalizzato per convalidare le autorità di certificazione usando il parametro **IssuerValidator**. Per altre informazioni su come usare questo parametro, vedere [TokenValidationParameters class](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) (Classe TokenValidationParameters) su MSDN.
 
-[!INCLUDE  [Help and support](./active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 01/31/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 737df48a24d8e077f898d00526c7138db69dbb93
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f7b621312677c0b250e267770ae0c445ee9f083f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Integrazione con firewall di Azure Stack
 È consigliabile che per utilizzare un dispositivo firewall sicura dello Stack di Azure. Sebbene i firewall consente ad esempio attacchi distribuiti di tipo denial of service (DDOS), il rilevamento delle intrusioni e l'ispezione del contenuto, possono anche diventare un collo di bottiglia della velocità effettiva per servizi di archiviazione di Azure come BLOB, tabelle e code.
@@ -59,7 +59,9 @@ In una distribuzione aziendale intranet o perimetrale dello Stack di Azure viene
 
 ![Esempio di rete perimetrale Stack Azure](.\media\azure-stack-firewall\perimeter-network-scenario.png)
 
+## <a name="learn-more"></a>Altre informazioni
+Altre informazioni, vedere [porte e protocolli utilizzati dagli endpoint di Azure Stack](azure-stack-integrate-endpoints.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Altre informazioni, vedere [porte e protocolli utilizzati dagli endpoint di Azure Stack](azure-stack-integrate-endpoints.md)
+[Requisiti di infrastruttura a chiave pubblica dello Stack di Azure](azure-stack-pki-certs.md)
 

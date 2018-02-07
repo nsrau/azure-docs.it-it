@@ -20,8 +20,6 @@
 ### [Definire la dipendenza tra risorse](resource-group-define-dependencies.md)
 ### [Creare più istanze](resource-group-create-multiple.md)
 ### [Aggiornare una risorsa](/azure/architecture/building-blocks/extending-templates/update-resource)
-### [Schemi per la progettazione di modelli](best-practices-resource-manager-design-templates.md)
-
 
 ## Distribuire
 ### Azure PowerShell
@@ -80,7 +78,7 @@
 #### [Problemi di distribuzione di Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 ### [Informazioni sugli errori di distribuzione](resource-manager-troubleshoot-tips.md)
 
-# Riferimento
+# riferimento
 ## [Formato del modello](/azure/templates/)
 ## [Funzioni di modello](resource-group-template-functions.md)
 ### [Matrici e funzioni oggetto](resource-group-template-functions-array.md)

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2017
 ms.author: jgao
-ms.openlocfilehash: a65daae8931c5ef892bf01eb049897488d6b15c7
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 347af14d342751fd9d03cd5d0e9cedf05f91a2e1
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire cluster Hadoop in HDInsight tramite il portale di Azure
 
@@ -81,10 +81,10 @@ Se viene visualizzato l'errore NoRegisteredProviderFound o l'errore MissingSubsc
 4. Fare clic su un cluster nell'elenco per visualizzare la pagina della panoramica:
 
     ![Informazioni di base sul cluster HDInsight nel portale di Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png) **Menu Panoramica:**
-    * **Dashboard**: consente di aprire il dashboard del cluster, ovvero Ambari Web per i cluster basati su Linux.
+    * **Dashboard**: apre l'interfaccia utente Web di Ambari per il cluster.
     * **Secure Shell**: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH).
     * **Scala Cluster**: consente di modificare il numero di nodi del ruolo di lavoro per questo cluster.
-    * **Sposta**: consente di spostare il cluster in un gruppo di risorse o una sottoscrizione diversi.
+    * **Sposta**: sposta il cluster in una sottoscrizione o un gruppo di risorse diverso.
     * **Elimina**: elimina il cluster.
 
     **Menu a sinistra:**
@@ -98,7 +98,7 @@ Se viene visualizzato l'errore NoRegisteredProviderFound o l'errore MissingSubsc
     * **Strumenti per HDInsight**: informazioni della Guida per gli strumenti correlati a HDInsight.
     * **Utilizzo di core della sottoscrizione**: visualizza i core usati e disponibili per la sottoscrizione.
     * **Ridimensiona cluster**: aumenta e diminuisce il numero di nodi di lavoro del cluster. Vedere [Ridimensionare i cluster](hdinsight-administer-use-management-portal.md#scale-clusters).
-    * **SSH + Account di accesso del cluster**: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH). Per altre informazioni, vedere [Connettersi a HDInsight (Hadoop) con SSH](hdinsight-hadoop-linux-use-ssh-unix.md) e reimpostare le credenziali di accesso al cluster.
+    * **SSH + Account di accesso del cluster**: mostra le istruzioni per la connessione al cluster tramite connessione Secure Shell (SSH). Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
     * **Partner HDInsight**: aggiunge/rimuove il Partner HDInsight corrente.
     * **Metastore esterni**: visualizza i metastore Hive e Oozie. I metastore possono essere configurati solo durante il processo di creazione dei cluster. Vedere [Usare metastore Hive/Oozie](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Azioni script**: esegue script Bash nel cluster. Vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).
@@ -158,7 +158,7 @@ Impatto della modifica del numero di nodi dati per ogni tipo di cluster supporta
     È possibile aumentare facilmente il numero di nodi del ruolo di lavoro in un cluster Hadoop in esecuzione senza conseguenze per eventuali processi in sospeso o in esecuzione. È inoltre possibile inviare nuovi processi mentre è in corso l'operazione. Gli errori in un'operazione di scalabilità vengono gestiti in modo che il cluster rimanga sempre in uno stato funzionale.
 
     Quando un cluster Hadoop viene ridimensionato riducendo il numero di nodi dati, alcuni dei servizi del cluster vengono riavviati. A causa di questo comportamento, tutti i processi in esecuzione e in sospeso avranno esito negativo al completamento dell'operazione di ridimensionamento. È tuttavia possibile inviare nuovamente i processi una volta completata l'operazione.
-* HBase
+* hbase
 
     È possibile aggiungere o rimuovere facilmente nodi nel cluster HBase mentre è in esecuzione. I server a livello di area vengono bilanciati automaticamente entro pochi minuti dal completamento dell'operazione di ridimensionamento. È tuttavia possibile anche bilanciare manualmente i server a livello di area accedendo al nodo head del cluster ed eseguendo i comandi seguenti da una finestra del prompt dei comandi:
 
@@ -226,6 +226,21 @@ Per informazioni sui prezzi, vedere [Prezzi di HDInsight](https://azure.microsof
 
 Vedere [Eseguire l'aggiornamento del cluster HDInsight a una versione più recente](./hdinsight-upgrade-cluster.md).
 
+## <a name="open-the-ambari-web-ui"></a>Aprire l'interfaccia utente Web di Ambari
+
+Ambari offre un'interfaccia utente Web di gestione di Hadoop intuitiva e semplice da usare supportata dalle API RESTful. Con Ambari agli amministratori di sistema possono gestire e monitorare i cluster Hadoop.
+
+1. Aprire un cluster HDInsight nel portale di Azure.  Vedere [Elencare e visualizzare i cluster](#list-and-show-clusters).
+2. Fare clic su **Dashboard cluster**.
+
+    ![Menu del cluster Hadoop di HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-azure-portal-cluster-menu.png)
+
+1. Immettere il nome utente e la password del cluster.  Il nome utente predefinito del cluster è _admin_. Ecco che aspetto ha l'interfaccia utente Web di Ambari:
+
+    ![Interfaccia utente Web di Ambari per il cluster Hadoop di HDInsight](./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-ambari-web-ui.png)
+
+Per altre informazioni, vedere [Gestire i cluster HDInsight usando l'interfaccia utente Web di Ambari](hdinsight-hadoop-manage-ambari.md).
+
 ## <a name="change-passwords"></a>Modificare le password
 Per un cluster HDInsight possono esistere due account utente. L'account utente del cluster HDInsight (anche noto come account utente HTTP) e l'account utente SSH vengono creati durante il processo di creazione. È possibile usare l'interfaccia utente Web di Ambari per modificare il nome utente e la password dell'account utente del cluster e azioni script per modificare l'account utente SSH.
 
@@ -266,7 +281,7 @@ Ambari modifica la password in tutti i nodi del cluster.
 
    | Campo | Valore |
    | --- | --- |
-   | Nome |Modifica password SSH |
+   | NOME |Modifica password SSH |
    | URI script Bash |L'URI per il file changepassword.sh |
    | Nodi (head, lavoro, Nimbus, Supervisor, Zookeeper, e così via) |✓ per tutti i tipi di nodo elencati |
    | Parametri |Immettere il nome utente SSH e la nuova password. Deve essere presente uno spazio tra il nome utente e la password. |

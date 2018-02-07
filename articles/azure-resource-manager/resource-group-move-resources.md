@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5a28914d967e77d6c8881cd6e56b798269d3df3e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -113,7 +113,7 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Content Moderator
 * Data Catalog
 * Data factory
-* Analisi Data Lake
+* Data Lake Analytics
 * Archivio Data Lake
 * DNS
 * Hub eventi
@@ -131,7 +131,7 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Power BI
 * Cache Redis
 * Utilità di pianificazione
-* Search
+* Ricerca
 * Gestione server
 * Bus di servizio
 * Service Fabric
@@ -139,7 +139,7 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Archiviazione (classica): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Analisi di flusso: i processi di analisi di flusso non possono essere spostati durante l'esecuzione.
 * Server di database SQL: il database e il server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database.
-* Gestione traffico
+* servizio Gestione traffico
 * Macchine virtuali: non è possibile spostare macchine virtuali con dischi gestiti. Vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
 * Macchine virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Set di scalabilità di macchine virtuali: vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
@@ -208,7 +208,7 @@ Le opzioni possibili sono:
 
 Con tutte le altre combinazioni si lascerebbe dove si trova un tipo di risorsa che non può essere lasciato nella stessa posizione quando si sposta un piano di servizio app (qualsiasi tipo di risorsa del servizio app).
 
-Se l'app web si trova in un gruppo di risorse diverso rispetto al piano di servizio app corrispondente ma si vuole spostare entrambi gli elementi in un nuovo gruppo di risorse, è necessario eseguire lo spostamento in due fasi. Ad esempio:
+Se l'app web si trova in un gruppo di risorse diverso rispetto al piano di servizio app corrispondente ma si vuole spostare entrambi gli elementi in un nuovo gruppo di risorse, è necessario eseguire lo spostamento in due fasi. Ad esempio: 
 
 * **web-a** si trova in **web-group**
 * **plan-a** si trova in **plan-group**
@@ -314,6 +314,12 @@ Questa operazione potrebbe richiedere alcuni minuti.
 Lo spostamento non è abilitato per le risorse di archiviazione, di rete o di calcolo usate per configurare il ripristino di emergenza con Azure Site Recovery.
 
 Ad esempio, si supponga di avere configurato la replica delle macchine locali su un account di archiviazione (Storage1) e di desiderare che il computer protetto venga avviato dopo il failover in Azure come macchina virtuale (VM1) collegata a una rete virtuale (Network1). Non è possibile spostare una di queste risorse di Azure - Storage1 VM1 e Network1 - nei gruppi di risorse all'interno della stessa sottoscrizione o tra le sottoscrizioni.
+
+Per spostare una VM registrata in **Backup di Azure** tra gruppi di risorse:
+ 1. Interrompere temporaneamente il backup e conservare i dati di backup
+ 2. Spostare la VM nel gruppo di risorse di destinazione
+ 3. Riproteggerla con lo stesso o con un nuovo insieme di credenziali Gli utenti possono eseguire il ripristino dai punti di ripristino disponibili creati prima dell'operazione di spostamento.
+Se l'utente sposta la macchina virtuale sottoposta a backup tra sottoscrizioni, i passaggi 1 e 2 restano invariati. Nel passaggio 3, è necessario proteggere la macchina virtuale in un nuovo insieme di credenziali presente o creato nella sottoscrizione di destinazione. L'insieme di credenziali di Servizi di ripristino non supporta i backup tra più sottoscrizioni.
 
 ## <a name="hdinsight-limitations"></a>Limitazioni di HDInsight
 

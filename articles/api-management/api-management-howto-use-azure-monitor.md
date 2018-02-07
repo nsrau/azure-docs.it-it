@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: bdca9d4968e9e68314f350787907f15e417821f7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: db1ed08c4d4c9e9abd525ec13f5511da82ee1fe4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="monitor-published-apis"></a>Monitorare le API pubblicate
 
@@ -38,7 +38,7 @@ Il video seguente illustra come monitorare Gestione API usando Monitoraggio di A
 >
 >
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 + Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 + Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
@@ -56,7 +56,8 @@ I log attività offrono informazioni dettagliate sulle operazioni eseguite nei s
 
 Per visualizzare i log di attività:
 
-1. Dall'istanza di **Gestione API** fare clic su **Log attività**.
+1. Selezionare l'istanza del servizio Gestione API.
+2. Fare clic su **Log attività**.
 
 ## <a name="view-diagnostic-logs"></a>Visualizzare i log di diagnostica
 
@@ -64,7 +65,8 @@ I log di diagnostica offrono informazioni dettagliate sulle operazioni e gli err
 
 Per accedere ai log di diagnostica:
 
-1. Dall'istanza di **Gestione API** fare clic su **Log di diagnostica**.
+1. Selezionare l'istanza del servizio Gestione API.
+2. Fare clic su **Log di diagnostica**.
 
 ## <a name="view-metrics-of-your-apis"></a>Visualizzare le metriche delle API
 
@@ -110,7 +112,7 @@ Per configurare gli avvisi:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Visualizzare log di attività

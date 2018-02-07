@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 01/17/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 886a4412ac348869563a03d697f4363cb3dea8f9
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: f5d38091b59110859d4376a5cd16a19f24dad65b
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="customize-the-remote-monitoring-preconfigured-solution"></a>Personalizzare la soluzione preconfigurata di monitoraggio remoto
 
@@ -24,6 +24,10 @@ Questo articolo offre informazioni su come accedere al codice sorgente e persona
 
 * Repository GitHub che contengono il codice sorgente e le risorse per i microservizi che costituiscono la soluzione preconfigurata.
 * Scenari di personalizzazione comuni, tra cui l'aggiunta di un nuovo tipo di dispositivo.
+
+Il video seguente offre una panoramica delle opzioni di personalizzazione della soluzione preconfigurata di monitoraggio remoto:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 ## <a name="project-overview"></a>Panoramica del progetto
 
@@ -42,11 +46,11 @@ Questa tabella contiene il riepilogo delle informazioni sulla disponibilità cor
 
 <!-- please add links for each of the repos in the table, you can find them here https://github.com/Azure/azure-iot-pcs-team/wiki/Repositories-->
 
-| Microservizio      | Descrizione | Java | .NET |
+| Microservizio      | DESCRIZIONE | Java | .NET |
 | ----------------- | ----------- | ---- | ---- |
 | Interfaccia utente Web            | App Web per la soluzione di monitoraggio remoto. Implementa l'interfaccia utente usando il framework React.js. | [N/D (React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) | [N/D (React.js)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) |
 | Gestione dell'hub IoT   | Gestisce la comunicazione con l'hub IoT.        | [Disponibile](https://github.com/Azure/iothub-manager-java) | [Disponibile](https://github.com/Azure/iothub-manager-dotnet)   |
-| Autenticazione    |  Gestisce l'integrazione con Azure Active Directory.  | Non ancora disponibile | [Disponibile](https://github.com/Azure/pcs-auth-dotnet)   |
+| Authentication    |  Gestisce l'integrazione con Azure Active Directory.  | Non ancora disponibile | [Disponibile](https://github.com/Azure/pcs-auth-dotnet)   |
 | Simulazione dei dispositivi | Gestisce un pool di dispositivi simulati. | Non ancora disponibile | [Disponibile](https://github.com/Azure/device-simulation-dotnet)   |
 | Telemetria         | Rende i dati di telemetria dei dispositivi disponibili all'interfaccia utente. | [Disponibile](https://github.com/Azure/device-telemetry-java) | [Disponibile](https://github.com/Azure/device-telemetry-dotnet)   |
 | Agente di telemetria   | Analizza il flusso di telemetria, archivia i messaggi dall'hub IoT di Azure e genera gli avvisi in base alle regole definite.  | [Disponibile](https://github.com/Azure/telemetry-agent-java) | [Disponibile](https://github.com/Azure/telemetry-agent-dotnet)   |
@@ -78,7 +82,7 @@ La distribuzione predefinita usa il nome e il logo della società Contoso nell'i
     CONTOSO: 'Contoso',
     ```
 
-1. Sostituire `Contoso` con il nome della società. ad esempio:
+1. Sostituire `Contoso` con il nome della società. Ad esempio: 
 
     ```js
     CONTOSO: 'YourCo',
@@ -96,7 +100,7 @@ La distribuzione predefinita usa il nome e il logo della società Contoso nell'i
     import ContosoIcon from '../../../assets/icons/Contoso.svg';
     ```
 
-1. Sostituire `Contoso.svg` con il nome del file del logo. ad esempio:
+1. Sostituire `Contoso.svg` con il nome del file del logo. Ad esempio: 
 
     ```js
     import ContosoIcon from '../../../assets/icons/YourCo.svg';
@@ -108,7 +112,7 @@ La distribuzione predefinita usa il nome e il logo della società Contoso nell'i
     alt="ContosoIcon"
     ```
 
-1. Sostituire `ContosoIcon` con il testo `alt` personalizzato. ad esempio:
+1. Sostituire `ContosoIcon` con il testo `alt` personalizzato. Ad esempio: 
 
     ```js
     alt="YourCoIcon"

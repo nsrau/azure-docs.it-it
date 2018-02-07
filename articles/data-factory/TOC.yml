@@ -37,7 +37,7 @@
           href: tutorial-copy-data-tool.md
         - name: Interfaccia utente
           href: tutorial-copy-data-portal.md
-        - name: Azure PowerShell
+        - name: .NET
           href: tutorial-copy-data-dot-net.md
     - name: 3 - Copiare i dati locali nel cloud
       items:
@@ -90,7 +90,7 @@
       items:
         - name: Interfaccia utente
           href: tutorial-control-flow-portal.md
-        - name: Azure PowerShell
+        - name: .NET
           href: tutorial-control-flow.md
 - name: Esempi
   items:
@@ -350,13 +350,15 @@
           href: configure-azure-ssis-integration-runtime-performance.md
         - name: Richiamare pacchetti SSIS tramite attività stored procedure
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
+        - name: Pianificare il runtime di integrazione Azure-SSIS
+          href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: Creare trigger
       items:
         - name: Creare un trigger di pianificazione
           href: how-to-create-schedule-trigger.md
         - name: Creare un trigger di finestra a cascata
           href: how-to-create-tumbling-window-trigger.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.datafactory

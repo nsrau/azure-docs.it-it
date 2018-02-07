@@ -1,5 +1,5 @@
 ---
-title: Gli elementi del messaggio di posta invito collaborazione B2B - Azure Active Directory | Documenti Microsoft
+title: Elementi del messaggio di posta elettronica di invito di Collaborazione B2B - Azure Active Directory | Microsoft Docs
 description: Modello di messaggio di posta elettronica di invito per la collaborazione B2B di Azure Active Directory
 services: active-directory
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 7b82565a337f331b8b0eda723ccd58c3beaebdd9
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: b84dba6aa7ac11aef6d958d72564b8b83514a753
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/18/2018
 ---
-# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Gli elementi del messaggio di posta invito collaborazione B2B - Azure Active Directory
+# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementi del messaggio di posta elettronica di invito di Collaborazione B2B - Azure Active Directory
 
 I messaggi di posta elettronica di invito sono strumenti fondamentali per entrare in contatto con i partner e introdurli alla funzionalità di collaborazione B2B di Azure AD. È possibile usarli per aumentare l'attendibilità del destinatario. È possibile aggiungere elementi di legittimità e riprova sociale al messaggio di posta elettronica, per assicurarsi che il destinatario scelga di selezionare con tranquillità il pulsante **Get Started** (Inizia) per accettare l'invito. L'attendibilità è uno strumento fondamentale per ridurre i problemi di condivisione. Il messaggio di posta elettronica deva anche avere un aspetto accattivante.
 

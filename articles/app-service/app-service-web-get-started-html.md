@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 10/26/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ee3b53f9e68a739a39478045debbb45dff9d7ed9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: bca5757c971f15279ed6ee9b41f415cd347d91b3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Creare un'app Web HTML statica in Azure
 
@@ -29,13 +29,13 @@ Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hos
 
 È possibile eseguire queste procedure con un computer Mac, Windows o Linux. Una volta installati i prerequisiti, sono necessari circa cinque minuti per completare la procedura.
 
-## <a name="prerequisites"></a>Prerequisiti
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa guida introduttiva:
 
 - <a href="https://git-scm.com/" target="_blank">Installare Git</a>
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 
@@ -105,7 +105,7 @@ La pagina è in esecuzione come un'app Web del servizio app di Azure.
 
 ![Home page dell'app di esempio](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
-**Congratulazioni.** La distribuzione della prima app HTML nel Servizio app è stata completata.
+**Congratulazioni** La distribuzione della prima app HTML nel Servizio app è stata completata.
 
 ## <a name="update-and-redeploy-the-app"></a>Aggiornare e ridistribuire l'app
 

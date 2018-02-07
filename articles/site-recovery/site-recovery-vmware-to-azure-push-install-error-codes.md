@@ -2,23 +2,18 @@
 title: Risoluzione dei problemi di Azure Site Recovery da VMware ad Azure | Microsoft Docs
 description: Correggere gli errori durante la replica di macchine virtuali di Azure
 services: site-recovery
-documentationcenter: 
 author: anoopkv
 manager: gauravd
-editor: 
-ms.assetid: 
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: df8234ad79439245025cb7ecf87a2050960958b2
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: c5566ec44a8bfed0a3e7207c2cebf21517573541
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Risolvere i problemi di installazione push del servizio Mobility
 
@@ -74,7 +69,7 @@ Questo errore può essere generato dal servizio per diversi motivi. Scegliere l'
 
 **Codice errore** | **Possibili cause** | **Indicazioni specifiche per l'errore**
 --- | --- | ---
-95108 </br>**Messaggio:** Push installation of the mobility service to the source machine failed with error code **EP0859** (L'installazione push del servizio Mobility nella macchina virtuale di origine non è riuscita con codice errore EP0859). <br>| Either that the credentials provided to install mobility service is incorrect or the user account has insufficient privileges (Le credenziali specificate per installare il servizio Mobility non sono corrette oppure l'account utente non dispone di privilegi sufficienti) <br>| Verificare che le credenziali specificate siano le credenziali dell'account di **radice**. Per [aggiungere o modificare credenziali utente](site-recovery-vmware-to-azure-manage-configuration-server.md#modify-user-accounts-and-passwords), passare al server di configurazione e fare clic sull’icona del collegamento "Cspsconfigtool" sul desktop. Fare clic su "Gestisci account" per aggiungere o modificare le credenziali.|
+95108 </br>**Messaggio:** Push installation of the mobility service to the source machine failed with error code **EP0859** (L'installazione push del servizio Mobility nella macchina virtuale di origine non è riuscita con codice errore EP0859). <br>| Either that the credentials provided to install mobility service is incorrect or the user account has insufficient privileges (Le credenziali specificate per installare il servizio Mobility non sono corrette oppure l'account utente non dispone di privilegi sufficienti) <br>| Verificare che le credenziali specificate siano le credenziali dell'account di **radice**. Per aggiungere o modificare credenziali utente, passare al server di configurazione e fare clic sull'icona del collegamento "Cspsconfigtool" sul desktop. Fare clic su "Gestisci account" per aggiungere o modificare le credenziali.|
 
 ## <a name="error-95265---protection-could-not-be-enabled-ep0902"></a>Errore 95265 - Non è stato possibile abilitare la protezione (EP0902)
 
@@ -92,13 +87,14 @@ Questo errore può essere generato dal servizio per diversi motivi. Scegliere l'
 ## <a name="resource-to-troubleshoot-push-installation-problems"></a>Risorse per risolvere i problemi di installazione push
 
 #### <a name="troubleshoot-file-and-print-sharing-issues"></a>Risolvere i problemi di condivisione file e stampanti
-*  [Abilitare o disabilitare la condivisione di file con criteri di gruppo](https://technet.microsoft.com/en-us/library/cc754359(v=ws.10).aspx)
-* [Come abilitare la condivisione di file e stampanti tramite Windows Firewall](https://technet.microsoft.com/en-us/library/ff633412(v=ws.10).aspx)
+*  [Abilitare o disabilitare la condivisione di file con criteri di gruppo](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx)
+* [Come abilitare la condivisione di file e stampanti tramite Windows Firewall](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
 
 #### <a name="troubleshoot-wmi-issues"></a>Risoluzione dei problemi WMI
 * [Test WMI Basic](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
-* [Risoluzione dei problemi WMI](https://msdn.microsoft.com/en-us/library/aa394603(v=vs.85).aspx)
-* [Risoluzione dei problemi con gli script WMI e i servizi WMI](https://technet.microsoft.com/en-us/library/ff406382.aspx#H22)
+* [Risoluzione dei problemi WMI](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx)
+* [Risoluzione dei problemi con gli script WMI e i servizi WMI](https://technet.microsoft.com/library/ff406382.aspx#H22)
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Abilitare la replica delle macchine virtuali VMware](vmware-walkthrough-enable-replication.md)
+
+[Informazioni su come](tutorial-vmware-to-azure.md) configurare il ripristino di emergenza per le macchine virtuali VMware.

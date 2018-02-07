@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 617664129a5353e25da1e90c742c4b009db172ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e93fe5af62893d361b6cc4adac42a7d172235978
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Esportare il modello di Azure Resource Manager con l'interfaccia della riga di comando di Azure
 
@@ -44,7 +44,7 @@ az group deployment create \
 
 ## <a name="save-template-from-deployment-history"></a>Salvare un modello dalla cronologia di distribuzione
 
-È possibile recuperare un modello dalla cronologia della distribuzione usando il comando [az group deployment export](/cli/azure/group/deployment#export). L'esempio seguente salva il modello precedentemente distribuito:
+È possibile recuperare un modello dalla cronologia della distribuzione usando il comando [az group deployment export](/cli/azure/group/deployment#az_group_deployment_export). L'esempio seguente salva il modello precedentemente distribuito:
 
 ```azurecli
 az group deployment export --name NewStorage --resource-group ExampleGroup
@@ -55,7 +55,7 @@ Restituisce il modello. Copiare il codice JSON e salvarlo come file. Si noti che
 
 ## <a name="export-resource-group-as-template"></a>Esportare un gruppo di risorse come modello
 
-Invece di recuperare un modello dalla cronologia della distribuzione, è possibile recuperarne uno che rappresenta lo stato corrente di un gruppo di risorse tramite il comando [az group export](/cli/azure/group#export). Usare questo comando quando sono state apportate molte modifiche al gruppo di risorse e nessun modello esistente rappresenta tutte le modifiche.
+Invece di recuperare un modello dalla cronologia della distribuzione, è possibile recuperarne uno che rappresenta lo stato corrente di un gruppo di risorse tramite il comando [az group export](/cli/azure/group#az_group_export). Usare questo comando quando sono state apportate molte modifiche al gruppo di risorse e nessun modello esistente rappresenta tutte le modifiche.
 
 ```azurecli
 az group export --name ExampleGroup

@@ -5,23 +5,23 @@ services: container-registry
 author: neilpeterson
 manager: timlt
 ms.service: container-registry
-ms.topic: quicksart
+ms.topic: quickstart
 ms.date: 12/07/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: f31f4e5e2b3fe5db85873894a7f2fa9c415392c1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: a74a1ce5c9401d6445f5feec4af8d5cb771d2c64
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Creare un registro di contenitori usando l'interfaccia della riga di comando di Azure
 
 Registro contenitori di Azure è un servizio gestito di registri contenitori Docker usato per l'archiviazione di immagini di un contenitore Docker privato. Questa guida descrive la creazione di un'istanza di Registro contenitori di Azure con l'interfaccia della riga di comando di Azure.
 
-Questa Guida rapida richiede che sia in esecuzione l'interfaccia CLI di Azure versione 2.0.21 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario installare o eseguire l'aggiornamento, vedere [installare Azure CLI 2.0][azure-cli].
+Questa guida introduttiva richiede l'interfaccia della riga di comando di Azure 2.0.25 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0][azure-cli].
 
-È anche necessario avere Docker installato localmente. Docker offre pacchetti che consente di configurare facilmente Docker in qualsiasi [Mac][docker-mac], [Windows][docker-windows], o [Linux] [ docker-linux] sistema.
+È anche necessario avere Docker installato localmente. Docker offre pacchetti che consentono di configurare facilmente Docker in qualsiasi sistema [Mac][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -35,13 +35,13 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container-registry"></a>Creare un registro di contenitori
 
-In questa guida introduttiva viene creato un registro contenitori di *base*. Registro contenitori di Azure è disponibile in diversi SKU, descritti brevemente nella tabella riportata di seguito. Per maggiori dettagli su ognuna, vedere [Registro di sistema contenitore SKU][container-registry-skus].
+In questa guida introduttiva viene creato un registro contenitori di *base*. Registro contenitori di Azure è disponibile in diversi SKU, descritti brevemente nella tabella riportata di seguito. Per altri dettagli su ogni SKU, vedere [SKU di Registro contenitori][container-registry-skus].
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
-Creare un'istanza di record con il [az acr creare] [ az-acr-create] comando.
+Creare un'istanza di Registro contenitori di Azure usando il comando [az acr create][az-acr-create].
 
-Il nome del registro **deve essere univoco**. Nell'esempio seguente viene usato il nome *myContainerRegistry007*. Aggiornarlo a un valore univoco.
+Il nome del registro deve essere univoco in Azure e contenere da 5 a 50 caratteri alfanumerici. Nell'esempio seguente viene usato il nome *myContainerRegistry007*. Aggiornarlo a un valore univoco.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
@@ -74,7 +74,7 @@ Nella parte restante di questa Guida introduttiva viene usato `<acrName>` come s
 
 ## <a name="log-in-to-acr"></a>Accedere al record di controllo di accesso
 
-Prima di eseguire il push e il pull delle immagini del contenitore, è necessario accedere all'istanza di Registro contenitori di Azure. A tale scopo, utilizzare il [accesso acr az] [ az-acr-login] comando.
+Prima di eseguire il push e il pull delle immagini del contenitore, è necessario accedere all'istanza di Registro contenitori di Azure. A tale scopo usare il comando [az acr login][az-acr-login].
 
 ```azurecli
 az acr login --name <acrName>
@@ -84,25 +84,25 @@ Il comando restituisce un messaggio `Login Succeeded` al termine dell'esecuzione
 
 ## <a name="push-image-to-acr"></a>Eseguire il push di un'immagine nel record di controllo di accesso
 
-Per eseguire il push di un'immagine nel registro contenitori di Azure è necessario innanzitutto disporre di un'immagine. Se si dispone ancora di tutte le immagini contenitore locale, eseguire il comando seguente per inserire un'immagine esistente dall'Hub Docker.
+Per eseguire il push di un'immagine nel registro contenitori di Azure è necessario innanzitutto disporre di un'immagine. Se non sono ancora disponibili immagini del contenitore locale, eseguire il comando seguente per eseguire il pull di un'immagine esistente da Hub Docker.
 
 ```bash
 docker pull microsoft/aci-helloworld
 ```
 
-Prima al Registro di sistema, è possibile distribuire un'immagine, è necessario contrassegnarlo con il nome completo del server di accesso di record. Eseguire il comando seguente per ottenere il nome del server di accesso completo dell'istanza del record.
+Prima di poter eseguire il push di un'immagine nel registro, è necessario contrassegnarla con il nome completo del server di accesso del record di controllo di accesso. Eseguire il comando seguente per ottenere il nome completo del server di accesso dell'istanza del record di controllo di accesso.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Tag di immagine usando il [tag docker] [ docker-tag] comando. Sostituire `<acrLoginServer>` con il nome del server di accesso dell'istanza del record.
+Contrassegnare l'immagine usando il comando [docker tag][docker-tag]. Sostituire `<acrLoginServer>` con il nome del server di accesso dell'istanza del record di controllo di accesso.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-Infine, utilizzare [push di docker] [ docker-push] per effettuare il push dell'immagine per l'istanza del record. Sostituire `<acrLoginServer>` con il nome del server di accesso dell'istanza del record.
+Infine, usare [docker push][docker-push] per eseguire il push dell'immagine nell'istanza del record di controllo di accesso. Sostituire `<acrLoginServer>` con il nome del server di accesso dell'istanza del record di controllo di accesso.
 
 ```bash
 docker push <acrLoginServer>/aci-helloworld:v1
@@ -140,7 +140,7 @@ v1
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non è più necessario, è possibile utilizzare il [eliminazione gruppo az] [ az-group-delete] comando per rimuovere il gruppo di risorse, l'istanza di record e tutte le immagini contenitore.
+Quando il gruppo di risorse, l'istanza del record di controllo di accesso e tutte le immagini del contenitore non sono più necessari è possibile usare il comando [az group delete][az-group-delete] per rimuoverli.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -151,7 +151,7 @@ az group delete --name myResourceGroup
 In questa Guida rapida è stato creato un Registro contenitori di Azure con l'interfaccia della riga di comando di Azure. Se si desidera usare il Registro contenitori di Azure con le istanze di contenitore di Azure, continuare con l'esercitazione relativa alle istanze di contenitore di Azure.
 
 > [!div class="nextstepaction"]
-> [Esercitazione per istanze di contenitori di Azure][container-instances-tutorial-prepare-app]
+> [Esercitazione su Istanze di contenitore di Azure][container-instances-tutorial-prepare-app]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

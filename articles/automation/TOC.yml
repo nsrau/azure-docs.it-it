@@ -67,6 +67,14 @@
           href: automation-runbook-types.md
         - name: Creare e importare runbook
           href: automation-creating-importing-runbook.md
+        - name: Creare un runbook grafico
+          href: automation-first-runbook-graphical.md
+        - name: Creare un runbook di PowerShell
+          href: automation-first-runbook-textual-powershell.md
+        - name: Creare un runbook del flusso di lavoro di PowerShell
+          href: automation-first-runbook-textual.md
+        - name: Creare un runbook di Python
+          href: automation-first-runbook-textual-python2.md
         - name: Modificare runbook di testo
           href: automation-edit-textual-runbook.md
         - name: Modificare runbook grafici
@@ -185,7 +193,7 @@
           href: automation-troubleshooting-automation-errors.md
         - name: Risolvere i problemi di un ruolo di lavoro ibrido per runbook
           href: automation-troubleshooting-hybrid-runbook-worker.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.automation

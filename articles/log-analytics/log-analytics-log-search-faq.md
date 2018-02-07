@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6dfee26d7585c8ec295a1f0ea1bd0bc14a34cc5a
+ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Nuova ricerca log in Log Analytics - domande frequenti e problemi noti
 
@@ -148,10 +148,10 @@ La soluzione Backup non può raccogliere i dati se è stata installata prima del
 ## <a name="upgrade-process"></a>Processo di aggiornamento
 
 ### <a name="question-i-have-several-workspaces-can-i-upgrade-all-workspaces-at-the-same-time"></a>Domanda: Sono disponibili diverse aree di lavoro. è possibile aggiornarle tutte contemporaneamente?  
-No.  L'aggiornamento viene applicato a una singola area di lavoro alla volta. Non è attualmente disponibile alcun modo per aggiornare contemporaneamente molte aree di lavoro. Si noti che l'operazione interessa anche gli altri utenti dell'area di lavoro aggiornata.  
+di serie  L'aggiornamento viene applicato a una singola area di lavoro alla volta. Non è attualmente disponibile alcun modo per aggiornare contemporaneamente molte aree di lavoro. Si noti che l'operazione interessa anche gli altri utenti dell'area di lavoro aggiornata.  
 
 ### <a name="question-will-existing-log-data-collected-in-my-workspace-be-modified-if-i-upgrade"></a>Domanda: I dati di log esistenti raccolti in un'area di lavoro verranno modificati in seguito all'aggiornamento?  
-No. I dati di log disponibili nelle ricerche dell'area di lavoro non sono interessati dall'aggiornamento. Le ricerche, gli avvisi e le visualizzazioni salvati verranno convertiti automaticamente nel nuovo linguaggio di ricerca.  
+di serie I dati di log disponibili nelle ricerche dell'area di lavoro non sono interessati dall'aggiornamento. Le ricerche, gli avvisi e le visualizzazioni salvati verranno convertiti automaticamente nel nuovo linguaggio di ricerca.  
 
 ### <a name="question-what-happens-if-i-dont-upgrade-my-workspace"></a>Domanda: Cosa accade se non si aggiorna l'area di lavoro?  
 La funzionalità di ricerca log legacy verrà deprecata nei prossimi mesi. Le aree di lavoro non aggiornate verranno in seguito aggiornate automaticamente.
@@ -160,11 +160,10 @@ La funzionalità di ricerca log legacy verrà deprecata nei prossimi mesi. Le ar
 Prima della disponibilità generale, era possibile ripristinare l'area di lavoro dopo l'aggiornamento.  Ora che il nuovo linguaggio ha raggiunto il livello di disponibilità generale, questa funzionalità è stata rimossa, dato che è iniziato il ritiro della piattaforma legacy.
 
 
-
 ## <a name="views"></a>Visualizzazioni
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Domanda: Come si crea una nuova vista con Progettazione viste?
-Prima dell'aggiornamento, è possibile creare una nuova vista con Progettazione viste da un riquadro nel dashboard principale.  Quando l'area di lavoro viene aggiornata, questo riquadro viene rimosso.  È possibile creare una nuova vista con Progettazione viste nel portale OMS facendo clic sul pulsante verde + nel menu di sinistra.
+Prima dell'aggiornamento è possibile creare una nuova vista con la progettazione vista da un riquadro nel dashboard principale del portale OMS.  Quando l'area di lavoro viene aggiornata, questo riquadro viene rimosso.  È possibile creare una nuova vista con Progettazione viste nel portale OMS facendo clic sul pulsante verde + nel menu di sinistra.  Facendo clic sul riquadro della progettazione vista si continua a creare una nuova vista con il portale di Azure.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

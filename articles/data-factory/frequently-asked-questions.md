@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: shlo
-ms.openlocfilehash: cf98bb7fab4942955287e8e211e98b9da59472f6
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: dd2475d5940927c65cae4d12b9697cbe535b69a8
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
 Questo articolo è valido per la versione 2 del servizio Azure Data Factory. Contiene le risposte alle domande frequenti su Data Factory.  
@@ -68,7 +68,7 @@ Per supportare l'integrazione di flussi e criteri di integrazione diversi nel da
 Per altre informazioni, vedere [Esercitazione: Flussi di controllo](tutorial-control-flow.md).
 
 ### <a name="deploy-ssis-packages-to-azure"></a>Distribuire i pacchetti SSIS in Azure 
-Se si vuole spostare i carichi di lavoro SSIS, è possibile creare un'istanza di Data Factory versione 2 ed effettuare il provisioning di un runtime di integrazione SSIS di Azure. Il runtime di integrazione SSIS di Azure è un cluster completamente gestito di macchine virtuali (nodi) di Azure dedicate all'esecuzione di pacchetti SSIS nel cloud. Per istruzioni dettagliate, vedere l'esercitazione [Distribuire i pacchetti SSIS in Azure](tutorial-deploy-ssis-packages-azure.md). 
+Se si vuole spostare i carichi di lavoro SSIS, è possibile creare un'istanza di Data Factory versione 2 ed effettuare il provisioning di un runtime di integrazione SSIS di Azure. Il runtime di integrazione SSIS di Azure è un cluster completamente gestito di macchine virtuali (nodi) di Azure dedicate all'esecuzione di pacchetti SSIS nel cloud. Per istruzioni dettagliate, vedere l'esercitazione [Distribuire i pacchetti SSIS in Azure](tutorial-create-azure-ssis-runtime-portal.md). 
  
 
 ### <a name="sdks"></a>SDK

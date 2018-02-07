@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Inactive
-ms.date: 09/15/2017
+ms.date: 01/23/2018
 ms.author: genemi
-ms.openlocfilehash: 9f58ea34dad5d4436c13b64653040bd2a57c299e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 8c27f22657f7f8d04aab96fbc2ee25aa19cebd9f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>Usare PowerShell per creare un endpoint del servizio virtuale e una regola per il database SQL di Azure
 
@@ -48,7 +48,8 @@ L'elenco seguente riporta la sequenza degli altri cmdlet *principali* che è nec
 
 4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): rende persistenti gli aggiornamenti apportati alla rete virtuale.
 
-5. **New-AzureRmSqlServerVirtualNetworkRule**: dopo che la subnet è diventata un endpoint, aggiunge la subnet come regola della rete virtuale all'elenco di controllo di accesso del server di database SQL di Azure.
+5. [New-AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): dopo che la subnet è diventata un endpoint, aggiunge la subnet come regola della rete virtuale all'elenco di controllo di accesso del server di database SQL di Azure.
+    - Offre il parametro **-IgnoreMissingVnetServiceEndpoint**, a partire dal modulo PowerShell di Azure RM versione 5.1.1.
 
 #### <a name="prerequisites-for-running-powershell"></a>Prerequisiti per l'esecuzione di PowerShell
 

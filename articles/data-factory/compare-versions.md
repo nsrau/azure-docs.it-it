@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 83065e6cacd784a3914cfac3ff2552a712688366
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Confrontare le versioni 1 e 2 di Azure Data Factory
 Questo articolo mette a confronto le versioni 1 e 2 di Azure Data Factory. Per un'introduzione alla versione 1, vedere [Introduzione ad Azure Data Factory](v1/data-factory-introduction.md). Per un'introduzione alla versione 2, vedere l'[introduzione a Data Factory relativa alla versione 2 (anteprima)](introduction.md).
@@ -86,7 +86,7 @@ Per spostare carichi di lavoro SSIS nel cloud, creare una data factory con la ve
 
 Azure-SSIS Integration Runtime è un cluster completamente gestito di VM (nodi) di Azure dedicate all'esecuzione di pacchetti SSIS nel cloud. Dopo il provisioning di Azure-SSIS Integration Runtime, è possibile usare gli stessi strumenti usati per distribuire pacchetti SSIS in un ambiente SSIS locale. 
 
-Ad esempio, si può usare SQL Server Data Tools o SQL Server Management Studio per distribuire pacchetti SSIS in questo runtime in Azure. Per istruzioni dettagliate, vedere l'esercitazione [Distribuire pacchetti SQL Server Integration Services in Azure](tutorial-deploy-ssis-packages-azure.md). 
+Ad esempio, si può usare SQL Server Data Tools o SQL Server Management Studio per distribuire pacchetti SSIS in questo runtime in Azure. Per istruzioni dettagliate, vedere l'esercitazione [Distribuire pacchetti SQL Server Integration Services in Azure](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="flexible-scheduling"></a>Pianificazione flessibile
 In Data Factory V2 non è necessario definire pianificazioni della disponibilità per i set di dati. È possibile definire una risorsa trigger che può pianificare le pipeline da un paradigma di utilità di pianificazione basata sul tempo. È anche possibile passare parametri alle pipeline da un trigger per un modello di pianificazione ed esecuzione flessibile. 

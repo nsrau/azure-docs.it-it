@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7786fc785afa745da28b1da644ec58568d0cf424
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.openlocfilehash: 2095d75ed042ae8be02ae0a1570f8e77d06a3563
+ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -39,7 +39,7 @@ L'attività di copia viene eseguita in un [runtime di integrazione](concepts-int
 * Quando si copiano i dati tra archivi di dati accessibili pubblicamente, l'attività di copia può essere migliorata con il **runtime di integrazione di Azure** che è sicuro, affidabile, scalabile e [disponibile a livello globale](concepts-integration-runtime.md#integration-runtime-location).
 * Quando si copiano i dati da/a archivi di dati in locale o in una rete con il controllo di accesso (ad esempio, rete virtuale di Azure), è necessario configurare un **runtime di integrazione self-hosted** per migliorare la copia dei dati.
 
-Runtime di integrazione deve essere associata a ogni archivio dati di origine e sink. Informazioni su come l'attività di copia [determina quale runtime di integrazione usare](concepts-integration-runtime.md#determining-which-ir-to-use).
+Integration Runtime deve essere associato a ogni archivio dati di origine e sink. Informazioni su come l'attività di copia [determina quale runtime di integrazione usare](concepts-integration-runtime.md#determining-which-ir-to-use).
 
 L'attività di copia viene sottoposta alle fasi seguenti per copiare i dati dall'origine al sink. Il servizio su cui si basa l'attività di copia:
 
@@ -146,38 +146,80 @@ Nel modello seguente di un'attività di copia è incluso l'elenco completo delle
 
 ## <a name="monitoring"></a>Monitoraggio
 
-I dettagli dell'esecuzione dell'attività di copia e le caratteristiche relative alle prestazioni vengono restituiti nella sezione relativa all'output del risultato dell'esecuzione dell'attività di copia. Di seguito è riportato un elenco completo. Informazioni su come monitorare l'esecuzione dell'attività nella [sezione sull'avvio rapido del monitoraggio](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run). È possibile confrontare le prestazioni e la configurazione dello scenario personalizzato con le [informazioni di riferimento sulle prestazioni](copy-activity-performance.md#performance-reference) dell'attività di copia ottenute dai test interni.
+È possibile monitorare l'esecuzione dell'attività di copia nell'interfaccia utente "Crea e monitora" di Azure Data Factory o a livello di codice. È quindi possibile confrontare le prestazioni e la configurazione dello scenario con le [informazioni di riferimento sulle prestazioni](copy-activity-performance.md#performance-reference) dell'attività di copia ottenute da test interni.
+
+### <a name="monitor-visually"></a>Monitorare visivamente
+
+Per monitorare visivamente l'esecuzione dell'attività di copia, selezionare -> **Copia e monitora** -> **scheda Monitoraggio** della data factory. Verrà visualizzato un elenco di esecuzioni di pipeline con un collegamento per la visualizzazione delle esecuzioni delle attività nella colonna **Azioni**. 
+
+![Monitorare le esecuzioni di pipeline](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
+
+Fare clic per visualizzare l'elenco delle attività in questa esecuzione di pipeline. Nella colonna **Azioni** sono presenti collegamenti all'input e all'output dell'attività di copia, agli errori (se l'esecuzione dell'attività di copia ha esito negativo) e ai dettagli.
+
+![Monitorare le esecuzioni delle attività](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
+
+Fare clic sul collegamento "**Dettagli**" in **Azioni** per visualizzare i dettagli di esecuzione e le caratteristiche delle prestazioni dell'attività di copia. Vengono visualizzate informazioni quali il volume, le righe e i file di dati copiati dall'origine al sink, la velocità effettiva, i passaggi eseguiti (con la durata corrispondente) e le configurazioni usate per lo scenario di copia.
+
+**Esempio: copia da Amazon S3 ad Azure Data Lake Store**
+![Dettagli esecuzione attività di monitoraggio](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
+
+**Esempio: copia dal database SQL di Azure ad Azure SQL Data Warehouse tramite una copia di gestione temporanea**
+![Dettagli esecuzione attività di monitoraggio](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
+
+### <a name="monitor-programmatically"></a>Monitorare a livello di codice
+
+I dettagli dell'esecuzione dell'attività di copia e le caratteristiche relative alle prestazioni vengono restituiti anche nella sezione relativa all'output del risultato dell'esecuzione dell'attività di copia. Di seguito viene offerto l'elenco completo, ma solo i dettagli applicabili al proprio scenario di copia vengono visualizzati. Informazioni su come monitorare l'esecuzione dell'attività nella [sezione sull'avvio rapido del monitoraggio](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
 | Nome proprietà  | DESCRIZIONE | Unità |
 |:--- |:--- |:--- |
-| dataRead | Dimensioni dei dati letti nell'origine | Valore Int64 in byte |
-| dataWritten | Dimensioni dei dati scritti nel sink | Valore Int64 in byte |
+| dataRead | Dimensioni dei dati letti nell'origine | Valore Int64 in **byte** |
+| dataWritten | Dimensioni dei dati scritti nel sink | Valore Int64 in **byte** |
+| filesRead | Numero di file copiati quando si copiano dati da una risorsa di archiviazione di file. | Valore Int64 (senza unità) |
+| filesWritten | Numero di file copiati quando si copiano dati in una risorsa di archiviazione di file. | Valore Int64 (senza unità) |
 | rowsCopied | Numero di righe copiate (non applicabile alla copia binaria). | Valore Int64 (senza unità) |
 | rowsSkipped | Numero di righe incompatibili ignorate. È possibile abilitare la funzionalità impostando il valore "enableSkipIncompatibleRow" su True. | Valore Int64 (senza unità) |
-| throughput | Velocità di trasferimento dei dati | Numero a virgola mobile in KB/s |
+| throughput | Velocità di trasferimento dei dati | Numero a virgola mobile in **KB/s** |
 | copyDuration | Durata della copia | Valore Int32 in secondi |
 | sqlDwPolyBase | Se PolyBase viene usato per copiare i dati in SQL Data Warehouse. | boolean |
 | redshiftUnload | Se UNLOAD viene usato per copiare i dati da Redshift. | boolean |
 | hdfsDistcp | Se DistCp viene usato per copiare i dati da HDFS. | boolean |
 | effectiveIntegrationRuntime | Mostra gli Integration Runtime usati per migliorare l'esecuzione dell'attività, nel formato `<IR name> (<region if it's Azure IR>)`. | Testo (stringa) |
 | usedCloudDataMovementUnits | Il numero effettivo di unità di spostamento dati cloud durante la copia. | Valore Int32 |
+| usedParallelCopies | Proprietà parallelCopies effettiva durante la copia. | Valore Int32|
 | redirectRowPath | Percorso del log delle righe incompatibili ignorate nel contenitore di archiviazione BLOB configurato in "redirectIncompatibleRowSettings". Vedere l'esempio seguente. | Testo (stringa) |
-| billedDuration | La durata fatturata per lo spostamento dei dati. | Valore Int32 in secondi |
+| executionDetails | Maggiori dettagli sulle fasi a cui viene sottoposta l'attività di copia e sui passaggi, sulla durata, sulle configurazioni usate e così via. Non è consigliabile analizzare questa sezione, perché può cambiare. | Array |
 
 ```json
 "output": {
-    "dataRead": 1024,
-    "dataWritten": 2048,
-    "rowsCopies": 100,
-    "rowsSkipped": 2,
-    "throughput": 1024.0,
-    "copyDuration": 3600,
-    "redirectRowPath": "https://<account>.blob.core.windows.net/<path>/<pipelineRunID>/",
-    "redshiftUnload": true,
-    "sqlDwPolyBase": true,
-    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)",
-    "usedCloudDataMovementUnits": 8,
-    "billedDuration": 28800
+    "dataRead": 107280845500,
+    "dataWritten": 107280845500,
+    "filesRead": 10,
+    "filesWritten": 10,
+    "copyDuration": 224,
+    "throughput": 467707.344,
+    "errors": [],
+    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US 2)",
+    "usedCloudDataMovementUnits": 32,
+    "usedParallelCopies": 8,
+    "executionDetails": [
+        {
+            "source": {
+                "type": "AmazonS3"
+            },
+            "sink": {
+                "type": "AzureDataLakeStore"
+            },
+            "status": "Succeeded",
+            "start": "2018-01-17T15:13:00.3515165Z",
+            "duration": 221,
+            "usedCloudDataMovementUnits": 32,
+            "usedParallelCopies": 8,
+            "detailedDurations": {
+                "queuingDuration": 2,
+                "transferDuration": 219
+            }
+        }
+    ]
 }
 ```
 
@@ -194,10 +236,10 @@ Per impostazione predefinita, l'attività di copia interrompe la copia dei dati 
 Vedere l'articolo [Guida alle prestazioni delle attività di copia e all'ottimizzazione](copy-activity-performance.md), che descrive i fattori chiave che influiscono sulle prestazioni di spostamento dei dati (attività di copia) in Data Factory di Azure. Vengono anche elencate le prestazioni osservate durante il test interni e vengono descritti i modi per ottimizzare le prestazioni dell'attività di copia.
 
 ## <a name="incremental-copy"></a>Copia incrementale 
-Data Factory, versione 2 supporta scenari per la copia in modo incrementale i dati delta da un archivio dati di origine a un archivio dati di destinazione. Vedere [esercitazione: copiare i dati in modo incrementale](tutorial-incremental-copy-overview.md). 
+Data Factory versione 2 supporta scenari per la copia incrementale di dati delta da un archivio dati di origine a un archivio dati di destinazione. Vedere [Esercitazione: Copiare dati in modo incrementale](tutorial-incremental-copy-overview.md). 
 
 ## <a name="read-and-write-partitioned-data"></a>Leggere e scrivere dati partizionati
-Nella versione 1, Azure Data Factory supportava la lettura o la scrittura di dati partizionati usando le variabili di sistema SliceStart/SliceEnd/WindowStart/WindowEnd. Nella versione 2, è possibile ottenere questo comportamento usando un parametro della pipeline e l'ora di inizio/ora prevista per il trigger come valore per il parametro. Per ulteriori informazioni, vedere [come leggere o scrivere dati partizionati](how-to-read-write-partitioned-data.md).
+Nella versione 1, Azure Data Factory supportava la lettura o la scrittura di dati partizionati usando le variabili di sistema SliceStart/SliceEnd/WindowStart/WindowEnd. Nella versione 2, è possibile ottenere questo comportamento usando un parametro della pipeline e l'ora di inizio/ora prevista per il trigger come valore per il parametro. Per altre informazioni, vedere [Come leggere o scrivere dati partizionati](how-to-read-write-partitioned-data.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere le guide rapide, le esercitazioni e gli esempi seguenti:

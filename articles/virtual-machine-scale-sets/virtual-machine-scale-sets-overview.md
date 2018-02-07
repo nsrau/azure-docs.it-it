@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 6c796377b90fb3cd697f6d77589e3995b3eac338
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>Informazioni sui set di scalabilità di macchine virtuali in Azure
 I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire un set di VM identiche. Dato che tutte le VM hanno la stessa configurazione, i set di scalabilità sono progettati per supportare l'effettiva scalabilità automatica, senza che sia necessario il provisioning preventivo delle VM. Ciò semplifica la creazione di servizi su larga scala destinati a carichi di lavoro Big Compute, con dati di grandi dimensioni e in contenitori.
@@ -35,10 +35,7 @@ Per altre informazioni sui set di scalabilità, guardare questi video:
 ## <a name="creating-and-managing-scale-sets"></a>Creazione e gestione dei set di scalabilità
 È possibile creare un set di scalabilità nel [portale di Azure](https://portal.azure.com) selezionando **Nuovo** e digitando **scalabilità** nella barra di ricerca. Nei risultati verrà visualizzato **Set di scalabilità di macchine virtuali**. A questo punto è possibile compilare i campi obbligatori per personalizzare e distribuire il set di scalabilità. Nel portale sono disponibili anche opzioni per impostare regole di base di scalabilità automatica in base all'utilizzo della CPU. Per gestire il set di scalabilità, è possibile usare il portale di Azure, i [cmdlet di Azure PowerShell](virtual-machine-scale-sets-windows-manage.md) o l'interfaccia della riga di comando di Azure 2.0.
 
-I set di scalabilità possono essere distribuiti in una [zona di disponibilità](../availability-zones/az-overview.md).
-
-> [!NOTE]
-> I set di scalabilità di macchine virtuali supportano attualmente solo la distribuzione in una singola zona di disponibilità. In futuro verrà aggiunto il supporto per la distribuzione in più zone.
+I set di scalabilità possono essere distribuiti in più [zone di disponibilità](virtual-machine-scale-sets-use-availability-zones.md).
 
 I set di scalabilità possono essere definiti e distribuiti con modelli JSON e [API REST](https://msdn.microsoft.com/library/mt589023.aspx), esattamente come le singole VM di Azure Resource Manager. È quindi possibile usare qualsiasi metodo di distribuzione Azure Resource Manager standard. Per altre informazioni sui modelli, vedere [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -52,7 +49,7 @@ Per mantenere costanti le prestazioni dell'applicazione, è possibile aumentare 
 
 Per le regole di scalabilità automatica di base, è possibile usare le metriche delle prestazioni basate sull'host, ad esempio l'utilizzo della CPU o l'I/O su disco. Queste metriche basate sull'host sono automaticamente disponibili, senza dover installare e configurare agenti o estensioni aggiuntive. È possibile creare regole di scalabilità automatica che usano metriche basate su host con uno degli strumenti seguenti:
 
-- [Portale di Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
 - [Interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md)
 
@@ -94,7 +91,7 @@ Se è necessario visualizzare o modificare la definizione JSON sottostante di un
 Questa sezione contiene un elenco di alcuni scenari tipici dei set di scalabilità. Questi scenari vengono usati anche da alcuni servizi di Azure di livello superiore, come Batch, Service Fabric e Servizio contenitore.
 
 * **Connessione a istanze del set di scalabilità con RDP o SSH**: un set di scalabilità viene creato in una rete virtuale e alle singole VM del set non vengono allocati indirizzi IP pubblici per impostazione predefinita. Questo criterio evita le spese e il sovraccarico di gestione associati all'allocazione di indirizzi IP pubblici distinti a tutti i nodi della griglia di calcolo. Se sono necessarie connessioni esterne dirette alle VM del set di scalabilità è possibile configurare un set di scalabilità per l'assegnazione automatica di indirizzi IP pubblici a nuove VM. In alternativa è possibile connettersi a queste VM da altre risorse della rete virtuale alle quali è possibile allocare indirizzi IP pubblici, ad esempio servizi di bilanciamento del carico e macchine virtuali autonome. 
-* **Connessione alle VM con regole NAT**: è possibile creare un indirizzo IP pubblico, assegnarlo a un servizio di bilanciamento del carico e definire un pool NAT in ingresso. Con queste azioni viene eseguito il mapping delle porte nell'indirizzo IP a una porta di una VM del set di scalabilità. Ad esempio:
+* **Connessione alle VM con regole NAT**: è possibile creare un indirizzo IP pubblico, assegnarlo a un servizio di bilanciamento del carico e definire un pool NAT in ingresso. Con queste azioni viene eseguito il mapping delle porte nell'indirizzo IP a una porta di una VM del set di scalabilità. Ad esempio: 
   
   | Sorgente | Porta di origine | Destination | Porta di destinazione |
   | --- | --- | --- | --- |

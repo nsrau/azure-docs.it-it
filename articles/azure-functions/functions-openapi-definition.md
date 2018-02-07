@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
-ms.openlocfilehash: 2bf1a3e80e96d76b15340f87166b2b4762271cf3
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 29e78bbb8e3d4d4feb3f7d32cf0a5ef1b02a6268
+ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Creare una definizione OpenAPI per una funzione
 Le API REST vengono spesso descritte usando una definizione OpenAPI (detta in precedenza file [Swagger](http://swagger.io/)). Questa definizione contiene informazioni sulle operazioni disponibili in un'API e su come devono essere strutturati i dati della richiesta e della risposta per l'API.
@@ -48,21 +48,21 @@ Per ospitare l'esecuzione delle funzioni è necessaria un'app per le funzioni. U
 
 Questa esercitazione usa una funzione attivata tramite HTTP che accetta due parametri: il tempo stimato per la riparazione della turbina (in ore) e la capacità della turbina (in chilowatt). La funzione calcola quindi il costo della riparazione e i ricavi che la turbina potrebbe consentire in un periodo di 24 ore.
 
-1. Espandere l'applicazione di funzione e selezionare il  **+**  accanto al pulsante **funzioni**. Se questa è la prima funzione nell'app per le funzioni, selezionare **Funzione personalizzata**. Verrà visualizzato il set completo di modelli di funzione. 
+1. Espandere l'app per le funzioni e selezionare il pulsante **+** accanto a **Funzioni**. Se questa è la prima funzione nell'app per le funzioni, selezionare **Funzione personalizzata**. Verrà visualizzato il set completo di modelli di funzione. 
 
     ![Pagina della guida introduttiva di Funzioni nel portale di Azure](media/functions-openapi-definition/add-first-function.png)
 
-2. Nel campo di ricerca, digitare `http` e quindi scegliere **c#** per il modello di trigger HTTP. 
+2. Nel campo di ricerca digitare `http` e quindi scegliere **C#** per il modello di trigger HTTP. 
  
-    ![Scegliere il trigger HTTP](./media/functions-openapi-definition/select-http-trigger-portal.png)
+    ![Scegliere un trigger HTTP](./media/functions-openapi-definition/select-http-trigger-portal.png)
 
-3. Tipo `TurbineRepair` per la funzione **nome**, scegliere `Function` per  **[livello di autenticazione](functions-bindings-http-webhook.md#http-auth)**, quindi selezionare **crea**.  
+3. Digitare `TurbineRepair` per il **Nome** della funzione, scegliere `Function` per **[Livello autenticazione](functions-bindings-http-webhook.md#http-auth)** e quindi selezionare **Crea**.  
 
-    ![Creare la funzione di attivazione HTTP](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
+    ![Creare la funzione attivata tramite HTTP](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. Sostituire il contenuto del file run.csx con il codice seguente e quindi fare clic su **Salva**:
 
-    ```c#
+    ```csharp
     using System.Net;
 
     const double revenuePerkW = 0.12; 
@@ -125,7 +125,7 @@ A questo punto si è pronti per generare la definizione OpenAPI. Questa definizi
 
     1. Nella scheda **Integrazione** della nuova funzione trigger HTTP modificare **Metodi HTTP consentiti** in **Metodi selezionati**
 
-    1. In **metodi HTTP selezionato**, deselezionare tutte le opzioni tranne **POST**, quindi fare clic su **salvare**.
+    1. In **Metodi HTTP selezionati** deselezionare tutte le opzioni ad eccezione di **POST**, quindi fare clic su **Salva**.
 
         ![Metodi HTTP selezionati](media/functions-openapi-definition/selected-http-methods.png)
         
@@ -272,7 +272,7 @@ Prima di usare la definizione API, è consigliabile testarla nell'interfaccia ut
 
 1. Tornare alla definizione API: **function-demo-energy** > **Funzionalità della piattaforma** > **Definizione API**.
 
-1. Nel riquadro di destra, fare clic su **Authenticate**, immettere la chiave API copiato e fare clic su **Authenticate**.
+1. Nel riquadro destro fare clic su **Autentica**, immettere la chiave API copiata e fare clic su **Autentica**.
 
     ![Eseguire l'autenticazione con la chiave API](media/functions-openapi-definition/authenticate-api-key.png)
 
@@ -286,7 +286,7 @@ Prima di usare la definizione API, è consigliabile testarla nell'interfaccia ut
 
     Si noti il modo in cui l'interfaccia utente usa le descrizioni dalla definizione API.
 
-1. Fare clic su **Invia richiesta**, quindi fare clic su di **piuttosto** scheda per visualizzare l'output.
+1. Fare clic su **Send Request** (Invia una richiesta) e quindi sulla scheda **Pretty** (Formattato) per visualizzare l'output.
 
     ![Inviare una richiesta](media/functions-openapi-definition/send-request.png)
 

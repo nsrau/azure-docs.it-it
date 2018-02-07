@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2017
+ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 163ac33af43a8cb7a23742f6336efca5fe7c4b4e
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e687a1ee8ac4f565062e57b07cdfa9ac5e6bbf4f
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Importare dati di Azure Log Analytics in Power BI
 
@@ -86,12 +86,12 @@ Se si configura Power BI con un'[area di lavoro Log Analytics legacy](log-analyt
 ![Log Analytics in Power BI](media/log-analytics-powerbi/overview-legacy.png)
 
 ### <a name="power-bi-schedules"></a>Pianificazioni di Power BI
-Una *pianificazione di Power BI* include una ricerca dei log che esporta un set di dati dal repository OMS per un set di dati corrispondente in Power BI e una pianificazione che definisce la frequenza con cui viene eseguita la ricerca per mantenere aggiornato il set di dati.
+Una *pianificazione di Power BI* include una ricerca log che esporta un set di dati da Log Analytics in un set di dati corrispondente in Power BI e una pianificazione che definisce la frequenza con cui viene eseguita la ricerca per mantenere aggiornato il set di dati.
 
 I campi nel set di dati corrisponderanno alle proprietà dei record restituiti dalla ricerca dei log.  Se la ricerca restituisce i record di tipi diversi, il set di dati includerà tutte le proprietà di ognuno dei tipi di record inclusi.  
 
-### <a name="connecting-oms-workspace-to-power-bi"></a>Connessione dell'area di lavoro di OMS a Power BI
-Prima di poter esportare da Log Analytics in Power BI, è necessario connettersi l'area di lavoro di OMS all'account Power BI usando la procedura seguente.  
+### <a name="connecting-log-analytics-workspace-to-power-bi"></a>Connessione dell'area di lavoro di Log Analytics a Power BI
+Prima di eseguire l'esportazione da Log Analytics a Power BI, è necessario connettere l'area di lavoro all'account di Power BI usando la procedura seguente.  
 
 1. Nella console di OMS selezionare il riquadro **Impostazioni** .
 2. Selezionare **Account**.
@@ -106,9 +106,9 @@ Creare una pianificazione di Power BI per ogni set di dati usando la procedura s
 3. Fare clic sul pulsante **Power BI** nella parte superiore della pagina per aprire la finestra di dialogo **Power BI**.
 4. Fornire le informazioni nella tabella seguente e fare clic su **Salva**.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| Nome |Nome per identificare la pianificazione quando si visualizza l'elenco di pianificazioni di Power BI. |
+| NOME |Nome per identificare la pianificazione quando si visualizza l'elenco di pianificazioni di Power BI. |
 | Ricerca salvata |Ricerca dei log da eseguire.  È possibile selezionare la query corrente o selezionare una ricerca salvata dalla casella a discesa. |
 | Pianificazione |Frequenza con cui eseguire la ricerca salvata ed esportare nel set di dati di Power BI.  Il valore deve essere compreso tra 15 minuti e 24 ore. |
 | Nome del set di dati |Nome del set di dati in Power BI.  Verrà creato se non esiste e aggiornato se esiste. |

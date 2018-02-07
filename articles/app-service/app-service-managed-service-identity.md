@@ -11,11 +11,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
-ms.openlocfilehash: 6b2dcaa4b0e0f59bf8a632b48813ba6a24202ec5
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 45fcbc3af02dd8afbd9581e8bc38ad10369a2747
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Come usare Identità del servizio gestito di Azure (anteprima pubblica) nel Servizio App e in Funzioni di Azure
 
@@ -42,7 +42,7 @@ Per impostare un'identità del servizio gestito nel portale, è prima necessario
 
 3. Selezionare **Managed service identity** (Identità servizio gestito).
 
-4. Impostare **Register with Azure Active Directory** (Registra con Azure Active Directory) su **On**. Fare clic su **Salva**.
+4. Impostare **Register with Azure Active Directory** (Registra con Azure Active Directory) su **On**. Fare clic su **Save**.
 
 ![Identità del servizio gestito in Servizio app](media/app-service-managed-service-identity/msi-blade.png)
 
@@ -56,7 +56,7 @@ Per configurare un'identità del servizio gestito usando l'interfaccia della rig
 
 La procedura seguente consente di creare di un'app Web e assegnarle un'identità usando l'interfaccia della riga di comando:
 
-1. Se si usa l'interfaccia della riga di comando di Azure in una console locale, accedere prima di tutto ad Azure tramite [az login](/cli/azure/#login). Usare un account associato alla sottoscrizione di Azure in cui si desidera distribuire l'applicazione:
+1. Se si usa l'interfaccia della riga di comando di Azure in una console locale, accedere prima di tutto ad Azure tramite [az login](/cli/azure/#az_login). Usare un account associato alla sottoscrizione di Azure in cui si desidera distribuire l'applicazione:
 
     ```azurecli-interactive
     az login
@@ -159,7 +159,7 @@ Un'applicazione con un'identità del servizio gestito ha due variabili di ambien
 **MSI_ENDPOINT** è un URL locale da cui l'app può richiedere token. Per ottenere un token per una risorsa, eseguire una richiesta HTTP GET a questo endpoint, includendo i parametri seguenti:
 
 > [!div class="mx-tdBreakAll"]
-> |Nome parametro|In|Descrizione|
+> |Nome parametro|In ingresso|DESCRIZIONE|
 > |-----|-----|-----|
 > |resource|Query|URI della risorsa AAD per cui è necessario ottenere un token.|
 > |api-version|Query|Versione dell'API del token da usare. Al momento, l'unica versione supportata è: "2017-09-01".|
@@ -169,7 +169,7 @@ Un'applicazione con un'identità del servizio gestito ha due variabili di ambien
 Una risposta 200 OK con esito positivo include un corpo JSON con le proprietà seguenti:
 
 > [!div class="mx-tdBreakAll"]
-> |Nome proprietà|Descrizione|
+> |Nome proprietà|DESCRIZIONE|
 > |-------------|----------|
 > |access_token|Token di accesso richiesto. Il servizio Web chiamante può usare questo token per l'autenticazione nel servizio Web ricevente.|
 > |expires_on|Scadenza del token di accesso. La data è rappresentata come numero di secondi da 1970-01-01T0:0:0Z UTC fino alla scadenza. Questo valore viene usato per determinare la durata dei token memorizzati nella cache.|

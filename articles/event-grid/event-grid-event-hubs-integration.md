@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: f7d2b1970cb7b1330b3d9bdff7987a90fa381392
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b315bd77a47a6f106c5768da56828a5169de5fe9
+ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/20/2018
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Trasmettere Big Data a un data warehouse
 
@@ -64,7 +64,7 @@ Griglia di eventi distribuisce i dati dell'evento ai sottoscrittori. L'esempio s
 ]
 ```
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare l'esercitazione, sono necessari:
 
@@ -154,7 +154,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
 È possibile usare l'interfaccia della riga di comando di Azure o il portale per sottoscrivere l'evento. Questo articolo illustra entrambi gli approcci.
 
-### <a name="portal"></a>di Microsoft Azure
+### <a name="portal"></a>Portale
 
 1. Dallo spazio dei nomi di Hub eventi selezionare **Griglia di eventi** a sinistra.
 
@@ -164,16 +164,20 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
    ![Aggiungere una sottoscrizione di eventi](media/event-grid-event-hubs-integration/add-event-subscription.png)
 
-3. Fornire i valori per la sottoscrizione di eventi. Usare l'URL di Funzioni di Azure che è stato copiato. Selezionare **Crea**.
+3. Fornire i valori per la sottoscrizione di eventi. Usare l'URL di Funzioni di Azure che è stato copiato. Selezionare **Create**.
 
    ![Fornire i valori della sottoscrizione](media/event-grid-event-hubs-integration/provide-values.png)
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Per sottoscrivere l'evento, eseguire il comando seguente:
+Per sottoscrivere l'evento, eseguire i comandi seguenti (che richiedono la versione 2.0.24 o successiva dell'interfaccia della riga di comando di Azure):
 
 ```azurecli-interactive
-az eventgrid resource event-subscription create -g rgDataMigrationSample --provider-namespace Microsoft.EventHub --resource-type namespaces --resource-name <your-EventHubs-namespace> --name captureEventSub --endpoint <your-function-endpoint>
+namespaceid=$(az resource show --namespace Microsoft.EventHub --resource-type namespaces --name <your-EventHubs-namespace> --resource-group rgDataMigrationSample --query id --output tsv)
+az eventgrid event-subscription create \
+  --resource-id $namespaceid \
+  --name captureEventSub \
+  --endpoint <your-function-endpoint>
 ```
 
 ## <a name="run-the-app-to-generate-data"></a>Eseguire l'app per generare i dati

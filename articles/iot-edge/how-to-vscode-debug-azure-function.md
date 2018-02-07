@@ -1,6 +1,6 @@
 ---
-title: Utilizzare Visual Studio Code per il debug di funzioni di Azure con Azure IoT Edge | Documenti Microsoft
-description: Eseguire il debug in c# le funzioni di Azure con Azure IoT Edge, in Visual Studio Code
+title: Usare Visual Studio Code per eseguire il debug di Funzioni di Azure con Azure IoT Edge | Microsoft Docs
+description: Eseguire il debug di Funzioni di Azure in C# con Azure IoT Edge in Visual Studio Code
 services: iot-edge
 keywords: 
 author: shizn
@@ -9,49 +9,68 @@ ms.author: xshi
 ms.date: 12/20/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4344a450d218a7424cd055cf086c1e4865c9af10
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: db86a08a19e97f8f415849aa060fe87d77cccf68
+ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/24/2018
 ---
-# <a name="use-visual-studio-code-to-debug-azure-functions-with-azure-iot-edge"></a>Utilizzare Visual Studio Code per il debug di funzioni di Azure con Azure IoT Edge
+# <a name="use-visual-studio-code-to-debug-azure-functions-with-azure-iot-edge"></a>Usare Visual Studio Code per eseguire il debug di Funzioni di Azure con Azure IoT Edge
 
-In questo articolo vengono fornite istruzioni dettagliate per l'utilizzo di [codice di Visual Studio](https://code.visualstudio.com/) come lo strumento di sviluppo principali per eseguire il debug delle funzioni di Azure IoT lato.
+Questo articolo fornisce istruzioni dettagliate per usare [Visual Studio Code](https://code.visualstudio.com/) come strumento di sviluppo principale per eseguire il debug di Funzioni di Azure in IoT Edge.
 
 ## <a name="prerequisites"></a>Prerequisiti
-In questa esercitazione si presuppone che si utilizza un computer o macchina virtuale che esegue Windows o Linux come computer di sviluppo. Il dispositivo perimetrale IoT può essere un altro dispositivo fisico oppure è possibile simulare il dispositivo perimetrale IoT nel computer di sviluppo.
+Questa esercitazione presuppone che si usi un computer o una macchina virtuale Windows o Linux come computer di sviluppo. Il dispositivo IoT Edge può essere un altro dispositivo fisico oppure è possibile simulare il dispositivo IoT Edge nel computer di sviluppo.
 
-Assicurarsi di avere completato le esercitazioni seguenti prima di iniziare questa Guida.
-- [Usare codice di Visual Studio per sviluppare e distribuire le funzioni di Azure al bordo IoT di Azure](how-to-vscode-develop-azure-function.md)
+Completare le esercitazioni seguenti prima di procedere con queste istruzioni.
+- [Usare Visual Studio Code per sviluppare e distribuire Funzioni di Azure con Azure IoT Edge](how-to-vscode-develop-azure-function.md)
 
-Dopo aver completati l'esercitazione precedente, è necessario disporre dei seguenti elementi,
-- Un Docker Registro di sistema locale in esecuzione nel computer di sviluppo. È consigliabile per utilizzare un registro di sistema locale di Docker per prototipo e lo scopo di test.
-- Il `run.csx` con codice di funzione di filtro più recente.
-- Aggiornata `deployment.json` file per il modulo sensore e modulo di funzione di filtro.
-- Un bordo runtime in esecuzione nel computer di sviluppo.
+Dopo aver completato l'esercitazione precedente, è necessario avere a disposizione quanto segue:
+- Un registro Docker locale in esecuzione nel computer di sviluppo. È consigliabile usare un registro Docker locale come prototipo e a scopo di test.
+- Il file `run.csx` con il codice dalla funzione di filtro più recente.
+- Un file `deployment.json` aggiornato per il modulo del sensore e il modulo della funzione di filtro.
+- Un runtime Edge in esecuzione nel computer di sviluppo.
 
-## <a name="build-your-iot-edge-module-for-debugging-purpose"></a>Compilare il modulo di IoT Edge per scopi di debug
-1. Per avviare il debug, è necessario utilizzare il **dockerfile.debug** per ricreare l'immagine di docker e distribuire nuovamente la soluzione di bordo. In Esplora il codice di Visual Studio, fare clic sulla cartella di Docker per aprirlo. Quindi fare clic su di `linux-x64` cartella, fare doppio clic sul **Dockerfile.debug**, fare clic su **immagine Docker modulo di compilazione IoT Edge**.
-3. Nel **selezionare la cartella** finestra, passare al **FilterFunction** sul progetto e scegliere **Seleziona cartella come EXE_DIR**.
-4. Nella casella di testo popup nella parte superiore della finestra di Visual Studio Code immettere il nome dell'immagine. Ad esempio: `<your container registry address>/filterfunction:latest`. Se si distribuisce nel Registro di sistema locale, deve essere `localhost:5000/filterfunction:latest`.
-5. Eseguire il push dell'immagine nel repository di Docker. Utilizzare il **Edge: immagine di Docker modulo Push IoT Edge** comandi e immettere l'URL dell'immagine nella casella di testo popup nella parte superiore della finestra del codice di Visual Studio. Utilizzare lo stesso URL di immagini utilizzato nel precedente passaggio.
-6. È possibile riutilizzare il `deployment.json` ridistribuire. Nella tavolozza di comando, digitare e selezionare **bordo: bordo riavviare** per ottenere la funzione di filtro in esecuzione con la versione di debug.
+## <a name="build-your-iot-edge-module-for-debugging-purpose"></a>Compilare il modulo IoT Edge a scopo di debug
+1. Per iniziare il debug, è necessario usare **dockerfile.debug** per ricompilare l'immagine Docker e distribuire nuovamente la soluzione Edge. Nello strumento di esplorazione di Visual Studio Code fare clic sulla cartella Docker per aprirla. Fare quindi clic sulla cartella `linux-x64`, fare clic con il pulsante destro del mouse su **Dockerfile.debug** e scegliere **Build IoT Edge module Docker image** (Compila l'immagine Docker per il modulo IoT Edge).
+
+    ![Compilare l'immagine di debug](./media/how-to-debug-csharp-function/build-debug-image.png)
+
+2. Nella finestra **Seleziona cartella** passare al progetto **FilterFunction** e fare clic su **Select Folder as EXE_DIR** (Seleziona cartella come EXE_DIR).
+3. Nella casella di testo popup nella parte superiore della finestra di Visual Studio Code immettere il nome dell'immagine. Ad esempio: `<your container registry address>/filterfunction:latest`. Se si esegue la distribuzione nel registro locale, il nome deve essere `localhost:5000/filterfunction:latest`.
+
+    ![Immagine di push](./media/how-to-debug-csharp-function/push-image.png)
+
+4. Eseguire il push dell'immagine nel repository di Docker. Usare il comando **Edge: Push IoT Edge module Docker image** (Edge: Esegui il push dell'immagine Docker per il modulo IoT Edge) e immettere l'URL dell'immagine nella casella di testo popup nella parte superiore della finestra di Visual Studio Code. Usare lo stesso URL di immagine del passaggio precedente.
+5. Per ripetere la distribuzione, è possibile riusare `deployment.json`. Nel riquadro comandi digitare e selezionare **Edge: Restart Edge** (Edge: Riavvia Edge) per eseguire la funzione di filtro con la versione di debug.
 
 ## <a name="start-debugging-in-vs-code"></a>Avviare il debug in Visual Studio Code
-1. Passare alla finestra di debug di Visual Studio Code. Premere **F5** e selezionare **IoT Edge(.Net Core)**
-2. In `launch.json`, passare a **Debug IoT Edge funzione (.NET Core)** sezione e compilare il `<container_name>`in `pipeArgs`. Deve essere `filterfunction` in questa esercitazione.
+1. Passare alla finestra di debug di Visual Studio Code. Premere **F5** e selezionare **IoT Edge (.NET Core)**
+
+    ![Premere F5](./media/how-to-debug-csharp-function/f5-debug-option.png)
+
+2. In `launch.json` passare alla sezione **Debug IoT Edge Function (.NET Core)** (Debug della funzione IoT Edge - .NET Core) e compilare il campo `<container_name>` in `pipeArgs`. In questa esercitazione, deve essere `filterfunction`.
+
+    ![Aggiornare launch.json](./media/how-to-debug-csharp-function/update-launch-json.png)
+
 3. Passare a run.csx. Aggiungere un punto di interruzione nella funzione.
-4. Premere **F5** nuovamente. Selezionare il processo a cui connettersi.
-5. Nella finestra di Debug di codice di Visual Studio, è possibile visualizzare le variabili nel riquadro sinistro. 
+4. Passare alla finestra di debug (Ctrl + Maiusc + D) e selezionare **Debug IoT Edge Function (.NET Core)** (Debug della funzione IoT Edge - .NET Core) nell'elenco a discesa. 
+
+    ![Selezionare la modalità Debug](./media/how-to-debug-csharp-function/choose-debug-mode.png)
+
+5. Fare clic su pulsante Avvia debug oppure premere **F5** e selezionare il processo a cui collegarsi.
+
+    ![Collegamento al processo della funzione](./media/how-to-debug-csharp-function/attach-function-process.png)
+
+6. Nel pannello di sinistra della finestra di debug di Visual Studio Code è possibile visualizzare le variabili. 
 
 > [!NOTE]
-> Esempio precedente viene illustrato come il debug di .net Core IoT Edge funzione sui contenitori. Cui si basa la versione di debug di `Dockerfile.debug`, VSDBG (debugger della riga di comando di .NET Core) che include l'immagine del contenitore durante la creazione. Si consiglia utilizzare direttamente o personalizzare il `Dockerfile` senza VSDBG per la funzione IoT bordo di ambiente di produzione al termine del debug di una funzione c#.
+> L'esempio precedente illustra come eseguire il debug della funzione IoT Edge in .NET Core sui contenitori. Si basa sulla versione di debug di `Dockerfile.debug`, che include VSDBG (debugger della riga di comando di .NET Core) nell'immagine del contenitore durante la creazione. Si consiglia di usare direttamente o personalizzare il file `Dockerfile` senza VSDBG per la funzione IoT Edge per l'ambiente di produzione al termine del debug della funzione C#.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è creata una funzione di Azure distribuita al bordo IoT a scopo di debug e avviato il debug in Visual Studio Code. È possibile continuare a una delle esercitazioni seguenti per ulteriori informazioni sugli altri scenari durante lo sviluppo di IoT Edge di Azure in Visual Studio Code. 
+In questa esercitazione è stata creata una funzione di Azure, che è stata distribuita in IoT Edge a scopo di debug e ne è stato avviato il debug in Visual Studio Code. Per informazioni su altri scenari durante lo sviluppo di Azure IoT Edge in Visual Studio Code, è possibile continuare con l'esercitazione seguente. 
 
 > [!div class="nextstepaction"]
-> [Sviluppare e distribuire il modulo c# in Visual Studio Code](how-to-vscode-develop-csharp-module.md)
+> [Sviluppare e distribuire un modulo C# in Visual Studio Code](how-to-vscode-develop-csharp-module.md)
 

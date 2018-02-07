@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 7e03d5e2bbdb1b3b206fa7fa455f7dce7951f02b
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 288bcdf6628f60d0b08fe151e630784d665db56f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuire l'applicazione nei set di scalabilità delle macchine virtuali
 Per eseguire applicazioni nelle istanze di macchine virtuali (VM) in un set di scalabilità, è necessario prima installare i componenti dell'applicazione e i file necessari. Questo articolo descrive come creare un'immagine personalizzata di macchina virtuale per le istanze in un set di scalabilità o eseguire automaticamente gli script di installazione nelle istanze di macchine virtuali esistenti. Si apprenderà anche come gestire gli aggiornamenti delle applicazioni o del sistema operativo in un set di scalabilità.
@@ -50,7 +50,7 @@ L'estensione script personalizzata è integrabile nei modelli di Azure Resource 
 Per altre informazioni, vedere [Panoramica dell'estensione script personalizzata](../virtual-machines/windows/extensions-customscript.md).
 
 
-### <a name="use-azure-powershell"></a>Uso di Azure PowerShell
+### <a name="use-azure-powershell"></a>Usare Azure PowerShell
 PowerShell usa una tabella hash per archiviare i file da scaricare e il comando da eseguire. L'esempio seguente:
 
 - Indica alle istanze di macchine virtuali di scaricare uno script da GitHub: *https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1*
@@ -58,7 +58,7 @@ PowerShell usa una tabella hash per archiviare i file da scaricare e il comando 
 - Ottiene informazioni su un set di scalabilità con [Get AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
 - Applica l'estensione alle istanze di macchine virtuali con [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
 
-L'estensione dello script personalizzata viene applicata alle istanze di macchine virtuali *myScaleSet* nel gruppo di risorse denominato *myResourceGroup*. Immettere nomi personalizzati come di seguito:
+L'estensione dello script personalizzata viene applicata alle istanze di macchine virtuali *myScaleSet* nel gruppo di risorse denominato *myResourceGroup*. Immettere i nomi personalizzati nel modo seguente:
 
 ```powershell
 # Define the script for your Custom Script Extension to run
@@ -103,7 +103,7 @@ Nella shell corrente creare un file denominato *customConfig.json* e incollare l
 }
 ```
 
-Applicare la configurazione dell'estensione dello script personalizzata alle istanze di macchine virtuali nel set di scalabilità con [az vmss extension set](/cli/azure/vmss/extension#set). Nell'esempio seguente viene applicata la configurazione *customConfig.json* alle istanze di macchine virtuali *myScaleSet* nel gruppo di risorse denominato *myResourceGroup*. Immettere nomi personalizzati come di seguito:
+Applicare la configurazione dell'estensione dello script personalizzata alle istanze di macchine virtuali nel set di scalabilità con [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set). Nell'esempio seguente viene applicata la configurazione *customConfig.json* alle istanze di macchine virtuali *myScaleSet* nel gruppo di risorse denominato *myResourceGroup*. Immettere i nomi personalizzati nel modo seguente:
 
 ```azurecli
 az vmss extension set \
@@ -172,7 +172,7 @@ Cloud-init funziona anche fra distribuzioni. Ad esempio, non si usa **apt-get in
 
 Per altre informazioni, incluso un file *cloud-init.txt* di esempio, vedere [Usare cloud-init per personalizzare le macchine virtuali di Azure](../virtual-machines/linux/using-cloud-init.md).
 
-Per creare un set di scalabilità e usare un file cloud-init, aggiungere il parametro `--custom-data` al comando [az vmss create](/cli/azure/vmss#create) e specificare il nome di un file cloud-int. L'esempio seguente crea un set di scalabilità denominato *myScaleSet* in *myResourceGroup* e configura le istanze di macchine virtuali con un file denominato *cloud-init.txt*. Immettere nomi personalizzati come di seguito:
+Per creare un set di scalabilità e usare un file cloud-init, aggiungere il parametro `--custom-data` al comando [az vmss create](/cli/azure/vmss#az_vmss_create) e specificare il nome di un file cloud-int. L'esempio seguente crea un set di scalabilità denominato *myScaleSet* in *myResourceGroup* e configura le istanze di macchine virtuali con un file denominato *cloud-init.txt*. Immettere i nomi personalizzati nel modo seguente:
 
 ```azurecli
 az vmss create \

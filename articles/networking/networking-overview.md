@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 7ed018c8c9759bc497c5fea129257486f6128531
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0de4aa816d7decab1831449f855ab01b101db3a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-networking"></a>Rete di Azure
 
@@ -94,7 +94,7 @@ Il servizio Gestione traffico di Azure offre il bilanciamento del carico DNS glo
 
 La figura seguente mostra una richiesta per un'applicazione Web indirizzata a un endpoint dell'app Web. Gli endpoint possono anche essere altri servizi di Azure, ad esempio Macchine virtuali o Servizi cloud.
 
-![Gestione traffico](./media/networking-overview/traffic-manager.png)
+![servizio Gestione traffico](./media/networking-overview/traffic-manager.png)
 
 Il client si connette direttamente a tale endpoint. Gestione traffico di Azure rileva gli endpoint non integri e reindirizza i client a un diverso endpoint integro. Per altre informazioni su Gestione traffico, vedere l'articolo [Panoramica di Gestione traffico](../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
@@ -159,6 +159,6 @@ Alcuni dei servizi di rete di Azure comportano un addebito, mentre altri sono gr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Creare la prima rete virtuale e connettervi alcune VM seguendo la procedura descritta nell'articolo [Creare la prima rete virtuale](../virtual-network/virtual-network-get-started-vnet-subnet.md?toc=%2fazure%2fnetworking%2ftoc.json).
+- Creare la prima rete virtuale e connettervi alcune VM seguendo la procedura descritta nell'articolo [Creare la prima rete virtuale](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - Connettere il computer a una rete virtuale seguendo la procedura descritta nell'articolo [Configurare una connessione da punto a sito](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - Bilanciare il carico del traffico Internet verso server pubblici seguendo la procedura descritta nell'articolo [Creazione del servizio di bilanciamento del carico Internet attraverso il portale di Azure](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).

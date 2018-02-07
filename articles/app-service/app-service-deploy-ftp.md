@@ -1,5 +1,5 @@
 ---
-title: Distribuire l'app nel servizio app di Azure usando FTP/S | Documentazione Microsoft
+title: Distribuire l'app nel servizio app di Azure usando FTP/S | Microsoft Docs
 description: Informazioni su come distribuire l'app nel servizio app di Azure usando FTP o FTPS.
 services: app-service
 documentationcenter: 
@@ -12,22 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2016
+ms.date: 01/06/2016
 ms.author: cephalin;dariac
-ms.openlocfilehash: e3ac2f2156719ad975049b0c2b4cbca81d88e779
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fcd079306a8968505349bb3f4a805f203a5c9999
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuire l'app nel servizio app di Azure usando FTP/S
 
 Questo articolo illustra come usare FTP o FTPS per distribuire l'app Web, il back-end dell'app per dispositivi mobili o l'app per le API nel [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 L'endpoint FTP/S per l'app è già attivo. Non è necessaria alcuna configurazione per abilitare la distribuzione FTP/S.
-
-> [!IMPORTANT]
-> Microsoft è costantemente impegnata per migliorare la protezione della piattaforma Microsoft Azure. Nell'ambito di questa attività in corso un aggiornamento delle applicazioni Web è pianificato per le aree della Germania centrale e nord-orientale. Durante tale aggiornamento le App Web disabiliteranno l'uso del protocollo di testo normale FTP per le distribuzioni. Si consiglia ai clienti per passare a FTPS per le distribuzioni. Non sono previste interruzioni del servizio durante l'aggiornamento, pianificato per il 5/9. Grazie per il sostegno per il lavoro richiesto.
 
 <a name="step1"></a>
 ## <a name="step-1-set-deployment-credentials"></a>Passaggio 1: Impostare le credenziali per la distribuzione
@@ -38,13 +35,13 @@ Per impostare o reimpostare le credenziali per la distribuzione, vedere [Credenz
 
 ## <a name="step-2-get-ftp-connection-information"></a>Passaggio 2: Ottenere informazioni di connessione a FTP
 
-1. Nel [portale di Azure](https://portal.azure.com) aprire il [pannello della risorsa](../azure-resource-manager/resource-group-portal.md#manage-resources) dell'app.
+1. Nel [portale di Azure](https://portal.azure.com) aprire la [pagina delle risorse](../azure-resource-manager/resource-group-portal.md#manage-resources) dell'app.
 2. Scegliere **Panoramica** dal menu a sinistra, quindi prendere nota dei valori per **Utente FTP/distribuzione**, **Nome host FTP** e **Nome host FTPS**. 
 
     ![Informazioni di connessione a FTP](./media/app-service-deploy-ftp/FTP-Connection-Info.PNG)
 
     > [!NOTE]
-    > Il valore di **Utente FTP/distribuzione** visualizzato dal portale di Azure include il nome dell'app per rendere disponibile un contesto appropriato al server FTP.
+    > Per rendere disponibile un contesto appropriato al server FTP, il valore di **Utente FTP/distribuzione** visualizzato nel portale di Azure include il nome dell'app.
     > È possibile trovare le stesse informazioni scegliendo **Proprietà** dal menu a sinistra. 
     >
     > La password per la distribuzione inoltre non viene mai visualizzata. Se si dimentica la password per la distribuzione, tornare al [passaggio 1](#step1) e reimpostarla.
@@ -53,7 +50,7 @@ Per impostare o reimpostare le credenziali per la distribuzione, vedere [Credenz
 
 ## <a name="step-3-deploy-files-to-azure"></a>Passaggio 3: Distribuire file in Azure
 
-1. Dal client FTP ([Visual Studio](https://www.visualstudio.com/vs/community/), [FileZilla](https://filezilla-project.org/download.php?type=client) e così via) usare le informazioni di connessione raccolte per connettersi all'app.
+1. Nel client FTP, ad esempio [Visual Studio](https://www.visualstudio.com/vs/community/) o [FileZilla](https://filezilla-project.org/download.php?type=client), usare le specifiche informazioni raccolte per connettersi all'app.
 3. Copiare i file e la struttura di directory corrispondente nella directory [**/site/wwwroot** ](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure o nella directory **/site/wwwroot/App_Data/Jobs/** per i processi Web.
 4. Passare all'URL dell'app per verificare che l'applicazione venga eseguita correttamente. 
 
@@ -64,7 +61,7 @@ Per impostare o reimpostare le credenziali per la distribuzione, vedere [Credenz
 > - Compilazione di file binari .NET
 > - Generazione di web.config ([esempio di Node.js](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
 > 
-> Questi file necessari devono essere ripristinati, compilati e generati manualmente nel computer locale e distribuiti con l'app.
+> Generare questi file necessari manualmente nel computer locale e quindi distribuirli insieme all'app.
 >
 >
 

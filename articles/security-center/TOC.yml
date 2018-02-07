@@ -146,6 +146,8 @@
           href: security-center-search.md
     - name: Integrazione dei log di Azure
       href: security-center-integrating-alerts-with-log-integration.md
+    - name: Esportazione di dati in SIEM
+      href: security-center-export-data-to-siem.md
     - name: Scenari
       items:
         - name: Risposta agli eventi imprevisti
@@ -154,7 +156,7 @@
           href: security-center-using-recommendations.md
     - name: Risolvere problemi
       href: security-center-troubleshooting-guide.md
-- name: Riferimento
+- name: Riferimenti
   items:
     - name: API REST
       href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'
