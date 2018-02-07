@@ -1,4 +1,4 @@
----
+﻿---
 title: Compilare e distribuire un'app Node.js Express a servizi Cloud di Azure
 description: Compilare e distribuire un'applicazione di Express.js in Node.js servizi Cloud di Azure
 services: cloud-services
@@ -95,7 +95,7 @@ Modificare le visualizzazione in modo che il messaggio visualizzato sia "Welcome
    
        PS C:\node\expressapp\WebRole1> notepad views/index.jade
    
-   ![Contenuto del file index.jade.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
+   ![Contenuto del file index.jade](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
    Jade è il motore di visualizzazione predefinito utilizzato dalle applicazioni Express. Per altre informazioni sul motore di visualizzazione Jade, vedere [http://jade-lang.com][http://jade-lang.com].
 2. Modificare l'ultima riga di testo aggiungendo **in Azure**.

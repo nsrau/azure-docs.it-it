@@ -1,4 +1,4 @@
----
+﻿---
 title: Correggere un errore di connessione SQL temporaneo | Documentazione Microsoft
 description: Informazioni su come risolvere, diagnosticare ed evitare un errore di connessione SQL o errore temporaneo nel database SQL di Azure.
 keywords: "connessione sql,stringa di connessione,problemi di connettività,errore temporaneo,errore di connessione"
