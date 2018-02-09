@@ -14,19 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/25/2018
 ms.author: mazha
-ms.openlocfilehash: 81a88f6495ca9092ca3b55b8ffb3e41def3b4623
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f1681b0796885cd6dc880303485edb97c15cda71
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-azure-cdn"></a>Introduzione alla rete CDN di Azure
-Questo articolo illustra come abilitare la rete per la distribuzione di contenuti (CDN) di Azure creando un nuovo profilo e un nuovo endpoint di rete CDN.
-
-> [!IMPORTANT]
-> Per un'introduzione alla rete CDN e un elenco delle funzionalità, vedere la [panoramica della rete CDN](cdn-overview.md).
-> 
-> 
+Questo articolo illustra come abilitare la [rete per la distribuzione di contenuti (CDN)](cdn-overview.md) di Azure creando un nuovo profilo e un nuovo endpoint di rete CDN.
 
 ## <a name="create-a-new-cdn-profile"></a>Creare un nuovo profilo di rete CDN
 Un profilo di rete CDN è una raccolta di endpoint della rete CDN. Ogni profilo contiene uno o più endpoint di rete CDN. Per organizzare gli endpoint di rete CDN per dominio Internet, applicazione Web o altri criteri, è possibile usare più profili.

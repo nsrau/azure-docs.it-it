@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 2c013c11dea5217d564ac15a13a8d11614989057
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f93fc95d6bed517cae3adb706f690941f97c366e
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considerazioni relative all'integrazione di Data Center per i sistemi Azure Stack integrato
 Se si è interessati in un sistema integrato dello Stack di Azure, è necessario comprendere alcune delle principali considerazioni sulla pianificazione per la distribuzione e sulle modalità di integrazione di sistema nel Data Center. In questo articolo fornisce una panoramica generale di queste considerazioni consentono di prendere decisioni importanti infrastruttura per il sistema a più nodi di Azure Stack. La comprensione di queste considerazioni è utile quando si distribuiscono dello Stack di Azure al Data Center funziona con il fornitore dell'hardware OEM.  
@@ -45,7 +45,7 @@ Quando un livello di accesso è necessaria per la risoluzione dei problemi non v
 
 La scelta di provider di identità non incide su macchine virtuali tenant, il sistema di identità e account che usano, se è possibile aggiungere un dominio di Active Directory e così via. È un aspetto separato.
 
-Per ulteriori informazioni sulla scelta di un provider di identità in informazioni di [decisioni di distribuzione per l'articolo sistemi integrati Azure Stack](.\azure-stack-deployment-decisions.md).
+Per ulteriori informazioni sulla scelta di un provider di identità in informazioni il [articolo modelli di Azure Stack sistemi integrati connessione](.\azure-stack-connection-models.md).
 
 ### <a name="ad-fs-and-graph-integration"></a>Integrazione di AD FS e grafico
 Se si sceglie di distribuire Azure Stack con ADFS come provider di identità, è necessario integrare l'istanza di AD FS nello Stack di Azure con un'istanza di AD FS esistente mediante una relazione di trust federativa. Questo consente alle identità in una foresta di Active Directory esistente per l'autenticazione con le risorse nello Stack di Azure.
@@ -53,18 +53,25 @@ Se si sceglie di distribuire Azure Stack con ADFS come provider di identità, è
 È inoltre possibile integrare il servizio grafico nello Stack di Azure con Active Directory esistente. Ciò consente di gestire in base al ruolo controllo di accesso (RBAC) nello Stack di Azure. Quando viene delegata l'accesso a una risorsa, il componente grafico Cerca l'account utente nella foresta Active Directory esistente tramite il protocollo LDAP.
 
 Il diagramma seguente mostra integrato AD FS e grafico il flusso del traffico.
-![Diagramma di flusso del traffico di ADFS e di grafico](media/azure-stack-deployment-planning/ADFSIntegration.PNG)
+![Diagramma di flusso del traffico di ADFS e di grafico](media/azure-stack-datacenter-integration/ADFSIntegration.PNG)
 
 ## <a name="licensing-model"></a>Modello di licenze
+È necessario decidere quale modello di licenze che si desidera utilizzare. Le opzioni disponibili dipendono dal fatto si distribuisce Azure Stack connesso a internet:
+- Per un [connesso distribuzione](azure-stack-connected-deployment.md), è possibile scegliere di retribuzione-come-si-utilizza o basato su capacità di licenze. Retribuzione come--uso richiede una connessione in Azure per l'utilizzo di report, quindi viene fatturato tramite Azure commerce. 
+- Solo licenze basate su capacità è supportata se si [distribuire disconnesso](azure-stack-disconnected-deployment.md) da internet. 
 
-È necessario decidere quale modello di licenze che si desidera utilizzare. Per una distribuzione connessa, è possibile scegliere di retribuzione-come-si-utilizza o basato su capacità di licenze. Retribuzione come--uso richiede una connessione in Azure per l'utilizzo di report, quindi viene fatturato tramite Azure commerce. Licenze basate solo su capacità è supportata se si distribuisce disconnesso da internet. Per ulteriori informazioni sui modelli di gestione delle licenze, vedere [assemblaggio e prezzi di Microsoft Azure Stack](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+Per ulteriori informazioni sui modelli di gestione delle licenze, vedere [assemblaggio e prezzi di Microsoft Azure Stack](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf).
+
 
 ## <a name="naming-decisions"></a>Decisioni di denominazione
 
-È necessario preoccuparsi di come si desidera pianificare lo Stack di Azure spazio dei nomi, in particolare il nome dell'area e il nome di dominio esterno. Il nome di dominio completo (FQDN) della distribuzione di Azure Stack per gli endpoint pubblico è la combinazione di questi due nomi, &lt; *area*&gt;&lt;*FQDN_esterno*  &gt;, ad esempio, *east.cloud.fabrikam.com*. In questo esempio, i portali di Stack Azure sarà disponibili nei seguenti URL:
+È necessario preoccuparsi di come si desidera pianificare lo Stack di Azure spazio dei nomi, in particolare il nome dell'area e il nome di dominio esterno. Il nome di dominio completo (FQDN) esterno della distribuzione di Azure Stack per gli endpoint pubblico è la combinazione di questi due nomi: &lt; *area*&gt;.&lt; *fqdn*&gt;. Ad esempio, *east.cloud.fabrikam.com*. In questo esempio, i portali di Stack Azure sarà disponibili nei seguenti URL:
 
 - https://portal.east.cloud.fabrikam.com
 - https://adminportal.east.cloud.fabrikam.com
+
+> [!IMPORTANT]
+> Il nome dell'area che scelto per la distribuzione di Azure Stack deve essere univoco e verrà visualizzato l'indirizzo di portale. 
 
 Nella tabella seguente sono riepilogate queste decisioni di nomi di dominio.
 
@@ -128,14 +135,14 @@ Nella tabella seguente sono riepilogati gli scenari di connettività ibrida con 
 
 Il diagramma seguente mostra ExpressRoute per uno scenario single-tenant (in cui "Connessione del cliente" è il circuito ExpressRoute).
 
-![Scenario di ExpressRoute di diagramma che mostra single-tenant](media/azure-stack-deployment-planning/ExpressRouteSingleTenant.PNG)
+![Scenario di ExpressRoute di diagramma che mostra single-tenant](media/azure-stack-datacenter-integration/ExpressRouteSingleTenant.PNG)
 
 Il diagramma seguente mostra ExpressRoute per uno scenario di multi-tenant.
 
-![Scenario di ExpressRoute di diagramma che mostra multi-tenant](media/azure-stack-deployment-planning/ExpressRouteMultiTenant.PNG)
+![Scenario di ExpressRoute di diagramma che mostra multi-tenant](media/azure-stack-datacenter-integration/ExpressRouteMultiTenant.PNG)
 
 ## <a name="external-monitoring"></a>Monitoraggio esterno
-Per ottenere una singola visualizzazione di tutti gli avvisi dai dispositivi e la distribuzione di Azure Stack e integrare gli avvisi in IT servizio Gestione flussi di lavoro esistenti per la creazione di ticket, è possibile integrare Azure Stack con Data Center esterno soluzioni di monitoraggio.
+Per ottenere una singola visualizzazione di tutti gli avvisi dai dispositivi e la distribuzione di Azure Stack e integrare gli avvisi in IT servizio Gestione flussi di lavoro esistenti per la creazione di ticket, è possibile [integrare Azure Stack con Data Center esternosoluzionidimonitoraggio](azure-stack-integrate-monitor.md).
 
 Inclusi nella soluzione Azure Stack, l'host del ciclo di vita di hardware è un computer all'esterno dello Stack di Azure che esegue gli strumenti di gestione fornito dal fornitore OEM per hardware. È possibile utilizzare questi strumenti o altre soluzioni che integrano direttamente con le soluzioni di monitoraggio esistenti nel Data Center.
 
@@ -143,15 +150,15 @@ La tabella seguente riepiloga l'elenco delle opzioni disponibili.
 
 | Area | Soluzione di monitoraggio esterno |
 | -- | -- |
-| Software di Azure Stack | - [Stack Azure Management Pack per Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>- [Nagios plug-in](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>-Le chiamate API basato su REST | 
-| Server fisici (BMC tramite IPMI) | -Management pack fornitore di operations Manager<br>-Soluzione fornita dal produttore di hardware OEM<br>-Fornitore di hardware Nagios plug-in | OEM (incluso) soluzione di monitoraggio supportati da partner | 
-| Dispositivi di rete (SNMP) | -Individuazione dei dispositivi di rete operations Manager<br>-Soluzione fornita dal produttore di hardware OEM<br>-Switch Nagios plug-in |
-| Il monitoraggio dello stato di sottoscrizione di tenant | - [System Center Management Pack per Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
+| Software di Azure Stack | [Stack Azure Management Pack per Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios plug-in](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>Chiamate API basata su REST | 
+| Server fisici (BMC tramite IPMI) | Hardware OEM - management pack di Operations Manager fornitore<br>Soluzione fornita dal produttore di hardware OEM<br>Fornitore dell'hardware Nagios plug-in | OEM (incluso) soluzione di monitoraggio supportati da partner | 
+| Dispositivi di rete (SNMP) | Individuazione dei dispositivi di rete Operations Manager<br>Soluzione fornita dal produttore di hardware OEM<br>Opzione Nagios plug-in |
+| Il monitoraggio dello stato di sottoscrizione di tenant | [System Center Management Pack per Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 
 
 Tenere presenti i requisiti seguenti:
 - La soluzione che è utilizzare deve essere senza agente. È possibile installare agenti di terze parti all'interno dei componenti dello Stack di Azure. 
-- Se si desidera utilizzare System Center Operations Manager, richiede Operations Manager 2012 R2 o Operations Manager 2016.
+- Se si desidera utilizzare System Center Operations Manager, è necessario Operations Manager 2012 R2 o Operations Manager 2016.
 
 ## <a name="backup-and-disaster-recovery"></a>Backup e ripristino di emergenza
 
@@ -159,7 +166,7 @@ Pianificazione di backup e ripristino di emergenza consiste nel pianificare per 
 
 ### <a name="protect-infrastructure-components"></a>Proteggere i componenti dell'infrastruttura
 
-Stack di Azure esegue il backup componenti dell'infrastruttura in una condivisione specificati.
+È possibile [backup Azure Stack](azure-stack-backup-back-up-azure-stack.md) componenti dell'infrastruttura per un protocollo SMB condividono specificata:
 
 - È necessario che una condivisione di file SMB esterna in un server basato su Windows file esistente o un dispositivo di terze parti.
 - Utilizzare la stessa condivisione per il backup dei commutatori di rete e l'host del ciclo di vita di hardware. Il fornitore dell'hardware OEM fornirà indicazioni per il backup e ripristino di questi componenti in cui sono esterni allo Stack di Azure. Si è responsabile per l'esecuzione di flussi di lavoro di backup in base alle raccomandazioni del fornitore OEM.

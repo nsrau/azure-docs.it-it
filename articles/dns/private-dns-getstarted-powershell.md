@@ -15,21 +15,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2017
 ms.author: kumud
-ms.openlocfilehash: d71e2391b6415b2403447479dea4fd0a3b818ed0
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 4613e152336eda7ce7cdc4c44b0c6b5e96abac10
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="get-started-with-azure-dns-private-zones-using-powershell"></a>Introduzione alle zone private di Azure DNS con PowerShell
 
 Questo articolo illustra i passaggi per creare la prima zona DNS privata e il primo record con Azure PowerShell.
 
+[!INCLUDE [private-dns-preview-notice](../../includes/private-dns-preview-notice.md)]
+
 Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. Per iniziare a ospitare il dominio in DNS di Azure, è necessario creare una zona DNS per il nome di dominio. Ogni record DNS per il dominio viene quindi creato all'interno di questa zona DNS. Per pubblicare una zona DNS privata nella rete virtuale, specificare l'elenco di reti virtuali autorizzate a risolvere i record nella zona.  Tali reti vengono dette "reti di risoluzione".  È anche possibile specificare un set di reti virtuali per cui Azure DNS manterrà i record dei nomi host ogni volta che una macchina virtuale viene creata o eliminata definitivamente oppure ne viene modificato l'indirizzo IP.  Tali reti vengono dette "reti di registrazione".
 
-Poiché questa funzionalità è attualmente disponibile in versione di anteprima gestita, verrà fornito una modulo di PowerShell di anteprima.
+Poiché questa funzionalità è attualmente disponibile in versione di anteprima gestita, viene fornito un modulo di PowerShell di anteprima quando si invia un messaggio di posta elettronica all'indirizzo [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com).
 
-[!INCLUDE [private-dns-preview-notice](../../includes/private-dns-preview-notice.md)]
+## <a name="get-the-preview-powershell-module"></a>Ottenere il modulo di PowerShell di anteprima
+
+Per creare una zona DNS privata con PowerShell, inviare un messaggio di posta elettronica all'indirizzo [AzureDNS-PrivateZone@microsoft.com](mailto:AzureDNS-PrivateZone@microsoft.com) per ottenere il modulo di PowerShell di anteprima.
 
 ## <a name="create-the-resource-group"></a>Creare il gruppo di risorse.
 

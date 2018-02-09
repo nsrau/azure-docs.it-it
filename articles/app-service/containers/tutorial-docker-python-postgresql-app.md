@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 01320b93920ae04c72ed80f6a6090232c673f228
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 070f69cab63525c3209380bc5f7121812be4a899
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Compilare un'app Web Python Docker e PostgreSQL in Azure
 
@@ -33,7 +33,7 @@ In questa esercitazione si apprenderà come:
 > * Aggiornare il modello di dati e ridistribuire l'app
 > * Gestire l'app nel portale di Azure
 
-In MacOS è possibile seguire la procedura seguente. Sebbene le istruzioni per Linux e Windows siano le stesse nella maggior parte dei casi, le differenze non sono descritte in questa esercitazione.
+I passaggi illustrati in questo articolo possono essere eseguiti in macOS. Sebbene le istruzioni per Linux e Windows siano le stesse nella maggior parte dei casi, le differenze non sono descritte in questa esercitazione.
  
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -343,7 +343,7 @@ Vengono visualizzate due password. Prendere nota del nome utente e della prima p
 
 ### <a name="upload-your-docker-container-to-azure-container-registry"></a>Caricare il contenitore Docker in un Registro contenitori di Azure
 
-Eseguire l'accesso al registro. Quando richiesto, specificare la password appena recuperata.
+Eseguire l'accesso al registro. Quando richiesto, specificare la password recuperata.
 
 ```bash
 docker login <registry_name>.azurecr.io -u <registry_name>

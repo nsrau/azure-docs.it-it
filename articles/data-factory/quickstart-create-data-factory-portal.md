@@ -9,13 +9,13 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/16/2018
+ms.date: 02/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 0973a7ae8316d413244367f5407a89d1ba809847
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f17dc18825c929a75169875594c7b1a13ba1f6d7
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Creare una data factory usando l'interfaccia utente di Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -62,7 +62,7 @@ Questo video contiene informazioni utili sull'interfaccia utente di Data Factory
    L'elenco visualizza solo le località supportate da Data Factory. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL di Azure) e le risorse di calcolo (ad esempio, HDInsight) usati da Data Factory possono trovarsi in altre località.
 6. Selezionare **Aggiungi al dashboard**.     
 7. Selezionare **Create**.
-8. Nel dashboard viene visualizzato il riquadro seguente con lo stato **Deploying data factory** (Distribuzione della data factory): 
+8. Nel dashboard viene visualizzato il riquadro seguente con lo stato **Deploying Data Factory** (Distribuzione della data factory): 
 
    ![Riquadro "Deploying data factory" (Distribuzione della data factory)](media//quickstart-create-data-factory-portal/deploying-data-factory.png)
 9. Al termine della creazione verrà visualizzata la pagina **Data factory**. Selezionare il riquadro **Crea e monitora** per avviare l'applicazione dell'interfaccia utente di Azure Data Factory in una scheda separata.
@@ -133,7 +133,7 @@ Nelle impostazioni del servizio collegato è stato specificato l'account di arch
 
    c. Specificare **OutputDataset** per il nome.
 
-   d. Immettere **adftutorial/output** per la cartella. L'attività di copia crea la cartella di output, se non esiste già.
+   d. Immettere **adftutorial/output** per la cartella. Se la cartella **output** non esiste, l'attività di copia la crea in fase di esecuzione.
 
    e. Immettere `@CONCAT(pipeline().RunId, '.txt')` per il nome del file. 
    
@@ -180,7 +180,7 @@ In questo passaggio vengono eseguiti test della pipeline prima della distribuzio
 ## <a name="trigger-the-pipeline-manually"></a>Attivare manualmente la pipeline
 In questa procedura vengono distribuite entità (servizi collegati, set di dati, pipeline) in Azure Data Factory. Viene quindi attivata manualmente un'esecuzione della pipeline. È anche possibile pubblicare entità nel proprio repository Git per Visual Studio Team Services. Questa procedura è illustrata in un'[altra esercitazione](tutorial-copy-data-portal.md?#configure-code-repository).
 
-1. Prima di attivare una pipeline, è necessario pubblicare entità in Data Factory. Per pubblicare, selezionare **Pubblica** nel riquadro a sinistra. 
+1. Prima di attivare una pipeline, è necessario pubblicare entità in Data Factory. Per pubblicare, selezionare **Pubblica tutti** nel riquadro a sinistra. 
 
    ![Pulsante Publish](./media/quickstart-create-data-factory-portal/publish-button.png)
 2. Per attivare manualmente la pipeline, selezionare **Trigger** sulla barra degli strumenti e quindi selezionare **Trigger Now** (Attiva adesso). 
@@ -224,9 +224,9 @@ La procedura è facoltativa in questa esercitazione. È possibile creare un *tri
 5. Rivedere il messaggio di avviso e selezionare **Fine**.
 
    ![Avviso e pulsante "Fine"](./media/quickstart-create-data-factory-portal/new-trigger-finish.png)
-6. Selezionare **Pubblica** per pubblicare le modifiche in Data Factory. 
+6. Selezionare **Pubblica tutti** per pubblicare le modifiche in Data Factory. 
 
-   ![Pulsante Publish](./media/quickstart-create-data-factory-portal/publish-2.png)
+   ![Pulsante Publish](./media/quickstart-create-data-factory-portal/publish-button.png)
 8. Passare alla scheda **Monitoraggio** a sinistra. Selezionare **Aggiorna** per aggiornare l'elenco. La pipeline viene eseguita una volta al minuto a partire dall'ora di pubblicazione fino all'ora di fine. 
 
    Notare i valori della colonna **Attivato da**. L'esecuzione manuale del trigger è stata generata dal passaggio precedente, ovvero **Trigger Now** (Attiva adesso). 

@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4468424a96b4949161218d495dd21f24285430fd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 33725eb64399f446ff540a36f702c80107958242
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="run-applications-in-azure-container-service-aks"></a>Eseguire applicazioni nel servizio contenitore di Azure
 
@@ -26,7 +26,7 @@ In questa esercitazione, parte 4 di 8, viene distribuita un'applicazione di esem
 
 Nelle esercitazioni successive, l'applicazione viene aggiornata e ne vengono aumentate le istanze e Operations Management Suite viene configurato per monitorare il cluster Kubernetes.
 
-In questa esercitazione si presuppone una conoscenza di base dei concetti Kubernetes, per informazioni dettagliate su Kubernetes, vedere il [Kubernetes documentazione][kubernetes-documentation].
+Questa esercitazione presuppone una conoscenza di base dei concetti relativi a Kubernetes. Per informazioni dettagliate su Kubernetes, vedere la [documentazione di Kubernetes][kubernetes-documentation].
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -34,13 +34,13 @@ Nelle esercitazioni precedenti è stato creato un pacchetto di un'applicazione i
 
 Per completare questa esercitazione, è necessario il file manifesto Kubernetes `azure-vote-all-in-one-redis.yaml` creato in precedenza. Questo file è stato scaricato con il codice sorgente dell'applicazione in un'esercitazione precedente. Verificare che sia stato clonato il repository e che si siano state cambiate le directory nel repository clonato.
 
-Se si è già questi passaggi e si desidera seguire la procedura, tornare alla [esercitazione 1: creare le immagini contenitore][aks-tutorial-prepare-app].
+Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, tornare a [Tutorial 1 – Create container images][aks-tutorial-prepare-app] (Esercitazione 1: Creare immagini del contenitore).
 
 ## <a name="update-manifest-file"></a>Aggiornare il file manifesto
 
 In questa esercitazione, il Registro contenitori di Azure è stato usato per archiviare un'immagine del contenitore. Prima di eseguire l'applicazione, è necessario aggiornare il nome del server di accesso del Registro contenitori di Azure nel file manifesto Kubernetes.
 
-Ottenere il nome del server di accesso di record con il [elenco acr az] [ az-acr-list] comando.
+Ottenere il nome del server di accesso del Registro contenitori di Azure con il comando [az acr list][az-acr-list].
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -57,14 +57,14 @@ Sostituire `microsoft` con il nome del server di accesso del Registro contenitor
 ```yaml
 containers:
 - name: azure-vote-front
-  image: microsoft/azure-vote-front:redis-v1
+  image: microsoft/azure-vote-front:v1
 ```
 
 Salvare e chiudere il file.
 
 ## <a name="deploy-application"></a>Distribuire un'applicazione
 
-Utilizzare il [kubectl creare] [ kubectl-create] comando per eseguire l'applicazione. Questo comando consente di analizzare il file manifesto e crea oggetti Kubernetes definiti.
+Usare il comando [kubectl create][kubectl-create] per eseguire l'applicazione. Questo comando analizza il file manifesto e crea gli oggetti Kubernetes definiti.
 
 ```azurecli
 kubectl create -f azure-vote-all-in-one-redis.yaml
@@ -81,9 +81,9 @@ service "azure-vote-front" created
 
 ## <a name="test-application"></a>Testare l'applicazione
 
-Oggetto [Kubernetes servizio] [ kubernetes-service] creato che espone l'applicazione a internet. Il processo potrebbe richiedere alcuni minuti. 
+Viene creato un [servizio di Kubernetes][kubernetes-service] che espone l'applicazione a Internet. Il processo potrebbe richiedere alcuni minuti. 
 
-Per monitorare lo stato di avanzamento, usare il [kubectl ottenere servizio] [ kubectl-get] comando con il `--watch` argomento.
+Per monitorare lo stato, usare il comando [kubectl get service][kubectl-get] con l'argomento `--watch`.
 
 ```azurecli
 kubectl get service azure-vote-front --watch
@@ -117,7 +117,7 @@ In questa esercitazione l'applicazione di voto di Azure è stata distribuita in 
 Passare all'esercitazione successiva per informazioni sulla scalabilità sia di un'applicazione Kubernetes sia dell'infrastruttura Kubernetes sottostante. 
 
 > [!div class="nextstepaction"]
-> [Scala Kubernetes applicazione e dell'infrastruttura][aks-tutorial-scale]
+> [Scalare l'applicazione e l'infrastruttura Kubernetes][aks-tutorial-scale]
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

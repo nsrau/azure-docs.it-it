@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: a2d4efc3a3e1480de71528144ae3f025f4879f07
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: def9d5381144026b5ad0e8a076edd3c0692a08f4
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Distribuzione di Azure connessa pianificazione decisioni per lo Stack di Azure integrati sistemi
-Dopo aver deciso [integrerà come Stack di Azure nell'ambiente cloud ibrido](azure-stack-deployment-decisions.md), quindi è possibile finalizzare le decisioni relative alla distribuzione di Azure Stack.
+Dopo aver deciso [integrerà come Stack di Azure nell'ambiente cloud ibrido](azure-stack-connection-models.md), quindi è possibile finalizzare le decisioni relative alla distribuzione di Azure Stack.
 
 Distribuzione dello Stack di Azure connesso ad Azure significa che è possibile Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) per l'archivio di identità. È anche possibile scegliere da un modello di fatturazione: retribuzione come-si- o uso basati sulla capacità. Una distribuzione connessa è l'opzione predefinita perché consente ai clienti di ottenere il massimo valore fuori dello Stack di Azure, in particolare per scenari di cloud ibrido che coinvolgono Azure e Azure Stack. 
 
@@ -45,7 +45,7 @@ Quando si usa Azure AD per l'archivio di identità richiede due account di Azure
 Scegliere questa opzione se si desidera utilizzare un archivio di identità, ad esempio Active Directory aziendale, per gli account di amministratore del servizio.  
 
 ## <a name="choose-a-billing-model"></a>Scegliere un modello di fatturazione
-È possibile scegliere una **retribuzione come-di-utilizzo** o **capacità** modello di fatturazione. Le distribuzioni modello fatturazione retribuzione come-di-uso devono essere in grado di utilizzo di report tramite una connessione a Azure almeno una volta ogni 30 giorni, pertanto, non sarà disponibile la connettività, il modello di fatturazione di capacità è l'unica opzione. 
+È possibile scegliere una **retribuzione come-di-utilizzo** o **capacità** modello di fatturazione. Le distribuzioni modello fatturazione retribuzione come-di-uso devono essere in grado di utilizzo di report tramite una connessione a Azure almeno una volta ogni 30 giorni. Pertanto, il modello di fatturazione retribuzione come-di-uso è disponibile solo per le distribuzioni connesse.  
 
 ### <a name="pay-as-you-use"></a>Retribuzione come-di-utilizzo
 Con il modello di fatturazione, pagamento come-di-utilizzo viene addebitato sull'utilizzo di una sottoscrizione di Azure. Si paga solo quando si utilizzano i servizi di Azure Stack. Se si tratta del modello su cui si decide, occorre una sottoscrizione di Azure e l'ID account associate alla sottoscrizione (ad esempio, serviceadmin@contoso.onmicrosoft.com). EA CSP e CSL sottoscrizioni sono supportate. Report sull'utilizzo viene configurato durante [registrazione Azure Stack](azure-stack-registration.md).
