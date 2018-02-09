@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 10/13/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c10f4c575c7b9a68e7a1ff8fedf0f17f4fb8599d
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 767b378331d994bb48a83726b1ebbfcb99649d12
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-cli"></a>Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
 
@@ -77,10 +77,10 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="ssh-into-your-vm"></a>Usare SSH per connettersi alla macchina virtuale
 
-Usare il comando seguente per creare una sessione SSH con la macchina virtuale. Sostituire *<publicIpAddress>* con l'indirizzo IP pubblico corretto della macchina virtuale.  Nell'esempio riportato sopra l'indirizzo IP era *40.68.254.142*.
+Usare il comando seguente per creare una sessione SSH con la macchina virtuale. Sostituire **publicIpAddress** con l'indirizzo IP pubblico corretto della macchina virtuale.  Nell'esempio riportato sopra l'indirizzo IP era *40.68.254.142*.
 
 ```bash 
-ssh <publicIpAddress>
+ssh publicIpAddress
 ```
 
 ## <a name="install-nginx"></a>Installare NGINX

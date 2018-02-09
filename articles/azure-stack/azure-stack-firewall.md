@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: f7b621312677c0b250e267770ae0c445ee9f083f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
+ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="azure-stack-firewall-integration"></a>Integrazione con firewall di Azure Stack
 È consigliabile che per utilizzare un dispositivo firewall sicura dello Stack di Azure. Sebbene i firewall consente ad esempio attacchi distribuiti di tipo denial of service (DDOS), il rilevamento delle intrusioni e l'ispezione del contenuto, possono anche diventare un collo di bottiglia della velocità effettiva per servizi di archiviazione di Azure come BLOB, tabelle e code.
@@ -41,7 +41,7 @@ Alcuni degli svantaggi dell'utilizzo di NAT per VIP pubblico sono:
 - Per scenari di cloud ibrido con Azure, è consigliabile che Azure non supporta la configurazione di un tunnel VPN a un endpoint tramite NAT.
 
 ### <a name="ssl-decryption"></a>Decrittografia SSL
-Attualmente, è consigliabile per la decrittografia SSL disabilitarlo su tutto il traffico di Azure Stack, in futuro verranno fornite delle indicazioni su come abilitare la decrittografia SSL per lo Stack di Azure.
+Attualmente si consiglia di disabilitare la decrittografia SSL per tutto il traffico di Azure Stack. Se è supportata negli aggiornamenti futuri, è verranno fornite istruzioni su come abilitare la decrittografia SSL per lo Stack di Azure.
 
 ## <a name="edge-firewall-scenario"></a>Scenario di firewall perimetrale
 In una distribuzione di bordo, Stack di Azure viene distribuito direttamente dietro il router perimetrale o il firewall. In questi scenari, è supportato per il firewall essere sopra il bordo o che agisce come dispositivo di border se supporta uguale Cost Multi Path ECMP () con BGP o routing statico.

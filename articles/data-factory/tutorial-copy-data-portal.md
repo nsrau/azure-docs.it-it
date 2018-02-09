@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 424a5ec49018e969edbf90c374a9da7e1d22395d
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8b5211e9c932221c6b6134e7e0627f4d7f964123
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiare dati da un BLOB di Azure al database SQL di Azure con Azure Data Factory
 In questa esercitazione viene creata una data factory con l'interfaccia utente di Azure Data Factory. La pipeline in questa data factory copia i dati dall'archivio BLOB di Azure al database SQL di Azure. Il modello di configurazione di questa esercitazione si applica alla copia da un archivio dati basato su file a un archivio dati relazionale. Per un elenco degli archivi dati supportati come origini e sink, vedere la tabella degli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -144,10 +144,7 @@ In questa esercitazione si inizia creando la pipeline, quindi vengono creati i s
 9. Nella scheda **Generale** della finestra **Proprietà** in basso, specificare **SourceBlobDataset** per **Nome**.
 
     ![Nome del set di dati](./media/tutorial-copy-data-portal/dataset-name.png)
-10. Passare alla scheda **Connessione** nella finestra delle proprietà.   
-
-    ![Scheda Connessione](./media/tutorial-copy-data-portal/source-dataset-connection-tab.png)
-11. Fare clic su **+ Nuovo** accanto alla casella di testo **Servizio collegato**. Un servizio collegato collega un archivio dati o un ambiente di calcolo alla data factory. In questo caso viene creato un servizio collegato di archiviazione di Azure per collegare l'account di archiviazione di Azure all'archivio dati. Il servizio collegato ha le informazioni di connessione usate dal servizio Data Factory per connettersi all'archivio BLOB in fase di esecuzione. Il set di dati specifica il contenitore, la cartella e il file (facoltativo) che contiene i dati di origine. 
+10. Passare alla scheda **Connessione** nella finestra delle proprietà. Fare clic su **+ Nuovo** accanto alla casella di testo **Servizio collegato**. Un servizio collegato collega un archivio dati o un ambiente di calcolo alla data factory. In questo caso viene creato un servizio collegato di archiviazione di Azure per collegare l'account di archiviazione di Azure all'archivio dati. Il servizio collegato ha le informazioni di connessione usate dal servizio Data Factory per connettersi all'archivio BLOB in fase di esecuzione. Il set di dati specifica il contenitore, la cartella e il file (facoltativo) che contiene i dati di origine. 
 
     ![Pulsante Nuovo per il servizio collegato](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 12. Nella finestra **New Linked Service** (Nuovo servizio collegato) seguire questa procedura: 
@@ -283,7 +280,7 @@ In questa esercitazione si inizia creando la pipeline, quindi vengono creati i s
 2. Verificare che i dati del file di origine siano inseriti nel database SQL di destinazione. 
 
     ![Verificare l'output SQL](./media/tutorial-copy-data-portal/verify-sql-output.png)
-3. Fare clic su **Pubblica** nel riquadro a sinistra. Con questa azione vengono pubblicate le entità (servizi collegati, set di dati e pipeline) create in Azure Data Factory.
+3. Fare clic su **Pubblica tutti** nel riquadro a sinistra. Con questa azione vengono pubblicate le entità (servizi collegati, set di dati e pipeline) create in Azure Data Factory.
 
     ![Pulsante Publish](./media/tutorial-copy-data-portal/publish-button.png)
 4. Attendere fino alla visualizzazione del messaggio **Pubblicazione riuscita**. Per visualizzare i messaggi di notifica, fare clic sul pulsante delle **notifiche** nella barra laterale sinistra. Per chiudere la finestra delle notifiche, fare clic su **X**.
@@ -343,7 +340,7 @@ Se non si vuole usare il repository di codice di Visual Studio Team System, è p
 ## <a name="trigger-the-pipeline-manually"></a>Attivare manualmente la pipeline
 In questo passaggio si attiva manualmente la pipeline pubblicata nel passaggio precedente. 
 
-1. Fare clic su **Trigger** sulla barra degli strumenti e quindi su **Trigger Now** (Attiva adesso). 
+1. Fare clic su **Trigger** sulla barra degli strumenti e quindi su **Trigger Now** (Attiva adesso). Nella pagina **Pipeline Run** (Esecuzione pipeline) fare clic su **Fine**.  
 
     ![Menu Trigger Now (Attiva adesso)](./media/tutorial-copy-data-portal/trigger-now-menu.png)
 2. Passare alla scheda **Monitoraggio** a sinistra. Viene visualizzata un'esecuzione della pipeline attivata da un trigger manuale. I collegamenti nella colonna Azioni possono essere usati per visualizzare i dettagli delle attività e per eseguire di nuovo la pipeline.
@@ -386,10 +383,10 @@ In questa pianificazione si crea un trigger dell'utilità di pianificazione per 
 6. Nella pagina **Trigger Run Parameters** (Parametri esecuzione trigger) esaminare l'avviso e quindi fare clic su **Fine**. La pipeline in questo esempio non accetta alcun parametro. 
 
     ![Parametri della pipeline](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
-7. Fare clic su **Pubblica** per pubblicare le modifiche nel repository. Il trigger viene attivato solo al termine della pubblicazione. 
+7. Fare clic su **Sincronizza** per sincronizzare le modifiche nel ramo con il ramo master. Per impostazione predefinita, è selezionata l'opzione **Publish changes after sync** (Pubblica le modifiche dopo la sincronizzazione). Quando si seleziona **Sincronizza**, vengono quindi pubblicate anche le entità aggiornate nel servizio Azure Data Factory dal ramo master. Il trigger viene attivato solo al termine della pubblicazione.
 
-    ![Pubblicare il trigger](./media/tutorial-copy-data-portal/publish-trigger.png) 
-8. Passare alla scheda **Monitoraggio** a sinistra per visualizzare le esecuzioni di pipeline attivate. 
+    ![Pubblicare il trigger](./media/tutorial-copy-data-portal/sync-your-changes-with-trigger.png) 
+9. Passare alla scheda **Monitoraggio** a sinistra per visualizzare le esecuzioni di pipeline attivate. 
 
     ![Esecuzioni di pipeline attivate](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)    
 9. Per passare dalla visualizzazione delle esecuzioni di pipeline alla visualizzazione delle esecuzioni di trigger, fare clic su Pipeline Runs (Esecuzioni di pipeline) e selezionare Trigger Runs (Esecuzioni del trigger).

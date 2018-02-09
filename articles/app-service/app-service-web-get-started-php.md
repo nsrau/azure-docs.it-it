@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: 200178b37fde89cbbdd81ef539451988aa26a472
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e38c8e7d6211c7c7b6bbf3a501ce53c2808ee0fc
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Creare un'app Web PHP in Azure
 
@@ -67,8 +67,6 @@ Nella finestra del terminale premere **CTRL+C** per uscire dal server Web.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Upload zip file](../../includes/app-service-web-upload-zip.md)]
-
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)]
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
@@ -105,15 +103,17 @@ Passare all'app Web appena creata. Sostituire _&lt;nome app>_ con un nome di app
 http://<app name>.azurewebsites.net
 ```
 
+Ecco l'aspetto che avrà la nuova app Web:
+
 ![Pagina dell'app Web vuota](media/app-service-web-get-started-php/app-service-web-service-created.png)
 
-[!INCLUDE [Deploy uploaded ZIP file](../../includes/app-service-web-deploy-zip.md)]
+[!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
 
 ## <a name="browse-to-the-app"></a>Passare all'app
 
 Passare all'applicazione distribuita con il Web browser.
 
-```bash
+```
 http://<app_name>.azurewebsites.net
 ```
 
@@ -141,13 +141,7 @@ zip -r myUpdatedAppFiles.zip .
 Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 ``` 
 
-Caricare questo nuovo file ZIP in Cloud Shell, usando gli stessi passaggi elencati in [Caricare il file ZIP](#upload-the-zip-file).
-
-Distribuire quindi nuovamente in Cloud Shell il file ZIP caricato.
-
-```azurecli-interactive
-az webapp deployment source config-zip --resource-group myResouceGroup --name <app_name> --src clouddrive/myUpdatedAppFiles.zip
-```
+Distribuire il nuovo file ZIP nel servizio app seguendo la stessa procedura disponibile in [Caricare il file ZIP](#upload-the-zip-file).
 
 Tornare alla finestra del browser aperta nel passaggio **Passare all'app** e aggiornare la pagina.
 
