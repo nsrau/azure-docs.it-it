@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6de5173aedc836f7a2d56370ea8e54ad6e77ab5e
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 76db735ca7bbad550e792d61658fa65fe8a53caf
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="update-an-application-in-azure-container-service-aks"></a>Aggiornare un'applicazione nel servizio contenitore di Azure
 
@@ -35,7 +35,7 @@ Nelle esercitazioni precedenti è stato creato un pacchetto di un'applicazione i
 
 È stato clonato anche un repository di applicazione che include il codice sorgente dell'applicazione e un file Docker Compose creato in precedenza usato in questa esercitazione. Verificare che sia stato creato un clone del repository e che si abbia cambiato le directory nella directory clonata. All'interno si trova una directory denominata `azure-vote` e un file denominato `docker-compose.yaml`.
 
-Se si non sono state completate le operazioni e si desidera proseguire, tornare alla [esercitazione 1: creare le immagini contenitore][aks-tutorial-prepare-app]. 
+Se questi passaggi non sono stati ancora eseguiti e si vuole procedere, tornare a [Esercitazione 1 - Creare immagini del contenitore][aks-tutorial-prepare-app]. 
 
 ## <a name="update-application"></a>Aggiornare l'applicazione
 
@@ -61,7 +61,7 @@ Salvare e chiudere il file.
 
 ## <a name="update-container-image"></a>Aggiornare l'immagine del contenitore
 
-Utilizzare [comporre docker] [ docker-compose] per ricreare l'immagine di front-end ed eseguire l'applicazione aggiornata. L'argomento `--build` viene usato per indicare a Docker Compose di ricreare l'immagine dell'applicazione.
+Usare [docker-compose][docker-compose] per ricreare l'immagine front-end ed eseguire l'applicazione aggiornata. L'argomento `--build` viene usato per indicare a Docker Compose di ricreare l'immagine dell'applicazione.
 
 ```console
 docker-compose up --build -d
@@ -77,27 +77,27 @@ Passare a http://localhost:8080 per vedere l'applicazione aggiornata.
 
 Applicare il tag loginServer del registro contenitori all'immagine `azure-vote-front`. 
 
-Ottenere il nome del server di accesso con il comando [az acr list](/cli/azure/acr#list).
+Ottenere il nome del server di accesso con il comando [az acr list](/cli/azure/acr#az_acr_list).
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Utilizzare [tag docker] [ docker-tag] per contrassegnare l'immagine. Sostituire `<acrLoginServer>` con il nome di accesso del server del Registro contenitori di Azure o un nome host di un registro pubblico. Si noti anche che la versione dell'immagine viene aggiornata a `redis-v2`.
+Usare [docker tag][docker-tag] per assegnare il tag all'immagine. Sostituire `<acrLoginServer>` con il nome di accesso del server del Registro contenitori di Azure o un nome host di un registro pubblico. Si noti anche che la versione dell'immagine viene aggiornata a `v2`.
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
+docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Utilizzare [push di docker] [ docker-push] per caricare l'immagine al Registro di sistema. Sostituire `<acrLoginServer>` con il nome del server di accesso del Registro contenitori di Azure.
+Usare [docker push][docker-push] per caricare l'immagine nel registro. Sostituire `<acrLoginServer>` con il nome del server di accesso del Registro contenitori di Azure.
 
 ```console
-docker push <acrLoginServer>/azure-vote-front:redis-v2
+docker push <acrLoginServer>/azure-vote-front:v2
 ```
 
 ## <a name="deploy-update-application"></a>Distribuire l'aggiornamento dell'applicazione
 
-Per garantire il tempo di attività massimo, è necessario eseguire più istanze del pod dell'applicazione. Verificare la configurazione con il [kubectl ottenere pod] [ kubectl-get] comando.
+Per garantire il tempo di attività massimo, è necessario eseguire più istanze del pod dell'applicazione. Verificare questa configurazione con il comando [kubectl get pod][kubectl-get].
 
 ```
 kubectl get pod
@@ -120,13 +120,13 @@ Se non si dispone di più pod che eseguono l'immagine azure-vote-front, ridimens
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-Per aggiornare l'applicazione, utilizzare il [kubectl set] [ kubectl-set] comando. Aggiornare `<acrLoginServer>` con il server di accesso o il nome host del registro contenitori.
+Per aggiornare l'applicazione, usare il comando [kubectl set][kubectl-set]. Aggiornare `<acrLoginServer>` con il server di accesso o il nome host del registro contenitori.
 
 ```azurecli
-kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:redis-v2
+kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2
 ```
 
-Per monitorare la distribuzione, utilizzare il [kubectl ottenere pod] [ kubectl-get] comando. Quando l'applicazione aggiornata viene distribuita, le unità vengono terminate e ricreate con la nuova immagine del contenitore.
+Per monitorare la distribuzione, usare il comando [kubectl get pod][kubectl-get]. Quando l'applicazione aggiornata viene distribuita, le unità vengono terminate e ricreate con la nuova immagine del contenitore.
 
 ```azurecli
 kubectl get pod
@@ -167,7 +167,7 @@ In questa esercitazione è stata aggiornata un'applicazione e l'aggiornamento è
 Passare alla prossima esercitazione per apprendere come monitorare Kubernetes con Operations Management Suite.
 
 > [!div class="nextstepaction"]
-> [Monitoraggio Kubernetes con Log Analitica][aks-tutorial-monitor]
+> [Monitorare Kubernetes con Log Analytics][aks-tutorial-monitor]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/

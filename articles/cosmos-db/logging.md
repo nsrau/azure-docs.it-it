@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/29/2018
 ms.author: mimig
-ms.openlocfilehash: 835f6ffce9b2e1bb4b6cfd7476bb3fdb24a4f092
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b8f92953634f9294805521d8b925ed67d121a17d
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registrazione diagnostica di Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Usare questa esercitazione per un'introduzione alla registrazione di Azure Cosmo
 
 ## <a name="what-is-logged"></a>Che cosa viene registrato?
 
-* Vengono registrate tutte le richieste API SQL REST autenticate, incluse le richieste non riuscite a causa di autorizzazioni di accesso, errori di sistema o richieste non valide. Il supporto per le API MongoDB, Graph e di tabella non è attualmente disponibile.
+* Vengono registrate tutte le richieste back-end autenticate (TCP/REST) in tutte le API, incluse le richieste non riuscite a causa di autorizzazioni di accesso, errori di sistema o richieste non valide. Il supporto per le richieste di API di tabella, Graph e Cassandra avviate dall'utente non è attualmente disponibile.
 * Operazioni nel database stesso, incluse le operazioni CRUD su tutti i documenti, i contenitori e i database.
 * Operazioni sulle chiavi di account, che includono la creazione, la modifica o l'eliminazione di queste chiavi.
 * Richieste non autenticate che generano una risposta 401. Ad esempio, richieste che non hanno un token di connessione, hanno un formato non valido, sono scadute o hanno un token non valido.
@@ -54,8 +54,8 @@ Per completare l'esercitazione, sono necessarie le risorse seguenti:
     * **Archivia in un account di archiviazione**. Per usare questa opzione, è necessario un account di archiviazione esistente a cui connettersi. Per creare un nuovo account di archiviazione nel portale, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md) e seguire le istruzioni per creare un account Resource Manager di uso generico. Tornare quindi a questa pagina del portale per selezionare l'account di archiviazione. Potrebbero essere necessari alcuni minuti per visualizzare gli account di archiviazione appena creati nel menu a discesa.
     * **Streaming in un hub eventi**. Per usare questa opzione, sono necessari uno spazio dei nomi esistente e un hub eventi a cui connettersi. Per creare uno spazio dei nomi dell'hub eventi, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il Portale di Azure](../event-hubs/event-hubs-create.md). Tornare a questa pagina del portale per selezionare lo spazio dei nomi dell'hub eventi e il nome dei criteri.
     * **Invia a Log Analytics**.     Per usare questa opzione, usare un'area di lavoro esistente o creare una nuova area di lavoro di Log Analytics seguendo la procedura per [creare una nuova area di lavoro](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) nel portale. Per altre informazioni sulla visualizzazione dei log in Log Analytics, vedere [Visualizzare i log in Log Analytics](#view-in-loganalytics).
-    * **Registra DataPlaneRequests**. Selezionare questa opzione per registrare i dati di diagnostica per gli account SQL, Graph e API Tabelle. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
-    * **Registra MongoRequests**. Selezionare questa opzione per registrare i dati di diagnostica per gli account per gli account API MongoDB. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
+    * **Registra DataPlaneRequests**. Selezionare questa opzione per registrare le richieste back-end dalla piattaforma distribuita sottostante di Azure Cosmos DB per gli account SQL, Graph, MongoDB, Cassandra e API di tabella. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
+    * **Registra MongoRequests**. Selezionare questa opzione per registrare le richieste avviate dall'utente da front-end di Azure Cosmos DB per la gestione di account API MongoDB.  Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
     * **Metric Requests** (Richieste Metriche). Selezionare questa opzione per archiviare i dati dettagliati in [Metriche di Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
 
 3. Fare clic su **Save**.

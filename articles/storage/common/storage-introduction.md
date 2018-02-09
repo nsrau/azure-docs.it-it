@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 9af4bfd5b5ae46a856b25a94cdbe55e098ea940e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 088a58bf5bfe3736a158d2384c69cb5928b53556
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introduzione ad Archiviazione di Microsoft Azure
 
@@ -131,21 +131,21 @@ Il servizio BLOB consente di fornire l'accesso pubblico a un contenitore e ai ri
 
 ## <a name="encryption"></a>Crittografia
 
-Sono disponibili alcuni tipi di crittografia di base per i servizi di archiviazione.
+Sono disponibili due tipi di crittografia di base per i servizi di archiviazione. Per altre informazioni sulla sicurezza e sulla crittografia, vedere [Guida alla sicurezza di Archiviazione di Azure](storage-security-guide.md).
 
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 
-È possibile abilitare Crittografia del servizio di archiviazione nel servizio file (anteprima) o nel servizio BLOB per un account di archiviazione di Azure. Se questa opzione è abilitata, tutti i dati scritti nel servizio specifico vengono crittografati prima della scrittura. In caso di lettura, i dati vengono decrittografati prima della restituzione.
+Crittografia del servizio di archiviazione di Azure per dati inattivi (SSE) consente di proteggere e salvaguardare i dati, in modo da soddisfare i criteri di sicurezza e conformità dell'organizzazione. Questa funzionalità consente ad Archiviazione di Azure di crittografare automaticamente i dati prima della persistenza nella risorsa di archiviazione e di decrittografarli prima del recupero. La crittografia, la decrittografia e la gestione delle chiavi sono completamente trasparenti per gli utenti.
+
+È possibile abilitare Crittografia del servizio di archiviazione (SSE) per l'archivio BLOB o File di Azure (anteprima). Se questa opzione è abilitata, tutti i dati scritti nel servizio specifico vengono crittografati prima della scrittura. In caso di lettura, i dati vengono decrittografati prima della restituzione.
+
+Per altre informazioni sulla crittografia SSE dei dati inattivi, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md).
 
 ### <a name="client-side-encryption"></a>crittografia lato client
 
 Le librerie client di archiviazione includono metodi che possono essere chiamati per crittografare i dati a livello di codice prima del transito dal client ad Azure. I dati vengono archiviati crittografati, ovvero sono crittografati anche quando inattivi. Durante la lettura dei dati, le informazioni vengono decrittografate dopo la ricezione.
 
-### <a name="encryption-in-transit-with-azure-file-shares"></a>Crittografia in transito con le condivisioni di File di Azure
-
-Per altre informazioni sulle firme di accesso condiviso, vedere [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md) (Uso di firme di accesso condiviso). Per altre informazioni sull'accesso sicuro all'account di archiviazione, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../blobs/storage-manage-access-to-resources.md) e [Autenticazione per i servizi di archiviazione di Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx).
-
-Per altre informazioni sulla protezione dell'account di archiviazione e sulla crittografia, vedere [Guida alla sicurezza di Archiviazione di Azure](storage-security-guide.md).
+Per altre informazioni sulla crittografia lato client, vedere [Crittografia lato client con .NET per Archiviazione di Microsoft Azure](storage-client-side-encryption.md) .
 
 ## <a name="replication"></a>Replica
 

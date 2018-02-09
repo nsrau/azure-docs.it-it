@@ -3,8 +3,8 @@ title: Introduzione all'interfaccia della riga di comando di Azure per Batch | M
 description: Introduzione rapida ai comandi per Batch nell'interfaccia della riga di comando di Azure per la gestione delle risorse del servizio Azure Batch
 services: batch
 documentationcenter: 
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 09/28/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 763a8884b65f64b4807cd42c937f43b2f5517ed5
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 11fad18c7b51625a29c58058aebd412cbf8cffdd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gestire le risorse di Batch con l'interfaccia della riga di comando di Azure
 
@@ -40,7 +40,7 @@ Per installare l'interfaccia della riga di comando di Azure, seguire la procedur
 
 ## <a name="command-help"></a>Guida per i comandi
 
-È possibile visualizzare il testo della Guida per ogni comando dell'interfaccia della riga di comando di Azure aggiungendo `-h` al comando. Omettere qualsiasi altra opzione. ad esempio:
+È possibile visualizzare il testo della Guida per ogni comando dell'interfaccia della riga di comando di Azure aggiungendo `-h` al comando. Omettere qualsiasi altra opzione. Ad esempio: 
 
 * Per visualizzare la Guida per il comando `az`, immettere `az -h`
 * Per ottenere un elenco di tutti i comandi per Batch nell'interfaccia della riga di comando, usare `az batch -h`
@@ -69,7 +69,7 @@ Per accedere ad Azure è possibile procedere in diversi modi, descritti nel dett
 1. [Accedere modo interattivo](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). Accedere in modo interattivo quando si eseguono comandi dell'interfaccia della riga di comando di Azure direttamente dalla riga di comando.
 2. [Accedere con un'entità servizio](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). Accedere con un'entità servizio quando si eseguono comandi dell'interfaccia della riga di comando di Azure da uno script o un'applicazione.
 
-Ai fini di questo articolo, viene illustrato come accedere ad Azure in modo interattivo. Digitare [az login](https://docs.microsoft.com/cli/azure/#login) nella riga di comando:
+Ai fini di questo articolo, viene illustrato come accedere ad Azure in modo interattivo. Digitare [az login](https://docs.microsoft.com/cli/azure/#az_login) nella riga di comando:
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -120,20 +120,13 @@ Gli esempi riportati nella sezione [Script della shell di esempio](#sample-shell
 
 È possibile usare l'interfaccia della riga di comando di Azure per eseguire processi di Batch end-to-end senza scrivere codice. I file di modello del servizio Batch supportano la creazione di pool, processi e attività con l'interfaccia della riga di comando di Azure. È anche possibile usare l'interfaccia della riga di comando di Azure per caricare file di input dei processi nell'account di archiviazione di Azure associato all'account Batch e quindi scaricare file di output dei processi da tale interfaccia. Per altre informazioni, vedere [Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch (anteprima)](batch-cli-templates.md).
 
-## <a name="sample-shell-scripts"></a>Script della shell di esempio
+## <a name="script-examples"></a>Script di esempio
 
-Gli script di esempio riportati nella tabella seguente mostrano come usare i comandi dell'interfaccia della riga di comando di Azure con il servizio Batch e il servizio di gestione Batch per eseguire attività comuni. Questi script di esempio illustrano molti dei comandi disponibili nell'interfaccia della riga di comando di Azure per Batch. 
-
-| Script | Note |
-|---|---|
-| [Creare un account Batch](./scripts/batch-cli-sample-create-account.md) | Crea un account Batch e lo associa a un account di archiviazione. |
-| [Aggiungere un'applicazione](./scripts/batch-cli-sample-add-application.md) | Aggiunge un'applicazione e carica i file binari nel pacchetto.|
-| [Gestire i pool di Batch](./scripts/batch-cli-sample-manage-pool.md) | Illustra la creazione, il ridimensionamento e la gestione dei pool. |
-| [Eseguire un processo e le attività con Batch](./scripts/batch-cli-sample-run-job.md) | Illustra l'esecuzione di un processo e l'aggiunta di attività. |
+Vedere gli [script di esempio dell'interfaccia della riga di comando](cli-samples.md) per Batch per eseguire le attività comuni. Questi esempi illustrano molti dei comandi disponibili nell'interfaccia della riga di comando di Azure per Batch e consentono di gestire account, pool, processi e attività. 
 
 ## <a name="json-files-for-resource-creation"></a>File JSON per la creazione di risorse
 
-Quando si creano risorse di Batch come pool e processi, è possibile specificare un file JSON contenente la configurazione della nuova risorsa anziché passarne i parametri come opzioni della riga di comando. ad esempio:
+Quando si creano risorse di Batch come pool e processi, è possibile specificare un file JSON contenente la configurazione della nuova risorsa anziché passarne i parametri come opzioni della riga di comando. Ad esempio: 
 
 ```azurecli
 az batch pool create my_batch_pool.json
@@ -163,7 +156,7 @@ Quando si esegue una query sul servizio Batch con un'operazione `list`, è possi
 
 La tabella seguente illustra le clausole OData supportate dal servizio Batch:
 
-| Clausola | Descrizione |
+| Clausola | DESCRIZIONE |
 |---|---|
 | `--select-clause [select-clause]` | Restituisce un subset di proprietà per ogni entità. |
 | `--filter-clause [filter-clause]` | Restituisce solo le entità che corrispondono all'espressione OData specificata. |

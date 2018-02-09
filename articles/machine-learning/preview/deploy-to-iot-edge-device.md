@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 11/10/2017
-ms.openlocfilehash: f83e4b17a3209adeb655723362e6882e38bfaf49
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.date: 2/1/2018
+ms.openlocfilehash: a48c2a78ec22a663dd3e8a0b22611d61181e3eef
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Distribuire un modello di Azure Machine Learning in un dispositivo Azure IoT Edge
 

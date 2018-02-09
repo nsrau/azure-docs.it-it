@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: dc3870e81edd47a9932db86d347290451c4f1eb8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 528d7ff5f74948fd1ae7b829d4b2fc38fa2f1109
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="combine-columns-by-example-transformation"></a>Trasformazione "Combine Columns by Example" (Combina colonne in base all'esempio)
 Questa trasformazione consente all'utente di aggiungere una nuova colonna combinando i valori di più colonne. L'utente può specificare un separatore o fornire esempi di valori combinati per eseguire questa trasformazione. Quando l'utente fornisce esempi di combinazione, la trasformazione viene gestita dallo stesso motore **By-Example** usato nella trasformazione **Derive Column by Example** (Deriva colonna in base all'esempio).
@@ -37,6 +37,10 @@ La selezione di **Separator** (Separatore) in **Combine Columns by** (Combina co
 La selezione di **Examples** (Esempi) in **Combine Columns by** (Combina colonne in base all'esempio) consente all'utente di specificare esempi di valori combinati. Per alzare di livello una riga, ad esempio, fare doppio clic sulle righe nella griglia. Digitare l'output previsto nella casella di testo per la riga alzata di livello. Premere TAB al di fuori della casella di testo **Separator** (Separatore) per visualizzare in anteprima i risultati della griglia di dati. Premere **OK** per eseguire il commit della trasformazione. 
 
 L'utente può passare dalla **Modalità di base** alla **Modalità avanzata** facendo clic sui collegamenti nell'editor di trasformazione.
+
+### <a name="transform-editor-send-feedback"></a>Editor di trasformazione: invio di commenti e suggerimenti
+
+Facendo clic sul collegamento **Send feedback** (Invia commenti e suggerimenti) viene aperta la finestra di dialogo **Feedback** (Commenti e suggerimenti) in cui la casella dei commenti include già gli esempi forniti dall'utente. L'utente deve esaminare il contenuto della casella dei commenti e fornire ulteriori dettagli per consentire a Microsoft di comprendere il problema. Se non vuole condividere dati con Microsoft, l'utente deve eliminare i dati di esempio già inseriti prima di fare clic sul pulsante **Send Feedback** (Invia commenti e suggerimenti). 
 
 ### <a name="editing-existing-transformation"></a>Modifica della trasformazione esistente
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: mahender
-ms.openlocfilehash: fe0958b8a548e72df17f257e5700c28d3ebae79c
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 608f5ec2fb4b8fa374778cb4f506f1d25eb7642b
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Associazioni HTTP e webhook in Funzioni di Azure
 
@@ -352,9 +352,6 @@ Queste proprietà sono descritte nella sezione [configuration](#trigger---config
 Ecco il codice JavaScript:
 
 ```javascript
-```
-
-```javascript
 module.exports = function (context, data) {
     context.log('GitHub WebHook triggered!', data.comment.body);
     context.res = { body: 'New GitHub comment: ' + data.comment.body };
@@ -531,6 +528,8 @@ L'autorizzazione webhook viene gestita dal componente ricevitore dei webhook, ch
 ## <a name="trigger---limits"></a>Trigger - Limiti
 
 La lunghezza della richiesta HTTP è limitata a 100 KB (102.400 byte) e la lunghezza dell'URL è limitata a 4 KB (4.096 byte). Questi limiti vengono specificati dall'elemento `httpRuntime` del [file web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) del runtime.
+
+Se una funzione che usa il trigger HTTP non viene completata entro 2,5 minuti circa, il gateway raggiungerà il timeout e restituirà un errore HTTP 502. La funzione rimarrà in esecuzione, ma non riuscirà a restituire una risposta HTTP. Per le funzioni con esecuzione prolungata, è consigliabile seguire modelli asincroni e restituire una posizione in cui è possibile effettuare il ping dello stato della richiesta. Per informazioni su quanto tempo può durare l'esecuzione di una funzione, vedere [Scalabilità e hosting - Piano a consumo](functions-scale.md#consumption-plan). 
 
 ## <a name="trigger---hostjson-properties"></a>Trigger - proprietà di host.json
 

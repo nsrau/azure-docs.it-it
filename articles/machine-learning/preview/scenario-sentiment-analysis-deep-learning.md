@@ -13,17 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 255c39ea21378aae23fc61da6dc882138fb66ab1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 3b0a5bfc911f3edf91367cbf4fde907cbf98e114
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Analisi del sentiment tramite tecniche di apprendimento avanzato con Azure Machine Learning
 
-L'analisi del sentiment è un'attività ben nota negli scenari di elaborazione del linguaggio naturale. Dato un set di testi, l'obiettivo è determinare la valutazione del testo. L'obiettivo di questa soluzione è usare CNTK come back-end per Keras, una libreria a livello di modello che fornisce blocchi predefiniti di alto livello per lo sviluppo di modelli di apprendimento avanzato, e implementare l'analisi del sentiment da un insieme di recensioni cinematografiche.
+L'analisi del sentiment è un'attività ben nota negli scenari di elaborazione del linguaggio naturale. Dato un set di testi, l'obiettivo è determinare la valutazione del testo. L'obiettivo di questa soluzione è di usare le tecniche di apprendimento avanzato per la previsione del sentiment nelle recensioni cinematografiche.
 
 La soluzione si trova in https://github.com/Azure/MachineLearningSamples-SentimentAnalysis
 
@@ -39,7 +39,7 @@ L'incredibile aumento dei dati e la diffusione dei dispositivi mobili hanno offe
 
 Per ottenere valore dall'analisi del sentiment, le aziende devono poter eseguire il data mining di vasti archivi di dati di social networking non strutturati per ricavare informazioni di utilità pratica. In questo esempio si svilupperanno modelli di apprendimento avanzato per l'esecuzione dell'analisi del sentiment di un insieme di recensioni cinematografiche con Azure Machine Learning Workbench
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Un [account di Azure](https://azure.microsoft.com/free/) (sono disponibili versioni di valutazione gratuite).
 

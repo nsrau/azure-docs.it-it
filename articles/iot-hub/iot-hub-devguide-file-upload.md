@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 75a6b9bc3ecfe6d6901bb38e312d62333f38daf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bf1ba333f36dcfa8959320566bcb771f37cfe22
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="upload-files-with-iot-hub"></a>Caricare file con l'hub IoT
 
@@ -96,11 +96,11 @@ Negli argomenti di riferimento seguenti vengono offerte altre informazioni sul c
 
 ## <a name="file-upload-notifications"></a>Notifiche di caricamento file
 
-Facoltativamente, quando un dispositivo notifica all'hub IoT il completamento di un caricamento, il servizio può generare un messaggio di notifica contenente il nome e la posizione di archiviazione del file.
+Facoltativamente, quando un dispositivo notifica all'hub IoT il completamento di un caricamento, l'hub IoT genera un messaggio di notifica contenente il nome e la posizione di archiviazione del file.
 
 Come illustrato nella sezione [Endpoint][lnk-endpoints], , l'hub IoT recapita le notifiche di caricamento file sotto forma di messaggi tramite un endpoint per servizio (**/messages/servicebound/fileuploadnotifications**). La semantica di ricezione per le notifiche di caricamento file è uguale a quella dei messaggi da cloud a dispositivo e ha lo stesso [ciclo di vita dei messaggi][lnk-lifecycle]. Ogni messaggio recuperato dall'endpoint delle notifiche di caricamento file è un record JSON con le proprietà seguenti.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | EnqueuedTimeUtc |Timestamp che indica quando è stata creata la notifica. |
 | deviceId |**DeviceId** del dispositivo che ha caricato il file. |
@@ -126,7 +126,7 @@ Come illustrato nella sezione [Endpoint][lnk-endpoints], , l'hub IoT recapita le
 
 Ogni hub IoT espone le opzioni di configurazione seguenti per le notifiche di caricamento file.
 
-| Proprietà | Descrizione | Intervallo e valore predefinito |
+| Proprietà | DESCRIZIONE | Intervallo e valore predefinito |
 | --- | --- | --- |
 | **enableFileUploadNotifications** |Controlla se verranno scritte notifiche di caricamento file nell'endpoint per le notifiche relative ai file. |Valore booleano. Predefinito: True. |
 | **fileNotifications.ttlAsIso8601** |Durata (TTL) predefinita per le notifiche di caricamento file. |Intervallo ISO_8601 fino a 48 ore (minimo 1 minuto). Predefinito: 1 ora. |
@@ -153,7 +153,7 @@ In questa esercitazione si è appreso come caricare i file dai dispositivi con l
 * [Richiamare un metodo diretto in un dispositivo][lnk-devguide-directmethods]
 * [Pianificare processi in più dispositivi][lnk-devguide-jobs]
 
-Per provare alcuni dei concetti descritti in questo articolo, può essere utile l'esercitazione seguente sull'hub IoT:
+Per provare alcuni dei concetti descritti in questo articolo, vedere l'esercitazione sull'hub IoT seguente:
 
 * [Come caricare file dai dispositivi al cloud con l'hub IoT][lnk-fileupload-tutorial]
 

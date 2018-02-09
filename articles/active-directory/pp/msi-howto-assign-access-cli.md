@@ -1,9 +1,9 @@
 ---
-title: Come assegnare un accesso MSI utente assegnato a una risorsa di Azure mediante Azure CLI
-description: Procedura dettagliata le istruzioni per l'assegnazione di un file MSI assegnati dall'utente in una risorsa, l'accesso a un'altra risorsa, tramite l'interfaccia CLI di Azure.
+title: "Come assegnare a un'identità del servizio gestito assegnata dall'utente l'accesso a una risorsa di Azure tramite l'interfaccia della riga di comando di Azure"
+description: "Istruzioni dettagliate per assegnare a un'identità del servizio gestito assegnata dall'utente in una risorsa l'accesso a un'altra risorsa tramite l'interfaccia della riga di comando di Azure."
 services: active-directory
 documentationcenter: 
-author: bryanLa
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,28 +12,28 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 732fc1981bdf95e7548ea0ebe0ca8ece00f483ce
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 5bea41999f59fe8be7ae0a0bd5b726527beeddd5
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="assign-a-user-assigned-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Assegnare un accesso di identità di servizio gestiti (MSI) utente assegnato a una risorsa, utilizzando l'interfaccia CLI di Azure
+# <a name="assign-a-user-assigned-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Assegnare a un'identità del servizio gestito assegnata dall'utente l'accesso a una risorsa tramite l'interfaccia della riga di comando di Azure
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
-Dopo aver creato un file MSI assegnati dall'utente, è possibile assegnare l'accesso a file MSI in un'altra risorsa, analogamente a qualsiasi entità di sicurezza. In questo esempio viene illustrato come concedere un accesso MSI utente assegnato a un account di archiviazione di Azure, mediante Azure CLI.
+Dopo aver creato un'identità del servizio gestito assegnata dall'utente è possibile concedere all'identità del servizio gestito l'accesso a un'altra risorsa, analogamente a qualsiasi entità di sicurezza. In questo esempio viene illustrato come concedere a un'identità del servizio gestito assegnata dall'utente l'accesso a un account di archiviazione di Azure tramite l'interfaccia della riga di comando di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
-Per eseguire gli esempi di script CLI in questa esercitazione, sono disponibili due opzioni:
+Per eseguire gli esempi di script dell'interfaccia della riga di comando in questa esercitazione sono disponibili due opzioni:
 
-- Utilizzare [Azure Cloud Shell](~/articles/cloud-shell/overview.md) dal portale di Azure o tramite il pulsante "Provalo", si trova nell'angolo superiore destro di ogni blocco di codice.
-- [Installare la versione più recente di CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 o versione successiva) se si preferisce utilizzare una console locale di CLI. Accedere quindi a Azure tramite [accesso az](/cli/azure/#login). Utilizzare un account che viene associato alla sottoscrizione di Azure in cui si desidera distribuire il file MSI assegnati dall'utente e macchina virtuale:
+- Usare [Azure Cloud Shell](~/articles/cloud-shell/overview.md) tramite il portale di Azure o il pulsante "Prova", che si trova nell'angolo in alto a destra di ogni blocco di codice.
+- [Installare la versione più recente dell'interfaccia della riga di comando 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale. Accedere quindi ad Azure tramite [az login](/cli/azure/#az_login). Usare un account associato alla sottoscrizione di Azure in cui si desidera distribuire la macchina virtuale e l'identità del servizio gestito assegnata dall'utente:
 
    ```azurecli
    az login
@@ -41,17 +41,17 @@ Per eseguire gli esempi di script CLI in questa esercitazione, sono disponibili 
 
 ## <a name="use-rbac-to-assign-the-msi-access-to-another-resource"></a>Usare il controllo degli accessi in base al ruolo per assegnare a un'Identità del servizio gestito l'accesso a un'altra risorsa
 
-Per usare un file MSI con una risorsa dell'host (ad esempio, una macchina virtuale), per l'accesso di accesso o una risorsa, il file MSI devono innanzitutto essere concessi accesso alle risorse tramite l'assegnazione di ruolo. È possibile farlo prima di associare il file MSI, con l'host, o dopo. Per la procedura sulla creazione e l'associazione a una macchina virtuale, vedere [configurare un file MSI assegnati dall'utente per una macchina virtuale con Azure CLI](msi-qs-configure-cli-windows-vm.md).
+Per usare un'identità del servizio gestito con una risorsa dell'host, ad esempio una macchina virtuale, è necessario che all'identità del servizio gestito venga prima concesso l'accesso alla risorsa tramite l'assegnazione di ruolo. È possibile farlo prima associando l'identità del servizio gestito all'host o dopo. Per la procedura completa per la creazione e l'associazione a una macchina virtuale, vedere [Configurare un'identità del servizio gestito assegnata dall'utente per una macchina virtuale tramite l'interfaccia della riga di comando di Azure](msi-qs-configure-cli-windows-vm.md).
 
-Nell'esempio seguente, un file MSI assegnati dall'utente di accedere a un account di archiviazione.  
+Nell'esempio seguente all'identità del servizio gestito assegnata dall'utente viene concesso l'accesso a un account di archiviazione.  
 
-1. Per concedere l'accesso a file MSI, è necessario l'ID client (noto anche come ID app) dell'entità servizio del file MSI. Il client ID viene fornito dal [creare identità az](/cli/azure/identity#az_identity_create), durante il provisioning di file MSI e il relativo dell'entità servizio (illustrato di seguito per riferimento):
+1. Per concedere l'accesso a un'identità del servizio gestito, è necessario l'ID client (noto anche come ID app) dell'entità servizio dell'identità del servizio gestito. L'ID client viene fornito tramite [az identity create](/cli/azure/identity#az_identity_create), dopo il provisioning dell'identità del servizio gestito e della relativa entità servizio (illustrato di seguito per riferimento):
 
    ```azurecli-interactive
    az identity create -g rgPrivate -n msiServiceApp
    ```
 
-   Una risposta corretta contiene l'ID client dell'entità, nel servizio del MSI assegnati dall'utente di `clientId` proprietà:
+   Una risposta con esito positivo contiene l'ID client dell'entità servizio dell'identità del servizio gestito assegnata dall'utente nella proprietà `clientId`:
 
    ```json
    {
@@ -68,13 +68,13 @@ Nell'esempio seguente, un file MSI assegnati dall'utente di accedere a un accoun
    }
    ```
 
-2. Una volta che è nota l'ID client, utilizzare [di creazione dell'assegnazione di ruolo az](/cli/azure/role/assignment#az_role_assignment_create) per assegnare l'accesso a file MSI in un'altra risorsa. Assicurarsi di usare l'ID client per il `--assignee` parametro e il gruppo di risorse e l'ID sottoscrizione corrispondente, name, come restituito quando si esegue `az identity create`. Qui il file MSI è assegnato l'accesso "Lettura" a un account di archiviazione denominato "myStorageAcct":
+2. Una volta che l'ID client è noto, usare [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) per assegnare all'identità del servizio gestito l'accesso a un'altra risorsa. Assicurarsi di usare l'ID client per il parametro `--assignee` e l'ID sottoscrizione e il nome del gruppo di risorse corrispondenti, come restituiti quando si esegue `az identity create`. In questo esempio all'identità del servizio gestito viene assegnato l'accesso in "Lettura" a un account di archiviazione denominato "myStorageAcct":
 
    ```azurecli-interactive
    az role assignment create --assignee 9391e5b1-dada-4a8z-834a-43ad44f296bl --role Reader --scope /subscriptions/90z696ff-5efa-4909-a64d-f1b616f423ll/resourcegroups/rgPrivate/providers/Microsoft.Storage/storageAccounts/myStorageAcct
    ```
 
-   Una risposta corretta sarà simile al seguente output:
+   Una risposta con esito positivo sarà simile all'output seguente:
 
    ```json
    {
@@ -99,7 +99,7 @@ Nell'esempio seguente, un file MSI assegnati dall'utente di accedere a un accoun
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per una panoramica dell'Identità di servizio gestito, vedere [Panoramica dell'Identità di servizio gestito](msi-overview.md).
-- Per abilitare un MSI assegnati dall'utente in una macchina virtuale di Azure, vedere [configurare un utente assegnato gestiti servizio identità (MSI) per una macchina virtuale con Azure CLI](msi-qs-configure-cli-windows-vm.md).
+- Per abilitare un'identità del servizio gestito assegnata dall'utente in una macchina virtuale di Azure, vedere [Configurare un'identità del servizio gestito assegnata dall'utente per una macchina virtuale tramite l'interfaccia della riga di comando di Azure](msi-qs-configure-cli-windows-vm.md).
 
 Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
 

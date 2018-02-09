@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 5f5b34c6610a1c07687f0681480f7422986d6f20
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: ca68391db99d882887e41005928a30610c7cb930
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>Usare Pig con Hadoop in HDInsight
 
-Informazioni su come usare [Apache Pig](http://pig.apache.org/) con HDInsight...
+Informazioni su come usare [Apache Pig](http://pig.apache.org/) con HDInsight.
 
 Pig è una piattaforma che consente la creazione di programmi per Hadoop usando un linguaggio procedurale denominato *Pig Latin*. Pig è un'alternativa a Java per la creazione di soluzioni *MapReduce* ed è incluso in Azure HDInsight. Usare la tabella seguente per individuare i vari modi in cui Pig può essere usato con HDInsight:
 
@@ -34,7 +34,6 @@ Pig è una piattaforma che consente la creazione di programmi per Hadoop usando 
 | [API REST](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux o Windows |Linux, Unix, Mac OS X o Windows |
 | [.NET SDK per Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux o Windows |Windows (per ora) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux o Windows |Windows |
-| [Desktop remoto](apache-hadoop-use-pig-remote-desktop.md) (HDInsight 3.2 e 3.3) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
 > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -104,7 +103,6 @@ HDInsight è in grado di eseguire processi Pig Latin in vari modi. Usare la tabe
 | [Curl](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux o Windows |Linux, Unix, Mac OS X o Windows |
 | [.NET SDK per Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux o Windows |Windows (per ora) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux o Windows |Windows |
-| [Desktop remoto](apache-hadoop-use-pig-remote-desktop.md) (HDInsight 3.2 e 3.3) |✔ |✔ |Windows |Windows |
 
 > [!IMPORTANT]
 > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).

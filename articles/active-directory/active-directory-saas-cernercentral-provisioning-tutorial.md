@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Configurazione di Cerner Central per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: Configurare Cerner Central per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning degli utenti in un elenco in Cerner Central.
 services: active-directory
 documentationcenter: 
@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: f7e6d4275940174074c1758a5b73030e0b3f107c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: fe24db4e573ef9c9daf34bb8069c7a1e57616ffb
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-cerner-central-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di Cerner Central per il provisioning utenti automatico
+# <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Esercitazione: Configurare Cerner Central per il provisioning utenti automatico
 
 Questa esercitazione descrive le procedure da eseguire in Cerner Central e Azure AD per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD in un elenco di utenti in Cerner Central. 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 

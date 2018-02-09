@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1909183a33ed03d8165671cff25cc8b83b77733
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1097b1ddd2e8f2fae0ffc809aee63be5c2ed4cb1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>Aggiunta di risorse di automazione di Azure a una soluzione di gestione OMS (anteprima)
 > [!NOTE]
@@ -32,7 +32,7 @@ Le [soluzioni di gestione in OMS](operations-management-suite-solutions.md) cont
 > Gli esempi in questo articolo usano parametri e variabili che sono richiesti o comuni nelle soluzioni di gestione e che sono descritti in [Creazione di soluzioni di gestione in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) 
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Nell'articolo si presuppone che il lettore abbia già familiarità con le informazioni seguenti:
 
 - Come [creare una soluzione di gestione](operations-management-suite-solutions-creating.md).
@@ -40,7 +40,7 @@ Nell'articolo si presuppone che il lettore abbia già familiarità con le inform
 - Come [creare modelli di Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## <a name="automation-account"></a>Account di Automazione
-Tutte le risorse di Automazione di Azure sono contenute in un [account di Automazione](../automation/automation-security-overview.md#automation-account-overview).  Come descritto in [Area di lavoro OMS e account di Automazione](operations-management-suite-solutions.md#oms-workspace-and-automation-account), l'account di Automazione non è incluso nella soluzione di gestione, ma deve essere presente prima dell'installazione della soluzione.  Se non è disponibile, l'installazione della soluzione non riuscirà.
+Tutte le risorse di Automazione di Azure sono contenute in un [account di Automazione](../automation/automation-security-overview.md#automation-account-overview).  Come descritto in [Area di lavoro OMS e account di Automazione](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), l'account di Automazione non è incluso nella soluzione di gestione, ma deve essere presente prima dell'installazione della soluzione.  Se non è disponibile, l'installazione della soluzione non riuscirà.
 
 Il nome di ogni risorsa di automazione include il nome del rispettivo account di automazione.  Questa operazione viene eseguita nella soluzione con il parametro **accountName** come nell'esempio seguente di una risorsa runbook.
 
@@ -75,7 +75,7 @@ Le risorse [runbook di automazione di Azure](../automation/automation-runbook-ty
 
 Le proprietà dei runbook sono descritte nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | runbookType |Specifica il tipo del runbook. <br><br> Script - Script di PowerShell <br>PowerShell - Flusso di lavoro di PowerShell <br> GraphPowerShell - Runbook di script di PowerShell grafico <br> GraphPowerShellWorkflow - Runbook di flusso di lavoro di PowerShell grafico |
 | logProgress |Specifica se devono essere generati [record di avanzamento](../automation/automation-runbook-output-and-messages.md) per il runbook. |
@@ -111,10 +111,10 @@ Le risorse "processo" sono di tipo **Microsoft.Automation/automationAccounts/job
 
 Le proprietà dei processi di automazione sono descritte nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | runbook |Entità name singola con il nome del runbook da avviare. |
-| parameters |Entità relativa ad ogni valore di parametro richiesto dal runbook. |
+| Parametri |Entità relativa ad ogni valore di parametro richiesto dal runbook. |
 
 Il processo include il nome del runbook e i valori dei parametri da inviare al runbook.  Il processo deve [dipendere](operations-management-suite-solutions-solution-file.md#resources) dal runbook in fase di avvio, poiché questo deve essere creato prima del processo.  Se sono presenti più runbook da avviare, è possibile definire l'ordine di avvio impostando un processo in modo che dipenda da un altro processo che deve essere eseguito prima.
 
@@ -142,7 +142,7 @@ I [certificati di automazione di Azure](../automation/automation-certificates.md
 
 Le proprietà delle risorse "certificati" sono descritte nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | base64Value |Valore Base 64 per il certificato. |
 | thumbprint |Identificazione personale del certificato. |
@@ -169,7 +169,7 @@ Le [credenziali di automazione di Azure](../automation/automation-credentials.md
 
 Le proprietà delle risorse "credenziali" sono descritte nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | userName |Nome utente per la credenziale. |
 | password |Password per la credenziale. |
@@ -197,7 +197,7 @@ Le [pianificazioni di automazione di Azure](../automation/automation-schedules.m
 
 Le proprietà delle risorse pianificazione sono descritte nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | description |Descrizione facoltativa per la pianificazione. |
 | startTime |Specifica l'ora di inizio di una pianificazione come oggetto DateTime. È possibile fornire una stringa, se può essere convertita in un oggetto DateTime valido. |
@@ -240,14 +240,14 @@ Le risorse "pianificazione dei processi" collegano un runbook a una pianificazio
 
 Le proprietà delle pianificazioni dei processi sono descritte nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | schedule name |Entità **name** singola con il nome della pianificazione. |
 | runbook name  |Entità **name** singola con il nome del runbook.  |
 
 
 
-## <a name="variables"></a>Variabili
+## <a name="variables"></a>variables
 Le [variabili di automazione di Azure](../automation/automation-variables.md) sono di tipo **Microsoft.Automation/automationAccounts/variables** e presentano la struttura seguente.  Nella struttura sono inclusi parametri e variabili comuni ed è quindi possibile copiare e incollare questo frammento di codice nel file della soluzione e, se necessario, modificare i nomi dei parametri.
 
     {
@@ -267,7 +267,7 @@ Le [variabili di automazione di Azure](../automation/automation-variables.md) so
 
 Le proprietà delle risorse "variabile" sono descritte nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | description | Descrizione facoltativa per la variabile. |
 | isEncrypted | Specifica se la variabile deve essere crittografata. |
@@ -279,12 +279,12 @@ Le proprietà delle risorse "variabile" sono descritte nella tabella seguente.
 
 Se si imposta il valore iniziale per la variabile, è necessario configurarla come tipo di dati corretto.  La tabella seguente elenca i diversi tipi di dati disponibili e la rispettiva sintassi.  Si noti che i valori in JSON devono essere sempre racchiusi tra virgolette con qualsiasi carattere speciale tra virgolette.  Un valore di stringa, ad esempio, verrà specificato dalle virgolette all'inizio e alla fine della stringa, usando il carattere di escape (\\), mentre un valore numerico verrà specificato con un set di virgolette.
 
-| Tipo di dati | Descrizione | Esempio | Risoluzione |
+| Tipo di dati | DESCRIZIONE | Esempio | Risoluzione |
 |:--|:--|:--|:--|
-| string   | Racchiude il valore tra virgolette doppie.  | "\"Hello world\"" | "Hello world" |
+| stringa   | Racchiude il valore tra virgolette doppie.  | "\"Hello world\"" | "Hello world" |
 | numeric  | Valore numerico con virgolette singole.| "64" | 64 |
 | boolean  | **true** o **false** tra virgolette.  Si noti che questo valore deve essere minuscolo. | "true" | true |
-| datetime | Valore di data serializzato.<br>È possibile usare il cmdlet ConvertTo-Json in PowerShell per generare questo valore per una particolare data.<br>Esempio: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| Datetime | Valore di data serializzato.<br>È possibile usare il cmdlet ConvertTo-Json in PowerShell per generare questo valore per una particolare data.<br>Esempio: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Moduli
 La soluzione di gestione non deve necessariamente definire i [moduli globali](../automation/automation-integration-modules.md) usati dai runbook, poiché saranno sempre disponibili nel proprio account di automazione.  È tuttavia necessario includere una risorsa per qualsiasi altro modulo usato dai runbook.
@@ -307,7 +307,7 @@ I [moduli di integrazione](../automation/automation-integration-modules.md) sono
 
 Le proprietà delle risorse "modulo" sono descritte nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | contentLink |Specifica il contenuto del modulo. <br><br>uri - URI del contenuto del modulo.  Si tratterà di un file con estensione ps1 per i runbook di PowerShell e di script e di un file di runbook grafico esportato per un runbook di Graph.  <br> version - Versione del modulo per il monitoraggio. |
 

@@ -3,7 +3,7 @@ title: Informazioni sui processi hub IoT di Azure | Microsoft Docs
 description: "Guida per sviluppatori - Pianificazione di processi da eseguire in più dispositivi connessi all'hub di IoT. I processi possono aggiornare i tag e le proprietà desiderate e richiamare metodi diretti su più dispositivi."
 services: iot-hub
 documentationcenter: .net
-author: juanjperez
+author: dominicbetts
 manager: timlt
 editor: 
 ms.assetid: fe78458f-4f14-4358-ac83-4f7bd14ee8da
@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
-ms.author: juanpere
-ms.openlocfilehash: f90ecb70ad12ed05d5d40f8b26a0a4e461c9f835
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.date: 01/29/2018
+ms.author: dobett
+ms.openlocfilehash: 7e0af40b2fd5bbb12d5565765aae4026922aec5c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Pianificare processi in più dispositivi
 
@@ -101,7 +101,7 @@ La risposta fornisce continuationToken.
 ## <a name="jobs-properties"></a>Proprietà dei processi
 Di seguito è riportato un elenco di proprietà e corrispondenti descrizioni che è possibile usare quando si eseguono query sui processi o sui relativi risultati.
 
-| Proprietà | Description |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | **jobId** |ID fornito dall'applicazione per il processo. |
 | **startTime** |Ora di inizio fornita dall'applicazione (ISO 8601) per il processo. |
@@ -130,11 +130,11 @@ Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida p
 * [Endpoint dell'hub IoT][lnk-endpoints] illustra i diversi endpoint esposti da ogni hub IoT per operazioni della fase di esecuzione e di gestione.
 * [Quote e limitazioni][lnk-quotas] descrive le quote applicabili al servizio Hub IoT e il comportamento di limitazione previsto quando si usa il servizio.
 * [Azure IoT SDK per dispositivi e servizi][lnk-sdks] elenca gli SDK nei diversi linguaggi che è possibile usare quando si sviluppano app per dispositivi e servizi che interagiscono con l'hub IoT.
-* [Il linguaggio di query dell'hub IoT per dispositivi gemelli, processi e routing messaggi][lnk-query] descrive il linguaggio di query dell'hub IoT che è possibile usare per recuperare informazioni dall'hub IoT sui processi e i dispositivi gemelli.
+* [Linguaggio di query dell'hub IoT per dispositivi gemelli, processi e routing di messaggi][lnk-query] descrive il linguaggio di query di hub IoT. Usare questo linguaggio di query per recuperare dall'hub IoT informazioni sui dispositivi gemelli e sui processi.
 * [Supporto di MQTT nell'hub IoT][lnk-devguide-mqtt] offre altre informazioni sul supporto dell'hub IoT per il protocollo MQTT.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per provare alcuni dei concetti descritti in questo articolo, può essere utile l'esercitazione seguente sull'hub IoT:
+Per provare alcuni dei concetti descritti in questo articolo, vedere l'esercitazione sull'hub IoT seguente:
 
 * [Pianificare e trasmettere processi][lnk-jobs-tutorial]
 

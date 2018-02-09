@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: nisoneji
-ms.openlocfilehash: cff6a7502e80eb4ff447cc99fe31b48cb660c27e
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 00d5c1fa8c0c16daef5d928147e169553672e1f6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application-using-azure-site-recovery"></a>Eseguire la replica di un'applicazione Web multilivello basata su IIS usando Azure Site Recovery
 
@@ -27,19 +27,19 @@ ms.lasthandoff: 12/13/2017
 
 Il software applicativo è il motore della produttività aziendale di un'organizzazione. Le diverse applicazioni Web possono essere usate per scopi diversi in un'organizzazione. Alcune di queste, come le applicazioni per l'elaborazione delle retribuzioni, le applicazioni finanziarie e i siti Web rivolti ai clienti possono essere fondamentali. Per l'organizzazione è importante che queste applicazioni siano sempre operative per prevenire la perdita di produttività e, aspetto ancora più importante, evitare eventuali danni all'immagine del marchio.
 
-Le applicazioni Web critiche vengono in genere configurate come applicazioni multilivello, con il Web, il database e l'applicazione in livelli diversi. Oltre a essere distribuite in vari livelli, le applicazioni possono usare più server in ogni livello per bilanciare il carico del traffico. I mapping tra i vari livelli e nel server Web possono essere basati su indirizzi IP statici. In caso di failover, alcuni di questi mapping dovranno essere aggiornati, in particolare se sono stati configurati più siti Web nel server Web. Nel caso di applicazioni Web che usano SSL sarà necessario aggiornare le associazioni dei certificati.
+Le applicazioni Web critiche vengono in genere configurate come applicazioni multilivello, con il Web, il database e l'applicazione in livelli diversi. Oltre a essere distribuite in vari livelli, le applicazioni possono usare più server in ogni livello per bilanciare il carico del traffico. I mapping tra i vari livelli e nel server Web possono essere basati su indirizzi IP statici. In caso di failover, alcuni di questi mapping devono essere aggiornati, in particolare se sono stati configurati più siti Web nel server Web. Se le applicazioni Web usano SSL, è necessario aggiornare anche i binding dei certificati.
 
 I metodi di ripristino di base tradizionali senza replica prevedono il backup di diversi file di configurazione, impostazioni del registro, binding, componenti personalizzati (COM o .NET), contenuti e certificati, con il recupero dei file tramite una serie di passaggi manuali. Queste tecniche sono chiaramente complesse, soggette a errori e non scalabili. È ad esempio facile dimenticare di eseguire il backup dei certificati e dover quindi necessariamente acquistare nuovi certificati per il server dopo il failover.
 
-Una soluzione di ripristino di emergenza valida deve consentire la modellazione dei piani di ripristino per le architetture di applicazioni complesse descritte in precedenza e consentire anche l'aggiunta di passaggi personalizzati per gestire i mapping delle applicazioni tra i vari livelli, fornendo una soluzione rapida e sicura in caso di emergenza, con un RTO inferiore.
+Una buona soluzione di ripristino di emergenza deve consentire la modellazione di piani di ripristino basati su architetture di applicazioni complesse. Deve anche permettere di aggiungere passaggi personalizzati per gestire i mapping delle applicazioni tra diversi livelli. Se si verifica un'emergenza, si disporrà di una soluzione in grado di fornire il failover con un solo clic e di conseguenza un RTO inferiore.
 
 
-Questo articolo descrive come proteggere un'applicazione Web basata su IIS con [Azure Site Recovery](site-recovery-overview.md). Questo articolo illustra le procedure consigliate per la replica di un'applicazione Web a tre livelli basata su IIS in Azure, come eseguire un'analisi di ripristino di emergenza e come eseguire il failover dell'applicazione in Azure.
+Questo articolo descrive come proteggere un'applicazione Web basata su IIS con [Azure Site Recovery](site-recovery-overview.md). Questo articolo illustra le procedure consigliate per la replica di un'applicazione Web a tre livelli basata su IIS in Azure. Spiega inoltre come eseguire un'analisi di ripristino di emergenza e come eseguire il failover dell'applicazione in Azure.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
-Prima di iniziare, è necessario comprendere i concetti illustrati di seguito:
+Prima di iniziare, è necessario comprendere i requisiti seguenti:
 
 1. [Replica di una macchina virtuale in Azure](site-recovery-vmware-to-azure.md)
 1. Come [progettare una rete di ripristino](site-recovery-network-design.md)
@@ -51,7 +51,7 @@ Prima di iniziare, è necessario comprendere i concetti illustrati di seguito:
 ## <a name="deployment-patterns"></a>Modelli di distribuzione
 Un'applicazione Web basata su IIS segue in genere uno dei modelli di distribuzione seguenti:
 
-**Modello di distribuzione 1 ** Web farm basata su IIS con Application Request Routing (ARR), server IIS e Microsoft SQL Server.
+**Modello di distribuzione 1** Web farm basata su IIS con Application Request Routing (ARR), server IIS e Microsoft SQL Server.
 
 ![Modello di distribuzione](./media/site-recovery-iis/deployment-pattern1.png)
 
@@ -84,10 +84,10 @@ Se si usa un indirizzo IP statico, specificare l'indirizzo IP che la macchina vi
 
 ## <a name="creating-a-recovery-plan"></a>Creazione di un piano di ripristino
 
-Un piano di ripristino consente di definire la sequenza di failover di vari livelli in un'applicazione multilivello, conservando la coerenza dell'applicazione. Seguire questa procedura durante la creazione di un piano di ripristino per un'applicazione Web multilivello.  [Altre informazioni sulla creazione di un piano di ripristino](./site-recovery-create-recovery-plans.md).
+Un piano di ripristino consente di definire la sequenza di failover di vari livelli in un'applicazione multilivello, conservando la coerenza dell'applicazione. Questa è la procedura per creare un piano di ripristino per un'applicazione Web multilivello.  [Altre informazioni sulla creazione di un piano di ripristino](./site-recovery-create-recovery-plans.md).
 
 ### <a name="adding-virtual-machines-to-failover-groups"></a>Aggiunta di macchine virtuali a gruppi di failover
-Una tipica applicazione Web IIS multilivello è costituita da un livello di database con le macchine virtuali SQL, il livello Web costituito da un server IIS e un livello di applicazione. Aggiungere tutte queste macchine virtuali a gruppi differenti in base al livello come descritto di seguito. [Altre informazioni sulla personalizzazione dei piani di ripristino](site-recovery-runbook-automation.md#customize-the-recovery-plan).
+Una tipica applicazione Web IIS multilivello è costituita da un livello di database con le macchine virtuali SQL, il livello Web costituito da un server IIS e un livello di applicazione. Aggiungere tutte queste macchine virtuali a gruppi diversi in base al livello come descritto nei passaggi seguenti. [Altre informazioni sulla personalizzazione dei piani di ripristino](site-recovery-runbook-automation.md#customize-the-recovery-plan).
 
 1. Creare un piano di ripristino. Aggiungere le macchine virtuali del livello database nel gruppo 1 in modo che vengano arrestate per ultime e aperte per prime.
 
@@ -99,15 +99,15 @@ Una tipica applicazione Web IIS multilivello è costituita da un livello di data
 
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>Aggiunta di script al piano di ripristino
-Potrebbe essere necessario eseguire alcune operazioni nelle macchine virtuali di Azure dopo il failover o il failover di test per far sì che la Web farm IIS funzioni correttamente. È possibile automatizzare le operazioni dopo il failover come l'aggiornamento della voce DNS e la modifica del binding del sito e della stringa di connessione aggiungendo script corrispondenti nel piano di ripristino come indicato di seguito. [Altre informazioni sull'aggiunta di script al piano di ripristino](./site-recovery-create-recovery-plans.md#add-scripts).
+Potrebbe essere necessario eseguire alcune operazioni nelle macchine virtuali di Azure dopo il failover o il failover di test per far sì che la Web farm IIS funzioni correttamente. È possibile automatizzare le operazioni dopo il failover come l'aggiornamento della voce DNS e la modifica del binding del sito e della stringa di connessione aggiungendo script corrispondenti nel piano di ripristino come indicato di seguito. [Altre informazioni sull'aggiunta di script al piano di ripristino](./site-recovery-how-to-add-vmmscript.md).
 
 #### <a name="dns-update"></a>Aggiornamento del DNS
-Se il DNS è configurato per l'aggiornamento dinamico, le macchine virtuali aggiornano in genere il DNS con il nuovo indirizzo IP all'avvio. Se si vuole aggiungere un passaggio esplicito per l'aggiornamento del DNS con i nuovi indirizzi IP delle macchine virtuali, aggiungere questo [script per l'aggiornamento degli indirizzi IP nel DNS](https://aka.ms/asr-dns-update) come post-azione nei gruppi del piano di ripristino.  
+Se il DNS è configurato per l'aggiornamento DNS dinamico, le macchine virtuali aggiornano in genere il DNS con il nuovo indirizzo IP all'avvio. Se si vuole aggiungere un passaggio esplicito per l'aggiornamento del DNS con i nuovi indirizzi IP delle macchine virtuali, aggiungere questo [script per l'aggiornamento degli indirizzi IP nel DNS](https://aka.ms/asr-dns-update) come post-azione nei gruppi del piano di ripristino.  
 
 #### <a name="connection-string-in-an-applications-webconfig"></a>Stringa di connessione nel file web.config di un'applicazione
 La stringa di connessione specifica il database con cui comunica il sito Web.
 
-Se la stringa di connessione contiene il nome della macchina virtuale del database, non saranno necessari altri passaggi dopo il failover e l'applicazione potrà comunicare automaticamente con il database. Se l'indirizzo IP della macchina virtuale del database viene conservato, non sarà necessario aggiornare la stringa di connessione. Se la stringa di connessione fa riferimento alla macchina virtuale del database usando un indirizzo IP, dovrà essere aggiornata dopo il failover. ad esempio la stringa di connessione seguente punta al database con l'indirizzo IP 127.0.1.2
+Se la stringa di connessione contiene il nome della macchina virtuale del database, non sono necessari altri passaggi dopo il failover. L'applicazione può comunicare automaticamente con il database. Se l'indirizzo IP della macchina virtuale del database viene conservato, non sarà necessario aggiornare la stringa di connessione. Se la stringa di connessione fa riferimento alla macchina virtuale del database usando un indirizzo IP, deve essere aggiornata dopo il failover. Ad esempio, la stringa di connessione seguente punta al database con l'indirizzo IP 127.0.1.2
 
         <?xml version="1.0" encoding="utf-8"?>
         <configuration>
@@ -119,7 +119,7 @@ Se la stringa di connessione contiene il nome della macchina virtuale del databa
 È possibile aggiornare la stringa di connessione nel livello Web aggiungendo lo [script di aggiornamento della connessione IIS](https://aka.ms/asr-update-webtier-script-classic) dopo il gruppo 3 nel piano di ripristino.
 
 #### <a name="site-bindings-for-the-application"></a>Binding del sito per l'applicazione
-Ogni sito è costituito da informazioni che includono il tipo di binding, l'indirizzo IP in cui il server IIS ascolta le richieste per il sito, il numero di porta e i nomi host per il sito. Al momento di un failover potrebbe essere necessario aggiornare questi binding se viene apportata una modifica all'indirizzo IP associato.
+Ogni sito è costituito da informazioni che includono il tipo di binding, l'indirizzo IP in cui il server IIS ascolta le richieste per il sito, il numero di porta e i nomi host per il sito. Durante il failover potrebbe essere necessario aggiornare questi binding se viene apportata una modifica all'indirizzo IP associato.
 
 > [!NOTE]
 >
@@ -133,15 +133,15 @@ Se è stato associato l'indirizzo IP a un sito, è necessario aggiornare tutti i
 #### <a name="update-load-balancer-ip-address"></a>Aggiornare l'indirizzo IP del servizio di bilanciamento del carico
 Se è presente una macchina virtuale Application Request Routing, aggiungere lo [script di failover ARR IIS](https://aka.ms/asr-iis-arrtier-failover-script-classic) dopo il gruppo 4 per aggiornare l'indirizzo IP.
 
-#### <a name="the-ssl-cert-binding-for-an-https-connection"></a>Associazione di certificati SSL per una connessione HTTPS
-I siti Web possono avere un certificato SSL associato che consente una comunicazione sicura tra il server Web e il browser dell'utente. Se il sito Web ha una connessione HTTPS e un binding HTTPS del sito per l'indirizzo IP del server IIS con un'associazione di certificati SSL, sarà necessario aggiungere un nuovo binding del sito per il certificato con l'indirizzo IP della macchina virtuale IIS dopo il failover.
+#### <a name="the-ssl-cert-binding-for-an-https-connection"></a>Binding di certificati SSL per una connessione HTTPS
+I siti Web possono avere un certificato SSL associato che consente una comunicazione sicura tra il server Web e il browser dell'utente. Se il sito Web ha una connessione HTTPS e un binding HTTPS del sito per l'indirizzo IP del server IIS con un binding di certificati SSL, è necessario aggiungere un nuovo binding del sito per il certificato con l'indirizzo IP della macchina virtuale IIS dopo il failover.
 
 Il certificato SSL può essere emesso per
 
 a) Il nome di dominio completo del sito Web<br>
 b) Il nome del server<br>
 c) Un certificato con caratteri jolly per il nome di dominio<br>
-d) Un indirizzo IP. Se il certificato SSL viene emesso per l'indirizzo IP del server IIS, sarà necessario emettere un altro certificato SSL per l'indirizzo IP del server IIS nel sito di Azure e sarà necessario creare un'altra associazione SSL per questo certificato. È quindi consigliabile non usare un certificato SSL emesso per un indirizzo IP. Si tratta di un'opzione meno usata e verrà presto deprecata in base alle nuove modifiche di CA/Browser Forum.
+d) Un indirizzo IP. Se il certificato SSL viene emesso per l'indirizzo IP del server IIS, sarà necessario emettere un altro certificato SSL per l'indirizzo IP del server IIS nel sito di Azure ed è necessario creare un altro binding SSL per questo certificato. È quindi consigliabile non usare un certificato SSL emesso per un indirizzo IP. Si tratta di un'opzione meno usata e verrà presto deprecata in base alle nuove modifiche di CA/Browser Forum.
 
 #### <a name="update-the-dependency-between-the-web-and-the-application-tier"></a>Aggiornare la dipendenza tra il livello Web e il livello applicazione
 Se è presente una dipendenza specifica dell'applicazione basata sull'indirizzo IP delle macchine virtuali, è necessario aggiornare questa dipendenza dopo il failover.

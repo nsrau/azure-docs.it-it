@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: 46ca545cc73d7b8118aae4662c31965c7db87df5
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 0d55b1f4224ba25b6d6dc109cc7e47d21b1fa98e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matrice di supporto di Azure Site Recovery per la replica da Azure ad Azure
 
@@ -37,12 +37,12 @@ Questo articolo riepiloga le configurazioni e i componenti supportati per Azure 
 **Portale classico** | Non supportate
 **PowerShell** | Attualmente non supportato
 **API REST** | Attualmente non supportato
-**CLI** | Attualmente non supportato
+**Interfaccia della riga di comando** | Attualmente non supportato
 
 
 ## <a name="resource-move-support"></a>Supporto spostamento risorse
 
-**Tipo spostamento risorse** | **Supportato / Non supportato** | **Osservazioni**  
+**Tipo spostamento risorse** | **Supportato / Non supportato** | **Osservazioni:**  
 --- | --- | ---
 **Spostamento insieme di credenziali tra gruppi di risorse** | Non supportate |È possibile spostare l'insieme di credenziali di servizi di ripristino tra gruppi di risorse.
 **Spostamento servizi di calcolo, archiviazione e rete tra gruppi di risorse** | Non supportate |Se si sposta una macchina virtuale (o i componenti associati come archiviazione e rete) dopo aver abilitato la replica, è necessario disabilitarla e riabilitarla per la macchina virtuale.
@@ -51,7 +51,7 @@ Questo articolo riepiloga le configurazioni e i componenti supportati per Azure 
 
 ## <a name="support-for-deployment-models"></a>Supporto per modelli di distribuzione
 
-**Modello di distribuzione** | **Supportato / Non supportato** | **Osservazioni**  
+**Modello di distribuzione** | **Supportato / Non supportato** | **Osservazioni:**  
 --- | --- | ---
 **Classico** | Supportato | È possibile eseguire la replica di una macchina virtuale classica e ripristinarla solo come macchina virtuale classica. Non è possibile ripristinarla come macchina virtuale di Resource Manager. Non è possibile distribuire una macchina virtuale classica senza una rete virtuale e direttamente in un'area di Azure.
 **Gestione risorse** | Supportato |
@@ -130,7 +130,7 @@ Australia   | Australia orientale, Australia sudorientale
 
 ## <a name="support-for-compute-configuration"></a>Supporto per la configurazione del servizio di calcolo
 
-**Configurazione** | **Supportato/Non supportato** | **Osservazioni**
+**Configurazione** | **Supportato/Non supportato** | **Osservazioni:**
 --- | --- | ---
 Dimensione | Macchine virtuali di Azure di qualsiasi dimensione con almeno 2 core CPU e 1 GB di RAM | Vedere [Dimensioni delle macchine virtuali di Azure](../../virtual-machines/windows/sizes.md)
 Set di disponibilità | Supportato | Se si usa l'opzione predefinita durante il passaggio 'Abilita replica' sul portale, il set di disponibilità viene creato automaticamente in base alla configurazione dell'area di origine. È possibile modificare la disponibilità di destinazione impostata in 'Elemento replicato > Impostazioni > Calcolo e rete > Set di disponibilità' in qualsiasi momento.
@@ -143,13 +143,13 @@ Macchine virtuali migrate tramite Site Recovery | Supportato | Se si tratta di u
 
 ## <a name="support-for-storage-configuration"></a>Supporto per la configurazione dell'archiviazione
 
-**Configurazione** | **Supportato/Non supportato** | **Osservazioni**
+**Configurazione** | **Supportato/Non supportato** | **Osservazioni:**
 --- | --- | ---
 Dimensioni massime del disco del sistema operativo | 2048 GB | Vedere [Dischi usati dalle VM.](../../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Dimensioni massime del disco dati | 4095 GB | Vedere [Dischi usati dalle VM.](../../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Numero di dischi dati | Fino a 64 come supportato da una dimensione specifica di una macchina virtuale di Azure | Vedere [Dimensioni delle macchine virtuali di Azure](../../virtual-machines/windows/sizes.md)
 Disco temporaneo | Sempre escluso dalla replica | Il disco temporaneo è sempre escluso dalla replica. Non è opportuno inserire dati persistenti su un disco temporaneo in base alle indicazioni di Azure. Vedere [Disco temporaneo sulle macchine virtuali di Azure](../../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) per ulteriori dettagli.
-Frequenza di modifica dei dati sul disco | Massimo 6 MB/s per disco | Se la frequenza di modifica dei dati sul disco supera costantemente 6 MB/s, la replica non verrà aggiornata. Se invece si tratta di un picco di dati occasionale e la frequenza di modifica dei dati supera 6 MB/s solo per un breve intervallo, la replica verrà aggiornata. In questo caso, potrebbero verificarsi punti di ripristino leggermente ritardati.
+Frequenza di modifica dei dati sul disco | Un massimo di 10 MBps per disco per l'archiviazione Premium e di 2 MBps per disco per l'archiviazione Standard | Se la frequenza media di modifica dei dati nel disco supera costantemente 10 MBps (Premium) e 2 MBps (Standard), la replica non viene aggiornata. Se invece si tratta di un picco di dati occasionale e la frequenza di modifica dei dati supera i 10 MBps (Premium) e 2 MBps (Standard) solo per un breve intervallo, la replica viene aggiornata. In questo caso, potrebbero verificarsi punti di ripristino leggermente ritardati.
 Dischi su account di archiviazione standard | Supportato |
 Dischi su account di archiviazione premium | Supportato | Se una macchina virtuale dispone di dischi distribuiti tra account di archiviazione standard e premium, è possibile selezionare un account di archiviazione di destinazione diverso per ogni disco per assicurarsi di avere la stessa configurazione di archiviazione nell'area di destinazione
 Dischi gestiti standard | Non supportate |  
@@ -164,13 +164,13 @@ Archiviazione con ridondanza geografica | Supportato |
 RA-GRS | Supportato |
 ZRS | Non supportate |  
 Archiviazione ad accesso frequente e sporadico | Non supportate | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
-Endpoint servizio di rete virtuale (i firewall di Archiviazione di Azure e le reti virtuali)  | No | L'accesso alle reti virtuali di Azure specifiche negli account di archiviazione della cache usati per archiviare i dati replicati non è supportato. 
+Endpoint servizio di rete virtuale (i firewall di Archiviazione di Azure e le reti virtuali)  | No  | L'accesso alle reti virtuali di Azure specifiche negli account di archiviazione della cache usati per archiviare i dati replicati non è supportato.
 
 >[!IMPORTANT]
 > Per evitare problemi di prestazioni, assicurarsi di osservare gli obiettivi di scalabilità e prestazioni per il disco della macchina virtuale per le macchine virtuali [Linux](../../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../../virtual-machines/windows/disk-scalability-targets.md). Se si seguono le impostazioni predefinite, Site Recovery crea gli account di archiviazione e i dischi necessari in base alla configurazione di origine. Se si personalizzano e si selezionano impostazioni specifiche, assicurarsi di rispettare gli obiettivi di scalabilità e prestazioni per i dischi delle macchine virtuali.
 
 ## <a name="support-for-network-configuration"></a>Supporto per la configurazione di rete
-**Configurazione** | **Supportato/Non supportato** | **Osservazioni**
+**Configurazione** | **Supportato/Non supportato** | **Osservazioni:**
 --- | --- | ---
 Interfaccia di rete (NIC) | Fino al numero massimo di schede di rete supportato da dimensioni specifiche delle macchine virtuali di Azure | Le schede di rete vengono create quando viene creata la macchina virtuale nell'ambito dell'operazione di failover o del failover di test. Il numero di schede di rete sulla macchina virtuale di failover dipende dal numero di schede di rete di cui dispone la macchina virtuale quando viene abilitata la replica. Eventuali aggiunte o rimozioni di schede di rete dopo aver abilitato la replica non influiscono sul numero di schede di rete sulla macchina virtuale di failover.
 Servizio di bilanciamento del carico Internet | Supportato | È necessario associare il servizio di bilanciamento del carico preconfigurato tramite uno script di automazione di Azure in un piano di ripristino.

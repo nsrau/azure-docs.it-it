@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 5923cea82fbae25fa670556ae27f6cba77a73940
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 8918d6d53d7dd04e2a685707979526230ebfbc42
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-docker-volume-plug-ins-and-logging-drivers-in-your-container"></a>Usare il plug-in di volume e driver di registrazione Docker per il contenitore
 Azure Service Fabric supporta la specifica di [plug-in di volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) e i [driver di registrazione Docker](https://docs.docker.com/engine/admin/logging/overview/) per il servizio di contenitore. È possibile rendere persistenti i dati in [File di Azure](https://azure.microsoft.com/services/storage/files/) quando il contenitore viene spostato o riavviato in un host diverso.
@@ -41,7 +41,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 ```
 
 > [!NOTE]
-> Windows Server 2016 Datacenter non supporta i montaggi SMB nell'host ([supportati solo in Windows Server versione 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Ciò impedisce l'uso di determinati driver di volume, ad esempio i driver di volume di File di Azure. Al contrario, è possibile montare le condivisioni direttamente all'interno del contenitore usando **net use**. 
+> Windows Server 2016 Datacenter non supporta il mapping dei montaggi SMB nei contenitori ([supportati solo in Windows Server versione 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). Ciò impedisce il mapping del volume della rete e l'uso dei driver di volume di File di Azure precedenti alla versione 1709. 
 >   
 
 

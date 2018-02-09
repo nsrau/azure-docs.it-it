@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: c7435d87f9aaa906c3f6758186b64f3458cb9716
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 109f5af5cc1647cebee805c3141f4bc83c73bcfc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Schema di eventi di Griglia di eventi di Azure per i gruppi di risorse
 
@@ -24,7 +24,7 @@ I gruppi di risorse e le sottoscrizioni di Azure generano gli stessi tipi di eve
 
 I gruppi di risorse generano eventi di gestione da Azure Resource Manager, ad esempio quando viene creata una VM o viene eliminato un account di archiviazione.
 
-| Tipo evento | Descrizione |
+| Tipo evento | DESCRIZIONE |
 | ---------- | ----------- |
 | Microsoft.Resources.ResourceWriteSuccess | Generato quando un'operazione di creazione o aggiornamento di una risorsa ha esito positivo. |
 | Microsoft.Resources.ResourceWriteFailure | Generato quando un'operazione di creazione o aggiornamento di una risorsa ha esito negativo. |
@@ -39,7 +39,7 @@ L'esempio seguente illustra lo schema di un evento creato da una risorsa:
 
 ```json
 [
-    {
+  {
     "topic":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}",
     "subject":"/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/eventSubscriptions/LogicAppdd584bdf-8347-49c9-b9a9-d1f980783501",
     "eventType":"Microsoft.Resources.ResourceWriteSuccess",
@@ -56,8 +56,10 @@ L'esempio seguente illustra lo schema di un evento creato da una risorsa:
         "status":"Succeeded",
         "subscriptionId":"{subscription-id}",
         "tenantId":"72f988bf-86f1-41af-91ab-2d7cd011db47"
-        },
-    }
+    },
+    "dataVersion": "",
+    "metadataVersion": "1"
+  }
 ]
 ```
 
@@ -81,7 +83,9 @@ Lo schema di un evento eliminato da una risorsa è simile:
     "status": "Succeeded",
     "subscriptionId": "{subscription-id}",
     "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -89,29 +93,31 @@ Lo schema di un evento eliminato da una risorsa è simile:
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | type | DESCRIZIONE |
 | -------- | ---- | ----------- |
-| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. |
-| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| id | string | Identificatore univoco dell'evento. |
+| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
+| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| id | stringa | Identificatore univoco dell'evento. |
 | data | object | Dati dell'evento del gruppo di risorse. |
+| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | type | DESCRIZIONE |
 | -------- | ---- | ----------- |
-| autorizzazione | string | L'autorizzazione richiesta per l'operazione. |
-| claims | string | Le proprietà delle attestazioni. |
-| correlationId | string | Un ID operazione per la risoluzione dei problemi. |
-| httpRequest | string | I dettagli dell'operazione. |
-| resourceProvider | string | Il provider della risorsa che segue l'operazione. |
-| resourceUri | string | L'URI della risorsa nell'operazione. |
-| operationName | string | L'operazione che è stata eseguita. |
-| status | string | Lo stato dell'operazione. |
-| subscriptionId | string | L'ID sottoscrizione della risorsa. |
-| TenantId | string | L'ID tenant della risorsa. |
+| autorizzazione | stringa | L'autorizzazione richiesta per l'operazione. |
+| claims | stringa | Le proprietà delle attestazioni. |
+| correlationId | stringa | Un ID operazione per la risoluzione dei problemi. |
+| httpRequest | stringa | I dettagli dell'operazione. |
+| resourceProvider | stringa | Il provider della risorsa che esegue l'operazione. |
+| resourceUri | stringa | L'URI della risorsa nell'operazione. |
+| operationName | stringa | L'operazione che è stata eseguita. |
+| status | stringa | Lo stato dell'operazione. |
+| subscriptionId | stringa | L'ID sottoscrizione della risorsa. |
+| TenantId | stringa | L'ID tenant della risorsa. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,17 +14,17 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 01/18/2018
 ms.author: barbkess
-ms.openlocfilehash: 692d92f2e45e04a4eb284b43797b5b468cd9ec1b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3c86b89da796223336e3a0d9dd809ae140d6911e
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Linee guida per la progettazione di tabelle distribuite in Azure SQL Data Warehouse
 
 Questo articolo offre alcuni suggerimenti per la progettazione di tabelle distribuite in Azure SQL Data Warehouse. Le tabelle con distribuzione hash migliorano le prestazioni delle query nelle tabelle dei fatti di grandi dimensioni e rappresentano l'argomento principale di questo articolo. Le tabelle round robin consentono invece di aumentare la velocità di caricamento. Queste scelte di progettazione, quindi, possono contribuire in maniera significativa al miglioramento delle prestazioni delle query e di caricamento.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Questo articolo presuppone una certa familiarità con i concetti di distribuzione e spostamento dei dati in SQL Data Warehouse.  Per altre informazioni, vedere l'articolo relativo all'[architettura](massively-parallel-processing-mpp-architecture.md). 
 
 Come parte della progettazione di tabelle, è necessario comprendere quanto più possibile i propri dati e il modo in cui vengono eseguite query sui dati.  Ad esempio, considerare queste domande:
@@ -121,7 +121,7 @@ Per ridurre al minimo lo spostamento dei dati, selezionare una colonna di distri
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>Cosa fare quando nessuna delle colonne è una colonna di distribuzione appropriata
 
-Quando non sono disponibili colonne appropriate, valutare l'opportunità di usare il metodo di distribuzione round robin.
+Se nessuna delle colonne ha valori distinti sufficienti per una colonna di distribuzione, è possibile creare una nuova colonna come composizione di uno o più valori. Per evitare spostamenti di dati durante l'esecuzione di query, usare la colonna di distribuzione composita come colonna di join nelle query.
 
 Dopo aver progettato una tabella con distribuzione round robin, è necessario caricare i dati nella tabella.  Per informazioni sul caricamento, vedere l'articolo di [panoramica sul caricamento](sql-data-warehouse-overview-load.md). 
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: anavin;jdial
-ms.openlocfilehash: ab62164c85ece30181217a36a51d19fda52907bc
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 70fe948070147c01922fab68fb55a0f00c26a0f3
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-same-subscription"></a>Creare un peering di rete virtuale - Resource Manager, stessa sottoscrizione
 
@@ -171,7 +171,7 @@ Invece di installare l'interfaccia della riga di comando e le sue dipendenze, è
 
 1. Installare la versione più recente del modulo [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) di PowerShell. Se non si ha familiarità con Azure PowerShell, vedere [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) (Panoramica di Azure PowerShell).
 2. Per avviare una sessione di PowerShell, passare a **Start**, immettere **powershell** e quindi fare clic su **PowerShell**.
-3. In PowerShell, accedere ad Azure immettendo il comando `login-azurermaccount`. L'account con cui si esegue l'accesso deve avere le autorizzazioni necessarie per la creazione di un peering di rete virtuale. Vedere la sezione [Autorizzazioni](#permissions) di questo articolo per informazioni dettagliate.
+3. In PowerShell accedere ad Azure immettendo il comando `login-azurermaccount`. L'account con cui si esegue l'accesso deve avere le autorizzazioni necessarie per la creazione di un peering di rete virtuale. Vedere la sezione [Autorizzazioni](#permissions) di questo articolo per informazioni dettagliate.
 4. Creare un gruppo di risorse e due reti virtuali. Per eseguire lo script, copiare lo script seguente, incollarlo in PowerShell e quindi premere `Enter` dopo che sullo schermo è stata visualizzata l'ultima riga:
 
     ```powershell
@@ -272,9 +272,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -force
 
 ## <a name="register"></a>Eseguire la registrazione per l'anteprima del peering di reti virtuali globale
 
-La possibilità di eseguire il peering di reti virtuali in aree diverse è attualmente disponibile in anteprima. La funzionalità è disponibile in un set limitato di aree (inizialmente, Stati Uniti centro-occidentali, Canada centrale e Stati Uniti occidentali 2). I peering di reti virtuali creati tra reti virtuali in aree diverse potrebbero non avere lo stesso livello di disponibilità e affidabilità dei peering tra reti virtuali nella stessa area. Per ricevere le notifiche più aggiornate su disponibilità e stato della funzionalità, vedere la pagina [Aggiornamenti della rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network) .
-
-Per eseguire il peering di reti virtuali tra aree diverse, è prima necessario registrarsi per l'anteprima, completando i passaggi seguenti (all'interno della sottoscrizione in cui si trova ogni rete virtuale di cui si vuole eseguire il peering) usando Azure PowerShell o l'interfaccia della riga di comando di Azure:
+Il peering reti virtuali nella stessa area è disponibile a livello generale. Il peering di reti virtuali in aree diverse è attualmente disponibile in anteprima. Vedere gli [aggiornamenti delle reti virtuali](https://azure.microsoft.com/en-us/updates/?product=virtual-network) per le aree disponibili. Per eseguire il peering di reti virtuali tra aree diverse, è prima necessario registrarsi per l'anteprima, completando i passaggi seguenti (all'interno della sottoscrizione in cui si trova ogni rete virtuale di cui si vuole eseguire il peering) usando Azure PowerShell o l'interfaccia della riga di comando di Azure:
 
 ### <a name="powershell"></a>PowerShell
 

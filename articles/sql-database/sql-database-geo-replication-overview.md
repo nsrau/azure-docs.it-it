@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: ef9463e464928b8fa8e64019037a41711cb77830
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 7d731865ae8da9e1ae9e9f11eef814b86fc10c64
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Panoramica: gruppi di failover e replica geografica attiva
 La replica geografica attiva consente di configurare fino a quattro database secondari accessibili in lettura nella stessa posizione del data center o in posizioni (aree) diverse. Sono disponibili database secondari per l'esecuzione di query e per il failover in caso di interruzione di un data center o di impossibilità di connettersi al database primario. Il failover deve essere avviato manualmente dall'applicazione dell'utente. Dopo il failover, il nuovo database primario dispone di un endpoint di connessione diverso. 
@@ -71,7 +71,7 @@ La funzionalità di replica geografica attiva fornisce i seguenti elementi essen
 * **Più database secondari leggibili**: due o più database secondari aumentano la ridondanza e il livello di protezione per il database primario e l'applicazione. Se sono presenti più database secondari, l'applicazione resta protetta anche se uno dei database secondari non funziona. Se è presente un solo database secondario e questo smette di funzionare, l'applicazione rimane esposta a maggiori rischi finché non viene creato un nuovo database secondario.
 
    > [!NOTE]
-   > Se si usa la replica geografica attiva per compilare un'applicazione distribuita a livello globale ed è necessario fornire l'accesso in sola lettura ai dati in più di 4 aree, è possibile creare il database secondario di un database secondario. Questo processo è noto come concatenamento. In questo modo è possibile ottenere una scalabilità virtualmente illimitata della replica del database. Il concatenamento riduce anche il sovraccarico della replica dal database primario. Il compromesso è l'intervallo di replica aumentato nei database secondari a più strati. 
+   > Se si usa la replica geografica attiva per compilare un'applicazione distribuita a livello globale ed è necessario fornire l'accesso in sola lettura ai dati in più di quattro aree, è possibile creare il database secondario di un database secondario. Questo processo è noto come concatenamento. In questo modo è possibile ottenere una scalabilità virtualmente illimitata della replica del database. Il concatenamento riduce anche il sovraccarico della replica dal database primario. Il compromesso è l'intervallo di replica aumentato nei database secondari a più strati. 
    >
 
 * **Supporto dei database del pool elastico**: la replica geografica attiva può essere configurata per qualsiasi database in qualsiasi pool elastico. Il database secondario può trovarsi in un altro pool elastico. Per i database normali, il database secondario può essere un pool elastico e viceversa, purché i livelli di servizio restino invariati. 
@@ -140,7 +140,7 @@ Come indicato in precedenza, i gruppi di failover automatico (in anteprima) e la
 
 ## <a name="manage-sql-database-failover-using-transact-sql"></a>Gestire il failover del database SQL con Transact-SQL
 
-| Comando | Descrizione |
+| Comando | DESCRIZIONE |
 | --- | --- |
 | [ALTER DATABASE (database SQL di Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Usare l'argomento ADD SECONDARY ON SERVER per creare un database secondario per un database esistente e avviare la replica dei dati |
 | [ALTER DATABASE (database SQL di Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Usare FAILOVER o FORCE_FAILOVER_ALLOW_DATA_LOSS per passare un database secondario al ruolo di database primario per avviare il failover |
@@ -153,7 +153,7 @@ Come indicato in precedenza, i gruppi di failover automatico (in anteprima) e la
 
 ## <a name="manage-sql-database-failover-using-powershell"></a>Gestire il failover del database SQL con PowerShell
 
-| Cmdlet | Descrizione |
+| Cmdlet | DESCRIZIONE |
 | --- | --- |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Ottiene uno o più database. |
 | [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Crea un database secondario per un database esistente e avvia la replica dei dati. |
@@ -172,7 +172,7 @@ Come indicato in precedenza, i gruppi di failover automatico (in anteprima) e la
 >
 
 ## <a name="manage-sql-database-failover-using-the-rest-api"></a>Gestire il failover del database SQL con L'API REST
-| API | Descrizione |
+| API | DESCRIZIONE |
 | --- | --- |
 | [Creare o aggiornare database (createMode=Restore)](/rest/api/sql/Databases/CreateOrUpdate) |Crea, aggiorna o ripristina un database primario o secondario. |
 | [Get Create or Update Database Status](/rest/api/sql/Databases/CreateOrUpdate) |Restituisce lo stato durante un'operazione di creazione. |

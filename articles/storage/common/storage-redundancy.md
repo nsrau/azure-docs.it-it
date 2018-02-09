@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: a8a8d8e95af3e6d98aa4dd98b11c066dca81421b
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 18d0e8bc6cc1559f9ae1a1a4457aa85d2a206597
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-storage-replication"></a>Replica di Archiviazione di Azure
 
@@ -50,16 +50,7 @@ Per informazioni sui prezzi delle varie opzioni di ridondanza, vedere [Prezzi di
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
 
 ## <a name="zone-redundant-storage"></a>Archiviazione con ridondanza della zona
-
-L'archiviazione con ridondanza della zona (ZRS) (anteprima) è progettata per semplificare lo sviluppo di applicazioni a disponibilità elevata. Offre almeno il 99,9999999999% (12 9) di durabilità degli oggetti di archiviazione nell'arco di un anno. Replica i dati in modo sincrono in più zone di disponibilità. Valutare l'uso dell'archiviazione con ridondanza della zona per scenari, quali quelli delle applicazioni transazionali, in cui i tempi di inattività non sono accettabili.
-
-L'archiviazione con ridondanza della zona consente ai clienti di leggere e scrivere dati anche se una singola zona non è disponibile o non può essere ripristinata. Gli inserimenti e gli aggiornamenti dei dati vengono eseguiti in modo sincrono e sono notevolmente coerenti.   
-
-L'archiviazione con ridondanza della zona è attualmente disponibile in anteprima nelle aree seguenti e altre aree saranno presto disponibili:
-
-- Stati Uniti orientali 2 
-- Stati Uniti centrali 
-- Francia centrale. Quest'area è attualmente disponibile in anteprima. Per richiedere l'accesso, vedere [Microsoft Azure preview with Azure Availability Zones now open in France](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) (Anteprima di Microsoft Azure con Zone di disponibilità di Azure ora accessibile in Francia).
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="zrs-classic-accounts"></a>Account della versione classica dell'archiviazione con ridondanza della zona
 
@@ -72,7 +63,7 @@ Gli account della versione classica dell'archiviazione con ridondanza della zona
 Quando l'archiviazione con ridondanza della zona sarà disponibile a livello generale in un'area, non sarà più possibile creare un account della versione classica dell'archiviazione con ridondanza della zona dal portale in tale area, ma sarà possibile crearne uno in altro modo.  
 In futuro sarà disponibile un processo automatizzato di migrazione dalla versione classica dell'archiviazione con ridondanza della zona all'archiviazione con ridondanza della zona.
 
-Gli account di archiviazione con ridondanza della zona supportano la migrazione manuale di un account di archiviazione con ridondanza della zona in tale area a o da un account di archiviazione con ridondanza locale, di archiviazione con ridondanza geografica o di archiviazione con ridondanza geografica e accesso in lettura. Per eseguire questa migrazione manuale, è possibile usare AzCopy, Azure Storage Explorer, Azure PowerShell, l'interfaccia della riga di comando di Azure o una delle librerie client di Archiviazione di Azure.
+È possibile eseguire manualmente la migrazione di dati di archiviazione con ridondanza della zona in o da un account di archiviazione con ridondanza locale, di archiviazione con ridondanza della zona classico, di archiviazione con ridondanza geografica o di archiviazione con ridondanza geografica e accesso in lettura. Per eseguire questa migrazione manuale, è possibile usare AzCopy, Azure Storage Explorer, Azure PowerShell, l'interfaccia della riga di comando di Azure o una delle librerie client di Archiviazione di Azure.
 
 > [!NOTE]
 > Gli account della versione classica dell'archiviazione con ridondanza della zona in futuro saranno deprecati e sarà necessario eseguirne la migrazione il 31 marzo 2021. Microsoft invierà altri dettagli ai clienti della versione classica dell'archiviazione con ridondanza della zona prima che siano deprecati.

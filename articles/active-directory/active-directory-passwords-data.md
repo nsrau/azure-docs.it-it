@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8fae46088bad5cbcbdb879f0b5a948fb85b76875
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 2744c848b81c688f4083cf51b7ef7bc89f0e34e1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuire la reimpostazione della password senza richiedere la registrazione dell'utente finale
 
@@ -31,6 +31,8 @@ Per distribuire la funzionalità di reimpostazione password self-service di Azur
 Per garantirne il corretto funzionamento, i numeri di telefono devono essere nel formato *+PrefissoInternazionale NumeroTelefonico*, ad esempio +1 4255551234.
 
 > [!NOTE]
+> È necessario uno spazio tra il prefisso internazionale e il numero di telefono.
+>
 > La reimpostazione della password non supporta le estensioni del telefono. Anche nel formato +1 4255551234X12345, le estensioni vengono rimosse prima della chiamata.
 
 ## <a name="fields-populated"></a>Campi popolati
@@ -40,8 +42,13 @@ Se si usano le impostazioni predefinite in Azure AD Connect, vengono eseguiti i 
 | Active Directory locale | Azure AD | Informazioni di contatto per l'autenticazione di Azure AD |
 | --- | --- | --- |
 | telephoneNumber | Telefono ufficio | Telefono alternativo |
-| cellulare | Cellulare | Telefono |
+| mobile | Cellulare | Telefono |
 
+Questi campi possono apparire vuoti fino alla conferma dei dati di autenticazione da parte dell'utente.
+
+Un amministratore globale può impostare manualmente le informazioni di contatto per l'autenticazione per l'utente come illustrato nello screenshot seguente.
+
+![Contatto][Contact]
 
 ## <a name="security-questions-and-answers"></a>Domande di sicurezza e risposte
 
@@ -152,3 +159,5 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [Informazioni sulle opzioni della reimpostazione della password self-service](active-directory-passwords-how-it-works.md)
 * [Come risolvere i problemi di reimpostazione della password self-service](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
+
+[Contact]: ./media/active-directory-passwords-data/user-authentication-contact-info.png "Gli amministratori globali possono modificare informazioni di contatto per l'autenticazione di un utente"

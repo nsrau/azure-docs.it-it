@@ -13,13 +13,16 @@ L'Archiviazione tabelle contiene i componenti seguenti:
 
 ![Diagramma dei componenti di Archiviazione tabelle][Table1]
 
-* **Formato dell'URL**: il codice fa riferimento alle tabelle in un account usando il formato di indirizzo seguente:   
-  http://`<storage account>`.table.core.windows.net/`<table>`  
-  
+* **Formato URL:** gli account di archiviazione tabelle di Azure usano questo formato: `http://<storage account>.table.core.windows.net/<table>`
+
+  Gli account di API di tabella di Azure Cosmos DB usano questo formato: `http://<storage account>.table.cosmosdb.azure.com/<table>`  
+
   È possibile fare riferimento direttamente alle tabelle di Azure utilizzando questo indirizzo con il protocollo OData. Per altre informazioni, vedere [OData.org][OData.org].
-* **Account di archiviazione:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../articles/storage/common/storage-scalability-targets.md) .
-* **Tabella**: una tabella è una raccolta di entità. Le tabelle non impongono uno schema sulle entità, pertanto una singola tabella può contenere entità che presentano set di proprietà diversi. Il numero di tabelle che un account di archiviazione può contenere è limitato solo in base al limite di capacità dell'account di archiviazione.
-* **Entità**: un'entità è un set di proprietà, simile a una riga di database. Un'entità può avere una dimensione massima di 1 MB.
+* **Account:** l'accesso ad Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per informazioni sulla capacità dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](../articles/storage/common/storage-scalability-targets.md) . 
+
+    L'accesso ad Azure Cosmos DB avviene esclusivamente tramite un account di API di tabella. Per i dettagli sulla creazione di un account di API di tabella, vedere [Creare un account di API di tabella](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account).
+* **Tabella**: una tabella è una raccolta di entità. Le tabelle non impongono uno schema sulle entità, pertanto una singola tabella può contenere entità che presentano set di proprietà diversi.  
+* **Entità**: un'entità è un set di proprietà, simile a una riga di database. Un'entità in Archiviazione di Azure può avere una dimensione massima di 1 MB. Un'entità in Azure Cosmos DB può avere una dimensione massima di 2MB.
 * **Proprietà**: una proprietà è una coppia nome-valore. Ogni entità può includere fino a 252 proprietà per l'archiviazione dei dati. Ogni entità dispone inoltre di tre proprietà di sistema che specificano una chiave di partizione, una chiave di riga e un timestamp. Le entità con la stessa chiave di partizione possono essere interrogate più rapidamente e inserite o aggiornate in operazioni atomiche. La chiave di riga di un'entità ne rappresenta l'identificatore univoco all'interno di una partizione.
 
 Per informazioni sulle proprietà e i tipi di tabelle, vedere [Informazioni sul modello di dati del servizio tabelle](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).

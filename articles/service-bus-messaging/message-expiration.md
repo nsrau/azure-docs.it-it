@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 01/26/2018
 ms.author: sethm
-ms.openlocfilehash: 504010a39a4012b9a9edb60bb9a5b33ac20499c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e1f6177ccacf24955763982189bcdb1ef69c788
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-expiration-time-to-live"></a>Scadenza dei messaggi (durata)
 
@@ -29,7 +29,7 @@ La scadenza dei singoli messaggi può essere controllata impostando la propriet�
 
 Passato l'istante definito da **ExpiresAtUtc**, i messaggi non sono più idonei per il recupero. La scadenza non influisce sui messaggi attualmente bloccati per il recapito. Tali messaggi vengono comunque gestiti normalmente. Se il blocco scade o il messaggio viene abbandonato, la scadenza ha effetto immediato.
 
-Quando il messaggio è bloccato, l'applicazione potrebbe essere in possesso di un messaggio che nominalmente è scaduto. Il fatto che l'applicazione proceda con l'elaborazione o scelga di abbandonare il messaggio dipende dall'implementatore.
+Quando il messaggio è bloccato, l'applicazione potrebbe essere in possesso di un messaggio che è scaduto. Il fatto che l'applicazione proceda con l'elaborazione o scelga di abbandonare il messaggio dipende dall'implementatore.
 
 ## <a name="entity-level-expiration"></a>Scadenza a livello di entità
 
@@ -51,7 +51,7 @@ La pulizia automatica è utile negli scenari di sviluppo e test in cui le entit�
 
 La funzionalità viene abilitata usando la proprietà [autoDeleteOnIdle](/azure/templates/microsoft.servicebus/namespaces/queues), impostata sulla durata per cui un'entità deve rimanere inattiva (non usata) prima di essere eliminata automaticamente. La durata minima è 5 minuti.
  
-La proprietà deve essere impostata tramite un'operazione di Azure Resource Manager o tramite le API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) client .NET Framework. Non può essere impostata nel portale.
+La proprietà **autoDeleteOnIdle** deve essere impostata tramite un'operazione di Azure Resource Manager o tramite le API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) del client .NET Framework. Non può essere impostata nel portale.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

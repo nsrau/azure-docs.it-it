@@ -3,7 +3,7 @@ title: Istruzione switch per diverse azioni in app per la logica di Azure | Micr
 description: Scegliere diverse azioni da eseguire in app per la logica in base ai valori di espressione tramite un'istruzione switch
 services: logic-apps
 keywords: Istruzione switch
-author: derek1ee
+author: ecfan
 manager: anneta
 editor: 
 documentationcenter: 
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: LADocs; deli
-ms.openlocfilehash: a459fb131cb9f917f2b0cf79679b04da48d76c42
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: LADocs; estfan
+ms.openlocfilehash: 8f11d18009d60ea5c74781ccef2ff7d811516750
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>Eseguire diverse azioni in app per la logica con un'istruzione switch
 

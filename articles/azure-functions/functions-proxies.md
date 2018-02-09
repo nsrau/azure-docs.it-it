@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: dd022b189783f2d8c6209a6cd656704ff144bfd6
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
-ms.translationtype: MT
+ms.openlocfilehash: 3d1b5f30898bc0aab5c617ab547aa7db5e7e4375
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Usare i proxy di Funzioni di Azure
 
@@ -44,23 +44,28 @@ Il proxy è ora presente come un nuovo endpoint sull'app per le funzioni. Dalla 
 
 ## <a name="modify-requests-responses"></a>Modificare richieste e risposte
 
-Con il proxy di funzioni di Azure, è possibile modificare le richieste di e le risposte del server back-end. Queste trasformazioni possono usare le variabili come definito in [Usare le variabili].
+Proxy di Funzioni di Azure consente di modificare le richieste al back-end e le risposte dal back-end. Queste trasformazioni possono usare le variabili come definito in [Usare le variabili].
 
 ### <a name="modify-backend-request"></a>Modificare la richiesta al back-end
 
 Per impostazione predefinita, la richiesta al back-end viene inizializzata come una copia della richiesta originale. Oltre a impostare l'URL di back-end, è possibile apportare modifiche ai parametri del metodo HTTP, delle intestazioni e della stringa di query. I valori modificati possono fare riferimento alle [impostazioni dell'applicazione] e ai [parametri della richiesta del client originale].
 
-Attualmente non esiste un'esperienza del portale per la modifica delle richieste al back-end. Per informazioni su come applicare questa funzionalità *proxies.json*, vedere [definire un oggetto requestOverrides].
+Attualmente non esiste un'esperienza del portale per la modifica delle richieste al back-end. Per informazioni su come applicare questa funzionalità da *proxies.json*, vedere [Definire un oggetto requestOverrides].
 
 ### <a name="modify-response"></a>Modificare la risposta
 
 Per impostazione predefinita, la risposta del client viene inizializzata come una copia della risposta back-end. È possibile apportare modifiche al codice di stato, al motivo, alle intestazioni e al corpo della risposta. I valori modificati possono fare riferimento alle [impostazioni dell'applicazione], ai [parametri della richiesta del client originale] e ai [paramenti della risposta back-end].
 
-Attualmente non esiste un'esperienza del portale per la modifica delle risposte del back-end. Per informazioni su come applicare questa funzionalità *proxies.json*, vedere [definire un oggetto responseOverrides].
+Attualmente non esiste un'esperienza del portale per la modifica delle risposte del back-end. Per informazioni su come applicare questa funzionalità da *proxies.json*, vedere [Definire un oggetto responseOverrides].
 
 ## <a name="using-variables"></a>Usare le variabili
 
-La configurazione di un proxy non deve essere statica. È possibile condizione per utilizzare le variabili di richiesta del client originale, la risposta di back-end o le impostazioni dell'applicazione.
+La configurazione di un proxy non deve essere statica. È possibile condizionarla per fare in modo che usi le variabili della richiesta client originale, la risposta back-end o le impostazioni applicazione.
+
+### <a name="reference-localhost"></a>Fare riferimento alle funzioni locali
+È possibile usare `localhost` per fare direttamente riferimento a una funzione nella stessa app per le funzioni, senza una richiesta del proxy di round trip.
+
+`"backendurl": "localhost/api/httptriggerC#1"` farà riferimento a una funzione attivata tramite HTTP locale nella route `/api/httptriggerC#1`
 
 ### <a name="request-parameters"></a>Parametri di riferimento della richiesta
 
@@ -84,7 +89,7 @@ I parametri di risposta possono essere usati come parte della modifica della ris
 
 * **{backend.response.statusCode}**: il codice di stato HTTP restituito nella risposta dal back-end.
 * **{backend.response.statusReason}**: la frase per il motivo HTTP restituita nella risposta dal back-end.
-* **{backend.response.headers.\<HeaderName\>}**: un'intestazione che può essere letta dalla risposta dal back-end. Sostituire *\<HeaderName\>* con il nome dell'intestazione che si desidera leggere. Se l'intestazione non è incluso nella risposta, il valore sarà una stringa vuota.
+* **{backend.response.headers.\<HeaderName\>}**: un'intestazione che può essere letta dalla risposta dal back-end. Sostituire *\<HeaderName\>* con il nome dell'intestazione che si desidera leggere. Se l'intestazione non è inclusa nella risposta, il valore sarà una stringa vuota.
 
 ### <a name="use-appsettings"></a>Impostazioni di riferimento dell'applicazione
 
@@ -93,16 +98,28 @@ I parametri di risposta possono essere usati come parte della modifica della ris
 Ad esempio, per l'URL di back-end di *https://%ORDER_PROCESSING_HOST%/api/orders*, "%ORDER_PROCESSING_HOST%" verrà sostituito con il valore dell'impostazione ORDER_PROCESSING_HOST.
 
 > [!TIP] 
-> Usare le impostazioni dell'applicazione per gli host di back-end quando si dispone di più distribuzioni o ambienti di test. In questo modo, è possibile assicurarsi che si sono sempre parlando destra back-end per tale ambiente.
+> Usare le impostazioni dell'applicazione per gli host di back-end quando si dispone di più distribuzioni o ambienti di test. In questo modo, è possibile assicurarsi di comunicare sempre con il back-end corretto per quell'ambiente.
+
+## <a name="debugProxies"></a>Risolvere i problemi relativi al proxy
+
+Aggiungendo il flag `"debug":true` a un proxy in `proxy.json` si abiliterà la registrazione del debug. I log vengono archiviati in `D:\home\LogFiles\Application\Proxies\DetailedTrace` e sono accessibili tramite gli strumenti avanzati (Kudu). Le risposte HTTP conterranno anche un'intestazione `Proxy-Trace-Location` con un URL per accedere al file di log.
+
+È possibile eseguire il debug di un proxy dal lato client aggiungendo un'intestazione `Proxy-Trace-Enabled` impostata su `true`. In questo modo verrà anche registrata una traccia nel file system e l'URL della traccia verrà restituito come intestazione nella risposta.
+
+### <a name="block-proxy-traces"></a>Bloccare le tracce del proxy
+
+Per motivi di sicurezza, potrebbe essere necessario impedire a chiunque chiami il servizio di generare una traccia. Questi utenti non potranno accedere ai contenuti della traccia senza le credenziali di accesso, ma la generazione della traccia utilizza le risorse e rivela che si sta usando i proxy di funzioni.
+
+Disabilitare completamente le tracce aggiungendo `"debug":false` a proxy specifici in `proxy.json`.
 
 ## <a name="advanced-configuration"></a>Configurazione avanzata
 
-I proxy configurate vengono archiviati in un *proxies.json* file, che si trova nella radice di una directory di app di funzione. È possibile modificare manualmente questo file e distribuirlo come parte dell'app quando si usa uno dei [metodi di distribuzione](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) supportati da Funzioni. La funzionalità proxy di funzioni di Azure deve essere [abilitato](#enable) per il file da elaborare. 
+I proxy configurati vengono archiviati in un file *proxies.json*, situato nella radice di una directory dell'app per le funzioni. È possibile modificare manualmente questo file e distribuirlo come parte dell'app quando si usa uno dei [metodi di distribuzione](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment) supportati da Funzioni. La funzionalità Proxy di Funzioni di Azure deve essere [abilitata](#enable) per poter elaborare il file. 
 
 > [!TIP] 
-> Se non impostati uno dei metodi di distribuzione, è inoltre possibile utilizzare con il *proxies.json* file nel portale. Passare all'app per le funzioni e selezionare **Funzionalità della piattaforma** ed **Editor del servizio app**. Questo consentirà di visualizzare la struttura dell'intero file dell'app per le funzioni e di apportare modifiche.
+> Se non è stato configurato uno dei metodi di distribuzione, è anche possibile usare il file *proxies.json* nel portale. Passare all'app per le funzioni e selezionare **Funzionalità della piattaforma** ed **Editor del servizio app**. Questo consentirà di visualizzare la struttura dell'intero file dell'app per le funzioni e di apportare modifiche.
 
-*Proxies.JSON* è definito da un oggetto proxy, che è costituito da un proxy denominato e le relative definizioni. È facoltativamente possibile fare riferimento a uno [schema JSON](http://json.schemastore.org/proxies) per il completamento del codice se l'editor lo supporta. Un esempio di file apparirà come segue:
+Il file *proxies.json* è definito da un oggetto proxy, composto da proxy denominati e dalle relative definizioni. È facoltativamente possibile fare riferimento a uno [schema JSON](http://json.schemastore.org/proxies) per il completamento del codice se l'editor lo supporta. Un esempio di file apparirà come segue:
 
 ```json
 {
@@ -125,19 +142,37 @@ Ogni proxy ha un nome descrittivo, come *proxy1* nell'esempio precedente. L'ogge
     * _methods_: una matrice di metodi HTTP a cui il proxy risponde. Se non viene specificata, il proxy risponderà a tutti i metodi HTTP nel route.
     * _route_: obbligatorio, definisce il modello di route, controllando a quali URL delle richieste il proxy risponde. A differenza dei trigger HTTP, non vi è alcun valore predefinito.
 * **backendUri**: l'URL della risorsa di back-end a cui la richiesta deve essere trasmessa tramite proxy. Questo valore può fare riferimento alle impostazioni dell'applicazione e ai parametri della richiesta del client originale. Se questa proprietà non è inclusa, Funzioni di Azure risponde con un HTTP 200 OK.
-* **requestOverrides**: un oggetto che definisce le trasformazioni alla richiesta al back-end. Vedere [definire un oggetto requestOverrides].
-* **responseOverrides**: un oggetto che definisce le trasformazioni alla risposta del client. Vedere [definire un oggetto responseOverrides].
+* **requestOverrides**: un oggetto che definisce le trasformazioni alla richiesta al back-end. Vedere [Definire un oggetto requestOverrides].
+* **responseOverrides**: un oggetto che definisce le trasformazioni alla risposta del client. Vedere [Definire un oggetto responseOverrides].
 
 > [!NOTE] 
-> Il *route* proprietà in Azure funzioni proxy non rispetta il *routePrefix* proprietà della configurazione degli host funzione App. Se si desidera includere un prefisso, ad esempio `/api`, deve essere incluso nel *route* proprietà.
+> La proprietà *route* in Proxy di Funzioni di Azure non rispetta la proprietà *routePrefix* della configurazione host dell'app per le funzioni. Per includere un prefisso, ad esempio `/api`, deve essere incluso nella proprietà *route*.
+
+### <a name="disableProxies"></a>Disabilitare i singoli proxy
+
+È possibile disabilitare un singolo proxy aggiungendo `"disabled": true` al proxy nel file `proxies.json`. In questo modo le richieste che soddisfano matchCondidtion restituiranno 404.
+```json
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "Root": {
+            "disabled":true,
+            "matchCondition": {
+                "route": "/example"
+            },
+            "backendUri": "www.example.com"
+        }
+    }
+}
+```
 
 ### <a name="requestOverrides"></a>Definire un oggetto requestOverrides
 
 L'oggetto requestOverrides definisce le modifiche apportate alla richiesta quando viene chiamata la risorsa back-end. L'oggetto viene definito dalle proprietà seguenti:
 
-* **backend.Request.Method**: il metodo HTTP utilizzato per chiamare back-end.
-* **backend.Request.QueryString. \<ParameterName\>**: un parametro di stringa di query che è possibile impostare per la chiamata al back-end. Sostituire *\<ParameterName\>* con il nome del parametro che si desidera impostare. Se viene generata una stringa vuota, il parametro non viene incluso nella richiesta al back-end.
-* **backend.Request.Headers. \<HeaderName\>**: un'intestazione che può essere impostata per la chiamata al back-end. Sostituire *\<HeaderName\>* con il nome dell'intestazione che si desidera impostare. Se viene fornita una stringa vuota, il parametro non viene incluso nella richiesta al back-end.
+* **backend.request.method**: il metodo HTTP usato per chiamare il back-end.
+* **backend.request.querystring.\<ParameterName\>**: un parametro di stringa di query che può essere impostato per la chiamata al back-end. Sostituire *\<ParameterName\>* con il nome del parametro che si desidera impostare. Se viene generata una stringa vuota, il parametro non viene incluso nella richiesta al back-end.
+* **backend.request.headers.\<HeaderName\>**: un'intestazione che può essere impostata per la chiamata al back-end. Sostituire *\<HeaderName\>* con il nome dell'intestazione che si desidera impostare. Se viene fornita una stringa vuota, il parametro non viene incluso nella richiesta al back-end.
 
 I valori possono fare riferimento alle impostazioni dell'applicazione e ai parametri della richiesta del client originale.
 
@@ -193,7 +228,7 @@ Un esempio di configurazione apparirà come segue:
 }
 ```
 > [!NOTE] 
-> In questo esempio, il corpo della risposta viene impostato direttamente, pertanto non `backendUri` proprietà necessaria. L'esempio illustra come usare i proxy di Funzioni di Azure per le API di simulazione.
+> In questo esempio il corpo della risposta viene impostato direttamente, quindi non sono necessarie proprietà `backendUri`. L'esempio illustra come usare i proxy di Funzioni di Azure per le API di simulazione.
 
 ## <a name="enable"></a>Abilitare i proxy di Funzioni di Azure
 
@@ -209,8 +244,8 @@ I proxy sono ora abilitati per impostazione predefinita. Se si usa una versione 
 [trigger HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response
-[definire un oggetto requestOverrides]: #requestOverrides
-[definire un oggetto responseOverrides]: #responseOverrides
+[Definire un oggetto requestOverrides]: #requestOverrides
+[Definire un oggetto responseOverrides]: #responseOverrides
 [impostazioni dell'applicazione]: #use-appsettings
 [Usare le variabili]: #using-variables
 [parametri della richiesta del client originale]: #request-parameters

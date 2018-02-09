@@ -3,7 +3,7 @@ title: "Come assegnare all'Identità del servizio gestito l'accesso a una risors
 description: "Istruzioni dettagliate per assegnare a un'Identità del servizio gestito in una risorsa l'accesso a un'altra risorsa tramite il portale di Azure."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: bryanla
-ms.openlocfilehash: 88abc2a9836633e5d88a91e59f7078a388b26068
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: 9e88fab3f4250c99c73c8e3e573b6f5c926eeb69
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Assegnare a un'Identità del servizio gestito l'accesso a una risorsa tramite il portale di Azure
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/11/2017
 
 Dopo aver configurato una risorsa di Azure con un'Identità del servizio gestito (MSI), è possibile concedere all'identità del servizio gestito l'accesso a un'altra risorsa, analogamente a qualsiasi entità di sicurezza. Questo articolo illustra come concedere a un'Identità del servizio gestito della macchina virtuale di Azure l'accesso a un account di archiviazione di Azure tramite il portale di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

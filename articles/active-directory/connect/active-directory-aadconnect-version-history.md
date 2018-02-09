@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/14/2017
 ms.author: billmath
-ms.openlocfilehash: ff43edc9799670fd90beaef1dbe4db48b2e762e5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
-ms.translationtype: MT
+ms.openlocfilehash: 815d2f289e18a97eff0a05ad1d7dfe4cad1fdfc5
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
-' In questo articolo è progettato per tenere traccia delle versioni che sono state rilasciate e comprendere se è necessario aggiornare la versione più recente o non.
+Lo scopo di questo articolo è consentire agli utenti di esaminare le versioni rilasciate e verificare l'opportunità di effettuare l'aggiornamento alla versione più recente.
 
 Di seguito è riportato un elenco degli argomenti correlati:
 
@@ -33,29 +33,29 @@ Argomento |  Dettagli
 Passaggi da eseguire per l'aggiornamento da Azure AD Connect | Metodi per [eseguire l'aggiornamento da una versione precedente alla versione più recente](active-directory-aadconnect-upgrade-previous-version.md) di Azure AD Connect.
 Autorizzazioni necessarie | Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
-Scaricare | [Scarica Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+Download| [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## <a name="116540"></a>1.1.654.0
 Stato: 12 dicembre 2017
 
 >[!NOTE]
->Si tratta di un tipo di sicurezza correlato aggiornamento rapido per Azure AD Connect
+>Hotfix relativo alla sicurezza per Azure AD Connect
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
-Un miglioramento è stato aggiunto a Azure AD Connect versione 1.1.654.0 (e) per garantire che l'autorizzazione consigliata le modifiche descritte nella sezione [bloccare l'accesso all'account di dominio Active Directory](#lock) vengono applicate automaticamente quando Azure AD La connessione viene creato l'account di dominio Active Directory. 
+È stato aggiunto un miglioramento alla versione 1.1.654.0 (e successive) di Azure AD Connect per garantire che le modifiche consigliate alle autorizzazioni descritte nella sezione [Bloccare l'accesso all'account di Active Directory Domain Services](#lock) vengano applicate automaticamente quando Azure AD Connect crea l'account di Active Directory Domain Services. 
 
-- Quando si configura Azure AD Connect, l'amministratore l'installazione può specificare un account di dominio Active Directory esistente, oppure consente di creare automaticamente l'account di Azure AD Connect. Le modifiche alle autorizzazioni vengono applicate automaticamente all'account di dominio Active Directory creati da Azure AD Connect durante l'installazione. Non vengono applicate a un account di dominio Active Directory esistente fornito dall'amministratore l'installazione.
-- Per i clienti che hanno aggiornato da una versione precedente di Azure AD Connect per 1.1.654.0 (o dopo aver), l'autorizzazione modifiche verranno non retroattivo applicate agli account di dominio Active Directory esistenti creati prima dell'aggiornamento. Essi vengono applicati solo ai nuovi account di dominio Active Directory creato dopo l'aggiornamento. Questo errore si verifica quando si aggiungono nuove foreste Active Directory siano sincronizzati con Azure AD.
+- Quando si configura Azure AD Connect, l'amministratore che esegue l'installazione può specificare un account di Active Directory Domain Services esistente oppure consentire ad Azure AD Connect di creare automaticamente l'account. Le modifiche alle autorizzazioni vengono applicate automaticamente all'account di Active Directory Domain Services creato da Azure AD Connect durante l'installazione. Non vengono applicate all'account di Active Directory Domain Services esistente fornito dall'amministratore che esegue l'installazione.
+- Per i clienti che hanno eseguito l'aggiornamento da una versione precedente di Azure AD Connect alla versione 1.1.654.0 (o successive), le modifiche alle autorizzazioni non verranno applicate retroattivamente agli account di Active Directory Domain Services esistenti creati prima dell'aggiornamento. Le modifiche verranno applicate solo ai nuovi account di Active Directory Domain Services creati dopo l'aggiornamento. Ciò si verifica quando si aggiungono nuove foreste di AD da sincronizzare con Azure AD.
 
 >[!NOTE]
->Questa versione rimuove solo la vulnerabilità per le nuove installazioni di Azure AD Connect, in cui l'account del servizio viene creato dal processo di installazione. Per le installazioni esistenti o nei casi in cui immettere l'account manualmente, è necessario assicurarsi che questa vulnerabilità non esiste.
+>Questa versione rimuove solo la vulnerabilità per le nuove installazioni di Azure AD Connect, in cui l'account del servizio viene creato dal processo di installazione. Per le installazioni esistenti o nei casi in cui l'utente specifichi manualmente l'account, è consigliabile assicurarsi che questa vulnerabilità non esista.
 
-#### <a name="lock"></a>Bloccare l'accesso all'account di dominio Active Directory
-Bloccare l'accesso all'account di dominio Active Directory implementando le seguenti modifiche di autorizzazione in locale Active Directory:  
+#### <a name="lock"></a> Bloccare l'accesso all'account di Active Directory Domain Services
+Bloccare l'accesso all'account di Active Directory Domain Services implementando le seguenti modifiche alle autorizzazioni in AD locale:  
 
-*   Disabilita ereditarietà sull'oggetto specificato
-*   Rimuovere tutte le voci ACE sull'oggetto specifico, ad eccezione di voci ACE specifiche su se stesso. Si desidera mantenere intatta le autorizzazioni predefinite per quanto riguarda su se stesso.
-*   Assegnare queste autorizzazioni specifiche:
+*   Disabilitare l'ereditarietà nell'oggetto specificato
+*   Rimuovere tutte le voci ACE nell'oggetto specifico, ad eccezione delle voci ACE specifiche di SELF. Le autorizzazioni predefinite devono rimanere inalterate per SELF.
+*   Assegnare le autorizzazioni specifiche seguenti:
 
 type     | NOME                          | Accesso               | Si applica a
 ---------|-------------------------------|----------------------|--------------|
@@ -63,18 +63,18 @@ CONSENTI    | SYSTEM                        | Controllo completo         | Quest
 CONSENTI    | Enterprise Admins             | Controllo completo         | Questo oggetto  |
 CONSENTI    | Domain Admins                 | Controllo completo         | Questo oggetto  |
 CONSENTI    | Administrators                | Controllo completo         | Questo oggetto  |
-CONSENTI    | Controller di dominio organizzazione | Visualizzazione contenuto        | Questo oggetto  |
+CONSENTI    | Controller di dominio organizzazione | Contenuto elenco        | Questo oggetto  |
 CONSENTI    | Controller di dominio organizzazione | Leggi tutte le proprietà  | Questo oggetto  |
 CONSENTI    | Controller di dominio organizzazione | Autorizzazioni di lettura     | Questo oggetto  |
-CONSENTI    | Utenti autenticati           | Visualizzazione contenuto        | Questo oggetto  |
+CONSENTI    | Utenti autenticati           | Contenuto elenco        | Questo oggetto  |
 CONSENTI    | Utenti autenticati           | Leggi tutte le proprietà  | Questo oggetto  |
 CONSENTI    | Utenti autenticati           | Autorizzazioni di lettura     | Questo oggetto  |
 
-Per rafforzare le impostazioni per l'account di Active Directory è possibile eseguire [questo script di PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Lo script di PowerShell consentirà di assegnare le autorizzazioni indicate sopra per l'account di dominio Active Directory.
+Per restringere le impostazioni per l'account di Active Directory Domain Services è possibile eseguire [questo script di PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Lo script di PowerShell consentirà di assegnare le autorizzazioni indicate sopra all'account di Active Directory Domain Services.
 
-#### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>Script di PowerShell per rendere più sicura di un account di servizio esistente
+#### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>Script di PowerShell per restringere le impostazioni per un account del servizio pre-esistente
 
-Utilizzare lo script di PowerShell, per applicare queste impostazioni, a un account di dominio Active Directory preesistente, (comprende fornito dall'organizzazione o creato da un'installazione precedente di Azure AD Connect, scaricare lo script mediante il collegamento fornito sopra.
+Per usare lo script di PowerShell per applicare queste impostazioni a un account di Active Directory Domain Services preesistente (fornito dall'organizzazione o creato da un'installazione precedente di Azure AD Connect), scaricare lo script dal collegamento fornito sopra.
 
 ##### <a name="usage"></a>Utilizzo:
 
@@ -84,23 +84,23 @@ Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 
 Where 
 
-**$ObjectDN** = account di Active Directory il cui autorizzazioni necessarie per impostare il livello massimo.
+**$ObjectDN** = account Active Directory di cui restringere le autorizzazioni.
 
-**$Credential** = credenziali dell'amministratore che disponga dei privilegi necessari per limitare le autorizzazioni per l'account $ObjectDN. Questo è in genere l'amministratore dell'organizzazione o di dominio. Utilizzare il nome di dominio completo dell'account amministratore per evitare errori di ricerca di account. Esempio: contoso.com\admin.
+**$Credential** = credenziali dell'amministratore che ha i privilegi necessari per limitare le autorizzazioni per l'account $ObjectDN. Si tratta in genere dell'amministratore di dominio o dell'organizzazione. Usare il nome di dominio completo dell'account amministratore per evitare errori di ricerca dell'account. Esempio: contoso.com\admin.
 
 >[!NOTE] 
->$credential. Nome utente deve essere nel formato FQDN\nomeutente. Esempio: contoso.com\admin 
+>Il formato di $credential.UserName deve essere FQDN\nomeutente. Esempio: contoso.com\admin 
 
 ##### <a name="example"></a>Esempio:
 
 ```powershell
 Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
 ```
-### <a name="was-this-vulnerability-used-to-gain-unauthorized-access"></a>Questa vulnerabilità è stata utilizzata per ottenere l'accesso non autorizzato?
+### <a name="was-this-vulnerability-used-to-gain-unauthorized-access"></a>Questa vulnerabilità è stata usata per ottenere un accesso non autorizzato?
 
-Per verificare se questa vulnerabilità è stata utilizzata per compromettere Azure AD Connect configurazione è necessario verificare l'ultima password Reimposta data dell'account del servizio.  Se il timestamp in imprevisto, un'analisi più approfondita, tramite il registro eventi per eventi di reimpostazione della password, dovrebbe essere effettuata.
+Per controllare se questa vulnerabilità è stata usata per compromettere la configurazione di Azure AD Connect, è necessario verificare la data dell'ultima reimpostazione della password dell'account del servizio.  Se il timestamp non è previsto, è necessario eseguire un'analisi più approfondita tramite il log eventi dell'evento di reimpostazione della password.
 
-Per ulteriori informazioni, vedere [Microsoft Security Advisory 4056318](https://technet.microsoft.com/library/security/4056318)
+Per altre informazioni, vedere [Microsoft Security Advisory 4056318](https://technet.microsoft.com/library/security/4056318) (Avviso di sicurezza Microsoft 4056318).
 
 ## <a name="116490"></a>1.1.649.0
 Stato: 27 ottobre 2017
@@ -473,7 +473,7 @@ Servizio di sincronizzazione Azure AD Connect
   * È stata aggiornata la regola di sincronizzazione predefinita affinché non esporti gli attributi **userCertificate** e **userSMIMECertificate** se gli attributi hanno più di 15 valori.
   * Gli attributi di AD **employeeID** e **msExchBypassModerationLink** sono ora inclusi nel set di regole di sincronizzazione predefinito.
   * L'attributo di AD **photo** è stato rimosso dal set di regole di sincronizzazione predefinito.
-  * **preferredDataLocation** è stato aggiunto allo schema di Metaverse e allo schema di AAD Connector. Gli utenti che intendono aggiornare entrambi gli attributi in Azure AD possono a tal fine implementare regole di sincronizzazione personalizzate. Per altre informazioni sull'attributo, leggere l'articolo [Servizio di sincronizzazione Azure AD Connect: procedure consigliate per modificare la configurazione predefinita. Abilitare la sincronizzazione di PreferredDataLocation](active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-preferreddatalocation).
+  * **preferredDataLocation** è stato aggiunto allo schema di Metaverse e allo schema di AAD Connector. Gli utenti che intendono aggiornare entrambi gli attributi in Azure AD possono a tal fine implementare regole di sincronizzazione personalizzate. 
   * **userType** è stato aggiunto allo schema di Metaverse e allo schema di AAD Connector. Gli utenti che intendono aggiornare entrambi gli attributi in Azure AD possono a tal fine implementare regole di sincronizzazione personalizzate.
 
 * Azure AD Connect abilita ora automaticamente l'uso dell'attributo ConsistencyGuid come l'attributo sourceAnchor per gli oggetti AD locali. Inoltre, Azure AD Connect popola l'attributo ConsistencyGuid con il valore dell'attributo objectGuid se è vuoto. Questa funzionalità è applicabile soltanto alla nuova distribuzione. Per altre informazioni su questa funzionalità, consultare la sezione [Azure AD Connect: Concetti relativi alla progettazione - Uso di msDS-ConsistencyGuid come sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).

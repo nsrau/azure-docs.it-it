@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: bryanla
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 91fe06825d1db586b715617241b0ca39115414c0
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 4de290c2200aa3beffe277313d0b0b44a32d1fe5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Usare un'identità del servizio gestito assegnata dall'utente su una macchina virtuale Linux per accedere ad Archiviazione di Azure
 
@@ -32,13 +32,13 @@ Questa esercitazione illustra come creare un'identità del servizio gestito asse
 > * Concedere all'identità del servizio gestito l'accesso a un'istanza di Archiviazione di Azure
 > * Ottenere un token di accesso mediante l'identità del servizio gestito assegnata dall'utente e usarlo per accedere a un'istanza di Archiviazione di Azure
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
 [!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
 
-Per eseguire gli esempi di script dell'interfaccia della riga di comando in questa esercitazione, sono disponibili due opzioni:
+Per eseguire gli esempi di script dell'interfaccia della riga di comando in questa esercitazione sono disponibili due opzioni:
 
 - Usare [Azure Cloud Shell](~/articles/cloud-shell/overview.md) tramite il portale di Azure o il pulsante "Prova", che si trova nell'angolo in alto a destra di ogni blocco di codice.
 - [Installare la versione più recente dell'interfaccia della riga di comando 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale.
@@ -69,7 +69,7 @@ Creare prima di tutto una nuova macchina virtuale Linux. In alternativa, è anch
     az login
     ```
 
-2. Creare un'identità del servizio gestito assegnata dall'utente tramite [az identity create](/cli/azure/identity#az_identity_create). Il parametro `-g` specifica il gruppo di risorse in cui viene creata l'identità del servizio gestito, mentre il parametro `-n` specifica il nome. Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<MSI NAME>` con valori personalizzati:
+2. Creare un'identità del servizio gestito assegnata dall'utente tramite [az identity create](/cli/azure/identity#az_identity_create). Il parametro `-g` specifica il gruppo di risorse in cui viene creata l'identità del servizio gestito, mentre il parametro `-n` ne specifica il nome. Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<MSI NAME>` con valori personalizzati:
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
@@ -134,10 +134,10 @@ Poiché i file richiedono l'archiviazione BLOB, è necessario creare un contenit
 
 Usando un'identità del servizio gestito, il codice può ottenere i token di accesso per autenticarsi alle risorse che supportano l'autenticazione di Azure AD. In questa esercitazione si userà Archiviazione di Azure.
 
-Concedere all'identità del servizio gestito l'accesso a un contenitore di Archiviazione di Azure. In questo caso usare il contenitore creato in precedenza. Aggiornare i valori per `<MSI PRINCIPALID>`, `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>` e `<CONTAINER NAME>` in base all'ambiente in uso. Sostituire `<CLIENT ID>` con la proprietà `clientId` restituita dal comando `az identity create` in [Creare un'identità del servizio gestito assegnata dall'utente](#create-a-user-assigned-msi):
+Concedere all'identità del servizio gestito l'accesso a un contenitore di Archiviazione di Azure. In questo caso usare il contenitore creato in precedenza. Aggiornare i valori per `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<STORAGE ACCOUNT NAME>` e `<CONTAINER NAME>` in base all'ambiente in uso. Sostituire inoltre `<MSI PRINCIPALID>` con la proprietà `principalId` restituita dal comando `az identity create` in [Creare un'identità del servizio gestito assegnata dall'utente](#create-a-user-assigned-msi):
 
 ```azurecli-interactive
-az role assignment create --assignee <MSI PRINCIPALID> --role ‘Reader’ --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
+az role assignment create --assignee <MSI PRINCIPALID> --role 'Reader' --scope "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/blobServices/default/containers/<CONTAINER NAME>"
 ```
 
 La risposta include i dettagli relativi all'assegnazione di ruolo creata:

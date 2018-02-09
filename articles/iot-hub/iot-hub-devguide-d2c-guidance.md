@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/09/2017
+ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 335928776e1e62caf2855cd5a5684ccaf37f73cd
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: a9a062ebb8d6e3b37d917064209eda618d0dd308
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Indicazioni sulle comunicazioni da dispositivo a cloud
 Durante l'invio di informazioni dall'app per dispositivo al back-end della soluzione, l'hub IoT espone tre opzioni:
@@ -35,9 +35,9 @@ Ecco un confronto dettagliato delle diverse opzioni di comunicazione da disposit
 | Archiviazione e recupero | Archiviati temporaneamente dall'hub IoT, per un massimo di 7 giorni. Solo lettura sequenziale. | Archiviate dall'hub IoT nel dispositivo gemello. Recuperabili mediante il [linguaggio di query dell'hub IoT][lnk-query]. | Archiviati nell'account di Archiviazione di Azure specificato dall'utente. |
 | Dimensione | Fino a messaggi di 256 KB. | Le dimensioni massime per le proprietà segnalate sono 8 KB. | Dimensioni di file massime supportate dall'Archiviazione BLOB di Azure. |
 | Frequenza | Elevata. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. | Media. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. | Bassa. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. |
-| Protocol | Disponibile in tutti i protocolli. | Disponibile tramite MQTT o AMQP. | Disponibile quando si usa qualsiasi protocollo, ma richiede HTTPS nel dispositivo. |
+| Protocollo | Disponibile in tutti i protocolli. | Disponibile tramite MQTT o AMQP. | Disponibile quando si usa qualsiasi protocollo, ma richiede HTTPS nel dispositivo. |
 
-È possibile che un'applicazione richieda di inviare informazioni sotto forma di serie temporali di telemetria o avvisi e di renderle disponibili nel dispositivo gemello. In questo scenario è possibile scegliere una delle opzioni seguenti:
+Un'applicazione può avere la necessità di inviare informazioni sotto forma di serie temporali di telemetria o di avvisi e di renderle disponibili nel dispositivo gemello. In questo scenario è possibile scegliere una delle opzioni seguenti:
 
 * L'app per dispositivo invia un messaggio da dispositivo a cloud e segnala una modifica della proprietà.
 * La soluzione back-end può archiviare le informazioni nei tag del dispositivo gemello quando riceve il messaggio.

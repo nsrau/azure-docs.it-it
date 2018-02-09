@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: ad53575b655ebec5a134c8d76b963708caf14334
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
-ms.translationtype: MT
+ms.openlocfilehash: 2df08c8e3dbadbfc1a9d2cfb3adcda4f5bae2851
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>Creare un'app Web Java e MySQL in Azure
 
 > [!NOTE]
-> In questo articolo consente di distribuire un'applicazione di servizio App di Windows. Per distribuire al servizio App in _Linux_, vedere [distribuire un'applicazione di avvio Spring nei contenitori in Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
+> Questo articolo consente di distribuire un'app nel servizio app in Windows. Per la distribuzione nel servizio app in _Linux_, vedere l'articolo su come [distribuire un'app Spring Boot in contenitore in Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
 >
 
 Questa esercitazione illustra come creare un'app Web Java in Azure e connetterla a un database MySQL. Al termine, verrà creata un'applicazione [Spring Boot](https://projects.spring.io/spring-boot/) che archivia i dati in [Database di Azure per MySQL](https://docs.microsoft.com/azure/mysql/overview) in esecuzione in [App Web del servizio app di Azure](app-service-web-overview.md).
@@ -41,14 +41,13 @@ In questa esercitazione si apprenderà come:
 > * Eseguire lo streaming dei log di diagnostica in Azure
 > * Monitorare l'app nel portale di Azure
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 1. [Scaricare e installare Git](https://git-scm.com/)
 1. [Scaricare e installare Java 7 JDK o versione successiva](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 1. [Scaricare, installare e avviare MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prepare-local-mysql"></a>Preparare MySQL in locale 
 
@@ -126,7 +125,7 @@ In questo passaggio si crea un'istanza di [Database di Azure per MySQL](../mysql
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un [gruppo di risorse](../azure-resource-manager/resource-group-overview.md) con il comando [az group create](/cli/azure/group#create). Un gruppo di risorse di Azure è un contenitore logico in cui vengono distribuite e gestite le risorse correlate, ad esempio app Web, database e account di archiviazione. 
+Creare un [gruppo di risorse](../azure-resource-manager/resource-group-overview.md) con il comando [`az group create`](/cli/azure/group#az_group_create). Un gruppo di risorse di Azure è un contenitore logico in cui vengono distribuite e gestite le risorse correlate, ad esempio app Web, database e account di archiviazione. 
 
 L'esempio seguente crea un gruppo di risorse nell'area Europa settentrionale:
 
@@ -134,12 +133,11 @@ L'esempio seguente crea un gruppo di risorse nell'area Europa settentrionale:
 az group create --name myResourceGroup --location "North Europe"
 ```    
 
-Per visualizzare i possibili valori utilizzabili per `--location`, usare il comando [az appservice list-locations](/cli/azure/appservice#list-locations).
+Per visualizzare i possibili valori utilizzabili per `--location`, usare il comando [`az appservice list-locations`](/cli/azure/appservice#list-locations).
 
 ### <a name="create-a-mysql-server"></a>Creare un server MySQL
 
-In Cloud Shell creare un server nel database di Azure per MySQL (anteprima) con il comando [az mysql server create](/cli/azure/mysql/server#create).    
-Sostituire il segnaposto `<mysql_server_name>` con il nome univoco del proprio server MySQL. Questo nome fa parte del nome host del server MySQL, `<mysql_server_name>.mysql.database.azure.com`, pertanto deve essere univoco a livello globale. Sostituire anche `<admin_user>` e `<admin_password>` con i valori desiderati.
+In Cloud Shell creare un server in Database di Azure per MySQL (anteprima) con il comando [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create). Sostituire il segnaposto `<mysql_server_name>` con il nome univoco del proprio server MySQL. Questo nome fa parte del nome host del server MySQL, `<mysql_server_name>.mysql.database.azure.com`, pertanto deve essere univoco a livello globale. Sostituire anche `<admin_user>` e `<admin_password>` con i valori desiderati.
 
 ```azurecli-interactive
 az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user <admin_user> --admin-password <admin_password>
@@ -163,7 +161,7 @@ Al termine della creazione del server MySQL, l'interfaccia della riga di comando
 
 ### <a name="configure-server-firewall"></a>Configurare il firewall del server
 
-In Cloud Shell creare una regola del firewall per il server MySQL per consentire le connessioni client tramite il comando [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#create). 
+In Cloud Shell creare una regola del firewall per il server MySQL per consentire le connessioni client usando il comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create). 
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -205,7 +203,7 @@ quit
 
 ## <a name="deploy-the-sample-to-azure-app-service"></a>Distribuire l'esempio in Servizio App di Azure
 
-Creare un piano di servizio app di Azure con il piano tariffario **GRATUITO** usando il comando dell'interfaccia della riga di comando [az appservice plan create](/cli/azure/appservice/plan#create). Il piano di servizio app definisce le risorse fisiche usate per ospitare le app. Tutte le applicazioni assegnate a un piano di servizio app condividono queste risorse, per poter consentire un risparmio sui costi quando si ospitano più app. 
+Creare un piano di servizio app di Azure con il piano tariffario **GRATUITO** usando il comando [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create) dell'interfaccia della riga di comando. Il piano di servizio app definisce le risorse fisiche usate per ospitare le app. Tutte le applicazioni assegnate a un piano di servizio app condividono queste risorse, per poter consentire un risparmio sui costi quando si ospitano più app. 
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
@@ -231,7 +229,7 @@ Quando il piano è pronto, l'output dell'interfaccia della riga di comando di Az
 
 ### <a name="create-an-azure-web-app"></a>Creare un'app Web di Azure
 
- In Cloud Shell usare il comando dell'interfaccia della riga di comando [az webapp create](/cli/azure/appservice/web#create) per creare la definizione di un'app Web nel piano di servizio app `myAppServicePlan`. La definizione dell'app Web fornisce un URL con cui accedere all'applicazione e configura diverse opzioni per distribuire il codice in Azure. 
+In Cloud Shell usare il comando [`az webapp create`](/cli/azure/appservice/web#az_appservice_web_create) dell'interfaccia della riga di comando per creare la definizione di un'app Web nel piano di servizio app `myAppServicePlan`. La definizione dell'app Web fornisce un URL con cui accedere all'applicazione e configura diverse opzioni per distribuire il codice in Azure. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
@@ -258,7 +256,7 @@ Quando la definizione dell'app Web è pronta, l'interfaccia della riga di comand
 
 ### <a name="configure-java"></a>Configurare Java 
 
-In Cloud Shell impostare la configurazione del runtime Java necessaria per l'app con il comando [az appservice web config update](/cli/azure/appservice/web/config#update).
+In Cloud Shell impostare la configurazione del runtime Java necessaria per l'app con il comando [`az webapp config set`](/cli/azure/webapp/config#az_webapp_config_set).
 
 Il comando seguente configura l'app Web per l'esecuzione in un'istanza recente di Java 8 JDK e in [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
@@ -270,7 +268,7 @@ az webapp config set --name <app_name> --resource-group myResourceGroup --java-v
 
 Prima di eseguire l'app di esempio, configurare le impostazioni dell'applicazione nell'app Web per l'uso del database MySQL di Azure creato in Azure. Queste proprietà vengono esposte all'applicazione Web come variabili di ambiente ed eseguono l'override dei valori impostati in application.properties nell'app Web inclusa nel pacchetto. 
 
-In Cloud Shell configurare le impostazioni dell'applicazione usando [az webapp config appsettings](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings) nell'interfaccia della riga di comando:
+In Cloud Shell configurare le impostazioni dell'applicazione usando [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings) nell'interfaccia della riga di comando:
 
 ```azurecli-interactive
 az webapp config appsettings set --settings SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" --resource-group myResourceGroup --name <app_name>
@@ -287,7 +285,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ### <a name="get-ftp-deployment-credentials"></a>Ottenere le credenziali di distribuzione FTP 
 È possibile distribuire l'applicazione nel Servizio app di Azure attraverso varie soluzioni, tra cui FTP, Git locale, GitHub, Visual Studio Team Services e BitBucket. In questo esempio viene usato FTP per distribuire in Servizio app di Azure il file WAR compilato prima sul computer locale.
 
-Per determinare quali credenziali passare in un comando FTP per l'app Web, in Cloud Shell usare il comando [az appservice web deployment list-publishing-profiles](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles): 
+Per determinare le credenziali da passare in un comando FTP all'app Web, usare il comando [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles) in Cloud Shell: 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json
@@ -372,7 +370,7 @@ Aggiornare l'applicazione per includere una colonna aggiuntiva nell'elenco attiv
     repository.save(item);
     ```
 
-4. Aggiungere il supporto per il nuovo campo nel modello Thymeleaf. Aggiornare *src/main/resources/templates/index.html* con una nuova intestazione della tabella per il timestamp e un nuovo campo per visualizzare il valore del timestamp in ogni riga di dati della tabella.
+4. Aggiungere il supporto per il nuovo campo nel modello `Thymeleaf`. Aggiornare *src/main/resources/templates/index.html* con una nuova intestazione della tabella per il timestamp e un nuovo campo per visualizzare il valore del timestamp in ogni riga di dati della tabella.
 
     ```html
     <th>Name</th>
@@ -401,7 +399,7 @@ Quando si aggiorna l'app, è ora visibile una colonna **Time Created** (Ora di c
 
 Mentre l'applicazione Java è in esecuzione in Servizio app di Azure, è possibile fare in modo che i log della console siano inviati tramite pipe direttamente al terminale. Ciò consente di ottenere gli stessi messaggi di diagnostica per il debug degli errori dell'applicazione.
 
-Per avviare lo streaming dei log, usare il comando [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) in Cloud Shell.
+Per avviare lo streaming dei log, usare il comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) in Cloud Shell.
 
 ```azurecli-interactive 
 az webapp log tail --name <app_name> --resource-group myResourceGroup 
@@ -409,19 +407,17 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 ## <a name="manage-your-azure-web-app"></a>Gestire l'app Web di Azure
 
-Accedere al portale di Azure per visualizzare l'app Web creata.
-
-A tale scopo, accedere a [https://portal.azure.com](https://portal.azure.com).
+Accedere al [portale di Azure](https://portal.azure.com) per visualizzare l'app Web creata.
 
 Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Web di Azure.
 
 ![Passare all'app Web di Azure nel portale](./media/app-service-web-tutorial-java-mysql/access-portal.png)
 
-Per impostazione predefinita, nel pannello dell'app Web viene aperta la pagina **Panoramica**, che offre una visualizzazione dello stato dell'app. In questa pagina è anche possibile eseguire attività di gestione come arrestare, avviare, riavviare ed eliminare. Le schede sul lato sinistro del pannello mostrano le diverse pagine di configurazione che è possibile aprire.
+Per impostazione predefinita, nella pagina dell'app Web viene visualizzata la pagina **Panoramica**, che offre una visualizzazione dello stato dell'app. In questa pagina è anche possibile eseguire attività di gestione come arrestare, avviare, riavviare ed eliminare. Le schede sul lato sinistro della pagina mostrano le diverse pagine di configurazione che è possibile aprire.
 
-![Pannello del servizio app nel portale di Azure](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
+![Pagina del servizio app nel portale di Azure](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
 
-Queste schede del pannello mostrano le numerose utili funzionalità che è possibile aggiungere all'app Web. Nell'elenco seguente sono riportate solo alcune delle possibilità:
+Queste schede della pagina mostrano le numerose utili funzionalità che è possibile aggiungere all'app Web. Nell'elenco seguente sono riportate solo alcune delle possibilità:
 * Eseguire il mapping di un nome DNS personalizzato
 * Associare un certificato SSL personalizzato
 * Configurare la distribuzione continua

@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: billgib
-ms.openlocfilehash: 1b6c780000d8c5e31a78f7f83ae74c002e8f8349
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
-ms.translationtype: MT
+ms.openlocfilehash: c4c5b79342aaa3c9b09e922956b095e8191cafd9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Criteri di tenancy di database delle applicazioni SaaS multi-tenant
 
@@ -96,7 +96,7 @@ Il database SQL di Azure fornisce gli strumenti necessari per configurare, monit
 
 La piattaforma di database SQL di Azure offre numerose funzionalità di gestione progettate per gestire un numero elevato di database su larga scala, ad esempio ben più di 100.000 database.  Queste funzionalità rendono plausibile il criterio di database per tenant.
 
-Si supponga ad esempio un sistema con un database di 1.000 tenant come unico database.  Il database potrebbe avere 20 indici.  Se il sistema esegue una conversione per ottenere 1.000 database a tenant singolo, la quantità degli indici aumenta a 20.000.  Nel database SQL, nell'ambito dell'[ottimizzazione automatica][docu-sql-db-automatic-tuning-771a], le funzionalità di indicizzazione automatica sono abilitate per impostazione predefinita.  L'indicizzazione automatica gestisce tutti i 20.000 indici e le ottimizzazioni costanti di creazione ed eliminazione.  Queste azioni automatizzate si verificano all'interno di un singolo database e non vengono coordinate o limitate da azioni simili in altri database.  L'indicizzazione automatica considera gli indici in modo diverso in un database occupato rispetto a un database meno occupato.  Questo tipo di personalizzazione della gestione degli indici potrebbe risultare poco pratico a livello di database per tenant se questa significativa attività di gestione deve essere eseguita manualmente.
+Si supponga ad esempio un sistema con un database di 1.000 tenant come unico database.  Il database potrebbe avere 20 indici.  Se il sistema esegue una conversione per ottenere 1000 database a tenant singolo, la quantità degli indici aumenta a 20.000.  Nel database SQL, nell'ambito dell'[ottimizzazione automatica][docu-sql-db-automatic-tuning-771a], le funzionalità di indicizzazione automatica sono abilitate per impostazione predefinita.  L'indicizzazione automatica gestisce tutti i 20.000 indici e le ottimizzazioni costanti di creazione ed eliminazione.  Queste azioni automatizzate si verificano all'interno di un singolo database e non vengono coordinate o limitate da azioni simili in altri database.  L'indicizzazione automatica considera gli indici in modo diverso in un database occupato rispetto a un database meno occupato.  Questo tipo di personalizzazione della gestione degli indici potrebbe risultare poco pratico a livello di database per tenant se questa significativa attività di gestione deve essere eseguita manualmente.
 
 Altre funzionalità di gestione facilmente scalabili includono quanto segue:
 
@@ -165,7 +165,7 @@ Nel modello ibrido tutti i database presentano l'identificatore del tenant nello
 
 È possibile spostare in qualsiasi momento un tenant specifico nel relativo database multi-tenant.  E sempre in qualsiasi momento è possibile cambiare idea e ripristinare il tenant in un database contenente più tenant.  È anche possibile assegnare un tenant a un nuovo database a tenant singolo quando si esegue il provisioning del nuovo database.
 
-Il modello ibrido risulta particolarmente indicato se sussistono grandi differenze tra le esigenze di risorse dei gruppi identificabili di tenant.  Si supponga ad esempio che ai tenant che fanno parte di una versione di valutazione gratuita non venga garantito lo stesso livello di prestazioni elevate dei tenant che fanno parte di una sottoscrizione.  I criteri per i tenant nella fase della versione di valutazione gratuita potrebbero prevedere l'archiviazione in un database multi-tenant condiviso tra tutti i tenant della versione di valutazione gratuita.  Quando un tenant di una versione di valutazione gratuita esegue la sottoscrizione al livello di servizio di base, può essere spostato in un altro database multi-tenant che potrebbe avere un numero inferiore di tenant.  Un sottoscrittore che paga per il livello di servizio premium può essere spostato in un proprio database single-tenant nuovo.
+Il modello ibrido risulta particolarmente indicato se sussistono grandi differenze tra le esigenze di risorse dei gruppi identificabili di tenant.  Si supponga ad esempio che ai tenant che fanno parte di una versione di valutazione gratuita non venga garantito lo stesso livello di prestazioni elevate dei tenant che fanno parte di una sottoscrizione.  I criteri per i tenant nella fase della versione di valutazione gratuita potrebbero prevedere l'archiviazione in un database multi-tenant condiviso tra tutti i tenant della versione di valutazione gratuita.  Quando un tenant di una versione di valutazione gratuita esegue la sottoscrizione al livello di servizio di base, può essere spostato in un altro database multi-tenant che potrebbe avere un numero inferiore di tenant.  Un sottoscrittore che ha acquistato il livello di servizio premium potrebbe essere spostato nel nuovo database a tenant singolo corrispondente.
 
 #### <a name="pools"></a>Pool
 

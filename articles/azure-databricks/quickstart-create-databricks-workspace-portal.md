@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: c471baa287c3a51e9787cc2103b23c2bab458db2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 8a91e92e0e535b047ddfcfeff53de72d769f05c7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Guida introduttiva: Eseguire un processo Spark in Azure Databricks mediante il portale di Azure
 
@@ -146,7 +146,7 @@ Eseguire le operazioni seguenti per creare un blocco appunti in Databricks, conf
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se durante la creazione del cluster Spark è stata selezionata la casella di controllo **Terminate after ___ minutes of activity** (Termina dopo ___ minuti di attività), il cluster viene terminato automaticamente se è rimasto inattivo per il tempo specificato.
+Se durante la creazione del cluster Spark è stata selezionata la casella di controllo **Terminate after __minutes of activity** (Termina dopo __minuti di attività), il cluster viene terminato automaticamente se è rimasto inattivo per il tempo specificato.
 
 Se la casella di controllo non è stata selezionata, è necessario terminare manualmente il cluster. A questo scopo, nel riquadro sinistro dell'area di lavoro di Azure Databricks fare clic su **Clusters** (Cluster). Per il cluster che si vuole terminare, posizionare il cursore sui puntini di sospensione sotto la colonna **Actions** (Azioni) e fare clic sull'icona **Terminate** (Termina).
 

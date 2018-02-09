@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/25/18
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9d3d15c63055f3eeb0e6cb292d75a8c42b33f7fe
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 4043c600dcc79cc85b66d66051416218507432af
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Distribuire un'applicazione contenitore Windows in Azure Service Fabric
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili. 
@@ -35,7 +35,7 @@ Con guida introduttiva si apprende come:
 > * Compilare l'applicazione di Service Fabric e creare il pacchetto
 > * Distribuire l'applicazione del contenitore in Azure
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 * Una sottoscrizione di Azure. È possibile creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un computer di sviluppo che esegue:
   * Visual Studio 2015 o Visual Studio 2017.
@@ -79,24 +79,44 @@ Configurare il mapping tra la porta del contenitore e la porta dell'host specifi
 Alla fine di questo articolo viene fornito un file di esempio completo di ApplicationManifest.xml.
 
 ## <a name="create-a-cluster"></a>Creare un cluster
-Per distribuire l'applicazione in un cluster in Azure, è possibile scegliere di creare un proprio cluster oppure usare un cluster di entità.
+Per distribuire l'applicazione in un cluster in Azure, è possibile aggiungere un party cluster oppure [creare un proprio cluster in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
-I cluster di entità sono cluster Service Fabric gratuiti e disponibili per un periodo di tempo limitato ospitati in Azure e gestiti dal team di Service Fabric, in cui chiunque può distribuire applicazioni e ottenere informazioni sulla piattaforma. Per ottenere l'accesso a un cluster di entità, [seguire le istruzioni](http://aka.ms/tryservicefabric).  
+I cluster di entità sono cluster Service Fabric gratuiti e disponibili per un periodo di tempo limitato ospitati in Azure e gestiti dal team di Service Fabric, in cui chiunque può distribuire applicazioni e ottenere informazioni sulla piattaforma. Il cluster usa un solo certificato autofirmato per la sicurezza da nodo a nodo e da client a nodo. 
 
-Per informazioni sulla creazione di un cluster, vedere l'articolo su come [creare un cluster di Service Fabric in Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+Eseguire l'accesso e [aggiungere un cluster Windows](http://aka.ms/tryservicefabric). Scaricare il certificato PFX nel computer facendo clic sul collegamento **PFX**. Il certificato e il valore di **Endpoint connessione** vengono usati nei passaggi seguenti.
 
-Prendere nota dell'endpoint connessione, che viene usato nel passaggio seguente.  
+![Certificato PFX ed endpoint connessione](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+In un computer Windows installare il certificato PFX nell'archivio certificati *CurrentUser\My*.
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
+\CurrentUser\My
+
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.westus.cloudapp.azure.com
+```
+
+Ricordare l'identificazione personale per il passaggio seguente.  
 
 ## <a name="deploy-the-application-to-azure-using-visual-studio"></a>Distribuire l'applicazione in Azure usando Visual Studio
 Ora che l'applicazione è pronta, è possibile distribuirla in un cluster direttamente da Visual Studio.
 
 Fare clic con il pulsante destro del mouse su **MyFirstContainer** in Esplora soluzioni e scegliere **Pubblica**. Verrà visualizzata la finestra di dialogo Pubblica.
 
-![Finestra di dialogo Pubblica](./media/service-fabric-quickstart-dotnet/publish-app.png)
+Copiare l'**endpoint della connessione** dalla pagina del party cluster nel campo **Endpoint connessione**. Ad esempio, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Fare clic su **Parametri di connessione avanzati** e specificare le informazioni seguenti.  I valori di *FindValue* e *ServerCertThumbprint* devono corrispondere all'identificazione personale del certificato installato nel passaggio precedente. 
 
-Digitare l'endpoint di connessione del cluster nel campo **Endpoint connessione**. Durante l'iscrizione per ottenere il party cluster, l'endpoint di connessione viene specificato nel browser, ad esempio `winh1x87d1d.westus.cloudapp.azure.com:19000`.  Fare clic su **Pubblica** per distribuire l'applicazione.
+![Finestra di dialogo Pubblica](./media/service-fabric-quickstart-containers/publish-app.png)
 
-Aprire un browser Web e passare a http://winh1x87d1d.westus.cloudapp.azure.com:80. Verrà visualizzata la pagina Web predefinita di IIS: ![Pagina Web predefinita di IIS][iis-default]
+Fare clic su **Pubblica**.
+
+Ogni applicazione nel cluster deve avere un nome univoco.  Un party cluster è tuttavia un ambiente pubblico condiviso e potrebbe verificarsi un conflitto con un'applicazione esistente.  Se è presente un conflitto di nomi, ridenominare il progetto di Visual Studio e distribuirlo di nuovo.
+
+Aprire un browser e passare a http://zwin7fh14scd.westus.cloudapp.azure.com:80. Verrà visualizzata la pagina Web predefinita di IIS: ![Pagina Web predefinita di IIS][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Manifesti di esempio completi del servizio e dell'applicazione di Service Fabric
 Di seguito sono riportati i manifesti completi del servizio e dell'applicazione usati in questa guida introduttiva.
@@ -167,6 +187,7 @@ Di seguito sono riportati i manifesti completi del servizio e dell'applicazione 
         <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
+
   </ServiceManifestImport>
   <DefaultServices>
     <!-- The section below creates instances of service types, when an instance of this 

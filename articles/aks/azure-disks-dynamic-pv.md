@@ -6,13 +6,13 @@ author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 1/12/2018
+ms.date: 1/25/2018
 ms.author: nepeters
-ms.openlocfilehash: a4e4ce6a23f9f8a99d8ae5f9e4e2084e3b749017
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e1f5b68d5d39dd846ebec525d1e83a6c0ef4971a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="persistent-volumes-with-azure-disks---dynamic-provisioning"></a>Volumi permanenti con i dischi di Azure: provisioning dinamico
 
@@ -51,13 +51,14 @@ parameters:
   storageaccounttype: Standard_LRS
 ```
 
-
-
 ## <a name="create-persistent-volume-claim"></a>Creare un'attestazione di volume permanente
 
 Un'attestazione di volume permanente usa un oggetto classe di archiviazione per il provisioning dinamico di una parte di risorsa di archiviazione. Quando si usa un disco di Azure, questo viene creato nello stesso gruppo di risorse del servizio contenitore di Azure.
 
 Questo manifesto di esempio crea un'attestazione di volume permanente usando la classe di archiviazione `azure-managed-disk` per creare un disco da `5GB` con accesso `ReadWriteOnce`. Per altre informazioni sulle modalità di accesso PVC, vedere [Access Modes][access-modes] (Modalità di accesso).
+
+> [!NOTE]
+> Un disco di Azure può essere montato solo con la modalità di accesso ReadWriteOnce, che lo rende disponibile solo a un singolo nodo del servizio contenitore di Azure. Se è necessario condividere un volume persistente tra più nodi, provare a usare [File di Azure][azure-files-pvc]. 
 
 ```yaml
 apiVersion: v1
@@ -110,4 +111,5 @@ Altre informazioni sui volumi permanenti Kubernetes che usano i dischi di Azure.
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 
 <!-- LINKS - internal -->
+[azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/premium-storage.md

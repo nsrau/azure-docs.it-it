@@ -1,10 +1,10 @@
 ---
-title: "Controllare la connettività con Azure Network Watcher - Interfaccia della riga di comando di Azure 2.0 | Microsoft Docs"
-description: "Questa pagina descrive come eseguire il controllo della connettività con Network Watcher usando l'interfaccia della riga di comando di Azure 2.0"
+title: Risolvere i problemi relativi alle connessioni con Azure Network Watcher - Interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
+description: "Informazioni su come usare la funzionalità di risoluzione dei problemi di connessione di Azure Network Watcher con l'interfaccia della riga di comando di Azure 2.0."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,31 +13,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 507ec614e54b035d5470ec34bcfd8e71cf98083c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: dfe77b0a9620ccb8ac91fa8843d01d1cb7bdc44f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-azure-cli-20"></a>Controllare la connettività con Azure Network Watcher usando l'interfaccia della riga di comando di Azure 2.0
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli-20"></a>Risolvere i problemi relativi alle connessioni con Azure Network Watcher usando l'interfaccia della riga di comando di Azure 2.0
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [Interfaccia della riga di comando 2.0](network-watcher-connectivity-cli.md)
 > - [API REST di Azure](network-watcher-connectivity-rest.md)
 
-Informazioni su come usare la connettività per verificare se è possibile stabilire una connessione TCP diretta da una macchina virtuale a uno specifico endpoint.
+Informazioni su come usare la risoluzione dei problemi di connessione per verificare se è possibile stabilire una connessione TCP diretta da una macchina virtuale a uno specifico endpoint.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Questo articolo presuppone che l'utente disponga delle risorse seguenti:
 
-* Un'istanza di Network Watcher nell'area di cui si vuole controllare la connettività.
-
-* Macchine virtuali con cui controllare la connettività.
+* Un'istanza di Network Watcher nell'area di cui si vuole risolvere il problema di connessione.
+* Risolvere i problemi di connessione con le macchine virtuali.
 
 > [!IMPORTANT]
-> Il controllo della connettività richiede un'estensione macchina virtuale `AzureNetworkWatcherExtension`. Per installare l'estensione in una VM Windows, vedere [Estensione macchina virtuale agente Azure Network Watcher per Windows](../virtual-machines/windows/extensions-nwa.md) e per una VM Linux VM vedere [Estensione macchina virtuale Azure Network Watcher Agent per Linux](../virtual-machines/linux/extensions-nwa.md).
+> La risoluzione dei problemi di connessione richiede un'estensione macchina virtuale `AzureNetworkWatcherExtension`. Per installare l'estensione in una VM Windows, vedere [Estensione macchina virtuale agente Azure Network Watcher per Windows](../virtual-machines/windows/extensions-nwa.md) e per una VM Linux VM vedere [Estensione macchina virtuale Azure Network Watcher Agent per Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Controllare la connettività a una macchina virtuale
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/21/2017
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 7d7b81a585ba8b10c60062c5d5274c45335cab68
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 568509eba47facfc5966d06dff5a1b32dce1008f
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparare l’ambiente per il backup di macchine virtuali distribuite con Resource Manager
 
@@ -63,7 +63,7 @@ Prima di preparare l'ambiente, assicurarsi di conoscere queste limitazioni:
 * I dati di backup non includono le unità di rete montate che sono collegate a una VM.
 * La sostituzione di una macchina virtuale esistente durante il ripristino non è supportata. Se si tenta di ripristinare una macchina virtuale che esiste, l'operazione di ripristino non viene eseguita.
 * L'operazione di backup e ripristino tra aree geografiche diverse non è supportata.
-* Il backup e il ripristino di VM di archiviazione con elenco di controllo di accesso non sono attualmente supportati. Il backup delle VM non è supportato se è stata abilitata la funzionalità di archiviazione su rete virtuale che consente l'accesso agli account di archiviazione solo da reti virtuali/subnet e/o IP specifici.
+* Il backup e il ripristino di macchine virtuali tramite dischi non gestiti negli account di archiviazione con regole di rete applicate non sono attualmente supportati. Durante la configurazione del backup, verificare che le impostazioni di "Firewall e reti virtuali" per l'account di archiviazione consentano l'accesso da "Tutte le reti".
 * È possibile eseguire il backup di macchine virtuali in tutte le aree pubbliche di Azure. Vedere l'[elenco di controllo](https://azure.microsoft.com/regions/#services) delle aree supportate. Se l'area desiderata non è attualmente supportata, tale area non verrà visualizzata nell'elenco a discesa durante la creazione dell'insieme di credenziali.
 * Il ripristino di un controller di dominio di VM che fa parte di una configurazione con controller di dominio è supportato solo tramite PowerShell. Per altre informazioni, vedere la sezione relativa al [ripristino di un controller di dominio con più controller di dominio](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Il ripristino delle macchine virtuali che presentano le seguenti configurazioni di rete speciali è supportato solo tramite PowerShell. Le VM create tramite il flusso di lavoro di ripristino nell'interfaccia utente non avranno queste configurazioni di rete al termine dell'operazione di ripristino. Per altre informazioni, vedere [Ripristino delle macchine virtuali con configurazioni di rete speciali](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).

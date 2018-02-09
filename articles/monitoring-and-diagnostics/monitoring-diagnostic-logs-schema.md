@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 1/24/2018
 ms.author: johnkem
-ms.openlocfilehash: 1a58db2d424e4280fd56be972d48df89648e8c13
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 3e2b5305b969c96e6b14122af03da9249373094a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Servizi, schemi e categorie supportati per i log di Diagnostica di Azure
 
@@ -41,7 +41,7 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 | Archivio Data Lake |[Accesso ai log di diagnostica per Archivio Data Lake di Azure](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Hub eventi |[Log di diagnostica di Hub eventi in Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
 | Hub IoT | [Operazioni dell'hub IoT](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Insieme di credenziali delle chiavi |[Registrazione dell'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-logging.md) |
+| Insieme di credenziali di chiave |[Registrazione dell'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-logging.md) |
 | Bilanciamento del carico |[Analisi dei log per Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
 | App per la logica |[Schema di rilevamento personalizzato per le app per la logica B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Gruppi di sicurezza di rete |[Analisi dei log per i gruppi di sicurezza di rete](../virtual-network/virtual-network-nsg-manage-log.md) |
@@ -51,13 +51,12 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 | Gestione server | Lo schema non è disponibile. |
 | Bus di servizio |[Log di diagnostica del bus di servizio di Azure](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | Database SQL | [Registrazione diagnostica del database SQL di Azure](../sql-database/sql-database-metrics-diag-logging.md) |
-| Analisi di flusso |[Log di diagnostica dei processi](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Analisi dei flussi |[Log di diagnostica dei processi](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Reti virtuali | Lo schema non è disponibile. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorie di log supportate per tipo di risorsa
 |Tipo di risorsa|Categoria|Nome visualizzato della categoria|
 |---|---|---|
-|microsoft.aadiam/tenants|Signin|Signin|
 |Microsoft.AnalysisServices/servers|Engine (Motore)|Engine (Motore)|
 |Microsoft.AnalysisServices/servers|Service|Service|
 |Microsoft.ApiManagement/service|GatewayLogs|Log correlati ad ApiManagement Gateway|
@@ -74,7 +73,7 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 |Microsoft.DataLakeAnalytics/accounts|Requests|Log delle richieste|
 |Microsoft.DataLakeStore/accounts|Audit|Log di controllo|
 |Microsoft.DataLakeStore/accounts|Requests|Log delle richieste|
-|Microsoft.Devices/IotHubs|Connessioni|Connessioni|
+|Microsoft.Devices/IotHubs|connessioni|connessioni|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Telemetria dei dispositivi|
 |Microsoft.Devices/IotHubs|C2DCommands|Comandi da cloud a dispositivo|
 |Microsoft.Devices/IotHubs|DeviceIdentityOperations|Operazioni relative alle identità dei dispositivi|
@@ -116,6 +115,8 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Elementi replicati di Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Statistiche di replica di Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Punti di ripristino di Azure Site Recovery|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Velocità di caricamento dei dati di replica di Azure Site Recovery|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Varianza dei dati del disco protetti di Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Log delle operazioni|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Log operativi|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Statistiche di runtime di Query Store|
@@ -125,6 +126,7 @@ Lo schema per i log di diagnostica di risorsa varia a seconda della risorsa e de
 |Microsoft.Sql/servers/databases|Timeout|Timeout|
 |Microsoft.Sql/servers/databases|Blocchi|Blocchi|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/servers/databases|Audit|Log di controllo|
 |Microsoft.StreamAnalytics/streamingjobs|Esecuzione|Esecuzione|
 |Microsoft.StreamAnalytics/streamingjobs|Creazione|Creazione|
 

@@ -3,21 +3,21 @@ title: "Usare un'identità del servizio gestito per una macchina virtuale Window
 description: "Esercitazione che illustra come usare un'identità  del servizio gestito di una macchina virtuale Windows per accedere ad Azure Key Vault."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: bryanla
-ms.openlocfilehash: 074cfd9ab478c977eb8ae0f5b97aafc2767ee4e7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: 5dd90d527afd81ad225b9693b126f48e48bde884
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Usare un'Identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Key Vault 
 
@@ -33,7 +33,7 @@ Si apprenderà come:
 > * Concedere alla macchina virtuale l'accesso a un segreto archiviato in un insieme di credenziali delle chiavi 
 > * Ottenere un token di accesso usando l'identità  della macchina virtuale e usarlo per recuperare il segreto dall'insieme di credenziali delle chiavi 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

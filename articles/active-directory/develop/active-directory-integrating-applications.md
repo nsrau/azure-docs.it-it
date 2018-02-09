@@ -15,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: e398536ff6f660c75e4e063040eab33a831d65c6
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
-ms.translationtype: MT
+ms.openlocfilehash: f08e7327e266c342fe7f869f0b7a6a251792a071
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrazione di applicazioni con Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -110,7 +110,7 @@ Inoltre, prima che un client possa accedere a un'API Web esposta da un'applicazi
 - Autorizzazioni delegate: l'applicazione client deve accedere all'API Web come utente connesso, ma con accesso limitato dall'autorizzazione selezionata. Questo tipo di autorizzazione può essere concesso da un utente, a meno che l'autorizzazione richieda il consenso dell'amministratore. 
 
   > [!NOTE]
-  > Aggiunta di un'autorizzazione delegata a un'applicazione non automaticamente consentire agli utenti nel tenant. Gli utenti devono comunque concedere manualmente il consenso per le autorizzazioni delegate aggiuntive al runtime, a meno che l'amministratore non faccia clic sul pulsante **Concedi autorizzazioni** nella sezione **Autorizzazioni necessarie** della pagina dell'applicazione nel portale di Azure. 
+  > L'aggiunta di un'autorizzazione delegata a un'applicazione non concede automaticamente il consenso all'utente all'interno del tenant. Gli utenti devono comunque concedere manualmente il consenso per le autorizzazioni delegate aggiuntive al runtime, a meno che l'amministratore non faccia clic sul pulsante **Concedi autorizzazioni** nella sezione **Autorizzazioni necessarie** della pagina dell'applicazione nel portale di Azure. 
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Per aggiungere credenziali dell'applicazione o autorizzazioni per accedere alle API Web
 1. Accedere al [portale di Azure](https://portal.azure.com).
@@ -309,7 +309,7 @@ Le applicazioni che l'organizzazione ha registrato compaiono sotto il filtro "Mi
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Rimozione di un'applicazione multi-tenant autorizzata da un'altra organizzazione
 Un sottoinsieme delle applicazioni visualizzate con il filtro "Tutte le app" (escluse le registrazioni "Mie app") nella pagina "Registrazioni per l'app" principale del tenant, sono applicazioni multi-tenant. In termini tecnici, queste applicazioni multi-tenant provengono da un altro tenant e sono state registrate nel tenant durante il processo di consenso. Più precisamente, sono rappresentate solo da un oggetto entità servizio nel tenant, senza oggetto applicazione corrispondente. Per altre informazioni sulle differenze fra oggetti applicazione e oggetti entità servizio, vedere [Oggetti applicazione e oggetti entità servizio in Azure AD](active-directory-application-objects.md).
 
-Per rimuovere l'accesso di un'applicazione multi-tenant alla directory (dopo avere concesso il consenso), l'amministratore della società deve rimuovere la sua entità servizio. L'amministratore deve avere l'accesso di amministratore globale e può rimuovere tramite il portale di Azure [i cmdlet di Azure AD PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151) per rimuovere l'accesso.
+Per rimuovere l'accesso di un'applicazione multi-tenant alla directory (dopo avere concesso il consenso), l'amministratore della società deve rimuovere la sua entità servizio. L'amministratore deve avere l'accesso di amministratore globale e può rimuovere l'accesso tramite il portale di Azure o usando i [cmdlet di Azure AD PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni sul funzionamento dell'autenticazione in Azure AD, vedere [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md).

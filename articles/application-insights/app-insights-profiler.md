@@ -12,86 +12,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: f8ba1a6308dfe234fff700d363fb9252b94570e2
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
-ms.translationtype: MT
+ms.openlocfilehash: 5f691fb88c6764309bf012dfc65b561ec87afede
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profilare le app Web di Azure attive con Application Insights
 
 *Questa funzionalità di Application Insights è disponibile a livello generale per Servizio app di Azure e in anteprima per le risorse di calcolo di Azure.*
 
-Per determinare il tempo impiegato in ogni metodo nell'applicazione Web attiva, usare [Application Insights Profiler](app-insights-overview.md). Lo strumento di profilatura Application Insights consente di visualizzare profili dettagliati delle richieste attive che sono state servite dall'app ed evidenzia il *percorso critico* che usa più tempo. Il profiler seleziona automaticamente esempi con tempi di risposta diversi, quindi usa varie tecniche per ridurre al minimo il sovraccarico.
+Determinare il tempo impiegato in ogni metodo nell'applicazione Web attiva con [Application Insights](app-insights-overview.md). Lo strumento di profilatura Application Insights consente di visualizzare profili dettagliati delle richieste attive che sono state servite dall'app ed evidenzia il *percorso critico* che usa più tempo. Le richieste con tempi di risposta diversi vengono profilate su una base di campionamento. Il sovraccarico per l'applicazione è ridotto al minimo grazie all'uso di diverse tecniche.
 
-Il profiler è valido attualmente solo per le app Web ASP.NET in esecuzione in Servizio app di Azure, almeno nel livello di servizio Basic.
+Il profiler è attualmente valido per le app Web ASP.NET e ASP.NET Core in esecuzione nel servizio app di Azure, almeno nel livello di servizio **Basic**.
 
-## <a id="installation"></a> Abilitare il profiler
+## <a id="installation"></a> Abilitare il profiler per l'app Web del servizio app
+Se l'applicazione è già stata pubblicata in un servizio app, ma non sono state eseguite operazioni nel codice sorgente per l'uso di Application Insights, nel riquadro Servizi App del portale di Azure passare a **Monitoraggio | Application Insights** e seguire le istruzioni nel riquadro per creare una nuova risorsa di Application Insights o selezionarne una esistente per monitorare l'app Web. Si noti che per il profiler è necessario almeno il piano **Basic** del servizio app di Azure.
 
-[Installare Application Insights](app-insights-asp-net.md) nel codice. Se è già installato, assicurarsi che la versione in uso sia la più recente. Per controllare la versione più recente, in Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet** > **Aggiornamenti** > **Aggiorna tutti i pacchetti**. Ridistribuire l'app.
+![Abilitare Application Insights nel portale dei servizi app][appinsights-in-appservices]
 
-*Uso di ASP.NET Core - [Altre informazioni](#aspnetcore)*
+Se si ha accesso al codice sorgente del progetto, [installare Application Insights](app-insights-asp-net.md). Se è già installato, assicurarsi che la versione in uso sia la più recente. Per controllare la versione più recente, in Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet** > **Aggiornamenti** > **Aggiorna tutti i pacchetti**. Distribuire quindi l'app.
+
+Un'applicazione ASP.NET Core deve installare il pacchetto NuGet Microsoft.ApplicationInsights.AspNetCore 2.1.0-beta6 o versioni successive per poter interagire con il profiler. A partire da 27 giugno 2017 non sono supportate le versioni precedenti.
 
 Nel [portale di Azure](https://portal.azure.com) aprire la risorsa Application Insights per l'app Web. Selezionare **Prestazioni** > **Abilita Application Insights Profiler**.
 
 ![Selezionare il banner Abilita profiler][enable-profiler-banner]
 
-In alternativa, è possibile selezionare **Configura** per visualizzare lo stato e abilitare o disabilitare il profiler.
+In alternativa è possibile selezionare la configurazione **Profiler** per visualizzare lo stato e abilitare o disabilitare il profiler.
 
-![In Prestazioni selezionare Configura][performance-blade]
+![In Prestazioni selezionare la configurazione Profiler][performance-blade]
 
-Le app Web configurate con Application Insights sono elencate in **Configura**. Seguire le istruzioni per installare l'agente profiler, se necessario. Se nessuna app Web è stata ancora configurata con Application Insights, selezionare **Aggiungi app collegate**.
+Le app Web configurate con Application Insights sono elencate nel riquadro di configurazione **Profiler**. Se è stata eseguita la procedura indicata in precedenza, l'agente profiler dovrebbe già essere installato. Selezionare **Abilita Profiler** nel riquadro di configurazione **Profiler**.
 
-Per controllare il profiler in tutte le app Web collegate, nel riquadro **Configura** selezionare **Abilita profiler** o **Disabilita profiler**.
+Seguire le istruzioni per installare l'agente profiler, se necessario. Se nessuna app Web è stata ancora configurata con Application Insights, selezionare **Aggiungi app collegate**.
 
 ![Opzioni del riquadro Configura][linked app services]
 
 A differenza delle app Web ospitate attraverso i piani di servizio app, le applicazioni ospitate nelle risorse di calcolo di Azure (ad esempio, Macchine virtuali di Azure, set di scalabilità di macchine virtuali, Azure Service Fabric o Servizi cloud di Azure) non sono gestite direttamente da Azure. In questo caso non sono disponibili app Web a cui collegarsi. Anziché eseguire il collegamento a un'app, selezionare il pulsante **Abilita profiler**.
 
-## <a name="disable-the-profiler"></a>Disabilitare Profiler
-Per arrestare o riavviare il profiler per una singola istanza di Servizio app, in **Processi Web** accedere alla risorsa di Servizio app. Per eliminare il profiler, passare a **Estensioni**.
-
-![Disabilitare il profiler per un processo Web][disable-profiler-webjob]
-
-È consigliabile abilitare il profiler su tutte le app Web per individuare eventuali problemi di prestazioni il prima possibile.
-
-Se si usa Distribuzione Web per distribuire le modifiche all'applicazione Web, assicurarsi di escludere la cartella App_Data dall'eliminazione durante la distribuzione. In caso contrario, verranno eliminati i file dell'estensione profiler alla successiva distribuzione dell'applicazione Web in Azure.
-
-### <a name="using-profiler-with-azure-vms-and-azure-compute-resources-preview"></a>Uso del profiler con le VM e le risorse di calcolo di Azure (anteprima)
-
-Quando si [abilita Application Insights per Servizio app di Azure in fase di esecuzione](app-insights-azure-web-apps.md#run-time-instrumentation-with-application-insights), Application Insights Profiler è automaticamente disponibile. Se Application Insights è già abilitato per la risorsa, potrebbe essere necessario aggiornarlo alla versione più recente tramite la procedura guidata Configura.
+### <a name="enable-the-profiler-for-azure-compute-resources-preview"></a>Abilitare il profiler per le risorse di calcolo di Azure (anteprima)
 
 Sono disponibili informazioni su una [versione di anteprima del profiler per le risorse di calcolo di Azure](https://go.microsoft.com/fwlink/?linkid=848155).
 
-
-## <a name="limitations"></a>Limitazioni
-
-La conservazione predefinita dei dati è di cinque giorni. La quantità massima di dati inseriti al giorno è 10 GB.
-
-Non sono previsti costi per l'uso del servizio profiler. Per usare il servizio profiler, l'app Web deve essere ospitata almeno al livello di base di Servizio app.
-
-## <a name="overhead-and-sampling-algorithm"></a>Overhead e algoritmo di campionamento
-
-Il profiler viene eseguito in modo casuale per due minuti ogni ora in ogni macchina virtuale che ospita l'applicazione con il profiler abilitato per acquisire le tracce. Quando il profiler è in esecuzione, aggiunge al server tra il 5 e il 15% di sovraccarico della CPU.
-Maggiore è il numero di server disponibili per ospitare l'applicazione, minore l'impatto del profiler sulle prestazioni complessive dell'applicazione. Questo è dovuto al fatto che l'algoritmo di campionamento determina l'esecuzione del profiler solo nel 5% dei server in qualsiasi momento. Sono disponibili più server per elaborare le richieste Web ed eseguire l'offset del sovraccarico del server causato dall'esecuzione del profiler.
-
-
 ## <a name="view-profiler-data"></a>Visualizzare i dati del profiler
 
-Passare al riquadro **Prestazioni** e quindi scorrere fino all'elenco delle operazioni.
+**Verificare che l'applicazione riceva traffico.** Se si sta eseguendo un esperimento, è possibile generare le richieste per l'app Web usando il [test delle prestazioni di Application Insights](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). Se il profiler è stato appena abilitato, è possibile eseguire un breve test di carico per circa 15 minuti per ottenere le tracce del profiler. Se il profiler è abilitato già da qualche tempo, tenere presente che viene eseguito in modo casuale due volte ogni ora e che ogni esecuzione dura due minuti. È consigliabile eseguire il test di carico per un'ora per ottenere tracce di esempio del profiler.
 
-![Colonna di esempi del riquadro delle prestazioni di Application Insights][performance-blade-examples]
-
-La tabella delle operazioni contiene queste colonne:
-
-* **CONTEGGIO**: il numero di queste richieste nell'intervallo di tempo del riquadro **CONTEGGIO**.
-* **MEDIANA**: il tempo tipico che l'app impiega per rispondere a una richiesta. La metà di tutte le risposte è più veloce rispetto a questo valore.
-* **95° PERCENTILE**: il 95% delle risposte ha una velocità superiore rispetto a questo valore. Se questo valore è molto diverso da quello mediano, potrebbe essersi verificato un problema intermittente con l'app. In alternativa la causa potrebbe essere una funzione di progettazione, ad esempio la memorizzazione nella cache.
-* **TRACCE PROFILER**: un'icona indica che il profiler ha acquisito le analisi dello stack per questa operazione.
-
-Selezionare **Visualizza** per aprire l'Explorer di analisi, che mostra alcuni esempi acquisiti dal profiler, classificati in base al tempo di risposta.
-
-Se si usa il riquadro **Preview Performance** (Anteprima prestazioni), passare alla sezione **Take Actions** (Esegui azioni) della pagina per visualizzare le tracce del profiler. Selezionare il pulsante **Tracce Profiler**.
+Dopo che l'applicazione ha iniziato a ricevere traffico, passare al pannello **Prestazioni** e quindi alla sezione **Take Actions** (Esegui azioni) della pagina per visualizzare le tracce del profiler. Selezionare il pulsante **Tracce Profiler**.
 
 ![Riquadro di anteprima delle prestazioni per Tracce Profiler in Application Insights][performance-blade-v2-examples]
 
@@ -113,7 +81,7 @@ Il profiler del servizio Microsoft usa una combinazione della strumentazione e d
 Lo stack di chiamate mostrato nella visualizzazione della sequenza temporale è il risultato del campionamento e della strumentazione. Poiché ogni esempio acquisisce lo stack di chiamate completo del thread, include il codice di Microsoft .NET Framework, nonché di altri framework a cui si fa riferimento.
 
 ### <a id="jitnewobj"></a>Allocazione di oggetti (clr!JIT\_New o clr!JIT\_Newarr1)
-**clr!JIT\_New** e **clr!JIT\_Newarr1** sono funzioni di supporto in .NET Framework che allocano la memoria da un heap gestito. **clr!JIT\_New** viene richiamato quando si alloca un oggetto. **clr!JIT\_Newarr1** viene richiamato quando si alloca una matrice di oggetti. Queste due funzioni sono in genere molto veloci e richiedono un intervallo temporale relativamente ridotto. Se **clr!JIT\_New** o **clr!JIT\_Newarr1** impiega una notevole quantità di tempo nella sequenza temporale, è possibile che il codice stia allocando numerosi oggetti e usando una quantità notevole di memoria.
+**clr!JIT\_New** e **clr!JIT\_Newarr1** sono funzioni di supporto in .NET Framework che allocano la memoria da un heap gestito. **clr!JIT\_New** viene richiamato quando si alloca un oggetto. **clr!JIT\_Newarr1** viene richiamato quando si alloca una matrice di oggetti. Queste due funzioni sono in genere veloci e richiedono un intervallo temporale relativamente ridotto. Se **clr!JIT\_New** o **clr!JIT\_Newarr1** impiega una notevole quantità di tempo nella sequenza temporale, è possibile che il codice stia allocando numerosi oggetti e usando una quantità notevole di memoria.
 
 ### <a id="theprestub"></a>Caricamento di codice (clr!ThePreStub)
 **clr!ThePreStub** è una funzione di supporto all'interno di .NET Framework che prepara il codice da eseguire per la prima volta. Include ad esempio la compilazione JIT. Per ogni metodo C#, **clr!ThePreStub** deve essere richiamato al massimo una volta nel corso della durata di un processo.
@@ -151,6 +119,26 @@ L'applicazione sta eseguendo operazioni sulla rete.
 
 ### <a id="when"></a>Colonna Quando
 La colonna **Quando** è una visualizzazione della variazione nel tempo degli esempi INCLUSIVI raccolti per un nodo nel tempo. L'intervallo totale della richiesta è suddiviso in 32 intervalli di tempo. Gli esempi inclusivi di tale nodo vengono accumulati in questi 32 intervalli. Ogni intervallo è rappresentato come una barra. L'altezza della barra rappresenta un valore ridimensionato. Per i nodi contrassegnati con **CPU_TIME** o **BLOCKED_TIME** oppure in cui è presente una relazione ovvia di uso di una risorsa (CPU, disco, thread), la barra rappresenta l'uso di una di queste risorse per il periodo di tempo di questo intervallo. Per queste metriche è possibile ottenere un valore maggiore del 100% usando più risorse. Ad esempio, se in media si usano due CPU in un intervallo si ottiene il 200%.
+
+## <a name="limitations"></a>Limitazioni
+
+La conservazione predefinita dei dati è di cinque giorni. La quantità massima di dati inseriti al giorno è 10 GB.
+
+Non sono previsti costi per l'uso del servizio profiler. Per usare il servizio profiler, l'app Web deve essere ospitata almeno al livello di base di Servizio app.
+
+## <a name="overhead-and-sampling-algorithm"></a>Overhead e algoritmo di campionamento
+
+Il profiler viene eseguito in modo casuale per due minuti ogni ora in ogni macchina virtuale che ospita l'applicazione con il profiler abilitato per acquisire le tracce. Quando il profiler è in esecuzione, aggiunge al server tra il 5 e il 15% di sovraccarico della CPU.
+Maggiore è il numero di server disponibili per ospitare l'applicazione, minore l'impatto del profiler sulle prestazioni complessive dell'applicazione. Questo è dovuto al fatto che l'algoritmo di campionamento determina l'esecuzione del profiler solo nel 5% dei server in qualsiasi momento. Sono disponibili più server per elaborare le richieste Web ed eseguire l'offset del sovraccarico del server causato dall'esecuzione del profiler.
+
+## <a name="disable-the-profiler"></a>Disabilitare Profiler
+Per arrestare o riavviare il profiler per una singola istanza di Servizio app, in **Processi Web** accedere alla risorsa di Servizio app. Per eliminare il profiler, passare a **Estensioni**.
+
+![Disabilitare il profiler per un processo Web][disable-profiler-webjob]
+
+È consigliabile abilitare il profiler su tutte le app Web per individuare eventuali problemi di prestazioni il prima possibile.
+
+Se si usa Distribuzione Web per distribuire le modifiche all'applicazione Web, assicurarsi di escludere la cartella App_Data dall'eliminazione durante la distribuzione. In caso contrario, verranno eliminati i file dell'estensione profiler alla successiva distribuzione dell'applicazione Web in Azure.
 
 
 ## <a id="troubleshooting"></a>Risoluzione dei problemi
@@ -228,90 +216,84 @@ Quando si configura il profiler, vengono eseguiti aggiornamenti nelle impostazio
 8. Installare __Application Insights__ dalla raccolta delle app Web di Azure.
 9. Riavviare l'app Web .
 
-## <a id="profileondemand"></a>Attivare manualmente profiler
-Quando è stato sviluppato il profiler è aggiunto un'interfaccia della riga di comando in modo che sia possibile testare il profiler in servizi di app. Utilizzando questo stesso utenti interfaccia inoltre possibile personalizzare la modalità di avvio il profiler. A un livello elevato il profiler utilizza sistema Kudu del servizio App per gestire l'analisi in background. Quando si installa l'estensione Application Insights, creare un processo web continuo che ospita il profiler. Si utilizzerà la stessa tecnologia, per creare un nuovo processo web che è possibile personalizzare in base alle esigenze.
+## <a id="profileondemand"></a> Attivare il profiler manualmente
+Nello sviluppo del profiler è stata aggiunta un'interfaccia della riga di comando per testare il profiler nei servizi app. Usando la stessa interfaccia, gli utenti possono anche personalizzare la modalità di avvio del profiler. In generale, il profiler usa il sistema Kudu del servizio app per gestire la profilatura in background. Quando si installa l'estensione Application Insights, viene creato un processo Web continuo che ospita il profiler. Si usa questa stessa tecnologia per creare un nuovo processo Web che può essere personalizzato in base alle proprie esigenze.
 
-In questa sezione viene illustrato come:
+Questa sezione illustra come eseguire queste operazioni:
 
-1.  Creare un processo web che consente di avviare il profiler per due minuti con la stampa di un pulsante.
-2.  Creare un processo web che è possibile pianificare il profiler per l'esecuzione.
-3.  Impostare gli argomenti per il profiler.
+1.  Creare un processo Web che consente di avviare il profiler per due minuti facendo clic su un pulsante.
+2.  Creare un processo Web che consente di pianificare l'esecuzione del profiler.
+3.  Impostare gli argomenti del profiler.
 
 
 ### <a name="set-up"></a>Configurare
-Primo opportuno acquisire familiarità con i dashboard del processo web. In impostazioni fare clic sulla scheda processi Web.
+È prima opportuno acquisire familiarità con il dashboard del processo Web. Nelle impostazioni fare clic sulla scheda Processi Web.
 
-![Pannello processi Web](./media/app-insights-profiler/webjobs-blade.png)
+![Pannello Processi Web](./media/app-insights-profiler/webjobs-blade.png)
 
-Come è possibile visualizzare che questo dashboard Mostra tutti i processi web attualmente installati nel sito. È possibile visualizzare il processo web ApplicationInsightsProfiler2 che ha il compito di profiler in esecuzione. Si tratta di dove si finirà creare i nuovi processi web per manuale e pianificato profilatura.
+Come si può notare, questo dashboard mostra tutti i processi Web attualmente installati nel sito. È visibile il processo Web ApplicationInsightsProfiler2 che consente l'esecuzione del processo del profiler. In questa posizione si creano i nuovi processi Web per la profilatura manuale e pianificata.
 
-Primo consente di ottenere i file binari è necessario.
+Ottenere prima di tutto i file binari necessari.
 
-1.  Innanzitutto, andare al sito kudu. Nella fase di sviluppo scheda strumenti fare clic sulla scheda "Strumenti avanzati" con il logo Kudu. Fare clic su "Go". Verrà visualizzata in un nuovo sito e accedere automaticamente.
-2.  Successivamente è necessario scaricare i file binari del profiler. Passare a Esplora File mediante la Console di Debug -> CMD nella parte superiore della pagina.
-3.  Fare clic sul sito -> wwwroot -> App_Data -> processi -> continua. Si dovrebbe essere una cartella "ApplicationInsightsProfiler2". Fare clic sull'icona a sinistra della cartella di download. Questo verrà scaricato un file "ApplicationInsightsProfiler2.zip".
-4.  Si scaricherà tutti i file sarà necessario spostare in avanti. Consiglia di creare una directory vuota per spostare questo archivio di zip in prima di proseguire.
+1.  Passare al sito di Kudu. Nella scheda degli strumenti di sviluppo fare clic sulla scheda "Strumenti avanzati" con il logo Kudu. Fare clic su "Vai". Verrà visualizzato un nuovo sito al quale si accederà automaticamente.
+2.  Ora è necessario scaricare i file binari del profiler. Passare a Esplora file tramite Console di debug -> CMD nella parte superiore della pagina.
+3.  Fare clic sul sito -> wwwroot -> App_Data -> processi -> continuo. Verrà visualizzata la cartella "ApplicationInsightsProfiler2". Fare clic sull'icona per il download a sinistra della cartella. Verrà scaricato il file "ApplicationInsightsProfiler2.zip".
+4.  Il download conterrà tutti i file che saranno necessari in un secondo momento. È consigliabile creare una directory vuota in cui spostare questo archivio ZIP prima di proseguire.
 
-### <a name="setting-up-the-web-job-archive"></a>L'installazione dell'archivio del processo web
-Quando si aggiunge un nuovo processo web al sito Web di azure sostanzialmente si crea un archivio zip con un run.cmd all'interno. Il run.cmd indica al sistema di processo web operazioni da eseguire quando si esegue il processo web. Sono disponibili altre opzioni che è possibile leggere la documentazione di processo web, ma ai fini di non è necessario altro.
+### <a name="setting-up-the-web-job-archive"></a>Configurazione di un archivio di processi Web
+Quando si aggiunge un nuovo processo Web al sito Web di Azure, sostanzialmente si crea un archivio ZIP con un file run.cmd all'interno. Il file run.cmd indica al sistema del processo Web le operazioni da effettuare quando si esegue il processo Web. Nella documentazione dei processi Web sono disponibili altre opzioni, ma ai fini di questa esercitazione non è necessario altro.
 
-1.  Per iniziare creare una nuova cartella, denominato miei "RunProfiler2Minutes".
-2.  Copiare i file dalla cartella ApplicationInsightProfiler2 estratta nella nuova cartella.
-3.  Creare un nuovo file run.cmd. (Aperta la cartella di lavoro nel codice di Visual Studio prima di avviare per praticità)
-4.  Aggiungere il comando `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120`e salvare il file.
-a.  Il `start` comando indica al profiler di avvio.
-b.  `--engine-mode immediate`indica il profiler che si desidera avviare immediatamente la profilatura.
-c.  `--single`mezzo per eseguire e quindi arrestare automaticamente d.  `--immediate-profiling-duration 120`significa che il profiler eseguito per 120 secondi o 2 minuti.
-5.  Salvare il file.
-6.  Questa cartella di archiviazione, è possibile fare clic con il pulsante destro la cartella e scegliere Invia a -> Compressed cartella compressa. Si creerà un file con estensione zip utilizzando il nome della cartella.
+1.  Per iniziare a creare una nuova cartella, denominarla "RunProfiler2Minutes".
+2.  Copiare i file dalla cartella ApplicationInsightProfiler2 estratta a questa nuova cartella.
+3.  Creare un nuovo file run.cmd. Per praticità, è consigliabile aprire questa cartella di lavoro in Visual Studio Code prima di iniziare.
+4.  Aggiungere il comando `ApplicationInsightsProfiler.exe start --engine-mode immediate --single --immediate-profiling-duration 120` e salvare il file.
+a.  Il comando `start` indica al profiler di avviarsi.
+b.  `--engine-mode immediate` indica al profiler che si vuole avviare immediatamente la profilatura.
+c.  `--single` indica al profiler di arrestarsi automaticamente dopo l'esecuzione. d.  `--immediate-profiling-duration 120` indica che il profiler deve essere eseguito per 120 secondi o 2 minuti.
+5.  Salvare questo file.
+6.  Archiviare questa cartella. È possibile fare clic con il pulsante destro del mouse sulla cartella e quindi scegliere Invia a -> Cartella compressa. Verrà creato un file ZIP con il nome della cartella.
 
-![avviare il comando del profiler](./media/app-insights-profiler/start-profiler-command.png)
+![Comando di avvio del profiler](./media/app-insights-profiler/start-profiler-command.png)
 
-È ora disponibile un file ZIP processo web che è possibile utilizzare per configurare i processi web nel sito.
+È ora disponibile un file ZIP del processo Web che può essere usato per configurare i processi Web nel sito.
 
-### <a name="add-a-new-web-job"></a>Aggiungere un nuovo processo web
-Successivamente sarà necessario aggiungere un nuovo processo web nel sito. In questo esempio mostra come aggiungere un processo manuale web attivati. Dopo che è possibile eseguire questa operazione il processo è quasi esattamente lo stesso per pianificato. È possibile leggere informazioni sui trigger i processi pianificati nel proprio.
+### <a name="add-a-new-web-job"></a>Aggiungere un nuovo processo Web
+Ora si aggiungerà un nuovo processo Web nel sito. Questo esempio illustra come aggiungere un processo Web attivato manualmente. Dopo aver eseguito questa operazione, il processo è quasi identico a quello per l'esecuzione pianificata. Sono comunque disponibili altre informazioni sui processi con attivazione pianificata.
 
-1.  Andare nel dashboard di processi web.
-2.  Fare clic sul comando Aggiungi dalla barra degli strumenti.
-3.  Assegnare un nome di processo web si è scelto per corrispondere al nome del mio archivio per maggiore chiarezza e per aprirlo fino a diverse versioni di run.cmd.
-4.  Nel file di caricare una parte del modulo, fare clic sull'icona di file aperti e trovare il file con estensione zip apportate in precedenza.
-5.  Per il tipo, scegliere avviata.
-6.  Per i trigger scegliere manuale.
+1.  Passare al dashboard dei processi Web.
+2.  Fare clic sul comando Aggiungi sulla barra degli strumenti.
+3.  Assegnare un nome al processo Web. È possibile scegliere lo stesso nome dell'archivio per maggiore chiarezza e consentire l'uso di diverse versioni del file run.cmd.
+4.  In Caricamento file fare clic sull'icona di apertura file e trovare il file ZIP creato in precedenza.
+5.  Per il tipo, scegliere Attivati.
+6.  Per il trigger, scegliere Manuale.
 7.  Fare clic su OK per salvare.
 
-![avviare il comando del profiler](./media/app-insights-profiler/create-webjob.png)
+![Comando di avvio del profiler](./media/app-insights-profiler/create-webjob.png)
 
 ### <a name="run-the-profiler"></a>Eseguire il profiler
 
-Dopo aver creato un nuovo processo web che è possibile attivare manualmente è possibile provare a eseguirlo.
+Ora che è stato creato un nuovo processo Web che può essere attivato manualmente è possibile provare a eseguirlo.
 
-1.  Per impostazione predefinita è possibile avere solo un processo ApplicationInsightsProfiler.exe in esecuzione in un computer in qualsiasi momento. Per iniziare con assicurarsi di disabilitare il processo web continuo da questo dashboard. Fare clic sulla riga e premere "Stop". Aggiorna sulla barra degli strumenti e verificare che lo stato di conferma che il processo viene interrotto.
-2.  Fare clic sulla riga con il nuovo processo web aggiunti e premere Esegui.
-3.  Con la riga ancora selezionata fare clic sul comando registri nella barra degli strumenti, verrà visualizzato è a un dashboard di processi web per il processo web che è stato avviato. Verranno visualizzate le esecuzioni più recenti e i relativi risultati.
-4.  Fare clic sull'esecuzione di nuovi.
-5.  Se l'assenza di errori visualizzati alcuni log di diagnostica provenienti dal profiler conferma che è stato avviato il profiling di.
+1.  Per impostazione predefinita è possibile eseguire un solo processo ApplicationInsightsProfiler.exe alla volta nel computer. Per iniziare, assicurarsi quindi di disabilitare il processo Web continuo da questo dashboard. Fare clic sulla riga e selezionare "Arresta". Fare clic su Aggiorna sulla barra degli strumenti e verificare che lo stato confermi che il processo è stato arrestato.
+2.  Fare clic sulla riga con il nuovo processo Web aggiunto e selezionare Esegui.
+3.  Con la riga ancora selezionata, fare clic sul comando Log sulla barra degli strumenti per visualizzare un dashboard per il processo Web avviato. Verranno visualizzate le esecuzioni più recenti e i relativi risultati.
+4.  Fare clic sull'esecuzione appena avviata.
+5.  Se non si sono verificati errori, verranno visualizzati alcuni log di diagnostica del profiler per confermare l'avvio della profilatura.
 
 ### <a name="things-to-consider"></a>Aspetti da considerare
 
-Se questo metodo è relativamente semplice, esistono alcuni aspetti da considerare.
+Questo metodo è relativamente semplice, tuttavia esistono alcuni aspetti da considerare.
 
-1.  Perché non è gestita dal servizio si avranno alcuna possibilità di aggiornare i file binari dell'agente per il processo web. Non attualmente abbiamo una pagina di download stabile per i file binari è l'unico modo per ottenere la versione più recente aggiornando l'estensione e selezionandola dalla cartella continua come abbiamo fatto in precedenza.
-2.  Come si utilizzano gli argomenti della riga di comando che erano originariamente concepiti con sviluppatore usare anziché utilizzare per l'utente finale, questi argomenti modifica in futuro, pertanto solo possibile tenere presente che quando l'aggiornamento. Non deve essere gran parte di un problema in quanto è possibile aggiungere un processo web, l'esecuzione e test del corretto funzionamento. Infine, verrà creata l'interfaccia utente per eseguire questa operazione senza il processo manuale, ma è opportuno prendere in considerazione.
-3.  La funzionalità processi Web per i servizi di App è univoca in quanto durante l'esecuzione del processo web assicura che il processo presenta le stesse variabili di ambiente e le impostazioni di app che finirà con il sito web. Ciò significa che non è necessario passare la chiave di strumentazione tramite la riga di comando per il profiler, deve solo selezionare la chiave di strumentazione dall'ambiente di. Tuttavia se si desidera eseguire il profiler, nella casella di sviluppo o in un computer all'esterno di servizi App è necessario specificare una chiave di strumentazione. È possibile farlo tramite il passaggio di un argomento `--ikey <instrumentation-key>`. Si noti che questo valore deve corrispondere alla chiave di strumentazione utilizzato dall'applicazione. Nell'output del log dal profiler indicherà quali ikey introduttiva il profiler e se è stata rilevata attività da tale chiave di strumentazione durante è sottoposto a profilatura.
-4.  I processi web manualmente trigger possono essere attivati effettivamente tramite Web Hook. È possibile ottenere questo url da facendo clic sul processo web dal dashboard e visualizzare le proprietà o scegliendo proprietà nella barra degli strumenti dopo aver selezionato il processo web dalla tabella. Sono disponibili numerosi articoli disponibili online su questo, in modo non entra in dettagli su di esso, ma verrà visualizzata la possibilità di attivare il profiler tramite la pipeline CI/CD (ad esempio VSTS) o simile a Microsoft Flow (https://flow.microsoft.com/en-us/). A seconda di come decorativo che si desidera rendere il run.cmd, che può essere un run.ps1, i valori possibili sono numerose.  
-
-
-
-
-## <a id="aspnetcore"></a>Supporto di ASP.NET Core
-
-Un'applicazione ASP.NET Core deve installare il pacchetto NuGet Microsoft.ApplicationInsights.AspNetCore 2.1.0-beta6 o versioni successive per poter interagire con il profiler. A partire da 27 giugno 2017 non sono supportate le versioni precedenti.
+1.  Il metodo non è gestito dal servizio, quindi non sarà possibile aggiornare i file binari dell'agente per il processo Web. Non è attualmente disponibile una pagina di download stabile per i file binari, quindi l'unico modo per ottenere la versione più recente è aggiornare l'estensione e recuperarla dalla cartella Continuo come in precedenza.
+2.  Gli argomenti della riga di comando sono stati originariamente progettati per gli sviluppatori e non per gli utenti finali, quindi potranno cambiare in futuro. Tenere in considerazione questo aspetto quando si esegue l'aggiornamento. Non dovrebbero tuttavia verificarsi particolari problemi perché è possibile aggiungere un processo Web, eseguirlo e verificare che funzioni correttamente. In futuro verrà creata un'interfaccia utente per eseguire questa operazione senza processo manuale.
+3.  Processi Web per i servizi app è un'ottima funzionalità perché quando esegue il processo Web assicura che il processo abbia le stesse variabili di ambiente e le stesse impostazioni app previste per il sito Web. Non è quindi necessario passare la chiave di strumentazione al profiler tramite la riga di comando perché la chiave di strumentazione verrà selezionata dall'ambiente. Se tuttavia si vuole eseguire il profiler nella casella di sviluppo o in un computer all'esterno di Servizi app, è necessario specificare una chiave di strumentazione. A tale scopo, passare un argomento `--ikey <instrumentation-key>`. Si noti che questo valore deve corrispondere alla chiave di strumentazione usata dall'applicazione. Nell'output del log del profiler sarà indicata la chiave di strumentazione iniziale del profiler e se sono state rilevate attività da tale chiave di strumentazione durante la profilatura.
+4.  I processi Web con attivazione manuale possono essere attivati tramite webhook. È possibile ottenere questo URL facendo clic con il pulsante destro del mouse sul processo Web nel dashboard e visualizzando le proprietà oppure scegliendo Proprietà sulla barra degli strumenti dopo aver selezionato il processo Web dalla tabella. Sono disponibili numerosi articoli online su questo argomento, quindi non verranno forniti altri dettagli in questo contesto. Questa funzionalità consente tuttavia di attivare il profiler dalla pipeline di integrazione continua/distribuzione continua (come VSTS) o ad esempio Microsoft Flow (https://flow.microsoft.com/it-it/). Sono disponibili numerose possibilità a seconda del grado di complessità desiderato per run.cmd, che può comunque essere un file run.ps1.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Uso di Application Insights in Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
 
+[appinsights-in-appservices]:./media/app-insights-profiler/AppInsights-AppServices.png
 [performance-blade]: ./media/app-insights-profiler/performance-blade.png
 [performance-blade-examples]: ./media/app-insights-profiler/performance-blade-examples.png
 [performance-blade-v2-examples]:./media/app-insights-profiler/performance-blade-v2-examples.png

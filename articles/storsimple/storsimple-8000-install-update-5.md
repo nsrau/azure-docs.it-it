@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: eefeedfb87bd30630439d13a434b246508defa96
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: d6e17c7609fd41b8f4457edda373f6882a1a9d2b
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Installare l'aggiornamento 5 nel dispositivo StorSimple
 
@@ -46,7 +46,7 @@ Seguire questa procedura per installare l'[aggiornamento 5](storsimple-update5-r
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update5-via-portal.md)]
 
-Verificare che nel dispositivo sia in esecuzione l'**aggiornamento 5 della serie 8000 di StorSimple (6.3.9600.17845)**. È necessario anche modificare la **data dell'ultimo aggiornamento** .
+Verificare che nel dispositivo sia in esecuzione l'**aggiornamento 5 della serie 8000 di StorSimple (6.3.9600.17845)**. È necessario anche modificare la **data dell'ultimo aggiornamento**.
 
 Saranno ora disponibili gli aggiornamenti in modalità manutenzione. Questo messaggio potrebbe essere visualizzato fino a 24 ore dopo l'installazione degli aggiornamenti. I passaggi per installare l'aggiornamento in modalità di manutenzione vengono descritti in modo dettagliato nella prossima sezione.
 
@@ -75,28 +75,28 @@ Il metodo hotfix prevede i tre passaggi seguenti:
 
 È necessario scaricare e installare gli hotfix seguenti nell'ordine indicato e nelle cartelle seguenti:
 
-| Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |Installare nella cartella|
+| Ordine | KB | DESCRIZIONE | Tipo di aggiornamento | Tempo dell'installazione |Installare nella cartella|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |Aggiornamento software<br> Scaricare sia _HcsSfotwareUpdate.exe_ che _CisMSDAgent.exe_ |Regolare  <br></br>Senza interruzioni |~ 25 min |FirstOrderUpdate|
+| 1. |KB4037264 |Aggiornamento software<br> Scaricare sia _HcsSoftwareUpdate.exe_ che _CisMSDAgent.exe_ |Normale <br></br>Senza interruzioni |~ 25 min |FirstOrderUpdate|
 
 Se si esegue l'aggiornamento da un dispositivo che esegue l'aggiornamento 4, è sufficiente installare gli aggiornamenti cumulativi del sistema operativo come aggiornamenti di secondo livello.
 
-| Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |Installare nella cartella|
+| Ordine | KB | DESCRIZIONE | Tipo di aggiornamento | Tempo dell'installazione |Installare nella cartella|
 | --- | --- | --- | --- | --- | --- |
-| 2A. |KB4025336 |Pacchetto di aggiornamenti cumulativi del sistema operativo <br> Scaricare Windows Server 2012 R2 |Regolare  <br></br>Senza interruzioni |- |SecondOrderUpdate|
+| 2A. |KB4025336 |Pacchetto di aggiornamenti cumulativi del sistema operativo <br> Scaricare Windows Server 2012 R2 |Normale <br></br>Senza interruzioni |- |SecondOrderUpdate|
 
 Se si esegue l'installazione da un dispositivo che esegue l'aggiornamento 3 o versione precedente, installare i componenti seguenti oltre agli aggiornamenti cumulativi.
 
-| Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione |Installare nella cartella|
+| Ordine | KB | DESCRIZIONE | Tipo di aggiornamento | Tempo dell'installazione |Installare nella cartella|
 | --- | --- | --- | --- | --- | --- |
-| 2B. |KB4011841 <br> KB4011842 |Aggiornamenti di driver e firmware LSI <br> Aggiornamento del firmware USM (versione 3.38) |Regolare  <br></br>Senza interruzioni |~ 3 ore <br> (include 2A. + 2B. + 2 C.)|SecondOrderUpdate|
-| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Pacchetto di aggiornamenti della sicurezza del sistema operativo <br> Scaricare Windows Server 2012 R2 |Regolare  <br></br>Senza interruzioni |- |SecondOrderUpdate|
-| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |Pacchetto di aggiornamenti del sistema operativo <br> Scaricare Windows Server 2012 R2 |Regolare  <br></br>Senza interruzioni |- |SecondOrderUpdate|
+| 2B. |KB4011841 <br> KB4011842 |Aggiornamenti di driver e firmware LSI <br> Aggiornamento del firmware USM (versione 3.38) |Normale <br></br>Senza interruzioni |~ 3 ore <br> (include 2A. + 2B. + 2 C.)|SecondOrderUpdate|
+| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Pacchetto di aggiornamenti della sicurezza del sistema operativo <br> Scaricare Windows Server 2012 R2 |Normale <br></br>Senza interruzioni |- |SecondOrderUpdate|
+| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |Pacchetto di aggiornamenti del sistema operativo <br> Scaricare Windows Server 2012 R2 |Normale <br></br>Senza interruzioni |- |SecondOrderUpdate|
 
 
-Potrebbe essere necessario anche installare gli aggiornamenti del firmware del disco sopra tutti gli aggiornamenti indicati nelle tabelle precedenti. È possibile verificare se sono necessari gli aggiornamenti del firmware del disco eseguendo il cmdlet `Get-HcsFirmwareVersion` . Se si stanno eseguendo le versioni del firmware `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107` non è quindi necessario installare questi aggiornamenti.
+Potrebbe essere necessario anche installare gli aggiornamenti del firmware del disco sopra tutti gli aggiornamenti indicati nelle tabelle precedenti. È possibile verificare se sono necessari gli aggiornamenti del firmware del disco eseguendo il cmdlet `Get-HcsFirmwareVersion`. Se si stanno eseguendo le versioni del firmware `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107` non è quindi necessario installare questi aggiornamenti.
 
-| Ordine | KB | Descrizione | Tipo di aggiornamento | Tempo dell'installazione | Installare nella cartella|
+| Ordine | KB | DESCRIZIONE | Tipo di aggiornamento | Tempo dell'installazione | Installare nella cartella|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB4037263 |Firmware del disco |Manutenzione  <br></br>Con interruzioni |~ 30 min. | ThirdOrderUpdate |
 

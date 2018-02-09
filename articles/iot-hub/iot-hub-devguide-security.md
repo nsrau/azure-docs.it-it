@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 43917e4fe4ce7643ea034d128f303a5397dbcdc2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 4f75c5725046fb5e0348c405092edcc65c2d8129
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="control-access-to-iot-hub"></a>Controllare l'accesso all'hub IoT
 
@@ -72,7 +72,7 @@ Per altre informazioni sulla creazione e sull'uso di token di sicurezza, vedere 
 
 Ogni protocollo supportato, ad esempio MQTT, AMQP e HTTPS, trasporta i token in modo diverso.
 
-Quando si usa MQTT, il pacchetto CONNECT ha deviceId come valore di ClientId, {iothubhostname}/{deviceId} nel campo Username e un token di firma di accesso condiviso nel campo Password. Il valore di {iothubhostname} deve essere il record CName completo dell'hub IoT, ad esempio contoso.azure-devices.net.
+Quando si usa MQTT, il pacchetto CONNECT ha deviceId come ClientId, `{iothubhostname}/{deviceId}` nel campo Username e un token di firma di accesso condiviso nel campo Password. `{iothubhostname}` deve essere il record CName completo dell'hub IoT, ad esempio contoso.azure-devices.net.
 
 Quando si usa [AMQP][lnk-amqp], l'hub IoT supporta [SASL PLAIN][lnk-sasl-plain] e la [sicurezza basata sulle attestazioni AMQP][lnk-cbs].
 

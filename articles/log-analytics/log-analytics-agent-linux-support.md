@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi dell'agente Linux di Azure Log Analitica | Documenti Microsoft
-description: "Vengono descritti i sintomi, cause e la risoluzione dei problemi più comuni con l'agente Linux Analitica di Log."
+title: Risoluzione dei problemi relativi all'agente Linux di Azure Log Analytics | Microsoft Docs
+description: "Vengono descritti i sintomi, le cause e la risoluzione dei problemi più comuni con l'agente Linux di Log Analytics."
 services: log-analytics
 documentationcenter: 
 author: MGoedtel
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/17/2017
+ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 5f598da9b82b4425ca509a26a2e6e366ba4c3394
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
-ms.translationtype: MT
+ms.openlocfilehash: 895a77a66f50b4c5217ec7d672f6441b85bf1856
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>Come risolvere i problemi con l'agente Linux per Log Analitica
+# <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>Come risolvere i problemi relativi all'agente Linux per Log Analytics
 
-Questo articolo fornisce indicazioni sulla risoluzione degli errori si possono verificarsi con l'agente Linux per Log Analitica e vengono suggerite le possibili soluzioni per risolverli.
+Questo articolo illustra come identificare e risolvere gli errori che si possono verificare con l'agente Linux di Log Analytics.
 
 ## <a name="issue-unable-to-connect-through-proxy-to-log-analytics"></a>Problema: Impossibile stabilire la connessione tramite proxy a Log Analytics
 
@@ -34,7 +34,7 @@ Questo articolo fornisce indicazioni sulla risoluzione degli errori si possono v
 1. Eseguire di nuovo l'onboarding nel servizio Log Analytics con l'agente di Operations Management Suite per Linux usando il comando seguente con l'opzione `-v` abilitata. In questo modo l'output dettagliato dell'agente si connette tramite proxy al servizio OMS. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
-2. Vedere la sezione [Configurazione dell'agente per l'uso con un server proxy o un gateway OMS](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway) per verificare di aver configurato correttamente l'agente per la comunicazione tramite un server proxy.    
+2. Vedere la sezione [Aggiornare le impostazioni proxy](log-analytics-agent-manage.md#update-proxy-settings) per verificare di aver configurato correttamente l'agente per la comunicazione tramite un server proxy.    
 * Controllare che gli endpoint di servizio di Log Analytics seguenti siano presenti nell'elenco elementi consentiti:
 
     |Risorsa agente| Porte |  

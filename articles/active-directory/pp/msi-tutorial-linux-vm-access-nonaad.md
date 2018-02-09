@@ -3,22 +3,22 @@ title: "Usare un'Identità del servizio gestito di una macchina virtuale Linux p
 description: "Esercitazione che illustra come usare un'Identità del servizio gestito di una macchina virtuale Linux per accedere ad Azure Resource Manager."
 services: active-directory
 documentationcenter: 
-author: BryanLa
-manager: mbaldwin
-editor: bryanla
+author: daveba
+manager: mtillman
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 3531d6e406e7cf44daaaf03c73c93ec3662f108c
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: a6f9ade9fca76045799edb8efa070acdfd40b7fe
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Usare un'Identità del servizio gestito con una macchina virtuale Linux per accedere ad Azure Key Vault 
 
@@ -33,7 +33,7 @@ Si apprenderà come:
 > * Concedere alla macchina virtuale l'accesso a un segreto archiviato in un insieme di credenziali delle chiavi 
 > * Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per recuperare il segreto da Key Vault 
  
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 

@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 0bf1cff4058bfe46b54f3f0b6836ede3e04ed5dd
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 4bdcd6d57989df3d1b67c87d56b8c57035ef2f63
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testare la soluzione con dispositivi simulati
 
@@ -78,6 +78,10 @@ In questa esercitazione si apprenderà come:
 > * Aggiungere un nuovo tipo di dispositivo al dashboard
 > * Inviare dati di telemetria personalizzati da un tipo di dispositivo esistente
 
+Il video seguente illustra una procedura dettagliata di connessione di dispositivi simulati e reali alla soluzione di monitoraggio remoto:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
+
 ## <a name="prerequisites"></a>prerequisiti
 
 Per eseguire questa esercitazione, è necessario quanto segue:
@@ -127,24 +131,24 @@ I comandi seguenti usano il comando `az` dell'[interfaccia della riga di comando
 1. Per abilitare l'accesso SSH alla macchina virtuale, eseguire il comando seguente usando il nome del gruppo di sicurezza di rete del passaggio precedente:
 
     ```sh
-    az network nsg rule create --name SSH --nsg-name your-network-security-group --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
+    az network nsg rule create --name SSH --nsg-name YOUR-NETWORK-SECURITY-GROUP --priority 101 --destination-port-ranges 22 --access Allow --protocol TCP
     ```
 
     Per visualizzare l'elenco di regole in ingresso per la rete, eseguire questo comando:
 
     ```sh
-    az network nsg rule list --nsg-name Contoso-01-nsg -o table
+    az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
 
 1. Per modificare la password della macchina virtuale sostituendola con una password nota, eseguire il comando seguente. Usare il nome della macchina virtuale annotato in precedenza e una password di propria scelta:
 
     ```sh
-    az vm user update --name your-vm-name --username azureuser --password your-password
+    az vm user update --name YOUR-VM-NAME --username azureuser --password YOUR-PASSWORD
     ```
 1. Per trovare l'indirizzo IP pubblico della macchina virtuale, usare il comando seguente e prendere nota dell'indirizzo IP pubblico:
 
     ```sh
-    az vm list-ip-addresses --name your-vm-name
+    az vm list-ip-addresses --name YOUR-VM-NAME
     ```
 
 1. È ora possibile usare SSH per connettersi alla macchina virtuale. Il comando `ssh` è preinstallato in Cloud Shell. Usare l'indirizzo IP pubblico del passaggio precedente e, quando richiesto, la password configurata per la macchina virtuale:

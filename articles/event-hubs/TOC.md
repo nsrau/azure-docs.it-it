@@ -7,12 +7,10 @@
 ## [Creare un hub eventi](event-hubs-create.md)
 ## Inviare eventi
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Java](event-hubs-java-get-started-send.md)
 ### [C](event-hubs-c-getstarted-send.md)
 ## Ricevere eventi
 ### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
-### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 ### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## Acquisire eventi
@@ -29,7 +27,9 @@
 ### [Panoramica sul modello di autenticazione e di protezione](event-hubs-authentication-and-security-model-overview.md)
 ### [Disponibilità e coerenza](event-hubs-availability-and-consistency.md)
 ### [Ridimensionare automaticamente le unità elaborate](event-hubs-auto-inflate.md)
-## Sviluppare
+## Sviluppo
+### [Inviare eventi con .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+### [Ricevere eventi con .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [API disponibili](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
 #### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)

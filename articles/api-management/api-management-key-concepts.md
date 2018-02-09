@@ -14,11 +14,11 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 727be96828b9217f89214722f474abfc220b0b3c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 010c4619a2a4d8ae477ebd6e66747c55cde0fc08
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-is-api-management"></a>Informazioni su Gestione API
 
@@ -30,7 +30,7 @@ Guardare il video seguente per ottenere una panoramica di Gestione API di Azure 
 > 
 > 
 
-Questo argomento offre una panoramica degli scenari comuni correlati a Gestione API.  Viene fornita anche una breve panoramica dei componenti principali del sistema di Gestione API. Infine, ogni componente viene analizzato più in dettaglio.
+Questo articolo offre una panoramica degli scenari comuni correlati a Gestione API.  Viene fornita anche una breve panoramica dei componenti principali del sistema di Gestione API. Infine, ogni componente viene analizzato più in dettaglio.
 
 ## <a name="overview"></a>Panoramica
 
@@ -50,7 +50,7 @@ Il sistema è costituito dai componenti seguenti:
   * Trasforma le API in modo immediato senza modifiche del codice.
   * Memorizza nella cache le risposte di back-end durante l'installazione.
   * Registra i metadati della chiamata a scopi di analisi.
-* Il **portale di pubblicazione** è l'interfaccia amministrativa in cui si configura il programma API. Può essere usato per:
+* Il **portale di Azure** è l'interfaccia amministrativa in cui si configura il programma API. Può essere usato per:
   
   * Definire o importare lo schema API.
   * Creare pacchetti di API nei prodotti.
@@ -104,7 +104,7 @@ Quando gli sviluppatori effettuano la sottoscrizione a un prodotto, viene conces
 Per altre informazioni, vedere [Come creare o invitare sviluppatori][How to create or invite developers] e [Come associare gruppi a sviluppatori][How to associate groups with developers].
 
 ## <a name="policies"></a> Criteri
-I criteri sono una potente funzionalità di Gestione API che consentono all'entità di pubblicazione di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. Le istruzioni più comuni includono la conversione di formato da XML a JSON e la limitazione della frequenza delle chiamate per limitare il numero di chiamate in ingresso da uno sviluppatore. Sono anche disponibili numerosi altri criteri.
+I criteri sono una funzionalità avanzata di Gestione API e consentono al portale di Azure di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. Le istruzioni più comuni includono la conversione di formato da XML a JSON e la limitazione della frequenza delle chiamate per limitare il numero di chiamate in ingresso da uno sviluppatore. Sono anche disponibili numerosi altri criteri.
 
 Le espressioni di criteri possono essere usate come valori di attributo o valori di testo in uno qualsiasi dei criteri di Gestione API, salvo diversamente specificato dai criteri. Alcuni criteri, come [choose](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) e [set variable](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable), sono basati su espressioni di criteri. Per altre informazioni, vedere [Criteri avanzati](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) ed [Espressioni di criteri](https://msdn.microsoft.com/library/azure/dn910913.aspx).
 

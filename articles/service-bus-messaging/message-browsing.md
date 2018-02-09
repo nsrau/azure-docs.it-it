@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 01/25/2018
 ms.author: sethm
-ms.openlocfilehash: b0bc1ef7570ccac07975e2560a1d0501d3cde2b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 124c4592a41bf9f3e2a148ba5c3b928bb051d160
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="message-browsing"></a>Esplorazione dei messaggi
 
-L'esplorazione dei messaggi ("visualizzazione") consente a un client di enumerare tutti i messaggi presenti in una coda o in una sottoscrizione, in genere a scopo diagnostico o di debug.
+L'esplorazione dei messaggi ("visualizzazione") consente a un client del bus di servizio di enumerare tutti i messaggi presenti in una coda o in una sottoscrizione, in genere a scopo diagnostico o di debug.
 
-Le operazioni di visualizzazione restituiscono tutti i messaggi presenti nel log dei messaggi della coda o della sottoscrizione, non solo quelli disponibili per l'acquisizione immediata con *Receive()* o il ciclo *OnMessage()*. La proprietà *State* di ciascun messaggio indica se il messaggio è attivo (può essere ricevuto), rinviato (vedere Differimento [collegamento da definire]) o pianificato (vedere Messaggi pianificati [collegamento da definire]).
+Le operazioni di visualizzazione restituiscono tutti i messaggi presenti nel log dei messaggi della coda o della sottoscrizione, non solo quelli disponibili per l'acquisizione immediata con `Receive()` o con il ciclo `OnMessage()`. La proprietà `State` di ciascun messaggio indica se il messaggio è attivo (può essere ricevuto), [rinviato](message-deferral.md) o [pianificato](message-sequencing.md).
 
-I messaggi usati e scaduti vengono eliminati da un'esecuzione asincrona di "Garbage Collection" e non necessariamente nel momento in cui i messaggi scadono. Il metodo Peek potrebbe quindi restituire dei messaggi già scaduti che verranno rimossi o impostati come non recapitabili al prossimo richiamo di un'operazione di ricezione nella coda o nella sottoscrizione.
+I messaggi usati e scaduti vengono eliminati da un'esecuzione asincrona di "Garbage Collection" e non necessariamente nel momento in cui i messaggi scadono. Il metodo `Peek` potrebbe quindi restituire dei messaggi già scaduti che verranno rimossi o impostati come non recapitabili al prossimo richiamo di un'operazione di ricezione nella coda o nella sottoscrizione.
 
 Questo aspetto è particolarmente importante da considerare quando si tenta di recuperare i messaggi rinviati dalla coda. Un messaggio per cui l'istante [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) è passato non è più idoneo per il recupero normale con qualsiasi modalità, anche se viene restituito dal metodo Peek. La restituzione di questi messaggi è intenzionale dato che il metodo Peek è uno strumento di diagnostica che visualizza lo stato attuale del log.
 

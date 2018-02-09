@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 01/29/2018
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ec9ff4a866ef8736ed260b4d17aa997433c1ef8d
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 3ea8979f21fcc8a85e80db9b49377ba9a48836e2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-net"></a>Connettere il dispositivo all'hub IoT usando .NET
 
@@ -31,9 +31,9 @@ Al termine di questa esercitazione si avranno tre app di console .NET:
 * **ReadDeviceToCloudMessages**, che visualizza i dati di telemetria inviati dall'app per dispositivi.
 * **SimulatedDevice**, che si connette all'hub IoT con l'identità del dispositivo creata in precedenza e invia un messaggio di telemetria ogni secondo usando il protocollo MQTT.
 
-È possibile scaricare o clonare la soluzione di Visual Studio contenente le tre app da Github.
+Seguire la procedura in questa esercitazione per creare app di esempio completamente nuove. In alternativa, è possibile [scaricare](https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-client-app/archive/master.zip) o clonare una soluzione completa di Visual Studio da Github:
 
-```bash
+```cmd/sh
 git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-client-app.git
 ```
 
@@ -54,6 +54,7 @@ L'hub IoT è stato così creato e sono ora disponibili il nome host e la stringa
 
 <a id="D2C_csharp"></a>
 ## <a name="receive-device-to-cloud-messages"></a>Ricezione di messaggi da dispositivo a cloud
+
 In questa sezione si crea un'app console di .NET che legge i messaggi da dispositivo a cloud dall'hub IoT. Un hub IoT espone un endpoint compatibile con gli [hub eventi di Azure][lnk-event-hubs-overview] per abilitare la lettura dei messaggi dispositivo a cloud. Per semplicità, questa esercitazione crea un lettore di base non adatto per una distribuzione con velocità effettiva elevata. Per informazioni sull'elaborazione di messaggi dispositivo a cloud su vasta scala, vedere l'esercitazione [Elaborare messaggi dispositivo a cloud][lnk-process-d2c-tutorial]. Per altre informazioni su come elaborare i messaggi da Hub eventi, vedere l'esercitazione [Introduzione all'Hub eventi][lnk-eventhubs-tutorial]. Questa esercitazione è applicabile agli endpoint compatibili con Hub eventi di hub IoT.
 
 > [!NOTE]
@@ -63,18 +64,18 @@ In questa sezione si crea un'app console di .NET che legge i messaggi da disposi
 
     ![Nuovo progetto desktop di Windows classico in Visual C#][10a]
 
-2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ReadDeviceToCloudMessages** e quindi scegliere **Gestisci pacchetti NuGet**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **ReadDeviceToCloudMessages** e quindi scegliere **Gestisci pacchetti NuGet**.
 
-3. Nella finestra **Gestione pacchetti NuGet** cercare **WindowsAzure.ServiceBus**, fare clic su **Installa** e accettare le condizioni per l'uso. Questa procedura scarica, installa e aggiunge un riferimento al [bus di servizio di Microsoft Azure][lnk-servicebus-nuget] con le relative dipendenze. Questo pacchetto consente all'applicazione di connettersi all'endpoint compatibile con l'hub eventi dell'hub IoT.
+1. Nella finestra **Gestione pacchetti NuGet** cercare **WindowsAzure.ServiceBus**, fare clic su **Installa** e accettare le condizioni per l'uso. Questa procedura scarica, installa e aggiunge un riferimento al [bus di servizio di Microsoft Azure][lnk-servicebus-nuget] con le relative dipendenze. Questo pacchetto consente all'applicazione di connettersi all'endpoint compatibile con l'hub eventi dell'hub IoT.
 
-4. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
+1. Aggiungere le istruzione `using` seguenti all'inizio del file **Program.cs** :
 
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     using System.Threading;
     ```
 
-5. Aggiungere i campi seguenti alla classe **Program** . Sostituire il valore del segnaposto con la stringa di connessione dell'hub IoT creato nella sezione "Creare un hub IoT".
+1. Aggiungere i campi seguenti alla classe **Program** . Sostituire il valore del segnaposto con la stringa di connessione dell'hub IoT creato nella sezione "Creare un hub IoT".
 
     ```csharp
     static string connectionString = "{iothub connection string}";
@@ -82,7 +83,7 @@ In questa sezione si crea un'app console di .NET che legge i messaggi da disposi
     static EventHubClient eventHubClient;
     ```
 
-6. Aggiungere il metodo seguente alla classe **Program** :
+1. Aggiungere il metodo seguente alla classe **Program** :
 
     ```csharp
     private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct)
@@ -102,7 +103,7 @@ In questa sezione si crea un'app console di .NET che legge i messaggi da disposi
 
     Questo metodo usa un'istanza **EventHubReceiver** per ricevere i messaggi da tutte le partizioni di ricezione da dispositivo a cloud dell'hub IoT. Si noti come viene passato un parametro `DateTime.Now` quando si crea l'oggetto **EventHubReceiver** in modo che riceva solo i messaggi inviati dopo l'avvio. Questo filtro è utile in un ambiente di test perché consente di visualizzare il set di messaggi corrente. In un ambiente di produzione, il codice deve verificare di avere elaborato tutti i messaggi. Per altre informazioni, vedere l'esercitazione [Come elaborare messaggi da dispositivo a cloud dell'hub IoT][lnk-process-d2c-tutorial].
 
-7. Aggiungere infine le righe seguenti al metodo **Main** :
+1. Aggiungere infine le righe seguenti al metodo **Main** :
 
     ```csharp
     Console.WriteLine("Receive messages. Ctrl-C to exit.\n");
@@ -123,7 +124,7 @@ In questa sezione si crea un'app console di .NET che legge i messaggi da disposi
     foreach (string partition in d2cPartitions)
     {
         tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token));
-    }  
+    }
     Task.WaitAll(tasks.ToArray());
     ```
 
@@ -135,18 +136,18 @@ In questa sezione si crea un'app console di .NET che simula un dispositivo che i
 
     ![Nuovo progetto desktop di Windows classico in Visual C#][10b]
 
-2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **SimulatedDevice** e quindi scegliere **Gestisci pacchetti NuGet**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **SimulatedDevice** e quindi scegliere **Gestisci pacchetti NuGet**.
 
-3. Nella finestra **Gestione pacchetti NuGet** selezionare **Esplora**, cercare **Microsoft.Azure.Devices.Client**, selezionare **Installa** per installare il pacchetto **Microsoft.Azure.Devices.Client** e accettare le condizioni per l'uso. Questa procedura scarica, installa e aggiunge un riferimento al [pacchetto NuGet Azure IoT SDK per dispositivi][lnk-device-nuget] e alle relative dipendenze.
+1. Nella finestra **Gestione pacchetti NuGet** selezionare **Esplora**, cercare **Microsoft.Azure.Devices.Client**, selezionare **Installa** per installare il pacchetto **Microsoft.Azure.Devices.Client** e accettare le condizioni per l'uso. Questa procedura scarica, installa e aggiunge un riferimento al [pacchetto NuGet Azure IoT SDK per dispositivi][lnk-device-nuget] e alle relative dipendenze.
 
-4. Aggiungere l'istruzione `using` seguente all'inizio del file **Program.cs** :
+1. Aggiungere l'istruzione `using` seguente all'inizio del file **Program.cs** :
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
     using Newtonsoft.Json;
     ```
 
-5. Aggiungere i campi seguenti alla classe **Program** . Sostituire `{iot hub hostname}` con il nome host dell'hub IoT recuperato nella sezione relativa alla creazione di un hub IoT. Sostituire `{device key}` con la chiave di dispositivo recuperata nella sezione relativa alla creazione di un'identità del dispositivo.
+1. Aggiungere i campi seguenti alla classe **Program** . Sostituire `{iot hub hostname}` con il nome host dell'hub IoT recuperato nella sezione relativa alla creazione di un hub IoT. Sostituire `{device key}` con la chiave di dispositivo recuperata nella sezione relativa alla creazione di un'identità del dispositivo.
 
     ```csharp
     static DeviceClient deviceClient;
@@ -154,7 +155,7 @@ In questa sezione si crea un'app console di .NET che simula un dispositivo che i
     static string deviceKey = "{device key}";
     ```
 
-6. Aggiungere il metodo seguente alla classe **Program** :
+1. Aggiungere il metodo seguente alla classe **Program** :
 
     ```csharp
     private static async void SendDeviceToCloudMessagesAsync()
@@ -190,7 +191,7 @@ In questa sezione si crea un'app console di .NET che simula un dispositivo che i
 
     Questo metodo invia un nuovo messaggio da dispositivo a cloud ogni secondo. Il messaggio contiene un oggetto serializzato JSON con ID dispositivo e numeri generati casualmente per simulare un sensore temperatura e un sensore umidità.
 
-7. Aggiungere infine le righe seguenti al metodo **Main** :
+1. Aggiungere infine le righe seguenti al metodo **Main** :
 
     ```csharp
     Console.WriteLine("Simulated device\n");
@@ -215,11 +216,11 @@ A questo punto è possibile eseguire le app.
 
     ![Proprietà del progetto di avvio][41]
 
-2. Premere **F5** avviare entrambe le app in esecuzione. L'output della console dall'app **SimulatedDevice** visualizza i messaggi inviati dall'app per dispositivi all'hub IoT. L'output della console dall'app **ReadDeviceToCloudMessages** visualizza i messaggi ricevuti dall'hub IoT.
+1. Premere **F5** avviare entrambe le app in esecuzione. L'output della console dall'app **SimulatedDevice** visualizza i messaggi inviati dall'app per dispositivi all'hub IoT. L'output della console dall'app **ReadDeviceToCloudMessages** visualizza i messaggi ricevuti dall'hub IoT.
 
     ![Output della console dalle app][42]
 
-3. Il riquadro **Utilizzo** nel [portale di Azure][lnk-portal] mostra il numero di messaggi inviati all'hub IoT:
+1. Il riquadro **Utilizzo** nel [portale di Azure][lnk-portal] mostra il numero di messaggi inviati all'hub IoT:
 
     ![Riquadro Utilizzo del portale di Azure][43]
 
@@ -243,7 +244,6 @@ Per informazioni sull'estensione della soluzione IoT e l'elaborazione di messagg
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
 [10a]: ./media/iot-hub-csharp-csharp-getstarted/create-receive-csharp1.png
 [10b]: ./media/iot-hub-csharp-csharp-getstarted/create-device-csharp1.png
-
 
 <!-- Links -->
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md

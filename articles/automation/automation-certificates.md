@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: b6a5ff4fa3fd0084fd910968651c6ae0fefaf2cf
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
-ms.translationtype: MT
+ms.openlocfilehash: 55ad7d4b2643b448801f41aea95f3505d9fcd78f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Asset di tipo certificato in Automazione di Azure
 
@@ -28,9 +28,8 @@ I certificati possono essere archiviati in modo sicuro in Automazione di Azure, 
 > Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Questi asset vengono crittografati e archiviati in Automazione di Azure tramite una chiave univoca generata per ogni account di automazione. La chiave viene crittografata da un certificato master e archiviata in Automazione di Azure. Prima dell'archiviazione di un asset sicuro, la chiave per l'account di automazione viene decrittografata mediante il certificato master e viene quindi usata per crittografare l'asset.
 > 
 
-## <a name="windows-powershell-cmdlets"></a>Cmdlet di Windows PowerShell
-
-I cmdlet della tabella seguente vengono usati per creare e gestire asset di certificati di automazione con Windows PowerShell. Sono inclusi nel [modulo Azure PowerShell](../powershell-install-configure.md) , disponibile per l'uso nei runbook di Automazione e nelle configurazioni DSC.
+## <a name="azurerm-powershell-cmdlets"></a>Cmdlet di PowerShell AzureRM
+Per AzureRM, per creare e gestire asset di credenziali di automazione con Windows PowerShell, vengono usati i cmdlet della tabella seguente.  Sono inclusi nel [modulo AzureRM.Automation](/powershell/azure/overview), disponibile per l'uso nei runbook di Automazione e nelle configurazioni DSC.
 
 |Cmdlets|DESCRIZIONE|
 |:---|:---|
@@ -40,6 +39,15 @@ I cmdlet della tabella seguente vengono usati per creare e gestire asset di cert
 |[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate?view=azurermps-4.3.1)|Imposta le proprietà per un certificato esistente, inclusi il caricamento del file del certificato e l'impostazione della password per un file con estensione pfx.|
 |[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Carica un certificato di servizio per il servizio cloud specificato.|
 
+## <a name="activities"></a>attività
+Le attività incluse nella tabella seguente vengono usate per accedere ai certificati in un runbook e nelle configurazioni DSC.
+
+| attività | DESCRIZIONE |
+|:---|:---|
+|Get-AutomationCertificate|Ottiene un certificato da usare in un runbook o in una configurazione DSC. Restituisce un oggetto [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.x509certificate2.aspx).|
+
+> [!NOTE] 
+> È consigliabile evitare di usare le variabili nel parametro –Name di **Get-AutomationCertificate** in un runbook o in una configurazione DSC perché ciò può complicare l'individuazione delle dipendenze tra i runbook o la configurazione DSC e le variabili di automazione in fase di progettazione.
 
 ## <a name="python2-functions"></a>Funzioni Python2
 

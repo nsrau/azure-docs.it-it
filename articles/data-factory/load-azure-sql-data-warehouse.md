@@ -35,7 +35,7 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
 >
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Attività di copia nella versione 1](v1/data-factory-data-movement-activities.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * **Sottoscrizione di Azure**. Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * **Azure SQL Data Warehouse**. Questo data warehouse include i dati copiati dal database SQL. Se non si ha un'istanza di Azure SQL Data Warehouse, vedere la procedura per la creazione di un'istanza nell'articolo [Creare un SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
@@ -84,7 +84,7 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
     5. Fare clic su **Avanti**. 
 
         ![Specificare Azure SQL DB](./media/load-azure-sql-data-warehouse/specify-source-connection.png)
-5. Nella pagina **Select tables from which to copy the data or use a custom query** (Selezionare le tabelle da cui copiare i dati oppure usare una query personalizzata), filtrare le tabelle specificando **SalesLT** nella casella di input, selezionare la casella di controllo **(Seleziona tutto)** per selezionare tutte le tabelle e quindi fare clic su **Avanti**. 
+5. Nella pagina **Select tables from which to copy the data or use a custom query** (Selezionare le tabelle dalle quali copiare i dati oppure usare una query personalizzata), filtrare le tabelle specificando **SalesLT** nella casella di input, selezionare la casella di controllo **(Seleziona tutto)** per selezionare tutte le tabelle e quindi fare clic su **Avanti**. 
 
     ![Scegliere il file o la cartella di input](./media/load-azure-sql-data-warehouse/select-source-tables.png)
 

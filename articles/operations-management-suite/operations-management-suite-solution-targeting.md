@@ -1,6 +1,6 @@
 ---
-title: Targeting della solution in OMS | Documentazione Microsoft
-description: "Il targeting della soluzione è una funzione di Operations Management Suite (OMS) che consente di limitare le soluzioni di gestione a un set specifico di agenti.  Questo articolo descrive come creare una configurazione di ambito e applicarla a una soluzione."
+title: Targeting delle soluzioni di gestione in Azure | Microsoft Docs
+description: Il targeting delle soluzioni di gestione consente di limitare le soluzioni di gestione a un set specifico di agenti.  Questo articolo descrive come creare una configurazione di ambito e applicarla a una soluzione.
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: cb73a2d7ae57a5a11869259dbe913ae83ffb2b01
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e24a7540a67f842b8229223bf6602cd9e0ee5dbd
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-solution-targeting-in-operations-management-suite-oms-to-scope-management-solutions-to-specific-agents-preview"></a>Usare il targeting della soluzione in Operations Management Suite (OMS) per definire l'ambito delle soluzioni di gestione e assegnarlo a determinati agenti (anteprima)
-Quando si aggiunge una soluzione a OMS, viene automaticamente distribuita per impostazione predefinita a tutti gli agenti di Windows e Linux connessi all'area di lavoro di Log Analytics.  Si consiglia di gestire i costi e limitare la quantità di dati raccolti per una soluzione limitandola a un determinato set di agenti.  Questo articolo descrive come usare il **targeting della soluzione**, una funzionalità OMS che consente di applicare un ambito alle soluzioni.
+# <a name="targeting-management-solutions-in-azure-preview"></a>Targeting delle soluzioni di gestione in Azure (anteprima)
+Quando viene aggiunta una soluzione di gestione alla sottoscrizione, la soluzione viene automaticamente distribuita per impostazione predefinita a tutti gli agenti di Windows e Linux connessi all'area di lavoro di Log Analytics.  Si consiglia di gestire i costi e limitare la quantità di dati raccolti per una soluzione limitandola a un determinato set di agenti.  Questo articolo descrive come usare il **targeting della soluzione**, una funzionalità che consente di applicare un ambito alle soluzioni.
 
 ## <a name="how-to-target-a-solution"></a>Come definire un ambito per una soluzione
-Definire l'ambito di una soluzione è una procedura di tre passaggi, come descritto nelle sezioni seguenti.  Per completare questi passaggi è necessario sia il portale OMS che il portale di Azure.
+Definire l'ambito di una soluzione è una procedura di tre passaggi, come descritto nelle sezioni seguenti. 
 
 
 ### <a name="1-create-a-computer-group"></a>1. Creare un gruppo di computer

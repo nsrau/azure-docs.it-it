@@ -4,7 +4,7 @@ description: Informazioni su come usare Apache Maven per compilare un'applicazio
 services: hdinsight
 documentationcenter: 
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: 1d1ed180-e0f4-4d1c-b5ea-72e0eda643bc
 ms.service: hdinsight
@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/25/2018
 ms.author: larryfr
-ms.openlocfilehash: 07f6d49b6d5c0a5b77ef5a7a7395a37e79419955
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 7f5e4cd36b32ae86bc6f498c81d5a558ca6974d2
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Compilare applicazioni Java per Apache HBase
 
@@ -51,7 +51,7 @@ La procedura descritta in questo documento usa [Maven](http://maven.apache.org/)
 
 1. Dalla riga di comando nell'ambiente di sviluppo, passare alla directory in cui si vuole creare il progetto, ad esempio `cd code\hbase`.
 
-2. Usare il comando **mvn** , che viene installato con Maven, per generare lo scaffolding per il progetto.
+2. Usare il comando **mvn**, che viene installato con Maven, per generare lo scaffolding per il progetto.
 
     ```bash
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -642,7 +642,7 @@ La procedura seguente usa Azure PowerShell per caricare il file JAR nella risors
     Add-HDInsightFile -localPath target\hbaseapp-1.0-SNAPSHOT.jar -destinationPath example/jars/hbaseapp-1.0-SNAPSHOT.jar -clusterName hdinsightclustername
     ```
 
-    Sostituire `hdinsightclustername` con il nome del cluster. Il comando Carica il `hbaseapp-1.0-SNAPSHOT.jar` nel percorso `example/jars` nell'archivio primario per il cluster.
+    Sostituire `hdinsightclustername` con il nome del cluster. Quando richiesto, immettere il nome e la password dell'account di accesso al cluster (admin). Il comando Carica il `hbaseapp-1.0-SNAPSHOT.jar` nel percorso `example/jars` nell'archivio primario per il cluster.
 
 5. Per creare una tabella mediante `hbaseapp`, usare il comando seguente:
 
@@ -650,7 +650,7 @@ La procedura seguente usa Azure PowerShell per caricare il file JAR nella risors
     Start-HBaseExample -className com.microsoft.examples.CreateTable -clusterName hdinsightclustername
     ```
 
-    Sostituire `hdinsightclustername` con il nome del cluster.
+    Sostituire `hdinsightclustername` con il nome del cluster. Quando richiesto, immettere il nome e la password dell'account di accesso al cluster (admin).
 
     Questo comando consente di creare una nuova tabella denominata **people** in HBase nel cluster HDInsight. Non viene mostrato alcun output nella finestra della console.
 
@@ -660,7 +660,7 @@ La procedura seguente usa Azure PowerShell per caricare il file JAR nella risors
     Start-HBaseExample -className com.microsoft.examples.SearchByEmail -clusterName hdinsightclustername -emailRegex contoso.com
     ```
 
-    Sostituire `hdinsightclustername` con il nome del cluster.
+    Sostituire `hdinsightclustername` con il nome del cluster. Quando richiesto, immettere il nome e la password dell'account di accesso al cluster (admin).
 
     Questo comando usa la classe `SearchByEmail` per cercare le righe in cui la famiglia della colonna `contactinformation` e la colonna `email` contengono la stringa `contoso.com`. Dovrebbero essere visualizzati i risultati seguenti:
 

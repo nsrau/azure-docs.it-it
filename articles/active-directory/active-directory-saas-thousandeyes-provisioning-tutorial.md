@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Configurazione di ThousandEyes per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: Configurare ThousandEyes per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in ThousandEyes.
 services: active-directory
 documentationcenter: 
@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 2bff4dcb3e72113b2ae808959562e87823f8948b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 150e4e5023379deab457487df1fd2a53d43b1875
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-thousandeyes-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di ThousandEyes per il provisioning utenti automatico
+# <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Esercitazione: Configurare ThousandEyes per il provisioning utenti automatico
 
 
 Questa esercitazione descrive le procedure da eseguire in ThousandEyes e Azure AD per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a ThousandEyes. 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 

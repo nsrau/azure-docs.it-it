@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: 9a41c08868de853ba82874a63b80316ec834858a
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 200178b37fde89cbbdd81ef539451988aa26a472
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Creare un'app Web PHP in Azure
 
@@ -33,13 +33,13 @@ Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hos
 
 È possibile eseguire queste procedure con un computer Mac, Windows o Linux. Una volta installati i prerequisiti, sono necessari circa cinque minuti per completare la procedura.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa guida introduttiva:
 
 * <a href="https://php.net" target="_blank">Installare PHP</a>
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="download-the-sample-locally"></a>Scaricare l'esempio in locale
 
@@ -75,9 +75,9 @@ Nella finestra del terminale premere **CTRL+C** per uscire dal server Web.
 
 ## <a name="create-a-web-app"></a>Creare un'app Web
 
-In Cloud Shell creare un'app Web nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). 
+In Cloud Shell creare un'app Web nel piano di servizio app `myAppServicePlan` con il comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). 
 
-Nell'esempio seguente sostituire `<app_name>` con un nome app univoco globale. I caratteri validi sono `a-z`, `0-9` e `-`. Il runtime è impostato su `PHP|7.0`. Per visualizzare tutti i runtime supportati, eseguire [az webapp list-runtimes](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
+Nell'esempio seguente sostituire `<app_name>` con un nome app univoco globale. I caratteri validi sono `a-z`, `0-9` e `-`. Il runtime è impostato su `PHP|7.0`. Per visualizzare tutti i runtime supportati, eseguire [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes). 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0"

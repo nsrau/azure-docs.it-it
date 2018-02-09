@@ -3,8 +3,8 @@ title: Usare Azure Active Directory per autenticare le soluzioni del servizio Az
 description: Batch supporta Azure AD per l'autenticazione dal servizio Batch.
 services: batch
 documentationcenter: .net
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 editor: 
 tags: 
 ms.assetid: 
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2017
-ms.author: tamram
-ms.openlocfilehash: 0581fd4467272469501abf5324b87f84f5f32b9b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.author: danlep
+ms.openlocfilehash: 82cd6e04693d0cf38b7608fb380a723291c87ffe
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticare le soluzioni del servizio Batch con Active Directory
 
@@ -318,7 +318,7 @@ Per altre informazioni sull'entità servizio, vedere [Oggetti applicazione e ogg
 
 Per eseguire l'autenticazione di applicazioni di gestione batch con Azure AD, vedere [Authenticate Batch Management solutions with Active Directory](batch-aad-auth-management.md) (Autenticare le soluzioni di gestione batch con Active Directoy).
 
-Per un esempio di Python di come creare un client di Batch autenticato utilizzando un token di Azure AD, vedere il [autenticazione di Azure Active Directory](http://azure-sdk-for-python.readthedocs.io/en/latest/batch.html#azure-active-directory-authentication) esempio in Azure SDK per la documentazione di Python.
+Per un esempio Python di come creare un client Batch autenticato con un token di Azure AD, vedere l'esempio di [autenticazione di Azure Active Directory](http://azure-sdk-for-python.readthedocs.io/en/latest/batch.html#azure-active-directory-authentication) nella documentazione di Azure SDK per Python.
 
 [aad_about]: ../active-directory/active-directory-whatis.md "Informazioni su Azure Active Directory"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md

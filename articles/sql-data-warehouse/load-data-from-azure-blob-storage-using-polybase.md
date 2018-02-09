@@ -1,5 +1,5 @@
 ---
-title: Caricamento dei dati di Polybase - Dal BLOB del servizio di archiviazione di Azure a SQL Data Warehouse | Microsoft Docs
+title: 'Esercitazione: Caricamento dei dati di Polybase - Dal BLOB del servizio di archiviazione di Azure ad Azure SQL Data Warehouse | Microsoft Docs'
 description: Un'esercitazione che usa il portale di Azure e SQL Server Management Studio per caricare dati relativi ai taxi di New York dall'archivio BLOB di Azure a SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.workload: Active
 ms.date: 11/17/2017
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: 64315945d977ba912634eb626491a4513def1556
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a1f504f5bb728ce080e51678d44ed4eef4c3faa7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Usare PolyBase per caricare dati dall'archivio BLOB di Azure a SQL Data Warehouse
+# <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Esercitazione: Usare PolyBase per caricare dati dall'archivio BLOB di Azure ad Azure SQL Data Warehouse
 
 PolyBase è la tecnologia di caricamento standard per inserire dati in SQL Data Warehouse. In questa esercitazione si usa PolyBase per caricare dati dei taxi di New York dall'archivio BLOB di Azure a SQL Data Warehouse. Questa esercitazione usa il [portale di Azure](https://portal.azure.com) e [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) per: 
 

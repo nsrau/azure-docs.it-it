@@ -11,19 +11,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: c9e6aa03e3a1e0592223630c7b81634bcb09add6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 82681214e9e42819bfc698aa670755467d250fa7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Leggere messaggi da dispositivo a cloud dall'endpoint predefinito
 
 Per impostazione predefinita, i messaggi vengono instradati all'endpoint per servizi predefinito (**messaggi/eventi**) compatibile con [Hub eventi][lnk-event-hubs]. Questo endpoint è attualmente esposto solo con il protocollo [AMQP][lnk-amqp] sulla porta 5671. Un hub IoT espone le proprietà seguenti per consentire il controllo dell'endpoint di messaggistica predefinito **messages/events**, compatibile con Hub eventi.
 
-| Proprietà            | Descrizione |
+| Proprietà            | DESCRIZIONE |
 | ------------------- | ----------- |
 | **Numero di partizioni** | Impostare questa proprietà in fase di creazione per definire il numero di [partizioni][lnk-event-hub-partitions] per l'inserimento di eventi da dispositivo a cloud. |
 | **Tempo di conservazione**  | Questa proprietà specifica per quanti giorni i messaggi vengono conservati dall'hub IoT. Il valore predefinito è un giorno, ma può essere aumentato a sette giorni. |
@@ -32,7 +32,7 @@ L'hub IoT consente inoltre di gestire i gruppi di consumer nell'endpoint di rice
 
 Per impostazione predefinita, tutti i messaggi che non corrispondono in modo esplicito a una regola di routing vengono scritti nell'endpoint predefinito. Se si disattiva questa route di fallback, i messaggi che non corrispondono in modo esplicito a una regola di routing verranno eliminati.
 
-È possibile modificare il tempo di conservazione a livello di codice con le [API del provider di risorse dell'hub IoT di Azure][lnk-resource-provider-apis] oppure usando il [portale di Azure][lnk-management-portal].
+È possibile modificare il tempo di conservazione a livello di codice con le [API REST del provider di risorse dell'hub IoT][lnk-resource-provider-apis] oppure con il [portale di Azure][lnk-management-portal].
 
 L'hub IoT espone l'endpoint **messaggi/eventi** predefinito per permettere ai servizi back-end di leggere i messaggi da dispositivo a cloud ricevuti dall'hub. L'endpoint è compatibile con Hub eventi e consente quindi di usare uno dei meccanismi supportati da tale servizio per la lettura dei messaggi.
 
@@ -40,7 +40,7 @@ L'hub IoT espone l'endpoint **messaggi/eventi** predefinito per permettere ai se
 
 Quando si usa [Azure Service Bus SDK per .NET][lnk-servicebus-sdk] o [Hub eventi - Host processore di eventi][lnk-eventprocessorhost], è possibile usare qualsiasi stringa di connessione dell'hub IoT con le autorizzazioni corrette. Usare quindi **messaggi/eventi** come nome dell'hub eventi.
 
-Quando si usano gli SDK o le integrazioni del prodotto non compatibili con l'hub IoT, è necessario recuperare un endpoint e un nome compatibili con l'hub eventi dalle impostazioni dell'hub IoT:
+Quando si usano SDK o integrazioni del prodotto non compatibili con l'hub IoT, è necessario recuperare un endpoint e un nome compatibili con l'hub eventi:
 
 1. Accedere al [portale di Azure][lnk-management-portal] e passare all'hub IoT.
 1. Fare clic su **Endpoint**.

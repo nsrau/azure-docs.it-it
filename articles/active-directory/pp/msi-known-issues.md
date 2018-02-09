@@ -1,9 +1,9 @@
 ---
-title: "Domande frequenti e problemi noti con gestiti servizio identità (MSI) per Azure Active Directory"
+title: "Domande frequenti e problemi noti di Identità del servizio gestito (MSI) per Azure Active Directory"
 description: "Problemi noti di Identità del servizio gestito per Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: BryanLa
+author: daveba
 manager: mtillman
 editor: 
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7a71010567a76569da969db3d53f71535f96f2d0
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 8820691f5b7c6dbd2c15faede75de123f779b167
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Domande frequenti e problemi noti con gestiti servizio identità (MSI) per Azure Active Directory
+# <a name="faq-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Domande frequenti e problemi noti di Identità del servizio gestito (MSI) per Azure Active Directory
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
@@ -32,7 +32,7 @@ No. Non è previsto il supporto di Identità del servizio gestito in Servizi clo
 
 ### <a name="does-msi-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>L'Identità del servizio gestito funziona con Active Directory Authentication Library (ADAL) o con Microsoft Authentication Library (MSAL)?
 
-No, l'Identità del servizio gestito non è ancora integrata con ADAL o MSAL. Per informazioni dettagliate sull'acquisizione di un token MSI utilizzando l'endpoint REST MSI, vedere [illustrato come utilizzare un Azure VM gestiti servizio identità (MSI) per l'acquisizione del token](msi-how-to-use-vm-msi-token.md).
+No, l'Identità del servizio gestito non è ancora integrata con ADAL o MSAL. Per informazioni su come acquisire il token dell'identità del servizio gestito usando l'endpoint REST dell'identità del servizio gestito, vedere [Come usare un'identità del servizio gestito di una macchina virtuale di Azure per l'acquisizione di token](msi-how-to-use-vm-msi-token.md).
 
 ### <a name="what-are-the-supported-linux-distributions"></a>Quali sono le distribuzioni di Linux supportate?
 
@@ -57,6 +57,23 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 Dove: 
 - Il nome e il tipo di estensione per Windows è: ManagedIdentityExtensionForWindows
 - Il nome e il tipo di estensione per Linux è: ManagedIdentityExtensionForLinux
+
+### <a name="are-there-rbac-roles-for-user-assigned-identities"></a>Sono disponibili ruoli di controllo degli accessi in base al ruolo per le identità assegnate all'utente?
+Sì:
+1. Collaboratore MSI: 
+
+- Può: eseguire operazioni CRUD sulle identità assegnate all'utente. 
+- Non può: assegnare a una risorsa un'identità assegnata all'utente. (Ad esempio, assegnare l'identità a una macchina virtuale)
+
+2. Operatore MSI: 
+
+- Può: assegnare a una risorsa un'identità assegnata all'utente. (Ad esempio, assegnare l'identità a una macchina virtuale)
+- Non può: eseguire operazioni CRUD sulle identità assegnate all'utente.
+
+Nota: il ruolo di collaboratore predefinito può eseguire tutte le azioni descritte in precedenza: 
+- Eseguire operazioni CRUD sulle identità assegnate all'utente
+- Assegnare a una risorsa un'identità assegnata all'utente. (Ad esempio, assegnare l'identità a una macchina virtuale)
+
 
 ## <a name="known-issues"></a>Problemi noti
 
@@ -100,17 +117,16 @@ Dopo aver avviato la macchina virtuale, il tag può essere rimosso tramite il se
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## <a name="known-issues-with-user-assigned-msi-private-preview-feature"></a>Problemi noti con l'utente assegnato MSI *(funzionalità di anteprima privata)*
+## <a name="known-issues-with-user-assigned-msi-private-preview-feature"></a>Problemi noti con l'identità del servizio gestito assegnata dall'utente *(Funzionalità di anteprima privata)*
 
-- L'unico modo per rimuovere tutti gli utenti assegnati file MSI viene assegnato MSI abilitando il sistema. 
-- Provisioning dell'estensione di macchina virtuale a una macchina virtuale potrebbe non riuscire a causa di errori di ricerca DNS. Riavviare la macchina virtuale e riprovare. 
-- CLI di Azure: `Az resource show` e `Az resource list` avrà esito negativo in una macchina virtuale con un utente assegnato MSI. In alternativa, usare`az vm/vmss show`
-- Esercitazione per archiviazione di Azure è disponibile in Central US EUAP solo al momento. 
-- Quando un file MSI di utente assegnato viene concesso l'accesso a una risorsa, il pannello pagine IAM per la risorsa viene "Impossibile accedere ai dati". In alternativa, utilizzare l'interfaccia CLI per Visualizza/Modifica assegnazioni di ruolo per tale risorsa.
-- Creazione di un utente assegnato MSI con un carattere di sottolineatura nel nome, non è supportata.
-- Quando l'aggiunta di un secondo utente assegnata l'identità, clientID potrebbe non essere disponibili per le richieste di token per tale. Come prevenzione, riavviare l'estensione. MSI VM due bash comandi seguenti:
+- L'unico modo per rimuovere tutte le identità del servizio gestito assegnate dall'utente è abilitare l'identità del servizio gestito assegnata dal sistema. 
+- Il provisioning dell'estensione VM in una VM potrebbe non riuscire a causa degli errori di ricerca DNS. Riavviare la macchina virtuale e riprovare. 
+- L'aggiunta di un'identità del servizio gestito non esistente potrebbe causare errori nella VM. *Nota: la correzione per impedire il completamento di Assign-Identity se l'identità del servizio gestito non esiste, verrà distribuita a breve*
+- Attualmente l'esercitazione per Archiviazione di Azure è disponibile solo negli Stati Uniti centrali EUAP. 
+- Non è supportata la creazione di un'identità del servizio gestito assegnata dall'utente con caratteri speciali (ad esempio, il carattere di sottolineatura).
+- Quando si aggiunge un'altra identità assegnata dall'utente, clientID potrebbe non riuscire a richiederne i token. Come piano di mitigazione, riavviare l'estensione della macchina virtuale per l'identità del servizio gestito con i due comandi bash seguenti:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- Il VMAgent in Windows non supporta attualmente l'utente assegnato MSI. 
-- Assegnazione di un ruolo a un file MSI per accedere a una risorsa attualmente non richiedono autorizzazioni speciali. 
-- Quando una macchina virtuale dispone di un utente assegnato MSI, ma nessun sistema assegnato MSI, il portale dell'interfaccia utente risulterà MSI abilitata. Per abilitare MSI assegnato dal sistema, utilizzare un modello di gestione risorse di Azure, un'interfaccia CLI di Azure o un SDK.
+- VMAgent su Windows attualmente non supporta l'identità del servizio gestito assegnata dall'utente. 
+- L'assegnazione di un ruolo a un'identità del servizio gestito attualmente non richiede autorizzazioni speciali. 
+- Quando una macchina virtuale ha un'identità del servizio gestito assegnata dall'utente ma non un'identità del servizio gestito assegnata dal sistema, l'interfaccia utente del portale visualizzerà l'identità del servizio gestito come abilitata. Per abilitare l'identità del servizio gestito assegnata dal sistema, usare un modello di Azure Resource Manager, un'interfaccia della riga di comando di Azure o un SDK.

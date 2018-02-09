@@ -15,11 +15,11 @@ ms.date: 10/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
-ms.openlocfilehash: 0d293833b97b2a65d5377eef668696cb73ee3bd5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 1532054a9463d710685d3f865d2e26ee7ff5014f
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Introduzione all'app Microsoft Authenticator
 L'app Microsoft Authenticator offre un livello di sicurezza aggiuntivo in un account aziendale o dell'istituto di istruzione, ad esempio bsimon@contoso.com, o un account Microsoft, ad esempio bsimon@outlook.com.
@@ -42,7 +42,7 @@ Per un account personale, è necessario configurare manualmente la verifica in d
 È possibile usare l'app Microsoft Authenticator anche con account non Microsoft. La funzionalità potrebbe avere un nome diverso, ma dovrebbe essere facile da individuare tra le impostazioni di sicurezza o di accesso.
 
 ## <a name="install-the-app"></a>Installare l'app
-L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+L'app Microsoft Authenticator è disponibile per [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="add-accounts-to-the-app"></a>Aggiungere account all'app
 Per ogni account che si vuole aggiungere all'app Microsoft Authenticator, seguire una delle procedure seguenti:

@@ -1,5 +1,5 @@
 ---
-title: Informazioni sui metodi diretti dell'hub IoT di Azure | Microsoft Docs
+title: Informazioni sui metodi diretti dell'hub IoT di Azure | Documentazione Microsoft
 description: 'Guida per gli sviluppatori: usare metodi diretti per richiamare il codice nei dispositivi da un''app di servizio.'
 services: iot-hub
 documentationcenter: .net
@@ -12,22 +12,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
+ms.date: 01/29/2018
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 243845139c7ae0389333d7490098ef73f95dceac
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 003b3f6ef8a6fbc1c6fcdfc58f7d35bf6c42c9ee
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Comprendere e richiamare metodi diretti dall'hub IoT
-L'hub IoT offre la possibilità di richiamare metodi diretti nei dispositivi dal cloud. I metodi diretti rappresentano un'interazione di tipo richiesta-risposta con un dispositivo simile a una chiamata HTTP, dato che dopo il timeout specificato dall'utente l'esito positivo o negativo viene comunicato immediatamente. Questo approccio risulta utile in scenari in cui l'azione immediata da intraprendere varia a seconda che il dispositivo sia riuscito o meno a rispondere. Un esempio è rappresentato dall'invio di un SMS di riattivazione a un dispositivo offline, in cui l'invio di un SMS ha un costo maggiore rispetto a una chiamata a un metodo.
+L'hub IoT offre la possibilità di richiamare metodi diretti nei dispositivi dal cloud. I metodi diretti rappresentano un'interazione di tipo richiesta-risposta con un dispositivo simile a una chiamata HTTP, dato che dopo il timeout specificato dall'utente l'esito positivo o negativo viene comunicato immediatamente. Questo approccio è utile per gli scenari in cui la linea di condotta immediata è diversa a seconda che il dispositivo sia in grado di rispondere o meno, ad esempio nel caso dell'invio di un SMS di riattivazione a un dispositivo se questo è offline, dato che un SMS è più costoso rispetto alla chiamata a un metodo.
 Ogni metodo del dispositivo è destinato a un unico dispositivo. I [processi][lnk-devguide-jobs] permettono di richiamare i metodi diretti in più dispositivi e di pianificare la chiamata al metodo per i dispositivi disconnessi.
 
 Chiunque abbia autorizzazioni di **connessione servizio** per l'hub IoT può richiamare un metodo in un dispositivo.
 
-I metodi diretti si basano su un modello di tipo richiesta- risposta e sono destinati a comunicazioni che necessitano di una conferma immediata del risultato, in genere per il controllo interattivo del dispositivo, ad esempio l'accensione di un ventilatore.
+I metodi diretti si basano su un modello di tipo richiesta-risposta e sono destinati a comunicazioni che necessitano di una conferma immediata del risultato, ad esempio il controllo interattivo del dispositivo, come l'accensione di un ventilatore.
 
 Vedere [Cloud-to-device communication guidance][lnk-c2d-guidance] (Indicazioni sulla comunicazione da cloud a dispositivo) in caso di dubbi tra l'uso delle proprietà specifiche, dei metodi diretti o dei messaggi da cloud a dispositivo.
 
@@ -54,16 +54,16 @@ Le chiamate a metodi diretti in un dispositivo sono chiamate HTTPS che includono
 * *Intestazioni* contenenti l'autorizzazione, l'ID richiesta, il tipo di contenuto e la codifica del contenuto
 * *Corpo* JSON trasparente nel formato seguente:
 
-   ```
-   {
-       "methodName": "reboot",
-       "responseTimeoutInSeconds": 200,
-       "payload": {
-           "input1": "someInput",
-           "input2": "anotherInput"
-       }
-   }
-   ```
+    ```json
+    {
+        "methodName": "reboot",
+        "responseTimeoutInSeconds": 200,
+        "payload": {
+            "input1": "someInput",
+            "input2": "anotherInput"
+        }
+    }
+    ```
 
 Il timeout è espresso in secondi. Se il timeout non è impostato, il valore predefinito è 30 secondi.
 
@@ -74,13 +74,14 @@ L'app back-end riceve una risposta che include:
 * *Intestazioni* contenenti l'ETag, l'ID richiesta, il tipo di contenuto e la codifica del contenuto
 * *Corpo* JSON nel formato seguente:
 
-   ```   {
-       "status" : 201,
-       "payload" : {...}
-   }
-   ```
+    ```json
+    {
+        "status" : 201,
+        "payload" : {...}
+    }
+    ```
 
-   Sia `status` che `body` vengono forniti dal dispositivo e usati per rispondere con la descrizione e/o il codice di stato del dispositivo.
+    Sia `status` che `body` vengono forniti dal dispositivo e usati per rispondere con la descrizione e/o il codice di stato del dispositivo.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Gestire un metodo diretto in un dispositivo
 ### <a name="mqtt"></a>MQTT
@@ -89,7 +90,7 @@ I dispositivi ricevono richieste di metodi diretti nell'argomento MQTT: `$iothub
 
 Il corpo ricevuto dal dispositivo è nel formato seguente:
 
-```
+```json
 {
     "input1": "someInput",
     "input2": "anotherInput"
@@ -127,7 +128,7 @@ La risposta del metodo viene restituita sul collegamento di invio e contiene gli
 Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per gli sviluppatori dell'hub IoT:
 
 * [Endpoint dell'hub IoT][lnk-endpoints] illustra i diversi endpoint esposti da ogni hub IoT per operazioni della fase di esecuzione e di gestione.
-* [Quote e limitazioni][lnk-quotas] descrive le quote applicabili al servizio Hub IoT e il comportamento di limitazione previsto quando si usa il servizio.
+* [Limitazione e quote][lnk-quotas] descrive le quote applicabili al comportamento di limitazione previsto quando si usa l'hub IoT.
 * [Azure IoT SDK per dispositivi e servizi][lnk-sdks] elenca gli SDK nei diversi linguaggi che è possibile usare quando si sviluppano app per dispositivi e servizi che interagiscono con l'hub IoT.
 * [Il linguaggio di query dell'hub IoT per dispositivi gemelli, processi e routing messaggi][lnk-query] descrive il linguaggio di query dell'hub IoT che è possibile usare per recuperare informazioni dall'hub IoT sui processi e i dispositivi gemelli.
 * [Supporto di MQTT nell'hub IoT][lnk-devguide-mqtt] offre altre informazioni sul supporto dell'hub IoT per il protocollo MQTT.

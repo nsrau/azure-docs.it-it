@@ -1,6 +1,6 @@
 ---
-title: Caricare un certificato dell'API Gestione di Azure | Documentazione Microsoft
-description: Informazioni su come caricare il certificato di gestione API per il portale di Azure.
+title: Caricare un certificato di gestione dei servizi di Azure | Microsoft Docs
+description: Informazioni su come caricare il certificato di gestione dei servizi per il portale di Azure.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: ad55d71a56657e9cf33c1d33e09c58295206a2ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: e74a3e918a7c7426c743447e23ede9938ce3f63e
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="upload-an-azure-management-api-management-certificate"></a>Caricare un certificato di gestione dell'API di gestione di Azure
+# <a name="upload-an-azure-service-management-certificate"></a>Caricare un certificato di gestione dei servizi di Azure
 I certificati di gestione consentono di eseguire l'autenticazione con il modello di distribuzione classico fornito da Azure. Molti programmi e strumenti (ad esempio Visual Studio o Azure SDK) usano questi certificati per automatizzare la configurazione e la distribuzione di vari servizi di Azure. 
 
 > [!WARNING]

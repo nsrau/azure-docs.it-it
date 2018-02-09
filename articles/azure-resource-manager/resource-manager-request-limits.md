@@ -12,29 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 01/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d7eeaf460674c3ab98425a5412ffa465b9ffd1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc109cdaeade900e239624f408cea2a1f448ae5a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitazione delle richieste di Resource Manager
-Per ogni sottoscrizione e tenant, Resource Manager definisce un limite di 15.000 richieste di lettura e 1.200 richieste di scrittura al giorno. Questi limiti si applicano a ogni istanza di Azure Resource Manager; sono presenti più istanze in ogni area di Azure e Azure Resource Manager viene distribuito a tutte le aree di Azure.  Pertanto, in pratica, i limiti sono effettivamente molto superiori a quelli elencati in precedenza, poiché le richieste utente sono in genere gestite da molte istanze diverse.
+Per ogni sottoscrizione e tenant, Resource Manager definisce un limite di 15.000 richieste di lettura e 1.200 richieste di scrittura al giorno. Questi limiti si applicano a ogni istanza di Azure Resource Manager. Sono presenti più istanze in ogni area di Azure e Azure Resource Manager viene distribuito a tutte le aree di Azure,  quindi nella pratica i limiti sono effettivamente molto superiori a questi, perché le richieste utente vengono in genere gestite da molte istanze diverse.
 
-Se l'applicazione o script raggiunge questi limiti, è necessario restringere le richieste. In questo argomento viene illustrato come determinare il numero di richieste rimanenti prima di raggiungere il limite e come rispondere in caso di raggiungimento.
+Se l'applicazione o script raggiunge questi limiti, è necessario restringere le richieste. In questo articolo viene illustrato come determinare il numero di richieste rimanenti prima di raggiungere il limite e come rispondere in caso di raggiungimento.
 
 Quando si raggiunge il limite, viene visualizzato il codice di stato HTTP **429 Too many requests** (429 Troppe richieste).
 
 Il numero di richieste ha come ambito la sottoscrizione o il tenant. Se si dispone di più applicazioni simultanee che effettuano richieste nella sottoscrizione, le richieste da tali applicazioni vengono aggiunte insieme in modo da determinare il numero di richieste rimanenti.
 
-Per le richieste nell'ambito della sottoscrizione occorre la trasmissione dell'ID sottoscrizione, ad esempio il recupero del gruppo di risorse nella sottoscrizione. Le richieste nell'ambito del tenant non includono l'ID sottoscrizione, ad esempio il recupero delle posizioni di Azure valide.
+Le richieste nell'ambito della sottoscrizione sono quelle che comportano il passaggio dell'ID sottoscrizione, ad esempio il recupero dei gruppi di risorse nella sottoscrizione. Le richieste nell'ambito del tenant non includono l'ID sottoscrizione, ad esempio il recupero delle posizioni di Azure valide.
 
 ## <a name="remaining-requests"></a>Richieste rimanenti
 È possibile determinare il numero di richieste rimanenti esaminando le intestazioni di risposta. Ogni richiesta include i valori per il numero di richieste di scrittura e lettura rimanenti. Nella tabella seguente vengono descritte le intestazioni di risposta che è possibile esaminare per tali valori:
 
-| Intestazione risposta | Descrizione |
+| Intestazione risposta | DESCRIZIONE |
 | --- | --- |
 | x-ms-ratelimit-remaining-subscription-reads |Richieste di lettura rimanenti nell'ambito della sottoscrizione |
 | x-ms-ratelimit-remaining-subscription-writes |Richieste di scrittura rimanenti nell'ambito della sottoscrizione |
@@ -85,7 +85,7 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 In **Interfaccia della riga di comando di Azure** il valore di intestazione viene recuperato tramite l'opzione più dettagliata.
 
 ```azurecli
-azure group list -vv --json
+az group list --verbose --debug
 ```
 
 Tale opzione restituisce numerosi valori, inclusi l'oggetto seguente:

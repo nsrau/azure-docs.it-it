@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/26/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
-ms.translationtype: MT
+ms.openlocfilehash: f9d79746dcf307cf434ee78d9b1514f5886d9fb6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Configurare la scadenza per i gruppi di Office 365 (anteprima)
 
@@ -30,15 +30,25 @@ ms.lasthandoff: 01/05/2018
 -   I gruppi di Office 365 eliminati possono essere ripristinati entro 30 giorni dai proprietari o dall'amministratore.
 
 > [!NOTE]
-> L'impostazione di scadenza per i gruppi di Office 365 richiede una licenza di Azure AD Premium per tutti i membri dei gruppi a cui vengono applicate le impostazioni di scadenza.
+> L'impostazione della scadenza per i gruppi di Office 365 richiede una licenza Azure AD Premium per tutti i membri dei gruppi a cui sono applicate le impostazioni relative alla scadenza.
 
 Per informazioni su come scaricare e installare i cmdlet di Azure AD PowerShell, vedere [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) (Azure Active Directory PowerShell per Graph: versione di anteprima pubblica 2.0.0.137).
+
+## <a name="roles-and-permissions"></a>Ruoli e autorizzazioni
+Questi ruoli possono configurare e usare la scadenza per gruppi di Office 365 in Azure AD.
+
+Ruolo | Autorizzazioni
+-------- | --------
+Amministratore globale<br>Amministratore account utente | Questo ruolo consente di creare, leggere, aggiornare o eliminare le impostazioni dei criteri di scadenza per i gruppi di Office 365
+Utente | Questo ruolo consente di rinnovare un gruppo di Office 365 di cui è proprietario<br>Questo ruolo consente di ripristinare un gruppo di Office 365 di cui è proprietario
+
+Per altre informazioni sulle autorizzazioni per ripristinare un gruppo eliminato, vedere [Ripristinare un gruppo di Office 365 eliminato](active-directory-groups-restore-azure-portal.md).
 
 ## <a name="set-group-expiration"></a>Impostare la scadenza dei gruppi
 
 1. Aprire l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con un account di amministratore globale per il tenant di Azure AD.
 
-2. Aprire Azure AD e selezionare **Utenti e gruppi**.
+2. Selezionare **Utenti e gruppi**.
 
 3. Selezionare **Impostazioni di gruppo** e quindi **Scadenza** per aprire le impostazioni di scadenza.
   
@@ -48,7 +58,7 @@ Per informazioni su come scaricare e installare i cmdlet di Azure AD PowerShell,
 
   * Impostare la durata del gruppo in giorni. È possibile selezionare uno dei valori predefiniti oppure un valore personalizzato (che deve essere di 31 giorni o più). 
   * Specificare un indirizzo e-mail per l'invio delle notifiche di rinnovo e di scadenza quando un gruppo non ha un proprietario. 
-  * Selezionare i gruppi di Office 365 che scadono. È possibile abilitare la scadenza per **tutti** i gruppi di Office 365, selezionare alcuni tra i gruppi di Office 365 oppure selezionare **Nessuno** per disabilitare la scadenza per tutti i gruppi.
+  * Selezionare i gruppi di Office 365 che scadono. È possibile abilitare la scadenza per **Tutti** i gruppi di Office 365, scegliere di abilitare solo i gruppi di Office 365 **Selezionati** oppure selezionare **Nessuno** per disabilitare la scadenza per tutti i gruppi.
   * Al termine salvare le impostazioni facendo clic su **Salva**.
 
 

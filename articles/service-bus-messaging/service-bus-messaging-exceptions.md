@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 01/31/2018
 ms.author: sethm
-ms.openlocfilehash: f927aa7a33a650354abd090b6280795875ab693f
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: efcfad2834c2d6775c6693f5c705a0531b2650d6
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="service-bus-messaging-exceptions"></a>Eccezioni di messaggistica del bus di servizio
 Questo articolo elenca alcune delle eccezioni generate dall'API di messaggistica del bus di servizio di Microsoft Azure. Il documento è soggetto a modifica ed è quindi opportuno controllare periodicamente la presenza di aggiornamenti.
 
 ## <a name="exception-categories"></a>Categorie di eccezioni
-Le API di messaggistica generano eccezioni che possono essere raggruppate nelle categorie seguenti e a ognuna delle quali è associata un'azione che è possibile eseguire per tentare di risolverla. Tenere presente che il significato e le cause di un'eccezione possono variare a seconda del tipo di entità di messaggistica, ovvero code/argomenti o Hub eventi:
+Le API di messaggistica generano eccezioni che possono essere raggruppate nelle categorie seguenti e a ognuna delle quali è associata un'azione che è possibile eseguire per tentare di risolverla. Tenere presente che il significato e le cause di un'eccezione possono variare a seconda del tipo di entità di messaggistica:
 
 1. Errore nella codifica dell'utente ([System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx)). Azione generale: provare a correggere il codice prima di continuare.
 2. Errore di configurazione/installazione ([Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception), [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). Azione generale: controllare la configurazione e modificarla, se necessario.
@@ -66,7 +66,7 @@ La tabella seguente elenca i tipi di eccezioni di messaggistica, ne riporta le p
 ### <a name="queues-and-topics"></a>Code e argomenti
 Per le code e gli argomenti, tale quota è spesso rappresentata dalle dimensioni della coda. La proprietà del messaggio di errore contiene altri dettagli, come nell'esempio seguente:
 
-```
+```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException
 Message: The maximum entity size has been reached or exceeded for Topic: ‘xxx-xxx-xxx’. 
     Size of entity in bytes:1073742326, Max entity size in bytes:
@@ -77,9 +77,9 @@ Il messaggio indica che l'argomento ha superato il limite di dimensioni, in ques
 
 ### <a name="namespaces"></a>Spazi dei nomi
 
-Per gli spazi dei nomi, [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) può indicare che un'applicazione ha superato il numero massimo di connessioni a uno spazio dei nomi. Ad esempio:
+Per gli spazi dei nomi, [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) può indicare che un'applicazione ha superato il numero massimo di connessioni a uno spazio dei nomi. Ad esempio: 
 
-```
+```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
 <tracking-id-guid>_G12 ---> 
 System.ServiceModel.FaultException`1[System.ServiceModel.ExceptionDetail]: 
@@ -93,9 +93,6 @@ Per questo errore, esistono due cause comuni: la coda dei messaggi non recapitab
    
     Per risolvere il problema, leggere e completare i messaggi nella coda dei messaggi non recapitabili, come si farebbe per qualsiasi altra coda. È possibile usare il metodo [FormatDeadLetterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formatdeadletterpath) per la formattazione del percorso della coda dei messaggi non recapitabili.
 2. **Interruzione da parte del destinatario** : un destinatario ha interrotto la ricezione di messaggi da una coda o da una sottoscrizione. Per identificare questo problema, è necessario osservare la proprietà [QueueDescription.MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) , che mostra la suddivisione completa dei messaggi. Se il valore della proprietà [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) è elevato o in crescita, i messaggi non vengono più letti alla stessa velocità con cui vengono scritti.
-
-### <a name="event-hubs"></a>Hub eventi
-Hub eventi ha un limite di 20 gruppi di utenti per Hub eventi. Quando si tenta di creare più gruppi, si riceve un'eccezione di tipo [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
 
 ## <a name="timeoutexception"></a>TimeoutException
 Un'eccezione di tipo [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) indica che un'operazione avviata dall'utente richiede più tempo rispetto al timeout dell'operazione. 

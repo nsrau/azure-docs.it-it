@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/07/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 80959ee589a1cfcf317a98c3bafd7f92c796fc2d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 9fdc8816d8db88d4f1fd7b6ce722b7d2763eeaeb
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Schema di eventi di Griglia di eventi di Azure per gli hub eventi
 
@@ -44,7 +44,9 @@ Questo evento di esempio mostra lo schema di un evento di hub eventi generato qu
             "lastSequenceNumber": 3899,
             "firstEnqueueTime": "2017-08-31T19:12:14.674Z",
             "lastEnqueueTime": "2017-08-31T19:12:44.309Z"
-        }
+        },
+        "dataVersion": "",
+        "metadataVersion": "1"
     }
 ]
 ```
@@ -53,28 +55,30 @@ Questo evento di esempio mostra lo schema di un evento di hub eventi generato qu
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | type | DESCRIZIONE |
 | -------- | ---- | ----------- |
-| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. |
-| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| id | string | Identificatore univoco dell'evento. |
+| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
+| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| id | stringa | Identificatore univoco dell'evento. |
 | data | object | Dati dell'evento dell'hub eventi. |
+| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | type | DESCRIZIONE |
 | -------- | ---- | ----------- |
-| fileUrl | string | Percorso del file di acquisizione. |
-| fileType | string | Tipo di file del file di acquisizione. |
-| partitionId | string | ID della partizione. |
+| fileUrl | stringa | Percorso del file di acquisizione. |
+| fileType | stringa | Tipo di file del file di acquisizione. |
+| partitionId | stringa | ID della partizione. |
 | sizeInBytes | numero intero | Dimensioni del file. |
 | eventCount | numero intero | Numero di eventi nel file. |
 | firstSequenceNumber | numero intero | Numero di sequenza minore nella coda. |
 | lastSequenceNumber | numero intero | Ultimo numero di sequenza nella coda. |
-| firstEnqueueTime | string | Primo orario nella coda. |
-| lastEnqueueTime | string | Ultimo orario nella coda. |
+| firstEnqueueTime | stringa | Primo orario nella coda. |
+| lastEnqueueTime | stringa | Ultimo orario nella coda. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

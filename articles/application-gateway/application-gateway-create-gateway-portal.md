@@ -1,129 +1,137 @@
 ---
 title: Creare un gateway applicazione - Portale di Azure| Microsoft Docs
-description: Informazioni su come creare un gateway applicazione usando il portale
+description: Informazioni su come creare un gateway applicazione usando il portale di Azure.
 services: application-gateway
-documentationcenter: na
 author: davidmu1
 manager: timlt
 editor: 
 tags: azure-resource-manager
-ms.assetid: 54dffe95-d802-4f86-9e2e-293f49bd1e06
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: 17d09ce98c40717d1db0927f791a7c97ea7835e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df9235bc7ff61943de52a0bcc4064bf9fab6636a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-an-application-gateway-with-the-portal"></a>Creare un gateway applicazione con il portale
+# <a name="create-an-application-gateway-using-the-azure-portal"></a>Creare un gateway applicazione con il portale di Azure
 
-Il [gateway applicazione](application-gateway-introduction.md) è un'appliance virtuale dedicata che offre un servizio di controller per la distribuzione di applicazioni (ADC, Application Delivery Controller) e varie funzionalità di bilanciamento del carico di livello 7 per l'applicazione. Questo articolo illustra la procedura necessaria per creare un gateway applicazione usando il portale di Azure e aggiungendo un server esistente come membro di back-end.
+È possibile usare il portale di Azure per creare o gestire gateway applicazione. In questa guida introduttiva viene illustrato come creare risorse di rete, server back-end e un gateway applicazione.
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo [http://portal.azure.com](http://portal.azure.com)
 
-## <a name="create-application-gateway"></a>Creare il gateway applicazione
+## <a name="create-an-application-gateway"></a>Creare un gateway applicazione
 
-Per creare un gateway applicazione, seguire questa procedura. Il gateway applicazione richiede una propria subnet. Quando si crea una rete virtuale, assicurarsi di lasciare uno spazio indirizzi sufficiente per più subnet. Dopo aver distribuito il gateway applicazione in una subnet, è possibile aggiungere ad essa solo altri gateway applicazione.
+Per le comunicazioni tra le risorse create è necessaria una rete virtuale. In questo esempio vengono create due subnet: una per il gateway applicazione e l'altra per i server back-end. È possibile creare una rete virtuale durante la creazione del gateway applicazione.
 
-1. Nel riquadro Preferiti del portale fare clic su **Nuovo**
-1. Nel pannello **Nuovo** fare clic su **Rete**. Nel pannello **Rete** fare clic su **Gateway applicazione**, come mostrato nell'immagine seguente:
+1. Fare clic su **Nuovo** nell'angolo in alto a sinistra nel portale di Azure.
+2. Selezionare **Rete** e quindi **Gateway applicazione** nell'elenco In primo piano.
+3. Immettere i valori seguenti per il gateway applicazione:
 
-    ![Creazione di un gateway applicazione][1]
+    - *myAppGateway* come nome del gateway applicazione.
+    - *myResourceGroupAG* come nuovo gruppo di risorse.
 
-1. Nel pannello **Informazioni di base** visualizzato immettere i valori seguenti e quindi fare clic su **OK**:
+    ![Creare il nuovo gateway applicazione](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
 
-   | **Impostazione** | **Valore** | **Dettagli**|
-   |---|---|---|
-   |**Nome**|AdatumAppGateway|Il nome del gateway applicazione|
-   |**Livello**|Standard|I valori disponibili sono Standard e WAF. Per altre informazioni su WAF, visitare [firewall applicazione Web](application-gateway-web-application-firewall-overview.md).|
-   |**Dimensioni SKU**|Media|Opzioni disponibili quando si sceglie il livello Standard: Small, Medium e Large. Quando si sceglie il livello WAF, le opzioni sono solo Medium e Large.|
-   |**Numero di istanze**|2|Numero di istanze del gateway applicazione per la disponibilità elevata. I numeri di istanze di 1 devono essere usati solo a scopo di test.|
-   |**Sottoscrizione**|[Sottoscrizione]|Selezionare una sottoscrizione in cui creare il gateway applicazione.|
-   |**Gruppo di risorse**|**Crea nuovo:** AdatumAppGatewayRG|Creare un gruppo di risorse. Il nome del gruppo di risorse deve essere univoco all'interno della sottoscrizione selezionata. Per altre informazioni sui gruppi di risorse, vedere l'articolo [Panoramica di Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups).|
-   |**Posizione**|Stati Uniti occidentali||
+4. Accettare i valori predefiniti per le altre impostazioni e quindi fare clic su **OK**.
+5. Fare clic su **Scegliere una rete virtuale**, **Crea nuova** e quindi immettere i valori seguenti per la rete virtuale:
 
-1. Nel pannello **Impostazioni** che viene visualizzato in **Rete virtuale**, fare clic su **Scegliere una rete virtuale**. Viene visualizzato il pannello **Scegli rete virtuale**.  Fare clic su **Crea nuovo** per aprire il pannello **Crea rete virtuale**.
+    - *myVNet* come nome della rete virtuale.
+    - *10.0.0.0/16* come spazio indirizzi della rete virtuale.
+    - *myAGSubnet* come nome della subnet.
+    - *10.0.0.0/24* come spazio indirizzi della subnet.
 
-   ![scegliere una rete virtuale][2]
+    ![Creare una rete virtuale](./media/application-gateway-create-gateway-portal/application-gateway-vnet.png)
 
-1. Nel pannello **Crea rete virtuale** immettere i valori seguenti e quindi fare clic su **OK**. I pannelli **Crea rete virtuale** e **Scegli rete virtuale** vengono chiusi. Con questa operazione, il campo **Subnet** nel pannello **Impostazioni** viene popolato con la subnet selezionata.
+6. Fare clic su **OK** per creare la rete virtuale e la subnet.
+6. Fare clic su **Scegliere un indirizzo IP pubblico**, **Crea nuovo** e quindi immettere il nome dell'indirizzo IP pubblico. In questo esempio il nome dell'indirizzo IP pubblico è *myAGPublicIPAddress*. Accettare i valori predefiniti per le altre impostazioni e quindi fare clic su **OK**.
+8. Accettare i valori predefiniti per la configurazione del listener, lasciare disabilitato il web application firewall e quindi fare clic su **OK**.
+9. Rivedere le impostazioni nella pagina di riepilogo e quindi fare clic su **OK** per creare la rete virtuale, l'indirizzo IP pubblico e il gateway applicazione. La creazione del gateway applicazione potrebbe richiedere alcuni minuti. Attendere il completamento della distribuzione prima di passare alla sezione successiva.
 
-   | **Impostazione** | **Valore** | **Dettagli**|
-   |---|---|---|
-   |**Nome**|AdatumAppGatewayVNET|Nome del gateway applicazione|
-   |**Spazio di indirizzi:**|10.0.0.0/16|È lo spazio degli indirizzi per la rete virtuale|
-   |**Nome della subnet**|AppGatewaySubnet|Nome della subnet per il gateway applicazione|
-   |**Intervallo di indirizzi subnet**|10.0.0.0/28|Questa subnet consente subnet aggiuntive nella rete virtuale per i membri del pool back-end|
+### <a name="add-a-subnet"></a>Aggiungere una subnet
 
-1. Nel pannello **Impostazioni** in **Configurazione IP front-end** scegliere **Pubblico** in **Tipo di indirizzo IP**
+1. Fare clic su **Tutte le risorse** nel menu a sinistra e quindi su **myVNet** nell'elenco delle risorse.
+2. Fare clic su **Subnet** e quindi su **Subnet**.
 
-1. Nel pannello **Impostazioni** in **Indirizzo IP pubblico** fare clic su **Scegliere un indirizzo IP pubblico**. Nel pannello **Scegliere un indirizzo IP pubblico** visualizzato fare clic su **Crea nuovo**.
+    ![Creare una subnet](./media/application-gateway-create-gateway-portal/application-gateway-subnet.png)
 
-   ![scegliere un indirizzo IP pubblico][3]
+3. Immettere *myBackendSubnet* come nome della subnet e quindi fare clic su **OK**.
 
-1. Nel pannello **Crea indirizzo IP pubblico** accettare il valore predefinito e fare clic su **OK**. Questa operazione determina la chiusura del pannello e l'inserimento dell'indirizzo IP pubblico scelto nel campo **Indirizzo IP pubblico**.
+## <a name="create-backend-servers"></a>Creare i server back-end
 
-1. Nel pannello **Impostazioni** in **Configurazione listener** fare clic su **HTTP** in **Protocollo**. Immettere la porta da usare nel campo **Porta**.
+In questo esempio vengono create due macchine virtuali da usare come server back-end per il gateway applicazione. È anche possibile installare IIS nelle macchine virtuali per verificare l'avvenuta creazione del gateway applicazione.
 
-2. Fare clic su **OK** nel pannello **Impostazioni** per continuare.
+### <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
-1. Rivedere le impostazioni nel pannello **Riepilogo** e fare clic su **OK** per avviare la creazione del gateway applicazione. La creazione di un gateway applicazione è un'attività a esecuzione prolungata che può richiedere molto tempo per essere completata.
+1. Fare clic su **Nuovo**.
+2. Fare clic su **Calcolo** e quindi selezionare **Windows Server 2016 Datacenter** nell'elenco In primo piano.
+3. Immettere i valori seguenti per la macchina virtuale:
 
-## <a name="add-servers-to-backend-pools"></a>Aggiungere server ai pool back-end
+    - *myVM* come nome della macchina virtuale.
+    - *azureuser* come nome utente dell'amministratore.
+    - *Azure123456!* come password.
+    - Selezionare **Usa esistente** e quindi *myResourceGroupAG*.
 
-Dopo aver creato il gateway applicazione, è necessario aggiungere i sistemi che ospitano l'applicazione per cui si richiede il bilanciamento del carico. Gli indirizzi IP, il nome di dominio completo o i NIC di questi server vengono aggiunti ai pool di indirizzi back-end.
+4. Fare clic su **OK**.
+5. Selezionare **DS1_V2** come dimensioni per la macchina virtuale e fare clic su **Seleziona**.
+6. Assicurarsi che **myVNet** sia selezionato per la rete virtuale e che la subnet sia **myBackendSubnet**. 
+7. Fare clic su **Disabilitato** per disabilitare la diagnostica di avvio.
+8. Fare clic su **OK**, verificare le impostazioni nella pagina di riepilogo e quindi fare clic su **Crea**.
 
-### <a name="ip-address-or-fqdn"></a>Indirizzo IP o nome di dominio completo
+### <a name="install-iis"></a>Installare IIS
 
-1. Dopo la creazione del gateway applicazione, nel riquadro **Preferiti** del portale di Azure fare clic su **Tutte le risorse**. Fare clic sul gateway applicazione **AdatumAppGateway** nel pannello Tutte le risorse. Se nella sottoscrizione selezionata sono già presenti delle risorse, è possibile immettere **AdatumAppGateway** nella casella **Filtra per nome** per accedere con facilità al gateway applicazione.
+1. Aprire la shell interattiva e assicurarsi che sia impostata su **PowerShell**.
 
-1. Il gateway applicazione creato verrà visualizzato. Fare clic su **Pool back-end** e selezionare il pool di back-end corrente **appGatewayBackendPool**. Verrà aperto il pannello **appGatewayBackendPool**.
+    ![Installare l'estensione personalizzata](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
-   ![Pool back-end del gateway applicazione][4]
+2. Eseguire questo comando per installare IIS nella macchina virtuale: 
 
-1. Fare clic su **Aggiungi destinazione** per aggiungere indirizzi IP ai valori del nome di dominio completo. Scegliere **Indirizzo IP o FQDN** come il **tipo** e immettere l'indirizzo IP o il nome di dominio completo. Ripetere questo passaggio per gli altri membri del pool di back-end. Al termine, fare clic su **Salva**.
+    ```azurepowershell-interactive
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -ExtensionName IIS `
+      -VMName myVM `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+      -Location EastUS
+    ```
 
-### <a name="virtual-machine-and-nic"></a>Macchina virtuale e scheda di interfaccia di rete
+3. Creare una seconda macchina virtuale e installare IIS seguendo la procedura appena completata. Immettere *myVM2* per il nome e per VMName in Set-AzureRmVMExtension.
 
-È anche possibile aggiungere le schede di interfaccia di rete delle macchine virtuali come membri del pool back-end. Solo le macchine virtuali all'interno della stessa rete virtuale in cui si trova il gateway applicazione sono disponibili nell'elenco a discesa.
+### <a name="add-backend-servers"></a>Aggiungere i server back-end
 
-1. Dopo la creazione del gateway applicazione, nel riquadro **Preferiti** del portale di Azure fare clic su **Tutte le risorse**. Fare clic sul gateway applicazione **AdatumAppGateway** nel pannello Tutte le risorse. Se nella sottoscrizione selezionata sono già presenti delle risorse, è possibile immettere **AdatumAppGateway** nella casella **Filtra per nome** per accedere con facilità al gateway applicazione.
+3. Fare clic su **Tutte le risorse** e quindi su **myAppGateway**.
+4. Fare clic su **Pool back-end**. È stato creato automaticamente un pool predefinito con il gateway applicazione. Fare clic su **appGatewayBackendPool**.
+5. Fare clic su **Aggiungi destinazione** per aggiungere ogni macchina virtuale creata al pool back-end.
 
-1. Il gateway applicazione creato verrà visualizzato. Fare clic su **Pool back-end** e selezionare il pool di back-end corrente **appGatewayBackendPool**. Verrà aperto il pannello **appGatewayBackendPool**.
+    ![Aggiungere i server back-end](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
-   ![Pool back-end del gateway applicazione][5]
+6. Fare clic su **Save**.
 
-1. Fare clic su **Aggiungi destinazione** per aggiungere indirizzi IP ai valori del nome di dominio completo. Scegliere **Macchina virtuale** come il **tipo** e selezionare la macchina virtuale e il NIC da usare. Al termine, fare clic su **Salva**.
+## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-   > [!NOTE]
-   > Solo le macchine virtuali nella stessa rete virtuale del gateway applicazione sono disponibili nella casella di riepilogo a discesa.
+1. Individuare l'indirizzo IP pubblico del gateway applicazione nella schermata Panoramica. Fare clic su **Tutte le risorse** e quindi su **myAGPublicIPAddress**.
+
+    ![Registrare l'indirizzo IP pubblico del gateway applicazione](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)
+
+2. Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser.
+
+    ![Testare il gateway applicazione](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
+
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non serve più, eliminare il gruppo di risorse, il gateway applicazione e tutte le risorse correlate. A questo scopo, selezionare il gruppo di risorse nel pannello del gateway applicazione e fare clic su **Elimina**.
+Quando non serve più, eliminare il gruppo di risorse, il gateway applicazione e tutte le risorse correlate. A questo scopo, selezionare il gruppo di risorse che contiene il gateway applicazione e fare clic su **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo scenario è stato distribuito un gateway applicazione ed è stato aggiunto un server al back-end. I passaggi successivi consistono nel configurare il gateway applicazione modificando le impostazioni e adattando le regole nel gateway. Per avere informazioni su questi passaggi, vedere gli articoli seguenti:
-
-Per informazioni su come creare probe di integrità personalizzati, vedere [Creare un probe personalizzato per un gateway applicazione con il portale](application-gateway-create-probe-portal.md)
-
-Per informazioni su come configurare l'offload SSL ed evitare costose attività di decrittografia SSL nei server Web, vedere [Configurare un gateway applicazione per l'offload SSL con Azure Resource Manager](application-gateway-ssl-portal.md)
-
-Informazioni su come proteggere i siti Web con [Firewall applicazione Web](application-gateway-webapplicationfirewall-overview.md), una funzionalità del gateway applicazione.
-
-<!--Image references-->
-[1]: ./media/application-gateway-create-gateway-portal/figure1.png
-[2]: ./media/application-gateway-create-gateway-portal/figure2.png
-[3]: ./media/application-gateway-create-gateway-portal/figure3.png
-[4]: ./media/application-gateway-create-gateway-portal/figure4.png
-[5]: ./media/application-gateway-create-gateway-portal/figure5.png
-[scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
+In questa guida introduttiva sono stati creati un gruppo di risorse, le risorse di rete e i server back-end. Tali risorse sono state quindi usate per creare un gateway applicazione. Per altre informazioni sui gateway applicazione e sulle risorse associate, continuare con le procedure dettagliate.

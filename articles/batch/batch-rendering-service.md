@@ -2,17 +2,17 @@
 title: Servizio Rendering di Azure Batch - Rendering a livello del cloud | Microsoft Docs
 description: Eseguire il rendering di processi nelle macchine virtuali di Azure direttamente da Maya e con pagamento in base al consumo.
 services: batch
-author: v-dotren
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: aab68b4275edc48e1726b26a7400bbfdd8d40d6f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f1aa8de26afd8b54746c706047a6b6b21cbf311c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Introduzione al servizio Rendering di Batch
 
@@ -25,14 +25,10 @@ Con Maya e 3ds Max è possibile eseguire processi con l'applicazione desktop [Ba
 
 Il servizio Rendering di Batch supporta attualmente le applicazioni seguenti:
 
-- Autodesk Maya
-- Autodesk 3ds Max
-- Autodesk Arnold for Maya
-- Autodesk Arnold for 3ds Max
-- Chaos Group V-Ray for Maya
-- Chaos Group V-Ray for 3ds Max
+•   Autodesk Maya I/O 2017 Update 4 (versione 17.4.5459) •   Autodesk 3ds Max I/O 2018 Update 1 (versione 20.1.0.238) •   Autodesk Arnold per Maya (versione 5.0.1.1) •   Autodesk Arnold per 3ds Max (versione 1.0.836) •   Chaos Group V-Ray per Maya (versione 3.52.03) •   Chaos Group V-Ray per 3ds Max (versione 3.60.02)
 
-## <a name="prerequisites"></a>Prerequisiti
+
+## <a name="prerequisites"></a>prerequisiti
 
 Per usare il servizio Rendering di Batch, è necessario quanto segue:
 
