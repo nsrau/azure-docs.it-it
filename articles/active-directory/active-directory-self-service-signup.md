@@ -1,5 +1,5 @@
 ---
-title: Iscrizione self-service o virale in Azure Active Directory | Microsoft Docs
+title: Iscrizione self-service o di prova in Azure Active Directory | Microsoft Docs
 description: Usare l'iscrizione self-service in un tenant di Azure Active Directory (Azure AD)
 services: active-directory
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2017
+ms.date: 01/28/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 2b41bb1b72cc773c29d464228c3177fbd1d9f5e0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 9f2b541d5028596f9beabc7fd82001b4c9dacad4
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Informazioni sull'iscrizione self-service per Azure Active Directory.
 Questo articolo descrive il processo di iscrizione self-service e come supportarlo in Azure Active Directory (Azure AD). Se si intende sostituire un nome di dominio da un tenant di Azure AD non gestito, vedere [Take over an unmanaged directory as administrator](domains-admin-takeover.md) (Sostituire una directory non gestita come amministratore).
@@ -46,7 +46,12 @@ Gli amministratori attualmente dispongono di due controlli self-service. Possono
 Un amministratore può configurare queste funzionalità usando i parametri seguenti del cmdlet Set-MsolCompanySettings di Azure AD:
 
 * **AllowEmailVerifiedUsers** controlla se un utente può essere aggiunto a una directory non gestita o crearne una. Se tale parametro è impostato su $false, nessun utente verificato tramite posta elettronica può essere aggiunto alla directory.
-* **AllowAdHocSubscriptions** controlla la possibilità per gli utenti di eseguire l'iscrizione self-service. Se tale parametro è impostato su $false, nessun utente può eseguire l'iscrizione self-service.
+* **AllowAdHocSubscriptions** controlla la possibilità per gli utenti di eseguire l'iscrizione self-service. Se tale parametro è impostato su $false, nessun utente può eseguire l'iscrizione self-service. 
+  
+  > [!NOTE]
+  > Le iscrizioni di prova a Flow e PowerApps non sono controllate dall'impostazione **AllowAdHocSubscriptions**. Per altre informazioni, vedere gli articoli seguenti:
+  > * [Come è possibile impedire agli utenti di iniziare a usare Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
+  > * [Domande e risposte riguardo alla registrazione a Microsoft Flow nell'organizzazione](https://docs.microsoft.com/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>Come operano congiuntamente i controlli?
 Questi due parametri possono essere usati insieme per definire un controllo più preciso sull'iscrizione self-service. Ad esempio, il comando seguente consentirà agli utenti di eseguire l'iscrizione self-service, ma solo se tali utenti dispongono già di un account in Azure AD (in altre parole, gli utenti, per i quali sarebbe necessario che venisse creato prima un account di posta elettronica verificato, non possono eseguire l'iscrizione self-service):

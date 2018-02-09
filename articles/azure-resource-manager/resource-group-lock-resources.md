@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: e25de0366126ceee988eb253b66d18c9b8b62e1f
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: ab42789b091898c69091ba6b3fa2a8bf91e711f6
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloccare le risorse per impedire modifiche impreviste 
 
@@ -44,7 +44,7 @@ Per creare o eliminare i blocchi di gestione, è necessario avere accesso alle a
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Modello
-Nell'esempio seguente viene illustrato un modello che crea un piano di servizio app, un sito web e un blocco sul sito web. Il tipo di risorsa del blocco è il tipo di risorsa della risorsa di blocco e **/provider/blocchi**. Il nome del blocco viene creato concatenando il nome della risorsa con **/Microsoft.Authorization/** e il nome del blocco.
+L'esempio seguente illustra un modello che crea un piano di servizio app, un sito Web e un blocco sul sito Web. Il tipo di risorsa del blocco corrisponde al tipo di risorsa della risorsa da bloccare e a **/providers/locks**. Il nome del blocco viene creato concatenando il nome della risorsa con **/Microsoft.Authorization/** e il nome del blocco stesso.
 
 ```json
 {
@@ -148,7 +148,7 @@ Per ottenere tutti i blocchi per un gruppo di risorse, usare:
 Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
-Per eliminare un blocco, utilizzare:
+Per eliminare un blocco, usare:
 
 ```powershell
 $lockId = (Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
@@ -157,7 +157,7 @@ Remove-AzureRmResourceLock -LockId $lockId
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Per bloccare le risorse distribuite con l'interfaccia della riga di comando di Azure, usare il comando [az lock create](/cli/azure/lock#create).
+Per bloccare le risorse distribuite con l'interfaccia della riga di comando di Azure, usare il comando [az lock create](/cli/azure/lock#az_lock_create).
 
 Per bloccare una risorsa, specificare il nome, il tipo e il gruppo di risorse della risorsa.
 
@@ -171,7 +171,7 @@ Per bloccare un gruppo di risorse, specificare il nome del gruppo di risorse.
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-Per ottenere informazioni su un blocco, usare [az lock list](/cli/azure/lock#list). Per ottenere tutti i blocchi nella sottoscrizione, usare:
+Per ottenere informazioni su un blocco, usare [az lock list](/cli/azure/lock#az_lock_list). Per ottenere tutti i blocchi nella sottoscrizione, usare:
 
 ```azurecli
 az lock list
@@ -189,7 +189,7 @@ Per ottenere tutti i blocchi per un gruppo di risorse, usare:
 az lock list --resource-group exampleresourcegroup
 ```
 
-Per eliminare un blocco, utilizzare:
+Per eliminare un blocco, usare:
 
 ```azurecli
 lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --resource-type Microsoft.Web/sites --resource-name examplesite --output tsv --query id)

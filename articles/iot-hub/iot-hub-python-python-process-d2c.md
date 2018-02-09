@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: v-masebo
-ms.openlocfilehash: 24c556c8ea585a522c890dab16ae9fb96dc51c22
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f467437afb4bf89e77668cfd3e8a824bfbde9e10
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="routing-messages-with-iot-hub-python"></a>Routing dei messaggi tramite l'hub IoT (Python)
 
@@ -118,6 +118,9 @@ In questa sezione si creano una coda del bus di servizio e un account di archivi
 
 1. Creare una coda del bus di servizio, come descritto in [Get started with queues][lnk-sb-queues-node] (Introduzione alle code). Prendere nota dello spazio dei nomi e del nome della coda.
 
+    > [!NOTE]
+    > Nelle code e negli argomenti del bus di servizio usati come endpoint dell'hub IoT non devono essere abilitati le **sessioni** e il **rilevamento duplicati**. Se una di queste opzioni è abilitata, l'endpoint risulta **non raggiungibile** nel portale di Azure.
+
 1. Nel Portale di Azure, aprire l'hub IoT e fare clic su **Endpoint**.
 
     ![Endpoint in hub IoT][30]
@@ -128,13 +131,13 @@ In questa sezione si creano una coda del bus di servizio e un account di archivi
 
 1. Fare clic su **Route** nell'hub IoT. Fare clic su **Aggiungi** nella parte superiore del pannello per creare una regola di routing che indirizzi i messaggi alla coda appena aggiunta. 
 
-    ![Aggiunta di una route][34]
+    ![Aggiunta di un route][34]
 
     Immettere un nome e selezionare **Messaggi del dispositivo** come origine dei dati. Scegliere **CriticalQueue** come endpoint personalizzato per la regola di gestione e immettere `level="critical"` come stringa di query. Fare clic su **Salva** nella parte inferiore.
 
     ![Dettagli della route][32]
 
-    Assicurarsi che la route di fallback sia impostata su **ON**. Questa impostazione è la configurazione predefinita dell'hub IoT.
+    Assicurarsi che il route di fallback sia impostato su **ON**. Questa impostazione è la configurazione predefinita dell'hub IoT.
 
     ![Route di fallback][33]
 
@@ -245,7 +248,7 @@ In questa sezione, viene illustrato come creare un account di archiviazione, com
 
 4. Fare clic su **Route** nell'hub IoT. Fare clic su **Aggiungi** nella parte superiore del pannello per creare una regola di routing che indirizzi i messaggi alla coda appena aggiunta. Selezionare **Messaggi del dispositivo** come origine dei dati. Immettere `level="storage"` come condizione e scegliere **StorageContainer** come endpoint personalizzato, come endpoint della regola di routing. Fare clic su **Salva** nella parte inferiore.  
 
-    Assicurarsi che la route di fallback sia impostata su **ON**. Questa impostazione è la configurazione predefinita dell'hub IoT.
+    Assicurarsi che il route di fallback sia impostato su **ON**. Questa impostazione è la configurazione predefinita dell'hub IoT.
 
 1. Assicurarsi che l'applicazione precedente **SimulatedDevice.py** sia ancora in esecuzione. 
 

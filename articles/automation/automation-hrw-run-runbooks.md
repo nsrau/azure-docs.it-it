@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: magoedte
-ms.openlocfilehash: d73bb33b4b330df803e140145ed63319af4a6733
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ca63f9c7a11bc072bd73c3d61c63a8d603020e68
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Esecuzione di runbook in un ruolo di lavoro ibrido per runbook 
 Non esiste alcuna differenza nella struttura dei runbook che vengono eseguiti in Automazione di Azure e di quelli eseguiti in Hybrid Runbook Workers. I runbook usati nell'uno o nell'altro caso saranno tuttavia molto diversi perché, mentre i runbook per un ruolo di lavoro ibrido per runbook gestiscono solitamente le risorse nel computer locale o all'interno di risorse nell'ambiente locale in cui sono eseguiti, i runbook in Automazione di Azure gestiscono solitamente le risorse nel cloud Azure.
@@ -112,9 +112,10 @@ Il runbook di PowerShell seguente, *Export-RunAsCertificateToHybridWorker*, espo
 
     [OutputType([string])] 
 
-    # Set the password used for this certificate
-    $Password = "YourStrongPasswordForTheCert"
-
+    # Generate the password used for this certificate
+    Add-Type -AssemblyName System.Web -ErrorAction SilentlyContinue | Out-Null
+    $Password = [System.Web.Security.Membership]::GeneratePassword(25, 10)
+    
     # Stop on errors
     $ErrorActionPreference = 'stop'
 

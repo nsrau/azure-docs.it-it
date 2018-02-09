@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 85be79261d5fc214ab4b46fa5d7b4d0a5b13db27
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d05492425381649a7893b872c4b1c49e9f241b50
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -161,7 +161,7 @@ Quando si esegue l'override del prefisso degli indirizzi 0.0.0.0/0, oltre all'in
         - Poter convertire l'indirizzo di rete, inoltrare il traffico alla risorsa di destinazione nella subnet e restituire il traffico a Internet. 
     - **Gateway di rete virtuale**: se il gateway è un gateway di rete virtuale ExpressRoute, un dispositivo connesso a Internet in locale può convertire l'indirizzo di rete e inoltrare il traffico alla risorsa di destinazione nella subnet tramite [peering privato](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) di ExpressRoute. 
 
-  Vedere [Rete perimetrale tra Azure e il data center locale](/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Rete perimetrale tra Azure e Internet](/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) per i dettagli di implementazione quando si usano i gateway di rete virtuale e le appliance virtuali tra Internet e Azure.
+  Vedere [Rete perimetrale tra Azure e il data center locale](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Rete perimetrale tra Azure e Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) per i dettagli di implementazione quando si usano i gateway di rete virtuale e le appliance virtuali tra Internet e Azure.
 
 ## <a name="routing-example"></a>Esempio di routing
 

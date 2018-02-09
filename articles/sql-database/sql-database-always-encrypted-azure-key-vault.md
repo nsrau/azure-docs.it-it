@@ -1,12 +1,11 @@
 ---
-title: 'Always Encrypted: database SQL - Azure Key Vault | Documentazione Microsoft'
+title: 'Always Encrypted: database SQL - Azure Key Vault | Microsoft Docs'
 description: Questo articolo illustra come proteggere i dati sensibili in un database SQL con la crittografia dei dati usando la procedura guidata Always Encrypted di SQL Server Management Studio.
 keywords: crittografia dei dati, chiave di crittografia, crittografia del cloud
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
-editor: cgronlun
+manager: craigg
 ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
 ms.custom: security
@@ -16,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.openlocfilehash: 4fb189abfaddcf27c8af223773ab0e5fc9dfca14
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0f26ce26b8b33274291c115ae136d124d79ed349
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Crittografia sempre attiva: Proteggere i dati sensibili nel database SQL e archiviare le chiavi di crittografia nell'insieme di credenziali delle chiavi di Azure
 
@@ -38,40 +37,28 @@ Seguire i passaggi in questo articolo per imparare come configurare la crittogra
 * Creare una tabella di database e crittografare le colonne.
 * Creare un'applicazione che inserisce, seleziona e visualizza i dati delle colonne crittografate.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per questa esercitazione occorrono:
 
 * Un account e una sottoscrizione di Azure. Nel caso in cui non siano disponibili, è possibile usare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) versione 13.0.700.242 o successive.
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) o versioni successive (nel computer client).
-* [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+* [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * [Azure PowerShell](/powershell/azure/overview) versione 1.0 o successiva. Digitare **(Get-Module azure -ListAvailable).Version** per verificare quale versione di PowerShell è in esecuzione.
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>Abilitare l'applicazione client per accedere al servizio di database SQL
-È necessario abilitare l'applicazione client per accedere al servizio del database SQL tramite la configurazione dell'autenticazione richiesta e l'acquisizione di *ClientId* e *Secret*, necessari per autenticare l'applicazione nel codice seguente.
+È necessario consentire all'applicazione client di accedere al servizio del database SQL configurando un'applicazione Azure Active Directory (AAD) e copiando l'*ID applicazione* e la *chiave* necessari per autenticare l'applicazione.
 
-1. Aprire il [portale di Azure classico](http://manage.windowsazure.com).
-2. Selezionare **Active Directory** e fare clic sull'istanza di Active Directory che verrà usata dall'applicazione.
-3. Fare clic su **Applicazioni** e quindi su **AGGIUNGI**.
-4. Digitare un nome per l'applicazione, ad esempio *myClientApp*, selezionare **APPLICAZIONE WEB**e fare clic sulla freccia per continuare.
-5. Per l'**URL DI ACCESSO** e l'**URI ID APP** digitare un URL valido (ad esempio, *http://myClientApp*) e continuare.
-6. Fare clic su **CONFIGURA**.
-7. Copiare l' **ID CLIENT**. Sarà necessario immettere questo valore nel codice in un secondo momento.
-8. Nella sezione relativa alle **chiavi** selezionare **1 anno** dall'elenco a discesa **Seleziona durata**. La chiave verrà copiata dopo il salvataggio nel passaggio 13.
-9. Scorrere verso il basso e fare clic su **Aggiungi applicazione**.
-10. Lasciare **MOSTRA** impostato su **App Microsoft** e selezionare **API di gestione del servizio Microsoft Azure**. Fare clic sul segno di spunta per continuare.
-11. Nell'elenco a discesa **Autorizzazioni delegate** selezionare **Access Azure Service Management...** (Gestione servizio di accesso Azure).
-12. Fare clic su **SAVE**.
-13. Al termine del salvataggio copiare il valore della chiave nella sezione **Chiavi** . Sarà necessario immettere questo valore nel codice in un secondo momento.
+Per ottenere l'*ID applicazione* e la *chiave*, eseguire la procedura descritta in [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Creare un insieme di credenziali delle chiavi per archiviare le chiavi
-Quando l'app client è configurata e si dispone dell'ID client, è necessario creare un insieme di credenziali delle chiavi e configurare il criterio di accesso per consentire all'utente e all'applicazione di accedere alle chiavi private dell'insieme di credenziali, ovvero le chiavi con crittografia sempre attiva. Sono necessarie le autorizzazioni *create*, *get*, *list*, *sign*, *verify*, *wrapKey* e *unwrapKey* per creare una nuova chiave master di colonna e per configurare la crittografia con SQL Server Management Studio.
+Quando l'app client è configurata e si dispone dell'ID applicazione, è necessario creare un insieme di credenziali delle chiavi e configurare il criterio di accesso per consentire all'utente e all'applicazione di accedere alle chiavi private dell'insieme di credenziali, ovvero le chiavi Always Encrypted. Sono necessarie le autorizzazioni *create*, *get*, *list*, *sign*, *verify*, *wrapKey* e *unwrapKey* per creare una nuova chiave master di colonna e per configurare la crittografia con SQL Server Management Studio.
 
 È possibile creare rapidamente un insieme di credenziali delle chiavi eseguendo lo script seguente. Per una spiegazione dettagliata di questi cmdlet e altre informazioni sulla creazione e la configurazione di un insieme di credenziali delle chiavi, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md).
 
     $subscriptionName = '<your Azure subscription name>'
     $userPrincipalName = '<username@domain.com>'
-    $clientId = '<client ID that you copied in step 7 above>'
+    $applicationId = '<application ID from your AAD application>'
     $resourceGroupName = '<resource group name>'
     $location = '<datacenter location>'
     $vaultName = 'AeKeyVault'
@@ -85,7 +72,7 @@ Quando l'app client è configurata e si dispone dell'ID client, è necessario cr
     New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
-    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $clientId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
+    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
 
 
 
@@ -112,14 +99,14 @@ Aprire SSMS e connettersi al server con il database Clinic.
    
     ![Copia della stringa di connessione](./media/sql-database-always-encrypted-azure-key-vault/ssms-connect.png)
 
-Se viene visualizzata la finestra **Nuova regola firewall** , accedere ad Azure e lasciare che SSMS crei una nuova regola firewall per l'utente.
+Se viene visualizzata la finestra **Nuova regola firewall**, accedere ad Azure e lasciare che SSMS crei una nuova regola firewall per l'utente.
 
 ## <a name="create-a-table"></a>Creare una tabella
 Questa sezione contiene istruzioni per creare una tabella con i dati dei pazienti. Non è crittografata inizialmente e la crittografia verrà configurata nella sezione successiva.
 
 1. Espandere **Database**.
 2. Fare clic con il pulsante destro del mouse sul database **Clinic** e fare clic su **Nuova query**.
-3. Incollare il comando Transact-SQL (T-SQL) seguente nella finestra della nuova query ed **eseguirlo** .
+3. Incollare il comando Transact-SQL (T-SQL) seguente nella finestra della nuova query ed **eseguirlo**.
 
         CREATE TABLE [dbo].[Patients](
          [PatientId] [int] IDENTITY(1,1),
@@ -169,10 +156,10 @@ Questa esercitazione illustra come archiviare le chiavi nell'insieme di credenzi
 ### <a name="validation"></a>Convalida
 È attualmente possibile crittografare le colonne o salvare uno script di PowerShell da eseguire in un secondo momento. Per questa esercitazione selezionare **Procedi per completare ora** e fare clic su **Avanti**.
 
-### <a name="summary"></a>Riepilogo
+### <a name="summary"></a>Summary
 Verificare che tutte le impostazioni siano corrette e fare clic su **Fine** per completare la configurazione della crittografia sempre attiva.
 
-![Riepilogo](./media/sql-database-always-encrypted-azure-key-vault/summary.png)
+![Summary](./media/sql-database-always-encrypted-azure-key-vault/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>Confermare le azioni della procedura guidata
 Al termine della procedura guidata, il database è configurato per la crittografia sempre attiva. La procedura guidata esegue le azioni seguenti:
@@ -233,7 +220,7 @@ Il codice seguente mostra come registrare il provider dell'insieme di credenzial
 
     static void InitializeAzureKeyVaultProvider()
     {
-       _clientCredential = new ClientCredential(clientId, clientSecret);
+       _clientCredential = new ClientCredential(applicationId, clientKey);
 
        SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
           new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);
@@ -275,8 +262,8 @@ Eseguire l'app per vedere in azione la crittografia sempre attiva.
     {
         // Update this line with your Clinic database connection string from the Azure portal.
         static string connectionString = @"<connection string from the portal>";
-        static string clientId = @"<client id from step 7 above>";
-        static string clientSecret = "<key from step 13 above>";
+        static string applicationId = @"<application ID from your AAD application>";
+        static string clientKey = "<key from your AAD application>";
 
 
         static void Main(string[] args)
@@ -399,7 +386,7 @@ Eseguire l'app per vedere in azione la crittografia sempre attiva.
         static void InitializeAzureKeyVaultProvider()
         {
 
-            _clientCredential = new ClientCredential(clientId, clientSecret);
+            _clientCredential = new ClientCredential(applicationId, clientKey);
 
             SqlColumnEncryptionAzureKeyVaultProvider azureKeyVaultProvider =
               new SqlColumnEncryptionAzureKeyVaultProvider(GetToken);

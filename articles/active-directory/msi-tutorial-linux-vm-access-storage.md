@@ -3,21 +3,21 @@ title: "Usare un'Identità del servizio gestito di una macchina virtuale Linux p
 description: "Questa esercitazione illustra come usare un'identità del servizio gestito (MSI) per una macchina virtuale Linux per accedere ad Archiviazione di Azure."
 services: active-directory
 documentationcenter: 
-author: bryanla
+author: daveba
 manager: mtillman
-editor: bryanla
+editor: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: bryanla
-ms.openlocfilehash: 2b264f8e2227e410caba8370d58c824d469198e4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.author: daveba
+ms.openlocfilehash: 1484ecdeb26f06d54dceef0e4fb1a5c63fab732a
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Usare un'identità del servizio gestito per una macchina virtuale Linux per accedere ad Archiviazione di Azure tramite una chiave di accesso
 
@@ -30,7 +30,7 @@ Questa esercitazione illustra come abilitare Identità del servizio gestito (MSI
 > * Concedere alla macchina virtuale l'accesso alle chiavi di accesso all'account di archiviazione in Resource Manager 
 > * Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per ottenere le chiavi di accesso alle risorse di archiviazione da Resource Manager  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
 

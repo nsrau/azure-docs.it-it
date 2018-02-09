@@ -1,8 +1,8 @@
 ---
-title: Compilare un'app web PHP e MySQL in Azure App Service in Linux | Documenti Microsoft
+title: Creare un'app Web PHP e MySQL nel servizio app di Azure in Linux | Microsoft Docs
 description: "Informazioni su come ottenere un'app PHP che è possibile usare in Azure con connessione a un database MySQL in Azure."
 services: app-service\web
-documentationcenter: nodejs
+documentationcenter: 
 author: cephalin
 manager: erikre
 ms.service: app-service-web
@@ -12,16 +12,16 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: cf398d18091a008afc24cbe583001fd538039db2
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.openlocfilehash: 9212e2a0063446cc6f1fd5faeb7ee61888fc0ecf
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Compilare un'app web PHP e MySQL in Azure App Service su Linux
+# <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Creare un'app Web PHP e MySQL nel servizio app di Azure in Linux
 
 > [!NOTE]
-> In questo articolo consente di distribuire un'app al servizio App in Linux. Per distribuire al servizio App in _Windows_, vedere [creare un'applicazione web PHP e MySQL in Azure](../app-service-web-tutorial-php-mysql.md).
+> Questo articolo consente di distribuire un'app nel servizio app in Linux. Per la distribuzione nel servizio app in _Windows_, vedere [Creare un'app Web PHP e MySQL in Azure](../app-service-web-tutorial-php-mysql.md).
 >
 
 Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa esercitazione illustra come creare un'app Web PHP e connetterla a un database MySQL. Al termine, sarà disponibile un'app [Laravel](https://laravel.com/) in esecuzione nel Servizio app in Linux.
@@ -38,7 +38,9 @@ In questa esercitazione si apprenderà come:
 > * Eseguire lo streaming dei log di diagnostica in Azure
 > * Gestire l'app nel portale di Azure
 
-## <a name="prerequisites"></a>Prerequisiti
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione:
 
@@ -47,8 +49,6 @@ Per completare questa esercitazione:
 * [Installare Composer](https://getcomposer.org/doc/00-intro.md)
 * Abilitare le estensioni PHP seguenti necessarie per Laravel: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 * [Installare e avviare MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prepare-local-mysql"></a>Preparare MySQL in locale
 
@@ -159,12 +159,12 @@ In questo passaggio viene creato un database MySQL nel [database di Azure per My
 
 ### <a name="create-a-mysql-server"></a>Creare un server MySQL
 
-Creare un server nel database di Azure per MySQL (anteprima) con il comando [az mysql server create](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+Creare un server in Database di Azure per MySQL (anteprima) con il comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
 
 Nel comando seguente sostituire il segnaposto _&lt;mysql_server_name>_ con il nome del server MySQL (i caratteri validi sono `a-z`, `0-9` e `-`). Poiché questo nome fa parte del nome host del server MySQL (`<mysql_server_name>.database.windows.net`) è necessario che sia univoco a livello globale.
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --ssl-enforcement Disabled
+az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd!
 ```
 
 Al termine della creazione del server MySQL, l'interfaccia della riga di comando di Azure mostra informazioni simili all'esempio seguente:
@@ -184,7 +184,7 @@ Al termine della creazione del server MySQL, l'interfaccia della riga di comando
 
 ### <a name="configure-server-firewall"></a>Configurare il firewall del server
 
-Creare una regola del firewall per il server MySQL per consentire le connessioni client tramite il comando [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create).
+Creare una regola del firewall per il server MySQL per consentire le connessioni client usando il comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az_mysql_server_firewall_rule_create).
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
@@ -202,7 +202,7 @@ Nella finestra terminale connettersi al server MySQL in Azure. Usare il valore s
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
 ```
 
-Quando viene richiesto di immettere una password, utilizzare _tr0ngPa $$ w0rd!_, specificato quando è stato creato il server di database.
+Quando viene richiesta una password, usare _$tr0ngPa$w0rd!_, ossia la password specificata al momento della creazione del server di database.
 
 ### <a name="create-a-production-database"></a>Creare un database di produzione
 
@@ -247,8 +247,8 @@ DB_HOST=<mysql_server_name>.mysql.database.azure.com
 DB_DATABASE=sampledb
 DB_USERNAME=phpappuser@<mysql_server_name>
 DB_PASSWORD=MySQLAzure2017
+MYSQL_SSL=true
 ```
-<!-- MYSQL_SSL=true -->
 
 Salvare le modifiche.
 
@@ -256,27 +256,23 @@ Salvare le modifiche.
 > Per proteggere le informazioni di connessione MySQL, il file è già escluso dal repository Git (vedere _.gitignore_ nella radice del repository). Successivamente verrà illustrato come configurare le variabili di ambiente nel servizio app per connettere il database in Database di Azure per MySQL (anteprima). Con le variabili di ambiente non è necessario il file *.env* nel servizio app.
 >
 
-<!-- ### Configure SSL certificate
+### <a name="configure-ssl-certificate"></a>Configurare il certificato SSL
 
-By default, Azure Database for MySQL enforces SSL connections from clients. To connect to your MySQL database in Azure, you must use a _.pem_ SSL certificate.
+Per impostazione predefinita, Database di Azure per MySQL impone le connessioni SSL dai client. Per la connessione al database MySQL in Azure, è necessario usare il [certificato con estensione _pem_ fornito da Database di Azure per MySQL](../../mysql/howto-configure-ssl.md).
 
-Open _config/database.php_ and add the _sslmode_ and _options_ parameters to `connections.mysql`, as shown in the following code.
+Aprire _config/database.php_ e aggiungere i parametri _sslmode_ e _options_ a `connections.mysql`, come illustrato nel codice seguente.
 
 ```php
 'mysql' => [
     ...
     'sslmode' => env('DB_SSLMODE', 'prefer'),
     'options' => (env('MYSQL_SSL')) ? [
-        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/certificate.pem', 
+        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/BaltimoreCyberTrustRoot.crt.pem', 
     ] : []
 ],
 ```
 
-To learn how to generate this _certificate.pem_, see [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](../../mysql/howto-configure-ssl.md).
-
-> [!TIP]
-> The path _/ssl/certificate.pem_ points to an existing _certificate.pem_ file in the Git repository. This file is provided for convenience in this tutorial. For best practice, you should not commit your _.pem_ certificates into source control. 
-> -->
+Per praticità, nel repository è disponibile il certificato `BaltimoreCyberTrustRoot.crt.pem` per questa esercitazione. 
 
 ### <a name="test-the-application-locally"></a>Testare l'applicazione in locale
 
@@ -321,6 +317,13 @@ L'app è pronta per la distribuzione.
 
 In questo passaggio viene distribuita l'applicazione PHP connessa a MySQL nel servizio app di Azure.
 
+L'applicazione Laravel viene avviata nella directory _/public_. L'immagine Docker PHP predefinita per il servizio app usa Apache e non consente di personalizzare `DocumentRoot` per Laravel. È tuttavia possibile usare `.htaccess` per riscrivere tutte le richieste in modo da puntare a _/public_ anziché alla directory radice. Nella radice del repository è già stato aggiunto un elemento `.htaccess` a tale scopo. In questo modo, l'applicazione Laravel è pronta per essere distribuita.
+
+> [!NOTE] 
+> Se si preferisce non usare la riscrittura con _.htaccess_, si può distribuire l'applicazione Laravel con un'[immagine Docker personalizzata](quickstart-custom-docker-image.md).
+>
+>
+
 ### <a name="configure-a-deployment-user"></a>Configurare un utente della distribuzione
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user-no-h.md)]
@@ -335,14 +338,13 @@ In questo passaggio viene distribuita l'applicazione PHP connessa a MySQL nel se
 
 ### <a name="configure-database-settings"></a>Configurare le impostazioni del database
 
-Nel servizio app le variabili di ambiente vengono impostate come _impostazioni dell'app_ usando il comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set).
+Nel servizio app, le variabili di ambiente vengono configurate come _impostazioni dell'app_ usando il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set).
 
 Il comando seguente configura le impostazioni dell'app `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` e `DB_PASSWORD`. Sostituire i segnaposto _&lt;appname>_ e _&lt;mysql_server_name>_.
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017"
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
- <!-- MYSQL_SSL="true" -->
 
 È possibile usare il metodo [getenv](http://www.php.net/manual/function.getenv.php) di PHP per accedere alle impostazioni. Il codice Laravel usa un wrapper [env](https://laravel.com/docs/5.4/helpers#method-env) su `getenv` di PHP. Ad esempio, la configurazione di MySQL in _config/database.php_ è simile al codice seguente:
 
@@ -367,25 +369,13 @@ Usare `php artisan` per generare una nuova chiave applicazione senza salvarla in
 php artisan key:generate --show
 ```
 
-Impostare la chiave dell'applicazione nell'app Web del servizio app usando il comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set). Sostituire i segnaposto _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
+Impostare la chiave applicazione nell'app Web del servizio app usando il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set). Sostituire i segnaposto _&lt;appname>_ e _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
 `APP_DEBUG="true"` indica a Laravel di restituire le informazioni di debug quando l'app Web distribuita rileva errori. Quando si esegue un'applicazione di produzione, è consigliabile impostarla su `false`.
-
-### <a name="set-the-virtual-application-path"></a>Impostare il percorso virtuale dell'applicazione
-
-Impostare il percorso virtuale dell'applicazione per l'app Web. Questo passaggio è necessario perché il [ciclo di vita dell'applicazione Laravel](https://laravel.com/docs/5.4/lifecycle) ha inizio nella directory _public_ anziché nella directory radice dell'applicazione. Gli altri framework PHP il cui ciclo di vita si avvia nella directory radice funzionano anche senza la configurazione manuale del percorso dell'applicazione virtuale.
-
-Impostare il percorso virtuale dell'applicazione usando il comando [az resource update](/cli/azure/resource?view=azure-cli-latest#az_resource_update). Sostituire il segnaposto _&lt;appname>_ .
-
-```azurecli-interactive
-az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
-```
-
-Per impostazione predefinita, il servizio app di Azure fa in modo che il percorso virtuale dell'applicazione radice (_/_) punti alla directory radice dei file dell'applicazione distribuiti (_sites\wwwroot_).
 
 ### <a name="push-to-azure-from-git"></a>Effettuare il push in Azure da Git
 

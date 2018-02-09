@@ -1,10 +1,10 @@
 ---
-title: "Verificare la connettività con Azure Network Watcher - Portale di Azure | Microsoft Docs"
-description: "Questa pagina descrive come verificare la connettività con Network Watcher nel portale di Azure"
+title: Risolvere i problemi relativi alle connessioni con Azure Network Watcher - API REST di Azure | Microsoft Docs
+description: "Informazioni su come usare la funzionalità di risoluzione dei problemi di connessione di Azure Network Watcher con l'API REST di Azure."
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: 271d3fa858e9178bef37a7d7c859557b29af3c75
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: fc0392e8a6bc8662c7b664710b7073ae09c49a7c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Verificare la connettività con Azure Network Watcher usando il portale di Azure
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Risolvere i problemi relativi alle connessioni con Azure Network Watcher usando l'API REST di Azure
 
 > [!div class="op_single_selector"]
 > - [di Microsoft Azure](network-watcher-connectivity-portal.md)
@@ -27,22 +27,17 @@ ms.lasthandoff: 01/19/2018
 > - [Interfaccia della riga di comando 2.0](network-watcher-connectivity-cli.md)
 > - [API REST di Azure](network-watcher-connectivity-rest.md)
 
-Informazioni su come usare la connettività per verificare se è possibile stabilire una connessione TCP diretta da una macchina virtuale a uno specifico endpoint.
+Informazioni su come usare la risoluzione dei problemi di connessione per verificare se è possibile stabilire una connessione TCP diretta da una macchina virtuale a uno specifico endpoint.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Questo articolo presuppone che l'utente disponga delle risorse seguenti:
 
-* Un'istanza di Network Watcher nell'area di cui si vuole controllare la connettività.
-
-* Macchine virtuali con cui controllare la connettività.
-
-ARMclient viene usato per chiamare l'API REST con PowerShell. ARMClient è reperibile in Chocolatey in [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient) (ARMClient in Chocolatey).
-
-Questo scenario presuppone il completamento dei passaggi descritti in [Creare un servizio Network Watcher](network-watcher-create.md) per creare un servizio Network Watcher.
+* Un'istanza di Network Watcher nell'area di cui si vuole risolvere il problema di connessione.
+* Risolvere i problemi di connessione con le macchine virtuali.
 
 > [!IMPORTANT]
-> Il controllo della connettività richiede un'estensione macchina virtuale `AzureNetworkWatcherExtension`. Per installare l'estensione in una VM Windows, vedere [Estensione macchina virtuale agente Azure Network Watcher per Windows](../virtual-machines/windows/extensions-nwa.md) e per una VM Linux VM vedere [Estensione macchina virtuale Azure Network Watcher Agent per Linux](../virtual-machines/linux/extensions-nwa.md).
+> Per la risoluzione dei problemi di connessione è richiesta un'estensione macchina virtuale `AzureNetworkWatcherExtension`. Per installare l'estensione in una VM Windows, vedere [Estensione macchina virtuale agente Azure Network Watcher per Windows](../virtual-machines/windows/extensions-nwa.md) e per una VM Linux VM vedere [Estensione macchina virtuale Azure Network Watcher Agent per Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="log-in-with-armclient"></a>Accedere con ARMClient
 
@@ -473,9 +468,7 @@ Di seguito è riportata la risposta di esempio generata dall'esecuzione della ch
 
 Per altre informazioni su come automatizzare le acquisizioni di pacchetti tramite gli avvisi della macchina virtuale, leggere l'articolo su come [creare un'acquisizione di pacchetti attivata da un avviso](network-watcher-alert-triggered-packet-capture.md).
 
-Per stabilire se un traffico specificato è consentito all'interno o all'esterno di una macchina virtuale, vedere [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md) (Controllare la verifica del flusso IP).
-
-<!-- Image references -->
+Per stabilire se un traffico specificato è consentito all'interno o all'esterno di una macchina virtuale, leggere l'articolo su come [controllare la verifica del flusso IP](network-watcher-check-ip-flow-verify-portal.md).
 
 
 

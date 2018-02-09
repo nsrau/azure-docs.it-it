@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2018
+ms.date: 01/25/2018
 ms.author: terrylan
-ms.openlocfilehash: d42dd4ba150a28109d6bb3f7c2281d07b21a366e
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: f12441a960db9f1c45bca2a5b95f3669923c7e3d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizzare le configurazioni di sicurezza del sistema operativo nel Centro sicurezza di Azure (anteprima)
 
@@ -26,7 +26,7 @@ Questa procedura dettagliata illustra come personalizzare le valutazioni delle c
 
 ## <a name="what-are-os-security-configurations"></a>Informazioni sulle configurazioni di sicurezza del sistema operativo
 
-Il Centro sicurezza di Azure monitora le configurazioni di sicurezza applicando un set di più di 150 regole consigliate per la protezione avanzata del sistema operativo, incluse regole relative a firewall, controllo, criteri di gestione delle password e altro ancora. Se in un computer viene trovata una configurazione vulnerabile, il Centro sicurezza genera una raccomandazione di sicurezza.
+Il Centro sicurezza di Azure monitora le configurazioni di sicurezza applicando un set di [più di 150 regole consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) per la protezione avanzata del sistema operativo, incluse regole relative a firewall, controllo, criteri di gestione delle password e altro ancora. Se in un computer viene trovata una configurazione vulnerabile, il Centro sicurezza genera una raccomandazione di sicurezza.
 
 Personalizzando le regole, le organizzazioni possono controllare quali opzioni di configurazione sono più appropriate per il proprio ambiente. È possibile impostare un criterio personalizzato di valutazione e quindi applicarlo in tutti i computer applicabili nella sottoscrizione.
 
@@ -60,8 +60,8 @@ Per personalizzare la configurazione di sicurezza predefinita del sistema operat
 3.  Selezionare la sottoscrizione per cui si vuole eseguire la personalizzazione.
 
 4. In **Componenti dei criteri** selezionare **Modifica le configurazioni della sicurezza**.  
-    Viene aperta la finestra **Modifica le configurazioni della sicurezza**. 
-    
+    Viene aperta la finestra **Modifica le configurazioni della sicurezza**.
+
     ![Finestra "Modifica le configurazioni della sicurezza"](media/security-center-customize-os-security-config/blade.png)
 
 5. Nel riquadro di destra seguire i passaggi per il download, la modifica e il caricamento del file modificato.
@@ -70,7 +70,7 @@ Per personalizzare la configurazione di sicurezza predefinita del sistema operat
    > Per impostazione predefinita, il file di configurazione scaricato è in formato *json*. Per istruzioni sulla modifica di questo file, vedere [Personalizzare il file di configurazione](#customize-the-configuration-file).
    >
 
-   Dopo avere salvato il file, la configurazione viene applicata a tutte le macchine virtuali e a tutti i computer connessi a tutte le aree di lavoro nella sottoscrizione. Il processo in genere richiede alcuni minuti, ma possono servirne di più, a seconda delle dimensioni dell'infrastruttura. 
+   Dopo avere salvato il file, la configurazione viene applicata a tutte le macchine virtuali e a tutti i computer connessi a tutte le aree di lavoro nella sottoscrizione. Il processo in genere richiede alcuni minuti, ma possono servirne di più, a seconda delle dimensioni dell'infrastruttura.
 
 6. Per eseguire il commit della modifica, selezionare **Salva**. In caso contrario, i criteri non vengono archiviati.
 

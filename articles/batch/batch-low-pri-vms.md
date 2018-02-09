@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 01/26/2018
 ms.author: markscu
-ms.openlocfilehash: b9e5181baedba7cc4783553221521f5b08a7bc4d
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 8490bd8c18930c025902a247e6c1df8a0716ed76
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Usare le macchine virtuali con priorità bassa in Batch
 
@@ -71,9 +71,12 @@ Azure Batch offre diverse funzionalità che semplificano l'uso e i vantaggi dall
 
 -   Quando le attività vengono interrotte, il servizio Batch rileva e reinserisce automaticamente nella coda le attività da eseguire di nuovo.
 
--   Le macchine virtuali con priorità bassa hanno una quota di CPU virtuali diversa rispetto a quella delle macchine virtuali dedicate. 
+-   Le macchine virtuali con priorità bassa hanno una quota di vCPU separata che differisce da quella per le macchine virtuali dedicate. 
     La quota per le macchine virtuali con priorità bassa è superiore a quella delle macchine virtuali dedicate, perché le macchine virtuali con priorità bassa sono meno costose. Per altre informazioni, vedere [Quote e limiti del servizio Batch](batch-quota-limit.md#resource-quotas).    
 
+> [!NOTE]
+> Le macchine virtuali con priorità bassa non sono attualmente supportate per gli account Batch creati in [modalità di sottoscrizione utente](batch-api-basics.md#account).
+>
 
 ## <a name="create-and-update-pools"></a>Crea e aggiornare i pool
 
@@ -108,7 +111,7 @@ pool = batchClient.PoolOperations.CreatePool(
     poolId: "vmpool",
     targetDedicatedComputeNodes: 5,
     targetLowPriorityComputeNodes: 20,
-    virtualMachineSize: "Standard\_D2\_v2",
+    virtualMachineSize: "Standard_D2_v2",
     virtualMachineConfiguration: virtualMachineConfiguration);
 ```
 

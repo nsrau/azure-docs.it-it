@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
-ms.openlocfilehash: 948b91a9fabc3ab3c4d6708968a88cb9d203b171
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ec532ce0871d11fea222050bb08ec73afe5f2be3
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="connectors-list"></a>Elenco dei connettori
 Per trovare i trigger e le azioni definiti dalla descrizione Swagger di ogni connettore e gli eventuali limiti dei connettori, vedere le [informazioni dettagliate sui connettori](/connectors/).
@@ -82,7 +82,7 @@ Enterprise Integration Pack (EIP) include connettori noti alla community di BizT
 | --- | --- | --- | --- |
 | [![Icona API][as2icon]<br/>**Decodifica</br> AS2**][as2decode] | [![Icona API][as2icon]<br/>**Codifica</br> AS2**][as2encode] | [![Icona API][x12icon]<br/>**Decodifica</br> EDIFACT**][EDIFACTdecode] | [![Icona API][x12icon]<br/>**Codifica</br> EDIFACT**][EDIFACTencode] |
 [![Icona API][flatfileicon]<br/>**Codifica</br> file flat**][flatfiledoc] | [![Icona API][flatfiledecodeicon]<br/>**Decodifica</br> file flat**][flatfiledecodedoc] | [![Icona API][integrationaccounticon]<br/>**Account<br/> di integrazione**][integrationaccountdoc] | [![Icona API][xmltransformicon]<br/>**Trasformazione<br/>XML**][xmltransformdoc] |
-| [![Icona API][x12icon]<br/>**Decodifica</br> X12**][x12decode] | [![Icona API][x12icon]<br/>**Codifica</br> X12**][x12encode] | [![Icona API][xmlvalidateicon]<br/>**Convalida <br/>XML**][xmlvalidatedoc] | |
+| [![Icona API][x12icon]<br/>**Decodifica</br> X12**][x12decode] | [![Icona API][x12icon]<br/>**Codifica</br> X12**][x12encode] | [![Icona API][xmlvalidateicon]<br/>**Convalida <br/>XML**][xmlvalidatedoc] | [![Icona API][liquidicon]<br/>**Trasformazioni <br/>JSON**][JSONliquidtransformdoc] |
 
 ### <a name="enterprise-connectors"></a>Connettori aziendali
 
@@ -189,6 +189,7 @@ Se manca un argomento sui connettori o qualche dettaglio che si ritiene sia impo
 [EDIFACTdecode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Learn about enterprise integration EDIFACT decode" (Informazioni su Enterprise Integration: decodifica EDIFACT)
 [EDIFACTencode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Learn about enterprise integration EDIFACT encode" (Informazioni su Enterprise Integration: codifica EDIFACT)
 [integrationaccountdoc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Cercare schemi, mappe, partner e altro ancora nell'account di integrazione"
+[JSONliquidtransformdoc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Informazioni sulle trasformazioni JSON con Liquid"
 
 
 [boxDoc]: ./connectors-create-api-box.md "Connettersi a Box. Caricare, recuperare, eliminare ed elencare i file e altro ancora"
@@ -328,3 +329,4 @@ Se manca un argomento sui connettori o qualche dettaglio che si ritiene sia impo
 [xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 [integrationaccounticon]: ./media/apis-list/integrationaccount.png
+[liquidicon]: ./media/apis-list/liquidtransform.png

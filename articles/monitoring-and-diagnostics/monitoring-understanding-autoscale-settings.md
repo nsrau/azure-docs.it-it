@@ -1,6 +1,6 @@
 ---
-title: "Informazioni sulle impostazioni di scalabilità automatica | Documenti Microsoft"
-description: "Una suddivisione dettagliata delle impostazioni di scalabilità automatica e il relativo funzionamento."
+title: "Informazioni sulle impostazioni di scalabilità automatica | Microsoft Docs"
+description: "Analisi dettagliata delle impostazioni di scalabilità automatica e del relativo funzionamento."
 author: anirudhcavale
 manager: orenr
 editor: 
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: ancav
-ms.openlocfilehash: cff2be1818417a19f36da08d8c2eaa227bb945ec
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.openlocfilehash: 79602cf053d834bf3d6dc6b4d5568637b179d5c7
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="understand-autoscale-settings"></a>Informazioni sulle impostazioni di scalabilità automatica
-Impostazioni di scalabilità automatica consentono di avere a disposizione la giusta quantità di risorse per gestire il carico dinamico dell'applicazione in esecuzione. È possibile configurare le impostazioni di scalabilità automatica deve essere attivata in base alle metriche che indicano le prestazioni o carico, o il trigger in una data e ora pianificate. In questo articolo richiede un'analisi approfondita l'anatomia di un'impostazione di scalabilità automatica. L'articolo inizia con la comprensione dello schema e della proprietà di un'impostazione, quindi vengono illustrati i diversi tipi di profilo che possono essere configurati e infine viene illustrata la scalabilità automatica restituisce il profilo da eseguire in qualsiasi momento.
+Le impostazioni di scalabilità automatica consentono di avere la giusta quantità di risorse in esecuzione per gestire il carico variabile dell'applicazione. È possibile configurare le impostazioni di scalabilità automatica in modo che vengano attivate in base alle metriche che indicano le prestazioni o il carico oppure in una data e ora pianificate. Questo articolo analizza in dettaglio un'impostazione di scalabilità automatica. L'articolo inizia descrivendo lo schema e le proprietà di un'impostazione, quindi illustra i diversi tipi di profili che possono essere configurati e infine spiega come la scalabilità automatica valuta quale profilo eseguire in un determinato momento.
 
-## <a name="autoscale-setting-schema"></a>Impostazione di scalabilità automatica schema
-Per illustrare l'impostazione di scalabilità automatica schema, viene utilizzata la seguente impostazione di scalabilità automatica. È importante notare che questa impostazione di scalabilità automatica ha:
+## <a name="autoscale-setting-schema"></a>Schema delle impostazioni di scalabilità automatica
+Per illustrare lo schema delle impostazione di scalabilità automatica, viene usata l'impostazione di scalabilità automatica seguente. È importante notare che questa impostazione di scalabilità automatica ha:
 - Un profilo 
-- Presenta due regole di metrica in questo profilo. uno per scalabilità orizzontale e uno per la scala.
-- La regola di scalabilità orizzontale viene attivata quando metriche Percentuale CPU Media del set di scalabilità della macchina virtuale è maggiore di 85% per le ultime 10 minuti.
-- La regola di scala viene attivata quando la media del set di scalabilità della macchina virtuale è inferiore al 60% nell'ultimo minuto.
+- Due regole metriche in questo profilo, una per lo scale-out e una per lo scale-in.
+- La regola di scale-out viene attivata quando la metrica relativa alla percentuale CPU media del set di scalabilità di macchine virtuali è superiore all'85% per gli ultimi 10 minuti.
+- La regola di scale-in viene attivata quando la media del set di scalabilità di macchine virtuali è inferiore al 60% per l'ultimo minuto.
 
 > [!NOTE]
-> Un'impostazione può avere più profili, passare il [profili](#autoscale-profiles) sezione per altre informazioni.
-> Un profilo può inoltre avere scalabilità più regole e le regole di scala definite, passare il [sezione valutazione](#autoscale-evaluation) per vedere come vengono valutate
+> Un'impostazione può avere più profili. Per altre informazioni, vedere la sezione sui [profili](#autoscale-profiles).
+> Per un profilo possono anche essere definite più regole di scale-out e di scale-in. Per informazioni su come vengono valutate, vedere la [sezione sulla valutazione](#autoscale-evaluation)
 
 ```JSON
 {
@@ -97,37 +97,37 @@ Per illustrare l'impostazione di scalabilità automatica schema, viene utilizzat
 
 | Sezione | Nome dell'elemento | DESCRIZIONE |
 | --- | --- | --- |
-| Impostazione | ID | ID di risorsa. dell'impostazione di scalabilità automatica Impostazioni di scalabilità automatica sono una risorsa di gestione risorse di Azure. |
-| Impostazione | name | Il nome dell'impostazione di scalabilità automatica. |
-| Impostazione | location | La posizione dell'impostazione di scalabilità automatica. Questo percorso può essere diverso dal percorso della risorsa in corso il ridimensionamento. |
-| properties | dell'oggetto targetResourceUri | L'ID risorsa della risorsa in corso il ridimensionamento. È possibile avere solo un'impostazione di scalabilità automatica per ogni risorsa. |
-| properties | Profili | Un'impostazione di scalabilità automatica è costituita da uno o più profili. Ogni volta che viene eseguito il motore di scalabilità automatica, viene eseguito un profilo. |
-| Profilo | name | Il nome del profilo, è possibile scegliere qualsiasi nome che consente di identificare il profilo. |
-| Profilo | Capacity.Maximum | La capacità massima consentita. Assicura la scalabilità automatica, quando si esegue questo profilo, non è adatta la risorsa di sopra di questo numero. |
-| Profilo | Capacity.Minimum | La capacità minima consentita. Assicura la scalabilità automatica, quando si esegue questo profilo, non è adatta la risorsa di sotto di questo numero. |
-| Profilo | Capacity.default | Se è presente un problema durante la lettura la metrica di risorsa (in questo caso, la cpu del "vmss1") e la capacità corrente è di sotto della capacità predefinita, quindi per garantire la disponibilità della risorsa, scalabilità automatica scale-out per il valore predefinito. Se la capacità corrente è maggiore della capacità predefinita, scalabilità automatica verranno non scala-in. |
-| Profilo | regole | Scalabilità automatica può essere ridimensionato automaticamente tra le capacità massime e minime utilizzando le regole del profilo. È possibile avere più regole in un profilo. Lo scenario di base è che le due regole, uno per determinare quando scalabilità orizzontale e l'altro per determinare quando in scala. |
-| Regola | metricTrigger | Definisce la condizione della regola di metrica. |
-| metricTrigger | metricName | Il nome della metrica. |
-| metricTrigger |  metricResourceUri | L'ID risorsa della risorsa che genera la metrica. Nella maggior parte dei casi, è lo stesso come risorsa in corso il ridimensionamento. In alcuni casi, può essere diverso, ad esempio è possibile ridimensionare un set di scalabilità della macchina virtuale in base al numero di messaggi in una coda di archiviazione. |
-| metricTrigger | timeGrain | La durata di campionamento di metrica. Ad esempio, TimeGrain = "PT1M" significa che le metriche devono essere aggregati di ogni minuto utilizzando il metodo di aggregazione specificato in "statistica". |
-| metricTrigger | statistic | Il metodo di aggregazione entro il periodo di intervallo di tempo. Statistiche, ad esempio = "Medio" e l'intervallo di tempo = "PT1M" significa che devono essere le metriche aggregate intervalli di 1 minuto considerando la Media. Questa proprietà determina come viene campionata la metrica. |
-| metricTrigger | timeWindow | La quantità di tempo per eseguire ricerche indietro per le metriche. Ad esempio, timeWindow = "PT10M" significa che ogni volta che viene eseguito scalabilità automatica, viene eseguita una query metriche negli ultimi 10 minuti. L'intervallo di tempo consente le metriche normalizzare ed evita di reazione a picchi temporanei. |
-| metricTrigger | timeAggregation | Il metodo di aggregazione utilizzato per aggregare le metriche campionate. Ad esempio, di aggregazione temporale = "Medio" deve aggregare le metriche campionate considerando la Media. Nel caso precedente dieci campioni 1 minuto e la media di essi. |
-| Regola | scaleAction | L'azione da intraprendere quando viene attivato metricTrigger della regola. |
-| scaleAction | direction | "Aumentare" per scalabilità orizzontale, "Diminuire" in scala-in|
-| scaleAction | value | La quantità per aumentare o diminuire la capacità della risorsa |
-| scaleAction | cooldown | La quantità di tempo di attesa dopo un'operazione di scala prima di passare nuovamente. Ad esempio, se raffreddamento = "PT10M" dopo l'esecuzione di un'operazione di scala, scalabilità automatica non tenterà di scalare nuovamente per altri 10 minuti. Il raffreddamento consiste nel consentire le metriche stabilizzare dopo l'aggiunta o rimozione di istanze. |
+| Impostazione | ID | ID risorsa dell'impostazione di scalabilità automatica. Le impostazioni di scalabilità automatica sono una risorsa di Azure Resource Manager. |
+| Impostazione | name | Nome dell'impostazione di scalabilità automatica. |
+| Impostazione | location | Posizione dell'impostazione di scalabilità automatica. Questa posizione può essere diversa dalla posizione della risorsa da ridimensionare. |
+| properties | targetResourceUri | ID della risorsa da ridimensionare. È consentita una sola impostazione di scalabilità automatica per risorsa. |
+| properties | Profili | Un'impostazione di scalabilità automatica è costituita da uno o più profili. Ogni volta che viene eseguito, il motore di scalabilità automatica esegue un profilo. |
+| Profilo | name | Nome del profilo. È possibile scegliere qualsiasi nome consenta di identificare il profilo. |
+| Profilo | Capacity.maximum | Capacità massima consentita. Assicura che la scalabilità automatica, quando si esegue questo profilo, non ridimensioni la risorsa al di sopra di questo numero. |
+| Profilo | Capacity.minimum | Capacità minima consentita. Assicura che la scalabilità automatica, quando si esegue questo profilo, non ridimensioni la risorsa al di sotto di questo numero. |
+| Profilo | Capacity.default | Se si verifica un problema relativo alla metrica delle risorse (in questo caso, la CPU "vmss1") e la capacità corrente è inferiore alla capacità predefinita, per assicurare la disponibilità della risorsa, la funzionalità di scalabilità automatica aumenta il numero di istanze fino all'impostazione predefinita. Se la capacità corrente è già superiore alla capacità predefinita, la funzionalità di scalabilità automatica non ridurrà il numero di istanze. |
+| Profilo | regole | La scalabilità automatica esegue automaticamente il ridimensionamento tra le capacità massime e minime usando le regole del profilo. È possibile avere più regole in un profilo. Lo scenario di base prevede due regole, una per determinare quando aumentare il numero di istanze e l'altra per determinare quando ridurle. |
+| Regola | metricTrigger | Definisce la condizione metrica della regola. |
+| metricTrigger | metricName | Nome della metrica. |
+| metricTrigger |  metricResourceUri | ID della risorsa che emette la metrica. Nella maggior parte dei casi, è lo stesso della risorsa da ridimensionare. In alcuni casi, può essere diverso. È ad esempio possibile ridimensionare un set di scalabilità di macchine virtuali in base al numero di messaggi in una coda di archiviazione. |
+| metricTrigger | timeGrain | La durata del campionamento delle metriche. Ad esempio, TimeGrain = "PT1M" indica che le metriche verranno aggregate ogni minuto usando il metodo di aggregazione specificato in "statistic". |
+| metricTrigger | statistic | Metodo di aggregazione nel periodo specificato per timeGrain. Ad esempio, statistic = "Average" e timeGrain = "PT1M" indicano che le metriche verranno aggregate ogni minuto in base alla media. Questa proprietà determina come viene campionata la metrica. |
+| metricTrigger | timeWindow | Quantità di tempo da considerare per le metriche. Ad esempio, se timeWindow = "PT10M", ogni volta che viene eseguita la funzionalità Scalabilità automatica, viene eseguita una query sulle metriche per i 10 minuti precedenti. L'intervallo di tempo consente alle metriche di essere normalizzate e di non reagire a picchi temporanei. |
+| metricTrigger | timeAggregation | Metodo di aggregazione usato per aggregare le metriche campionate. Ad esempio, TimeAggregation = "Average" aggregherà le metriche campionate in base alla media. Nel caso precedente considerare i dieci esempi da 1 minuto e calcolarne la media. |
+| Regola | scaleAction | Azione da intraprendere quando viene attivato l'elemento metricTrigger della regola. |
+| scaleAction | direction | "Increase" per aumentare il numero di istanze, "Decrease" per ridurle|
+| scaleAction | value | Indica di quanto aumentare o ridurre la capacità della risorsa |
+| scaleAction | cooldown | Tempo di attesa necessario dopo un'operazione di ridimensionamento prima di avviarne un'altra. Se ad esempio cooldown = "PT10M" e viene eseguita un'operazione di ridimensionamento, non verrà eseguito un altro tentativo di ridimensionamento prima di 10 minuti. Il raffreddamento consente alle metriche di stabilizzarsi dopo l'aggiunta o la rimozione di istanze. |
 
 ## <a name="autoscale-profiles"></a>Profili di scalabilità automatica
 
 Esistono tre tipi di profili di scalabilità automatica:
 
-1. **Profilo regolare:** profilo più comune. Se non è necessario ridimensionare la risorsa in modo diverso in base il giorno della settimana o in un determinato giorno, quindi è solo necessario configurare un profilo regolari nell'impostazione di scalabilità automatica. Questo profilo può quindi essere configurato con metrica regole che determinano quando a scalabilità orizzontale e scalabilità-in. È sufficiente un profilo regolare definito.
+1. **Profilo normale:** è quello più comune. Se non è necessario ridimensionare la risorsa in modo diverso in base al giorno della settimana oppure in un determinato giorno, è sufficiente configurare un profilo normale nell'impostazione di scalabilità automatica. Questo profilo può quindi essere configurato con le regole metriche che determinano quando aumentare il numero di istanze e quando ridurle. È consigliabile avere un solo profilo normale definito.
 
-    Il profilo di esempio usato in precedenza in questo articolo è riportato un esempio di un profilo regolare. Non che non è inoltre possibile impostare un profilo per la scala su un numero di istanze statica per la risorsa.
+    Il profilo di esempio usato in precedenza in questo articolo è un esempio di profilo normale. Si noti che è anche possibile impostare un profilo per eseguire il ridimensionamento in base a un numero di istanze statico per la risorsa.
 
-2. **Profilo data fissa:** con il profilo regolare definito, si supponga che si dispone di un evento importante presentarsi in 26 dicembre 2017 (PST) e si desidera il minimo o massimo le capacità della risorsa diversi nella stessa giornata, ma con una scala comunque le stesse metriche . In questo caso, è necessario aggiungere un profilo data fissa all'elenco di profili dell'impostazione. Il profilo è configurato per eseguire solo il giorno dell'evento. Per qualsiasi giorno, viene eseguito il profilo regolare.
+2. **Profilo Data fissa:** si supponga che, con il profilo normale definito, sia previsto un importante evento il 26 dicembre 2017 (PST) e di voler modificare le capacità minima/massima della risorsa per quel giorno, ma di voler continuare a eseguire il ridimensionamento in base alle stesse metriche. In questo caso, è consigliabile aggiungere un profilo Data fissa all'elenco di profili dell'impostazione. Il profilo è configurato per essere eseguito solo il giorno dell'evento. In qualsiasi altro giorno viene eseguito il profilo normale.
 
     ``` JSON
     "profiles": [{
@@ -160,10 +160,10 @@ Esistono tre tipi di profili di scalabilità automatica:
     ]
     ```
     
-3. **Profilo ricorrenza:** questo tipo di profilo consente di garantire che il profilo è sempre usato in un determinato giorno della settimana. Profili di ricorrenza hanno solo un'ora di inizio, di conseguenza vengono eseguiti fino al profilo ricorrenza o profilo data fissa è impostata su Avvia. Un'impostazione con un solo profilo ricorrenza, di scalabilità automatica esegue tale profilo anche se è presente un profilo regolare definito con la stessa impostazione. Due esempi seguenti illustrano l'utilizzo di questo profilo:
+3. **Profilo Ricorrenza:** questo tipo di profilo consente di assicurarsi che in un determinato giorno della settimana venga usato sempre questo profilo. I profili Ricorrenza hanno solo un'ora di inizio, quindi vengono eseguiti finché il successivo profilo Ricorrenza o profilo Data fissa non viene impostato per l'avvio. Un'impostazione di scalabilità automatica con un solo profilo Ricorrenza esegue tale profilo anche se nella stessa impostazione è definito un profilo normale. I due esempi seguenti illustrano l'utilizzo di questo profilo:
 
-    **Esempio 1: vs giorno della settimana. I fine settimana** supponiamo che nei fine settimana si desidera che la capacità massima a 4 che nei giorni feriali, poiché si prevede un carico maggiore la capacità massima a 10. In questo caso, l'impostazione conterrebbe due profili di ricorrenza, uno per l'esecuzione nei fine settimana e l'altro nei giorni feriali.
-    L'impostazione avrà un aspetto simile al seguente:
+    **Esempio 1: Giorno feriale e fine settimana** Si supponga che nei fine settimana la capacità massima debba essere impostata su 4, ma che nei giorni feriali, poiché è previsto un carico maggiore, la capacità massima debba essere pari a 10. In questo caso, l'impostazione conterrà due profili Ricorrenza, uno da eseguire nei fine settimana e l'altro nei giorni feriali.
+    L'impostazione sarà simile alla seguente:
 
     ``` JSON
     "profiles": [
@@ -217,12 +217,12 @@ Esistono tre tipi di profili di scalabilità automatica:
     }]
     ```
 
-    Osservando l'impostazione precedente, si noterà che ogni profilo ricorrenza dispone di una pianificazione, la pianificazione determina quando il profilo viene avviata l'esecuzione. Il profilo viene interrotta l'esecuzione al momento di eseguire un altro profilo.
+    Osservando l'impostazione precedente, si noterà che ogni profilo Ricorrenza ha una pianificazione che determina quando viene avviata l'esecuzione del profilo. L'esecuzione del profilo si arresta al momento di eseguire un altro profilo.
 
-    Ad esempio, nell'impostazione del precedente, "weekdayProfile" viene impostato per avviarsi lunedì alle ore 12, che significa che il profilo avvia l'esecuzione dal lunedì al 12.am. Continua l'esecuzione fino a sabato 12a.m. quando è pianificato "weekendProfile" per avviare l'esecuzione.
+    Nell'impostazione precedente, ad esempio, l'avvio di "weekdayProfile" è impostato su lunedì a mezzanotte, vale a dire che l'esecuzione di questo profilo inizia lunedì a mezzanotte. L'esecuzione prosegue fino a sabato a mezzanotte, quando è pianificato l'avvio dell'esecuzione di "weekendProfile".
 
-    **Esempio 2: orario di ufficio** Ecco un altro esempio, è possibile disporre di soglia per le metriche = 'x' durante l'orario di ufficio, 9: 00 alle 17.00, quindi dal 17. alle 9 il giorno successivo, si desidera la soglia per le metriche da 'y'.
-    L'impostazione avrà un aspetto simile al seguente:
+    **Esempio 2: Orario di ufficio** È anche possibile, ad esempio, che la soglia della metrica debba essere "x" durante l'orario di ufficio dalle 9 alle 17 e che dalle 17 alle 9 del giorno successivo la soglia della metrica debba essere "y".
+    L'impostazione sarà simile alla seguente:
     
     ``` JSON
     "profiles": [
@@ -276,31 +276,31 @@ Esistono tre tipi di profili di scalabilità automatica:
     }]
     ```
     
-    Osservando l'impostazione precedente, "businessHoursProfile" inizia l'esecuzione di lunedì alle 9. e mantiene l'esecuzione fino a 17. Poiché questa è la "nonBusinessHoursProfile" Avvia l'esecuzione. "nonBusinessHoursProfile" viene eseguita fino a 9: 00 Martedì e quindi assume "businessHoursProfile". Questo processo si ripete fino a quando venerdì 17: 00, a quel punto "nonBusinessHoursProfile" viene eseguita in lunedì 9: 00 Poiché "businessHoursProfile" non si avvia l'esecuzione fino a: lunedì 9: 00
+    Esaminando l'impostazione precedente, si nota che l'esecuzione di "businessHoursProfile" inizia lunedì alle 9 e prosegue fino alle 17 perché in quel momento viene avviata l'esecuzione di "nonBusinessHoursProfile". "nonBusinessHoursProfile" viene eseguito fino alle 9 di martedì e quindi subentra "businessHoursProfile". Questo ciclo si ripete fino a venerdì alle 17, quando "nonBusinessHoursProfile" viene eseguito ininterrottamente fino a lunedì alle 9 perché l'esecuzione di "businessHoursProfile" non viene avviata fino a lunedì alle 9.
     
 > [!Note]
-> L'esperienza utente di scalabilità automatica nel portale di Azure impone l'ora di fine per i profili di ricorrenza e inizia l'esecuzione di profilo predefinito dell'impostazione di scalabilità automatica tra i profili di ricorrenza.
+> L'esperienza utente di scalabilità automatica nel portale di Azure applica le ore di fine per i profili Ricorrenza e inizia l'esecuzione del profilo predefinito dell'impostazione di scalabilità automatica tra i profili Ricorrenza.
     
-## <a name="autoscale-evaluation"></a>Valutazione di scalabilità automatica
-Dato che tale funzionalità impostazioni possono avere più profili di scalabilità automatica e ogni profilo può avere più regole di metrica, è importante comprendere la modalità di valutazione di un'impostazione di scalabilità automatica. Ogni volta che l'esecuzione del processo di scalabilità automatica inizia scegliendo il profilo che è applicabile, dopo aver scelto il profilo di scalabilità automatica valuta min, max valori e tutte le regole di metrica del profilo e decide se è necessaria un'azione di scalabilità.
+## <a name="autoscale-evaluation"></a>Valutazione della scalabilità automatica
+Considerato che le impostazioni di scalabilità automatica possono avere più profili di scalabilità automatica e ogni profilo può avere più regole relative alle metriche, è importante sapere come viene valutata un'impostazione di scalabilità automatica. Ogni volta che il processo di scalabilità automatica viene eseguito, inizia scegliendo il profilo applicabile. Dopo avere scelto il profilo, la funzionalità di scalabilità automatica valuta i valori minimi e massimi e le regole delle metriche nel profilo e determina se è necessaria un'azione di ridimensionamento.
 
-### <a name="which-profile-will-autoscale-pick"></a>Il profilo selezionerà scalabilità automatica?
-- Ridimensionamento automatico cerca innanzitutto qualsiasi fisso profilo data che è configurato per l'esecuzione di questo punto, se è presente, scalabilità automatica, che viene eseguito. Se sono presenti più profili data fissa che dovrebbero essere eseguite, scalabilità automatica selezionerà il primo.
-- Se sono non presenti alcun profilo data fissa, scalabilità automatica esaminano i profili di ricorrenza, se trovato, viene eseguito.
-- Se sono presenti n fissata o profili ricorrenza, scalabilità automatica, quindi eseguire il profilo regolare.
+### <a name="which-profile-will-autoscale-pick"></a>Profilo selezionato dalla scalabilità automatica
+- La funzionalità di scalabilità automatica prima cerca un profilo Data fissa configurato da eseguire subito e, se presente, lo esegue. Se sono presenti più profili Data fissa che devono essere eseguiti, la funzionalità di scalabilità automatica selezionerà il primo.
+- Se non sono presenti profili Data fissa, la funzionalità di scalabilità automatica esamina i profili Ricorrenza, se disponibili, quindi ne esegue uno.
+- Se non sono presenti profili Data fissa o Ricorrenza, la funzionalità di scalabilità automatica esegue il profilo normale.
 
-### <a name="how-does-autoscale-evaluate-multiple-rules"></a>Modalità di valutazione più regole scalabilità automatica
+### <a name="how-does-autoscale-evaluate-multiple-rules"></a>Valutazione di più regole con la scalabilità automatica
 
-Una volta scalabilità automatica determina quale profilo dovrebbe per eseguire, avviare valutando tutte la regola di scalabilità orizzontale nel profilo (regole con direzione = "Aumentare").
-- Se una o più regole di scalabilità orizzontale vengono attivate, scalabilità automatica consente di calcolare la nuova capacità di base di scaleAction di ognuno di tali regole. Quindi scale-out per il numero massimo di queste capacità per garantire la disponibilità del servizio.
-- Ad esempio: se è presente un set di scalabilità della macchina virtuale con una capacità pari a 10 corrente e sono presenti due regole di scalabilità orizzontale. uno che aumenta la capacità di 10% e uno che aumenta la capacità di 3. La prima regola darà origine a una nuova capacità di 11 e la seconda regola avrebbe come risultato una capacità pari a 13. Per garantire la disponibilità del servizio scalabilità automatica sceglie l'azione che comporta la capacità massima, quindi la seconda regola viene scelto.
+Dopo che la funzionalità di scalabilità automatica ha determinato quale profilo deve essere eseguito, avvia la valutazione di tutte le regole di scale-out del profilo (regole con direction = "Increase").
+- Se una o più regole di scale-out vengono attivate, la funzionalità di scalabilità automatica calcola la nuova capacità determinata dall'elemento scaleAction di ogni regola. Aumenta quindi le istanze fino al numero massimo consentito da tali capacità per garantire la disponibilità del servizio.
+- Ad esempio: se è presente un set di scalabilità di macchine virtuali con una capacità corrente pari a 10 e sono presenti due regole di scale-out, una che aumenta la capacità del 10% e una che aumenta la capacità di 3, la prima regola restituirà una nuova capacità pari a 11 e la seconda regola restituirà una capacità pari a 13. Per garantire la disponibilità del servizio, la funzionalità di scalabilità automatica sceglie l'azione che restituisce la capacità massima, ovvero la seconda regola.
 
-Se nessuna regola di scalabilità orizzontale viene attivata, scalabilità automatica valuta tutte le scale-in regole (regole con direzione = "Ridurre"). Scalabilità automatica ha solo un'azione di scalabilità se tutte le regole di scala vengono attivate.
-- Scalabilità automatica consente di calcolare la nuova capacità di base di scaleAction di ognuno di tali regole. Quindi sceglie l'azione che restituisce il numero massimo di queste capacità per garantire la disponibilità del servizio.
-- Ad esempio: se è presente un set di scalabilità della macchina virtuale con una capacità pari a 10 corrente e sono presenti regole di scalabilità due. uno che diminuisce la capacità di 50% e uno che diminuisce la capacità di 3. La prima regola darà origine a una nuova capacità di 5 e la seconda regola avrebbe come risultato una capacità pari a 7. Per garantire la disponibilità del servizio scalabilità automatica sceglie l'azione che comporta la capacità massima, quindi la seconda regola viene scelto.
+Se non vengono attivate regole di scale-out, la funzionalità di scalabilità automatica valuta tutte le regole di scale-in (regole con direction = "Decrease"). La funzionalità di scalabilità automatica esegue un'azione di scale-in se tutte le regole di scale-in vengono attivate.
+- La funzionalità di scalabilità automatica calcola la nuova capacità determinata dall'elemento scaleAction di ogni regola, quindi sceglie l'azione di ridimensionamento che restituisce il massimo di tali capacità per garantire la disponibilità del servizio.
+- Ad esempio: se è presente un set di scalabilità di macchine virtuali con una capacità corrente pari a 10 e sono presenti due regole di scale-in, una che riduce la capacità del 50% e una che riduce la capacità di 3, la prima regola restituirà una nuova capacità pari a 5 e la seconda regola restituirà una capacità pari a 7. Per garantire la disponibilità del servizio, la funzionalità di scalabilità automatica sceglie l'azione che restituisce la capacità massima, ovvero la seconda regola.
 
-## <a name="next-steps"></a>Fasi successive
-Per ulteriori informazioni sulla scalabilità automatica vedere le risorse seguenti:
+## <a name="next-steps"></a>Passaggi successivi
+Per altre informazioni sulla scalabilità automatica, vedere le risorse seguenti:
 
 * [Panoramica della scalabilità automatica](monitoring-overview-autoscale.md)
 * [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](insights-autoscale-common-metrics.md)

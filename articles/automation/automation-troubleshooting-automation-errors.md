@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 95abba4fd293e2d04a58f0d07f955aca808434b7
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 76a3096595d07916159b3a50da0793c653a490a0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Risoluzione dei problemi comuni in Automazione di Azure 
 Questo articolo fornisce informazioni utili per la risoluzione degli errori comuni che si possono verificare in Automazione di Azure e suggerisce possibili soluzioni.
@@ -195,11 +195,19 @@ Questo codice di errore indica che il formato della query sul gruppo di computer
 
 **Motivo dell'errore:**
 
-Questo codice di errore indica che la distribuzione non è riuscita a causa di una violazione dei criteri.
+Questo codice di errore indica che la distribuzione non è riuscita a causa di una violazione di uno o più criteri.
 
 **Suggerimenti per la risoluzione dei problemi:**
 
-Controllare le notifiche nell'angolo inferiore destro del portale di Azure o passare al gruppo di risorse che contiene l'account di automazione e selezionare **Distribuzioni** in **Impostazioni** per visualizzare la distribuzione non riuscita. Per altre informazioni sui criteri di Azure, visitare [Informazioni su Criteri di Azure](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json)
+Per poter distribuire la soluzione, è necessario provare a modificare i criteri indicati. È possibile definire vari tipi di criteri diversi. Le modifiche necessarie dipendono dal criterio violato. Ad esempio, se per un gruppo di risorse è stato definito un criterio che nega l'autorizzazione per modificare il contenuto di determinati tipi di risorse all'interno del gruppo, è possibile procedere in uno dei modi seguenti:
+
+*   Rimuovere completamente il criterio.
+* Provare a eseguire il caricamento in un gruppo di risorse diverso.
+* Rivedere i criteri, ad esempio:
+   * Ridefinendo la destinazione del criterio per un una risorsa specifica (ad esempio un account di automazione specifico).
+   * Modificando il set di risorse per il quale il criterio specifico è stato configurato per negare l'autorizzazione.
+
+Controllare le notifiche nell'angolo inferiore destro del portale di Azure o passare al gruppo di risorse che contiene l'account di automazione e selezionare **Distribuzioni** in **Impostazioni** per visualizzare la distribuzione non riuscita. Per altre informazioni sui criteri di Azure, vedere [Informazioni su Criteri di Azure](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

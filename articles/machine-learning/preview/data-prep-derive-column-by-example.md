@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 6febd3f12248a96f54415a91fcf0513ef7412e78
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 7ee5a720b12152c27a96ee18f1b11e5fc03a531a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="derive-column-by-example-transformation"></a>Trasformazione Deriva colonna dall'esempio
 
@@ -48,7 +48,7 @@ Qualsiasi combinazione di trasformazioni di data, numero o stringa.
 
 ## <a name="how-to-use-this-transformation"></a>Come usare questa informazione
 
-Per eseguire questa trasformazione, adottare la procedura seguente:
+Per eseguire questa trasformazione, eseguire la procedura seguente:
 1. Selezionare uno o più colonne da cui si desidera derivare il valore. 
 2. Selezionare **Derive Column by Example** (Deriva colonna da esempio) dal menu **Trasformazioni**. In alternativa fare clic con il pulsante destro del mouse sull'intestazione di una delle colonne selezionate e selezionare **Derive Column by Example** (Deriva colonna da esempio) dal menu di scelta rapida. Viene aperto l'editor di trasformazione e viene aggiunta una nuova colonna accanto alla colonna selezionata all'estrema destra. Le colonne selezionate possono essere identificate tramite caselle di controllo nelle intestazioni di colonna. L'aggiunta e la rimozione di colonne dalla selezione possono essere eseguite usando le caselle di controllo nelle intestazioni di colonna.
 3. Digitare un esempio di *output* in una riga e premere Invio. A questo punto, Workbench analizza la colonna di input, nonché l'output presente per sintetizzare un programma in grado di trasformare gli input inseriti in output. Il programma sintetizzato viene eseguito su tutte le righe nella griglia dei dati. In casi ambigui e complessi potrebbero essere necessari più esempi. A seconda del fatto che si usi la modalità di base o quella avanzata, è possibile specificare più esempi in modi diversi.
@@ -68,9 +68,13 @@ Nella modalità avanzata è possibile aggiungere tutte le righe come riga di ese
 
 L'utente può passare dalla **Modalità di base** alla **Modalità avanzata** facendo clic sui collegamenti nell'editor di trasformazione.
 
+### <a name="transform-editor-send-feedback"></a>Editor di trasformazione: invio di commenti e suggerimenti
+
+Facendo clic sul collegamento **Send feedback** (Invia commenti e suggerimenti) viene aperta la finestra di dialogo **Feedback** (Commenti e suggerimenti) in cui la casella dei commenti include già gli esempi forniti dall'utente. L'utente deve esaminare il contenuto della casella dei commenti e fornire ulteriori dettagli per consentire a Microsoft di comprendere il problema. Se non vuole condividere dati con Microsoft, l'utente deve eliminare i dati di esempio già inseriti prima di fare clic sul pulsante **Send Feedback** (Invia commenti e suggerimenti). 
+
 ### <a name="editing-existing-transformation"></a>Modifica della trasformazione esistente
 
-L'utente può modificare una trasformazione **Deriva colonna da esempio** esistente selezionando l'opzione **Modifica** del passaggio di trasformazione. Facendo clic su **Modifica** viene aperto l'editor di trasformazione in **modalità avanzata** e vengono visualizzati tutti gli esempi creati durante la creazione della trasformazione.
+L'utente può modificare una trasformazione **Deriva colonna da esempio** esistente selezionando l'opzione **Modifica** del passaggio di trasformazione. Facendo clic su **Modifica** viene aperto l'editor di trasformazione in **modalità avanzata** e vengono visualizzati tutti gli esempi forniti durante la creazione della trasformazione.
 
 ## <a name="examples-of-string-transformations-by-example"></a>Esempi di trasformazioni di stringhe da esempio
 
@@ -135,7 +139,7 @@ Numero di esempi necessari per questo caso: 1
 Numero di esempi necessari per questo caso: 1
 
 >[!NOTE] 
->In questo esempio, il carattere speciale · rappresenta gli spazi nella colonna di Output.
+>In questo esempio il carattere speciale · rappresenta gli spazi nella colonna di Output.
 
 |Nome|Iniziale del secondo nome|Cognome|Output|
 |:-----|:-----|:-----|:-----|
@@ -385,5 +389,5 @@ Il mapping di un periodo di tempo è stato eseguito tramite trasformazioni diver
 ### <a name="conditional-transformations"></a>Trasformazioni condizionali
 In alcuni casi, è impossibile trovare una trasformazione che soddisfi gli esempi specificati. In questi casi, la trasformazione per derivare una colonna dall'esempio tenta di raggruppare gli input in base a un modello e di apprendere trasformazioni diverse per ogni gruppo. Questa operazione si chiama **trasformazione condizionale**. La **trasformazione condizionale** viene tentata solo per le trasformazioni con una sola colonna di input. 
 
-### <a name="reference"></a>Riferimenti
+### <a name="reference"></a>riferimento
 Altre informazioni sulla tecnologia di trasformazione della stringa dall'esempio sono reperibili in [questa pubblicazione](https://www.microsoft.com/en-us/research/publication/automating-string-processing-spreadsheets-using-input-output-examples/).

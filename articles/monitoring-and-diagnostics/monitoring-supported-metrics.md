@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 1/31/2018
 ms.author: ancav
-ms.openlocfilehash: 673f5a5cd6832adb031ef72ce25f8a1622717cfd
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.openlocfilehash: a7d28de33090995b0a036d528fb82f9e0d7335bf
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra cui la creazione di grafici nel portale, l'accesso tramite l'API REST o l'esecuzione di query tramite PowerShell o l'interfaccia della riga di comando. Di seguito è riportato un elenco completo di tutte le metriche attualmente disponibili con la pipeline delle metriche di monitoraggio di Azure.
@@ -92,7 +92,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|TotalJob|Processi totali|Conteggio|Totale|Numero totale di processi|RunbookName, stato|
+|TotalJob|Processi totali|Conteggio|Totale|Numero totale di processi|RunbookName, Status|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
@@ -320,7 +320,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |Latenza|Latenza|Millisecondi|Media|Latenza in millisecondi.|Nessuna dimensione|
 |CharactersTranslated|Caratteri convertiti|Conteggio|Totale|Numero totale di caratteri nella richiesta di testo in ingresso.|Nessuna dimensione|
 |SpeechSessionDuration|Durata della sessione vocale|Secondi|Totale|Durata totale della sessione vocale in secondi.|Nessuna dimensione|
-|TotalTransactions|Transazioni totali|Conteggio|Totale|Numero totale di transazioni|Nessuna dimensione|
+|TotalTransactions|Totale transazioni|Conteggio|Totale|Numero totale di transazioni|Nessuna dimensione|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
@@ -403,7 +403,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|SuccessfulRuns|Esecuzioni riuscite|Conteggio|Totale|Numero di esecuzioni di esito positivo.|Nessuna dimensione|
+|SuccessfulRuns|Esecuzioni riuscite|Conteggio|Totale|Numero di esecuzioni riuscite.|Nessuna dimensione|
 |FailedRuns|Esecuzioni non riuscite|Conteggio|Totale|Numero di esecuzioni non riuscite.|Nessuna dimensione|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
@@ -529,6 +529,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |jobs.failed|Processi non riusciti|Conteggio|Totale|Numero di tutti i processi non riusciti.|Nessuna dimensione|
 |d2c.telemetry.ingress.sendThrottle|Number of throttling errors (Numero di errori di limitazione)|Conteggio|Totale|Numero di errori di limitazione dovuti alle limitazioni della velocità effettiva del dispositivo|Nessuna dimensione|
 |dailyMessageQuotaUsed|Total number of messages used (Numero totale di messaggi usati)|Conteggio|Media|Numero totale di messaggi usati nella data odierna. Si tratta di un valore cumulativo che viene reimpostato su zero alle 00:00 UTC ogni giorno.|Nessuna dimensione|
+|deviceDataUsage|Total devicedata usage (Utilizzo dei dati dei dispositivi totale)|Conteggio|Totale|Byte trasferiti a e da qualsiasi dispositivo connesso all'hub IoT|Nessuna dimensione|
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
@@ -542,14 +543,14 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|elasticPool.requestedUsageRate|frequenza di utilizzo richiesto|Percentuale|Media|frequenza di utilizzo richiesto|Nessuna dimensione|
+|elasticPool.requestedUsageRate|requested usage rate (Frequenza di utilizzo richiesta)|Percentuale|Media|requested usage rate (Frequenza di utilizzo richiesta)|Nessuna dimensione|
 
 ## <a name="microsoftdeviceselasticpoolsiothubtenants"></a>Microsoft.Devices/ElasticPools/IotHubTenants
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|tenantHub.requestedUsageRate|frequenza di utilizzo richiesto|Percentuale|Media|frequenza di utilizzo richiesto|Nessuna dimensione|
-|deviceDataUsage|Utilizzo totale devicedata|Conteggio|Totale|Byte trasferiti da e verso tutti i dispositivi connessi all'hub IOT|Nessuna dimensione|
+|tenantHub.requestedUsageRate|requested usage rate (Frequenza di utilizzo richiesta)|Percentuale|Media|requested usage rate (Frequenza di utilizzo richiesta)|Nessuna dimensione|
+|deviceDataUsage|Total devicedata usage (Utilizzo dei dati dei dispositivi totale)|Conteggio|Totale|Byte trasferiti a e da qualsiasi dispositivo connesso all'hub IoT|Nessuna dimensione|
 |d2c.telemetry.ingress.allProtocol|Tentativi di invio di messaggi di telemetria|Conteggio|Totale|Il numero di messaggi di telemetria da dispositivo a cloud che si è cercato di inviare all'hub IoT|Nessuna dimensione|
 |d2c.telemetry.ingress.success|Messaggi di telemetria inviati|Conteggio|Totale|Il numero di messaggi di telemetria da dispositivo a cloud inviati all'hub IoT|Nessuna dimensione|
 |c2d.commands.egress.complete.success|Comandi completati|Conteggio|Totale|Numero di comandi da cloud a dispositivo completati dal dispositivo|Nessuna dimensione|
@@ -612,19 +613,19 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|MetadataRequests|Richieste di metadati|Conteggio|Conteggio|Numero di richieste di metadati. COSMOS DB mantiene insieme i metadati di sistema per ogni account, che consente di enumerare le raccolte, i database e così via, e le relative configurazioni, disponibile gratuitamente.|GlobalDatabaseAccountName, DatabaseName, NomeRaccolta, area geografica, codice di stato|
-|MongoRequestCharge|Addebito di MONGO richiesta|Conteggio|Totale|Unità di richiesta di MONGO utilizzate|GlobalDatabaseAccountName, DatabaseName, NomeRaccolta, area geografica, CommandName, ErrorCode|
-|MongoRequests|Richieste Mongo|Conteggio|Conteggio|Numero di richieste di Mongo|GlobalDatabaseAccountName, DatabaseName, NomeRaccolta, area geografica, CommandName, ErrorCode|
-|TotalRequestUnits|Unità di richiesta totale|Conteggio|Totale|Richiesta di che unità di misura utilizzata|GlobalDatabaseAccountName, DatabaseName, NomeRaccolta, area geografica, codice di stato|
-|TotalRequests|Totale richieste|Conteggio|Conteggio|Numero di richieste eseguite|GlobalDatabaseAccountName, DatabaseName, NomeRaccolta, area geografica, codice di stato|
+|MetadataRequests|Metadata Requests (Richieste di metadati)|Conteggio|Conteggio|Conteggio delle richieste di metadati. Cosmos DB gestisce la raccolta dei metadati di sistema per ogni account, consentendo di enumerare le raccolte, i database e così via e le relative configurazioni gratuitamente.|GlobalDatabaseAccountName, DatabaseName, CollectionName, Region, StatusCode|
+|MongoRequestCharge|Mongo Request Charge (Addebito richiesta Mongo)|Conteggio|Totale|Unità richiesta Mongo utilizzate|GlobalDatabaseAccountName, DatabaseName, CollectionName, Region, CommandName, ErrorCode|
+|MongoRequests|Richieste Mongo|Conteggio|Conteggio|Numero di richieste Mongo eseguite|GlobalDatabaseAccountName, DatabaseName, CollectionName, Region, CommandName, ErrorCode|
+|TotalRequestUnits|Total Request Units (Unità richiesta totali)|Conteggio|Totale|Unità richiesta utilizzate|GlobalDatabaseAccountName, DatabaseName, CollectionName, Region, StatusCode|
+|TotalRequests|Totale richieste|Conteggio|Conteggio|Numero di richieste eseguite|GlobalDatabaseAccountName, DatabaseName, CollectionName, Region, StatusCode|
 
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|SuccessfulRequests|Richieste riuscite (anteprima)|Conteggio|Totale|Richieste riuscite per Microsoft.EventHub. (Anteprima)|EntityName|
-|ServerErrors|Errori del server. (Anteprima)|Conteggio|Totale|Errori del server per Microsoft.EventHub. (Anteprima)|EntityName|
+|SuccessfulRequests|Richieste completate (anteprima)|Conteggio|Totale|Richieste riuscite per Microsoft.EventHub. (Anteprima)|EntityName|
+|ServerErrors|Errori server. (Anteprima)|Conteggio|Totale|Errori del server per Microsoft.EventHub. (Anteprima)|EntityName|
 |UserErrors|Errori utente. (Anteprima)|Conteggio|Totale|Errori utente per Microsoft.EventHub. (Anteprima)|EntityName|
 |QuotaExceededErrors|Errori di superamento quota. (Anteprima)|Conteggio|Totale|Errori di superamento quota per Microsoft.EventHub. (Anteprima)|EntityName|
 |ThrottledRequests|Richieste limitate. (Anteprima)|Conteggio|Totale|Richieste limitate per Microsoft.EventHub. (Anteprima)|EntityName|
@@ -633,9 +634,9 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |OutgoingMessages|Messaggi in uscita (anteprima)|Conteggio|Totale|Messaggi in uscita per Microsoft.EventHub. (Anteprima)|EntityName|
 |IncomingBytes|Byte in ingresso. (Anteprima)|Byte|Totale|Byte in ingresso per Microsoft.EventHub. (Anteprima)|EntityName|
 |OutgoingBytes|Byte in uscita. (Anteprima)|Byte|Totale|Byte in uscita per Microsoft.EventHub. (Anteprima)|EntityName|
-|Connessioni attive|ActiveConnections (anteprima)|Conteggio|Totale|Totale connessioni attive per Microsoft.EventHub. (Anteprima)|EntityName|
-|ConnectionsOpened|Connessioni aperte. (Anteprima)|Conteggio|Totale|Connessioni aperte for Microsoft.EventHub. (Anteprima)|EntityName|
-|ConnectionsClosed|Connessioni chiuse. (Anteprima)|Conteggio|Totale|Connessioni chiuse for Microsoft.EventHub. (Anteprima)|EntityName|
+|ActiveConnections|ActiveConnections (anteprima)|Conteggio|Totale|Totale connessioni attive per Microsoft.EventHub. (Anteprima)|EntityName|
+|ConnectionsOpened|Connessioni aperte. (Anteprima)|Conteggio|Totale|Connessioni aperte per Microsoft.EventHub. (Anteprima)|EntityName|
+|ConnectionsClosed|Connessioni chiuse. (Anteprima)|Conteggio|Totale|Connessioni chiuse per Microsoft.EventHub. (Anteprima)|EntityName|
 |CaptureBacklog|Backlog acquisiti. (Anteprima)|Conteggio|Totale|Backlog acquisiti per Microsoft.EventHub. (Anteprima)|EntityName|
 |CapturedMessages|Messaggi acquisiti. (Anteprima)|Conteggio|Totale|Messaggi acquisiti per Microsoft.EventHub. (Anteprima)|EntityName|
 |CapturedBytes|Byte acquisiti. (Anteprima)|Byte|Totale|Byte acquisiti per Microsoft.EventHub. (Anteprima)|EntityName|
@@ -707,15 +708,6 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |BillableTriggerExecutions|Esecuzioni di trigger fatturabili|Conteggio|Totale|Numero di esecuzioni di trigger del flusso di lavoro fatturate.|Nessuna dimensione|
 |TotalBillableExecutions|Esecuzioni fatturabili totali|Conteggio|Totale|Numero di esecuzioni di flussi di lavoro fatturate.|Nessuna dimensione|
 
-## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft.Network/networkInterfaces
-
-|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
-|---|---|---|---|---|---|
-|BytesSentRate|Byte inviati|Conteggio|Totale|Numero di byte inviati l'interfaccia di rete|Nessuna dimensione|
-|BytesReceivedRate|Byte ricevuti|Conteggio|Totale|Numero di byte ricevuti l'interfaccia di rete|Nessuna dimensione|
-|PacketsSentRate|Pacchetti inviati|Conteggio|Totale|Numero di pacchetti inviati l'interfaccia di rete|Nessuna dimensione|
-|PacketsReceivedRate|Pacchetti ricevuti|Conteggio|Totale|Numero di pacchetti ricevuti l'interfaccia di rete|Nessuna dimensione|
-
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
@@ -752,18 +744,11 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |IfUnderDDoSAttack|Sotto attacco DDoS o no|Conteggio|Massima|Sotto attacco DDoS o no|Nessuna dimensione|
 |DDoSTriggerTCPPackets|Pacchetti TCP in ingresso per attivare la mitigazione DDoS|Conteggio al secondo|Massima|Pacchetti TCP in ingresso per attivare la mitigazione DDoS|Nessuna dimensione|
 |DDoSTriggerUDPPackets|Pacchetti UDP in ingresso per attivare la mitigazione DDoS|Conteggio al secondo|Massima|Pacchetti UDP in ingresso per attivare la mitigazione DDoS|Nessuna dimensione|
-|DDoSTriggerSYNPackets|Pacchetti in ingresso SYN attivare DDoS attenuazione|Conteggio al secondo|Massima|Pacchetti in ingresso SYN attivare DDoS attenuazione|Nessuna dimensione|
+|DDoSTriggerSYNPackets|Inbound SYN packets to trigger DDoS mitigation (Pacchetti SYN in ingresso per attivare la mitigazione DDoS)|Conteggio al secondo|Massima|Inbound SYN packets to trigger DDoS mitigation (Pacchetti SYN in ingresso per attivare la mitigazione DDoS)|Nessuna dimensione|
 |VipAvailability|Disponibilità|Conteggio|Media|Disponibilità IPAddress media nel periodo di tempo|Porta|
 |ByteCount|Numero di byte|Conteggio|Totale|Numero totale di byte trasmessi nel periodo di tempo|Port, Direction|
 |PacketCount|Numero di pacchetti|Conteggio|Totale|Numero totale di pacchetti trasmessi nel periodo di tempo|Port, Direction|
 |SynCount|Numero di SYN|Conteggio|Totale|Numero totale di pacchetti SYN trasmessi nel periodo di tempo|Port, Direction|
-
-## <a name="microsoftnetworkvirtualnetworks"></a>Microsoft.Network/virtualNetworks
-
-|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
-|---|---|---|---|---|---|
-|PacketsInDroppedVMProtection|Eliminazione di pacchetti in ingresso per la protezione della macchina virtuale|Conteggio al secondo|Media|Eliminazione di pacchetti in ingresso per la protezione della macchina virtuale|Nessuna dimensione|
-|PacketsOutDroppedVMProtection|Eliminazione di pacchetti in uscita per la protezione delle macchine Virtuali|Conteggio al secondo|Media|Eliminazione di pacchetti in uscita per la protezione delle macchine Virtuali|Nessuna dimensione|
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 
@@ -778,10 +763,10 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |TunnelAverageBandwidth|Larghezza di banda tunnel|Byte al secondo|Media|Larghezza di banda media di un tunnel in byte al secondo|ConnectionName, RemoteIP|
 |TunnelEgressBytes|Byte in uscita tunnel|Byte|Totale|Byte in uscita di un tunnel|ConnectionName, RemoteIP|
 |TunnelIngressBytes|Byte in ingresso tunnel|Byte|Totale|Byte in ingresso di un tunnel|ConnectionName, RemoteIP|
-|TunnelEgressPackets|Pacchetti in uscita tunnel|Conteggio|Totale|Numero di pacchetti in uscita di un tunnel|ConnectionName, RemoteIP|
-|TunnelIngressPackets|Pacchetti in ingresso tunnel|Conteggio|Totale|Numero di pacchetti in ingresso di un tunnel|ConnectionName, RemoteIP|
-|TunnelEgressPacketDropTSMismatch|Eliminazione pacchetti per mancata corrispondenza selettore traffico in uscita tunnel|Conteggio|Totale|Numero di rilascio dei pacchetti in uscita dalla mancata corrispondenza del selettore di traffico di un tunnel|ConnectionName, RemoteIP|
-|TunnelIngressPacketDropTSMismatch|Eliminazione pacchetti per mancata corrispondenza selettore traffico in ingresso tunnel|Conteggio|Totale|Conteggio di rilascio di pacchetti in arrivo dalla mancata corrispondenza del selettore di traffico di un tunnel|ConnectionName, RemoteIP|
+|TunnelEgressPackets|Pacchetti in uscita tunnel|Conteggio|Totale|Conteggio dei pacchetti in uscita di un tunnel|ConnectionName, RemoteIP|
+|TunnelIngressPackets|Pacchetti in ingresso tunnel|Conteggio|Totale|Conteggio dei pacchetti in ingresso di un tunnel|ConnectionName, RemoteIP|
+|TunnelEgressPacketDropTSMismatch|Eliminazione pacchetti per mancata corrispondenza selettore traffico in uscita tunnel|Conteggio|Totale|Conteggio delle eliminazioni di pacchetti in uscita per mancata corrispondenza del selettore traffico di un tunnel|ConnectionName, RemoteIP|
+|TunnelIngressPacketDropTSMismatch|Eliminazione pacchetti per mancata corrispondenza selettore traffico in ingresso tunnel|Conteggio|Totale|Conteggio delle eliminazioni di pacchetti in ingresso per mancata corrispondenza del selettore traffico di un tunnel|ConnectionName, RemoteIP|
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
@@ -864,22 +849,29 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |incoming.all.requests|Tutte le richieste in ingresso|Conteggio|Totale|Totale richieste in ingresso per un hub di notifica|Nessuna dimensione|
 |incoming.all.failedrequests|Tutte le richieste in ingresso non riuscite|Conteggio|Totale|Totale richieste in ingresso non riuscite per un hub di notifica|Nessuna dimensione|
 
+## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
+
+|Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
+|---|---|---|---|---|---|
+|QueryDuration||Conteggio|Media||Nessuna dimensione|
+|QueryPoolJobQueueLength|Thread: lunghezza della coda processi nel pool di query|Conteggio|Media|Numero dei processi nella coda del pool dei thread di query.|Nessuna dimensione|
+
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|Connessioni listener - Operazione riuscita|Connessioni listener - Operazione riuscita|Conteggio|Totale|Connessioni listener riuscite per Microsoft.Relay.|EntityName|
-|Connessioni listener - Errore del client|Connessioni listener - Errore del client|Conteggio|Totale|Errore del client su connessioni listener per Microsoft.Relay.|EntityName|
-|Connessioni listener - Errore del server|Connessioni listener - Errore del server|Conteggio|Totale|Errore del server su connessioni listener per Microsoft.Relay.|EntityName|
+|ListenerConnections-Success|ListenerConnections-Success|Conteggio|Totale|Connessioni listener riuscite per Microsoft.Relay.|EntityName|
+|ListenerConnections-ClientError|ListenerConnections-ClientError|Conteggio|Totale|Errore del client su connessioni listener per Microsoft.Relay.|EntityName|
+|ListenerConnections-ServerError|ListenerConnections-ServerError|Conteggio|Totale|Errore del server su connessioni listener per Microsoft.Relay.|EntityName|
 |Connessioni mittente - Operazione riuscita|Connessioni mittente - Operazione riuscita|Conteggio|Totale|Connessioni mittente riuscite per Microsoft.Relay.|EntityName|
-|Connessioni mittente - Errore del client|Connessioni mittente - Errore del client|Conteggio|Totale|Errore del client su connessioni mittente per Microsoft.Relay.|EntityName|
-|Connessioni mittente - Errore del server|Connessioni mittente - Errore del server|Conteggio|Totale|Errore del server su connessioni mittente per Microsoft.Relay.|EntityName|
-|Connessioni listener - Totale richieste|Connessioni listener - Totale richieste|Conteggio|Totale|Totale connessioni listener per Microsoft.Relay.|EntityName|
-|Connessioni mittente - Totale richieste|Connessioni mittente - Totale richieste|Conteggio|Totale|Totale richieste connessioni mittente per Microsoft.Relay.|EntityName|
-|Connessioni attive|Connessioni attive|Conteggio|Totale|Totale connessioni attive per Microsoft.Relay.|EntityName|
+|SenderConnections-ClientError|SenderConnections-ClientError|Conteggio|Totale|Errore del client su connessioni mittente per Microsoft.Relay.|EntityName|
+|SenderConnections-ServerError|SenderConnections-ServerError|Conteggio|Totale|Errore del server su connessioni mittente per Microsoft.Relay.|EntityName|
+|ListenerConnections-TotalRequests|ListenerConnections-TotalRequests|Conteggio|Totale|Totale connessioni listener per Microsoft.Relay.|EntityName|
+|SenderConnections-TotalRequests|SenderConnections-TotalRequests|Conteggio|Totale|Totale richieste connessioni mittente per Microsoft.Relay.|EntityName|
+|ActiveConnections|ActiveConnections|Conteggio|Totale|Totale connessioni attive per Microsoft.Relay.|EntityName|
 |ActiveListeners|ActiveListeners|Conteggio|Totale|Totale listener attivi per Microsoft.Relay.|EntityName|
-|Byte trasferiti|Byte trasferiti|Conteggio|Totale|Totale byte trasferiti per Microsoft.Relay.|EntityName|
-|Disconnessioni listener|Disconnessioni listener|Conteggio|Totale|Totale disconnessioni listener per Microsoft.Relay.|EntityName|
+|BytesTransferred|BytesTransferred|Conteggio|Totale|Totale byte trasferiti per Microsoft.Relay.|EntityName|
+|ListenerDisconnects|ListenerDisconnects|Conteggio|Totale|Totale disconnessioni listener per Microsoft.Relay.|EntityName|
 |Disconnessioni mittente|Disconnessioni mittente|Conteggio|Totale|Totale disconnessioni mittente per Microsoft.Relay.|EntityName|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
@@ -894,16 +886,16 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|SuccessfulRequests|Richieste riuscite (anteprima)|Conteggio|Totale|Totale richieste riuscite per uno spazio dei nomi (anteprima)|EntityName|
-|ServerErrors|Errori del server. (Anteprima)|Conteggio|Totale|Errori del server per Microsoft.ServiceBus. (Anteprima)|EntityName|
+|SuccessfulRequests|Richieste completate (anteprima)|Conteggio|Totale|Richieste riuscite totali per uno spazio dei nomi (anteprima)|EntityName|
+|ServerErrors|Errori server. (Anteprima)|Conteggio|Totale|Errori del server per Microsoft.ServiceBus. (Anteprima)|EntityName|
 |UserErrors|Errori utente. (Anteprima)|Conteggio|Totale|Errori utente per Microsoft.ServiceBus. (Anteprima)|EntityName|
 |ThrottledRequests|Richieste limitate. (Anteprima)|Conteggio|Totale|Richieste limitate per Microsoft.ServiceBus. (Anteprima)|EntityName|
 |IncomingRequests|Richieste in ingresso (anteprima)|Conteggio|Totale|Richieste in ingresso per Microsoft.ServiceBus. (Anteprima)|EntityName|
 |IncomingMessages|Messaggi in ingresso (anteprima)|Conteggio|Totale|Messaggi in ingresso per Microsoft.ServiceBus. (Anteprima)|EntityName|
 |OutgoingMessages|Messaggi in uscita (anteprima)|Conteggio|Totale|Messaggi in uscita per Microsoft.ServiceBus. (Anteprima)|EntityName|
-|Connessioni attive|ActiveConnections (anteprima)|Conteggio|Totale|Totale connessioni attive per Microsoft.ServiceBus. (Anteprima)|EntityName|
-|ConnectionsOpened|Connessioni aperte. (Anteprima)|Conteggio|Totale|Connessioni aperte for Microsoft.ServiceBus. (Anteprima)|EntityName|
-|ConnectionsClosed|Connessioni chiuse. (Anteprima)|Conteggio|Totale|Connessioni chiuse for Microsoft.ServiceBus. (Anteprima)|EntityName|
+|ActiveConnections|ActiveConnections (anteprima)|Conteggio|Totale|Totale connessioni attive per Microsoft.ServiceBus. (Anteprima)|EntityName|
+|ConnectionsOpened|Connessioni aperte. (Anteprima)|Conteggio|Totale|Connessioni aperte per Microsoft.ServiceBus. (Anteprima)|EntityName|
+|ConnectionsClosed|Connessioni chiuse. (Anteprima)|Conteggio|Totale|Connessioni chiuse per Microsoft.ServiceBus. (Anteprima)|EntityName|
 |CPUXNS|Uso della CPU per spazio dei nomi|Percentuale|Massima|Metrica di utilizzo CPU per spazio dei nomi Premium del bus di servizio|Nessuna dimensione|
 |WSXNS|Uso delle dimensioni della memoria per spazio dei nomi|Percentuale|Massima|Metrica di utilizzo memoria per spazio dei nomi Premium del bus di servizio|Nessuna dimensione|
 
@@ -937,23 +929,16 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
 |cpu_percent|Percentuale CPU|Percentuale|Media|Percentuale CPU|Nessuna dimensione|
-|database_cpu_percent|Percentuale CPU|Percentuale|Media|Percentuale CPU|DatabaseResourceId|
 |physical_data_read_percent|Percentuale di I/O di dati|Percentuale|Media|Percentuale di I/O di dati|Nessuna dimensione|
-|database_physical_data_read_percent|Percentuale di I/O di dati|Percentuale|Media|Percentuale di I/O di dati|DatabaseResourceId|
 |log_write_percent|Percentuale I/O registro|Percentuale|Media|Percentuale I/O registro|Nessuna dimensione|
-|database_log_write_percent|Percentuale I/O registro|Percentuale|Media|Percentuale I/O registro|DatabaseResourceId|
 |dtu_consumption_percent|Percentuale di DTU|Percentuale|Media|Percentuale di DTU|Nessuna dimensione|
-|database_dtu_consumption_percent|Percentuale di DTU|Percentuale|Media|Percentuale di DTU|DatabaseResourceId|
 |storage_percent|Percentuale archiviazione|Percentuale|Media|Percentuale archiviazione|Nessuna dimensione|
 |workers_percent|Percentuale ruoli di lavoro|Percentuale|Media|Percentuale ruoli di lavoro|Nessuna dimensione|
-|database_workers_percent|Percentuale ruoli di lavoro|Percentuale|Media|Percentuale ruoli di lavoro|DatabaseResourceId|
 |sessions_percent|Percentuale sessioni|Percentuale|Media|Percentuale sessioni|Nessuna dimensione|
-|database_sessions_percent|Percentuale sessioni|Percentuale|Media|Percentuale sessioni|DatabaseResourceId|
 |eDTU_limit|Limite eDTU|Conteggio|Media|Limite eDTU|Nessuna dimensione|
 |storage_limit|Limite archiviazione|Byte|Media|Limite archiviazione|Nessuna dimensione|
 |eDTU_used|Uso eDTU|Conteggio|Media|Uso eDTU|Nessuna dimensione|
 |storage_used|Uso archiviazione|Byte|Media|Uso archiviazione|Nessuna dimensione|
-|database_storage_used|Uso archiviazione|Byte|Media|Uso archiviazione|DatabaseResourceId|
 |xtp_storage_percent|Percentuale di archiviazione OLTP in memoria|Percentuale|Media|Percentuale di archiviazione OLTP in memoria|Nessuna dimensione|
 
 ## <a name="microsoftsqlservers"></a>Microsoft.Sql/servers
@@ -961,9 +946,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
 |dtu_consumption_percent|Percentuale di DTU|Percentuale|Media|Percentuale di DTU|ElasticPoolResourceId|
-|database_dtu_consumption_percent|Percentuale di DTU|Percentuale|Media|Percentuale di DTU|DatabaseResourceId, ElasticPoolResourceId|
 |storage_used|Uso archiviazione|Byte|Media|Uso archiviazione|ElasticPoolResourceId|
-|database_storage_used|Uso archiviazione|Byte|Media|Uso archiviazione|DatabaseResourceId, ElasticPoolResourceId|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 
@@ -1080,6 +1063,7 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |MemoryWorkingSet|Working set della memoria|Byte|Media|Working set della memoria|Istanza|
 |AverageMemoryWorkingSet|Working set della memoria medio|Byte|Media|Working set della memoria medio|Istanza|
 |AverageResponseTime|Tempo medio di risposta|Secondi|Media|Tempo medio di risposta|Istanza|
+|AppConnections|connessioni|Conteggio|Media|connessioni|Istanza|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funzioni)
 
@@ -1113,8 +1097,9 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |MemoryWorkingSet|Working set della memoria|Byte|Media|Working set della memoria|Istanza|
 |AverageMemoryWorkingSet|Working set della memoria medio|Byte|Media|Working set della memoria medio|Istanza|
 |AverageResponseTime|Tempo medio di risposta|Secondi|Media|Tempo medio di risposta|Istanza|
-|FunctionExecutionUnits|Unità di esecuzione della funzione|Conteggio|Media|Unità di esecuzione della funzione|Istanza|
-|FunctionExecutionCount|Conteggio delle esecuzioni della funzione|Conteggio|Media|Conteggio delle esecuzioni della funzione|Istanza|
+|FunctionExecutionUnits|Unità di esecuzione della funzione|Conteggio|Totale|Unità di esecuzione della funzione|Istanza|
+|FunctionExecutionCount|Conteggio delle esecuzioni della funzione|Conteggio|Totale|Conteggio delle esecuzioni della funzione|Istanza|
+|AppConnections|connessioni|Conteggio|Media|connessioni|Istanza|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 
@@ -1138,18 +1123,18 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |DiskQueueLength|Lunghezza coda disco|Conteggio|Media|Lunghezza coda disco|Istanza|
 |HttpQueueLength|Lunghezza coda HTTP|Conteggio|Media|Lunghezza coda HTTP|Istanza|
 |ActiveRequests|Richieste attive|Conteggio|Totale|Richieste attive|Istanza|
-|TotalFrontEnds|Front end totali|Conteggio|Media|Front end totali|Istanza|
-|SmallAppServicePlanInstances|Ruoli di lavoro piano di servizio app Small|Conteggio|Media|Ruoli di lavoro piano di servizio app Small|Istanza|
-|MediumAppServicePlanInstances|Ruoli di lavoro piano di servizio app Medium|Conteggio|Media|Ruoli di lavoro piano di servizio app Medium|Istanza|
-|LargeAppServicePlanInstances|Ruoli di lavoro piano di servizio app Large|Conteggio|Media|Ruoli di lavoro piano di servizio app Large|Istanza|
+|TotalFrontEnds|Front end totali|Conteggio|Media|Front end totali|Nessuna dimensione|
+|SmallAppServicePlanInstances|Ruoli di lavoro piano di servizio app Small|Conteggio|Media|Ruoli di lavoro piano di servizio app Small|Nessuna dimensione|
+|MediumAppServicePlanInstances|Ruoli di lavoro piano di servizio app Medium|Conteggio|Media|Ruoli di lavoro piano di servizio app Medium|Nessuna dimensione|
+|LargeAppServicePlanInstances|Ruoli di lavoro piano di servizio app Large|Conteggio|Media|Ruoli di lavoro piano di servizio app Large|Nessuna dimensione|
 
 ## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|WorkersTotal|Ruoli di lavoro totali|Conteggio|Media|Ruoli di lavoro totali|Istanza|
-|WorkersAvailable|Ruoli di lavoro disponibili|Conteggio|Media|Ruoli di lavoro disponibili|Istanza|
-|WorkersUsed|Ruoli di lavoro usati|Conteggio|Media|Ruoli di lavoro usati|Istanza|
+|WorkersTotal|Ruoli di lavoro totali|Conteggio|Media|Ruoli di lavoro totali|Nessuna dimensione|
+|WorkersAvailable|Ruoli di lavoro disponibili|Conteggio|Media|Ruoli di lavoro disponibili|Nessuna dimensione|
+|WorkersUsed|Ruoli di lavoro usati|Conteggio|Media|Ruoli di lavoro usati|Nessuna dimensione|
 |CpuPercentage|Percentuale CPU|Percentuale|Media|Percentuale CPU|Istanza|
 |MemoryPercentage|Percentuale memoria|Percentuale|Media|Percentuale memoria|Istanza|
 

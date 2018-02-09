@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Configurazione di Workday per il provisioning utenti automatico con Active Directory locale e Azure Active Directory | Microsoft Docs'
+title: 'Esercitazione: Configurare Workday per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: "Informazioni su come usare Workday come origine dei dati sull'identità per Active Directory locale e Azure Active Directory."
 services: active-directory
 author: asmalser-msft
@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2017
+ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 3a84a7ae7572145df8154ec5cbccf9f97e81866b
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Esercitazione: Configurazione di Workday per il provisioning utenti automatico con Active Directory locale e Azure Active Directory
+# <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
+
 L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire per importare utenti da Workday in Active Directory e Azure Active Directory, con il writeback facoltativo di alcuni attributi in Workday. 
 
 
@@ -51,7 +52,7 @@ I flussi di lavoro di provisioning utenti di Workday supportati dal servizio di 
 
 Prima di avviare l'integrazione di Workday, verificare i prerequisiti riportati di seguito e leggere le seguenti linee guida su come associare gli attuali requisiti per l'architettura Active Directory e il provisioning utenti con le soluzioni fornite da Azure Active Directory.
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 

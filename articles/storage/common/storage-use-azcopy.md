@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2017
+ms.date: 01/29/2018
 ms.author: seguler
-ms.openlocfilehash: 3d4a7ceabc8cdb97fc8a0f29756d7648d253fe21
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 7d875a1e43908f49424f4e40fe923639cfa02385
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Trasferire dati con AzCopy in Windows
-AzCopy è un'utilità della riga di comando progettata per la copia dei dati a/da archiviazione Blob di Microsoft Azure, File e tabella, utilizzando comandi semplici progettati per prestazioni ottimali. È possibile copiare dati tra un file system e un account di archiviazione o tra gli account di archiviazione.  
+AzCopy è un'utilità della riga di comando progettata la copia dei dati in/dall'archiviazione di oggetti BLOB, file e tabelle di Microsoft Azure usando semplici comandi progettati per garantire prestazioni ottimali. È possibile copiare dati tra un file system e un account di archiviazione o tra più account di archiviazione.  
 
 Esistono due versioni di AzCopy che è possibile scaricare. AzCopy in Windows viene compilato con .NET Framework e offre opzioni della riga di comando in stile Windows. [AzCopy in Linux](storage-use-azcopy-linux.md) viene compilato con .NET Framework per le piattaforme Linux e offre opzioni della riga di comando in stile POSIX. Questo articolo descrive AzCopy in Windows.
 
@@ -750,7 +750,7 @@ I file di risposta possono includere righe di commento che iniziano con il simbo
 
 ### <a name="y"></a>/Y
 
-Elimina tutte le richieste di conferma di AzCopy.
+Elimina tutte le richieste di conferma di AzCopy. Questa opzione consente anche l'uso di token di firma di accesso condiviso in sola scrittura per scenari di caricamento dei dati, se non sono specificate le opzioni /XO e /XN.
 
 **Applicabile a:** BLOB, file, tabelle
 

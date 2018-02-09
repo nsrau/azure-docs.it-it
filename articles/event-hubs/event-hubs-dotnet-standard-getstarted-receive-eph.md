@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: a88b5da8fa504e0528caa7fa212d4cec26d1cf66
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 0dd3533ab1556b334c09ba69d096b06c8be85cc8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Guida introduttiva alla ricezione di messaggi con Event Processor Host in .NET Standard
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/28/2017
 
 Questa esercitazione illustra come scrivere un'applicazione console .NET Core che riceve messaggi da un hub eventi usando la libreria dell'**host processore di eventi**. È possibile eseguire la soluzione [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) così com'è, sostituendo le stringhe con i valori dell'hub eventi e dell'account di archiviazione. In alternativa, è possibile seguire la procedura illustrata in questa esercitazione per creare una soluzione propria.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * [Microsoft Visual Studio 2015 o 2017](http://www.visualstudio.com). Gli esempi inclusi nell'esercitazione usano Visual Studio 2017, ma è supportato anche Visual Studio 2015.
 * [Strumenti di Visual Studio 2015 o 2017 per .NET Core](http://www.microsoft.com/net/core).
@@ -212,7 +212,7 @@ Aggiungere al progetto i pacchetti NuGet [**Microsoft.Azure.EventHubs**](https:/
 
 4. Eseguire il programma e assicurarsi che non siano presenti errori.
 
-Congratulazioni. Sono stati appena ricevuti dei messaggi da un hub eventi usando l'host del processore di eventi.
+Congratulazioni! Sono stati appena ricevuti dei messaggi da un hub eventi usando l'host del processore di eventi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:

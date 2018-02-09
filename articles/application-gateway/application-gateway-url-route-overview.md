@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: davidmu
-ms.openlocfilehash: b94e879de8136eeaddbf2a277d9634025dc99bc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5d26a603eb1bbe3ce7f8f95b19ba816c32222c2
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="url-path-based-routing-overview"></a>Panoramica del routing basato su percorso URL
 
@@ -30,7 +30,7 @@ Nell'esempio seguente, il gateway applicazione soddisfa le richieste di traffico
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Le richieste per http://contoso.com/video* vengono instradate a VideoServerPool, mentre quelle per http://contoso.com/images* vengono instradate a ImageServerPool. In caso di mancata corrispondenza dei percorsi, viene selezionato DefaultServerPool.
+Le richieste per http://contoso.com/video/* vengono instradate a VideoServerPool, mentre quelle per http://contoso.com/images/* vengono instradate a ImageServerPool. In caso di mancata corrispondenza dei percorsi, viene selezionato DefaultServerPool.
 
 > [!IMPORTANT]
 > Le regole vengono elaborate nell'ordine in cui sono elencate nel portale. È consigliabile configurare i listener multisito prima di configurare un listener di base.  In questo modo il traffico viene indirizzato al back-end appropriato. Se un listener di base viene elencato per primo e corrisponde a una richiesta in ingresso, sarà tale listener a elaborarla.

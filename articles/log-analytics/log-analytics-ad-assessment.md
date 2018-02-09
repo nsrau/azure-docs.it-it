@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6919b40ac6edff289f3eb171e88ca6d76288f2a3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: a8f6cfc678d0b6443ac1aa440941eb2b5c664564
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Ottimizzare l'ambiente Active Directory con la soluzione Controllo integrità Active Directory in Log Analytics
 
@@ -39,7 +39,7 @@ Dopo aver aggiunto la soluzione e completato un controllo, nel dashboard di **Co
 
 ![Immagine del dashboard di Controllo integrità AD](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * La soluzione Controllo integrità Active Directory richiede l'installazione di una versione supportata di .NET Framework 4.5.2 o successiva in ogni computer in cui è installato Microsoft Monitoring Agent (MMA).  L'agente MMA viene usato da System Center 2016 Operations Manager e Operations Manager 2012 R2, oltre che dal servizio Log Analytics. 
 * La soluzione supporta controller di dominio che eseguono Windows Server 2008 e 2008 R2, Windows Server 2012 e 2012 R2 e Windows Server 2016.
@@ -108,10 +108,8 @@ Dopo l'installazione, è possibile visualizzare il riepilogo delle raccomandazio
 Visualizzare il riepilogo delle valutazioni relative alla conformità per l'infrastruttura, quindi visualizzare le raccomandazioni nel dettaglio.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Per visualizzare le raccomandazioni per un'area di interesse e applicare un'azione correttiva
-1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com). 
-2. Nel portale di Azure fare clic su **Altri servizi** nell'angolo in basso a sinistra. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
-3. Nel riquadro delle sottoscrizioni di Log Analytics selezionare un'area di lavoro e quindi fare clic sul riquadro **Portale di OMS**.  
-4. Nella pagina **Panoramica** fare clic sul riquadro di **Controllo integrità AD**. 
+3. Fare clic sul riquadro **Panoramica** dell'area di lavoro Log Analytics nel portale di Azure.
+4. Nella pagina **Panoramica** fare clic sul riquadro di **Controllo integrità Active Directory**. 
 5. Nella pagina **Controllo integrità** esaminare le informazioni di riepilogo in uno dei pannelli delle aree di interesse e quindi fare clic su un'area specifica per visualizzare le raccomandazioni corrispondenti.
 6. In una delle pagine relative alle aree di interesse è possibile visualizzare le raccomandazioni relative all'ambiente specifico, classificate in ordine di priorità. Fare clic su una raccomandazione in **Affected Objects** (Oggetti interessati) per visualizzare i dettagli relativi al motivo per cui è stata generata.<br><br> ![Immagine delle raccomandazioni di Controllo integrità](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-02.png)
 7. È possibile eseguire le azioni correttive suggerite in **Suggested Actions**(Azioni suggerite). Dopo la risoluzione dell'elemento, le valutazioni successive indicano che le azioni consigliate sono state effettuate e il punteggio relativo alla conformità aumenterà. Gli elementi corretti vengono visualizzati come **Passed Objects**.
@@ -124,13 +122,8 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
 2. Usare la query seguente per elencare le raccomandazioni non riuscite per i computer nell'ambiente.
 
     ```
-    Type=ADAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
+    ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-    >[!NOTE]
-    > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), la query precedente verrà sostituita dalla seguente.
-    >
-    > `ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
-
     Ecco lo screenshot che mostra la query di ricerca nei log: <br><br> ![raccomandazioni non riuscite](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
 
 3. Scegliere le raccomandazioni che si vogliono ignorare. Nella procedura successiva verranno usati i valori per ID raccomandazione.
@@ -149,12 +142,8 @@ Dopo l'esecuzione del controllo integrità successivo pianificato, per impostazi
 1. È possibile usare le query di Ricerca log seguenti per elencare tutte le raccomandazioni ignorate.
 
     ```
-    Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
+    ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
     ```
-    >[!NOTE]
-    > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), la query precedente verrà sostituita dalla seguente.
-    >
-    > `ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
 2. Se in seguito si decide che si vogliono vedere le raccomandazioni ignorate, rimuovere eventuali file IgnoreRecommendations.txt oppure rimuovere gli ID raccomandazione dagli stessi.
 

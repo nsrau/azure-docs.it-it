@@ -1,6 +1,6 @@
 ---
-title: Introduzione alla verifica in due passaggi | Documentazione Microsoft
-description: "Questa è la pagina di Azure Multi-Factor Authentication contenente le informazioni utili agli utenti finali per utilizzare Azure Multi-Factor Authentication."
+title: Introduzione alla verifica in due passaggi | Microsoft Docs
+description: "Questa è la pagina di Azure Multi-Factor Authentication contenente le informazioni utili agli utenti finali per usare Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
 author: barlanmsft
@@ -15,11 +15,11 @@ ms.date: 06/15/2017
 ms.author: barlan
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: fd8c92e575071b5b3647d51ba79603a2174dcd3f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: ed4adfa0698eabe8994da95554377b4dad76b291
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Quali sono i vantaggi di Azure Multi-Factor Authentication?
 È stato ricevuto un messaggio di posta elettronica dal reparto IT o dal capo con la comunicazione dell’aggiunta di un’altra verifica di sicurezza all’account.  Che cosa significa?
@@ -28,9 +28,9 @@ Non è necessario preoccuparsi. L'organizzazione vuole adottare nuove misure per
 
 Il primo passo è completare il processo di registrazione.  Prima di avviare il processo e decidere, consideriamo alcuni punti.
 
-* **Telefono dell'ufficio o cellulare** : scegliere tra l'utilizzo del telefono dell'ufficio o del telefono cellulare.
+* **Telefono dell'ufficio o cellulare**: scegliere tra l'utilizzo del telefono dell'ufficio o del telefono cellulare.
 * **Chiamata sul telefono cellulare, messaggio di testo o app per dispositivi mobili**: se si usa un telefono cellulare, scegliere se ricevere una chiamata, un SMS o usare l'app per dispositivi mobili.
-* **App per dispositivi mobili con codice di notifica o verifica** : se si utilizza l'app per dispositivi mobili, scegliere tra la ricezione di una notifica con risposta da parte dell’utente o un codice di verifica.
+* **App per dispositivi mobili con codice di notifica o verifica**: se si usa l'app per dispositivi mobili, scegliere tra la ricezione di una notifica con risposta da parte dell’utente o un codice di verifica.
 
 > [!NOTE]
 > Il supporto tecnico dell'azienda può disabilitare una o più opzioni specificate.  In tal caso, non saranno disponibili durante il processo di registrazione.  
@@ -46,4 +46,4 @@ Per iniziare, selezionare uno degli argomenti seguenti.
 | [Esperienza d’accesso](multi-factor-authentication-end-user-signin.md) |Illustra i passaggi dell'accesso tramite i diversi metodi, come telefono o app. |
 | [Modifica delle impostazioni](multi-factor-authentication-end-user-manage-settings.md) |Descrive come modificare le impostazioni quali il numero di telefono o il metodo di registrazione preferito. |
 | [Guida alle password per le app](multi-factor-authentication-end-user-app-passwords.md) |Informazioni sulla creazione e sull’utilizzo delle password per le app. |
-| [Usare un'app per dispositivi mobili](microsoft-authenticator-app-how-to.md) |L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Usare un'app per dispositivi mobili](microsoft-authenticator-app-how-to.md) |L'app Microsoft Authenticator è disponibile per [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |

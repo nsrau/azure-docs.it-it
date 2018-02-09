@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/14/2017
+ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: f62e5a224c2fb33714a80bc47b98238208b787e5
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
-ms.translationtype: MT
+ms.openlocfilehash: b3c7c19543d50ed91129a2040bea1db1c4df1ea7
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Domande frequenti su Gestione costi di Azure
 
@@ -46,27 +46,27 @@ Per poter generare la chiave API del contratto Enterprise di Azure per la config
 
 Potrebbe anche essere necessario concedere ad amministratori di reparto, proprietari di account e amministratori dell'organizzazione le autorizzazioni per _visualizzare gli addebiti_ con l'API di fatturazione.
 
-## <a name="why-dont-i-see-optimizer-recommendations"></a>Perché non vedo indicazioni di ottimizzazione?
+## <a name="why-dont-i-see-optimizer-recommendations"></a>Perché non vengono visualizzate le raccomandazioni di ottimizzazione?
 
-Informazioni di raccomandazione sono disponibile solo per gli account che vengono attivati. Non si vedranno le informazioni di raccomandazione **Optimizer** report categorie per gli account che sono *disattivati*, tra cui:
+Le informazioni di raccomandazione sono disponibili solo per gli account attivati. Non si vedranno informazioni di raccomandazione nelle categorie di report di **ottimizzazione**per gli account *non attivati*, tra cui:
 
-- Gestione di ottimizzazione
-- Ottimizzazione di ridimensionamento
+- Gestione dell'ottimizzazione
+- Ottimizzazione delle dimensioni
 - Inefficienze
 
-Se è possibile visualizzare i dati di Query Optimizer raccomandazione, molto probabilmente, è necessario account che sono disattivati. Per attivare un account, è necessario registrarlo con le credenziali di Azure.
+Se non è possibile visualizzare dati di raccomandazione per l'ottimizzazione, è molto probabile che gli account non siano attivati. Per attivare un account, è necessario registrarlo con le credenziali di Azure.
 
 Per attivare un account:
 
 1.  Nel portale di Cloudyn, fare clic su **Impostazioni** in alto a destra e selezionare **Cloud Accounts** (Account cloud).
-2.  Nella scheda account di Microsoft Azure, cercare gli account che hanno un **disattivati** sottoscrizione.
-3.  A destra di un account disattivato, fare clic su di **modifica** simbolo simile a una matita.
-4.  Tenant di ID e l'ID di velocità viene rilevato automaticamente. Fare clic su **Avanti**.
-5.  Si viene reindirizzati al portale di Azure. Accedi al portale e autorizzare Cloudyn dell'agente di raccolta per accedere ai dati di Azure.
-6.  Successivamente, si viene reindirizzati alla pagina di gestione di account Cloudyn e la sottoscrizione viene aggiornata con **active** lo stato dell'Account. Viene illustrato un simbolo di segno di spunta verde.
-7.  Se non viene visualizzato un simbolo di segno di spunta verde per uno o più sottoscrizioni, significa che non si dispone delle autorizzazioni per creare un'applicazione lettore (il CloudynCollector) per la sottoscrizione. Un utente con autorizzazioni più elevate per la sottoscrizione deve ripetere i passaggi 3 e 4.  
+2.  Nella scheda degli account di Microsoft Azure, cercare gli account con sottoscrizione **non attivata**.
+3.  A destra di un account non attivato fare clic sul simbolo di **modifica** simile a una matita.
+4.  L'ID del tenant e l'ID della tariffa vengono rilevati automaticamente. Fare clic su **Avanti**.
+5.  Si verrà reindirizzati al portale di Azure. Accedi al portale e autorizzare l'agente di raccolta Cloudyn all'accesso ai dati di Azure.
+6.  Si verrà reindirizzati alla pagina di gestione degli account Cloudyn e la sottoscrizione verrà aggiornata con lo stato dell'account **attivo**. Viene visualizzato un simbolo di segno di spunta verde.
+7.  Se non viene visualizzato un simbolo di segno di spunta verde per una o più sottoscrizioni, significa che non sono disponibili le autorizzazioni per creare un'app lettore (CloudynCollector) per la sottoscrizione. Un utente con autorizzazioni più elevate per la sottoscrizione deve ripetere i passaggi 3 e 4.  
 
-Dopo aver completato i passaggi precedenti, è possibile visualizzare i suggerimenti di Query Optimizer entro due giorni. Tuttavia, può richiedere fino a cinque giorni prima che i dati di ottimizzazione complete sono disponibili.
+Dopo aver completato i passaggi precedenti, sarà possibile visualizzare le raccomandazioni di ottimizzazione nel giro di un paio di giorni. Tuttavia, possono essere necessari fino a cinque giorni prima che diventino disponibili i dati di ottimizzazione completi.
 
 
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>Come si abilitano gli utenti sospesi o bloccati?
@@ -89,7 +89,7 @@ La modifica dell'indirizzo di posta elettronica in Cloudyn rispetto all'indirizz
 
 È consigliabile creare almeno due account amministratore di Cloudyn nel caso in cui uno venga bloccato.
 
-Se non si riesce ad accedere al portale di Cloudyn, verificare di usare l'URL di Gestione costi di Azure corretto per l'accesso a Cloudyn. Utilizzare [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
+Se non si riesce ad accedere al portale di Cloudyn, verificare di usare l'URL di Gestione costi di Azure corretto per l'accesso a Cloudyn. Usare [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
 Evitare di usare l'URL diretto di Cloudyn https://app.cloudyn.com.
 

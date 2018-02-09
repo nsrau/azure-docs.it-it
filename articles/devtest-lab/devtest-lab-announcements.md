@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 1/29/2018
 ms.author: v-craic
-ms.openlocfilehash: d376909a46da11ac1b6b1fa968e53ebef8f3dbf7
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
-ms.translationtype: MT
+ms.openlocfilehash: 99b0938d5f4c8b022ead3473a0367de5d75cd6ff
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Pubblicare un annuncio per un lab in Azure DevTest Labs
 
@@ -47,6 +47,13 @@ La funzionalità degli annunci deve essere usata per le notifiche temporanee.  �
 
 1. Per creare un messaggio per gli utenti in questo lab, impostare **Abilitato** su **Sì**.
 
+1. È possibile immettere una **Data di scadenza** per specificare una data e un'ora in seguito alle quali l'annuncio non verrà più visualizzato agli utenti. Se non si immette una data di scadenza, l'annuncio rimane fino alla disabilitazione.
+
+   > [!NOTE]
+   > Dopo la scadenza, l'annuncio non verrà più visualizzato agli utenti, ma rimarrà disponibile nel riquadro **Annuncio lab**. È possibile modificarlo e riabilitarlo per renderlo di nuovo attivo.
+   >
+   >
+
 1. Immettere un **titolo dell'annuncio** e il **testo dell'annuncio**.
 
    Il titolo può contenere fino a 100 caratteri e viene visualizzato dall'utente nella pagina Panoramica del lab. Se l'utente seleziona il titolo, viene visualizzato il testo dell'annuncio.
@@ -58,7 +65,7 @@ La funzionalità degli annunci deve essere usata per le notifiche temporanee.  �
 
 1. Selezionare **Salva** quando l'annuncio è pronto per essere pubblicato.
 
-Quando non si vuole più visualizzare questo annuncio per gli utenti del lab, tornare alla pagina **Annuncio lab** e impostare **Abilitato** su **No**.
+Quando non si vuole più visualizzare questo annuncio per gli utenti del lab, tornare alla pagina **Annuncio lab** e impostare **Abilitato** su **No**. Se è stata specificata una data di scadenza, l'annuncio viene disabilitato automaticamente in tale data e ora.
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>Procedura per consentire agli utenti di visualizzare un annuncio
 

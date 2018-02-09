@@ -3,7 +3,7 @@ title: Uso del supporto del feed delle modifiche in Azure Cosmos DB | Microsoft 
 description: Usare il supporto del feed delle modifiche di Azure Cosmos DB per tenere traccia delle modifiche nei documenti, eseguire elaborazioni basate su eventi come i trigger e mantenere aggiornati i sistemi di cache e analisi.
 keywords: feed delle modifiche
 services: cosmos-db
-author: arramac
+author: rafats
 manager: jhubbard
 editor: mimig
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 10/30/2017
-ms.author: arramac
-ms.openlocfilehash: d1968e9fea0fb08edfdbf9e09acca9c4af00b048
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.date: 01/29/2018
+ms.author: rafats
+ms.openlocfilehash: 3fa321a3354be3eb7dce2ff886cd40c6c9f1ebbb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Uso del supporto del feed delle modifiche in Azure Cosmos DB
 
@@ -60,6 +60,7 @@ Informazioni aggiuntive:
 * Le modifiche possono essere sincronizzate da qualsiasi punto nel tempo, in altre parole non è previsto un periodo di conservazione fisso per cui sono disponibili le modifiche.
 * Le modifiche sono disponibili in blocchi di intervalli di chiavi di partizione. Questa funzionalità consente di apportare modifiche da raccolte di grandi dimensioni per poi elaborarle in parallelo da più consumer/server.
 * Le applicazioni possono richiedere più feed di modifiche alla volta nella stessa raccolta.
+* È possibile usare ChangeFeedOptions.StartTime per fornire un punto di partenza iniziale, ad esempio per trovare il token di continuazione corrispondente a un'ora specificata. Se si specifica ContinuationToken, questo avrà priorità rispetto ai valori di StartTime e StartFromBeginning. La precisione di ChangeFeedOptions.StartTime è circa di 5 secondi. 
 
 ## <a name="use-cases-and-scenarios"></a>Casi d'uso e scenari
 
@@ -178,6 +179,7 @@ Il client a sinistra è stato avviato per primo e ha iniziato a monitorare tutte
 
 Si noti che, se si hanno due funzioni di Azure senza server che monitorano la stessa raccolta e usano lo stesso lease, le due funzioni possono ottenere documenti diversi a seconda di come la libreria del processore decide di elaborare le partizioni.
 
+<a id="understand-cf"></a>
 ### <a name="understanding-the-change-feed-processor-library"></a>Informazioni sulla libreria del processore dei feed delle modifiche
 
 L'implementazione del processore dei feed di modifiche prevede quattro componenti principali, ovvero la raccolta monitorata, la raccolta di lease, l'host del processore e i consumer. 

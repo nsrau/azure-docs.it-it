@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.openlocfilehash: d985008bf4aa6710f3aae89f13fc7e36ac0c176b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: c5fe5256d4a8b8479f5e4aff95ec03fc1ba1018a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introduzione ai processi di Database Elastici
-I processi di database elastici (anteprima) per il database SQL di Azure consentono di eseguire in maniera affidabile script T-SQL che si estendono su più database e effettuano tentativi automatici per garantire il completamento delle operazioni . Per altre informazioni sulla funzionalità del processo Database elastico, vedere [Processi elastici](sql-database-elastic-jobs-overview.md).
+I processi di database elastico (anteprima) per il database SQL di Azure consentono di eseguire in modo affidabile script T-SQL che si estendono su più database, effettuando tentativi automatici per garantire il completamento delle operazioni. Per altre informazioni sulla funzionalità del processo Database elastico, vedere [Processi elastici](sql-database-elastic-jobs-overview.md).
 
 Questo articolo supporta l'esempio presentato in [Iniziare a utilizzare gli strumenti del database elastico](sql-database-elastic-scale-get-started.md). Al termine, si apprenderà come creare e gestire processi di gestione di un gruppo di database correlati. Non è necessario usare gli strumenti di scalabilità elastica per sfruttare i vantaggi dei processi elastici.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Scaricare ed eseguire [Introduzione allo strumento di esempio del Database elastico](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Creare un gestore mappe partizione utilizzando l'applicazione di esempio

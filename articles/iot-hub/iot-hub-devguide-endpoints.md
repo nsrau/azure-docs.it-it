@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: dc983549aea53ed29859205102d6308a3367bec7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 54491d0ca1f515786af07146d83ef65fc7d46f11
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---iot-hub-endpoints"></a>Informazioni di riferimento - Endpoint dell'hub IoT
 
@@ -81,7 +81,12 @@ Per i limiti sul numero di endpoint che è possibile aggiungere, vedere [Quotas 
 
 ### <a name="when-using-azure-storage-containers"></a>Uso dei contenitori di Archiviazione di Azure
 
-L'hub IoT supporta solo la scrittura dei dati nei contenitori di Archiviazione di Azure come BLOB nel formato [Apache Avro](http://avro.apache.org/). L'hub IoT crea batch di messaggi e scrive i dati in un BLOB non appena raggiunge una determinata dimensione oppure dopo che è trascorso un determinato intervallo di tempo, a seconda dello scenario che si verifica per primo. L'hub IoT non scriverà un BLOB vuoto se non sono presenti dati da scrivere.
+L'hub IoT supporta solo la scrittura dei dati nei contenitori di Archiviazione di Azure come BLOB nel formato [Apache Avro](http://avro.apache.org/). L'hub IoT raggruppa i messaggi in batch e scrive i dati in un BLOB ogni volta che:
+
+* Il batch raggiunge una dimensione specifica, oppure
+* è trascorsa una certa quantità di tempo.
+
+Se non sono presenti dati da scrivere, l'hub IoT scrive un BLOB vuoto.
 
 Per impostazione predefinita, l'hub IoT usa la convenzione di denominazione di file seguente:
 

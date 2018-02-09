@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 450f2d38f7b641bcf6b8be061969404a1b582b4c
-ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
+ms.openlocfilehash: 01951afa983e7a578281fda38bb4714df6b41891
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Linguaggio di query dell'hub IoT per dispositivi gemelli, processi e routing di messaggi
 
@@ -131,7 +131,7 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
-Questa query di raggruppamento restituisce un risultato simile all'esempio seguente. In questo caso i tre dispositivi segnalano che la configurazione è riuscita, due stanno ancora applicando la configurazione e uno ha segnalato un errore. 
+Questa query di raggruppamento restituisce un risultato simile all'esempio seguente:
 
 ```json
 [
@@ -149,6 +149,8 @@ Questa query di raggruppamento restituisce un risultato simile all'esempio segue
     }
 ]
 ```
+
+In questo esempio, tre dispositivi segnalano che la configurazione è riuscita, due stanno ancora applicando la configurazione e uno ha segnalato un errore.
 
 Le query di proiezione consentono agli sviluppatori di restituire solo le proprietà che interessano. Ad esempio, per recuperare l'ora dell'ultima attività per tutti i dispositivi disconnessi, usare la query seguente:
 
@@ -172,8 +174,9 @@ while (query.HasMoreResults)
 }
 ```
 
-Si noti come venga creata un'istanza dell'oggetto **query** con dimensioni della pagina (fino a 100) e quindi si possano recuperare più pagine chiamando più volte i metodi **GetNextAsTwinAsync**.
-Si noti che l'oggetto query espone più **Next***, a seconda dell'opzione di deserializzazione richiesta dalla query, ad esempio se devono essere usati oggetti dispositivi gemelli, oggetti processo oppure il normale codice JSON quando si ricorre alle proiezioni.
+L'istanza dell'oggetto **query** viene creata con dimensioni della pagina (fino a 100). Vengono quindi recuperate più pagine tramite più chiamate ai metodi **GetNextAsTwinAsync**.
+
+L'oggetto query espone più valori **Next**, a seconda dell'opzione di deserializzazione richiesta dalla query, ad esempio, oggetti dispositivo gemello o processo oppure JSON semplice, in caso di uso di proiezioni.
 
 ### <a name="nodejs-example"></a>Esempio di Node. js
 La funzionalità di query viene esposta da [SDK per i servizi IoT di Azure per Node.js][lnk-hub-sdks] nell'oggetto **Registro**.
@@ -198,16 +201,19 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-Si noti come venga creata un'istanza dell'oggetto **query** con dimensioni della pagina (fino a 100) e quindi si possano recuperare più pagine chiamando più volte i metodi **nextAsTwin**.
-Si noti che l'oggetto query espone più **next***, a seconda dell'opzione di deserializzazione richiesta dalla query, ad esempio se devono essere usati oggetti dispositivi gemelli, oggetti processo oppure il normale codice JSON quando si ricorre alle proiezioni.
+L'istanza dell'oggetto **query** viene creata con dimensioni della pagina (fino a 100). Quindi vengono recuperate più pagine tramite più chiamate al metodo **nextAsTwin**.
+
+L'oggetto query espone più valori **Next**, a seconda dell'opzione di deserializzazione richiesta dalla query, ad esempio, oggetti dispositivo gemello o processo oppure JSON semplice, in caso di uso di proiezioni.
 
 ### <a name="limitations"></a>Limitazioni
+
 > [!IMPORTANT]
-> I risultati della query possono avere qualche minuto di ritardo rispetto ai valori più recenti nei dispositivi gemelli. Se si eseguono query su singoli dispositivi gemelli in base all'D, è sempre preferibile usare l'API di recupero di dispositivi gemelli, che contiene i valori più recenti e ha soglie di limitazione più alte.
+> I risultati della query possono avere qualche minuto di ritardo rispetto ai valori più recenti nei dispositivi gemelli. Se la query di dispositivi gemelli si basa sull'ID, usare l'API di recupero di dispositivi gemelli. Questa API contiene sempre i valori più recenti e ha limitazioni superiori.
 
 I confronti sono attualmente supportati solo tra tipi primitivi (non oggetti), ad esempio `... WHERE properties.desired.config = properties.reported.config` è supportato solo se tali proprietà hanno valori primitivi.
 
 ## <a name="get-started-with-jobs-queries"></a>Introduzione alle query dei processi
+
 I [processi][lnk-jobs] consentono di eseguire operazioni su set di dispositivi. Ogni dispositivo gemello contiene le informazioni dei processi di cui fa parte in una raccolta denominata **jobs**.
 La struttura logica è la seguente.
 
@@ -243,7 +249,7 @@ La struttura logica è la seguente.
 Attualmente è possibile effettuare una query di questa raccolta come **devices.jobs** nel linguaggio di query dell'hub IoT.
 
 > [!IMPORTANT]
-> Attualmente la proprietà dei processi non viene mai restituita quando si eseguono query sui dispositivi gemelli (ad esempio query che contengono 'FROM devices'). È possibile accedervi direttamente solo con le query che usano `FROM devices.jobs`.
+> Attualmente la proprietà jobs non viene mai restituita quando si eseguono query sui dispositivi gemelli, ovvero, query che contengono 'FROM devices'. La proprietà jobs è accessibile solo direttamente tramite query che usano `FROM devices.jobs`.
 >
 >
 
@@ -282,9 +288,9 @@ Attualmente le query su **devices.jobs** non supportano:
 
 ## <a name="device-to-cloud-message-routes-query-expressions"></a>Espressioni di query per route di messaggi da dispositivo a cloud
 
-Usando i [route da dispositivo a cloud][lnk-devguide-messaging-routes], è possibile configurare l'hub IoT per l'invio di messaggi da dispositivo a cloud a endpoint diversi in base alle espressioni valutate nei singoli messaggi.
+Usando [route da dispositivo a cloud][lnk-devguide-messaging-routes], è possibile configurare l'hub IoT per l'invio di messaggi da dispositivo a cloud a endpoint diversi in base a espressioni valutate a fronte di messaggi singoli.
 
-La [condizione][lnk-query-expressions] route usa lo stesso linguaggio di query dell'hub IoT come condizione nelle query gemelle e di processo. Le condizioni di routing vengono valutate nel corpo e nelle intestazioni del messaggio. L'espressione di query del routing potrebbe riguardare solo le intestazioni dei messaggi, solo il corpo del messaggio oppure entrambi. Per il routing dei messaggi, l'hub IoT presuppone uno schema specifico per le intestazioni e il corpo del messaggio. Nelle sezioni seguenti vengono descritti i requisiti dell'hub IoT per un routing corretto.
+La [condizione][lnk-query-expressions] route usa lo stesso linguaggio di query dell'hub IoT come condizione nelle query gemelle e di processo. Le condizioni di routing vengono valutate nel corpo e nelle intestazioni del messaggio. L'espressione di query di routing può interessare solo intestazioni di messaggi, solo il corpo dei messaggi oppure entrambi. Per il routing dei messaggi, l'hub IoT presuppone uno schema specifico per le intestazioni e il corpo del messaggio. Nelle sezioni seguenti vengono descritti i requisiti dell'hub IoT per un routing corretto.
 
 ### <a name="routing-on-message-headers"></a>Routing delle intestazioni dei messaggi
 
@@ -311,7 +317,7 @@ L'hub IoT presuppone la seguente rappresentazione JSON delle intestazioni dei me
 ```
 
 Le proprietà di sistema del messaggio hanno come prefisso il simbolo `'$'`.
-Alle proprietà utente si accede sempre con il relativo nome. Se un nome di proprietà utente coincide con una proprietà di sistema, ad esempio `$to`, la proprietà dell'utente verrà recuperata con l'espressione `$to`.
+Alle proprietà utente si accede sempre con il relativo nome. Se il nome di una proprietà utente coincide con una proprietà di sistema, ad esempio `$to`, la proprietà utente viene recuperata con l'espressione `$to`.
 È sempre possibile accedere alle proprietà di sistema con le parentesi `{}`: ad esempio, l'espressione `{$to}` consente di accedere alla proprietà di sistema `to`. I nomi di proprietà tra parentesi recuperano sempre le corrispondenti proprietà di sistema.
 
 Si ricordi che nei nomi delle proprietà viene fatta distinzione tra maiuscole e minuscole.
@@ -342,7 +348,7 @@ Fare riferimento alla sezione [Espressioni e condizioni][lnk-query-expressions] 
 
 ### <a name="routing-on-message-bodies"></a>Routing del corpo dei messaggi
 
-L'hub IoT può eseguire il routing solo in base al contenuto del corpo del messaggio se il corpo del messaggio è formato correttamente con codifica JSON in UTF-8, UTF-16 o UTF-32. Impostare il tipo di contenuto del messaggio su `application/json` e la codifica del contenuto su una delle codifiche UTF supportate nelle intestazioni del messaggio. Se una delle intestazioni viene omessa, l'hub IoT non tenterà di valutare alcuna espressione di query che coinvolga il corpo rispetto al messaggio. Se il messaggio non è un messaggio JSON oppure se il messaggio non specifica il tipo di contenuto e la codifica del contenuto, è comunque possibile usare il routing dei messaggi per indirizzare il messaggio in base alle intestazioni.
+L'hub IoT può eseguire il routing solo in base al contenuto del corpo del messaggio se il corpo del messaggio è formato correttamente con codifica JSON in UTF-8, UTF-16 o UTF-32. Impostare il tipo di contenuto del messaggio su `application/json`. Impostare la codifica del contenuto su una delle codifiche UTF supportate nelle intestazioni dei messaggi. Se una delle intestazioni viene omessa, l'hub IoT non tenta di valutare alcuna espressione di query che interessi il corpo a fronte del messaggio. Se il messaggio non è un messaggio JSON oppure se il messaggio non specifica il tipo e la codifica del contenuto, è comunque possibile usare il routing dei messaggi per indirizzare il messaggio in base alle intestazioni.
 
 È possibile usare `$body` nell'espressione di query per indirizzare il messaggio. Nell'espressione di query è possibile usare un riferimento semplice al corpo, un riferimento a una matrice del corpo o riferimenti multipli al corpo. L'espressione di query può anche combinare un riferimento al corpo con un riferimento all'intestazione del messaggio. Ad esempio, di seguito sono riportate tutte le espressioni di query valide:
 
@@ -355,7 +361,7 @@ $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
 
 ## <a name="basics-of-an-iot-hub-query"></a>Nozioni di base di una query dell'hub IoT
-Ogni query dell'hub IoT è costituita da una clausola SELECT e da una clausola FROM e dalle clausole facoltative WHERE e GROUP BY. Ogni query viene eseguita su una raccolta di documenti JSON, ad esempio dispositivi gemelli. La clausola FROM indica la raccolta di documenti in cui eseguire l'iterazione (**devices** o **devices.jobs**). Viene quindi applicato il filtro nella clausola WHERE. Nel caso delle aggregazioni, i risultati di questo passaggio vengono raggruppati come specificato nella clausola GROUP BY e, per ogni gruppo, viene generata una riga come specificato nella clausola SELECT.
+Ogni query dell'hub IoT è costituita da una clausola SELECT e da una clausola FROM e dalle clausole facoltative WHERE e GROUP BY. Ogni query viene eseguita su una raccolta di documenti JSON, ad esempio dispositivi gemelli. La clausola FROM indica la raccolta di documenti in cui eseguire l'iterazione (**devices** o **devices.jobs**). Viene quindi applicato il filtro nella clausola WHERE. Con le aggregazioni, i risultati di questo passaggio vengono raggruppati come specificato nella clausola GROUP BY. Per ogni gruppo, viene generata una riga come specificato nella clausola SELECT.
 
 ```sql
 SELECT <select_list>
@@ -403,7 +409,7 @@ SELECT [TOP <max number>] <projection list>
 Attualmente le clausole di selezione diverse da **SELECT*** sono supportate solo nelle query aggregate in dispositivi gemelli.
 
 ## <a name="group-by-clause"></a>Clausola GROUP BY
-La clausola **GROUP BY <group_specification>** è un passaggio facoltativo che può essere eseguito dopo aver applicato il filtro specificato nella clausola WHERE e prima della proiezione specificata in SELECT. Raggruppa i documenti in base al valore di un attributo. Questi gruppi vengono usati per generare valori aggregati come specificato nella clausola SELECT.
+La clausola **GROUP BY <group_specification>** è un passaggio facoltativo che viene eseguito dopo l'applicazione del filtro specificato nella clausola WHERE e prima della proiezione specificata in SELECT. Raggruppa i documenti in base al valore di un attributo. Questi gruppi vengono usati per generare valori aggregati come specificato nella clausola SELECT.
 
 Ecco un esempio di query che usa GROUP BY:
 
@@ -433,7 +439,7 @@ In generale, un'*espressione*:
 * Restituisce un'istanza di un tipo JSON, ad esempio un operatore booleano, un numero, una stringa, una matrice o un oggetto.
 * Viene definita modificando i dati provenienti dalle costanti e dal documento JSON dei dispositivi, che usano funzioni e operatori predefiniti.
 
-Le *condizioni* sono espressioni che restituiscono un valore booleano. Una costante diversa dal valore booleano **true** viene considerata **false** (inclusi **null**, **undefined**, qualsiasi istanza di oggetto o matrice, qualsiasi stringa e ovviamente il valore booleano **false**).
+Le *condizioni* sono espressioni che restituiscono un valore booleano. Qualsiasi costante diversa dal valore booleano **true** viene considerata come **false**. Questa regola include **null**, **undefined**, qualsiasi istanza di oggetto o di matrice, qualsiasi stringa e il valore booleano **false**.
 
 La sintassi delle espressioni è:
 
@@ -486,13 +492,13 @@ Sono supportati gli operatori seguenti:
 ### <a name="functions"></a>Funzioni
 Quando si eseguono query gemelle e di processi l'unica funzione supportata è:
 
-| Funzione | Descrizione |
+| Funzione | DESCRIZIONE |
 | -------- | ----------- |
 | IS_DEFINED(proprietà) | Restituisce un valore booleano che indica se alla proprietà è stata assegnato un valore (incluso `null`). |
 
 Nelle condizioni di route, sono supportate le funzioni matematiche seguenti:
 
-| Funzione | Descrizione |
+| Funzione | DESCRIZIONE |
 | -------- | ----------- |
 | ABS(x) | Restituisce il valore assoluto (positivo) dell'espressione numerica specificata. |
 | EXP(x) | Restituisce il valore esponente dell'espressione numerica specificata (e^x). |
@@ -505,7 +511,7 @@ Nelle condizioni di route, sono supportate le funzioni matematiche seguenti:
 
 Nelle condizioni di route, sono supportate le funzioni di trasmissione e controllo seguenti:
 
-| Funzione | Descrizione |
+| Funzione | DESCRIZIONE |
 | -------- | ----------- |
 | AS_NUMBER | Converte la stringa di input in un numero. `noop` se l'input è un numero, `Undefined` se la stringa non rappresenta un numero.|
 | IS_ARRAY | Restituisce un valore booleano che indica se il tipo di espressione specificata è una matrice. |
@@ -514,12 +520,12 @@ Nelle condizioni di route, sono supportate le funzioni di trasmissione e control
 | IS_NULL | Restituisce un valore booleano che indica se il tipo di espressione specificata è nulla. |
 | IS_NUMBER | Restituisce un valore booleano che indica se il tipo di espressione specificata è un numero. |
 | IS_OBJECT | Restituisce un valore booleano che indica se il tipo di espressione specificata è un oggetto JSON. |
-| IS_PRIMITIVE | Restituisce un valore booleano che indica se il tipo di espressione specificata è un primitivo (stringa, valore booleano, numerico o `null`). |
+| IS_PRIMITIVE | Restituisce un valore booleano che indica se il tipo dell'espressione specificata è primitivo (stringa, valore booleano, numerico o `null`). |
 | IS_STRING | Restituisce un valore booleano che indica se il tipo di espressione specificata è una stringa. |
 
 Nelle condizioni di route, sono supportate le funzioni di stringa seguenti:
 
-| Funzione | Descrizione |
+| Funzione | DESCRIZIONE |
 | -------- | ----------- |
 | CONCAT(x, y, …) | Restituisce una stringa che rappresenta il risultato della concatenazione di due o più valori di stringa. |
 | LENGTH(x) | Restituisce il numero di caratteri dell'espressione stringa specificata.|

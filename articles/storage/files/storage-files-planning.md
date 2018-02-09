@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: c28f341fb64271e2173cd377fa06c567e0e054a6
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 590bc459a71b8691741f7f33d2d70b0ba4474591
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il protocollo SMB standard di settore. Poiché File di Azure è completamente gestito, la sua distribuzione negli scenari di produzione è molto più semplice rispetto alla distribuzione e alla gestione di un file server o un dispositivo NAS. Questo articolo illustra gli argomenti da considerare quando si distribuisce una condivisione di File di Azure per l'uso in produzione all'interno dell'organizzazione.
@@ -64,7 +64,7 @@ File di Azure offre diverse opzioni predefinite per garantire la sicurezza dei d
     * I client che non supportano SMB 3.0 possono comunicare tra più datacenter su SMB 2.1 o SMB 3.0 senza crittografia. Si noti che ai client non è consentita la comunicazione tra più datacenter su SMB 2.1 o SMB 3.0 senza crittografia.
     * I client possono comunicare su REST di File con HTTP o HTTPS.
 * Crittografia dei dati inattivi ([Crittografia del servizio Archiviazione di Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): è in corso l'abilitazione della crittografia del servizio di archiviazione (SSE) nella piattaforma di archiviazione di Azure sottostante. Ciò significa che la crittografia verrà abilitata per impostazione predefinita per tutti gli account di archiviazione. Se si sta creando un nuovo account di archiviazione in un'area con crittografia dei dati inattivi, non è necessario eseguire alcuna azione per l'abilitazione. Crittografia dei dati inattivi con chiavi completamente gestite. La crittografia dei dati inattivi non aumenta i costi di archiviazione, né riduce le prestazioni. 
-* Requisito facoltativo di dati crittografati in transito: quando è selezionato, File di Azure non consente l'accesso ai dati attraverso i canali non crittografati. In particolare, vengono consentiti solo HTTPS e SMB 3.0 con connessioni di crittografia. 
+* Requisito facoltativo di dati crittografati in transito: quando è selezionato, File di Azure non consente l'accesso ai dati tramite canali non crittografati. In particolare, vengono consentiti solo HTTPS e SMB 3.0 con connessioni di crittografia. 
 
     > [!Important]  
     > La richiesta di trasferimento protetto dei dati non consentirà la comunicazione tra le vecchie versioni dei client SMB e SMB 3.0 con crittografia. Per altre informazioni vedere [Montare su Windows](storage-how-to-use-files-windows.md), [Montare su Linux](storage-how-to-use-files-linux.md), [Montare su macOS](storage-how-to-use-files-mac.md).
@@ -74,10 +74,13 @@ Per garantire la massima sicurezza, ogni volta che si usano client moderni per a
 Se si usa Sincronizzazione file di Azure per accedere alla condivisione di File di Azure, si userà sempre HTTPS e SMB 3.0 con crittografia per sincronizzare i dati nei server Windows, indipendentemente dal fatto che sia necessaria la crittografia dei dati a riposo.
 
 ## <a name="data-redundancy"></a>Ridondanza dei dati
-File di Azure supporta due opzioni di ridondanza di dati: l'archiviazione con ridondanza locale e l'archiviazione con ridondanza geografica. Le sezioni seguenti descrivono le differenze tra archiviazione con ridondanza locale e archiviazione con ridondanza geografica:
+File di Azure supporta tre opzioni di ridondanza dei dati: archiviazione con ridondanza locale, archiviazione con ridondanza della zona e archiviazione con ridondanza geografica. Le sezioni seguenti descrivono le differenze tra le diverse opzioni di ridondanza:
 
 ### <a name="locally-redundant-storage"></a>Archiviazione con ridondanza locale
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
+
+### <a name="zone-redundant-storage"></a>Archiviazione con ridondanza della zona
+[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
 ### <a name="geo-redundant-storage"></a>Archiviazione con ridondanza geografica
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]

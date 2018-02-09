@@ -1,5 +1,5 @@
 ---
-title: Configurare la verifica in due passaggi per l'account aziendale o dell'istituto di istruzione | Documentazione Microsoft
+title: Configurare la verifica in due passaggi per l'account aziendale o dell'istituto di istruzione | Microsoft Docs
 description: "Quando l'azienda configura Azure Multi-Factor Authentication, verrà chiesto di effettuare l'iscrizione per la verifica in due passaggi. Informazioni su come eseguire la configurazione. "
 services: multi-factor-authentication
 keywords: come usare directory di azure, active directory nel cloud, esercitazione di active directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: d516ef578608a6cead3823585007cbd0636de24a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 04b8d2b8d7d84bd4c6b46507be5d597c03d9dbb0
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurare l'account per la verifica in due passaggi
 La verifica in due passaggi è un livello di sicurezza aggiuntiva che consente di proteggere l'account rendendo più difficile l'intromissione di altri utenti. Se si sta leggendo questo articolo, probabilmente è stato ricevuto un messaggio di posta elettronica su Multi-Factor Authentication inviato dall'amministratore dell'azienda o dell'istituto di istruzione. In alternativa, si è tentato di eseguire l'accesso ed è stato ricevuto un messaggio in cui viene chiesto di configurare una verifica aggiuntiva di sicurezza. In questo caso, **non è possibile accedere fino al completamento del processo di registrazione automatica**.
@@ -43,7 +43,7 @@ La prima domanda posta nel processo di registrazione è relativa alla modalità 
 
 | Metodo di contatto | DESCRIZIONE |
 | --- | --- |
-| [App per dispositivi mobili](#use-a-mobile-app-as-the-contact-method) |- **Ricevi notifiche per la verifica.** Questa opzione invia una notifica all'app di autenticazione sul tablet o lo smartphone. Visualizzare la notifica e, se del caso, selezionare **Autentica** nell'app. L'azienda o dell'istituto di istruzione potrebbe richiedere di immettere un PIN prima eseguire l'autenticazione.<br>- **Usare il codice di verifica.** In questa modalità, l'app di autenticazione genera un nuovo codice di verifica ogni 30 secondi. Immettere il codice di verifica più recente nell'interfaccia di accesso.<br>L'app Microsoft Authenticator è disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [App per dispositivi mobili](#use-a-mobile-app-as-the-contact-method) |- **Ricevi notifiche per la verifica.** Questa opzione invia una notifica all'app di autenticazione sul tablet o lo smartphone. Visualizzare la notifica e, se del caso, selezionare **Autentica** nell'app. L'azienda o dell'istituto di istruzione potrebbe richiedere di immettere un PIN prima eseguire l'autenticazione.<br>- **Usare il codice di verifica.** In questa modalità, l'app di autenticazione genera un nuovo codice di verifica ogni 30 secondi. Immettere il codice di verifica più recente nell'interfaccia di accesso.<br>L'app Microsoft Authenticator è disponibile per [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |
 | [Chiamata o SMS sul telefono cellulare](#use-your-mobile-phone-as-the-contact-method) |- **Chiamata telefonica** invia una chiamata vocale automatizzata al numero di telefono fornito. Per l'autenticazione, rispondere alla chiamata e premere # sul tastierino telefonico.<br>- **SMS** invia un SNS contenente un codice di verifica. Seguendo la richiesta indicata nel testo, rispondere all'SMS o immettere il codice di verifica fornito nell'interfaccia di accesso. |
 | [Chiamata telefonica dell'ufficio](#use-your-office-phone-as-the-contact-method) |Invia una chiamata vocale automatizzata al numero di telefono fornito. Per l'autenticazione, rispondere alla chiamata e premere # sul tastierino telefonico. |
 
@@ -56,7 +56,7 @@ L'uso di questo metodo richiede l'installazione di un'app di autenticazione sul 
    ![Schermata della verifica aggiuntiva di sicurezza](./media/multi-factor-authentication-end-user-first-time/mobileapp.png)
 
 3. Sul telefono o sul tablet aprire l'app e selezionare **+** per aggiungere un account. Sui dispositivi Android selezionare i tre puntini, quindi **Aggiungi account**.
-4. Specificare che si desidera aggiungere un account aziendale o dell'istituto di istruzione. Viene aperto lo scanner di codici a matrice sul telefono. Se la fotocamera non funziona correttamente, è possibile selezionare di inserire manualmente le informazioni della società. Per ulteriori informazioni, vedere l'articolo su come [aggiungere manualmente un account](#add-an-account-manually).  
+4. Specificare che si desidera aggiungere un account aziendale o dell'istituto di istruzione. Viene aperto lo scanner di codici a matrice sul telefono. Se la fotocamera non funziona correttamente, è possibile selezionare di inserire manualmente le informazioni della società. Per altre informazioni, vedere l'articolo su come [aggiungere manualmente un account](#add-an-account-manually).  
 5. Eseguire la scansione dell'immagine del codice QR visualizzata nella schermata di configurazione dell'app mobile.  Fare clic su **Done** (Fine) per chiudere la schermata del codice QR.  
 
    ![Schermata di codice QR](./media/multi-factor-authentication-end-user-first-time/scan2.png)

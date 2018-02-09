@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: bdc64733b75fd809cf0245986aa96370343c1a34
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: d0a8a3726ac3c33668d8ad91c97c35937c299b46
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Schema di eventi di Griglia di eventi di Azure per l'archiviazione BLOB
 
@@ -22,7 +22,7 @@ Questo articolo illustra le proprietà e lo schema per gli eventi di archiviazio
 
 L'archiviazione BLOB genera i tipi di eventi seguenti:
 
-| Tipo evento | Descrizione |
+| Tipo evento | DESCRIZIONE |
 | ---------- | ----------- |
 | Microsoft.Storage.BlobCreated | Generato quando viene creato un BLOB. |
 | Microsoft.Storage.BlobDeleted | Generato quando viene eliminato un BLOB. |
@@ -51,7 +51,9 @@ L'esempio seguente illustra lo schema di un evento creato da un BLOB:
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
 
@@ -74,7 +76,9 @@ Lo schema di un evento eliminato da una BLOB è simile:
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
     }
-  }
+  },
+  "dataVersion": "",
+  "metadataVersion": "1"
 }]
 ```
  
@@ -82,28 +86,30 @@ Lo schema di un evento eliminato da una BLOB è simile:
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | type | DESCRIZIONE |
 | -------- | ---- | ----------- |
-| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. |
-| subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
-| eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
-| eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| id | string | Identificatore univoco dell'evento. |
+| argomento | stringa | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| subject | stringa | Percorso dell'oggetto dell'evento definito dall'autore. |
+| eventType | stringa | Uno dei tipi di evento registrati per l'origine evento. |
+| eventTime | stringa | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| id | stringa | Identificatore univoco dell'evento. |
 | data | object | Dati relativi all'evento di archiviazione BLOB. |
+| dataVersion | stringa | Versione dello schema dell'oggetto dati. La versione dello schema è definita dall'editore. |
+| metadataVersion | stringa | Versione dello schema dei metadati dell'evento. Lo schema delle proprietà di primo livello è definito da Griglia di eventi. Questo valore viene fornito da Griglia di eventi. |
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Tipo | Descrizione |
+| Proprietà | type | DESCRIZIONE |
 | -------- | ---- | ----------- |
-| api | string | L'operazione che ha attivato l'evento. |
-| clientRequestId | string | Un valore opaco, generato dal client con un limite di caratteri di 1 KB. Quando è abilitata la registrazione analitica dell'archiviazione, viene registrato nel registro analisi. |
-| requestId | string | Identificatore univoco per la richiesta. Usarlo per la risoluzione dei problemi della richiesta. |
-| eTag | string | Il valore che è possibile usare per eseguire le operazioni in modo condizionale. |
-| contentType | string | Il tipo di contenuto specificato per il BLOB. |
+| api | stringa | L'operazione che ha attivato l'evento. |
+| clientRequestId | stringa | Un valore opaco, generato dal client con un limite di caratteri di 1 KB. Quando è abilitata la registrazione analitica dell'archiviazione, viene registrato nel registro analisi. |
+| requestId | stringa | Identificatore univoco per la richiesta. Usarlo per la risoluzione dei problemi della richiesta. |
+| eTag | stringa | Il valore che è possibile usare per eseguire le operazioni in modo condizionale. |
+| contentType | stringa | Il tipo di contenuto specificato per il BLOB. |
 | contentLength | numero intero | La dimensione del BLOB in byte. |
-| blobType | string | Il tipo di BLOB. |
-| URL | string | Percorso del BLOB. |
-| sequencer | string | Un valore controllato dall'utente che è possibile usare per tenere traccia delle richieste. |
+| blobType | stringa | Il tipo di BLOB. I valori validi sono "BlockBlob" o "PageBlob". |
+| URL | stringa | Percorso del BLOB. |
+| sequencer | stringa | Un valore controllato dall'utente che è possibile usare per tenere traccia delle richieste. |
 | storageDiagnostics | object | Informazioni sulla diagnostica dell'archiviazione. |
  
 ## <a name="next-steps"></a>Passaggi successivi

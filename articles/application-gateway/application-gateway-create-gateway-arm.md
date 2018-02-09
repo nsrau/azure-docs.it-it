@@ -1,213 +1,214 @@
 ---
-title: Creare e gestire un gateway applicazione di Azure - PowerShell | Microsoft Docs
-description: Questa pagina fornisce istruzioni per la creazione, la configurazione, l'avvio e l'eliminazione di un gateway applicazione di Azure usando Gestione risorse di Azure
-documentationcenter: na
+title: Creare un gateway applicazione - Azure PowerShell| Microsoft Docs
+description: Informazioni su come creare un gateway applicazione usando Azure PowerShell.
 services: application-gateway
 author: davidmu1
 manager: timlt
-editor: tysonn
+editor: 
+tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
+ms.devlang: azurepowershell
+ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: c419e1032476818e430251246022ae14e4355024
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 7f78e54b16da024c233a7943e82fd50f41c5503a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="create-start-or-delete-an-application-gateway-by-using-azure-resource-manager"></a>Creare, avviare o eliminare un gateway applicazione tramite Gestione risorse di Azure
+# <a name="create-an-application-gateway-using-azure-powershell"></a>Creare un gateway applicazione usando Azure PowerShell
 
-> [!div class="op_single_selector"]
-> * [Portale di Azure](application-gateway-create-gateway-portal.md)
-> * [PowerShell per Azure Resource Manager](application-gateway-create-gateway-arm.md)
-> * [PowerShell per Azure classico](application-gateway-create-gateway.md)
-> * [Modello di Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
-> * [Interfaccia della riga di comando di Azure](application-gateway-create-gateway-cli.md)
+È possibile usare Azure PowerShell per creare o gestire i gateway applicazione dalla riga di comando o in script. In questa guida introduttiva viene illustrato come creare risorse di rete, server back-end e un gateway applicazione.
 
-Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. Il gateway applicazione offre numerose funzionalità di controller per la distribuzione di applicazioni (ADC, Application Delivery Controller), tra cui bilanciamento del carico HTTP, affinità di sessione basata su cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati, supporto per più siti e molte altre. Per un elenco completo delle funzionalità supportate, vedere [Panoramica del gateway applicazione](application-gateway-introduction.md).
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Questo articolo illustra in dettaglio i passaggi necessari per creare e configurare, avviare ed eliminare un gateway applicazione.
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-> [!IMPORTANT]
-> Prima di iniziare a usare le risorse di Azure, è importante comprendere che Azure al momento offre due modelli di distribuzione, quello classico e Gestione risorse. È importante conoscere i [modelli e gli strumenti di distribuzione](../azure-classic-rm.md) prima di usare le risorse di Azure. È possibile visualizzare la documentazione relativa a diversi strumenti facendo clic sulle schede nella parte superiore di questo articolo. Questo documento illustra la creazione di un gateway applicazione con Azure Resource Manager. Per usare la versione classica, passare a [Creare, avviare o eliminare un gateway applicazione](application-gateway-create-gateway.md).
+Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 3.6 o successiva. Per trovare la versione, eseguire `Get-Module -ListAvailable AzureRM`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
 
-## <a name="before-you-begin"></a>Prima di iniziare
+## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [pagina Download](https://azure.microsoft.com/downloads/).
-1. Se è già disponibile una rete virtuale, selezionare una subnet vuota esistente oppure creare una subnet nella rete virtuale esclusivamente per l'uso da parte del gateway applicazione. Non è possibile distribuire il gateway applicazione in una rete virtuale diversa da quella delle risorse da distribuire dietro il gateway applicazione.
-1. È necessario che i server configurati per l'uso del gateway applicazione esistano oppure che i relativi endpoint siano stati creati nella rete virtuale o con un indirizzo IP/VIP pubblico assegnato.
+Creare un gruppo di risorse di Azure usando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. 
 
-## <a name="what-is-required-to-create-an-application-gateway"></a>Elementi necessari per creare un gateway applicazione
+```azurepowershell-interactive
+New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
+```
 
-* **Pool di server back-end:** elenco di indirizzi IP, FQDN o schede di interfaccia di rete dei server back-end. Se si usano gli indirizzi IP, questi devono appartenere alla subnet della rete virtuale o devono essere indirizzi IP/VIP pubblici.
-* **Impostazioni del pool di server back-end:** ogni pool ha impostazioni come porta, protocollo e affinità basata sui cookie. Queste impostazioni sono associate a un pool e vengono applicate a tutti i server nel pool.
-* **Porta front-end:** porta pubblica aperta sul gateway applicazione. Il traffico raggiunge questa porta e quindi viene reindirizzato a uno dei server back-end.
-* **Listener:** ha una porta front-end, un protocollo (Http o Https, con distinzione tra maiuscole e minuscole) e il nome del certificato SSL (se si configura l'offload SSL).
-* **Regola:** la regola associa il listener e il pool di server back-end e definisce il pool di server back-end a cui deve essere indirizzato il traffico quando raggiunge un listener specifico.
+## <a name="create-network-resources"></a>Creare risorse di rete 
 
-## <a name="create-a-resource-group-for-resource-manager"></a>Creare un gruppo di risorse per Gestione risorse
+Creare le configurazioni di subnet usando [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Creare la rete virtuale usando [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) con le configurazioni di subnet. Creare infine l'indirizzo IP pubblico usando [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Queste risorse vengono usate per fornire la connettività di rete al gateway applicazione e alle risorse associate.
 
-Assicurarsi di usare la versione più recente di Azure PowerShell. Altre informazioni sono disponibili in [Uso di Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
+```azurepowershell-interactive
+$backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myAGSubnet `
+  -AddressPrefix 10.0.1.0/24
+$agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+  -Name myBackendSubnet `
+  -AddressPrefix 10.0.2.0/24
+New-AzureRmVirtualNetwork `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myVNet `
+  -AddressPrefix 10.0.0.0/16 `
+  -Subnet $backendSubnetConfig, $agSubnetConfig
+New-AzureRmPublicIpAddress `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -Name myAGPublicIPAddress `
+  -AllocationMethod Dynamic
+```
+## <a name="create-backend-servers"></a>Creare i server back-end
 
-1. Accedere ad Azure e immettere le credenziali.
+In questo esempio, vengono create due macchine virtuali da usare come server back-end per il gateway applicazione. È inoltre possibile installare IIS sulle macchine virtuali per verificare l'avvenuta creazione del gateway applicazione.
 
-  ```powershell
-  Login-AzureRmAccount
-  ```
+### <a name="create-two-virtual-machines"></a>Creare due macchine virtuali
 
-2. Controllare le sottoscrizioni per l'account.
+Creare un'interfaccia di rete con [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). Creare una configurazione di macchina virtuale con [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig). Quando si eseguono i comandi seguenti, viene chiesto di immettere le credenziali. Immettere *azureuser* per il nome utente e *Azure123456!* come password. Creare la macchina virtuale con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
+$cred = Get-Credential
+for ($i=1; $i -le 2; $i++)
+{
+  $nic = New-AzureRmNetworkInterface `
+    -Name myNic$i `
+    -ResourceGroupName myResourceGroupAG `
+    -Location EastUS `
+    -SubnetId $vnet.Subnets[1].Id
+  $vm = New-AzureRmVMConfig `
+    -VMName myVM$i `
+    -VMSize Standard_DS2
+  $vm = Set-AzureRmVMOperatingSystem `
+    -VM $vm `
+    -Windows `
+    -ComputerName myVM$i `
+    -Credential $cred
+  $vm = Set-AzureRmVMSourceImage `
+    -VM $vm `
+    -PublisherName MicrosoftWindowsServer `
+    -Offer WindowsServer `
+    -Skus 2016-Datacenter `
+    -Version latest
+  $vm = Add-AzureRmVMNetworkInterface `
+    -VM $vm `
+    -Id $nic.Id
+  $vm = Set-AzureRmVMBootDiagnostics `
+    -VM $vm `
+    -Disable
+  New-AzureRmVM -ResourceGroupName myResourceGroupAG -Location EastUS -VM $vm
+  Set-AzureRmVMExtension `
+    -ResourceGroupName myResourceGroupAG `
+    -ExtensionName IIS `
+    -VMName myVM$i `
+    -Publisher Microsoft.Compute `
+    -ExtensionType CustomScriptExtension `
+    -TypeHandlerVersion 1.4 `
+    -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+    -Location EastUS
+}
+```
 
-3. Scegliere le sottoscrizioni ad Azure da usare.
+## <a name="create-an-application-gateway"></a>Creare un gateway applicazione
 
-  ```powershell
-  Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
-  ```
+### <a name="create-the-ip-configurations-and-frontend-port"></a>Creare le configurazioni IP e la porta front-end
 
-4. Creare un gruppo di risorse. Ignorare questo passaggio se si usa un gruppo di risorse esistente.
+Usare [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration) per creare la configurazione che associa la subnet creata in precedenza al gateway applicazione. Usare [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig) per creare la configurazione che assegna l'indirizzo IP pubblico creato in precedenza al gateway applicazione. Usare [New-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport) per assegnare la porta 80 per l'accesso al gateway applicazione.
 
-  ```powershell
-  New-AzureRmResourceGroup -Name ContosoRG -Location "West US"
-  ```
-
-Gestione risorse di Azure richiede che tutti i gruppi di risorse specifichino un percorso che viene usato come percorso predefinito per le risorse presenti in tale gruppo di risorse. Assicurarsi che tutti i comandi per creare un gateway applicazione usino lo stesso gruppo di risorse.
-
-Nell'esempio precedente è stato creato un gruppo di risorse denominato **ContosoRG** nella località **East US**.
-
-> [!NOTE]
-> Se è necessario configurare un probe personalizzato per il gateway applicazione, visitare: [Creare un probe personalizzato per il gateway applicazione con PowerShell](application-gateway-create-probe-ps.md). Per altre informazioni, vedere l'articolo relativo a [probe personalizzati e monitoraggio dell'integrità](application-gateway-probe-overview.md) .
-
-
-## <a name="create-the-application-gateway-configuration-objects"></a>Creare gli oggetti di configurazione gateway applicazione
-
-Prima di creare il gateway applicazione, è necessario impostare tutti gli elementi di configurazione. La procedura seguente consente di creare gli elementi di configurazione necessari per una risorsa del gateway applicazione.
-
-```powershell
-# Create a subnet and assign the address space of 10.0.0.0/24
-$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
-
-# Create a virtual network with the address space of 10.0.0.0/16 and add the subnet
-$vnet = New-AzureRmVirtualNetwork -Name ContosoVNET -ResourceGroupName ContosoRG -Location "East US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-
-# Retrieve the newly created subnet
+```azurepowershell-interactive
+$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
+$pip = Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress 
 $subnet=$vnet.Subnets[0]
-
-# Create a public IP address that is used to connect to the application gateway. Application Gateway does not support custom DNS names on public IP addresses.  If a custom name is required for the public endpoint, a CNAME record should be created to point to the automatically generated DNS name for the public IP address.
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName ContosoRG -name publicIP01 -location "East US" -AllocationMethod Dynamic
-
-# Create a gateway IP configuration. The gateway picks up an IP addressfrom the configured subnet and routes network traffic to the IP addresses in the backend IP pool. Keep in mind that each instance takes one IP address.
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
-
-# Configure a backend pool with the addresses of your web servers. These backend pool members are all validated to be healthy by probes, whether they are basic probes or custom probes.  Traffic is then routed to them when requests come into the application gateway. Backend pools can be used by multiple rules within the application gateway, which means one backend pool could be used for multiple web applications that reside on the same host.
-$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221, 134.170.185.50
-
-# Configure backend http settings to determine the protocol and port that is used when sending traffic to the backend servers. Cookie-based sessions are also determined by the backend HTTP settings.  If enabled, cookie-based session affinity sends traffic to the same backend as previous requests for each packet.
-$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
-
-# Configure a frontend port that is used to connect to the application gateway through the public IP address
-$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
-
-# Configure the frontend IP configuration with the public IP address created earlier.
-$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
-
-# Configure the listener.  The listener is a combination of the front end IP configuration, protocol, and port and is used to receive incoming network traffic. 
-$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
-
-# Configure a basic rule that is used to route traffic to the backend servers. The backend pool settings, listener, and backend pool created in the previous steps make up the rule. Based on the criteria defined traffic is routed to the appropriate backend.
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
-
-# Configure the SKU for the application gateway, this determines the size and whether or not WAF is used.
-$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
-
-# Create the application gateway
-$appgw = New-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName ContosoRG -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+$gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
+  -Name myAGIPConfig `
+  -Subnet $subnet
+$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig `
+  -Name myAGFrontendIPConfig `
+  -PublicIPAddress $pip
+$frontendport = New-AzureRmApplicationGatewayFrontendPort `
+  -Name myFrontendPort `
+  -Port 80
 ```
 
-Al termine, recuperare i dettagli relativi a DNS e indirizzo VIP del gateway applicazione dalla risorsa IP pubblica associata al gateway applicazione.
+### <a name="create-the-backend-pool"></a>Creare il pool back-end
 
-```powershell
-Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName ContosoRG
+Usare [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool) per creare il pool back-end per il gateway applicazione. Configurare le impostazioni per il pool back-end usando [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
+
+```azurepowershell-interactive
+$address1 = Get-AzureRmNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic1
+$address2 = Get-AzureRmNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic2
+$backendPool = New-AzureRmApplicationGatewayBackendAddressPool `
+  -Name myAGBackendPool `
+  -BackendIPAddresses $address1.ipconfigurations[0].privateipaddress, $address2.ipconfigurations[0].privateipaddress
+$poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
+  -Name myPoolSettings `
+  -Port 80 `
+  -Protocol Http `
+  -CookieBasedAffinity Enabled `
+  -RequestTimeout 120
 ```
 
-## <a name="delete-the-application-gateway"></a>Eliminare il gateway applicazione
+### <a name="create-the-listener-and-add-a-rule"></a>Creare il listener e aggiungere una regola
 
-L'esempio seguente elimina il gateway applicazione.
+È necessario un listener per consentire al gateway applicazione di instradare il traffico in modo appropriato al pool back-end. Creare il listener usando [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) con la configurazione front-end e la porta front-end creata prima. È necessaria una regola per comunicare al listener quale pool back-end usare per il traffico in ingresso. Usare [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) per creare una regola denominata *rule1*.
 
-```powershell
-# Retrieve the application gateway
-$gw = Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName ContosoRG
-
-# Stops the application gateway
-Stop-AzureRmApplicationGateway -ApplicationGateway $gw
-
-# Once the application gateway is in a stopped state, use the `Remove-AzureRmApplicationGateway` cmdlet to remove the service.
-Remove-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName ContosoRG -Force
+```azurepowershell-interactive
+$defaultlistener = New-AzureRmApplicationGatewayHttpListener `
+  -Name myAGListener `
+  -Protocol Http `
+  -FrontendIPConfiguration $fipconfig `
+  -FrontendPort $frontendport
+$frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
+  -Name rule1 `
+  -RuleType Basic `
+  -HttpListener $defaultlistener `
+  -BackendAddressPool $backendPool `
+  -BackendHttpSettings $poolSettings
 ```
 
-> [!NOTE]
-> L'opzione **-force** può essere usata per eliminare il messaggio di conferma della rimozione.
+### <a name="create-the-application-gateway"></a>Creare il gateway applicazione
 
-Per verificare che il servizio sia stato rimosso, è possibile usare il cmdlet `Get-AzureRmApplicationGateway`. Questo passaggio non è obbligatorio.
+Ora che sono state create le risorse di supporto necessarie, usare [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku) per specificare i parametri per il gateway applicazione e quindi usare [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) per creare il gateway.
 
-```powershell
-Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName ContosoRG
+```azurepowershell-interactive
+$sku = New-AzureRmApplicationGatewaySku `
+  -Name Standard_Medium `
+  -Tier Standard `
+  -Capacity 2
+New-AzureRmApplicationGateway `
+  -Name myAppGateway `
+  -ResourceGroupName myResourceGroupAG `
+  -Location eastus `
+  -BackendAddressPools $backendPool `
+  -BackendHttpSettingsCollection $poolSettings `
+  -FrontendIpConfigurations $fipconfig `
+  -GatewayIpConfigurations $gipconfig `
+  -FrontendPorts $frontendport `
+  -HttpListeners $defaultlistener `
+  -RequestRoutingRules $frontendRule `
+  -Sku $sku
 ```
 
-## <a name="get-application-gateway-dns-name"></a>Ottenere il nome DNS del gateway applicazione
+## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Dopo avere creato il gateway, il passaggio successivo prevede la configurazione del front-end per la comunicazione. Quando si usa un IP pubblico, il gateway applicazione richiede un nome DNS assegnato in modo dinamico, non descrittivo. Per assicurarsi che gli utenti finali possano raggiungere il gateway applicazione, è possibile usare un record CNAME per fare riferimento all'endpoint pubblico del gateway applicazione. A questo scopo, recuperare i dettagli del gateway applicazione e il nome DNS e l'IP associati, usando l'elemento PublicIPAddress collegato al gateway applicazione. Questa operazione può essere eseguita con il servizio DNS di Azure o altri provider DNS, creando un record CNAME che punti all'[indirizzo IP pubblico](../dns/dns-custom-domain.md#public-ip-address). Non è consigliabile usare record A perché l'indirizzo VIP può cambiare al riavvio del gateway applicazione.
+Usare [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) per ottenere l'indirizzo IP pubblico del gateway applicazione. Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser.
 
-> [!NOTE]
-> All'avvio del servizio viene assegnato un indirizzo IP al gateway applicazione.
-
-```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName ContosoRG -Name publicIP01
+```azurepowershell-interactive
+Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
-```
-Name                     : publicIP01
-ResourceGroupName        : ContosoRG
-Location                 : westus
-Id                       : /subscriptions/<subscription_id>/resourceGroups/ContosoRG/providers/Microsoft.Network/publicIPAddresses/publicIP01
-Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
-ResourceGuid             : 00000000-0000-0000-0000-000000000000
-ProvisioningState        : Succeeded
-Tags                     : 
-PublicIpAllocationMethod : Dynamic
-IpAddress                : xx.xx.xxx.xx
-PublicIpAddressVersion   : IPv4
-IdleTimeoutInMinutes     : 4
-IpConfiguration          : {
-                                "Id": "/subscriptions/<subscription_id>/resourceGroups/ContosoRG/providers/Microsoft.Network/applicationGateways/ContosoAppGateway/frontendIP
-                            Configurations/frontend1"
-                            }
-DnsSettings              : {
-                                "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
-                            }
-```
+![Testare il gateway applicazione](./media/application-gateway-create-gateway-arm/application-gateway-iistest.png)
 
-## <a name="delete-all-resources"></a>Eliminare tutte le risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per eliminare tutte le risorse create in questo articolo, completare il passaggio seguente:
+Quando il gruppo di risorse, il gateway applicazione e tutte le risorse correlate non sono più necessari, è possibile usare il comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) per rimuoverli.
 
-```powershell
-Remove-AzureRmResourceGroup -Name ContosoRG
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myResourceGroupAG
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per configurare l'offload SSL, visitare [Configurare un gateway applicazione per l'offload SSL](application-gateway-ssl.md).
+In questa guida introduttiva è stato creato un gruppo di risorse, le risorse di rete e i server back-end. Tali risorse sono state quindi usate per creare un gateway applicazione. Per altre informazioni sui gateway applicazione e sulle risorse associate, continuare con le procedure dettagliate.
 
-Per configurare un gateway applicazione da usare con un servizio di bilanciamento del carico interno, visitare [Creare un gateway applicazione con un dispositivo di bilanciamento del carico interno (ILB)](application-gateway-ilb.md).
-
-Per altre informazioni generali sulle opzioni di bilanciamento del carico, vedere:
-
-* [Servizio di bilanciamento del carico di Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Gestione traffico di Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)

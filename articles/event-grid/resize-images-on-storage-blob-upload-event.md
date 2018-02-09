@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 22eafca56eb5677c63a833d298799b725c50f768
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: d8ffd9b3b9a315129ab0442908a9b3ad3bbecd1c
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi
 
@@ -35,7 +35,7 @@ In questa esercitazione si apprenderà come:
 > * distribuire il codice senza server mediante Funzioni di Azure
 > * creare una sottoscrizione di eventi di archiviazione BLOB in Griglia di eventi
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione:
 
@@ -51,7 +51,7 @@ Se non si usa Cloud Shell, prima è necessario accedere usando `az login`.
 
 ## <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
 
-Per Funzioni di Azure è necessario un account di archiviazione generale. Creare un altro account di archiviazione generale nel gruppo di risorse usando il comando [az storage account create](/cli/azure/storage/account#create).
+Per Funzioni di Azure è necessario un account di archiviazione generale. Creare un altro account di archiviazione generale nel gruppo di risorse usando il comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. 
 
@@ -65,7 +65,7 @@ az storage account create --name <general_storage_account> \
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni  
 
-Per ospitare l'esecuzione della funzione è necessaria un'app per le funzioni. L'app per le funzioni offre un ambiente per l'esecuzione senza server del codice di funzione. Creare un'app per le funzioni usando il comando [az functionapp create](/cli/azure/functionapp#create). 
+Per ospitare l'esecuzione della funzione è necessaria un'app per le funzioni. L'app per le funzioni offre un ambiente per l'esecuzione senza server del codice di funzione. Creare un'app per le funzioni usando il comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create). 
 
 Nel comando seguente sostituire il segnaposto `<function_app>` con il nome univoco dell'app per le funzioni. Dato che verrà usato come dominio DNS predefinito per l'app per le funzioni, è necessario che `<function_app>` sia univoco tra tutte le app in Azure. In questo caso, `<general_storage_account>` è il nome dell'account di archiviazione generale creato.  
 
@@ -78,7 +78,7 @@ az functionapp create --name <function_app> --storage-account  <general_storage_
 
 ## <a name="configure-the-function-app"></a>Configurare l'app per le funzioni
 
-La funzione richiede la stringa di connessione per connettersi all'account di archiviazione BLOB. In questo caso, `<blob_storage_account>` è il nome dell'account di archiviazione BLOB creato nell'esercitazione precedente. Ottenere la stringa di connessione con il comando [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Anche il nome del contenitore dell'immagini di anteprima deve essere impostato su `thumbs`. Aggiungere le impostazioni dell'applicazione nell'app per le funzioni con il comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set).
+La funzione richiede la stringa di connessione per connettersi all'account di archiviazione BLOB. In questo caso, `<blob_storage_account>` è il nome dell'account di archiviazione BLOB creato nell'esercitazione precedente. Ottenere la stringa di connessione con il comando [az storage account show-connection-string](/cli/azure/storage/account#az_storage_account_show_connection_string). Anche il nome del contenitore dell'immagini di anteprima deve essere impostato su `thumbs`. Aggiungere le impostazioni dell'applicazione nell'app per le funzioni con il comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set).
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \
@@ -95,7 +95,7 @@ myContainerName=thumbs
 
 ## <a name="deploy-the-function-code"></a>Distribuire il codice funzione 
 
-La funzione C# che esegue il ridimensionamento delle immagini è disponibile in questa [repository GitHub di esempio](https://github.com/Azure-Samples/function-image-upload-resize). Distribuire il progetto di codice funzione nell'app per le funzioni usando il comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config). 
+La funzione C# che esegue il ridimensionamento delle immagini è disponibile in questa [repository GitHub di esempio](https://github.com/Azure-Samples/function-image-upload-resize). Distribuire il progetto di codice funzione nell'app per le funzioni usando il comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config). 
 
 Nel comando seguente `<function_app>` è la stessa app per le funzioni creata nello script precedente.
 
@@ -106,7 +106,9 @@ az functionapp deployment source config --name <function_app> \
 ```
 
 La funzione di ridimensionamento delle immagini viene attivata da una sottoscrizione di eventi per un evento BLOB creato. I dati passati al trigger includono l'URL del BLOB, che a sua volta viene passato all'associazione di input per ottenere l'immagine caricata dall'archivio BLOB. La funzione genera un'immagine di anteprima e scrive il flusso risultante in un contenitore separato nell'archiviazione BLOB. Per altre informazioni su questa funzione, vedere il [file readme nel repository di esempio](https://github.com/Azure-Samples/function-image-upload-resize/blob/master/README.md).
- 
+
+Questo progetto usa `EventGridTrigger` per il tipo di trigger. L'uso del trigger della Griglia di eventi è consigliato rispetto ai trigger HTTP generici. Griglia di eventi convalida automaticamente i trigger di funzioni della Griglia di eventi. Con i trigger HTTP generici è necessario implementare la [risposta di convalida](security-authentication.md#webhook-event-delivery).
+
 Il codice del progetto funzione viene distribuito direttamente dal repository pubblico di esempio. Per altre informazioni sulle opzioni di distribuzione per Funzioni di Azure, vedere [Distribuzione continua per Funzioni di Azure](../azure-functions/functions-continuous-deployment.md).
 
 ## <a name="create-your-event-subscription"></a>Creare una sottoscrizione di eventi
@@ -129,8 +131,8 @@ Una sottoscrizione di eventi indica quali eventi generati dal provider si deside
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome** | imageresizersub | Nome che identifica la nuova sottoscrizione di eventi. | 
     | **Tipo di argomento** |  Account di archiviazione | Scegliere il provider di eventi Account di archiviazione. | 
-    | **Sottoscrizione** | Sottoscrizione in uso | Per impostazione predefinita viene selezionata la sottoscrizione corrente.   |
-    | **Gruppo di risorse** | myResourceGroup | Selezionare **Usa esistente** e scegliere il gruppo di risorse usato in questo argomento.  |
+    | **Sottoscrizione** | Sottoscrizione di Azure | Per impostazione predefinita viene selezionata la sottoscrizione di Azure corrente.   |
+    | **Gruppo di risorse** | myResourceGroup | Selezionare **Usa esistente** e scegliere il gruppo di risorse usato in questa esercitazione.  |
     | **Istanza** |  `<blob_storage_account>` |  Selezionare l'account di archiviazione BLOB creato. |
     | **Tipi di evento** | Blob created (BLOB creato) | Deselezionare tutti i tipi diversi da **Blob created** (BLOB creato). Solo i tipi di evento `Microsoft.Storage.BlobCreated` vengono passati alla funzione.| 
     | **Endpoint sottoscrittore** | generato automaticamente | Usare l'URL dell'endpoint che viene generato automaticamente. | 
@@ -152,7 +154,7 @@ Si noti che quando l'immagine caricata scompare, nella sequenza video **Generate
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * creare un account generale di Archiviazione di Azure

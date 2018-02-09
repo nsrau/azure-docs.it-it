@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 12/16/2015
 ms.author: dwrede
 ms.openlocfilehash: 45decfdec01b7086d1f9d18b31cf01cec1adb34d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="microsoft-azure-portal-overview"></a>Panoramica del portale di Microsoft Azure
 Il portale di Microsoft Azure è una posizione centrale in cui è possibile eseguire il provisioning e gestire le risorse di Azure.  Questa esercitazione consente di familiarizzare con il portale e illustra come usare alcune di queste funzionalità chiave:
@@ -65,7 +65,7 @@ In caso di problemi, sono disponibili numerose opzioni per il supporto.  Il port
 
 ![Guida e supporto][HelpSupport]
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 In questa esercitazione è stato illustrato quanto segue:
 
 * Come iscriversi, ottenere una sottoscrizione e passare al portale

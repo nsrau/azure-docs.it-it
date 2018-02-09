@@ -15,11 +15,11 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: davidmu
-ms.openlocfilehash: abed4095bcacac4ca3995acfaafae2f16d5f1532
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0ae5d797a2a502cceeb1be20af4953f16f1320a
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Panoramica dell'integrazione tra il gateway applicazione e il Centro sicurezza di Azure
 
@@ -81,7 +81,7 @@ Fare clic su una regola per visualizzare un elenco degli avvisi per la regola WA
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come abilitare il web application firewall in un gateway applicazione esistente, vedere [Creare o aggiornare un gateway applicazione di Azure con web application firewall](application-gateway-web-application-firewall-portal.md#add-web-application-firewall-to-an-existing-application-gateway)
+Per informazioni su come abilitare il web application firewall in un gateway applicazione esistente, vedere [Creare o aggiornare un gateway applicazione di Azure con web application firewall](application-gateway-web-application-firewall-portal.md).
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png
 [2]: ./media/application-gateway-integration-security-center/figure2.png

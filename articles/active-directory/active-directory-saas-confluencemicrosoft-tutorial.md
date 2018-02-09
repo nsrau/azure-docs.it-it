@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 22189c3d2d2164ba0fa3c2d790c36361fb0f5854
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 4151811a74fc0e58f6171e11d77e070f3cb40f95
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Esercitazione: Integrazione di Azure Active Directory con Confluence SAML SSO by Microsoft
 
@@ -36,7 +36,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 
 Usare l'account di Microsoft Azure Active Directory con il server Atlassian Confluence per abilitare l'accesso Single Sign-On. In questo modo gli utenti dell'organizzazione possono usare le credenziali di Azure AD per accedere all'applicazione Confluence. Questo plug-in usa SAML 2.0 per la federazione.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Confluence SAML SSO by Microsoft sono necessari gli elementi seguenti:
 
@@ -133,7 +133,6 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     > [!NOTE] 
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. La porta è facoltativa nel caso di un URL denominato. Questi valori vengono ricevuti durante la configurazione del plug-in Confluence, illustrata più avanti nell'esercitazione.
- 
 
 4. Per generare l'URL dei **metadati**, seguire questa procedura:
 
@@ -165,7 +164,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     ![Configure Single Sign-On](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon1.png)
 
-8. Scaricare il plug-in dall'[Area download Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Caricare manualmente il plug-in offerto da Microsoft tramite il menu **Upload add-on** (Carica componente aggiuntivo)
+8. Scaricare il plug-in dall'[Area download Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Caricare manualmente il plug-in fornito da Microsoft tramite il menu **Upload add-on** (Carica componente aggiuntivo). Il download del plug-in è coperto dal [Contratto di Servizi Microsoft](https://www.microsoft.com/en-us/servicesagreement/). 
     
     ![Configure Single Sign-On](./media/active-directory-saas-Confluencemicrosoft-tutorial/addon12.png)
 

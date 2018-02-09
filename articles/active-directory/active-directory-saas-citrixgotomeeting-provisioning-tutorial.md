@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con GoToMeeting | Microsoft Docs'
+title: 'Esercitazione: Configurare GoToMeeting per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e GoToMeeting.
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: ac664e2b4035f3572584e6f00e86453b10ce44e5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 82c7e8ff7d8a6692005bdc7a40d5e12be09bca5d
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="tutorial-configuring-gotomeeting-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di GoToMeeting per il provisioning utenti automatico
+# <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Esercitazione: Configurare GoToMeeting per il provisioning utenti automatico
 
 Questa esercitazione descrive le procedure da eseguire in GoToMeeting e Azure AD per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a GoToMeeting.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 01/29/2018
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: b99264eb69f115db6e334b6aceae6ed897202d56
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: f9ca915718cb9016b82ba6a415715c5527657dad
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Gestire il controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure
 > [!div class="op_single_selector"]
@@ -27,9 +27,14 @@ ms.lasthandoff: 12/21/2017
 > * [API REST](role-based-access-control-manage-access-rest.md)
 
 
-È possibile usare il controllo degli accessi in base al ruolo nel portale di Azure e nell'API di Azure Resource Manager per gestire l'accesso alla sottoscrizione e alle risorse a un livello estremamente specifico. Con questa funzionalità è possibile concedere l'accesso a utenti, gruppi o entità servizio di Active Directory assegnando loro dei ruoli in un determinato ambito.
+È possibile usare il controllo degli accessi in base al ruolo nel portale di Azure e nell'API di Azure Resource Manager per gestire l'accesso alla sottoscrizione e alle risorse a un livello estremamente specifico. Con questa funzionalità è possibile concedere l'accesso a utenti, gruppi o entità servizio di Active Directory assegnando loro dei ruoli in un determinato ambito. 
 
-Per usare l'interfaccia della riga di comando di Azure per gestire il controllo degli accessi in base al ruolo, è necessario disporre dei prerequisiti seguenti:
+> [!NOTE] 
+> La documentazione più recente sul ruolo è disponibile per l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/role?view=azure-cli-latest).
+
+
+ 
++> La documentazione più recente sul ruolo è disponibile per l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/role?view=azure-cli-latest) Per usare l'interfaccia della riga di comando di Azure per gestire il controllo degli accessi in base al ruolo, è necessario disporre dei prerequisiti seguenti:
 
 * Usare la versione 0.8.8 o successiva dell'interfaccia della riga di comando di Azure. Per installare la versione più recente e associarla alla sottoscrizione di Azure, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md).
 * Azure Resource Manager nell'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Uso dell'interfaccia della riga di comando di Azure con Resource Manager](../xplat-cli-azure-resource-manager.md)

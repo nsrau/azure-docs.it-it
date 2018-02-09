@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 764c6bd3c2466ceb93e33d03bece1c9036c1b1d9
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 34742208e9189eb31310b58770ee4a22e33f56d5
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-iot-hub-get-started-tutorials"></a>Esercitazioni introduttive sull'Hub IoT Azure
 
 È possibile usare Hub IoT Azure e gli SDK per dispositivi Azure IoT per creare soluzioni Internet delle cose (IoT):
 
 * Hub IoT Azure è un servizio completamente gestito nel cloud che si connette, monitora e gestisce i dispositivi IoT in modo sicuro. Usare gli SDK per dispositivi Azure IoT per implementare i dispositivi IoT.
-* Usare un gateway IoT in scenari IoT più complessi. Ad esempio, laddove è necessario prendere in considerazione fattori quali i dispositivi legacy, i costi della larghezza di banda, i criteri di protezione e privacy o l'elaborazione dei dati perimetrali. In questi scenari si usa Azure IoT Edge per implementare un gateway che connette i dispositivi all'hub IoT.
+* Usare un gateway IoT in scenari IoT più complessi. Ad esempio, laddove è necessario prendere in considerazione fattori quali i dispositivi legacy, i costi della larghezza di banda, i criteri di protezione e privacy o l'elaborazione dei dati perimetrali. In questi scenari usare [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) per implementare un gateway che connetta i dispositivi all'hub IoT.
 
 ## <a name="what-the-tutorials-cover"></a>Argomenti trattati nelle esercitazioni
 

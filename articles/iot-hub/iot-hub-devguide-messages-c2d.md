@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2017
 ms.author: dobett
-ms.openlocfilehash: a3ebda292d16b2a420fb6d586f18201e34efffa7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1b34e579f2ba40f4d77f7a3ba1841f59f795d292
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Inviare messaggi da cloud a dispositivo dall'hub IoT
 
@@ -41,12 +41,12 @@ Quando il servizio hub IoT invia un messaggio a un dispositivo, lo stato del mes
 
 Un dispositivo può anche scegliere di:
 
-* *Rifiutare* il messaggio. In questo caso, l'hub IoT ne imposta lo stato su **Non recapitabile**. I dispositivi che si connettono tramite il protocollo MQTT non possono rifiutare i messaggi da cloud a dispositivo.
+* *Rifiutare* il messaggio. In questo caso, l'hub IoT ne imposta lo stato su **Dead lettered** (Non recapitabile). I dispositivi che si connettono tramite il protocollo MQTT non possono rifiutare i messaggi da cloud a dispositivo.
 * *Abbandonare* il messaggio. In questo caso, l'hub IoT inserisce di nuovo il messaggio nella coda con lo stato impostato su **Accodato**. I dispositivi che si connettono tramite il protocollo MQTT non possono rifiutare i messaggi da cloud a dispositivo.
 
 Un thread potrebbe non riuscire a elaborare un messaggio senza inviare una notifica all'hub IoT. In questo caso i messaggi passano automaticamente dallo stato **Invisibile** allo stato **Accodato** dopo un *timeout di visibilità o di blocco*. Il valore predefinito di questo timeout è un minuto.
 
-Un messaggio può passare dallo stato **Accodato** allo stato **Invisibile** e viceversa per il numero massimo di volte specificato nella proprietà **maxdeliverycount** dell'hub IoT. Dopo il numero di transizioni specificato, l'hub IoT imposta lo stato del messaggio su **Non recapitabile**. Analogamente, l'hub IoT imposta lo stato di un messaggio su **Non recapitabile** dopo la relativa scadenza. Vedere la sezione [Scadenza del messaggio (durata)][lnk-ttl].
+Un messaggio può passare dallo stato **Accodato** allo stato **Invisibile** e viceversa per il numero massimo di volte specificato nella proprietà **maxdeliverycount** dell'hub IoT. Dopo il numero di transizioni specificato, l'hub IoT imposta lo stato del messaggio su **Dead lettered** (Non recapitabile). Analogamente, l'hub IoT imposta lo stato di un messaggio su **Dead lettered** (Non recapitabile) dopo la relativa scadenza. Vedere [Scadenza del messaggio (durata)][lnk-ttl].
 
 L'esercitazione [Come inviare i messaggi da cloud a dispositivo con l'hub IoT][lnk-c2d-tutorial] illustra come inviare messaggi da cloud a dispositivo dal cloud e riceverli su un dispositivo.
 
@@ -76,14 +76,14 @@ Durante l'invio di messaggi da cloud a dispositivo, il servizio può richiedere 
 | Proprietà Ack | Comportamento |
 | ------------ | -------- |
 | **positive** | Se il messaggio da cloud a dispositivo ha raggiunto lo stato **Completato**, l'hub IoT genera un messaggio con commenti. |
-| **negative** | Se il messaggio da cloud a dispositivo ha raggiunto lo stato **Deadlettered** (Recapitato), l'hub IoT genera un messaggio con commenti. |
+| **negative** | Se il messaggio da cloud a dispositivo raggiunge lo stato **Dead lettered** (Non recapitabile), l'hub IoT genera un messaggio di feedback. |
 | **full**     | L'hub IoT genera un messaggio di commenti in entrambi i casi. |
 
 Se la proprietà **Ack** è impostata su **full** e non si riceve un messaggio con commenti, significa che il messaggio è scaduto. Il servizio non può sapere cosa è successo al messaggio originale. In pratica, un servizio deve garantire che sia possibile elaborare i commenti prima della scadenza. Il periodo di scadenza massimo è di due giorni ed è quindi disponibile un tempo sufficiente per ripristinare il servizio in caso di errore.
 
 Come illustrato nella sezione [Endpoint][lnk-endpoints], l'hub IoT recapita commenti sotto forma di messaggi tramite un endpoint per servizio (**/messages/servicebound/feedback**). La semantica di ricezione per i commenti è uguale a quella dei messaggi da cloud a dispositivo e ha lo stesso [ciclo di vita dei messaggi][lnk-lifecycle]. Quando è possibile, i commenti sui messaggio vengono riuniti in batch in un unico messaggio con il formato seguente:
 
-| Proprietà     | Descrizione |
+| Proprietà     | DESCRIZIONE |
 | ------------ | ----------- |
 | EnqueuedTime | Timestamp che indica quando è stato creato il messaggio. |
 | UserId       | `{iot hub name}` |
@@ -91,12 +91,12 @@ Come illustrato nella sezione [Endpoint][lnk-endpoints], l'hub IoT recapita comm
 
 Il corpo è una matrice serializzata con JSON dei record, ognuno con le proprietà seguenti:
 
-| Proprietà           | Descrizione |
+| Proprietà           | DESCRIZIONE |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Timestamp che indica quando è stato creato il risultato del messaggio. Ad esempio, il dispositivo ha completato l'operazione o il messaggio è scaduto. |
 | OriginalMessageId  | **MessageId** del messaggio da cloud a dispositivo correlato a queste informazioni sui commenti. |
 | StatusCode         | Stringa obbligatoria. Usato nei messaggi con commenti generati dall'hub IoT. <br/> 'Operazione riuscita' <br/> 'Scaduto' <br/> 'Numero di distribuzioni superato' <br/> 'Rifiutato' <br/> 'Eliminato definitivamente' |
-| Descrizione        | Valori stringa per **StatusCode**. |
+| DESCRIZIONE        | Valori stringa per **StatusCode**. |
 | deviceId           | **DeviceId** del messaggio da cloud a dispositivo correlato a questi commenti e suggerimenti. |
 | DeviceGenerationId | **DeviceGenerationId** del dispositivo di destinazione del messaggio da cloud a dispositivo correlato a questi commenti e suggerimenti. |
 
@@ -125,7 +125,7 @@ L'esempio seguente illustra il corpo di un messaggio con commenti.
 
 Ogni hub IoT espone le opzioni di configurazione seguenti per la messaggistica da cloud a dispositivo:
 
-| Proprietà                  | Descrizione | Intervallo e valore predefinito |
+| Proprietà                  | DESCRIZIONE | Intervallo e valore predefinito |
 | ------------------------- | ----------- | ----------------- |
 | defaultTtlAsIso8601       | Durata (TTL) predefinita per messaggi da cloud a dispositivo. | Intervallo ISO_8601 fino a 2D (almeno 1 minuto). Predefinito: 1 ora. |
 | maxDeliveryCount          | Numero massimo di recapiti per code da cloud a dispositivo per i singoli dispositivi. | Da 1 a 100. Predefinito: 10. |

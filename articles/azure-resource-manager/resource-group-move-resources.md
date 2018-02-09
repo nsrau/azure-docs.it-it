@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7d500d20dcce3e472e3e1e15b9ce307874caf22a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: ea0c2487e24fcb924632d3277163b7732442b414
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -53,7 +53,10 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  Se gli ID tenant per le sottoscrizioni di origine e di destinazione non sono uguali, per spostare le risorse in un nuovo tenant è necessario contattare il [supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+  Se gli ID tenant per le sottoscrizioni di origine e di destinazione non sono uguali, usare i metodi descritti di seguito per risolvere le differenze degli ID tenant: 
+
+  * [Trasferimento della proprietà di una sottoscrizione di Azure a un altro account](../billing/billing-subscription-transfer.md)
+  * [Come associare o aggiungere una sottoscrizione di Azure ad Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
 
 2. Il servizio deve abilitare lo spostamento di risorse. In questo articolo sono elencati i servizi che consentono di spostare risorse e quelli che invece non lo consentono.
 3. Il provider di risorse della risorsa da spostare deve essere registrato nella sottoscrizione di destinazione, altrimenti un errore indica che la **sottoscrizione non è registrata per un tipo di risorsa**. Questo problema può verificarsi se si sposta una risorsa in una nuova sottoscrizione, ma la sottoscrizione non è mai stata usata con tale tipo di risorsa.
@@ -93,7 +96,7 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
 
 Contattare il [supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) se è necessario:
 
-* Spostare le risorse in un nuovo account di Azure (e tenant di Azure Active Directory).
+* Spostare le risorse in un nuovo account di Azure (e tenant di Azure Active Directory) e serve assistenza con le istruzioni nella sezione precedente.
 * Spostare le risorse classiche ma si verificano problemi relativi alle limitazioni.
 
 ## <a name="services-that-enable-move"></a>Servizi che abilitano lo spostamento

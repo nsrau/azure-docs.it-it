@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/13/2017
+ms.date: 2/1/2018
 ms.author: tedway
-ms.openlocfilehash: 9a8b39853e1a90815758af1d8fd772db7cc18ac5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb0d02bc580822dcc9451dc6c22bd28d895dbbf7
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Utilizzo di un servizio Web Azure Machine Learning da Excel
  Azure Machine Learning Studio semplifica la chiamata dei servizi Web direttamente da Excel senza dover di scrivere codice.
@@ -27,7 +27,7 @@ Se si usa Excel 2013 (o versione successiva) o Excel Online, è consigliabile us
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="steps"></a>Passi
+## <a name="steps"></a>Passaggi
 Pubblicazione di un servizio Web. [Questa pagina](walkthrough-5-publish-web-service.md) spiega come eseguire tale operazione. Attualmente la funzionalità della cartella di lavoro di Excel è supportata solo per i servizi di richiesta/risposta con un unico output cioè, una singola etichetta di valutazione. 
 
 Dopo aver creato un servizio Web, fare clic sulla sezione **WEB SERVICES** sulla sinistra di Studio e quindi selezionare il servizio Web da utilizzare tramite Excel.

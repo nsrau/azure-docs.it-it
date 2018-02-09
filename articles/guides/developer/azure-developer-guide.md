@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: b54b806aad1e15702d2167dcf2870ba19c4708df
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 8eb3cae792a09fc530b84243f2baa01ecc5d13dc
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
 
@@ -44,7 +44,7 @@ Ecco alcuni dei servizi specifici che è consigliabile prendere in esame per le 
 
 Azure è in grado di offrire diverse soluzioni basate sul cloud per l'esecuzione di applicazioni. Non è quindi necessario occuparsi dei dettagli relativi all'infrastruttura. Man mano che l'utilizzo delle risorse da parte delle applicazioni aumenta, è possibile aumentare o scalare orizzontalmente le risorse con facilità.
 
-Azure offre servizi a supporto dello sviluppo di applicazioni e per la soddisfazione di qualsiasi esigenza di hosting, oltre a mettere a disposizione strumenti IaaS ( Infrastructure-as-a-Service, infrastruttura distribuita come servizio) che consentono il controllo completo dell'hsting delle applicazioni. Le offerte PaaS (Platform-as-a-Service, piattaforma distribuita come servizio) prevedono servizi completamente gestiti, indispensabili per garantire il massimo rendimento delle app. In Azure è disponibile persino un tipo di hosting realmente senza server in cui è necessario solo scrivere codice.
+Azure offre servizi a supporto dello sviluppo di applicazioni e per la soddisfazione di qualsiasi esigenza di hosting, Azure offre soluzioni IaaS (Infrastructure-as-a-Service, infrastruttura distribuita come servizio) per fornire il controllo completo sull'hosting delle applicazioni. Le soluzioni PaaS (Platform-as-a-Service, piattaforma distribuita come servizio) offrono servizi completamente gestiti, indispensabili per garantire il massimo rendimento delle app. In Azure è disponibile persino un tipo di hosting realmente senza server in cui è necessario solo scrivere codice.
 
 ![Opzioni di hosting di applicazioni offerte da Azure](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
@@ -69,7 +69,7 @@ Il servizio app, progettato su misura per DevOps, supporta vari strumenti per la
 
 #### <a name="azure-virtual-machines"></a>Macchine virtuali di Azure
 
-Come provider di un'infrastruttura distribuita come servizio (IaaS, Infrastructure-as-a-Service), Azure consente di distribuire le applicazioni o di eseguirne la migrazione all'interno di macchine virtuali Windows o Linux. Insieme a Rete virtuale di Azure, Macchine virtuali di Azure supporta la distribuzione di VM (Virtual Machine, macchina virtuale) di Windows o Linux in Azure. Con le VM è possibile avere il controllo totale sulla configurazione delle macchine stesse. Quando si usano VM, l'utente è responsabile di tutte le operazioni di installazione, configurazione e manutenzione del software server, nonché dell'applicazione di patch del sistema operativo.
+Ai provider IaaS Azure permette di eseguire la distribuzione o la migrazione dell'applicazione in macchine virtuali Windows o Linux. Insieme a Rete virtuale di Azure, Macchine virtuali di Azure supporta la distribuzione di VM (Virtual Machine, macchina virtuale) di Windows o Linux in Azure. Con le VM è possibile avere il controllo totale sulla configurazione delle macchine stesse. Quando si usano VM, l'utente è responsabile di tutte le operazioni di installazione, configurazione e manutenzione del software server, nonché dell'applicazione di patch del sistema operativo.
 
 Dato il livello di controllo disponibile per le VM, in Azure è possibile eseguire un'ampia gamma di carichi di lavoro server non adatti a un modello PaaS, ad esempio server di database, Windows Server Active Directory e Microsoft SharePoint. Per altre informazioni, vedere la documentazione relativa alle macchine virtuali [Linux](/azure/virtual-machines/linux/) o [Windows](/azure/virtual-machines/windows/).
 
@@ -233,7 +233,7 @@ Azure si basa su un set di API REST che supportano l'interfaccia utente del Port
 Oltre alle API REST, molti servizi di Azure consentono di gestire a livello di codice le risorse dalle applicazioni tramite Azure SDK specifici di ogni piattaforma, tra cui gli SDK per le piattaforme di sviluppo seguenti:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.JS](http://azure.github.io/azure-sdk-for-node/)
+-   [Node.js](http://azure.github.io/azure-sdk-for-node/)
 -   [Java](https://docs.microsoft.com/java/api/)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 -   [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)

@@ -12,11 +12,11 @@ ms.devlang: rest-api
 ms.topic: get-started-article
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: b7c58697323ec12ac08575916cb3ac5b38cc39c1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: ffa8e96ab9a5344c924400fe55b4d1e6aee95f06
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Condividere una visualizzazione personalizzata usando un URL con parametri
 
@@ -63,14 +63,16 @@ I valori accettati corrispondono al menu **quick time** (tempi rapidi) dell'util
 
 Il parametro `timeSeriesDefinitions=<collection of term objects>` specifica i termini di una visualizzazione di Time Series Insights, dove:
 
-- `name=<string>`
+- "name":"<string>"
   - Nome del *termine*.
-- `splitBy=<string>`
+- "splitBy":"<string>"
   - Nome della colonna *in base a cui dividere*.
-- `measureName=<string>`
+- "measureName":"<string>"
   - Nome della colonna della *misura*.
-- `predicate=<string>`
+- "predicate":"<string>"
   - Clausola *where* per i filtri lato server.
+-  "useSum":"true"
+  - Si tratta di un parametro facoltativo che specifica l'uso della somma per la misura.  Si noti che se "Events" (Eventi) è la misura selezionata, per impostazione predefinita è selezionato il parametro count (Conteggio).  Se "Events" (Eventi) non è selezionato, per impostazione predefinita è selezionato il parametro average (Media).  
 
 Il parametro 'multiChartStack=<true/false>' consente l'impilamento nel grafico, mentre il parametro 'multiChartSameScale=<true/false>' abilita la stessa scala dell'asse Y in tutti i termini di un parametro facoltativo.  
 
@@ -89,7 +91,7 @@ Il parametro 'timezoneOffset=<integer>' consente di impostare il fuso orario per
     - L'intero viene sempre espresso in millisecondi.  
     - Si noti che questa funzionalità è leggermente diversa da quella abilitata nell'ambiente di esplorazione TSI, nel quale è possibile scegliere l'ora locale (ora del browser) o l'ora UTC.  
  
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 Ad esempio, per aggiungere le definizioni di serie temporale come parametro URL, è possibile usare il codice seguente:
 

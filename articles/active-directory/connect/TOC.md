@@ -9,7 +9,7 @@
 ## [Che cosa sono Azure AD Connect e la federazione?](active-directory-aadconnectfed-whatis.md)
 
 
-# Introduzione
+# Attività iniziali
 ## [Prerequisiti](active-directory-aadconnect-prerequisites.md)
 ## [Installare Azure AD Connect](active-directory-aadconnect-select-installation.md)
 ### [Impostazioni rapide](active-directory-aadconnect-get-started-express.md)
@@ -34,7 +34,7 @@
 ##### [Avvio rapido](active-directory-aadconnect-sso-quick-start.md)
 ##### [Come funziona?](active-directory-aadconnect-sso-how-it-works.md)
 ##### [Domande frequenti](active-directory-aadconnect-sso-faq.md)
-##### [Risoluzione dei problemi](active-directory-aadconnect-troubleshoot-sso.md)
+##### [Risolvere i problemi](active-directory-aadconnect-troubleshoot-sso.md)
 #### [Autenticazione pass-through](active-directory-aadconnect-pass-through-authentication.md)
 ##### [Avvio rapido](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [Limitazioni correnti](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
@@ -55,6 +55,7 @@
 ### [Sincronizzazione delle password](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Account del servizio Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Installazione guidata](active-directory-aadconnectsync-installation-wizard.md)
+### [Modalità di popolamento di UserPrincipalName](active-directory-aadconnect-userprincipalname.md)
 ### [Modificare la configurazione predefinita](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Configurare il filtro](active-directory-aadconnectsync-configure-filtering.md)
 ### [Utilità di pianificazione](active-directory-aadconnectsync-feature-scheduler.md)
@@ -76,7 +77,7 @@
 ### [Attuare la federazione di più istanze di Azure AD con un'unica istanza di AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 
-## Risoluzione dei problemi
+## Risolvere problemi
 ### [Connettività](active-directory-aadconnect-troubleshoot-connectivity.md)
 ### [Errori durante la sincronizzazione](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Oggetto non sincronizzato](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
@@ -84,7 +85,7 @@
 ### [Errore LargeObject provocato da userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [Come eseguire il ripristino dal limite di 10 GB per LocalDB](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
-# riferimento
+# Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Sincronizzazione delle identità e resilienza degli attributi duplicati](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Porte e protocolli necessari per la soluzione ibrida di gestione delle identità](active-directory-aadconnect-ports.md)

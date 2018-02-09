@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: df31e5b0dfd3b41f5fc125bf3a59cfd6e8e5f4e1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.openlocfilehash: 5d624735a91d0828c4ac3796bde6c17acf6e131a
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="split-column-by-example-transformation"></a>Trasformazione Split Column by Example (Dividi colonna in base all'esempio)
 Questa trasformazione divide in modo predittivo il contenuto di una colonna in base a limiti significativi senza richiedere l'input dell'utente. L'algoritmo di divisione seleziona i limiti dopo avere analizzato il contenuto della colonna. Questi limiti possono essere definiti da:
@@ -51,11 +51,16 @@ L'utente può **eliminare la colonna** o **inserire nuove colonne** facendo clic
 
 L'utente può copiare e incollare i valori di una cella in un'altra per fornire un esempio di divisione.
 
-L'utente può alternare le **modalità base** e la **modalità avanzata** facendo clic sui collegamenti nell'Editor di trasformazione.
+L'utente può passare dalla **Modalità di base** alla **Modalità avanzata** facendo clic sui collegamenti nell'editor di trasformazione.
+
+### <a name="transform-editor-send-feedback"></a>Editor di trasformazione: invio di commenti e suggerimenti
+
+Facendo clic sul collegamento **Send feedback** (Invia commenti e suggerimenti) viene aperta la finestra di dialogo **Feedback** (Commenti e suggerimenti) in cui la casella dei commenti include già le selezioni dei parametri e gli esempi forniti dall'utente. L'utente deve esaminare il contenuto della casella dei commenti e fornire ulteriori dettagli per consentire a Microsoft di comprendere il problema. Se non vuole condividere dati con Microsoft, l'utente deve eliminare i dati di esempio già inseriti prima di fare clic sul pulsante **Send Feedback** (Invia commenti e suggerimenti). 
+
 
 ### <a name="editing-an-existing-transformation"></a>Modifica di una trasformazione esistente
 
-L'utente può modificare una trasformazione **Split Column By Example** (Dividi colonna in base all'esempio) esistente selezionando l'opzione **Edit** (Modifica) del passaggio di trasformazione. Facendo clic su **Edit** (Modifica) viene aperto l'Editor di trasformazione in **modalità avanzata** e vengono visualizzati tutti gli esempi forniti durante la creazione della trasformazione.
+L'utente può modificare una trasformazione **Split Column By Example** (Dividi colonna in base all'esempio) esistente selezionando l'opzione **Edit** (Modifica) del passaggio di trasformazione. Facendo clic su **Modifica** viene aperto l'editor di trasformazione in **modalità avanzata** e vengono visualizzati tutti gli esempi forniti durante la creazione della trasformazione.
 
 ## <a name="examples-of-splitting-on-a-fixed-single-character-delimiter"></a>Esempi di divisione in base a un delimitatore a carattere singolo predefinito
 

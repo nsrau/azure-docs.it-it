@@ -201,7 +201,7 @@ Usare ora il frammento di codice fornito in questi passaggi per creare una funzi
    {"updatedBody":"{\"name\": \"Testing my function\"}"}
    ```
 
-Dopo aver controllato il funzionamento della funzione, creare l'app per la logica. Anche se questa esercitazione illustra come creare una funzione che rimuove il codice HTML dai messaggi di posta elettronica, App per la logica ha anche un connettore**** per la conversione da HTML a testo.
+Dopo aver controllato il funzionamento della funzione, creare l'app per la logica. Anche se questa esercitazione illustra come creare una funzione che rimuove il codice HTML dai messaggi di posta elettronica, App per la logica ha anche un connettore per la **conversione** da HTML a testo.
 
 ## <a name="create-your-logic-app"></a>Creare l'app per la logica
 

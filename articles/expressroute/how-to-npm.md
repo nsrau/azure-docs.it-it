@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
-ms.translationtype: MT
+ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configurare Monitoraggio prestazioni rete per ExpressRoute (anteprima)
 
@@ -46,6 +46,7 @@ Monitoraggio prestazioni rete (NPM) è una soluzione di monitoraggio di rete bas
 * Europa occidentale 
 * Stati Uniti orientali 
 * Asia sudorientale 
+* Australia sud-orientale
 
 ## <a name="workflow"></a>Flusso di lavoro
 
@@ -174,16 +175,13 @@ Per i server degli agenti di monitoraggio in Azure è necessario configurare reg
 
 Per altre informazioni su NSG, vedere [Gruppi di sicurezza di rete](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
 
-## <a name="whitelist"></a>Passaggio 4: Richiedere di inserire l'area di lavoro nell'elenco elementi consentiti
-
 >[!NOTE]
 >Assicurarsi di aver installato gli agenti (sia l'agente server locale che l'agente server di Azure) e di aver eseguito lo script di PowerShell prima di procedere con questo passaggio.
 >
 >
 
-Prima di iniziare a usare la funzionalità di monitoraggio di ExpressRoute di NPM, è necessario richiedere di inserire l'area di lavoro nell'elenco elementi consentiti. [Fare clic qui per passare alla pagina e compilare il modulo di richiesta](https://aka.ms/npmcohort). (Suggerimento: è consigliabile aprire questo collegamento in una nuova finestra o scheda). La procedura di inserimento nell'elenco elementi consentiti potrebbe richiedere un giorno lavorativo o più. Al termine dell'inserimento nell'elenco elementi consentiti verrà inviato un messaggio di posta elettronica.
 
-## <a name="setupmonitor"></a>Passaggio 5: Configurare NPM per il monitoraggio di ExpressRoute
+## <a name="setupmonitor"></a>Passaggio 4: Configurare NPM per il monitoraggio di ExpressRoute
 
 >[!WARNING]
 >Proseguire solo quando l'area di lavoro è stata inserita nell'elenco elementi consentiti e si riceve il messaggio di conferma.
@@ -208,7 +206,7 @@ Dopo aver completato le sezioni precedenti e aver verificato che è avvenuto l'i
 
   ![riquadri di monitoraggio](.\media\how-to-npm\15.png)
 
-## <a name="explore"></a>Passaggio 6: Visualizzare i riquadri di monitoraggio
+## <a name="explore"></a>Passaggio 5: Visualizzare i riquadri di monitoraggio
 
 ### <a name="dashboard"></a>Pagina Monitoraggio prestazioni rete
 

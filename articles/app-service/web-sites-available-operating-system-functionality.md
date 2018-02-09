@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: a5f022eca8f901388c9cf003f3320db1b9c49e6a
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funzionalità del sistema operativo in Servizio app di Azure
 Questo articolo descrive le funzionalità di base del sistema operativo disponibili in tutte le app in esecuzione in [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Queste funzionalità includono l'accesso a file, rete e registro, nonché log ed eventi di diagnostica. 
@@ -49,7 +49,7 @@ Nel servizio app sono presenti varie unità, tra cui unità locali e unità di r
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Unità locali
-Il servizio app è essenzialmente un servizio in esecuzione sull'infrastruttura PaaS (piattaforma distribuita come servizio) di Azure. Di conseguenza, le unità locali collegate a una macchina virtuale sono dello stesso tipo di quelle disponibili in qualsiasi ruolo di lavoro in esecuzione in Azure. Sono incluse un'unità del sistema operativo (l'unità D:\), un'unità delle applicazioni contenente i file pacchetto di Azure (cspkg) usati esclusivamente dal servizio app (e non accessibili ai clienti) e un'unità "utente" (l'unità C:\), la cui dimensione varia in base alla dimensione della VM.
+Il servizio app è essenzialmente un servizio in esecuzione sull'infrastruttura PaaS (piattaforma distribuita come servizio) di Azure. Di conseguenza, le unità locali collegate a una macchina virtuale sono dello stesso tipo di quelle disponibili in qualsiasi ruolo di lavoro in esecuzione in Azure. Sono incluse un'unità del sistema operativo (l'unità D:\), un'unità delle applicazioni contenente i file pacchetto di Azure (cspkg) usati esclusivamente dal servizio app (e non accessibili ai clienti) e un'unità "utente" (l'unità C:\), la cui dimensione varia in base alla dimensione della VM. È importante monitorare l'utilizzo del disco man mano che aumentano le dimensioni dell'applicazione. Il raggiungimento della quota disco può avere effetti negativi sull'applicazione.
 
 <a id="NetworkDrives"></a>
 

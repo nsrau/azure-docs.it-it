@@ -8,16 +8,16 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/10/2017
-ms.openlocfilehash: f3b32c1f6b33bc60b50f1496414a300db468dc92
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.date: 01/25/2018
+ms.openlocfilehash: 59eeed42356a276c259bd8da55890b7ada67d729
+ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Come configurare i parametri di server in Database di Azure per MySQL usando il portale di Azure
 
-Database di Azure per MySQL supporta la configurazione di alcuni parametri di server. Questo argomento illustra come configurare questi parametri usando il portale di Azure. Non tutti i parametri di server possono essere modificati. 
+Database di Azure per MySQL supporta la configurazione di alcuni parametri di server. Questo articolo illustra come configurare questi parametri usando il portale di Azure. Non tutti i parametri di server possono essere modificati. 
 
 ## <a name="navigate-to-server-parameters-on-azure-portal"></a>Passare a Parametri del server nel portale di Azure
 1. Accedere al portale di Azure, quindi individuare il Database di Azure per il server MySQL.
@@ -25,7 +25,7 @@ Database di Azure per MySQL supporta la configurazione di alcuni parametri di se
 3. Individuare eventuali impostazioni da modificare. Esaminare la colonna **Descrizione** per ottenere informazioni sulle finalità e sui valori consentiti. 
 4. Fare clic su **Salva** per salvare le modifiche.
 
-![Pannello Parametri del server del portale di Azure](./media/howto-server-parameters/auzre-portal-server-parameters.png)
+![Pagina Parametri del server del portale di Azure](./media/howto-server-parameters/auzre-portal-server-parameters.png)
 
 ## <a name="list-of-configurable-server-parameters"></a>Elenco di parametri del server configurabili
 
@@ -43,12 +43,15 @@ Pool di buffer InnoDB e Numero max. connessioni non sono configurabili e collega
 | Standard 400 | 10240 | 800 | 
 | Standard 800 | 20480 | 1600 |
 
-Questi parametri del server aggiuntivi non sono configurabili nel sistema <br>
- innodb_file_per_table nel livello Basic: OFF<br>
- innodb_flush_log_at_trx_commit=1<br>
- sync_binlog=1<br>
- innodb_log_file_size=512MB<br>
- 
+Questi parametri del server aggiuntivi non sono configurabili nel sistema:
+
+|**Parametro**|**Valore fisso**|
+| :------------------------ | :-------- |
+|innodb_file_per_table nel livello Basic|OFF|
+|innodb_flush_log_at_trx_commit|1|
+|sync_binlog|1|
+|innodb_log_file_size|512MB|
+
 Gli altri parametri del server che non sono elencati qui vengono impostati sui valori predefiniti MySQL per le versioni [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) e [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
 
 ## <a name="next-steps"></a>Passaggi successivi

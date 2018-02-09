@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulle quote e sulle limitazioni dell'hub IoT di Azure | Microsoft Docs
+title: Informazioni sulle quote e sulle limitazioni dell'hub IoT di Azure | Documentazione Microsoft
 description: 'Guida per gli sviluppatori: descrizione delle quote che si applicano all''hub IoT e del comportamento di limitazione previsto.'
 services: iot-hub
 documentationcenter: .net
@@ -12,25 +12,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 68a6e999ac0ffe97c08b6420dd6e71d7154b5de8
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e16c8b9e8bfb75226d7dec32e545da72cba107e9
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
 ## <a name="quotas-and-throttling"></a>Quote e limitazioni
 Ogni sottoscrizione di Azure può avere al massimo 10 hub IoT e al massimo un hub gratuito.
 
-Ogni hub IoT viene sottoposto a provisioning con un determinato numero di unità in uno SKU specifico. Per altre informazioni, vedere [Prezzi dell'hub IoT di Azure][lnk-pricing]. Lo SKU e il numero di unità determinano la quota giornaliera massima dei messaggi che è possibile inviare.
+Il provisioning di ogni hub IoT viene eseguito con un determinato numero di unità in uno SKU specifico. Per altre informazioni, vedere [Prezzi di Hub IoT][lnk-pricing]. Lo SKU e il numero di unità determinano la quota giornaliera massima dei messaggi che è possibile inviare.
 
 Lo SKU determina anche le limitazioni che l'hub IoT applica alle operazioni.
 
 ## <a name="operation-throttles"></a>Limitazioni per le operazioni
-Le limitazioni per le operazioni sono limitazioni di frequenza applicate con intervalli di minuti e consentono di evitare abusi. L'hub IoT prova a evitare la restituzione di errori, se possibile, ma inizia a restituire eccezioni se la limitazione viene violata troppo a lungo.
+Le limitazioni per le operazioni sono limitazioni di frequenza, applicate a intervalli di minuti, con lo scopo di evitare abusi. L'hub IoT cerca di evitare di restituire errori, se possibile, ma inizia a restituire eccezioni se la limitazione viene violata troppo a lungo.
 
 La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento a un singolo hub.
 
@@ -41,7 +41,7 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 | Inoltri dal dispositivo al cloud | Più di 100/sec o 12/sec/unità <br/> Ad esempio, due unità S1 sono 2\*12 = 24/sec, ma si hanno almeno 100/sec tra le unità. Con nove unità S1 si otterrà 108/sec (9\*12) tra le unità. | 120/sec/unità | 6000/sec/unità |
 | Inoltri dal cloud al dispositivo | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |
 | Ricezioni dal cloud al dispositivo <br/> (solo quando il dispositivo usa HTTPS)| 16,67/sec/unità (1000/min/unità) | 16,67/sec/unità (1000/min/unità) | 833,33/sec/unità (50000/min/unità) |
-| Caricamento di file | 1,67 notifiche caricamento file/sec/unità (100/min/unità) | 1,67 notifiche caricamento file/sec/unità (100/min/unità) | 83,33 notifiche caricamento file/sec/unità (5000/min/unità) |
+| Caricamento di file | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 83,33 notifice caricamento file/sec/unità (5000/min/unità) |
 | Metodi diretti | 160 KB/sec/unità<sup>1</sup> | 480 KB/sec/unità<sup>1</sup> | 24 MB/sec/unità<sup>1</sup> | 
 | Letture del dispositivo gemello | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
 | Aggiornamenti dei dispositivi gemelli | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
@@ -50,15 +50,16 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 
 <sup>1</sup>La dimensione del contatore delle limitazioni è 8 KB
 
-È importante chiarire che la limitazione delle *connessioni del dispositivo* determina la frequenza con cui possono essere stabilite nuove connessioni del dispositivo con un hub IoT. La limitazione delle *connessioni del dispositivo* non determina il numero massimo di dispositivi connessi contemporaneamente. La limitazione dipende dal numero di unità di cui viene eseguito il provisioning per l'hub IoT.
+> [!IMPORTANT]
+> La limitazione delle *connessioni del dispositivo* determina la frequenza con cui possono essere stabilite nuove connessioni del dispositivo con un hub IoT. La limitazione delle *connessioni del dispositivo* non determina il numero massimo di dispositivi connessi contemporaneamente. La limitazione dipende dal numero di unità di cui viene eseguito il provisioning per l'hub IoT.
 
 Ad esempio, se si acquista una singola unità S1, si ottiene un limite di 100 connessioni al secondo. Di conseguenza, per connettere 100.000 dispositivi sono necessari almeno 1000 secondi (circa 16 minuti). Tuttavia, è consentito un numero di dispositivi connessi simultaneamente pari al numero di dispositivi registrati nel registro delle identità.
 
 Per un'analisi approfondita del comportamento della limitazione dell'hub IoT, vedere il post del blog [IoT Hub throttling and you][lnk-throttle-blog] (Limitazione dell'hub IoT).
 
 > [!NOTE]
-> È possibile incrementare le quote o le limitazioni in qualsiasi momento aumentando il numero di unità sottoposte a provisioning in un hub IoT.
-> 
+> È possibile incrementare i limiti delle quote o delle limitazioni in qualsiasi momento aumentando il numero di unità sottoposte a provisioning in un hub IoT.
+
 > [!IMPORTANT]
 > Le operazioni del registro delle identità sono destinate all'uso in fase di esecuzione negli scenari di gestione e provisioning dei dispositivi. L'operazione di lettura o aggiornamento di un numero elevato di identità dei dispositivi è supportata tramite i [processi di importazione ed esportazione][lnk-importexport].
 > 
@@ -77,7 +78,7 @@ L'hub IoT applica altri limiti operativi:
 | Messaggistica da dispositivo a cloud | Dimensioni massime dei messaggi 256 KB |
 | Messaggistica da cloud a dispositivo | Dimensioni massime dei messaggi 64 KB |
 | Messaggistica da cloud a dispositivo | Il numero massimo di messaggi in sospeso è 50 |
-| Metodo diretto | Dimensioni massime del payload del metodo diretto 128 MB |
+| Metodo diretto | La dimensione massima del payload del metodo diretto è 128 KB |
 
 > [!NOTE]
 > Attualmente, il numero massimo di dispositivi che è possibile connettere a un singolo hub IoT è 500.000. Per aumentare questo limite, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).

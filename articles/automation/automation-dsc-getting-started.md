@@ -14,16 +14,16 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: magoedte;gwallace
-ms.openlocfilehash: 45afb09f09e754e37ae8dba02e1e16b3fde1e408
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ff23b4f5022597763728ccf301966c34c5423b34
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Introduzione ad Automation DSC per Azure
 Questo articolo illustra come eseguire le attività più comuni in Automation DSC (Desired State Configuration) per Azure, come la creazione, l'importazione e la compilazione di configurazioni, il caricamento di computer per la gestione e la visualizzazione di report. Per una panoramica delle caratteristiche di Automation DSC per Azure, vedere [Panoramica della piattaforma DSC di Automazione di Azure](automation-dsc-overview.md). Per la documentazione di DSC, vedere [Panoramica di Windows PowerShell DSC (Desired State Configuration)](https://msdn.microsoft.com/PowerShell/dsc/overview).
 
-Questo articolo offre una guida dettagliata all'uso di Automation DSC per Azure. Se si preferisce un ambiente di esempio già configurato senza seguire le procedure descritte in questo articolo, è possibile usare il [modello di Resource Manager](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Tale modello configura un ambiente Automation DSC per Azure completo, che include una VM di Azure gestita da Automation DSC per Azure.
+Questo articolo offre una guida dettagliata all'uso di Automation DSC per Azure. Se si desidera disporre di un ambiente di esempio già configurato senza dover eseguire la procedura descritta in questo articolo, è possibile usare il modello di Resource Manager seguente: si tratta di un modello che configura un ambiente di Automation DSC per Azure completato, inclusa una macchina virtuale di Azure gestita da Automation DSC per Azure.
 
 ## <a name="prerequisites"></a>prerequisiti
 Per completare gli esempi di questo articolo, è necessario quanto segue:
@@ -138,7 +138,7 @@ Con il completamento di un processo di compilazione vengono create una o più co
 4. Nella pagina **Nodi DSC** fare clic su **Aggiungi macchina virtuale di Azure**.
    
     ![Screenshot della pagina Nodi DSC con il pulsante Aggiungi macchina virtuale di Azure evidenziato](./media/automation-dsc-getting-started/OnboardVM.png)
-5. Nella pagina **Macchine virtuali** selezionare la macchina virtuale.  Nella pagina **Aggiungi macchine virtuali di Azure** fare clic su **Seleziona macchine virtuali da caricare**.
+5. Nella pagina Macchine virtuali selezionare la macchina virtuale. Nella pagina **Aggiungi macchine virtuali di Azure** fare clic su **Seleziona macchine virtuali da caricare**.
 6. Fare clic su **Connetti**.
    
    > [!IMPORTANT]

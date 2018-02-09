@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/07/2017
+ms.date: 01/30/2018
 ms.author: larryfr
-ms.openlocfilehash: f7a4245435093358cac567cf08c8ce3979371c04
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9abd2c970a0429b908bd5650b0002c002bcdea83
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>Disponibilità elevata dei dati con Apache Kafka in HDInsight
 
@@ -31,7 +31,7 @@ Un dominio di errore è un raggruppamento logico dell'hardware sottostante in un
 Ogni area di Azure include un numero specifico di domini di errore. Per un elenco dei domini e il numero dei domini di errore in essi contenuti, vedere la documentazione relativa ai [set di disponibilità](../../virtual-machines/windows/regions-and-availability.md#availability-sets).
 
 > [!IMPORTANT]
-> Kafka non rileva i domini di errore. Quando si crea un argomento in Kafka, tutte le partizioni di replica potrebbero essere archiviate nello stesso dominio di errore. Per risolvere il problema, è disponibile uno [strumento per il ribilanciamento delle partizioni Kafka](https://github.com/hdinsight/hdinsight-kafka-tools).
+> Kafka non rileva i domini di errore. Quando si crea un argomento in Kafka, tutte le partizioni di replica potrebbero essere archiviate nello stesso dominio di errore. Per risolvere il problema, HDInsight fornisce lo [strumento per il ribilanciamento delle partizioni Kafka](https://github.com/hdinsight/hdinsight-kafka-tools).
 
 ## <a name="when-to-rebalance-partition-replicas"></a>Quando ribilanciare le repliche di partizione
 

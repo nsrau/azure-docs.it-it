@@ -3,8 +3,8 @@ title: Risoluzione dei problemi di un'app Web nel servizio app di Azure tramite 
 description: Informazioni su come risolvere problemi relativi a un'app Web di Azure usando gli strumenti di registrazione, traccia e debug remoto inclusi in Visual Studio 2013.
 services: app-service
 documentationcenter: .net
-author: tdykstra
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.author: rachelap
-ms.openlocfilehash: 1e3aff1898665c834a70e6c49f23e408a508b10a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: cephalin
+ms.openlocfilehash: 6b1d5694c4d80a4db584b0c76a044dd596c5d553
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Risoluzione dei problemi di un'app Web nel servizio app di Azure tramite Visual Studio
 ## <a name="overview"></a>Panoramica
@@ -117,9 +117,9 @@ Se il messaggio di errore dettagliato non fornisce una quantità sufficiente di 
 
 Il debug remoto non funziona nelle edizioni Express di Visual Studio.
 
-Questa sezione illustra come eseguire il debug in modalità remota usando il progetto creato in [Creare un'app Web ASP.NET in Azure][app-service-web-get-started-dotnet.md].
+Questa sezione illustra come eseguire il debug in modalità remota usando il progetto creato in [Creare un'app Web ASP.NET in Azure](app-service-web-get-started-dotnet.md).
 
-1. Aprire il progetto Web creato in [Creare un'app Web ASP.NET in Azure][app-service-web-get-started-dotnet.md].
+1. Aprire il progetto Web creato in [Creare un'app Web ASP.NET in Azure](app-service-web-get-started-dotnet.md).
 
 2. Aprire il file *Controllers\HomeController.cs*.
 
@@ -135,7 +135,7 @@ Questa sezione illustra come eseguire il debug in modalità remota usando il pro
 
 5. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Pubblica**.
 
-6. Nell'elenco a discesa **Profilo** selezionare lo stesso profilo usato in [Creare un'app web ASP.NET in Azure][app-service-web-get-started-dotnet.md]. Quindi fare clic su Impostazioni.
+6. Nell'elenco a discesa **Profilo** selezionare lo stesso profilo usato in [Creare un'app Web ASP.NET in Azure](app-service-web-get-started-dotnet.md). Quindi fare clic su Impostazioni.
 
 7. Nella finestra di dialogo **Pubblica** fare clic sulla scheda **Impostazioni**, sostituire **Configurazione** con **Debug** e quindi fare clic su **Salva**.
 

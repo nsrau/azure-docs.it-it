@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 1a4c69427e0fa38e9206e2720c4746c97d922df1
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: c5ca90ae303d62c4ad453971f84da78866b0c599
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-azure-powershell"></a>Creare un set di scalabilità di macchine virtuali con Azure PowerShell
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile ridimensionare manualmente il numero di VM nel set di scalabilità o definire regole di scalabilità automatica in base all'utilizzo delle risorse, ad esempio la CPU, alla richiesta di memoria o al traffico di rete. In questo articolo introduttivo viene creato un set di scalabilità di macchine virtuali con Azure PowerShell. È anche possibile creare un set di scalabilità con l'[interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-create-cli.md) o il [portale di Azure](virtual-machine-scale-sets-create-portal.md).
@@ -120,7 +120,7 @@ $ipConfig = New-AzureRmVmssIpConfig `
 
 
 ## <a name="create-a-scale-set"></a>Creare un set di scalabilità
-Ora si può creare un set di scalabilità di macchine virtuali con [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm). L'esempio seguente crea un set di scalabilità denominato *myScaleSet* che usa l'immagine della piattaforma *Windows Server 2016 Datacenter*. L'oggetto *vmssConfig* crea 2 istanze di macchina virtuale nell'area Stati Uniti orientali, con le credenziali specificate nelle variabili *adminUsername* e *securePassword*. Fornire le proprie credenziali e creare un set di scalabilità nel modo seguente:
+Ora si può creare un set di scalabilità di macchine virtuali con [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). L'esempio seguente crea un set di scalabilità denominato *myScaleSet* che usa l'immagine della piattaforma *Windows Server 2016 Datacenter*. L'oggetto *vmssConfig* crea 2 istanze di macchina virtuale nell'area Stati Uniti orientali, con le credenziali specificate nelle variabili *adminUsername* e *securePassword*. Fornire le proprie credenziali e creare un set di scalabilità nel modo seguente:
 
 ```azurepowershell-interactive
 # Provide your own secure password for use with the VM instances

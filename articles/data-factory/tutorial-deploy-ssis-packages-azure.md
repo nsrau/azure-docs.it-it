@@ -13,14 +13,17 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 6265c6b72e37f5f25234c03080b2d5e6c5533cd1
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 37b984229a4be6c8f3ab337ea25820428922a466
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>Distribuire pacchetti SQL Server Integration Services in Azure
 Questa esercitazione illustra la procedura di provisioning di un runtime di integrazione SSIS di Azure in Azure Data Factory. È quindi possibile usare SQL Server Data Tools (SSDT) o SQL Server Management Studio (SSMS) per distribuire pacchetti SQL Server Integration Services (SSIS) in questo runtime in Azure. In questa esercitazione vengono completati i passaggi seguenti:
+
+> [!NOTE]
+> Questo articolo usa Azure PowerShell per effettuare il provisioning di un runtime di integrazione SSIS di Azure. Per usare l'interfaccia utente di Data Factory per il provisioning di un runtime di integrazione SSIS di Azure, vedere [Esercitazione: Creare un runtime di integrazione SSIS di Azure](tutorial-create-azure-ssis-runtime-portal.md). 
 
 > [!div class="checklist"]
 > * Creare una data factory.
@@ -34,11 +37,12 @@ Questa esercitazione illustra la procedura di provisioning di un runtime di inte
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare. Per informazioni concettuali in proposito, vedere la [panoramica del runtime di integrazione SSIS di Azure](concepts-integration-runtime.md#azure-ssis-integration-runtime).
 
+
 ## <a name="prerequisites"></a>prerequisiti
 - **Server di database SQL di Azure**. Se non si ha già un server di database, crearne uno nel portale di Azure prima di iniziare. Questo server ospita il database del catalogo SSIS (SSISDB). È consigliabile creare il server di database nella stessa area di Azure del runtime di integrazione. Questa configurazione consente al runtime di integrazione di scrivere i log di esecuzione in SSISDB senza attraversare aree di Azure. 
     - Verificare che l'opzione **Consenti l'accesso a Servizi di Azure** sia impostata su **SÌ** per il server di database. Per altre informazioni, vedere [Proteggere il database SQL di Azure](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). Per abilitare questa impostazione usando PowerShell, vedere [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1).
     - Aggiungere l'indirizzo IP del computer client o un intervallo di indirizzi IP che includa l'indirizzo IP del computer client all'elenco di indirizzi IP client nelle impostazioni del firewall per il server di database. Per altre informazioni, vedere [Regole firewall a livello di server e di database per il database SQL di Azure](../sql-database/sql-database-firewall-configure.md). 
-    - Verificare che il server di database SQL di Azure non abbia un catalogo SSIS (database SSISDB). Il provisioning del runtime di integrazione SSIS di Azure non supporta l'uso di un catalogo SSIS esistente. 
+    - Verificare che il server di database SQL di Azure non abbia un catalogo SSIS (database SSISDB). Il provisioning del runtime di integrazione Azure-SSIS non supporta l'uso di un catalogo SSIS esistente. 
 - **Azure PowerShell**. Seguire le istruzioni in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Come installare e configurare Azure PowerShell). PowerShell viene usato per eseguire uno script per il provisioning di un runtime di integrazione SSIS di Azure che esegue i pacchetti SSIS nel cloud. 
 
 > [!NOTE]
@@ -206,7 +210,7 @@ Lo script di PowerShell in questa sezione configura un'istanza del runtime di in
 
 > [!NOTE]
 > - Lo script si connette al database SQL di Azure per preparare il database del catalogo SSIS (SSISDB). Lo script configura anche le autorizzazioni e le impostazioni per la rete virtuale, se specificata, e aggiunge la nuova istanza del runtime di integrazione SSIS di Azure alla rete virtuale.
-> - Quando si effettua il provisioning di un'istanza del database SQL per ospitare SSISDB, vengono installati anche il Feature Pack di Azure per SSIS e Access Redistributable. Questi componenti forniscono la connettività ai file di Excel e di Access e a diverse origini dati di Azure, oltre che alle origini dati supportate dai componenti predefiniti. Non è attualmente possibile installare componenti di terze parti per SSIS (inclusi i componenti di terze parti di Microsoft, ad esempio i componenti Oracle e Teradata di Attunity e i componenti SAP BI).
+> - Quando si effettua il provisioning di un'istanza del runtime di integrazione SSIS di Azure, vengono installati anche il Feature Pack di Azure per SSIS e Access Redistributable. Questi componenti forniscono la connettività ai file di Excel e di Access e a diverse origini dati di Azure, oltre che alle origini dati supportate dai componenti predefiniti. Non è attualmente possibile installare componenti di terze parti per SSIS (inclusi i componenti di terze parti di Microsoft, ad esempio i componenti Oracle e Teradata di Attunity e i componenti SAP BI).
 
 
 Per un elenco di **piani tariffari** supportati per il database SQL di Azure, vedere [Limiti delle risorse del database SQL](../sql-database/sql-database-resource-limits.md). 

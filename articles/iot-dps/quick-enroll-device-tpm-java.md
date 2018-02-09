@@ -12,15 +12,16 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f57b5304b8dc575d157f970312e71463496bf10d
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 8b871c28c2d666bebcc192403cf0c8ef238fef4f
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT con Java Service SDK
 > [!div class="op_single_selector"]
 > * [Java](quick-enroll-device-tpm-java.md)
+> * [C#](quick-enroll-device-tpm-csharp.md)
 > * [Node.JS](quick-enroll-device-tpm-node.md)
 
 Questi passaggi illustrano come registrare a livello di codice un dispositivo TPM simulato nei servizi Device Provisioning in hub IoT di Azure, usando [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) con l'aiuto di un'applicazione Java di esempio. Anche se Java Service SDK funziona su computer sia Windows che Linux, questo articolo usa un computer di sviluppo Windows per illustrare il processo di registrazione.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: v-masebo
-ms.openlocfilehash: e5d57e087e5f4dc1e0abf112001218aa7390a4f7
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f314d24250330a4dadf99d98b94c98b3db03f22c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="routing-messages-with-iot-hub-node"></a>Routing dei messaggi tramite Hub IoT (Node)
 
@@ -104,6 +104,9 @@ In questa sezione viene modificata l'app per dispositivi creata nell'esercitazio
 In questa sezione, viene illustrato come creare una coda del bus di servizio, connetterla all'hub IoT e configurare l'hub IoT per inviare messaggi alla coda in base alla presenza di una proprietà del messaggio. Per altre informazioni su come elaborare i messaggi dalle code del bus di servizio, vedere [Get started with queues][lnk-sb-queues-node] (Introduzione alle code).
 
 1. Creare una coda del bus di servizio, come descritto in [Get started with queues][lnk-sb-queues-node] (Introduzione alle code). Prendere nota dello spazio dei nomi e del nome della coda.
+
+    > [!NOTE]
+    > Nelle code e negli argomenti del bus di servizio usati come endpoint dell'hub IoT non devono essere abilitati le **sessioni** e il **rilevamento duplicati**. Se una di queste opzioni è abilitata, l'endpoint risulta **non raggiungibile** nel portale di Azure.
 
 2. Nel Portale di Azure, aprire l'hub IoT e fare clic su **Endpoint**.
 

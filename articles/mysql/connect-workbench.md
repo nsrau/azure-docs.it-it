@@ -6,15 +6,15 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: seanli1988
-ms.service: mysql
+ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/22/2017
-ms.openlocfilehash: 4214b80dc4c5db644d5a05f942907c86f292fe18
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.date: 01/24/2018
+ms.openlocfilehash: 89ccd30abfb6f25563ceb4493514c3d102ea37fe
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Database di Azure per MySQL: usare MySQL Workbench per connettersi ed eseguire query sui dati
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione MySQL Workbench. 
@@ -69,7 +69,8 @@ Per connettersi al server MySQL di Azure con lo strumento dell'interfaccia utent
         Verrà visualizzata una nuova scheda SQL con un editor vuoto in cui è possibile digitare le query.
     
         > [!NOTE]
-        > Per impostazione predefinita, in Database di Azure per il server MySQL è necessaria e viene applicata la sicurezza della connessione SSL. Anche se non sono in genere necessarie configurazioni aggiuntive con certificati SSL per la connessione di MySQL Workbench al server, è consigliabile associare la certificazione SSL della CA a MySQL Workbench. Per altre informazioni su come scaricare e associare la certificazione, vedere [Configurare la connettività SSL nell'applicazione per la connessione sicura a Database di Azure per MySQL](./howto-configure-ssl.md).  Se è necessario disabilitare SSL, visitare il portale di Azure e fare clic sulla pagina Sicurezza connessione per disabilitare l'interruttore Imponi connessione SSL.
+        > Per impostazione predefinita, in Database di Azure per il server MySQL è necessaria e viene applicata la sicurezza della connessione SSL. Anche se non sono in genere necessarie configurazioni aggiuntive con certificati SSL per la connessione di MySQL Workbench al server, è consigliabile associare la certificazione SSL della CA a MySQL Workbench. Per altre informazioni su come scaricare e associare la certificazione, vedere [Configurare la connettività SSL nell'applicazione per la connessione sicura a Database di Azure per MySQL](./howto-configure-ssl.md).  
+        > Se è necessario disabilitare SSL, visitare il portale di Azure e fare clic sulla pagina Sicurezza connessione per disabilitare l'interruttore Imponi connessione SSL. Per disabilitare l'opzione SSL in MySQL Workbench, modificare la connessione (icona della chiave inglese) nella pagina iniziale del dashboard e nella scheda SSL della connessione impostare **Usa SSL** su **No**. Se questa impostazione SSL non è configurata correttamente, si potrebbe ricevere un messaggio di errore simile a "La connessione al server MySQL è stata persa a 'lettura informazioni di connessione finali', errore di sistema: 0".
 
 ## <a name="create-a-table-insert-data-read-data-update-data-delete-data"></a>Creare una tabella e inserire, leggere, aggiornare ed eliminare dati
 1. Copiare e incollare il codice SQL di esempio in una scheda SQL vuota per illustrare alcuni dati di esempio.

@@ -42,6 +42,9 @@
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## Configurare il reindirizzamento
 ### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+## Configurare il reindirizzamento esterno
+### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
+### [Interfaccia della riga di comando di Azure](tutorial-external-site-redirect-powershell.md)
 ## Configurare le app Web come membri del pool back-end
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Configurare probe di integrità
@@ -53,7 +56,7 @@
 ### [Risolvere gli errori nel gateway applicazione](application-gateway-troubleshooting-502.md)
 ### [Metriche e registrazione diagnostica](application-gateway-diagnostics.md)
 ### [Problemi di affinità delle sessioni del gateway applicazione](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
-# riferimento
+# Riferimenti
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/network/application-gateway)
 ## [.NET](/dotnet/api)

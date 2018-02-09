@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: dba643f5c8e926bee1c5d13e71f785e5cc72a2dc
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: f656edee1460ce2bb17a582ca240e3bb4089b708
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-operational-security-overview"></a>Panoramica sulla sicurezza operativa di Azure
 La sicurezza operativa di Azure include i servizi, i controlli e le funzionalità offerti ai clienti per proteggere i dati, le applicazioni e gli altri asset di Microsoft Azure. La [sicurezza operativa di Azure](https://docs.microsoft.com/azure/security/azure-operational-security) è un framework che incorpora le conoscenze acquisite tramite una varietà di funzionalità esclusive di Microsoft, tra cui Microsoft Security Development Lifecycle (SDL), il programma Microsoft Security Response Center e una profonda consapevolezza del panorama delle minacce per la sicurezza informatica.
@@ -56,7 +56,7 @@ Le funzionalità principali di OMS vengono fornite da un set di servizi eseguiti
 [Backup di Azure](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup) è il servizio basato su Azure che consente di eseguire il backup, la protezione e il ripristino dei dati in Microsoft Cloud. Backup di Azure sostituisce la soluzione di backup locale o esterna esistente con una soluzione basata sul cloud affidabile, sicura e conveniente. Backup di Azure offre più componenti che vengono scaricati e distribuiti nel computer o server appropriato o nel cloud. Il componente o l'agente distribuito dipende da ciò che si intende proteggere. Tutti i componenti di Backup di Azure consentono di eseguire il backup dei dati in un insieme di credenziali di Servizi di ripristino, a prescindere che i dati da proteggere si trovino in locale o nel cloud. Vedere la [scheda dei componenti del Backup di Azure](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use).
 
 ### <a name="site-recovery"></a>Site Recovery
-[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) garantisce la continuità aziendale orchestrando la replica delle macchine virtuali e dei computer fisici locali in Azure o in un sito secondario. Se il sito primario non è disponibile, verrà eseguito il failover alla località secondaria in modo che gli utenti possano continuare a lavorare e il failback quando i sistemi riprendono a funzionare normalmente. funzionalità di rilevamento minacce intelligente ed efficace.
+[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) garantisce la continuità aziendale orchestrando la replica delle macchine virtuali e dei computer fisici locali in Azure o in un sito secondario. Se il sito primario non è disponibile, verrà eseguito il failover alla località secondaria in modo che gli utenti possano continuare a lavorare e il failback quando i sistemi riprendono a funzionare normalmente. Usare Centro sicurezza di Azure per eseguire un rilevamento delle minacce più avanzato ed efficace.
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enable-sso-scenario) è una soluzione IDaaS (Identity as a Service) Microsoft completa che offre i vantaggi seguenti:

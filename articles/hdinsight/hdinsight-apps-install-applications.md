@@ -1,5 +1,5 @@
 ---
-title: Installare applicazioni Hadoop di terze parti in Azure HDInsight | Microsoft Docs
+title: Installare applicazioni Hadoop di terze parti in Azure HDInsight | Documentazione Microsoft
 description: Informazioni su come installare applicazioni Hadoop di terze parti in Azure HDInsight.
 services: hdinsight
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/06/2017
 ms.author: jgao
-ms.openlocfilehash: b23e62d3ae0fa3468a8a9a5608eb3d316852f086
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 9924a9656f2e2e268356b8ce293d58afc3d535a9
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Installare applicazioni Hadoop di terze parti in Azure HDInsight
 
@@ -44,13 +44,13 @@ L'elenco seguente mostra le applicazioni pubblicate:
 
 Nelle istruzioni illustrate in questo articolo si usa il portale di Azure. È anche possibile esportare il modello di Azure Resource Manager dal portale oppure ottenere una copia del modello di Resource Manager dai fornitori e usare l'interfaccia della riga di comando di Azure e Azure PowerShell per distribuire il modello.  Vedere [Creare cluster Hadoop in HDInsight mediante modelli di Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per installare applicazioni HDInsight in un cluster HDInsight esistente, è necessario un cluster HDInsight. Per crearne uno, vedere [Creare cluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). È anche possibile installare applicazioni HDInsight quando si crea un cluster HDInsight.
 
 ## <a name="install-applications-to-existing-clusters"></a>Installare applicazioni in cluster esistenti
 La procedura seguente illustra come installare applicazioni HDInsight in un cluster HDInsight esistente.
 
-**Per installare un'applicazione HDInsight**
+**Installare un'applicazione HDInsight**
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic su **Cluster HDInsight** nel menu a sinistra.
@@ -75,7 +75,7 @@ La procedura seguente illustra come installare applicazioni HDInsight in un clus
 ## <a name="list-installed-hdinsight-apps-and-properties"></a>Elencare le app HDInsight installate e le proprietà
 Il portale include un elenco delle applicazioni HDInsight installate per un cluster e le proprietà di ognuna.
 
-**Per elencare le applicazioni HDInsight e visualizzare le proprietà**
+**Elencare le applicazioni HDInsight e visualizzare le proprietà**
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Fare clic su **Cluster HDInsight** nel menu a sinistra. 
@@ -97,7 +97,7 @@ Il portale include un elenco delle applicazioni HDInsight installate per un clus
 
 Le credenziali dell'endpoint HTTP sono le credenziali utente HTTP configurate per il cluster HDInsight. Le credenziali dell'endpoint SSH sono le credenziali SSH configurate per il cluster HDInsight.
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 Vedere [Risolvere i problemi di installazione](hdinsight-apps-install-custom-applications.md#troubleshoot-the-installation).
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -31,8 +31,8 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Flussi TCP o UDP simultanei per ogni scheda di interfaccia di rete di un'istanza del ruolo o di una macchina virtuale |500K |500K |
 | Interfacce di rete (NIC) |350 |20000 |
 | Gruppi di sicurezza di rete (NGS) |100 |5000 |
-| Regole NSG per NSG |200 |500 |
-| Gli indirizzi IP e gli intervalli specificati per l'origine o di destinazione in un gruppo di sicurezza |2000 |4000 |
+| Regole NSG per NSG |200 |1000 |
+| Indirizzi IP e intervalli specificati per l'origine o la destinazione in un gruppo di sicurezza |2000 |4000 |
 | Gruppi di sicurezza delle applicazioni |200 |500 |
 | Gruppi di sicurezza delle applicazioni per ogni configurazione IP, per ogni scheda di interfaccia di rete |10 |20 |
 | Configurazioni IP per ogni gruppo di sicurezza delle applicazioni |1000 |4000 |
@@ -55,7 +55,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Configurazioni IP front-end, Basic | 10 | contattare il supporto tecnico |
 | Configurazioni IP front-end, Standard | 10 | 600 |
 | Pool back-end, Basic | 100, singolo set di disponibilità | - |
-| Pool back-end, Standard | 1000, singola rete virtuale | contattare il supporto tecnico |
+| Pool back-end, Standard | 1000, singola rete virtuale | - |
 | Porte a disponibilità elevata, Standard | 1 per front-end interno | - |
 
 Se è necessario aumentare i limiti rispetto all'impostazione predefinita, [contattare il supporto tecnico](../articles/azure-supportability/resource-manager-core-quotas-request.md ).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 22d0ee242d18d73d1d5825567fd61638fd22cc68
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 5e3147cbc9fce6737cfb9b2e93e8bf1662163f3c
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="logic-apps-limits-and-configuration"></a>Limiti e configurazione per App per la logica
 
@@ -85,12 +85,12 @@ Questi limiti si applicano a una singola esecuzione di un'app per la logica.
 Questi limiti si applicano a una singola istanza di app per la logica.
 
 | NOME | Limite | Note | 
-| ---- | ----- | ----- | 
-| Esecuzioni di azioni per 5 minuti | 100.000 | È possibile distribuire il carico di lavoro tra più app nel modo necessario. | 
+| ----- | ----- | ----- | 
+| Esecuzioni di azioni per 5 minuti | 100.000 |<p>Il limite può essere aumentato fino a 300.000 eseguendo un'app per la logica in modalità `High Througput`. Ciò è possibile impostando la proprietà `operationOptions` in `runtimeConfiguration` della risorsa del flusso di lavoro su `OptimizedForHighThroughput`. <p>Si noti che la modalità High Throughput è in anteprima. Un carico di lavoro può anche essere distribuito tra più app in base alle esigenze. | 
 | Chiamate in uscita simultanee di azioni | ~2.500 | Diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
-| Endpoint di runtime: chiamate in ingresso simultanee | ~1,000 | Diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
-| Endpoint di runtime: lettura delle chiamate per 5 minuti | 60.000 | È possibile distribuire il carico di lavoro tra più app nel modo necessario. | 
-| Endpoint di runtime: richiamata delle chiamate per 5 minuti | 45,000 | È possibile distribuire il carico di lavoro tra più app nel modo necessario. | 
+| Endpoint di runtime: chiamate in ingresso simultanee |~1,000 | Diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
+| Endpoint di runtime: lettura delle chiamate per 5 minuti  | 60.000 | È possibile distribuire il carico di lavoro tra più app nel modo necessario. | 
+| Endpoint di runtime: richiamata delle chiamate per 5 minuti| 45,000 |È possibile distribuire il carico di lavoro tra più app nel modo necessario. | 
 |||| 
 
 Per superare questi limiti nell'elaborazione normale o per eseguire test di carico che possono superare questi limiti, [contattare il supporto](mailto://logicappsemail@microsoft.com) per ottenere assistenza sui requisiti specifici.

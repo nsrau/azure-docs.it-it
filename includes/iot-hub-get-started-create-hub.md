@@ -25,11 +25,11 @@ Creare un hub IoT per connettere l'app per dispositivo simulato. La procedura se
 
 1. Fare clic su **Crea**. La creazione dell'hub IoT può richiedere alcuni minuti. È possibile monitorare lo stato di avanzamento nel riquadro **Notifiche**.
 
-1. Dopo avere creato l'hub IoT, fare clic sul nuovo riquadro dell'hub IoT nel portale di Azure per aprire la finestra delle proprietà. Ora che è stato creato un hub IoT, individuare le informazioni importanti che consentono di connettere dispositivi e applicazioni all'hub IoT. Annotare il **Nome host**, quindi fare clic su **Criteri di accesso condiviso**.
+1. Quando il nuovo hub IoT è pronto, fare clic sul suo riquadro nel portale di Azure per aprire la finestra delle proprietà. Ora che è stato creato un hub IoT, individuare le informazioni importanti che consentono di connettere dispositivi e applicazioni all'hub IoT. Annotare il **Nome host**, quindi fare clic su **Criteri di accesso condiviso**.
    
     ![Finestra del nuovo hub IoT][4]
 
-1. In **Criteri di accesso condivisi** fare clic sul criterio **iothubowner**, quindi copiare e annotare la stringa di connessione dell'hub IoT nella finestra **iothubowner**. Per altre informazioni, vedere [Controllo di accesso][lnk-access-control] nella "Guida per gli sviluppatori dell'hub IoT".
+1. In **Criteri di accesso condivisi** fare clic sul criterio **iothubowner**, quindi annotare la stringa di connessione dell'hub IoT nella finestra **iothubowner**. Per altre informazioni, vedere [Controllo di accesso][lnk-access-control] nella "Guida per gli sviluppatori dell'hub IoT".
    
     ![Criteri di accesso condivisi][5]
 

@@ -1,6 +1,6 @@
 ---
-title: Creazione di soluzioni di gestione in Operations Management Suite (OMS) | Documentazione Microsoft
-description: "Le soluzioni di gestione estendono la funzionalità di Operations Management Suite (OMS) offrendo scenari di gestione in pacchetto che i clienti possono aggiungere all'area di lavoro OMS.  In questo articolo vengono fornite informazioni dettagliate su come creare soluzioni di gestione da usare nel proprio ambiente o da rendere disponibili per i propri clienti."
+title: Creazione di un file per soluzioni di gestione in Azure | Microsoft Docs
+description: Le soluzioni di gestione offrono scenari di gestione in pacchetto che i clienti possono aggiungere al proprio ambiente di Azure.  In questo articolo vengono fornite informazioni dettagliate su come creare soluzioni di gestione da usare nel proprio ambiente o da rendere disponibili per i propri clienti.
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ace3042cc00cedd005955cdfb82c557fd4a8fb2
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: d896fb7c5ffed5c0fe338c2d2f1ef864aacd6f79
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>Creazione di una soluzione di gestione in Operations Management Suite (OMS) (anteprima)
+# <a name="creating-a-management-solution-file-in-azure-preview"></a>Creazione di un file per soluzioni di gestione in Azure (anteprima)
 > [!NOTE]
-> Questa è una documentazione preliminare per la creazione di soluzioni di gestione in OMS attualmente disponibili in versione di anteprima. Qualsiasi schema descritto di seguito è soggetto a modifiche.  
+> Questa è una documentazione preliminare per la creazione di soluzioni di gestione in Azure attualmente disponibili in versione di anteprima. Qualsiasi schema descritto di seguito è soggetto a modifiche.  
 
-Le soluzioni di gestione in Operations Management Suite (OMS) vengono implementate come [modelli di Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).  L'attività principale della creazione di soluzioni di gestione consiste nel [creare un modello](../azure-resource-manager/resource-group-authoring-templates.md).  Questo articolo fornisce informazioni dettagliate sui modelli usati per le soluzioni e illustra come configurare le risorse tipiche di una soluzione.
+Le soluzioni di gestione in Azure vengono implementate come [modelli di gestione delle risorse](../azure-resource-manager/resource-manager-template-walkthrough.md).  L'attività principale della creazione di soluzioni di gestione consiste nel [creare un modello](../azure-resource-manager/resource-group-authoring-templates.md).  Questo articolo fornisce informazioni dettagliate sui modelli usati per le soluzioni e illustra come configurare le risorse tipiche di una soluzione.
 
 
 ## <a name="tools"></a>Strumenti
@@ -53,7 +53,8 @@ La struttura di base di un file di una soluzione di gestione corrisponde a quell
 ## <a name="parameters"></a>Parametri
 I [parametri](../azure-resource-manager/resource-group-authoring-templates.md#parameters) sono valori richiesti all'utente al momento dell'installazione della soluzione di gestione.  Ci sono parametri standard comuni a tutte le soluzioni ed è possibile aggiungere altri parametri in base a quanto necessario per la soluzione specifica.  Il modo in cui gli utenti forniranno i valori dei parametri quando installano la soluzione dipende dal parametro specifico e dalla modalità di installazione della soluzione.
 
-Quando un utente installa la soluzione di gestione tramite [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) o i [modelli di avvio rapido di Azure](operations-management-suite-solutions.md#finding-and-installing-management-solutions), viene chiesto di selezionare un'[area di lavoro OMS e un account di Automazione](operations-management-suite-solutions.md#oms-workspace-and-automation-account).  Questi elementi vengono usati per popolare i valori di ognuno dei parametri standard.  All'utente non viene chiesto di fornire direttamente i valori per i parametri standard, ma viene chiesto di fornire i valori per eventuali parametri aggiuntivi.
+Quando un utente installa la soluzione di gestione tramite [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) o i [modelli di avvio rapido di Azure](operations-management-suite-solutions.md#finding-and-installing-management-solutions), viene chiesto di selezionare un'[area di lavoro di Log Analytics e un account di Automazione](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account).  Questi elementi vengono usati per popolare i valori di ognuno dei parametri standard.  All'utente non viene chiesto di fornire direttamente i valori per i parametri standard, ma viene chiesto di fornire i valori per eventuali parametri aggiuntivi.
+
 
 Quando l'utente installa la soluzione con un [altro metodo](operations-management-suite-solutions.md#finding-and-installing-management-solutions), deve specificare un valore per tutti i parametri standard e tutti i parametri aggiuntivi.
 
@@ -69,12 +70,12 @@ Di seguito è illustrato un parametro di esempio.
 
 La tabella seguente descrive gli attributi di un parametro.
 
-| Attributo | Descrizione |
+| Attributo | DESCRIZIONE |
 |:--- |:--- |
 | type |Tipo di dati per il parametro. Il controllo di input visualizzato per l'utente dipende dal tipo di dati.<br><br>bool - Casella di riepilogo a discesa<br>string - Casella di testo<br>int - Casella di testo<br>securestring - Campo della password<br> |
 | category |Categoria facoltativa per il parametro.  I parametri della stessa categoria vengono raggruppati insieme. |
 | control |Funzionalità aggiuntiva per i parametri di stringa.<br><br>datetime - Viene visualizzato un controllo Datetime.<br>guid - Il valore Guid viene generato automaticamente e il parametro non viene visualizzato. |
-| descrizione |Descrizione facoltativa del parametro.  Viene visualizzata in un fumetto di informazioni accanto al parametro. |
+| description |Descrizione facoltativa del parametro.  Viene visualizzata in un fumetto di informazioni accanto al parametro. |
 
 ### <a name="standard-parameters"></a>Parametri standard
 La tabella seguente elenca i parametri standard per tutte le soluzioni di gestione.  Quando la soluzione viene installata da Azure Marketplace o dai modelli di avvio rapido, questi valori vengono popolati automaticamente per l'utente senza che venga chiesto di immetterli.  L'utente deve fornire i valori se la soluzione viene installata con un altro metodo.
@@ -84,7 +85,7 @@ La tabella seguente elenca i parametri standard per tutte le soluzioni di gestio
 >
 >
 
-| Parametro | Tipo | Descrizione |
+| Parametro | type | DESCRIZIONE |
 |:--- |:--- |:--- |
 | accountName |stringa |Nome dell'account di Automazione di Azure. |
 | pricingTier |stringa |Piano tariffario dell'area di lavoro di Log Analytics e dell'account di Automazione di Azure. |
@@ -165,11 +166,12 @@ In questo caso, per fare riferimento ai valori di variabile all'interno della so
 Le [risorse](../azure-resource-manager/resource-group-authoring-templates.md#resources) definiscono i vari tipi di risorse che la soluzione di gestione installerà e configurerà.  Si tratta della parte più estesa e complessa del modello.  È possibile ottenere informazioni sulla struttura e una descrizione completa degli elementi di risorsa in [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#resources).  In altri articoli di questa documentazione sono descritti i tipi di risorse definiti più comunemente. 
 
 
-### <a name="dependencies"></a>Dipendenze
+### <a name="dependencies"></a>Dependencies
 L'elemento **dependsOn** specifica una [dipendenza](../azure-resource-manager/resource-group-define-dependencies.md) da un'altra risorsa.  Quando si installa la soluzione, una risorsa viene creata solo dopo che sono state create tutte le relative dipendenze.  La soluzione potrebbe ad esempio [avviare un runbook](operations-management-suite-solutions-resources-automation.md#runbooks) quando viene installata usando una [risorsa processo](operations-management-suite-solutions-resources-automation.md#automation-jobs).  La risorsa processo dipenderà dalla risorsa runbook, per assicurarsi che il runbook venga creato prima del processo.
 
-### <a name="oms-workspace-and-automation-account"></a>Area di lavoro OMS e account di Automazione
-Le soluzioni di gestione richiedono un'[area di lavoro OMS](../log-analytics/log-analytics-manage-access.md) per contenere le viste e un [account di Automazione](../automation/automation-security-overview.md#automation-account-overview) per contenere i runbook e le risorse correlate.  Questi elementi devono essere disponibili prima della creazione delle risorse nella soluzione e non devono essere definiti nella soluzione stessa.  L'utente [specificherà un'area di lavoro e un account](operations-management-suite-solutions.md#oms-workspace-and-automation-account) quando distribuisce la soluzione, ma l'autore della soluzione deve tenere presente quanto segue.
+### <a name="log-analytics-workspace-and-automation-account"></a>Area di lavoro di Log Analytics e account di Automazione
+Le soluzioni di gestione richiedono un'[area di lavoro di Log Analytics](../log-analytics/log-analytics-manage-access.md) per contenere le viste e un [account di Automazione](../automation/automation-security-overview.md#automation-account-overview) per contenere i runbook e le risorse correlate.  Questi elementi devono essere disponibili prima della creazione delle risorse nella soluzione e non devono essere definiti nella soluzione stessa.  L'utente [specificherà un'area di lavoro e un account](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) quando distribuisce la soluzione, ma l'autore della soluzione deve tenere presente quanto segue.
+
 
 ## <a name="solution-resource"></a>Risorse della soluzione
 Per ogni soluzione è necessario specificare una risorsa nell'elemento **resources** che definisce la soluzione stessa.  La risorsa sarà di tipo **Microsoft.OperationsManagement/solutions** e avrà la struttura seguente. Sono inclusi i [parametri standard](#parameters) e le [variabili](#variables) generalmente usati per definire le proprietà della soluzione.
@@ -205,13 +207,13 @@ Per ogni soluzione è necessario specificare una risorsa nell'elemento **resourc
 
 
 
-### <a name="dependencies"></a>Dipendenze
+### <a name="dependencies"></a>Dependencies
 La risorsa soluzione deve avere una [dipendenza](../azure-resource-manager/resource-group-define-dependencies.md) da ogni altra risorsa nella soluzione, perché ogni risorsa deve esistere affinché la soluzione possa essere creata.  A tale scopo, aggiungere una voce per ogni risorsa nell'elemento **dependsOn**.
 
-### <a name="properties"></a>Proprietà
+### <a name="properties"></a>Properties
 La risorsa della soluzione ha le proprietà descritte nella tabella seguente.  Sono incluse le risorse cui viene fatto riferimento dalla soluzione e incluse nella soluzione che definisce come viene gestita la risorsa dopo l'installazione della soluzione.  Ogni risorsa nella soluzione deve essere presente nella proprietà **referencedResources** o **containedResources**.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | workspaceResourceId |ID dell'area di lavoro Log Analytics nel formato *<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Nome area di lavoro\>*. |
 | referencedResources |Elenco delle risorse nella soluzione che non devono essere rimosse quando la soluzione viene rimossa. |
@@ -222,9 +224,9 @@ L'esempio precedente si riferisce a una soluzione con un runbook, una pianificaz
 ### <a name="plan"></a>Pianificazione
 L'entità **plan** della risorsa soluzione ha le proprietà descritte nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| nome |Nome della soluzione. |
+| name |Nome della soluzione. |
 | version |Versione della soluzione determinata dall'autore. |
 | product |Stringa univoca che identifica la soluzione. |
 | publisher |Autore della soluzione. |

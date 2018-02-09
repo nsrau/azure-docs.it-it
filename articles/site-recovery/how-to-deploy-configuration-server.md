@@ -59,7 +59,7 @@ Site Recovery fornisce un modello scaricabile per configurare il server di confi
 
 
 1. Accedere al server VMware vCenter o all'host vSphere ESXi usando il client VMWare vSphere.
-2. Dal menu **File** scegliere **Deploy OVF Template** (Distribuisci modello OVF) per avviare la relativa procedura guidata.  
+2. Dal menu **File** scegliere **Deploy OVF Template** (Distribuire il modello OVF) per avviare la relativa procedura guidata.  
 
      ![Modello OVF](./media/tutorial-vmware-to-azure/vcenter-wizard.png)
 

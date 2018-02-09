@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/30/2018
 ms.author: juluk
-ms.openlocfilehash: a04342f77126afe1e0a2707f1d213e0a8eb5825d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d8188634846a7ce75b5294cb3012069d9eafafc1
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 02/01/2018
 ---
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
 ## <a name="how-bash-in-cloud-shell-storage-works"></a>Come funziona l'archiviazione di Bash in Cloud Shell 
 Bash in Cloud Shell rende persistenti i file tramite entrambi i metodi seguenti: 
@@ -74,7 +74,7 @@ La condivisione file continuerà a esistere a meno che non venga eliminata manua
 ## <a name="list-clouddrive"></a>Elenco `clouddrive`
 Per sapere quale condivisione file è montata come `clouddrive`, eseguire il comando `df`. 
 
-Il percorso file a clouddrive indicherà il nome dell'account di archiviazione e la condivisione file nell'URL. Ad esempio, `//storageaccountname.file.core.windows.net/filesharename`
+Il percorso file a clouddrive indica il nome dell'account di archiviazione e la condivisione file nell'URL. Ad esempio: `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df
@@ -88,7 +88,7 @@ shm                                                    65536       0      65536 
 justin@Azure:~$
 ```
 
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Avvio rapido di Bash in Cloud Shell](quickstart.md) <br>

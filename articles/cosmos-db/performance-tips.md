@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 01/24/2018
 ms.author: mimig
-ms.openlocfilehash: 242ec5bfbe33acd4731809efed9b70897b7a9608
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 2e49613cf37fa625efc7859802db86780dcb128a
+ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -120,6 +120,13 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 6. **Implementare il backoff in corrispondenza di intervalli RetryAfter**
 
     Durante il test delle prestazioni, è necessario aumentare il carico fino a limitare un numero ridotto di richieste. Se limitata, l'applicazione client deve eseguire il backoff sulla limitazione per l'intervallo tra tentativi specificato dal server. Rispettando il backoff si garantiscono tempi di attesa minimi tra i tentativi. Il supporto dei criteri di ripetizione dei tentativi è incluso nella versione 1.8.0 e versioni successive degli SDK [.NET](sql-api-sdk-dotnet.md) e [Java](sql-api-sdk-java.md), nella versione 1.9.0 e versioni successive degli SDK [Node.js](sql-api-sdk-node.md) e [Python](sql-api-sdk-python.md) e in tutte le versioni supportate degli SDK [.NET Core](sql-api-sdk-dotnet-core.md) di SQL. Per altre informazioni, vedere [Superamento dei limiti della velocità effettiva riservata](request-units.md#RequestRateTooLarge) e [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    
+    Con la versione 1.19 e successive di .NET SDK c'è un meccanismo per registrare le informazioni di diagnostica aggiuntive e risolvere i problemi di latenza come mostrato nell'esempio seguente. È possibile registrare la stringa di diagnostica per le richieste che hanno una latenza di lettura più elevata. La stringa di diagnostica acquisita consente di capire il numero di volte che è stato osservato l'errore 429 per una determinata richiesta.
+    ```csharp
+    ResourceResponse<Document> readDocument = await this.readClient.ReadDocumentAsync(oldDocuments[i].SelfLink);
+    readDocument.RequestDiagnosticsString 
+    ```
+    
 7. **Aumentare il carico di lavoro client**
 
     Se si sta eseguendo il test a livelli di velocità effettiva elevati (> 50.000 UR/sec), l'applicazione client può diventare un collo di bottiglia a causa della limitazione di utilizzo della CPU o della rete. In questo caso, è possibile continuare a effettuare il push dell'account Azure Cosmos DB aumentando il numero di istanze delle applicazioni client in più server.

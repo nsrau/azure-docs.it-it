@@ -1,5 +1,5 @@
 ---
-title: Procedure consigliate per soluzioni OMSManagement | Documentazione Microsoft
+title: Procedure consigliate per soluzioni di gestione in Azure | Microsoft Docs
 description: 
 services: operations-management-suite
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: b3d07ad3164609a5628c0d9805de55a32870ab94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 155a7117f4c02bafcf66d0f7abca7dd97dc1236f
+ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
-# <a name="best-practices-for-creating-management-solutions-in-operations-management-suite-oms-preview"></a>Procedure consigliate per la creazione di soluzioni di gestione in Operations Management Suite (OMS) (anteprima)
+# <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Procedure consigliate per la creazione di soluzioni di gestione in Azure (anteprima)
 > [!NOTE]
-> Questa è una documentazione preliminare per la creazione di soluzioni di gestione in OMS attualmente disponibili in versione di anteprima. Qualsiasi schema descritto di seguito è soggetto a modifiche.  
+> Questa è una documentazione preliminare per la creazione di soluzioni di gestione in Azure attualmente disponibili in versione di anteprima. Qualsiasi schema descritto di seguito è soggetto a modifiche.  
 
-Questo articolo riporta le procedure consigliate per la [creazione di una soluzione di gestione](operations-management-suite-solutions-solution-file.md) in Operations Management Suite (OMS).  Queste informazioni verranno aggiornate quando saranno identificate procedure consigliate aggiuntive.
+Questo articolo riporta le procedure consigliate per la [creazione di una soluzione di gestione](operations-management-suite-solutions-solution-file.md) in Azure.  Queste informazioni verranno aggiornate quando saranno identificate procedure consigliate aggiuntive.
 
 ## <a name="data-sources"></a>Origini dati
 - È possibile [configurare le origini dati con un modello di Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), ma non devono essere incluse nel file della soluzione.  Il motivo è che la configurazione delle origini dati non è attualmente idempotente, vale a dire che la soluzione potrebbe sovrascrivere la configurazione esistente nell'area di lavoro dell'utente.<br><br>Ad esempio la soluzione potrebbe richiedere eventi di avviso e di errore dal registro eventi dell'applicazione.  Se si specifica questo come origine dati nella soluzione, si rischia di rimuovere eventi informativi, se l'utente ha configurato questa impostazione nella sua area di lavoro.  Se sono stati inclusi tutti gli eventi, potrebbero essere raccolti troppi eventi informativi nell'area di lavoro dell'utente.
