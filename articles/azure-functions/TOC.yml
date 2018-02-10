@@ -133,6 +133,8 @@
           href: functions-run-local.md
         - name: Sviluppo di Visual Studio
           href: functions-develop-vs.md
+        - name: Gestione degli errori
+          href: functions-bindings-error-pages.md
     - name: Distribuire
       items:
         - name: Distribuzione continua
@@ -177,7 +179,7 @@
           href: durable-functions-counter.md
         - name: Interazione umana
           href: durable-functions-phone-verification.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Associazioni
       items:
