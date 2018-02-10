@@ -142,10 +142,14 @@
           href: logic-apps-enterprise-integration-as2.md
         - name: Archiviazione BLOB di Azure
           href: ../connectors/connectors-create-api-azureblobstorage.md
+        - name: Hub eventi di Azure
+          href: ../connectors/connectors-create-api-azure-event-hubs.md
         - name: Funzioni di Azure
           href: logic-apps-azure-functions.md
         - name: App per la logica di Azure
           href: logic-apps-http-endpoint.md
+        - name: Bus di servizio di Azure
+          href: ../connectors/connectors-create-api-servicebus.md
         - name: database SQL di Azure
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: API e app Web personalizzate
@@ -156,8 +160,6 @@
           href: ../connectors/connectors-create-api-crmonline.md
         - name: EDIFACT
           href: logic-apps-enterprise-integration-edifact.md
-        - name: Hub eventi
-          href: ../connectors/connectors-create-api-azure-event-hubs.md
         - name: File system
           href: logic-apps-using-file-connector.md
         - name: File flat
@@ -188,8 +190,6 @@
           href: logic-apps-using-sap-connector.md
         - name: Pianificazione
           href: ../connectors/connectors-native-recurrence.md
-        - name: Bus di servizio di Azure
-          href: ../connectors/connectors-create-api-servicebus.md
         - name: SharePoint Online
           href: ../connectors/connectors-create-api-sharepointonline.md
         - name: SharePoint Server
@@ -238,7 +238,7 @@
           href: logic-apps-scenario-error-and-exception-handling.md
         - name: Elaborazione B2B
           href: logic-apps-enterprise-integration-b2b.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: 'Connettori: dettagli completi'
       href: 'https://docs.microsoft.com/connectors/'

@@ -359,6 +359,8 @@
           items:
             - name: Distribuire un'applicazione di esempio
               href: saas-standaloneapp-get-started-deploy.md
+            - name: Effettuare il provisioning di tenant
+              href: saas-standaloneapp-provision-and-catalog.md
         - name: Database per tenant
           href: saas-dbpertenant-wingtip-app-overview.md
           items:

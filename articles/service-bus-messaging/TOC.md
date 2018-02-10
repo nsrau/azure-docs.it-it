@@ -4,7 +4,7 @@
 ## [Architettura del bus di servizio](service-bus-architecture.md)
 ## [DOMANDE FREQUENTI](service-bus-faq.md)
 
-# Attività iniziali
+# Guide introduttive
 ## [Creare uno spazio dei nomi](service-bus-create-namespace-portal.md)
 ## Usare le code
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
@@ -79,7 +79,7 @@
 #### 
 ### [Uso di Azure PowerShell per il provisioning delle entità](service-bus-manage-with-ps.md)
 
-# Riferimenti
+# riferimento
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)

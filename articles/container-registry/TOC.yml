@@ -57,7 +57,7 @@
           href: container-registry-auth-aci.md
         - name: Servizio contenitore di Azure
           href: container-registry-auth-aks.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/acr
@@ -69,6 +69,8 @@
       href: /dotnet/api/overview/azure/containerregistry
     - name: Python
       href: /python/api/overview/azure/container-registry
+    - name: Java
+      href: /java/api/overview/azure/containerregistry
     - name: Node.js
       href: /javascript/api/overview/azure/container-registry
     - name: Modello di Resource Manager
