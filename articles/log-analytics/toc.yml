@@ -267,7 +267,7 @@
           href: log-analytics-template-workspace-configuration.md
         - name: API degli avvisi
           href: log-analytics-api-alerts.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Informazioni di riferimento sul linguaggio
       href: 'https://docs.loganalytics.io/docs/Language-Reference'

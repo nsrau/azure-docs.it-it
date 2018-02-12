@@ -14,7 +14,7 @@
     - name: Installare app HDInsight
       href: ../hdinsight-apps-install-applications.md
       maintainContext: true
-    - name: pianificazione della capacità
+    - name: Pianificazione della capacità
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
     - name: Archiviazione e scalabilità
@@ -29,6 +29,8 @@
       href: apache-kafka-mirroring.md
     - name: Analizzare i log di Kafka
       href: apache-kafka-log-analytics-operations-management.md
+    - name: Usare Kafka con il servizio contenitore di Azure
+      href: apache-kafka-azure-container-services.md
     - name: Creare pipeline di flusso
       items:
         - name: Kafka e Spark (flusso strutturato)
