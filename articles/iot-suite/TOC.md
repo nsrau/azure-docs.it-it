@@ -3,14 +3,14 @@
 ## [Confrontare le opzioni di Azure IoT](iot-suite-options.md)
 ## [Panoramica delle soluzioni preconfigurate](iot-suite-what-are-preconfigured-solutions.md)
 
-# Introduzione
+# Attività iniziali
 ## Monitoraggio remoto
 ### [Distribuire la soluzione preconfigurata](iot-suite-remote-monitoring-deploy.md)
 ### [Gestire la soluzione preconfigurata](iot-suite-remote-monitoring-explore.md)
 
 ## Monitoraggio remoto (versione precedente)
 ### [Che cosa sono le soluzioni preconfigurate?](iot-suite-v1-what-are-preconfigured-solutions.md)
-### [Domande frequenti](iot-suite-v1-faq.md)
+### [DOMANDE FREQUENTI](iot-suite-v1-faq.md)
 
 ### Attività iniziali
 #### [Introduzione alle soluzioni preconfigurate](iot-suite-v1-getstarted-preconfigured-solutions.md)
@@ -58,7 +58,9 @@
 ### [Usare le regole per rilevare problemi](iot-suite-remote-monitoring-automate.md)
 ### [Gestire i dispositivi](iot-suite-remote-monitoring-manage.md)
 ### [Risolvere i problemi dei dispositivi](iot-suite-remote-monitoring-maintain.md)
-### [Usare i dispositivi simulati](iot-suite-remote-monitoring-test.md)
+### [Informazioni sullo schema del modello dei dispositivi](iot-suite-remote-monitoring-device-schema.md)
+### [Informazioni sul comportamento del modello dei dispositivi](iot-suite-remote-monitoring-device-behavior.md)
+### [Creare un nuovo dispositivo simulato](iot-suite-remote-monitoring-test.md)
 ### [Personalizzare la soluzione](iot-suite-remote-monitoring-customize.md)
 ### [Distribuire usando l'interfaccia della riga di comando](iot-suite-remote-monitoring-deploy-cli.md)
 ### Connettere un dispositivo fisico
@@ -78,7 +80,7 @@
 ### [Configurare la soluzione di connected factory](iot-suite-connected-factory-configure.md)
 ## [Autorizzazioni in azureiotsuite.com](iot-suite-permissions.md)
 
-# riferimento
+# Riferimenti
 ## [Guida di riferimento per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [Guida per la risoluzione dei problemi per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 ## [Architettura di sicurezza](iot-security-architecture.md)
@@ -87,7 +89,7 @@
 ## [Sicurezza sin dall'inizio](securing-iot-ground-up.md)
 
 # Risorse correlate
-## [Analisi di flusso](/azure/stream-analytics/)
+## [Analisi dei flussi](/azure/stream-analytics/)
 ## [Hub eventi](/azure/event-hubs/)
 ## [Hub IoT](/azure/iot-hub/)
 ## [Microsoft IoT Central](/azure/index#pivot=services&panel=iot)
@@ -95,6 +97,6 @@
 
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
-## [Domande frequenti](iot-suite-faq.md)
+## [DOMANDE FREQUENTI](iot-suite-faq.md)
 ## [Domande frequenti sulla soluzione di connected factory](iot-suite-faq-cf.md)
 ## [Percorso di apprendimento per IoT Suite](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)

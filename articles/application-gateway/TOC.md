@@ -40,11 +40,19 @@
 ## Configurare l'hosting di più siti
 ### [Portale di Azure](application-gateway-create-multisite-portal.md)
 ### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## Configurare il reindirizzamento
-### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
+### [Interfaccia della riga di comando di Azure](tutorial-multisite-cli.md)
 ## Configurare il reindirizzamento esterno
-### [Azure PowerShell](tutorial-external-site-redirect-cli.md)
-### [Interfaccia della riga di comando di Azure](tutorial-external-site-redirect-powershell.md)
+### [Azure PowerShell](tutorial-external-site-redirect-powershell.md)
+### [Interfaccia della riga di comando di Azure](tutorial-external-site-redirect-cli.md)
+## Configurare il reindirizzamento interno
+### [Azure PowerShell](tutorial-internal-site-redirect-powershell.md)
+### [Interfaccia della riga di comando di Azure](tutorial-internal-site-redirect-cli.md)
+## Configurare il reindirizzamento del traffico HTTP a HTTPS
+### [Azure PowerShell](tutorial-http-redirect-powershell.md)
+### [Interfaccia della riga di comando di Azure](tutorial-http-redirect-cli.md)
+## Configurare il reindirizzamento URL
+### [Azure PowerShell](tutorial-url-redirect-powershell.md)
+### [Interfaccia della riga di comando di Azure](tutorial-url-redirect-cli.md)
 ## Configurare le app Web come membri del pool back-end
 ### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## Configurare probe di integrità
@@ -61,7 +69,7 @@
 ## [Interfaccia della riga di comando di Azure](/cli/azure/network/application-gateway)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/com.microsoft.azure.management.network)
-## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
 ## [REST](https://docs.microsoft.com/rest/api/applicationgateway)

@@ -422,6 +422,8 @@
           href: performance-diagnostics-vm-extension.md
         - name: Usare la virtualizzazione annidata
           href: troubleshoot-vm-by-use-nested-virtualization.md
+        - name: Installare l'agente di macchine virtuali in modalità offline
+          href: install-vm-agent-offline.md
 - name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
