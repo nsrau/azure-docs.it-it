@@ -48,6 +48,8 @@
           href: how-to-vscode-develop-azure-function.md
         - name: Eseguire il debug di Funzioni di Azure
           href: how-to-vscode-debug-azure-function.md
+    - name: Archiviare dati sul perimetro
+      href: sql-storage.md
     - name: Risolvere problemi
       href: troubleshoot.md
 - name: Concetti

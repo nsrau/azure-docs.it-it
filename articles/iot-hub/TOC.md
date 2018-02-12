@@ -9,7 +9,7 @@
 ### [Simulare un dispositivo sul PC](iot-hub-get-started-simulated.md)
 #### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)
-#### [Node.JS](iot-hub-node-node-getstarted.md)
+#### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
 
 ### [Usare un simulatore online](iot-hub-raspberry-pi-web-simulator-get-started.md)
@@ -37,6 +37,9 @@
 ### [Gestione dei dispositivi con iothub-explorer](iot-hub-device-management-iothub-explorer.md)
 ### [Gestione dei dispositivi con l'estensione IoT per l'interfaccia della riga di comando di Azure 2.0](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Monitoraggio remoto e notifiche con App per la logica](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+
+## Usare MXChip IoT DevKit
+### [Usare Azure IoT Suite per il monitoraggio remoto](iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)
 
 # Guide alle procedure
 ## Pianificazione
@@ -150,7 +153,7 @@
 #### [Introduzione alla sicurezza con certificati X.509 dell'autorità di certificazione](iot-hub-security-x509-get-started.md)
 ##### [Creare certificati - PowerShell](iot-hub-security-x509-create-certificates.md)
 
-# riferimento
+# Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/iot)
 ## [.NET (servizio)](/dotnet/api/microsoft.azure.devices)

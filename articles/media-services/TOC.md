@@ -171,6 +171,7 @@
 #### [Procedura dettagliata per lo strumento di offuscamento dei volti](media-services-redactor-walkthrough.md)
 ### [Elaborare con Video Thumbnails](media-services-video-summarization.md)
 ### [Elaborare con OCR](media-services-video-optical-character-recognition.md)
+### [Elaborare con Content Moderator](media-services-content-moderation.md)
 
 ## [Configurare i dati di telemetria](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)
@@ -224,7 +225,7 @@
 ### [Codici di errore](media-services-error-codes.md)
 ### [Logica di ripetizione dei tentativi](media-services-retry-logic-in-dotnet-sdk.md)
 
-# riferimento
+# Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell (gestione dei servizi)](/powershell/module/azure/?view=azuresmps-3.7.0)

@@ -77,6 +77,8 @@
       href: site-recovery-support-matrix-to-azure.md
     - name: Matrice di supporto da locale a sito secondario
       href: site-recovery-support-matrix-to-sec-site.md
+    - name: Tipi di failback
+      href: concepts-types-of-failback.md
     - name: Ripristino di emergenza per i carichi di lavoro
       href: site-recovery-workload.md
     - name: Migrazione ad Azure
@@ -93,6 +95,8 @@
           href: site-recovery-azure-to-azure-networking-guidance.md
         - name: Configurare il mapping di rete per il ripristino di emergenza di VM di Azure (anteprima)
           href: site-recovery-network-mapping-azure-to-azure.md
+        - name: Mantenere l'indirizzo IP per il ripristino di emergenza di VM di Azure (anteprima)
+          href: site-recovery-retain-ip-azure-vm-failover.md
         - name: Preparare il mapping di rete per la replica di VM Hyper-V in Azure
           href: site-recovery-network-mapping.md
         - name: Configurare gli indirizzi IP per l'accesso ad Azure dopo il failover
@@ -275,6 +279,8 @@
           href: site-recovery-vmware-to-azure-push-install-error-codes.md
         - name: Problemi del failover in Azure
           href: site-recovery-failover-to-azure-troubleshoot.md
+        - name: Problemi di riprotezione e failback
+          href: troubleshoot-failback-reprotect.md
         - name: Monitorare Azure Site Recovery
           href: site-recovery-monitor-and-troubleshoot.md
 - name: riferimento
