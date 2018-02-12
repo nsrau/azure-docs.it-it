@@ -1,4 +1,4 @@
-# [Panoramica](../azure-security.md)
+# [Overview](../azure-security.md)
 ## [Sicurezza di rete](../security-network-overview.md)
 ## [Sicurezza del database](../azure-database-security-overview.md)
 ## [Sicurezza delle risorse di archiviazione](../security-storage-overview.md)
@@ -17,8 +17,8 @@
 ### [Funzionalità tecniche per la sicurezza](../azure-security-technical-capabilities.md)
 ### [Governance in Azure](../governance-in-azure.md)
 ### [Crittografia dei dati inattivi](../azure-security-encryption-atrest.md)
-### Progetti di architetture
-#### Conformità - PCI DSS
+### Progetti di sicurezza e conformità di Azure
+#### PCI DSS
 ##### [Elaborazione dei pagamenti per ambienti conformi allo standard PCI DSS](payment-processing-blueprint.md)
 ##### [Panoramica dei requisiti](pci-dss-requirements-overview.md)
 ##### [Requisito 1: firewall](pci-dss-requirement-1-firewall.md)
@@ -33,8 +33,8 @@
 ##### [Requisito 10: monitoraggio](pci-dss-requirement-10-monitoring.md)
 ##### [Requisito 11: test](pci-dss-requirement-11-testing.md)
 ##### [Requisito 12: criteri](pci-dss-requirement-12-policy.md)
-#### Conformità - FedRAMP
-##### [Applicazioni Web per FedRAMP](fedramp.md)
+#### FedRAMP
+##### [Automazione di applicazioni Web](fedramp.md)
 ##### [Panoramica dei controlli di sicurezza](fedramp-controls-overview.md)
 ##### [Controllo di accesso](fedramp-access-controls.md)
 ##### [Controllo e responsabilità](fedramp-audit-accountability-controls.md)
@@ -53,11 +53,11 @@
 ##### [Protezione del sistema e delle comunicazioni](fedramp-system-communications-protection-controls.md)
 ##### [Integrità del sistema e delle informazioni](fedramp-system-information-integrity-controls.md)
 ##### [Acquisizione del sistema e dei servizi](fedramp-system-services-acquisition-controls.md)
-#### Conformità - UK-OFFICIAL
-##### [Applicazioni Web a tre livelli per UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
-##### [Panoramica](uk-official-three-tier-applications-overview.md)
+#### UK-OFFICIAL
+##### [Automazione di applicazioni Web a tre livelli](uk-official-three-tier-applications-overview.md)
+##### [Overview](uk-official-three-tier-applications-overview.md)
 ##### [Panoramica dei principi](uk-official-three-tier-applications-principles-overview.md)
-#### Conformità - Servizi finanziari
+#### Servizi finanziari
 ##### [Servizi finanziari per carichi di lavoro regolamentati](financial-services-regulated-workloads.md)
 
 # Attività iniziali
@@ -93,9 +93,8 @@
 ### [Introduzione all'integrazione dei log di Azure](../security-azure-log-integration-overview.md)
 #### [Introduzione all'integrazione dei log di Azure](../security-azure-log-integration-get-started.md)
 #### [Integrare i log di controllo di Azure Active Directory](../security-azure-log-integration-ad.md)
-#### [Integrare gli avvisi del Centro sicurezza](../security-azure-log-integration-security-center.md)
 #### [Integrare i log di Key Vault usando un hub eventi](../security-azure-log-integration-keyvault-eventhub.md)
-#### [Domande frequenti](../security-azure-log-integration-faq.md)
+#### [DOMANDE FREQUENTI](../security-azure-log-integration-faq.md)
 
 ## Service Fabric
 ### [Procedure consigliate per Service Fabric](../azure-service-fabric-security-best-practices.md)
@@ -105,7 +104,7 @@
 ### [Procedure consigliate per la sicurezza della gestione delle identità](../azure-security-identity-management-best-practices.md)
 
 ## Servizi PaaS
-### [Proteggere distribuzioni PaaS](../security-paas-deployments.md)
+### [Protezione delle distribuzioni PaaS](../security-paas-deployments.md)
 #### [Protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante i Servizi app](../security-paas-applications-using-app-services.md)
 #### [Protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante SQL](../security-paas-applications-using-sql.md)
 ##### [Procedure consigliate per la sicurezza del database SQL](../azure-database-security-best-practices.md)
@@ -126,7 +125,7 @@
 ## [Microsoft Security Response Center](../azure-security-response-center.md)
 ## [Test di penetrazione](../azure-security-pen-testing.md)
 ## [Centro sicurezza](../../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
-## [Insieme di credenziali delle chiavi](../../key-vault/key-vault-whatis.md)
+## [Insieme di credenziali di chiave](../../key-vault/key-vault-whatis.md)
 ## [Log Analytics](../../log-analytics/log-analytics-overview.md)
 ## [Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication.md)
 ## [Azure Active Directory](../../active-directory/active-directory-whatis.md)
@@ -152,7 +151,7 @@
 ## [Corsi sulla sicurezza di Virtual Academy](../security-microsoft-virtual-academy.md)
 ## [Video sulla sicurezza su Channel 9](../security-channel-nine.md)
 ## [Threat Modeling Tool](../azure-security-threat-modeling-tool.md)
-### [Attività iniziali](../azure-security-threat-modeling-tool-getting-started.md)
+### [Introduzione](../azure-security-threat-modeling-tool-getting-started.md)
 ### [Panoramica delle funzionalità](../azure-security-threat-modeling-tool-feature-overview.md)
 ### [Minacce](../azure-security-threat-modeling-tool-threats.md)
 ### [Procedure di mitigazione](../azure-security-threat-modeling-tool-mitigations.md)

@@ -227,6 +227,8 @@
               items:
                 - name: Esempi .NET
                   href: sql-api-dotnet-samples.md
+                - name: Esempi di Java
+                  href: sql-api-java-samples.md
                 - name: Esempi di Node. js
                   href: sql-api-nodejs-samples.md
                 - name: Esempi per Python
@@ -385,7 +387,7 @@
           href: odbc-driver.md
         - name: Usare Spring Boot Starter con le API SQL
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
