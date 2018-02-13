@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: dce4252846732ca5161018103438df1f9ff6146d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 30e5265fbad66ab3c68bc5d5e90687b1a968167b
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/13/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gestire la capacità di archiviazione per lo Stack di Azure
 
@@ -130,7 +130,7 @@ Migrazione consolida tutte un blob in contenitori nella condivisione di nuovo.
 - Se si dispone delle autorizzazioni per un gruppo di risorse e non è possibile utilizzare PowerShell per eseguire una query altri volumi di dati di overflow, lavorare con il proprietario di tali gruppi di risorse e di contenitori per comprendere le dimensioni totali dei dati per eseguire la migrazione prima della migrazione di tali dati.  
 
 > [!IMPORTANT]
-> Migrazione di oggetti BLOB per un contenitore è un'operazione offline che richiede l'utilizzo di PowerShell. Fino al completamento della migrazione, tutti i BLOB per il contenitore in cui che si esegue la migrazione rimangono offline e non possono essere utilizzati.
+> Migrazione di oggetti BLOB per un contenitore è un'operazione offline che richiede l'utilizzo di PowerShell. Fino al completamento della migrazione, tutti i BLOB per il contenitore in cui che si esegue la migrazione rimangono offline e non possono essere utilizzati. Inoltre, è consigliabile evitare l'aggiornamento di Azure Stack fino al completamento di tutto la migrazione in corso.
 
 #### <a name="to-migrate-containers-using-powershell"></a>Per eseguire la migrazione di contenitori tramite PowerShell
 1. Verificare di avere [Azure PowerShell installato e configurato](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](http://go.microsoft.com/fwlink/?LinkId=394767).
