@@ -3,7 +3,7 @@
 ## [Che cos'è l'hub IoT di Azure?](iot-hub-what-is-iot-hub.md)
 ## [Panoramica della gestione dei dispositivi](iot-hub-device-management-overview.md)
 
-# [Attività iniziali](iot-hub-get-started.md)
+# [Introduzione](iot-hub-get-started.md)
 
 ## Configurare il dispositivo
 ### [Simulare un dispositivo sul PC](iot-hub-get-started-simulated.md)
@@ -84,12 +84,12 @@
 ### Inviare messaggi da cloud a dispositivo
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
-#### [Node.JS](iot-hub-node-node-c2d.md)
+#### [Node.js](iot-hub-node-node-c2d.md)
 #### [Python](iot-hub-python-python-c2d.md)
 ### Caricare file da dispositivi
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
-#### [Node.JS](iot-hub-node-node-file-upload.md)
+#### [Node.js](iot-hub-node-node-file-upload.md)
 ### Introduzione ai dispositivi gemelli
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-twin-getstarted.md)
@@ -107,6 +107,7 @@
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-device-management-get-started.md)
 #### [Back-end .NET/Dispositivo .NET](iot-hub-csharp-csharp-device-management-get-started.md)
 #### [Back-end Java/Dispositivo Java](iot-hub-java-java-device-management-getstarted.md)
+#### [Back-end Python/Dispositivo Python](iot-hub-python-python-device-management-get-started.md)
 ### Come usare le proprietà dei dispositivi gemelli
 #### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-twin-how-to-configure.md)
 #### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-twin-how-to-configure.md)

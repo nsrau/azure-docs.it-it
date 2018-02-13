@@ -1,4 +1,5 @@
 - name: Documentazione del processo data science per i team
+  href: index.yml
 - name: Panoramica
   href: overview.md
 - name: Ciclo di vita

@@ -37,6 +37,8 @@
   items:
     - name: Operazioni del cluster
       items:
+        - name: Creare un cluster del servizio contenitore di Azure
+          href: create-cluster.md
         - name: Ridimensionare un cluster del servizio contenitore di Azure
           href: scale-cluster.md
         - name: Aggiornare un cluster del servizio contenitore di Azure
@@ -45,10 +47,14 @@
           href: delete-cluster.md
     - name: Configurare i volumi di dati
       items:
-        - name: Dischi di Azure - Volume permanente
+        - name: Dischi di Azure
           href: azure-disks-dynamic-pv.md
-        - name: File di Azure - Volume permanente
+        - name: File di Azure
           href: azure-files-dynamic-pv.md
+    - name: Configurare le impostazioni di rete
+      items:
+        - name: Indirizzo IP statico
+          href: static-ip.md
     - name: Sicurezza e autenticazione
       items:
         - name: Creare un'entità servizio

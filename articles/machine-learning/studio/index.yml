@@ -1,0 +1,73 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione di Azure Machine Learning Studio
+metadata:
+  title: Documentazione di Azure Machine Learning Studio
+  description: Informazioni sull'uso di Azure Machine Learning Studio.
+  services: machine-learning
+  author: carolz
+  manager: carolz
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/18/2018
+  ms.author: carolz
+  ms.openlocfilehash: dd55c06d62f7678a5b5e721be80f3483c96be0f0
+  ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 02/13/2018
+abstract:
+  description: "Azure Machine Learning Studio è uno strumento di trascinamento collaborativo che consente di compilare, testare e distribuire soluzioni di analisi predittiva sui dati. Esercitazioni, video e modelli di esempio in cui viene illustrato come usare Studio per creare e distribuire modelli di apprendimento automatico."
+sections:
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: 'Informazioni su come iniziare a usare Machine Learning Studio:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="create-experiment">Creare la prima sperimentazione</a>
+    - html: <a href="algorithm-choice">Scegliere l'algoritmo migliore</a>
+    - html: <a href="deploy-consume-web-service-guide">Rendere operativo il modello</a>
+    - html: <a href="data-science-for-beginners-the-5-questions-data-science-answers">Informazioni su data science</a>
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: 'Seguire le esercitazioni dettagliate che illustrano la creazione e la distribuzione dei modelli:'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="walkthrough-develop-predictive-solution">Creare e distribuire una soluzione predittiva</a>
+    - html: <a href="azure-ml-customer-churn-scenario">Esempio di varianza dei clienti</a>
+- title: Altre tecnologie di Azure Machine Learning
+  items:
+  - type: paragraph
+    text: 'Altre tecnologie disponibili in Azure Machine Learning:'
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Servizi di Azure Machine Learning (anteprima)
+      href: /azure/machine-learning/preview/
+      image:
+        src: media/index/i_machine-learning.svg
+        href: /azure/machine-learning/preview/
+    - title: Macchina virtuale di data science
+      href: /azure/machine-learning/data-science-virtual-machine/
+      image:
+        src: media/index/virtual-machines.svg
+        href: /azure/machine-learning/data-science-virtual-machine/
+- title: riferimento
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Riga di comando
+      html: <p><a href="/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning">Modulo di PowerShell (nuovo)</a></p><p><a href="powershell-module">Modulo di PowerShell (classico)</a></p>
+    - title: Moduli
+      html: <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Informazioni di riferimento su algoritmi e moduli</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/machinelearning">API di gestione REST</a></p><p><a href="web-service-error-codes">Codici di errore del servizio Web</a></p>

@@ -5,11 +5,11 @@ title: Documentazione di Microsoft Azure
 description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
 featureFlags:
 - clicktale
-ms.openlocfilehash: 2f0316b17dc1bedab724b3174f8f88d9e92f74f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0eb89abcd31756a2147ac3df49d0c3fffb574eec
+ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 02/13/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -3912,7 +3912,7 @@ ms.lasthandoff: 02/09/2018
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/javascript/azure/node-sdk-azure-get-started">Ottenere le librerie di Azure per Node.js</a>
+                                                    <a href="/nodejs/azure/">Ottenere le librerie di Azure per Node.js</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/javascript/azure/">Introduzione</a>
