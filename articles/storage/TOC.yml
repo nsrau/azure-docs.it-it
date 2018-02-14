@@ -10,7 +10,7 @@
   href: ./blobs/storage-blobs-introduction.md
 - name: File
   href: ./files/storage-files-introduction.md
-- name: Code
+- name: Queues
   href: ./queues/storage-queues-introduction.md
 - name: Tabelle
   href: ../cosmos-db/table-storage-overview.md

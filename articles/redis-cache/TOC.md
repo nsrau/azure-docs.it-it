@@ -9,7 +9,7 @@
 ###[Informazioni aggiuntive sulla memorizzazione nella cache di modelli e procedure](../best-practices-caching.md?toc=%2fazure%2fredis-cache%2ftoc.json)
 
 
-# Introduzione
+# Attività iniziali
 ##[ASP.NET](cache-web-app-howto.md)
 ##[.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 ##[Node](cache-nodejs-get-started.md)
@@ -23,7 +23,7 @@
 ###[Rendere persistente la cache con la persistenza dei dati Redis](cache-how-to-premium-persistence.md)
 ###[Proteggere la cache con una rete virtuale](cache-how-to-premium-vnet.md)
 ###[Distribuire la cache con il clustering](cache-how-to-premium-clustering.md)
-## Automazione
+## Automatizzare
 ###[Distribuire e gestire con Azure Powershell](cache-howto-manage-redis-cache-powershell.md)
 ###[Distribuire e gestire con l'interfaccia della riga di comando di Azure](cli-samples.md)
 ###[Effettuare il provisioning di Cache Redis](cache-redis-cache-arm-provision.md)

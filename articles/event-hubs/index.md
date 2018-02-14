@@ -98,7 +98,7 @@ Informazioni su come usare l'Hub eventi per raccogliere e gestire milioni di eve
 </ul>
 
 ---
-<h2>Riferimento</h2>
+<h2>riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

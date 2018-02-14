@@ -15,7 +15,7 @@
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Confronto tra i prodotti per il monitoraggio](operations-management-suite-monitoring-product-comparison.md)
 ### [Gestire gli avvisi](operations-management-suite-monitoring-alerts.md)
-## Automazione
+## Automatizzare
 ### [Panoramica di Automazione di Azure](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Backup
@@ -48,7 +48,7 @@
 #### Elenco dei servizi
 ##### [Procedura dettagliata](operations-management-suite-walkthrough-servicemap.md)
 ##### [Uso](operations-management-suite-service-map.md)
-##### [Configurare](operations-management-suite-service-map-configure.md)
+##### [Configura](operations-management-suite-service-map-configure.md)
 ##### [Integrazione con Operations Manager](operations-management-suite-service-map-scom.md)
 #### [SQL Assessment](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -74,7 +74,7 @@
 
 ## [Eseguire l'integrazione con OMS](operations-management-suite-integration.md)
 
-# Riferimento
+# Riferimenti
 ## [SDK](operations-management-suite-sdk.md)
 
 # Risorse

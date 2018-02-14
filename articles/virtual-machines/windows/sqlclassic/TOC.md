@@ -1,7 +1,7 @@
 # Panoramica
 ## [VM di SQL Server Windows](../sql/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
 ## [Prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
-## [Domande frequenti](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
+## [DOMANDE FREQUENTI](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
 # Attività iniziali
 ## [Effettuare il provisioning di una macchina virtuale nel portale di Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
@@ -16,7 +16,7 @@
 ### [Configurare un listener interno per un gruppo di disponibilità](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [Configurare un listener esterno per un gruppo di disponibilità](virtual-machines-windows-classic-ps-sql-ext-listener.md)
 ### [Estendere un gruppo di disponibilità locale ad Azure](virtual-machines-windows-classic-sql-onprem-availability.md)
-## Manage
+## Gestisci
 ### [Usare l'estensione Agente IaaS di SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md)
 ### [Applicazione automatica delle patch](virtual-machines-windows-classic-sql-automated-patching.md)
 ### [Configurare l'integrazione dell'insieme di credenziali delle chiavi di Azure](virtual-machines-windows-classic-ps-sql-keyvault.md)
@@ -33,7 +33,7 @@
 ## [Procedure consigliate per le prestazioni](../sql/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## [Modelli di applicazione](../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
-# riferimento
+# Riferimenti
 ## [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)

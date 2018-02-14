@@ -117,7 +117,7 @@ Informazioni su come creare DevTest Labs per creare rapidamente ambienti di test
 
 ---
 
-<h2>Riferimento</h2>
+<h2>Riferimenti</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

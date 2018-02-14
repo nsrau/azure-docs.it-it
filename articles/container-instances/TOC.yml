@@ -41,7 +41,7 @@
       href: container-instances-restart-policy.md
     - name: Risolvere i problemi delle distribuzioni
       href: container-instances-troubleshooting.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/container

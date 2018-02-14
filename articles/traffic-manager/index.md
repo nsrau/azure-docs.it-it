@@ -99,7 +99,7 @@ Informazioni sull'utilizzo di Gestione Traffico per reindirizzare il traffico in
 
 ---
 
-## <a name="reference"></a>Riferimento
+## <a name="reference"></a>riferimento
 
 <ul class="panelContent cardsW">
     <li>
@@ -111,7 +111,7 @@ Informazioni sull'utilizzo di Gestione Traffico per reindirizzare il traffico in
                         <p><a href="/powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager">PowerShell</a></p>
                         <p><a href="/cli/azure/network/traffic-manager">Interfaccia della riga di comando di Azure</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.trafficmanager">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/">Node.js</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/">Node.JS</a></p>
                         <p><a href="http://www.rubydoc.info/gems/azure_mgmt_traffic_manager">Ruby</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html">Python</a></p>
                     </div>

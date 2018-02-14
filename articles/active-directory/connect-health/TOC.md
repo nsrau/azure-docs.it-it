@@ -1,7 +1,7 @@
 # Panoramica
 ## [Che cos'è Azure AD Connect Health?](active-directory-aadconnect-health.md)
 
-# Introduzione
+# Attività iniziali
 ## [Uso di Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md)
 ## [Uso di Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md)
 ## [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](active-directory-aadconnect-health-adds.md)

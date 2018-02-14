@@ -117,7 +117,7 @@ Informazioni su come distribuire un gateway applicazione, un controller della di
 
 ---
 
-<h2>Riferimento</h2>
+<h2>riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -140,7 +140,7 @@ Informazioni su come distribuire un gateway applicazione, un controller della di
                         <h3>Lingue</h3>
                         <p><a href="/dotnet/api">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
-                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways">Node.js</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways">Node.JS</a></p>
                         <p><a href="http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways">Ruby</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations#azure.mgmt.network.operations.ApplicationGatewaysOperations">Python</a></p>
                     </div>
