@@ -81,7 +81,7 @@ Informazioni sulla fatturazione di Azure e su come monitorare usi e costi. Eserc
 
 ---
 
-<h2>Riferimento</h2>
+<h2>riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

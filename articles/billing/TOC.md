@@ -1,4 +1,4 @@
-# Introduzione
+# Attività iniziali
 ## [Evitare i costi imprevisti](billing-getting-started.md)
 ## [Creare i servizi inclusi nell'account gratuito](billing-create-free-services-included-free-account.md)
 ## [Evitare di incorrere in spese per l'account gratuito](billing-avoid-charges-free-account.md)
@@ -40,14 +40,14 @@
 ### [Aggiornare le informazioni di pagamento](billing-how-to-change-credit-card.md)
 ### [Pagare le sottoscrizioni con fattura](billing-how-to-pay-by-invoice.md)
 ## [Gestire le istanze di macchina virtuale riservate](billing-manage-reserved-vm-instance.md)
-## Risoluzione dei problemi
+## Risolvere problemi
 ### [Problemi di iscrizione](https://support.microsoft.com/en-us/help/4042959)
 ### [Carta rifiutata](https://support.microsoft.com/en-us/help/4042960)
 ### [Problemi di accesso](https://support.microsoft.com/en-us/help/4042961)
 ### [Non sono state trovate sottoscrizioni](billing-no-subscriptions-found.md)
 ### [Vista dei costi Enterprise disabilitata](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
-# riferimento
+# Riferimenti
 ## [Panoramica API](billing-usage-rate-card-overview.md)
 ## [Panoramica dell'API Enterprise Reporting](billing-enterprise-api.md)
 ## [API REST di fatturazione](/rest/api/billing)

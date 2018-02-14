@@ -99,7 +99,7 @@ Informazioni su come gestire i record DNS utilizzando Azure Domain Name System, 
 
 ---
 
-<h2>Riferimento</h2>
+<h2>riferimento</h2>
 <ul class="panelContent cardsW">
 <li>
     <div class="cardSize">

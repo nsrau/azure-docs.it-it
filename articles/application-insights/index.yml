@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentazione di Application Insights
 metadata:
   title: 'Documentazione di Application Insights: esercitazioni e informazioni di riferimento sulle API | Microsoft Docs'
-  description: 'Application Insights è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web che compilano e gestiscono app in più piattaforme. Questo articolo contiene informazioni su come rilevare e diagnosticare i problemi e utilizzare app Web e servizi con guide introduttive, esercitazioni e documentazione di riferimento.'
+  description: "Application Insights è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web che compilano e gestiscono app in più piattaforme. Questo articolo contiene informazioni su come rilevare e diagnosticare i problemi e utilizzare app Web e servizi con guide introduttive, esercitazioni e documentazione di riferimento."
   services: application-insights
   author: czeumault
   manager: carolz
@@ -13,75 +13,80 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/15/2017
   ms.author: carolz
+  ms.openlocfilehash: be580894bcfbd3ce9e932d06082ba8103ae81b90
+  ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 10/25/2017
 abstract:
-  description: 'Application Insights è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web che compilano e gestiscono app in più piattaforme. Questo articolo contiene informazioni su come rilevare e diagnosticare i problemi e utilizzare app Web e servizi con guide introduttive, esercitazioni e documentazione di riferimento.'
+  description: "Application Insights è un servizio estendibile di gestione delle prestazioni delle applicazioni per sviluppatori Web che compilano e gestiscono app in più piattaforme. Questo articolo contiene informazioni su come rilevare e diagnosticare i problemi e utilizzare app Web e servizi con guide introduttive, esercitazioni e documentazione di riferimento."
 sections:
-  - title: Guide introduttive di 5 minuti
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: Informazioni su come avviare il monitoraggio dell'applicazione con Azure Application Insights.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Informazioni su come avviare il monitoraggio dell'applicazione con Azure Application Insights.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/dotnet.svg'
-            text: .NET
-            href: quick-monitor-portal
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_NETcore.svg'
-            text: .NET Core
-            href: app-insights-dotnetcore-quick-start
-          - image:
-              src: 'https://docs.microsoft.com/media/common/nodejs.svg'
-            text: Node.js
-            href: app-insights-nodejs-quick-start
-          - image:
-              src: 'https://docs.microsoft.com/media/common/java.svg'
-            text: Java
-            href: app-insights-java-quick-start
-          - image:
-              src: /azure/application-insights/media/index/mobile-center.png
-            text: Mobile
-            href: app-insights-mobile-center-quickstart
-  - title: Esercitazioni dettagliate
+    - image:
+        src: https://docs.microsoft.com/media/common/dotnet.svg
+      text: .NET
+      href: quick-monitor-portal
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_NETcore.svg
+      text: .NET Core
+      href: app-insights-dotnetcore-quick-start
+    - image:
+        src: https://docs.microsoft.com/media/common/nodejs.svg
+      text: Node.js
+      href: app-insights-nodejs-quick-start
+    - image:
+        src: https://docs.microsoft.com/media/common/java.svg
+      text: Java
+      href: app-insights-java-quick-start
+    - image:
+        src: /azure/application-insights/media/index/mobile-center.png
+      text: Mobile
+      href: app-insights-mobile-center-quickstart
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: Informazioni su come migliorare continuamente le prestazioni e l'utilizzo delle applicazioni Web.
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: Informazioni su come migliorare continuamente le prestazioni e l'utilizzo delle applicazioni Web.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="app-insights-tutorial-runtime-exceptions">Rilevare e diagnosticare le eccezioni di run-time </a>
-          - html: <a href="app-insights-tutorial-performance">Rilevare e diagnosticare i problemi di prestazioni</a>
-          - html: <a href="app-insights-tutorial-alert">Monitorare e inviare avvisi sullo stato di integrità dell'applicazione</a>
-          - html: <a href="app-insights-tutorial-users">Analizzare informazioni e utilizzo da parte dei clienti</a>
-          - html: <a href="app-insights-tutorial-dashboards">Creare dashboard personalizzati sugli indicatori KPI</a>
-  - title: Video di formazione gratuiti su PluralSight
+    - html: <a href="app-insights-tutorial-runtime-exceptions">Rilevare e diagnosticare le eccezioni di run-time </a>
+    - html: <a href="app-insights-tutorial-performance">Rilevare e diagnosticare i problemi di prestazioni</a>
+    - html: "<a href=\"app-insights-tutorial-alert\">Monitorare e inviare avvisi sullo stato di integrità dell'applicazione</a>"
+    - html: <a href="app-insights-tutorial-users">Analizzare informazioni e utilizzo da parte dei clienti</a>
+    - html: <a href="app-insights-tutorial-dashboards">Creare dashboard personalizzati sugli indicatori KPI</a>
+- title: Video di formazione gratuiti su PluralSight
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Sviluppo con .NET in Azure
-            href: 'https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents'
-          - title: Sviluppo con Node.js in Azure
-            href: 'https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents'
-            image:
-              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
-              href: 'https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents'
-  - title: riferimento
+    - title: Sviluppo con .NET in Azure
+      href: https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/developing-dotnet-microsoft-azure-getting-started/table-of-contents
+    - title: Sviluppo con Node.js in Azure
+      href: https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/developing-nodejs-microsoft-azure-getting-started/table-of-contents
+- title: riferimento
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Lingue
-            html: '<p><a href="https://docs.loganalytics.io/">Analisi</a></p><p><a href="/dotnet/api/microsoft.applicationinsights">.NET</a></p><p><a href="/java/api/com.microsoft.applicationinsights">Java</a></p><p><a href="https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md">JavaScript</a></p><p><a href="https://dev.applicationinsights.io/">API di accesso ai dati</a></p>'
-          - title: Modello di dati
-            html: <p><a href="application-insights-data-model-request-telemetry">Richiesta</a></p><p><a href="application-insights-data-model-dependency-telemetry">Dipendenza</a></p><p><a href="application-insights-data-model-exception-telemetry">Eccezione</a></p><p><a href="application-insights-data-model-trace-telemetry">Traccia</a></p><p><a href="application-insights-data-model-event-telemetry">Event</a></p><p><a href="application-insights-data-model-metric-telemetry">Metrica</a></p><p><a href="application-insights-data-model-context">Contesto</a></p>
-          - title: Correlazione di dati di telemetria
-            html: <p><a href="application-insights-correlation">Correlazione di dati di telemetria</a></p>
-          - title: Esempi di codice
-            html: '<p><a href="https://azure.microsoft.com/en-us/resources/samples/?service=application-insights">Esempi di codice</a></p>'
+    - title: Lingue
+      html: <p><a href="https://docs.loganalytics.io/">Analisi</a></p><p><a href="/dotnet/api/microsoft.applicationinsights">.NET</a></p><p><a href="/java/api/com.microsoft.applicationinsights">Java</a></p><p><a href="https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md">JavaScript</a></p><p><a href="https://dev.applicationinsights.io/">API di accesso ai dati</a></p>
+    - title: Modello di dati
+      html: <p><a href="application-insights-data-model-request-telemetry">Richiesta</a></p><p><a href="application-insights-data-model-dependency-telemetry">Dipendenza</a></p><p><a href="application-insights-data-model-exception-telemetry">Eccezione</a></p><p><a href="application-insights-data-model-trace-telemetry">Traccia</a></p><p><a href="application-insights-data-model-event-telemetry">Event</a></p><p><a href="application-insights-data-model-metric-telemetry">Metrica</a></p><p><a href="application-insights-data-model-context">Contesto</a></p>
+    - title: Correlazione di dati di telemetria
+      html: <p><a href="application-insights-correlation">Correlazione di dati di telemetria</a></p>
+    - title: Esempi di codice
+      html: <p><a href="https://azure.microsoft.com/en-us/resources/samples/?service=application-insights">Esempi di codice</a></p>

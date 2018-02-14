@@ -82,7 +82,7 @@ Informazioni su come usare SQL Data Warehouse, l'unione del database relazionale
 
 ---
 
-<h2>Riferimento</h2>
+<h2>Riferimenti</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

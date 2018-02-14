@@ -3,7 +3,7 @@
 # Esercitazioni
 ## [DevOps con il portale di Azure](tutorial-azureportal-devops.md)
 # Concetti
-## [Gestione risorse di Azure](../azure-resource-manager/resource-group-overview.md)
+## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Tasti di scelta rapida](azure-portal-keyboard-shortcuts.md)
 ## [Browser e dispositivi supportati](../azure-preview-portal-supported-browsers-devices.md)
 ## [Struttura dei dashboard di Azure](azure-portal-dashboards-structure.md)

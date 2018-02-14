@@ -1,10 +1,10 @@
-# [Panoramica](active-directory-developers-guide.md)
+# [Overview](active-directory-developers-guide.md)
 ## [Perché Azure AD](https://azure.microsoft.com/develop/identity/signin/)
 ## [Nozioni di base sull'autenticazione](active-directory-authentication-scenarios.md)
 ## [Tipi di app](active-directory-authentication-scenarios.md#application-types-and-scenarios)
 # Attività iniziali
 ## App per dispositivi mobili e desktop
-### [Panoramica](active-directory-authentication-scenarios.md#native-application-to-web-api)
+### [Overview](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [iOS](active-directory-devquickstarts-ios.md)
 ### [Android](active-directory-devquickstarts-android.md)
 ### [.NET](active-directory-devquickstarts-dotnet.md)
@@ -13,22 +13,22 @@
 ### [Cordova](active-directory-devquickstarts-cordova.md)
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
 ## App Web
-### [Panoramica](active-directory-authentication-scenarios.md#web-browser-to-web-application)
+### [Overview](active-directory-authentication-scenarios.md#web-browser-to-web-application)
 ### [ASP.NET](GuidedSetups/active-directory-aspnetwebapp-v1.md)
 ### [ASP.NET Core](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore)
 ### [Java](active-directory-devquickstarts-webapp-java.md)
 ### [NodeJS](active-directory-devquickstarts-openidconnect-nodejs.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ## App a pagina singola
-### [Panoramica](active-directory-authentication-scenarios.md#single-page-application-spa)
+### [Overview](active-directory-authentication-scenarios.md#single-page-application-spa)
 ### [Angular JS](active-directory-devquickstarts-angular.md)
 ### [JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi)
 ## API Web
-### [Panoramica](active-directory-authentication-scenarios.md#web-application-to-web-api)
+### [Overview](active-directory-authentication-scenarios.md#web-application-to-web-api)
 ### [ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)
 ### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
 ## Da servizio a servizio
-### [Panoramica](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)
+### [Overview](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)
 ### [.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)
 ### [Credenziali client OAuth 2.0](active-directory-protocols-oauth-service-to-service.md)
 # Guide
@@ -64,7 +64,7 @@
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 ## [Migrazione del servizio di controllo di accesso](active-directory-acs-migration.md)
 ## [Procedure consigliate per la gestione degli errori di ADAL](active-directory-devhowto-adal-error-handling.md)
-# riferimento
+# Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Librerie di autenticazione (ADAL)](active-directory-authentication-libraries.md)
 ## [Articolo sugli esempi di codice](active-directory-code-samples.md)
@@ -84,7 +84,7 @@
 ## [Durate dei token](../active-directory-configurable-token-lifetimes.md)
 ## [Limiti del servizio](../active-directory-service-limits-restrictions.md)
 # Endpoint v2.0
-## [Panoramica](active-directory-appmodel-v2-overview.md)
+## [Overview](active-directory-appmodel-v2-overview.md)
 ### [Tipi di app](active-directory-v2-flows.md)
 ### [Limitazioni](active-directory-v2-limitations.md)
 ### [Confronto tra la versione 1 e la versione 2](active-directory-v2-compare.md)
@@ -99,7 +99,7 @@
 #### [App Web NodeJS](active-directory-v2-devquickstarts-node-web.md)
 ## Guide
 ### [Registrare un'app](active-directory-v2-app-registration.md)
-## Riferimento
+## riferimento
 ### [Librerie di autenticazione](active-directory-v2-libraries.md)
 ### [Protocolli di autenticazione v2.0](active-directory-v2-protocols.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)

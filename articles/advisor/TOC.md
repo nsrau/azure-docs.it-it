@@ -1,18 +1,18 @@
 # Panoramica
 ## [Informazioni su Azure Advisor](advisor-overview.md)
 
-# Consigli
+# Raccomandazioni
 ## [Raccomandazioni sui costi](advisor-cost-recommendations.md)
 ## [Raccomandazioni sulle prestazioni](advisor-performance-recommendations.md)
 ## [Raccomandazioni sulla disponibilità elevata](advisor-high-availability-recommendations.md)
 ## [Raccomandazioni sulla sicurezza](advisor-security-recommendations.md)
 
-# Introduzione
+# Attività iniziali
 ## [Introduzione ad Advisor](advisor-get-started.md)
 
 # riferimento
 ## [API REST](https://docs.microsoft.com/rest/api/advisor)
-## [CLI](https://docs.microsoft.com/cli/azure/advisor)
+## [Interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/advisor)
 
 # Risorse correlate
 ## [Centro sicurezza](https://azure.microsoft.com/services/security-center/)

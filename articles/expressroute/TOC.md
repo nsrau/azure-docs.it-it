@@ -17,7 +17,7 @@
 
 # Procedure
 ## Creare e modificare un circuito
-### [Portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
+### [portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-circuit-arm.md)
 ### [Interfaccia della riga di comando di Azure](howto-circuit-cli.md)
 ## Creare e modificare configurazioni di peering
@@ -30,11 +30,11 @@
 ### [Interfaccia della riga di comando di Azure](howto-linkvnet-cli.md)
 ## [Configurare una VPN da sito a sito tramite peering Microsoft](site-to-site-vpn-over-microsoft-peering.md)
 ## Configurare un gateway di rete virtuale per ExpressRoute
-### [Portale di Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
+### [Azure portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [Configurare connessioni coesistenti ExpressRoute e da sito a sito](expressroute-howto-coexist-resource-manager.md)
 ## Configurare i filtri di route per il peering Microsoft
-### [Portale di Azure](how-to-routefilter-portal.md)
+### [Azure portal](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
 ### [Interfaccia della riga di comando di Azure](how-to-routefilter-cli.md)
 ## [Passare dal peering pubblico al peering Microsoft](how-to-move-peering.md)
@@ -57,14 +57,14 @@
 ### [Routing asimmetrico](expressroute-asymmetric-routing.md)
 ### [NAT per ExpressRoute](expressroute-nat.md)
 
-## Risoluzione dei problemi
+## Risolvere problemi
 ### [Verifica della connettività ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)
 ### [Risolvere i problemi delle prestazioni di rete](expressroute-troubleshooting-network-performance.md)
 ### [Ripristinare un circuito in stato di errore](reset-circuit.md)
 ### [Recupero di tabelle ARP](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Recupero di tabelle ARP (versione classica)](expressroute-troubleshooting-arp-classic.md)
 
-# riferimento
+# Riferimenti
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/network/express-route)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)

@@ -72,7 +72,7 @@ sections:
     items:
     - html: <a href="tutorial-prepare-azure">Preparare Azure</a>
     - html: <a href="tutorial-migrate-on-premises-to-azure">Eseguire la migrazione di macchine locali</a> o di <a href="tutorial-migrate-aws-to-azure">istanze di AWS ad Azure</a>
-- title: Riferimento
+- title: riferimento
   items:
   - type: list
     style: cards

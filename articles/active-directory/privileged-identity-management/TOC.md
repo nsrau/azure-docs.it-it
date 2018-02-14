@@ -5,7 +5,7 @@
 ## [PIM per Risorse di Azure (anteprima)](azure-pim-resource-rbac.md)
 ## [Flussi di lavoro di approvazione di Privileged Identity Management](azure-ad-pim-approval-workflow.md)
 
-# Introduzione
+# Attività iniziali
 ## [Requisiti di sottoscrizione](subscription-requirements.md)
 ## [Iniziare a usare il portale di Azure](../active-directory-privileged-identity-management-getting-started.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Procedura guidata relativa alla sicurezza](../active-directory-privileged-identity-management-security-wizard.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

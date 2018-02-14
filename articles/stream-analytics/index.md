@@ -135,7 +135,7 @@ Informazioni su come eseguire analisi Internet delle cose (IoT) nel cloud con an
 
 ---
 
-<h2>Riferimento</h2>
+<h2>Riferimenti</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

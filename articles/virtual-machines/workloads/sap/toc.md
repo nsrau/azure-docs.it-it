@@ -23,7 +23,7 @@
 ## [SAP NetWeaver nelle VM Linux di Azure](suse-quickstart.md)
 ## [Pianificare e implementare SAP NetWeaver in Azure](planning-guide.md)
 ## Disponibilità elevata in Windows e Linux
-### [Panoramica](sap-high-availability-guide-start.md)
+### [Overview](sap-high-availability-guide-start.md)
 ### Architettura a disponibilità elevata
 #### [Architettura e scenari a disponibilità elevata](sap-high-availability-architecture-scenarios.md)
 #### [Architettura e scenari a disponibilità più elevata](sap-higher-availability-architecture-scenarios.md)

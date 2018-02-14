@@ -17,14 +17,14 @@
 ### [Attività dipendenti dagli stati dei servizi](biztalk-service-state-chart.md)
 ## Proteggere
 ### [Controllo di accesso](biztalk-issuer-name-issuer-key.md)
-## [Risoluzione dei problemi](biztalk-troubleshoot-using-ops-logs.md)
+## [Risolvere i problemi](biztalk-troubleshoot-using-ops-logs.md)
 ## Connessioni ibride
-### [Panoramica](integration-hybrid-connection-overview.md)
+### [Overview](integration-hybrid-connection-overview.md)
 ### [Creare e gestire](integration-hybrid-connection-create-manage.md)
 
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)
-## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
+## [Forum di MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/biztalk-services/)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Note sulla versione](biztalk-release-notes.md)

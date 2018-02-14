@@ -171,7 +171,7 @@ Informazioni su come usare Data Lake Store per creare un repository con iperscal
 
 ---
  
-<h2>Riferimento</h2>
+<h2>riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
@@ -194,7 +194,7 @@ Informazioni su come usare Data Lake Store per creare un repository con iperscal
                         <h3>Lingue</h3>
                         <p><a href="/dotnet/api/overview/azure/data-lake-store">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.datalake.store">Java</a></p>
-                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.js</a></p>
+                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.JS</a></p>
                         <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html">Python (gestione di account)</a></p>
                         <p><a href="http://azure-datalake-store.readthedocs.io/en/latest">Python (gestione del file system)</a></p>
                     </div>

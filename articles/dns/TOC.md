@@ -9,7 +9,7 @@
 # Attività iniziali
 
 ## Creare una zona e un record DNS
-### [Portale di Azure](dns-getstarted-portal.md)
+### [Azure portal](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
 ### [Interfaccia della riga di comando di Azure](dns-getstarted-cli.md)
 
@@ -21,17 +21,17 @@
 # Procedure
 
 ## Gestire le zone DNS
-### [Portale di Azure](dns-operations-dnszones-portal.md)
+### [Azure portal](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
 ### [Interfaccia della riga di comando di Azure](dns-operations-dnszones-cli.md)
 
 ## Gestire i record DNS
-### [Portale di Azure](dns-operations-recordsets-portal.md)
+### [Azure portal](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
 ### [Interfaccia della riga di comando di Azure](dns-operations-recordsets-cli.md)
 
 ## Gestire il DNS inverso
-### [Panoramica](dns-reverse-dns-overview.md)
+### [Overview](dns-reverse-dns-overview.md)
 ### [Ospitare zone di ricerca inverse in DNS Azure](dns-reverse-dns-hosting.md)
 ### [Gestire i record DNS inversi per i servizi di Azure](dns-reverse-dns-for-azure-services.md)
 
@@ -41,7 +41,7 @@
 ## [Automatizzare le operazioni del servizio DNS con .NET SDK](dns-sdk.md)
 
 ## [Domini personalizzati per le risorse di Azure](dns-custom-domain.md)
-## Risoluzione dei problemi
+## Risolvere problemi
 ### [Guida per la risoluzione dei problemi](dns-troubleshoot.md)
 
 # riferimento
@@ -50,7 +50,7 @@
 ## [Interfaccia della riga di comando di Azure](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)
-## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)
+## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html)
 ## [REST](/rest/api/dns/)

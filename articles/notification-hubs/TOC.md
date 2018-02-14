@@ -16,7 +16,7 @@
 ## Pianificare e progettare
 ### [Guida all'architettura push aziendale](notification-hubs-enterprise-push-notification-architecture.md)
 
-## Sviluppare
+## Sviluppo
 ### [Inviare notifiche push ad Android usando GCM](notification-hubs-android-push-notification-google-gcm-get-started.md)
 ### [Effettuare il push di notifiche con recinto virtuale con dati spaziali di Bing](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
 ### Effettuare il push a utenti specifici
@@ -42,7 +42,7 @@
 #### [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 #### [Windows](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 
-## Gestire
+## Gestisci
 ### [Registrazioni](notification-hubs-push-notification-registration-management.md)
 ### [Autenticazione basata su token del servizio APN](notification-hubs-push-notification-http2-token-authentification.md)
 
@@ -52,14 +52,14 @@
 #### [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 
-## Automazione
+## Automatizzare
 ### [Distribuire e gestire hub di notifica tramite Azure PowerShell](notification-hubs-deploy-and-manage-powershell.md)
 ### [Inviare notifiche pianificate](notification-hubs-send-push-notifications-scheduled.md)
 
-## Risolvere i problemi
+## Risolvere problemi
 ### [Linee guida per la diagnosi](notification-hubs-push-notification-fixer.md)
 
-# riferimento
+# Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs)
 ## [Azure PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
