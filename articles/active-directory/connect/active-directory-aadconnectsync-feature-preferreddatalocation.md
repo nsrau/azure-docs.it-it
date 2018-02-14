@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 01/31/2018
 ms.author: billmath
-ms.openlocfilehash: 8a36fc45334a2f1d12e6eabbfb16731ccc9998bf
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 021f009e66e57665a2252646b210f0e6dc55d33c
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-ad-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Servizio di sincronizzazione Azure AD Connect: configurare il percorso dati preferito per le risorse di Office 365
-Questo argomento illustra in dettaglio come configurare l'attributo PreferredDataLocation nel servizio di sincronizzazione Azure AD Connect. Quando un cliente usa Multi-Geo Capabilities in Office 365, questo attributo viene usato per definire la posizione geografica dei dati di Office 365 dell'utente.
+Questo argomento illustra in dettaglio come configurare l'attributo PreferredDataLocation nel servizio di sincronizzazione Azure AD Connect. Quando un cliente usa Multi-Geo Capabilities in Office 365, questo attributo viene usato per definire la posizione geografica dei dati di Office 365 dell'utente. I termini **area** e **area geografica** vengono usati in modo intercambiabile.
 
 > [!IMPORTANT]
 > Multi-Geo Capabilities è attualmente in fase di anteprima. Se si desidera partecipare al programma di anteprima, contattare il proprio rappresentante Microsoft.
@@ -29,36 +29,41 @@ Questo argomento illustra in dettaglio come configurare l'attributo PreferredDat
 >
 
 ## <a name="enable-synchronization-of-preferreddatalocation"></a>Abilitare la sincronizzazione di PreferredDataLocation
-Per impostazione predefinita, le risorse di Office 365 per gli utenti si trovano nella stessa area del tenant di Azure AD. Ad esempio, se il tenant si trova in America del Nord, anche le cassette postali di Exchange degli utenti si trovano in America del Nord. In un'organizzazione multinazionale questo aspetto può creare problemi. Impostando l'attributo preferredDataLocation è possibile definire l'area dell'utente.
+Per impostazione predefinita, le risorse di Office 365 per gli utenti si trovano nella stessa area geografica del tenant di Azure AD. Ad esempio, se il tenant si trova in America del Nord, anche le cassette postali di Exchange degli utenti si trovano in America del Nord. In un'organizzazione multinazionale questo aspetto può creare problemi. Impostando l'attributo preferredDataLocation è possibile definire l'area geografica dell'utente.
 
-Se si imposta questo attributo, è possibile disporre delle risorse di Office 365 dell'utente, ad esempio la cassetta postale e OneDrive, nella stessa area dell'utente e continuare a disporre di un tenant per l'intera organizzazione.
+Se si imposta questo attributo, è possibile avere le risorse di Office 365 dell'utente, ad esempio la cassetta postale e OneDrive, nella stessa area geografica dell'utente e continuare ad avere un tenant per l'intera organizzazione.
 
 > [!IMPORTANT]
 > Per essere idonei per la funzionalità Multi-Geo Capabilities, è necessario disporre di almeno 5000 postazioni nella sottoscrizione di Office 365.
 >
 >
 
-Le aree di Office 365 disponibili per Multi-Geo Capabilities sono:
+Un elenco di tutte le aree geografiche per Office 365 è disponibile in [Dove vengono archiviati i tuoi dati?](https://aka.ms/datamaps).
 
-| Region | DESCRIZIONE |
+Le aree geografiche di Office 365 disponibili per Multi-Geo Capabilities sono:
+
+| Area geografica | Valore preferredDataLocation |
 | --- | --- |
-| NAM | America del Nord |
-| EUR | Europa |
-| APC | Asia/Pacifico |
-| JPN | Giappone |
-| AUS | Australia |
-| CAN | Canada |
-| GBR | Regno Unito |
-| LAM | America Latina |
+| Asia/Pacifico | APC |
+| Australia | AUS |
+| Canada | CAN |
+| Unione Europea | EUR |
+| India | IND |
+| Giappone | JPN |
+| Corea del Sud | KOR |
+| Regno Unito | GBR |
+| Stati Uniti | NAM |
 
-Non tutti i carichi di lavoro di Office 365 supportano l'uso dell'impostazione di un'area per l'utente.
+* Se un'area geografica non è elencata nella tabella, ad esempio l'America del Sud, significa che non è possibile usarla per Multi-Geo Capabilities.
+* Le aree geografiche India e Corea del Sud sono disponibili solo per i clienti con indirizzi di fatturazione e licenze acquistate in tali aree.
+* Non tutti i carichi di lavoro di Office 365 supportano l'impostazione di un'area geografica per l'utente.
 
 Azure AD Connect supporta la sincronizzazione dell'attributo **PreferredDataLocation** per gli oggetti **Utente** nella versione 1.1.524.0 e successive. In particolare, sono state introdotte le seguenti modifiche:
 
 * Lo schema del tipo di oggetto **Utente** in Azure AD Connector è stato esteso per poter includere l'attributo PreferredDataLocation, che è di tipo stringa a valore singolo.
 * Lo schema del tipo di oggetto **Persona** in Metaverse è stato esteso per poter includere l'attributo PreferredDataLocation, che ha un valore singolo ed è di tipo stringa.
 
-Per impostazione predefinita, l'attributo PreferredDataLocation non è abilitato per la sincronizzazione. Questa funzionalità è destinata a organizzazioni più grandi e non risulta vantaggiosa per tutti gli utenti. È anche necessario definire un attributo per contenere l'area di Office 365 per gli utenti, poiché non esiste alcun attributo PreferredDataLocation in Active Directory locale. Si tratta di un attributo diverso per ogni organizzazione.
+Per impostazione predefinita, l'attributo PreferredDataLocation non è abilitato per la sincronizzazione. Questa funzionalità è destinata a organizzazioni più grandi e non risulta vantaggiosa per tutti gli utenti. È anche necessario definire un attributo per contenere l'area geografica di Office 365 per gli utenti, perché non c'è alcun attributo PreferredDataLocation in Active Directory locale. Si tratta di un attributo diverso per ogni organizzazione.
 
 > [!IMPORTANT]
 > Attualmente, Azure AD consente la configurazione diretta dell'attributo PreferredDataLocation sia sugli oggetti Utente che sugli oggetti Utente cloud sincronizzati con Azure AD PowerShell. Dopo aver attivato la sincronizzazione dell'attributo PreferredDataLocation, è necessario interrompere l'uso di Azure AD PowerShell per configurare l'attributo su **oggetti Utente sincronizzati**, poiché Azure AD Connect eseguirà l'override su questi oggetti in base ai valori dell'attributo di origine in Active Directory locale.
@@ -245,13 +250,13 @@ Riabilitare l'utilità di pianificazione della sincronizzazione predefinita:
 ## <a name="step-8-verify-the-result"></a>Passaggio 8: Verificare il risultato
 A questo punto è necessario verificare la configurazione e abilitarla per gli utenti.
 
-1. Aggiungere l'area per l'attributo selezionato per un utente. L'elenco delle aree disponibili è riportato in [questa tabella](#enable-synchronization-of-preferreddatalocation).  
+1. Aggiungere l'area all'attributo selezionato per un utente. L'elenco di aree geografiche disponibili è indicato in [questa tabella](#enable-synchronization-of-preferreddatalocation).  
 ![Attributo AD aggiunto a un utente](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. Attendere che l'attributo sia sincronizzato con Azure AD.
 3. Usare il servizio PowerShell di Exchange Online per verificare che l'area della cassetta postale sia stata impostata correttamente.  
 ![Area della cassetta postale impostata per un utente in Exchange Online](./media/active-directory-aadconnectsync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
-Supponendo che il tenant sia stato contrassegnato per essere in grado di usare questa funzionalità, la cassetta postale viene spostata nell'area corretta. Per verificare che ciò avvenga, esaminare il nome del server in cui si trova la cassetta postale.
-4. Per verificare che questa impostazione sia valida per più cassette postali, usare lo script disponibile nella [raccolta Technet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Questo script include inoltre un elenco di tutti i prefissi dei server dei data center di Office 365 e delle aree in cui si trovano. Può essere usato come riferimento nel passaggio precedente per verificare la posizione della cassetta postale.
+Supponendo che il tenant sia stato contrassegnato come in grado di usare questa funzionalità, la cassetta postale viene spostata nell'area geografica corretta. Per verificare che ciò avvenga, esaminare il nome del server in cui si trova la cassetta postale.
+4. Per verificare che questa impostazione sia valida per più cassette postali, usare lo script disponibile nella [raccolta Technet](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). Questo script include anche un elenco di tutti i prefissi dei server dei data center di Office 365 e delle aree geografiche in cui si trovano. Può essere usato come riferimento nel passaggio precedente per verificare la posizione della cassetta postale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

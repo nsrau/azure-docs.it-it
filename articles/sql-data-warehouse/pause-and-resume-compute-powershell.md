@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 01/25/2018
 ms.author: barbkess
-ms.openlocfilehash: 799210366978c68a390fa6d671184e94cf021301
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e2401f31ad88c8ee5fdd8912ff6033f0619a06b0
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-powershell"></a>Guida introduttiva: sospendere e riprendere il calcolo per un'istanza di Azure SQL Data Warehouse in PowerShell
 PowerShell consente di sospendere il calcolo per un'istanza di Azure SQL Data Warehouse per ridurre i costi. Riprendere il calcolo quando si è pronti a usare il data warehouse.
@@ -59,15 +59,16 @@ Seguire questa procedura per trovare le informazioni sulla posizione del data wa
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Nella pagina di sinistra del portale di Azure fare clic su **Database SQL**.
-3. Selezionare **mySampleDataWarehouse** nella pagina **Database SQL**. Verrà aperto il data warehouse. 
+3. Selezionare **mySampleDataWarehouse** nella pagina **Database SQL**. Verrà aperto il data warehouse.
 
     ![Nome del server e gruppo di risorse](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Annotare il nome del data warehouse che verrà usato come nome del database. Annotare anche il nome del server e il gruppo di risorse. Queste informazioni verranno usate nei comandi di sospensione e ripresa.
-5. Se il server è foo.database.windows.net, usare solo la prima parte come nome del server nei cmdlet PowerShell. Nella figura precedente il nome completo del server è newserver-20171113.database.windows.net. Come nome del server nel cmdlet PowerShell si userà **newserver-20171113**.
+4. Annotare il nome del data warehouse, che corrisponde al nome del database. Annotare anche il nome del server e il gruppo di risorse. Queste informazioni verranno usate 
+5.  nei comandi di sospensione e ripresa.
+6. Se il server è foo.database.windows.net, usare solo la prima parte come nome del server nei cmdlet PowerShell. Nella figura precedente il nome completo del server è newserver-20171113.database.windows.net. Eliminare il suffisso e usare **newserver-20171113** come nome del server nel cmdlet PowerShell.
 
 ## <a name="pause-compute"></a>Sospendere le risorse di calcolo
-Per ridurre i costi, è possibile sospendere e riprendere le risorse di calcolo su richiesta. Ad esempio, se non si usa il database durante la notte e nei fine settimana, è possibile sospenderlo in questi intervalli di tempo e riprenderne l'esecuzione durante il giorno. Mentre il database è sospeso, non verranno addebitati costi per le risorse di calcolo. Continueranno tuttavia a essere applicati addebiti per l'archiviazione. 
+Per ridurre i costi, è possibile sospendere e riprendere le risorse di calcolo su richiesta. Ad esempio, se non si usa il database durante la notte e nei fine settimana, è possibile sospenderlo in questi intervalli di tempo e riprenderne l'esecuzione durante il giorno. Mentre il database è sospeso non vengono addebitati costi per le risorse di calcolo. Continuano tuttavia a essere applicati addebiti per l'archiviazione. 
 
 Per sospendere l'esecuzione di un database, usare il cmdlet [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase.md). Nell'esempio seguente viene sospeso un data warehouse denominato **mySampleDataWarehouse** ospitato in un server denominato **newserver 20171113**. Il server appartiene a un gruppo di risorse di Azure denominato **myResourceGroup**.
 

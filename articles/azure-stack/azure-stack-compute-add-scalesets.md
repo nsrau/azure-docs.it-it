@@ -47,7 +47,7 @@ Nello Stack di Azure, il set di scalabilità di macchina virtuale non supportano
 
 Modificare lo script di PowerShell seguente per l'ambiente e quindi eseguire il codice per aggiungere un scalabilità della macchina virtuale impostato su Stack Azure Marketplace. 
 
-``$User``è l'account usato per connettere il portale dell'amministratore. ad esempio serviceadmin@contoso.onmicrosoft.com.
+``$User`` è l'account usato per connettere il portale dell'amministratore. Ad esempio, serviceadmin@contoso.onmicrosoft.com.
 
 ```
 $Arm = "https://adminmanagement.local.azurestack.external"

@@ -3,8 +3,8 @@ title: "Identità del servizio gestito per Azure Active Directory"
 description: "Panoramica dell'Identità del servizio gestito per le risorse di Azure."
 services: active-directory
 documentationcenter: 
-author: bryanla
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: 
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/15/2017
-ms.author: bryanla
+ms.author: daveba
 ms.reviewer: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 53577c8da5f82235284d1cb9e48f2d47254aa6bd
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 95980c082b09ad959ab8bbaae0250b40ac08d2c8
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Identità del servizio gestito per le risorse di Azure
 
@@ -29,38 +29,38 @@ Una difficoltà comune durante la creazione di applicazioni cloud è rappresenta
 
 ## <a name="how-does-it-work"></a>Come funziona?
 
-Quando si utilizza un'identità del servizio gestito in un'istanza del servizio di Azure, Azure crea un'identità nel tenant di Azure AD utilizzato dalla sottoscrizione di Azure. Inoltre, Azure fornisce le credenziali per l'identità, sull'istanza del servizio. Di conseguenza, il codice può quindi rendere una richiesta per ottenere i token di accesso per i servizi che supportano l'autenticazione di Azure Active Directory locale. Mentre Azure gestisce le credenziali utilizzate dall'istanza del servizio in sequenza.
+Quando si usa un'identità del servizio gestito in un'istanza di un servizio di Azure, Azure crea un'identità nel tenant di Azure AD usato dalla sottoscrizione di Azure. Azure effettua anche il provisioning delle credenziali per l'identità nell'istanza del servizio. Di conseguenza, il codice può quindi effettuare una richiesta locale per ottenere i token di accesso per i servizi che supportano l'autenticazione di Azure AD. Azure si occupa della gestione delle credenziali usate dall'istanza del servizio.
 
-## <a name="how-do-i-enable-my-resources-to-use-a-managed-service-identity"></a>Come abilitare le risorse da utilizzare un'identità del servizio gestito?
+## <a name="how-do-i-enable-my-resources-to-use-a-managed-service-identity"></a>Come si abilitano le risorse per usare un'identità del servizio gestito?
 
-Sono disponibili due tipi di identità del servizio gestiti: *assegnato dal sistema* e *utente assegnato*.
+Sono disponibili due tipi di identità del servizio gestito: *assegnata dal sistema* e *assegnata dall'utente*.
 
-- Oggetto **assegnato dal sistema** MSI è abilitato direttamente in un'istanza del servizio di Azure. Tramite il processo di abilitazione, Azure crea un'identità per l'istanza del servizio nel tenant di Azure AD e le credenziali per l'identità nell'istanza del servizio viene eseguito il provisioning. Il ciclo di vita di un sistema MSI assegnato è direttamente collegato a Azure l'istanza del servizio è abilitato nel. Se l'istanza del servizio viene eliminata, Azure pulisce automaticamente le credenziali e l'identità in Azure AD.
+- Un'identità del servizio gestito **assegnata dal sistema** viene abilitata direttamente in un'istanza del servizio di Azure. Tramite il processo di abilitazione Azure crea un'identità per l'istanza del servizio nel tenant di Azure AD ed effettua il provisioning delle credenziali per l'identità nell'istanza del servizio. Il ciclo di vita di un'identità del servizio gestito assegnata dal sistema è direttamente associato all'istanza del servizio di Azure in cui è abilitata. Se l'istanza del servizio viene eliminata, Azure pulisce automaticamente le credenziali e l'identità in Azure AD.
 
-- Oggetto **utente assegnato** MSI *(anteprima privata)* viene creata come una risorsa di Azure autonoma. Tramite il processo di creazione, Azure crea un'identità nel tenant di Azure AD. Dopo aver creato l'identità, può essere assegnato a una o più istanze di servizio di Azure. Poiché un utente assegnato MSI può essere utilizzato da più istanze del servizio di Azure, il ciclo di vita viene gestito separatamente.
+- Un'identità del servizio gestito **assegnata dall'utente** *(anteprima privata)* viene creata come risorsa di Azure autonoma. Tramite il processo di creazione Azure crea un'identità nel tenant di Azure AD. Dopo la creazione, l'identità può essere assegnata a una o più istanze del servizio di Azure. Poiché un'identità del servizio gestito assegnata dall'utente può essere usata da più istanze del servizio di Azure, il suo ciclo di vita viene gestito separatamente.
 
-Di seguito è riportato un esempio di come un file MSI assegnato dal sistema funziona con macchine virtuali di Azure.
+Ecco un esempio del funzionamento di un'identità del servizio gestito assegnata dal sistema con Macchine virtuali di Azure.
 
 ![Esempio di Identità del servizio gestito per la macchina virtuale](~/articles/active-directory/media/msi-vm-example.png)
 
-1. Gestione risorse di Azure riceve un messaggio per abilitare il file MSI assegnato dal sistema in una macchina virtuale.
+1. Azure Resource Manager riceve un messaggio per abilitare l'identità del servizio gestito assegnata dal sistema in una macchina virtuale.
 2. Azure Resource Manager crea un'entità servizio in Azure AD per rappresentare l'identità della macchina virtuale. L'entità servizio viene creata nel tenant di Azure AD considerata attendibile da questa sottoscrizione.
 3. Azure Resource Manager consente di configurare i dettagli dell'entità servizio nell'estensione dell'Identità del servizio gestito della macchina virtuale. Questo passaggio include la configurazione dell'ID client e del certificato usato dall'estensione per ottenere i token di accesso da Azure AD.
 4. Ora che l'identità dell'entità servizio della macchina virtuale è nota, è possibile concedere l'accesso alle risorse di Azure. Ad esempio, se il codice deve chiamare Azure Resource Manager, è necessario assegnare all'entità servizio della macchina virtuale il ruolo appropriato usando il controllo degli accessi in base ai ruoli in Azure AD.  Se il codice deve chiamare Key Vault, è necessario concedere al codice l'accesso alla chiave o al segreto specifico in Key Vault.
-5. Il codice in esecuzione nella macchina virtuale richiede un token da un endpoint locale ospitato dall'estensione MSI VM: oauth2/http://localhost:50342/token. Il parametro della risorsa specifica il servizio a cui viene inviato il token. Ad esempio, se si desidera che il codice venga autenticato in Azure Resource Manager, si userà resource=https://management.azure.com/.
+5. Il codice in esecuzione nella macchina virtuale richiede un token da un endpoint locale ospitato dall'estensione della macchina virtuale per l'identità del servizio gestito: http://localhost:50342/oauth2/token. Il parametro della risorsa specifica il servizio a cui viene inviato il token. Ad esempio, se si desidera che il codice venga autenticato in Azure Resource Manager, si userà resource=https://management.azure.com/.
 6. L'estensione della macchina virtuale per l'Identità del servizio gestito usa l'ID client configurato e un certificato per richiedere un token di accesso da Azure AD.  Azure AD restituisce un token di accesso JSON Web.
 7. Il codice invia il token di accesso in una chiamata a un servizio che supporta l'autenticazione di Azure AD.
 
-Utilizzando stesso, questo punto del diagramma di un esempio del funzionamento di un file MSI assegnati dall'utente con macchine virtuali di Azure.
+Usando lo stesso diagramma, ecco un esempio del funzionamento di un'identità del servizio gestito assegnata dall'utente con Macchine virtuali di Azure.
 
 ![Esempio di Identità del servizio gestito per la macchina virtuale](~/articles/active-directory/media/msi-vm-example.png)
 
-1. Gestione risorse di Azure riceve un messaggio per creare un file MSI assegnati dall'utente.
-2. Gestione risorse di Azure crea un'entità servizio in Azure AD per rappresentare l'identità del file MSI. L'entità servizio viene creata nel tenant di Azure AD considerata attendibile da questa sottoscrizione.
-3. Gestione risorse di Azure riceve un messaggio per configurare i dettagli dell'entità servizio nell'estensione MSI VM di una macchina virtuale. Questo passaggio include la configurazione dell'ID client e del certificato usato dall'estensione per ottenere i token di accesso da Azure AD.
-4. Ora che l'identità dell'entità servizio del file MSI è nota, è possibile concesso l'accesso alle risorse di Azure. Ad esempio, se il codice deve chiamare Azure Resource Manager, quindi è necessario assegnare dell'entità servizio del file MSI il ruolo appropriato con controllo di accesso basato sui ruoli (RBAC) in Azure AD. Se il codice deve chiamare Key Vault, è necessario concedere al codice l'accesso alla chiave o al segreto specifico in Key Vault. Nota: Passaggio 3 non è necessario per completare il passaggio 4. Una volta creato un file MSI, può essere concesso l'accesso alle risorse, indipendentemente dal fatto o non viene configurato in una macchina virtuale.
-5. Il codice in esecuzione nella macchina virtuale richiede un token da un endpoint locale ospitato dall'estensione della macchina virtuale per l'Identità del servizio gestito: http://localhost:50342/oauth2/token. Il parametro ID client specifica il nome dell'identità del file MSI da utilizzare. Il parametro resource specifica inoltre il servizio a cui il token viene inviato. Ad esempio, se si desidera che il codice venga autenticato in Azure Resource Manager, si userà resource=https://management.azure.com/.
-6. L'estensione VM MSI controlla se il certificato per l'ID richiesta client è configurato e richiede un token di accesso da Azure AD. Azure AD restituisce un token di accesso JSON Web.
+1. Azure Resource Manager riceve un messaggio per creare un'identità del servizio gestito assegnata dall'utente.
+2. Azure Resource Manager crea un'entità servizio in Azure AD per rappresentare l'identità del servizio gestito. L'entità servizio viene creata nel tenant di Azure AD considerata attendibile da questa sottoscrizione.
+3. Azure Resource Manager riceve un messaggio per configurare i dettagli dell'entità servizio nell'estensione di macchina virtuale dell'identità del servizio gestito di una macchina virtuale. Questo passaggio include la configurazione dell'ID client e del certificato usato dall'estensione per ottenere i token di accesso da Azure AD.
+4. Ora che l'identità dell'entità servizio dell'identità del servizio gestito è nota, è possibile concedere a questa identità l'accesso a risorse di Azure. Ad esempio, se il codice deve chiamare Azure Resource Manager, è necessario assegnare all'entità servizio dell'identità del servizio gestito il ruolo appropriato usando il controllo degli accessi in base al ruolo in Azure AD. Se il codice deve chiamare Key Vault, è necessario concedere al codice l'accesso alla chiave o al segreto specifico in Key Vault. Nota: il passaggio 3 non è obbligatorio per completare il passaggio 4. Quando è presente un'identità del servizio gestito, è possibile concedere a questa identità l'accesso alle risorse, indipendentemente dal fatto che sia configurata o meno in una macchina virtuale.
+5. Il codice in esecuzione nella macchina virtuale richiede un token da un endpoint locale ospitato dall'estensione della macchina virtuale per l'Identità del servizio gestito: http://localhost:50342/oauth2/token. Il parametro dell'ID client specifica il nome dell'identità del servizio gestito da usare. Inoltre, il parametro della risorsa specifica il servizio a cui viene inviato il token. Ad esempio, se si desidera che il codice venga autenticato in Azure Resource Manager, si userà resource=https://management.azure.com/.
+6. L'estensione della macchina virtuale dell'identità del servizio gestito verifica se il certificato per l'ID client richiesto sia configurato e richiede un token di accesso da Azure AD. Azure AD restituisce un token di accesso JSON Web.
 7. Il codice invia il token di accesso in una chiamata a un servizio che supporta l'autenticazione di Azure AD.
 
 Ogni servizio di Azure che supporta l'Identità del servizio gestito ha il proprio metodo per ottenere il token di accesso nel codice. Consultare le esercitazioni per ogni servizio per vedere il metodo specifico per ottenere un token.

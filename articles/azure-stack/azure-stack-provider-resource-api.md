@@ -33,7 +33,7 @@ Questo utilizzo API è un provider di API, pertanto il chiamante deve essere ass
 
 | **Metodo** | **URI della richiesta** |
 | --- | --- |
-| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}& subscriberId = {sub1.1} & api-version = 2015-06-01-preview & continuationToken = {valore del token} |
+| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value} |
 
 ### <a name="arguments"></a>Argomenti
 | **Argomento** | **Descrizione** |
@@ -44,10 +44,10 @@ Questo utilizzo API è un provider di API, pertanto il chiamante deve essere ass
 | *reportedEndTime* |Ora di fine della query. I vincoli che si applicano a *reportedStartTime* si applicano anche a questo argomento. Il valore per *reportedEndTime* non può essere nel futuro o alla data corrente. Questo caso, il risultato è impostato su "l'elaborazione non completato." |
 | *aggregationGranularity* |Parametro facoltativo che dispone di due valori potenziali discreti: giornaliera e oraria. Come suggeriscono i valori, uno restituisce i dati nella granularità giornaliera e l'altro è una risoluzione oraria. L'opzione giornaliera è il valore predefinito. |
 | *subscriberId* |l'ID sottoscrizione. Per ottenere i dati filtrati, è necessario l'ID sottoscrizione di un tenant diretto del provider. Se viene specificato alcun parametro di ID di sottoscrizione, la chiamata restituisce dati di utilizzo per i tenant diretto del provider. |
-| *versione dell'API* |Versione del protocollo utilizzato per effettuare questa richiesta. Questo valore è impostato su *2015-06-01-preview*. |
+| *api-version* |Versione del protocollo utilizzato per effettuare questa richiesta. Questo valore è impostato su *2015-06-01-preview*. |
 | *continuationToken* |Token recuperato dall'ultima chiamata al provider di utilizzo API. Questo token è necessaria quando una risposta è maggiore di 1.000 righe e funge da un segnalibro per lo stato di avanzamento. Se il token non è presente, i dati vengono recuperati dall'inizio del giorno o ora, in base al livello di dettaglio passati. |
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 OTTIENI /subscriptions/sub1/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00 & reportedEndTime = 2015-06-01T00% 3a00% 3a00% 2b00% 3a00 & aggregationGranularity = ogni giorno & subscriberId = sub1.1 & api-version = 1.0
 
 ```json
@@ -86,8 +86,8 @@ meterID1",
 | *usageStartTime* |UTC ora di inizio il bucket di utilizzo a cui appartiene questa aggregazione di utilizzo.|
 | *usageEndTime* |UTC ora di fine dell'intervallo di utilizzo a cui appartiene questa aggregazione di utilizzo. |
 | *instanceData* |Coppie chiave-valore di dettagli di istanze (in un nuovo formato):<br> *resourceUri*: completo di ID di risorsa, che include i gruppi di risorse e il nome dell'istanza. <br> *percorso*: area in cui è stato eseguito il servizio. <br> *tag*: i tag delle risorse specificate dall'utente. <br> *additionalInfo*: più dettagli sulla risorsa che è stata utilizzata, ad esempio, il tipo di versione o l'immagine del sistema operativo. |
-| *quantità* |Quantità di utilizzo delle risorse che si sono verificati in questo periodo di tempo. |
-| *ID misuratore* |ID univoco per la risorsa che è stata utilizzata (detto anche *ResourceID*). |
+| *quantity* |Quantità di utilizzo delle risorse che si sono verificati in questo periodo di tempo. |
+| *meterId* |ID univoco per la risorsa che è stata utilizzata (detto anche *ResourceID*). |
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Utilizzo delle risorse di riferimento all'API tenant](azure-stack-tenant-resource-usage-api.md)

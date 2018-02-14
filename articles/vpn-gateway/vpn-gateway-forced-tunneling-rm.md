@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2017
+ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: cc8a3e7f2a907b1eea4ecf39df2b291b0fb8b207
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
-ms.translationtype: MT
+ms.openlocfilehash: 00330f49d4acc9bd2d720a60b743b78c86b08f86
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configurare il tunneling forzato tramite il modello di distribuzione Azure Resource Manager
 
@@ -123,15 +123,22 @@ Installare la versione più recente dei cmdlet di PowerShell per Azure Resource 
   Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-6. Creare il gateway con un sito predefinito. Questa procedura può richiedere 45 minuti o più perché include le operazioni di creazione e configurazione del gateway.<br> **-GatewayDefaultSite** è il parametro di cmdlet che consente il funzionamento della configurazione del routing forzata. Assicurarsi pertanto di configurare questa impostazione in modo corretto. Se vengono visualizzati errori ValidateSet riguardo al valore GatewaySKU, verificare di avere installato la [versione più recente dei cmdlet di PowerShell](#before). La versione più recente dei cmdlet di PowerShell contiene i nuovi valori convalidati per gli SKU del gateway più recenti.
+6. Creare il gateway di rete virtuale. Questa procedura può richiedere 45 minuti o più perché include le operazioni di creazione e configurazione del gateway. Se vengono visualizzati errori ValidateSet riguardo al valore GatewaySKU, verificare di avere installato la [versione più recente dei cmdlet di PowerShell](#before). La versione più recente dei cmdlet di PowerShell contiene i nuovi valori convalidati per gli SKU del gateway più recenti.
 
   ```powershell
   $pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic
   $gwsubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
   $ipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name "gwIpConfig" -SubnetId $gwsubnet.Id -PublicIpAddressId $pip.Id
-  New-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -IpConfigurations $ipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -GatewayDefaultSite $lng1 -EnableBgp $false
+  New-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -IpConfigurations $ipconfig -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $false
   ```
-7. Stabilire le connessioni VPN da sito a sito.
+7. Assegnare un sito predefinito al gateway di rete virtuale. **-GatewayDefaultSite** è il parametro di cmdlet che consente il funzionamento della configurazione del routing forzata. Assicurarsi pertanto di configurare questa impostazione in modo corretto. 
+
+  ```powershell
+  $LocalGateway = Get-AzureRmLocalNetworkGateway -Name "DefaultSiteHQ" -ResourceGroupName "ForcedTunneling"
+  $VirtualGateway = Get-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling"
+  Set-AzureRmVirtualNetworkGatewayDefaultSite -GatewayDefaultSite $LocalGateway -VirtualNetworkGateway $VirtualGateway
+  ```
+8. Stabilire le connessioni VPN da sito a sito.
 
   ```powershell
   $gateway = Get-AzureRmVirtualNetworkGateway -Name "Gateway1" -ResourceGroupName "ForcedTunneling"

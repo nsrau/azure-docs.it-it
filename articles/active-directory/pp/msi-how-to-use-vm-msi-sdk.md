@@ -1,10 +1,10 @@
 ---
-title: "L'uso di un utente assegnato gestiti identità del servizio da Azure SDK in una macchina virtuale"
-description: Esempi di codice per l'utilizzo di Azure SDK con un file MSI assegnati dall'utente in una macchina virtuale.
+title: "Come usare un'identità del servizio gestito assegnata dall'utente con Azure SDK in una macchina virtuale"
+description: "Esempi di codice per l'uso di Azure SDK con un'identità del servizio gestito assegnata dall'utente in una macchina virtuale."
 services: active-directory
 documentationcenter: 
-author: BryanLa
-manager: mbaldwin
+author: daveba
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.devlang: na
@@ -12,24 +12,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: bryanla
+ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f9a31a0500a6f5f1c49fc45d5811e28788e6f2b1
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
-ms.translationtype: MT
+ms.openlocfilehash: 59d65e42c9b32bd0acd98645342833b4d57ad7a4
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="use-azure-sdks-with-a-user-assigned-managed-service-identity-msi"></a>Usare Azure SDK con un utente assegnato gestiti servizio identità (MSI)
+# <a name="use-azure-sdks-with-a-user-assigned-managed-service-identity-msi"></a>Usare Azure SDK con un'identità del servizio gestito assegnata dall'utente
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]Questo articolo fornisce un elenco di esempi di SDK, che illustrano l'utilizzo del supporto di loro rispettivi Azure SDK per MSI assegnati dall'utente.
+[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+Questo articolo fornisce un elenco di esempi di SDK, che mostrano l'uso del rispettivo Azure SDK supportato per l'identità del servizio gestito assegnata dall'utente.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 [!INCLUDE [msi-core-prereqs](~/includes/active-directory-msi-core-prereqs-ua.md)]
 
 > [!IMPORTANT]
-> - Tutti gli esempi di codice e script in questo articolo presuppongono che il client sia in esecuzione in una macchina virtuale abilitata per l'identità del servizio gestito. Usare la funzionalità di connessione alla macchina virtuale nel portale di Azure per connettersi in remoto alla macchina virtuale. Per informazioni dettagliate sull'abilitazione di estensione MSI in una macchina virtuale, vedere [configurare una macchina virtuale gestita servizio identità (MSI) usando l'interfaccia CLI di Azure](msi-qs-configure-cli-windows-vm.md), o uno degli articoli variant (tramite PowerShell, il portale di Azure, un modello o un SDK di Azure). 
+> - Tutti gli esempi di codice e script in questo articolo presuppongono che il client sia in esecuzione in una macchina virtuale abilitata per l'identità del servizio gestito. Usare la funzionalità di connessione alla macchina virtuale nel portale di Azure per connettersi in remoto alla macchina virtuale. Per informazioni dettagliate sull'abilitazione dell'identità del servizio gestito in una macchina virtuale, vedere [Configure a VM Managed Service Identity (MSI) using the Azure CLI](msi-qs-configure-cli-windows-vm.md) (Configurare l'identità del servizio gestito di una macchina virtuale tramite l'interfaccia della riga di comando di Azure) o una delle varianti dell'articolo (tramite PowerShell, il portale di Azure, un modello o Azure SDK). 
 
 ## <a name="sdk-code-samples"></a>Esempi di codice SDK
 

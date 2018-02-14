@@ -26,7 +26,7 @@ ms.lasthandoff: 01/05/2018
 
 Queste note sulla versione offrono informazioni sui miglioramenti e correzioni di problemi noti in Azure Stack Development Kit. Se non si è certi quale versione è in esecuzione, è possibile [utilizzare il portale per controllare](azure-stack-updates.md#determine-the-current-version).
 
-## <a name="build-201801032"></a>Compilazione 20180103.2
+## <a name="build-201801032"></a>Build 20180103.2
 
 ### <a name="new-features-and-fixes"></a>Nuove funzionalità e correzioni
 
@@ -78,7 +78,7 @@ Queste note sulla versione offrono informazioni sui miglioramenti e correzioni d
 - Gli operatori di Azure Stack potrebbero non essere possibile distribuire, eliminare, modificare le reti virtuali o i gruppi di sicurezza di rete. Questo problema si verifica principalmente sui tentativi di aggiornamento successive dello stesso pacchetto. Ciò è causato da un problema di creazione di pacchetti con un aggiornamento che è attualmente in corso il controllo.
 - Bilanciamento di carico interno (ILB) gestisce correttamente gli indirizzi MAC per macchine virtuali di back-end che interrompe le istanze di Linux.
  
-#### <a name="sqlmysql"></a>SQL o MySQL 
+#### <a name="sqlmysql"></a>SQL/MySQL 
 - È possibile richiedere un'ora prima che i tenant possono creare database in un nuovo SQL o MySQL SKU. 
 - Creazione di elementi direttamente nel server che non vengono eseguite dal provider di risorse di hosting MySQL e SQL Server non è supportata e può comportare uno stato non corrispondente.
 
@@ -147,7 +147,7 @@ Ambienti, distribuiti in Azure Active Directory Federation Services (ADFS) di **
 - Gli operatori di Azure Stack potrebbero non essere possibile distribuire, eliminare, modificare le reti virtuali o i gruppi di sicurezza di rete. Questo problema si verifica principalmente sui tentativi di aggiornamento successive dello stesso pacchetto. Ciò è causato da un problema di creazione di pacchetti con un aggiornamento che è attualmente in corso il controllo.
 - Bilanciamento di carico interno (ILB) gestisce correttamente gli indirizzi MAC per macchine virtuali di back-end che interrompe le istanze di Linux.
  
-#### <a name="sqlmysql"></a>SQL o MySQL 
+#### <a name="sqlmysql"></a>SQL/MySQL 
 - È possibile richiedere un'ora prima che i tenant possono creare database in un nuovo SQL o MySQL SKU. 
 - Creazione di elementi direttamente nel server che non vengono eseguite dal provider di risorse di hosting MySQL e SQL Server non è supportata e può comportare uno stato non corrispondente.
 
@@ -223,7 +223,7 @@ Inoltre, sono state apportate le seguenti correzioni:
 - In **rete**, se si fa clic su **connessione** per impostare una connessione VPN, **per rete virtuale a** è elencato come un tipo di connessione. Non selezionare questa opzione. Attualmente, solo il **Site-to-site (IPsec)** opzione è supportata.
 - Dopo aver creata e associata a tale indirizzo IP della macchina virtuale è non è possibile eliminare l'associazione di un indirizzo IP pubblico da una macchina virtuale (VM). Disassociazione verrà visualizzata a funzionare, ma l'indirizzo IP pubblico assegnato in precedenza rimane associato con la macchina virtuale originale. Questo comportamento si verifica anche se si riassegna l'indirizzo IP per una nuova macchina virtuale (conosciuta come un *scambio VIP*). Tutti i successivi tentativi di connessione attraverso il risultato di indirizzi IP in una connessione alla macchina virtuale di origine associati e non a quello nuovo. Attualmente, è necessario utilizzare solo i nuovi indirizzi IP pubblici per la creazione della nuova macchina virtuale.
  
-#### <a name="sqlmysql"></a>SQL o MySQL 
+#### <a name="sqlmysql"></a>SQL/MySQL 
 - È possibile richiedere un'ora prima che i tenant possono creare database in un nuovo SQL o MySQL SKU. 
 - Creazione di elementi direttamente nel server che non vengono eseguite dal provider di risorse di hosting MySQL e SQL Server non è supportata e può comportare uno stato non corrispondente.
 

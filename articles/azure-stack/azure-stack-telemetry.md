@@ -83,7 +83,7 @@ I livelli dati di telemetria sono cumulativi e suddiviso in categorie in quattro
 
 **0 (sicurezza)**. Solo dati di sicurezza. Proteggere informazioni necessarie per mantenere il sistema operativo, inclusi i dati sull'esperienza dell'utente connesso e i dati di telemetria impostazioni del componente e Windows Defender. A questo livello, non viene generato alcun telemetria specifico dello Stack di Azure.
 
-**1 (base)**. Protezione dati e dello stato di base e la qualità dei dati. Informazioni di base dei dispositivi, tra cui: i dati relativi alla qualità, compatibilità delle applicazioni, dati di utilizzo dell'app e dati dal livello di sicurezza. Impostando il livello di dati di telemetria su dati di telemetria dello Stack di Azure consente di base. I dati raccolti a questo livello includono:
+**1 (Basic)**. Protezione dati e dello stato di base e la qualità dei dati. Informazioni di base dei dispositivi, tra cui: i dati relativi alla qualità, compatibilità delle applicazioni, dati di utilizzo dell'app e dati dal livello di sicurezza. Impostando il livello di dati di telemetria su dati di telemetria dello Stack di Azure consente di base. I dati raccolti a questo livello includono:
 
 - **Informazioni sul dispositivo** che consente di fornire informazioni sui tipi e le configurazioni di istanze di Windows Server 2016 native che virtualizzate nell'ecosistema, tra cui:
  - Gli attributi di computer, ad esempio OEM, modello, 
@@ -109,8 +109,8 @@ Si noti che la disattivazione di telemetria di Windows e Azure Stack disabiliter
 ### <a name="asdk-and-multinode-enable-or-disable-telemetry-after-deployment"></a>ASDK e MultiNode: abilitare o disabilitare i dati di telemetria dopo la distribuzione
 
 Per abilitare o disabilitare i dati di telemetria dopo la distribuzione, è necessario disporre di accesso per il punto finale con privilegi (PEP) che viene esposto in macchine virtuali di ERCS.
-1.  Per abilitare:`Set-Telemetry -Enable`
-2.  Per disabilitare:`Set-Telemetry -Disable`
+1.  Per abilitare:  `Set-Telemetry -Enable`
+2.  Per disabilitare: `Set-Telemetry -Disable`
 
 Dettaglio di parametro: 
 > . PARAMETRO Enable - Attiva il caricamento di dati di telemetria 

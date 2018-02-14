@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: b4bdf3339e585a7b22a1945871f802854020fb94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 391b691e895c672ef872f8b98c88567175ad8030
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Pianificazione della capacità per cluster HDInsight
 
@@ -67,9 +67,7 @@ Per un cluster a 48 nodi si consigliano 4 o 8 account di archiviazione. Anche se
 
 ## <a name="choose-a-cluster-type"></a>Scegliere un tipo di cluster
 
-Il tipo di cluster determina il carico di lavoro per il quale il cluster HDInsight è configurato, ad esempio Hadoop, Storm, Kafka o Spark. 
-<!-- For a detailed description of the available cluster types, see [HDInsight Architecture](hdinsight-architecture.md). -->
-Ogni tipo di ogni cluster ha una topologia di distribuzione specifica che include i requisiti relativi alle dimensioni e al numero di nodi.
+Il tipo di cluster determina il carico di lavoro per il quale il cluster HDInsight è configurato, ad esempio Hadoop, Storm, Kafka o Spark. Per una descrizione dettagliata dei tipi di cluster disponibili, vedere [Introduzione ad Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Ogni tipo di ogni cluster ha una topologia di distribuzione specifica che include i requisiti relativi alle dimensioni e al numero di nodi.
 
 ## <a name="choose-the-vm-size-and-type"></a>Scegliere il tipo e le dimensioni della macchina virtuale
 
@@ -96,9 +94,7 @@ In base al tipo di cluster, aumentando il numero di nodi di lavoro si introduce 
 
 ### <a name="cluster-lifecycle"></a>Ciclo di vita del cluster
 
-In genere, i costi vengono addebitati per l'intera durata di un cluster. Se solo in alcune occasioni è necessario avere un cluster attivo e operativo, è possibile creare cluster su richiesta usando Azure Data Factory.
-<!-- [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). -->
-In alternativa, è possibile creare script di PowerShell che eseguono il provisioning ed eliminano il cluster e quindi pianificare gli script tramite [Automazione di Azure](https://azure.microsoft.com/services/automation/).
+In genere, i costi vengono addebitati per l'intera durata di un cluster. Se è necessario che il cluster sia attivo e operativo solo in alcuni casi, è possibile [creare cluster on demand usando Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). In alternativa, è possibile creare script di PowerShell che eseguono il provisioning ed eliminano il cluster e quindi pianificare gli script tramite [Automazione di Azure](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]
 > Quando viene eliminato un cluster, viene eliminato anche il metastore Hive predefinito. Per mantenere il metastore per la creazione del cluster successivo, usare un archivio di metadati esterno come Database di Azure o Oozie.

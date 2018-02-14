@@ -72,12 +72,12 @@ ms.lasthandoff: 10/11/2017
 ## <a name="publish-a-marketplace-item"></a>Pubblicare un elemento del Marketplace
 1. Usare PowerShell o Azure Storage Explorer per caricare l'elemento del Marketplace (.azpkg) di archiviazione Blob di Azure. È possibile caricare in archiviazione di Azure Stack locale o caricare in archiviazione di Azure. (È un percorso temporaneo per il pacchetto). Assicurarsi che il blob è accessibile pubblicamente.
 2. Nella macchina virtuale client nell'ambiente di Microsoft Azure Stack, assicurarsi che la sessione di PowerShell sia configurata con le credenziali di amministratore del servizio. È possibile trovare istruzioni su come autenticare PowerShell nello Stack di Azure in [distribuire un modello con PowerShell](user/azure-stack-deploy-template-powershell.md).
-3. Utilizzare il **Aggiungi AzureRMGalleryItem** cmdlet di PowerShell per pubblicare l'elemento del Marketplace allo Stack di Azure. ad esempio:
+3. Utilizzare il **Aggiungi AzureRMGalleryItem** cmdlet di PowerShell per pubblicare l'elemento del Marketplace allo Stack di Azure. Ad esempio: 
    
        Add-AzureRMGalleryItem -GalleryItemUri `
        https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
    
-   | Parametro | Descrizione |
+   | Parametro | DESCRIZIONE |
    | --- | --- |
    | SubscriptionID |ID sottoscrizione amministratore. È possibile recuperarlo utilizzando PowerShell. Se si preferisce eseguire questa operazione nel portale, passare alla sottoscrizione del provider e copiare l'ID sottoscrizione. |
    | GalleryItemUri |URI del BLOB per il pacchetto di raccolta che è già stato caricato in un archivio. |
@@ -100,31 +100,31 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="reference-marketplace-item-manifestjson"></a>Informazioni di riferimento: Manifest.json elemento Marketplace
 ### <a name="identity-information"></a>Informazioni sull'identità
-| Nome | Obbligatoria | Tipo | Vincoli | Descrizione |
+| NOME | Obbligatoria | type | Vincoli | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
-| Nome |X |String |[A-Za-z0-9] + | |
-| Editore |X |String |[A-Za-z0-9] + | |
-| Versione |X |String |[SemVer v2](http://semver.org/) | |
+| NOME |X |string |[A-Za-z0-9] + | |
+| Editore |X |string |[A-Za-z0-9] + | |
+| Version |X |string |[SemVer v2](http://semver.org/) | |
 
 ### <a name="metadata"></a>Metadata
-| Nome | Obbligatoria | Tipo | Vincoli | Descrizione |
+| NOME | Obbligatoria | type | Vincoli | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |Indicazione di 80 caratteri |Il portale potrebbe non visualizzare correttamente il nome dell'elemento se è più lungo di 80 caratteri. |
-| PublisherDisplayName |X |String |Indicazione di 30 caratteri |Il portale potrebbe non visualizzare correttamente il nome del server di pubblicazione in caso di più di 30 caratteri. |
-| PublisherLegalName |X |String |Numero massimo di 256 caratteri | |
-| Riepilogo |X |String |Da 60 a 100 caratteri | |
-| LongSummary |X |String |Da 140 a 256 caratteri |Non ancora applicabile nello Stack di Azure. |
-| Descrizione |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 a 5.000 caratteri | |
+| DisplayName |X |string |Indicazione di 80 caratteri |Il portale potrebbe non visualizzare correttamente il nome dell'elemento se è più lungo di 80 caratteri. |
+| PublisherDisplayName |X |string |Indicazione di 30 caratteri |Il portale potrebbe non visualizzare correttamente il nome del server di pubblicazione in caso di più di 30 caratteri. |
+| PublisherLegalName |X |string |Numero massimo di 256 caratteri | |
+| Summary |X |string |Da 60 a 100 caratteri | |
+| LongSummary |X |string |Da 140 a 256 caratteri |Non ancora applicabile nello Stack di Azure. |
+| DESCRIZIONE |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 a 5.000 caratteri | |
 
 ### <a name="images"></a>Immagini
 Marketplace utilizza le icone seguenti:
 
-| Nome | Larghezza | Altezza: | Note |
+| NOME | Larghezza | Altezza: | Note |
 | --- | --- | --- | --- |
 | Ampia |255 px |115 px |È necessario sempre |
-| Large |115 px |115 px |È necessario sempre |
+| Grande |115 px |115 px |È necessario sempre |
 | Media |90 px |90 px |È necessario sempre |
-| Small |40 px |40 px |È necessario sempre |
+| Piccolo |40 px |40 px |È necessario sempre |
 | Schermata |533 px |32 px |Facoltativo |
 
 ### <a name="categories"></a>Categorie
@@ -133,18 +133,18 @@ Ogni elemento del Marketplace deve essere contrassegnato con una categoria che i
 ### <a name="links"></a>Collegamenti
 Ogni elemento del Marketplace può includere vari collegamenti a contenuto aggiuntivo. I collegamenti vengono specificati come un elenco di nomi e di URI.
 
-| Nome | Obbligatoria | Tipo | Vincoli | Descrizione |
+| NOME | Obbligatoria | type | Vincoli | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |Numero massimo di 64 caratteri | |
+| DisplayName |X |string |Numero massimo di 64 caratteri | |
 | Uri |X |URI | | |
 
 ### <a name="additional-properties"></a>Proprietà aggiuntive
 Oltre ai metadati precedenti, gli autori di Marketplace possono fornire dati di coppia chiave/valore personalizzato nel formato seguente:
 
-| Nome | Obbligatoria | Tipo | Vincoli | Descrizione |
+| NOME | Obbligatoria | type | Vincoli | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |Numero massimo di 25 caratteri | |
-| Valore |X |String |Numero massimo di 30 caratteri | |
+| DisplayName |X |string |Numero massimo di 25 caratteri | |
+| Valore |X |string |Numero massimo di 30 caratteri | |
 
 ### <a name="html-sanitization"></a>Purificazione HTML
 Per qualsiasi campo che consente di HTML, sono consentiti elementi e gli attributi seguenti:

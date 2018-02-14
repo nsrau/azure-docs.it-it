@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: b2040bfad42f2913882792c0055225b2c3d521b5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e8c1ff23ee00e15325a82e1df0f4643ec429b119
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/01/2018
 ---
 # <a name="authorize-users-for-ambari-views"></a>Autorizzare gli utenti per le viste di Ambari
 
-I [cluster HDInsight aggiunti al dominio](./domain-joined/apache-domain-joined-introduction.md) offrono funzionalità di livello aziendale, ad esempio l'autenticazione basata su Azure Active Directory. È possibile sincronizzare i nuovi utenti <!-- [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) --> aggiunti a gruppi di Azure AD a cui è stato concesso l'accesso al cluster, consentendo loro di eseguire determinate azioni. L'utilizzo di utenti, gruppi e autorizzazioni in Ambari è supportato sia per cluster HDInsight aggiunti al dominio sia per cluster HDInsight standard.
+I [cluster HDInsight aggiunti al dominio](./domain-joined/apache-domain-joined-introduction.md) offrono funzionalità di livello aziendale, ad esempio l'autenticazione basata su Azure Active Directory. È possibile [sincronizzare i nuovi utenti](hdinsight-sync-aad-users-to-cluster.md) aggiunti a gruppi di Azure AD a cui è stato concesso l'accesso al cluster, consentendo loro di eseguire determinate azioni. L'utilizzo di utenti, gruppi e autorizzazioni in Ambari è supportato sia per cluster HDInsight aggiunti al dominio sia per cluster HDInsight standard.
 
 Gli utenti di Active Directory possono accedere ai nodi del cluster tramite le proprie credenziali di dominio che consentono anche di autenticare le interazioni tra cluster con antri endpoint approvati, ad esempio Hue, viste di Ambari, ODBC, JDBC, PowerShell e API REST.
 
@@ -145,5 +145,4 @@ All'utente di dominio Azure AD "hiveuser2" è stato assegnato il ruolo *Cluster 
 * [Configurare criteri Hive in HDInsight aggiunto al dominio](./domain-joined/apache-domain-joined-run-hive.md)
 * [Gestione dei cluster HDInsight aggiunti al dominio](./domain-joined/apache-domain-joined-manage.md)
 * [Usare la vista Hive con Hadoop in HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
-
-<!-- * [Synchronize Azure AD users to the cluster](hdinsight-sync-aad-users-to-cluster.md) -->
+* [Sincronizzare gli utenti di Azure AD con il cluster](hdinsight-sync-aad-users-to-cluster.md)

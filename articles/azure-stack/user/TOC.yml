@@ -67,7 +67,7 @@
               href: azure-stack-understanding-dns.md
             - name: DNS in Azure Stack
               href: azure-stack-dns.md
-        - name: Insieme di credenziali delle chiavi
+        - name: Insieme di credenziali di chiave
           items:
             - name: Panoramica
               href: azure-stack-kv-intro.md
@@ -115,7 +115,7 @@
               href: azure-stack-deploy-template-powershell.md
             - name: Distribuire con Visual Studio
               href: azure-stack-deploy-template-visual-studio.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: PowerShell per Azure Stack
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10

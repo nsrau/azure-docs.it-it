@@ -1,6 +1,6 @@
 # [Documentazione di Cloud Foundry](index.md)
 # Guide introduttive
-## [Modello di Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry)
+## [Modello del Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry)
 # Esercitazioni
 ## [Distribuire un'app Cloud Foundry in Azure](/azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app)
 ## [Cloud Foundry in Azure](/azure/virtual-machines/linux/cloudfoundry-get-started)

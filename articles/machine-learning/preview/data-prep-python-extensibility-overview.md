@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
-ms.date: 09/07/2017
-ms.openlocfilehash: 3c3864480d2fcba4f6d388d4e0d00b917cb62d2b
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: MT
+ms.date: 02/01/2018
+ms.openlocfilehash: 76ed1a93af22620ccc2074168b3ff20f6bb4c37d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Estensioni della preparazione dati in Python
 Al fine di colmare i vuoti funzionali tra le funzioni incorporate, la preparazione dati di Azure Machine Learning include più livelli di estensibilità. In questo documento viene descritta l'estensibilità tramite lo script di Python. 
@@ -124,8 +124,8 @@ oppure
 
 `./pip install <libraryname>`
 
-## <a name="use-custom-modules"></a>Usare i moduli personalizzati
-Nella trasformazione del flusso di dati (Script), scrivere python codice simile al seguente:
+## <a name="use-custom-modules"></a>Usare moduli personalizzati
+In Transform Dataflow (Script) (Trasforma flusso di dati - Script) scrivere il codice Python seguente
 
 ```python
 import sys
@@ -135,7 +135,7 @@ from UserModule import ExtensionFunction1
 df = ExtensionFunction1(df)
 ```
 
-In Aggiungi colonna (Script), impostare il tipo di blocco di codice = modulo e codice python seguenti:
+In Add Column (Script) (Aggiungi colonna - Script) impostare il tipo di blocco di codice come modulo e scrivere il codice Python seguente
 
 ```python 
 import sys
@@ -146,7 +146,7 @@ from UserModule import ExtensionFunction2
 def newvalue(row):
     return ExtensionFunction2(row)
 ```
-Per i contesti di esecuzione diverso (spark docker locale), punto percorso assoluto per il posto giusto. È consigliabile utilizzare "os.getcwd() + relativePath" per consentirne l'individuazione.
+Per contesti di esecuzione diversi (locale, Docker, Spark), fare in modo che il percorso assoluto punti alla posizione appropriata. Per l'individuazione, è possibile usare "os.getcwd() + relativePath".
 
 
 ## <a name="column-data"></a>Dati della colonna 

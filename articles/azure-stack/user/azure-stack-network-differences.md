@@ -42,7 +42,7 @@ In questo articolo viene fornita una panoramica delle considerazioni univoche pe
 |Network Watcher|Funzionalità di monitoraggio della rete tenant Watcher di rete|Supportato|Non è ancora supportato|
 |RETE CDN|Profili di rete per la distribuzione del contenuto|Supportato|Non è ancora supportato|
 |gateway applicazione|Bilanciamento del carico di livello 7|Supportato|Non è ancora supportato|
-|Gestione traffico|Instradare il traffico in ingresso per affidabilità e prestazioni ottimali delle applicazioni.|Supportato|Non è ancora supportato|
+|servizio Gestione traffico|Instradare il traffico in ingresso per affidabilità e prestazioni ottimali delle applicazioni.|Supportato|Non è ancora supportato|
 |Express Route|Configurare una connessione veloce e privata per servizi cloud Microsoft dalle funzionalità di infrastruttura o la condivisione percorso locale.|Supportato|Supporto per la connessione Azure Stack a un circuito Express Route.|
 
 ## <a name="next-steps"></a>Passaggi successivi

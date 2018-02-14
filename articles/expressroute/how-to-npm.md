@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: cherylmc
-ms.openlocfilehash: 63160bc8f334b975ade8b35ce809578ad3a5b3fa
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.date: 01/31/2018
+ms.author: pareshmu
+ms.openlocfilehash: 269c2e8a7867521b34128980e33ed97aa7b62a04
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/01/2018
@@ -43,7 +43,8 @@ Monitoraggio prestazioni rete (NPM) è una soluzione di monitoraggio di rete bas
 
 È possibile monitorare i circuiti di ExpressRoute in qualsiasi parte del mondo tramite un'area di lavoro ospitata in una delle seguenti aree:
 
-* Europa occidentale 
+* Europa occidentale
+* Stati Uniti centro-occidentali
 * Stati Uniti orientali 
 * Asia sudorientale 
 * Australia sud-orientale
@@ -57,14 +58,13 @@ Gli agenti di monitoraggio sono installati su più server, sia in locale che in 
     * Installare agenti di monitoraggio su server locali e VM di Azure.
     * Configurare le impostazioni nei server degli agenti di monitoraggio per consentire agli agenti di monitoraggio di comunicare (aprire le porte del firewall, ecc.).
 3. Configurare regole del gruppo di sicurezza di rete per consentire all'agente di monitoraggio installato nelle VM di Azure di comunicare con gli agenti di monitoraggio locali.
-4. Richiedere di inserire l'area di lavoro NPM nell'elenco elementi consentiti.
-5. Configurare il monitoraggio: rilevamento automatico e gestione delle reti visibili in NPM.
+4. Configurare il monitoraggio: rilevamento automatico e gestione delle reti visibili in NPM.
 
 Se si usa già Monitoraggio prestazioni rete per monitorare altri oggetti o servizi e si dispone già dell'area di lavoro in una delle aree supportate, è possibile ignorare i passaggi 1 e 2 e iniziare la configurazione dal passaggio 3.
 
-## <a name="configure"></a>Passaggio 1: Creare un'area di lavoro
+## <a name="configure"></a>Passaggio 1: Creare un'area di lavoro (nella sottoscrizione che include le reti virtuali collegate ai circuiti ExpressRoute)
 
-1. Nel [portale di Azure](https://portal.azure.com) cercare "Monitoraggio prestazioni rete" nell'elenco dei servizi nel **Marketplace**. Nell'elenco dei risultati fare clic per aprire la pagina **Monitoraggio prestazioni rete**.
+1. Nel [portale di Azure](https://portal.azure.com) selezionare la sottoscrizione che include le reti virtuali di cui è stato eseguito il peer al circuito ExpressRoute. Cercare quindi "Monitoraggio prestazioni rete" nell'elenco dei servizi nel **Marketplace**. Nell'elenco dei risultati fare clic per aprire la pagina **Monitoraggio prestazioni rete**.
 
   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. Nella parte inferiore della pagina principale **Monitoraggio prestazioni rete** fare clic su **Crea** per aprire la pagina **Monitoraggio prestazioni rete - Crea nuova soluzione**. Fare clic su **Area di lavoro di OMS - Selezionare un'area di lavoro** per aprire la pagina Aree di lavoro. Fare clic su **+Crea nuova area di lavoro** per aprire la pagina Area di lavoro.
@@ -105,7 +105,7 @@ Se si usa già Monitoraggio prestazioni rete per monitorare altri oggetti o serv
 
   ![Script di PowerShell](.\media\how-to-npm\7.png)
 
-### <a name="installagent"></a>2.2: Installare un agente di monitoraggio in ogni server di monitoraggio
+### <a name="installagent"></a>2.2: Installare un agente di monitoraggio in ogni server di monitoraggio (in ogni rete virtuale che si vuole monitorare)
 
 Si consiglia di installare almeno due agenti su ogni lato della connessione ExpressRoute (ad esempio, in locale, reti virtuali di Azure) per la ridondanza. Usare la procedura seguente per installare gli agenti:
 
@@ -127,6 +127,8 @@ Si consiglia di installare almeno due agenti su ogni lato della connessione Expr
 6. Nella pagina **Pronto per l'installazione** rivedere le scelte effettuate e quindi fare clic su **Installa**.
 7. Nella pagina **Configurazione completata** fare clic su **Fine**.
 8. Al termine verrà visualizzato Microsoft Monitoring Agent nel Pannello di controllo. È possibile rivedere la configurazione e verificare che l'agente sia connesso a Operational Insights (OMS). Quando si è connessi a OMS, l'agente visualizza un messaggio nel quale è indicato che **Microsoft Monitoring Agent ha eseguito la connessione al servizio Microsoft Operations Management Suite**.
+
+9. Ripetere questo passaggio per ogni rete virtuale che è necessario monitorare.
 
 ### <a name="proxy"></a>2.3: Configurare le impostazioni proxy (facoltativo)
 
@@ -165,7 +167,7 @@ La porta 8084 è aperta per impostazione predefinita. È possibile usare una por
 >
 >
 
-Aprire i server degli agenti e aprire una finestra di PowerShell con privilegi amministrativi. Eseguire lo script di PowerShell [EnableRules](https://gallery.technet.microsoft.com/OMS-Network-Performance-04a66634) (che è stato scaricato in precedenza). Non utilizzare alcun parametro.
+Aprire i server degli agenti e aprire una finestra di PowerShell con privilegi amministrativi. Eseguire lo script di PowerShell [EnableRules](https://aka.ms/npmpowershellscript) (che è stato scaricato in precedenza). Non utilizzare alcun parametro.
 
   ![PowerShell_Script](.\media\how-to-npm\script.png)
 
@@ -183,12 +185,7 @@ Per altre informazioni su NSG, vedere [Gruppi di sicurezza di rete](../virtual-n
 
 ## <a name="setupmonitor"></a>Passaggio 4: Configurare NPM per il monitoraggio di ExpressRoute
 
->[!WARNING]
->Proseguire solo quando l'area di lavoro è stata inserita nell'elenco elementi consentiti e si riceve il messaggio di conferma.
->
->
-
-Dopo aver completato le sezioni precedenti e aver verificato che è avvenuto l'inserimento nell'elenco elementi consentiti, è possibile configurare il monitoraggio.
+Dopo aver completato le sezioni precedenti, è possibile configurare il monitoraggio.
 
 1. Passare al riquadro della panoramica di Monitoraggio prestazioni rete accedendo alla pagina **Tutte le risorse** e facendo clic sull'area di lavoro NPM inserita nell'elenco elementi consentiti.
 

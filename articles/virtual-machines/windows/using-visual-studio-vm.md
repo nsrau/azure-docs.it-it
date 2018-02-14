@@ -15,11 +15,11 @@ ms.prod: vs-devops-alm
 ms.date: 01/30/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 813022f1778e2c7f3174e11192b845c2c33ad219
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 599a890be4d014d22bae899be4cf6e281c4109d4
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a id="top"> </a> Immagini di Visual Studio in Azure
 L'uso di Visual Studio in una macchina virtuale (VM) di Azure preconfigurata è il modo più semplice e veloce per avere subito a disposizione un ambiente di sviluppo pienamente operativo.  In [Azure Marketplace](https://portal.azure.com/) sono disponibili immagini di sistema con diverse configurazioni di Visual Studio. È sufficiente avviare una macchina virtuale per iniziare a usare l'ambiente di sviluppo.
@@ -27,14 +27,14 @@ L'uso di Visual Studio in una macchina virtuale (VM) di Azure preconfigurata è 
 Non si è ancora provato Azure? [Creare un account Azure gratuito](https://azure.microsoft.com/free).
 
 ## <a name="what-configurations-and-versions-are-available"></a>Quali configurazioni e versioni sono disponibili?
-In Azure Marketplace sono disponibili le immagini per le versioni principali più recenti: Visual Studio 2017 e Visual Studio 2015.  Per ogni versione principale sono elencate la versione originariamente rilasciata (nota anche come RTW) e le versioni aggiornate più recenti.  Per ognuna di queste diverse versioni sono disponibili le edizioni Visual Studio Enterprise e Visual Studio Community.
+In Azure Marketplace sono disponibili le immagini per le versioni principali più recenti: Visual Studio 2017 e Visual Studio 2015.  Per ogni versione principale sono elencate la versione originariamente rilasciata (nota anche come RTW) e le versioni aggiornate più recenti.  Per ognuna di queste diverse versioni sono disponibili le edizioni Visual Studio Enterprise e Visual Studio Community.  Queste immagini vengono aggiornate almeno una volta al mese in modo da includere gli aggiornamenti più recenti per Visual Studio e Windows.  Anche se i nomi delle immagini rimangono invariati, la descrizione di ogni immagine include la versione del prodotto installato e la data corrente dell'immagine.
 
-|               Versione di rilascio              |          Edizioni            |    Versione del prodotto    |
-|:------------------------------------------:|:----------------------------:|:---------------------:|
-| Visual Studio 2017 - Più recente (versione 15.5) |    Enterprise, Community     |     Versione 15.5.3    |
-|         Visual Studio 2017 - RTW           |    Enterprise, Community     |     Versione 15.0.7    |
-|   Visual Studio 2015 - Più recente (Update 3)   |    Enterprise, Community     | Versione 14.0.25431.01 |
-|         Visual Studio 2015 - RTW           | Nessuna (supporto per la manutenzione scaduto) |          ---          |
+|               Versione di rilascio              |          Edizioni            |     Versione prodotto     |
+|:------------------------------------------:|:----------------------------:|:-----------------------:|
+| Visual Studio 2017 - Più recente (versione 15.5) |    Enterprise, Community     |      Versione 15.5.3     |
+|         Visual Studio 2017 - RTW           |    Enterprise, Community     |      Versione 15.0.7     |
+|   Visual Studio 2015 - Più recente (Update 3)   |    Enterprise, Community     |  Versione 14.0.25431.01  |
+|         Visual Studio 2015 - RTW           |              Nessuna            | (Supporto per la manutenzione scaduto) |
 
 > [!NOTE]
 > In base ai criteri di manutenzione di Microsoft, il supporto per la manutenzione della versione di Visual Studio 2015 originariamente rilasciata (o RTW) è scaduto.  Visual Studio 2015 Update 3 è pertanto l'unica versione rimanente offerta per la linea di prodotti Visual Studio 2015.
@@ -52,20 +52,32 @@ Ogni immagine contiene il set di funzionalità consigliato per una specifica edi
 
 Questa è la riga di comando usata per installare Visual Studio quando si creano le immagini:
 
-   * vs_enterprise.exe --allWorkloads --includeRecommended --passive ^
-   * add Microsoft.Net.Component.4.7.SDK ^
-   * add Microsoft.Net.Component.4.7.TargetingPack ^ 
-   * add Microsoft.Net.Component.4.6.2.SDK ^
-   * add Microsoft.Net.Component.4.6.2.TargetingPack ^
-   * add Microsoft.Net.ComponentGroup.4.7.DeveloperTools ^
-   * add Microsoft.VisualStudio.Component.FSharp ^
-   * add Component.GitHub.VisualStudio ^
-   * add Microsoft.VisualStudio.Component.LinqToSql
+```
+    vs_enterprise.exe --allWorkloads --includeRecommended --passive ^
+       add Microsoft.Net.Component.4.7.SDK ^
+       add Microsoft.Net.Component.4.7.TargetingPack ^ 
+       add Microsoft.Net.Component.4.6.2.SDK ^
+       add Microsoft.Net.Component.4.6.2.TargetingPack ^
+       add Microsoft.Net.ComponentGroup.4.7.DeveloperTools ^
+       add Microsoft.VisualStudio.Component.FSharp ^
+       add Component.GitHub.VisualStudio ^
+       add Microsoft.VisualStudio.Component.LinqToSql
+```
 
 Se le immagini non includono una funzionalità di Visual Studio che si ritiene necessaria, fornire commenti e suggerimenti tramite l'apposito strumento nell'angolo superiore destro della pagina.
 
 ## <a name="what-size-vm-should-i-choose"></a>Quale dimensione scegliere per la macchina virtuale?
-Il provisioning di una nuova macchina virtuale è un'operazione semplice e Azure offre un'ampia gamma di macchine virtuali di diverse dimensioni.  Come per qualsiasi prodotto hardware, è opportuno trovare una soluzione con un buon rapporto tra costo e prestazioni.  Poiché Visual Studio è una potente applicazione multithreading, è in genere necessaria una macchina virtuale con almeno due processori e 7 GB di memoria.  Per altre informazioni sulle dimensioni delle macchine virtuali più recenti, vedere [Dimensioni per le macchine virtuali Windows in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
+Il provisioning di una nuova macchina virtuale è un'operazione semplice e Azure offre un'ampia gamma di macchine virtuali di diverse dimensioni.  Come per qualsiasi prodotto hardware, è opportuno trovare una soluzione con un buon rapporto tra costo e prestazioni.  Poiché Visual Studio è una potente applicazione multithreading, è in genere necessaria una macchina virtuale con almeno due processori e 7 GB di memoria.  Di seguito sono riepilogate le dimensioni della macchina virtuale consigliate per le immagini di Visual Studio:
+
+   * Standard_D2_v3
+   * Standard_D2s_v3
+   * Standard_D4_v3
+   * Standard_D4s_v3
+   * Standard_D2_v2
+   * Standard_D2S_v2
+   * Standard_D3_v2
+    
+Per altre informazioni sulle dimensioni delle macchine virtuali più recenti, vedere [Dimensioni per le macchine virtuali Windows in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes).
 
 Con Azure si può comunque sempre decidere di modificare la configurazione iniziale. È possibile optare per una diversa soluzione ridimensionando la macchina virtuale.  È possibile effettuare il provisioning di una nuova macchina virtuale con una dimensione più appropriata oppure ridimensionare la macchina virtuale esistente in base al diverso hardware sottostante.  Per altre informazioni, vedere [Ridimensionare una VM Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/resize-vm).
 
@@ -76,7 +88,7 @@ Visual Studio segue il modello "Bring Your Own License" di Azure.  Pertanto, com
 
 La gamma di ambienti di sviluppo è enorme e la configurazione di ambienti particolarmente complessi comporta costi notevoli.  Tuttavia, indipendentemente dalla configurazione dell'ambiente, Azure consente di preservare con facilità il proprio investimento. È infatti possibile salvare o acquisire la macchina virtuale perfettamente configurata come immagine di base per un uso futuro, per esigenze individuali e/o per altri membri del proprio team.  Quindi, all'avvio di una nuova macchina virtuale, effettuarne il provisioning dall'immagine di base anziché da quella di Marketplace.
 
-In sintesi, è necessario eseguire sysprep e arrestare la macchina virtuale in esecuzione e quindi *acquisire (figura 1)* la macchina virtuale come immagine tramite l'interfaccia utente del portale di Azure.  Azure salverà il file `.vhd` contenente l'immagine nell'account di archiviazione selezionato  e la nuova immagine verrà visualizzata come risorsa Immagine nell'elenco delle risorse della sottoscrizione.
+In sintesi, è necessario eseguire sysprep e arrestare la macchina virtuale in esecuzione e quindi *acquisire (figura 1)* la macchina virtuale come immagine tramite l'interfaccia utente del portale di Azure.  Azure salva il file `.vhd` contenente l'immagine nell'account di archiviazione selezionato  e la nuova immagine verrà visualizzata come risorsa Immagine nell'elenco delle risorse della sottoscrizione.
 
 <img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal’s UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(Figura 1) Acquisire un'immagine tramite l'interfaccia utente del portale di Azure.*</center>
 

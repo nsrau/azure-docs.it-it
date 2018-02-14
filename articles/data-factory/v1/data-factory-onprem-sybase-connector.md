@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e7694b2b5703175e4b83a84869ba2964bad7671e
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 26c0f3216014afdaaa6556537f15f23c844e4c19
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Spostare i dati da Sybase utilizzando Data factory di Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,9 @@ Il gateway è necessario anche se il database Sybase è ospitato in una macchina
 > Per suggerimenti sulla risoluzione di problemi correlati alla connessione o al gateway, vedere [Risoluzione dei problemi del gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) .
 
 ## <a name="supported-versions-and-installation"></a>Versioni supportate e installazione
-Perché Gateway di gestione dati si connetta al database Sybase, è necessario installare il [provider di dati per Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 o versione successiva nello stesso sistema del Gateway di gestione dati. Sono supportate le versioni di Sybase a partire dalla 16.
+Perché Gateway di gestione dati si connetta al database Sybase, è necessario installare il [provider di dati per Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 o versione successiva nello stesso sistema del Gateway di gestione dati. 
+
+SAP Sybase SQL Anywhere (ASA) versione 16 e successive è supportato. IQ e ASE non sono supportati.
 
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API. 

@@ -1,7 +1,7 @@
 # Panoramica
 ## [Informazioni sul portale per Cloud Partner](./cloud-partner-portal-what-is-the-cloud-partner-portal.md)
 
-# Introduzione
+# Attività iniziali
 ## [Introduzione al portale per Cloud Partner](./cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md)
 ## [Prodotti supportati](./Cloud-partner-portal-products-that-can-get-published-via-portal.md)
 

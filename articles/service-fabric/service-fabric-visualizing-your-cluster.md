@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/08/2018
+ms.date: 02/02/2018
 ms.author: mikhegn
-ms.openlocfilehash: 34e00058591bc5a0a02bc408cfc3fcc11010f17c
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: dc71bf8045abf72953f678dc9295346dc9204e59
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizzare il cluster con Service Fabric Explorer
 
@@ -35,6 +35,9 @@ Usare i collegamenti seguenti per scaricare Service Fabric Explorer come applica
   - https://aka.ms/sfx-linux-x86
   - https://aka.ms/sfx-linux-x64
 
+- macOS
+  - https://aka.ms/sfx-macos
+
 > [!NOTE]
 > La versione desktop di Service Fabric Explorer può presentare più o meno funzionalità rispetto alla versione con supporto per cluster. È possibile eseguire il fallback alla versione di Service Fabric Explorer distribuita al cluster per la massima compatibilità delle funzionalità.
 >
@@ -44,7 +47,7 @@ Usare i collegamenti seguenti per scaricare Service Fabric Explorer come applica
 
 Service Fabric Explorer è inoltre ospitato in un endpoint di gestione HTTP del cluster di Service Fabric. Per avviare SFX in un Web browser, passare all'endpoint di gestione HTTP del cluster da un browser qualsiasi, ad esempio https://clusterFQDN:19080.
 
-Per la configurazione della workstation di sviluppo, è possibile avviare Service Fabric Explorer sul cluster locale passando a http://localhost:19080/Explorer. Vedere l'articolo [Preparare l'ambiente di sviluppo](service-fabric-get-started.md).
+Per la configurazione della workstation di sviluppo, è possibile avviare Service Fabric Explorer sul cluster locale passando a https://localhost:19080/Explorer. Vedere l'articolo [Preparare l'ambiente di sviluppo](service-fabric-get-started.md).
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Connettersi a un cluster di Service Fabric
 Per connettersi a un cluster di Service Fabric, è necessario specificare l'endpoint di gestione dei cluster (FQDN/IP) e la porta dell'endpoint di gestione HTTP (19080 per impostazione predefinita). Ad esempio https://mysfcluster.westus.cloudapp.azure.com:19080. Usare la casella di controllo "Connetti a localhost" per connettersi a un cluster locale sulla propria workstation.

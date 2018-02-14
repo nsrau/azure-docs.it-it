@@ -52,7 +52,7 @@ Ora è possibile ottenere elementi pronti per gli utenti. Quando si avvia il pro
    Offerte sono gruppi di uno o più piani che i provider di presentano agli utenti per l'acquisto o sottoscrivere.
 
    a. [Accedi](azure-stack-connect-azure-stack.md) al portale come un amministratore del cloud e quindi fare clic su **New** > **offre + piani** > **offrono**.
-   ![Nuova offerta](media/azure-stack-tutorial-tenant-vm/image01.png)
+   ![nuova offerta](media/azure-stack-tutorial-tenant-vm/image01.png)
 
    b. Nel **offrono nuove** sezione, compilare **nome visualizzato** e **nome risorsa**e quindi selezionare una nuova o esistente **gruppo di risorse**. Il nome visualizzato è nome descrittivo dell'offerta. Solo l'operatore cloud è possibile visualizzare il nome della risorsa. È il nome che gli amministratori utilizzano per funzionare con l'offerta come risorsa di gestione risorse di Azure.
 
@@ -74,7 +74,7 @@ Ora è possibile ottenere elementi pronti per gli utenti. Quando si avvia il pro
 
    In questo esempio, è necessario creare una quota per il servizio di calcolo. Nell'elenco dello spazio dei nomi, selezionare il **Microsoft. COMPUTE** dello spazio dei nomi e quindi fare clic su **Crea nuova quota**.
    
-   ![Creare una nuova quota](media/azure-stack-tutorial-tenant-vm/image06.png)
+   ![Crea nuova quota](media/azure-stack-tutorial-tenant-vm/image06.png)
 
    g. Nel **Crea quota** sezione, digitare un nome per la quota e impostare i parametri desiderati per la quota e fare clic su **OK**.
 

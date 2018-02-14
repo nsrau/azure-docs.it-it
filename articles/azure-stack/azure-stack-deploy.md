@@ -58,7 +58,7 @@ Prima di distribuire [Kit di sviluppo di Azure Stack](azure-stack-poc.md), assic
 * Unità SSD SAS + Unità HDD SAS
 * NVMe
 
-\*Controller RAID senza funzionalità pass-through non è in grado di riconoscere il tipo di supporto. Tali controller contrassegneranno le unità HDD e SSD come non specificate. In tal caso verrà usata l'unità SSD come archivio permanente anziché eseguire la memorizzazione nella cache dei dispositivi. Pertanto, è possibile distribuire il kit di sviluppo su tali unità SSD.
+\* Controller RAID senza funzionalità pass-through non è in grado di riconoscere il tipo di supporto. Tali controller contrassegneranno le unità HDD e SSD come non specificate. In tal caso verrà usata l'unità SSD come archivio permanente anziché eseguire la memorizzazione nella cache dei dispositivi. Pertanto, è possibile distribuire il kit di sviluppo su tali unità SSD.
 
 **HBA di esempio**: LSI 9207-8i, LSI-9300-8i o LSI 9265 8i in modalità pass-through
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 47c2d129cb296f6387142e03b14356bcd83ad698
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 8b55bafee83dd43d535f9ebb0488134b5c7b3446
+ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Estrarre, trasformare e caricare (ETL) su larga scala
 
@@ -42,11 +42,9 @@ L'orchestrazione è necessaria per eseguire il processo appropriato al momento g
 
 Apache Oozie è un sistema di coordinamento dei flussi di lavoro che consente di gestire i processi Hadoop. Viene eseguito all'interno di un cluster HDInsight ed è integrato con lo stack di Hadoop. Oozie supporta i processi Hadoop per Apache MapReduce, Apache Pig, Apache Hive e Apache Sqoop. Può anche essere usato per pianificare i processi specifici di un sistema, ad esempio i programmi Java o gli script della shell.
 
-Per altre informazioni, vedere [Usare Oozie con Hadoop per definire ed eseguire un flusso di lavoro in HDInsight](../hdinsight-use-oozie-linux-mac.md).
+Per altre informazioni, vedere [Usare Oozie con Hadoop per definire ed eseguire un flusso di lavoro in HDInsight](../hdinsight-use-oozie-linux-mac.md). Per un approfondimento su come usare Oozie per gestire una pipeline end-to-end, vedere [Rendere operativa una pipeline di analisi dei dati](../hdinsight-operationalize-data-pipeline.md). 
 
-<!-- For a deep dive showing how to use Oozie to drive an end-to-end pipeline, see [Operationalize the Data Pipeline](hdinsight-operationalize-data-pipeline.md). -->
-
-### <a name="azure-data-factory"></a>Azure Data Factory
+### <a name="azure-data-factory"></a>Data factory di Azure
 
 Azure Data Factory offre funzionalità di orchestrazione sotto forma di piattaforma distribuita come servizio (PaaS). È un servizio di integrazione dei dati basato sul cloud che consente di creare flussi di lavoro basati sui dati nel cloud per orchestrare e automatizzare lo spostamento e la trasformazione dei dati. 
 
@@ -74,7 +72,7 @@ Archiviazione di Azure include anche un livello API WebHDFS per l'archiviazione 
 
 I dati vengono in genere inseriti in Archiviazione di Azure tramite PowerShell, Azure Storage SDK o AZCopy.
 
-### <a name="azure-data-lake-store"></a>Azure Data Lake Store
+### <a name="azure-data-lake-store"></a>Archivio Azure Data Lake
 
 Azure Data Lake Store (ADLS) è un repository con iperscalabilità gestito per dati di analisi compatibili con HDFS.  ADLS usa un paradigma di progettazione simile ad HDFS e offre scalabilità illimitata in termini di capacità totale e dimensione dei singoli file. ADLS è un'ottima scelta quando si lavora con file di grandi dimensioni, poiché un file di questo tipo può essere archiviato in più nodi.  Il partizionamento dei dati in ADLS viene eseguito in background.  Si ottiene una velocità effettiva molto elevata per l'esecuzione di processi di analisi con migliaia di esecutori simultanei che leggono e scrivono centinaia di terabyte di dati in modo efficiente.
 
@@ -96,7 +94,7 @@ Azure SQL DW è la scelta ottimale per archiviare risultati puliti e preparati p
 
 Azure SQL Data Warehouse (SQL DW) è un archivio database relazionale ottimizzato per carichi di lavoro analitici.  Azure SQL DW viene ridimensionato in base a tabelle  che possono essere partizionate tra più nodi.  I nodi di Azure SQL DW vengono selezionati nel momento in cui si creano.  Successivamente possono essere ridimensionati, ma si tratta di un processo attivo che può richiedere lo spostamento dei dati. Per altre informazioni, vedere [SQL Data Warehouse - Gestire la potenza di calcolo](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 
-### <a name="hbase"></a>HBase
+### <a name="hbase"></a>hbase
 
 Apache HBase è un archivio chiave-valore disponibile in Azure HDInsight.  Apache HBase è un database NoSQL open source basato su Hadoop e modellato su Google BigTable. Fornisce accesso casuale e coerenza assoluta per quantità elevate di dati non strutturati e semistrutturati in un database privo di schema organizzato per famiglie di colonne.
 
@@ -145,4 +143,4 @@ Quando i dati esistono nella posizione scelta, è necessario pulirli, combinarli
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Usare Pig con Hadoop in HDInsight](hdinsight-use-pig.md)
-<!-- * [Using Apache Hive as an ETL Tool](hdinsight-using-apache-hive-as-an-etl-tool.md) -->
+* [Usare Apache Hive come strumento per estrazione, trasformazione e caricamento (ETL, Extract, Transform, and Load)](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 

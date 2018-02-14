@@ -44,7 +44,7 @@ L'elenco di account di archiviazione nell'area può essere visualizzato nello St
 
 Per impostazione predefinita, vengono visualizzati i primi 10 conti. È possibile scegliere di recuperare informazioni facendo clic di **caricare più** collegamento nella parte inferiore dell'elenco.
 
-OPPURE
+Oppure
 
 Se si è interessati a un determinato account di archiviazione, è possibile **filtrare e recuperare gli account rilevanti** solo.
 

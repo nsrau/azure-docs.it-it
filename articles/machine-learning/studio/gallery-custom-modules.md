@@ -1,6 +1,6 @@
 ---
-title: Moduli personalizzati di Azure AI raccolta | Documenti Microsoft
-description: Individuare i moduli di apprendimento macchina personalizzata nella raccolta di Azure.
+title: Moduli personalizzati di Azure AI Gallery| Microsoft Docs
+description: Scoprire moduli personalizzati di Machine Learning in Azure AI Gallery.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: 278a24c44b76e6df097355b91d94a146be4aa9a9
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.author: garye
+ms.openlocfilehash: bec2860d1da5044ad6969e2b23142256aa90042e
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Individuare i moduli di apprendimento macchina personalizzata nella raccolta di Azure
+# <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Scoprire moduli personalizzati di Machine Learning in Azure AI Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="custom-modules-for-machine-learning-studio"></a>Moduli personalizzati per Machine Learning Studio
-Raccolta di Azure AI offre diversi [moduli personalizzati](https://gallery.cortanaintelligence.com/customModules) di ampliare le funzionalità di Azure Machine Learning Studio. È possibile importare questi moduli per usarli nei propri esperimenti e sviluppare così soluzioni di analisi predittiva ancora più avanzate.
+Azure AI Gallery offre numerosi [moduli personalizzati](https://gallery.cortanaintelligence.com/customModules) che espandono le funzionalità di Azure Machine Learning Studio. È possibile importare questi moduli per usarli nei propri esperimenti e sviluppare così soluzioni di analisi predittiva ancora più avanzate.
 
 Attualmente, Gallery offre moduli per *analisi della serie temporale*, *regole di associazione*, *algoritmi di clustering* (oltre K-means), *visualizzazioni* e altri moduli di utilità.
 
@@ -52,7 +52,7 @@ Nella pagina dei dettagli di un modulo personalizzato, è possibile fornire comm
 ## <a name="import"></a>Importa
 Negli esperimenti è possibile importare qualsiasi modulo personalizzato presente in Gallery.
 
-Raccolta di Azure AI offre due modi per importare una copia del modulo:
+Azure AI Gallery offre due modi per importare la copia di un modulo:
 
 * **Da Gallery**. Quando si importa un modulo personalizzato da Gallery, è possibile scaricare anche un esperimento di esempio che illustra come usarlo.
 * **Da Machine Learning Studio**. È possibile importare qualsiasi modulo personalizzato mentre si lavora in Machine Learning Studio; in questo caso, non è disponibile l'esperimento di esempio.

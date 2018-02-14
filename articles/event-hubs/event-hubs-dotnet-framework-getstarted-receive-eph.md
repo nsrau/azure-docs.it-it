@@ -11,14 +11,14 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/10/2017
+ms.topic: article
+ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: 5d2f6f53af182a8ac0430de0ca3701a9a30e0bf4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8bb5b7e27291a06a713f0dfc7d5ca5a0a961de4c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>Ricevere eventi da Hub eventi di Azure usando .NET Framework
 
@@ -30,7 +30,7 @@ Questa esercitazione illustra come scrivere un'applicazione console .NET Framewo
 
 L'[host processore di eventi][EventProcessorHost] è una classe .NET che semplifica la ricezione di eventi dagli hub eventi gestendo checkpoint persistenti e ricezioni parallele da tali hub. Usando l'[host processore di eventi][Event Processor Host] è possibile suddividere gli eventi su più ricevitori, anche se ospitati in nodi diversi. Questo esempio illustra come usare l'[host processore di eventi][EventProcessorHost] per un ricevitore singolo. L'esempio di [elaborazione di eventi con aumento del numero di istanze][Scale out Event Processing with Event Hubs] illustra come usare l'[host processore di eventi][EventProcessorHost] con più ricevitori.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
@@ -49,11 +49,11 @@ Per usare l'[host processore di eventi][EventProcessorHost] è necessario un [ac
 2. Fare clic su **Archiviazione** e quindi su **Account di archiviazione**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)
-3. Nel pannello **Crea account di archiviazione** digitare un nome per l'account di archiviazione. Scegliere una sottoscrizione, un gruppo di risorse e una località di Azure in cui creare la risorsa. Fare quindi clic su **Crea**.
+3. Nel riquadro **Crea account di archiviazione** digitare un nome per l'account di archiviazione. Scegliere una sottoscrizione, un gruppo di risorse e una località di Azure in cui creare la risorsa. Fare quindi clic su **Crea**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 4. Nell'elenco degli account di archiviazione fare clic su quello appena creato.
-5. Nel pannello Account di archiviazione fare clic su **Chiavi di accesso**. Copiare il valore di **key1** da usare più avanti in questa esercitazione.
+5. Nel riquadro Account di archiviazione fare clic su **Chiavi di accesso**. Copiare il valore di **key1** da usare più avanti in questa esercitazione.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
@@ -155,7 +155,7 @@ Per usare l'[host processore di eventi][EventProcessorHost] è necessario un [ac
 
 7. Eseguire il programma e assicurarsi che non siano presenti errori.
   
-Congratulazioni. Sono stati ricevuti messaggi da un hub eventi usando l'host processore di eventi.
+Congratulazioni! Sono stati ricevuti messaggi da un hub eventi usando l'host processore di eventi.
 
 
 > [!NOTE]

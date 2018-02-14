@@ -3,7 +3,7 @@ title: Creare cicli e ambiti o suddividere i dati nei flussi di lavoro - App per
 description: "Creare cicli per eseguire iterazioni sui dati, raggruppare le azioni in ambiti o suddividere i dati per avviare più flussi di lavoro logica nelle app per la logica di Azure."
 services: logic-apps
 documentationcenter: .net,nodejs,java
-author: jeffhollan
+author: ecfan
 manager: anneta
 editor: 
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 9cdbe4a12a0b16341a1e52f176901045baf327b5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
-ms.translationtype: MT
+ms.author: LADocs; estfan
+ms.openlocfilehash: 64b8f414efe8cd886589084f05e04486c9a0d05c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Cicli, ambiti e debatching delle app per la logica
   
@@ -26,9 +26,9 @@ Le app per la logica offrono una serie di metodi per usare matrici, raccolte, ba
   
 ## <a name="foreach-loop-and-arrays"></a>Matrici e cicli ForEach
   
-App per la logica consente di eseguire un ciclo su un set di dati e di eseguire un'azione per ogni elemento.  Ciclo su una raccolta è possibile tramite il `foreach` azione.  Nella finestra di progettazione, è possibile aggiungere un ciclo for each.  Dopo aver selezionato la matrice su cui si vuole eseguire un'iterazione, è possibile iniziare ad aggiungere azioni.  È possibile aggiungere più azioni per ciclo foreach.  Una volta all'interno del ciclo, è possibile iniziare a specificare cosa dovrebbe accadere in ogni valore della matrice.
+App per la logica consente di eseguire un ciclo su un set di dati e di eseguire un'azione per ogni elemento.  L'esecuzione di un ciclo su una raccolta è possibile tramite l'azione `foreach`.  Nella finestra di progettazione è possibile aggiungere un ciclo foreach.  Dopo aver selezionato la matrice su cui si vuole eseguire un'iterazione, è possibile iniziare ad aggiungere azioni.  È possibile aggiungere più azioni per ciclo foreach.  All'interno del ciclo è possibile iniziare a specificare cosa deve avvenire in corrispondenza di ogni valore della matrice.
 
-  Questo esempio viene inviato un messaggio di posta elettronica per ogni indirizzo di posta elettronica che contiene 'microsoft.com'. In visualizzazione codice, è possibile specificare un ciclo for each analogo al seguente:
+  Questo esempio invia un messaggio di posta elettronica per ogni indirizzo di posta elettronica che contiene "microsoft.com". Se si usa la visualizzazione codice, è possibile specificare un ciclo foreach come nell'esempio seguente:
 
 ``` json
 {
@@ -66,7 +66,7 @@ App per la logica consente di eseguire un ciclo su un set di dati e di eseguire 
 }
 ```
   
-  Oggetto `foreach` azione possibile scorrere le matrici con migliaia di entità.  Per impostazione predefinita, le iterazioni eseguite in parallelo.  Vedere [limiti e configurazione](logic-apps-limits-and-config.md) per ulteriori informazioni sui limiti della matrice e la concorrenza.
+  Un'azione `foreach` può eseguire l'iterazione su matrici con migliaia di entità.  Per impostazione predefinita, le iterazioni vengono eseguite in parallelo.  Per informazioni dettagliate sui limiti di concorrenza e per le matrici, vedere [Limiti e configurazione](logic-apps-limits-and-config.md).
 
 ### <a name="sequential-foreach-loops"></a>Cicli ForEach sequenziali
 
@@ -83,15 +83,15 @@ Per abilitare l'esecuzione sequenziale di un ciclo ForEach è necessario aggiung
   
 ## <a name="until-loop"></a>Ciclo Until
   
-  È possibile eseguire un'azione o una serie di azioni finché non viene soddisfatta una condizione.  Lo scenario più comune per l'utilizzo di un fino a quando non è chiamata di un endpoint ciclo fino a ottenere la risposta desiderata.  Nella finestra di progettazione è possibile specificare l'aggiunta di un loop Until.  Dopo avere aggiunto le azioni nel loop, è possibile impostare la condizione di uscita, nonché i limiti del loop.
+  È possibile eseguire un'azione o una serie di azioni finché non viene soddisfatta una condizione.  Lo scenario più comune per l'uso di un ciclo until consiste nel chiamare un endpoint fino a ottenere la risposta desiderata.  Nella finestra di progettazione è possibile specificare l'aggiunta di un loop Until.  Dopo avere aggiunto le azioni nel loop, è possibile impostare la condizione di uscita, nonché i limiti del loop.
   
-  Questo esempio viene chiamato un endpoint HTTP finché il corpo della risposta è il valore 'Completed'.  Viene completato quando entrambi: 
+  Questo esempio chiama un endpoint HTTP finché nel corpo della risposta non è presente il valore "Completed".  Questa chiamata viene completata in presenza di una di queste condizioni: 
   
   * Lo stato della risposta HTTP è "Completed"
-  * È tentato per un'ora
+  * Sono stati eseguiti tentativi per un'ora
   * Il ciclo è stato eseguito 100 volte
   
-  In visualizzazione codice, è possibile specificare un fino al ciclo analogo al seguente:
+  Se si usa la visualizzazione codice, è possibile specificare un ciclo until come nell'esempio seguente:
   
   ``` json
   {
@@ -119,9 +119,9 @@ Per abilitare l'esecuzione sequenziale di un ciclo ForEach è necessario aggiung
   
 ## <a name="spliton-and-debatching"></a>SplitOn e scomposizione batch
 
-In alcuni casi un trigger può ricevere una matrice di elementi che si preferisce separare per avviare un flusso di lavoro per ogni elemento.  La scomposizione dei batch può essere eseguita tramite il `spliton` comando.  Per impostazione predefinita, se il swagger trigger consente di specificare un payload che è una matrice, un `spliton` viene aggiunto. Il `spliton` comando avvia un'esecuzione per ogni elemento nella matrice.  SplitOn possono essere aggiunti solo a un trigger che può essere configurato manualmente o sottoposto a override. Non è possibile usare `spliton` e implementare anche il modello di risposta sincrona.  Qualsiasi flusso di lavoro denominato che ha un `response` azione oltre a `spliton` viene eseguito in modo asincrono e invia immediatamente `202 Accepted` risposta.  
+In alcuni casi un trigger può ricevere una matrice di elementi che si preferisce separare per avviare un flusso di lavoro per ogni elemento.  Il debatching può essere eseguito con il comando `spliton`.  Per impostazione predefinita, se lo swagger del trigger specifica un payload che è una matrice, viene aggiunto un comando `spliton`. Il comando `spliton` avvia un'esecuzione per ogni elemento nella matrice.  SplitOn può essere aggiunto solo a un trigger che possa essere configurato o sostituito manualmente. Non è possibile usare `spliton` e implementare anche il modello di risposta sincrona.  Qualsiasi flusso di lavoro chiamato che include un'azione `response` oltre a `spliton` viene eseguito in modo asincrono e invia una risposta `202 Accepted` immediata.  
 
-  In questo esempio riceve una matrice di elementi e debatches in ogni riga. SplitOn può essere specificato nella visualizzazione codice come nell'esempio seguente:
+  Questo esempio riceve una matrice di elementi ed esegue il debatch su ogni riga. SplitOn può essere specificato nella visualizzazione codice, come nell'esempio seguente:
 
 ```
 {
@@ -141,7 +141,7 @@ In alcuni casi un trigger può ricevere una matrice di elementi che si preferisc
 
 ## <a name="scopes"></a>Ambiti
 
-È possibile raggruppare una serie di azioni tra loro usando un ambito.  Gli ambiti sono utili per l'implementazione di gestione delle eccezioni.  Nella finestra di progettazione è possibile aggiungere un nuovo ambito e iniziare ad aggiungere tutte le azioni all'interno di esso.  È possibile definire gli ambiti nella visualizzazione di codice simile al seguente:
+È possibile raggruppare una serie di azioni tra loro usando un ambito.  Gli ambiti sono utili per l'implementazione della gestione delle eccezioni.  Nella finestra di progettazione è possibile aggiungere un nuovo ambito e iniziare ad aggiungere tutte le azioni all'interno di esso.  È possibile definire ambiti nella visualizzazione codice, come nell'esempio seguente:
 
 
 ```

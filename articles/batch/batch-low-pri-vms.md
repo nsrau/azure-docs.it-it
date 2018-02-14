@@ -9,22 +9,22 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 02/01/2018
 ms.author: markscu
-ms.openlocfilehash: 8490bd8c18930c025902a247e6c1df8a0716ed76
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 7e4f37ca6997f1770de8acbc10eeeb25ddf87deb
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Usare le macchine virtuali con priorità bassa in Batch
 
-Azure Batch offre macchine virtuali con priorità bassa per ridurre i costi dei carichi di lavoro Batch. Le macchine virtuali con priorità bassa rendono possibili nuovi tipi di carichi di lavoro Batch, assicurando una grande quantità di potenza di calcolo risultando anche economica.
-
-Le macchine virtuali con priorità bassa sfruttano la capacità in eccesso di Azure. Quando si specificano le macchine virtuali con priorità bassa nei pool, Azure Batch può usare automaticamente questo surplus quando disponibile.
-
-Il compromesso per l'uso di macchine virtuali con priorità bassa è che queste macchine virtuali possono essere interrotte quando non c'è capacità in surplus in Azure. Per questo motivo, le macchine virtuali con priorità bassa sono più adatte per determinati tipi di carichi di lavoro. Usare le macchine virtuali con priorità bassa per carichi di lavoro di batch ed elaborazione asincrona in cui il tempo di completamento del processo è flessibile e il lavoro viene distribuito su più macchine virtuali.
-
+Azure Batch offre macchine virtuali con priorità bassa per ridurre i costi dei carichi di lavoro Batch. Le macchine virtuali con priorità bassa rendono possibili nuovi tipi di carichi di lavoro Batch consentendo di usare una grande quantità di potenza di calcolo a un costo molto basso.
+ 
+Le macchine virtuali con priorità bassa sfruttano la capacità in eccesso di Azure. Quando si specificano le macchine virtuali con priorità bassa nei pool, Azure Batch può usare questa capacità in eccesso, quando disponibile.
+ 
+Il compromesso per l'uso di macchine virtuali con priorità bassa è che queste macchine virtuali possono non essere disponibili per l'allocazione o essere interrotte in qualsiasi momento, a seconda della capacità disponibile. Per questo motivo, le macchine virtuali con priorità bassa sono più adatte per determinati tipi di carichi di lavoro. Usare le macchine virtuali con priorità bassa per carichi di lavoro di batch ed elaborazione asincrona in cui il tempo di completamento del processo è flessibile e il lavoro viene distribuito su più macchine virtuali.
+ 
 Le macchine virtuali con priorità bassa sono caratterizzate da un prezzo notevolmente ridotto rispetto alle macchine virtuali dedicate. Per i dettagli sui prezzi vedere [Prezzi dei Batch](https://azure.microsoft.com/pricing/details/batch/).
 
 

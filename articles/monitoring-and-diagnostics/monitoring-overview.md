@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: robb,bwren
-ms.openlocfilehash: ffd9a6f75a549b246a04adc5480e988b1622c5ca
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3ab7d2d5c3b95d215f3ee9eb9346e8a7895e734c
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Monitoraggio di applicazioni e risorse di Azure
 
 Il monitoraggio comporta la raccolta e l'analisi dei dati per determinare le prestazioni, l'integrità e la disponibilità dell'applicazione aziendale e delle risorse da cui dipende. Una strategia efficace di monitoraggio consente di conoscere il funzionamento dettagliato dei diversi componenti dell'applicazione e di aumentare il tempo di attività grazie all'invio di notifiche proattive sulle problematiche critiche, per poterle risolvere prima che diventino problemi.
 
-Azure include più servizi che singolarmente eseguono un ruolo o un'attività specifica nell'area di monitoraggio e insieme offrono una soluzione completa per la raccolta, l'analisi e la modifica dei dati di telemetria dall'applicazione e dalle risorse di supporto di Azure sottostanti.  Possono anche essere usati per monitorare le risorse locali critiche per fornire un ambiente di monitoraggio ibrido.   Conoscere gli strumenti e i dati disponibili è il primo passo per sviluppare una strategia di monitoraggio completa per l'applicazione. 
+Azure include più servizi che singolarmente eseguono un ruolo o un'attività specifica nell'area di monitoraggio e insieme offrono una soluzione completa per la raccolta, l'analisi e la modifica dei dati di telemetria dall'applicazione e dalle risorse di supporto di Azure sottostanti.  Possono anche essere usati per monitorare le risorse locali critiche in modo da fornire un ambiente di monitoraggio ibrido.   Conoscere gli strumenti e i dati disponibili è il primo passo per sviluppare una strategia di monitoraggio completa per l'applicazione. 
 
 Il diagramma seguente mostra una visualizzazione concettuale dei diversi componenti che interagiscono per garantire il monitoraggio delle risorse di Azure.  Ognuno è descritto nelle sezioni seguenti con collegamenti a informazioni tecniche dettagliate.
 
@@ -47,10 +47,10 @@ L'integrità dell'applicazione si basa sui servizi di Azure da cui dipende.  [In
 I servizi di Azure seguenti forniscono funzionalità avanzate per la raccolta e l'analisi dei dati di monitoraggio.  Si fondano sul monitoraggio di base, sfruttano le funzionalità comuni in Azure e forniscono analisi avanzate con i dati raccolti per offrire informazioni esclusive sulle applicazioni e sull'infrastruttura.  Presentano i dati nel contesto di determinati scenari destinati a utenti diversi.
 
 ### <a name="application-insights"></a>Application Insights
-[Application Insights](http://azure.microsoft.com/documentation/services/application-insights) consente di monitorare disponibilità, prestazioni e utilizzo dell'applicazione indipendentemente dal fatto che sia ospitata nel cloud o in locale.  Instrumentando l'applicazione per l'uso di Application Insights, è possibile ottenere informazioni approfondite che consentono di identificare e diagnosticare rapidamente gli errori senza attendere che un utente li segnali. Con le informazioni raccolte, è possibile prendere decisioni informate sulla manutenzione dell'applicazione e sui miglioramenti da apportare.  Oltre agli strumenti avanzati per l'interazione con i dati raccolti, Application Insights archivia i dati in un repository comune per sfruttare le funzionalità condivise, ad esempio gli avvisi, i dashboard e le analisi approfondite, con il linguaggio di query di Log Analytics.
+[Application Insights](http://azure.microsoft.com/documentation/services/application-insights) permette di monitorare disponibilità, prestazioni e utilizzo dell'applicazione indipendentemente dal fatto che sia ospitata nel cloud o in locale.  Instrumentando l'applicazione per l'uso di Application Insights, è possibile ottenere informazioni approfondite che consentono di identificare e diagnosticare rapidamente gli errori senza attendere che un utente li segnali. Con le informazioni raccolte, è possibile prendere decisioni informate sulla manutenzione dell'applicazione e sui miglioramenti da apportare.  Oltre agli strumenti avanzati per l'interazione con i dati raccolti, Application Insights archivia i dati in un repository comune per sfruttare le funzionalità condivise, ad esempio gli avvisi, i dashboard e le analisi approfondite, con il linguaggio di query di Log Analytics.
 
 ### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) riveste un ruolo centrale nel monitoraggio di Azure, raccogliendo dati da svariate risorse in un unico repository in cui possono essere analizzati con un linguaggio di query avanzato.  Application Insights e il Centro sicurezza di Azure archiviano i dati negli archivi dati di Log Analytics, di cui sfruttano il motore di analisi.  Questa combinazione di dati raccolti da Monitoraggio di Azure, soluzioni di gestione e agenti installati nelle macchine virtuali nel cloud o in locale consente di avere un quadro completo dell'intero ambiente. 
+[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) riveste un ruolo centrale nel monitoraggio di Azure, raccogliendo dati da svariate risorse in un unico repository in cui possono essere analizzati con un linguaggio di query avanzato.  Application Insights e il Centro sicurezza di Azure archiviano i dati negli archivi dati di Log Analytics, di cui sfruttano il motore di analisi.  Questa combinazione di dati raccolti da Monitoraggio di Azure, soluzioni di gestione e agenti installati su macchine virtuali nel cloud o in locale permette di avere un quadro completo dell'intero ambiente. 
 
 
 ### <a name="service-map"></a>Elenco dei servizi

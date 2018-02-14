@@ -51,6 +51,6 @@ Utilizzare Visual Studio per creare e distribuire Azure Resource Manager [modell
 
 Una volta effettuato l'accesso, è possibile [distribuire modelli](azure-stack-deploy-template-visual-studio.md) o cercare i tipi di risorse disponibili e i gruppi di risorse per creare modelli personalizzati.  
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
  - [Sviluppo di modelli per Azure Stack](azure-stack-develop-templates.md)

@@ -70,9 +70,9 @@ In questa sezione, l'elemento del marketplace la pubblicazione in Azure Marketpl
 
 1.  La procedura guidata richiede le informazioni per pubblicare la soluzione:
     
-    |Campo|Descrizione|
+    |Campo|DESCRIZIONE|
     |-----|-----|
-    | Il nome di amministratore del servizio | Account di amministratore del servizio.  Esempio:ServiceAdmin@mydomain.onmicrosoft.com |
+    | Il nome di amministratore del servizio | Account di amministratore del servizio.  Esempio:  ServiceAdmin@mydomain.onmicrosoft.com |
     | Password | Password dell'account di amministratore del servizio. |
     | Endpoint API | Endpoint di Azure Stack Azure Resource Manager.  Esempio: management.local.azurestack.external |
 2.  Fare clic su **pubblica** e viene visualizzato il log di pubblicazione.
@@ -86,12 +86,12 @@ Il Toolkit di Marketplace include un *solution.parameters.ps1* è possibile util
 
 
 ## <a name="support-files"></a>File di supporto
-| Descrizione | Esempio |
+| DESCRIZIONE | Esempio |
 | ----- | ----- |
 | icona PNG 40 x 40 | ![](./media/azure-stack-marketplace-publisher/image1.png) |
-| icona PNG 90 x 90 | ![](./media/azure-stack-marketplace-publisher/image2.png) |
+| 90x90 .png icon | ![](./media/azure-stack-marketplace-publisher/image2.png) |
 | icona PNG 115 x 115 | ![](./media/azure-stack-marketplace-publisher/image3.png) |
-| icona di 255 x 115 PNG | ![](./media/azure-stack-marketplace-publisher/image4.png) |
+| 255x115 .png icon | ![](./media/azure-stack-marketplace-publisher/image4.png) |
 | Anteprima PNG 533 x 324 | ![](./media/azure-stack-marketplace-publisher/image5.png) |
 
 

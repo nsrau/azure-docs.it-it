@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 36a08cab2b1d409d2de382a07cfd7259a1c94e13
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.openlocfilehash: 3bb54f7897876d656da6f1a4b349c9db202a142d
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Aggiornamento di Azure Log Analytics alla nuova ricerca log
 
@@ -52,13 +52,13 @@ Se l'area di lavoro viene aggiornata automaticamente, viene visualizzato un bann
 Durante la conversione, nell'area di lavoro vengono apportate le modifiche seguenti:
 
 - Tutte le ricerche salvate, le regole di avviso e le viste create con Progettazione vista vengono convertite automaticamente al nuovo linguaggio.  Le ricerche incluse nelle soluzioni non vengono convertite automaticamente, ma sono convertite istantaneamente quando vengono aperte.  
-- [Dashboard](log-analytics-dashboards.md) è deprecato in favore di [Progettazione vista](log-analytics-view-designer.md) e dei [dashboard di Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards.md).  I riquadri aggiunti al Dashboard sono ancora disponibili, ma sono di sola lettura.
+- [Dashboard](log-analytics-dashboards.md) è deprecato in favore di [Progettazione vista](log-analytics-view-designer.md) e dei [dashboard di Azure](../azure-portal/azure-portal-dashboards.md).  I riquadri aggiunti al Dashboard sono ancora disponibili, ma sono di sola lettura.
 - L'[integrazione di Power BI](log-analytics-powerbi.md) viene sostituita da un nuovo processo.  Eventuali pianificazioni di Power BI create dall'utente vengono disabilitate ed è necessario sostituirle con il nuovo processo.
 - Le risposte di [azioni avviso](log-analytics-alerts-actions.md) tramite webhook e runbook hanno un nuovo formato e può essere necessario aggiornare di conseguenza le regole di avviso.
 - Per le domande più comuni sull'aggiornamento, vedere le [domande frequenti sulla ricerca log](log-analytics-log-search-faq.md).
 
 ## <a name="how-do-i-know-if-there-were-any-issues-from-the-upgrade"></a>Come è possibile sapere se si sono verificati problemi di aggiornamento?
-Dopo il completamento dell'aggiornamento, nelle impostazioni dell'area di lavoro è presente una sezione **Riepilogo aggiornamento**.  Controllare in questa sezione per informazioni sull'aggiornamento e per visualizzare eventuali problemi che si sono verificati.
+Dopo il completamento dell'aggiornamento, nelle impostazioni dell'area di lavoro è presente una sezione **Riepilogo aggiornamento**.  Controllare questa sezione per informazioni sull'aggiornamento e per visualizzare tutti i problemi riscontrati.
 
  ![Riepilogo aggiornamento](media/log-analytics-log-search-upgrade/upgrade-summary.png)
 

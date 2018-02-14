@@ -1,6 +1,6 @@
 ---
-title: Esercitazioni di Azure AI raccolta | Documenti Microsoft
-description: Individuare e condividere esercitazioni nella raccolta di Azure.
+title: Esercitazioni di Azure AI Gallery | Microsoft Docs
+description: Scoprire e condividere esercitazioni in Azure AI Gallery.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-ms.openlocfilehash: be5ecf81c71dbf39593b2afb46ac0ae09ede466a
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
-ms.translationtype: MT
+ms.author: garye
+ms.openlocfilehash: 9a93a027ed5243496a86efff0d86de7092f44b43
+ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/03/2018
 ---
-# <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Individuare e condividere esercitazioni nella raccolta di Azure
+# <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Scoprire e condividere esercitazioni in Azure AI Gallery
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="tutorials"></a>Esercitazioni
-Raccolta di Azure AI offre diversi [esercitazioni](https://gallery.cortanaintelligence.com/tutorials) che può illustrati concetti e le tecnologie di machine learning. Queste esercitazioni descrivono anche metodi avanzati per risolvere i problemi associati a questo ambito.
+Azure AI Gallery offre diverse [esercitazioni](https://gallery.cortanaintelligence.com/tutorials) che illustrano in modo dettagliato i concetti e le tecnologie di apprendimento automatico. Queste esercitazioni descrivono anche metodi avanzati per risolvere i problemi associati a questo ambito.
 
 ## <a name="discover"></a>Scoprire
 Per esplorare le esercitazioni [in Gallery](http://gallery.cortanaintelligence.com), selezionare **Esercitazioni** in **Altro**.
@@ -72,7 +72,7 @@ Nella pagina **[Esercitazioni](https://gallery.cortanaintelligence.com/tutorials
 
 7. Selezionare **Create**.
 
-L'esercitazione è ora nella raccolta di Azure. Le esercitazioni vengono elencate nella pagina del proprio account, all'interno della scheda **Elementi**.
+L'esercitazione si trova ora in Azure AI Gallery. Le esercitazioni vengono elencate nella pagina del proprio account, all'interno della scheda **Elementi**.
 
 **[Passare a Gallery](http://gallery.cortanaintelligence.com)**
 
