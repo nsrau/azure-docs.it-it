@@ -34,8 +34,8 @@ Per accedere al portale di amministrazione, passare al portale di accesso con le
 
 | Environment | URL del portale di amministrazione |   
 | -- | -- | 
-| Kit di sviluppo| https://adminportal.Local.azurestack.External  |
-| Sistemi integrati | https://adminportal. &lt; *area*&gt;.&lt; *FQDN*&gt; | 
+| Kit di sviluppo| https://adminportal.local.azurestack.external  |
+| Sistemi integrati | https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt; | 
 | | |
 
  ![Il portale dell'amministratore](media/azure-stack-manage-portals/image1.png)

@@ -49,7 +49,7 @@ Per impostazione predefinita, Azure Stack include "servizi di base" seguenti qua
 - Calcolo
 - Archiviazione
 - Rete
-- Insieme di credenziali delle chiavi
+- Insieme di credenziali di chiave
 
 Con questi servizi fondamentali, è possibile offrire Infrastructure-as-a-Service (IaaS) per gli utenti con la configurazione minima.
 
