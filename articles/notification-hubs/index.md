@@ -171,7 +171,7 @@ Informazioni su come usare Hub di notifica, un motore di notifica push multipiat
 
 ---
 
-<h2>Riferimenti</h2>
+<h2>riferimento</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

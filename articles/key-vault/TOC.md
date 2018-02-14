@@ -8,7 +8,7 @@
 ## [Usare l'insieme di credenziali delle chiavi da un'app Web](key-vault-use-from-web-application.md)
 
 # Procedure
-## Sviluppare
+## Sviluppo
 ### [Video di introduzione per sviluppatori](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start)
 ### [Guida per gli sviluppatori all'insieme di credenziali delle chiavi](key-vault-developers-guide.md)
 ### [Limiti del servizio](key-vault-service-limits.md)
@@ -34,7 +34,7 @@
 ### [Usare i gruppi per concedere l'accesso](key-vault-group-permissions-for-apps.md)
 ### [Proteggere l'insieme di credenziali delle chiavi](key-vault-secure-your-key-vault.md)
 
-## Automazione
+## Automatizzare
 ### [Automazione di Azure](automation-manage-key-vault.md)
 
 # riferimento

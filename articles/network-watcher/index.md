@@ -155,7 +155,7 @@ Informazioni su come usare Network Watcher, un servizio che consente di monitora
 
 ---
 
-<h2>Riferimento</h2>
+<h2>Riferimenti</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

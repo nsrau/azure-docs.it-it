@@ -24,7 +24,7 @@
 #### [App multimediale](mobile-engagement-media-scenario.md)
 #### [App di gioco](mobile-engagement-gaming-scenario.md)
 
-## Sviluppare
+## Sviluppo
 ### [Creare un'app Mobile Engagement](mobile-engagement-create.md)
 
 ### [Android](mobile-engagement-android-sdk-overview.md)
