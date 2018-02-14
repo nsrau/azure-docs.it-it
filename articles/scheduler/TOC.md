@@ -13,7 +13,7 @@
 ### [Quote e limitazioni](scheduler-limits-defaults-errors.md)
 ### [Livelli elevati di disponibilità e affidabilità](scheduler-high-availability-reliability.md)
 
-## Sviluppare
+## Sviluppo
 ### [Pianificazioni complesse con l'API REST](scheduler-advanced-complexity.md)
 
 

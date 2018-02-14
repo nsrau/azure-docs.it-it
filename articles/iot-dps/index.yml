@@ -13,40 +13,45 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: nberdy
+  ms.openlocfilehash: 4e7b5563b64be95c9453990af928713ef04284c0
+  ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 12/05/2017
 abstract:
-  description: 'Device Provisioning in hub IoT è un servizio helper per l''hub IoT che supporta il provisioning JIT nell''hub IoT corretto senza alcun intervento da parte dell''utente e consente così ai clienti di effettuare il provisioning di milioni di dispositivi in modo sicuro e scalabile. Informazioni su come effettuare il provisioning dei dispositivi negli hub IoT con guide introduttive, esercitazioni ed esempi.'
+  description: "Device Provisioning in hub IoT è un servizio helper per l'hub IoT che supporta il provisioning JIT nell'hub IoT corretto senza alcun intervento da parte dell'utente e consente così ai clienti di effettuare il provisioning di milioni di dispositivi in modo sicuro e scalabile. Informazioni su come effettuare il provisioning dei dispositivi negli hub IoT con guide introduttive, esercitazioni ed esempi."
 sections:
-  - title: Guide introduttive di 5 minuti
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: Informazioni su come configurare la prima istanza del servizio Device Provisioning ed effettuare il provisioning di un dispositivo simulato nell'hub IoT.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Informazioni su come configurare la prima istanza del servizio Device Provisioning ed effettuare il provisioning di un dispositivo simulato nell'hub IoT.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/sql-database/media/index/portal.svg
-            text: Configurare il provisioning automatico
-            href: /azure/iot-dps/quick-setup-auto-provision
-          - image:
-              src: /azure/sql-database/media/index/portal.svg
-            text: Creare un dispositivo simulato
-            href: /azure/iot-dps/quick-create-simulated-device
-  - title: Esercitazioni dettagliate
+    - image:
+        src: /azure/sql-database/media/index/portal.svg
+      text: Configurare il provisioning automatico
+      href: /azure/iot-dps/quick-setup-auto-provision
+    - image:
+        src: /azure/sql-database/media/index/portal.svg
+      text: Creare un dispositivo simulato
+      href: /azure/iot-dps/quick-create-simulated-device
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: "Informazioni su come usare il servizio Device Provisioning in hub IoT per il provisioning automatico di dispositivi con sicurezza abilitata in uno o più hub IoT."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: Informazioni su come usare il servizio Device Provisioning in hub IoT per il provisioning automatico di dispositivi con sicurezza abilitata in uno o più hub IoT.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/iot-dps/tutorial-set-up-cloud">Configurare le risorse cloud</a>
-          - html: <a href="/azure/iot-dps/tutorial-set-up-device">Configurare il dispositivo per la connessione ad Azure</a>
-          - html: <a href="/azure/iot-dps/tutorial-provision-device-to-hub">Effettuare il provisioning dei dispositivi in un singolo hub IoT</a>
-          - html: <a href="/azure/iot-dps/tutorial-provision-multiple-hubs">Effettuare il provisioning dei dispositivi in più hub IoT con bilanciamento del carico</a>
-  - title: riferimento
+    - html: <a href="/azure/iot-dps/tutorial-set-up-cloud">Configurare le risorse cloud</a>
+    - html: <a href="/azure/iot-dps/tutorial-set-up-device">Configurare il dispositivo per la connessione ad Azure</a>
+    - html: <a href="/azure/iot-dps/tutorial-provision-device-to-hub">Effettuare il provisioning dei dispositivi in un singolo hub IoT</a>
+    - html: "<a href=\"/azure/iot-dps/tutorial-provision-multiple-hubs\">Effettuare il provisioning dei dispositivi in più hub IoT con bilanciamento del carico</a>"
+- title: riferimento
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: <p><a href="/rest/api/iot-dps">API REST</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/iot-dps">API REST</a></p>

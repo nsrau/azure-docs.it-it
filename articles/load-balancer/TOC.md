@@ -39,11 +39,11 @@
 ## [Uso di più configurazioni IP](load-balancer-multiple-ip.md)
 ### [Uso di più configurazioni IP (interfaccia della riga di comando)](load-balancer-multiple-ip-cli.md)
 ### [Uso di più configurazioni IP (PowerShell)](load-balancer-multiple-ip-powershell.md)
-## [Analisi dei log per Azure Load Balancer](load-balancer-monitor-log.md)
+## [Analisi dei log per il servizio di bilanciamento del carico di Azure](load-balancer-monitor-log.md)
 ## [Configurazione di DHCPv6 per VM Linux](load-balancer-ipv6-for-linux.md)
 ## [Configurare le porte a disponibilità elevata per il servizio di bilanciamento del carico interno](load-balancer-configure-ha-ports.md)
 
-## Risoluzione dei problemi
+## Risolvere problemi
 ### [Risoluzione dei problemi di Azure Load Balancer](load-balancer-troubleshoot.md)
 
 ## Articoli sul modello di distribuzione classica
@@ -60,7 +60,7 @@
 ## [Interfaccia della riga di comando di Azure per Azure](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)
-## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
+## [Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations)
 ## [REST](https://msdn.microsoft.com/library/azure/mt163651.aspx)

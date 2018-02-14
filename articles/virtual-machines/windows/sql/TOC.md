@@ -10,7 +10,7 @@
 ### [Procedure consigliate per le prestazioni](virtual-machines-windows-sql-performance.md)
 ### [Considerazioni relative alla sicurezza](virtual-machines-windows-sql-security.md)
 ### [Modelli di applicazione](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
-## gestione
+## Gestione
 ### [Connettersi a una macchina virtuale](virtual-machines-windows-sql-connect.md)
 ### [Configurare lo spazio di archiviazione](virtual-machines-windows-sql-server-storage-configuration.md)
 ### Automatizzare le attività di gestione
@@ -38,9 +38,9 @@
 #### [Bilanciamento del carico - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Più aree geografiche](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Istanza del cluster di failover
-#### [Configurare](virtual-machines-windows-portal-sql-create-failover-cluster.md)
+#### [Configura](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 
-# riferimento
+# Riferimenti
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
@@ -48,7 +48,7 @@
 ## [REST](/rest/api/)
 
 # Risorse
-## [Domande frequenti](virtual-machines-windows-sql-server-iaas-faq.md)
+## [DOMANDE FREQUENTI](virtual-machines-windows-sql-server-iaas-faq.md)
 ## [Prezzi](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [PaaS o IaaS](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json)
 ## [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)

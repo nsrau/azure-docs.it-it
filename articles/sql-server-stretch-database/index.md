@@ -1,6 +1,6 @@
 ---
-title: Documentazione di Estensione database di SQL Server di Azure - Esercitazioni | Documentazione Microsoft
-description: Informazioni su come usare Estensione database di SQL Server per eseguire la migrazione dei dati non attivi in modo sicuro ad Azure senza modificare le query o le applicazioni. Esercitazioni e altri documenti.
+title: Documentazione di Azure SQL Server Stretch Database - Esercitazioni | Microsoft Docs
+description: Informazioni su come usare SQL Server Stretch Database per eseguire la migrazione dei dati non attivi in modo sicuro ad Azure senza modificare le query o le applicazioni. Esercitazioni e altri documenti.
 services: sql-server-stretch-database
 author: czeumault
 manager: carolz
@@ -18,9 +18,9 @@ ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
 ---
-#<a name="sql-server-stretch-database-documentation"></a>Documentazione di Estensione database di SQL Server
+#<a name="sql-server-stretch-database-documentation"></a>Documentazione di SQL Server Stretch Database
 
-Informazioni su come usare Estensione database di SQL Server per eseguire la migrazione dei dati non attivi in modo trasparente e sicuro al cloud di Azure. Le esercitazioni e gli altri documenti consentono di configurare una disponibilità conveniente per i database con dati usati raramente senza dover modificare le query o le applicazioni esistenti.
+Informazioni su come usare SQL Server Stretch Database per eseguire la migrazione dei dati non attivi in modo trasparente e sicuro al cloud di Azure. Le esercitazioni e gli altri documenti consentono di configurare una disponibilità conveniente per i database con dati usati raramente senza dover modificare le query o le applicazioni esistenti.
 
 
 <ul class="panelContent cardsFTitle">
@@ -35,7 +35,7 @@ Informazioni su come usare Estensione database di SQL Server per eseguire la mig
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Informazioni su Estensione database di SQL Server di Azure</h3>
+                        <h3>Informazioni su Azure SQL Server Stretch Database</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@ Informazioni su come usare Estensione database di SQL Server per eseguire la mig
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Catalogo video di Estensione database di SQL Server di Azure</h3>
+                        <h3>Catalogo video di Azure SQL Server Stretch Database</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@ Informazioni su come usare Estensione database di SQL Server per eseguire la mig
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introduzione a Estensione database di SQL Server</h3>
+                        <h3>Introduzione a SQL Server Stretch Database</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@ Informazioni su come usare Estensione database di SQL Server per eseguire la mig
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introduzione alla procedura guidata per Estensione database di SQL Server</h3>
+                        <h3>Introduzione alla procedura guidata per SQL Server Stretch Database</h3>
                     </div>
                 </div>
             </div>
